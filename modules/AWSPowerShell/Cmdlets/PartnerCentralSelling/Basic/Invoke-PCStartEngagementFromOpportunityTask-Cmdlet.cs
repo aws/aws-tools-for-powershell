@@ -30,10 +30,13 @@ using Amazon.PartnerCentralSelling.Model;
 namespace Amazon.PowerShell.Cmdlets.PC
 {
     /// <summary>
-    /// This action initiates the engagement process from an existing opportunity by accepting
-    /// the engagement invitation and creating a corresponding opportunity in the partner’s
-    /// system. Similar to <c>StartEngagementByAcceptingInvitationTask</c>, this action is
-    /// asynchronous and performs multiple steps before completion.
+    /// Similar to <c>StartEngagementByAcceptingInvitationTask</c>, this action is asynchronous
+    /// and performs multiple steps before completion. This action orchestrates a comprehensive
+    /// workflow that combines multiple API operations into a single task to create and initiate
+    /// an engagement from an existing opportunity. It automatically executes a sequence of
+    /// operations including <c>GetOpportunity</c>, <c>CreateEngagement</c> (if it doesn't
+    /// exist), <c>CreateResourceSnapshot</c>, <c>CreateResourceSnapshotJob</c>, <c>CreateEngagementInvitation</c>
+    /// (if not already invited/accepted), and <c>SubmitOpportunity</c>.
     /// </summary>
     [Cmdlet("Invoke", "PCStartEngagementFromOpportunityTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PartnerCentralSelling.Model.StartEngagementFromOpportunityTaskResponse")]

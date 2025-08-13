@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter Action
         /// <summary>
         /// <para>
-        /// <para>The action associated with the task.</para>
+        /// <para>The action associated with the quantum task.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter DeviceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the device to run the task on.</para>
+        /// <para>The ARN of the device to run the quantum task on.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter DeviceParameter
         /// <summary>
         /// <para>
-        /// <para>The parameters for the device to run the task on.</para>
+        /// <para>The parameters for the device to run the quantum task on.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter JobToken
         /// <summary>
         /// <para>
-        /// <para>The token for an Amazon Braket job that associates it with the quantum task.</para>
+        /// <para>The token for an Amazon Braket hybrid job that associates it with the quantum task.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter OutputS3Bucket
         /// <summary>
         /// <para>
-        /// <para>The S3 bucket to store task result files in.</para>
+        /// <para>The S3 bucket to store quantum task result files in.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter OutputS3KeyPrefix
         /// <summary>
         /// <para>
-        /// <para>The key prefix for the location in the S3 bucket to store task results in.</para>
+        /// <para>The key prefix for the location in the S3 bucket to store quantum task results in.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter Shot
         /// <summary>
         /// <para>
-        /// <para>The number of shots to use for the task.</para>
+        /// <para>The number of shots to use for the quantum task.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

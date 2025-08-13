@@ -226,7 +226,8 @@ $S3_Completers = {
         # Amazon.S3.ObjectLockLegalHoldStatus
         {
             ($_ -eq "Write-S3ObjectLegalHold/LegalHold_Status") -Or
-            ($_ -eq "Write-S3GetObjectResponse/ObjectLockLegalHoldStatus")
+            ($_ -eq "Write-S3GetObjectResponse/ObjectLockLegalHoldStatus") -Or
+            ($_ -eq "Write-S3Object/ObjectLockLegalHoldStatus")
         }
         {
             $v = "OFF","ON"
@@ -234,7 +235,10 @@ $S3_Completers = {
         }
 
         # Amazon.S3.ObjectLockMode
-        "Write-S3GetObjectResponse/ObjectLockMode"
+        {
+            ($_ -eq "Write-S3GetObjectResponse/ObjectLockMode") -Or
+            ($_ -eq "Write-S3Object/ObjectLockMode")
+        }
         {
             $v = "COMPLIANCE","GOVERNANCE"
             break
@@ -430,8 +434,8 @@ $S3_map = @{
     "MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_SseAlgorithm"=@("New-S3BucketMetadataConfiguration")
     "MetadataConfiguration_JournalTableConfiguration_EncryptionConfiguration_SseAlgorithm"=@("New-S3BucketMetadataConfiguration")
     "ObjectLockConfiguration_ObjectLockEnabled"=@("Write-S3ObjectLockConfiguration")
-    "ObjectLockLegalHoldStatus"=@("Write-S3GetObjectResponse")
-    "ObjectLockMode"=@("Write-S3GetObjectResponse")
+    "ObjectLockLegalHoldStatus"=@("Write-S3GetObjectResponse","Write-S3Object")
+    "ObjectLockMode"=@("Write-S3GetObjectResponse","Write-S3Object")
     "PartitionedPrefix_PartitionDateSource"=@("Write-S3BucketLogging")
     "RecordExpiration_Expiration"=@("New-S3BucketMetadataConfiguration")
     "ReplicationStatus"=@("Write-S3GetObjectResponse")

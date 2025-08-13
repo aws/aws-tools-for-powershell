@@ -202,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ChecksumAlgorithm
         /// <summary>
         /// <para>
-        /// <para>Indicates the algorithm used to create the checksum for the object when you use the
+        /// <para>Indicates the algorithm used to create the checksum for the request when you use the
         /// SDK. This header will not provide any additional functionality if you don't use the
         /// SDK. When you send this header, there must be a corresponding <c>x-amz-checksum</c>
         /// or <c>x-amz-trailer</c> header sent. Otherwise, Amazon S3 fails the request with the
@@ -219,9 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ContentMD5
         /// <summary>
         /// <para>
-        /// <para>The base64-encoded 128-bit MD5 digest of the data. This header must be used as a message
-        /// integrity check to verify that the request body was not corrupted in transit. For
-        /// more information, go to <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC 1864.</a></para><para>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon
+        /// <para>The Base64 encoded 128-bit <c>MD5</c> digest of the data. This header must be used
+        /// as a message integrity check to verify that the request body was not corrupted in
+        /// transit. For more information, go to <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC
+        /// 1864.</a></para><para>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon
         /// Web Services SDKs, this field is calculated automatically.</para>
         /// </para>
         /// </summary>
@@ -286,7 +287,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter AccessControlPolicy_Grant
         /// <summary>
         /// <para>
-        /// A collection of grants.
+        /// <para>A list of grants.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -371,12 +376,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.Select = CreateSelectDelegate<Amazon.S3.Model.PutBucketAclResponse, SetS3BucketACLCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Owner_DisplayName = this.Owner_DisplayName;
-            context.Owner_Id = this.Owner_Id;
             if (this.AccessControlPolicy_Grant != null)
             {
                 context.AccessControlPolicy_Grant = new List<Amazon.S3.Model.S3Grant>(this.AccessControlPolicy_Grant);
             }
+            context.Owner_DisplayName = this.Owner_DisplayName;
+            context.Owner_Id = this.Owner_Id;
             context.ACL = this.ACL;
             context.BucketName = this.BucketName;
             context.ChecksumAlgorithm = this.ChecksumAlgorithm;
@@ -552,9 +557,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.S3.Model.S3Grant> AccessControlPolicy_Grant { get; set; }
             public System.String Owner_DisplayName { get; set; }
             public System.String Owner_Id { get; set; }
-            public List<Amazon.S3.Model.S3Grant> AccessControlPolicy_Grant { get; set; }
             public Amazon.S3.S3CannedACL ACL { get; set; }
             public System.String BucketName { get; set; }
             public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }

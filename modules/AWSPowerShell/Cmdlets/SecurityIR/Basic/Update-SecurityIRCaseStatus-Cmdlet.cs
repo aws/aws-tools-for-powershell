@@ -30,9 +30,28 @@ using Amazon.SecurityIR.Model;
 namespace Amazon.PowerShell.Cmdlets.SecurityIR
 {
     /// <summary>
-    /// Grants permission to update the status for a designated cases. Options include <c>Submitted
-    /// | Detection and Analysis | Eradication, Containment and Recovery | Post-Incident Activities
-    /// | Closed</c>.
+    /// Updates the state transitions for a designated cases.
+    /// 
+    ///  
+    /// <para><b>Self-managed</b>: the following states are available for self-managed cases. 
+    /// </para><ul><li><para>
+    /// Submitted → Detection and Analysis
+    /// </para></li><li><para>
+    /// Detection and Analysis → Containment, Eradication, and Recovery
+    /// </para></li><li><para>
+    /// Detection and Analysis → Post-incident Activities
+    /// </para></li><li><para>
+    /// Containment, Eradication, and Recovery → Detection and Analysis
+    /// </para></li><li><para>
+    /// Containment, Eradication, and Recovery → Post-incident Activities
+    /// </para></li><li><para>
+    /// Post-incident Activities → Containment, Eradication, and Recovery
+    /// </para></li><li><para>
+    /// Post-incident Activities → Detection and Analysis
+    /// </para></li><li><para>
+    /// Any → Closed
+    /// </para></li></ul><para><b>AWS supported</b>: You must use the <c>CloseCase</c> API to close. 
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "SecurityIRCaseStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityIR.SelfManagedCaseStatus")]

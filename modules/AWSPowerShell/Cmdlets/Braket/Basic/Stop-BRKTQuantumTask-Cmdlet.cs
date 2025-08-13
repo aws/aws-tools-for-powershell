@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter QuantumTaskArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the task to cancel.</para>
+        /// <para>The ARN of the quantum task to cancel.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The client token associated with the request.</para>
+        /// <para>The client token associated with the cancellation request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

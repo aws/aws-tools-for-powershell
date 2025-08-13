@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filter values to use to search for a device.</para><para />
+        /// <para>Array of SearchDevicesFilter objects to use when searching for devices.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         /// <summary>
         /// <para>
         /// <para>A token used for pagination of results returned in the response. Use the token returned
-        /// from the previous request continue results where the previous request ended.</para>
+        /// from the previous request to continue search where the previous request ended.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

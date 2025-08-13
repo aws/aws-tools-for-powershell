@@ -30,13 +30,11 @@ using Amazon.SecurityIR.Model;
 namespace Amazon.PowerShell.Cmdlets.SecurityIR
 {
     /// <summary>
-    /// Grants permission to update the resolver type for a case.
+    /// Updates the resolver type for a case.
     /// 
     ///  <important><para>
     /// This is a one-way action and cannot be reversed.
-    /// </para></important><para>
-    /// Options include self-supported &gt; AWS-supported.
-    /// </para>
+    /// </para></important>
     /// </summary>
     [Cmdlet("Update", "SecurityIRResolverType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityIR.Model.UpdateResolverTypeResponse")]

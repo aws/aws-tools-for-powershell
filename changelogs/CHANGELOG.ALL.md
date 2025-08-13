@@ -1,4 +1,27 @@
-﻿### 5.0.31 (2025-08-12 21:35Z)
+﻿### 5.0.32 (2025-08-13 20:03Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.69.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DataZone
+    * Added cmdlet Get-DZAccountPool leveraging the GetAccountPool service API.
+    * Added cmdlet Get-DZAccountPoolList leveraging the ListAccountPools service API.
+    * Added cmdlet Get-DZAccountsInAccountPoolList leveraging the ListAccountsInAccountPool service API.
+    * Added cmdlet New-DZAccountPool leveraging the CreateAccountPool service API.
+    * Added cmdlet Remove-DZAccountPool leveraging the DeleteAccountPool service API.
+    * Added cmdlet Update-DZAccountPool leveraging the UpdateAccountPool service API.
+  * Amazon FSx
+    * Modified cmdlet New-FSXFileSystem: added parameters NetworkType and OpenZFSConfiguration_EndpointIpv6AddressRange.
+    * Modified cmdlet New-FSXFileSystemFromBackup: added parameters NetworkType and OpenZFSConfiguration_EndpointIpv6AddressRange.
+    * Modified cmdlet Update-FSXFileSystem: added parameters NetworkType and OpenZFSConfiguration_EndpointIpv6AddressRange.
+  * Amazon Partner Central Selling API
+    * Modified cmdlet Invoke-PCCreateOpportunity: added parameter Tag.
+  * Amazon Security Incident Response
+    * Modified cmdlet New-SecurityIRMembership: added parameter CoverEntireOrganization.
+    * Modified cmdlet Update-SecurityIRMembership: added parameters MembershipAccountsConfigurationsUpdate_CoverEntireOrganization, MembershipAccountsConfigurationsUpdate_OrganizationalUnitsToAdd, MembershipAccountsConfigurationsUpdate_OrganizationalUnitsToRemove and UndoMembershipCancellation.
+  * Amazon Simple Storage Service (S3)
+    * Modified cmdlet Write-S3Object: added parameters DisableDefaultChecksumValidation, DisablePayloadSigning, IfMatch, ObjectLockLegalHoldStatus, ObjectLockMode and ObjectLockRetainUntilDate.
+    * Modified cmdlet Get-S3ObjectMetadata: added parameter Range.
+    * Modified cmdlet Write-S3CORSConfiguration: added parameter ContentMD5.
+
+### 5.0.31 (2025-08-12 21:35Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.68.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud
     * Modified cmdlet Register-EC2RouteTable: added parameter PublicIpv4Pool.

@@ -30,7 +30,7 @@ using Amazon.Braket.Model;
 namespace Amazon.PowerShell.Cmdlets.BRKT
 {
     /// <summary>
-    /// Retrieves the specified Amazon Braket job.
+    /// Retrieves the specified Amazon Braket hybrid job.
     /// </summary>
     [Cmdlet("Get", "BRKTJob")]
     [OutputType("Amazon.Braket.Model.GetJobResponse")]
@@ -47,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter AdditionalAttributeName
         /// <summary>
         /// <para>
-        /// <para>A list of attributes to return information for.</para><para />
+        /// <para>A list of attributes to return additional information for. Only the QueueInfo additional
+        /// attribute name is currently supported. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -62,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter JobArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the job to retrieve.</para>
+        /// <para>The ARN of the hybrid job to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -274,7 +274,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter AccessControlList_Grant
         /// <summary>
         /// <para>
-        /// A collection of grants.
+        /// <para>A list of grants.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -506,12 +510,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.Encryption_KMSKeyId = this.Encryption_KMSKeyId;
             context.Encryption_KMSContext = this.Encryption_KMSContext;
             context.S3_CannedACL = this.S3_CannedACL;
-            context.Owner_DisplayName = this.Owner_DisplayName;
-            context.Owner_Id = this.Owner_Id;
             if (this.AccessControlList_Grant != null)
             {
                 context.AccessControlList_Grant = new List<Amazon.S3.Model.S3Grant>(this.AccessControlList_Grant);
             }
+            context.Owner_DisplayName = this.Owner_DisplayName;
+            context.Owner_Id = this.Owner_Id;
             if (this.Tagging_TagSet != null)
             {
                 context.Tagging_TagSet = new List<Amazon.S3.Model.Tag>(this.Tagging_TagSet);
@@ -859,9 +863,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String Encryption_KMSKeyId { get; set; }
             public System.String Encryption_KMSContext { get; set; }
             public Amazon.S3.S3CannedACL S3_CannedACL { get; set; }
+            public List<Amazon.S3.Model.S3Grant> AccessControlList_Grant { get; set; }
             public System.String Owner_DisplayName { get; set; }
             public System.String Owner_Id { get; set; }
-            public List<Amazon.S3.Model.S3Grant> AccessControlList_Grant { get; set; }
             public List<Amazon.S3.Model.Tag> Tagging_TagSet { get; set; }
             public Amazon.S3.Model.MetadataCollection S3_UserMetadata { get; set; }
             public Amazon.S3.S3StorageClass S3_StorageClass { get; set; }

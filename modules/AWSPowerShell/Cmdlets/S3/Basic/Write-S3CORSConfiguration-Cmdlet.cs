@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// The name of the bucket to have the CORS configuration applied.
+        /// <para>Specifies the bucket impacted by the <c>cors</c>configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -95,13 +95,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ChecksumAlgorithm
         /// <summary>
         /// <para>
-        /// <para>Indicates the algorithm used to create the checksum for the object when you use the
+        /// <para>Indicates the algorithm used to create the checksum for the request when you use the
         /// SDK. This header will not provide any additional functionality if you don't use the
-        /// SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code>
-        /// or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request
-        /// with the HTTP status code <code>400 Bad Request</code>. For more information, see
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
-        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para><para>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code>
+        /// SDK. When you send this header, there must be a corresponding <c>x-amz-checksum</c>
+        /// or <c>x-amz-trailer</c> header sent. Otherwise, Amazon S3 fails the request with the
+        /// HTTP status code <c>400 Bad Request</c>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para><para>If you provide an individual checksum, Amazon S3 ignores any provided <c>ChecksumAlgorithm</c>
         /// parameter.</para>
         /// </para>
         /// </summary>
@@ -110,12 +109,26 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
         #endregion
         
+        #region Parameter ContentMD5
+        /// <summary>
+        /// <para>
+        /// <para>The Base64 encoded 128-bit <c>MD5</c> digest of the data. This header must be used
+        /// as a message integrity check to verify that the request body was not corrupted in
+        /// transit. For more information, go to <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC
+        /// 1864.</a></para><para>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon
+        /// Web Services SDKs, this field is calculated automatically.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ContentMD5 { get; set; }
+        #endregion
+        
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
         /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
         /// not match the actual owner of the bucket, the request fails with the HTTP status code
-        /// <code>403 Forbidden</code> (access denied).</para>
+        /// <c>403 Forbidden</c> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,6 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 context.Configuration_Rule = new List<Amazon.S3.Model.CORSRule>(this.Configuration_Rule);
             }
+            context.ContentMD5 = this.ContentMD5;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
@@ -232,6 +246,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (requestConfigurationIsNull)
             {
                 request.Configuration = null;
+            }
+            if (cmdletContext.ContentMD5 != null)
+            {
+                request.ContentMD5 = cmdletContext.ContentMD5;
             }
             if (cmdletContext.ExpectedBucketOwner != null)
             {
@@ -295,6 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String BucketName { get; set; }
             public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
             public List<Amazon.S3.Model.CORSRule> Configuration_Rule { get; set; }
+            public System.String ContentMD5 { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutCORSConfigurationResponse, WriteS3CORSConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

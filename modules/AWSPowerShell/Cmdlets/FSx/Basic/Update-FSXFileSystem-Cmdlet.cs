@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// For FSx for ONTAP file systems, you can update the following properties:
     /// </para><ul><li><para><c>AddRouteTableIds</c></para></li><li><para><c>AutomaticBackupRetentionDays</c></para></li><li><para><c>DailyAutomaticBackupStartTime</c></para></li><li><para><c>DiskIopsConfiguration</c></para></li><li><para><c>FsxAdminPassword</c></para></li><li><para><c>HAPairs</c></para></li><li><para><c>RemoveRouteTableIds</c></para></li><li><para><c>StorageCapacity</c></para></li><li><para><c>ThroughputCapacity</c></para></li><li><para><c>ThroughputCapacityPerHAPair</c></para></li><li><para><c>WeeklyMaintenanceStartTime</c></para></li></ul><para>
     /// For FSx for OpenZFS file systems, you can update the following properties:
-    /// </para><ul><li><para><c>AddRouteTableIds</c></para></li><li><para><c>AutomaticBackupRetentionDays</c></para></li><li><para><c>CopyTagsToBackups</c></para></li><li><para><c>CopyTagsToVolumes</c></para></li><li><para><c>DailyAutomaticBackupStartTime</c></para></li><li><para><c>DiskIopsConfiguration</c></para></li><li><para><c>ReadCacheConfiguration</c></para></li><li><para><c>RemoveRouteTableIds</c></para></li><li><para><c>StorageCapacity</c></para></li><li><para><c>ThroughputCapacity</c></para></li><li><para><c>WeeklyMaintenanceStartTime</c></para></li></ul>
+    /// </para><ul><li><para><c>AddRouteTableIds</c></para></li><li><para><c>AutomaticBackupRetentionDays</c></para></li><li><para><c>CopyTagsToBackups</c></para></li><li><para><c>CopyTagsToVolumes</c></para></li><li><para><c>DailyAutomaticBackupStartTime</c></para></li><li><para><c>DiskIopsConfiguration</c></para></li><li><para><c>EndpointIpv6AddressRange</c></para></li><li><para><c>ReadCacheConfiguration</c></para></li><li><para><c>RemoveRouteTableIds</c></para></li><li><para><c>StorageCapacity</c></para></li><li><para><c>ThroughputCapacity</c></para></li><li><para><c>WeeklyMaintenanceStartTime</c></para></li></ul>
     /// </summary>
     [Cmdlet("Update", "FSXFileSystem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.FSx.Model.FileSystem")]
@@ -176,6 +176,20 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.String OpenZFSConfiguration_DailyAutomaticBackupStartTime { get; set; }
         #endregion
         
+        #region Parameter OpenZFSConfiguration_EndpointIpv6AddressRange
+        /// <summary>
+        /// <para>
+        /// <para>(Multi-AZ only) Specifies the IP address range in which the endpoints to access your
+        /// file system will be created. By default in the Amazon FSx API and Amazon FSx console,
+        /// Amazon FSx selects an available /118 IP address range for you from one of the VPC's
+        /// CIDR ranges. You can have overlapping endpoint IP addresses for file systems deployed
+        /// in the same VPC/route tables, as long as they don't overlap with any subnet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OpenZFSConfiguration_EndpointIpv6AddressRange { get; set; }
+        #endregion
+        
         #region Parameter FileSystemId
         /// <summary>
         /// <para>
@@ -296,6 +310,17 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.FSx.DiskIopsConfigurationMode")]
         public Amazon.FSx.DiskIopsConfigurationMode OpenZFSConfiguration_DiskIopsConfiguration_Mode { get; set; }
+        #endregion
+        
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>Changes the network type of an FSx for OpenZFS file system.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.FSx.NetworkType")]
+        public Amazon.FSx.NetworkType NetworkType { get; set; }
         #endregion
         
         #region Parameter OntapConfiguration_RemoveRouteTableId
@@ -527,6 +552,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             #endif
             context.FileSystemTypeVersion = this.FileSystemTypeVersion;
             context.LustreConfiguration = this.LustreConfiguration;
+            context.NetworkType = this.NetworkType;
             if (this.OntapConfiguration_AddRouteTableId != null)
             {
                 context.OntapConfiguration_AddRouteTableId = new List<System.String>(this.OntapConfiguration_AddRouteTableId);
@@ -554,6 +580,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             context.OpenZFSConfiguration_DailyAutomaticBackupStartTime = this.OpenZFSConfiguration_DailyAutomaticBackupStartTime;
             context.OpenZFSConfiguration_DiskIopsConfiguration_Iops = this.OpenZFSConfiguration_DiskIopsConfiguration_Iops;
             context.OpenZFSConfiguration_DiskIopsConfiguration_Mode = this.OpenZFSConfiguration_DiskIopsConfiguration_Mode;
+            context.OpenZFSConfiguration_EndpointIpv6AddressRange = this.OpenZFSConfiguration_EndpointIpv6AddressRange;
             context.ReadCacheConfiguration_SizeGiB = this.ReadCacheConfiguration_SizeGiB;
             context.ReadCacheConfiguration_SizingMode = this.ReadCacheConfiguration_SizingMode;
             if (this.OpenZFSConfiguration_RemoveRouteTableId != null)
@@ -596,6 +623,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (cmdletContext.LustreConfiguration != null)
             {
                 request.LustreConfiguration = cmdletContext.LustreConfiguration;
+            }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
             }
             
              // populate OntapConfiguration
@@ -785,6 +816,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 request.OpenZFSConfiguration.DailyAutomaticBackupStartTime = requestOpenZFSConfiguration_openZFSConfiguration_DailyAutomaticBackupStartTime;
                 requestOpenZFSConfigurationIsNull = false;
             }
+            System.String requestOpenZFSConfiguration_openZFSConfiguration_EndpointIpv6AddressRange = null;
+            if (cmdletContext.OpenZFSConfiguration_EndpointIpv6AddressRange != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_EndpointIpv6AddressRange = cmdletContext.OpenZFSConfiguration_EndpointIpv6AddressRange;
+            }
+            if (requestOpenZFSConfiguration_openZFSConfiguration_EndpointIpv6AddressRange != null)
+            {
+                request.OpenZFSConfiguration.EndpointIpv6AddressRange = requestOpenZFSConfiguration_openZFSConfiguration_EndpointIpv6AddressRange;
+                requestOpenZFSConfigurationIsNull = false;
+            }
             List<System.String> requestOpenZFSConfiguration_openZFSConfiguration_RemoveRouteTableId = null;
             if (cmdletContext.OpenZFSConfiguration_RemoveRouteTableId != null)
             {
@@ -961,6 +1002,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public System.String FileSystemId { get; set; }
             public System.String FileSystemTypeVersion { get; set; }
             public Amazon.FSx.Model.UpdateFileSystemLustreConfiguration LustreConfiguration { get; set; }
+            public Amazon.FSx.NetworkType NetworkType { get; set; }
             public List<System.String> OntapConfiguration_AddRouteTableId { get; set; }
             public System.Int32? OntapConfiguration_AutomaticBackupRetentionDay { get; set; }
             public System.String OntapConfiguration_DailyAutomaticBackupStartTime { get; set; }
@@ -979,6 +1021,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public System.String OpenZFSConfiguration_DailyAutomaticBackupStartTime { get; set; }
             public System.Int64? OpenZFSConfiguration_DiskIopsConfiguration_Iops { get; set; }
             public Amazon.FSx.DiskIopsConfigurationMode OpenZFSConfiguration_DiskIopsConfiguration_Mode { get; set; }
+            public System.String OpenZFSConfiguration_EndpointIpv6AddressRange { get; set; }
             public System.Int32? ReadCacheConfiguration_SizeGiB { get; set; }
             public Amazon.FSx.OpenZFSReadCacheSizingMode ReadCacheConfiguration_SizingMode { get; set; }
             public List<System.String> OpenZFSConfiguration_RemoveRouteTableId { get; set; }

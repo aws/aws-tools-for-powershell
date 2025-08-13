@@ -30,7 +30,7 @@ using Amazon.SecurityIR.Model;
 namespace Amazon.PowerShell.Cmdlets.SecurityIR
 {
     /// <summary>
-    /// Grants permissions to cancel an existing membership.
+    /// Cancels an existing membership.
     /// </summary>
     [Cmdlet("Stop", "SecurityIRMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

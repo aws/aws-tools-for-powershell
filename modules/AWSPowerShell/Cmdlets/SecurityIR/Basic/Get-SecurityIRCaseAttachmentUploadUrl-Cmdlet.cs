@@ -30,7 +30,7 @@ using Amazon.SecurityIR.Model;
 namespace Amazon.PowerShell.Cmdlets.SecurityIR
 {
     /// <summary>
-    /// Grants permission to upload an attachment to a case.
+    /// Uploads an attachment to a case.
     /// </summary>
     [Cmdlet("Get", "SecurityIRCaseAttachmentUploadUrl")]
     [OutputType("System.String")]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         /// <summary>
         /// <para>
         /// <para>Required element for GetCaseAttachmentUploadUrl to identify the case ID for uploading
-        /// an attachment to. </para>
+        /// an attachment. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         #region Parameter ContentLength
         /// <summary>
         /// <para>
-        /// <para>Required element for GetCaseAttachmentUploadUrl to identify the size od the file attachment.</para>
+        /// <para>Required element for GetCaseAttachmentUploadUrl to identify the size of the file attachment.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -100,7 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Optional element for customer provided token.</para>
+        /// <para><note><para>The <c>clientToken</c> field is an idempotency key used to ensure that repeated attempts
+        /// for a single action will be ignored by the server during retries. A caller supplied
+        /// unique ID (typically a UUID) should be provided. </para></note></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

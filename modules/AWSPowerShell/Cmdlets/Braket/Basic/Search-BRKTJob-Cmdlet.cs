@@ -30,7 +30,7 @@ using Amazon.Braket.Model;
 namespace Amazon.PowerShell.Cmdlets.BRKT
 {
     /// <summary>
-    /// Searches for Amazon Braket jobs that match the specified filter values.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// Searches for Amazon Braket hybrid jobs that match the specified filter values.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
     /// </summary>
     [Cmdlet("Search", "BRKTJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Braket.Model.JobSummary")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filter values to use when searching for a job.</para><para />
+        /// <para>Array of SearchJobsFilter objects to use when searching for hybrid jobs.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         /// <summary>
         /// <para>
         /// <para>A token used for pagination of results returned in the response. Use the token returned
-        /// from the previous request to continue results where the previous request ended.</para>
+        /// from the previous request to continue search where the previous request ended.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -244,7 +244,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter AccessControlList_Grant
         /// <summary>
         /// <para>
-        /// A collection of grants.
+        /// <para>A list of grants.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
@@ -340,12 +344,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.Select = CreateSelectDelegate<Amazon.S3.Model.PutACLResponse, SetS3ACLCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Owner_DisplayName = this.Owner_DisplayName;
-            context.Owner_Id = this.Owner_Id;
             if (this.AccessControlList_Grant != null)
             {
                 context.AccessControlList_Grant = new List<Amazon.S3.Model.S3Grant>(this.AccessControlList_Grant);
             }
+            context.Owner_DisplayName = this.Owner_DisplayName;
+            context.Owner_Id = this.Owner_Id;
             context.CannedACL = this.CannedACL;
             context.BucketName = this.BucketName;
             context.ChecksumAlgorithm = this.ChecksumAlgorithm;
@@ -501,9 +505,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.S3.Model.S3Grant> AccessControlList_Grant { get; set; }
             public System.String Owner_DisplayName { get; set; }
             public System.String Owner_Id { get; set; }
-            public List<Amazon.S3.Model.S3Grant> AccessControlList_Grant { get; set; }
             public Amazon.S3.S3CannedACL CannedACL { get; set; }
             public System.String BucketName { get; set; }
             public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }

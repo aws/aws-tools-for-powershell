@@ -590,8 +590,9 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter LifeCycle_ReviewComment
         /// <summary>
         /// <para>
-        /// <para>Indicates why an opportunity was sent back for further details. Partners must take
-        /// corrective action based on the <c>ReviewComments</c>.</para>
+        /// <para>Contains detailed feedback from Amazon Web Services when requesting additional information
+        /// from partners. Provides specific guidance on what partners need to provide or clarify
+        /// for opportunity validation, complementing the <c>ReviewStatusReason</c> field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -619,9 +620,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter LifeCycle_ReviewStatusReason
         /// <summary>
         /// <para>
-        /// <para>Indicates the reason a decision was made during the opportunity review process. This
-        /// field combines the reasons for both disqualified and action required statuses, and
-        /// provide clarity for why an opportunity was disqualified or requires further action.</para>
+        /// <para>Code indicating the validation decision during the Amazon Web Services opportunity
+        /// review. Applies when status is <c>Rejected</c> or <c>Action Required</c>. Used to
+        /// document validation results for AWS Partner Referrals and indicate when additional
+        /// information is needed from partners as part of the APN Customer Engagement (ACE) program.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -30,7 +30,7 @@ using Amazon.SecurityIR.Model;
 namespace Amazon.PowerShell.Cmdlets.SecurityIR
 {
     /// <summary>
-    /// Grants permission to query the memberships a principal has access to.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// Returns the memberships that the calling principal can access.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
     /// </summary>
     [Cmdlet("Get", "SecurityIRMembershipList")]
     [OutputType("Amazon.SecurityIR.Model.ListMembershipItem")]
@@ -64,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Optional element.</para>
+        /// <para>An optional string that, if supplied, must be copied from the output of a previous
+        /// call to ListMemberships. When provided in this manner, the API fetches the next page
+        /// of results. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

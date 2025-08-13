@@ -30,7 +30,7 @@ using Amazon.SecurityIR.Model;
 namespace Amazon.PowerShell.Cmdlets.SecurityIR
 {
     /// <summary>
-    /// Grants permission to view currently configured tags on a resource.
+    /// Returns currently configured tags on a resource.
     /// </summary>
     [Cmdlet("Get", "SecurityIRResourceTag")]
     [OutputType("System.String")]

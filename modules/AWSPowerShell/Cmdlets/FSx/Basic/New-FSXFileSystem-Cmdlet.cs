@@ -277,6 +277,20 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.String OpenZFSConfiguration_EndpointIpAddressRange { get; set; }
         #endregion
         
+        #region Parameter OpenZFSConfiguration_EndpointIpv6AddressRange
+        /// <summary>
+        /// <para>
+        /// <para>(Multi-AZ only) Specifies the IP address range in which the endpoints to access your
+        /// file system will be created. By default in the Amazon FSx API and Amazon FSx console,
+        /// Amazon FSx selects an available /118 IP address range for you from one of the VPC's
+        /// CIDR ranges. You can have overlapping endpoint IP addresses for file systems deployed
+        /// in the same VPC/route tables, as long as they don't overlap with any subnet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OpenZFSConfiguration_EndpointIpv6AddressRange { get; set; }
+        #endregion
+        
         #region Parameter FileSystemType
         /// <summary>
         /// <para>
@@ -412,6 +426,20 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.FSx.DiskIopsConfigurationMode")]
         public Amazon.FSx.DiskIopsConfigurationMode OpenZFSConfiguration_DiskIopsConfiguration_Mode { get; set; }
+        #endregion
+        
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The network type of the Amazon FSx file system that you are creating. Valid values
+        /// are <c>IPV4</c> (which supports IPv4 only) and <c>DUAL</c> (for dual-stack mode, which
+        /// supports both IPv4 and IPv6). The default is <c>IPV4</c>. Supported only for Amazon
+        /// FSx for OpenZFS file systems.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.FSx.NetworkType")]
+        public Amazon.FSx.NetworkType NetworkType { get; set; }
         #endregion
         
         #region Parameter RootVolumeConfiguration_NfsExport
@@ -799,6 +827,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             context.FileSystemTypeVersion = this.FileSystemTypeVersion;
             context.KmsKeyId = this.KmsKeyId;
             context.LustreConfiguration = this.LustreConfiguration;
+            context.NetworkType = this.NetworkType;
             context.OntapConfiguration_AutomaticBackupRetentionDay = this.OntapConfiguration_AutomaticBackupRetentionDay;
             context.OntapConfiguration_DailyAutomaticBackupStartTime = this.OntapConfiguration_DailyAutomaticBackupStartTime;
             context.OntapConfiguration_DeploymentType = this.OntapConfiguration_DeploymentType;
@@ -823,6 +852,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             context.OpenZFSConfiguration_DiskIopsConfiguration_Iops = this.OpenZFSConfiguration_DiskIopsConfiguration_Iops;
             context.OpenZFSConfiguration_DiskIopsConfiguration_Mode = this.OpenZFSConfiguration_DiskIopsConfiguration_Mode;
             context.OpenZFSConfiguration_EndpointIpAddressRange = this.OpenZFSConfiguration_EndpointIpAddressRange;
+            context.OpenZFSConfiguration_EndpointIpv6AddressRange = this.OpenZFSConfiguration_EndpointIpv6AddressRange;
             context.OpenZFSConfiguration_PreferredSubnetId = this.OpenZFSConfiguration_PreferredSubnetId;
             context.ReadCacheConfiguration_SizeGiB = this.ReadCacheConfiguration_SizeGiB;
             context.ReadCacheConfiguration_SizingMode = this.ReadCacheConfiguration_SizingMode;
@@ -900,6 +930,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (cmdletContext.LustreConfiguration != null)
             {
                 request.LustreConfiguration = cmdletContext.LustreConfiguration;
+            }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
             }
             
              // populate OntapConfiguration
@@ -1117,6 +1151,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (requestOpenZFSConfiguration_openZFSConfiguration_EndpointIpAddressRange != null)
             {
                 request.OpenZFSConfiguration.EndpointIpAddressRange = requestOpenZFSConfiguration_openZFSConfiguration_EndpointIpAddressRange;
+                requestOpenZFSConfigurationIsNull = false;
+            }
+            System.String requestOpenZFSConfiguration_openZFSConfiguration_EndpointIpv6AddressRange = null;
+            if (cmdletContext.OpenZFSConfiguration_EndpointIpv6AddressRange != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_EndpointIpv6AddressRange = cmdletContext.OpenZFSConfiguration_EndpointIpv6AddressRange;
+            }
+            if (requestOpenZFSConfiguration_openZFSConfiguration_EndpointIpv6AddressRange != null)
+            {
+                request.OpenZFSConfiguration.EndpointIpv6AddressRange = requestOpenZFSConfiguration_openZFSConfiguration_EndpointIpv6AddressRange;
                 requestOpenZFSConfigurationIsNull = false;
             }
             System.String requestOpenZFSConfiguration_openZFSConfiguration_PreferredSubnetId = null;
@@ -1393,6 +1437,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public System.String FileSystemTypeVersion { get; set; }
             public System.String KmsKeyId { get; set; }
             public Amazon.FSx.Model.CreateFileSystemLustreConfiguration LustreConfiguration { get; set; }
+            public Amazon.FSx.NetworkType NetworkType { get; set; }
             public System.Int32? OntapConfiguration_AutomaticBackupRetentionDay { get; set; }
             public System.String OntapConfiguration_DailyAutomaticBackupStartTime { get; set; }
             public Amazon.FSx.OntapDeploymentType OntapConfiguration_DeploymentType { get; set; }
@@ -1414,6 +1459,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public System.Int64? OpenZFSConfiguration_DiskIopsConfiguration_Iops { get; set; }
             public Amazon.FSx.DiskIopsConfigurationMode OpenZFSConfiguration_DiskIopsConfiguration_Mode { get; set; }
             public System.String OpenZFSConfiguration_EndpointIpAddressRange { get; set; }
+            public System.String OpenZFSConfiguration_EndpointIpv6AddressRange { get; set; }
             public System.String OpenZFSConfiguration_PreferredSubnetId { get; set; }
             public System.Int32? ReadCacheConfiguration_SizeGiB { get; set; }
             public Amazon.FSx.OpenZFSReadCacheSizingMode ReadCacheConfiguration_SizingMode { get; set; }

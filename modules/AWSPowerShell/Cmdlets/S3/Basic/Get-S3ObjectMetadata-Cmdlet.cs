@@ -137,24 +137,26 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// <para>The name of the bucket that contains the object.</para><para><b>Directory buckets</b> - When you use this operation with a directory bucket, you
-        /// must use virtual-hosted-style requests in the format <c><i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</c>.
+        /// must use virtual-hosted-style requests in the format <c><i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</c>.
         /// Path-style requests are not supported. Directory bucket names must be unique in the
-        /// chosen Availability Zone. Bucket names must follow the format <c><i>bucket_base_name</i>--<i>az-id</i>--x-s3</c>
-        /// (for example, <c><i>amzn-s3-demo-bucket</i>--<i>usw2-az1</i>--x-s3</c>). For information
-        /// about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory
-        /// bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</para><para><b>Access points</b> - When you use this action with an access point, you must provide
-        /// the alias of the access point in place of the bucket name or specify the access point
-        /// ARN. When using the access point ARN, you must direct requests to the access point
+        /// chosen Zone (Availability Zone or Local Zone). Bucket names must follow the format
+        /// <c><i>bucket-base-name</i>--<i>zone-id</i>--x-s3</c> (for example, <c><i>amzn-s3-demo-bucket</i>--<i>usw2-az1</i>--x-s3</c>).
+        /// For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory
+        /// bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</para><para><b>Access points</b> - When you use this action with an access point for general
+        /// purpose buckets, you must provide the alias of the access point in place of the bucket
+        /// name or specify the access point ARN. When you use this action with an access point
+        /// for directory buckets, you must provide the access point name in place of the bucket
+        /// name. When using the access point ARN, you must direct requests to the access point
         /// hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
         /// When using this action with an access point through the Amazon Web Services SDKs,
         /// you provide the access point ARN in place of the bucket name. For more information
         /// about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using
-        /// access points</a> in the <i>Amazon S3 User Guide</i>.</para><note><para>Access points and Object Lambda access points are not supported by directory buckets.</para></note><para><b>S3 on Outposts</b> - When you use this action with Amazon S3 on Outposts, you
-        /// must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes
-        /// the form <c><i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</c>.
-        /// When you use this action with S3 on Outposts through the Amazon Web Services SDKs,
-        /// you provide the Outposts access point ARN in place of the bucket name. For more information
-        /// about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What
+        /// access points</a> in the <i>Amazon S3 User Guide</i>.</para><note><para>Object Lambda access points are not supported by directory buckets.</para></note><para><b>S3 on Outposts</b> - When you use this action with S3 on Outposts, you must direct
+        /// requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
+        /// <c><i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</c>.
+        /// When you use this action with S3 on Outposts, the destination bucket must be the Outposts
+        /// access point ARN or the access point alias. For more information about S3 on Outposts,
+        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What
         /// is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -165,10 +167,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ChecksumMode
         /// <summary>
         /// <para>
-        /// <para>This must be enabled to retrieve the checksum.</para><para><b>General purpose buckets</b> - If you enable checksum mode and the object is uploaded with a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_Checksum.html">checksum</a> 
-        /// and encrypted with an Key Management Service (KMS) key, you must have permission to use the <c>kms:Decrypt</c> action to retrieve the checksum.</para><para><b>Directory buckets</b> - If you enable <c>ChecksumMode</c> and the object is encrypted with Amazon Web Services Key Management Service (Amazon Web Services KMS), 
-        /// you must also have the <c>kms:GenerateDataKey</c> and <c>kms:Decrypt</c> permissions in IAM identity-based policies and KMS key policies for the KMS key to retrieve the 
-        /// checksum of the object.</para>
+        /// <para>To retrieve the checksum, this parameter must be enabled.</para><para><b>General purpose buckets</b> - If you enable checksum mode and the object is uploaded
+        /// with a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_Checksum.html">checksum</a>
+        /// and encrypted with an Key Management Service (KMS) key, you must have permission to
+        /// use the <c>kms:Decrypt</c> action to retrieve the checksum.</para><para><b>Directory buckets</b> - If you enable <c>ChecksumMode</c> and the object is encrypted
+        /// with Amazon Web Services Key Management Service (Amazon Web Services KMS), you must
+        /// also have the <c>kms:GenerateDataKey</c> and <c>kms:Decrypt</c> permissions in IAM
+        /// identity-based policies and KMS key policies for the KMS key to retrieve the checksum
+        /// of the object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,8 +185,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter EtagToMatch
         /// <summary>
         /// <para>
-        /// ETag to be matched as a pre-condition for returning the object,
-        /// otherwise a PreconditionFailed signal is returned.
+        /// <para>Return the object only if its entity tag (ETag) is the same as the one specified;
+        /// otherwise, return a 412 (precondition failed) error.</para><para>If both of the <c>If-Match</c> and <c>If-Unmodified-Since</c> headers are present
+        /// in the request as follows:</para><ul><li><para><c>If-Match</c> condition evaluates to <c>true</c>, and;</para></li><li><para><c>If-Unmodified-Since</c> condition evaluates to <c>false</c>;</para></li></ul><para>Then Amazon S3 returns <c>200 OK</c> and the data requested.</para><para>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC
+        /// 7232</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,8 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter EtagToNotMatch
         /// <summary>
         /// <para>
-        /// ETag that should not be matched as a pre-condition for returning the object,
-        /// otherwise a NotModified (304) signal is returned.
+        /// <para>Return the object only if its entity tag (ETag) is different from the one specified;
+        /// otherwise, return a 304 (not modified) error.</para><para>If both of the <c>If-None-Match</c> and <c>If-Modified-Since</c> headers are present
+        /// in the request as follows:</para><ul><li><para><c>If-None-Match</c> condition evaluates to <c>false</c>, and;</para></li><li><para><c>If-Modified-Since</c> condition evaluates to <c>true</c>;</para></li></ul><para>Then Amazon S3 returns the <c>304 Not Modified</c> response code.</para><para>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC
+        /// 7232</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -213,10 +223,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Key
         /// <summary>
         /// <para>
-        /// The key of the object.
+        /// <para>The object key.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Key { get; set; }
         #endregion
         
@@ -234,20 +251,31 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter PartNumber
         /// <summary>
         /// <para>
-        /// Part number of the object being read. This is a positive integer between 1 and 10,000.
-        /// Effectively performs a 'ranged' HEAD request for the part specified.
-        /// Useful querying about the size of the part and the number of parts in this object.
+        /// <para>Part number of the object being read. This is a positive integer between 1 and 10,000.
+        /// Effectively performs a 'ranged' HEAD request for the part specified. Useful querying
+        /// about the size of the part and the number of parts in this object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? PartNumber { get; set; }
         #endregion
         
+        #region Parameter Range
+        /// <summary>
+        /// <para>
+        /// <para>HeadObject returns only the metadata for an object. If the Range is satisfiable, only
+        /// the <c>ContentLength</c> is affected in the response. If the Range is not satisfiable,
+        /// S3 returns a <c>416 - Requested Range Not Satisfiable</c> error.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Range { get; set; }
+        #endregion
+        
         #region Parameter RequestPayer
         /// <summary>
         /// <para>
-        /// Confirms that the requester knows that she or he will be charged for the request.
-        /// Bucket owners need not specify this parameter in their requests.
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -319,9 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ServerSideEncryptionCustomerMethod
         /// <summary>
         /// <para>
-        /// The Server-side encryption algorithm to be used with the customer provided key.
-        ///  
-        ///  <note><para>This functionality is not supported for directory buckets.</para></note>
+        /// <para>Specifies the algorithm to use when encrypting the object (for example, AES256).</para><note><para>This functionality is not supported for directory buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -332,11 +358,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ServerSideEncryptionCustomerProvidedKey
         /// <summary>
         /// <para>
-        /// The base64-encoded encryption key for Amazon S3 to use to decrypt the object
-        /// <para>Using the encryption key you provide as part of your request Amazon S3 manages both the encryption, as it writes 
-        /// to disks, and decryption, when you access your objects. Therefore, you don't need to maintain any data encryption code. The only 
-        /// thing you do is manage the encryption keys you provide.</para><para>When you retrieve an object, you must provide the same encryption key as part of your request. Amazon S3 first verifies 
-        /// the encryption key you provided matches, and then decrypts the object before returning the object data to you.</para><para>Important: Amazon S3 does not store the encryption key you provide.</para><note><para>This functionality is not supported for directory buckets.</para></note>
+        /// <para>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting
+        /// data. This value is used to store the object and then it is discarded; Amazon S3 does
+        /// not store the encryption key. The key must be appropriate for use with the algorithm
+        /// specified in the <c>x-amz-server-side-encryption-customer-algorithm</c> header.</para><note><para>This functionality is not supported for directory buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -346,8 +371,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ServerSideEncryptionCustomerProvidedKeyMD5
         /// <summary>
         /// <para>
-        /// The MD5 of the customer encryption key specified in the ServerSideEncryptionCustomerProvidedKey property. The MD5 is
-        /// base 64 encoded. This field is optional, the SDK will calculate the MD5 if this is not set.
+        /// <para>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon
+        /// S3 uses this header for a message integrity check to ensure that the encryption key
+        /// was transmitted without error.</para><note><para>This functionality is not supported for directory buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -368,8 +394,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter VersionId
         /// <summary>
         /// <para>
-        /// <para>Version ID used to reference a specific version of the object.</para><note><para>For directory buckets in this API operation, only the <c>null</c> value of the
-        /// version ID is supported.</para></note>
+        /// <para>Version ID used to reference a specific version of the object.</para><note><para>For directory buckets in this API operation, only the <c>null</c> value of the version
+        /// ID is supported.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -406,26 +432,33 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.Select = CreateSelectDelegate<Amazon.S3.Model.GetObjectMetadataResponse, GetS3ObjectMetadataCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ModifiedSinceDate = this.ModifiedSinceDate;
+            context.UnmodifiedSinceDate = this.UnmodifiedSinceDate;
             context.BucketName = this.BucketName;
             context.ChecksumMode = this.ChecksumMode;
             context.EtagToMatch = this.EtagToMatch;
-            context.ModifiedSinceDate = this.ModifiedSinceDate;
             context.EtagToNotMatch = this.EtagToNotMatch;
-            context.UnmodifiedSinceDate = this.UnmodifiedSinceDate;
-            context.Key = this.Key;
-            context.VersionId = this.VersionId;
-            context.ServerSideEncryptionCustomerMethod = this.ServerSideEncryptionCustomerMethod;
-            context.ServerSideEncryptionCustomerProvidedKey = this.ServerSideEncryptionCustomerProvidedKey;
-            context.ServerSideEncryptionCustomerProvidedKeyMD5 = this.ServerSideEncryptionCustomerProvidedKeyMD5;
-            context.PartNumber = this.PartNumber;
-            context.RequestPayer = this.RequestPayer;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
+            context.Key = this.Key;
+            #if MODULAR
+            if (this.Key == null && ParameterWasBound(nameof(this.Key)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Key which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.PartNumber = this.PartNumber;
+            context.Range = this.Range;
+            context.RequestPayer = this.RequestPayer;
             context.ResponseCacheControl = this.ResponseCacheControl;
             context.ResponseContentDisposition = this.ResponseContentDisposition;
             context.ResponseContentEncoding = this.ResponseContentEncoding;
             context.ResponseContentLanguage = this.ResponseContentLanguage;
             context.ResponseContentType = this.ResponseContentType;
             context.ResponseExpire = this.ResponseExpire;
+            context.ServerSideEncryptionCustomerMethod = this.ServerSideEncryptionCustomerMethod;
+            context.ServerSideEncryptionCustomerProvidedKey = this.ServerSideEncryptionCustomerProvidedKey;
+            context.ServerSideEncryptionCustomerProvidedKeyMD5 = this.ServerSideEncryptionCustomerProvidedKeyMD5;
+            context.VersionId = this.VersionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -442,6 +475,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
             // create request
             var request = new Amazon.S3.Model.GetObjectMetadataRequest();
             
+            if (cmdletContext.ModifiedSinceDate != null)
+            {
+                request.ModifiedSinceDate = cmdletContext.ModifiedSinceDate.Value;
+            }
+            if (cmdletContext.UnmodifiedSinceDate != null)
+            {
+                request.UnmodifiedSinceDate = cmdletContext.UnmodifiedSinceDate.Value;
+            }
             if (cmdletContext.BucketName != null)
             {
                 request.BucketName = cmdletContext.BucketName;
@@ -454,49 +495,29 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.EtagToMatch = cmdletContext.EtagToMatch;
             }
-            if (cmdletContext.ModifiedSinceDate != null)
-            {
-                request.ModifiedSinceDate = cmdletContext.ModifiedSinceDate.Value;
-            }
             if (cmdletContext.EtagToNotMatch != null)
             {
                 request.EtagToNotMatch = cmdletContext.EtagToNotMatch;
             }
-            if (cmdletContext.UnmodifiedSinceDate != null)
+            if (cmdletContext.ExpectedBucketOwner != null)
             {
-                request.UnmodifiedSinceDate = cmdletContext.UnmodifiedSinceDate.Value;
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             if (cmdletContext.Key != null)
             {
                 request.Key = cmdletContext.Key;
             }
-            if (cmdletContext.VersionId != null)
-            {
-                request.VersionId = cmdletContext.VersionId;
-            }
-            if (cmdletContext.ServerSideEncryptionCustomerMethod != null)
-            {
-                request.ServerSideEncryptionCustomerMethod = cmdletContext.ServerSideEncryptionCustomerMethod;
-            }
-            if (cmdletContext.ServerSideEncryptionCustomerProvidedKey != null)
-            {
-                request.ServerSideEncryptionCustomerProvidedKey = cmdletContext.ServerSideEncryptionCustomerProvidedKey;
-            }
-            if (cmdletContext.ServerSideEncryptionCustomerProvidedKeyMD5 != null)
-            {
-                request.ServerSideEncryptionCustomerProvidedKeyMD5 = cmdletContext.ServerSideEncryptionCustomerProvidedKeyMD5;
-            }
             if (cmdletContext.PartNumber != null)
             {
                 request.PartNumber = cmdletContext.PartNumber.Value;
             }
+            if (cmdletContext.Range != null)
+            {
+                request.Range = cmdletContext.Range;
+            }
             if (cmdletContext.RequestPayer != null)
             {
                 request.RequestPayer = cmdletContext.RequestPayer;
-            }
-            if (cmdletContext.ExpectedBucketOwner != null)
-            {
-                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             if (cmdletContext.ResponseCacheControl != null)
             {
@@ -521,6 +542,22 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.ResponseExpire != null)
             {
                 request.ResponseExpires = cmdletContext.ResponseExpire.Value;
+            }
+            if (cmdletContext.ServerSideEncryptionCustomerMethod != null)
+            {
+                request.ServerSideEncryptionCustomerMethod = cmdletContext.ServerSideEncryptionCustomerMethod;
+            }
+            if (cmdletContext.ServerSideEncryptionCustomerProvidedKey != null)
+            {
+                request.ServerSideEncryptionCustomerProvidedKey = cmdletContext.ServerSideEncryptionCustomerProvidedKey;
+            }
+            if (cmdletContext.ServerSideEncryptionCustomerProvidedKeyMD5 != null)
+            {
+                request.ServerSideEncryptionCustomerProvidedKeyMD5 = cmdletContext.ServerSideEncryptionCustomerProvidedKeyMD5;
+            }
+            if (cmdletContext.VersionId != null)
+            {
+                request.VersionId = cmdletContext.VersionId;
             }
             
             CmdletOutput output;
@@ -577,26 +614,27 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.DateTime? ModifiedSinceDate { get; set; }
+            public System.DateTime? UnmodifiedSinceDate { get; set; }
             public System.String BucketName { get; set; }
             public Amazon.S3.ChecksumMode ChecksumMode { get; set; }
             public System.String EtagToMatch { get; set; }
-            public System.DateTime? ModifiedSinceDate { get; set; }
             public System.String EtagToNotMatch { get; set; }
-            public System.DateTime? UnmodifiedSinceDate { get; set; }
-            public System.String Key { get; set; }
-            public System.String VersionId { get; set; }
-            public Amazon.S3.ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
-            public System.String ServerSideEncryptionCustomerProvidedKey { get; set; }
-            public System.String ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
-            public System.Int32? PartNumber { get; set; }
-            public Amazon.S3.RequestPayer RequestPayer { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
+            public System.String Key { get; set; }
+            public System.Int32? PartNumber { get; set; }
+            public System.String Range { get; set; }
+            public Amazon.S3.RequestPayer RequestPayer { get; set; }
             public System.String ResponseCacheControl { get; set; }
             public System.String ResponseContentDisposition { get; set; }
             public System.String ResponseContentEncoding { get; set; }
             public System.String ResponseContentLanguage { get; set; }
             public System.String ResponseContentType { get; set; }
             public System.DateTime? ResponseExpire { get; set; }
+            public Amazon.S3.ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
+            public System.String ServerSideEncryptionCustomerProvidedKey { get; set; }
+            public System.String ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
+            public System.String VersionId { get; set; }
             public System.Func<Amazon.S3.Model.GetObjectMetadataResponse, GetS3ObjectMetadataCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

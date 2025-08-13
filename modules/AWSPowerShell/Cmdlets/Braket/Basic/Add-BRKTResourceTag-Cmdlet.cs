@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Specify the tags to add to the resource.</para><para />
+        /// <para>Specify the tags to add to the resource. Tags can be specified as a key-value map.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

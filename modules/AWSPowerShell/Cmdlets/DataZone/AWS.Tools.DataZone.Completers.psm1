@@ -354,6 +354,16 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.ResolutionStrategy
+        {
+            ($_ -eq "New-DZAccountPool/ResolutionStrategy") -Or
+            ($_ -eq "Update-DZAccountPool/ResolutionStrategy")
+        }
+        {
+            $v = "MANUAL"
+            break
+        }
+
         # Amazon.DataZone.RuleAction
         {
             ($_ -eq "Get-DZRuleList/Action") -Or
@@ -375,6 +385,13 @@ $DZ_Completers = {
         "Get-DZRuleList/RuleType"
         {
             $v = "METADATA_FORM_ENFORCEMENT"
+            break
+        }
+
+        # Amazon.DataZone.SortFieldAccountPool
+        "Get-DZAccountPoolList/SortBy"
+        {
+            $v = "NAME"
             break
         }
 
@@ -412,6 +429,7 @@ $DZ_Completers = {
             ($_ -eq "Search-DZListing/Sort_Order") -Or
             ($_ -eq "Search-DZResource/Sort_Order") -Or
             ($_ -eq "Search-DZType/Sort_Order") -Or
+            ($_ -eq "Get-DZAccountPoolList/SortOrder") -Or
             ($_ -eq "Get-DZConnectionList/SortOrder") -Or
             ($_ -eq "Get-DZJobRunList/SortOrder") -Or
             ($_ -eq "Get-DZLineageEventList/SortOrder") -Or
@@ -580,14 +598,15 @@ $DZ_map = @{
     "ProcessingStatus"=@("Get-DZLineageEventList")
     "Project_ProjectDesignation"=@("Add-DZPolicyGrant","Remove-DZPolicyGrant")
     "RejectRule_Rule"=@("Deny-DZPrediction")
+    "ResolutionStrategy"=@("New-DZAccountPool","Update-DZAccountPool")
     "RuleType"=@("Get-DZRuleList")
     "Schedule_Timezone"=@("New-DZDataSource","Update-DZDataSource")
     "SearchScope"=@("Search-DZResource","Search-DZType")
     "SingleSignOn_Type"=@("New-DZDomain","Update-DZDomain")
     "SingleSignOn_UserAssignment"=@("New-DZDomain","Update-DZDomain")
     "Sort_Order"=@("Search-DZListing","Search-DZResource","Search-DZType")
-    "SortBy"=@("Get-DZConnectionList","Get-DZProjectMembershipList","Get-DZProjectProfileList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
-    "SortOrder"=@("Get-DZConnectionList","Get-DZJobRunList","Get-DZLineageEventList","Get-DZLineageNodeHistoryList","Get-DZProjectMembershipList","Get-DZProjectProfileList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
+    "SortBy"=@("Get-DZAccountPoolList","Get-DZConnectionList","Get-DZProjectMembershipList","Get-DZProjectProfileList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
+    "SortOrder"=@("Get-DZAccountPoolList","Get-DZConnectionList","Get-DZJobRunList","Get-DZLineageEventList","Get-DZLineageNodeHistoryList","Get-DZProjectMembershipList","Get-DZProjectProfileList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
     "Status"=@("Get-DZAssetFilterList","Get-DZDataSourceList","Get-DZDataSourceRunActivityList","Get-DZDataSourceRunList","Get-DZDomainList","Get-DZEnvironmentList","Get-DZJobRunList","Get-DZMetadataGenerationRunList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","New-DZFormType","New-DZGlossary","New-DZGlossaryTerm","New-DZProjectProfile","Update-DZGlossary","Update-DZGlossaryTerm","Update-DZGroupProfile","Update-DZProjectProfile","Update-DZSubscriptionGrantStatus","Update-DZUserProfile")
     "Target_Type"=@("Start-DZMetadataGenerationRun")
     "TargetType"=@("Get-DZRuleList")
@@ -653,6 +672,7 @@ $DZ_SelectMap = @{
                "Set-DZEnvironmentRole",
                "Stop-DZMetadataGenerationRun",
                "Stop-DZSubscription",
+               "New-DZAccountPool",
                "New-DZAsset",
                "New-DZAssetFilter",
                "New-DZAssetRevision",
@@ -679,6 +699,7 @@ $DZ_SelectMap = @{
                "New-DZSubscriptionRequest",
                "New-DZSubscriptionTarget",
                "New-DZUserProfile",
+               "Remove-DZAccountPool",
                "Remove-DZAsset",
                "Remove-DZAssetFilter",
                "Remove-DZAssetType",
@@ -704,6 +725,7 @@ $DZ_SelectMap = @{
                "Remove-DZSubscriptionTarget",
                "Remove-DZTimeSeriesDataPoint",
                "Reset-DZEnvironmentRole",
+               "Get-DZAccountPool",
                "Get-DZAsset",
                "Get-DZAssetFilter",
                "Get-DZAssetType",
@@ -738,6 +760,8 @@ $DZ_SelectMap = @{
                "Get-DZSubscriptionTarget",
                "Get-DZTimeSeriesDataPoint",
                "Get-DZUserProfile",
+               "Get-DZAccountPoolList",
+               "Get-DZAccountsInAccountPoolList",
                "Get-DZAssetFilterList",
                "Get-DZAssetRevisionList",
                "Get-DZConnectionList",
@@ -786,6 +810,7 @@ $DZ_SelectMap = @{
                "Start-DZMetadataGenerationRun",
                "Add-DZResourceTag",
                "Remove-DZResourceTag",
+               "Update-DZAccountPool",
                "Update-DZAssetFilter",
                "Update-DZConnection",
                "Update-DZDataSource",

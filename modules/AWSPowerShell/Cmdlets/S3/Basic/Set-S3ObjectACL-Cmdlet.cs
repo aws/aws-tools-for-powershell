@@ -181,19 +181,21 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// <para>The bucket name that contains the object to which you want to attach the ACL. </para><para><b>Access points</b> - When you use this action with an access point, you must provide
-        /// the alias of the access point in place of the bucket name or specify the access point
-        /// ARN. When using the access point ARN, you must direct requests to the access point
+        /// <para>The bucket name that contains the object to which you want to attach the ACL. </para><para><b>Access points</b> - When you use this action with an access point for general
+        /// purpose buckets, you must provide the alias of the access point in place of the bucket
+        /// name or specify the access point ARN. When you use this action with an access point
+        /// for directory buckets, you must provide the access point name in place of the bucket
+        /// name. When using the access point ARN, you must direct requests to the access point
         /// hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
         /// When using this action with an access point through the Amazon Web Services SDKs,
         /// you provide the access point ARN in place of the bucket name. For more information
         /// about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using
-        /// access points</a> in the <i>Amazon S3 User Guide</i>.</para><para><b>S3 on Outposts</b> - When you use this action with Amazon S3 on Outposts, you
-        /// must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes
-        /// the form <c><i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</c>.
-        /// When you use this action with S3 on Outposts through the Amazon Web Services SDKs,
-        /// you provide the Outposts access point ARN in place of the bucket name. For more information
-        /// about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What
+        /// access points</a> in the <i>Amazon S3 User Guide</i>.</para><para><b>S3 on Outposts</b> - When you use this action with S3 on Outposts, you must direct
+        /// requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
+        /// <c><i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</c>.
+        /// When you use this action with S3 on Outposts, the destination bucket must be the Outposts
+        /// access point ARN or the access point alias. For more information about S3 on Outposts,
+        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What
         /// is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -221,9 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ContentMD5
         /// <summary>
         /// <para>
-        /// <para>The base64-encoded 128-bit MD5 digest of the data. This header must be used as a message
-        /// integrity check to verify that the request body was not corrupted in transit. For
-        /// more information, go to <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC 1864.&gt;</a></para><para>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon
+        /// <para>The Base64 encoded 128-bit <c>MD5</c> digest of the data. This header must be used
+        /// as a message integrity check to verify that the request body was not corrupted in
+        /// transit. For more information, go to <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC
+        /// 1864.&gt;</a></para><para>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon
         /// Web Services SDKs, this field is calculated automatically.</para>
         /// </para>
         /// </summary>
@@ -288,7 +291,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter AccessControlPolicy_Grant
         /// <summary>
         /// <para>
-        /// A collection of grants.
+        /// <para>A list of grants.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -412,12 +419,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.Select = CreateSelectDelegate<Amazon.S3.Model.PutObjectAclResponse, SetS3ObjectACLCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Owner_DisplayName = this.Owner_DisplayName;
-            context.Owner_Id = this.Owner_Id;
             if (this.AccessControlPolicy_Grant != null)
             {
                 context.AccessControlPolicy_Grant = new List<Amazon.S3.Model.S3Grant>(this.AccessControlPolicy_Grant);
             }
+            context.Owner_DisplayName = this.Owner_DisplayName;
+            context.Owner_Id = this.Owner_Id;
             context.ACL = this.ACL;
             context.BucketName = this.BucketName;
             context.ChecksumAlgorithm = this.ChecksumAlgorithm;
@@ -614,9 +621,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.S3.Model.S3Grant> AccessControlPolicy_Grant { get; set; }
             public System.String Owner_DisplayName { get; set; }
             public System.String Owner_Id { get; set; }
-            public List<Amazon.S3.Model.S3Grant> AccessControlPolicy_Grant { get; set; }
             public Amazon.S3.S3CannedACL ACL { get; set; }
             public System.String BucketName { get; set; }
             public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }

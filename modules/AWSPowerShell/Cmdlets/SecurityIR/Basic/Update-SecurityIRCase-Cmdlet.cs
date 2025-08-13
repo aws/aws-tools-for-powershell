@@ -30,7 +30,7 @@ using Amazon.SecurityIR.Model;
 namespace Amazon.PowerShell.Cmdlets.SecurityIR
 {
     /// <summary>
-    /// Grants permission to update an existing case.
+    /// Updates an existing case.
     /// </summary>
     [Cmdlet("Update", "SecurityIRCase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -97,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         #region Parameter ImpactedAccountsToAdd
         /// <summary>
         /// <para>
-        /// <para>Optional element for UpdateCase to provide content to add accounts impacted.</para><para />
+        /// <para>Optional element for UpdateCase to provide content to add accounts impacted.</para><note><para> AWS account ID's may appear less than 12 characters and need to be zero-prepended.
+        /// An example would be <c>123123123</c> which is nine digits, and with zero-prepend would
+        /// be <c>000123123123</c>. Not zero-prepending to 12 digits could result in errors. </para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -111,7 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         #region Parameter ImpactedAccountsToDelete
         /// <summary>
         /// <para>
-        /// <para>Optional element for UpdateCase to provide content to add accounts impacted.</para><para />
+        /// <para>Optional element for UpdateCase to provide content to add accounts impacted.</para><note><para> AWS account ID's may appear less than 12 characters and need to be zero-prepended.
+        /// An example would be <c>123123123</c> which is nine digits, and with zero-prepend would
+        /// be <c>000123123123</c>. Not zero-prepending to 12 digits could result in errors. </para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

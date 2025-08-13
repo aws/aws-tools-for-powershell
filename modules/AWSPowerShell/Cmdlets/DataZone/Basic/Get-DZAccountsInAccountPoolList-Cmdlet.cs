@@ -23,31 +23,33 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.SecurityIR;
-using Amazon.SecurityIR.Model;
+using Amazon.DataZone;
+using Amazon.DataZone.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.SecurityIR
+namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Views the case history for edits made to a designated case.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// Lists the accounts in the specified account pool.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "SecurityIRCaseEditList")]
-    [OutputType("Amazon.SecurityIR.Model.ListCaseEditsResponse")]
-    [AWSCmdlet("Calls the Security Incident Response ListCaseEdits API operation.", Operation = new[] {"ListCaseEdits"}, SelectReturnType = typeof(Amazon.SecurityIR.Model.ListCaseEditsResponse))]
-    [AWSCmdletOutput("Amazon.SecurityIR.Model.ListCaseEditsResponse",
-        "This cmdlet returns an Amazon.SecurityIR.Model.ListCaseEditsResponse object containing multiple properties."
+    [Cmdlet("Get", "DZAccountsInAccountPoolList")]
+    [OutputType("Amazon.DataZone.Model.AccountInfo")]
+    [AWSCmdlet("Calls the Amazon DataZone ListAccountsInAccountPool API operation.", Operation = new[] {"ListAccountsInAccountPool"}, SelectReturnType = typeof(Amazon.DataZone.Model.ListAccountsInAccountPoolResponse))]
+    [AWSCmdletOutput("Amazon.DataZone.Model.AccountInfo or Amazon.DataZone.Model.ListAccountsInAccountPoolResponse",
+        "This cmdlet returns a collection of Amazon.DataZone.Model.AccountInfo objects.",
+        "The service call response (type Amazon.DataZone.Model.ListAccountsInAccountPoolResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetSecurityIRCaseEditListCmdlet : AmazonSecurityIRClientCmdlet, IExecutor
+    public partial class GetDZAccountsInAccountPoolListCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter CaseId
+        #region Parameter DomainIdentifier
         /// <summary>
         /// <para>
-        /// <para>Required element used with ListCaseEdits to identify the case to query.</para>
+        /// <para>The ID of the domain in which the accounts in the specified account pool are to be
+        /// listed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,14 +60,33 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String CaseId { get; set; }
+        public System.String DomainIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter Identifier
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the account pool whose accounts are to be listed.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Identifier { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Optional element to identify how many results to obtain. There is a maximum value
-        /// of 25.</para>
+        /// <para>The maximum number of accounts to return in a single call to ListAccountsInAccountPool.
+        /// When the number of accounts to be listed is greater than the value of MaxResults,
+        /// the response contains a NextToken value that you can use in a subsequent call to ListAccountsInAccountPool
+        /// to list the next set of accounts.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -81,9 +102,11 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An optional string that, if supplied, must be copied from the output of a previous
-        /// call to ListCaseEdits. When provided in this manner, the API fetches the next page
-        /// of results. </para>
+        /// <para>When the number of accounts is greater than the default value for the MaxResults parameter,
+        /// or if you explicitly specify a value for MaxResults that is less than the number of
+        /// accounts, the response includes a pagination token named NextToken. You can specify
+        /// this NextToken value in a subsequent call to ListAccountsInAccountPool to list the
+        /// next set of accounts.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -96,13 +119,13 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityIR.Model.ListCaseEditsResponse).
-        /// Specifying the name of a property of type Amazon.SecurityIR.Model.ListCaseEditsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.ListAccountsInAccountPoolResponse).
+        /// Specifying the name of a property of type Amazon.DataZone.Model.ListAccountsInAccountPoolResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Items";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -110,7 +133,6 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
         /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
         /// as the start point.
-        /// This cmdlet didn't autopaginate in V4. To preserve the V4 autopagination behavior for all cmdlets, run Set-AWSAutoIterationMode -IterationMode v4.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter NoAutoIteration { get; set; }
@@ -132,14 +154,21 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SecurityIR.Model.ListCaseEditsResponse, GetSecurityIRCaseEditListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.ListAccountsInAccountPoolResponse, GetDZAccountsInAccountPoolListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.CaseId = this.CaseId;
+            context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
-            if (this.CaseId == null && ParameterWasBound(nameof(this.CaseId)))
+            if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter CaseId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Identifier = this.Identifier;
+            #if MODULAR
+            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.MaxResult = this.MaxResult;
@@ -169,11 +198,15 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.SecurityIR.Model.ListCaseEditsRequest();
+            var request = new Amazon.DataZone.Model.ListAccountsInAccountPoolRequest();
             
-            if (cmdletContext.CaseId != null)
+            if (cmdletContext.DomainIdentifier != null)
             {
-                request.CaseId = cmdletContext.CaseId;
+                request.DomainIdentifier = cmdletContext.DomainIdentifier;
+            }
+            if (cmdletContext.Identifier != null)
+            {
+                request.Identifier = cmdletContext.Identifier;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -183,7 +216,6 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
             // Initialize loop variant and commence piping
             var _nextToken = cmdletContext.NextToken;
             var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
-            var _shouldAutoIterate = !(SessionState.PSVariable.GetValue("AWSPowerShell_AutoIteration_Mode")?.ToString() == "v4");
             
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             do
@@ -217,7 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
                 
                 ProcessOutput(output);
                 
-            } while (!_userControllingPaging && _shouldAutoIterate && AutoIterationHelpers.HasValue(_nextToken));
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
             
             if (useParameterSelect)
             {
@@ -237,12 +269,12 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         
         #region AWS Service Operation Call
         
-        private Amazon.SecurityIR.Model.ListCaseEditsResponse CallAWSServiceOperation(IAmazonSecurityIR client, Amazon.SecurityIR.Model.ListCaseEditsRequest request)
+        private Amazon.DataZone.Model.ListAccountsInAccountPoolResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.ListAccountsInAccountPoolRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Security Incident Response", "ListCaseEdits");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "ListAccountsInAccountPool");
             try
             {
-                return client.ListCaseEditsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListAccountsInAccountPoolAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -259,11 +291,12 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String CaseId { get; set; }
+            public System.String DomainIdentifier { get; set; }
+            public System.String Identifier { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.SecurityIR.Model.ListCaseEditsResponse, GetSecurityIRCaseEditListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.DataZone.Model.ListAccountsInAccountPoolResponse, GetDZAccountsInAccountPoolListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Items;
         }
         
     }

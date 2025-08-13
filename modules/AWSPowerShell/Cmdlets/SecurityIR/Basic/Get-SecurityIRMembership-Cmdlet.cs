@@ -30,7 +30,7 @@ using Amazon.SecurityIR.Model;
 namespace Amazon.PowerShell.Cmdlets.SecurityIR
 {
     /// <summary>
-    /// Grants permission to get details of a designated service membership.
+    /// Returns the attributes of a membership.
     /// </summary>
     [Cmdlet("Get", "SecurityIRMembership")]
     [OutputType("Amazon.SecurityIR.Model.GetMembershipResponse")]

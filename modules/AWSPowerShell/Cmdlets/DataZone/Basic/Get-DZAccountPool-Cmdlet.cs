@@ -23,31 +23,31 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.SecurityIR;
-using Amazon.SecurityIR.Model;
+using Amazon.DataZone;
+using Amazon.DataZone.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.SecurityIR
+namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Returns the attributes of a case.
+    /// Gets the details of the account pool.
     /// </summary>
-    [Cmdlet("Get", "SecurityIRCase")]
-    [OutputType("Amazon.SecurityIR.Model.GetCaseResponse")]
-    [AWSCmdlet("Calls the Security Incident Response GetCase API operation.", Operation = new[] {"GetCase"}, SelectReturnType = typeof(Amazon.SecurityIR.Model.GetCaseResponse))]
-    [AWSCmdletOutput("Amazon.SecurityIR.Model.GetCaseResponse",
-        "This cmdlet returns an Amazon.SecurityIR.Model.GetCaseResponse object containing multiple properties."
+    [Cmdlet("Get", "DZAccountPool")]
+    [OutputType("Amazon.DataZone.Model.GetAccountPoolResponse")]
+    [AWSCmdlet("Calls the Amazon DataZone GetAccountPool API operation.", Operation = new[] {"GetAccountPool"}, SelectReturnType = typeof(Amazon.DataZone.Model.GetAccountPoolResponse))]
+    [AWSCmdletOutput("Amazon.DataZone.Model.GetAccountPoolResponse",
+        "This cmdlet returns an Amazon.DataZone.Model.GetAccountPoolResponse object containing multiple properties."
     )]
-    public partial class GetSecurityIRCaseCmdlet : AmazonSecurityIRClientCmdlet, IExecutor
+    public partial class GetDZAccountPoolCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter CaseId
+        #region Parameter DomainIdentifier
         /// <summary>
         /// <para>
-        /// <para>Required element for GetCase to identify the requested case ID.</para>
+        /// <para>The ID of the domain in which the account pool lives whose details are to be displayed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,14 +58,31 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String CaseId { get; set; }
+        public System.String DomainIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter Identifier
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the account pool whose details are to be displayed.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Identifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityIR.Model.GetCaseResponse).
-        /// Specifying the name of a property of type Amazon.SecurityIR.Model.GetCaseResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.GetAccountPoolResponse).
+        /// Specifying the name of a property of type Amazon.DataZone.Model.GetAccountPoolResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,14 +105,21 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SecurityIR.Model.GetCaseResponse, GetSecurityIRCaseCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.GetAccountPoolResponse, GetDZAccountPoolCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.CaseId = this.CaseId;
+            context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
-            if (this.CaseId == null && ParameterWasBound(nameof(this.CaseId)))
+            if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter CaseId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Identifier = this.Identifier;
+            #if MODULAR
+            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -112,11 +136,15 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SecurityIR.Model.GetCaseRequest();
+            var request = new Amazon.DataZone.Model.GetAccountPoolRequest();
             
-            if (cmdletContext.CaseId != null)
+            if (cmdletContext.DomainIdentifier != null)
             {
-                request.CaseId = cmdletContext.CaseId;
+                request.DomainIdentifier = cmdletContext.DomainIdentifier;
+            }
+            if (cmdletContext.Identifier != null)
+            {
+                request.Identifier = cmdletContext.Identifier;
             }
             
             CmdletOutput output;
@@ -151,12 +179,12 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         
         #region AWS Service Operation Call
         
-        private Amazon.SecurityIR.Model.GetCaseResponse CallAWSServiceOperation(IAmazonSecurityIR client, Amazon.SecurityIR.Model.GetCaseRequest request)
+        private Amazon.DataZone.Model.GetAccountPoolResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.GetAccountPoolRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Security Incident Response", "GetCase");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "GetAccountPool");
             try
             {
-                return client.GetCaseAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetAccountPoolAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -173,8 +201,9 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String CaseId { get; set; }
-            public System.Func<Amazon.SecurityIR.Model.GetCaseResponse, GetSecurityIRCaseCmdlet, object> Select { get; set; } =
+            public System.String DomainIdentifier { get; set; }
+            public System.String Identifier { get; set; }
+            public System.Func<Amazon.DataZone.Model.GetAccountPoolResponse, GetDZAccountPoolCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         
