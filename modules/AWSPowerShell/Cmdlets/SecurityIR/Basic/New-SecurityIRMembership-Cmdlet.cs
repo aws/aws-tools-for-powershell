@@ -28,7 +28,7 @@ using Amazon.SecurityIR.Model;
 namespace Amazon.PowerShell.Cmdlets.SecurityIR
 {
     /// <summary>
-    /// Grants permissions to create a new membership.
+    /// Creates a new membership.
     /// </summary>
     [Cmdlet("New", "SecurityIRMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -44,10 +44,25 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter CoverEntireOrganization
+        /// <summary>
+        /// <para>
+        /// <para>The <c>coverEntireOrganization</c> parameter is a boolean flag that determines whether
+        /// the membership should be applied to the entire Amazon Web Services Organization. When
+        /// set to true, the membership will be created for all accounts within the organization.
+        /// When set to false, the membership will only be created for specified accounts. </para><para>This parameter is optional. If not specified, the default value is false.</para><ul><li><para>If set to <i>true</i>: The membership will automatically include all existing and
+        /// future accounts in the Amazon Web Services Organization. </para></li><li><para>If set to <i>false</i>: The membership will only apply to explicitly specified accounts.
+        /// </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? CoverEntireOrganization { get; set; }
+        #endregion
+        
         #region Parameter IncidentResponseTeam
         /// <summary>
         /// <para>
-        /// <para>Required element use in combination with CreateMembership to add customer incident
+        /// <para>Required element used in combination with CreateMembership to add customer incident
         /// response team members and trusted partners to the membership. </para>
         /// </para>
         /// </summary>
@@ -65,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         #region Parameter MembershipName
         /// <summary>
         /// <para>
-        /// <para>Required element use in combination with CreateMembership to create a name for the
+        /// <para>Required element used in combination with CreateMembership to create a name for the
         /// membership.</para>
         /// </para>
         /// </summary>
@@ -106,7 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>An optional element used in combination with CreateMembership.</para>
+        /// <para><note><para>The <c>clientToken</c> field is an idempotency key used to ensure that repeated attempts
+        /// for a single action will be ignored by the server during retries. A caller supplied
+        /// unique ID (typically a UUID) should be provided. </para></note></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -176,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            context.CoverEntireOrganization = this.CoverEntireOrganization;
             if (this.IncidentResponseTeam != null)
             {
                 context.IncidentResponseTeam = new List<Amazon.SecurityIR.Model.IncidentResponder>(this.IncidentResponseTeam);
@@ -224,6 +242,10 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.CoverEntireOrganization != null)
+            {
+                request.CoverEntireOrganization = cmdletContext.CoverEntireOrganization.Value;
             }
             if (cmdletContext.IncidentResponseTeam != null)
             {
@@ -303,6 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.Boolean? CoverEntireOrganization { get; set; }
             public List<Amazon.SecurityIR.Model.IncidentResponder> IncidentResponseTeam { get; set; }
             public System.String MembershipName { get; set; }
             public List<Amazon.SecurityIR.Model.OptInFeature> OptInFeature { get; set; }

@@ -1,4 +1,23 @@
-﻿### 4.1.877 (2025-08-12 20:20Z)
+﻿### 4.1.878 (2025-08-13 20:06Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1101.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DataZone
+    * Added cmdlet Get-DZAccountPool leveraging the GetAccountPool service API.
+    * Added cmdlet Get-DZAccountPoolList leveraging the ListAccountPools service API.
+    * Added cmdlet Get-DZAccountsInAccountPoolList leveraging the ListAccountsInAccountPool service API.
+    * Added cmdlet New-DZAccountPool leveraging the CreateAccountPool service API.
+    * Added cmdlet Remove-DZAccountPool leveraging the DeleteAccountPool service API.
+    * Added cmdlet Update-DZAccountPool leveraging the UpdateAccountPool service API.
+  * Amazon FSx
+    * Modified cmdlet New-FSXFileSystem: added parameters NetworkType and OpenZFSConfiguration_EndpointIpv6AddressRange.
+    * Modified cmdlet New-FSXFileSystemFromBackup: added parameters NetworkType and OpenZFSConfiguration_EndpointIpv6AddressRange.
+    * Modified cmdlet Update-FSXFileSystem: added parameters NetworkType and OpenZFSConfiguration_EndpointIpv6AddressRange.
+  * Amazon Partner Central Selling API
+    * Modified cmdlet Invoke-PCCreateOpportunity: added parameter Tag.
+  * Amazon Security Incident Response
+    * Modified cmdlet New-SecurityIRMembership: added parameter CoverEntireOrganization.
+    * Modified cmdlet Update-SecurityIRMembership: added parameters MembershipAccountsConfigurationsUpdate_CoverEntireOrganization, MembershipAccountsConfigurationsUpdate_OrganizationalUnitsToAdd, MembershipAccountsConfigurationsUpdate_OrganizationalUnitsToRemove and UndoMembershipCancellation.
+
+### 4.1.877 (2025-08-12 20:20Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1100.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Modified cmdlet Register-EC2RouteTable: added parameter PublicIpv4Pool.

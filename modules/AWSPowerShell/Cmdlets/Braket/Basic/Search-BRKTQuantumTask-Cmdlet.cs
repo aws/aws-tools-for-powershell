@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Array of <c>SearchQuantumTasksFilter</c> objects.</para>
+        /// <para>Array of <c>SearchQuantumTasksFilter</c> objects to use when searching for quantum
+        /// tasks.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         /// <summary>
         /// <para>
         /// <para>A token used for pagination of results returned in the response. Use the token returned
-        /// from the previous request continue results where the previous request ended.</para>
+        /// from the previous request to continue search where the previous request ended.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

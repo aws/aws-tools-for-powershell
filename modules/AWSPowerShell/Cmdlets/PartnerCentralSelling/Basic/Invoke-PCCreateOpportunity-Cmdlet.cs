@@ -566,8 +566,9 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter LifeCycle_ReviewComment
         /// <summary>
         /// <para>
-        /// <para>Indicates why an opportunity was sent back for further details. Partners must take
-        /// corrective action based on the <c>ReviewComments</c>.</para>
+        /// <para>Contains detailed feedback from Amazon Web Services when requesting additional information
+        /// from partners. Provides specific guidance on what partners need to provide or clarify
+        /// for opportunity validation, complementing the <c>ReviewStatusReason</c> field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -595,9 +596,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter LifeCycle_ReviewStatusReason
         /// <summary>
         /// <para>
-        /// <para>Indicates the reason a decision was made during the opportunity review process. This
-        /// field combines the reasons for both disqualified and action required statuses, and
-        /// provide clarity for why an opportunity was disqualified or requires further action.</para>
+        /// <para>Code indicating the validation decision during the Amazon Web Services opportunity
+        /// review. Applies when status is <c>Rejected</c> or <c>Action Required</c>. Used to
+        /// document validation results for AWS Partner Referrals and indicate when additional
+        /// information is needed from partners as part of the APN Customer Engagement (ACE) program.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -688,6 +690,17 @@ namespace Amazon.PowerShell.Cmdlets.PC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Customer_Account_Address_StreetAddress")]
         public System.String Address_StreetAddress { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A map of the key-value pairs of the tag or tags to assign.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.PartnerCentralSelling.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter LifeCycle_TargetCloseDate
@@ -909,6 +922,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
             context.SoftwareRevenue_ExpirationDate = this.SoftwareRevenue_ExpirationDate;
             context.Value_Amount = this.Value_Amount;
             context.Value_CurrencyCode = this.Value_CurrencyCode;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.PartnerCentralSelling.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -1467,6 +1484,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
             {
                 request.SoftwareRevenue = null;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -1578,6 +1599,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
             public System.String SoftwareRevenue_ExpirationDate { get; set; }
             public System.String Value_Amount { get; set; }
             public Amazon.PartnerCentralSelling.CurrencyCode Value_CurrencyCode { get; set; }
+            public List<Amazon.PartnerCentralSelling.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.PartnerCentralSelling.Model.CreateOpportunityResponse, InvokePCCreateOpportunityCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Id;
         }

@@ -28,7 +28,7 @@ using Amazon.SecurityIR.Model;
 namespace Amazon.PowerShell.Cmdlets.SecurityIR
 {
     /// <summary>
-    /// Grants permission to update an existing case comment.
+    /// Updates an existing case comment.
     /// </summary>
     [Cmdlet("Update", "SecurityIRCaseComment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityIR.Model.UpdateCaseCommentResponse")]

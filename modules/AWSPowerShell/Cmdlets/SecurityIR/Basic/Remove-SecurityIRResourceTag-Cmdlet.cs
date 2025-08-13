@@ -28,7 +28,7 @@ using Amazon.SecurityIR.Model;
 namespace Amazon.PowerShell.Cmdlets.SecurityIR
 {
     /// <summary>
-    /// Grants permission to remove a tag(s) from a designate resource.
+    /// Removes a tag(s) from a designate resource.
     /// </summary>
     [Cmdlet("Remove", "SecurityIRResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

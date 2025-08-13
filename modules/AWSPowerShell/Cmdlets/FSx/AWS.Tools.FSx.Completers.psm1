@@ -142,6 +142,17 @@ $FSX_Completers = {
             break
         }
 
+        # Amazon.FSx.NetworkType
+        {
+            ($_ -eq "New-FSXFileSystem/NetworkType") -Or
+            ($_ -eq "New-FSXFileSystemFromBackup/NetworkType") -Or
+            ($_ -eq "Update-FSXFileSystem/NetworkType")
+        }
+        {
+            $v = "DUAL","IPV4"
+            break
+        }
+
         # Amazon.FSx.OntapDeploymentType
         "New-FSXFileSystem/OntapConfiguration_DeploymentType"
         {
@@ -342,6 +353,7 @@ $FSX_map = @{
     "LustreConfiguration_DeploymentType"=@("New-FSXFileCache")
     "MaximumRetention_Type"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "MinimumRetention_Type"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
+    "NetworkType"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup","Update-FSXFileSystem")
     "OntapConfiguration_DeploymentType"=@("New-FSXFileSystem")
     "OntapConfiguration_DiskIopsConfiguration_Mode"=@("New-FSXFileSystem","Update-FSXFileSystem")
     "OntapConfiguration_OntapVolumeType"=@("New-FSXVolume","New-FSXVolumeFromBackup")

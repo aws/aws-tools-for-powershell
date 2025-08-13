@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filter values to use to search for a device.</para>
+        /// <para>Array of SearchDevicesFilter objects to use when searching for devices.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         /// <summary>
         /// <para>
         /// <para>A token used for pagination of results returned in the response. Use the token returned
-        /// from the previous request continue results where the previous request ended.</para>
+        /// from the previous request to continue search where the previous request ended.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

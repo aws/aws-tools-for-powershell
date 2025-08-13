@@ -47,6 +47,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateAccountPool" OutputProperty="*" Verb="New" Noun="AccountPool" ShouldProcessTarget="DomainIdentifier" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAsset" OutputProperty="*" Verb="New" Noun="Asset" ShouldProcessTarget="OwningProjectIdentifier" PipelineParameter="OwningProjectIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -159,6 +163,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccountPool" Verb="Remove" Noun="AccountPool" ShouldProcessTarget="DomainIdentifier" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAsset" Verb="Remove" Noun="Asset" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -256,6 +264,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateEnvironmentRole" Verb="Reset" Noun="EnvironmentRole" ShouldProcessTarget="EnvironmentIdentifier" PipelineParameter="EnvironmentIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccountPool" OutputProperty="*" Verb="Get" Noun="AccountPool" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -397,6 +409,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetUserProfile" OutputProperty="*" Verb="Get" Noun="UserProfile" PipelineParameter="UserIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccountPools" OutputProperty="Items" Verb="Get" Noun="AccountPoolList" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccountsInAccountPool" OutputProperty="Items" Verb="Get" Noun="AccountsInAccountPoolList" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -597,6 +617,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAccountPool" OutputProperty="*" Verb="Update" Noun="AccountPool" ShouldProcessTarget="DomainIdentifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

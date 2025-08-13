@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Specify the tags to add to the resource.</para>
+        /// <para>Specify the tags to add to the resource. Tags can be specified as a key-value map.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

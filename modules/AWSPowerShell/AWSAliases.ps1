@@ -8021,6 +8021,8 @@ Set-Alias -Name Cancel-DZMetadataGenerationRun -Value Stop-DZMetadataGenerationR
 Set-Alias -Name DZ-CancelMetadataGenerationRun -Value Stop-DZMetadataGenerationRun
 Set-Alias -Name Cancel-DZSubscription -Value Stop-DZSubscription
 Set-Alias -Name DZ-CancelSubscription -Value Stop-DZSubscription
+Set-Alias -Name Create-DZAccountPool -Value New-DZAccountPool
+Set-Alias -Name DZ-CreateAccountPool -Value New-DZAccountPool
 Set-Alias -Name Create-DZAsset -Value New-DZAsset
 Set-Alias -Name DZ-CreateAsset -Value New-DZAsset
 Set-Alias -Name Create-DZAssetFilter -Value New-DZAssetFilter
@@ -8073,6 +8075,8 @@ Set-Alias -Name Create-DZSubscriptionTarget -Value New-DZSubscriptionTarget
 Set-Alias -Name DZ-CreateSubscriptionTarget -Value New-DZSubscriptionTarget
 Set-Alias -Name Create-DZUserProfile -Value New-DZUserProfile
 Set-Alias -Name DZ-CreateUserProfile -Value New-DZUserProfile
+Set-Alias -Name Delete-DZAccountPool -Value Remove-DZAccountPool
+Set-Alias -Name DZ-DeleteAccountPool -Value Remove-DZAccountPool
 Set-Alias -Name Delete-DZAsset -Value Remove-DZAsset
 Set-Alias -Name DZ-DeleteAsset -Value Remove-DZAsset
 Set-Alias -Name Delete-DZAssetFilter -Value Remove-DZAssetFilter
@@ -8124,6 +8128,7 @@ Set-Alias -Name Delete-DZTimeSeriesDataPoint -Value Remove-DZTimeSeriesDataPoint
 Set-Alias -Name DZ-DeleteTimeSeriesDataPoints -Value Remove-DZTimeSeriesDataPoint
 Set-Alias -Name Disassociate-DZEnvironmentRole -Value Reset-DZEnvironmentRole
 Set-Alias -Name DZ-DisassociateEnvironmentRole -Value Reset-DZEnvironmentRole
+Set-Alias -Name DZ-GetAccountPool -Value Get-DZAccountPool
 Set-Alias -Name DZ-GetAsset -Value Get-DZAsset
 Set-Alias -Name DZ-GetAssetFilter -Value Get-DZAssetFilter
 Set-Alias -Name DZ-GetAssetType -Value Get-DZAssetType
@@ -8160,6 +8165,12 @@ Set-Alias -Name DZ-GetSubscriptionRequestDetails -Value Get-DZSubscriptionReques
 Set-Alias -Name DZ-GetSubscriptionTarget -Value Get-DZSubscriptionTarget
 Set-Alias -Name DZ-GetTimeSeriesDataPoint -Value Get-DZTimeSeriesDataPoint
 Set-Alias -Name DZ-GetUserProfile -Value Get-DZUserProfile
+Set-Alias -Name List-DZAccountPools -Value Get-DZAccountPoolList
+Set-Alias -Name List-DZAccountPoolList -Value Get-DZAccountPoolList
+Set-Alias -Name DZ-ListAccountPools -Value Get-DZAccountPoolList
+Set-Alias -Name List-DZAccountsInAccountPool -Value Get-DZAccountsInAccountPoolList
+Set-Alias -Name List-DZAccountsInAccountPoolList -Value Get-DZAccountsInAccountPoolList
+Set-Alias -Name DZ-ListAccountsInAccountPool -Value Get-DZAccountsInAccountPoolList
 Set-Alias -Name List-DZAssetFilters -Value Get-DZAssetFilterList
 Set-Alias -Name List-DZAssetFilterList -Value Get-DZAssetFilterList
 Set-Alias -Name DZ-ListAssetFilters -Value Get-DZAssetFilterList
@@ -8280,6 +8291,7 @@ Set-Alias -Name DZ-StartDataSourceRun -Value Start-DZDataSourceRun
 Set-Alias -Name DZ-StartMetadataGenerationRun -Value Start-DZMetadataGenerationRun
 Set-Alias -Name DZ-TagResource -Value Add-DZResourceTag
 Set-Alias -Name DZ-UntagResource -Value Remove-DZResourceTag
+Set-Alias -Name DZ-UpdateAccountPool -Value Update-DZAccountPool
 Set-Alias -Name DZ-UpdateAssetFilter -Value Update-DZAssetFilter
 Set-Alias -Name DZ-UpdateConnection -Value Update-DZConnection
 Set-Alias -Name DZ-UpdateDataSource -Value Update-DZDataSource

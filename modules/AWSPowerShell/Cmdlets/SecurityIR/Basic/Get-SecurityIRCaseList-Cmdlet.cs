@@ -28,7 +28,7 @@ using Amazon.SecurityIR.Model;
 namespace Amazon.PowerShell.Cmdlets.SecurityIR
 {
     /// <summary>
-    /// Grants permission to list all cases the requester has access to.
+    /// Lists all cases the requester has access to.
     /// </summary>
     [Cmdlet("Get", "SecurityIRCaseList")]
     [OutputType("Amazon.SecurityIR.Model.ListCasesResponse")]
@@ -57,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Optional element.</para>
+        /// <para>An optional string that, if supplied, must be copied from the output of a previous
+        /// call to ListCases. When provided in this manner, the API fetches the next page of
+        /// results. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

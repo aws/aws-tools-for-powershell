@@ -22,51 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SecurityIR;
-using Amazon.SecurityIR.Model;
+using Amazon.DataZone;
+using Amazon.DataZone.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SecurityIR
+namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Updates the state transitions for a designated cases.
-    /// 
-    ///  
-    /// <para><b>Self-managed</b>: the following states are available for self-managed cases. 
-    /// </para><ul><li><para>
-    /// Submitted → Detection and Analysis
-    /// </para></li><li><para>
-    /// Detection and Analysis → Containment, Eradication, and Recovery
-    /// </para></li><li><para>
-    /// Detection and Analysis → Post-incident Activities
-    /// </para></li><li><para>
-    /// Containment, Eradication, and Recovery → Detection and Analysis
-    /// </para></li><li><para>
-    /// Containment, Eradication, and Recovery → Post-incident Activities
-    /// </para></li><li><para>
-    /// Post-incident Activities → Containment, Eradication, and Recovery
-    /// </para></li><li><para>
-    /// Post-incident Activities → Detection and Analysis
-    /// </para></li><li><para>
-    /// Any → Closed
-    /// </para></li></ul><para><b>AWS supported</b>: You must use the <c>CloseCase</c> API to close. 
-    /// </para>
+    /// Deletes an account pool.
     /// </summary>
-    [Cmdlet("Update", "SecurityIRCaseStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.SecurityIR.SelfManagedCaseStatus")]
-    [AWSCmdlet("Calls the Security Incident Response UpdateCaseStatus API operation.", Operation = new[] {"UpdateCaseStatus"}, SelectReturnType = typeof(Amazon.SecurityIR.Model.UpdateCaseStatusResponse))]
-    [AWSCmdletOutput("Amazon.SecurityIR.SelfManagedCaseStatus or Amazon.SecurityIR.Model.UpdateCaseStatusResponse",
-        "This cmdlet returns an Amazon.SecurityIR.SelfManagedCaseStatus object.",
-        "The service call response (type Amazon.SecurityIR.Model.UpdateCaseStatusResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "DZAccountPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon DataZone DeleteAccountPool API operation.", Operation = new[] {"DeleteAccountPool"}, SelectReturnType = typeof(Amazon.DataZone.Model.DeleteAccountPoolResponse))]
+    [AWSCmdletOutput("None or Amazon.DataZone.Model.DeleteAccountPoolResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.DataZone.Model.DeleteAccountPoolResponse) be returned by specifying '-Select *'."
     )]
-    public partial class UpdateSecurityIRCaseStatusCmdlet : AmazonSecurityIRClientCmdlet, IExecutor
+    public partial class RemoveDZAccountPoolCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter CaseId
+        #region Parameter DomainIdentifier
         /// <summary>
         /// <para>
-        /// <para>Required element for UpdateCaseStatus to identify the case to update.</para>
+        /// <para>The ID of the domain where the account pool is deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,45 +56,42 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String CaseId { get; set; }
+        public System.String DomainIdentifier { get; set; }
         #endregion
         
-        #region Parameter CaseStatus
+        #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>Required element for UpdateCaseStatus to identify the status for a case. Options include
-        /// <c>Submitted | Detection and Analysis | Containment, Eradication and Recovery | Post-incident
-        /// Activities</c>. </para>
+        /// <para>The ID of the account pool to be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.SecurityIR.SelfManagedCaseStatus")]
-        public Amazon.SecurityIR.SelfManagedCaseStatus CaseStatus { get; set; }
+        public System.String Identifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'CaseStatus'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityIR.Model.UpdateCaseStatusResponse).
-        /// Specifying the name of a property of type Amazon.SecurityIR.Model.UpdateCaseStatusResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.DeleteAccountPoolResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "CaseStatus";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the CaseId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^CaseId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DomainIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DomainIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^CaseId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DomainIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -135,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CaseId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SecurityIRCaseStatus (UpdateCaseStatus)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DomainIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DZAccountPool (DeleteAccountPool)"))
             {
                 return;
             }
@@ -149,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SecurityIR.Model.UpdateCaseStatusResponse, UpdateSecurityIRCaseStatusCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.DeleteAccountPoolResponse, RemoveDZAccountPoolCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -158,21 +134,21 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.CaseId;
+                context.Select = (response, cmdlet) => this.DomainIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.CaseId = this.CaseId;
+            context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
-            if (this.CaseId == null && ParameterWasBound(nameof(this.CaseId)))
+            if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter CaseId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.CaseStatus = this.CaseStatus;
+            context.Identifier = this.Identifier;
             #if MODULAR
-            if (this.CaseStatus == null && ParameterWasBound(nameof(this.CaseStatus)))
+            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter CaseStatus which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -189,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SecurityIR.Model.UpdateCaseStatusRequest();
+            var request = new Amazon.DataZone.Model.DeleteAccountPoolRequest();
             
-            if (cmdletContext.CaseId != null)
+            if (cmdletContext.DomainIdentifier != null)
             {
-                request.CaseId = cmdletContext.CaseId;
+                request.DomainIdentifier = cmdletContext.DomainIdentifier;
             }
-            if (cmdletContext.CaseStatus != null)
+            if (cmdletContext.Identifier != null)
             {
-                request.CaseStatus = cmdletContext.CaseStatus;
+                request.Identifier = cmdletContext.Identifier;
             }
             
             CmdletOutput output;
@@ -232,15 +208,15 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         
         #region AWS Service Operation Call
         
-        private Amazon.SecurityIR.Model.UpdateCaseStatusResponse CallAWSServiceOperation(IAmazonSecurityIR client, Amazon.SecurityIR.Model.UpdateCaseStatusRequest request)
+        private Amazon.DataZone.Model.DeleteAccountPoolResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.DeleteAccountPoolRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Security Incident Response", "UpdateCaseStatus");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "DeleteAccountPool");
             try
             {
                 #if DESKTOP
-                return client.UpdateCaseStatus(request);
+                return client.DeleteAccountPool(request);
                 #elif CORECLR
-                return client.UpdateCaseStatusAsync(request).GetAwaiter().GetResult();
+                return client.DeleteAccountPoolAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -260,10 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String CaseId { get; set; }
-            public Amazon.SecurityIR.SelfManagedCaseStatus CaseStatus { get; set; }
-            public System.Func<Amazon.SecurityIR.Model.UpdateCaseStatusResponse, UpdateSecurityIRCaseStatusCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.CaseStatus;
+            public System.String DomainIdentifier { get; set; }
+            public System.String Identifier { get; set; }
+            public System.Func<Amazon.DataZone.Model.DeleteAccountPoolResponse, RemoveDZAccountPoolCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter AdditionalAttributeName
         /// <summary>
         /// <para>
-        /// <para>A list of attributes to return information for.</para>
+        /// <para>A list of attributes to return additional information for. Only the QueueInfo additional
+        /// attribute name is currently supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter QuantumTaskArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the task to retrieve.</para>
+        /// <para>The ARN of the quantum task to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

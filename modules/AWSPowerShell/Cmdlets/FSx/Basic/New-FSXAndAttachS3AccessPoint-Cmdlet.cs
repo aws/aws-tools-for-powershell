@@ -30,8 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// <summary>
     /// Creates an S3 access point and attaches it to an Amazon FSx volume. For FSx for OpenZFS
     /// file systems, the volume must be hosted on a high-availability file system, either
-    /// Single-AZ or Multi-AZ. For more information, see <a href="fsx/latest/OpenZFSGuide/s3accesspoints-for-FSx.html">Accessing
-    /// your data using access points</a> in the Amazon FSx for OpenZFS User Guide. 
+    /// Single-AZ or Multi-AZ. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/s3accesspoints-for-FSx.html">Accessing
+    /// your data using Amazon S3 access points</a>. in the Amazon FSx for OpenZFS User Guide.
+    /// 
     /// 
     ///  
     /// <para>

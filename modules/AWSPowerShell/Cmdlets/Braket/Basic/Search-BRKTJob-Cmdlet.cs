@@ -28,7 +28,7 @@ using Amazon.Braket.Model;
 namespace Amazon.PowerShell.Cmdlets.BRKT
 {
     /// <summary>
-    /// Searches for Amazon Braket jobs that match the specified filter values.
+    /// Searches for Amazon Braket hybrid jobs that match the specified filter values.
     /// </summary>
     [Cmdlet("Search", "BRKTJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Braket.Model.JobSummary")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filter values to use when searching for a job.</para>
+        /// <para>Array of SearchJobsFilter objects to use when searching for hybrid jobs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         /// <summary>
         /// <para>
         /// <para>A token used for pagination of results returned in the response. Use the token returned
-        /// from the previous request to continue results where the previous request ended.</para>
+        /// from the previous request to continue search where the previous request ended.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

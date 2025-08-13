@@ -28,7 +28,7 @@ using Amazon.SecurityIR.Model;
 namespace Amazon.PowerShell.Cmdlets.SecurityIR
 {
     /// <summary>
-    /// Grant permission to view a designated case.
+    /// Returns the attributes of a case.
     /// </summary>
     [Cmdlet("Get", "SecurityIRCase")]
     [OutputType("Amazon.SecurityIR.Model.GetCaseResponse")]

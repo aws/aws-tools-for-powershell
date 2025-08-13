@@ -28,7 +28,7 @@ using Amazon.Braket.Model;
 namespace Amazon.PowerShell.Cmdlets.BRKT
 {
     /// <summary>
-    /// Creates an Amazon Braket job.
+    /// Creates an Amazon Braket hybrid job.
     /// </summary>
     [Cmdlet("New", "BRKTJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter ScriptModeConfig_CompressionType
         /// <summary>
         /// <para>
-        /// <para>The type of compression used by the Python scripts for an Amazon Braket job.</para>
+        /// <para>The type of compression used to store the algorithm scripts in Amazon S3 storage.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,8 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter DeviceConfig_Device
         /// <summary>
         /// <para>
-        /// <para>The primary quantum processing unit (QPU) or simulator used to create and run an Amazon
-        /// Braket job.</para>
+        /// <para>The primary device ARN used to create and run an Amazon Braket hybrid job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter ScriptModeConfig_EntryPoint
         /// <summary>
         /// <para>
-        /// <para>The path to the Python script that serves as the entry point for an Amazon Braket
+        /// <para>The entry point in the algorithm scripts from where the execution begins in the hybrid
         /// job.</para>
         /// </para>
         /// </summary>
@@ -98,9 +97,14 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter HyperParameter
         /// <summary>
         /// <para>
-        /// <para>Algorithm-specific parameters used by an Amazon Braket job that influence the quality
-        /// of the training job. The values are set with a string of JSON key:value pairs, where
-        /// the key is the name of the hyperparameter and the value is the value of th hyperparameter.</para>
+        /// <para>Algorithm-specific parameters used by an Amazon Braket hybrid job that influence the
+        /// quality of the training job. The values are set with a map of JSON key:value pairs,
+        /// where the key is the name of the hyperparameter and the value is the value of the
+        /// hyperparameter.</para><important><para>Do not include any security-sensitive information including account access IDs, secrets,
+        /// or tokens in any hyperparameter fields. As part of the shared responsibility model,
+        /// you are responsible for any potential exposure, unauthorized access, or compromise
+        /// of your sensitive data if caused by security-sensitive information included in the
+        /// request hyperparameter variable or plain text fields.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         /// <summary>
         /// <para>
         /// <para>Configures the number of resource instances to use while running an Amazon Braket
-        /// job on Amazon Braket. The default value is 1.</para>
+        /// hybrid job on Amazon Braket. The default value is 1.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter InstanceConfig_InstanceType
         /// <summary>
         /// <para>
-        /// <para>Configures the type resource instances to use while running an Amazon Braket hybrid
+        /// <para>Configures the type of resource instances to use while running an Amazon Braket hybrid
         /// job.</para>
         /// </para>
         /// </summary>
@@ -151,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter JobName
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon Braket job.</para>
+        /// <para>The name of the Amazon Braket hybrid job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -169,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         /// <summary>
         /// <para>
         /// <para>The AWS Key Management Service (AWS KMS) key that Amazon Braket uses to encrypt the
-        /// job training artifacts at rest using Amazon S3 server-side encryption.</para>
+        /// hybrid job training artifacts at rest using Amazon S3 server-side encryption.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter CheckpointConfig_LocalPath
         /// <summary>
         /// <para>
-        /// <para>(Optional) The local directory where checkpoints are written. The default directory
+        /// <para>(Optional) The local directory where checkpoint data is stored. The default directory
         /// is <c>/opt/braket/checkpoints/</c>.</para>
         /// </para>
         /// </summary>
@@ -190,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter StoppingCondition_MaxRuntimeInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum length of time, in seconds, that an Amazon Braket job can run.</para>
+        /// <para>The maximum length of time, in seconds, that an Amazon Braket hybrid job can run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -203,7 +207,8 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of an IAM role that Amazon Braket can assume to perform
         /// tasks on behalf of a user. It can access user resources, run an Amazon Braket job
-        /// container on behalf of user, and output resources to the users' s3 buckets.</para>
+        /// container on behalf of user, and output results and hybrid job details to the users'
+        /// s3 buckets.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -220,8 +225,8 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter OutputDataConfig_S3Path
         /// <summary>
         /// <para>
-        /// <para>Identifies the S3 path where you want Amazon Braket to store the job training artifacts.
-        /// For example, <c>s3://bucket-name/key-name-prefix</c>.</para>
+        /// <para>Identifies the S3 path where you want Amazon Braket to store the hybrid job training
+        /// artifacts. For example, <c>s3://bucket-name/key-name-prefix</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -238,8 +243,8 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter ScriptModeConfig_S3Uri
         /// <summary>
         /// <para>
-        /// <para>The URI that specifies the S3 path to the Python script module that contains the training
-        /// script used by an Amazon Braket job.</para>
+        /// <para>The URI that specifies the S3 path to the algorithm scripts used by an Amazon Braket
+        /// hybrid job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -250,8 +255,8 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter CheckpointConfig_S3Uri
         /// <summary>
         /// <para>
-        /// <para>Identifies the S3 path where you want Amazon Braket to store checkpoints. For example,
-        /// <c>s3://bucket-name/key-name-prefix</c>.</para>
+        /// <para>Identifies the S3 path where you want Amazon Braket to store checkpoint data. For
+        /// example, <c>s3://bucket-name/key-name-prefix</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -261,8 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A tag object that consists of a key and an optional value, used to manage metadata
-        /// for Amazon Braket resources.</para>
+        /// <para>Tags to be added to the hybrid job you're creating.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -284,7 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter InstanceConfig_VolumeSizeInGb
         /// <summary>
         /// <para>
-        /// <para>The size of the storage volume, in GB, that user wants to provision.</para>
+        /// <para>The size of the storage volume, in GB, to provision.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -300,7 +304,8 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique token that guarantees that the call to this API is idempotent.</para>
+        /// <para>The client token associated with this request that guarantees that the request is
+        /// idempotent.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.SecurityIR.Model;
 namespace Amazon.PowerShell.Cmdlets.SecurityIR
 {
     /// <summary>
-    /// Grants permission to obtain an Amazon S3 presigned URL to download an attachment.
+    /// Returns a Pre-Signed URL for uploading attachments into a case.
     /// </summary>
     [Cmdlet("Get", "SecurityIRCaseAttachmentDownloadUrl")]
     [OutputType("System.String")]

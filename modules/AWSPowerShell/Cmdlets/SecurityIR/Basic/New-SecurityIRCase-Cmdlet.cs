@@ -28,7 +28,7 @@ using Amazon.SecurityIR.Model;
 namespace Amazon.PowerShell.Cmdlets.SecurityIR
 {
     /// <summary>
-    /// Grants permission to create a new case.
+    /// Creates a new case.
     /// </summary>
     [Cmdlet("New", "SecurityIRCase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -47,8 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Required element used in combination with CreateCase to provide a description for
-        /// the new case.</para>
+        /// <para>Required element used in combination with CreateCase</para><para>to provide a description for the new case.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -85,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         /// <summary>
         /// <para>
         /// <para>Required element used in combination with CreateCase to provide a list of impacted
-        /// accounts.</para>
+        /// accounts.</para><note><para> AWS account ID's may appear less than 12 characters and need to be zero-prepended.
+        /// An example would be <c>123123123</c> which is nine digits, and with zero-prepend would
+        /// be <c>000123123123</c>. Not zero-prepending to 12 digits could result in errors. </para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -144,8 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         #region Parameter ResolverType
         /// <summary>
         /// <para>
-        /// <para>Required element used in combination with CreateCase to identify the resolver type.
-        /// Available resolvers include self-supported | aws-supported. </para>
+        /// <para>Required element used in combination with CreateCase to identify the resolver type.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -223,7 +223,9 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Required element used in combination with CreateCase.</para>
+        /// <para><note><para>The <c>clientToken</c> field is an idempotency key used to ensure that repeated attempts
+        /// for a single action will be ignored by the server during retries. A caller supplied
+        /// unique ID (typically a UUID) should be provided. </para></note></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

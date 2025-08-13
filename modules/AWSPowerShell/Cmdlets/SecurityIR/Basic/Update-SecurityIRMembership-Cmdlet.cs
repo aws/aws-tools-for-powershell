@@ -28,7 +28,7 @@ using Amazon.SecurityIR.Model;
 namespace Amazon.PowerShell.Cmdlets.SecurityIR
 {
     /// <summary>
-    /// Grants access to UpdateMembership to change membership configuration.
+    /// Updates membership configuration.
     /// </summary>
     [Cmdlet("Update", "SecurityIRMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,6 +43,20 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter MembershipAccountsConfigurationsUpdate_CoverEntireOrganization
+        /// <summary>
+        /// <para>
+        /// <para>The <c>coverEntireOrganization</c> field is a boolean value that determines whether
+        /// the membership configuration should be applied across the entire Amazon Web Services
+        /// Organization. </para><para>When set to <c>true</c>, the configuration will be applied to all accounts within
+        /// the organization. When set to <c>false</c>, the configuration will only apply to specifically
+        /// designated accounts. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MembershipAccountsConfigurationsUpdate_CoverEntireOrganization { get; set; }
+        #endregion
         
         #region Parameter IncidentResponseTeam
         /// <summary>
@@ -91,6 +105,44 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("OptInFeatures")]
         public Amazon.SecurityIR.Model.OptInFeature[] OptInFeature { get; set; }
+        #endregion
+        
+        #region Parameter MembershipAccountsConfigurationsUpdate_OrganizationalUnitsToAdd
+        /// <summary>
+        /// <para>
+        /// <para>A list of organizational unit IDs to add to the membership configuration. Each organizational
+        /// unit ID must match the pattern <c>ou-[0-9a-z]{4,32}-[a-z0-9]{8,32}</c>. </para><para>The list must contain between 1 and 5 organizational unit IDs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] MembershipAccountsConfigurationsUpdate_OrganizationalUnitsToAdd { get; set; }
+        #endregion
+        
+        #region Parameter MembershipAccountsConfigurationsUpdate_OrganizationalUnitsToRemove
+        /// <summary>
+        /// <para>
+        /// <para>A list of organizational unit IDs to remove from the membership configuration. Each
+        /// organizational unit ID must match the pattern <c>ou-[0-9a-z]{4,32}-[a-z0-9]{8,32}</c>.
+        /// </para><para>The list must contain between 1 and 5 organizational unit IDs per invocation of the
+        /// API request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] MembershipAccountsConfigurationsUpdate_OrganizationalUnitsToRemove { get; set; }
+        #endregion
+        
+        #region Parameter UndoMembershipCancellation
+        /// <summary>
+        /// <para>
+        /// <para>The <c>undoMembershipCancellation</c> parameter is a boolean flag that indicates whether
+        /// to reverse a previously requested membership cancellation. When set to true, this
+        /// will revoke the cancellation request and maintain the membership status. </para><para>This parameter is optional and can be used in scenarios where you need to restore
+        /// a membership that was marked for cancellation but hasn't been fully terminated yet.
+        /// </para><ul><li><para>If set to <c>true</c>, the cancellation request will be revoked </para></li><li><para>If set to <c>false</c> the service will throw a ValidationException. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? UndoMembershipCancellation { get; set; }
         #endregion
         
         #region Parameter Select
@@ -158,6 +210,15 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
             {
                 context.IncidentResponseTeam = new List<Amazon.SecurityIR.Model.IncidentResponder>(this.IncidentResponseTeam);
             }
+            context.MembershipAccountsConfigurationsUpdate_CoverEntireOrganization = this.MembershipAccountsConfigurationsUpdate_CoverEntireOrganization;
+            if (this.MembershipAccountsConfigurationsUpdate_OrganizationalUnitsToAdd != null)
+            {
+                context.MembershipAccountsConfigurationsUpdate_OrganizationalUnitsToAdd = new List<System.String>(this.MembershipAccountsConfigurationsUpdate_OrganizationalUnitsToAdd);
+            }
+            if (this.MembershipAccountsConfigurationsUpdate_OrganizationalUnitsToRemove != null)
+            {
+                context.MembershipAccountsConfigurationsUpdate_OrganizationalUnitsToRemove = new List<System.String>(this.MembershipAccountsConfigurationsUpdate_OrganizationalUnitsToRemove);
+            }
             context.MembershipId = this.MembershipId;
             #if MODULAR
             if (this.MembershipId == null && ParameterWasBound(nameof(this.MembershipId)))
@@ -170,6 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
             {
                 context.OptInFeature = new List<Amazon.SecurityIR.Model.OptInFeature>(this.OptInFeature);
             }
+            context.UndoMembershipCancellation = this.UndoMembershipCancellation;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -190,6 +252,45 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
             {
                 request.IncidentResponseTeam = cmdletContext.IncidentResponseTeam;
             }
+            
+             // populate MembershipAccountsConfigurationsUpdate
+            var requestMembershipAccountsConfigurationsUpdateIsNull = true;
+            request.MembershipAccountsConfigurationsUpdate = new Amazon.SecurityIR.Model.MembershipAccountsConfigurationsUpdate();
+            System.Boolean? requestMembershipAccountsConfigurationsUpdate_membershipAccountsConfigurationsUpdate_CoverEntireOrganization = null;
+            if (cmdletContext.MembershipAccountsConfigurationsUpdate_CoverEntireOrganization != null)
+            {
+                requestMembershipAccountsConfigurationsUpdate_membershipAccountsConfigurationsUpdate_CoverEntireOrganization = cmdletContext.MembershipAccountsConfigurationsUpdate_CoverEntireOrganization.Value;
+            }
+            if (requestMembershipAccountsConfigurationsUpdate_membershipAccountsConfigurationsUpdate_CoverEntireOrganization != null)
+            {
+                request.MembershipAccountsConfigurationsUpdate.CoverEntireOrganization = requestMembershipAccountsConfigurationsUpdate_membershipAccountsConfigurationsUpdate_CoverEntireOrganization.Value;
+                requestMembershipAccountsConfigurationsUpdateIsNull = false;
+            }
+            List<System.String> requestMembershipAccountsConfigurationsUpdate_membershipAccountsConfigurationsUpdate_OrganizationalUnitsToAdd = null;
+            if (cmdletContext.MembershipAccountsConfigurationsUpdate_OrganizationalUnitsToAdd != null)
+            {
+                requestMembershipAccountsConfigurationsUpdate_membershipAccountsConfigurationsUpdate_OrganizationalUnitsToAdd = cmdletContext.MembershipAccountsConfigurationsUpdate_OrganizationalUnitsToAdd;
+            }
+            if (requestMembershipAccountsConfigurationsUpdate_membershipAccountsConfigurationsUpdate_OrganizationalUnitsToAdd != null)
+            {
+                request.MembershipAccountsConfigurationsUpdate.OrganizationalUnitsToAdd = requestMembershipAccountsConfigurationsUpdate_membershipAccountsConfigurationsUpdate_OrganizationalUnitsToAdd;
+                requestMembershipAccountsConfigurationsUpdateIsNull = false;
+            }
+            List<System.String> requestMembershipAccountsConfigurationsUpdate_membershipAccountsConfigurationsUpdate_OrganizationalUnitsToRemove = null;
+            if (cmdletContext.MembershipAccountsConfigurationsUpdate_OrganizationalUnitsToRemove != null)
+            {
+                requestMembershipAccountsConfigurationsUpdate_membershipAccountsConfigurationsUpdate_OrganizationalUnitsToRemove = cmdletContext.MembershipAccountsConfigurationsUpdate_OrganizationalUnitsToRemove;
+            }
+            if (requestMembershipAccountsConfigurationsUpdate_membershipAccountsConfigurationsUpdate_OrganizationalUnitsToRemove != null)
+            {
+                request.MembershipAccountsConfigurationsUpdate.OrganizationalUnitsToRemove = requestMembershipAccountsConfigurationsUpdate_membershipAccountsConfigurationsUpdate_OrganizationalUnitsToRemove;
+                requestMembershipAccountsConfigurationsUpdateIsNull = false;
+            }
+             // determine if request.MembershipAccountsConfigurationsUpdate should be set to null
+            if (requestMembershipAccountsConfigurationsUpdateIsNull)
+            {
+                request.MembershipAccountsConfigurationsUpdate = null;
+            }
             if (cmdletContext.MembershipId != null)
             {
                 request.MembershipId = cmdletContext.MembershipId;
@@ -201,6 +302,10 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
             if (cmdletContext.OptInFeature != null)
             {
                 request.OptInFeatures = cmdletContext.OptInFeature;
+            }
+            if (cmdletContext.UndoMembershipCancellation != null)
+            {
+                request.UndoMembershipCancellation = cmdletContext.UndoMembershipCancellation.Value;
             }
             
             CmdletOutput output;
@@ -264,9 +369,13 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.SecurityIR.Model.IncidentResponder> IncidentResponseTeam { get; set; }
+            public System.Boolean? MembershipAccountsConfigurationsUpdate_CoverEntireOrganization { get; set; }
+            public List<System.String> MembershipAccountsConfigurationsUpdate_OrganizationalUnitsToAdd { get; set; }
+            public List<System.String> MembershipAccountsConfigurationsUpdate_OrganizationalUnitsToRemove { get; set; }
             public System.String MembershipId { get; set; }
             public System.String MembershipName { get; set; }
             public List<Amazon.SecurityIR.Model.OptInFeature> OptInFeature { get; set; }
+            public System.Boolean? UndoMembershipCancellation { get; set; }
             public System.Func<Amazon.SecurityIR.Model.UpdateMembershipResponse, UpdateSecurityIRMembershipCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

@@ -28,7 +28,7 @@ using Amazon.Braket.Model;
 namespace Amazon.PowerShell.Cmdlets.BRKT
 {
     /// <summary>
-    /// Cancels an Amazon Braket job.
+    /// Cancels an Amazon Braket hybrid job.
     /// </summary>
     [Cmdlet("Stop", "BRKTJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Braket.Model.CancelJobResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         #region Parameter JobArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Amazon Braket job to cancel.</para>
+        /// <para>The ARN of the Amazon Braket hybrid job to cancel.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

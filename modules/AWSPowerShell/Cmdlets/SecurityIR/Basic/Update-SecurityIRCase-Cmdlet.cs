@@ -28,7 +28,7 @@ using Amazon.SecurityIR.Model;
 namespace Amazon.PowerShell.Cmdlets.SecurityIR
 {
     /// <summary>
-    /// Grants permission to update an existing case.
+    /// Updates an existing case.
     /// </summary>
     [Cmdlet("Update", "SecurityIRCase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -96,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         #region Parameter ImpactedAccountsToAdd
         /// <summary>
         /// <para>
-        /// <para>Optional element for UpdateCase to provide content to add accounts impacted.</para>
+        /// <para>Optional element for UpdateCase to provide content to add accounts impacted.</para><note><para> AWS account ID's may appear less than 12 characters and need to be zero-prepended.
+        /// An example would be <c>123123123</c> which is nine digits, and with zero-prepend would
+        /// be <c>000123123123</c>. Not zero-prepending to 12 digits could result in errors. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         #region Parameter ImpactedAccountsToDelete
         /// <summary>
         /// <para>
-        /// <para>Optional element for UpdateCase to provide content to add accounts impacted.</para>
+        /// <para>Optional element for UpdateCase to provide content to add accounts impacted.</para><note><para> AWS account ID's may appear less than 12 characters and need to be zero-prepended.
+        /// An example would be <c>123123123</c> which is nine digits, and with zero-prepend would
+        /// be <c>000123123123</c>. Not zero-prepending to 12 digits could result in errors. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

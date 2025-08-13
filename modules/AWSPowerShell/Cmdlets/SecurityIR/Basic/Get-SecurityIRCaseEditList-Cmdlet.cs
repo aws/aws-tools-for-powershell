@@ -28,7 +28,7 @@ using Amazon.SecurityIR.Model;
 namespace Amazon.PowerShell.Cmdlets.SecurityIR
 {
     /// <summary>
-    /// Grants permissions to view the aidt log for edits made to a designated case.
+    /// Views the case history for edits made to a designated case.
     /// </summary>
     [Cmdlet("Get", "SecurityIRCaseEditList")]
     [OutputType("Amazon.SecurityIR.Model.ListCaseEditsResponse")]
@@ -73,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Optional element for a customer provided token.</para>
+        /// <para>An optional string that, if supplied, must be copied from the output of a previous
+        /// call to ListCaseEdits. When provided in this manner, the API fetches the next page
+        /// of results. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

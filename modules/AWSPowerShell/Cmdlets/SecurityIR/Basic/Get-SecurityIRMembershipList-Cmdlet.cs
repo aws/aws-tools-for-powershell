@@ -28,7 +28,7 @@ using Amazon.SecurityIR.Model;
 namespace Amazon.PowerShell.Cmdlets.SecurityIR
 {
     /// <summary>
-    /// Grants permission to query the memberships a principal has access to.
+    /// Returns the memberships that the calling principal can access.
     /// </summary>
     [Cmdlet("Get", "SecurityIRMembershipList")]
     [OutputType("Amazon.SecurityIR.Model.ListMembershipItem")]
@@ -56,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Optional element.</para>
+        /// <para>An optional string that, if supplied, must be copied from the output of a previous
+        /// call to ListMemberships. When provided in this manner, the API fetches the next page
+        /// of results. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

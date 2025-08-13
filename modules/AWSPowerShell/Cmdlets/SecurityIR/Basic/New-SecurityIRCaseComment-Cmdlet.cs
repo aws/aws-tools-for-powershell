@@ -28,7 +28,7 @@ using Amazon.SecurityIR.Model;
 namespace Amazon.PowerShell.Cmdlets.SecurityIR
 {
     /// <summary>
-    /// Grants permission to add a comment to an existing case.
+    /// Adds a comment to an existing case.
     /// </summary>
     [Cmdlet("New", "SecurityIRCaseComment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -82,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>An optional element used in combination with CreateCaseComment.</para>
+        /// <para><note><para>The <c>clientToken</c> field is an idempotency key used to ensure that repeated attempts
+        /// for a single action will be ignored by the server during retries. A caller supplied
+        /// unique ID (typically a UUID) should be provided. </para></note></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

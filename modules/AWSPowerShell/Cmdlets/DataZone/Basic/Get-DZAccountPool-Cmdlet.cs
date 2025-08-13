@@ -22,41 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Braket;
-using Amazon.Braket.Model;
+using Amazon.DataZone;
+using Amazon.DataZone.Model;
 
-namespace Amazon.PowerShell.Cmdlets.BRKT
+namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Retrieves the specified Amazon Braket hybrid job.
+    /// Gets the details of the account pool.
     /// </summary>
-    [Cmdlet("Get", "BRKTJob")]
-    [OutputType("Amazon.Braket.Model.GetJobResponse")]
-    [AWSCmdlet("Calls the Amazon Braket GetJob API operation.", Operation = new[] {"GetJob"}, SelectReturnType = typeof(Amazon.Braket.Model.GetJobResponse))]
-    [AWSCmdletOutput("Amazon.Braket.Model.GetJobResponse",
-        "This cmdlet returns an Amazon.Braket.Model.GetJobResponse object containing multiple properties."
+    [Cmdlet("Get", "DZAccountPool")]
+    [OutputType("Amazon.DataZone.Model.GetAccountPoolResponse")]
+    [AWSCmdlet("Calls the Amazon DataZone GetAccountPool API operation.", Operation = new[] {"GetAccountPool"}, SelectReturnType = typeof(Amazon.DataZone.Model.GetAccountPoolResponse))]
+    [AWSCmdletOutput("Amazon.DataZone.Model.GetAccountPoolResponse",
+        "This cmdlet returns an Amazon.DataZone.Model.GetAccountPoolResponse object containing multiple properties."
     )]
-    public partial class GetBRKTJobCmdlet : AmazonBraketClientCmdlet, IExecutor
+    public partial class GetDZAccountPoolCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AdditionalAttributeName
+        #region Parameter DomainIdentifier
         /// <summary>
         /// <para>
-        /// <para>A list of attributes to return additional information for. Only the QueueInfo additional
-        /// attribute name is currently supported. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("AdditionalAttributeNames")]
-        public System.String[] AdditionalAttributeName { get; set; }
-        #endregion
-        
-        #region Parameter JobArn
-        /// <summary>
-        /// <para>
-        /// <para>The ARN of the hybrid job to retrieve.</para>
+        /// <para>The ID of the domain in which the account pool lives whose details are to be displayed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,14 +57,31 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String JobArn { get; set; }
+        public System.String DomainIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter Identifier
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the account pool whose details are to be displayed.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Identifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Braket.Model.GetJobResponse).
-        /// Specifying the name of a property of type Amazon.Braket.Model.GetJobResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.GetAccountPoolResponse).
+        /// Specifying the name of a property of type Amazon.DataZone.Model.GetAccountPoolResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,10 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the JobArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^JobArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DomainIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DomainIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^JobArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DomainIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -104,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Braket.Model.GetJobResponse, GetBRKTJobCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.GetAccountPoolResponse, GetDZAccountPoolCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -113,18 +120,21 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.JobArn;
+                context.Select = (response, cmdlet) => this.DomainIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.AdditionalAttributeName != null)
-            {
-                context.AdditionalAttributeName = new List<System.String>(this.AdditionalAttributeName);
-            }
-            context.JobArn = this.JobArn;
+            context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
-            if (this.JobArn == null && ParameterWasBound(nameof(this.JobArn)))
+            if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter JobArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Identifier = this.Identifier;
+            #if MODULAR
+            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -141,15 +151,15 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Braket.Model.GetJobRequest();
+            var request = new Amazon.DataZone.Model.GetAccountPoolRequest();
             
-            if (cmdletContext.AdditionalAttributeName != null)
+            if (cmdletContext.DomainIdentifier != null)
             {
-                request.AdditionalAttributeNames = cmdletContext.AdditionalAttributeName;
+                request.DomainIdentifier = cmdletContext.DomainIdentifier;
             }
-            if (cmdletContext.JobArn != null)
+            if (cmdletContext.Identifier != null)
             {
-                request.JobArn = cmdletContext.JobArn;
+                request.Identifier = cmdletContext.Identifier;
             }
             
             CmdletOutput output;
@@ -184,15 +194,15 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         
         #region AWS Service Operation Call
         
-        private Amazon.Braket.Model.GetJobResponse CallAWSServiceOperation(IAmazonBraket client, Amazon.Braket.Model.GetJobRequest request)
+        private Amazon.DataZone.Model.GetAccountPoolResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.GetAccountPoolRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Braket", "GetJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "GetAccountPool");
             try
             {
                 #if DESKTOP
-                return client.GetJob(request);
+                return client.GetAccountPool(request);
                 #elif CORECLR
-                return client.GetJobAsync(request).GetAwaiter().GetResult();
+                return client.GetAccountPoolAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -212,9 +222,9 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> AdditionalAttributeName { get; set; }
-            public System.String JobArn { get; set; }
-            public System.Func<Amazon.Braket.Model.GetJobResponse, GetBRKTJobCmdlet, object> Select { get; set; } =
+            public System.String DomainIdentifier { get; set; }
+            public System.String Identifier { get; set; }
+            public System.Func<Amazon.DataZone.Model.GetAccountPoolResponse, GetDZAccountPoolCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

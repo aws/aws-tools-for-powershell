@@ -28,7 +28,7 @@ using Amazon.SecurityIR.Model;
 namespace Amazon.PowerShell.Cmdlets.SecurityIR
 {
     /// <summary>
-    /// Grants permission to add a tag(s) to a designated resource.
+    /// Adds a tag(s) to a designated resource.
     /// </summary>
     [Cmdlet("Add", "SecurityIRResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
