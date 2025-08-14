@@ -173,11 +173,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCustomWorkspaceImageImport" OutputProperty="*" Verb="Get" Noun="CustomWorkspaceImageImport" PipelineParameter="ImageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeImageAssociations" OutputProperty="Associations" Verb="Get" Noun="ImageAssociation" PipelineParameter="ImageId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIpGroups" OutputProperty="Result" Verb="Get" Noun="IpGroup" PipelineParameter="GroupIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeIpGroups" OutputProperty="Result" Verb="Get" Noun="IpGroup" PipelineParameter="GroupIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -191,11 +195,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkspaceBundles" OutputProperty="Bundles" Verb="Get" Noun="WorkspaceBundle" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-WKSWorkspaceBundles" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeWorkspaceBundles" OutputProperty="Bundles" Verb="Get" Noun="WorkspaceBundle" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyAlias="Get-WKSWorkspaceBundles">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkspaceDirectories" OutputProperty="Directories" Verb="Get" Noun="WorkspaceDirectory" PipelineParameter="DirectoryIds" NoPipelineParameter="false" LegacyAlias="Get-WKSWorkspaceDirectories" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeWorkspaceDirectories" OutputProperty="Directories" Verb="Get" Noun="WorkspaceDirectory" PipelineParameter="DirectoryIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-WKSWorkspaceDirectories">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -203,11 +207,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkspaceImages" OutputProperty="Images" Verb="Get" Noun="WorkspaceImage" PipelineParameter="ImageIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeWorkspaceImages" OutputProperty="Images" Verb="Get" Noun="WorkspaceImage" PipelineParameter="ImageIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkspaces" OutputProperty="Workspaces" Verb="Get" Noun="Workspace" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-WKSWorkspaces" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeWorkspaces" OutputProperty="Workspaces" Verb="Get" Noun="Workspace" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-WKSWorkspaces">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" />
             <TypesNotToFlatten />
@@ -248,6 +252,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ImportCustomWorkspaceImage" OutputProperty="*" Verb="Import" Noun="CustomWorkspaceImage" ShouldProcessTarget="ImageName" PipelineParameter="ImageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ImportWorkspaceImage" OutputProperty="ImageId" Verb="Import" Noun="WorkspaceImage" ShouldProcessTarget="ImageName" PipelineParameter="ImageName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -256,7 +264,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAvailableManagementCidrRanges" OutputProperty="ManagementCidrRanges" Verb="Get" Noun="AvailableManagementCidrRangeList" PipelineParameter="ManagementCidrRangeConstraint" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAvailableManagementCidrRanges" OutputProperty="ManagementCidrRanges" Verb="Get" Noun="AvailableManagementCidrRangeList" PipelineParameter="ManagementCidrRangeConstraint" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -264,7 +272,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyAccount" Verb="Edit" Noun="Account" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ModifyAccount" OutputProperty="*" Verb="Edit" Noun="Account" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -308,13 +316,13 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RebootWorkspaces" OutputProperty="FailedRequests" Verb="Restart" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="RebootWorkspaceRequests" NoPipelineParameter="false" DefaultParameterSet="IdFromRequestObject" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RebootWorkspaces" OutputProperty="FailedRequests" Verb="Restart" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="RebootWorkspaceRequests" NoPipelineParameter="false" LegacyV4Pagination="true" DefaultParameterSet="IdFromRequestObject">
             <Params>
                 <Param Name="RebootWorkspaceRequests" NewName="Request" Alias="RebootWorkspaceRequest" ParameterSetName="IdFromRequestObject" Mandatory="true" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RebuildWorkspaces" OutputProperty="FailedRequests" Verb="Reset" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="RebuildWorkspaceRequests" NoPipelineParameter="false" DefaultParameterSet="IdFromRequestObject" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RebuildWorkspaces" OutputProperty="FailedRequests" Verb="Reset" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="RebuildWorkspaceRequests" NoPipelineParameter="false" LegacyV4Pagination="true" DefaultParameterSet="IdFromRequestObject">
             <Params>
                 <Param Name="RebuildWorkspaceRequests" NewName="Request" Alias="RebuildWorkspaceRequest" ParameterSetName="IdFromRequestObject" Mandatory="true" />
             </Params>
@@ -336,7 +344,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartWorkspaces" OutputProperty="FailedRequests" Verb="Start" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="StartWorkspaceRequests" NoPipelineParameter="false" DefaultParameterSet="IdFromRequestObject" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartWorkspaces" OutputProperty="FailedRequests" Verb="Start" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="StartWorkspaceRequests" NoPipelineParameter="false" LegacyV4Pagination="true" DefaultParameterSet="IdFromRequestObject">
             <Params>
                 <Param Name="StartWorkspaceRequests" NewName="Request" Alias="StartWorkspaceRequest" ParameterSetName="IdFromRequestObject" Mandatory="true" />
             </Params>
@@ -346,7 +354,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopWorkspaces" OutputProperty="FailedRequests" Verb="Stop" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="StopWorkspaceRequests" NoPipelineParameter="false" DefaultParameterSet="IdFromRequestObject" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StopWorkspaces" OutputProperty="FailedRequests" Verb="Stop" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="StopWorkspaceRequests" NoPipelineParameter="false" LegacyV4Pagination="true" DefaultParameterSet="IdFromRequestObject">
             <Params>
                 <Param Name="StopWorkspaceRequests" NewName="Request" Alias="StopWorkspaceRequest" ParameterSetName="IdFromRequestObject" Mandatory="true" />
             </Params>
@@ -356,7 +364,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TerminateWorkspaces" OutputProperty="FailedRequests" Verb="Remove" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="TerminateWorkspaceRequests" NoPipelineParameter="false" DefaultParameterSet="IdFromRequestObject" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="TerminateWorkspaces" OutputProperty="FailedRequests" Verb="Remove" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="TerminateWorkspaceRequests" NoPipelineParameter="false" LegacyV4Pagination="true" DefaultParameterSet="IdFromRequestObject">
             <Params>
                 <Param Name="TerminateWorkspaceRequests" NewName="Request" Alias="TerminateWorkspaceRequest" ParameterSetName="IdFromRequestObject" Mandatory="true" />
             </Params>

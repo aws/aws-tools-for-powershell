@@ -83,17 +83,28 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPublicVirtualInterfaceAllocation_Asn
         /// <summary>
         /// <para>
-        /// <para>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</para><para>The valid values are 1-2147483647.</para>
+        /// <para>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border
+        /// Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum,
+        /// an error is returned. Use <c>asnLong</c> instead.</para><note><para>You can use <c>asnLong</c> or <c>asn</c>, but not both. We recommend using <c>asnLong</c>
+        /// as it supports a greater pool of numbers. </para><ul><li><para>The <c>asnLong</c> attribute accepts both ASN and long ASN ranges.</para></li><li><para>If you provide a value in the same API call for both <c>asn</c> and <c>asnLong</c>,
+        /// the API will only accept the value for <c>asnLong</c>.</para></li></ul></note><para>The valid values are 1-2147483646.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Int32? NewPublicVirtualInterfaceAllocation_Asn { get; set; }
+        #endregion
+        
+        #region Parameter NewPublicVirtualInterfaceAllocation_AsnLong
+        /// <summary>
+        /// <para>
+        /// <para>The ASN when allocating a new public virtual interface. The valid range is from 1
+        /// to 4294967294 for BGP configuration.</para><note><para>You can use <c>asnLong</c> or <c>asn</c>, but not both. We recommend using <c>asnLong</c>
+        /// as it supports a greater pool of numbers. </para><ul><li><para>The <c>asnLong</c> attribute accepts both ASN and long ASN ranges.</para></li><li><para>If you provide a value in the same API call for both <c>asn</c> and <c>asnLong</c>,
+        /// the API will only accept the value for <c>asnLong</c>.</para></li></ul></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? NewPublicVirtualInterfaceAllocation_AsnLong { get; set; }
         #endregion
         
         #region Parameter NewPublicVirtualInterfaceAllocation_AuthKey
@@ -273,12 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             context.NewPublicVirtualInterfaceAllocation_AddressFamily = this.NewPublicVirtualInterfaceAllocation_AddressFamily;
             context.NewPublicVirtualInterfaceAllocation_AmazonAddress = this.NewPublicVirtualInterfaceAllocation_AmazonAddress;
             context.NewPublicVirtualInterfaceAllocation_Asn = this.NewPublicVirtualInterfaceAllocation_Asn;
-            #if MODULAR
-            if (this.NewPublicVirtualInterfaceAllocation_Asn == null && ParameterWasBound(nameof(this.NewPublicVirtualInterfaceAllocation_Asn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter NewPublicVirtualInterfaceAllocation_Asn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.NewPublicVirtualInterfaceAllocation_AsnLong = this.NewPublicVirtualInterfaceAllocation_AsnLong;
             context.NewPublicVirtualInterfaceAllocation_AuthKey = this.NewPublicVirtualInterfaceAllocation_AuthKey;
             context.NewPublicVirtualInterfaceAllocation_CustomerAddress = this.NewPublicVirtualInterfaceAllocation_CustomerAddress;
             if (this.NewPublicVirtualInterfaceAllocation_RouteFilterPrefix != null)
@@ -362,6 +368,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (requestNewPublicVirtualInterfaceAllocation_newPublicVirtualInterfaceAllocation_Asn != null)
             {
                 request.NewPublicVirtualInterfaceAllocation.Asn = requestNewPublicVirtualInterfaceAllocation_newPublicVirtualInterfaceAllocation_Asn.Value;
+                requestNewPublicVirtualInterfaceAllocationIsNull = false;
+            }
+            System.Int64? requestNewPublicVirtualInterfaceAllocation_newPublicVirtualInterfaceAllocation_AsnLong = null;
+            if (cmdletContext.NewPublicVirtualInterfaceAllocation_AsnLong != null)
+            {
+                requestNewPublicVirtualInterfaceAllocation_newPublicVirtualInterfaceAllocation_AsnLong = cmdletContext.NewPublicVirtualInterfaceAllocation_AsnLong.Value;
+            }
+            if (requestNewPublicVirtualInterfaceAllocation_newPublicVirtualInterfaceAllocation_AsnLong != null)
+            {
+                request.NewPublicVirtualInterfaceAllocation.AsnLong = requestNewPublicVirtualInterfaceAllocation_newPublicVirtualInterfaceAllocation_AsnLong.Value;
                 requestNewPublicVirtualInterfaceAllocationIsNull = false;
             }
             System.String requestNewPublicVirtualInterfaceAllocation_newPublicVirtualInterfaceAllocation_AuthKey = null;
@@ -492,6 +508,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             public Amazon.DirectConnect.AddressFamily NewPublicVirtualInterfaceAllocation_AddressFamily { get; set; }
             public System.String NewPublicVirtualInterfaceAllocation_AmazonAddress { get; set; }
             public System.Int32? NewPublicVirtualInterfaceAllocation_Asn { get; set; }
+            public System.Int64? NewPublicVirtualInterfaceAllocation_AsnLong { get; set; }
             public System.String NewPublicVirtualInterfaceAllocation_AuthKey { get; set; }
             public System.String NewPublicVirtualInterfaceAllocation_CustomerAddress { get; set; }
             public List<Amazon.DirectConnect.Model.RouteFilterPrefix> NewPublicVirtualInterfaceAllocation_RouteFilterPrefix { get; set; }

@@ -174,7 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter ServiceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the service that you want to use for settings for the instance.</para>
+        /// <para>The ID or Amazon Resource Name (ARN) of the service that you want to use for settings
+        /// for the instance. For services created in a shared namespace, specify the service
+        /// ARN. For more information about shared namespaces, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html">Cross-account
+        /// Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

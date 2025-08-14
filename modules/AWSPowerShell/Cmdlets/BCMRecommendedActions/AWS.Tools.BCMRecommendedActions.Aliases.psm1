@@ -1,0 +1,3 @@
+﻿# BCMRecommendedActions
+
+Export-ModuleMember -Alias *

@@ -70,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter ServiceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the service that you want to update.</para>
+        /// <para>The ID or Amazon Resource Name (ARN) of the service that you want to update. For services
+        /// created in a namespace shared with your Amazon Web Services account, specify the service
+        /// ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

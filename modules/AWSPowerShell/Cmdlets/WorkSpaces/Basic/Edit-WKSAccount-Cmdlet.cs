@@ -33,11 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// Modifies the configuration of Bring Your Own License (BYOL) for the specified account.
     /// </summary>
     [Cmdlet("Edit", "WKSAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("Amazon.WorkSpaces.Model.ModifyAccountResponse")]
     [AWSCmdlet("Calls the Amazon WorkSpaces ModifyAccount API operation.", Operation = new[] {"ModifyAccount"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.ModifyAccountResponse))]
-    [AWSCmdletOutput("None or Amazon.WorkSpaces.Model.ModifyAccountResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpaces.Model.ModifyAccountResponse) be returned by specifying '-Select *'."
+    [AWSCmdletOutput("Amazon.WorkSpaces.Model.ModifyAccountResponse",
+        "This cmdlet returns an Amazon.WorkSpaces.Model.ModifyAccountResponse object containing multiple properties."
     )]
     public partial class EditWKSAccountCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
@@ -72,8 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WorkSpaces.Model.ModifyAccountResponse).
+        /// Specifying the name of a property of type Amazon.WorkSpaces.Model.ModifyAccountResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             public System.String DedicatedTenancyManagementCidrRange { get; set; }
             public Amazon.WorkSpaces.DedicatedTenancySupportEnum DedicatedTenancySupport { get; set; }
             public System.Func<Amazon.WorkSpaces.Model.ModifyAccountResponse, EditWKSAccountCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response;
         }
         
     }

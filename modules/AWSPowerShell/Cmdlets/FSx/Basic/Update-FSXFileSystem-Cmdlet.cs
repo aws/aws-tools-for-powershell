@@ -387,9 +387,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Use this parameter to increase the storage capacity of an FSx for Windows File Server,
-        /// FSx for Lustre, FSx for OpenZFS, or FSx for ONTAP file system. Specifies the storage
-        /// capacity target value, in GiB, to increase the storage capacity for the file system
-        /// that you're updating. </para><note><para>You can't make a storage capacity increase request if there is an existing storage
+        /// FSx for Lustre, FSx for OpenZFS, or FSx for ONTAP file system. For second-generation
+        /// FSx for ONTAP file systems, you can also decrease the storage capacity. Specifies
+        /// the storage capacity target value, in GiB, for the file system that you're updating.
+        /// </para><note><para>You can't make a storage capacity increase request if there is an existing storage
         /// capacity increase request in progress.</para></note><para>For Lustre file systems, the storage capacity target value can be the following:</para><ul><li><para>For <c>SCRATCH_2</c>, <c>PERSISTENT_1</c>, and <c>PERSISTENT_2 SSD</c> deployment
         /// types, valid values are in multiples of 2400 GiB. The value must be greater than the
         /// current storage capacity.</para></li><li><para>For <c>PERSISTENT HDD</c> file systems, valid values are multiples of 6000 GiB for
@@ -402,10 +403,12 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// greater than the current storage capacity value. To increase storage capacity, the
         /// file system must have at least 16 MBps of throughput capacity. For more information,
         /// see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing
-        /// storage capacity</a> in the <i>Amazon FSxfor Windows File Server User Guide</i>.</para><para>For ONTAP file systems, the storage capacity target value must be at least 10 percent
-        /// greater than the current storage capacity value. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-storage-capacity.html">Managing
-        /// storage capacity and provisioned IOPS</a> in the <i>Amazon FSx for NetApp ONTAP User
-        /// Guide</i>.</para>
+        /// storage capacity</a> in the <i>Amazon FSxfor Windows File Server User Guide</i>.</para><para>For ONTAP file systems, when increasing storage capacity, the storage capacity target
+        /// value must be at least 10 percent greater than the current storage capacity value.
+        /// When decreasing storage capacity on second-generation file systems, the target value
+        /// must be at least 9 percent smaller than the current SSD storage capacity. For more
+        /// information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/storage-capacity-and-IOPS.html">File
+        /// system storage capacity and IOPS</a> in the Amazon FSx for NetApp ONTAP User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

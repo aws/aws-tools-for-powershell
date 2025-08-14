@@ -49,7 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the service that you want to delete.</para>
+        /// <para>The ID or Amazon Resource Name (ARN) of the service that you want to delete. If the
+        /// namespace associated with the service is shared with your Amazon Web Services account,
+        /// specify the service ARN. For more information about shared namespaces, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html">Cross-account
+        /// Cloud Map namespace sharing</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

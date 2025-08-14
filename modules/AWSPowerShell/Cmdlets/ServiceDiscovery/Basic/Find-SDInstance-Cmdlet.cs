@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter NamespaceName
         /// <summary>
         /// <para>
-        /// <para>The <c>HttpName</c> name of the namespace. It's found in the <c>HttpProperties</c>
+        /// <para>The <c>HttpName</c> name of the namespace. The <c>HttpName</c> is found in the <c>HttpProperties</c>
         /// member of the <c>Properties</c> member of the namespace. In most cases, <c>Name</c>
         /// and <c>HttpName</c> match. However, if you reuse <c>Name</c> for namespace creation,
         /// a generated hash is added to <c>HttpName</c> to distinguish the two.</para>
@@ -99,6 +99,19 @@ namespace Amazon.PowerShell.Cmdlets.SD
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("OptionalParameters")]
         public System.Collections.Hashtable OptionalParameter { get; set; }
+        #endregion
+        
+        #region Parameter OwnerAccount
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Amazon Web Services account that owns the namespace associated with
+        /// the instance, as specified in the namespace <c>ResourceOwner</c> field. For instances
+        /// associated with namespaces that are shared with your account, you must specify an
+        /// <c>OwnerAccount</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OwnerAccount { get; set; }
         #endregion
         
         #region Parameter QueryParameter
@@ -195,6 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
                     context.OptionalParameter.Add((String)hashKey, (System.String)(this.OptionalParameter[hashKey]));
                 }
             }
+            context.OwnerAccount = this.OwnerAccount;
             if (this.QueryParameter != null)
             {
                 context.QueryParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -241,6 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.SD
             if (cmdletContext.OptionalParameter != null)
             {
                 request.OptionalParameters = cmdletContext.OptionalParameter;
+            }
+            if (cmdletContext.OwnerAccount != null)
+            {
+                request.OwnerAccount = cmdletContext.OwnerAccount;
             }
             if (cmdletContext.QueryParameter != null)
             {
@@ -309,6 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
             public System.Int32? MaxResult { get; set; }
             public System.String NamespaceName { get; set; }
             public Dictionary<System.String, System.String> OptionalParameter { get; set; }
+            public System.String OwnerAccount { get; set; }
             public Dictionary<System.String, System.String> QueryParameter { get; set; }
             public System.String ServiceName { get; set; }
             public System.Func<Amazon.ServiceDiscovery.Model.DiscoverInstancesResponse, FindSDInstanceCmdlet, object> Select { get; set; } =

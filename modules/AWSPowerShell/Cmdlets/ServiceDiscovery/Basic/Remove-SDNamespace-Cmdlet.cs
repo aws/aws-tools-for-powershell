@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the namespace that you want to delete.</para>
+        /// <para>The ID or Amazon Resource Name (ARN) of the namespace that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

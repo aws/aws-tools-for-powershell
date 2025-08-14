@@ -83,17 +83,28 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPrivateVirtualInterface_Asn
         /// <summary>
         /// <para>
-        /// <para>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</para><para>The valid values are 1-2147483647.</para>
+        /// <para>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border
+        /// Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum,
+        /// an error is returned. Use <c>asnLong</c> instead.</para><note><para>You can use <c>asnLong</c> or <c>asn</c>, but not both. We recommend using <c>asnLong</c>
+        /// as it supports a greater pool of numbers. </para><ul><li><para>The <c>asnLong</c> attribute accepts both ASN and long ASN ranges.</para></li><li><para>If you provide a value in the same API call for both <c>asn</c> and <c>asnLong</c>,
+        /// the API will only accept the value for <c>asnLong</c>.</para></li></ul></note><para>The valid values are 1-2147483646.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Int32? NewPrivateVirtualInterface_Asn { get; set; }
+        #endregion
+        
+        #region Parameter NewPrivateVirtualInterface_AsnLong
+        /// <summary>
+        /// <para>
+        /// <para>The long ASN for a new private virtual interface. The valid range is from 1 to 4294967294
+        /// for BGP configuration.</para><note><para>You can use <c>asnLong</c> or <c>asn</c>, but not both. We recommend using <c>asnLong</c>
+        /// as it supports a greater pool of numbers. </para><ul><li><para>The <c>asnLong</c> attribute accepts both ASN and long ASN ranges.</para></li><li><para>If you provide a value in the same API call for both <c>asn</c> and <c>asnLong</c>,
+        /// the API will only accept the value for <c>asnLong</c>.</para></li></ul></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? NewPrivateVirtualInterface_AsnLong { get; set; }
         #endregion
         
         #region Parameter NewPrivateVirtualInterface_AuthKey
@@ -281,12 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             context.NewPrivateVirtualInterface_AddressFamily = this.NewPrivateVirtualInterface_AddressFamily;
             context.NewPrivateVirtualInterface_AmazonAddress = this.NewPrivateVirtualInterface_AmazonAddress;
             context.NewPrivateVirtualInterface_Asn = this.NewPrivateVirtualInterface_Asn;
-            #if MODULAR
-            if (this.NewPrivateVirtualInterface_Asn == null && ParameterWasBound(nameof(this.NewPrivateVirtualInterface_Asn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter NewPrivateVirtualInterface_Asn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.NewPrivateVirtualInterface_AsnLong = this.NewPrivateVirtualInterface_AsnLong;
             context.NewPrivateVirtualInterface_AuthKey = this.NewPrivateVirtualInterface_AuthKey;
             context.NewPrivateVirtualInterface_CustomerAddress = this.NewPrivateVirtualInterface_CustomerAddress;
             context.NewPrivateVirtualInterface_DirectConnectGatewayId = this.NewPrivateVirtualInterface_DirectConnectGatewayId;
@@ -363,6 +369,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (requestNewPrivateVirtualInterface_newPrivateVirtualInterface_Asn != null)
             {
                 request.NewPrivateVirtualInterface.Asn = requestNewPrivateVirtualInterface_newPrivateVirtualInterface_Asn.Value;
+                requestNewPrivateVirtualInterfaceIsNull = false;
+            }
+            System.Int64? requestNewPrivateVirtualInterface_newPrivateVirtualInterface_AsnLong = null;
+            if (cmdletContext.NewPrivateVirtualInterface_AsnLong != null)
+            {
+                requestNewPrivateVirtualInterface_newPrivateVirtualInterface_AsnLong = cmdletContext.NewPrivateVirtualInterface_AsnLong.Value;
+            }
+            if (requestNewPrivateVirtualInterface_newPrivateVirtualInterface_AsnLong != null)
+            {
+                request.NewPrivateVirtualInterface.AsnLong = requestNewPrivateVirtualInterface_newPrivateVirtualInterface_AsnLong.Value;
                 requestNewPrivateVirtualInterfaceIsNull = false;
             }
             System.String requestNewPrivateVirtualInterface_newPrivateVirtualInterface_AuthKey = null;
@@ -519,6 +535,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             public Amazon.DirectConnect.AddressFamily NewPrivateVirtualInterface_AddressFamily { get; set; }
             public System.String NewPrivateVirtualInterface_AmazonAddress { get; set; }
             public System.Int32? NewPrivateVirtualInterface_Asn { get; set; }
+            public System.Int64? NewPrivateVirtualInterface_AsnLong { get; set; }
             public System.String NewPrivateVirtualInterface_AuthKey { get; set; }
             public System.String NewPrivateVirtualInterface_CustomerAddress { get; set; }
             public System.String NewPrivateVirtualInterface_DirectConnectGatewayId { get; set; }

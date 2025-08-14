@@ -2577,6 +2577,9 @@ Set-Alias -Name BCMPC-UpdateBillScenario -Value Update-BCMPCBillScenario
 Set-Alias -Name Update-BCMPCPreferences -Value Update-BCMPCPreference
 Set-Alias -Name BCMPC-UpdatePreferences -Value Update-BCMPCPreference
 Set-Alias -Name BCMPC-UpdateWorkloadEstimate -Value Update-BCMPCWorkloadEstimate
+Set-Alias -Name List-BCMRARecommendedActions -Value Get-BCMRARecommendedActionList
+Set-Alias -Name List-BCMRARecommendedActionList -Value Get-BCMRARecommendedActionList
+Set-Alias -Name BCMRA-ListRecommendedActions -Value Get-BCMRARecommendedActionList
 Set-Alias -Name Create-BARInvocation -Value New-BARInvocation
 Set-Alias -Name BAR-CreateInvocation -Value New-BARInvocation
 Set-Alias -Name Create-BARSession -Value New-BARSession
@@ -11061,6 +11064,8 @@ Set-Alias -Name EC2-ModifyInstanceAttribute -Value Edit-EC2InstanceAttribute
 Set-Alias -Name Modify-EC2InstanceCapacityReservationAttributes -Value Edit-EC2InstanceCapacityReservationAttribute
 Set-Alias -Name Modify-EC2InstanceCapacityReservationAttribute -Value Edit-EC2InstanceCapacityReservationAttribute
 Set-Alias -Name EC2-ModifyInstanceCapacityReservationAttributes -Value Edit-EC2InstanceCapacityReservationAttribute
+Set-Alias -Name Modify-EC2InstanceConnectEndpoint -Value Edit-EC2InstanceConnectEndpoint
+Set-Alias -Name EC2-ModifyInstanceConnectEndpoint -Value Edit-EC2InstanceConnectEndpoint
 Set-Alias -Name Modify-EC2InstanceCpuOptions -Value Edit-EC2InstanceCpuOption
 Set-Alias -Name Modify-EC2InstanceCpuOption -Value Edit-EC2InstanceCpuOption
 Set-Alias -Name EC2-ModifyInstanceCpuOptions -Value Edit-EC2InstanceCpuOption
@@ -14329,6 +14334,8 @@ Set-Alias -Name Create-GLUEDataQualityRuleset -Value New-GLUEDataQualityRuleset
 Set-Alias -Name GLUE-CreateDataQualityRuleset -Value New-GLUEDataQualityRuleset
 Set-Alias -Name Create-GLUEDevEndpoint -Value New-GLUEDevEndpoint
 Set-Alias -Name GLUE-CreateDevEndpoint -Value New-GLUEDevEndpoint
+Set-Alias -Name Create-GLUEGlueIdentityCenterConfiguration -Value New-GLUEGlueIdentityCenterConfiguration
+Set-Alias -Name GLUE-CreateGlueIdentityCenterConfiguration -Value New-GLUEGlueIdentityCenterConfiguration
 Set-Alias -Name Create-GLUEIntegration -Value New-GLUEIntegration
 Set-Alias -Name GLUE-CreateIntegration -Value New-GLUEIntegration
 Set-Alias -Name Create-GLUEIntegrationResourceProperty -Value New-GLUEIntegrationResourceProperty
@@ -14391,6 +14398,8 @@ Set-Alias -Name Delete-GLUEDataQualityRuleset -Value Remove-GLUEDataQualityRules
 Set-Alias -Name GLUE-DeleteDataQualityRuleset -Value Remove-GLUEDataQualityRuleset
 Set-Alias -Name Delete-GLUEDevEndpoint -Value Remove-GLUEDevEndpoint
 Set-Alias -Name GLUE-DeleteDevEndpoint -Value Remove-GLUEDevEndpoint
+Set-Alias -Name Delete-GLUEGlueIdentityCenterConfiguration -Value Remove-GLUEGlueIdentityCenterConfiguration
+Set-Alias -Name GLUE-DeleteGlueIdentityCenterConfiguration -Value Remove-GLUEGlueIdentityCenterConfiguration
 Set-Alias -Name Delete-GLUEIntegration -Value Remove-GLUEIntegration
 Set-Alias -Name GLUE-DeleteIntegration -Value Remove-GLUEIntegration
 Set-Alias -Name Delete-GLUEIntegrationTableProperties -Value Remove-GLUEIntegrationTableProperty
@@ -14485,6 +14494,7 @@ Set-Alias -Name Get-GLUEDevEndpoints -Value Get-GLUEDevEndpointList
 Set-Alias -Name GLUE-GetDevEndpoints -Value Get-GLUEDevEndpointList
 Set-Alias -Name Get-GLUEEntityRecords -Value Get-GLUEEntityRecord
 Set-Alias -Name GLUE-GetEntityRecords -Value Get-GLUEEntityRecord
+Set-Alias -Name GLUE-GetGlueIdentityCenterConfiguration -Value Get-GLUEGlueIdentityCenterConfiguration
 Set-Alias -Name GLUE-GetIntegrationResourceProperty -Value Get-GLUEIntegrationResourceProperty
 Set-Alias -Name Get-GLUEIntegrationTableProperties -Value Get-GLUEIntegrationTableProperty
 Set-Alias -Name GLUE-GetIntegrationTableProperties -Value Get-GLUEIntegrationTableProperty
@@ -14685,6 +14695,7 @@ Set-Alias -Name GLUE-UpdateCrawlerSchedule -Value Update-GLUECrawlerSchedule
 Set-Alias -Name GLUE-UpdateDatabase -Value Update-GLUEDatabase
 Set-Alias -Name GLUE-UpdateDataQualityRuleset -Value Update-GLUEDataQualityRuleset
 Set-Alias -Name GLUE-UpdateDevEndpoint -Value Update-GLUEDevEndpoint
+Set-Alias -Name GLUE-UpdateGlueIdentityCenterConfiguration -Value Update-GLUEGlueIdentityCenterConfiguration
 Set-Alias -Name GLUE-UpdateIntegrationResourceProperty -Value Update-GLUEIntegrationResourceProperty
 Set-Alias -Name Update-GLUEIntegrationTableProperties -Value Update-GLUEIntegrationTableProperty
 Set-Alias -Name GLUE-UpdateIntegrationTableProperties -Value Update-GLUEIntegrationTableProperty
@@ -15055,8 +15066,12 @@ Set-Alias -Name GD-CreatePublishingDestination -Value New-GDPublishingDestinatio
 Set-Alias -Name Create-GDSampleFindings -Value New-GDSampleFinding
 Set-Alias -Name Create-GDSampleFinding -Value New-GDSampleFinding
 Set-Alias -Name GD-CreateSampleFindings -Value New-GDSampleFinding
+Set-Alias -Name Create-GDThreatEntitySet -Value New-GDThreatEntitySet
+Set-Alias -Name GD-CreateThreatEntitySet -Value New-GDThreatEntitySet
 Set-Alias -Name Create-GDThreatIntelSet -Value New-GDThreatIntelSet
 Set-Alias -Name GD-CreateThreatIntelSet -Value New-GDThreatIntelSet
+Set-Alias -Name Create-GDTrustedEntitySet -Value New-GDTrustedEntitySet
+Set-Alias -Name GD-CreateTrustedEntitySet -Value New-GDTrustedEntitySet
 Set-Alias -Name Decline-GDInvitations -Value Deny-GDInvitation
 Set-Alias -Name Decline-GDInvitation -Value Deny-GDInvitation
 Set-Alias -Name GD-DeclineInvitations -Value Deny-GDInvitation
@@ -15076,8 +15091,12 @@ Set-Alias -Name Delete-GDMember -Value Remove-GDMember
 Set-Alias -Name GD-DeleteMembers -Value Remove-GDMember
 Set-Alias -Name Delete-GDPublishingDestination -Value Remove-GDPublishingDestination
 Set-Alias -Name GD-DeletePublishingDestination -Value Remove-GDPublishingDestination
+Set-Alias -Name Delete-GDThreatEntitySet -Value Remove-GDThreatEntitySet
+Set-Alias -Name GD-DeleteThreatEntitySet -Value Remove-GDThreatEntitySet
 Set-Alias -Name Delete-GDThreatIntelSet -Value Remove-GDThreatIntelSet
 Set-Alias -Name GD-DeleteThreatIntelSet -Value Remove-GDThreatIntelSet
+Set-Alias -Name Delete-GDTrustedEntitySet -Value Remove-GDTrustedEntitySet
+Set-Alias -Name GD-DeleteTrustedEntitySet -Value Remove-GDTrustedEntitySet
 Set-Alias -Name Describe-GDMalwareScans -Value Get-GDMalwareScan
 Set-Alias -Name Describe-GDMalwareScan -Value Get-GDMalwareScan
 Set-Alias -Name GD-DescribeMalwareScans -Value Get-GDMalwareScan
@@ -15118,7 +15137,9 @@ Set-Alias -Name Get-GDOrganizationStatistics -Value Get-GDOrganizationStatistic
 Set-Alias -Name GD-GetOrganizationStatistics -Value Get-GDOrganizationStatistic
 Set-Alias -Name Get-GDRemainingFreeTrialDays -Value Get-GDRemainingFreeTrialDay
 Set-Alias -Name GD-GetRemainingFreeTrialDays -Value Get-GDRemainingFreeTrialDay
+Set-Alias -Name GD-GetThreatEntitySet -Value Get-GDThreatEntitySet
 Set-Alias -Name GD-GetThreatIntelSet -Value Get-GDThreatIntelSet
+Set-Alias -Name GD-GetTrustedEntitySet -Value Get-GDTrustedEntitySet
 Set-Alias -Name Get-GDUsageStatistics -Value Get-GDUsageStatistic
 Set-Alias -Name GD-GetUsageStatistics -Value Get-GDUsageStatistic
 Set-Alias -Name Invite-GDMembers -Value Send-GDMemberInvitation
@@ -15155,9 +15176,15 @@ Set-Alias -Name List-GDPublishingDestinations -Value Get-GDPublishingDestination
 Set-Alias -Name List-GDPublishingDestinationList -Value Get-GDPublishingDestinationList
 Set-Alias -Name GD-ListPublishingDestinations -Value Get-GDPublishingDestinationList
 Set-Alias -Name GD-ListTagsForResource -Value Get-GDResourceTag
+Set-Alias -Name List-GDThreatEntitySets -Value Get-GDThreatEntitySetList
+Set-Alias -Name List-GDThreatEntitySetList -Value Get-GDThreatEntitySetList
+Set-Alias -Name GD-ListThreatEntitySets -Value Get-GDThreatEntitySetList
 Set-Alias -Name List-GDThreatIntelSets -Value Get-GDThreatIntelSetList
 Set-Alias -Name List-GDThreatIntelSetList -Value Get-GDThreatIntelSetList
 Set-Alias -Name GD-ListThreatIntelSets -Value Get-GDThreatIntelSetList
+Set-Alias -Name List-GDTrustedEntitySets -Value Get-GDTrustedEntitySetList
+Set-Alias -Name List-GDTrustedEntitySetList -Value Get-GDTrustedEntitySetList
+Set-Alias -Name GD-ListTrustedEntitySets -Value Get-GDTrustedEntitySetList
 Set-Alias -Name GD-StartMalwareScan -Value Start-GDMalwareScan
 Set-Alias -Name Start-GDMonitoringMembers -Value Start-GDMonitoringMember
 Set-Alias -Name GD-StartMonitoringMembers -Value Start-GDMonitoringMember
@@ -15180,7 +15207,9 @@ Set-Alias -Name Update-GDMemberDetectors -Value Update-GDMemberDetector
 Set-Alias -Name GD-UpdateMemberDetectors -Value Update-GDMemberDetector
 Set-Alias -Name GD-UpdateOrganizationConfiguration -Value Update-GDOrganizationConfiguration
 Set-Alias -Name GD-UpdatePublishingDestination -Value Update-GDPublishingDestination
+Set-Alias -Name GD-UpdateThreatEntitySet -Value Update-GDThreatEntitySet
 Set-Alias -Name GD-UpdateThreatIntelSet -Value Update-GDThreatIntelSet
+Set-Alias -Name GD-UpdateTrustedEntitySet -Value Update-GDTrustedEntitySet
 Set-Alias -Name Describe-HLTHAffectedAccountsForOrganization -Value Get-HLTHAffectedAccountsForOrganization
 Set-Alias -Name HLTH-DescribeAffectedAccountsForOrganization -Value Get-HLTHAffectedAccountsForOrganization
 Set-Alias -Name Describe-HLTHAffectedEntities -Value Get-HLTHAffectedEntity
@@ -32931,6 +32960,8 @@ Set-Alias -Name WKS-DescribeConnectionAliases -Value Get-WKSConnectionAlias
 Set-Alias -Name Describe-WKSConnectionAliasPermissions -Value Get-WKSConnectionAliasPermission
 Set-Alias -Name Describe-WKSConnectionAliasPermission -Value Get-WKSConnectionAliasPermission
 Set-Alias -Name WKS-DescribeConnectionAliasPermissions -Value Get-WKSConnectionAliasPermission
+Set-Alias -Name Describe-WKSCustomWorkspaceImageImport -Value Get-WKSCustomWorkspaceImageImport
+Set-Alias -Name WKS-DescribeCustomWorkspaceImageImport -Value Get-WKSCustomWorkspaceImageImport
 Set-Alias -Name Describe-WKSImageAssociations -Value Get-WKSImageAssociation
 Set-Alias -Name Describe-WKSImageAssociation -Value Get-WKSImageAssociation
 Set-Alias -Name WKS-DescribeImageAssociations -Value Get-WKSImageAssociation
@@ -32978,6 +33009,7 @@ Set-Alias -Name Disassociate-WKSWorkspaceApplication -Value Unregister-WKSWorksp
 Set-Alias -Name WKS-DisassociateWorkspaceApplication -Value Unregister-WKSWorkspaceApplication
 Set-Alias -Name WKS-GetAccountLink -Value Get-WKSAccountLink
 Set-Alias -Name WKS-ImportClientBranding -Value Import-WKSClientBranding
+Set-Alias -Name WKS-ImportCustomWorkspaceImage -Value Import-WKSCustomWorkspaceImage
 Set-Alias -Name WKS-ImportWorkspaceImage -Value Import-WKSWorkspaceImage
 Set-Alias -Name List-WKSAccountLinks -Value Get-WKSAccountLinkList
 Set-Alias -Name List-WKSAccountLinkList -Value Get-WKSAccountLinkList
