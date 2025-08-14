@@ -169,8 +169,22 @@ $GD_Completers = {
             break
         }
 
+        # Amazon.GuardDuty.ThreatEntitySetFormat
+        "New-GDThreatEntitySet/Format"
+        {
+            $v = "ALIEN_VAULT","FIRE_EYE","OTX_CSV","PROOF_POINT","STIX","TXT"
+            break
+        }
+
         # Amazon.GuardDuty.ThreatIntelSetFormat
         "New-GDThreatIntelSet/Format"
+        {
+            $v = "ALIEN_VAULT","FIRE_EYE","OTX_CSV","PROOF_POINT","STIX","TXT"
+            break
+        }
+
+        # Amazon.GuardDuty.TrustedEntitySetFormat
+        "New-GDTrustedEntitySet/Format"
         {
             $v = "ALIEN_VAULT","FIRE_EYE","OTX_CSV","PROOF_POINT","STIX","TXT"
             break
@@ -198,7 +212,7 @@ $GD_map = @{
     "EbsSnapshotPreservation"=@("Update-GDMalwareScanSetting")
     "Feedback"=@("Update-GDFindingFeedback")
     "FindingPublishingFrequency"=@("New-GDDetector","Update-GDDetector")
-    "Format"=@("New-GDIPSet","New-GDThreatIntelSet")
+    "Format"=@("New-GDIPSet","New-GDThreatEntitySet","New-GDThreatIntelSet","New-GDTrustedEntitySet")
     "GroupBy"=@("Get-GDFindingStatistic")
     "OrderBy"=@("Get-GDFindingStatistic")
     "SortCriteria_AttributeName"=@("Get-GDCoverageList")
@@ -267,7 +281,9 @@ $GD_SelectMap = @{
                "New-GDMember",
                "New-GDPublishingDestination",
                "New-GDSampleFinding",
+               "New-GDThreatEntitySet",
                "New-GDThreatIntelSet",
+               "New-GDTrustedEntitySet",
                "Deny-GDInvitation",
                "Remove-GDDetector",
                "Remove-GDFilter",
@@ -276,7 +292,9 @@ $GD_SelectMap = @{
                "Remove-GDMalwareProtectionPlan",
                "Remove-GDMember",
                "Remove-GDPublishingDestination",
+               "Remove-GDThreatEntitySet",
                "Remove-GDThreatIntelSet",
+               "Remove-GDTrustedEntitySet",
                "Get-GDMalwareScan",
                "Get-GDOrganizationConfiguration",
                "Get-GDPublishingDestination",
@@ -300,7 +318,9 @@ $GD_SelectMap = @{
                "Get-GDMember",
                "Get-GDOrganizationStatistic",
                "Get-GDRemainingFreeTrialDay",
+               "Get-GDThreatEntitySet",
                "Get-GDThreatIntelSet",
+               "Get-GDTrustedEntitySet",
                "Get-GDUsageStatistic",
                "Send-GDMemberInvitation",
                "Get-GDCoverageList",
@@ -314,7 +334,9 @@ $GD_SelectMap = @{
                "Get-GDOrganizationAdminAccountList",
                "Get-GDPublishingDestinationList",
                "Get-GDResourceTag",
+               "Get-GDThreatEntitySetList",
                "Get-GDThreatIntelSetList",
+               "Get-GDTrustedEntitySetList",
                "Start-GDMalwareScan",
                "Start-GDMonitoringMember",
                "Stop-GDMonitoringMember",
@@ -330,7 +352,9 @@ $GD_SelectMap = @{
                "Update-GDMemberDetector",
                "Update-GDOrganizationConfiguration",
                "Update-GDPublishingDestination",
-               "Update-GDThreatIntelSet")
+               "Update-GDThreatEntitySet",
+               "Update-GDThreatIntelSet",
+               "Update-GDTrustedEntitySet")
 }
 
 _awsArgumentCompleterRegistration $GD_SelectCompleters $GD_SelectMap

@@ -1,4 +1,49 @@
-﻿### 4.1.878 (2025-08-13 20:06Z)
+﻿### 4.1.879 (2025-08-14 20:26Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1102.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Billing And Cost Management Recommended Actions. Added cmdlets to support the service. Cmdlets for the service have the noun prefix BCMRA and can be listed using the command 'Get-AWSCmdletName -Service BCMRA'.
+  * Amazon Cloud Map
+    * Modified cmdlet Find-SDInstance: added parameter OwnerAccount.
+    * Modified cmdlet Get-SDInstancesRevision: added parameter OwnerAccount.
+    * Modified cmdlet Get-SDOperation: added parameter OwnerAccount.
+  * Amazon Direct Connect
+    * Modified cmdlet Enable-DCPrivateVirtualInterface: added parameter NewPrivateVirtualInterfaceAllocation_AsnLong.
+    * Modified cmdlet Enable-DCPublicVirtualInterface: added parameter NewPublicVirtualInterfaceAllocation_AsnLong.
+    * Modified cmdlet Enable-DCTransitVirtualInterface: added parameter NewTransitVirtualInterfaceAllocation_AsnLong.
+    * Modified cmdlet Get-DCConnection: added parameters MaxResult, NextToken and NoAutoIteration.
+    * Modified cmdlet Get-DCHostedConnection: added parameters MaxResult, NextToken and NoAutoIteration.
+    * Modified cmdlet Get-DCInterconnect: added parameters MaxResult, NextToken and NoAutoIteration.
+    * Modified cmdlet Get-DCLag: added parameters MaxResult, NextToken and NoAutoIteration.
+    * Modified cmdlet Get-DCVirtualInterface: added parameters MaxResult, NextToken and NoAutoIteration.
+    * Modified cmdlet New-DCBGPPeer: added parameter NewBGPPeer_AsnLong.
+    * Modified cmdlet New-DCPrivateVirtualInterface: added parameter NewPrivateVirtualInterface_AsnLong.
+    * Modified cmdlet New-DCPublicVirtualInterface: added parameter NewPublicVirtualInterface_AsnLong.
+    * Modified cmdlet New-DCTransitVirtualInterface: added parameter NewTransitVirtualInterface_AsnLong.
+    * Modified cmdlet Remove-DCBGPPeer: added parameter AsnLong.
+  * Amazon DynamoDB
+    * Modified cmdlet Update-DDBContributorInsight: added parameter ContributorInsightsMode.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Edit-EC2InstanceConnectEndpoint leveraging the ModifyInstanceConnectEndpoint service API.
+  * Amazon Glue
+    * Added cmdlet Get-GLUEGlueIdentityCenterConfiguration leveraging the GetGlueIdentityCenterConfiguration service API.
+    * Added cmdlet New-GLUEGlueIdentityCenterConfiguration leveraging the CreateGlueIdentityCenterConfiguration service API.
+    * Added cmdlet Remove-GLUEGlueIdentityCenterConfiguration leveraging the DeleteGlueIdentityCenterConfiguration service API.
+    * Added cmdlet Update-GLUEGlueIdentityCenterConfiguration leveraging the UpdateGlueIdentityCenterConfiguration service API.
+  * Amazon GuardDuty
+    * Added cmdlet Get-GDThreatEntitySet leveraging the GetThreatEntitySet service API.
+    * Added cmdlet Get-GDThreatEntitySetList leveraging the ListThreatEntitySets service API.
+    * Added cmdlet Get-GDTrustedEntitySet leveraging the GetTrustedEntitySet service API.
+    * Added cmdlet Get-GDTrustedEntitySetList leveraging the ListTrustedEntitySets service API.
+    * Added cmdlet New-GDThreatEntitySet leveraging the CreateThreatEntitySet service API.
+    * Added cmdlet New-GDTrustedEntitySet leveraging the CreateTrustedEntitySet service API.
+    * Added cmdlet Remove-GDThreatEntitySet leveraging the DeleteThreatEntitySet service API.
+    * Added cmdlet Remove-GDTrustedEntitySet leveraging the DeleteTrustedEntitySet service API.
+    * Added cmdlet Update-GDThreatEntitySet leveraging the UpdateThreatEntitySet service API.
+    * Added cmdlet Update-GDTrustedEntitySet leveraging the UpdateTrustedEntitySet service API.
+  * Amazon WorkSpaces
+    * Added cmdlet Get-WKSCustomWorkspaceImageImport leveraging the DescribeCustomWorkspaceImageImport service API.
+    * Added cmdlet Import-WKSCustomWorkspaceImage leveraging the ImportCustomWorkspaceImage service API.
+
+### 4.1.878 (2025-08-13 20:06Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1101.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DataZone
     * Added cmdlet Get-DZAccountPool leveraging the GetAccountPool service API.

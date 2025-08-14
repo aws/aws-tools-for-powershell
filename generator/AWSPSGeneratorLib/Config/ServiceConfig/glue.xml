@@ -155,6 +155,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateGlueIdentityCenterConfiguration" OutputProperty="ApplicationArn" Verb="New" Noun="GlueIdentityCenterConfiguration" ShouldProcessTarget="InstanceArn" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateIntegration" OutputProperty="*" Verb="New" Noun="Integration" ShouldProcessTarget="IntegrationName" PipelineParameter="IntegrationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -275,6 +279,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDevEndpoint" Verb="Remove" Noun="DevEndpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGlueIdentityCenterConfiguration" Verb="Remove" Noun="GlueIdentityCenterConfiguration" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -495,6 +503,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetEntityRecords" OutputProperty="Records" Verb="Get" Noun="EntityRecord" PipelineParameter="EntityName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGlueIdentityCenterConfiguration" OutputProperty="*" Verb="Get" Noun="GlueIdentityCenterConfiguration" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -981,6 +993,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDevEndpoint" Verb="Update" Noun="DevEndpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGlueIdentityCenterConfiguration" Verb="Update" Noun="GlueIdentityCenterConfiguration" ShouldProcessTarget="Scopes" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

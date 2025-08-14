@@ -73,17 +73,28 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewPrivateVirtualInterfaceAllocation_Asn
         /// <summary>
         /// <para>
-        /// <para>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</para><para>The valid values are 1-2147483647.</para>
+        /// <para>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border
+        /// Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum,
+        /// an error is returned. Use <c>asnLong</c> instead.</para><note><para>You can use <c>asnLong</c> or <c>asn</c>, but not both. We recommend using <c>asnLong</c>
+        /// as it supports a greater pool of numbers. </para><ul><li><para>The <c>asnLong</c> attribute accepts both ASN and long ASN ranges.</para></li><li><para>If you provide a value in the same API call for both <c>asn</c> and <c>asnLong</c>,
+        /// the API will only accept the value for <c>asnLong</c>.</para></li></ul></note><para>The valid values are 1-2147483646.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Int32? NewPrivateVirtualInterfaceAllocation_Asn { get; set; }
+        #endregion
+        
+        #region Parameter NewPrivateVirtualInterfaceAllocation_AsnLong
+        /// <summary>
+        /// <para>
+        /// <para>The ASN when allocating a new private virtual interface. The valid range is from 1
+        /// to 4294967294 for BGP configuration.</para><note><para>You can use <c>asnLong</c> or <c>asn</c>, but not both. We recommend using <c>asnLong</c>
+        /// as it supports a greater pool of numbers. </para><ul><li><para>The <c>asnLong</c> attribute accepts both ASN and long ASN ranges.</para></li><li><para>If you provide a value in the same API call for both <c>asn</c> and <c>asnLong</c>,
+        /// the API will only accept the value for <c>asnLong</c>.</para></li></ul></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? NewPrivateVirtualInterfaceAllocation_AsnLong { get; set; }
         #endregion
         
         #region Parameter NewPrivateVirtualInterfaceAllocation_AuthKey
@@ -270,12 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             context.NewPrivateVirtualInterfaceAllocation_AddressFamily = this.NewPrivateVirtualInterfaceAllocation_AddressFamily;
             context.NewPrivateVirtualInterfaceAllocation_AmazonAddress = this.NewPrivateVirtualInterfaceAllocation_AmazonAddress;
             context.NewPrivateVirtualInterfaceAllocation_Asn = this.NewPrivateVirtualInterfaceAllocation_Asn;
-            #if MODULAR
-            if (this.NewPrivateVirtualInterfaceAllocation_Asn == null && ParameterWasBound(nameof(this.NewPrivateVirtualInterfaceAllocation_Asn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter NewPrivateVirtualInterfaceAllocation_Asn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.NewPrivateVirtualInterfaceAllocation_AsnLong = this.NewPrivateVirtualInterfaceAllocation_AsnLong;
             context.NewPrivateVirtualInterfaceAllocation_AuthKey = this.NewPrivateVirtualInterfaceAllocation_AuthKey;
             context.NewPrivateVirtualInterfaceAllocation_CustomerAddress = this.NewPrivateVirtualInterfaceAllocation_CustomerAddress;
             context.NewPrivateVirtualInterfaceAllocation_Mtu = this.NewPrivateVirtualInterfaceAllocation_Mtu;
@@ -356,6 +362,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_Asn != null)
             {
                 request.NewPrivateVirtualInterfaceAllocation.Asn = requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_Asn.Value;
+                requestNewPrivateVirtualInterfaceAllocationIsNull = false;
+            }
+            System.Int64? requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_AsnLong = null;
+            if (cmdletContext.NewPrivateVirtualInterfaceAllocation_AsnLong != null)
+            {
+                requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_AsnLong = cmdletContext.NewPrivateVirtualInterfaceAllocation_AsnLong.Value;
+            }
+            if (requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_AsnLong != null)
+            {
+                request.NewPrivateVirtualInterfaceAllocation.AsnLong = requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_AsnLong.Value;
                 requestNewPrivateVirtualInterfaceAllocationIsNull = false;
             }
             System.String requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_AuthKey = null;
@@ -492,6 +508,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             public Amazon.DirectConnect.AddressFamily NewPrivateVirtualInterfaceAllocation_AddressFamily { get; set; }
             public System.String NewPrivateVirtualInterfaceAllocation_AmazonAddress { get; set; }
             public System.Int32? NewPrivateVirtualInterfaceAllocation_Asn { get; set; }
+            public System.Int64? NewPrivateVirtualInterfaceAllocation_AsnLong { get; set; }
             public System.String NewPrivateVirtualInterfaceAllocation_AuthKey { get; set; }
             public System.String NewPrivateVirtualInterfaceAllocation_CustomerAddress { get; set; }
             public System.Int32? NewPrivateVirtualInterfaceAllocation_Mtu { get; set; }

@@ -2397,6 +2397,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyInstanceConnectEndpoint" OutputProperty="Return" Verb="Edit" Noun="InstanceConnectEndpoint" ShouldProcessTarget="InstanceConnectEndpointId" PipelineParameter="InstanceConnectEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyInstanceCpuOptions" OutputProperty="*" Verb="Edit" Noun="InstanceCpuOption" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

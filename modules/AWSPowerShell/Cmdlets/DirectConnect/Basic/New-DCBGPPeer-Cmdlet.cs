@@ -90,11 +90,23 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewBGPPeer_Asn
         /// <summary>
         /// <para>
-        /// <para>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</para>
+        /// <para>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border
+        /// Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum,
+        /// an error is returned. Use <c>asnLong</c> instead.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? NewBGPPeer_Asn { get; set; }
+        #endregion
+        
+        #region Parameter NewBGPPeer_AsnLong
+        /// <summary>
+        /// <para>
+        /// <para>The long ASN for a new BGP peer. The valid range is from 1 to 4294967294.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? NewBGPPeer_AsnLong { get; set; }
         #endregion
         
         #region Parameter NewBGPPeer_AuthKey
@@ -193,6 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             context.NewBGPPeer_AddressFamily = this.NewBGPPeer_AddressFamily;
             context.NewBGPPeer_AmazonAddress = this.NewBGPPeer_AmazonAddress;
             context.NewBGPPeer_Asn = this.NewBGPPeer_Asn;
+            context.NewBGPPeer_AsnLong = this.NewBGPPeer_AsnLong;
             context.NewBGPPeer_AuthKey = this.NewBGPPeer_AuthKey;
             context.NewBGPPeer_CustomerAddress = this.NewBGPPeer_CustomerAddress;
             context.VirtualInterfaceId = this.VirtualInterfaceId;
@@ -244,6 +257,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (requestNewBGPPeer_newBGPPeer_Asn != null)
             {
                 request.NewBGPPeer.Asn = requestNewBGPPeer_newBGPPeer_Asn.Value;
+                requestNewBGPPeerIsNull = false;
+            }
+            System.Int64? requestNewBGPPeer_newBGPPeer_AsnLong = null;
+            if (cmdletContext.NewBGPPeer_AsnLong != null)
+            {
+                requestNewBGPPeer_newBGPPeer_AsnLong = cmdletContext.NewBGPPeer_AsnLong.Value;
+            }
+            if (requestNewBGPPeer_newBGPPeer_AsnLong != null)
+            {
+                request.NewBGPPeer.AsnLong = requestNewBGPPeer_newBGPPeer_AsnLong.Value;
                 requestNewBGPPeerIsNull = false;
             }
             System.String requestNewBGPPeer_newBGPPeer_AuthKey = null;
@@ -339,6 +362,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             public Amazon.DirectConnect.AddressFamily NewBGPPeer_AddressFamily { get; set; }
             public System.String NewBGPPeer_AmazonAddress { get; set; }
             public System.Int32? NewBGPPeer_Asn { get; set; }
+            public System.Int64? NewBGPPeer_AsnLong { get; set; }
             public System.String NewBGPPeer_AuthKey { get; set; }
             public System.String NewBGPPeer_CustomerAddress { get; set; }
             public System.String VirtualInterfaceId { get; set; }

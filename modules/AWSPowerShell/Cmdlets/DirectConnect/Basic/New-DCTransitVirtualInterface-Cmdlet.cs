@@ -84,11 +84,28 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewTransitVirtualInterface_Asn
         /// <summary>
         /// <para>
-        /// <para>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</para><para>The valid values are 1-2147483647.</para>
+        /// <para>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border
+        /// Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum,
+        /// an error is returned. Use <c>asnLong</c> instead.</para><note><para>You can use <c>asnLong</c> or <c>asn</c>, but not both. We recommend using <c>asnLong</c>
+        /// as it supports a greater pool of numbers. </para><ul><li><para>The <c>asnLong</c> attribute accepts both ASN and long ASN ranges.</para></li><li><para>If you provide a value in the same API call for both <c>asn</c> and <c>asnLong</c>,
+        /// the API will only accept the value for <c>asnLong</c>.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? NewTransitVirtualInterface_Asn { get; set; }
+        #endregion
+        
+        #region Parameter NewTransitVirtualInterface_AsnLong
+        /// <summary>
+        /// <para>
+        /// <para>The long ASN for a new transit virtual interface.The valid range is from 1 to 4294967294
+        /// for BGP configuration.</para><note><para>You can use <c>asnLong</c> or <c>asn</c>, but not both. We recommend using <c>asnLong</c>
+        /// as it supports a greater pool of numbers. </para><ul><li><para>The <c>asnLong</c> attribute accepts both ASN and long ASN ranges.</para></li><li><para>If you provide a value in the same API call for both <c>asn</c> and <c>asnLong</c>,
+        /// the API will only accept the value for <c>asnLong</c>.</para></li></ul></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? NewTransitVirtualInterface_AsnLong { get; set; }
         #endregion
         
         #region Parameter NewTransitVirtualInterface_AuthKey
@@ -265,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             context.NewTransitVirtualInterface_AddressFamily = this.NewTransitVirtualInterface_AddressFamily;
             context.NewTransitVirtualInterface_AmazonAddress = this.NewTransitVirtualInterface_AmazonAddress;
             context.NewTransitVirtualInterface_Asn = this.NewTransitVirtualInterface_Asn;
+            context.NewTransitVirtualInterface_AsnLong = this.NewTransitVirtualInterface_AsnLong;
             context.NewTransitVirtualInterface_AuthKey = this.NewTransitVirtualInterface_AuthKey;
             context.NewTransitVirtualInterface_CustomerAddress = this.NewTransitVirtualInterface_CustomerAddress;
             context.NewTransitVirtualInterface_DirectConnectGatewayId = this.NewTransitVirtualInterface_DirectConnectGatewayId;
@@ -328,6 +346,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (requestNewTransitVirtualInterface_newTransitVirtualInterface_Asn != null)
             {
                 request.NewTransitVirtualInterface.Asn = requestNewTransitVirtualInterface_newTransitVirtualInterface_Asn.Value;
+                requestNewTransitVirtualInterfaceIsNull = false;
+            }
+            System.Int64? requestNewTransitVirtualInterface_newTransitVirtualInterface_AsnLong = null;
+            if (cmdletContext.NewTransitVirtualInterface_AsnLong != null)
+            {
+                requestNewTransitVirtualInterface_newTransitVirtualInterface_AsnLong = cmdletContext.NewTransitVirtualInterface_AsnLong.Value;
+            }
+            if (requestNewTransitVirtualInterface_newTransitVirtualInterface_AsnLong != null)
+            {
+                request.NewTransitVirtualInterface.AsnLong = requestNewTransitVirtualInterface_newTransitVirtualInterface_AsnLong.Value;
                 requestNewTransitVirtualInterfaceIsNull = false;
             }
             System.String requestNewTransitVirtualInterface_newTransitVirtualInterface_AuthKey = null;
@@ -480,6 +508,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             public Amazon.DirectConnect.AddressFamily NewTransitVirtualInterface_AddressFamily { get; set; }
             public System.String NewTransitVirtualInterface_AmazonAddress { get; set; }
             public System.Int32? NewTransitVirtualInterface_Asn { get; set; }
+            public System.Int64? NewTransitVirtualInterface_AsnLong { get; set; }
             public System.String NewTransitVirtualInterface_AuthKey { get; set; }
             public System.String NewTransitVirtualInterface_CustomerAddress { get; set; }
             public System.String NewTransitVirtualInterface_DirectConnectGatewayId { get; set; }

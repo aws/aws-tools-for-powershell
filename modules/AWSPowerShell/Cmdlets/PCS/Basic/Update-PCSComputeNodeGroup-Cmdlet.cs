@@ -111,8 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role
         /// when launching EC2 instances. The role contained in your instance profile must have
-        /// the <c>pcs:RegisterComputeNodeGroupInstance</c> permission. The resource identifier
-        /// of the ARN must start with <c>AWSPCS</c> or it must have <c>/aws-pcs/</c> in its path.</para><para><b>Examples</b></para><ul><li><para><c>arn:aws:iam::111122223333:instance-profile/AWSPCS-example-role-1</c></para></li><li><para><c>arn:aws:iam::111122223333:instance-profile/aws-pcs/example-role-2</c></para></li></ul>
+        /// the <c>pcs:RegisterComputeNodeGroupInstance</c> permission and the role name must
+        /// start with <c>AWSPCS</c> or must have the path <c>/aws-pcs/</c>. For more information,
+        /// see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/security-instance-profiles.html">IAM
+        /// instance profiles for PCS</a> in the <i>PCS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

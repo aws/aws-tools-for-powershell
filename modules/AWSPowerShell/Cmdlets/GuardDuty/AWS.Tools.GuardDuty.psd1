@@ -123,8 +123,12 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-GDPublishingDestinationList', 
         'Get-GDRemainingFreeTrialDay', 
         'Get-GDResourceTag', 
+        'Get-GDThreatEntitySet', 
+        'Get-GDThreatEntitySetList', 
         'Get-GDThreatIntelSet', 
         'Get-GDThreatIntelSetList', 
+        'Get-GDTrustedEntitySet', 
+        'Get-GDTrustedEntitySetList', 
         'Get-GDUsageStatistic', 
         'New-GDDetector', 
         'New-GDFilter', 
@@ -133,7 +137,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-GDMember', 
         'New-GDPublishingDestination', 
         'New-GDSampleFinding', 
+        'New-GDThreatEntitySet', 
         'New-GDThreatIntelSet', 
+        'New-GDTrustedEntitySet', 
         'Receive-GDAdministratorInvitation', 
         'Remove-GDDetector', 
         'Remove-GDFilter', 
@@ -144,7 +150,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-GDMember', 
         'Remove-GDPublishingDestination', 
         'Remove-GDResourceTag', 
+        'Remove-GDThreatEntitySet', 
         'Remove-GDThreatIntelSet', 
+        'Remove-GDTrustedEntitySet', 
         'Restore-GDFinding', 
         'Send-GDMemberInvitation', 
         'Start-GDMalwareScan', 
@@ -161,7 +169,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-GDMemberDetector', 
         'Update-GDOrganizationConfiguration', 
         'Update-GDPublishingDestination', 
-        'Update-GDThreatIntelSet')
+        'Update-GDThreatEntitySet', 
+        'Update-GDThreatIntelSet', 
+        'Update-GDTrustedEntitySet')
 
     # Variables to export from this module
     VariablesToExport = '*'

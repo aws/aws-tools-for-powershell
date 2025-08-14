@@ -44,7 +44,15 @@ namespace Amazon.PowerShell.Cmdlets.SD
     /// </para></li><li><para>
     /// If you omit an existing <c>HealthCheckCustomConfig</c> configuration from an <c>UpdateService</c>
     /// request, the configuration isn't deleted from the service.
-    /// </para></li></ul><para>
+    /// </para></li></ul><note><para>
+    /// You can't call <c>UpdateService</c> and update settings in the following scenarios:
+    /// </para><ul><li><para>
+    /// When the service is associated with an HTTP namespace
+    /// </para></li><li><para>
+    /// When the service is associated with a shared namespace and contains instances that
+    /// were registered by Amazon Web Services accounts other than the account making the
+    /// <c>UpdateService</c> call
+    /// </para></li></ul></note><para>
     /// When you update settings for a service, Cloud Map also updates the corresponding settings
     /// in all the records and health checks that were created by using the specified service.
     /// </para>
@@ -64,7 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the service that you want to update.</para>
+        /// <para>The ID or Amazon Resource Name (ARN) of the service that you want to update. If the
+        /// namespace associated with the service is shared with your Amazon Web Services account,
+        /// specify the service ARN. For more information about shared namespaces, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html">Cross-account
+        /// Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i></para>
         /// </para>
         /// </summary>
         #if !MODULAR

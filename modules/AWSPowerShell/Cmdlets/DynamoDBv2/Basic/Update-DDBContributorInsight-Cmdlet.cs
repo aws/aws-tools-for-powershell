@@ -64,6 +64,18 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public Amazon.DynamoDBv2.ContributorInsightsAction ContributorInsightsAction { get; set; }
         #endregion
         
+        #region Parameter ContributorInsightsMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to track all access and throttled events or throttled events only
+        /// for the DynamoDB table or index.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DynamoDBv2.ContributorInsightsMode")]
+        public Amazon.DynamoDBv2.ContributorInsightsMode ContributorInsightsMode { get; set; }
+        #endregion
+        
         #region Parameter IndexName
         /// <summary>
         /// <para>
@@ -161,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 WriteWarning("You are passing $null as a value for parameter ContributorInsightsAction which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ContributorInsightsMode = this.ContributorInsightsMode;
             context.IndexName = this.IndexName;
             context.TableName = this.TableName;
             #if MODULAR
@@ -188,6 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             if (cmdletContext.ContributorInsightsAction != null)
             {
                 request.ContributorInsightsAction = cmdletContext.ContributorInsightsAction;
+            }
+            if (cmdletContext.ContributorInsightsMode != null)
+            {
+                request.ContributorInsightsMode = cmdletContext.ContributorInsightsMode;
             }
             if (cmdletContext.IndexName != null)
             {
@@ -259,6 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.DynamoDBv2.ContributorInsightsAction ContributorInsightsAction { get; set; }
+            public Amazon.DynamoDBv2.ContributorInsightsMode ContributorInsightsMode { get; set; }
             public System.String IndexName { get; set; }
             public System.String TableName { get; set; }
             public System.Func<Amazon.DynamoDBv2.Model.UpdateContributorInsightsResponse, UpdateDDBContributorInsightCmdlet, object> Select { get; set; } =

@@ -59,7 +59,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateThreatEntitySet" OutputProperty="ThreatEntitySetId" Verb="New" Noun="ThreatEntitySet" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateThreatIntelSet" OutputProperty="ThreatIntelSetId" Verb="New" Noun="ThreatIntelSet" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTrustedEntitySet" OutputProperty="TrustedEntitySetId" Verb="New" Noun="TrustedEntitySet" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -95,7 +103,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteThreatEntitySet" Verb="Remove" Noun="ThreatEntitySet" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteThreatIntelSet" Verb="Remove" Noun="ThreatIntelSet" ShouldProcessTarget="ThreatIntelSetId" PipelineParameter="ThreatIntelSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTrustedEntitySet" Verb="Remove" Noun="TrustedEntitySet" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -191,7 +207,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetThreatEntitySet" OutputProperty="*" Verb="Get" Noun="ThreatEntitySet" PipelineParameter="DetectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetThreatIntelSet" OutputProperty="*" Verb="Get" Noun="ThreatIntelSet" PipelineParameter="ThreatIntelSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTrustedEntitySet" OutputProperty="*" Verb="Get" Noun="TrustedEntitySet" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -207,23 +231,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDetectors" OutputProperty="DetectorIds" Verb="Get" Noun="DetectorList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDetectors" OutputProperty="DetectorIds" Verb="Get" Noun="DetectorList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFilters" OutputProperty="FilterNames" Verb="Get" Noun="FilterList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFilters" OutputProperty="FilterNames" Verb="Get" Noun="FilterList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFindings" OutputProperty="FindingIds" Verb="Get" Noun="FindingList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFindings" OutputProperty="FindingIds" Verb="Get" Noun="FindingList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInvitations" OutputProperty="Invitations" Verb="Get" Noun="InvitationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListInvitations" OutputProperty="Invitations" Verb="Get" Noun="InvitationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIPSets" OutputProperty="IpSetIds" Verb="Get" Noun="IPSetList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListIPSets" OutputProperty="IpSetIds" Verb="Get" Noun="IPSetList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -231,7 +255,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMembers" OutputProperty="Members" Verb="Get" Noun="MemberList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMembers" OutputProperty="Members" Verb="Get" Noun="MemberList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -239,7 +263,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPublishingDestinations" OutputProperty="Destinations" Verb="Get" Noun="PublishingDestinationList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPublishingDestinations" OutputProperty="Destinations" Verb="Get" Noun="PublishingDestinationList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -247,7 +271,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListThreatIntelSets" OutputProperty="ThreatIntelSetIds" Verb="Get" Noun="ThreatIntelSetList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListThreatEntitySets" OutputProperty="ThreatEntitySetIds" Verb="Get" Noun="ThreatEntitySetList" PipelineParameter="DetectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListThreatIntelSets" OutputProperty="ThreatIntelSetIds" Verb="Get" Noun="ThreatIntelSetList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTrustedEntitySets" OutputProperty="TrustedEntitySetIds" Verb="Get" Noun="TrustedEntitySetList" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -311,7 +343,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateThreatEntitySet" Verb="Update" Noun="ThreatEntitySet" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateThreatIntelSet" Verb="Update" Noun="ThreatIntelSet" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTrustedEntitySet" Verb="Update" Noun="TrustedEntitySet" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

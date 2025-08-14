@@ -51,11 +51,28 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter Asn
         /// <summary>
         /// <para>
-        /// <para>The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.</para>
+        /// <para>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border
+        /// Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum,
+        /// an error is returned. Use <c>asnLong</c> instead.</para><note><para>You can use <c>asnLong</c> or <c>asn</c>, but not both. We recommend using <c>asnLong</c>
+        /// as it supports a greater pool of numbers. </para><ul><li><para>The <c>asnLong</c> attribute accepts both ASN and long ASN ranges.</para></li><li><para>If you provide a value in the same API call for both <c>asn</c> and <c>asnLong</c>,
+        /// the API will only accept the value for <c>asnLong</c>.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? Asn { get; set; }
+        #endregion
+        
+        #region Parameter AsnLong
+        /// <summary>
+        /// <para>
+        /// <para>The long ASN for the BGP peer to be deleted from a Direct Connect virtual interface.
+        /// The valid range is from 1 to 4294967294 for BGP configuration. </para><note><para>You can use <c>asnLong</c> or <c>asn</c>, but not both. We recommend using <c>asnLong</c>
+        /// as it supports a greater pool of numbers. </para><ul><li><para>The <c>asnLong</c> attribute accepts both ASN and long ASN ranges.</para></li><li><para>If you provide a value in the same API call for both <c>asn</c> and <c>asnLong</c>,
+        /// the API will only accept the value for <c>asnLong</c>.</para></li></ul></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? AsnLong { get; set; }
         #endregion
         
         #region Parameter BgpPeerId
@@ -151,6 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Asn = this.Asn;
+            context.AsnLong = this.AsnLong;
             context.BgpPeerId = this.BgpPeerId;
             context.CustomerAddress = this.CustomerAddress;
             context.VirtualInterfaceId = this.VirtualInterfaceId;
@@ -173,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (cmdletContext.Asn != null)
             {
                 request.Asn = cmdletContext.Asn.Value;
+            }
+            if (cmdletContext.AsnLong != null)
+            {
+                request.AsnLong = cmdletContext.AsnLong.Value;
             }
             if (cmdletContext.BgpPeerId != null)
             {
@@ -248,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? Asn { get; set; }
+            public System.Int64? AsnLong { get; set; }
             public System.String BgpPeerId { get; set; }
             public System.String CustomerAddress { get; set; }
             public System.String VirtualInterfaceId { get; set; }

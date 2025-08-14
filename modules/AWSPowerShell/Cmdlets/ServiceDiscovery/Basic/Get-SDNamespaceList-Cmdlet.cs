@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
 {
     /// <summary>
     /// Lists summary information about the namespaces that were created by the current Amazon
-    /// Web Services account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Web Services account and shared with the current Amazon Web Services account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SDNamespaceList")]
     [OutputType("Amazon.ServiceDiscovery.Model.NamespaceSummary")]

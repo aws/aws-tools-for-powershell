@@ -7183,6 +7183,61 @@ $BCMPC_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $BCMPC_SelectCompleters $BCMPC_SelectMap
+# Argument completions for service AWS Billing And Cost Management Recommended Actions
+
+
+$BCMRA_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.BCMRA.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BCMRA_SelectMap = @{
+    "Select"=@("Get-BCMRARecommendedActionList")
+}
+
+_awsArgumentCompleterRegistration $BCMRA_SelectCompleters $BCMRA_SelectMap
 # Argument completions for service Amazon Bedrock Agent Runtime
 
 
@@ -25709,6 +25764,13 @@ $DDB_Completers = {
             break
         }
 
+        # Amazon.DynamoDBv2.ContributorInsightsMode
+        "Update-DDBContributorInsight/ContributorInsightsMode"
+        {
+            $v = "ACCESSED_AND_THROTTLED_KEYS","THROTTLED_KEYS"
+            break
+        }
+
         # Amazon.DynamoDBv2.ExportFormat
         "Export-DDBTableToPointInTime/ExportFormat"
         {
@@ -25890,6 +25952,7 @@ $DDB_map = @{
     "BillingModeOverride"=@("Restore-DDBTableFromBackup","Restore-DDBTableToPointInTime")
     "ConditionalOperator"=@("Invoke-DDBQuery","Invoke-DDBScan","Remove-DDBItem","Set-DDBItem","Update-DDBItem")
     "ContributorInsightsAction"=@("Update-DDBContributorInsight")
+    "ContributorInsightsMode"=@("Update-DDBContributorInsight")
     "EnableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision"=@("Disable-DDBKinesisStreamingDestination","Enable-DDBKinesisStreamingDestination")
     "ExportFormat"=@("Export-DDBTableToPointInTime")
     "ExportType"=@("Export-DDBTableToPointInTime")
@@ -26945,6 +27008,7 @@ $EC2_Completers = {
 
         # Amazon.EC2.IpAddressType
         {
+            ($_ -eq "Edit-EC2InstanceConnectEndpoint/IpAddressType") -Or
             ($_ -eq "Edit-EC2VpcEndpoint/IpAddressType") -Or
             ($_ -eq "New-EC2InstanceConnectEndpoint/IpAddressType") -Or
             ($_ -eq "New-EC2VpcEndpoint/IpAddressType")
@@ -27618,7 +27682,7 @@ $EC2_map = @{
     "InterfaceType"=@("New-EC2NetworkInterface")
     "InternetGatewayBlockMode"=@("Edit-EC2VpcBlockPublicAccessOption")
     "InternetGatewayExclusionMode"=@("Edit-EC2VpcBlockPublicAccessExclusion","New-EC2VpcBlockPublicAccessExclusion")
-    "IpAddressType"=@("Edit-EC2VpcEndpoint","New-EC2InstanceConnectEndpoint","New-EC2VpcEndpoint")
+    "IpAddressType"=@("Edit-EC2InstanceConnectEndpoint","Edit-EC2VpcEndpoint","New-EC2InstanceConnectEndpoint","New-EC2VpcEndpoint")
     "KeyFormat"=@("Get-EC2InstanceTpmEkPub","New-EC2KeyPair")
     "KeyType"=@("Get-EC2InstanceTpmEkPub","New-EC2KeyPair")
     "LaunchSpecification_InstanceType"=@("Request-EC2SpotInstance")
@@ -28319,6 +28383,7 @@ $EC2_SelectMap = @{
                "Edit-EC2ImageAttribute",
                "Edit-EC2InstanceAttribute",
                "Edit-EC2InstanceCapacityReservationAttribute",
+               "Edit-EC2InstanceConnectEndpoint",
                "Edit-EC2InstanceCpuOption",
                "Edit-EC2InstanceCreditSpecification",
                "Edit-EC2InstanceEventStartTime",
@@ -36225,6 +36290,7 @@ $GLUE_SelectMap = @{
                "New-GLUEDatabase",
                "New-GLUEDataQualityRuleset",
                "New-GLUEDevEndpoint",
+               "New-GLUEGlueIdentityCenterConfiguration",
                "New-GLUEIntegration",
                "New-GLUEIntegrationResourceProperty",
                "New-GLUEIntegrationTableProperty",
@@ -36255,6 +36321,7 @@ $GLUE_SelectMap = @{
                "Remove-GLUEDatabase",
                "Remove-GLUEDataQualityRuleset",
                "Remove-GLUEDevEndpoint",
+               "Remove-GLUEGlueIdentityCenterConfiguration",
                "Remove-GLUEIntegration",
                "Remove-GLUEIntegrationTableProperty",
                "Remove-GLUEJob",
@@ -36310,6 +36377,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEDevEndpoint",
                "Get-GLUEDevEndpointList",
                "Get-GLUEEntityRecord",
+               "Get-GLUEGlueIdentityCenterConfiguration",
                "Get-GLUEIntegrationResourceProperty",
                "Get-GLUEIntegrationTableProperty",
                "Get-GLUEJob",
@@ -36430,6 +36498,7 @@ $GLUE_SelectMap = @{
                "Update-GLUEDatabase",
                "Update-GLUEDataQualityRuleset",
                "Update-GLUEDevEndpoint",
+               "Update-GLUEGlueIdentityCenterConfiguration",
                "Update-GLUEIntegrationResourceProperty",
                "Update-GLUEIntegrationTableProperty",
                "Update-GLUEJob",
@@ -37228,8 +37297,22 @@ $GD_Completers = {
             break
         }
 
+        # Amazon.GuardDuty.ThreatEntitySetFormat
+        "New-GDThreatEntitySet/Format"
+        {
+            $v = "ALIEN_VAULT","FIRE_EYE","OTX_CSV","PROOF_POINT","STIX","TXT"
+            break
+        }
+
         # Amazon.GuardDuty.ThreatIntelSetFormat
         "New-GDThreatIntelSet/Format"
+        {
+            $v = "ALIEN_VAULT","FIRE_EYE","OTX_CSV","PROOF_POINT","STIX","TXT"
+            break
+        }
+
+        # Amazon.GuardDuty.TrustedEntitySetFormat
+        "New-GDTrustedEntitySet/Format"
         {
             $v = "ALIEN_VAULT","FIRE_EYE","OTX_CSV","PROOF_POINT","STIX","TXT"
             break
@@ -37257,7 +37340,7 @@ $GD_map = @{
     "EbsSnapshotPreservation"=@("Update-GDMalwareScanSetting")
     "Feedback"=@("Update-GDFindingFeedback")
     "FindingPublishingFrequency"=@("New-GDDetector","Update-GDDetector")
-    "Format"=@("New-GDIPSet","New-GDThreatIntelSet")
+    "Format"=@("New-GDIPSet","New-GDThreatEntitySet","New-GDThreatIntelSet","New-GDTrustedEntitySet")
     "GroupBy"=@("Get-GDFindingStatistic")
     "OrderBy"=@("Get-GDFindingStatistic")
     "SortCriteria_AttributeName"=@("Get-GDCoverageList")
@@ -37326,7 +37409,9 @@ $GD_SelectMap = @{
                "New-GDMember",
                "New-GDPublishingDestination",
                "New-GDSampleFinding",
+               "New-GDThreatEntitySet",
                "New-GDThreatIntelSet",
+               "New-GDTrustedEntitySet",
                "Deny-GDInvitation",
                "Remove-GDDetector",
                "Remove-GDFilter",
@@ -37335,7 +37420,9 @@ $GD_SelectMap = @{
                "Remove-GDMalwareProtectionPlan",
                "Remove-GDMember",
                "Remove-GDPublishingDestination",
+               "Remove-GDThreatEntitySet",
                "Remove-GDThreatIntelSet",
+               "Remove-GDTrustedEntitySet",
                "Get-GDMalwareScan",
                "Get-GDOrganizationConfiguration",
                "Get-GDPublishingDestination",
@@ -37359,7 +37446,9 @@ $GD_SelectMap = @{
                "Get-GDMember",
                "Get-GDOrganizationStatistic",
                "Get-GDRemainingFreeTrialDay",
+               "Get-GDThreatEntitySet",
                "Get-GDThreatIntelSet",
+               "Get-GDTrustedEntitySet",
                "Get-GDUsageStatistic",
                "Send-GDMemberInvitation",
                "Get-GDCoverageList",
@@ -37373,7 +37462,9 @@ $GD_SelectMap = @{
                "Get-GDOrganizationAdminAccountList",
                "Get-GDPublishingDestinationList",
                "Get-GDResourceTag",
+               "Get-GDThreatEntitySetList",
                "Get-GDThreatIntelSetList",
+               "Get-GDTrustedEntitySetList",
                "Start-GDMalwareScan",
                "Start-GDMonitoringMember",
                "Stop-GDMonitoringMember",
@@ -37389,7 +37480,9 @@ $GD_SelectMap = @{
                "Update-GDMemberDetector",
                "Update-GDOrganizationConfiguration",
                "Update-GDPublishingDestination",
-               "Update-GDThreatIntelSet")
+               "Update-GDThreatEntitySet",
+               "Update-GDThreatIntelSet",
+               "Update-GDTrustedEntitySet")
 }
 
 _awsArgumentCompleterRegistration $GD_SelectCompleters $GD_SelectMap
@@ -81799,6 +81892,13 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.CustomImageProtocol
+        "Import-WKSCustomWorkspaceImage/Protocol"
+        {
+            $v = "BYOP","DCV","PCOIP"
+            break
+        }
+
         # Amazon.WorkSpaces.DataReplication
         "Edit-WKSWorkspaceProperty/DataReplication"
         {
@@ -81820,6 +81920,13 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.ImageComputeType
+        "Import-WKSCustomWorkspaceImage/ComputeType"
+        {
+            $v = "BASE","GRAPHICS_G4DN"
+            break
+        }
+
         # Amazon.WorkSpaces.ImageType
         "Get-WKSWorkspaceImage/ImageType"
         {
@@ -81838,6 +81945,20 @@ $WKS_Completers = {
         "Edit-WKSWorkspaceProperty/WorkspaceProperties_OperatingSystemName"
         {
             $v = "AMAZON_LINUX_2","RHEL_8","ROCKY_8","UBUNTU_18_04","UBUNTU_20_04","UBUNTU_22_04","UNKNOWN","WINDOWS_10","WINDOWS_11","WINDOWS_7","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019","WINDOWS_SERVER_2022"
+            break
+        }
+
+        # Amazon.WorkSpaces.OSVersion
+        "Import-WKSCustomWorkspaceImage/OsVersion"
+        {
+            $v = "Windows_10","Windows_11"
+            break
+        }
+
+        # Amazon.WorkSpaces.Platform
+        "Import-WKSCustomWorkspaceImage/Platform"
+        {
+            $v = "WINDOWS"
             break
         }
 
@@ -81941,6 +82062,7 @@ $WKS_map = @{
     "CertificateBasedAuthProperties_Status"=@("Edit-WKSCertificateBasedAuthProperty")
     "ClientProperties_LogUploadEnabled"=@("Edit-WKSClientProperty")
     "ClientProperties_ReconnectEnabled"=@("Edit-WKSClientProperty")
+    "ComputeType"=@("Import-WKSCustomWorkspaceImage")
     "ComputeType_Name"=@("New-WKSWorkspaceBundle")
     "DataReplication"=@("Edit-WKSWorkspaceProperty")
     "DedicatedTenancySupport"=@("Edit-WKSAccount")
@@ -81950,6 +82072,9 @@ $WKS_map = @{
     "ImageType"=@("Get-WKSWorkspaceImage")
     "IngestionProcess"=@("Import-WKSWorkspaceImage")
     "LicenseType"=@("Get-WKSApplication")
+    "OsVersion"=@("Import-WKSCustomWorkspaceImage")
+    "Platform"=@("Import-WKSCustomWorkspaceImage")
+    "Protocol"=@("Import-WKSCustomWorkspaceImage")
     "RunningMode"=@("New-WKSWorkspacesPool","Update-WKSWorkspacesPool")
     "SamlProperties_Status"=@("Edit-WKSSamlProperty")
     "SelfservicePermissions_ChangeComputeType"=@("Edit-WKSSelfservicePermission")
@@ -82063,6 +82188,7 @@ $WKS_SelectMap = @{
                "Get-WKSConnectClientAddIn",
                "Get-WKSConnectionAlias",
                "Get-WKSConnectionAliasPermission",
+               "Get-WKSCustomWorkspaceImageImport",
                "Get-WKSImageAssociation",
                "Get-WKSIpGroup",
                "Get-WKSTag",
@@ -82081,6 +82207,7 @@ $WKS_SelectMap = @{
                "Unregister-WKSWorkspaceApplication",
                "Get-WKSAccountLink",
                "Import-WKSClientBranding",
+               "Import-WKSCustomWorkspaceImage",
                "Import-WKSWorkspaceImage",
                "Get-WKSAccountLinkList",
                "Get-WKSAvailableManagementCidrRangeList",

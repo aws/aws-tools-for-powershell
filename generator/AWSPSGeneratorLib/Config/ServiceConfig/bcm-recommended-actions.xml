@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>bcm-recommended-actions</C2jFilename>
+    <AssemblyName>BCMRecommendedActions</AssemblyName>
+    <ServiceNounPrefix>BCMRA</ServiceNounPrefix>
+    <ServiceName>AWS Billing And Cost Management Recommended Actions</ServiceName>
+    <ServiceClientInterface>IAmazonBCMRecommendedActions</ServiceClientInterface>
+    <ServiceClient>AmazonBCMRecommendedActionsClient</ServiceClient>
+    <ServiceModuleGuid>6db2e946-0866-47c9-a271-caf32f1b90a0</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="ListRecommendedActions" OutputProperty="RecommendedActions" Verb="Get" Noun="RecommendedActionList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

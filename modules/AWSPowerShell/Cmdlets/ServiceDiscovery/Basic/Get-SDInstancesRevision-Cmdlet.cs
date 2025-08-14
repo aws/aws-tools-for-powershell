@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter NamespaceName
         /// <summary>
         /// <para>
-        /// <para>The <c>HttpName</c> name of the namespace. It's found in the <c>HttpProperties</c>
+        /// <para>The <c>HttpName</c> name of the namespace. The <c>HttpName</c> is found in the <c>HttpProperties</c>
         /// member of the <c>Properties</c> member of the namespace.</para>
         /// </para>
         /// </summary>
@@ -58,6 +58,20 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String NamespaceName { get; set; }
+        #endregion
+        
+        #region Parameter OwnerAccount
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Amazon Web Services account that owns the namespace associated with
+        /// the instance, as specified in the namespace <c>ResourceOwner</c> field. For instances
+        /// associated with namespaces that are shared with your account, you must specify an
+        /// <c>OwnerAccount</c>. For more information about shared namespaces, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html">Cross-account
+        /// Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OwnerAccount { get; set; }
         #endregion
         
         #region Parameter ServiceName
@@ -110,6 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
                 WriteWarning("You are passing $null as a value for parameter NamespaceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OwnerAccount = this.OwnerAccount;
             context.ServiceName = this.ServiceName;
             #if MODULAR
             if (this.ServiceName == null && ParameterWasBound(nameof(this.ServiceName)))
@@ -136,6 +151,10 @@ namespace Amazon.PowerShell.Cmdlets.SD
             if (cmdletContext.NamespaceName != null)
             {
                 request.NamespaceName = cmdletContext.NamespaceName;
+            }
+            if (cmdletContext.OwnerAccount != null)
+            {
+                request.OwnerAccount = cmdletContext.OwnerAccount;
             }
             if (cmdletContext.ServiceName != null)
             {
@@ -203,6 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String NamespaceName { get; set; }
+            public System.String OwnerAccount { get; set; }
             public System.String ServiceName { get; set; }
             public System.Func<Amazon.ServiceDiscovery.Model.DiscoverInstancesRevisionResponse, GetSDInstancesRevisionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.InstancesRevision;

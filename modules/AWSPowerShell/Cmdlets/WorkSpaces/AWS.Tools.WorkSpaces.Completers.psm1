@@ -152,6 +152,13 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.CustomImageProtocol
+        "Import-WKSCustomWorkspaceImage/Protocol"
+        {
+            $v = "BYOP","DCV","PCOIP"
+            break
+        }
+
         # Amazon.WorkSpaces.DataReplication
         "Edit-WKSWorkspaceProperty/DataReplication"
         {
@@ -173,6 +180,13 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.ImageComputeType
+        "Import-WKSCustomWorkspaceImage/ComputeType"
+        {
+            $v = "BASE","GRAPHICS_G4DN"
+            break
+        }
+
         # Amazon.WorkSpaces.ImageType
         "Get-WKSWorkspaceImage/ImageType"
         {
@@ -191,6 +205,20 @@ $WKS_Completers = {
         "Edit-WKSWorkspaceProperty/WorkspaceProperties_OperatingSystemName"
         {
             $v = "AMAZON_LINUX_2","RHEL_8","ROCKY_8","UBUNTU_18_04","UBUNTU_20_04","UBUNTU_22_04","UNKNOWN","WINDOWS_10","WINDOWS_11","WINDOWS_7","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019","WINDOWS_SERVER_2022"
+            break
+        }
+
+        # Amazon.WorkSpaces.OSVersion
+        "Import-WKSCustomWorkspaceImage/OsVersion"
+        {
+            $v = "Windows_10","Windows_11"
+            break
+        }
+
+        # Amazon.WorkSpaces.Platform
+        "Import-WKSCustomWorkspaceImage/Platform"
+        {
+            $v = "WINDOWS"
             break
         }
 
@@ -294,6 +322,7 @@ $WKS_map = @{
     "CertificateBasedAuthProperties_Status"=@("Edit-WKSCertificateBasedAuthProperty")
     "ClientProperties_LogUploadEnabled"=@("Edit-WKSClientProperty")
     "ClientProperties_ReconnectEnabled"=@("Edit-WKSClientProperty")
+    "ComputeType"=@("Import-WKSCustomWorkspaceImage")
     "ComputeType_Name"=@("New-WKSWorkspaceBundle")
     "DataReplication"=@("Edit-WKSWorkspaceProperty")
     "DedicatedTenancySupport"=@("Edit-WKSAccount")
@@ -303,6 +332,9 @@ $WKS_map = @{
     "ImageType"=@("Get-WKSWorkspaceImage")
     "IngestionProcess"=@("Import-WKSWorkspaceImage")
     "LicenseType"=@("Get-WKSApplication")
+    "OsVersion"=@("Import-WKSCustomWorkspaceImage")
+    "Platform"=@("Import-WKSCustomWorkspaceImage")
+    "Protocol"=@("Import-WKSCustomWorkspaceImage")
     "RunningMode"=@("New-WKSWorkspacesPool","Update-WKSWorkspacesPool")
     "SamlProperties_Status"=@("Edit-WKSSamlProperty")
     "SelfservicePermissions_ChangeComputeType"=@("Edit-WKSSelfservicePermission")
@@ -416,6 +448,7 @@ $WKS_SelectMap = @{
                "Get-WKSConnectClientAddIn",
                "Get-WKSConnectionAlias",
                "Get-WKSConnectionAliasPermission",
+               "Get-WKSCustomWorkspaceImageImport",
                "Get-WKSImageAssociation",
                "Get-WKSIpGroup",
                "Get-WKSTag",
@@ -434,6 +467,7 @@ $WKS_SelectMap = @{
                "Unregister-WKSWorkspaceApplication",
                "Get-WKSAccountLink",
                "Import-WKSClientBranding",
+               "Import-WKSCustomWorkspaceImage",
                "Import-WKSWorkspaceImage",
                "Get-WKSAccountLinkList",
                "Get-WKSAvailableManagementCidrRangeList",

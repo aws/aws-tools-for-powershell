@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1101.0",
+    "ProductVersion"    : "3.7.1102.0",
     "CoreVersion"       : "3.7.500.7",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -138,7 +138,7 @@
             "InPreview"               : false
         },
         "DirectConnect"     : {
-            "Version" : "3.7.500.7",
+            "Version" : "3.7.501.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.7"
@@ -146,7 +146,7 @@
             "InPreview"               : false
         },
         "DynamoDBv2"        : {
-            "Version" : "3.7.500.7",
+            "Version" : "3.7.501.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.7"
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.503.0",
+            "Version" : "3.7.504.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.7"
@@ -388,7 +388,7 @@
             "InPreview"               : false
         },
         "WorkSpaces"                : {
-            "Version" : "3.7.500.7",
+            "Version" : "3.7.501.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.7"
@@ -820,7 +820,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "3.7.501.3",
+            "Version" : "3.7.502.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.7"
@@ -860,7 +860,7 @@
             "InPreview"               : false
         },
         "MediaLive"                       : {
-            "Version" : "3.7.500.7",
+            "Version" : "3.7.501.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.7"
@@ -900,7 +900,7 @@
             "InPreview"               : false
         },
         "GuardDuty"                       : {
-            "Version" : "3.7.501.3",
+            "Version" : "3.7.502.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.7"
@@ -1004,7 +1004,7 @@
             "InPreview"               : false
         },
         "ServiceDiscovery"                : {
-            "Version" : "3.7.500.7",
+            "Version" : "3.7.501.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.7"
@@ -1252,7 +1252,7 @@
             "InPreview"               : false
         },
         "FSx"                             : {
-            "Version" : "3.7.501.0",
+            "Version" : "3.7.502.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.7"
@@ -3028,7 +3028,7 @@
             "InPreview"               : false
         },
         "QApps"                               : {
-            "Version" : "3.7.500.7",
+            "Version" : "3.7.500.8",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.7"
@@ -3044,7 +3044,7 @@
             "InPreview"               : false
         },
         "PCS"                                 : {
-            "Version" : "3.7.501.6",
+            "Version" : "3.7.502.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.7"
@@ -3316,7 +3316,15 @@
             "InPreview"               : false
         },
         "ARCRegionswitch"                     : {
-            "Version" : "3.7.500.6",
+            "Version" : "3.7.501.0",
+            "AssemblyVersionOverride" : "3.3",
+            "Dependencies"            : {
+                "Core" : "3.7.500.7"
+            },
+            "InPreview"               : false
+        },
+        "BCMRecommendedActions"               : {
+            "Version" : "3.7.500.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.7"

@@ -132,6 +132,13 @@ $DDB_Completers = {
             break
         }
 
+        # Amazon.DynamoDBv2.ContributorInsightsMode
+        "Update-DDBContributorInsight/ContributorInsightsMode"
+        {
+            $v = "ACCESSED_AND_THROTTLED_KEYS","THROTTLED_KEYS"
+            break
+        }
+
         # Amazon.DynamoDBv2.ExportFormat
         "Export-DDBTableToPointInTime/ExportFormat"
         {
@@ -313,6 +320,7 @@ $DDB_map = @{
     "BillingModeOverride"=@("Restore-DDBTableFromBackup","Restore-DDBTableToPointInTime")
     "ConditionalOperator"=@("Invoke-DDBQuery","Invoke-DDBScan","Remove-DDBItem","Set-DDBItem","Update-DDBItem")
     "ContributorInsightsAction"=@("Update-DDBContributorInsight")
+    "ContributorInsightsMode"=@("Update-DDBContributorInsight")
     "EnableKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision"=@("Disable-DDBKinesisStreamingDestination","Enable-DDBKinesisStreamingDestination")
     "ExportFormat"=@("Export-DDBTableToPointInTime")
     "ExportType"=@("Export-DDBTableToPointInTime")

@@ -32,6 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.qapps
     /// URL to set a default file for a <c>FileUploadCard</c> in a Q App definition or to
     /// provide a file for a single Q App run. The <c>scope</c> parameter determines how the
     /// file will be used, either at the app definition level or the app session level.
+    /// 
+    ///  <note><para>
+    /// The IAM permissions are derived from the <c>qapps:ImportDocument</c> action. For more
+    /// information on the IAM policy for Amazon Q Apps, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/deploy-q-apps-iam-permissions.html">IAM
+    /// permissions for using Amazon Q Apps</a>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "qappsPresignedUrl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QApps.Model.CreatePresignedUrlResponse")]
