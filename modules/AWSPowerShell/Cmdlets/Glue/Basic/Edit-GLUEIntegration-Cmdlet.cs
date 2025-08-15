@@ -41,6 +41,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter IntegrationConfig_ContinuousSync
+        /// <summary>
+        /// <para>
+        /// <para>Enables continuous synchronization for on-demand data extractions from SaaS applications
+        /// to Amazon Web Services data services like Amazon Redshift and Amazon S3.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IntegrationConfig_ContinuousSync { get; set; }
+        #endregion
+        
         #region Parameter DataFilter
         /// <summary>
         /// <para>
@@ -86,6 +97,33 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String IntegrationName { get; set; }
+        #endregion
+        
+        #region Parameter IntegrationConfig_RefreshInterval
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the frequency at which CDC (Change Data Capture) pulls or incremental loads
+        /// should occur. This parameter provides flexibility to align the refresh rate with your
+        /// specific data update patterns, system load considerations, and performance optimization
+        /// goals. Time increment can be set from 15 minutes to 8640 minutes (six days). Currently
+        /// supports creation of <c>RefreshInterval</c> only.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IntegrationConfig_RefreshInterval { get; set; }
+        #endregion
+        
+        #region Parameter IntegrationConfig_SourceProperty
+        /// <summary>
+        /// <para>
+        /// <para> A collection of key-value pairs that specify additional properties for the integration
+        /// source. These properties provide configuration options that can be used to customize
+        /// the behavior of the ODB source during data integration operations. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IntegrationConfig_SourceProperties")]
+        public System.Collections.Hashtable IntegrationConfig_SourceProperty { get; set; }
         #endregion
         
         #region Parameter Select
@@ -152,6 +190,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DataFilter = this.DataFilter;
             context.Description = this.Description;
+            context.IntegrationConfig_ContinuousSync = this.IntegrationConfig_ContinuousSync;
+            context.IntegrationConfig_RefreshInterval = this.IntegrationConfig_RefreshInterval;
+            if (this.IntegrationConfig_SourceProperty != null)
+            {
+                context.IntegrationConfig_SourceProperty = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.IntegrationConfig_SourceProperty.Keys)
+                {
+                    context.IntegrationConfig_SourceProperty.Add((String)hashKey, (System.String)(this.IntegrationConfig_SourceProperty[hashKey]));
+                }
+            }
             context.IntegrationIdentifier = this.IntegrationIdentifier;
             #if MODULAR
             if (this.IntegrationIdentifier == null && ParameterWasBound(nameof(this.IntegrationIdentifier)))
@@ -183,6 +231,45 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate IntegrationConfig
+            var requestIntegrationConfigIsNull = true;
+            request.IntegrationConfig = new Amazon.Glue.Model.IntegrationConfig();
+            System.Boolean? requestIntegrationConfig_integrationConfig_ContinuousSync = null;
+            if (cmdletContext.IntegrationConfig_ContinuousSync != null)
+            {
+                requestIntegrationConfig_integrationConfig_ContinuousSync = cmdletContext.IntegrationConfig_ContinuousSync.Value;
+            }
+            if (requestIntegrationConfig_integrationConfig_ContinuousSync != null)
+            {
+                request.IntegrationConfig.ContinuousSync = requestIntegrationConfig_integrationConfig_ContinuousSync.Value;
+                requestIntegrationConfigIsNull = false;
+            }
+            System.String requestIntegrationConfig_integrationConfig_RefreshInterval = null;
+            if (cmdletContext.IntegrationConfig_RefreshInterval != null)
+            {
+                requestIntegrationConfig_integrationConfig_RefreshInterval = cmdletContext.IntegrationConfig_RefreshInterval;
+            }
+            if (requestIntegrationConfig_integrationConfig_RefreshInterval != null)
+            {
+                request.IntegrationConfig.RefreshInterval = requestIntegrationConfig_integrationConfig_RefreshInterval;
+                requestIntegrationConfigIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestIntegrationConfig_integrationConfig_SourceProperty = null;
+            if (cmdletContext.IntegrationConfig_SourceProperty != null)
+            {
+                requestIntegrationConfig_integrationConfig_SourceProperty = cmdletContext.IntegrationConfig_SourceProperty;
+            }
+            if (requestIntegrationConfig_integrationConfig_SourceProperty != null)
+            {
+                request.IntegrationConfig.SourceProperties = requestIntegrationConfig_integrationConfig_SourceProperty;
+                requestIntegrationConfigIsNull = false;
+            }
+             // determine if request.IntegrationConfig should be set to null
+            if (requestIntegrationConfigIsNull)
+            {
+                request.IntegrationConfig = null;
             }
             if (cmdletContext.IntegrationIdentifier != null)
             {
@@ -255,6 +342,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             public System.String DataFilter { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? IntegrationConfig_ContinuousSync { get; set; }
+            public System.String IntegrationConfig_RefreshInterval { get; set; }
+            public Dictionary<System.String, System.String> IntegrationConfig_SourceProperty { get; set; }
             public System.String IntegrationIdentifier { get; set; }
             public System.String IntegrationName { get; set; }
             public System.Func<Amazon.Glue.Model.ModifyIntegrationResponse, EditGLUEIntegrationCmdlet, object> Select { get; set; } =

@@ -53,6 +53,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.Collections.Hashtable AdditionalEncryptionContext { get; set; }
         #endregion
         
+        #region Parameter IntegrationConfig_ContinuousSync
+        /// <summary>
+        /// <para>
+        /// <para>Enables continuous synchronization for on-demand data extractions from SaaS applications
+        /// to Amazon Web Services data services like Amazon Redshift and Amazon S3.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IntegrationConfig_ContinuousSync { get; set; }
+        #endregion
+        
         #region Parameter DataFilter
         /// <summary>
         /// <para>
@@ -244,6 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             context.DataFilter = this.DataFilter;
             context.Description = this.Description;
+            context.IntegrationConfig_ContinuousSync = this.IntegrationConfig_ContinuousSync;
             context.IntegrationConfig_RefreshInterval = this.IntegrationConfig_RefreshInterval;
             if (this.IntegrationConfig_SourceProperty != null)
             {
@@ -311,6 +323,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
              // populate IntegrationConfig
             var requestIntegrationConfigIsNull = true;
             request.IntegrationConfig = new Amazon.Glue.Model.IntegrationConfig();
+            System.Boolean? requestIntegrationConfig_integrationConfig_ContinuousSync = null;
+            if (cmdletContext.IntegrationConfig_ContinuousSync != null)
+            {
+                requestIntegrationConfig_integrationConfig_ContinuousSync = cmdletContext.IntegrationConfig_ContinuousSync.Value;
+            }
+            if (requestIntegrationConfig_integrationConfig_ContinuousSync != null)
+            {
+                request.IntegrationConfig.ContinuousSync = requestIntegrationConfig_integrationConfig_ContinuousSync.Value;
+                requestIntegrationConfigIsNull = false;
+            }
             System.String requestIntegrationConfig_integrationConfig_RefreshInterval = null;
             if (cmdletContext.IntegrationConfig_RefreshInterval != null)
             {
@@ -420,6 +442,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public Dictionary<System.String, System.String> AdditionalEncryptionContext { get; set; }
             public System.String DataFilter { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? IntegrationConfig_ContinuousSync { get; set; }
             public System.String IntegrationConfig_RefreshInterval { get; set; }
             public Dictionary<System.String, System.String> IntegrationConfig_SourceProperty { get; set; }
             public System.String IntegrationName { get; set; }

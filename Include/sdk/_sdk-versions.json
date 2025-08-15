@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1102.0",
+    "ProductVersion"    : "3.7.1103.0",
     "CoreVersion"       : "3.7.500.7",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -820,7 +820,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "3.7.502.0",
+            "Version" : "3.7.503.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.7"
@@ -1932,7 +1932,7 @@
             "InPreview"               : false
         },
         "PrometheusService"               : {
-            "Version" : "3.7.500.7",
+            "Version" : "3.7.501.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.7"
@@ -2876,7 +2876,7 @@
             "InPreview"               : false
         },
         "BedrockAgent"                        : {
-            "Version" : "3.7.500.7",
+            "Version" : "3.7.501.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.7"

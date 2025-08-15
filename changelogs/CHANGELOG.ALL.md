@@ -1,4 +1,14 @@
-﻿### 4.1.879 (2025-08-14 20:26Z)
+﻿### 4.1.880 (2025-08-15 20:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1103.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Glue
+    * Modified cmdlet Edit-GLUEIntegration: added parameters IntegrationConfig_ContinuousSync, IntegrationConfig_RefreshInterval and IntegrationConfig_SourceProperty.
+    * Modified cmdlet New-GLUEIntegration: added parameter IntegrationConfig_ContinuousSync.
+  * Amazon Prometheus Service
+    * Added cmdlet Get-PROMResourcePolicy leveraging the DescribeResourcePolicy service API.
+    * Added cmdlet Remove-PROMResourcePolicy leveraging the DeleteResourcePolicy service API.
+    * Added cmdlet Write-PROMResourcePolicy leveraging the PutResourcePolicy service API.
+
+### 4.1.879 (2025-08-14 20:26Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1102.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Billing And Cost Management Recommended Actions. Added cmdlets to support the service. Cmdlets for the service have the noun prefix BCMRA and can be listed using the command 'Get-AWSCmdletName -Service BCMRA'.
   * Amazon Cloud Map
