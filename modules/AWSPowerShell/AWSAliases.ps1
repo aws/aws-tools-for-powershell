@@ -1522,6 +1522,8 @@ Set-Alias -Name Delete-PROMLoggingConfiguration -Value Remove-PROMLoggingConfigu
 Set-Alias -Name PROM-DeleteLoggingConfiguration -Value Remove-PROMLoggingConfiguration
 Set-Alias -Name Delete-PROMQueryLoggingConfiguration -Value Remove-PROMQueryLoggingConfiguration
 Set-Alias -Name PROM-DeleteQueryLoggingConfiguration -Value Remove-PROMQueryLoggingConfiguration
+Set-Alias -Name Delete-PROMResourcePolicy -Value Remove-PROMResourcePolicy
+Set-Alias -Name PROM-DeleteResourcePolicy -Value Remove-PROMResourcePolicy
 Set-Alias -Name Delete-PROMRuleGroupsNamespace -Value Remove-PROMRuleGroupsNamespace
 Set-Alias -Name PROM-DeleteRuleGroupsNamespace -Value Remove-PROMRuleGroupsNamespace
 Set-Alias -Name Delete-PROMScraper -Value Remove-PROMScraper
@@ -1534,6 +1536,8 @@ Set-Alias -Name Describe-PROMLoggingConfiguration -Value Get-PROMLoggingConfigur
 Set-Alias -Name PROM-DescribeLoggingConfiguration -Value Get-PROMLoggingConfiguration
 Set-Alias -Name Describe-PROMQueryLoggingConfiguration -Value Get-PROMQueryLoggingConfiguration
 Set-Alias -Name PROM-DescribeQueryLoggingConfiguration -Value Get-PROMQueryLoggingConfiguration
+Set-Alias -Name Describe-PROMResourcePolicy -Value Get-PROMResourcePolicy
+Set-Alias -Name PROM-DescribeResourcePolicy -Value Get-PROMResourcePolicy
 Set-Alias -Name Describe-PROMRuleGroupsNamespace -Value Get-PROMRuleGroupsNamespace
 Set-Alias -Name PROM-DescribeRuleGroupsNamespace -Value Get-PROMRuleGroupsNamespace
 Set-Alias -Name Describe-PROMScraper -Value Get-PROMScraper
@@ -1555,6 +1559,8 @@ Set-Alias -Name List-PROMWorkspaceList -Value Get-PROMWorkspaceList
 Set-Alias -Name PROM-ListWorkspaces -Value Get-PROMWorkspaceList
 Set-Alias -Name Put-PROMAlertManagerDefinition -Value Write-PROMAlertManagerDefinition
 Set-Alias -Name PROM-PutAlertManagerDefinition -Value Write-PROMAlertManagerDefinition
+Set-Alias -Name Put-PROMResourcePolicy -Value Write-PROMResourcePolicy
+Set-Alias -Name PROM-PutResourcePolicy -Value Write-PROMResourcePolicy
 Set-Alias -Name Put-PROMRuleGroupsNamespace -Value Write-PROMRuleGroupsNamespace
 Set-Alias -Name PROM-PutRuleGroupsNamespace -Value Write-PROMRuleGroupsNamespace
 Set-Alias -Name PROM-TagResource -Value Add-PROMResourceTag

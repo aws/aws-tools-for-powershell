@@ -310,6 +310,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.BucketName = this.BucketName;
+            #if MODULAR
+            if (this.BucketName == null && ParameterWasBound(nameof(this.BucketName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter BucketName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.ContinuationToken = this.ContinuationToken;
             context.Delimiter = this.Delimiter;
             context.Encoding = this.Encoding;

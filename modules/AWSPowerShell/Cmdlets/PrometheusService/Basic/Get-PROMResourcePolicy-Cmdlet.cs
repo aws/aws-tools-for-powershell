@@ -23,32 +23,32 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.S3;
-using Amazon.S3.Model;
+using Amazon.PrometheusService;
+using Amazon.PrometheusService.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.S3
+namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Retrieves the replication configuration for the given Amazon S3 bucket.
+    /// Returns information about the resource-based policy attached to an Amazon Managed
+    /// Service for Prometheus workspace.
     /// </summary>
-    [Cmdlet("Get", "S3BucketReplication")]
-    [OutputType("Amazon.S3.Model.ReplicationConfiguration")]
-    [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetBucketReplication API operation.", Operation = new[] {"GetBucketReplication"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketReplicationResponse))]
-    [AWSCmdletOutput("Amazon.S3.Model.ReplicationConfiguration or Amazon.S3.Model.GetBucketReplicationResponse",
-        "This cmdlet returns an Amazon.S3.Model.ReplicationConfiguration object.",
-        "The service call response (type Amazon.S3.Model.GetBucketReplicationResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "PROMResourcePolicy")]
+    [OutputType("Amazon.PrometheusService.Model.DescribeResourcePolicyResponse")]
+    [AWSCmdlet("Calls the Amazon Prometheus Service DescribeResourcePolicy API operation.", Operation = new[] {"DescribeResourcePolicy"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.DescribeResourcePolicyResponse))]
+    [AWSCmdletOutput("Amazon.PrometheusService.Model.DescribeResourcePolicyResponse",
+        "This cmdlet returns an Amazon.PrometheusService.Model.DescribeResourcePolicyResponse object containing multiple properties."
     )]
-    public partial class GetS3BucketReplicationCmdlet : AmazonS3ClientCmdlet, IExecutor
+    public partial class GetPROMResourcePolicyCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter BucketName
+        #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>The bucket name for which to get the replication information.</para>
+        /// <para>The ID of the workspace to describe the resource-based policy for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,30 +59,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String BucketName { get; set; }
-        #endregion
-        
-        #region Parameter ExpectedBucketOwner
-        /// <summary>
-        /// <para>
-        /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
-        /// not match the actual owner of the bucket, the request fails with the HTTP status code
-        /// <c>403 Forbidden</c> (access denied).</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ExpectedBucketOwner { get; set; }
+        public System.String WorkspaceId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Configuration'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.S3.Model.GetBucketReplicationResponse).
-        /// Specifying the name of a property of type Amazon.S3.Model.GetBucketReplicationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PrometheusService.Model.DescribeResourcePolicyResponse).
+        /// Specifying the name of a property of type Amazon.PrometheusService.Model.DescribeResourcePolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Configuration";
+        public string Select { get; set; } = "*";
         #endregion
         
         protected override void StopProcessing()
@@ -101,17 +89,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.S3.Model.GetBucketReplicationResponse, GetS3BucketReplicationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PrometheusService.Model.DescribeResourcePolicyResponse, GetPROMResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.BucketName = this.BucketName;
+            context.WorkspaceId = this.WorkspaceId;
             #if MODULAR
-            if (this.BucketName == null && ParameterWasBound(nameof(this.BucketName)))
+            if (this.WorkspaceId == null && ParameterWasBound(nameof(this.WorkspaceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter BucketName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter WorkspaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -126,15 +113,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.S3.Model.GetBucketReplicationRequest();
+            var request = new Amazon.PrometheusService.Model.DescribeResourcePolicyRequest();
             
-            if (cmdletContext.BucketName != null)
+            if (cmdletContext.WorkspaceId != null)
             {
-                request.BucketName = cmdletContext.BucketName;
-            }
-            if (cmdletContext.ExpectedBucketOwner != null)
-            {
-                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
+                request.WorkspaceId = cmdletContext.WorkspaceId;
             }
             
             CmdletOutput output;
@@ -169,12 +152,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         #region AWS Service Operation Call
         
-        private Amazon.S3.Model.GetBucketReplicationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetBucketReplicationRequest request)
+        private Amazon.PrometheusService.Model.DescribeResourcePolicyResponse CallAWSServiceOperation(IAmazonPrometheusService client, Amazon.PrometheusService.Model.DescribeResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetBucketReplication");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Prometheus Service", "DescribeResourcePolicy");
             try
             {
-                return client.GetBucketReplicationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DescribeResourcePolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -191,10 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String BucketName { get; set; }
-            public System.String ExpectedBucketOwner { get; set; }
-            public System.Func<Amazon.S3.Model.GetBucketReplicationResponse, GetS3BucketReplicationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Configuration;
+            public System.String WorkspaceId { get; set; }
+            public System.Func<Amazon.PrometheusService.Model.DescribeResourcePolicyResponse, GetPROMResourcePolicyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

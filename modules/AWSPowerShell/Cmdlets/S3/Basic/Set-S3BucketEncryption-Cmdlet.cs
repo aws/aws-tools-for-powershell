@@ -144,7 +144,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// bucket naming rules</a> in the <i>Amazon S3 User Guide</i></para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String BucketName { get; set; }
         #endregion
         
@@ -201,7 +208,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("ServerSideEncryptionConfiguration_ServerSideEncryptionRules")]
         public Amazon.S3.Model.ServerSideEncryptionRule[] ServerSideEncryptionConfiguration_ServerSideEncryptionRule { get; set; }
         #endregion
@@ -252,6 +266,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.BucketName = this.BucketName;
+            #if MODULAR
+            if (this.BucketName == null && ParameterWasBound(nameof(this.BucketName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter BucketName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.ChecksumAlgorithm = this.ChecksumAlgorithm;
             context.ContentMD5 = this.ContentMD5;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
@@ -259,6 +279,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 context.ServerSideEncryptionConfiguration_ServerSideEncryptionRule = new List<Amazon.S3.Model.ServerSideEncryptionRule>(this.ServerSideEncryptionConfiguration_ServerSideEncryptionRule);
             }
+            #if MODULAR
+            if (this.ServerSideEncryptionConfiguration_ServerSideEncryptionRule == null && ParameterWasBound(nameof(this.ServerSideEncryptionConfiguration_ServerSideEncryptionRule)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ServerSideEncryptionConfiguration_ServerSideEncryptionRule which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

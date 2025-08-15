@@ -4,5 +4,8 @@
   },
   "awspowershell": {
     "latest": "0.0.0.0"
+  },
+  "installer": {
+    "latest": "1.0.3"
   }
 }

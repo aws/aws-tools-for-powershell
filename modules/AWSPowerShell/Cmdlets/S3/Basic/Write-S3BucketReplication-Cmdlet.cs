@@ -104,7 +104,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>The name of the bucket</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String BucketName { get; set; }
         #endregion
         
@@ -159,7 +166,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// to Set Up Replication</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Configuration_Role { get; set; }
         #endregion
         
@@ -174,7 +188,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Configuration_Rules")]
         public Amazon.S3.Model.ReplicationRule[] Configuration_Rule { get; set; }
         #endregion
@@ -235,12 +256,30 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.BucketName = this.BucketName;
+            #if MODULAR
+            if (this.BucketName == null && ParameterWasBound(nameof(this.BucketName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter BucketName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.ChecksumAlgorithm = this.ChecksumAlgorithm;
             context.Configuration_Role = this.Configuration_Role;
+            #if MODULAR
+            if (this.Configuration_Role == null && ParameterWasBound(nameof(this.Configuration_Role)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Configuration_Role which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.Configuration_Rule != null)
             {
                 context.Configuration_Rule = new List<Amazon.S3.Model.ReplicationRule>(this.Configuration_Rule);
             }
+            #if MODULAR
+            if (this.Configuration_Rule == null && ParameterWasBound(nameof(this.Configuration_Rule)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Configuration_Rule which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.ContentMD5 = this.ContentMD5;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             context.Token = this.Token;

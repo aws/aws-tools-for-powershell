@@ -427,6 +427,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.Owner_Id = this.Owner_Id;
             context.ACL = this.ACL;
             context.BucketName = this.BucketName;
+            #if MODULAR
+            if (this.BucketName == null && ParameterWasBound(nameof(this.BucketName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter BucketName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.ChecksumAlgorithm = this.ChecksumAlgorithm;
             context.ContentMD5 = this.ContentMD5;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;

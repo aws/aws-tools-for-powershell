@@ -76,7 +76,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>The bucket name that contains the objects. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String BucketName { get; set; }
         #endregion
         
@@ -225,6 +232,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.BucketName = this.BucketName;
+            #if MODULAR
+            if (this.BucketName == null && ParameterWasBound(nameof(this.BucketName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter BucketName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.Delimiter = this.Delimiter;
             context.Encoding = this.Encoding;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
