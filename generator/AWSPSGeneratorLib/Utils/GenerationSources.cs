@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -398,9 +399,55 @@ namespace AWSPowerShellGenerator.Utils
                         new JProperty("latest", ModuleVersionNumber))),
                 new JProperty("awspowershell",
                     new JObject(
-                        new JProperty("latest", ModuleVersionNumber))));
+                        new JProperty("latest", ModuleVersionNumber))),
+                new JProperty("installer",
+                    new JObject(
+                        new JProperty("latest", GetInstallerVersion()))));
 
             File.WriteAllText(filePath, versionRecap.ToString());
+        }
+
+        private string GetInstallerVersion()
+        {
+            var installerPsd1Path = Path.Combine(Path.GetDirectoryName(AwsPowerShellModuleFolder), "Installer", "AWS.Tools.Installer.psd1");
+            return ReadVersionFromPsd1(installerPsd1Path);
+        }
+
+        private string ReadVersionFromPsd1(string psd1Path)
+        {
+            if (!File.Exists(psd1Path))
+            {
+                throw new FileNotFoundException($"Installer manifest not found at {psd1Path}");
+            }
+
+            var process = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "pwsh",
+                    Arguments = $"-NoProfile -Command \"$manifest = Import-PowerShellDataFile '{psd1Path}'; Write-Output $manifest.ModuleVersion\"",
+                    RedirectStandardOutput = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true
+                }
+            };
+            
+            process.Start();
+            var version = process.StandardOutput.ReadToEnd().Trim();
+            process.WaitForExit();
+            
+            if (process.ExitCode != 0)
+            {
+                throw new InvalidOperationException($"Failed to read installer version from {psd1Path}");
+            }
+            
+            // Add version validation
+            if (string.IsNullOrEmpty(version) || !System.Version.TryParse(version, out var parsedVersion))
+            {
+                throw new InvalidOperationException($"Invalid version format returned from {psd1Path}: '{version}'");
+            }
+            
+            return version;
         }
 
         public void WriteCopyModularArtifactsScript(IEnumerable<ConfigModel> services)

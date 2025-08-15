@@ -5,11 +5,10 @@ param
 )
 
 function Test-Version ([System.Version]$version) {
-    $revision = $version.Revision
-    if ($revision -eq 0) {
-        throw "Version must not have revision 0, PowerShell Gallery will not accept it.";
+    if ($version.Revision -ne -1) {
+        throw "Version must be 3-part (major.minor.build) without a revision value. Current version: $version";
     }
-    Write-Host "Version revision ($revision) is valid in $version.";
+    Write-Host "Version is valid 3-part format: $version";
 }
 
 function Test-InstallerVersion([string]$from, [string]$to) {
