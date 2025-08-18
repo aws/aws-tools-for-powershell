@@ -39,7 +39,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// you must also have the <c>sso:DescribeInstance</c>, <c>sso:CreateApplication</c>,
     /// <c>sso:PutApplicationGrant</c>, and <c>sso:PutApplicationAuthenticationMethod</c>
     /// permissions. 
-    /// </para></dd></dl>
+    /// </para></dd></dl><important><para>
+    /// You must URL encode any signed header values that contain spaces. For example, if
+    /// your header value is <c>my file.txt</c>, containing two spaces after <c>my</c>, you
+    /// must URL encode this value to <c>my%20%20file.txt</c>.
+    /// </para></important>
     /// </summary>
     [Cmdlet("New", "S3CAccessGrantsInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3Control.Model.CreateAccessGrantsInstanceResponse")]

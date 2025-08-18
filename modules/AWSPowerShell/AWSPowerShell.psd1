@@ -99,6 +99,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.BackupGateway.dll',
         'AWSSDK.BackupSearch.dll',
         'AWSSDK.Batch.dll',
+        'AWSSDK.BCMDashboards.dll',
         'AWSSDK.BCMDataExports.dll',
         'AWSSDK.BCMPricingCalculator.dll',
         'AWSSDK.BCMRecommendedActions.dll',

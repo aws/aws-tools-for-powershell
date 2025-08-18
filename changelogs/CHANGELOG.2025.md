@@ -1,4 +1,12 @@
-﻿### 4.1.880 (2025-08-15 20:11Z)
+﻿### 4.1.881 (2025-08-18 20:20Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1104.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Billing and Cost Management Dashboards. Added cmdlets to support the service. Cmdlets for the service have the noun prefix BCMD and can be listed using the command 'Get-AWSCmdletName -Service BCMD'.
+  * Amazon Connect Service
+    * Modified cmdlet New-CONNParticipant: added parameters ParticipantCapabilities_ScreenShare and ParticipantCapabilities_Video.
+  * Amazon S3 Control
+    * Modified cmdlet New-S3CJob: added parameters Report_ExpectedBucketOwner, S3ComputeObjectChecksum_ChecksumAlgorithm and S3ComputeObjectChecksum_ChecksumType.
+
+### 4.1.880 (2025-08-15 20:11Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1103.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Glue
     * Modified cmdlet Edit-GLUEIntegration: added parameters IntegrationConfig_ContinuousSync, IntegrationConfig_RefreshInterval and IntegrationConfig_SourceProperty.

@@ -39,7 +39,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     ///  <dl><dt>Permissions</dt><dd><para>
     /// You must have the <c>s3:DeleteAccessGrantsInstance</c> permission to use this operation.
     /// 
-    /// </para></dd></dl>
+    /// </para></dd></dl><important><para>
+    /// You must URL encode any signed header values that contain spaces. For example, if
+    /// your header value is <c>my file.txt</c>, containing two spaces after <c>my</c>, you
+    /// must URL encode this value to <c>my%20%20file.txt</c>.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "S3CAccessGrantsInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

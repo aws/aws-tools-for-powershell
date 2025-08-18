@@ -444,7 +444,8 @@ $CONN_Completers = {
         # Amazon.Connect.ScreenShareCapability
         {
             ($_ -eq "Start-CONNWebRTCContact/Agent_ScreenShare") -Or
-            ($_ -eq "Start-CONNWebRTCContact/Customer_ScreenShare")
+            ($_ -eq "Start-CONNWebRTCContact/Customer_ScreenShare") -Or
+            ($_ -eq "New-CONNParticipant/ParticipantCapabilities_ScreenShare")
         }
         {
             $v = "SEND"
@@ -569,7 +570,8 @@ $CONN_Completers = {
         # Amazon.Connect.VideoCapability
         {
             ($_ -eq "Start-CONNWebRTCContact/Agent_Video") -Or
-            ($_ -eq "Start-CONNWebRTCContact/Customer_Video")
+            ($_ -eq "Start-CONNWebRTCContact/Customer_Video") -Or
+            ($_ -eq "New-CONNParticipant/ParticipantCapabilities_Video")
         }
         {
             $v = "SEND"
@@ -657,6 +659,8 @@ $CONN_map = @{
     "LexVersion"=@("Get-CONNBotList")
     "ListCondition_TargetListType"=@("Search-CONNUser")
     "OutputType"=@("Get-CONNRealtimeContactAnalysisSegmentsV2List")
+    "ParticipantCapabilities_ScreenShare"=@("New-CONNParticipant")
+    "ParticipantCapabilities_Video"=@("New-CONNParticipant")
     "ParticipantDetails_ParticipantRole"=@("New-CONNParticipant")
     "PersistentChat_RehydrationType"=@("Start-CONNChatContact")
     "PhoneNumberCountryCode"=@("Search-CONNAvailablePhoneNumber")

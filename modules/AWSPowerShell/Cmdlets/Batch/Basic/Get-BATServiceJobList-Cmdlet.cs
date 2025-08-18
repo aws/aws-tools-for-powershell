@@ -45,10 +45,18 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters to apply to the service job list query. The filter names and values can
-        /// be:</para><ul><li><para>name: <c>JOB_STATUS</c></para><para>values: <c>SUBMITTED | PENDING | RUNNABLE | STARTING | RUNNING | SUCCEEDED | FAILED
-        /// | SCHEDULED</c></para></li><li><para>name: <c>JOB_NAME</c></para><para>values: case-insensitive matches for the job name. If a filter value ends with an
-        /// asterisk (*), it matches any job name that begins with the string before the '*'.</para></li></ul>
+        /// <para>The filter to apply to the query. Only one filter can be used at a time. When the
+        /// filter is used, <c>jobStatus</c> is ignored. The results are sorted by the <c>createdAt</c>
+        /// field, with the most recent jobs being first.</para><dl><dt>JOB_NAME</dt><dd><para>The value of the filter is a case-insensitive match for the job name. If the value
+        /// ends with an asterisk (*), the filter matches any job name that begins with the string
+        /// before the '*'. This corresponds to the <c>jobName</c> value. For example, <c>test1</c>
+        /// matches both <c>Test1</c> and <c>test1</c>, and <c>test1*</c> matches both <c>test1</c>
+        /// and <c>Test10</c>. When the <c>JOB_NAME</c> filter is used, the results are grouped
+        /// by the job name and version.</para></dd><dt>BEFORE_CREATED_AT</dt><dd><para>The value for the filter is the time that's before the job was created. This corresponds
+        /// to the <c>createdAt</c> value. The value is a string representation of the number
+        /// of milliseconds since 00:00:00 UTC (midnight) on January 1, 1970.</para></dd><dt>AFTER_CREATED_AT</dt><dd><para>The value for the filter is the time that's after the job was created. This corresponds
+        /// to the <c>createdAt</c> value. The value is a string representation of the number
+        /// of milliseconds since 00:00:00 UTC (midnight) on January 1, 1970.</para></dd></dl>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -187,6 +187,9 @@
     <Reference Include="AWSSDK.Batch">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Batch.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.BCMDashboards">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BCMDashboards.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.BCMDataExports">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BCMDataExports.dll</HintPath>
     </Reference>
@@ -1418,6 +1421,9 @@
     </Reference>
     <Reference Include="AWSSDK.Batch">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Batch.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.BCMDashboards">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.BCMDashboards.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.BCMDataExports">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.BCMDataExports.dll</HintPath>

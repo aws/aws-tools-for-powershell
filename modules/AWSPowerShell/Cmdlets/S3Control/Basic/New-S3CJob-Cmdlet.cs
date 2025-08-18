@@ -41,7 +41,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// permissions for S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></dd></dl><para>
     /// Related actions include:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeJob.html">DescribeJob</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListJobs.html">ListJobs</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobPriority.html">UpdateJobPriority</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html">UpdateJobStatus</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_JobOperation.html">JobOperation</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeJob.html">DescribeJob</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListJobs.html">ListJobs</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobPriority.html">UpdateJobPriority</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html">UpdateJobStatus</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_JobOperation.html">JobOperation</a></para></li></ul><important><para>
+    /// You must URL encode any signed header values that contain spaces. For example, if
+    /// your header value is <c>my file.txt</c>, containing two spaces after <c>my</c>, you
+    /// must URL encode this value to <c>my%20%20file.txt</c>.
+    /// </para></important>
     /// </summary>
     [Cmdlet("New", "S3CJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -173,6 +177,20 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public Amazon.S3Control.S3CannedAccessControlList S3PutObjectCopy_CannedAccessControlList { get; set; }
         #endregion
         
+        #region Parameter S3ComputeObjectChecksum_ChecksumAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the algorithm that you want Amazon S3 to use to create the checksum. For
+        /// more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Operation_S3ComputeObjectChecksum_ChecksumAlgorithm")]
+        [AWSConstantClassSource("Amazon.S3Control.ComputeObjectChecksumAlgorithm")]
+        public Amazon.S3Control.ComputeObjectChecksumAlgorithm S3ComputeObjectChecksum_ChecksumAlgorithm { get; set; }
+        #endregion
+        
         #region Parameter S3PutObjectCopy_ChecksumAlgorithm
         /// <summary>
         /// <para>
@@ -185,6 +203,20 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         [Alias("Operation_S3PutObjectCopy_ChecksumAlgorithm")]
         [AWSConstantClassSource("Amazon.S3Control.S3ChecksumAlgorithm")]
         public Amazon.S3Control.S3ChecksumAlgorithm S3PutObjectCopy_ChecksumAlgorithm { get; set; }
+        #endregion
+        
+        #region Parameter S3ComputeObjectChecksum_ChecksumType
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the checksum type that you want Amazon S3 to use to calculate the object’s
+        /// checksum value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Operation_S3ComputeObjectChecksum_ChecksumType")]
+        [AWSConstantClassSource("Amazon.S3Control.ComputeObjectChecksumType")]
+        public Amazon.S3Control.ComputeObjectChecksumType S3ComputeObjectChecksum_ChecksumType { get; set; }
         #endregion
         
         #region Parameter ClientRequestToken
@@ -382,6 +414,17 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ManifestGenerator_S3JobManifestGenerator_ExpectedBucketOwner")]
         public System.String S3JobManifestGenerator_ExpectedBucketOwner { get; set; }
+        #endregion
+        
+        #region Parameter Report_ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>Lists the Amazon Web Services account ID that owns the target bucket, where the completion
+        /// report is received.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Report_ExpectedBucketOwner { get; set; }
         #endregion
         
         #region Parameter ManifestOutputLocation_ExpectedManifestBucketOwner
@@ -1201,6 +1244,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
                     context.LambdaInvoke_UserArgument.Add((String)hashKey, (System.String)(this.LambdaInvoke_UserArgument[hashKey]));
                 }
             }
+            context.S3ComputeObjectChecksum_ChecksumAlgorithm = this.S3ComputeObjectChecksum_ChecksumAlgorithm;
+            context.S3ComputeObjectChecksum_ChecksumType = this.S3ComputeObjectChecksum_ChecksumType;
             context.Operation_S3DeleteObjectTagging = this.Operation_S3DeleteObjectTagging;
             context.S3InitiateRestoreObject_ExpirationInDay = this.S3InitiateRestoreObject_ExpirationInDay;
             context.S3InitiateRestoreObject_GlacierJobTier = this.S3InitiateRestoreObject_GlacierJobTier;
@@ -1276,6 +1321,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
                 WriteWarning("You are passing $null as a value for parameter Report_Enabled which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Report_ExpectedBucketOwner = this.Report_ExpectedBucketOwner;
             context.Report_Format = this.Report_Format;
             context.Report_Prefix = this.Report_Prefix;
             context.Report_ReportScope = this.Report_ReportScope;
@@ -1889,6 +1935,41 @@ namespace Amazon.PowerShell.Cmdlets.S3C
                 request.Operation.S3PutObjectTagging = requestOperation_operation_S3PutObjectTagging;
                 requestOperationIsNull = false;
             }
+            Amazon.S3Control.Model.S3ComputeObjectChecksumOperation requestOperation_operation_S3ComputeObjectChecksum = null;
+            
+             // populate S3ComputeObjectChecksum
+            var requestOperation_operation_S3ComputeObjectChecksumIsNull = true;
+            requestOperation_operation_S3ComputeObjectChecksum = new Amazon.S3Control.Model.S3ComputeObjectChecksumOperation();
+            Amazon.S3Control.ComputeObjectChecksumAlgorithm requestOperation_operation_S3ComputeObjectChecksum_s3ComputeObjectChecksum_ChecksumAlgorithm = null;
+            if (cmdletContext.S3ComputeObjectChecksum_ChecksumAlgorithm != null)
+            {
+                requestOperation_operation_S3ComputeObjectChecksum_s3ComputeObjectChecksum_ChecksumAlgorithm = cmdletContext.S3ComputeObjectChecksum_ChecksumAlgorithm;
+            }
+            if (requestOperation_operation_S3ComputeObjectChecksum_s3ComputeObjectChecksum_ChecksumAlgorithm != null)
+            {
+                requestOperation_operation_S3ComputeObjectChecksum.ChecksumAlgorithm = requestOperation_operation_S3ComputeObjectChecksum_s3ComputeObjectChecksum_ChecksumAlgorithm;
+                requestOperation_operation_S3ComputeObjectChecksumIsNull = false;
+            }
+            Amazon.S3Control.ComputeObjectChecksumType requestOperation_operation_S3ComputeObjectChecksum_s3ComputeObjectChecksum_ChecksumType = null;
+            if (cmdletContext.S3ComputeObjectChecksum_ChecksumType != null)
+            {
+                requestOperation_operation_S3ComputeObjectChecksum_s3ComputeObjectChecksum_ChecksumType = cmdletContext.S3ComputeObjectChecksum_ChecksumType;
+            }
+            if (requestOperation_operation_S3ComputeObjectChecksum_s3ComputeObjectChecksum_ChecksumType != null)
+            {
+                requestOperation_operation_S3ComputeObjectChecksum.ChecksumType = requestOperation_operation_S3ComputeObjectChecksum_s3ComputeObjectChecksum_ChecksumType;
+                requestOperation_operation_S3ComputeObjectChecksumIsNull = false;
+            }
+             // determine if requestOperation_operation_S3ComputeObjectChecksum should be set to null
+            if (requestOperation_operation_S3ComputeObjectChecksumIsNull)
+            {
+                requestOperation_operation_S3ComputeObjectChecksum = null;
+            }
+            if (requestOperation_operation_S3ComputeObjectChecksum != null)
+            {
+                request.Operation.S3ComputeObjectChecksum = requestOperation_operation_S3ComputeObjectChecksum;
+                requestOperationIsNull = false;
+            }
             Amazon.S3Control.Model.S3InitiateRestoreObjectOperation requestOperation_operation_S3InitiateRestoreObject = null;
             
              // populate S3InitiateRestoreObject
@@ -2372,6 +2453,16 @@ namespace Amazon.PowerShell.Cmdlets.S3C
                 request.Report.Enabled = requestReport_report_Enabled.Value;
                 requestReportIsNull = false;
             }
+            System.String requestReport_report_ExpectedBucketOwner = null;
+            if (cmdletContext.Report_ExpectedBucketOwner != null)
+            {
+                requestReport_report_ExpectedBucketOwner = cmdletContext.Report_ExpectedBucketOwner;
+            }
+            if (requestReport_report_ExpectedBucketOwner != null)
+            {
+                request.Report.ExpectedBucketOwner = requestReport_report_ExpectedBucketOwner;
+                requestReportIsNull = false;
+            }
             Amazon.S3Control.JobReportFormat requestReport_report_Format = null;
             if (cmdletContext.Report_Format != null)
             {
@@ -2507,6 +2598,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             public System.String LambdaInvoke_FunctionArn { get; set; }
             public System.String LambdaInvoke_InvocationSchemaVersion { get; set; }
             public Dictionary<System.String, System.String> LambdaInvoke_UserArgument { get; set; }
+            public Amazon.S3Control.ComputeObjectChecksumAlgorithm S3ComputeObjectChecksum_ChecksumAlgorithm { get; set; }
+            public Amazon.S3Control.ComputeObjectChecksumType S3ComputeObjectChecksum_ChecksumType { get; set; }
             public Amazon.S3Control.Model.S3DeleteObjectTaggingOperation Operation_S3DeleteObjectTagging { get; set; }
             public System.Int32? S3InitiateRestoreObject_ExpirationInDay { get; set; }
             public Amazon.S3Control.S3GlacierJobTier S3InitiateRestoreObject_GlacierJobTier { get; set; }
@@ -2551,6 +2644,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             public System.Int32? Priority { get; set; }
             public System.String Report_Bucket { get; set; }
             public System.Boolean? Report_Enabled { get; set; }
+            public System.String Report_ExpectedBucketOwner { get; set; }
             public Amazon.S3Control.JobReportFormat Report_Format { get; set; }
             public System.String Report_Prefix { get; set; }
             public Amazon.S3Control.JobReportScope Report_ReportScope { get; set; }

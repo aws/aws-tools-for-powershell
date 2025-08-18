@@ -33,27 +33,55 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     ///  
     /// <para>
     /// For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon
-    /// Connect Chat security best practices</a>.
+    /// Connect Chat security best practices</a>. 
+    /// </para><para>
+    /// For WebRTC security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-webrtc-security">Amazon
+    /// Connect WebRTC security best practices</a>. 
     /// </para><note><para><c>ParticipantToken</c> is used for invoking this API instead of <c>ConnectionToken</c>.
     /// </para></note><para>
     /// The participant token is valid for the lifetime of the participant – until they are
-    /// part of a contact.
+    /// part of a contact. For WebRTC participants, if they leave or are disconnected for
+    /// 60 seconds, a new participant needs to be created using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateParticipant.html">CreateParticipant</a>
+    /// API. 
+    /// </para><para><b>For <c>WEBSOCKET</c> Type</b>: 
     /// </para><para>
-    /// The response URL for <c>WEBSOCKET</c> Type has a connect expiry timeout of 100s. Clients
-    /// must manually connect to the returned websocket URL and subscribe to the desired topic.
-    /// 
+    /// The response URL for has a connect expiry timeout of 100s. Clients must manually connect
+    /// to the returned websocket URL and subscribe to the desired topic. 
     /// </para><para>
     /// For chat, you need to publish the following on the established websocket connection:
     /// </para><para><c>{"topic":"aws/subscribe","content":{"topics":["aws/chat"]}}</c></para><para>
     /// Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter,
     /// clients need to call this API again to obtain a new websocket URL and perform the
     /// same steps as before.
+    /// </para><para>
+    /// The expiry time for the connection token is different than the <c>ChatDurationInMinutes</c>.
+    /// Expiry time for the connection token is 1 day.
+    /// </para><para><b>For <c>WEBRTC_CONNECTION</c> Type</b>: 
+    /// </para><para>
+    /// The response includes connection data required for the client application to join
+    /// the call using the Amazon Chime SDK client libraries. The WebRTCConnection response
+    /// contains Meeting and Attendee information needed to establish the media connection.
+    /// 
+    /// </para><para>
+    /// The attendee join token in WebRTCConnection response is valid for the lifetime of
+    /// the participant in the call. If a participant leaves or is disconnected for 60 seconds,
+    /// their participant credentials will no longer be valid, and a new participant will
+    /// need to be created to rejoin the call. 
     /// </para><para><b>Message streaming support</b>: This API can also be used together with the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html">StartContactStreaming</a>
     /// API to create a participant connection for chat contacts that are not using a websocket.
     /// For more information about message streaming, <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html">Enable
     /// real-time chat message streaming</a> in the <i>Amazon Connect Administrator Guide</i>.
+    /// </para><para><b>Multi-user web, in-app, video calling support</b>: 
+    /// </para><para>
+    /// For WebRTC calls, this API is used in conjunction with the CreateParticipant API to
+    /// enable multi-party calling. The StartWebRTCContact API creates the initial contact
+    /// and routes it to an agent, while CreateParticipant adds additional participants to
+    /// the ongoing call. For more information about multi-party WebRTC calls, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-multiuser-inapp.html">Enable
+    /// multi-user web, in-app, and video calling</a> in the <i>Amazon Connect Administrator
+    /// Guide</i>. 
     /// </para><para><b>Feature specifications</b>: For information about feature specifications, such
-    /// as the allowed number of open websocket connections per participant, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature
+    /// as the allowed number of open websocket connections per participant or maximum number
+    /// of WebRTC participants, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature
     /// specifications</a> in the <i>Amazon Connect Administrator Guide</i>. 
     /// </para><note><para>
     /// The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
@@ -68,6 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     )]
     public partial class NewCONNPParticipantConnectionCmdlet : AmazonConnectParticipantClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         

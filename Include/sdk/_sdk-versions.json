@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1103.0",
+    "ProductVersion"    : "3.7.1104.0",
     "CoreVersion"       : "3.7.500.7",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -708,7 +708,7 @@
             "InPreview"               : false
         },
         "Batch"                           : {
-            "Version" : "3.7.500.8",
+            "Version" : "3.7.500.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.7"
@@ -932,7 +932,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "3.7.505.0",
+            "Version" : "3.7.506.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.7"
@@ -1036,7 +1036,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "3.7.502.1",
+            "Version" : "3.7.503.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.7"
@@ -1148,7 +1148,7 @@
             "InPreview"               : false
         },
         "S3Control"                       : {
-            "Version" : "3.7.500.7",
+            "Version" : "3.7.501.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.7"
@@ -1548,7 +1548,7 @@
             "InPreview"               : false
         },
         "ConnectParticipant"              : {
-            "Version" : "3.7.500.7",
+            "Version" : "3.7.501.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.7"
@@ -3324,6 +3324,14 @@
             "InPreview"               : false
         },
         "BCMRecommendedActions"               : {
+            "Version" : "3.7.500.0",
+            "AssemblyVersionOverride" : "3.3",
+            "Dependencies"            : {
+                "Core" : "3.7.500.7"
+            },
+            "InPreview"               : false
+        },
+        "BCMDashboards"                       : {
             "Version" : "3.7.500.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {

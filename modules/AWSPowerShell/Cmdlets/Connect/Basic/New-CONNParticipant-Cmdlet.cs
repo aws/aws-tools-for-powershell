@@ -28,8 +28,10 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Adds a new participant into an on-going chat contact. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-customize-flow.html">Customize
-    /// chat flow experiences by integrating custom participants</a>.
+    /// Adds a new participant into an on-going chat contact or webRTC call. For more information,
+    /// see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-customize-flow.html">Customize
+    /// chat flow experiences by integrating custom participants</a> or <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-multiuser-inapp.html">Enable
+    /// multi-user web, in-app, and video calling</a>.
     /// </summary>
     [Cmdlet("New", "CONNParticipant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.CreateParticipantResponse")]
@@ -45,8 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ContactId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the contact in this instance of Amazon Connect. Only contacts in
-        /// the CHAT channel are supported.</para>
+        /// <para>The identifier of the contact in this instance of Amazon Connect. Supports contacts
+        /// in the CHAT channel and VOICE (WebRTC) channels. For WebRTC calls, this should be
+        /// the initial contact ID that was generated when the contact was first created (from
+        /// the StartWebRTCContact API) in the VOICE channel</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,6 +101,32 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Connect.ParticipantRole")]
         public Amazon.Connect.ParticipantRole ParticipantDetails_ParticipantRole { get; set; }
+        #endregion
+        
+        #region Parameter ParticipantCapabilities_ScreenShare
+        /// <summary>
+        /// <para>
+        /// <para>The screen sharing capability that is enabled for the participant. <c>SEND</c> indicates
+        /// the participant can share their screen.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ParticipantDetails_ParticipantCapabilities_ScreenShare")]
+        [AWSConstantClassSource("Amazon.Connect.ScreenShareCapability")]
+        public Amazon.Connect.ScreenShareCapability ParticipantCapabilities_ScreenShare { get; set; }
+        #endregion
+        
+        #region Parameter ParticipantCapabilities_Video
+        /// <summary>
+        /// <para>
+        /// <para>The configuration having the video and screen sharing capabilities for participants
+        /// over the call.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ParticipantDetails_ParticipantCapabilities_Video")]
+        [AWSConstantClassSource("Amazon.Connect.VideoCapability")]
+        public Amazon.Connect.VideoCapability ParticipantCapabilities_Video { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -190,6 +220,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             #endif
             context.ParticipantDetails_DisplayName = this.ParticipantDetails_DisplayName;
+            context.ParticipantCapabilities_ScreenShare = this.ParticipantCapabilities_ScreenShare;
+            context.ParticipantCapabilities_Video = this.ParticipantCapabilities_Video;
             context.ParticipantDetails_ParticipantRole = this.ParticipantDetails_ParticipantRole;
             
             // allow further manipulation of loaded context prior to processing
@@ -241,6 +273,41 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestParticipantDetails_participantDetails_ParticipantRole != null)
             {
                 request.ParticipantDetails.ParticipantRole = requestParticipantDetails_participantDetails_ParticipantRole;
+                requestParticipantDetailsIsNull = false;
+            }
+            Amazon.Connect.Model.ParticipantCapabilities requestParticipantDetails_participantDetails_ParticipantCapabilities = null;
+            
+             // populate ParticipantCapabilities
+            var requestParticipantDetails_participantDetails_ParticipantCapabilitiesIsNull = true;
+            requestParticipantDetails_participantDetails_ParticipantCapabilities = new Amazon.Connect.Model.ParticipantCapabilities();
+            Amazon.Connect.ScreenShareCapability requestParticipantDetails_participantDetails_ParticipantCapabilities_participantCapabilities_ScreenShare = null;
+            if (cmdletContext.ParticipantCapabilities_ScreenShare != null)
+            {
+                requestParticipantDetails_participantDetails_ParticipantCapabilities_participantCapabilities_ScreenShare = cmdletContext.ParticipantCapabilities_ScreenShare;
+            }
+            if (requestParticipantDetails_participantDetails_ParticipantCapabilities_participantCapabilities_ScreenShare != null)
+            {
+                requestParticipantDetails_participantDetails_ParticipantCapabilities.ScreenShare = requestParticipantDetails_participantDetails_ParticipantCapabilities_participantCapabilities_ScreenShare;
+                requestParticipantDetails_participantDetails_ParticipantCapabilitiesIsNull = false;
+            }
+            Amazon.Connect.VideoCapability requestParticipantDetails_participantDetails_ParticipantCapabilities_participantCapabilities_Video = null;
+            if (cmdletContext.ParticipantCapabilities_Video != null)
+            {
+                requestParticipantDetails_participantDetails_ParticipantCapabilities_participantCapabilities_Video = cmdletContext.ParticipantCapabilities_Video;
+            }
+            if (requestParticipantDetails_participantDetails_ParticipantCapabilities_participantCapabilities_Video != null)
+            {
+                requestParticipantDetails_participantDetails_ParticipantCapabilities.Video = requestParticipantDetails_participantDetails_ParticipantCapabilities_participantCapabilities_Video;
+                requestParticipantDetails_participantDetails_ParticipantCapabilitiesIsNull = false;
+            }
+             // determine if requestParticipantDetails_participantDetails_ParticipantCapabilities should be set to null
+            if (requestParticipantDetails_participantDetails_ParticipantCapabilitiesIsNull)
+            {
+                requestParticipantDetails_participantDetails_ParticipantCapabilities = null;
+            }
+            if (requestParticipantDetails_participantDetails_ParticipantCapabilities != null)
+            {
+                request.ParticipantDetails.ParticipantCapabilities = requestParticipantDetails_participantDetails_ParticipantCapabilities;
                 requestParticipantDetailsIsNull = false;
             }
              // determine if request.ParticipantDetails should be set to null
@@ -313,6 +380,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String ContactId { get; set; }
             public System.String InstanceId { get; set; }
             public System.String ParticipantDetails_DisplayName { get; set; }
+            public Amazon.Connect.ScreenShareCapability ParticipantCapabilities_ScreenShare { get; set; }
+            public Amazon.Connect.VideoCapability ParticipantCapabilities_Video { get; set; }
             public Amazon.Connect.ParticipantRole ParticipantDetails_ParticipantRole { get; set; }
             public System.Func<Amazon.Connect.Model.CreateParticipantResponse, NewCONNParticipantCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

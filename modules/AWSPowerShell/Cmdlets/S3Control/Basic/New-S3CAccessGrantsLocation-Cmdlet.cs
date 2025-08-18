@@ -45,7 +45,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// You must have the <c>s3:CreateAccessGrantsLocation</c> permission to use this operation.
     /// 
     /// </para></dd><dt>Additional Permissions</dt><dd><para>
-    /// You must also have the following permission for the specified IAM role: <c>iam:PassRole</c></para></dd></dl>
+    /// You must also have the following permission for the specified IAM role: <c>iam:PassRole</c></para></dd></dl><important><para>
+    /// You must URL encode any signed header values that contain spaces. For example, if
+    /// your header value is <c>my file.txt</c>, containing two spaces after <c>my</c>, you
+    /// must URL encode this value to <c>my%20%20file.txt</c>.
+    /// </para></important>
     /// </summary>
     [Cmdlet("New", "S3CAccessGrantsLocation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3Control.Model.CreateAccessGrantsLocationResponse")]

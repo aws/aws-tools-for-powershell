@@ -36,12 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     ///  
     /// <para>
     /// For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon
-    /// Connect Chat security best practices</a>.
+    /// Connect Chat security best practices</a>. 
     /// </para><para>
     /// If you have a process that consumes events in the transcript of an chat that has ended,
     /// note that chat transcripts contain the following event content types if the event
     /// has occurred during the chat session:
-    /// </para><ul><li><para><c>application/vnd.amazonaws.connect.event.participant.left</c></para></li><li><para><c>application/vnd.amazonaws.connect.event.participant.joined</c></para></li><li><para><c>application/vnd.amazonaws.connect.event.chat.ended</c></para></li><li><para><c>application/vnd.amazonaws.connect.event.transfer.succeeded</c></para></li><li><para><c>application/vnd.amazonaws.connect.event.transfer.failed</c></para></li></ul><note><para><c>ConnectionToken</c> is used for invoking this API instead of <c>ParticipantToken</c>.
+    /// </para><ul><li><para><c>application/vnd.amazonaws.connect.event.participant.invited</c></para></li><li><para><c>application/vnd.amazonaws.connect.event.participant.joined</c></para></li><li><para><c>application/vnd.amazonaws.connect.event.participant.left</c></para></li><li><para><c>application/vnd.amazonaws.connect.event.chat.ended</c></para></li><li><para><c>application/vnd.amazonaws.connect.event.transfer.succeeded</c></para></li><li><para><c>application/vnd.amazonaws.connect.event.transfer.failed</c></para></li></ul><note><para><c>ConnectionToken</c> is used for invoking this API instead of <c>ParticipantToken</c>.
     /// </para></note><para>
     /// The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
     /// Version 4 authentication</a>.

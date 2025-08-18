@@ -270,14 +270,33 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The instances types that can be launched. You can specify instance families to launch
         /// any instance type within those families (for example, <c>c5</c> or <c>p3</c>), or
-        /// you can specify specific sizes within a family (such as <c>c5.8xlarge</c>). You can
-        /// also choose <c>optimal</c> to select instance types (from the C4, M4, and R4 instance
-        /// families) that match the demand of your job queues.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
+        /// you can specify specific sizes within a family (such as <c>c5.8xlarge</c>). </para><para>Batch can select the instance type for you if you choose one of the following:</para><ul><li><para><c>optimal</c> to select instance types (from the <c>c4</c>, <c>m4</c>, <c>r4</c>,
+        /// <c>c5</c>, <c>m5</c>, and <c>r5</c> instance families) that match the demand of your
+        /// job queues. </para></li><li><para><c>default_x86_64</c> to choose x86 based instance types (from the <c>m6i</c>, <c>c6i</c>,
+        /// <c>r6i</c>, and <c>c7i</c> instance families) that matches the resource demands of
+        /// the job queue.</para></li><li><para><c>default_arm64</c> to choose x86 based instance types (from the <c>m6g</c>, <c>c6g</c>,
+        /// <c>r6g</c>, and <c>c7g</c> instance families) that matches the resource demands of
+        /// the job queue.</para></li></ul><note><para>Starting on 11/01/2025 the behavior of <c>optimal</c> is going to be changed to match
+        /// <c>default_x86_64</c>. During the change your instance families could be updated to
+        /// a newer generation. You do not need to perform any actions for the upgrade to happen.
+        /// For more information about change, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/optimal-default-instance-troubleshooting.html">Optimal
+        /// instance type configuration to receive automatic instance family updates</a>.</para></note><note><para>Instance family availability varies by Amazon Web Services Region. For example, some
+        /// Amazon Web Services Regions may not have any fourth generation instance families but
+        /// have fifth and sixth generation instance families.</para><para>When using <c>default_x86_64</c> or <c>default_arm64</c> instance bundles, Batch selects
+        /// instance families based on a balance of cost-effectiveness and performance. While
+        /// newer generation instances often provide better price-performance, Batch may choose
+        /// an earlier generation instance family if it provides the optimal combination of availability,
+        /// cost, and performance for your workload. For example, in an Amazon Web Services Region
+        /// where both c6i and c7i instances are available, Batch might select c6i instances if
+        /// they offer better cost-effectiveness for your specific job requirements. For more
+        /// information on Batch instance types and Amazon Web Services Region availability, see
+        /// <a href="https://docs.aws.amazon.com/batch/latest/userguide/instance-type-compute-table.html">Instance
+        /// type compute table</a> in the <i>Batch User Guide</i>.</para><para>Batch periodically updates your instances in default bundles to newer, more cost-effective
+        /// options. Updates happen automatically without requiring any action from you. Your
+        /// workloads continue running during updates with no interruption </para></note><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
         /// specify it.</para></note><note><para>When you create a compute environment, the instance types that you select for the
         /// compute environment must share the same architecture. For example, you can't mix x86
-        /// and ARM instances in the same compute environment.</para></note><note><para>Currently, <c>optimal</c> uses instance types from the C4, M4, and R4 instance families.
-        /// In Regions that don't have instance types from those instance families, instance types
-        /// from the C5, M5, and R5 instance families are used.</para></note>
+        /// and ARM instances in the same compute environment.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
