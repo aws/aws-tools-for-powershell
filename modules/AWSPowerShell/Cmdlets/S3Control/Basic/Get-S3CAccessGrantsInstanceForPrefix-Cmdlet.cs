@@ -38,7 +38,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </para></dd><dt>Additional Permissions</dt><dd><para>
     /// The prefix owner account must grant you the following permissions to their S3 Access
     /// Grants instance: <c>s3:GetAccessGrantsInstanceForPrefix</c>. 
-    /// </para></dd></dl>
+    /// </para></dd></dl><important><para>
+    /// You must URL encode any signed header values that contain spaces. For example, if
+    /// your header value is <c>my file.txt</c>, containing two spaces after <c>my</c>, you
+    /// must URL encode this value to <c>my%20%20file.txt</c>.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Get", "S3CAccessGrantsInstanceForPrefix")]
     [OutputType("Amazon.S3Control.Model.GetAccessGrantsInstanceForPrefixResponse")]

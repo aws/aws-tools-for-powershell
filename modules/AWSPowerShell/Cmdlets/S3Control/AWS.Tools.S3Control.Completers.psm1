@@ -101,6 +101,20 @@ $S3C_Completers = {
             break
         }
 
+        # Amazon.S3Control.ComputeObjectChecksumAlgorithm
+        "New-S3CJob/S3ComputeObjectChecksum_ChecksumAlgorithm"
+        {
+            $v = "CRC32","CRC32C","CRC64NVME","MD5","SHA1","SHA256"
+            break
+        }
+
+        # Amazon.S3Control.ComputeObjectChecksumType
+        "New-S3CJob/S3ComputeObjectChecksum_ChecksumType"
+        {
+            $v = "COMPOSITE","FULL_OBJECT"
+            break
+        }
+
         # Amazon.S3Control.Format
         "Write-S3CStorageLensConfiguration/S3BucketDestination_Format"
         {
@@ -289,6 +303,8 @@ $S3C_map = @{
     "Retention_Mode"=@("New-S3CJob")
     "S3BucketDestination_Format"=@("Write-S3CStorageLensConfiguration")
     "S3BucketDestination_OutputSchemaVersion"=@("Write-S3CStorageLensConfiguration")
+    "S3ComputeObjectChecksum_ChecksumAlgorithm"=@("New-S3CJob")
+    "S3ComputeObjectChecksum_ChecksumType"=@("New-S3CJob")
     "S3InitiateRestoreObject_GlacierJobTier"=@("New-S3CJob")
     "S3PrefixType"=@("New-S3CAccessGrant")
     "S3PutObjectCopy_CannedAccessControlList"=@("New-S3CJob")

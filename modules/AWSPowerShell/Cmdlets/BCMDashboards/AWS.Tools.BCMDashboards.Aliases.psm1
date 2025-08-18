@@ -1,0 +1,3 @@
+﻿# BCMDashboards
+
+Export-ModuleMember -Alias *

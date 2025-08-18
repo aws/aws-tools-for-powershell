@@ -53,8 +53,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// </para></li><li><para>
     /// If the response is slow due to large result sets, try these approaches:
     /// </para><ul><li><para>
-    /// Narrow the time range of your request
-    /// </para></li><li><para>
     /// Add filters to reduce the amount of data returned
     /// </para></li></ul></li></ul></note><br/><br/>In the AWS.Tools.Connect module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

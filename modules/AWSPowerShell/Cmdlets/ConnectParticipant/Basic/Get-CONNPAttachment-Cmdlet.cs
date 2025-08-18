@@ -36,9 +36,13 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     ///  
     /// <para>
     /// For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon
-    /// Connect Chat security best practices</a>.
-    /// </para><note><para><c>ConnectionToken</c> is used for invoking this API instead of <c>ParticipantToken</c>.
-    /// </para></note><para>
+    /// Connect Chat security best practices</a>. 
+    /// </para><note><ul><li><para>
+    /// The participant role <c>CUSTOM_BOT</c> is not permitted to access attachments customers
+    /// may upload. An <c>AccessDeniedException</c> can indicate that the participant may
+    /// be a CUSTOM_BOT, and it doesn't have access to attachments.
+    /// </para></li><li><para><c>ConnectionToken</c> is used for invoking this API instead of <c>ParticipantToken</c>.
+    /// </para></li></ul></note><para>
     /// The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
     /// Version 4 authentication</a>.
     /// </para>

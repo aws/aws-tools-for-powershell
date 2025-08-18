@@ -7241,6 +7241,69 @@ $BCMRA_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $BCMRA_SelectCompleters $BCMRA_SelectMap
+# Argument completions for service AWS Billing and Cost Management Dashboards
+
+
+$BCMD_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.BCMD.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BCMD_SelectMap = @{
+    "Select"=@("New-BCMDDashboard",
+               "Remove-BCMDDashboard",
+               "Get-BCMDDashboard",
+               "Get-BCMDResourcePolicy",
+               "Get-BCMDDashboardList",
+               "Get-BCMDResourceTag",
+               "Add-BCMDResourceTag",
+               "Remove-BCMDResourceTag",
+               "Update-BCMDDashboard")
+}
+
+_awsArgumentCompleterRegistration $BCMD_SelectCompleters $BCMD_SelectMap
 # Argument completions for service Amazon Bedrock Agent Runtime
 
 
@@ -19064,7 +19127,8 @@ $CONN_Completers = {
         # Amazon.Connect.ScreenShareCapability
         {
             ($_ -eq "Start-CONNWebRTCContact/Agent_ScreenShare") -Or
-            ($_ -eq "Start-CONNWebRTCContact/Customer_ScreenShare")
+            ($_ -eq "Start-CONNWebRTCContact/Customer_ScreenShare") -Or
+            ($_ -eq "New-CONNParticipant/ParticipantCapabilities_ScreenShare")
         }
         {
             $v = "SEND"
@@ -19189,7 +19253,8 @@ $CONN_Completers = {
         # Amazon.Connect.VideoCapability
         {
             ($_ -eq "Start-CONNWebRTCContact/Agent_Video") -Or
-            ($_ -eq "Start-CONNWebRTCContact/Customer_Video")
+            ($_ -eq "Start-CONNWebRTCContact/Customer_Video") -Or
+            ($_ -eq "New-CONNParticipant/ParticipantCapabilities_Video")
         }
         {
             $v = "SEND"
@@ -19277,6 +19342,8 @@ $CONN_map = @{
     "LexVersion"=@("Get-CONNBotList")
     "ListCondition_TargetListType"=@("Search-CONNUser")
     "OutputType"=@("Get-CONNRealtimeContactAnalysisSegmentsV2List")
+    "ParticipantCapabilities_ScreenShare"=@("New-CONNParticipant")
+    "ParticipantCapabilities_Video"=@("New-CONNParticipant")
     "ParticipantDetails_ParticipantRole"=@("New-CONNParticipant")
     "PersistentChat_RehydrationType"=@("Start-CONNChatContact")
     "PhoneNumberCountryCode"=@("Search-CONNAvailablePhoneNumber")
@@ -67862,6 +67929,20 @@ $S3C_Completers = {
             break
         }
 
+        # Amazon.S3Control.ComputeObjectChecksumAlgorithm
+        "New-S3CJob/S3ComputeObjectChecksum_ChecksumAlgorithm"
+        {
+            $v = "CRC32","CRC32C","CRC64NVME","MD5","SHA1","SHA256"
+            break
+        }
+
+        # Amazon.S3Control.ComputeObjectChecksumType
+        "New-S3CJob/S3ComputeObjectChecksum_ChecksumType"
+        {
+            $v = "COMPOSITE","FULL_OBJECT"
+            break
+        }
+
         # Amazon.S3Control.Format
         "Write-S3CStorageLensConfiguration/S3BucketDestination_Format"
         {
@@ -68050,6 +68131,8 @@ $S3C_map = @{
     "Retention_Mode"=@("New-S3CJob")
     "S3BucketDestination_Format"=@("Write-S3CStorageLensConfiguration")
     "S3BucketDestination_OutputSchemaVersion"=@("Write-S3CStorageLensConfiguration")
+    "S3ComputeObjectChecksum_ChecksumAlgorithm"=@("New-S3CJob")
+    "S3ComputeObjectChecksum_ChecksumType"=@("New-S3CJob")
     "S3InitiateRestoreObject_GlacierJobTier"=@("New-S3CJob")
     "S3PrefixType"=@("New-S3CAccessGrant")
     "S3PutObjectCopy_CannedAccessControlList"=@("New-S3CJob")
