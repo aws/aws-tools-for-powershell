@@ -379,7 +379,7 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBucketAnalyticsConfiguration" Verb="Write" Noun="BucketAnalyticsConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true" NoResetToNullForRequiredParameter="true">
+        <ServiceOperation MethodName="PutBucketAnalyticsConfiguration" Verb="Write" Noun="BucketAnalyticsConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
