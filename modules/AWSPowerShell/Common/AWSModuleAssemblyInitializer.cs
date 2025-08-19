@@ -18,7 +18,10 @@ namespace Amazon.PowerShell.Common
             "System.Text.Json.dll",
             "System.Threading.Tasks.Extensions.dll",
             "Microsoft.Bcl.AsyncInterfaces.dll",
-            "System.Runtime.CompilerServices.Unsafe.dll"
+            "System.Runtime.CompilerServices.Unsafe.dll",
+            "System.Formats.Cbor.dll",
+            "AWSSDK.Extensions.CborProtocol.dll",
+            "Microsoft.Bcl.HashCode.dll",
         };
 
         public void OnImport()

@@ -10,7 +10,7 @@
     CompatiblePSEditions = @('Core', 'Desktop')
 
     # Version number of this module.
-    ModuleVersion = '0.0.0.0'
+    ModuleVersion = '5.0.1000'
 
     # ID used to uniquely identify this module
     GUID = 'e5b05bf3-9eee-47b2-81f2-41ddc0501b86'
@@ -62,7 +62,9 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
         'aws-crt-auth.dll',
         'aws-crt-http.dll',
         'aws-crt-checksums.dll',
-        'AWSSDK.Extensions.CrtIntegration.dll'
+        'AWSSDK.Extensions.CrtIntegration.dll',
+        'AWSSDK.Extensions.CborProtocol.dll',
+        'System.Formats.Cbor.dll'
     )
 
     # Script files (.ps1) that are run in the caller's environment prior to importing this module

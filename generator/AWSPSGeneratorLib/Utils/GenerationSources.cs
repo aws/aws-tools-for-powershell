@@ -42,7 +42,7 @@ namespace AWSPowerShellGenerator.Utils
         private const string AWSPowerShellNetCoreGuid = "cb0b9b96-f3f2-4eff-b7f4-cbe0a9203683";
         private const string AWSPowerShellGuid = "21f083f2-4c41-4b5d-88ec-7d24c9e88769";
         private readonly string[] AwsToolsCommonSdkAssemblies = { "AWSSDK.Core", "AWSSDK.SecurityToken" };
-        private readonly string[] AdditionalCrtAssemblies = { "aws-crt", "aws-crt-auth", "aws-crt-http", "aws-crt-checksums", "AWSSDK.Extensions.CrtIntegration" };
+        private readonly string[] AdditionalAssemblies = { "aws-crt", "aws-crt-auth", "aws-crt-http", "aws-crt-checksums", "AWSSDK.Extensions.CrtIntegration", "AWSSDK.Extensions.CborProtocol", "System.Formats.Cbor" };
         // Additional service assemblies that are added to Project files and Manifest files.
         private readonly Dictionary<string, List<string>> _additionalServiceAssemblies = new()
         {
@@ -279,7 +279,7 @@ namespace AWSPowerShellGenerator.Utils
                     "Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support for all AWS services from a single module and also support older versions of Windows PowerShell and .NET Framework.",
                 compatiblePowerShellVersion: 5,
                 compatiblePowerShellMinorVersion: 1,
-                assemblies: AwsToolsCommonSdkAssemblies.Concat(AdditionalCrtAssemblies),
+                assemblies: AwsToolsCommonSdkAssemblies.Concat(AdditionalAssemblies),
                 nestedModulesFiles: new string[] { "AWS.Tools.Common.Completers.psm1",
                                                    "AWS.Tools.Common.Aliases.psm1" },
                 fileList: new string[] { "AWS.Tools.Common.dll-Help.xml" },
@@ -315,7 +315,7 @@ namespace AWSPowerShellGenerator.Utils
                 compatiblePowerShellVersion: 3,
                 compatibleFrameworkVersion: "4.7.2",
                 netStandard: netStandard,
-                assemblies: Assemblies.Keys.ToArray().Concat(AdditionalCrtAssemblies).Concat(AllAdditionalServiceAssemblies),
+                assemblies: Assemblies.Keys.ToArray().Concat(AdditionalAssemblies).Concat(AllAdditionalServiceAssemblies),
                 typesToProcessFiles: new string[] { "AWSPowerShell.TypeExtensions.ps1xml" },
                 formatsToProcessFiles: new string[] { $"AWSPowerShell{(netStandard ? ".NetCore" : "")}.Format.ps1xml" },
                 nestedModulesFiles: new string[] { "AWSPowerShellCompleters.psm1",

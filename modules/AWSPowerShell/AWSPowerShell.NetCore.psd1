@@ -10,7 +10,7 @@
     # CompatiblePSEditions = @('Core', 'Desktop')
 
     # Version number of this module.
-    ModuleVersion = '0.0.0.0'
+    ModuleVersion = '5.0.1000'
 
     # ID used to uniquely identify this module
     GUID = 'cb0b9b96-f3f2-4eff-b7f4-cbe0a9203683'
@@ -471,6 +471,8 @@ This product provides support for all AWS services in a single module. As an alt
         'aws-crt-http.dll',
         'aws-crt-checksums.dll',
         'AWSSDK.Extensions.CrtIntegration.dll',
+        'AWSSDK.Extensions.CborProtocol.dll',
+        'System.Formats.Cbor.dll',
         'AWSSDK.Extensions.CloudFront.Signers.dll',
         'AWSSDK.Extensions.EC2.DecryptPassword.dll'
     )
