@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1104.0",
+    "ProductVersion"    : "3.7.1105.0",
     "CoreVersion"       : "3.7.500.7",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.504.0",
+            "Version" : "3.7.505.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.7"
@@ -628,7 +628,7 @@
             "InPreview"               : false
         },
         "Polly"                           : {
-            "Version" : "3.7.500.7",
+            "Version" : "3.7.501.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.7"
@@ -2596,7 +2596,7 @@
             "InPreview"               : false
         },
         "CleanRooms"                          : {
-            "Version" : "3.7.500.7",
+            "Version" : "3.7.501.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.7"

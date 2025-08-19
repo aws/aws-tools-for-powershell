@@ -166,6 +166,13 @@ $CRS_Completers = {
             break
         }
 
+        # Amazon.CleanRooms.ErrorMessageType
+        "New-CRSAnalysisTemplate/ErrorMessageConfiguration_Type"
+        {
+            $v = "DETAILED"
+            break
+        }
+
         # Amazon.CleanRooms.FilterableMemberStatus
         "Get-CRSCollaborationList/MemberStatus"
         {
@@ -312,6 +319,7 @@ $CRS_map = @{
     "AnalyticsEngine"=@("New-CRSCollaboration","Update-CRSCollaboration")
     "AutoRefresh"=@("New-CRSPrivacyBudgetTemplate")
     "Custom_AdditionalAnalysis"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
+    "ErrorMessageConfiguration_Type"=@("New-CRSAnalysisTemplate")
     "Format"=@("New-CRSAnalysisTemplate")
     "JobLogStatus"=@("New-CRSCollaboration","New-CRSMembership","Update-CRSMembership")
     "List_AdditionalAnalysis"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")

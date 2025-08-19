@@ -196,6 +196,20 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.String Source_Text { get; set; }
         #endregion
         
+        #region Parameter ErrorMessageConfiguration_Type
+        /// <summary>
+        /// <para>
+        /// <para>The level of detail for error messages returned by the PySpark job. When set to DETAILED,
+        /// error messages include more information to help troubleshoot issues with your PySpark
+        /// job.</para><para>Because this setting may expose sensitive data, it is recommended for development
+        /// and testing environments.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CleanRooms.ErrorMessageType")]
+        public Amazon.CleanRooms.ErrorMessageType ErrorMessageConfiguration_Type { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'AnalysisTemplate'.
@@ -243,6 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 context.AnalysisParameter = new List<Amazon.CleanRooms.Model.AnalysisParameter>(this.AnalysisParameter);
             }
             context.Description = this.Description;
+            context.ErrorMessageConfiguration_Type = this.ErrorMessageConfiguration_Type;
             context.Format = this.Format;
             #if MODULAR
             if (this.Format == null && ParameterWasBound(nameof(this.Format)))
@@ -307,6 +322,25 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate ErrorMessageConfiguration
+            var requestErrorMessageConfigurationIsNull = true;
+            request.ErrorMessageConfiguration = new Amazon.CleanRooms.Model.ErrorMessageConfiguration();
+            Amazon.CleanRooms.ErrorMessageType requestErrorMessageConfiguration_errorMessageConfiguration_Type = null;
+            if (cmdletContext.ErrorMessageConfiguration_Type != null)
+            {
+                requestErrorMessageConfiguration_errorMessageConfiguration_Type = cmdletContext.ErrorMessageConfiguration_Type;
+            }
+            if (requestErrorMessageConfiguration_errorMessageConfiguration_Type != null)
+            {
+                request.ErrorMessageConfiguration.Type = requestErrorMessageConfiguration_errorMessageConfiguration_Type;
+                requestErrorMessageConfigurationIsNull = false;
+            }
+             // determine if request.ErrorMessageConfiguration should be set to null
+            if (requestErrorMessageConfigurationIsNull)
+            {
+                request.ErrorMessageConfiguration = null;
             }
             if (cmdletContext.Format != null)
             {
@@ -510,6 +544,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         {
             public List<Amazon.CleanRooms.Model.AnalysisParameter> AnalysisParameter { get; set; }
             public System.String Description { get; set; }
+            public Amazon.CleanRooms.ErrorMessageType ErrorMessageConfiguration_Type { get; set; }
             public Amazon.CleanRooms.AnalysisFormat Format { get; set; }
             public System.String MembershipIdentifier { get; set; }
             public System.String Name { get; set; }

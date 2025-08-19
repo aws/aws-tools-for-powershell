@@ -1,4 +1,9 @@
-﻿### 4.1.881 (2025-08-18 20:20Z)
+﻿### 4.1.882 (2025-08-19 19:58Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1105.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Clean Rooms Service
+    * Modified cmdlet New-CRSAnalysisTemplate: added parameter ErrorMessageConfiguration_Type.
+
+### 4.1.881 (2025-08-18 20:20Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1104.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Billing and Cost Management Dashboards. Added cmdlets to support the service. Cmdlets for the service have the noun prefix BCMD and can be listed using the command 'Get-AWSCmdletName -Service BCMD'.
   * Amazon Connect Service
