@@ -443,7 +443,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             
             
              // populate ComputeConfig
-            var requestComputeConfigIsNull = true;
             request.ComputeConfig = new Amazon.DatabaseMigrationService.Model.ComputeConfig();
             System.String requestComputeConfig_computeConfig_AvailabilityZone = null;
             if (cmdletContext.ComputeConfig_AvailabilityZone != null)
@@ -453,7 +452,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestComputeConfig_computeConfig_AvailabilityZone != null)
             {
                 request.ComputeConfig.AvailabilityZone = requestComputeConfig_computeConfig_AvailabilityZone;
-                requestComputeConfigIsNull = false;
             }
             System.String requestComputeConfig_computeConfig_DnsNameServer = null;
             if (cmdletContext.ComputeConfig_DnsNameServer != null)
@@ -463,7 +461,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestComputeConfig_computeConfig_DnsNameServer != null)
             {
                 request.ComputeConfig.DnsNameServers = requestComputeConfig_computeConfig_DnsNameServer;
-                requestComputeConfigIsNull = false;
             }
             System.String requestComputeConfig_computeConfig_KmsKeyId = null;
             if (cmdletContext.ComputeConfig_KmsKeyId != null)
@@ -473,7 +470,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestComputeConfig_computeConfig_KmsKeyId != null)
             {
                 request.ComputeConfig.KmsKeyId = requestComputeConfig_computeConfig_KmsKeyId;
-                requestComputeConfigIsNull = false;
             }
             System.Int32? requestComputeConfig_computeConfig_MaxCapacityUnit = null;
             if (cmdletContext.ComputeConfig_MaxCapacityUnit != null)
@@ -483,7 +479,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestComputeConfig_computeConfig_MaxCapacityUnit != null)
             {
                 request.ComputeConfig.MaxCapacityUnits = requestComputeConfig_computeConfig_MaxCapacityUnit.Value;
-                requestComputeConfigIsNull = false;
             }
             System.Int32? requestComputeConfig_computeConfig_MinCapacityUnit = null;
             if (cmdletContext.ComputeConfig_MinCapacityUnit != null)
@@ -493,7 +488,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestComputeConfig_computeConfig_MinCapacityUnit != null)
             {
                 request.ComputeConfig.MinCapacityUnits = requestComputeConfig_computeConfig_MinCapacityUnit.Value;
-                requestComputeConfigIsNull = false;
             }
             System.Boolean? requestComputeConfig_computeConfig_MultiAZ = null;
             if (cmdletContext.ComputeConfig_MultiAZ != null)
@@ -503,7 +497,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestComputeConfig_computeConfig_MultiAZ != null)
             {
                 request.ComputeConfig.MultiAZ = requestComputeConfig_computeConfig_MultiAZ.Value;
-                requestComputeConfigIsNull = false;
             }
             System.String requestComputeConfig_computeConfig_PreferredMaintenanceWindow = null;
             if (cmdletContext.ComputeConfig_PreferredMaintenanceWindow != null)
@@ -513,7 +506,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestComputeConfig_computeConfig_PreferredMaintenanceWindow != null)
             {
                 request.ComputeConfig.PreferredMaintenanceWindow = requestComputeConfig_computeConfig_PreferredMaintenanceWindow;
-                requestComputeConfigIsNull = false;
             }
             System.String requestComputeConfig_computeConfig_ReplicationSubnetGroupId = null;
             if (cmdletContext.ComputeConfig_ReplicationSubnetGroupId != null)
@@ -523,7 +515,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestComputeConfig_computeConfig_ReplicationSubnetGroupId != null)
             {
                 request.ComputeConfig.ReplicationSubnetGroupId = requestComputeConfig_computeConfig_ReplicationSubnetGroupId;
-                requestComputeConfigIsNull = false;
             }
             List<System.String> requestComputeConfig_computeConfig_VpcSecurityGroupId = null;
             if (cmdletContext.ComputeConfig_VpcSecurityGroupId != null)
@@ -533,12 +524,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestComputeConfig_computeConfig_VpcSecurityGroupId != null)
             {
                 request.ComputeConfig.VpcSecurityGroupIds = requestComputeConfig_computeConfig_VpcSecurityGroupId;
-                requestComputeConfigIsNull = false;
-            }
-             // determine if request.ComputeConfig should be set to null
-            if (requestComputeConfigIsNull)
-            {
-                request.ComputeConfig = null;
             }
             if (cmdletContext.ReplicationConfigIdentifier != null)
             {

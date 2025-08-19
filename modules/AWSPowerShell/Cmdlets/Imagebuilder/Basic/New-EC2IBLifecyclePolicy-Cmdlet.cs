@@ -336,7 +336,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             }
             
              // populate ResourceSelection
-            var requestResourceSelectionIsNull = true;
             request.ResourceSelection = new Amazon.Imagebuilder.Model.LifecyclePolicyResourceSelection();
             List<Amazon.Imagebuilder.Model.LifecyclePolicyResourceSelectionRecipe> requestResourceSelection_resourceSelection_Recipe = null;
             if (cmdletContext.ResourceSelection_Recipe != null)
@@ -346,7 +345,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             if (requestResourceSelection_resourceSelection_Recipe != null)
             {
                 request.ResourceSelection.Recipes = requestResourceSelection_resourceSelection_Recipe;
-                requestResourceSelectionIsNull = false;
             }
             Dictionary<System.String, System.String> requestResourceSelection_resourceSelection_TagMap = null;
             if (cmdletContext.ResourceSelection_TagMap != null)
@@ -356,12 +354,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             if (requestResourceSelection_resourceSelection_TagMap != null)
             {
                 request.ResourceSelection.TagMap = requestResourceSelection_resourceSelection_TagMap;
-                requestResourceSelectionIsNull = false;
-            }
-             // determine if request.ResourceSelection should be set to null
-            if (requestResourceSelectionIsNull)
-            {
-                request.ResourceSelection = null;
             }
             if (cmdletContext.ResourceType != null)
             {

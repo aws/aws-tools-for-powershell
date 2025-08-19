@@ -875,7 +875,6 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             }
             
              // populate MetricSource
-            var requestMetricSourceIsNull = true;
             request.MetricSource = new Amazon.LookoutMetrics.Model.MetricSource();
             Amazon.LookoutMetrics.Model.AppFlowConfig requestMetricSource_metricSource_AppFlowConfig = null;
             
@@ -910,7 +909,6 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             if (requestMetricSource_metricSource_AppFlowConfig != null)
             {
                 request.MetricSource.AppFlowConfig = requestMetricSource_metricSource_AppFlowConfig;
-                requestMetricSourceIsNull = false;
             }
             Amazon.LookoutMetrics.Model.CloudWatchConfig requestMetricSource_metricSource_CloudWatchConfig = null;
             
@@ -960,7 +958,6 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             if (requestMetricSource_metricSource_CloudWatchConfig != null)
             {
                 request.MetricSource.CloudWatchConfig = requestMetricSource_metricSource_CloudWatchConfig;
-                requestMetricSourceIsNull = false;
             }
             Amazon.LookoutMetrics.Model.S3SourceConfig requestMetricSource_metricSource_S3SourceConfig = null;
             
@@ -1130,7 +1127,6 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             if (requestMetricSource_metricSource_S3SourceConfig != null)
             {
                 request.MetricSource.S3SourceConfig = requestMetricSource_metricSource_S3SourceConfig;
-                requestMetricSourceIsNull = false;
             }
             Amazon.LookoutMetrics.Model.AthenaSourceConfig requestMetricSource_metricSource_AthenaSourceConfig = null;
             
@@ -1230,7 +1226,6 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             if (requestMetricSource_metricSource_AthenaSourceConfig != null)
             {
                 request.MetricSource.AthenaSourceConfig = requestMetricSource_metricSource_AthenaSourceConfig;
-                requestMetricSourceIsNull = false;
             }
             Amazon.LookoutMetrics.Model.RDSSourceConfig requestMetricSource_metricSource_RDSSourceConfig = null;
             
@@ -1350,7 +1345,6 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             if (requestMetricSource_metricSource_RDSSourceConfig != null)
             {
                 request.MetricSource.RDSSourceConfig = requestMetricSource_metricSource_RDSSourceConfig;
-                requestMetricSourceIsNull = false;
             }
             Amazon.LookoutMetrics.Model.RedshiftSourceConfig requestMetricSource_metricSource_RedshiftSourceConfig = null;
             
@@ -1470,12 +1464,6 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             if (requestMetricSource_metricSource_RedshiftSourceConfig != null)
             {
                 request.MetricSource.RedshiftSourceConfig = requestMetricSource_metricSource_RedshiftSourceConfig;
-                requestMetricSourceIsNull = false;
-            }
-             // determine if request.MetricSource should be set to null
-            if (requestMetricSourceIsNull)
-            {
-                request.MetricSource = null;
             }
             if (cmdletContext.Offset != null)
             {

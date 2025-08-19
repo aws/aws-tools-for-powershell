@@ -280,7 +280,6 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             }
             
              // populate RestoreTestingSelection
-            var requestRestoreTestingSelectionIsNull = true;
             request.RestoreTestingSelection = new Amazon.Backup.Model.RestoreTestingSelectionForUpdate();
             System.String requestRestoreTestingSelection_restoreTestingSelection_IamRoleArn = null;
             if (cmdletContext.RestoreTestingSelection_IamRoleArn != null)
@@ -290,7 +289,6 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (requestRestoreTestingSelection_restoreTestingSelection_IamRoleArn != null)
             {
                 request.RestoreTestingSelection.IamRoleArn = requestRestoreTestingSelection_restoreTestingSelection_IamRoleArn;
-                requestRestoreTestingSelectionIsNull = false;
             }
             List<System.String> requestRestoreTestingSelection_restoreTestingSelection_ProtectedResourceArn = null;
             if (cmdletContext.RestoreTestingSelection_ProtectedResourceArn != null)
@@ -300,7 +298,6 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (requestRestoreTestingSelection_restoreTestingSelection_ProtectedResourceArn != null)
             {
                 request.RestoreTestingSelection.ProtectedResourceArns = requestRestoreTestingSelection_restoreTestingSelection_ProtectedResourceArn;
-                requestRestoreTestingSelectionIsNull = false;
             }
             Dictionary<System.String, System.String> requestRestoreTestingSelection_restoreTestingSelection_RestoreMetadataOverride = null;
             if (cmdletContext.RestoreTestingSelection_RestoreMetadataOverride != null)
@@ -310,7 +307,6 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (requestRestoreTestingSelection_restoreTestingSelection_RestoreMetadataOverride != null)
             {
                 request.RestoreTestingSelection.RestoreMetadataOverrides = requestRestoreTestingSelection_restoreTestingSelection_RestoreMetadataOverride;
-                requestRestoreTestingSelectionIsNull = false;
             }
             System.Int32? requestRestoreTestingSelection_restoreTestingSelection_ValidationWindowHour = null;
             if (cmdletContext.RestoreTestingSelection_ValidationWindowHour != null)
@@ -320,7 +316,6 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (requestRestoreTestingSelection_restoreTestingSelection_ValidationWindowHour != null)
             {
                 request.RestoreTestingSelection.ValidationWindowHours = requestRestoreTestingSelection_restoreTestingSelection_ValidationWindowHour.Value;
-                requestRestoreTestingSelectionIsNull = false;
             }
             Amazon.Backup.Model.ProtectedResourceConditions requestRestoreTestingSelection_restoreTestingSelection_ProtectedResourceConditions = null;
             
@@ -355,12 +350,6 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (requestRestoreTestingSelection_restoreTestingSelection_ProtectedResourceConditions != null)
             {
                 request.RestoreTestingSelection.ProtectedResourceConditions = requestRestoreTestingSelection_restoreTestingSelection_ProtectedResourceConditions;
-                requestRestoreTestingSelectionIsNull = false;
-            }
-             // determine if request.RestoreTestingSelection should be set to null
-            if (requestRestoreTestingSelectionIsNull)
-            {
-                request.RestoreTestingSelection = null;
             }
             if (cmdletContext.RestoreTestingSelectionName != null)
             {

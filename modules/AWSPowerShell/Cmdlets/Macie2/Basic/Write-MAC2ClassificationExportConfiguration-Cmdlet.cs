@@ -148,7 +148,6 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             
             
              // populate Configuration
-            var requestConfigurationIsNull = true;
             request.Configuration = new Amazon.Macie2.Model.ClassificationExportConfiguration();
             Amazon.Macie2.Model.S3Destination requestConfiguration_configuration_S3Destination = null;
             
@@ -193,12 +192,6 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             if (requestConfiguration_configuration_S3Destination != null)
             {
                 request.Configuration.S3Destination = requestConfiguration_configuration_S3Destination;
-                requestConfigurationIsNull = false;
-            }
-             // determine if request.Configuration should be set to null
-            if (requestConfigurationIsNull)
-            {
-                request.Configuration = null;
             }
             
             CmdletOutput output;

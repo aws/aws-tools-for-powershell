@@ -195,7 +195,6 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             
             
              // populate Action
-            var requestActionIsNull = true;
             request.Action = new Amazon.DataExchange.Model.Action();
             Amazon.DataExchange.Model.AutoExportRevisionToS3RequestDetails requestAction_action_ExportRevisionToS3 = null;
             
@@ -280,16 +279,9 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             if (requestAction_action_ExportRevisionToS3 != null)
             {
                 request.Action.ExportRevisionToS3 = requestAction_action_ExportRevisionToS3;
-                requestActionIsNull = false;
-            }
-             // determine if request.Action should be set to null
-            if (requestActionIsNull)
-            {
-                request.Action = null;
             }
             
              // populate Event
-            var requestEventIsNull = true;
             request.Event = new Amazon.DataExchange.Model.Event();
             Amazon.DataExchange.Model.RevisionPublished requestEvent_event_RevisionPublished = null;
             
@@ -314,12 +306,6 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             if (requestEvent_event_RevisionPublished != null)
             {
                 request.Event.RevisionPublished = requestEvent_event_RevisionPublished;
-                requestEventIsNull = false;
-            }
-             // determine if request.Event should be set to null
-            if (requestEventIsNull)
-            {
-                request.Event = null;
             }
             if (cmdletContext.Tag != null)
             {

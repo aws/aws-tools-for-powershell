@@ -330,7 +330,6 @@ namespace Amazon.PowerShell.Cmdlets.QC
             }
             
              // populate Content
-            var requestContentIsNull = true;
             request.Content = new Amazon.QConnect.Model.QuickResponseDataProvider();
             System.String requestContent_content_Content = null;
             if (cmdletContext.Content_Content != null)
@@ -340,12 +339,6 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestContent_content_Content != null)
             {
                 request.Content.Content = requestContent_content_Content;
-                requestContentIsNull = false;
-            }
-             // determine if request.Content should be set to null
-            if (requestContentIsNull)
-            {
-                request.Content = null;
             }
             if (cmdletContext.ContentType != null)
             {

@@ -412,7 +412,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
             }
             
              // populate Input
-            var requestInputIsNull = true;
             request.Input = new Amazon.Rekognition.Model.StreamProcessorInput();
             Amazon.Rekognition.Model.KinesisVideoStream requestInput_input_KinesisVideoStream = null;
             
@@ -437,12 +436,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
             if (requestInput_input_KinesisVideoStream != null)
             {
                 request.Input.KinesisVideoStream = requestInput_input_KinesisVideoStream;
-                requestInputIsNull = false;
-            }
-             // determine if request.Input should be set to null
-            if (requestInputIsNull)
-            {
-                request.Input = null;
             }
             if (cmdletContext.KmsKeyId != null)
             {
@@ -473,7 +466,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
             }
             
              // populate Output
-            var requestOutputIsNull = true;
             request.Output = new Amazon.Rekognition.Model.StreamProcessorOutput();
             Amazon.Rekognition.Model.KinesisDataStream requestOutput_output_KinesisDataStream = null;
             
@@ -498,7 +490,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
             if (requestOutput_output_KinesisDataStream != null)
             {
                 request.Output.KinesisDataStream = requestOutput_output_KinesisDataStream;
-                requestOutputIsNull = false;
             }
             Amazon.Rekognition.Model.S3Destination requestOutput_output_S3Destination = null;
             
@@ -533,12 +524,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
             if (requestOutput_output_S3Destination != null)
             {
                 request.Output.S3Destination = requestOutput_output_S3Destination;
-                requestOutputIsNull = false;
-            }
-             // determine if request.Output should be set to null
-            if (requestOutputIsNull)
-            {
-                request.Output = null;
             }
             if (cmdletContext.RegionsOfInterest != null)
             {
@@ -550,7 +535,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
             }
             
              // populate Settings
-            var requestSettingsIsNull = true;
             request.Settings = new Amazon.Rekognition.Model.StreamProcessorSettings();
             Amazon.Rekognition.Model.ConnectedHomeSettings requestSettings_settings_ConnectedHome = null;
             
@@ -585,7 +569,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
             if (requestSettings_settings_ConnectedHome != null)
             {
                 request.Settings.ConnectedHome = requestSettings_settings_ConnectedHome;
-                requestSettingsIsNull = false;
             }
             Amazon.Rekognition.Model.FaceSearchSettings requestSettings_settings_FaceSearch = null;
             
@@ -620,12 +603,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
             if (requestSettings_settings_FaceSearch != null)
             {
                 request.Settings.FaceSearch = requestSettings_settings_FaceSearch;
-                requestSettingsIsNull = false;
-            }
-             // determine if request.Settings should be set to null
-            if (requestSettingsIsNull)
-            {
-                request.Settings = null;
             }
             if (cmdletContext.Tag != null)
             {

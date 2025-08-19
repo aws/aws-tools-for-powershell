@@ -238,7 +238,6 @@ namespace Amazon.PowerShell.Cmdlets.INV
             }
             
              // populate Rule
-            var requestRuleIsNull = true;
             request.Rule = new Amazon.Invoicing.Model.InvoiceUnitRule();
             List<System.String> requestRule_rule_LinkedAccount = null;
             if (cmdletContext.Rule_LinkedAccount != null)
@@ -248,12 +247,6 @@ namespace Amazon.PowerShell.Cmdlets.INV
             if (requestRule_rule_LinkedAccount != null)
             {
                 request.Rule.LinkedAccounts = requestRule_rule_LinkedAccount;
-                requestRuleIsNull = false;
-            }
-             // determine if request.Rule should be set to null
-            if (requestRuleIsNull)
-            {
-                request.Rule = null;
             }
             if (cmdletContext.TaxInheritanceDisabled != null)
             {

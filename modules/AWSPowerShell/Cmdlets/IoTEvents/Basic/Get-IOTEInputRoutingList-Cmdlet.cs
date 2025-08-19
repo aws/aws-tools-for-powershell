@@ -168,7 +168,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTE
             
             
              // populate InputIdentifier
-            var requestInputIdentifierIsNull = true;
             request.InputIdentifier = new Amazon.IoTEvents.Model.InputIdentifier();
             Amazon.IoTEvents.Model.IotEventsInputIdentifier requestInputIdentifier_inputIdentifier_IotEventsInputIdentifier = null;
             
@@ -193,7 +192,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTE
             if (requestInputIdentifier_inputIdentifier_IotEventsInputIdentifier != null)
             {
                 request.InputIdentifier.IotEventsInputIdentifier = requestInputIdentifier_inputIdentifier_IotEventsInputIdentifier;
-                requestInputIdentifierIsNull = false;
             }
             Amazon.IoTEvents.Model.IotSiteWiseInputIdentifier requestInputIdentifier_inputIdentifier_IotSiteWiseInputIdentifier = null;
             
@@ -243,12 +241,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTE
             if (requestInputIdentifier_inputIdentifier_IotSiteWiseInputIdentifier != null)
             {
                 request.InputIdentifier.IotSiteWiseInputIdentifier = requestInputIdentifier_inputIdentifier_IotSiteWiseInputIdentifier;
-                requestInputIdentifierIsNull = false;
-            }
-             // determine if request.InputIdentifier should be set to null
-            if (requestInputIdentifierIsNull)
-            {
-                request.InputIdentifier = null;
             }
             if (cmdletContext.MaxResult != null)
             {

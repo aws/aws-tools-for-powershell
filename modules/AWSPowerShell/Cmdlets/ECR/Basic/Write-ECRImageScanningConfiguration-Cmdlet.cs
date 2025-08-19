@@ -166,7 +166,6 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             
             
              // populate ImageScanningConfiguration
-            var requestImageScanningConfigurationIsNull = true;
             request.ImageScanningConfiguration = new Amazon.ECR.Model.ImageScanningConfiguration();
             System.Boolean? requestImageScanningConfiguration_imageScanningConfiguration_ScanOnPush = null;
             if (cmdletContext.ImageScanningConfiguration_ScanOnPush != null)
@@ -176,12 +175,6 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             if (requestImageScanningConfiguration_imageScanningConfiguration_ScanOnPush != null)
             {
                 request.ImageScanningConfiguration.ScanOnPush = requestImageScanningConfiguration_imageScanningConfiguration_ScanOnPush.Value;
-                requestImageScanningConfigurationIsNull = false;
-            }
-             // determine if request.ImageScanningConfiguration should be set to null
-            if (requestImageScanningConfigurationIsNull)
-            {
-                request.ImageScanningConfiguration = null;
             }
             if (cmdletContext.RegistryId != null)
             {

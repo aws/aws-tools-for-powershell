@@ -304,7 +304,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 }
                 
                  // populate SourceImage
-                var requestSourceImageIsNull = true;
                 request.SourceImage = new Amazon.Rekognition.Model.Image();
                 System.IO.MemoryStream requestSourceImage_sourceImageContent = null;
                 if (cmdletContext.SourceImageContent != null)
@@ -315,7 +314,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 if (requestSourceImage_sourceImageContent != null)
                 {
                     request.SourceImage.Bytes = requestSourceImage_sourceImageContent;
-                    requestSourceImageIsNull = false;
                 }
                 Amazon.Rekognition.Model.S3Object requestSourceImage_sourceImage_S3Object = null;
                 
@@ -360,16 +358,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 if (requestSourceImage_sourceImage_S3Object != null)
                 {
                     request.SourceImage.S3Object = requestSourceImage_sourceImage_S3Object;
-                    requestSourceImageIsNull = false;
-                }
-                 // determine if request.SourceImage should be set to null
-                if (requestSourceImageIsNull)
-                {
-                    request.SourceImage = null;
                 }
                 
                  // populate TargetImage
-                var requestTargetImageIsNull = true;
                 request.TargetImage = new Amazon.Rekognition.Model.Image();
                 System.IO.MemoryStream requestTargetImage_targetImageContent = null;
                 if (cmdletContext.TargetImageContent != null)
@@ -380,7 +371,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 if (requestTargetImage_targetImageContent != null)
                 {
                     request.TargetImage.Bytes = requestTargetImage_targetImageContent;
-                    requestTargetImageIsNull = false;
                 }
                 Amazon.Rekognition.Model.S3Object requestTargetImage_targetImage_S3Object = null;
                 
@@ -425,12 +415,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 if (requestTargetImage_targetImage_S3Object != null)
                 {
                     request.TargetImage.S3Object = requestTargetImage_targetImage_S3Object;
-                    requestTargetImageIsNull = false;
-                }
-                 // determine if request.TargetImage should be set to null
-                if (requestTargetImageIsNull)
-                {
-                    request.TargetImage = null;
                 }
                 
                 CmdletOutput output;

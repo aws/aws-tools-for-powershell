@@ -178,7 +178,6 @@ namespace Amazon.PowerShell.Cmdlets.CS
             }
             
              // populate ScalingParameters
-            var requestScalingParametersIsNull = true;
             request.ScalingParameters = new Amazon.CloudSearch.Model.ScalingParameters();
             Amazon.CloudSearch.PartitionInstanceType requestScalingParameters_scalingParameters_DesiredInstanceType = null;
             if (cmdletContext.ScalingParameters_DesiredInstanceType != null)
@@ -188,7 +187,6 @@ namespace Amazon.PowerShell.Cmdlets.CS
             if (requestScalingParameters_scalingParameters_DesiredInstanceType != null)
             {
                 request.ScalingParameters.DesiredInstanceType = requestScalingParameters_scalingParameters_DesiredInstanceType;
-                requestScalingParametersIsNull = false;
             }
             System.Int32? requestScalingParameters_scalingParameters_DesiredPartitionCount = null;
             if (cmdletContext.ScalingParameters_DesiredPartitionCount != null)
@@ -198,7 +196,6 @@ namespace Amazon.PowerShell.Cmdlets.CS
             if (requestScalingParameters_scalingParameters_DesiredPartitionCount != null)
             {
                 request.ScalingParameters.DesiredPartitionCount = requestScalingParameters_scalingParameters_DesiredPartitionCount.Value;
-                requestScalingParametersIsNull = false;
             }
             System.Int32? requestScalingParameters_scalingParameters_DesiredReplicationCount = null;
             if (cmdletContext.ScalingParameters_DesiredReplicationCount != null)
@@ -208,12 +205,6 @@ namespace Amazon.PowerShell.Cmdlets.CS
             if (requestScalingParameters_scalingParameters_DesiredReplicationCount != null)
             {
                 request.ScalingParameters.DesiredReplicationCount = requestScalingParameters_scalingParameters_DesiredReplicationCount.Value;
-                requestScalingParametersIsNull = false;
-            }
-             // determine if request.ScalingParameters should be set to null
-            if (requestScalingParametersIsNull)
-            {
-                request.ScalingParameters = null;
             }
             
             CmdletOutput output;

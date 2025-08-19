@@ -303,7 +303,6 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             
             
              // populate AnalysisRulePolicy
-            var requestAnalysisRulePolicyIsNull = true;
             request.AnalysisRulePolicy = new Amazon.CleanRooms.Model.ConfiguredTableAssociationAnalysisRulePolicy();
             Amazon.CleanRooms.Model.ConfiguredTableAssociationAnalysisRulePolicyV1 requestAnalysisRulePolicy_analysisRulePolicy_V1 = null;
             
@@ -423,12 +422,6 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestAnalysisRulePolicy_analysisRulePolicy_V1 != null)
             {
                 request.AnalysisRulePolicy.V1 = requestAnalysisRulePolicy_analysisRulePolicy_V1;
-                requestAnalysisRulePolicyIsNull = false;
-            }
-             // determine if request.AnalysisRulePolicy should be set to null
-            if (requestAnalysisRulePolicyIsNull)
-            {
-                request.AnalysisRulePolicy = null;
             }
             if (cmdletContext.AnalysisRuleType != null)
             {

@@ -506,7 +506,6 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             Amazon.MediaTailor.Model.RecurringConsumption requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringConsumption = null;
             
              // populate RecurringConsumption
-            var requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringConsumptionIsNull = true;
             requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringConsumption = new Amazon.MediaTailor.Model.RecurringConsumption();
             List<Amazon.MediaTailor.Model.AvailMatchingCriteria> requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringConsumption_recurringConsumption_AvailMatchingCriterion = null;
             if (cmdletContext.RecurringConsumption_AvailMatchingCriterion != null)
@@ -516,7 +515,6 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringConsumption_recurringConsumption_AvailMatchingCriterion != null)
             {
                 requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringConsumption.AvailMatchingCriteria = requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringConsumption_recurringConsumption_AvailMatchingCriterion;
-                requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringConsumptionIsNull = false;
             }
             System.Int32? requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringConsumption_recurringConsumption_RetrievedAdExpirationSecond = null;
             if (cmdletContext.RecurringConsumption_RetrievedAdExpirationSecond != null)
@@ -526,12 +524,6 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringConsumption_recurringConsumption_RetrievedAdExpirationSecond != null)
             {
                 requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringConsumption.RetrievedAdExpirationSeconds = requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringConsumption_recurringConsumption_RetrievedAdExpirationSecond.Value;
-                requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringConsumptionIsNull = false;
-            }
-             // determine if requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringConsumption should be set to null
-            if (requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringConsumptionIsNull)
-            {
-                requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringConsumption = null;
             }
             if (requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringConsumption != null)
             {
@@ -541,7 +533,6 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             Amazon.MediaTailor.Model.RecurringRetrieval requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval = null;
             
              // populate RecurringRetrieval
-            var requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrievalIsNull = true;
             requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval = new Amazon.MediaTailor.Model.RecurringRetrieval();
             System.Int32? requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringRetrieval_DelayAfterAvailEndSecond = null;
             if (cmdletContext.RecurringRetrieval_DelayAfterAvailEndSecond != null)
@@ -551,7 +542,6 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringRetrieval_DelayAfterAvailEndSecond != null)
             {
                 requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval.DelayAfterAvailEndSeconds = requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringRetrieval_DelayAfterAvailEndSecond.Value;
-                requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrievalIsNull = false;
             }
             Dictionary<System.String, System.String> requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringRetrieval_DynamicVariable = null;
             if (cmdletContext.RecurringRetrieval_DynamicVariable != null)
@@ -561,7 +551,6 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringRetrieval_DynamicVariable != null)
             {
                 requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval.DynamicVariables = requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringRetrieval_DynamicVariable;
-                requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrievalIsNull = false;
             }
             Amazon.MediaTailor.TrafficShapingType requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringRetrieval_TrafficShapingType = null;
             if (cmdletContext.RecurringRetrieval_TrafficShapingType != null)
@@ -571,7 +560,6 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringRetrieval_TrafficShapingType != null)
             {
                 requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval.TrafficShapingType = requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringRetrieval_TrafficShapingType;
-                requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrievalIsNull = false;
             }
             Amazon.MediaTailor.Model.TrafficShapingRetrievalWindow requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingRetrievalWindow = null;
             
@@ -596,12 +584,6 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingRetrievalWindow != null)
             {
                 requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval.TrafficShapingRetrievalWindow = requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingRetrievalWindow;
-                requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrievalIsNull = false;
-            }
-             // determine if requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval should be set to null
-            if (requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrievalIsNull)
-            {
-                requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval = null;
             }
             if (requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval != null)
             {

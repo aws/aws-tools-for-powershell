@@ -801,7 +801,6 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             }
             
              // populate Configuration
-            var requestConfigurationIsNull = true;
             request.Configuration = new Amazon.Deadline.Model.FleetConfiguration();
             Amazon.Deadline.Model.CustomerManagedFleetConfiguration requestConfiguration_configuration_CustomerManaged = null;
             
@@ -1051,7 +1050,6 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             if (requestConfiguration_configuration_CustomerManaged != null)
             {
                 request.Configuration.CustomerManaged = requestConfiguration_configuration_CustomerManaged;
-                requestConfigurationIsNull = false;
             }
             Amazon.Deadline.Model.ServiceManagedEc2FleetConfiguration requestConfiguration_configuration_ServiceManagedEc2 = null;
             
@@ -1376,12 +1374,6 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             if (requestConfiguration_configuration_ServiceManagedEc2 != null)
             {
                 request.Configuration.ServiceManagedEc2 = requestConfiguration_configuration_ServiceManagedEc2;
-                requestConfigurationIsNull = false;
-            }
-             // determine if request.Configuration should be set to null
-            if (requestConfigurationIsNull)
-            {
-                request.Configuration = null;
             }
             if (cmdletContext.Description != null)
             {

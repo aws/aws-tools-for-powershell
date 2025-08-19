@@ -120,7 +120,6 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
             
             
              // populate Configuration
-            var requestConfigurationIsNull = true;
             request.Configuration = new Amazon.AppRegistry.Model.AppRegistryConfiguration();
             Amazon.AppRegistry.Model.TagQueryConfiguration requestConfiguration_configuration_TagQueryConfiguration = null;
             
@@ -145,12 +144,6 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
             if (requestConfiguration_configuration_TagQueryConfiguration != null)
             {
                 request.Configuration.TagQueryConfiguration = requestConfiguration_configuration_TagQueryConfiguration;
-                requestConfigurationIsNull = false;
-            }
-             // determine if request.Configuration should be set to null
-            if (requestConfigurationIsNull)
-            {
-                request.Configuration = null;
             }
             
             CmdletOutput output;

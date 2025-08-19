@@ -194,7 +194,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             }
             
              // populate UpdateAttributesRequest
-            var requestUpdateAttributesRequestIsNull = true;
             request.UpdateAttributesRequest = new Amazon.Pinpoint.Model.UpdateAttributesRequest();
             List<System.String> requestUpdateAttributesRequest_updateAttributesRequest_Blacklist = null;
             if (cmdletContext.UpdateAttributesRequest_Blacklist != null)
@@ -204,12 +203,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestUpdateAttributesRequest_updateAttributesRequest_Blacklist != null)
             {
                 request.UpdateAttributesRequest.Blacklist = requestUpdateAttributesRequest_updateAttributesRequest_Blacklist;
-                requestUpdateAttributesRequestIsNull = false;
-            }
-             // determine if request.UpdateAttributesRequest should be set to null
-            if (requestUpdateAttributesRequestIsNull)
-            {
-                request.UpdateAttributesRequest = null;
             }
             
             CmdletOutput output;

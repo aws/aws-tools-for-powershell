@@ -1000,7 +1000,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             
             
              // populate AdminContact
-            var requestAdminContactIsNull = true;
             request.AdminContact = new Amazon.Route53Domains.Model.ContactDetail();
             System.String requestAdminContact_adminContact_AddressLine1 = null;
             if (cmdletContext.AdminContact_AddressLine1 != null)
@@ -1010,7 +1009,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestAdminContact_adminContact_AddressLine1 != null)
             {
                 request.AdminContact.AddressLine1 = requestAdminContact_adminContact_AddressLine1;
-                requestAdminContactIsNull = false;
             }
             System.String requestAdminContact_adminContact_AddressLine2 = null;
             if (cmdletContext.AdminContact_AddressLine2 != null)
@@ -1020,7 +1018,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestAdminContact_adminContact_AddressLine2 != null)
             {
                 request.AdminContact.AddressLine2 = requestAdminContact_adminContact_AddressLine2;
-                requestAdminContactIsNull = false;
             }
             System.String requestAdminContact_adminContact_City = null;
             if (cmdletContext.AdminContact_City != null)
@@ -1030,7 +1027,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestAdminContact_adminContact_City != null)
             {
                 request.AdminContact.City = requestAdminContact_adminContact_City;
-                requestAdminContactIsNull = false;
             }
             Amazon.Route53Domains.ContactType requestAdminContact_adminContact_ContactType = null;
             if (cmdletContext.AdminContact_ContactType != null)
@@ -1040,7 +1036,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestAdminContact_adminContact_ContactType != null)
             {
                 request.AdminContact.ContactType = requestAdminContact_adminContact_ContactType;
-                requestAdminContactIsNull = false;
             }
             Amazon.Route53Domains.CountryCode requestAdminContact_adminContact_CountryCode = null;
             if (cmdletContext.AdminContact_CountryCode != null)
@@ -1050,7 +1045,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestAdminContact_adminContact_CountryCode != null)
             {
                 request.AdminContact.CountryCode = requestAdminContact_adminContact_CountryCode;
-                requestAdminContactIsNull = false;
             }
             System.String requestAdminContact_adminContact_Email = null;
             if (cmdletContext.AdminContact_Email != null)
@@ -1060,7 +1054,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestAdminContact_adminContact_Email != null)
             {
                 request.AdminContact.Email = requestAdminContact_adminContact_Email;
-                requestAdminContactIsNull = false;
             }
             List<Amazon.Route53Domains.Model.ExtraParam> requestAdminContact_adminContact_ExtraParam = null;
             if (cmdletContext.AdminContact_ExtraParam != null)
@@ -1070,7 +1063,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestAdminContact_adminContact_ExtraParam != null)
             {
                 request.AdminContact.ExtraParams = requestAdminContact_adminContact_ExtraParam;
-                requestAdminContactIsNull = false;
             }
             System.String requestAdminContact_adminContact_Fax = null;
             if (cmdletContext.AdminContact_Fax != null)
@@ -1080,7 +1072,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestAdminContact_adminContact_Fax != null)
             {
                 request.AdminContact.Fax = requestAdminContact_adminContact_Fax;
-                requestAdminContactIsNull = false;
             }
             System.String requestAdminContact_adminContact_FirstName = null;
             if (cmdletContext.AdminContact_FirstName != null)
@@ -1090,7 +1081,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestAdminContact_adminContact_FirstName != null)
             {
                 request.AdminContact.FirstName = requestAdminContact_adminContact_FirstName;
-                requestAdminContactIsNull = false;
             }
             System.String requestAdminContact_adminContact_LastName = null;
             if (cmdletContext.AdminContact_LastName != null)
@@ -1100,7 +1090,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestAdminContact_adminContact_LastName != null)
             {
                 request.AdminContact.LastName = requestAdminContact_adminContact_LastName;
-                requestAdminContactIsNull = false;
             }
             System.String requestAdminContact_adminContact_OrganizationName = null;
             if (cmdletContext.AdminContact_OrganizationName != null)
@@ -1110,7 +1099,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestAdminContact_adminContact_OrganizationName != null)
             {
                 request.AdminContact.OrganizationName = requestAdminContact_adminContact_OrganizationName;
-                requestAdminContactIsNull = false;
             }
             System.String requestAdminContact_adminContact_PhoneNumber = null;
             if (cmdletContext.AdminContact_PhoneNumber != null)
@@ -1120,7 +1108,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestAdminContact_adminContact_PhoneNumber != null)
             {
                 request.AdminContact.PhoneNumber = requestAdminContact_adminContact_PhoneNumber;
-                requestAdminContactIsNull = false;
             }
             System.String requestAdminContact_adminContact_State = null;
             if (cmdletContext.AdminContact_State != null)
@@ -1130,7 +1117,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestAdminContact_adminContact_State != null)
             {
                 request.AdminContact.State = requestAdminContact_adminContact_State;
-                requestAdminContactIsNull = false;
             }
             System.String requestAdminContact_adminContact_ZipCode = null;
             if (cmdletContext.AdminContact_ZipCode != null)
@@ -1140,12 +1126,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestAdminContact_adminContact_ZipCode != null)
             {
                 request.AdminContact.ZipCode = requestAdminContact_adminContact_ZipCode;
-                requestAdminContactIsNull = false;
-            }
-             // determine if request.AdminContact should be set to null
-            if (requestAdminContactIsNull)
-            {
-                request.AdminContact = null;
             }
             if (cmdletContext.AuthCode != null)
             {
@@ -1338,7 +1318,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             }
             
              // populate RegistrantContact
-            var requestRegistrantContactIsNull = true;
             request.RegistrantContact = new Amazon.Route53Domains.Model.ContactDetail();
             System.String requestRegistrantContact_registrantContact_AddressLine1 = null;
             if (cmdletContext.RegistrantContact_AddressLine1 != null)
@@ -1348,7 +1327,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestRegistrantContact_registrantContact_AddressLine1 != null)
             {
                 request.RegistrantContact.AddressLine1 = requestRegistrantContact_registrantContact_AddressLine1;
-                requestRegistrantContactIsNull = false;
             }
             System.String requestRegistrantContact_registrantContact_AddressLine2 = null;
             if (cmdletContext.RegistrantContact_AddressLine2 != null)
@@ -1358,7 +1336,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestRegistrantContact_registrantContact_AddressLine2 != null)
             {
                 request.RegistrantContact.AddressLine2 = requestRegistrantContact_registrantContact_AddressLine2;
-                requestRegistrantContactIsNull = false;
             }
             System.String requestRegistrantContact_registrantContact_City = null;
             if (cmdletContext.RegistrantContact_City != null)
@@ -1368,7 +1345,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestRegistrantContact_registrantContact_City != null)
             {
                 request.RegistrantContact.City = requestRegistrantContact_registrantContact_City;
-                requestRegistrantContactIsNull = false;
             }
             Amazon.Route53Domains.ContactType requestRegistrantContact_registrantContact_ContactType = null;
             if (cmdletContext.RegistrantContact_ContactType != null)
@@ -1378,7 +1354,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestRegistrantContact_registrantContact_ContactType != null)
             {
                 request.RegistrantContact.ContactType = requestRegistrantContact_registrantContact_ContactType;
-                requestRegistrantContactIsNull = false;
             }
             Amazon.Route53Domains.CountryCode requestRegistrantContact_registrantContact_CountryCode = null;
             if (cmdletContext.RegistrantContact_CountryCode != null)
@@ -1388,7 +1363,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestRegistrantContact_registrantContact_CountryCode != null)
             {
                 request.RegistrantContact.CountryCode = requestRegistrantContact_registrantContact_CountryCode;
-                requestRegistrantContactIsNull = false;
             }
             System.String requestRegistrantContact_registrantContact_Email = null;
             if (cmdletContext.RegistrantContact_Email != null)
@@ -1398,7 +1372,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestRegistrantContact_registrantContact_Email != null)
             {
                 request.RegistrantContact.Email = requestRegistrantContact_registrantContact_Email;
-                requestRegistrantContactIsNull = false;
             }
             List<Amazon.Route53Domains.Model.ExtraParam> requestRegistrantContact_registrantContact_ExtraParam = null;
             if (cmdletContext.RegistrantContact_ExtraParam != null)
@@ -1408,7 +1381,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestRegistrantContact_registrantContact_ExtraParam != null)
             {
                 request.RegistrantContact.ExtraParams = requestRegistrantContact_registrantContact_ExtraParam;
-                requestRegistrantContactIsNull = false;
             }
             System.String requestRegistrantContact_registrantContact_Fax = null;
             if (cmdletContext.RegistrantContact_Fax != null)
@@ -1418,7 +1390,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestRegistrantContact_registrantContact_Fax != null)
             {
                 request.RegistrantContact.Fax = requestRegistrantContact_registrantContact_Fax;
-                requestRegistrantContactIsNull = false;
             }
             System.String requestRegistrantContact_registrantContact_FirstName = null;
             if (cmdletContext.RegistrantContact_FirstName != null)
@@ -1428,7 +1399,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestRegistrantContact_registrantContact_FirstName != null)
             {
                 request.RegistrantContact.FirstName = requestRegistrantContact_registrantContact_FirstName;
-                requestRegistrantContactIsNull = false;
             }
             System.String requestRegistrantContact_registrantContact_LastName = null;
             if (cmdletContext.RegistrantContact_LastName != null)
@@ -1438,7 +1408,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestRegistrantContact_registrantContact_LastName != null)
             {
                 request.RegistrantContact.LastName = requestRegistrantContact_registrantContact_LastName;
-                requestRegistrantContactIsNull = false;
             }
             System.String requestRegistrantContact_registrantContact_OrganizationName = null;
             if (cmdletContext.RegistrantContact_OrganizationName != null)
@@ -1448,7 +1417,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestRegistrantContact_registrantContact_OrganizationName != null)
             {
                 request.RegistrantContact.OrganizationName = requestRegistrantContact_registrantContact_OrganizationName;
-                requestRegistrantContactIsNull = false;
             }
             System.String requestRegistrantContact_registrantContact_PhoneNumber = null;
             if (cmdletContext.RegistrantContact_PhoneNumber != null)
@@ -1458,7 +1426,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestRegistrantContact_registrantContact_PhoneNumber != null)
             {
                 request.RegistrantContact.PhoneNumber = requestRegistrantContact_registrantContact_PhoneNumber;
-                requestRegistrantContactIsNull = false;
             }
             System.String requestRegistrantContact_registrantContact_State = null;
             if (cmdletContext.RegistrantContact_State != null)
@@ -1468,7 +1435,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestRegistrantContact_registrantContact_State != null)
             {
                 request.RegistrantContact.State = requestRegistrantContact_registrantContact_State;
-                requestRegistrantContactIsNull = false;
             }
             System.String requestRegistrantContact_registrantContact_ZipCode = null;
             if (cmdletContext.RegistrantContact_ZipCode != null)
@@ -1478,16 +1444,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestRegistrantContact_registrantContact_ZipCode != null)
             {
                 request.RegistrantContact.ZipCode = requestRegistrantContact_registrantContact_ZipCode;
-                requestRegistrantContactIsNull = false;
-            }
-             // determine if request.RegistrantContact should be set to null
-            if (requestRegistrantContactIsNull)
-            {
-                request.RegistrantContact = null;
             }
             
              // populate TechContact
-            var requestTechContactIsNull = true;
             request.TechContact = new Amazon.Route53Domains.Model.ContactDetail();
             System.String requestTechContact_techContact_AddressLine1 = null;
             if (cmdletContext.TechContact_AddressLine1 != null)
@@ -1497,7 +1456,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestTechContact_techContact_AddressLine1 != null)
             {
                 request.TechContact.AddressLine1 = requestTechContact_techContact_AddressLine1;
-                requestTechContactIsNull = false;
             }
             System.String requestTechContact_techContact_AddressLine2 = null;
             if (cmdletContext.TechContact_AddressLine2 != null)
@@ -1507,7 +1465,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestTechContact_techContact_AddressLine2 != null)
             {
                 request.TechContact.AddressLine2 = requestTechContact_techContact_AddressLine2;
-                requestTechContactIsNull = false;
             }
             System.String requestTechContact_techContact_City = null;
             if (cmdletContext.TechContact_City != null)
@@ -1517,7 +1474,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestTechContact_techContact_City != null)
             {
                 request.TechContact.City = requestTechContact_techContact_City;
-                requestTechContactIsNull = false;
             }
             Amazon.Route53Domains.ContactType requestTechContact_techContact_ContactType = null;
             if (cmdletContext.TechContact_ContactType != null)
@@ -1527,7 +1483,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestTechContact_techContact_ContactType != null)
             {
                 request.TechContact.ContactType = requestTechContact_techContact_ContactType;
-                requestTechContactIsNull = false;
             }
             Amazon.Route53Domains.CountryCode requestTechContact_techContact_CountryCode = null;
             if (cmdletContext.TechContact_CountryCode != null)
@@ -1537,7 +1492,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestTechContact_techContact_CountryCode != null)
             {
                 request.TechContact.CountryCode = requestTechContact_techContact_CountryCode;
-                requestTechContactIsNull = false;
             }
             System.String requestTechContact_techContact_Email = null;
             if (cmdletContext.TechContact_Email != null)
@@ -1547,7 +1501,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestTechContact_techContact_Email != null)
             {
                 request.TechContact.Email = requestTechContact_techContact_Email;
-                requestTechContactIsNull = false;
             }
             List<Amazon.Route53Domains.Model.ExtraParam> requestTechContact_techContact_ExtraParam = null;
             if (cmdletContext.TechContact_ExtraParam != null)
@@ -1557,7 +1510,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestTechContact_techContact_ExtraParam != null)
             {
                 request.TechContact.ExtraParams = requestTechContact_techContact_ExtraParam;
-                requestTechContactIsNull = false;
             }
             System.String requestTechContact_techContact_Fax = null;
             if (cmdletContext.TechContact_Fax != null)
@@ -1567,7 +1519,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestTechContact_techContact_Fax != null)
             {
                 request.TechContact.Fax = requestTechContact_techContact_Fax;
-                requestTechContactIsNull = false;
             }
             System.String requestTechContact_techContact_FirstName = null;
             if (cmdletContext.TechContact_FirstName != null)
@@ -1577,7 +1528,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestTechContact_techContact_FirstName != null)
             {
                 request.TechContact.FirstName = requestTechContact_techContact_FirstName;
-                requestTechContactIsNull = false;
             }
             System.String requestTechContact_techContact_LastName = null;
             if (cmdletContext.TechContact_LastName != null)
@@ -1587,7 +1537,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestTechContact_techContact_LastName != null)
             {
                 request.TechContact.LastName = requestTechContact_techContact_LastName;
-                requestTechContactIsNull = false;
             }
             System.String requestTechContact_techContact_OrganizationName = null;
             if (cmdletContext.TechContact_OrganizationName != null)
@@ -1597,7 +1546,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestTechContact_techContact_OrganizationName != null)
             {
                 request.TechContact.OrganizationName = requestTechContact_techContact_OrganizationName;
-                requestTechContactIsNull = false;
             }
             System.String requestTechContact_techContact_PhoneNumber = null;
             if (cmdletContext.TechContact_PhoneNumber != null)
@@ -1607,7 +1555,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestTechContact_techContact_PhoneNumber != null)
             {
                 request.TechContact.PhoneNumber = requestTechContact_techContact_PhoneNumber;
-                requestTechContactIsNull = false;
             }
             System.String requestTechContact_techContact_State = null;
             if (cmdletContext.TechContact_State != null)
@@ -1617,7 +1564,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestTechContact_techContact_State != null)
             {
                 request.TechContact.State = requestTechContact_techContact_State;
-                requestTechContactIsNull = false;
             }
             System.String requestTechContact_techContact_ZipCode = null;
             if (cmdletContext.TechContact_ZipCode != null)
@@ -1627,12 +1573,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestTechContact_techContact_ZipCode != null)
             {
                 request.TechContact.ZipCode = requestTechContact_techContact_ZipCode;
-                requestTechContactIsNull = false;
-            }
-             // determine if request.TechContact should be set to null
-            if (requestTechContactIsNull)
-            {
-                request.TechContact = null;
             }
             
             CmdletOutput output;

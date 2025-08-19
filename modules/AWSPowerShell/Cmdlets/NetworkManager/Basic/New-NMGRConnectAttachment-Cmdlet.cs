@@ -243,7 +243,6 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             }
             
              // populate Options
-            var requestOptionsIsNull = true;
             request.Options = new Amazon.NetworkManager.Model.ConnectAttachmentOptions();
             Amazon.NetworkManager.TunnelProtocol requestOptions_options_Protocol = null;
             if (cmdletContext.Options_Protocol != null)
@@ -253,12 +252,6 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             if (requestOptions_options_Protocol != null)
             {
                 request.Options.Protocol = requestOptions_options_Protocol;
-                requestOptionsIsNull = false;
-            }
-             // determine if request.Options should be set to null
-            if (requestOptionsIsNull)
-            {
-                request.Options = null;
             }
             if (cmdletContext.Tag != null)
             {

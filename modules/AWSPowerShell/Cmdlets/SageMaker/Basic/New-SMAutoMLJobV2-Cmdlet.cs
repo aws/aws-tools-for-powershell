@@ -1210,7 +1210,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             
              // populate AutoMLProblemTypeConfig
-            var requestAutoMLProblemTypeConfigIsNull = true;
             request.AutoMLProblemTypeConfig = new Amazon.SageMaker.Model.AutoMLProblemTypeConfig();
             Amazon.SageMaker.Model.ImageClassificationJobConfig requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_ImageClassificationJobConfig = null;
             
@@ -1270,7 +1269,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_ImageClassificationJobConfig != null)
             {
                 request.AutoMLProblemTypeConfig.ImageClassificationJobConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_ImageClassificationJobConfig;
-                requestAutoMLProblemTypeConfigIsNull = false;
             }
             Amazon.SageMaker.Model.TextClassificationJobConfig requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextClassificationJobConfig = null;
             
@@ -1350,7 +1348,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextClassificationJobConfig != null)
             {
                 request.AutoMLProblemTypeConfig.TextClassificationJobConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextClassificationJobConfig;
-                requestAutoMLProblemTypeConfigIsNull = false;
             }
             Amazon.SageMaker.Model.TextGenerationJobConfig requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig = null;
             
@@ -1455,7 +1452,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig != null)
             {
                 request.AutoMLProblemTypeConfig.TextGenerationJobConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig;
-                requestAutoMLProblemTypeConfigIsNull = false;
             }
             Amazon.SageMaker.Model.TabularJobConfig requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig = null;
             
@@ -1600,7 +1596,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig != null)
             {
                 request.AutoMLProblemTypeConfig.TabularJobConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig;
-                requestAutoMLProblemTypeConfigIsNull = false;
             }
             Amazon.SageMaker.Model.TimeSeriesForecastingJobConfig requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig = null;
             
@@ -1825,12 +1820,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig != null)
             {
                 request.AutoMLProblemTypeConfig.TimeSeriesForecastingJobConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig;
-                requestAutoMLProblemTypeConfigIsNull = false;
-            }
-             // determine if request.AutoMLProblemTypeConfig should be set to null
-            if (requestAutoMLProblemTypeConfigIsNull)
-            {
-                request.AutoMLProblemTypeConfig = null;
             }
             
              // populate DataSplitConfig

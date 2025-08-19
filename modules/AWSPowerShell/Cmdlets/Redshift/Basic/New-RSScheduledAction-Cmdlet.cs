@@ -374,7 +374,6 @@ namespace Amazon.PowerShell.Cmdlets.RS
             }
             
              // populate TargetAction
-            var requestTargetActionIsNull = true;
             request.TargetAction = new Amazon.Redshift.Model.ScheduledActionType();
             Amazon.Redshift.Model.PauseClusterMessage requestTargetAction_targetAction_PauseCluster = null;
             
@@ -399,7 +398,6 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (requestTargetAction_targetAction_PauseCluster != null)
             {
                 request.TargetAction.PauseCluster = requestTargetAction_targetAction_PauseCluster;
-                requestTargetActionIsNull = false;
             }
             Amazon.Redshift.Model.ResumeClusterMessage requestTargetAction_targetAction_ResumeCluster = null;
             
@@ -424,7 +422,6 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (requestTargetAction_targetAction_ResumeCluster != null)
             {
                 request.TargetAction.ResumeCluster = requestTargetAction_targetAction_ResumeCluster;
-                requestTargetActionIsNull = false;
             }
             Amazon.Redshift.Model.ResizeClusterMessage requestTargetAction_targetAction_ResizeCluster = null;
             
@@ -509,12 +506,6 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (requestTargetAction_targetAction_ResizeCluster != null)
             {
                 request.TargetAction.ResizeCluster = requestTargetAction_targetAction_ResizeCluster;
-                requestTargetActionIsNull = false;
-            }
-             // determine if request.TargetAction should be set to null
-            if (requestTargetActionIsNull)
-            {
-                request.TargetAction = null;
             }
             
             CmdletOutput output;

@@ -1005,7 +1005,6 @@ namespace Amazon.PowerShell.Cmdlets.AF
             Amazon.Appflow.Model.SourceConnectorProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties = null;
             
              // populate SourceConnectorProperties
-            var requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = true;
             requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties = new Amazon.Appflow.Model.SourceConnectorProperties();
             Amazon.Appflow.Model.AmplitudeSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Amplitude = null;
             
@@ -1030,7 +1029,6 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Amplitude != null)
             {
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.Amplitude = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Amplitude;
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.Appflow.Model.DatadogSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Datadog = null;
             
@@ -1055,7 +1053,6 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Datadog != null)
             {
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.Datadog = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Datadog;
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.Appflow.Model.DynatraceSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Dynatrace = null;
             
@@ -1080,7 +1077,6 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Dynatrace != null)
             {
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.Dynatrace = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Dynatrace;
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.Appflow.Model.GoogleAnalyticsSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_GoogleAnalytics = null;
             
@@ -1105,7 +1101,6 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_GoogleAnalytics != null)
             {
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.GoogleAnalytics = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_GoogleAnalytics;
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.Appflow.Model.InforNexusSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_InforNexus = null;
             
@@ -1130,7 +1125,6 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_InforNexus != null)
             {
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.InforNexus = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_InforNexus;
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.Appflow.Model.MarketoSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Marketo = null;
             
@@ -1155,7 +1149,6 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Marketo != null)
             {
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.Marketo = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Marketo;
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.Appflow.Model.PardotSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Pardot = null;
             
@@ -1180,7 +1173,6 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Pardot != null)
             {
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.Pardot = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Pardot;
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.Appflow.Model.ServiceNowSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_ServiceNow = null;
             
@@ -1205,7 +1197,6 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_ServiceNow != null)
             {
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.ServiceNow = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_ServiceNow;
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.Appflow.Model.SingularSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Singular = null;
             
@@ -1230,7 +1221,6 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Singular != null)
             {
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.Singular = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Singular;
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.Appflow.Model.SlackSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Slack = null;
             
@@ -1255,7 +1245,6 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Slack != null)
             {
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.Slack = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Slack;
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.Appflow.Model.TrendmicroSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Trendmicro = null;
             
@@ -1280,7 +1269,6 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Trendmicro != null)
             {
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.Trendmicro = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Trendmicro;
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.Appflow.Model.ZendeskSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Zendesk = null;
             
@@ -1305,7 +1293,6 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Zendesk != null)
             {
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.Zendesk = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Zendesk;
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.Appflow.Model.CustomConnectorSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector = null;
             
@@ -1375,7 +1362,6 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector != null)
             {
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.CustomConnector = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_CustomConnector;
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.Appflow.Model.S3SourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3 = null;
             
@@ -1435,7 +1421,6 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3 != null)
             {
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.S3 = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_S3;
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.Appflow.Model.SAPODataSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData = null;
             
@@ -1510,7 +1495,6 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData != null)
             {
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.SAPOData = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData;
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.Appflow.Model.SalesforceSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Salesforce = null;
             
@@ -1565,7 +1549,6 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Salesforce != null)
             {
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.Salesforce = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Salesforce;
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.Appflow.Model.VeevaSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva = null;
             
@@ -1630,12 +1613,6 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva != null)
             {
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.Veeva = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Veeva;
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
-            }
-             // determine if requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties should be set to null
-            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull)
-            {
-                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties = null;
             }
             if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties != null)
             {

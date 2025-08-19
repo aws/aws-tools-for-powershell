@@ -1072,7 +1072,6 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
             }
             
              // populate RoutingBoundary
-            var requestRoutingBoundaryIsNull = true;
             request.RoutingBoundary = new Amazon.GeoRoutes.Model.RouteMatrixBoundary();
             System.Boolean? requestRoutingBoundary_routingBoundary_Unbounded = null;
             if (cmdletContext.RoutingBoundary_Unbounded != null)
@@ -1082,7 +1081,6 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
             if (requestRoutingBoundary_routingBoundary_Unbounded != null)
             {
                 request.RoutingBoundary.Unbounded = requestRoutingBoundary_routingBoundary_Unbounded.Value;
-                requestRoutingBoundaryIsNull = false;
             }
             Amazon.GeoRoutes.Model.RouteMatrixBoundaryGeometry requestRoutingBoundary_routingBoundary_Geometry = null;
             
@@ -1187,12 +1185,6 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
             if (requestRoutingBoundary_routingBoundary_Geometry != null)
             {
                 request.RoutingBoundary.Geometry = requestRoutingBoundary_routingBoundary_Geometry;
-                requestRoutingBoundaryIsNull = false;
-            }
-             // determine if request.RoutingBoundary should be set to null
-            if (requestRoutingBoundaryIsNull)
-            {
-                request.RoutingBoundary = null;
             }
             
              // populate Traffic

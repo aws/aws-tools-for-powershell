@@ -174,7 +174,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             }
             
              // populate SMSChannelRequest
-            var requestSMSChannelRequestIsNull = true;
             request.SMSChannelRequest = new Amazon.Pinpoint.Model.SMSChannelRequest();
             System.Boolean? requestSMSChannelRequest_sMSChannelRequest_Enabled = null;
             if (cmdletContext.SMSChannelRequest_Enabled != null)
@@ -184,7 +183,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestSMSChannelRequest_sMSChannelRequest_Enabled != null)
             {
                 request.SMSChannelRequest.Enabled = requestSMSChannelRequest_sMSChannelRequest_Enabled.Value;
-                requestSMSChannelRequestIsNull = false;
             }
             System.String requestSMSChannelRequest_sMSChannelRequest_SenderId = null;
             if (cmdletContext.SMSChannelRequest_SenderId != null)
@@ -194,7 +192,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestSMSChannelRequest_sMSChannelRequest_SenderId != null)
             {
                 request.SMSChannelRequest.SenderId = requestSMSChannelRequest_sMSChannelRequest_SenderId;
-                requestSMSChannelRequestIsNull = false;
             }
             System.String requestSMSChannelRequest_sMSChannelRequest_ShortCode = null;
             if (cmdletContext.SMSChannelRequest_ShortCode != null)
@@ -204,12 +201,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestSMSChannelRequest_sMSChannelRequest_ShortCode != null)
             {
                 request.SMSChannelRequest.ShortCode = requestSMSChannelRequest_sMSChannelRequest_ShortCode;
-                requestSMSChannelRequestIsNull = false;
-            }
-             // determine if request.SMSChannelRequest should be set to null
-            if (requestSMSChannelRequestIsNull)
-            {
-                request.SMSChannelRequest = null;
             }
             
             CmdletOutput output;

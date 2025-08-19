@@ -211,7 +211,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             
              // populate AssociationTarget
-            var requestAssociationTargetIsNull = true;
             request.AssociationTarget = new Amazon.EC2.Model.InstanceEventWindowDisassociationRequest();
             List<System.String> requestAssociationTarget_associationTarget_DedicatedHostId = null;
             if (cmdletContext.AssociationTarget_DedicatedHostId != null)
@@ -221,7 +220,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestAssociationTarget_associationTarget_DedicatedHostId != null)
             {
                 request.AssociationTarget.DedicatedHostIds = requestAssociationTarget_associationTarget_DedicatedHostId;
-                requestAssociationTargetIsNull = false;
             }
             List<System.String> requestAssociationTarget_associationTarget_InstanceId = null;
             if (cmdletContext.AssociationTarget_InstanceId != null)
@@ -231,7 +229,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestAssociationTarget_associationTarget_InstanceId != null)
             {
                 request.AssociationTarget.InstanceIds = requestAssociationTarget_associationTarget_InstanceId;
-                requestAssociationTargetIsNull = false;
             }
             List<Amazon.EC2.Model.Tag> requestAssociationTarget_associationTarget_InstanceTag = null;
             if (cmdletContext.AssociationTarget_InstanceTag != null)
@@ -241,12 +238,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestAssociationTarget_associationTarget_InstanceTag != null)
             {
                 request.AssociationTarget.InstanceTags = requestAssociationTarget_associationTarget_InstanceTag;
-                requestAssociationTargetIsNull = false;
-            }
-             // determine if request.AssociationTarget should be set to null
-            if (requestAssociationTargetIsNull)
-            {
-                request.AssociationTarget = null;
             }
             if (cmdletContext.DryRun != null)
             {

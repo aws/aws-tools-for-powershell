@@ -542,7 +542,6 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             }
             
              // populate Definition
-            var requestDefinitionIsNull = true;
             request.Definition = new Amazon.Budgets.Model.Definition();
             Amazon.Budgets.Model.ScpActionDefinition requestDefinition_definition_ScpActionDefinition = null;
             
@@ -577,7 +576,6 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             if (requestDefinition_definition_ScpActionDefinition != null)
             {
                 request.Definition.ScpActionDefinition = requestDefinition_definition_ScpActionDefinition;
-                requestDefinitionIsNull = false;
             }
             Amazon.Budgets.Model.SsmActionDefinition requestDefinition_definition_SsmActionDefinition = null;
             
@@ -622,7 +620,6 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             if (requestDefinition_definition_SsmActionDefinition != null)
             {
                 request.Definition.SsmActionDefinition = requestDefinition_definition_SsmActionDefinition;
-                requestDefinitionIsNull = false;
             }
             Amazon.Budgets.Model.IamActionDefinition requestDefinition_definition_IamActionDefinition = null;
             
@@ -677,12 +674,6 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             if (requestDefinition_definition_IamActionDefinition != null)
             {
                 request.Definition.IamActionDefinition = requestDefinition_definition_IamActionDefinition;
-                requestDefinitionIsNull = false;
-            }
-             // determine if request.Definition should be set to null
-            if (requestDefinitionIsNull)
-            {
-                request.Definition = null;
             }
             if (cmdletContext.ExecutionRoleArn != null)
             {

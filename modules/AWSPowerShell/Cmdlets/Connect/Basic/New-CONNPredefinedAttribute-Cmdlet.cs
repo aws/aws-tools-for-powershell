@@ -187,7 +187,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             
              // populate Values
-            var requestValuesIsNull = true;
             request.Values = new Amazon.Connect.Model.PredefinedAttributeValues();
             List<System.String> requestValues_values_StringList = null;
             if (cmdletContext.Values_StringList != null)
@@ -197,12 +196,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestValues_values_StringList != null)
             {
                 request.Values.StringList = requestValues_values_StringList;
-                requestValuesIsNull = false;
-            }
-             // determine if request.Values should be set to null
-            if (requestValuesIsNull)
-            {
-                request.Values = null;
             }
             
             CmdletOutput output;

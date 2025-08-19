@@ -558,7 +558,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             
              // populate Configuration
-            var requestConfigurationIsNull = true;
             request.Configuration = new Amazon.DataZone.Model.AssetFilterConfiguration();
             Amazon.DataZone.Model.ColumnFilterConfiguration requestConfiguration_configuration_ColumnConfiguration = null;
             
@@ -583,7 +582,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestConfiguration_configuration_ColumnConfiguration != null)
             {
                 request.Configuration.ColumnConfiguration = requestConfiguration_configuration_ColumnConfiguration;
-                requestConfigurationIsNull = false;
             }
             Amazon.DataZone.Model.RowFilterConfiguration requestConfiguration_configuration_RowConfiguration = null;
             
@@ -603,7 +601,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             Amazon.DataZone.Model.RowFilter requestConfiguration_configuration_RowConfiguration_configuration_RowConfiguration_RowFilter = null;
             
              // populate RowFilter
-            var requestConfiguration_configuration_RowConfiguration_configuration_RowConfiguration_RowFilterIsNull = true;
             requestConfiguration_configuration_RowConfiguration_configuration_RowConfiguration_RowFilter = new Amazon.DataZone.Model.RowFilter();
             List<Amazon.DataZone.Model.RowFilter> requestConfiguration_configuration_RowConfiguration_configuration_RowConfiguration_RowFilter_rowFilter_And = null;
             if (cmdletContext.RowFilter_And != null)
@@ -613,7 +610,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestConfiguration_configuration_RowConfiguration_configuration_RowConfiguration_RowFilter_rowFilter_And != null)
             {
                 requestConfiguration_configuration_RowConfiguration_configuration_RowConfiguration_RowFilter.And = requestConfiguration_configuration_RowConfiguration_configuration_RowConfiguration_RowFilter_rowFilter_And;
-                requestConfiguration_configuration_RowConfiguration_configuration_RowConfiguration_RowFilterIsNull = false;
             }
             List<Amazon.DataZone.Model.RowFilter> requestConfiguration_configuration_RowConfiguration_configuration_RowConfiguration_RowFilter_rowFilter_Or = null;
             if (cmdletContext.RowFilter_Or != null)
@@ -623,7 +619,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestConfiguration_configuration_RowConfiguration_configuration_RowConfiguration_RowFilter_rowFilter_Or != null)
             {
                 requestConfiguration_configuration_RowConfiguration_configuration_RowConfiguration_RowFilter.Or = requestConfiguration_configuration_RowConfiguration_configuration_RowConfiguration_RowFilter_rowFilter_Or;
-                requestConfiguration_configuration_RowConfiguration_configuration_RowConfiguration_RowFilterIsNull = false;
             }
             Amazon.DataZone.Model.RowFilterExpression requestConfiguration_configuration_RowConfiguration_configuration_RowConfiguration_RowFilter_configuration_RowConfiguration_RowFilter_Expression = null;
             
@@ -1038,12 +1033,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestConfiguration_configuration_RowConfiguration_configuration_RowConfiguration_RowFilter_configuration_RowConfiguration_RowFilter_Expression != null)
             {
                 requestConfiguration_configuration_RowConfiguration_configuration_RowConfiguration_RowFilter.Expression = requestConfiguration_configuration_RowConfiguration_configuration_RowConfiguration_RowFilter_configuration_RowConfiguration_RowFilter_Expression;
-                requestConfiguration_configuration_RowConfiguration_configuration_RowConfiguration_RowFilterIsNull = false;
-            }
-             // determine if requestConfiguration_configuration_RowConfiguration_configuration_RowConfiguration_RowFilter should be set to null
-            if (requestConfiguration_configuration_RowConfiguration_configuration_RowConfiguration_RowFilterIsNull)
-            {
-                requestConfiguration_configuration_RowConfiguration_configuration_RowConfiguration_RowFilter = null;
             }
             if (requestConfiguration_configuration_RowConfiguration_configuration_RowConfiguration_RowFilter != null)
             {
@@ -1058,12 +1047,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestConfiguration_configuration_RowConfiguration != null)
             {
                 request.Configuration.RowConfiguration = requestConfiguration_configuration_RowConfiguration;
-                requestConfigurationIsNull = false;
-            }
-             // determine if request.Configuration should be set to null
-            if (requestConfigurationIsNull)
-            {
-                request.Configuration = null;
             }
             if (cmdletContext.Description != null)
             {

@@ -108,7 +108,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/OutputFormat")
         }
         {
-            $v = "json","mp3","ogg_vorbis","pcm"
+            $v = "json","mp3","ogg_opus","ogg_vorbis","pcm"
             break
         }
 

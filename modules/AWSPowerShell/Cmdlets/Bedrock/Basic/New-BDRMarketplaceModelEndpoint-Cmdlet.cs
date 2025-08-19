@@ -304,7 +304,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             }
             
              // populate EndpointConfig
-            var requestEndpointConfigIsNull = true;
             request.EndpointConfig = new Amazon.Bedrock.Model.EndpointConfig();
             Amazon.Bedrock.Model.SageMakerEndpoint requestEndpointConfig_endpointConfig_SageMaker = null;
             
@@ -394,12 +393,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestEndpointConfig_endpointConfig_SageMaker != null)
             {
                 request.EndpointConfig.SageMaker = requestEndpointConfig_endpointConfig_SageMaker;
-                requestEndpointConfigIsNull = false;
-            }
-             // determine if request.EndpointConfig should be set to null
-            if (requestEndpointConfigIsNull)
-            {
-                request.EndpointConfig = null;
             }
             if (cmdletContext.EndpointName != null)
             {

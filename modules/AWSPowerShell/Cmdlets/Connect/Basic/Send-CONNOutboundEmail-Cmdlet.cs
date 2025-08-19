@@ -552,7 +552,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             Amazon.Connect.Model.TemplateAttributes requestEmailMessage_emailMessage_TemplatedMessageConfig_emailMessage_TemplatedMessageConfig_TemplateAttributes = null;
             
              // populate TemplateAttributes
-            var requestEmailMessage_emailMessage_TemplatedMessageConfig_emailMessage_TemplatedMessageConfig_TemplateAttributesIsNull = true;
             requestEmailMessage_emailMessage_TemplatedMessageConfig_emailMessage_TemplatedMessageConfig_TemplateAttributes = new Amazon.Connect.Model.TemplateAttributes();
             Dictionary<System.String, System.String> requestEmailMessage_emailMessage_TemplatedMessageConfig_emailMessage_TemplatedMessageConfig_TemplateAttributes_templateAttributes_CustomAttribute = null;
             if (cmdletContext.TemplateAttributes_CustomAttribute != null)
@@ -562,7 +561,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestEmailMessage_emailMessage_TemplatedMessageConfig_emailMessage_TemplatedMessageConfig_TemplateAttributes_templateAttributes_CustomAttribute != null)
             {
                 requestEmailMessage_emailMessage_TemplatedMessageConfig_emailMessage_TemplatedMessageConfig_TemplateAttributes.CustomAttributes = requestEmailMessage_emailMessage_TemplatedMessageConfig_emailMessage_TemplatedMessageConfig_TemplateAttributes_templateAttributes_CustomAttribute;
-                requestEmailMessage_emailMessage_TemplatedMessageConfig_emailMessage_TemplatedMessageConfig_TemplateAttributesIsNull = false;
             }
             System.String requestEmailMessage_emailMessage_TemplatedMessageConfig_emailMessage_TemplatedMessageConfig_TemplateAttributes_templateAttributes_CustomerProfileAttribute = null;
             if (cmdletContext.TemplateAttributes_CustomerProfileAttribute != null)
@@ -572,12 +570,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestEmailMessage_emailMessage_TemplatedMessageConfig_emailMessage_TemplatedMessageConfig_TemplateAttributes_templateAttributes_CustomerProfileAttribute != null)
             {
                 requestEmailMessage_emailMessage_TemplatedMessageConfig_emailMessage_TemplatedMessageConfig_TemplateAttributes.CustomerProfileAttributes = requestEmailMessage_emailMessage_TemplatedMessageConfig_emailMessage_TemplatedMessageConfig_TemplateAttributes_templateAttributes_CustomerProfileAttribute;
-                requestEmailMessage_emailMessage_TemplatedMessageConfig_emailMessage_TemplatedMessageConfig_TemplateAttributesIsNull = false;
-            }
-             // determine if requestEmailMessage_emailMessage_TemplatedMessageConfig_emailMessage_TemplatedMessageConfig_TemplateAttributes should be set to null
-            if (requestEmailMessage_emailMessage_TemplatedMessageConfig_emailMessage_TemplatedMessageConfig_TemplateAttributesIsNull)
-            {
-                requestEmailMessage_emailMessage_TemplatedMessageConfig_emailMessage_TemplatedMessageConfig_TemplateAttributes = null;
             }
             if (requestEmailMessage_emailMessage_TemplatedMessageConfig_emailMessage_TemplatedMessageConfig_TemplateAttributes != null)
             {

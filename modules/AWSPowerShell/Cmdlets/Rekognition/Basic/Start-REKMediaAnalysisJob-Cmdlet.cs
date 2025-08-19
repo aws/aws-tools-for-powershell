@@ -257,7 +257,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
             Amazon.Rekognition.Model.S3Object requestInput_input_S3Object = null;
             
              // populate S3Object
-            var requestInput_input_S3ObjectIsNull = true;
             requestInput_input_S3Object = new Amazon.Rekognition.Model.S3Object();
             System.String requestInput_input_S3Object_s3Object_Bucket = null;
             if (cmdletContext.S3Object_Bucket != null)
@@ -267,7 +266,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
             if (requestInput_input_S3Object_s3Object_Bucket != null)
             {
                 requestInput_input_S3Object.Bucket = requestInput_input_S3Object_s3Object_Bucket;
-                requestInput_input_S3ObjectIsNull = false;
             }
             System.String requestInput_input_S3Object_s3Object_Name = null;
             if (cmdletContext.S3Object_Name != null)
@@ -277,7 +275,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
             if (requestInput_input_S3Object_s3Object_Name != null)
             {
                 requestInput_input_S3Object.Name = requestInput_input_S3Object_s3Object_Name;
-                requestInput_input_S3ObjectIsNull = false;
             }
             System.String requestInput_input_S3Object_s3Object_Version = null;
             if (cmdletContext.S3Object_Version != null)
@@ -287,12 +284,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
             if (requestInput_input_S3Object_s3Object_Version != null)
             {
                 requestInput_input_S3Object.Version = requestInput_input_S3Object_s3Object_Version;
-                requestInput_input_S3ObjectIsNull = false;
-            }
-             // determine if requestInput_input_S3Object should be set to null
-            if (requestInput_input_S3ObjectIsNull)
-            {
-                requestInput_input_S3Object = null;
             }
             if (requestInput_input_S3Object != null)
             {
@@ -314,7 +305,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
             }
             
              // populate OperationsConfig
-            var requestOperationsConfigIsNull = true;
             request.OperationsConfig = new Amazon.Rekognition.Model.MediaAnalysisOperationsConfig();
             Amazon.Rekognition.Model.MediaAnalysisDetectModerationLabelsConfig requestOperationsConfig_operationsConfig_DetectModerationLabels = null;
             
@@ -349,12 +339,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
             if (requestOperationsConfig_operationsConfig_DetectModerationLabels != null)
             {
                 request.OperationsConfig.DetectModerationLabels = requestOperationsConfig_operationsConfig_DetectModerationLabels;
-                requestOperationsConfigIsNull = false;
-            }
-             // determine if request.OperationsConfig should be set to null
-            if (requestOperationsConfigIsNull)
-            {
-                request.OperationsConfig = null;
             }
             
              // populate OutputConfig

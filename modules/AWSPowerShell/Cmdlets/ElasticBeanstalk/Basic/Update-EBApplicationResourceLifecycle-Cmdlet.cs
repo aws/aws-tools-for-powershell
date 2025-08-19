@@ -226,7 +226,6 @@ namespace Amazon.PowerShell.Cmdlets.EB
             }
             
              // populate ResourceLifecycleConfig
-            var requestResourceLifecycleConfigIsNull = true;
             request.ResourceLifecycleConfig = new Amazon.ElasticBeanstalk.Model.ApplicationResourceLifecycleConfig();
             System.String requestResourceLifecycleConfig_resourceLifecycleConfig_ServiceRole = null;
             if (cmdletContext.ResourceLifecycleConfig_ServiceRole != null)
@@ -236,7 +235,6 @@ namespace Amazon.PowerShell.Cmdlets.EB
             if (requestResourceLifecycleConfig_resourceLifecycleConfig_ServiceRole != null)
             {
                 request.ResourceLifecycleConfig.ServiceRole = requestResourceLifecycleConfig_resourceLifecycleConfig_ServiceRole;
-                requestResourceLifecycleConfigIsNull = false;
             }
             Amazon.ElasticBeanstalk.Model.ApplicationVersionLifecycleConfig requestResourceLifecycleConfig_resourceLifecycleConfig_VersionLifecycleConfig = null;
             
@@ -341,12 +339,6 @@ namespace Amazon.PowerShell.Cmdlets.EB
             if (requestResourceLifecycleConfig_resourceLifecycleConfig_VersionLifecycleConfig != null)
             {
                 request.ResourceLifecycleConfig.VersionLifecycleConfig = requestResourceLifecycleConfig_resourceLifecycleConfig_VersionLifecycleConfig;
-                requestResourceLifecycleConfigIsNull = false;
-            }
-             // determine if request.ResourceLifecycleConfig should be set to null
-            if (requestResourceLifecycleConfigIsNull)
-            {
-                request.ResourceLifecycleConfig = null;
             }
             
             CmdletOutput output;

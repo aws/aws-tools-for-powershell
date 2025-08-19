@@ -255,7 +255,6 @@ namespace Amazon.PowerShell.Cmdlets.MIS
                 }
                 
                  // populate UpdateImageSetMetadataUpdates
-                var requestUpdateImageSetMetadataUpdatesIsNull = true;
                 request.UpdateImageSetMetadataUpdates = new Amazon.MedicalImaging.Model.MetadataUpdates();
                 System.String requestUpdateImageSetMetadataUpdates_updateImageSetMetadataUpdates_RevertToVersionId = null;
                 if (cmdletContext.UpdateImageSetMetadataUpdates_RevertToVersionId != null)
@@ -265,7 +264,6 @@ namespace Amazon.PowerShell.Cmdlets.MIS
                 if (requestUpdateImageSetMetadataUpdates_updateImageSetMetadataUpdates_RevertToVersionId != null)
                 {
                     request.UpdateImageSetMetadataUpdates.RevertToVersionId = requestUpdateImageSetMetadataUpdates_updateImageSetMetadataUpdates_RevertToVersionId;
-                    requestUpdateImageSetMetadataUpdatesIsNull = false;
                 }
                 Amazon.MedicalImaging.Model.DICOMUpdates requestUpdateImageSetMetadataUpdates_updateImageSetMetadataUpdates_DICOMUpdates = null;
                 
@@ -302,12 +300,6 @@ namespace Amazon.PowerShell.Cmdlets.MIS
                 if (requestUpdateImageSetMetadataUpdates_updateImageSetMetadataUpdates_DICOMUpdates != null)
                 {
                     request.UpdateImageSetMetadataUpdates.DICOMUpdates = requestUpdateImageSetMetadataUpdates_updateImageSetMetadataUpdates_DICOMUpdates;
-                    requestUpdateImageSetMetadataUpdatesIsNull = false;
-                }
-                 // determine if request.UpdateImageSetMetadataUpdates should be set to null
-                if (requestUpdateImageSetMetadataUpdatesIsNull)
-                {
-                    request.UpdateImageSetMetadataUpdates = null;
                 }
                 
                 CmdletOutput output;

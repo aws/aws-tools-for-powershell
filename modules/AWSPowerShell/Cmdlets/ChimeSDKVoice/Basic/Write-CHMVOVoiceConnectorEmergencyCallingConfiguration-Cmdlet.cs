@@ -151,7 +151,6 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             
             
              // populate EmergencyCallingConfiguration
-            var requestEmergencyCallingConfigurationIsNull = true;
             request.EmergencyCallingConfiguration = new Amazon.ChimeSDKVoice.Model.EmergencyCallingConfiguration();
             List<Amazon.ChimeSDKVoice.Model.DNISEmergencyCallingConfiguration> requestEmergencyCallingConfiguration_emergencyCallingConfiguration_DNIS = null;
             if (cmdletContext.EmergencyCallingConfiguration_DNIS != null)
@@ -161,12 +160,6 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             if (requestEmergencyCallingConfiguration_emergencyCallingConfiguration_DNIS != null)
             {
                 request.EmergencyCallingConfiguration.DNIS = requestEmergencyCallingConfiguration_emergencyCallingConfiguration_DNIS;
-                requestEmergencyCallingConfigurationIsNull = false;
-            }
-             // determine if request.EmergencyCallingConfiguration should be set to null
-            if (requestEmergencyCallingConfigurationIsNull)
-            {
-                request.EmergencyCallingConfiguration = null;
             }
             if (cmdletContext.VoiceConnectorId != null)
             {

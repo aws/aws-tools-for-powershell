@@ -186,7 +186,6 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             }
             
              // populate ImportConfig
-            var requestImportConfigIsNull = true;
             request.ImportConfig = new Amazon.MainframeModernization.Model.DataSetImportConfig();
             List<Amazon.MainframeModernization.Model.DataSetImportItem> requestImportConfig_importConfig_DataSet = null;
             if (cmdletContext.ImportConfig_DataSet != null)
@@ -196,7 +195,6 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             if (requestImportConfig_importConfig_DataSet != null)
             {
                 request.ImportConfig.DataSets = requestImportConfig_importConfig_DataSet;
-                requestImportConfigIsNull = false;
             }
             System.String requestImportConfig_importConfig_S3Location = null;
             if (cmdletContext.ImportConfig_S3Location != null)
@@ -206,12 +204,6 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             if (requestImportConfig_importConfig_S3Location != null)
             {
                 request.ImportConfig.S3Location = requestImportConfig_importConfig_S3Location;
-                requestImportConfigIsNull = false;
-            }
-             // determine if request.ImportConfig should be set to null
-            if (requestImportConfigIsNull)
-            {
-                request.ImportConfig = null;
             }
             
             CmdletOutput output;

@@ -1020,7 +1020,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
             Amazon.QuickSight.Model.ImageConfiguration requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original = null;
             
              // populate Original
-            var requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_OriginalIsNull = true;
             requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original = new Amazon.QuickSight.Model.ImageConfiguration();
             Amazon.QuickSight.Model.ImageSource requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source = null;
             
@@ -1055,12 +1054,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source != null)
             {
                 requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original.Source = requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source;
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_OriginalIsNull = false;
-            }
-             // determine if requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original should be set to null
-            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_OriginalIsNull)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original = null;
             }
             if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original != null)
             {
@@ -1085,7 +1078,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
             Amazon.QuickSight.Model.ImageConfiguration requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original = null;
             
              // populate Original
-            var requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_OriginalIsNull = true;
             requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original = new Amazon.QuickSight.Model.ImageConfiguration();
             Amazon.QuickSight.Model.ImageSource requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source = null;
             
@@ -1120,12 +1112,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source != null)
             {
                 requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original.Source = requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source;
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_OriginalIsNull = false;
-            }
-             // determine if requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original should be set to null
-            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_OriginalIsNull)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original = null;
             }
             if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original != null)
             {

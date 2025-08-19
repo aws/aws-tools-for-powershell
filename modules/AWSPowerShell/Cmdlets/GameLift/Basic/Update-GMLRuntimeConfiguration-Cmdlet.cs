@@ -203,7 +203,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
             }
             
              // populate RuntimeConfiguration
-            var requestRuntimeConfigurationIsNull = true;
             request.RuntimeConfiguration = new Amazon.GameLift.Model.RuntimeConfiguration();
             System.Int32? requestRuntimeConfiguration_runtimeConfiguration_GameSessionActivationTimeoutSecond = null;
             if (cmdletContext.RuntimeConfiguration_GameSessionActivationTimeoutSecond != null)
@@ -213,7 +212,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (requestRuntimeConfiguration_runtimeConfiguration_GameSessionActivationTimeoutSecond != null)
             {
                 request.RuntimeConfiguration.GameSessionActivationTimeoutSeconds = requestRuntimeConfiguration_runtimeConfiguration_GameSessionActivationTimeoutSecond.Value;
-                requestRuntimeConfigurationIsNull = false;
             }
             System.Int32? requestRuntimeConfiguration_runtimeConfiguration_MaxConcurrentGameSessionActivation = null;
             if (cmdletContext.RuntimeConfiguration_MaxConcurrentGameSessionActivation != null)
@@ -223,7 +221,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (requestRuntimeConfiguration_runtimeConfiguration_MaxConcurrentGameSessionActivation != null)
             {
                 request.RuntimeConfiguration.MaxConcurrentGameSessionActivations = requestRuntimeConfiguration_runtimeConfiguration_MaxConcurrentGameSessionActivation.Value;
-                requestRuntimeConfigurationIsNull = false;
             }
             List<Amazon.GameLift.Model.ServerProcess> requestRuntimeConfiguration_runtimeConfiguration_ServerProcess = null;
             if (cmdletContext.RuntimeConfiguration_ServerProcess != null)
@@ -233,12 +230,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (requestRuntimeConfiguration_runtimeConfiguration_ServerProcess != null)
             {
                 request.RuntimeConfiguration.ServerProcesses = requestRuntimeConfiguration_runtimeConfiguration_ServerProcess;
-                requestRuntimeConfigurationIsNull = false;
-            }
-             // determine if request.RuntimeConfiguration should be set to null
-            if (requestRuntimeConfigurationIsNull)
-            {
-                request.RuntimeConfiguration = null;
             }
             
             CmdletOutput output;

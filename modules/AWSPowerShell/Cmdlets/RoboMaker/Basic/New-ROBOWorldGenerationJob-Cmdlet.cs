@@ -235,7 +235,6 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             }
             
              // populate WorldCount
-            var requestWorldCountIsNull = true;
             request.WorldCount = new Amazon.RoboMaker.Model.WorldCount();
             System.Int32? requestWorldCount_worldCount_FloorplanCount = null;
             if (cmdletContext.WorldCount_FloorplanCount != null)
@@ -245,7 +244,6 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             if (requestWorldCount_worldCount_FloorplanCount != null)
             {
                 request.WorldCount.FloorplanCount = requestWorldCount_worldCount_FloorplanCount.Value;
-                requestWorldCountIsNull = false;
             }
             System.Int32? requestWorldCount_worldCount_InteriorCountPerFloorplan = null;
             if (cmdletContext.WorldCount_InteriorCountPerFloorplan != null)
@@ -255,12 +253,6 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             if (requestWorldCount_worldCount_InteriorCountPerFloorplan != null)
             {
                 request.WorldCount.InteriorCountPerFloorplan = requestWorldCount_worldCount_InteriorCountPerFloorplan.Value;
-                requestWorldCountIsNull = false;
-            }
-             // determine if request.WorldCount should be set to null
-            if (requestWorldCountIsNull)
-            {
-                request.WorldCount = null;
             }
             if (cmdletContext.WorldTag != null)
             {

@@ -174,7 +174,6 @@ namespace Amazon.PowerShell.Cmdlets.CF
             }
             
              // populate TargetResource
-            var requestTargetResourceIsNull = true;
             request.TargetResource = new Amazon.CloudFront.Model.DistributionResourceId();
             System.String requestTargetResource_targetResource_DistributionId = null;
             if (cmdletContext.TargetResource_DistributionId != null)
@@ -184,7 +183,6 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (requestTargetResource_targetResource_DistributionId != null)
             {
                 request.TargetResource.DistributionId = requestTargetResource_targetResource_DistributionId;
-                requestTargetResourceIsNull = false;
             }
             System.String requestTargetResource_targetResource_DistributionTenantId = null;
             if (cmdletContext.TargetResource_DistributionTenantId != null)
@@ -194,12 +192,6 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (requestTargetResource_targetResource_DistributionTenantId != null)
             {
                 request.TargetResource.DistributionTenantId = requestTargetResource_targetResource_DistributionTenantId;
-                requestTargetResourceIsNull = false;
-            }
-             // determine if request.TargetResource should be set to null
-            if (requestTargetResourceIsNull)
-            {
-                request.TargetResource = null;
             }
             
             CmdletOutput output;

@@ -192,7 +192,6 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             }
             
              // populate Notifications
-            var requestNotificationsIsNull = true;
             request.Notifications = new Amazon.ElasticTranscoder.Model.Notifications();
             System.String requestNotifications_notifications_Completed = null;
             if (cmdletContext.Notifications_Completed != null)
@@ -202,7 +201,6 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             if (requestNotifications_notifications_Completed != null)
             {
                 request.Notifications.Completed = requestNotifications_notifications_Completed;
-                requestNotificationsIsNull = false;
             }
             System.String requestNotifications_notifications_Error = null;
             if (cmdletContext.Notifications_Error != null)
@@ -212,7 +210,6 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             if (requestNotifications_notifications_Error != null)
             {
                 request.Notifications.Error = requestNotifications_notifications_Error;
-                requestNotificationsIsNull = false;
             }
             System.String requestNotifications_notifications_Progressing = null;
             if (cmdletContext.Notifications_Progressing != null)
@@ -222,7 +219,6 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             if (requestNotifications_notifications_Progressing != null)
             {
                 request.Notifications.Progressing = requestNotifications_notifications_Progressing;
-                requestNotificationsIsNull = false;
             }
             System.String requestNotifications_notifications_Warning = null;
             if (cmdletContext.Notifications_Warning != null)
@@ -232,12 +228,6 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             if (requestNotifications_notifications_Warning != null)
             {
                 request.Notifications.Warning = requestNotifications_notifications_Warning;
-                requestNotificationsIsNull = false;
-            }
-             // determine if request.Notifications should be set to null
-            if (requestNotificationsIsNull)
-            {
-                request.Notifications = null;
             }
             
             CmdletOutput output;

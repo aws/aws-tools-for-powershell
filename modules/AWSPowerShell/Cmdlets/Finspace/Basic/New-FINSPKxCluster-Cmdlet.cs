@@ -1007,7 +1007,6 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             }
             
              // populate VpcConfiguration
-            var requestVpcConfigurationIsNull = true;
             request.VpcConfiguration = new Amazon.Finspace.Model.VpcConfiguration();
             Amazon.Finspace.IPAddressType requestVpcConfiguration_vpcConfiguration_IpAddressType = null;
             if (cmdletContext.VpcConfiguration_IpAddressType != null)
@@ -1017,7 +1016,6 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             if (requestVpcConfiguration_vpcConfiguration_IpAddressType != null)
             {
                 request.VpcConfiguration.IpAddressType = requestVpcConfiguration_vpcConfiguration_IpAddressType;
-                requestVpcConfigurationIsNull = false;
             }
             List<System.String> requestVpcConfiguration_vpcConfiguration_SecurityGroupId = null;
             if (cmdletContext.VpcConfiguration_SecurityGroupId != null)
@@ -1027,7 +1025,6 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             if (requestVpcConfiguration_vpcConfiguration_SecurityGroupId != null)
             {
                 request.VpcConfiguration.SecurityGroupIds = requestVpcConfiguration_vpcConfiguration_SecurityGroupId;
-                requestVpcConfigurationIsNull = false;
             }
             List<System.String> requestVpcConfiguration_vpcConfiguration_SubnetId = null;
             if (cmdletContext.VpcConfiguration_SubnetId != null)
@@ -1037,7 +1034,6 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             if (requestVpcConfiguration_vpcConfiguration_SubnetId != null)
             {
                 request.VpcConfiguration.SubnetIds = requestVpcConfiguration_vpcConfiguration_SubnetId;
-                requestVpcConfigurationIsNull = false;
             }
             System.String requestVpcConfiguration_vpcConfiguration_VpcId = null;
             if (cmdletContext.VpcConfiguration_VpcId != null)
@@ -1047,12 +1043,6 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             if (requestVpcConfiguration_vpcConfiguration_VpcId != null)
             {
                 request.VpcConfiguration.VpcId = requestVpcConfiguration_vpcConfiguration_VpcId;
-                requestVpcConfigurationIsNull = false;
-            }
-             // determine if request.VpcConfiguration should be set to null
-            if (requestVpcConfigurationIsNull)
-            {
-                request.VpcConfiguration = null;
             }
             
             CmdletOutput output;

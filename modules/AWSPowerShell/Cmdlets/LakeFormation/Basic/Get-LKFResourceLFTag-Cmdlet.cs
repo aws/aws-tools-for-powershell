@@ -488,7 +488,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             }
             
              // populate Resource
-            var requestResourceIsNull = true;
             request.Resource = new Amazon.LakeFormation.Model.Resource();
             Amazon.LakeFormation.Model.CatalogResource requestResource_resource_Catalog = null;
             
@@ -513,7 +512,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestResource_resource_Catalog != null)
             {
                 request.Resource.Catalog = requestResource_resource_Catalog;
-                requestResourceIsNull = false;
             }
             Amazon.LakeFormation.Model.DatabaseResource requestResource_resource_Database = null;
             
@@ -548,7 +546,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestResource_resource_Database != null)
             {
                 request.Resource.Database = requestResource_resource_Database;
-                requestResourceIsNull = false;
             }
             Amazon.LakeFormation.Model.DataLocationResource requestResource_resource_DataLocation = null;
             
@@ -583,7 +580,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestResource_resource_DataLocation != null)
             {
                 request.Resource.DataLocation = requestResource_resource_DataLocation;
-                requestResourceIsNull = false;
             }
             Amazon.LakeFormation.Model.LFTagExpressionResource requestResource_resource_LFTagExpression = null;
             
@@ -618,7 +614,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestResource_resource_LFTagExpression != null)
             {
                 request.Resource.LFTagExpression = requestResource_resource_LFTagExpression;
-                requestResourceIsNull = false;
             }
             Amazon.LakeFormation.Model.LFTagKeyResource requestResource_resource_LFTag = null;
             
@@ -663,7 +658,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestResource_resource_LFTag != null)
             {
                 request.Resource.LFTag = requestResource_resource_LFTag;
-                requestResourceIsNull = false;
             }
             Amazon.LakeFormation.Model.DataCellsFilterResource requestResource_resource_DataCellsFilter = null;
             
@@ -718,7 +712,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestResource_resource_DataCellsFilter != null)
             {
                 request.Resource.DataCellsFilter = requestResource_resource_DataCellsFilter;
-                requestResourceIsNull = false;
             }
             Amazon.LakeFormation.Model.LFTagPolicyResource requestResource_resource_LFTagPolicy = null;
             
@@ -773,7 +766,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestResource_resource_LFTagPolicy != null)
             {
                 request.Resource.LFTagPolicy = requestResource_resource_LFTagPolicy;
-                requestResourceIsNull = false;
             }
             Amazon.LakeFormation.Model.TableResource requestResource_resource_Table = null;
             
@@ -828,7 +820,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestResource_resource_Table != null)
             {
                 request.Resource.Table = requestResource_resource_Table;
-                requestResourceIsNull = false;
             }
             Amazon.LakeFormation.Model.TableWithColumnsResource requestResource_resource_TableWithColumns = null;
             
@@ -908,12 +899,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestResource_resource_TableWithColumns != null)
             {
                 request.Resource.TableWithColumns = requestResource_resource_TableWithColumns;
-                requestResourceIsNull = false;
-            }
-             // determine if request.Resource should be set to null
-            if (requestResourceIsNull)
-            {
-                request.Resource = null;
             }
             if (cmdletContext.ShowAssignedLFTag != null)
             {

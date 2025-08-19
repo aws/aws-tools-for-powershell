@@ -198,7 +198,6 @@ namespace Amazon.PowerShell.Cmdlets.QC
             }
             
              // populate ContentFeedback
-            var requestContentFeedbackIsNull = true;
             request.ContentFeedback = new Amazon.QConnect.Model.ContentFeedbackData();
             Amazon.QConnect.Model.GenerativeContentFeedbackData requestContentFeedback_contentFeedback_GenerativeContentFeedbackData = null;
             
@@ -223,12 +222,6 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestContentFeedback_contentFeedback_GenerativeContentFeedbackData != null)
             {
                 request.ContentFeedback.GenerativeContentFeedbackData = requestContentFeedback_contentFeedback_GenerativeContentFeedbackData;
-                requestContentFeedbackIsNull = false;
-            }
-             // determine if request.ContentFeedback should be set to null
-            if (requestContentFeedbackIsNull)
-            {
-                request.ContentFeedback = null;
             }
             if (cmdletContext.TargetId != null)
             {

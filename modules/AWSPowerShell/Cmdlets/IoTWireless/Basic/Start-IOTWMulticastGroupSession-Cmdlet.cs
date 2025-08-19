@@ -191,7 +191,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             }
             
              // populate LoRaWAN
-            var requestLoRaWANIsNull = true;
             request.LoRaWAN = new Amazon.IoTWireless.Model.LoRaWANMulticastSession();
             System.Int32? requestLoRaWAN_loRaWAN_DlDr = null;
             if (cmdletContext.LoRaWAN_DlDr != null)
@@ -201,7 +200,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestLoRaWAN_loRaWAN_DlDr != null)
             {
                 request.LoRaWAN.DlDr = requestLoRaWAN_loRaWAN_DlDr.Value;
-                requestLoRaWANIsNull = false;
             }
             System.Int32? requestLoRaWAN_loRaWAN_DlFreq = null;
             if (cmdletContext.LoRaWAN_DlFreq != null)
@@ -211,7 +209,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestLoRaWAN_loRaWAN_DlFreq != null)
             {
                 request.LoRaWAN.DlFreq = requestLoRaWAN_loRaWAN_DlFreq.Value;
-                requestLoRaWANIsNull = false;
             }
             System.Int32? requestLoRaWAN_loRaWAN_PingSlotPeriod = null;
             if (cmdletContext.LoRaWAN_PingSlotPeriod != null)
@@ -221,7 +218,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestLoRaWAN_loRaWAN_PingSlotPeriod != null)
             {
                 request.LoRaWAN.PingSlotPeriod = requestLoRaWAN_loRaWAN_PingSlotPeriod.Value;
-                requestLoRaWANIsNull = false;
             }
             System.DateTime? requestLoRaWAN_loRaWAN_SessionStartTime = null;
             if (cmdletContext.LoRaWAN_SessionStartTime != null)
@@ -231,7 +227,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestLoRaWAN_loRaWAN_SessionStartTime != null)
             {
                 request.LoRaWAN.SessionStartTime = requestLoRaWAN_loRaWAN_SessionStartTime.Value;
-                requestLoRaWANIsNull = false;
             }
             System.Int32? requestLoRaWAN_loRaWAN_SessionTimeout = null;
             if (cmdletContext.LoRaWAN_SessionTimeout != null)
@@ -241,12 +236,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestLoRaWAN_loRaWAN_SessionTimeout != null)
             {
                 request.LoRaWAN.SessionTimeout = requestLoRaWAN_loRaWAN_SessionTimeout.Value;
-                requestLoRaWANIsNull = false;
-            }
-             // determine if request.LoRaWAN should be set to null
-            if (requestLoRaWANIsNull)
-            {
-                request.LoRaWAN = null;
             }
             
             CmdletOutput output;

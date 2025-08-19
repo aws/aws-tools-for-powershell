@@ -282,7 +282,6 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             
             
              // populate Address
-            var requestAddressIsNull = true;
             request.Address = new Amazon.Snowball.Model.Address();
             System.String requestAddress_address_AddressId = null;
             if (cmdletContext.Address_AddressId != null)
@@ -292,7 +291,6 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             if (requestAddress_address_AddressId != null)
             {
                 request.Address.AddressId = requestAddress_address_AddressId;
-                requestAddressIsNull = false;
             }
             System.String requestAddress_address_City = null;
             if (cmdletContext.Address_City != null)
@@ -302,7 +300,6 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             if (requestAddress_address_City != null)
             {
                 request.Address.City = requestAddress_address_City;
-                requestAddressIsNull = false;
             }
             System.String requestAddress_address_Company = null;
             if (cmdletContext.Address_Company != null)
@@ -312,7 +309,6 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             if (requestAddress_address_Company != null)
             {
                 request.Address.Company = requestAddress_address_Company;
-                requestAddressIsNull = false;
             }
             System.String requestAddress_address_Country = null;
             if (cmdletContext.Address_Country != null)
@@ -322,7 +318,6 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             if (requestAddress_address_Country != null)
             {
                 request.Address.Country = requestAddress_address_Country;
-                requestAddressIsNull = false;
             }
             System.Boolean? requestAddress_address_IsRestricted = null;
             if (cmdletContext.Address_IsRestricted != null)
@@ -332,7 +327,6 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             if (requestAddress_address_IsRestricted != null)
             {
                 request.Address.IsRestricted = requestAddress_address_IsRestricted.Value;
-                requestAddressIsNull = false;
             }
             System.String requestAddress_address_Landmark = null;
             if (cmdletContext.Address_Landmark != null)
@@ -342,7 +336,6 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             if (requestAddress_address_Landmark != null)
             {
                 request.Address.Landmark = requestAddress_address_Landmark;
-                requestAddressIsNull = false;
             }
             System.String requestAddress_address_Name = null;
             if (cmdletContext.Address_Name != null)
@@ -352,7 +345,6 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             if (requestAddress_address_Name != null)
             {
                 request.Address.Name = requestAddress_address_Name;
-                requestAddressIsNull = false;
             }
             System.String requestAddress_address_PhoneNumber = null;
             if (cmdletContext.Address_PhoneNumber != null)
@@ -362,7 +354,6 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             if (requestAddress_address_PhoneNumber != null)
             {
                 request.Address.PhoneNumber = requestAddress_address_PhoneNumber;
-                requestAddressIsNull = false;
             }
             System.String requestAddress_address_PostalCode = null;
             if (cmdletContext.Address_PostalCode != null)
@@ -372,7 +363,6 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             if (requestAddress_address_PostalCode != null)
             {
                 request.Address.PostalCode = requestAddress_address_PostalCode;
-                requestAddressIsNull = false;
             }
             System.String requestAddress_address_PrefectureOrDistrict = null;
             if (cmdletContext.Address_PrefectureOrDistrict != null)
@@ -382,7 +372,6 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             if (requestAddress_address_PrefectureOrDistrict != null)
             {
                 request.Address.PrefectureOrDistrict = requestAddress_address_PrefectureOrDistrict;
-                requestAddressIsNull = false;
             }
             System.String requestAddress_address_StateOrProvince = null;
             if (cmdletContext.Address_StateOrProvince != null)
@@ -392,7 +381,6 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             if (requestAddress_address_StateOrProvince != null)
             {
                 request.Address.StateOrProvince = requestAddress_address_StateOrProvince;
-                requestAddressIsNull = false;
             }
             System.String requestAddress_address_Street1 = null;
             if (cmdletContext.Address_Street1 != null)
@@ -402,7 +390,6 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             if (requestAddress_address_Street1 != null)
             {
                 request.Address.Street1 = requestAddress_address_Street1;
-                requestAddressIsNull = false;
             }
             System.String requestAddress_address_Street2 = null;
             if (cmdletContext.Address_Street2 != null)
@@ -412,7 +399,6 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             if (requestAddress_address_Street2 != null)
             {
                 request.Address.Street2 = requestAddress_address_Street2;
-                requestAddressIsNull = false;
             }
             System.String requestAddress_address_Street3 = null;
             if (cmdletContext.Address_Street3 != null)
@@ -422,7 +408,6 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             if (requestAddress_address_Street3 != null)
             {
                 request.Address.Street3 = requestAddress_address_Street3;
-                requestAddressIsNull = false;
             }
             Amazon.Snowball.AddressType requestAddress_address_Type = null;
             if (cmdletContext.Address_Type != null)
@@ -432,12 +417,6 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             if (requestAddress_address_Type != null)
             {
                 request.Address.Type = requestAddress_address_Type;
-                requestAddressIsNull = false;
-            }
-             // determine if request.Address should be set to null
-            if (requestAddressIsNull)
-            {
-                request.Address = null;
             }
             
             CmdletOutput output;

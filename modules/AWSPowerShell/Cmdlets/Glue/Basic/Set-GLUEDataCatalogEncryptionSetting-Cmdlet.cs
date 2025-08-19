@@ -192,7 +192,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             
              // populate DataCatalogEncryptionSettings
-            var requestDataCatalogEncryptionSettingsIsNull = true;
             request.DataCatalogEncryptionSettings = new Amazon.Glue.Model.DataCatalogEncryptionSettings();
             Amazon.Glue.Model.ConnectionPasswordEncryption requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_ConnectionPasswordEncryption = null;
             
@@ -227,7 +226,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_ConnectionPasswordEncryption != null)
             {
                 request.DataCatalogEncryptionSettings.ConnectionPasswordEncryption = requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_ConnectionPasswordEncryption;
-                requestDataCatalogEncryptionSettingsIsNull = false;
             }
             Amazon.Glue.Model.EncryptionAtRest requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_EncryptionAtRest = null;
             
@@ -272,12 +270,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_EncryptionAtRest != null)
             {
                 request.DataCatalogEncryptionSettings.EncryptionAtRest = requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_EncryptionAtRest;
-                requestDataCatalogEncryptionSettingsIsNull = false;
-            }
-             // determine if request.DataCatalogEncryptionSettings should be set to null
-            if (requestDataCatalogEncryptionSettingsIsNull)
-            {
-                request.DataCatalogEncryptionSettings = null;
             }
             
             CmdletOutput output;

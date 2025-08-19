@@ -265,7 +265,6 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             
             
              // populate LoadBalancerAttributes
-            var requestLoadBalancerAttributesIsNull = true;
             request.LoadBalancerAttributes = new Amazon.ElasticLoadBalancing.Model.LoadBalancerAttributes();
             List<Amazon.ElasticLoadBalancing.Model.AdditionalAttribute> requestLoadBalancerAttributes_loadBalancerAttributes_AdditionalAttribute = null;
             if (cmdletContext.LoadBalancerAttributes_AdditionalAttribute != null)
@@ -275,7 +274,6 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             if (requestLoadBalancerAttributes_loadBalancerAttributes_AdditionalAttribute != null)
             {
                 request.LoadBalancerAttributes.AdditionalAttributes = requestLoadBalancerAttributes_loadBalancerAttributes_AdditionalAttribute;
-                requestLoadBalancerAttributesIsNull = false;
             }
             Amazon.ElasticLoadBalancing.Model.ConnectionSettings requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionSettings = null;
             
@@ -300,7 +298,6 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             if (requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionSettings != null)
             {
                 request.LoadBalancerAttributes.ConnectionSettings = requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionSettings;
-                requestLoadBalancerAttributesIsNull = false;
             }
             Amazon.ElasticLoadBalancing.Model.CrossZoneLoadBalancing requestLoadBalancerAttributes_loadBalancerAttributes_CrossZoneLoadBalancing = null;
             
@@ -325,7 +322,6 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             if (requestLoadBalancerAttributes_loadBalancerAttributes_CrossZoneLoadBalancing != null)
             {
                 request.LoadBalancerAttributes.CrossZoneLoadBalancing = requestLoadBalancerAttributes_loadBalancerAttributes_CrossZoneLoadBalancing;
-                requestLoadBalancerAttributesIsNull = false;
             }
             Amazon.ElasticLoadBalancing.Model.ConnectionDraining requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionDraining = null;
             
@@ -360,7 +356,6 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             if (requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionDraining != null)
             {
                 request.LoadBalancerAttributes.ConnectionDraining = requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionDraining;
-                requestLoadBalancerAttributesIsNull = false;
             }
             Amazon.ElasticLoadBalancing.Model.AccessLog requestLoadBalancerAttributes_loadBalancerAttributes_AccessLog = null;
             
@@ -415,12 +410,6 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             if (requestLoadBalancerAttributes_loadBalancerAttributes_AccessLog != null)
             {
                 request.LoadBalancerAttributes.AccessLog = requestLoadBalancerAttributes_loadBalancerAttributes_AccessLog;
-                requestLoadBalancerAttributesIsNull = false;
-            }
-             // determine if request.LoadBalancerAttributes should be set to null
-            if (requestLoadBalancerAttributesIsNull)
-            {
-                request.LoadBalancerAttributes = null;
             }
             if (cmdletContext.LoadBalancerName != null)
             {

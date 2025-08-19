@@ -164,7 +164,6 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
             
             
              // populate BlockAddress
-            var requestBlockAddressIsNull = true;
             request.BlockAddress = new Amazon.QLDB.Model.ValueHolder();
             System.String requestBlockAddress_blockAddress_IonText = null;
             if (cmdletContext.BlockAddress_IonText != null)
@@ -174,12 +173,6 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
             if (requestBlockAddress_blockAddress_IonText != null)
             {
                 request.BlockAddress.IonText = requestBlockAddress_blockAddress_IonText;
-                requestBlockAddressIsNull = false;
-            }
-             // determine if request.BlockAddress should be set to null
-            if (requestBlockAddressIsNull)
-            {
-                request.BlockAddress = null;
             }
             
              // populate DigestTipAddress

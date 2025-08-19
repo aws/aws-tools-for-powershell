@@ -173,7 +173,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             }
             
              // populate Sidewalk
-            var requestSidewalkIsNull = true;
             request.Sidewalk = new Amazon.IoTWireless.Model.SidewalkAccountInfo();
             System.String requestSidewalk_sidewalk_AmazonId = null;
             if (cmdletContext.Sidewalk_AmazonId != null)
@@ -183,7 +182,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestSidewalk_sidewalk_AmazonId != null)
             {
                 request.Sidewalk.AmazonId = requestSidewalk_sidewalk_AmazonId;
-                requestSidewalkIsNull = false;
             }
             System.String requestSidewalk_sidewalk_AppServerPrivateKey = null;
             if (cmdletContext.Sidewalk_AppServerPrivateKey != null)
@@ -193,12 +191,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestSidewalk_sidewalk_AppServerPrivateKey != null)
             {
                 request.Sidewalk.AppServerPrivateKey = requestSidewalk_sidewalk_AppServerPrivateKey;
-                requestSidewalkIsNull = false;
-            }
-             // determine if request.Sidewalk should be set to null
-            if (requestSidewalkIsNull)
-            {
-                request.Sidewalk = null;
             }
             if (cmdletContext.Tag != null)
             {

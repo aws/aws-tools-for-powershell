@@ -221,7 +221,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             }
             
              // populate Scope
-            var requestScopeIsNull = true;
             request.Scope = new Amazon.S3Control.Model.Scope();
             List<System.String> requestScope_scope_Permission = null;
             if (cmdletContext.Scope_Permission != null)
@@ -231,7 +230,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestScope_scope_Permission != null)
             {
                 request.Scope.Permissions = requestScope_scope_Permission;
-                requestScopeIsNull = false;
             }
             List<System.String> requestScope_scope_Prefix = null;
             if (cmdletContext.Scope_Prefix != null)
@@ -241,12 +239,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestScope_scope_Prefix != null)
             {
                 request.Scope.Prefixes = requestScope_scope_Prefix;
-                requestScopeIsNull = false;
-            }
-             // determine if request.Scope should be set to null
-            if (requestScopeIsNull)
-            {
-                request.Scope = null;
             }
             
             CmdletOutput output;

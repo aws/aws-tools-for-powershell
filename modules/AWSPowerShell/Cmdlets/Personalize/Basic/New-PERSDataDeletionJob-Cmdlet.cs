@@ -255,7 +255,6 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             }
             
              // populate DataSource
-            var requestDataSourceIsNull = true;
             request.DataSource = new Amazon.Personalize.Model.DataSource();
             System.String requestDataSource_dataSource_DataLocation = null;
             if (cmdletContext.DataSource_DataLocation != null)
@@ -265,12 +264,6 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (requestDataSource_dataSource_DataLocation != null)
             {
                 request.DataSource.DataLocation = requestDataSource_dataSource_DataLocation;
-                requestDataSourceIsNull = false;
-            }
-             // determine if request.DataSource should be set to null
-            if (requestDataSourceIsNull)
-            {
-                request.DataSource = null;
             }
             if (cmdletContext.JobName != null)
             {

@@ -258,7 +258,6 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             }
             
              // populate FindingCriteria
-            var requestFindingCriteriaIsNull = true;
             request.FindingCriteria = new Amazon.Macie2.Model.FindingCriteria();
             Dictionary<System.String, Amazon.Macie2.Model.CriterionAdditionalProperties> requestFindingCriteria_findingCriteria_Criterion = null;
             if (cmdletContext.FindingCriteria_Criterion != null)
@@ -268,12 +267,6 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             if (requestFindingCriteria_findingCriteria_Criterion != null)
             {
                 request.FindingCriteria.Criterion = requestFindingCriteria_findingCriteria_Criterion;
-                requestFindingCriteriaIsNull = false;
-            }
-             // determine if request.FindingCriteria should be set to null
-            if (requestFindingCriteriaIsNull)
-            {
-                request.FindingCriteria = null;
             }
             if (cmdletContext.Name != null)
             {

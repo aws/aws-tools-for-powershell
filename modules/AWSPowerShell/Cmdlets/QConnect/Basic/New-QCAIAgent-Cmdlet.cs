@@ -463,7 +463,6 @@ namespace Amazon.PowerShell.Cmdlets.QC
             }
             
              // populate Configuration
-            var requestConfigurationIsNull = true;
             request.Configuration = new Amazon.QConnect.Model.AIAgentConfiguration();
             Amazon.QConnect.Model.ManualSearchAIAgentConfiguration requestConfiguration_configuration_ManualSearchAIAgentConfiguration = null;
             
@@ -518,7 +517,6 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestConfiguration_configuration_ManualSearchAIAgentConfiguration != null)
             {
                 request.Configuration.ManualSearchAIAgentConfiguration = requestConfiguration_configuration_ManualSearchAIAgentConfiguration;
-                requestConfigurationIsNull = false;
             }
             Amazon.QConnect.Model.SelfServiceAIAgentConfiguration requestConfiguration_configuration_SelfServiceAIAgentConfiguration = null;
             
@@ -573,7 +571,6 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestConfiguration_configuration_SelfServiceAIAgentConfiguration != null)
             {
                 request.Configuration.SelfServiceAIAgentConfiguration = requestConfiguration_configuration_SelfServiceAIAgentConfiguration;
-                requestConfigurationIsNull = false;
             }
             Amazon.QConnect.Model.AnswerRecommendationAIAgentConfiguration requestConfiguration_configuration_AnswerRecommendationAIAgentConfiguration = null;
             
@@ -648,12 +645,6 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestConfiguration_configuration_AnswerRecommendationAIAgentConfiguration != null)
             {
                 request.Configuration.AnswerRecommendationAIAgentConfiguration = requestConfiguration_configuration_AnswerRecommendationAIAgentConfiguration;
-                requestConfigurationIsNull = false;
-            }
-             // determine if request.Configuration should be set to null
-            if (requestConfigurationIsNull)
-            {
-                request.Configuration = null;
             }
             if (cmdletContext.Description != null)
             {

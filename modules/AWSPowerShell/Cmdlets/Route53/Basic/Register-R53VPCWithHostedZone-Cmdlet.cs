@@ -196,7 +196,6 @@ namespace Amazon.PowerShell.Cmdlets.R53
             }
             
              // populate VPC
-            var requestVPCIsNull = true;
             request.VPC = new Amazon.Route53.Model.VPC();
             Amazon.Route53.VPCRegion requestVPC_vPC_VPCRegion = null;
             if (cmdletContext.VPC_VPCRegion != null)
@@ -206,7 +205,6 @@ namespace Amazon.PowerShell.Cmdlets.R53
             if (requestVPC_vPC_VPCRegion != null)
             {
                 request.VPC.VPCRegion = requestVPC_vPC_VPCRegion;
-                requestVPCIsNull = false;
             }
             System.String requestVPC_vPC_VPCId = null;
             if (cmdletContext.VPC_VPCId != null)
@@ -216,12 +214,6 @@ namespace Amazon.PowerShell.Cmdlets.R53
             if (requestVPC_vPC_VPCId != null)
             {
                 request.VPC.VPCId = requestVPC_vPC_VPCId;
-                requestVPCIsNull = false;
-            }
-             // determine if request.VPC should be set to null
-            if (requestVPCIsNull)
-            {
-                request.VPC = null;
             }
             if (cmdletContext.Comment != null)
             {

@@ -240,7 +240,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             
              // populate ParticipantDetails
-            var requestParticipantDetailsIsNull = true;
             request.ParticipantDetails = new Amazon.Connect.Model.ParticipantDetailsToAdd();
             System.String requestParticipantDetails_participantDetails_DisplayName = null;
             if (cmdletContext.ParticipantDetails_DisplayName != null)
@@ -250,7 +249,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestParticipantDetails_participantDetails_DisplayName != null)
             {
                 request.ParticipantDetails.DisplayName = requestParticipantDetails_participantDetails_DisplayName;
-                requestParticipantDetailsIsNull = false;
             }
             Amazon.Connect.ParticipantRole requestParticipantDetails_participantDetails_ParticipantRole = null;
             if (cmdletContext.ParticipantDetails_ParticipantRole != null)
@@ -260,7 +258,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestParticipantDetails_participantDetails_ParticipantRole != null)
             {
                 request.ParticipantDetails.ParticipantRole = requestParticipantDetails_participantDetails_ParticipantRole;
-                requestParticipantDetailsIsNull = false;
             }
             Amazon.Connect.Model.ParticipantCapabilities requestParticipantDetails_participantDetails_ParticipantCapabilities = null;
             
@@ -295,12 +292,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestParticipantDetails_participantDetails_ParticipantCapabilities != null)
             {
                 request.ParticipantDetails.ParticipantCapabilities = requestParticipantDetails_participantDetails_ParticipantCapabilities;
-                requestParticipantDetailsIsNull = false;
-            }
-             // determine if request.ParticipantDetails should be set to null
-            if (requestParticipantDetailsIsNull)
-            {
-                request.ParticipantDetails = null;
             }
             
             CmdletOutput output;

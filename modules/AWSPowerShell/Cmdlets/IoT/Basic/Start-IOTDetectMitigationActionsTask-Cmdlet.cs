@@ -288,7 +288,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             }
             
              // populate Target
-            var requestTargetIsNull = true;
             request.Target = new Amazon.IoT.Model.DetectMitigationActionsTaskTarget();
             System.String requestTarget_target_BehaviorName = null;
             if (cmdletContext.Target_BehaviorName != null)
@@ -298,7 +297,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestTarget_target_BehaviorName != null)
             {
                 request.Target.BehaviorName = requestTarget_target_BehaviorName;
-                requestTargetIsNull = false;
             }
             System.String requestTarget_target_SecurityProfileName = null;
             if (cmdletContext.Target_SecurityProfileName != null)
@@ -308,7 +306,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestTarget_target_SecurityProfileName != null)
             {
                 request.Target.SecurityProfileName = requestTarget_target_SecurityProfileName;
-                requestTargetIsNull = false;
             }
             List<System.String> requestTarget_target_ViolationId = null;
             if (cmdletContext.Target_ViolationId != null)
@@ -318,12 +315,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestTarget_target_ViolationId != null)
             {
                 request.Target.ViolationIds = requestTarget_target_ViolationId;
-                requestTargetIsNull = false;
-            }
-             // determine if request.Target should be set to null
-            if (requestTargetIsNull)
-            {
-                request.Target = null;
             }
             if (cmdletContext.TaskId != null)
             {

@@ -202,7 +202,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             
             
              // populate FirstSchemaVersionNumber
-            var requestFirstSchemaVersionNumberIsNull = true;
             request.FirstSchemaVersionNumber = new Amazon.Glue.Model.SchemaVersionNumber();
             System.Boolean? requestFirstSchemaVersionNumber_firstSchemaVersionNumber_LatestVersion = null;
             if (cmdletContext.FirstSchemaVersionNumber_LatestVersion != null)
@@ -212,7 +211,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestFirstSchemaVersionNumber_firstSchemaVersionNumber_LatestVersion != null)
             {
                 request.FirstSchemaVersionNumber.LatestVersion = requestFirstSchemaVersionNumber_firstSchemaVersionNumber_LatestVersion.Value;
-                requestFirstSchemaVersionNumberIsNull = false;
             }
             System.Int64? requestFirstSchemaVersionNumber_firstSchemaVersionNumber_VersionNumber = null;
             if (cmdletContext.FirstSchemaVersionNumber_VersionNumber != null)
@@ -222,12 +220,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestFirstSchemaVersionNumber_firstSchemaVersionNumber_VersionNumber != null)
             {
                 request.FirstSchemaVersionNumber.VersionNumber = requestFirstSchemaVersionNumber_firstSchemaVersionNumber_VersionNumber.Value;
-                requestFirstSchemaVersionNumberIsNull = false;
-            }
-             // determine if request.FirstSchemaVersionNumber should be set to null
-            if (requestFirstSchemaVersionNumberIsNull)
-            {
-                request.FirstSchemaVersionNumber = null;
             }
             if (cmdletContext.SchemaDiffType != null)
             {
@@ -235,7 +227,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             
              // populate SchemaId
-            var requestSchemaIdIsNull = true;
             request.SchemaId = new Amazon.Glue.Model.SchemaId();
             System.String requestSchemaId_schemaId_RegistryName = null;
             if (cmdletContext.SchemaId_RegistryName != null)
@@ -245,7 +236,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestSchemaId_schemaId_RegistryName != null)
             {
                 request.SchemaId.RegistryName = requestSchemaId_schemaId_RegistryName;
-                requestSchemaIdIsNull = false;
             }
             System.String requestSchemaId_schemaId_SchemaArn = null;
             if (cmdletContext.SchemaId_SchemaArn != null)
@@ -255,7 +245,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestSchemaId_schemaId_SchemaArn != null)
             {
                 request.SchemaId.SchemaArn = requestSchemaId_schemaId_SchemaArn;
-                requestSchemaIdIsNull = false;
             }
             System.String requestSchemaId_schemaId_SchemaName = null;
             if (cmdletContext.SchemaId_SchemaName != null)
@@ -265,16 +254,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestSchemaId_schemaId_SchemaName != null)
             {
                 request.SchemaId.SchemaName = requestSchemaId_schemaId_SchemaName;
-                requestSchemaIdIsNull = false;
-            }
-             // determine if request.SchemaId should be set to null
-            if (requestSchemaIdIsNull)
-            {
-                request.SchemaId = null;
             }
             
              // populate SecondSchemaVersionNumber
-            var requestSecondSchemaVersionNumberIsNull = true;
             request.SecondSchemaVersionNumber = new Amazon.Glue.Model.SchemaVersionNumber();
             System.Boolean? requestSecondSchemaVersionNumber_secondSchemaVersionNumber_LatestVersion = null;
             if (cmdletContext.SecondSchemaVersionNumber_LatestVersion != null)
@@ -284,7 +266,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestSecondSchemaVersionNumber_secondSchemaVersionNumber_LatestVersion != null)
             {
                 request.SecondSchemaVersionNumber.LatestVersion = requestSecondSchemaVersionNumber_secondSchemaVersionNumber_LatestVersion.Value;
-                requestSecondSchemaVersionNumberIsNull = false;
             }
             System.Int64? requestSecondSchemaVersionNumber_secondSchemaVersionNumber_VersionNumber = null;
             if (cmdletContext.SecondSchemaVersionNumber_VersionNumber != null)
@@ -294,12 +275,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestSecondSchemaVersionNumber_secondSchemaVersionNumber_VersionNumber != null)
             {
                 request.SecondSchemaVersionNumber.VersionNumber = requestSecondSchemaVersionNumber_secondSchemaVersionNumber_VersionNumber.Value;
-                requestSecondSchemaVersionNumberIsNull = false;
-            }
-             // determine if request.SecondSchemaVersionNumber should be set to null
-            if (requestSecondSchemaVersionNumberIsNull)
-            {
-                request.SecondSchemaVersionNumber = null;
             }
             
             CmdletOutput output;

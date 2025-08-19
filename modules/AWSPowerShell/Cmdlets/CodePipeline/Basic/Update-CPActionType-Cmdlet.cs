@@ -679,7 +679,6 @@ namespace Amazon.PowerShell.Cmdlets.CP
             Amazon.CodePipeline.Model.ExecutorConfiguration requestActionType_actionType_Executor_actionType_Executor_Configuration = null;
             
              // populate Configuration
-            var requestActionType_actionType_Executor_actionType_Executor_ConfigurationIsNull = true;
             requestActionType_actionType_Executor_actionType_Executor_Configuration = new Amazon.CodePipeline.Model.ExecutorConfiguration();
             Amazon.CodePipeline.Model.LambdaExecutorConfiguration requestActionType_actionType_Executor_actionType_Executor_Configuration_actionType_Executor_Configuration_LambdaExecutorConfiguration = null;
             
@@ -704,7 +703,6 @@ namespace Amazon.PowerShell.Cmdlets.CP
             if (requestActionType_actionType_Executor_actionType_Executor_Configuration_actionType_Executor_Configuration_LambdaExecutorConfiguration != null)
             {
                 requestActionType_actionType_Executor_actionType_Executor_Configuration.LambdaExecutorConfiguration = requestActionType_actionType_Executor_actionType_Executor_Configuration_actionType_Executor_Configuration_LambdaExecutorConfiguration;
-                requestActionType_actionType_Executor_actionType_Executor_ConfigurationIsNull = false;
             }
             Amazon.CodePipeline.Model.JobWorkerExecutorConfiguration requestActionType_actionType_Executor_actionType_Executor_Configuration_actionType_Executor_Configuration_JobWorkerExecutorConfiguration = null;
             
@@ -739,12 +737,6 @@ namespace Amazon.PowerShell.Cmdlets.CP
             if (requestActionType_actionType_Executor_actionType_Executor_Configuration_actionType_Executor_Configuration_JobWorkerExecutorConfiguration != null)
             {
                 requestActionType_actionType_Executor_actionType_Executor_Configuration.JobWorkerExecutorConfiguration = requestActionType_actionType_Executor_actionType_Executor_Configuration_actionType_Executor_Configuration_JobWorkerExecutorConfiguration;
-                requestActionType_actionType_Executor_actionType_Executor_ConfigurationIsNull = false;
-            }
-             // determine if requestActionType_actionType_Executor_actionType_Executor_Configuration should be set to null
-            if (requestActionType_actionType_Executor_actionType_Executor_ConfigurationIsNull)
-            {
-                requestActionType_actionType_Executor_actionType_Executor_Configuration = null;
             }
             if (requestActionType_actionType_Executor_actionType_Executor_Configuration != null)
             {

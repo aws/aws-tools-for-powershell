@@ -238,7 +238,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             
              // populate GrantedEntity
-            var requestGrantedEntityIsNull = true;
             request.GrantedEntity = new Amazon.DataZone.Model.GrantedEntityInput();
             Amazon.DataZone.Model.ListingRevisionInput requestGrantedEntity_grantedEntity_Listing = null;
             
@@ -273,12 +272,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestGrantedEntity_grantedEntity_Listing != null)
             {
                 request.GrantedEntity.Listing = requestGrantedEntity_grantedEntity_Listing;
-                requestGrantedEntityIsNull = false;
-            }
-             // determine if request.GrantedEntity should be set to null
-            if (requestGrantedEntityIsNull)
-            {
-                request.GrantedEntity = null;
             }
             if (cmdletContext.SubscriptionTargetIdentifier != null)
             {

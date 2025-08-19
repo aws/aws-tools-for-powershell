@@ -184,7 +184,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             }
             
              // populate BucketsAggregationType
-            var requestBucketsAggregationTypeIsNull = true;
             request.BucketsAggregationType = new Amazon.IoT.Model.BucketsAggregationType();
             Amazon.IoT.Model.TermsAggregation requestBucketsAggregationType_bucketsAggregationType_TermsAggregation = null;
             
@@ -209,12 +208,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestBucketsAggregationType_bucketsAggregationType_TermsAggregation != null)
             {
                 request.BucketsAggregationType.TermsAggregation = requestBucketsAggregationType_bucketsAggregationType_TermsAggregation;
-                requestBucketsAggregationTypeIsNull = false;
-            }
-             // determine if request.BucketsAggregationType should be set to null
-            if (requestBucketsAggregationTypeIsNull)
-            {
-                request.BucketsAggregationType = null;
             }
             if (cmdletContext.IndexName != null)
             {

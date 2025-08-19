@@ -689,7 +689,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             
             
              // populate InputConfig
-            var requestInputConfigIsNull = true;
             request.InputConfig = new Amazon.SageMaker.Model.RecommendationJobInputConfig();
             List<Amazon.SageMaker.Model.EndpointInputConfiguration> requestInputConfig_inputConfig_EndpointConfiguration = null;
             if (cmdletContext.InputConfig_EndpointConfiguration != null)
@@ -699,7 +698,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestInputConfig_inputConfig_EndpointConfiguration != null)
             {
                 request.InputConfig.EndpointConfigurations = requestInputConfig_inputConfig_EndpointConfiguration;
-                requestInputConfigIsNull = false;
             }
             List<Amazon.SageMaker.Model.EndpointInfo> requestInputConfig_inputConfig_Endpoint = null;
             if (cmdletContext.InputConfig_Endpoint != null)
@@ -709,7 +707,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestInputConfig_inputConfig_Endpoint != null)
             {
                 request.InputConfig.Endpoints = requestInputConfig_inputConfig_Endpoint;
-                requestInputConfigIsNull = false;
             }
             System.Int32? requestInputConfig_inputConfig_JobDurationInSecond = null;
             if (cmdletContext.InputConfig_JobDurationInSecond != null)
@@ -719,7 +716,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestInputConfig_inputConfig_JobDurationInSecond != null)
             {
                 request.InputConfig.JobDurationInSeconds = requestInputConfig_inputConfig_JobDurationInSecond.Value;
-                requestInputConfigIsNull = false;
             }
             System.String requestInputConfig_inputConfig_ModelName = null;
             if (cmdletContext.InputConfig_ModelName != null)
@@ -729,7 +725,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestInputConfig_inputConfig_ModelName != null)
             {
                 request.InputConfig.ModelName = requestInputConfig_inputConfig_ModelName;
-                requestInputConfigIsNull = false;
             }
             System.String requestInputConfig_inputConfig_ModelPackageVersionArn = null;
             if (cmdletContext.InputConfig_ModelPackageVersionArn != null)
@@ -739,7 +734,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestInputConfig_inputConfig_ModelPackageVersionArn != null)
             {
                 request.InputConfig.ModelPackageVersionArn = requestInputConfig_inputConfig_ModelPackageVersionArn;
-                requestInputConfigIsNull = false;
             }
             System.String requestInputConfig_inputConfig_VolumeKmsKeyId = null;
             if (cmdletContext.InputConfig_VolumeKmsKeyId != null)
@@ -749,7 +743,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestInputConfig_inputConfig_VolumeKmsKeyId != null)
             {
                 request.InputConfig.VolumeKmsKeyId = requestInputConfig_inputConfig_VolumeKmsKeyId;
-                requestInputConfigIsNull = false;
             }
             Amazon.SageMaker.Model.RecommendationJobResourceLimit requestInputConfig_inputConfig_ResourceLimit = null;
             
@@ -784,7 +777,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestInputConfig_inputConfig_ResourceLimit != null)
             {
                 request.InputConfig.ResourceLimit = requestInputConfig_inputConfig_ResourceLimit;
-                requestInputConfigIsNull = false;
             }
             Amazon.SageMaker.Model.RecommendationJobVpcConfig requestInputConfig_inputConfig_VpcConfig = null;
             
@@ -819,7 +811,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestInputConfig_inputConfig_VpcConfig != null)
             {
                 request.InputConfig.VpcConfig = requestInputConfig_inputConfig_VpcConfig;
-                requestInputConfigIsNull = false;
             }
             Amazon.SageMaker.Model.TrafficPattern requestInputConfig_inputConfig_TrafficPattern = null;
             
@@ -899,7 +890,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestInputConfig_inputConfig_TrafficPattern != null)
             {
                 request.InputConfig.TrafficPattern = requestInputConfig_inputConfig_TrafficPattern;
-                requestInputConfigIsNull = false;
             }
             Amazon.SageMaker.Model.RecommendationJobContainerConfig requestInputConfig_inputConfig_ContainerConfig = null;
             
@@ -1039,12 +1029,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestInputConfig_inputConfig_ContainerConfig != null)
             {
                 request.InputConfig.ContainerConfig = requestInputConfig_inputConfig_ContainerConfig;
-                requestInputConfigIsNull = false;
-            }
-             // determine if request.InputConfig should be set to null
-            if (requestInputConfigIsNull)
-            {
-                request.InputConfig = null;
             }
             if (cmdletContext.JobDescription != null)
             {

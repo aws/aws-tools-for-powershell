@@ -202,7 +202,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             
              // populate IntegrateServices
-            var requestIntegrateServicesIsNull = true;
             request.IntegrateServices = new Amazon.EC2.Model.IntegrateServices();
             List<Amazon.EC2.Model.AthenaIntegration> requestIntegrateServices_integrateServices_AthenaIntegration = null;
             if (cmdletContext.IntegrateServices_AthenaIntegration != null)
@@ -212,12 +211,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestIntegrateServices_integrateServices_AthenaIntegration != null)
             {
                 request.IntegrateServices.AthenaIntegrations = requestIntegrateServices_integrateServices_AthenaIntegration;
-                requestIntegrateServicesIsNull = false;
-            }
-             // determine if request.IntegrateServices should be set to null
-            if (requestIntegrateServicesIsNull)
-            {
-                request.IntegrateServices = null;
             }
             
             CmdletOutput output;

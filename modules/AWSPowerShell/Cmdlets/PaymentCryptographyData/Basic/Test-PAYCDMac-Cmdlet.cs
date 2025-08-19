@@ -422,7 +422,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             }
             
              // populate VerificationAttributes
-            var requestVerificationAttributesIsNull = true;
             request.VerificationAttributes = new Amazon.PaymentCryptographyData.Model.MacAttributes();
             Amazon.PaymentCryptographyData.MacAlgorithm requestVerificationAttributes_verificationAttributes_Algorithm = null;
             if (cmdletContext.VerificationAttributes_Algorithm != null)
@@ -432,7 +431,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestVerificationAttributes_verificationAttributes_Algorithm != null)
             {
                 request.VerificationAttributes.Algorithm = requestVerificationAttributes_verificationAttributes_Algorithm;
-                requestVerificationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.MacAlgorithmDukpt requestVerificationAttributes_verificationAttributes_DukptCmac = null;
             
@@ -477,7 +475,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestVerificationAttributes_verificationAttributes_DukptCmac != null)
             {
                 request.VerificationAttributes.DukptCmac = requestVerificationAttributes_verificationAttributes_DukptCmac;
-                requestVerificationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.MacAlgorithmDukpt requestVerificationAttributes_verificationAttributes_DukptIso9797Algorithm1 = null;
             
@@ -522,7 +519,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestVerificationAttributes_verificationAttributes_DukptIso9797Algorithm1 != null)
             {
                 request.VerificationAttributes.DukptIso9797Algorithm1 = requestVerificationAttributes_verificationAttributes_DukptIso9797Algorithm1;
-                requestVerificationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.MacAlgorithmDukpt requestVerificationAttributes_verificationAttributes_DukptIso9797Algorithm3 = null;
             
@@ -567,7 +563,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestVerificationAttributes_verificationAttributes_DukptIso9797Algorithm3 != null)
             {
                 request.VerificationAttributes.DukptIso9797Algorithm3 = requestVerificationAttributes_verificationAttributes_DukptIso9797Algorithm3;
-                requestVerificationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.MacAlgorithmEmv requestVerificationAttributes_verificationAttributes_EmvMac = null;
             
@@ -617,7 +612,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             Amazon.PaymentCryptographyData.Model.SessionKeyDerivationValue requestVerificationAttributes_verificationAttributes_EmvMac_verificationAttributes_EmvMac_SessionKeyDerivationValue = null;
             
              // populate SessionKeyDerivationValue
-            var requestVerificationAttributes_verificationAttributes_EmvMac_verificationAttributes_EmvMac_SessionKeyDerivationValueIsNull = true;
             requestVerificationAttributes_verificationAttributes_EmvMac_verificationAttributes_EmvMac_SessionKeyDerivationValue = new Amazon.PaymentCryptographyData.Model.SessionKeyDerivationValue();
             System.String requestVerificationAttributes_verificationAttributes_EmvMac_verificationAttributes_EmvMac_SessionKeyDerivationValue_sessionKeyDerivationValue_ApplicationCryptogram = null;
             if (cmdletContext.SessionKeyDerivationValue_ApplicationCryptogram != null)
@@ -627,7 +621,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestVerificationAttributes_verificationAttributes_EmvMac_verificationAttributes_EmvMac_SessionKeyDerivationValue_sessionKeyDerivationValue_ApplicationCryptogram != null)
             {
                 requestVerificationAttributes_verificationAttributes_EmvMac_verificationAttributes_EmvMac_SessionKeyDerivationValue.ApplicationCryptogram = requestVerificationAttributes_verificationAttributes_EmvMac_verificationAttributes_EmvMac_SessionKeyDerivationValue_sessionKeyDerivationValue_ApplicationCryptogram;
-                requestVerificationAttributes_verificationAttributes_EmvMac_verificationAttributes_EmvMac_SessionKeyDerivationValueIsNull = false;
             }
             System.String requestVerificationAttributes_verificationAttributes_EmvMac_verificationAttributes_EmvMac_SessionKeyDerivationValue_sessionKeyDerivationValue_ApplicationTransactionCounter = null;
             if (cmdletContext.SessionKeyDerivationValue_ApplicationTransactionCounter != null)
@@ -637,12 +630,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestVerificationAttributes_verificationAttributes_EmvMac_verificationAttributes_EmvMac_SessionKeyDerivationValue_sessionKeyDerivationValue_ApplicationTransactionCounter != null)
             {
                 requestVerificationAttributes_verificationAttributes_EmvMac_verificationAttributes_EmvMac_SessionKeyDerivationValue.ApplicationTransactionCounter = requestVerificationAttributes_verificationAttributes_EmvMac_verificationAttributes_EmvMac_SessionKeyDerivationValue_sessionKeyDerivationValue_ApplicationTransactionCounter;
-                requestVerificationAttributes_verificationAttributes_EmvMac_verificationAttributes_EmvMac_SessionKeyDerivationValueIsNull = false;
-            }
-             // determine if requestVerificationAttributes_verificationAttributes_EmvMac_verificationAttributes_EmvMac_SessionKeyDerivationValue should be set to null
-            if (requestVerificationAttributes_verificationAttributes_EmvMac_verificationAttributes_EmvMac_SessionKeyDerivationValueIsNull)
-            {
-                requestVerificationAttributes_verificationAttributes_EmvMac_verificationAttributes_EmvMac_SessionKeyDerivationValue = null;
             }
             if (requestVerificationAttributes_verificationAttributes_EmvMac_verificationAttributes_EmvMac_SessionKeyDerivationValue != null)
             {
@@ -657,12 +644,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestVerificationAttributes_verificationAttributes_EmvMac != null)
             {
                 request.VerificationAttributes.EmvMac = requestVerificationAttributes_verificationAttributes_EmvMac;
-                requestVerificationAttributesIsNull = false;
-            }
-             // determine if request.VerificationAttributes should be set to null
-            if (requestVerificationAttributesIsNull)
-            {
-                request.VerificationAttributes = null;
             }
             
             CmdletOutput output;

@@ -195,7 +195,6 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             }
             
              // populate Reference
-            var requestReferenceIsNull = true;
             request.Reference = new Amazon.Omics.Model.ReferenceItem();
             System.String requestReference_reference_ReferenceArn = null;
             if (cmdletContext.Reference_ReferenceArn != null)
@@ -205,12 +204,6 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             if (requestReference_reference_ReferenceArn != null)
             {
                 request.Reference.ReferenceArn = requestReference_reference_ReferenceArn;
-                requestReferenceIsNull = false;
-            }
-             // determine if request.Reference should be set to null
-            if (requestReferenceIsNull)
-            {
-                request.Reference = null;
             }
             
              // populate SseConfig

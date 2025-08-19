@@ -259,7 +259,6 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             }
             
              // populate Definition
-            var requestDefinitionIsNull = true;
             request.Definition = new Amazon.VerifiedPermissions.Model.PolicyDefinition();
             Amazon.VerifiedPermissions.Model.StaticPolicyDefinition requestDefinition_definition_Static = null;
             
@@ -294,7 +293,6 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             if (requestDefinition_definition_Static != null)
             {
                 request.Definition.Static = requestDefinition_definition_Static;
-                requestDefinitionIsNull = false;
             }
             Amazon.VerifiedPermissions.Model.TemplateLinkedPolicyDefinition requestDefinition_definition_TemplateLinked = null;
             
@@ -389,12 +387,6 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             if (requestDefinition_definition_TemplateLinked != null)
             {
                 request.Definition.TemplateLinked = requestDefinition_definition_TemplateLinked;
-                requestDefinitionIsNull = false;
-            }
-             // determine if request.Definition should be set to null
-            if (requestDefinitionIsNull)
-            {
-                request.Definition = null;
             }
             if (cmdletContext.PolicyStoreId != null)
             {

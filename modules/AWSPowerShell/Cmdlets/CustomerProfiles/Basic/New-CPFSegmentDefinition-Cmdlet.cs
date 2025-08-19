@@ -261,7 +261,6 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             }
             
              // populate SegmentGroups
-            var requestSegmentGroupsIsNull = true;
             request.SegmentGroups = new Amazon.CustomerProfiles.Model.SegmentGroup();
             List<Amazon.CustomerProfiles.Model.Group> requestSegmentGroups_segmentGroups_Group = null;
             if (cmdletContext.SegmentGroups_Group != null)
@@ -271,7 +270,6 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (requestSegmentGroups_segmentGroups_Group != null)
             {
                 request.SegmentGroups.Groups = requestSegmentGroups_segmentGroups_Group;
-                requestSegmentGroupsIsNull = false;
             }
             Amazon.CustomerProfiles.IncludeOptions requestSegmentGroups_segmentGroups_Include = null;
             if (cmdletContext.SegmentGroups_Include != null)
@@ -281,12 +279,6 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (requestSegmentGroups_segmentGroups_Include != null)
             {
                 request.SegmentGroups.Include = requestSegmentGroups_segmentGroups_Include;
-                requestSegmentGroupsIsNull = false;
-            }
-             // determine if request.SegmentGroups should be set to null
-            if (requestSegmentGroupsIsNull)
-            {
-                request.SegmentGroups = null;
             }
             if (cmdletContext.Tag != null)
             {

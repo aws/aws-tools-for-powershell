@@ -225,7 +225,6 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
             }
             
              // populate DestinationConfiguration
-            var requestDestinationConfigurationIsNull = true;
             request.DestinationConfiguration = new Amazon.AppFabric.Model.DestinationConfiguration();
             Amazon.AppFabric.Model.AuditLogDestinationConfiguration requestDestinationConfiguration_destinationConfiguration_AuditLog = null;
             
@@ -235,7 +234,6 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
             Amazon.AppFabric.Model.Destination requestDestinationConfiguration_destinationConfiguration_AuditLog_destinationConfiguration_AuditLog_Destination = null;
             
              // populate Destination
-            var requestDestinationConfiguration_destinationConfiguration_AuditLog_destinationConfiguration_AuditLog_DestinationIsNull = true;
             requestDestinationConfiguration_destinationConfiguration_AuditLog_destinationConfiguration_AuditLog_Destination = new Amazon.AppFabric.Model.Destination();
             Amazon.AppFabric.Model.FirehoseStream requestDestinationConfiguration_destinationConfiguration_AuditLog_destinationConfiguration_AuditLog_Destination_destinationConfiguration_AuditLog_Destination_FirehoseStream = null;
             
@@ -260,7 +258,6 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
             if (requestDestinationConfiguration_destinationConfiguration_AuditLog_destinationConfiguration_AuditLog_Destination_destinationConfiguration_AuditLog_Destination_FirehoseStream != null)
             {
                 requestDestinationConfiguration_destinationConfiguration_AuditLog_destinationConfiguration_AuditLog_Destination.FirehoseStream = requestDestinationConfiguration_destinationConfiguration_AuditLog_destinationConfiguration_AuditLog_Destination_destinationConfiguration_AuditLog_Destination_FirehoseStream;
-                requestDestinationConfiguration_destinationConfiguration_AuditLog_destinationConfiguration_AuditLog_DestinationIsNull = false;
             }
             Amazon.AppFabric.Model.S3Bucket requestDestinationConfiguration_destinationConfiguration_AuditLog_destinationConfiguration_AuditLog_Destination_destinationConfiguration_AuditLog_Destination_S3Bucket = null;
             
@@ -295,12 +292,6 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
             if (requestDestinationConfiguration_destinationConfiguration_AuditLog_destinationConfiguration_AuditLog_Destination_destinationConfiguration_AuditLog_Destination_S3Bucket != null)
             {
                 requestDestinationConfiguration_destinationConfiguration_AuditLog_destinationConfiguration_AuditLog_Destination.S3Bucket = requestDestinationConfiguration_destinationConfiguration_AuditLog_destinationConfiguration_AuditLog_Destination_destinationConfiguration_AuditLog_Destination_S3Bucket;
-                requestDestinationConfiguration_destinationConfiguration_AuditLog_destinationConfiguration_AuditLog_DestinationIsNull = false;
-            }
-             // determine if requestDestinationConfiguration_destinationConfiguration_AuditLog_destinationConfiguration_AuditLog_Destination should be set to null
-            if (requestDestinationConfiguration_destinationConfiguration_AuditLog_destinationConfiguration_AuditLog_DestinationIsNull)
-            {
-                requestDestinationConfiguration_destinationConfiguration_AuditLog_destinationConfiguration_AuditLog_Destination = null;
             }
             if (requestDestinationConfiguration_destinationConfiguration_AuditLog_destinationConfiguration_AuditLog_Destination != null)
             {
@@ -315,12 +306,6 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
             if (requestDestinationConfiguration_destinationConfiguration_AuditLog != null)
             {
                 request.DestinationConfiguration.AuditLog = requestDestinationConfiguration_destinationConfiguration_AuditLog;
-                requestDestinationConfigurationIsNull = false;
-            }
-             // determine if request.DestinationConfiguration should be set to null
-            if (requestDestinationConfigurationIsNull)
-            {
-                request.DestinationConfiguration = null;
             }
             if (cmdletContext.IngestionDestinationIdentifier != null)
             {

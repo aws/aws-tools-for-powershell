@@ -214,7 +214,6 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             
             
              // populate Definition
-            var requestDefinitionIsNull = true;
             request.Definition = new Amazon.VerifiedPermissions.Model.UpdatePolicyDefinition();
             Amazon.VerifiedPermissions.Model.UpdateStaticPolicyDefinition requestDefinition_definition_Static = null;
             
@@ -249,12 +248,6 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             if (requestDefinition_definition_Static != null)
             {
                 request.Definition.Static = requestDefinition_definition_Static;
-                requestDefinitionIsNull = false;
-            }
-             // determine if request.Definition should be set to null
-            if (requestDefinitionIsNull)
-            {
-                request.Definition = null;
             }
             if (cmdletContext.PolicyId != null)
             {

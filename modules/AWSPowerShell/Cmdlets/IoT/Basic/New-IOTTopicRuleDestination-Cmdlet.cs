@@ -190,7 +190,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             
             
              // populate DestinationConfiguration
-            var requestDestinationConfigurationIsNull = true;
             request.DestinationConfiguration = new Amazon.IoT.Model.TopicRuleDestinationConfiguration();
             Amazon.IoT.Model.HttpUrlDestinationConfiguration requestDestinationConfiguration_destinationConfiguration_HttpUrlConfiguration = null;
             
@@ -215,7 +214,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestDestinationConfiguration_destinationConfiguration_HttpUrlConfiguration != null)
             {
                 request.DestinationConfiguration.HttpUrlConfiguration = requestDestinationConfiguration_destinationConfiguration_HttpUrlConfiguration;
-                requestDestinationConfigurationIsNull = false;
             }
             Amazon.IoT.Model.VpcDestinationConfiguration requestDestinationConfiguration_destinationConfiguration_VpcConfiguration = null;
             
@@ -270,12 +268,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestDestinationConfiguration_destinationConfiguration_VpcConfiguration != null)
             {
                 request.DestinationConfiguration.VpcConfiguration = requestDestinationConfiguration_destinationConfiguration_VpcConfiguration;
-                requestDestinationConfigurationIsNull = false;
-            }
-             // determine if request.DestinationConfiguration should be set to null
-            if (requestDestinationConfigurationIsNull)
-            {
-                request.DestinationConfiguration = null;
             }
             
             CmdletOutput output;

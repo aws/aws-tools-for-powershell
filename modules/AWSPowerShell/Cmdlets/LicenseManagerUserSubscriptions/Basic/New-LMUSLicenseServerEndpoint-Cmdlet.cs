@@ -213,7 +213,6 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
             Amazon.LicenseManagerUserSubscriptions.Model.ServerSettings requestLicenseServerSettings_licenseServerSettings_ServerSettings = null;
             
              // populate ServerSettings
-            var requestLicenseServerSettings_licenseServerSettings_ServerSettingsIsNull = true;
             requestLicenseServerSettings_licenseServerSettings_ServerSettings = new Amazon.LicenseManagerUserSubscriptions.Model.ServerSettings();
             Amazon.LicenseManagerUserSubscriptions.Model.RdsSalSettings requestLicenseServerSettings_licenseServerSettings_ServerSettings_licenseServerSettings_ServerSettings_RdsSalSettings = null;
             
@@ -223,7 +222,6 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
             Amazon.LicenseManagerUserSubscriptions.Model.CredentialsProvider requestLicenseServerSettings_licenseServerSettings_ServerSettings_licenseServerSettings_ServerSettings_RdsSalSettings_licenseServerSettings_ServerSettings_RdsSalSettings_RdsSalCredentialsProvider = null;
             
              // populate RdsSalCredentialsProvider
-            var requestLicenseServerSettings_licenseServerSettings_ServerSettings_licenseServerSettings_ServerSettings_RdsSalSettings_licenseServerSettings_ServerSettings_RdsSalSettings_RdsSalCredentialsProviderIsNull = true;
             requestLicenseServerSettings_licenseServerSettings_ServerSettings_licenseServerSettings_ServerSettings_RdsSalSettings_licenseServerSettings_ServerSettings_RdsSalSettings_RdsSalCredentialsProvider = new Amazon.LicenseManagerUserSubscriptions.Model.CredentialsProvider();
             Amazon.LicenseManagerUserSubscriptions.Model.SecretsManagerCredentialsProvider requestLicenseServerSettings_licenseServerSettings_ServerSettings_licenseServerSettings_ServerSettings_RdsSalSettings_licenseServerSettings_ServerSettings_RdsSalSettings_RdsSalCredentialsProvider_licenseServerSettings_ServerSettings_RdsSalSettings_RdsSalCredentialsProvider_SecretsManagerCredentialsProvider = null;
             
@@ -248,12 +246,6 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
             if (requestLicenseServerSettings_licenseServerSettings_ServerSettings_licenseServerSettings_ServerSettings_RdsSalSettings_licenseServerSettings_ServerSettings_RdsSalSettings_RdsSalCredentialsProvider_licenseServerSettings_ServerSettings_RdsSalSettings_RdsSalCredentialsProvider_SecretsManagerCredentialsProvider != null)
             {
                 requestLicenseServerSettings_licenseServerSettings_ServerSettings_licenseServerSettings_ServerSettings_RdsSalSettings_licenseServerSettings_ServerSettings_RdsSalSettings_RdsSalCredentialsProvider.SecretsManagerCredentialsProvider = requestLicenseServerSettings_licenseServerSettings_ServerSettings_licenseServerSettings_ServerSettings_RdsSalSettings_licenseServerSettings_ServerSettings_RdsSalSettings_RdsSalCredentialsProvider_licenseServerSettings_ServerSettings_RdsSalSettings_RdsSalCredentialsProvider_SecretsManagerCredentialsProvider;
-                requestLicenseServerSettings_licenseServerSettings_ServerSettings_licenseServerSettings_ServerSettings_RdsSalSettings_licenseServerSettings_ServerSettings_RdsSalSettings_RdsSalCredentialsProviderIsNull = false;
-            }
-             // determine if requestLicenseServerSettings_licenseServerSettings_ServerSettings_licenseServerSettings_ServerSettings_RdsSalSettings_licenseServerSettings_ServerSettings_RdsSalSettings_RdsSalCredentialsProvider should be set to null
-            if (requestLicenseServerSettings_licenseServerSettings_ServerSettings_licenseServerSettings_ServerSettings_RdsSalSettings_licenseServerSettings_ServerSettings_RdsSalSettings_RdsSalCredentialsProviderIsNull)
-            {
-                requestLicenseServerSettings_licenseServerSettings_ServerSettings_licenseServerSettings_ServerSettings_RdsSalSettings_licenseServerSettings_ServerSettings_RdsSalSettings_RdsSalCredentialsProvider = null;
             }
             if (requestLicenseServerSettings_licenseServerSettings_ServerSettings_licenseServerSettings_ServerSettings_RdsSalSettings_licenseServerSettings_ServerSettings_RdsSalSettings_RdsSalCredentialsProvider != null)
             {
@@ -268,12 +260,6 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
             if (requestLicenseServerSettings_licenseServerSettings_ServerSettings_licenseServerSettings_ServerSettings_RdsSalSettings != null)
             {
                 requestLicenseServerSettings_licenseServerSettings_ServerSettings.RdsSalSettings = requestLicenseServerSettings_licenseServerSettings_ServerSettings_licenseServerSettings_ServerSettings_RdsSalSettings;
-                requestLicenseServerSettings_licenseServerSettings_ServerSettingsIsNull = false;
-            }
-             // determine if requestLicenseServerSettings_licenseServerSettings_ServerSettings should be set to null
-            if (requestLicenseServerSettings_licenseServerSettings_ServerSettingsIsNull)
-            {
-                requestLicenseServerSettings_licenseServerSettings_ServerSettings = null;
             }
             if (requestLicenseServerSettings_licenseServerSettings_ServerSettings != null)
             {

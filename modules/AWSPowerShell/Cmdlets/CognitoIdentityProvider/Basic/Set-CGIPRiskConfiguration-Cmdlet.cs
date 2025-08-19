@@ -496,7 +496,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             Amazon.CognitoIdentityProvider.Model.AccountTakeoverActionsType requestAccountTakeoverRiskConfiguration_accountTakeoverRiskConfiguration_Actions = null;
             
              // populate Actions
-            var requestAccountTakeoverRiskConfiguration_accountTakeoverRiskConfiguration_ActionsIsNull = true;
             requestAccountTakeoverRiskConfiguration_accountTakeoverRiskConfiguration_Actions = new Amazon.CognitoIdentityProvider.Model.AccountTakeoverActionsType();
             Amazon.CognitoIdentityProvider.Model.AccountTakeoverActionType requestAccountTakeoverRiskConfiguration_accountTakeoverRiskConfiguration_Actions_accountTakeoverRiskConfiguration_Actions_HighAction = null;
             
@@ -531,7 +530,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (requestAccountTakeoverRiskConfiguration_accountTakeoverRiskConfiguration_Actions_accountTakeoverRiskConfiguration_Actions_HighAction != null)
             {
                 requestAccountTakeoverRiskConfiguration_accountTakeoverRiskConfiguration_Actions.HighAction = requestAccountTakeoverRiskConfiguration_accountTakeoverRiskConfiguration_Actions_accountTakeoverRiskConfiguration_Actions_HighAction;
-                requestAccountTakeoverRiskConfiguration_accountTakeoverRiskConfiguration_ActionsIsNull = false;
             }
             Amazon.CognitoIdentityProvider.Model.AccountTakeoverActionType requestAccountTakeoverRiskConfiguration_accountTakeoverRiskConfiguration_Actions_accountTakeoverRiskConfiguration_Actions_LowAction = null;
             
@@ -566,7 +564,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (requestAccountTakeoverRiskConfiguration_accountTakeoverRiskConfiguration_Actions_accountTakeoverRiskConfiguration_Actions_LowAction != null)
             {
                 requestAccountTakeoverRiskConfiguration_accountTakeoverRiskConfiguration_Actions.LowAction = requestAccountTakeoverRiskConfiguration_accountTakeoverRiskConfiguration_Actions_accountTakeoverRiskConfiguration_Actions_LowAction;
-                requestAccountTakeoverRiskConfiguration_accountTakeoverRiskConfiguration_ActionsIsNull = false;
             }
             Amazon.CognitoIdentityProvider.Model.AccountTakeoverActionType requestAccountTakeoverRiskConfiguration_accountTakeoverRiskConfiguration_Actions_accountTakeoverRiskConfiguration_Actions_MediumAction = null;
             
@@ -601,12 +598,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (requestAccountTakeoverRiskConfiguration_accountTakeoverRiskConfiguration_Actions_accountTakeoverRiskConfiguration_Actions_MediumAction != null)
             {
                 requestAccountTakeoverRiskConfiguration_accountTakeoverRiskConfiguration_Actions.MediumAction = requestAccountTakeoverRiskConfiguration_accountTakeoverRiskConfiguration_Actions_accountTakeoverRiskConfiguration_Actions_MediumAction;
-                requestAccountTakeoverRiskConfiguration_accountTakeoverRiskConfiguration_ActionsIsNull = false;
-            }
-             // determine if requestAccountTakeoverRiskConfiguration_accountTakeoverRiskConfiguration_Actions should be set to null
-            if (requestAccountTakeoverRiskConfiguration_accountTakeoverRiskConfiguration_ActionsIsNull)
-            {
-                requestAccountTakeoverRiskConfiguration_accountTakeoverRiskConfiguration_Actions = null;
             }
             if (requestAccountTakeoverRiskConfiguration_accountTakeoverRiskConfiguration_Actions != null)
             {

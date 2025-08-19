@@ -210,7 +210,6 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             
             
              // populate Configuration
-            var requestConfigurationIsNull = true;
             request.Configuration = new Amazon.SecurityLake.Model.NotificationConfiguration();
             Amazon.SecurityLake.Model.SqsNotificationConfiguration requestConfiguration_configuration_SqsNotificationConfiguration = null;
             if (cmdletContext.Configuration_SqsNotificationConfiguration != null)
@@ -220,7 +219,6 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             if (requestConfiguration_configuration_SqsNotificationConfiguration != null)
             {
                 request.Configuration.SqsNotificationConfiguration = requestConfiguration_configuration_SqsNotificationConfiguration;
-                requestConfigurationIsNull = false;
             }
             Amazon.SecurityLake.Model.HttpsNotificationConfiguration requestConfiguration_configuration_HttpsNotificationConfiguration = null;
             
@@ -285,12 +283,6 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             if (requestConfiguration_configuration_HttpsNotificationConfiguration != null)
             {
                 request.Configuration.HttpsNotificationConfiguration = requestConfiguration_configuration_HttpsNotificationConfiguration;
-                requestConfigurationIsNull = false;
-            }
-             // determine if request.Configuration should be set to null
-            if (requestConfigurationIsNull)
-            {
-                request.Configuration = null;
             }
             if (cmdletContext.SubscriberId != null)
             {

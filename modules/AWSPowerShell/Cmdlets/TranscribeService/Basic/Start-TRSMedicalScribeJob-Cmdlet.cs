@@ -461,7 +461,6 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             }
             
              // populate Media
-            var requestMediaIsNull = true;
             request.Media = new Amazon.TranscribeService.Model.Media();
             System.String requestMedia_media_MediaFileUri = null;
             if (cmdletContext.Media_MediaFileUri != null)
@@ -471,7 +470,6 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (requestMedia_media_MediaFileUri != null)
             {
                 request.Media.MediaFileUri = requestMedia_media_MediaFileUri;
-                requestMediaIsNull = false;
             }
             System.String requestMedia_media_RedactedMediaFileUri = null;
             if (cmdletContext.Media_RedactedMediaFileUri != null)
@@ -481,12 +479,6 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (requestMedia_media_RedactedMediaFileUri != null)
             {
                 request.Media.RedactedMediaFileUri = requestMedia_media_RedactedMediaFileUri;
-                requestMediaIsNull = false;
-            }
-             // determine if request.Media should be set to null
-            if (requestMediaIsNull)
-            {
-                request.Media = null;
             }
             
              // populate MedicalScribeContext
@@ -536,7 +528,6 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             }
             
              // populate Settings
-            var requestSettingsIsNull = true;
             request.Settings = new Amazon.TranscribeService.Model.MedicalScribeSettings();
             System.Boolean? requestSettings_settings_ChannelIdentification = null;
             if (cmdletContext.Settings_ChannelIdentification != null)
@@ -546,7 +537,6 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (requestSettings_settings_ChannelIdentification != null)
             {
                 request.Settings.ChannelIdentification = requestSettings_settings_ChannelIdentification.Value;
-                requestSettingsIsNull = false;
             }
             System.Int32? requestSettings_settings_MaxSpeakerLabel = null;
             if (cmdletContext.Settings_MaxSpeakerLabel != null)
@@ -556,7 +546,6 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (requestSettings_settings_MaxSpeakerLabel != null)
             {
                 request.Settings.MaxSpeakerLabels = requestSettings_settings_MaxSpeakerLabel.Value;
-                requestSettingsIsNull = false;
             }
             System.Boolean? requestSettings_settings_ShowSpeakerLabel = null;
             if (cmdletContext.Settings_ShowSpeakerLabel != null)
@@ -566,7 +555,6 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (requestSettings_settings_ShowSpeakerLabel != null)
             {
                 request.Settings.ShowSpeakerLabels = requestSettings_settings_ShowSpeakerLabel.Value;
-                requestSettingsIsNull = false;
             }
             Amazon.TranscribeService.VocabularyFilterMethod requestSettings_settings_VocabularyFilterMethod = null;
             if (cmdletContext.Settings_VocabularyFilterMethod != null)
@@ -576,7 +564,6 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (requestSettings_settings_VocabularyFilterMethod != null)
             {
                 request.Settings.VocabularyFilterMethod = requestSettings_settings_VocabularyFilterMethod;
-                requestSettingsIsNull = false;
             }
             System.String requestSettings_settings_VocabularyFilterName = null;
             if (cmdletContext.Settings_VocabularyFilterName != null)
@@ -586,7 +573,6 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (requestSettings_settings_VocabularyFilterName != null)
             {
                 request.Settings.VocabularyFilterName = requestSettings_settings_VocabularyFilterName;
-                requestSettingsIsNull = false;
             }
             System.String requestSettings_settings_VocabularyName = null;
             if (cmdletContext.Settings_VocabularyName != null)
@@ -596,7 +582,6 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (requestSettings_settings_VocabularyName != null)
             {
                 request.Settings.VocabularyName = requestSettings_settings_VocabularyName;
-                requestSettingsIsNull = false;
             }
             Amazon.TranscribeService.Model.ClinicalNoteGenerationSettings requestSettings_settings_ClinicalNoteGenerationSettings = null;
             
@@ -621,12 +606,6 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (requestSettings_settings_ClinicalNoteGenerationSettings != null)
             {
                 request.Settings.ClinicalNoteGenerationSettings = requestSettings_settings_ClinicalNoteGenerationSettings;
-                requestSettingsIsNull = false;
-            }
-             // determine if request.Settings should be set to null
-            if (requestSettingsIsNull)
-            {
-                request.Settings = null;
             }
             if (cmdletContext.Tag != null)
             {

@@ -158,7 +158,6 @@ namespace Amazon.PowerShell.Cmdlets.CS
             
             
              // populate DomainEndpointOptions
-            var requestDomainEndpointOptionsIsNull = true;
             request.DomainEndpointOptions = new Amazon.CloudSearch.Model.DomainEndpointOptions();
             System.Boolean? requestDomainEndpointOptions_domainEndpointOptions_EnforceHTTPS = null;
             if (cmdletContext.DomainEndpointOptions_EnforceHTTPS != null)
@@ -168,7 +167,6 @@ namespace Amazon.PowerShell.Cmdlets.CS
             if (requestDomainEndpointOptions_domainEndpointOptions_EnforceHTTPS != null)
             {
                 request.DomainEndpointOptions.EnforceHTTPS = requestDomainEndpointOptions_domainEndpointOptions_EnforceHTTPS.Value;
-                requestDomainEndpointOptionsIsNull = false;
             }
             Amazon.CloudSearch.TLSSecurityPolicy requestDomainEndpointOptions_domainEndpointOptions_TLSSecurityPolicy = null;
             if (cmdletContext.DomainEndpointOptions_TLSSecurityPolicy != null)
@@ -178,12 +176,6 @@ namespace Amazon.PowerShell.Cmdlets.CS
             if (requestDomainEndpointOptions_domainEndpointOptions_TLSSecurityPolicy != null)
             {
                 request.DomainEndpointOptions.TLSSecurityPolicy = requestDomainEndpointOptions_domainEndpointOptions_TLSSecurityPolicy;
-                requestDomainEndpointOptionsIsNull = false;
-            }
-             // determine if request.DomainEndpointOptions should be set to null
-            if (requestDomainEndpointOptionsIsNull)
-            {
-                request.DomainEndpointOptions = null;
             }
             if (cmdletContext.DomainName != null)
             {

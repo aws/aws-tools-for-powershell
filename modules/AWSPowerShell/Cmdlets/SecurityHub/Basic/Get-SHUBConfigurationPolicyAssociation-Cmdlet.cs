@@ -128,7 +128,6 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             
             
              // populate Target
-            var requestTargetIsNull = true;
             request.Target = new Amazon.SecurityHub.Model.Target();
             System.String requestTarget_target_AccountId = null;
             if (cmdletContext.Target_AccountId != null)
@@ -138,7 +137,6 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestTarget_target_AccountId != null)
             {
                 request.Target.AccountId = requestTarget_target_AccountId;
-                requestTargetIsNull = false;
             }
             System.String requestTarget_target_OrganizationalUnitId = null;
             if (cmdletContext.Target_OrganizationalUnitId != null)
@@ -148,7 +146,6 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestTarget_target_OrganizationalUnitId != null)
             {
                 request.Target.OrganizationalUnitId = requestTarget_target_OrganizationalUnitId;
-                requestTargetIsNull = false;
             }
             System.String requestTarget_target_RootId = null;
             if (cmdletContext.Target_RootId != null)
@@ -158,12 +155,6 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestTarget_target_RootId != null)
             {
                 request.Target.RootId = requestTarget_target_RootId;
-                requestTargetIsNull = false;
-            }
-             // determine if request.Target should be set to null
-            if (requestTargetIsNull)
-            {
-                request.Target = null;
             }
             
             CmdletOutput output;

@@ -184,7 +184,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             }
             
              // populate SigningAttributes
-            var requestSigningAttributesIsNull = true;
             request.SigningAttributes = new Amazon.Route53Domains.Model.DnssecSigningAttributes();
             System.Int32? requestSigningAttributes_signingAttributes_Algorithm = null;
             if (cmdletContext.SigningAttributes_Algorithm != null)
@@ -194,7 +193,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestSigningAttributes_signingAttributes_Algorithm != null)
             {
                 request.SigningAttributes.Algorithm = requestSigningAttributes_signingAttributes_Algorithm.Value;
-                requestSigningAttributesIsNull = false;
             }
             System.Int32? requestSigningAttributes_signingAttributes_Flag = null;
             if (cmdletContext.SigningAttributes_Flag != null)
@@ -204,7 +202,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestSigningAttributes_signingAttributes_Flag != null)
             {
                 request.SigningAttributes.Flags = requestSigningAttributes_signingAttributes_Flag.Value;
-                requestSigningAttributesIsNull = false;
             }
             System.String requestSigningAttributes_signingAttributes_PublicKey = null;
             if (cmdletContext.SigningAttributes_PublicKey != null)
@@ -214,12 +211,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestSigningAttributes_signingAttributes_PublicKey != null)
             {
                 request.SigningAttributes.PublicKey = requestSigningAttributes_signingAttributes_PublicKey;
-                requestSigningAttributesIsNull = false;
-            }
-             // determine if request.SigningAttributes should be set to null
-            if (requestSigningAttributesIsNull)
-            {
-                request.SigningAttributes = null;
             }
             
             CmdletOutput output;

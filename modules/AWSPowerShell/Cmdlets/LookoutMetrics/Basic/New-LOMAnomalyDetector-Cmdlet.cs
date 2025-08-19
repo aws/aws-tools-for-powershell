@@ -191,7 +191,6 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             
             
              // populate AnomalyDetectorConfig
-            var requestAnomalyDetectorConfigIsNull = true;
             request.AnomalyDetectorConfig = new Amazon.LookoutMetrics.Model.AnomalyDetectorConfig();
             Amazon.LookoutMetrics.Frequency requestAnomalyDetectorConfig_anomalyDetectorConfig_AnomalyDetectorFrequency = null;
             if (cmdletContext.AnomalyDetectorConfig_AnomalyDetectorFrequency != null)
@@ -201,12 +200,6 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             if (requestAnomalyDetectorConfig_anomalyDetectorConfig_AnomalyDetectorFrequency != null)
             {
                 request.AnomalyDetectorConfig.AnomalyDetectorFrequency = requestAnomalyDetectorConfig_anomalyDetectorConfig_AnomalyDetectorFrequency;
-                requestAnomalyDetectorConfigIsNull = false;
-            }
-             // determine if request.AnomalyDetectorConfig should be set to null
-            if (requestAnomalyDetectorConfigIsNull)
-            {
-                request.AnomalyDetectorConfig = null;
             }
             if (cmdletContext.AnomalyDetectorDescription != null)
             {

@@ -247,7 +247,6 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             }
             
              // populate Parameters
-            var requestParametersIsNull = true;
             request.Parameters = new Amazon.CleanRooms.Model.PrivacyBudgetTemplateParametersInput();
             Amazon.CleanRooms.Model.DifferentialPrivacyTemplateParametersInput requestParameters_parameters_DifferentialPrivacy = null;
             
@@ -282,12 +281,6 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestParameters_parameters_DifferentialPrivacy != null)
             {
                 request.Parameters.DifferentialPrivacy = requestParameters_parameters_DifferentialPrivacy;
-                requestParametersIsNull = false;
-            }
-             // determine if request.Parameters should be set to null
-            if (requestParametersIsNull)
-            {
-                request.Parameters = null;
             }
             if (cmdletContext.PrivacyBudgetType != null)
             {

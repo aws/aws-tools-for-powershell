@@ -240,7 +240,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             }
             
              // populate PolicyDefinition
-            var requestPolicyDefinitionIsNull = true;
             request.PolicyDefinition = new Amazon.Bedrock.Model.AutomatedReasoningPolicyDefinition();
             List<Amazon.Bedrock.Model.AutomatedReasoningPolicyDefinitionRule> requestPolicyDefinition_policyDefinition_Rule = null;
             if (cmdletContext.PolicyDefinition_Rule != null)
@@ -250,7 +249,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestPolicyDefinition_policyDefinition_Rule != null)
             {
                 request.PolicyDefinition.Rules = requestPolicyDefinition_policyDefinition_Rule;
-                requestPolicyDefinitionIsNull = false;
             }
             List<Amazon.Bedrock.Model.AutomatedReasoningPolicyDefinitionType> requestPolicyDefinition_policyDefinition_Type = null;
             if (cmdletContext.PolicyDefinition_Type != null)
@@ -260,7 +258,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestPolicyDefinition_policyDefinition_Type != null)
             {
                 request.PolicyDefinition.Types = requestPolicyDefinition_policyDefinition_Type;
-                requestPolicyDefinitionIsNull = false;
             }
             List<Amazon.Bedrock.Model.AutomatedReasoningPolicyDefinitionVariable> requestPolicyDefinition_policyDefinition_Variable = null;
             if (cmdletContext.PolicyDefinition_Variable != null)
@@ -270,7 +267,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestPolicyDefinition_policyDefinition_Variable != null)
             {
                 request.PolicyDefinition.Variables = requestPolicyDefinition_policyDefinition_Variable;
-                requestPolicyDefinitionIsNull = false;
             }
             System.String requestPolicyDefinition_policyDefinition_Version = null;
             if (cmdletContext.PolicyDefinition_Version != null)
@@ -280,12 +276,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestPolicyDefinition_policyDefinition_Version != null)
             {
                 request.PolicyDefinition.Version = requestPolicyDefinition_policyDefinition_Version;
-                requestPolicyDefinitionIsNull = false;
-            }
-             // determine if request.PolicyDefinition should be set to null
-            if (requestPolicyDefinitionIsNull)
-            {
-                request.PolicyDefinition = null;
             }
             
             CmdletOutput output;

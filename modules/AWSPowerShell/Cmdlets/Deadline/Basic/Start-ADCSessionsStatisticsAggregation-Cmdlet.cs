@@ -326,7 +326,6 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             }
             
              // populate ResourceIds
-            var requestResourceIdsIsNull = true;
             request.ResourceIds = new Amazon.Deadline.Model.SessionsStatisticsResources();
             List<System.String> requestResourceIds_resourceIds_FleetId = null;
             if (cmdletContext.ResourceIds_FleetId != null)
@@ -336,7 +335,6 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             if (requestResourceIds_resourceIds_FleetId != null)
             {
                 request.ResourceIds.FleetIds = requestResourceIds_resourceIds_FleetId;
-                requestResourceIdsIsNull = false;
             }
             List<System.String> requestResourceIds_resourceIds_QueueId = null;
             if (cmdletContext.ResourceIds_QueueId != null)
@@ -346,12 +344,6 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             if (requestResourceIds_resourceIds_QueueId != null)
             {
                 request.ResourceIds.QueueIds = requestResourceIds_resourceIds_QueueId;
-                requestResourceIdsIsNull = false;
-            }
-             // determine if request.ResourceIds should be set to null
-            if (requestResourceIdsIsNull)
-            {
-                request.ResourceIds = null;
             }
             if (cmdletContext.StartTime != null)
             {

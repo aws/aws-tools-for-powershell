@@ -156,7 +156,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             
              // populate IamInstanceProfile
-            var requestIamInstanceProfileIsNull = true;
             request.IamInstanceProfile = new Amazon.EC2.Model.IamInstanceProfileSpecification();
             System.String requestIamInstanceProfile_iamInstanceProfile_Arn = null;
             if (cmdletContext.IamInstanceProfile_Arn != null)
@@ -166,7 +165,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestIamInstanceProfile_iamInstanceProfile_Arn != null)
             {
                 request.IamInstanceProfile.Arn = requestIamInstanceProfile_iamInstanceProfile_Arn;
-                requestIamInstanceProfileIsNull = false;
             }
             System.String requestIamInstanceProfile_iamInstanceProfile_Name = null;
             if (cmdletContext.IamInstanceProfile_Name != null)
@@ -176,12 +174,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestIamInstanceProfile_iamInstanceProfile_Name != null)
             {
                 request.IamInstanceProfile.Name = requestIamInstanceProfile_iamInstanceProfile_Name;
-                requestIamInstanceProfileIsNull = false;
-            }
-             // determine if request.IamInstanceProfile should be set to null
-            if (requestIamInstanceProfileIsNull)
-            {
-                request.IamInstanceProfile = null;
             }
             if (cmdletContext.InstanceId != null)
             {

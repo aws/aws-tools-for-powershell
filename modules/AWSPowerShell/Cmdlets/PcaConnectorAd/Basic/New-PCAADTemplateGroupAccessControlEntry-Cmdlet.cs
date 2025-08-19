@@ -220,7 +220,6 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             
             
              // populate AccessRights
-            var requestAccessRightsIsNull = true;
             request.AccessRights = new Amazon.PcaConnectorAd.Model.AccessRights();
             Amazon.PcaConnectorAd.AccessRight requestAccessRights_accessRights_AutoEnroll = null;
             if (cmdletContext.AccessRights_AutoEnroll != null)
@@ -230,7 +229,6 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestAccessRights_accessRights_AutoEnroll != null)
             {
                 request.AccessRights.AutoEnroll = requestAccessRights_accessRights_AutoEnroll;
-                requestAccessRightsIsNull = false;
             }
             Amazon.PcaConnectorAd.AccessRight requestAccessRights_accessRights_Enroll = null;
             if (cmdletContext.AccessRights_Enroll != null)
@@ -240,12 +238,6 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestAccessRights_accessRights_Enroll != null)
             {
                 request.AccessRights.Enroll = requestAccessRights_accessRights_Enroll;
-                requestAccessRightsIsNull = false;
-            }
-             // determine if request.AccessRights should be set to null
-            if (requestAccessRightsIsNull)
-            {
-                request.AccessRights = null;
             }
             if (cmdletContext.ClientToken != null)
             {

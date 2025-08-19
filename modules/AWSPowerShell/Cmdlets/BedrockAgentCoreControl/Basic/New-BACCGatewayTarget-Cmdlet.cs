@@ -375,7 +375,6 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             }
             
              // populate TargetConfiguration
-            var requestTargetConfigurationIsNull = true;
             request.TargetConfiguration = new Amazon.BedrockAgentCoreControl.Model.TargetConfiguration();
             Amazon.BedrockAgentCoreControl.Model.McpTargetConfiguration requestTargetConfiguration_targetConfiguration_Mcp = null;
             
@@ -400,7 +399,6 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             Amazon.BedrockAgentCoreControl.Model.ToolSchema requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Lambda_targetConfiguration_Mcp_Lambda_ToolSchema = null;
             
              // populate ToolSchema
-            var requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Lambda_targetConfiguration_Mcp_Lambda_ToolSchemaIsNull = true;
             requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Lambda_targetConfiguration_Mcp_Lambda_ToolSchema = new Amazon.BedrockAgentCoreControl.Model.ToolSchema();
             List<Amazon.BedrockAgentCoreControl.Model.ToolDefinition> requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Lambda_targetConfiguration_Mcp_Lambda_ToolSchema_toolSchema_InlinePayload = null;
             if (cmdletContext.ToolSchema_InlinePayload != null)
@@ -410,7 +408,6 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Lambda_targetConfiguration_Mcp_Lambda_ToolSchema_toolSchema_InlinePayload != null)
             {
                 requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Lambda_targetConfiguration_Mcp_Lambda_ToolSchema.InlinePayload = requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Lambda_targetConfiguration_Mcp_Lambda_ToolSchema_toolSchema_InlinePayload;
-                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Lambda_targetConfiguration_Mcp_Lambda_ToolSchemaIsNull = false;
             }
             Amazon.BedrockAgentCoreControl.Model.S3Configuration requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Lambda_targetConfiguration_Mcp_Lambda_ToolSchema_targetConfiguration_Mcp_Lambda_ToolSchema_S3 = null;
             
@@ -445,12 +442,6 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Lambda_targetConfiguration_Mcp_Lambda_ToolSchema_targetConfiguration_Mcp_Lambda_ToolSchema_S3 != null)
             {
                 requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Lambda_targetConfiguration_Mcp_Lambda_ToolSchema.S3 = requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Lambda_targetConfiguration_Mcp_Lambda_ToolSchema_targetConfiguration_Mcp_Lambda_ToolSchema_S3;
-                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Lambda_targetConfiguration_Mcp_Lambda_ToolSchemaIsNull = false;
-            }
-             // determine if requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Lambda_targetConfiguration_Mcp_Lambda_ToolSchema should be set to null
-            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Lambda_targetConfiguration_Mcp_Lambda_ToolSchemaIsNull)
-            {
-                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Lambda_targetConfiguration_Mcp_Lambda_ToolSchema = null;
             }
             if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Lambda_targetConfiguration_Mcp_Lambda_ToolSchema != null)
             {
@@ -595,12 +586,6 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestTargetConfiguration_targetConfiguration_Mcp != null)
             {
                 request.TargetConfiguration.Mcp = requestTargetConfiguration_targetConfiguration_Mcp;
-                requestTargetConfigurationIsNull = false;
-            }
-             // determine if request.TargetConfiguration should be set to null
-            if (requestTargetConfigurationIsNull)
-            {
-                request.TargetConfiguration = null;
             }
             
             CmdletOutput output;

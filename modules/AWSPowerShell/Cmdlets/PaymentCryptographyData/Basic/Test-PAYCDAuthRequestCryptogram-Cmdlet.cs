@@ -518,7 +518,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             }
             
              // populate SessionKeyDerivationAttributes
-            var requestSessionKeyDerivationAttributesIsNull = true;
             request.SessionKeyDerivationAttributes = new Amazon.PaymentCryptographyData.Model.SessionKeyDerivation();
             Amazon.PaymentCryptographyData.Model.SessionKeyAmex requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_Amex = null;
             
@@ -553,7 +552,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_Amex != null)
             {
                 request.SessionKeyDerivationAttributes.Amex = requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_Amex;
-                requestSessionKeyDerivationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.SessionKeyVisa requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_Visa = null;
             
@@ -588,7 +586,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_Visa != null)
             {
                 request.SessionKeyDerivationAttributes.Visa = requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_Visa;
-                requestSessionKeyDerivationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.SessionKeyEmv2000 requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_Emv2000 = null;
             
@@ -633,7 +630,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_Emv2000 != null)
             {
                 request.SessionKeyDerivationAttributes.Emv2000 = requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_Emv2000;
-                requestSessionKeyDerivationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.SessionKeyEmvCommon requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_EmvCommon = null;
             
@@ -678,7 +674,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_EmvCommon != null)
             {
                 request.SessionKeyDerivationAttributes.EmvCommon = requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_EmvCommon;
-                requestSessionKeyDerivationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.SessionKeyMastercard requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_Mastercard = null;
             
@@ -733,12 +728,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_Mastercard != null)
             {
                 request.SessionKeyDerivationAttributes.Mastercard = requestSessionKeyDerivationAttributes_sessionKeyDerivationAttributes_Mastercard;
-                requestSessionKeyDerivationAttributesIsNull = false;
-            }
-             // determine if request.SessionKeyDerivationAttributes should be set to null
-            if (requestSessionKeyDerivationAttributesIsNull)
-            {
-                request.SessionKeyDerivationAttributes = null;
             }
             if (cmdletContext.TransactionData != null)
             {

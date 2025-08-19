@@ -361,7 +361,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             Amazon.IoTSiteWise.Model.FileFormat requestJobConfiguration_jobConfiguration_FileFormat = null;
             
              // populate FileFormat
-            var requestJobConfiguration_jobConfiguration_FileFormatIsNull = true;
             requestJobConfiguration_jobConfiguration_FileFormat = new Amazon.IoTSiteWise.Model.FileFormat();
             Amazon.IoTSiteWise.Model.Parquet requestJobConfiguration_jobConfiguration_FileFormat_fileFormat_Parquet = null;
             if (cmdletContext.FileFormat_Parquet != null)
@@ -371,7 +370,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestJobConfiguration_jobConfiguration_FileFormat_fileFormat_Parquet != null)
             {
                 requestJobConfiguration_jobConfiguration_FileFormat.Parquet = requestJobConfiguration_jobConfiguration_FileFormat_fileFormat_Parquet;
-                requestJobConfiguration_jobConfiguration_FileFormatIsNull = false;
             }
             Amazon.IoTSiteWise.Model.Csv requestJobConfiguration_jobConfiguration_FileFormat_jobConfiguration_FileFormat_Csv = null;
             
@@ -396,12 +394,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestJobConfiguration_jobConfiguration_FileFormat_jobConfiguration_FileFormat_Csv != null)
             {
                 requestJobConfiguration_jobConfiguration_FileFormat.Csv = requestJobConfiguration_jobConfiguration_FileFormat_jobConfiguration_FileFormat_Csv;
-                requestJobConfiguration_jobConfiguration_FileFormatIsNull = false;
-            }
-             // determine if requestJobConfiguration_jobConfiguration_FileFormat should be set to null
-            if (requestJobConfiguration_jobConfiguration_FileFormatIsNull)
-            {
-                requestJobConfiguration_jobConfiguration_FileFormat = null;
             }
             if (requestJobConfiguration_jobConfiguration_FileFormat != null)
             {

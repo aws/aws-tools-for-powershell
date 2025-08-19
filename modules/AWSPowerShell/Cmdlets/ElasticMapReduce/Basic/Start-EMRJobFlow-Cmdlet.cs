@@ -1107,7 +1107,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             }
             
              // populate Instances
-            var requestInstancesIsNull = true;
             request.Instances = new Amazon.ElasticMapReduce.Model.JobFlowInstancesConfig();
             List<System.String> requestInstances_instances_AdditionalMasterSecurityGroup = null;
             if (cmdletContext.Instances_AdditionalMasterSecurityGroup != null)
@@ -1117,7 +1116,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (requestInstances_instances_AdditionalMasterSecurityGroup != null)
             {
                 request.Instances.AdditionalMasterSecurityGroups = requestInstances_instances_AdditionalMasterSecurityGroup;
-                requestInstancesIsNull = false;
             }
             List<System.String> requestInstances_instances_AdditionalSlaveSecurityGroup = null;
             if (cmdletContext.Instances_AdditionalSlaveSecurityGroup != null)
@@ -1127,7 +1125,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (requestInstances_instances_AdditionalSlaveSecurityGroup != null)
             {
                 request.Instances.AdditionalSlaveSecurityGroups = requestInstances_instances_AdditionalSlaveSecurityGroup;
-                requestInstancesIsNull = false;
             }
             System.String requestInstances_instances_Ec2KeyName = null;
             if (cmdletContext.Instances_Ec2KeyName != null)
@@ -1137,7 +1134,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (requestInstances_instances_Ec2KeyName != null)
             {
                 request.Instances.Ec2KeyName = requestInstances_instances_Ec2KeyName;
-                requestInstancesIsNull = false;
             }
             System.String requestInstances_instances_Ec2SubnetId = null;
             if (cmdletContext.Instances_Ec2SubnetId != null)
@@ -1147,7 +1143,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (requestInstances_instances_Ec2SubnetId != null)
             {
                 request.Instances.Ec2SubnetId = requestInstances_instances_Ec2SubnetId;
-                requestInstancesIsNull = false;
             }
             List<System.String> requestInstances_instances_Ec2SubnetIds = null;
             if (cmdletContext.Instances_Ec2SubnetIds != null)
@@ -1157,7 +1152,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (requestInstances_instances_Ec2SubnetIds != null)
             {
                 request.Instances.Ec2SubnetIds = requestInstances_instances_Ec2SubnetIds;
-                requestInstancesIsNull = false;
             }
             System.String requestInstances_instances_EmrManagedMasterSecurityGroup = null;
             if (cmdletContext.Instances_EmrManagedMasterSecurityGroup != null)
@@ -1167,7 +1161,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (requestInstances_instances_EmrManagedMasterSecurityGroup != null)
             {
                 request.Instances.EmrManagedMasterSecurityGroup = requestInstances_instances_EmrManagedMasterSecurityGroup;
-                requestInstancesIsNull = false;
             }
             System.String requestInstances_instances_EmrManagedSlaveSecurityGroup = null;
             if (cmdletContext.Instances_EmrManagedSlaveSecurityGroup != null)
@@ -1177,7 +1170,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (requestInstances_instances_EmrManagedSlaveSecurityGroup != null)
             {
                 request.Instances.EmrManagedSlaveSecurityGroup = requestInstances_instances_EmrManagedSlaveSecurityGroup;
-                requestInstancesIsNull = false;
             }
             System.String requestInstances_instances_HadoopVersion = null;
             if (cmdletContext.Instances_HadoopVersion != null)
@@ -1187,7 +1179,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (requestInstances_instances_HadoopVersion != null)
             {
                 request.Instances.HadoopVersion = requestInstances_instances_HadoopVersion;
-                requestInstancesIsNull = false;
             }
             System.Int32? requestInstances_instances_InstanceCount = null;
             if (cmdletContext.Instances_InstanceCount != null)
@@ -1197,7 +1188,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (requestInstances_instances_InstanceCount != null)
             {
                 request.Instances.InstanceCount = requestInstances_instances_InstanceCount.Value;
-                requestInstancesIsNull = false;
             }
             List<Amazon.ElasticMapReduce.Model.InstanceFleetConfig> requestInstances_instances_InstanceFleet = null;
             if (cmdletContext.Instances_InstanceFleet != null)
@@ -1207,7 +1197,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (requestInstances_instances_InstanceFleet != null)
             {
                 request.Instances.InstanceFleets = requestInstances_instances_InstanceFleet;
-                requestInstancesIsNull = false;
             }
             List<Amazon.ElasticMapReduce.Model.InstanceGroupConfig> requestInstances_instances_InstanceGroup = null;
             if (cmdletContext.Instances_InstanceGroup != null)
@@ -1217,7 +1206,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (requestInstances_instances_InstanceGroup != null)
             {
                 request.Instances.InstanceGroups = requestInstances_instances_InstanceGroup;
-                requestInstancesIsNull = false;
             }
             System.Boolean? requestInstances_instances_KeepJobFlowAliveWhenNoStep = null;
             if (cmdletContext.Instances_KeepJobFlowAliveWhenNoStep != null)
@@ -1227,7 +1215,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (requestInstances_instances_KeepJobFlowAliveWhenNoStep != null)
             {
                 request.Instances.KeepJobFlowAliveWhenNoSteps = requestInstances_instances_KeepJobFlowAliveWhenNoStep.Value;
-                requestInstancesIsNull = false;
             }
             System.String requestInstances_instances_MasterInstanceType = null;
             if (cmdletContext.Instances_MasterInstanceType != null)
@@ -1237,7 +1224,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (requestInstances_instances_MasterInstanceType != null)
             {
                 request.Instances.MasterInstanceType = requestInstances_instances_MasterInstanceType;
-                requestInstancesIsNull = false;
             }
             System.String requestInstances_instances_ServiceAccessSecurityGroup = null;
             if (cmdletContext.Instances_ServiceAccessSecurityGroup != null)
@@ -1247,7 +1233,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (requestInstances_instances_ServiceAccessSecurityGroup != null)
             {
                 request.Instances.ServiceAccessSecurityGroup = requestInstances_instances_ServiceAccessSecurityGroup;
-                requestInstancesIsNull = false;
             }
             System.String requestInstances_instances_SlaveInstanceType = null;
             if (cmdletContext.Instances_SlaveInstanceType != null)
@@ -1257,7 +1242,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (requestInstances_instances_SlaveInstanceType != null)
             {
                 request.Instances.SlaveInstanceType = requestInstances_instances_SlaveInstanceType;
-                requestInstancesIsNull = false;
             }
             System.Boolean? requestInstances_instances_TerminationProtected = null;
             if (cmdletContext.Instances_TerminationProtected != null)
@@ -1267,7 +1251,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (requestInstances_instances_TerminationProtected != null)
             {
                 request.Instances.TerminationProtected = requestInstances_instances_TerminationProtected.Value;
-                requestInstancesIsNull = false;
             }
             System.Boolean? requestInstances_instances_UnhealthyNodeReplacement = null;
             if (cmdletContext.Instances_UnhealthyNodeReplacement != null)
@@ -1277,7 +1260,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (requestInstances_instances_UnhealthyNodeReplacement != null)
             {
                 request.Instances.UnhealthyNodeReplacement = requestInstances_instances_UnhealthyNodeReplacement.Value;
-                requestInstancesIsNull = false;
             }
             Amazon.ElasticMapReduce.Model.PlacementType requestInstances_instances_Placement = null;
             
@@ -1312,12 +1294,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (requestInstances_instances_Placement != null)
             {
                 request.Instances.Placement = requestInstances_instances_Placement;
-                requestInstancesIsNull = false;
-            }
-             // determine if request.Instances should be set to null
-            if (requestInstancesIsNull)
-            {
-                request.Instances = null;
             }
             if (cmdletContext.JobFlowRole != null)
             {

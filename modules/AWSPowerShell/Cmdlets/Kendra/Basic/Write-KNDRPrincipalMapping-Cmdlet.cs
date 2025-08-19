@@ -294,7 +294,6 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             }
             
              // populate GroupMembers
-            var requestGroupMembersIsNull = true;
             request.GroupMembers = new Amazon.Kendra.Model.GroupMembers();
             List<Amazon.Kendra.Model.MemberGroup> requestGroupMembers_groupMembers_MemberGroup = null;
             if (cmdletContext.GroupMembers_MemberGroup != null)
@@ -304,7 +303,6 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             if (requestGroupMembers_groupMembers_MemberGroup != null)
             {
                 request.GroupMembers.MemberGroups = requestGroupMembers_groupMembers_MemberGroup;
-                requestGroupMembersIsNull = false;
             }
             List<Amazon.Kendra.Model.MemberUser> requestGroupMembers_groupMembers_MemberUser = null;
             if (cmdletContext.GroupMembers_MemberUser != null)
@@ -314,7 +312,6 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             if (requestGroupMembers_groupMembers_MemberUser != null)
             {
                 request.GroupMembers.MemberUsers = requestGroupMembers_groupMembers_MemberUser;
-                requestGroupMembersIsNull = false;
             }
             Amazon.Kendra.Model.S3Path requestGroupMembers_groupMembers_S3PathforGroupMembers = null;
             
@@ -349,12 +346,6 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             if (requestGroupMembers_groupMembers_S3PathforGroupMembers != null)
             {
                 request.GroupMembers.S3PathforGroupMembers = requestGroupMembers_groupMembers_S3PathforGroupMembers;
-                requestGroupMembersIsNull = false;
-            }
-             // determine if request.GroupMembers should be set to null
-            if (requestGroupMembersIsNull)
-            {
-                request.GroupMembers = null;
             }
             if (cmdletContext.IndexId != null)
             {

@@ -239,7 +239,6 @@ namespace Amazon.PowerShell.Cmdlets.DS
             }
             
              // populate RadiusSettings
-            var requestRadiusSettingsIsNull = true;
             request.RadiusSettings = new Amazon.DirectoryService.Model.RadiusSettings();
             Amazon.DirectoryService.RadiusAuthenticationProtocol requestRadiusSettings_radiusSettings_AuthenticationProtocol = null;
             if (cmdletContext.RadiusSettings_AuthenticationProtocol != null)
@@ -249,7 +248,6 @@ namespace Amazon.PowerShell.Cmdlets.DS
             if (requestRadiusSettings_radiusSettings_AuthenticationProtocol != null)
             {
                 request.RadiusSettings.AuthenticationProtocol = requestRadiusSettings_radiusSettings_AuthenticationProtocol;
-                requestRadiusSettingsIsNull = false;
             }
             System.String requestRadiusSettings_radiusSettings_DisplayLabel = null;
             if (cmdletContext.RadiusSettings_DisplayLabel != null)
@@ -259,7 +257,6 @@ namespace Amazon.PowerShell.Cmdlets.DS
             if (requestRadiusSettings_radiusSettings_DisplayLabel != null)
             {
                 request.RadiusSettings.DisplayLabel = requestRadiusSettings_radiusSettings_DisplayLabel;
-                requestRadiusSettingsIsNull = false;
             }
             System.Int32? requestRadiusSettings_radiusSettings_RadiusPort = null;
             if (cmdletContext.RadiusSettings_RadiusPort != null)
@@ -269,7 +266,6 @@ namespace Amazon.PowerShell.Cmdlets.DS
             if (requestRadiusSettings_radiusSettings_RadiusPort != null)
             {
                 request.RadiusSettings.RadiusPort = requestRadiusSettings_radiusSettings_RadiusPort.Value;
-                requestRadiusSettingsIsNull = false;
             }
             System.Int32? requestRadiusSettings_radiusSettings_RadiusRetry = null;
             if (cmdletContext.RadiusSettings_RadiusRetry != null)
@@ -279,7 +275,6 @@ namespace Amazon.PowerShell.Cmdlets.DS
             if (requestRadiusSettings_radiusSettings_RadiusRetry != null)
             {
                 request.RadiusSettings.RadiusRetries = requestRadiusSettings_radiusSettings_RadiusRetry.Value;
-                requestRadiusSettingsIsNull = false;
             }
             List<System.String> requestRadiusSettings_radiusSettings_RadiusServer = null;
             if (cmdletContext.RadiusSettings_RadiusServer != null)
@@ -289,7 +284,6 @@ namespace Amazon.PowerShell.Cmdlets.DS
             if (requestRadiusSettings_radiusSettings_RadiusServer != null)
             {
                 request.RadiusSettings.RadiusServers = requestRadiusSettings_radiusSettings_RadiusServer;
-                requestRadiusSettingsIsNull = false;
             }
             System.Int32? requestRadiusSettings_radiusSettings_RadiusTimeout = null;
             if (cmdletContext.RadiusSettings_RadiusTimeout != null)
@@ -299,7 +293,6 @@ namespace Amazon.PowerShell.Cmdlets.DS
             if (requestRadiusSettings_radiusSettings_RadiusTimeout != null)
             {
                 request.RadiusSettings.RadiusTimeout = requestRadiusSettings_radiusSettings_RadiusTimeout.Value;
-                requestRadiusSettingsIsNull = false;
             }
             System.String requestRadiusSettings_radiusSettings_SharedSecret = null;
             if (cmdletContext.RadiusSettings_SharedSecret != null)
@@ -309,7 +302,6 @@ namespace Amazon.PowerShell.Cmdlets.DS
             if (requestRadiusSettings_radiusSettings_SharedSecret != null)
             {
                 request.RadiusSettings.SharedSecret = requestRadiusSettings_radiusSettings_SharedSecret;
-                requestRadiusSettingsIsNull = false;
             }
             System.Boolean? requestRadiusSettings_radiusSettings_UseSameUsername = null;
             if (cmdletContext.RadiusSettings_UseSameUsername != null)
@@ -319,12 +311,6 @@ namespace Amazon.PowerShell.Cmdlets.DS
             if (requestRadiusSettings_radiusSettings_UseSameUsername != null)
             {
                 request.RadiusSettings.UseSameUsername = requestRadiusSettings_radiusSettings_UseSameUsername.Value;
-                requestRadiusSettingsIsNull = false;
-            }
-             // determine if request.RadiusSettings should be set to null
-            if (requestRadiusSettingsIsNull)
-            {
-                request.RadiusSettings = null;
             }
             
             CmdletOutput output;

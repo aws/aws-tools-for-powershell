@@ -276,7 +276,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             
              // populate Content
-            var requestContentIsNull = true;
             request.Content = new Amazon.Connect.Model.ViewInputContent();
             List<System.String> requestContent_content_Action = null;
             if (cmdletContext.Content_Action != null)
@@ -286,7 +285,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestContent_content_Action != null)
             {
                 request.Content.Actions = requestContent_content_Action;
-                requestContentIsNull = false;
             }
             System.String requestContent_content_Template = null;
             if (cmdletContext.Content_Template != null)
@@ -296,12 +294,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestContent_content_Template != null)
             {
                 request.Content.Template = requestContent_content_Template;
-                requestContentIsNull = false;
-            }
-             // determine if request.Content should be set to null
-            if (requestContentIsNull)
-            {
-                request.Content = null;
             }
             if (cmdletContext.Description != null)
             {

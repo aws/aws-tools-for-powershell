@@ -251,7 +251,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             }
             
              // populate VersioningConfiguration
-            var requestVersioningConfigurationIsNull = true;
             request.VersioningConfiguration = new Amazon.S3Control.Model.VersioningConfiguration();
             Amazon.S3Control.MFADelete requestVersioningConfiguration_versioningConfiguration_MFADelete = null;
             if (cmdletContext.VersioningConfiguration_MFADelete != null)
@@ -261,7 +260,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestVersioningConfiguration_versioningConfiguration_MFADelete != null)
             {
                 request.VersioningConfiguration.MFADelete = requestVersioningConfiguration_versioningConfiguration_MFADelete;
-                requestVersioningConfigurationIsNull = false;
             }
             Amazon.S3Control.BucketVersioningStatus requestVersioningConfiguration_versioningConfiguration_Status = null;
             if (cmdletContext.VersioningConfiguration_Status != null)
@@ -271,12 +269,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestVersioningConfiguration_versioningConfiguration_Status != null)
             {
                 request.VersioningConfiguration.Status = requestVersioningConfiguration_versioningConfiguration_Status;
-                requestVersioningConfigurationIsNull = false;
-            }
-             // determine if request.VersioningConfiguration should be set to null
-            if (requestVersioningConfigurationIsNull)
-            {
-                request.VersioningConfiguration = null;
             }
             
             CmdletOutput output;

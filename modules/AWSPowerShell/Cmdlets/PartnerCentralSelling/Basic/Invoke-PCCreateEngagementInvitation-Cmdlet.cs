@@ -402,7 +402,6 @@ namespace Amazon.PowerShell.Cmdlets.PC
             Amazon.PartnerCentralSelling.Model.Payload requestInvitation_invitation_Payload = null;
             
              // populate Payload
-            var requestInvitation_invitation_PayloadIsNull = true;
             requestInvitation_invitation_Payload = new Amazon.PartnerCentralSelling.Model.Payload();
             Amazon.PartnerCentralSelling.Model.OpportunityInvitationPayload requestInvitation_invitation_Payload_invitation_Payload_OpportunityInvitation = null;
             
@@ -547,12 +546,6 @@ namespace Amazon.PowerShell.Cmdlets.PC
             if (requestInvitation_invitation_Payload_invitation_Payload_OpportunityInvitation != null)
             {
                 requestInvitation_invitation_Payload.OpportunityInvitation = requestInvitation_invitation_Payload_invitation_Payload_OpportunityInvitation;
-                requestInvitation_invitation_PayloadIsNull = false;
-            }
-             // determine if requestInvitation_invitation_Payload should be set to null
-            if (requestInvitation_invitation_PayloadIsNull)
-            {
-                requestInvitation_invitation_Payload = null;
             }
             if (requestInvitation_invitation_Payload != null)
             {
@@ -562,7 +555,6 @@ namespace Amazon.PowerShell.Cmdlets.PC
             Amazon.PartnerCentralSelling.Model.Receiver requestInvitation_invitation_Receiver = null;
             
              // populate Receiver
-            var requestInvitation_invitation_ReceiverIsNull = true;
             requestInvitation_invitation_Receiver = new Amazon.PartnerCentralSelling.Model.Receiver();
             Amazon.PartnerCentralSelling.Model.AccountReceiver requestInvitation_invitation_Receiver_invitation_Receiver_Account = null;
             
@@ -597,12 +589,6 @@ namespace Amazon.PowerShell.Cmdlets.PC
             if (requestInvitation_invitation_Receiver_invitation_Receiver_Account != null)
             {
                 requestInvitation_invitation_Receiver.Account = requestInvitation_invitation_Receiver_invitation_Receiver_Account;
-                requestInvitation_invitation_ReceiverIsNull = false;
-            }
-             // determine if requestInvitation_invitation_Receiver should be set to null
-            if (requestInvitation_invitation_ReceiverIsNull)
-            {
-                requestInvitation_invitation_Receiver = null;
             }
             if (requestInvitation_invitation_Receiver != null)
             {

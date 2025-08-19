@@ -567,7 +567,6 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             }
             
              // populate InputDataConfig
-            var requestInputDataConfigIsNull = true;
             request.InputDataConfig = new Amazon.Comprehend.Model.DocumentClassifierInputDataConfig();
             List<Amazon.Comprehend.Model.AugmentedManifestsListItem> requestInputDataConfig_inputDataConfig_AugmentedManifest = null;
             if (cmdletContext.InputDataConfig_AugmentedManifest != null)
@@ -577,7 +576,6 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (requestInputDataConfig_inputDataConfig_AugmentedManifest != null)
             {
                 request.InputDataConfig.AugmentedManifests = requestInputDataConfig_inputDataConfig_AugmentedManifest;
-                requestInputDataConfigIsNull = false;
             }
             Amazon.Comprehend.DocumentClassifierDataFormat requestInputDataConfig_inputDataConfig_DataFormat = null;
             if (cmdletContext.InputDataConfig_DataFormat != null)
@@ -587,7 +585,6 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (requestInputDataConfig_inputDataConfig_DataFormat != null)
             {
                 request.InputDataConfig.DataFormat = requestInputDataConfig_inputDataConfig_DataFormat;
-                requestInputDataConfigIsNull = false;
             }
             Amazon.Comprehend.DocumentClassifierDocumentTypeFormat requestInputDataConfig_inputDataConfig_DocumentType = null;
             if (cmdletContext.InputDataConfig_DocumentType != null)
@@ -597,7 +594,6 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (requestInputDataConfig_inputDataConfig_DocumentType != null)
             {
                 request.InputDataConfig.DocumentType = requestInputDataConfig_inputDataConfig_DocumentType;
-                requestInputDataConfigIsNull = false;
             }
             System.String requestInputDataConfig_inputDataConfig_LabelDelimiter = null;
             if (cmdletContext.InputDataConfig_LabelDelimiter != null)
@@ -607,7 +603,6 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (requestInputDataConfig_inputDataConfig_LabelDelimiter != null)
             {
                 request.InputDataConfig.LabelDelimiter = requestInputDataConfig_inputDataConfig_LabelDelimiter;
-                requestInputDataConfigIsNull = false;
             }
             System.String requestInputDataConfig_inputDataConfig_S3Uri = null;
             if (cmdletContext.InputDataConfig_S3Uri != null)
@@ -617,7 +612,6 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (requestInputDataConfig_inputDataConfig_S3Uri != null)
             {
                 request.InputDataConfig.S3Uri = requestInputDataConfig_inputDataConfig_S3Uri;
-                requestInputDataConfigIsNull = false;
             }
             System.String requestInputDataConfig_inputDataConfig_TestS3Uri = null;
             if (cmdletContext.InputDataConfig_TestS3Uri != null)
@@ -627,7 +621,6 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (requestInputDataConfig_inputDataConfig_TestS3Uri != null)
             {
                 request.InputDataConfig.TestS3Uri = requestInputDataConfig_inputDataConfig_TestS3Uri;
-                requestInputDataConfigIsNull = false;
             }
             Amazon.Comprehend.Model.DocumentClassifierDocuments requestInputDataConfig_inputDataConfig_Documents = null;
             
@@ -662,7 +655,6 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (requestInputDataConfig_inputDataConfig_Documents != null)
             {
                 request.InputDataConfig.Documents = requestInputDataConfig_inputDataConfig_Documents;
-                requestInputDataConfigIsNull = false;
             }
             Amazon.Comprehend.Model.DocumentReaderConfig requestInputDataConfig_inputDataConfig_DocumentReaderConfig = null;
             
@@ -707,12 +699,6 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (requestInputDataConfig_inputDataConfig_DocumentReaderConfig != null)
             {
                 request.InputDataConfig.DocumentReaderConfig = requestInputDataConfig_inputDataConfig_DocumentReaderConfig;
-                requestInputDataConfigIsNull = false;
-            }
-             // determine if request.InputDataConfig should be set to null
-            if (requestInputDataConfigIsNull)
-            {
-                request.InputDataConfig = null;
             }
             if (cmdletContext.LanguageCode != null)
             {

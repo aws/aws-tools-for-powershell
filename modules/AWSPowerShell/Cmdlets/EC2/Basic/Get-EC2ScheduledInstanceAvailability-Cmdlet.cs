@@ -385,7 +385,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             
              // populate Recurrence
-            var requestRecurrenceIsNull = true;
             request.Recurrence = new Amazon.EC2.Model.ScheduledInstanceRecurrenceRequest();
             System.String requestRecurrence_recurrence_Frequency = null;
             if (cmdletContext.Recurrence_Frequency != null)
@@ -395,7 +394,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestRecurrence_recurrence_Frequency != null)
             {
                 request.Recurrence.Frequency = requestRecurrence_recurrence_Frequency;
-                requestRecurrenceIsNull = false;
             }
             System.Int32? requestRecurrence_recurrence_Interval = null;
             if (cmdletContext.Recurrence_Interval != null)
@@ -405,7 +403,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestRecurrence_recurrence_Interval != null)
             {
                 request.Recurrence.Interval = requestRecurrence_recurrence_Interval.Value;
-                requestRecurrenceIsNull = false;
             }
             List<System.Int32> requestRecurrence_recurrence_OccurrenceDay = null;
             if (cmdletContext.Recurrence_OccurrenceDay != null)
@@ -415,7 +412,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestRecurrence_recurrence_OccurrenceDay != null)
             {
                 request.Recurrence.OccurrenceDays = requestRecurrence_recurrence_OccurrenceDay;
-                requestRecurrenceIsNull = false;
             }
             System.Boolean? requestRecurrence_recurrence_OccurrenceRelativeToEnd = null;
             if (cmdletContext.Recurrence_OccurrenceRelativeToEnd != null)
@@ -425,7 +421,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestRecurrence_recurrence_OccurrenceRelativeToEnd != null)
             {
                 request.Recurrence.OccurrenceRelativeToEnd = requestRecurrence_recurrence_OccurrenceRelativeToEnd.Value;
-                requestRecurrenceIsNull = false;
             }
             System.String requestRecurrence_recurrence_OccurrenceUnit = null;
             if (cmdletContext.Recurrence_OccurrenceUnit != null)
@@ -435,12 +430,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestRecurrence_recurrence_OccurrenceUnit != null)
             {
                 request.Recurrence.OccurrenceUnit = requestRecurrence_recurrence_OccurrenceUnit;
-                requestRecurrenceIsNull = false;
-            }
-             // determine if request.Recurrence should be set to null
-            if (requestRecurrenceIsNull)
-            {
-                request.Recurrence = null;
             }
             
             // Initialize loop variant and commence piping
@@ -544,7 +533,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             
              // populate Recurrence
-            var requestRecurrenceIsNull = true;
             request.Recurrence = new Amazon.EC2.Model.ScheduledInstanceRecurrenceRequest();
             System.String requestRecurrence_recurrence_Frequency = null;
             if (cmdletContext.Recurrence_Frequency != null)
@@ -554,7 +542,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestRecurrence_recurrence_Frequency != null)
             {
                 request.Recurrence.Frequency = requestRecurrence_recurrence_Frequency;
-                requestRecurrenceIsNull = false;
             }
             System.Int32? requestRecurrence_recurrence_Interval = null;
             if (cmdletContext.Recurrence_Interval != null)
@@ -564,7 +551,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestRecurrence_recurrence_Interval != null)
             {
                 request.Recurrence.Interval = requestRecurrence_recurrence_Interval.Value;
-                requestRecurrenceIsNull = false;
             }
             List<System.Int32> requestRecurrence_recurrence_OccurrenceDay = null;
             if (cmdletContext.Recurrence_OccurrenceDay != null)
@@ -574,7 +560,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestRecurrence_recurrence_OccurrenceDay != null)
             {
                 request.Recurrence.OccurrenceDays = requestRecurrence_recurrence_OccurrenceDay;
-                requestRecurrenceIsNull = false;
             }
             System.Boolean? requestRecurrence_recurrence_OccurrenceRelativeToEnd = null;
             if (cmdletContext.Recurrence_OccurrenceRelativeToEnd != null)
@@ -584,7 +569,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestRecurrence_recurrence_OccurrenceRelativeToEnd != null)
             {
                 request.Recurrence.OccurrenceRelativeToEnd = requestRecurrence_recurrence_OccurrenceRelativeToEnd.Value;
-                requestRecurrenceIsNull = false;
             }
             System.String requestRecurrence_recurrence_OccurrenceUnit = null;
             if (cmdletContext.Recurrence_OccurrenceUnit != null)
@@ -594,12 +578,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestRecurrence_recurrence_OccurrenceUnit != null)
             {
                 request.Recurrence.OccurrenceUnit = requestRecurrence_recurrence_OccurrenceUnit;
-                requestRecurrenceIsNull = false;
-            }
-             // determine if request.Recurrence should be set to null
-            if (requestRecurrenceIsNull)
-            {
-                request.Recurrence = null;
             }
             
             // Initialize loop variants and commence piping

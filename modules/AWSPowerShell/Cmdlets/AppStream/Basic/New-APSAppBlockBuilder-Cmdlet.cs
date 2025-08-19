@@ -356,7 +356,6 @@ namespace Amazon.PowerShell.Cmdlets.APS
             }
             
              // populate VpcConfig
-            var requestVpcConfigIsNull = true;
             request.VpcConfig = new Amazon.AppStream.Model.VpcConfig();
             List<System.String> requestVpcConfig_vpcConfig_SecurityGroupId = null;
             if (cmdletContext.VpcConfig_SecurityGroupId != null)
@@ -366,7 +365,6 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (requestVpcConfig_vpcConfig_SecurityGroupId != null)
             {
                 request.VpcConfig.SecurityGroupIds = requestVpcConfig_vpcConfig_SecurityGroupId;
-                requestVpcConfigIsNull = false;
             }
             List<System.String> requestVpcConfig_vpcConfig_SubnetId = null;
             if (cmdletContext.VpcConfig_SubnetId != null)
@@ -376,12 +374,6 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (requestVpcConfig_vpcConfig_SubnetId != null)
             {
                 request.VpcConfig.SubnetIds = requestVpcConfig_vpcConfig_SubnetId;
-                requestVpcConfigIsNull = false;
-            }
-             // determine if request.VpcConfig should be set to null
-            if (requestVpcConfigIsNull)
-            {
-                request.VpcConfig = null;
             }
             
             CmdletOutput output;

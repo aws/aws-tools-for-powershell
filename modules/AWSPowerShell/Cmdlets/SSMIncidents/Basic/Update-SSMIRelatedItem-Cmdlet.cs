@@ -344,7 +344,6 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
             }
             
              // populate RelatedItemsUpdate
-            var requestRelatedItemsUpdateIsNull = true;
             request.RelatedItemsUpdate = new Amazon.SSMIncidents.Model.RelatedItemsUpdate();
             Amazon.SSMIncidents.Model.ItemIdentifier requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove = null;
             
@@ -364,7 +363,6 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
             Amazon.SSMIncidents.Model.ItemValue requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value = null;
             
              // populate Value
-            var requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_ValueIsNull = true;
             requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value = new Amazon.SSMIncidents.Model.ItemValue();
             System.String requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_Arn = null;
             if (cmdletContext.RelatedItemsUpdate_ItemToRemove_Value_Arn != null)
@@ -374,7 +372,6 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
             if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_Arn != null)
             {
                 requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value.Arn = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_Arn;
-                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_ValueIsNull = false;
             }
             System.String requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_MetricDefinition = null;
             if (cmdletContext.RelatedItemsUpdate_ItemToRemove_Value_MetricDefinition != null)
@@ -384,7 +381,6 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
             if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_MetricDefinition != null)
             {
                 requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value.MetricDefinition = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_MetricDefinition;
-                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_ValueIsNull = false;
             }
             System.String requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_Url = null;
             if (cmdletContext.RelatedItemsUpdate_ItemToRemove_Value_Url != null)
@@ -394,7 +390,6 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
             if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_Url != null)
             {
                 requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value.Url = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_Url;
-                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_ValueIsNull = false;
             }
             Amazon.SSMIncidents.Model.PagerDutyIncidentDetail requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail = null;
             
@@ -439,12 +434,6 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
             if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail != null)
             {
                 requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value.PagerDutyIncidentDetail = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail;
-                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_ValueIsNull = false;
-            }
-             // determine if requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value should be set to null
-            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_ValueIsNull)
-            {
-                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value = null;
             }
             if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value != null)
             {
@@ -459,7 +448,6 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
             if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove != null)
             {
                 request.RelatedItemsUpdate.ItemToRemove = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove;
-                requestRelatedItemsUpdateIsNull = false;
             }
             Amazon.SSMIncidents.Model.RelatedItem requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd = null;
             
@@ -504,7 +492,6 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
             Amazon.SSMIncidents.Model.ItemValue requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value = null;
             
              // populate Value
-            var requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_ValueIsNull = true;
             requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value = new Amazon.SSMIncidents.Model.ItemValue();
             System.String requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_Arn = null;
             if (cmdletContext.RelatedItemsUpdate_ItemToAdd_Identifier_Value_Arn != null)
@@ -514,7 +501,6 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
             if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_Arn != null)
             {
                 requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value.Arn = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_Arn;
-                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_ValueIsNull = false;
             }
             System.String requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_MetricDefinition = null;
             if (cmdletContext.RelatedItemsUpdate_ItemToAdd_Identifier_Value_MetricDefinition != null)
@@ -524,7 +510,6 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
             if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_MetricDefinition != null)
             {
                 requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value.MetricDefinition = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_MetricDefinition;
-                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_ValueIsNull = false;
             }
             System.String requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_Url = null;
             if (cmdletContext.RelatedItemsUpdate_ItemToAdd_Identifier_Value_Url != null)
@@ -534,7 +519,6 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
             if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_Url != null)
             {
                 requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value.Url = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_Url;
-                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_ValueIsNull = false;
             }
             Amazon.SSMIncidents.Model.PagerDutyIncidentDetail requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail = null;
             
@@ -579,12 +563,6 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
             if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail != null)
             {
                 requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value.PagerDutyIncidentDetail = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail;
-                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_ValueIsNull = false;
-            }
-             // determine if requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value should be set to null
-            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_ValueIsNull)
-            {
-                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value = null;
             }
             if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value != null)
             {
@@ -609,12 +587,6 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
             if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd != null)
             {
                 request.RelatedItemsUpdate.ItemToAdd = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd;
-                requestRelatedItemsUpdateIsNull = false;
-            }
-             // determine if request.RelatedItemsUpdate should be set to null
-            if (requestRelatedItemsUpdateIsNull)
-            {
-                request.RelatedItemsUpdate = null;
             }
             
             CmdletOutput output;

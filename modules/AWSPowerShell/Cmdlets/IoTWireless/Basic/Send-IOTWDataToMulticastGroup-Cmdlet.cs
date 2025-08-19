@@ -177,7 +177,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             }
             
              // populate WirelessMetadata
-            var requestWirelessMetadataIsNull = true;
             request.WirelessMetadata = new Amazon.IoTWireless.Model.MulticastWirelessMetadata();
             Amazon.IoTWireless.Model.LoRaWANMulticastMetadata requestWirelessMetadata_wirelessMetadata_LoRaWAN = null;
             
@@ -202,12 +201,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestWirelessMetadata_wirelessMetadata_LoRaWAN != null)
             {
                 request.WirelessMetadata.LoRaWAN = requestWirelessMetadata_wirelessMetadata_LoRaWAN;
-                requestWirelessMetadataIsNull = false;
-            }
-             // determine if request.WirelessMetadata should be set to null
-            if (requestWirelessMetadataIsNull)
-            {
-                request.WirelessMetadata = null;
             }
             
             CmdletOutput output;

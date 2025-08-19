@@ -176,7 +176,6 @@ namespace Amazon.PowerShell.Cmdlets.TXT
                 
                 
                  // populate Document
-                var requestDocumentIsNull = true;
                 request.Document = new Amazon.Textract.Model.Document();
                 System.IO.MemoryStream requestDocument_document_Byte = null;
                 if (cmdletContext.Document_Byte != null)
@@ -187,7 +186,6 @@ namespace Amazon.PowerShell.Cmdlets.TXT
                 if (requestDocument_document_Byte != null)
                 {
                     request.Document.Bytes = requestDocument_document_Byte;
-                    requestDocumentIsNull = false;
                 }
                 Amazon.Textract.Model.S3Object requestDocument_document_S3Object = null;
                 
@@ -232,12 +230,6 @@ namespace Amazon.PowerShell.Cmdlets.TXT
                 if (requestDocument_document_S3Object != null)
                 {
                     request.Document.S3Object = requestDocument_document_S3Object;
-                    requestDocumentIsNull = false;
-                }
-                 // determine if request.Document should be set to null
-                if (requestDocumentIsNull)
-                {
-                    request.Document = null;
                 }
                 
                 CmdletOutput output;

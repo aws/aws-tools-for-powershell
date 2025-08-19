@@ -303,7 +303,6 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             
             
              // populate Action
-            var requestActionIsNull = true;
             request.Action = new Amazon.LookoutMetrics.Model.Action();
             Amazon.LookoutMetrics.Model.LambdaConfiguration requestAction_action_LambdaConfiguration = null;
             
@@ -338,7 +337,6 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             if (requestAction_action_LambdaConfiguration != null)
             {
                 request.Action.LambdaConfiguration = requestAction_action_LambdaConfiguration;
-                requestActionIsNull = false;
             }
             Amazon.LookoutMetrics.Model.SNSConfiguration requestAction_action_SNSConfiguration = null;
             
@@ -383,12 +381,6 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             if (requestAction_action_SNSConfiguration != null)
             {
                 request.Action.SNSConfiguration = requestAction_action_SNSConfiguration;
-                requestActionIsNull = false;
-            }
-             // determine if request.Action should be set to null
-            if (requestActionIsNull)
-            {
-                request.Action = null;
             }
             if (cmdletContext.AlertDescription != null)
             {

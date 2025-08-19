@@ -159,7 +159,6 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             }
             
              // populate AutoDetectionMetricSource
-            var requestAutoDetectionMetricSourceIsNull = true;
             request.AutoDetectionMetricSource = new Amazon.LookoutMetrics.Model.AutoDetectionMetricSource();
             Amazon.LookoutMetrics.Model.AutoDetectionS3SourceConfig requestAutoDetectionMetricSource_autoDetectionMetricSource_S3SourceConfig = null;
             
@@ -194,12 +193,6 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             if (requestAutoDetectionMetricSource_autoDetectionMetricSource_S3SourceConfig != null)
             {
                 request.AutoDetectionMetricSource.S3SourceConfig = requestAutoDetectionMetricSource_autoDetectionMetricSource_S3SourceConfig;
-                requestAutoDetectionMetricSourceIsNull = false;
-            }
-             // determine if request.AutoDetectionMetricSource should be set to null
-            if (requestAutoDetectionMetricSourceIsNull)
-            {
-                request.AutoDetectionMetricSource = null;
             }
             
             CmdletOutput output;

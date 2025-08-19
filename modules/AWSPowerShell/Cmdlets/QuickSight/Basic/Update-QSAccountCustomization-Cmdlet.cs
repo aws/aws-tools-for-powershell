@@ -176,7 +176,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
             
             
              // populate AccountCustomization
-            var requestAccountCustomizationIsNull = true;
             request.AccountCustomization = new Amazon.QuickSight.Model.AccountCustomization();
             System.String requestAccountCustomization_accountCustomization_DefaultEmailCustomizationTemplate = null;
             if (cmdletContext.AccountCustomization_DefaultEmailCustomizationTemplate != null)
@@ -186,7 +185,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestAccountCustomization_accountCustomization_DefaultEmailCustomizationTemplate != null)
             {
                 request.AccountCustomization.DefaultEmailCustomizationTemplate = requestAccountCustomization_accountCustomization_DefaultEmailCustomizationTemplate;
-                requestAccountCustomizationIsNull = false;
             }
             System.String requestAccountCustomization_accountCustomization_DefaultTheme = null;
             if (cmdletContext.AccountCustomization_DefaultTheme != null)
@@ -196,12 +194,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestAccountCustomization_accountCustomization_DefaultTheme != null)
             {
                 request.AccountCustomization.DefaultTheme = requestAccountCustomization_accountCustomization_DefaultTheme;
-                requestAccountCustomizationIsNull = false;
-            }
-             // determine if request.AccountCustomization should be set to null
-            if (requestAccountCustomizationIsNull)
-            {
-                request.AccountCustomization = null;
             }
             if (cmdletContext.AwsAccountId != null)
             {

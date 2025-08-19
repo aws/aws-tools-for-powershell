@@ -397,7 +397,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             
              // populate Specification
-            var requestSpecificationIsNull = true;
             request.Specification = new Amazon.SageMaker.Model.InferenceComponentSpecification();
             System.String requestSpecification_specification_BaseInferenceComponentName = null;
             if (cmdletContext.Specification_BaseInferenceComponentName != null)
@@ -407,7 +406,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestSpecification_specification_BaseInferenceComponentName != null)
             {
                 request.Specification.BaseInferenceComponentName = requestSpecification_specification_BaseInferenceComponentName;
-                requestSpecificationIsNull = false;
             }
             System.String requestSpecification_specification_ModelName = null;
             if (cmdletContext.Specification_ModelName != null)
@@ -417,7 +415,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestSpecification_specification_ModelName != null)
             {
                 request.Specification.ModelName = requestSpecification_specification_ModelName;
-                requestSpecificationIsNull = false;
             }
             Amazon.SageMaker.Model.InferenceComponentStartupParameters requestSpecification_specification_StartupParameters = null;
             
@@ -452,7 +449,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestSpecification_specification_StartupParameters != null)
             {
                 request.Specification.StartupParameters = requestSpecification_specification_StartupParameters;
-                requestSpecificationIsNull = false;
             }
             Amazon.SageMaker.Model.InferenceComponentContainerSpecification requestSpecification_specification_Container = null;
             
@@ -497,7 +493,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestSpecification_specification_Container != null)
             {
                 request.Specification.Container = requestSpecification_specification_Container;
-                requestSpecificationIsNull = false;
             }
             Amazon.SageMaker.Model.InferenceComponentComputeResourceRequirements requestSpecification_specification_ComputeResourceRequirements = null;
             
@@ -552,12 +547,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestSpecification_specification_ComputeResourceRequirements != null)
             {
                 request.Specification.ComputeResourceRequirements = requestSpecification_specification_ComputeResourceRequirements;
-                requestSpecificationIsNull = false;
-            }
-             // determine if request.Specification should be set to null
-            if (requestSpecificationIsNull)
-            {
-                request.Specification = null;
             }
             if (cmdletContext.Tag != null)
             {

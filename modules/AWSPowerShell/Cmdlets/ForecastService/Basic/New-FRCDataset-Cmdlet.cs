@@ -350,7 +350,6 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             }
             
              // populate Schema
-            var requestSchemaIsNull = true;
             request.Schema = new Amazon.ForecastService.Model.Schema();
             List<Amazon.ForecastService.Model.SchemaAttribute> requestSchema_schema_Attribute = null;
             if (cmdletContext.Schema_Attribute != null)
@@ -360,12 +359,6 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             if (requestSchema_schema_Attribute != null)
             {
                 request.Schema.Attributes = requestSchema_schema_Attribute;
-                requestSchemaIsNull = false;
-            }
-             // determine if request.Schema should be set to null
-            if (requestSchemaIsNull)
-            {
-                request.Schema = null;
             }
             if (cmdletContext.Tag != null)
             {

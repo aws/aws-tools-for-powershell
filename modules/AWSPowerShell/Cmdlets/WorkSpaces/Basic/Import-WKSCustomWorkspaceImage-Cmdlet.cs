@@ -345,7 +345,6 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             }
             
              // populate ImageSource
-            var requestImageSourceIsNull = true;
             request.ImageSource = new Amazon.WorkSpaces.Model.ImageSourceIdentifier();
             System.String requestImageSource_imageSource_Ec2ImageId = null;
             if (cmdletContext.ImageSource_Ec2ImageId != null)
@@ -355,7 +354,6 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestImageSource_imageSource_Ec2ImageId != null)
             {
                 request.ImageSource.Ec2ImageId = requestImageSource_imageSource_Ec2ImageId;
-                requestImageSourceIsNull = false;
             }
             System.String requestImageSource_imageSource_Ec2ImportTaskId = null;
             if (cmdletContext.ImageSource_Ec2ImportTaskId != null)
@@ -365,7 +363,6 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestImageSource_imageSource_Ec2ImportTaskId != null)
             {
                 request.ImageSource.Ec2ImportTaskId = requestImageSource_imageSource_Ec2ImportTaskId;
-                requestImageSourceIsNull = false;
             }
             System.String requestImageSource_imageSource_ImageBuildVersionArn = null;
             if (cmdletContext.ImageSource_ImageBuildVersionArn != null)
@@ -375,12 +372,6 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestImageSource_imageSource_ImageBuildVersionArn != null)
             {
                 request.ImageSource.ImageBuildVersionArn = requestImageSource_imageSource_ImageBuildVersionArn;
-                requestImageSourceIsNull = false;
-            }
-             // determine if request.ImageSource should be set to null
-            if (requestImageSourceIsNull)
-            {
-                request.ImageSource = null;
             }
             if (cmdletContext.InfrastructureConfigurationArn != null)
             {

@@ -208,7 +208,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             }
             
              // populate PublicAccessBlockConfiguration
-            var requestPublicAccessBlockConfigurationIsNull = true;
             request.PublicAccessBlockConfiguration = new Amazon.S3Control.Model.PublicAccessBlockConfiguration();
             System.Boolean? requestPublicAccessBlockConfiguration_publicAccessBlockConfiguration_BlockPublicAcl = null;
             if (cmdletContext.PublicAccessBlockConfiguration_BlockPublicAcl != null)
@@ -218,7 +217,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestPublicAccessBlockConfiguration_publicAccessBlockConfiguration_BlockPublicAcl != null)
             {
                 request.PublicAccessBlockConfiguration.BlockPublicAcls = requestPublicAccessBlockConfiguration_publicAccessBlockConfiguration_BlockPublicAcl.Value;
-                requestPublicAccessBlockConfigurationIsNull = false;
             }
             System.Boolean? requestPublicAccessBlockConfiguration_publicAccessBlockConfiguration_BlockPublicPolicy = null;
             if (cmdletContext.PublicAccessBlockConfiguration_BlockPublicPolicy != null)
@@ -228,7 +226,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestPublicAccessBlockConfiguration_publicAccessBlockConfiguration_BlockPublicPolicy != null)
             {
                 request.PublicAccessBlockConfiguration.BlockPublicPolicy = requestPublicAccessBlockConfiguration_publicAccessBlockConfiguration_BlockPublicPolicy.Value;
-                requestPublicAccessBlockConfigurationIsNull = false;
             }
             System.Boolean? requestPublicAccessBlockConfiguration_publicAccessBlockConfiguration_IgnorePublicAcl = null;
             if (cmdletContext.PublicAccessBlockConfiguration_IgnorePublicAcl != null)
@@ -238,7 +235,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestPublicAccessBlockConfiguration_publicAccessBlockConfiguration_IgnorePublicAcl != null)
             {
                 request.PublicAccessBlockConfiguration.IgnorePublicAcls = requestPublicAccessBlockConfiguration_publicAccessBlockConfiguration_IgnorePublicAcl.Value;
-                requestPublicAccessBlockConfigurationIsNull = false;
             }
             System.Boolean? requestPublicAccessBlockConfiguration_publicAccessBlockConfiguration_RestrictPublicBucket = null;
             if (cmdletContext.PublicAccessBlockConfiguration_RestrictPublicBucket != null)
@@ -248,12 +244,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestPublicAccessBlockConfiguration_publicAccessBlockConfiguration_RestrictPublicBucket != null)
             {
                 request.PublicAccessBlockConfiguration.RestrictPublicBuckets = requestPublicAccessBlockConfiguration_publicAccessBlockConfiguration_RestrictPublicBucket.Value;
-                requestPublicAccessBlockConfigurationIsNull = false;
-            }
-             // determine if request.PublicAccessBlockConfiguration should be set to null
-            if (requestPublicAccessBlockConfigurationIsNull)
-            {
-                request.PublicAccessBlockConfiguration = null;
             }
             
             CmdletOutput output;

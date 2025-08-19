@@ -655,7 +655,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             
             
              // populate DerivationMethodAttributes
-            var requestDerivationMethodAttributesIsNull = true;
             request.DerivationMethodAttributes = new Amazon.PaymentCryptographyData.Model.DerivationMethodAttributes();
             Amazon.PaymentCryptographyData.Model.Emv2000Attributes requestDerivationMethodAttributes_derivationMethodAttributes_Emv2000 = null;
             
@@ -710,7 +709,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestDerivationMethodAttributes_derivationMethodAttributes_Emv2000 != null)
             {
                 request.DerivationMethodAttributes.Emv2000 = requestDerivationMethodAttributes_derivationMethodAttributes_Emv2000;
-                requestDerivationMethodAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.MasterCardAttributes requestDerivationMethodAttributes_derivationMethodAttributes_Mastercard = null;
             
@@ -765,7 +763,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestDerivationMethodAttributes_derivationMethodAttributes_Mastercard != null)
             {
                 request.DerivationMethodAttributes.Mastercard = requestDerivationMethodAttributes_derivationMethodAttributes_Mastercard;
-                requestDerivationMethodAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.AmexAttributes requestDerivationMethodAttributes_derivationMethodAttributes_Amex = null;
             
@@ -865,7 +862,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestDerivationMethodAttributes_derivationMethodAttributes_Amex != null)
             {
                 request.DerivationMethodAttributes.Amex = requestDerivationMethodAttributes_derivationMethodAttributes_Amex;
-                requestDerivationMethodAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.VisaAttributes requestDerivationMethodAttributes_derivationMethodAttributes_Visa = null;
             
@@ -965,7 +961,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestDerivationMethodAttributes_derivationMethodAttributes_Visa != null)
             {
                 request.DerivationMethodAttributes.Visa = requestDerivationMethodAttributes_derivationMethodAttributes_Visa;
-                requestDerivationMethodAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.EmvCommonAttributes requestDerivationMethodAttributes_derivationMethodAttributes_EmvCommon = null;
             
@@ -1050,12 +1045,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestDerivationMethodAttributes_derivationMethodAttributes_EmvCommon != null)
             {
                 request.DerivationMethodAttributes.EmvCommon = requestDerivationMethodAttributes_derivationMethodAttributes_EmvCommon;
-                requestDerivationMethodAttributesIsNull = false;
-            }
-             // determine if request.DerivationMethodAttributes should be set to null
-            if (requestDerivationMethodAttributesIsNull)
-            {
-                request.DerivationMethodAttributes = null;
             }
             if (cmdletContext.MessageData != null)
             {

@@ -379,7 +379,6 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             Amazon.ManagedGrafana.Model.IdpMetadata requestSamlConfiguration_samlConfiguration_IdpMetadata = null;
             
              // populate IdpMetadata
-            var requestSamlConfiguration_samlConfiguration_IdpMetadataIsNull = true;
             requestSamlConfiguration_samlConfiguration_IdpMetadata = new Amazon.ManagedGrafana.Model.IdpMetadata();
             System.String requestSamlConfiguration_samlConfiguration_IdpMetadata_idpMetadata_Url = null;
             if (cmdletContext.IdpMetadata_Url != null)
@@ -389,7 +388,6 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             if (requestSamlConfiguration_samlConfiguration_IdpMetadata_idpMetadata_Url != null)
             {
                 requestSamlConfiguration_samlConfiguration_IdpMetadata.Url = requestSamlConfiguration_samlConfiguration_IdpMetadata_idpMetadata_Url;
-                requestSamlConfiguration_samlConfiguration_IdpMetadataIsNull = false;
             }
             System.String requestSamlConfiguration_samlConfiguration_IdpMetadata_idpMetadata_Xml = null;
             if (cmdletContext.IdpMetadata_Xml != null)
@@ -399,12 +397,6 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             if (requestSamlConfiguration_samlConfiguration_IdpMetadata_idpMetadata_Xml != null)
             {
                 requestSamlConfiguration_samlConfiguration_IdpMetadata.Xml = requestSamlConfiguration_samlConfiguration_IdpMetadata_idpMetadata_Xml;
-                requestSamlConfiguration_samlConfiguration_IdpMetadataIsNull = false;
-            }
-             // determine if requestSamlConfiguration_samlConfiguration_IdpMetadata should be set to null
-            if (requestSamlConfiguration_samlConfiguration_IdpMetadataIsNull)
-            {
-                requestSamlConfiguration_samlConfiguration_IdpMetadata = null;
             }
             if (requestSamlConfiguration_samlConfiguration_IdpMetadata != null)
             {

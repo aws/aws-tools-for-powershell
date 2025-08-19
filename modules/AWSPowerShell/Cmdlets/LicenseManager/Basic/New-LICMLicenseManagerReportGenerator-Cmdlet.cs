@@ -305,7 +305,6 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             }
             
              // populate ReportFrequency
-            var requestReportFrequencyIsNull = true;
             request.ReportFrequency = new Amazon.LicenseManager.Model.ReportFrequency();
             Amazon.LicenseManager.ReportFrequencyType requestReportFrequency_reportFrequency_Period = null;
             if (cmdletContext.ReportFrequency_Period != null)
@@ -315,7 +314,6 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             if (requestReportFrequency_reportFrequency_Period != null)
             {
                 request.ReportFrequency.Period = requestReportFrequency_reportFrequency_Period;
-                requestReportFrequencyIsNull = false;
             }
             System.Int32? requestReportFrequency_reportFrequency_Value = null;
             if (cmdletContext.ReportFrequency_Value != null)
@@ -325,12 +323,6 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             if (requestReportFrequency_reportFrequency_Value != null)
             {
                 request.ReportFrequency.Value = requestReportFrequency_reportFrequency_Value.Value;
-                requestReportFrequencyIsNull = false;
-            }
-             // determine if request.ReportFrequency should be set to null
-            if (requestReportFrequencyIsNull)
-            {
-                request.ReportFrequency = null;
             }
             if (cmdletContext.ReportGeneratorName != null)
             {

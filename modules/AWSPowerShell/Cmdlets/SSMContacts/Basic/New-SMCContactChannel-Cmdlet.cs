@@ -224,7 +224,6 @@ namespace Amazon.PowerShell.Cmdlets.SMC
             }
             
              // populate DeliveryAddress
-            var requestDeliveryAddressIsNull = true;
             request.DeliveryAddress = new Amazon.SSMContacts.Model.ContactChannelAddress();
             System.String requestDeliveryAddress_deliveryAddress_SimpleAddress = null;
             if (cmdletContext.DeliveryAddress_SimpleAddress != null)
@@ -234,12 +233,6 @@ namespace Amazon.PowerShell.Cmdlets.SMC
             if (requestDeliveryAddress_deliveryAddress_SimpleAddress != null)
             {
                 request.DeliveryAddress.SimpleAddress = requestDeliveryAddress_deliveryAddress_SimpleAddress;
-                requestDeliveryAddressIsNull = false;
-            }
-             // determine if request.DeliveryAddress should be set to null
-            if (requestDeliveryAddressIsNull)
-            {
-                request.DeliveryAddress = null;
             }
             if (cmdletContext.IdempotencyToken != null)
             {

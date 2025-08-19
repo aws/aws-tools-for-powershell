@@ -826,7 +826,6 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 }
                 
                  // populate Code
-                var requestCodeIsNull = true;
                 request.Code = new Amazon.Lambda.Model.FunctionCode();
                 System.String requestCode_code_ImageUri = null;
                 if (cmdletContext.Code_ImageUri != null)
@@ -836,7 +835,6 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 if (requestCode_code_ImageUri != null)
                 {
                     request.Code.ImageUri = requestCode_code_ImageUri;
-                    requestCodeIsNull = false;
                 }
                 System.String requestCode_code_S3Bucket = null;
                 if (cmdletContext.Code_S3Bucket != null)
@@ -846,7 +844,6 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 if (requestCode_code_S3Bucket != null)
                 {
                     request.Code.S3Bucket = requestCode_code_S3Bucket;
-                    requestCodeIsNull = false;
                 }
                 System.String requestCode_code_S3Key = null;
                 if (cmdletContext.Code_S3Key != null)
@@ -856,7 +853,6 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 if (requestCode_code_S3Key != null)
                 {
                     request.Code.S3Key = requestCode_code_S3Key;
-                    requestCodeIsNull = false;
                 }
                 System.String requestCode_code_S3ObjectVersion = null;
                 if (cmdletContext.Code_S3ObjectVersion != null)
@@ -866,7 +862,6 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 if (requestCode_code_S3ObjectVersion != null)
                 {
                     request.Code.S3ObjectVersion = requestCode_code_S3ObjectVersion;
-                    requestCodeIsNull = false;
                 }
                 System.String requestCode_code_SourceKMSKeyArn = null;
                 if (cmdletContext.Code_SourceKMSKeyArn != null)
@@ -876,7 +871,6 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 if (requestCode_code_SourceKMSKeyArn != null)
                 {
                     request.Code.SourceKMSKeyArn = requestCode_code_SourceKMSKeyArn;
-                    requestCodeIsNull = false;
                 }
                 System.IO.MemoryStream requestCode_code_ZipFile = null;
                 if (cmdletContext.Code_ZipFile != null)
@@ -887,12 +881,6 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 if (requestCode_code_ZipFile != null)
                 {
                     request.Code.ZipFile = requestCode_code_ZipFile;
-                    requestCodeIsNull = false;
-                }
-                 // determine if request.Code should be set to null
-                if (requestCodeIsNull)
-                {
-                    request.Code = null;
                 }
                 if (cmdletContext.CodeSigningConfigArn != null)
                 {

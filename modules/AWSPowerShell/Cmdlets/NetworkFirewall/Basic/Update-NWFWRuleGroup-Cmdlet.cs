@@ -670,7 +670,6 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             Amazon.NetworkFirewall.Model.RulesSource requestRuleGroup_ruleGroup_RulesSource = null;
             
              // populate RulesSource
-            var requestRuleGroup_ruleGroup_RulesSourceIsNull = true;
             requestRuleGroup_ruleGroup_RulesSource = new Amazon.NetworkFirewall.Model.RulesSource();
             System.String requestRuleGroup_ruleGroup_RulesSource_rulesSource_RulesString = null;
             if (cmdletContext.RulesSource_RulesString != null)
@@ -680,7 +679,6 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             if (requestRuleGroup_ruleGroup_RulesSource_rulesSource_RulesString != null)
             {
                 requestRuleGroup_ruleGroup_RulesSource.RulesString = requestRuleGroup_ruleGroup_RulesSource_rulesSource_RulesString;
-                requestRuleGroup_ruleGroup_RulesSourceIsNull = false;
             }
             List<Amazon.NetworkFirewall.Model.StatefulRule> requestRuleGroup_ruleGroup_RulesSource_rulesSource_StatefulRule = null;
             if (cmdletContext.RulesSource_StatefulRule != null)
@@ -690,7 +688,6 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             if (requestRuleGroup_ruleGroup_RulesSource_rulesSource_StatefulRule != null)
             {
                 requestRuleGroup_ruleGroup_RulesSource.StatefulRules = requestRuleGroup_ruleGroup_RulesSource_rulesSource_StatefulRule;
-                requestRuleGroup_ruleGroup_RulesSourceIsNull = false;
             }
             Amazon.NetworkFirewall.Model.StatelessRulesAndCustomActions requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_StatelessRulesAndCustomActions = null;
             
@@ -725,7 +722,6 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             if (requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_StatelessRulesAndCustomActions != null)
             {
                 requestRuleGroup_ruleGroup_RulesSource.StatelessRulesAndCustomActions = requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_StatelessRulesAndCustomActions;
-                requestRuleGroup_ruleGroup_RulesSourceIsNull = false;
             }
             Amazon.NetworkFirewall.Model.RulesSourceList requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_RulesSourceList = null;
             
@@ -770,12 +766,6 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             if (requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_RulesSourceList != null)
             {
                 requestRuleGroup_ruleGroup_RulesSource.RulesSourceList = requestRuleGroup_ruleGroup_RulesSource_ruleGroup_RulesSource_RulesSourceList;
-                requestRuleGroup_ruleGroup_RulesSourceIsNull = false;
-            }
-             // determine if requestRuleGroup_ruleGroup_RulesSource should be set to null
-            if (requestRuleGroup_ruleGroup_RulesSourceIsNull)
-            {
-                requestRuleGroup_ruleGroup_RulesSource = null;
             }
             if (requestRuleGroup_ruleGroup_RulesSource != null)
             {

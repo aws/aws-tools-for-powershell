@@ -280,7 +280,6 @@ namespace Amazon.PowerShell.Cmdlets.CD
             }
             
              // populate Revision
-            var requestRevisionIsNull = true;
             request.Revision = new Amazon.CodeDeploy.Model.RevisionLocation();
             Amazon.CodeDeploy.RevisionLocationType requestRevision_revision_RevisionType = null;
             if (cmdletContext.Revision_RevisionType != null)
@@ -290,7 +289,6 @@ namespace Amazon.PowerShell.Cmdlets.CD
             if (requestRevision_revision_RevisionType != null)
             {
                 request.Revision.RevisionType = requestRevision_revision_RevisionType;
-                requestRevisionIsNull = false;
             }
             Amazon.CodeDeploy.Model.AppSpecContent requestRevision_revision_AppSpecContent = null;
             
@@ -325,7 +323,6 @@ namespace Amazon.PowerShell.Cmdlets.CD
             if (requestRevision_revision_AppSpecContent != null)
             {
                 request.Revision.AppSpecContent = requestRevision_revision_AppSpecContent;
-                requestRevisionIsNull = false;
             }
             Amazon.CodeDeploy.Model.GitHubLocation requestRevision_revision_GitHubLocation = null;
             
@@ -360,7 +357,6 @@ namespace Amazon.PowerShell.Cmdlets.CD
             if (requestRevision_revision_GitHubLocation != null)
             {
                 request.Revision.GitHubLocation = requestRevision_revision_GitHubLocation;
-                requestRevisionIsNull = false;
             }
             Amazon.CodeDeploy.Model.RawString requestRevision_revision_String = null;
             
@@ -395,7 +391,6 @@ namespace Amazon.PowerShell.Cmdlets.CD
             if (requestRevision_revision_String != null)
             {
                 request.Revision.String = requestRevision_revision_String;
-                requestRevisionIsNull = false;
             }
             Amazon.CodeDeploy.Model.S3Location requestRevision_revision_S3Location = null;
             
@@ -460,12 +455,6 @@ namespace Amazon.PowerShell.Cmdlets.CD
             if (requestRevision_revision_S3Location != null)
             {
                 request.Revision.S3Location = requestRevision_revision_S3Location;
-                requestRevisionIsNull = false;
-            }
-             // determine if request.Revision should be set to null
-            if (requestRevisionIsNull)
-            {
-                request.Revision = null;
             }
             
             CmdletOutput output;

@@ -241,7 +241,6 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             }
             
              // populate RecommenderConfig
-            var requestRecommenderConfigIsNull = true;
             request.RecommenderConfig = new Amazon.Personalize.Model.RecommenderConfig();
             System.Boolean? requestRecommenderConfig_recommenderConfig_EnableMetadataWithRecommendation = null;
             if (cmdletContext.RecommenderConfig_EnableMetadataWithRecommendation != null)
@@ -251,7 +250,6 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (requestRecommenderConfig_recommenderConfig_EnableMetadataWithRecommendation != null)
             {
                 request.RecommenderConfig.EnableMetadataWithRecommendations = requestRecommenderConfig_recommenderConfig_EnableMetadataWithRecommendation.Value;
-                requestRecommenderConfigIsNull = false;
             }
             Dictionary<System.String, System.String> requestRecommenderConfig_recommenderConfig_ItemExplorationConfig = null;
             if (cmdletContext.RecommenderConfig_ItemExplorationConfig != null)
@@ -261,7 +259,6 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (requestRecommenderConfig_recommenderConfig_ItemExplorationConfig != null)
             {
                 request.RecommenderConfig.ItemExplorationConfig = requestRecommenderConfig_recommenderConfig_ItemExplorationConfig;
-                requestRecommenderConfigIsNull = false;
             }
             System.Int32? requestRecommenderConfig_recommenderConfig_MinRecommendationRequestsPerSecond = null;
             if (cmdletContext.RecommenderConfig_MinRecommendationRequestsPerSecond != null)
@@ -271,7 +268,6 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (requestRecommenderConfig_recommenderConfig_MinRecommendationRequestsPerSecond != null)
             {
                 request.RecommenderConfig.MinRecommendationRequestsPerSecond = requestRecommenderConfig_recommenderConfig_MinRecommendationRequestsPerSecond.Value;
-                requestRecommenderConfigIsNull = false;
             }
             Amazon.Personalize.Model.TrainingDataConfig requestRecommenderConfig_recommenderConfig_TrainingDataConfig = null;
             
@@ -296,12 +292,6 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (requestRecommenderConfig_recommenderConfig_TrainingDataConfig != null)
             {
                 request.RecommenderConfig.TrainingDataConfig = requestRecommenderConfig_recommenderConfig_TrainingDataConfig;
-                requestRecommenderConfigIsNull = false;
-            }
-             // determine if request.RecommenderConfig should be set to null
-            if (requestRecommenderConfigIsNull)
-            {
-                request.RecommenderConfig = null;
             }
             
             CmdletOutput output;

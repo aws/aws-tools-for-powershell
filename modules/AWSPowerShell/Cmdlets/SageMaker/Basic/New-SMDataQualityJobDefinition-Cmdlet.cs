@@ -995,7 +995,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             
              // populate DataQualityJobInput
-            var requestDataQualityJobInputIsNull = true;
             request.DataQualityJobInput = new Amazon.SageMaker.Model.DataQualityJobInput();
             Amazon.SageMaker.Model.EndpointInput requestDataQualityJobInput_dataQualityJobInput_EndpointInput = null;
             
@@ -1120,7 +1119,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestDataQualityJobInput_dataQualityJobInput_EndpointInput != null)
             {
                 request.DataQualityJobInput.EndpointInput = requestDataQualityJobInput_dataQualityJobInput_EndpointInput;
-                requestDataQualityJobInputIsNull = false;
             }
             Amazon.SageMaker.Model.BatchTransformInput requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput = null;
             
@@ -1240,7 +1238,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             Amazon.SageMaker.Model.MonitoringDatasetFormat requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_dataQualityJobInput_BatchTransformInput_DatasetFormat = null;
             
              // populate DatasetFormat
-            var requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_dataQualityJobInput_BatchTransformInput_DatasetFormatIsNull = true;
             requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_dataQualityJobInput_BatchTransformInput_DatasetFormat = new Amazon.SageMaker.Model.MonitoringDatasetFormat();
             Amazon.SageMaker.Model.MonitoringParquetDatasetFormat requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_dataQualityJobInput_BatchTransformInput_DatasetFormat_datasetFormat_Parquet = null;
             if (cmdletContext.DatasetFormat_Parquet != null)
@@ -1250,7 +1247,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_dataQualityJobInput_BatchTransformInput_DatasetFormat_datasetFormat_Parquet != null)
             {
                 requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_dataQualityJobInput_BatchTransformInput_DatasetFormat.Parquet = requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_dataQualityJobInput_BatchTransformInput_DatasetFormat_datasetFormat_Parquet;
-                requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_dataQualityJobInput_BatchTransformInput_DatasetFormatIsNull = false;
             }
             Amazon.SageMaker.Model.MonitoringCsvDatasetFormat requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_dataQualityJobInput_BatchTransformInput_DatasetFormat_dataQualityJobInput_BatchTransformInput_DatasetFormat_Csv = null;
             
@@ -1275,7 +1271,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_dataQualityJobInput_BatchTransformInput_DatasetFormat_dataQualityJobInput_BatchTransformInput_DatasetFormat_Csv != null)
             {
                 requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_dataQualityJobInput_BatchTransformInput_DatasetFormat.Csv = requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_dataQualityJobInput_BatchTransformInput_DatasetFormat_dataQualityJobInput_BatchTransformInput_DatasetFormat_Csv;
-                requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_dataQualityJobInput_BatchTransformInput_DatasetFormatIsNull = false;
             }
             Amazon.SageMaker.Model.MonitoringJsonDatasetFormat requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_dataQualityJobInput_BatchTransformInput_DatasetFormat_dataQualityJobInput_BatchTransformInput_DatasetFormat_Json = null;
             
@@ -1300,12 +1295,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_dataQualityJobInput_BatchTransformInput_DatasetFormat_dataQualityJobInput_BatchTransformInput_DatasetFormat_Json != null)
             {
                 requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_dataQualityJobInput_BatchTransformInput_DatasetFormat.Json = requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_dataQualityJobInput_BatchTransformInput_DatasetFormat_dataQualityJobInput_BatchTransformInput_DatasetFormat_Json;
-                requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_dataQualityJobInput_BatchTransformInput_DatasetFormatIsNull = false;
-            }
-             // determine if requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_dataQualityJobInput_BatchTransformInput_DatasetFormat should be set to null
-            if (requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_dataQualityJobInput_BatchTransformInput_DatasetFormatIsNull)
-            {
-                requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_dataQualityJobInput_BatchTransformInput_DatasetFormat = null;
             }
             if (requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput_dataQualityJobInput_BatchTransformInput_DatasetFormat != null)
             {
@@ -1320,12 +1309,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput != null)
             {
                 request.DataQualityJobInput.BatchTransformInput = requestDataQualityJobInput_dataQualityJobInput_BatchTransformInput;
-                requestDataQualityJobInputIsNull = false;
-            }
-             // determine if request.DataQualityJobInput should be set to null
-            if (requestDataQualityJobInputIsNull)
-            {
-                request.DataQualityJobInput = null;
             }
             
              // populate DataQualityJobOutputConfig

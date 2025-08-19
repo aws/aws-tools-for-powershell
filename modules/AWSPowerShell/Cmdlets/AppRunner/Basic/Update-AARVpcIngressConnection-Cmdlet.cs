@@ -165,7 +165,6 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             
             
              // populate IngressVpcConfiguration
-            var requestIngressVpcConfigurationIsNull = true;
             request.IngressVpcConfiguration = new Amazon.AppRunner.Model.IngressVpcConfiguration();
             System.String requestIngressVpcConfiguration_ingressVpcConfiguration_VpcEndpointId = null;
             if (cmdletContext.IngressVpcConfiguration_VpcEndpointId != null)
@@ -175,7 +174,6 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             if (requestIngressVpcConfiguration_ingressVpcConfiguration_VpcEndpointId != null)
             {
                 request.IngressVpcConfiguration.VpcEndpointId = requestIngressVpcConfiguration_ingressVpcConfiguration_VpcEndpointId;
-                requestIngressVpcConfigurationIsNull = false;
             }
             System.String requestIngressVpcConfiguration_ingressVpcConfiguration_VpcId = null;
             if (cmdletContext.IngressVpcConfiguration_VpcId != null)
@@ -185,12 +183,6 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             if (requestIngressVpcConfiguration_ingressVpcConfiguration_VpcId != null)
             {
                 request.IngressVpcConfiguration.VpcId = requestIngressVpcConfiguration_ingressVpcConfiguration_VpcId;
-                requestIngressVpcConfigurationIsNull = false;
-            }
-             // determine if request.IngressVpcConfiguration should be set to null
-            if (requestIngressVpcConfigurationIsNull)
-            {
-                request.IngressVpcConfiguration = null;
             }
             if (cmdletContext.VpcIngressConnectionArn != null)
             {

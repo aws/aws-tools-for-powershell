@@ -529,7 +529,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             
              // populate Detail
-            var requestDetailIsNull = true;
             request.Detail = new Amazon.DataZone.Model.PolicyGrantDetail();
             Amazon.DataZone.Model.Unit requestDetail_detail_CreateEnvironment = null;
             if (cmdletContext.Detail_CreateEnvironment != null)
@@ -539,7 +538,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestDetail_detail_CreateEnvironment != null)
             {
                 request.Detail.CreateEnvironment = requestDetail_detail_CreateEnvironment;
-                requestDetailIsNull = false;
             }
             Amazon.DataZone.Model.Unit requestDetail_detail_CreateEnvironmentFromBlueprint = null;
             if (cmdletContext.Detail_CreateEnvironmentFromBlueprint != null)
@@ -549,7 +547,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestDetail_detail_CreateEnvironmentFromBlueprint != null)
             {
                 request.Detail.CreateEnvironmentFromBlueprint = requestDetail_detail_CreateEnvironmentFromBlueprint;
-                requestDetailIsNull = false;
             }
             Amazon.DataZone.Model.Unit requestDetail_detail_DelegateCreateEnvironmentProfile = null;
             if (cmdletContext.Detail_DelegateCreateEnvironmentProfile != null)
@@ -559,7 +556,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestDetail_detail_DelegateCreateEnvironmentProfile != null)
             {
                 request.Detail.DelegateCreateEnvironmentProfile = requestDetail_detail_DelegateCreateEnvironmentProfile;
-                requestDetailIsNull = false;
             }
             Amazon.DataZone.Model.AddToProjectMemberPoolPolicyGrantDetail requestDetail_detail_AddToProjectMemberPool = null;
             
@@ -584,7 +580,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestDetail_detail_AddToProjectMemberPool != null)
             {
                 request.Detail.AddToProjectMemberPool = requestDetail_detail_AddToProjectMemberPool;
-                requestDetailIsNull = false;
             }
             Amazon.DataZone.Model.CreateAssetTypePolicyGrantDetail requestDetail_detail_CreateAssetType = null;
             
@@ -609,7 +604,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestDetail_detail_CreateAssetType != null)
             {
                 request.Detail.CreateAssetType = requestDetail_detail_CreateAssetType;
-                requestDetailIsNull = false;
             }
             Amazon.DataZone.Model.CreateDomainUnitPolicyGrantDetail requestDetail_detail_CreateDomainUnit = null;
             
@@ -634,7 +628,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestDetail_detail_CreateDomainUnit != null)
             {
                 request.Detail.CreateDomainUnit = requestDetail_detail_CreateDomainUnit;
-                requestDetailIsNull = false;
             }
             Amazon.DataZone.Model.CreateEnvironmentProfilePolicyGrantDetail requestDetail_detail_CreateEnvironmentProfile = null;
             
@@ -659,7 +652,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestDetail_detail_CreateEnvironmentProfile != null)
             {
                 request.Detail.CreateEnvironmentProfile = requestDetail_detail_CreateEnvironmentProfile;
-                requestDetailIsNull = false;
             }
             Amazon.DataZone.Model.CreateFormTypePolicyGrantDetail requestDetail_detail_CreateFormType = null;
             
@@ -684,7 +676,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestDetail_detail_CreateFormType != null)
             {
                 request.Detail.CreateFormType = requestDetail_detail_CreateFormType;
-                requestDetailIsNull = false;
             }
             Amazon.DataZone.Model.CreateGlossaryPolicyGrantDetail requestDetail_detail_CreateGlossary = null;
             
@@ -709,7 +700,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestDetail_detail_CreateGlossary != null)
             {
                 request.Detail.CreateGlossary = requestDetail_detail_CreateGlossary;
-                requestDetailIsNull = false;
             }
             Amazon.DataZone.Model.CreateProjectPolicyGrantDetail requestDetail_detail_CreateProject = null;
             
@@ -734,7 +724,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestDetail_detail_CreateProject != null)
             {
                 request.Detail.CreateProject = requestDetail_detail_CreateProject;
-                requestDetailIsNull = false;
             }
             Amazon.DataZone.Model.OverrideDomainUnitOwnersPolicyGrantDetail requestDetail_detail_OverrideDomainUnitOwners = null;
             
@@ -759,7 +748,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestDetail_detail_OverrideDomainUnitOwners != null)
             {
                 request.Detail.OverrideDomainUnitOwners = requestDetail_detail_OverrideDomainUnitOwners;
-                requestDetailIsNull = false;
             }
             Amazon.DataZone.Model.OverrideProjectOwnersPolicyGrantDetail requestDetail_detail_OverrideProjectOwners = null;
             
@@ -784,7 +772,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestDetail_detail_OverrideProjectOwners != null)
             {
                 request.Detail.OverrideProjectOwners = requestDetail_detail_OverrideProjectOwners;
-                requestDetailIsNull = false;
             }
             Amazon.DataZone.Model.UseAssetTypePolicyGrantDetail requestDetail_detail_UseAssetType = null;
             
@@ -809,7 +796,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestDetail_detail_UseAssetType != null)
             {
                 request.Detail.UseAssetType = requestDetail_detail_UseAssetType;
-                requestDetailIsNull = false;
             }
             Amazon.DataZone.Model.CreateProjectFromProjectProfilePolicyGrantDetail requestDetail_detail_CreateProjectFromProjectProfile = null;
             
@@ -844,12 +830,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestDetail_detail_CreateProjectFromProjectProfile != null)
             {
                 request.Detail.CreateProjectFromProjectProfile = requestDetail_detail_CreateProjectFromProjectProfile;
-                requestDetailIsNull = false;
-            }
-             // determine if request.Detail should be set to null
-            if (requestDetailIsNull)
-            {
-                request.Detail = null;
             }
             if (cmdletContext.DomainIdentifier != null)
             {
@@ -869,7 +849,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             
              // populate Principal
-            var requestPrincipalIsNull = true;
             request.Principal = new Amazon.DataZone.Model.PolicyGrantPrincipal();
             Amazon.DataZone.Model.GroupPolicyGrantPrincipal requestPrincipal_principal_Group = null;
             
@@ -894,7 +873,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestPrincipal_principal_Group != null)
             {
                 request.Principal.Group = requestPrincipal_principal_Group;
-                requestPrincipalIsNull = false;
             }
             Amazon.DataZone.Model.UserPolicyGrantPrincipal requestPrincipal_principal_User = null;
             
@@ -929,7 +907,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestPrincipal_principal_User != null)
             {
                 request.Principal.User = requestPrincipal_principal_User;
-                requestPrincipalIsNull = false;
             }
             Amazon.DataZone.Model.DomainUnitPolicyGrantPrincipal requestPrincipal_principal_DomainUnit = null;
             
@@ -989,7 +966,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestPrincipal_principal_DomainUnit != null)
             {
                 request.Principal.DomainUnit = requestPrincipal_principal_DomainUnit;
-                requestPrincipalIsNull = false;
             }
             Amazon.DataZone.Model.ProjectPolicyGrantPrincipal requestPrincipal_principal_Project = null;
             
@@ -1074,12 +1050,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestPrincipal_principal_Project != null)
             {
                 request.Principal.Project = requestPrincipal_principal_Project;
-                requestPrincipalIsNull = false;
-            }
-             // determine if request.Principal should be set to null
-            if (requestPrincipalIsNull)
-            {
-                request.Principal = null;
             }
             
             CmdletOutput output;
