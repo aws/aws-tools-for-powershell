@@ -277,6 +277,7 @@
             <PostBuildScripts Include="$(RootPath)/buildtools/Confirm-StagedArtifact.ps1" />
             <PostBuildScripts Include="$(RootPath)/buildtools/Publish-StagedArtifact.ps1" />
             <PostBuildScripts Include="$(RootPath)/buildtools/Update-ModulePackageVersion.psm1" />
+            <PostBuildScripts Include="$(RootPath)/buildtools/Test-NugetPackageDependencyVersion.ps1" />
         </ItemGroup>
 
         <Copy SourceFiles="@(PostBuildScripts)" DestinationFolder="$(RootPath)/Deployment" />
