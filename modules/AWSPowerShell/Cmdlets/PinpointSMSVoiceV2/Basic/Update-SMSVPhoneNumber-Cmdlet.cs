@@ -62,6 +62,17 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         public System.Boolean? DeletionProtectionEnabled { get; set; }
         #endregion
         
+        #region Parameter InternationalSendingEnabled
+        /// <summary>
+        /// <para>
+        /// <para>By default this is set to false. When set to true the international sending of phone
+        /// number is Enabled. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? InternationalSendingEnabled { get; set; }
+        #endregion
+        
         #region Parameter OptOutListName
         /// <summary>
         /// <para>
@@ -184,6 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.DeletionProtectionEnabled = this.DeletionProtectionEnabled;
+            context.InternationalSendingEnabled = this.InternationalSendingEnabled;
             context.OptOutListName = this.OptOutListName;
             context.PhoneNumberId = this.PhoneNumberId;
             #if MODULAR
@@ -215,6 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             if (cmdletContext.DeletionProtectionEnabled != null)
             {
                 request.DeletionProtectionEnabled = cmdletContext.DeletionProtectionEnabled.Value;
+            }
+            if (cmdletContext.InternationalSendingEnabled != null)
+            {
+                request.InternationalSendingEnabled = cmdletContext.InternationalSendingEnabled.Value;
             }
             if (cmdletContext.OptOutListName != null)
             {
@@ -296,6 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? DeletionProtectionEnabled { get; set; }
+            public System.Boolean? InternationalSendingEnabled { get; set; }
             public System.String OptOutListName { get; set; }
             public System.String PhoneNumberId { get; set; }
             public System.Boolean? SelfManagedOptOutsEnabled { get; set; }

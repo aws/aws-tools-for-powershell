@@ -23,38 +23,41 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.KinesisAnalyticsV2;
-using Amazon.KinesisAnalyticsV2.Model;
+using Amazon.CognitoIdentityProvider;
+using Amazon.CognitoIdentityProvider.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.KINA2
+namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Provides a detailed description of a specified application operation. To see a list
-    /// of all the operations of an application, invoke the <a>ListApplicationOperations</a>
-    /// operation.
+    /// Returns details for the requested terms documents ID. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-terms-documents">Terms
+    /// documents</a>.
     /// 
     ///  <note><para>
-    /// This operation is supported only for Managed Service for Apache Flink.
-    /// </para></note>
+    /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
+    /// for this API operation. For this operation, you must use IAM credentials to authorize
+    /// requests, and you must grant yourself the corresponding IAM permission in a policy.
+    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing
+    /// Amazon Web Services API Requests</a></para></li><li><para><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
+    /// the Amazon Cognito user pools API and user pool endpoints</a></para></li></ul></note>
     /// </summary>
-    [Cmdlet("Get", "KINA2ApplicationOperation")]
-    [OutputType("Amazon.KinesisAnalyticsV2.Model.ApplicationOperationInfoDetails")]
-    [AWSCmdlet("Calls the Amazon Kinesis Analytics V2 DescribeApplicationOperation API operation.", Operation = new[] {"DescribeApplicationOperation"}, SelectReturnType = typeof(Amazon.KinesisAnalyticsV2.Model.DescribeApplicationOperationResponse))]
-    [AWSCmdletOutput("Amazon.KinesisAnalyticsV2.Model.ApplicationOperationInfoDetails or Amazon.KinesisAnalyticsV2.Model.DescribeApplicationOperationResponse",
-        "This cmdlet returns an Amazon.KinesisAnalyticsV2.Model.ApplicationOperationInfoDetails object.",
-        "The service call response (type Amazon.KinesisAnalyticsV2.Model.DescribeApplicationOperationResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "CGIPTerm")]
+    [OutputType("Amazon.CognitoIdentityProvider.Model.TermsType")]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider DescribeTerms API operation.", Operation = new[] {"DescribeTerms"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.DescribeTermsResponse))]
+    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.TermsType or Amazon.CognitoIdentityProvider.Model.DescribeTermsResponse",
+        "This cmdlet returns an Amazon.CognitoIdentityProvider.Model.TermsType object.",
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.DescribeTermsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetKINA2ApplicationOperationCmdlet : AmazonKinesisAnalyticsV2ClientCmdlet, IExecutor
+    public partial class GetCGIPTermCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ApplicationName
+        #region Parameter TermsId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the terms documents that you want to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,13 +68,13 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ApplicationName { get; set; }
+        public System.String TermsId { get; set; }
         #endregion
         
-        #region Parameter OperationId
+        #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the user pool that contains the terms documents that you want to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,18 +85,18 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String OperationId { get; set; }
+        public System.String UserPoolId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ApplicationOperationInfoDetails'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KinesisAnalyticsV2.Model.DescribeApplicationOperationResponse).
-        /// Specifying the name of a property of type Amazon.KinesisAnalyticsV2.Model.DescribeApplicationOperationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Terms'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CognitoIdentityProvider.Model.DescribeTermsResponse).
+        /// Specifying the name of a property of type Amazon.CognitoIdentityProvider.Model.DescribeTermsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ApplicationOperationInfoDetails";
+        public string Select { get; set; } = "Terms";
         #endregion
         
         protected override void StopProcessing()
@@ -112,21 +115,21 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.KinesisAnalyticsV2.Model.DescribeApplicationOperationResponse, GetKINA2ApplicationOperationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CognitoIdentityProvider.Model.DescribeTermsResponse, GetCGIPTermCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ApplicationName = this.ApplicationName;
+            context.TermsId = this.TermsId;
             #if MODULAR
-            if (this.ApplicationName == null && ParameterWasBound(nameof(this.ApplicationName)))
+            if (this.TermsId == null && ParameterWasBound(nameof(this.TermsId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ApplicationName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter TermsId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.OperationId = this.OperationId;
+            context.UserPoolId = this.UserPoolId;
             #if MODULAR
-            if (this.OperationId == null && ParameterWasBound(nameof(this.OperationId)))
+            if (this.UserPoolId == null && ParameterWasBound(nameof(this.UserPoolId)))
             {
-                WriteWarning("You are passing $null as a value for parameter OperationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter UserPoolId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -143,15 +146,15 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.KinesisAnalyticsV2.Model.DescribeApplicationOperationRequest();
+            var request = new Amazon.CognitoIdentityProvider.Model.DescribeTermsRequest();
             
-            if (cmdletContext.ApplicationName != null)
+            if (cmdletContext.TermsId != null)
             {
-                request.ApplicationName = cmdletContext.ApplicationName;
+                request.TermsId = cmdletContext.TermsId;
             }
-            if (cmdletContext.OperationId != null)
+            if (cmdletContext.UserPoolId != null)
             {
-                request.OperationId = cmdletContext.OperationId;
+                request.UserPoolId = cmdletContext.UserPoolId;
             }
             
             CmdletOutput output;
@@ -186,12 +189,12 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         
         #region AWS Service Operation Call
         
-        private Amazon.KinesisAnalyticsV2.Model.DescribeApplicationOperationResponse CallAWSServiceOperation(IAmazonKinesisAnalyticsV2 client, Amazon.KinesisAnalyticsV2.Model.DescribeApplicationOperationRequest request)
+        private Amazon.CognitoIdentityProvider.Model.DescribeTermsResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.DescribeTermsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Analytics V2", "DescribeApplicationOperation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "DescribeTerms");
             try
             {
-                return client.DescribeApplicationOperationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DescribeTermsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -208,10 +211,10 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ApplicationName { get; set; }
-            public System.String OperationId { get; set; }
-            public System.Func<Amazon.KinesisAnalyticsV2.Model.DescribeApplicationOperationResponse, GetKINA2ApplicationOperationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ApplicationOperationInfoDetails;
+            public System.String TermsId { get; set; }
+            public System.String UserPoolId { get; set; }
+            public System.Func<Amazon.CognitoIdentityProvider.Model.DescribeTermsResponse, GetCGIPTermCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Terms;
         }
         
     }

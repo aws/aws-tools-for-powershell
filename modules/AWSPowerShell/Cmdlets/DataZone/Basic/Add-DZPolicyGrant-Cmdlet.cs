@@ -34,11 +34,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     /// units, environment blueprint configurations, or environment profiles.
     /// </summary>
     [Cmdlet("Add", "DZPolicyGrant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("System.String")]
     [AWSCmdlet("Calls the Amazon DataZone AddPolicyGrant API operation.", Operation = new[] {"AddPolicyGrant"}, SelectReturnType = typeof(Amazon.DataZone.Model.AddPolicyGrantResponse))]
-    [AWSCmdletOutput("None or Amazon.DataZone.Model.AddPolicyGrantResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataZone.Model.AddPolicyGrantResponse) be returned by specifying '-Select *'."
+    [AWSCmdletOutput("System.String or Amazon.DataZone.Model.AddPolicyGrantResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.DataZone.Model.AddPolicyGrantResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddDZPolicyGrantCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {
@@ -407,12 +407,13 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'GrantId'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.AddPolicyGrantResponse).
+        /// Specifying the name of a property of type Amazon.DataZone.Model.AddPolicyGrantResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "GrantId";
         #endregion
         
         #region Parameter Force
@@ -1137,7 +1138,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public Amazon.DataZone.Model.AllUsersGrantFilter User_AllUsersGrantFilter { get; set; }
             public System.String User_UserIdentifier { get; set; }
             public System.Func<Amazon.DataZone.Model.AddPolicyGrantResponse, AddDZPolicyGrantCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response.GrantId;
         }
         
     }

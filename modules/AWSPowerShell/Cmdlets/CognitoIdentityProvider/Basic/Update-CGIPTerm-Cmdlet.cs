@@ -30,23 +30,23 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Creates a new set of branding settings for a user pool style and associates it with
-    /// an app client. This operation is the programmatic option for the creation of a new
-    /// style in the branding editor.
+    /// Modifies existing terms documents for the requested app client. When Terms and conditions
+    /// and Privacy policy documents are configured, the app client displays links to them
+    /// in the sign-up page of managed login for the app client.
     /// 
     ///  
     /// <para>
-    /// Provides values for UI customization in a <c>Settings</c> JSON object and image files
-    /// in an <c>Assets</c> array. To send the JSON object <c>Document</c> type parameter
-    /// in <c>Settings</c>, you might need to update to the most recent version of your Amazon
-    /// Web Services SDK. To create a new style with default settings, set <c>UseCognitoProvidedValues</c>
-    /// to <c>true</c> and don't provide values for any other options.
+    /// You can provide URLs for terms documents in the languages that are supported by <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">managed
+    /// login localization</a>. Amazon Cognito directs users to the terms documents for their
+    /// current language, with fallback to <c>default</c> if no document exists for the language.
     /// </para><para>
-    ///  This operation has a 2-megabyte request-size limit and include the CSS settings and
-    /// image assets for your app client. Your branding settings might exceed 2MB in size.
-    /// Amazon Cognito doesn't require that you pass all parameters in one request and preserves
-    /// existing style settings that you don't specify. If your request is larger than 2MB,
-    /// separate it into multiple requests, each with a size smaller than the limit. 
+    /// Each request accepts one type of terms document and a map of language-to-link for
+    /// that document type. You must provide both types of terms documents in at least one
+    /// language before Amazon Cognito displays your terms documents. Supply each type in
+    /// separate requests.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-terms-documents">Terms
+    /// documents</a>.
     /// </para><note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
     /// for this API operation. For this operation, you must use IAM credentials to authorize
@@ -55,25 +55,37 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// Amazon Web Services API Requests</a></para></li><li><para><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
     /// the Amazon Cognito user pools API and user pool endpoints</a></para></li></ul></note>
     /// </summary>
-    [Cmdlet("New", "CGIPManagedLoginBranding", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CognitoIdentityProvider.Model.ManagedLoginBrandingType")]
-    [AWSCmdlet("Calls the Amazon Cognito Identity Provider CreateManagedLoginBranding API operation.", Operation = new[] {"CreateManagedLoginBranding"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.CreateManagedLoginBrandingResponse))]
-    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.ManagedLoginBrandingType or Amazon.CognitoIdentityProvider.Model.CreateManagedLoginBrandingResponse",
-        "This cmdlet returns an Amazon.CognitoIdentityProvider.Model.ManagedLoginBrandingType object.",
-        "The service call response (type Amazon.CognitoIdentityProvider.Model.CreateManagedLoginBrandingResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Update", "CGIPTerm", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CognitoIdentityProvider.Model.TermsType")]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider UpdateTerms API operation.", Operation = new[] {"UpdateTerms"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.UpdateTermsResponse))]
+    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.TermsType or Amazon.CognitoIdentityProvider.Model.UpdateTermsResponse",
+        "This cmdlet returns an Amazon.CognitoIdentityProvider.Model.TermsType object.",
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.UpdateTermsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class NewCGIPManagedLoginBrandingCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class UpdateCGIPTermCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Asset
+        #region Parameter Enforcement
         /// <summary>
         /// <para>
-        /// <para>An array of image files that you want to apply to functions like backgrounds, logos,
-        /// and icons. Each object must also indicate whether it is for dark mode, light mode,
-        /// or browser-adaptive mode.</para><para />
+        /// <para>This parameter is reserved for future use and currently accepts only one value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CognitoIdentityProvider.TermsEnforcementType")]
+        public Amazon.CognitoIdentityProvider.TermsEnforcementType Enforcement { get; set; }
+        #endregion
+        
+        #region Parameter Link
+        /// <summary>
+        /// <para>
+        /// <para>A map of URLs to languages. For each localized language that will view the requested
+        /// <c>TermsName</c>, assign a URL. A selection of <c>cognito:default</c> displays for
+        /// all languages that don't have a language-specific URL.</para><para>For example, <c>"cognito:default": "https://terms.example.com", "cognito:spanish":
+        /// "https://terms.example.com/es"</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -81,58 +93,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Assets")]
-        public Amazon.CognitoIdentityProvider.Model.AssetType[] Asset { get; set; }
+        [Alias("Links")]
+        public System.Collections.Hashtable Link { get; set; }
         #endregion
         
-        #region Parameter ClientId
+        #region Parameter TermsId
         /// <summary>
         /// <para>
-        /// <para>The app client that you want to create the branding style for. Each style is linked
-        /// to an app client until you delete it.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ClientId { get; set; }
-        #endregion
-        
-        #region Parameter Setting
-        /// <summary>
-        /// <para>
-        /// <para>A JSON file, encoded as a <c>Document</c> type, with the the settings that you want
-        /// to apply to your style.</para><para>The following components are not currently implemented and reserved for future use:</para><ul><li><para><c>signUp</c></para></li><li><para><c>instructions</c></para></li><li><para><c>sessionTimerDisplay</c></para></li><li><para><c>languageSelector</c> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed
-        /// login localization)</a></para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Settings")]
-        public System.Management.Automation.PSObject Setting { get; set; }
-        #endregion
-        
-        #region Parameter UseCognitoProvidedValue
-        /// <summary>
-        /// <para>
-        /// <para>When true, applies the default branding style options. These default options are managed
-        /// by Amazon Cognito. You can modify them later in the branding editor.</para><para>When you specify <c>true</c> for this option, you must also omit values for <c>Settings</c>
-        /// and <c>Assets</c> in the request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("UseCognitoProvidedValues")]
-        public System.Boolean? UseCognitoProvidedValue { get; set; }
-        #endregion
-        
-        #region Parameter UserPoolId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the user pool where you want to create a new branding style.</para>
+        /// <para>The ID of the terms document that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -143,18 +111,56 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String TermsId { get; set; }
+        #endregion
+        
+        #region Parameter TermsName
+        /// <summary>
+        /// <para>
+        /// <para>The new name that you want to apply to the requested terms documents.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TermsName { get; set; }
+        #endregion
+        
+        #region Parameter TermsSource
+        /// <summary>
+        /// <para>
+        /// <para>This parameter is reserved for future use and currently accepts only one value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CognitoIdentityProvider.TermsSourceType")]
+        public Amazon.CognitoIdentityProvider.TermsSourceType TermsSource { get; set; }
+        #endregion
+        
+        #region Parameter UserPoolId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the user pool that contains the terms that you want to update.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String UserPoolId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ManagedLoginBranding'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CognitoIdentityProvider.Model.CreateManagedLoginBrandingResponse).
-        /// Specifying the name of a property of type Amazon.CognitoIdentityProvider.Model.CreateManagedLoginBrandingResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Terms'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CognitoIdentityProvider.Model.UpdateTermsResponse).
+        /// Specifying the name of a property of type Amazon.CognitoIdentityProvider.Model.UpdateTermsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ManagedLoginBranding";
+        public string Select { get; set; } = "Terms";
         #endregion
         
         #region Parameter Force
@@ -176,8 +182,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.UserPoolId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CGIPManagedLoginBranding (CreateManagedLoginBranding)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TermsId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CGIPTerm (UpdateTerms)"))
             {
                 return;
             }
@@ -189,22 +195,27 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CognitoIdentityProvider.Model.CreateManagedLoginBrandingResponse, NewCGIPManagedLoginBrandingCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CognitoIdentityProvider.Model.UpdateTermsResponse, UpdateCGIPTermCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.Asset != null)
+            context.Enforcement = this.Enforcement;
+            if (this.Link != null)
             {
-                context.Asset = new List<Amazon.CognitoIdentityProvider.Model.AssetType>(this.Asset);
+                context.Link = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Link.Keys)
+                {
+                    context.Link.Add((String)hashKey, (System.String)(this.Link[hashKey]));
+                }
             }
-            context.ClientId = this.ClientId;
+            context.TermsId = this.TermsId;
             #if MODULAR
-            if (this.ClientId == null && ParameterWasBound(nameof(this.ClientId)))
+            if (this.TermsId == null && ParameterWasBound(nameof(this.TermsId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ClientId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter TermsId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Setting = this.Setting;
-            context.UseCognitoProvidedValue = this.UseCognitoProvidedValue;
+            context.TermsName = this.TermsName;
+            context.TermsSource = this.TermsSource;
             context.UserPoolId = this.UserPoolId;
             #if MODULAR
             if (this.UserPoolId == null && ParameterWasBound(nameof(this.UserPoolId)))
@@ -226,23 +237,27 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CognitoIdentityProvider.Model.CreateManagedLoginBrandingRequest();
+            var request = new Amazon.CognitoIdentityProvider.Model.UpdateTermsRequest();
             
-            if (cmdletContext.Asset != null)
+            if (cmdletContext.Enforcement != null)
             {
-                request.Assets = cmdletContext.Asset;
+                request.Enforcement = cmdletContext.Enforcement;
             }
-            if (cmdletContext.ClientId != null)
+            if (cmdletContext.Link != null)
             {
-                request.ClientId = cmdletContext.ClientId;
+                request.Links = cmdletContext.Link;
             }
-            if (cmdletContext.Setting != null)
+            if (cmdletContext.TermsId != null)
             {
-                request.Settings = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.Setting);
+                request.TermsId = cmdletContext.TermsId;
             }
-            if (cmdletContext.UseCognitoProvidedValue != null)
+            if (cmdletContext.TermsName != null)
             {
-                request.UseCognitoProvidedValues = cmdletContext.UseCognitoProvidedValue.Value;
+                request.TermsName = cmdletContext.TermsName;
+            }
+            if (cmdletContext.TermsSource != null)
+            {
+                request.TermsSource = cmdletContext.TermsSource;
             }
             if (cmdletContext.UserPoolId != null)
             {
@@ -281,12 +296,12 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private Amazon.CognitoIdentityProvider.Model.CreateManagedLoginBrandingResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.CreateManagedLoginBrandingRequest request)
+        private Amazon.CognitoIdentityProvider.Model.UpdateTermsResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.UpdateTermsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "CreateManagedLoginBranding");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "UpdateTerms");
             try
             {
-                return client.CreateManagedLoginBrandingAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.UpdateTermsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -303,13 +318,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.CognitoIdentityProvider.Model.AssetType> Asset { get; set; }
-            public System.String ClientId { get; set; }
-            public System.Management.Automation.PSObject Setting { get; set; }
-            public System.Boolean? UseCognitoProvidedValue { get; set; }
+            public Amazon.CognitoIdentityProvider.TermsEnforcementType Enforcement { get; set; }
+            public Dictionary<System.String, System.String> Link { get; set; }
+            public System.String TermsId { get; set; }
+            public System.String TermsName { get; set; }
+            public Amazon.CognitoIdentityProvider.TermsSourceType TermsSource { get; set; }
             public System.String UserPoolId { get; set; }
-            public System.Func<Amazon.CognitoIdentityProvider.Model.CreateManagedLoginBrandingResponse, NewCGIPManagedLoginBrandingCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ManagedLoginBranding;
+            public System.Func<Amazon.CognitoIdentityProvider.Model.UpdateTermsResponse, UpdateCGIPTermCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Terms;
         }
         
     }

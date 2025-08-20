@@ -2962,6 +2962,9 @@ Set-Alias -Name BDRR-Converse -Value Invoke-BDRRConverse
 Set-Alias -Name Converse-BDRRStream -Value Invoke-BDRRConverseStream
 Set-Alias -Name Converse-BDRRConverseStream -Value Invoke-BDRRConverseStream
 Set-Alias -Name BDRR-ConverseStream -Value Invoke-BDRRConverseStream
+Set-Alias -Name Count-BDRRTokens -Value Get-BDRRCountToken
+Set-Alias -Name Count-BDRRCountToken -Value Get-BDRRCountToken
+Set-Alias -Name BDRR-CountTokens -Value Get-BDRRCountToken
 Set-Alias -Name BDRR-GetAsyncInvoke -Value Get-BDRRAsyncInvoke
 Set-Alias -Name BDRR-InvokeModel -Value Invoke-BDRRModel
 Set-Alias -Name BDRR-InvokeModelWithResponseStream -Value Invoke-BDRRModelWithResponseStream
@@ -6119,6 +6122,9 @@ Set-Alias -Name Create-CGIPManagedLoginBranding -Value New-CGIPManagedLoginBrand
 Set-Alias -Name CGIP-CreateManagedLoginBranding -Value New-CGIPManagedLoginBranding
 Set-Alias -Name Create-CGIPResourceServer -Value New-CGIPResourceServer
 Set-Alias -Name CGIP-CreateResourceServer -Value New-CGIPResourceServer
+Set-Alias -Name Create-CGIPTerms -Value New-CGIPTerm
+Set-Alias -Name Create-CGIPTerm -Value New-CGIPTerm
+Set-Alias -Name CGIP-CreateTerms -Value New-CGIPTerm
 Set-Alias -Name Create-CGIPUserImportJob -Value New-CGIPUserImportJob
 Set-Alias -Name CGIP-CreateUserImportJob -Value New-CGIPUserImportJob
 Set-Alias -Name Create-CGIPUserPool -Value New-CGIPUserPool
@@ -6135,6 +6141,9 @@ Set-Alias -Name Delete-CGIPManagedLoginBranding -Value Remove-CGIPManagedLoginBr
 Set-Alias -Name CGIP-DeleteManagedLoginBranding -Value Remove-CGIPManagedLoginBranding
 Set-Alias -Name Delete-CGIPResourceServer -Value Remove-CGIPResourceServer
 Set-Alias -Name CGIP-DeleteResourceServer -Value Remove-CGIPResourceServer
+Set-Alias -Name Delete-CGIPTerms -Value Remove-CGIPTerm
+Set-Alias -Name Delete-CGIPTerm -Value Remove-CGIPTerm
+Set-Alias -Name CGIP-DeleteTerms -Value Remove-CGIPTerm
 Set-Alias -Name Delete-CGIPUser -Value Remove-CGIPUser
 Set-Alias -Name CGIP-DeleteUser -Value Remove-CGIPUser
 Set-Alias -Name Delete-CGIPUserAttributes -Value Remove-CGIPUserAttribute
@@ -6158,6 +6167,9 @@ Set-Alias -Name Describe-CGIPResourceServer -Value Get-CGIPResourceServer
 Set-Alias -Name CGIP-DescribeResourceServer -Value Get-CGIPResourceServer
 Set-Alias -Name Describe-CGIPRiskConfiguration -Value Get-CGIPRiskConfiguration
 Set-Alias -Name CGIP-DescribeRiskConfiguration -Value Get-CGIPRiskConfiguration
+Set-Alias -Name Describe-CGIPTerms -Value Get-CGIPTerm
+Set-Alias -Name Describe-CGIPTerm -Value Get-CGIPTerm
+Set-Alias -Name CGIP-DescribeTerms -Value Get-CGIPTerm
 Set-Alias -Name Describe-CGIPUserImportJob -Value Get-CGIPUserImportJob
 Set-Alias -Name CGIP-DescribeUserImportJob -Value Get-CGIPUserImportJob
 Set-Alias -Name Describe-CGIPUserPool -Value Get-CGIPUserPool
@@ -6203,6 +6215,9 @@ Set-Alias -Name List-CGIPResourceServers -Value Get-CGIPResourceServerList
 Set-Alias -Name List-CGIPResourceServerList -Value Get-CGIPResourceServerList
 Set-Alias -Name CGIP-ListResourceServers -Value Get-CGIPResourceServerList
 Set-Alias -Name CGIP-ListTagsForResource -Value Get-CGIPResourceTag
+Set-Alias -Name List-CGIPTerms -Value Get-CGIPTermList
+Set-Alias -Name List-CGIPTermList -Value Get-CGIPTermList
+Set-Alias -Name CGIP-ListTerms -Value Get-CGIPTermList
 Set-Alias -Name List-CGIPUserImportJobs -Value Get-CGIPUserImportJobList
 Set-Alias -Name List-CGIPUserImportJobList -Value Get-CGIPUserImportJobList
 Set-Alias -Name CGIP-ListUserImportJobs -Value Get-CGIPUserImportJobList
@@ -6248,6 +6263,8 @@ Set-Alias -Name CGIP-UpdateGroup -Value Update-CGIPGroup
 Set-Alias -Name CGIP-UpdateIdentityProvider -Value Update-CGIPIdentityProvider
 Set-Alias -Name CGIP-UpdateManagedLoginBranding -Value Update-CGIPManagedLoginBranding
 Set-Alias -Name CGIP-UpdateResourceServer -Value Update-CGIPResourceServer
+Set-Alias -Name Update-CGIPTerms -Value Update-CGIPTerm
+Set-Alias -Name CGIP-UpdateTerms -Value Update-CGIPTerm
 Set-Alias -Name Update-CGIPUserAttributes -Value Update-CGIPUserAttribute
 Set-Alias -Name CGIP-UpdateUserAttributes -Value Update-CGIPUserAttribute
 Set-Alias -Name CGIP-UpdateUserPool -Value Update-CGIPUserPool

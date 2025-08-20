@@ -23,41 +23,40 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.KinesisAnalyticsV2;
-using Amazon.KinesisAnalyticsV2.Model;
+using Amazon.CognitoIdentityProvider;
+using Amazon.CognitoIdentityProvider.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.KINA2
+namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Lists all the operations performed for the specified application such as UpdateApplication,
-    /// StartApplication etc. The response also includes a summary of the operation.
+    /// Returns details about all terms documents for the requested user pool.
     /// 
-    ///  
-    /// <para>
-    /// To get the complete description of a specific operation, invoke the <a>DescribeApplicationOperation</a>
-    /// operation.
-    /// </para><note><para>
-    /// This operation is supported only for Managed Service for Apache Flink.
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    ///  <note><para>
+    /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
+    /// for this API operation. For this operation, you must use IAM credentials to authorize
+    /// requests, and you must grant yourself the corresponding IAM permission in a policy.
+    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing
+    /// Amazon Web Services API Requests</a></para></li><li><para><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
+    /// the Amazon Cognito user pools API and user pool endpoints</a></para></li></ul></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "KINA2ApplicationOperationList")]
-    [OutputType("Amazon.KinesisAnalyticsV2.Model.ApplicationOperationInfo")]
-    [AWSCmdlet("Calls the Amazon Kinesis Analytics V2 ListApplicationOperations API operation.", Operation = new[] {"ListApplicationOperations"}, SelectReturnType = typeof(Amazon.KinesisAnalyticsV2.Model.ListApplicationOperationsResponse))]
-    [AWSCmdletOutput("Amazon.KinesisAnalyticsV2.Model.ApplicationOperationInfo or Amazon.KinesisAnalyticsV2.Model.ListApplicationOperationsResponse",
-        "This cmdlet returns a collection of Amazon.KinesisAnalyticsV2.Model.ApplicationOperationInfo objects.",
-        "The service call response (type Amazon.KinesisAnalyticsV2.Model.ListApplicationOperationsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "CGIPTermList")]
+    [OutputType("Amazon.CognitoIdentityProvider.Model.TermsDescriptionType")]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider ListTerms API operation.", Operation = new[] {"ListTerms"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.ListTermsResponse))]
+    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.TermsDescriptionType or Amazon.CognitoIdentityProvider.Model.ListTermsResponse",
+        "This cmdlet returns a collection of Amazon.CognitoIdentityProvider.Model.TermsDescriptionType objects.",
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.ListTermsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetKINA2ApplicationOperationListCmdlet : AmazonKinesisAnalyticsV2ClientCmdlet, IExecutor
+    public partial class GetCGIPTermListCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ApplicationName
+        #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the user pool where you want to list terms documents.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,44 +67,29 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ApplicationName { get; set; }
+        public System.String UserPoolId { get; set; }
         #endregion
         
-        #region Parameter Operation
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The maximum number of terms documents that you want Amazon Cognito to return in the
+        /// response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Operation { get; set; }
-        #endregion
-        
-        #region Parameter OperationStatus
-        /// <summary>
-        /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.KinesisAnalyticsV2.OperationStatus")]
-        public Amazon.KinesisAnalyticsV2.OperationStatus OperationStatus { get; set; }
-        #endregion
-        
-        #region Parameter Limit
-        /// <summary>
-        /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? Limit { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>This API operation returns a limited number of results. The pagination token is an
+        /// identifier that you can present in an additional API request with the same parameters.
+        /// When you include the pagination token, Amazon Cognito returns the next set of items
+        /// after the current list. Subsequent requests return a new pagination token. By use
+        /// of this token, you can paginate through the full list of items.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -118,13 +102,13 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ApplicationOperationInfoList'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KinesisAnalyticsV2.Model.ListApplicationOperationsResponse).
-        /// Specifying the name of a property of type Amazon.KinesisAnalyticsV2.Model.ListApplicationOperationsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Terms'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CognitoIdentityProvider.Model.ListTermsResponse).
+        /// Specifying the name of a property of type Amazon.CognitoIdentityProvider.Model.ListTermsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ApplicationOperationInfoList";
+        public string Select { get; set; } = "Terms";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -153,20 +137,18 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.KinesisAnalyticsV2.Model.ListApplicationOperationsResponse, GetKINA2ApplicationOperationListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CognitoIdentityProvider.Model.ListTermsResponse, GetCGIPTermListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ApplicationName = this.ApplicationName;
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
+            context.UserPoolId = this.UserPoolId;
             #if MODULAR
-            if (this.ApplicationName == null && ParameterWasBound(nameof(this.ApplicationName)))
+            if (this.UserPoolId == null && ParameterWasBound(nameof(this.UserPoolId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ApplicationName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter UserPoolId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Limit = this.Limit;
-            context.NextToken = this.NextToken;
-            context.Operation = this.Operation;
-            context.OperationStatus = this.OperationStatus;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -183,23 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.KinesisAnalyticsV2.Model.ListApplicationOperationsRequest();
+            var request = new Amazon.CognitoIdentityProvider.Model.ListTermsRequest();
             
-            if (cmdletContext.ApplicationName != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.ApplicationName = cmdletContext.ApplicationName;
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.Limit != null)
+            if (cmdletContext.UserPoolId != null)
             {
-                request.Limit = cmdletContext.Limit.Value;
-            }
-            if (cmdletContext.Operation != null)
-            {
-                request.Operation = cmdletContext.Operation;
-            }
-            if (cmdletContext.OperationStatus != null)
-            {
-                request.OperationStatus = cmdletContext.OperationStatus;
+                request.UserPoolId = cmdletContext.UserPoolId;
             }
             
             // Initialize loop variant and commence piping
@@ -258,12 +232,12 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         
         #region AWS Service Operation Call
         
-        private Amazon.KinesisAnalyticsV2.Model.ListApplicationOperationsResponse CallAWSServiceOperation(IAmazonKinesisAnalyticsV2 client, Amazon.KinesisAnalyticsV2.Model.ListApplicationOperationsRequest request)
+        private Amazon.CognitoIdentityProvider.Model.ListTermsResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.ListTermsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Analytics V2", "ListApplicationOperations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "ListTerms");
             try
             {
-                return client.ListApplicationOperationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListTermsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -280,13 +254,11 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ApplicationName { get; set; }
-            public System.Int32? Limit { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String Operation { get; set; }
-            public Amazon.KinesisAnalyticsV2.OperationStatus OperationStatus { get; set; }
-            public System.Func<Amazon.KinesisAnalyticsV2.Model.ListApplicationOperationsResponse, GetKINA2ApplicationOperationListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ApplicationOperationInfoList;
+            public System.String UserPoolId { get; set; }
+            public System.Func<Amazon.CognitoIdentityProvider.Model.ListTermsResponse, GetCGIPTermListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Terms;
         }
         
     }

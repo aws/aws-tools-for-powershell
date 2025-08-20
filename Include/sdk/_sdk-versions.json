@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.73.0",
+    "ProductVersion"    : "4.0.74.0",
     "CoreVersion"       : "4.0.0.23",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -146,7 +146,7 @@
             "InPreview"               : false
         },
         "DynamoDBv2"        : {
-            "Version" : "4.0.4.1",
+            "Version" : "4.0.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.23"
@@ -220,7 +220,7 @@
             "InPreview"               : false
         },
         "IdentityManagement"   : {
-            "Version" : "4.0.2.8",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.23"
@@ -236,7 +236,7 @@
             "InPreview"               : false
         },
         "Kinesis"              : {
-            "Version" : "4.0.2.18",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.23"
@@ -404,7 +404,7 @@
             "InPreview"               : false
         },
         "ElasticFileSystem"         : {
-            "Version" : "4.0.1.14",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.23"
@@ -532,7 +532,7 @@
             "InPreview"               : false
         },
         "AWSMarketplaceMetering"          : {
-            "Version" : "4.0.0.19",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.23"
@@ -540,7 +540,7 @@
             "InPreview"               : false
         },
         "CognitoIdentityProvider"         : {
-            "Version" : "4.0.2.2",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.23"
@@ -596,7 +596,7 @@
             "InPreview"               : false
         },
         "Budgets"                         : {
-            "Version" : "4.0.2.2",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.23"
@@ -780,7 +780,7 @@
             "InPreview"               : false
         },
         "MarketplaceEntitlementService"   : {
-            "Version" : "4.0.0.19",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.23"
@@ -844,7 +844,7 @@
             "InPreview"               : false
         },
         "CostExplorer"                    : {
-            "Version" : "4.0.2.14",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.23"
@@ -932,7 +932,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "4.0.20.0",
+            "Version" : "4.0.21.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.23"
@@ -1108,7 +1108,7 @@
             "InPreview"               : false
         },
         "EKS"                             : {
-            "Version" : "4.0.3.3",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.23"
@@ -1244,7 +1244,7 @@
             "InPreview"               : false
         },
         "KinesisAnalyticsV2"              : {
-            "Version" : "4.0.0.19",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.23"
@@ -1532,7 +1532,7 @@
             "InPreview"               : false
         },
         "SimpleEmailV2"                   : {
-            "Version" : "4.0.3.4",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.23"
@@ -1620,7 +1620,7 @@
             "InPreview"               : false
         },
         "NetworkManager"                  : {
-            "Version" : "4.0.1.12",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.23"
@@ -1692,7 +1692,7 @@
             "InPreview"               : false
         },
         "Detective"                       : {
-            "Version" : "4.0.0.19",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.23"
@@ -2108,7 +2108,7 @@
             "InPreview"               : false
         },
         "Route53RecoveryControlConfig"    : {
-            "Version" : "4.0.0.19",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.23"
@@ -2348,7 +2348,7 @@
             "InPreview"               : false
         },
         "PinpointSMSVoiceV2"                  : {
-            "Version" : "4.0.1.19",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.23"
@@ -2748,7 +2748,7 @@
             "InPreview"               : false
         },
         "BedrockRuntime"                      : {
-            "Version" : "4.0.3.3",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.23"
@@ -2764,7 +2764,7 @@
             "InPreview"               : false
         },
         "DataZone"                            : {
-            "Version" : "4.0.5.1",
+            "Version" : "4.0.6.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.23"
@@ -3116,7 +3116,7 @@
             "InPreview"               : false
         },
         "Billing"                             : {
-            "Version" : "4.0.1.2",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.23"

@@ -252,6 +252,26 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.TermsEnforcementType
+        {
+            ($_ -eq "New-CGIPTerm/Enforcement") -Or
+            ($_ -eq "Update-CGIPTerm/Enforcement")
+        }
+        {
+            $v = "NONE"
+            break
+        }
+
+        # Amazon.CognitoIdentityProvider.TermsSourceType
+        {
+            ($_ -eq "New-CGIPTerm/TermsSource") -Or
+            ($_ -eq "Update-CGIPTerm/TermsSource")
+        }
+        {
+            $v = "LINK"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.TimeUnitsType
         {
             ($_ -eq "New-CGIPUserPoolClient/TokenValidityUnits_AccessToken") -Or
@@ -312,6 +332,7 @@ $CGIP_map = @{
     "DeletionProtection"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "DeviceRememberedStatus"=@("Edit-CGIPDeviceStatus","Edit-CGIPDeviceStatusAdmin")
     "EmailConfiguration_EmailSendingAccount"=@("New-CGIPUserPool","Update-CGIPUserPool")
+    "Enforcement"=@("New-CGIPTerm","Update-CGIPTerm")
     "FeedbackValue"=@("Update-CGIPAuthEventFeedback","Update-CGIPAuthEventFeedbackAdmin")
     "HighAction_EventAction"=@("Set-CGIPRiskConfiguration")
     "LowAction_EventAction"=@("Set-CGIPRiskConfiguration")
@@ -322,6 +343,7 @@ $CGIP_map = @{
     "PreventUserExistenceError"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "ProviderType"=@("New-CGIPIdentityProvider")
     "RefreshTokenRotation_Feature"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
+    "TermsSource"=@("New-CGIPTerm","Update-CGIPTerm")
     "TokenValidityUnits_AccessToken"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "TokenValidityUnits_IdToken"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "TokenValidityUnits_RefreshToken"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
@@ -418,6 +440,7 @@ $CGIP_SelectMap = @{
                "New-CGIPIdentityProvider",
                "New-CGIPManagedLoginBranding",
                "New-CGIPResourceServer",
+               "New-CGIPTerm",
                "New-CGIPUserImportJob",
                "New-CGIPUserPool",
                "New-CGIPUserPoolClient",
@@ -426,6 +449,7 @@ $CGIP_SelectMap = @{
                "Remove-CGIPIdentityProvider",
                "Remove-CGIPManagedLoginBranding",
                "Remove-CGIPResourceServer",
+               "Remove-CGIPTerm",
                "Remove-CGIPUser",
                "Remove-CGIPUserAttribute",
                "Remove-CGIPUserPool",
@@ -437,6 +461,7 @@ $CGIP_SelectMap = @{
                "Get-CGIPManagedLoginBrandingByClient",
                "Get-CGIPResourceServer",
                "Get-CGIPRiskConfiguration",
+               "Get-CGIPTerm",
                "Get-CGIPUserImportJob",
                "Get-CGIPUserPool",
                "Get-CGIPUserPoolClient",
@@ -462,6 +487,7 @@ $CGIP_SelectMap = @{
                "Get-CGIPIdentityProviderList",
                "Get-CGIPResourceServerList",
                "Get-CGIPResourceTag",
+               "Get-CGIPTermList",
                "Get-CGIPUserImportJobList",
                "Get-CGIPUserPoolClientList",
                "Get-CGIPUserPoolList",
@@ -489,6 +515,7 @@ $CGIP_SelectMap = @{
                "Update-CGIPIdentityProvider",
                "Update-CGIPManagedLoginBranding",
                "Update-CGIPResourceServer",
+               "Update-CGIPTerm",
                "Update-CGIPUserAttribute",
                "Update-CGIPUserPool",
                "Update-CGIPUserPoolClient",

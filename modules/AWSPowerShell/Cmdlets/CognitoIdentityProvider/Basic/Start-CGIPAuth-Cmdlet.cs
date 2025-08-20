@@ -121,14 +121,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The authentication parameters. These are inputs corresponding to the <c>AuthFlow</c>
-        /// that you're invoking.</para><para>The required values are specific to the <a>InitiateAuthRequest$AuthFlow</a>.</para><para>The following are some authentication flows and their parameters. Add a <c>SECRET_HASH</c>
-        /// parameter if your app client has a client secret.</para><ul><li><para><c>USER_AUTH</c>: <c>USERNAME</c> (required), <c>PREFERRED_CHALLENGE</c>. If you
-        /// don't provide a value for <c>PREFERRED_CHALLENGE</c>, Amazon Cognito responds with
-        /// the <c>AvailableChallenges</c> parameter that specifies the available sign-in methods.</para></li><li><para><c>USER_SRP_AUTH</c>: <c>USERNAME</c> (required), <c>SRP_A</c> (required), <c>DEVICE_KEY</c>.</para></li><li><para><c>USER_PASSWORD_AUTH</c>: <c>USERNAME</c> (required), <c>PASSWORD</c> (required),
-        /// <c>DEVICE_KEY</c>.</para></li><li><para><c>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</c>: <c>REFRESH_TOKEN</c> (required), <c>DEVICE_KEY</c>.</para></li><li><para><c>CUSTOM_AUTH</c>: <c>USERNAME</c> (required), <c>SECRET_HASH</c> (if app client
-        /// is configured with client secret), <c>DEVICE_KEY</c>. To start the authentication
-        /// flow with password verification, include <c>ChallengeName: SRP_A</c> and <c>SRP_A:
-        /// (The SRP_A Value)</c>.</para></li></ul><para>For more information about <c>SECRET_HASH</c>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing
+        /// that you're invoking.</para><para>The following are some authentication flows and their parameters. Add a <c>SECRET_HASH</c>
+        /// parameter if your app client has a client secret. Add <c>DEVICE_KEY</c> if you want
+        /// to bypass multi-factor authentication with a remembered device. </para><dl><dt>USER_AUTH</dt><dd><ul><li><para><c>USERNAME</c> (required)</para></li><li><para><c>PREFERRED_CHALLENGE</c>. If you don't provide a value for <c>PREFERRED_CHALLENGE</c>,
+        /// Amazon Cognito responds with the <c>AvailableChallenges</c> parameter that specifies
+        /// the available sign-in methods.</para></li></ul></dd><dt>USER_SRP_AUTH</dt><dd><ul><li><para><c>USERNAME</c> (required)</para></li><li><para><c>SRP_A</c> (required)</para></li></ul></dd><dt>USER_PASSWORD_AUTH</dt><dd><ul><li><para><c>USERNAME</c> (required)</para></li><li><para><c>PASSWORD</c> (required)</para></li></ul></dd><dt>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</dt><dd><ul><li><para><c>REFRESH_TOKEN</c>(required)</para></li></ul></dd><dt>CUSTOM_AUTH</dt><dd><ul><li><para><c>USERNAME</c> (required)</para></li><li><para><c>ChallengeName: SRP_A</c> (when doing SRP authentication before custom challenges)</para></li><li><para><c>SRP_A: (An SRP_A value)</c> (when doing SRP authentication before custom challenges)</para></li></ul></dd></dl><para>For more information about <c>SECRET_HASH</c>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing
         /// secret hash values</a>. For information about <c>DEVICE_KEY</c>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working
         /// with user devices in your user pool</a>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned

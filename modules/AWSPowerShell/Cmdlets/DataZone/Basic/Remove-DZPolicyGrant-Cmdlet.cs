@@ -152,6 +152,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public Amazon.DataZone.TargetEntityType EntityType { get; set; }
         #endregion
         
+        #region Parameter GrantIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the policy grant that is to be removed from a specified entity.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GrantIdentifier { get; set; }
+        #endregion
+        
         #region Parameter Group_GroupIdentifier
         /// <summary>
         /// <para>
@@ -303,6 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter EntityType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.GrantIdentifier = this.GrantIdentifier;
             context.PolicyType = this.PolicyType;
             #if MODULAR
             if (this.PolicyType == null && ParameterWasBound(nameof(this.PolicyType)))
@@ -351,6 +362,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.EntityType != null)
             {
                 request.EntityType = cmdletContext.EntityType;
+            }
+            if (cmdletContext.GrantIdentifier != null)
+            {
+                request.GrantIdentifier = cmdletContext.GrantIdentifier;
             }
             if (cmdletContext.PolicyType != null)
             {
@@ -619,6 +634,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String DomainIdentifier { get; set; }
             public System.String EntityIdentifier { get; set; }
             public Amazon.DataZone.TargetEntityType EntityType { get; set; }
+            public System.String GrantIdentifier { get; set; }
             public Amazon.DataZone.ManagedPolicyType PolicyType { get; set; }
             public Amazon.DataZone.DomainUnitDesignation DomainUnit_DomainUnitDesignation { get; set; }
             public Amazon.DataZone.Model.AllDomainUnitsGrantFilter DomainUnitGrantFilter_AllDomainUnitsGrantFilter { get; set; }
