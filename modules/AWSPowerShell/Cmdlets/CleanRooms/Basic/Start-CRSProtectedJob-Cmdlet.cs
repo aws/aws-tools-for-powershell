@@ -194,7 +194,6 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             
             
              // populate JobParameters
-            var requestJobParametersIsNull = true;
             request.JobParameters = new Amazon.CleanRooms.Model.ProtectedJobParameters();
             System.String requestJobParameters_jobParameters_AnalysisTemplateArn = null;
             if (cmdletContext.JobParameters_AnalysisTemplateArn != null)
@@ -204,12 +203,6 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestJobParameters_jobParameters_AnalysisTemplateArn != null)
             {
                 request.JobParameters.AnalysisTemplateArn = requestJobParameters_jobParameters_AnalysisTemplateArn;
-                requestJobParametersIsNull = false;
-            }
-             // determine if request.JobParameters should be set to null
-            if (requestJobParametersIsNull)
-            {
-                request.JobParameters = null;
             }
             if (cmdletContext.MembershipIdentifier != null)
             {
@@ -222,7 +215,6 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             Amazon.CleanRooms.Model.ProtectedJobOutputConfigurationInput requestResultConfiguration_resultConfiguration_OutputConfiguration = null;
             
              // populate OutputConfiguration
-            var requestResultConfiguration_resultConfiguration_OutputConfigurationIsNull = true;
             requestResultConfiguration_resultConfiguration_OutputConfiguration = new Amazon.CleanRooms.Model.ProtectedJobOutputConfigurationInput();
             Amazon.CleanRooms.Model.ProtectedJobMemberOutputConfigurationInput requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_Member = null;
             
@@ -247,12 +239,6 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_Member != null)
             {
                 requestResultConfiguration_resultConfiguration_OutputConfiguration.Member = requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_Member;
-                requestResultConfiguration_resultConfiguration_OutputConfigurationIsNull = false;
-            }
-             // determine if requestResultConfiguration_resultConfiguration_OutputConfiguration should be set to null
-            if (requestResultConfiguration_resultConfiguration_OutputConfigurationIsNull)
-            {
-                requestResultConfiguration_resultConfiguration_OutputConfiguration = null;
             }
             if (requestResultConfiguration_resultConfiguration_OutputConfiguration != null)
             {

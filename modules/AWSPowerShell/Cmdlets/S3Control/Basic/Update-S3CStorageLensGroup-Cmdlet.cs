@@ -529,7 +529,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             Amazon.S3Control.Model.StorageLensGroupFilter requestStorageLensGroup_storageLensGroup_Filter = null;
             
              // populate Filter
-            var requestStorageLensGroup_storageLensGroup_FilterIsNull = true;
             requestStorageLensGroup_storageLensGroup_Filter = new Amazon.S3Control.Model.StorageLensGroupFilter();
             List<System.String> requestStorageLensGroup_storageLensGroup_Filter_storageLensGroup_Filter_MatchAnyPrefix = null;
             if (cmdletContext.StorageLensGroup_Filter_MatchAnyPrefix != null)
@@ -539,7 +538,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestStorageLensGroup_storageLensGroup_Filter_storageLensGroup_Filter_MatchAnyPrefix != null)
             {
                 requestStorageLensGroup_storageLensGroup_Filter.MatchAnyPrefix = requestStorageLensGroup_storageLensGroup_Filter_storageLensGroup_Filter_MatchAnyPrefix;
-                requestStorageLensGroup_storageLensGroup_FilterIsNull = false;
             }
             List<System.String> requestStorageLensGroup_storageLensGroup_Filter_storageLensGroup_Filter_MatchAnySuffix = null;
             if (cmdletContext.StorageLensGroup_Filter_MatchAnySuffix != null)
@@ -549,7 +547,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestStorageLensGroup_storageLensGroup_Filter_storageLensGroup_Filter_MatchAnySuffix != null)
             {
                 requestStorageLensGroup_storageLensGroup_Filter.MatchAnySuffix = requestStorageLensGroup_storageLensGroup_Filter_storageLensGroup_Filter_MatchAnySuffix;
-                requestStorageLensGroup_storageLensGroup_FilterIsNull = false;
             }
             List<Amazon.S3Control.Model.S3Tag> requestStorageLensGroup_storageLensGroup_Filter_storageLensGroup_Filter_MatchAnyTag = null;
             if (cmdletContext.StorageLensGroup_Filter_MatchAnyTag != null)
@@ -559,7 +556,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestStorageLensGroup_storageLensGroup_Filter_storageLensGroup_Filter_MatchAnyTag != null)
             {
                 requestStorageLensGroup_storageLensGroup_Filter.MatchAnyTag = requestStorageLensGroup_storageLensGroup_Filter_storageLensGroup_Filter_MatchAnyTag;
-                requestStorageLensGroup_storageLensGroup_FilterIsNull = false;
             }
             Amazon.S3Control.Model.MatchObjectAge requestStorageLensGroup_storageLensGroup_Filter_storageLensGroup_Filter_MatchObjectAge = null;
             
@@ -594,7 +590,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestStorageLensGroup_storageLensGroup_Filter_storageLensGroup_Filter_MatchObjectAge != null)
             {
                 requestStorageLensGroup_storageLensGroup_Filter.MatchObjectAge = requestStorageLensGroup_storageLensGroup_Filter_storageLensGroup_Filter_MatchObjectAge;
-                requestStorageLensGroup_storageLensGroup_FilterIsNull = false;
             }
             Amazon.S3Control.Model.MatchObjectSize requestStorageLensGroup_storageLensGroup_Filter_storageLensGroup_Filter_MatchObjectSize = null;
             
@@ -629,7 +624,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestStorageLensGroup_storageLensGroup_Filter_storageLensGroup_Filter_MatchObjectSize != null)
             {
                 requestStorageLensGroup_storageLensGroup_Filter.MatchObjectSize = requestStorageLensGroup_storageLensGroup_Filter_storageLensGroup_Filter_MatchObjectSize;
-                requestStorageLensGroup_storageLensGroup_FilterIsNull = false;
             }
             Amazon.S3Control.Model.StorageLensGroupAndOperator requestStorageLensGroup_storageLensGroup_Filter_storageLensGroup_Filter_And = null;
             
@@ -744,7 +738,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestStorageLensGroup_storageLensGroup_Filter_storageLensGroup_Filter_And != null)
             {
                 requestStorageLensGroup_storageLensGroup_Filter.And = requestStorageLensGroup_storageLensGroup_Filter_storageLensGroup_Filter_And;
-                requestStorageLensGroup_storageLensGroup_FilterIsNull = false;
             }
             Amazon.S3Control.Model.StorageLensGroupOrOperator requestStorageLensGroup_storageLensGroup_Filter_storageLensGroup_Filter_Or = null;
             
@@ -859,12 +852,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestStorageLensGroup_storageLensGroup_Filter_storageLensGroup_Filter_Or != null)
             {
                 requestStorageLensGroup_storageLensGroup_Filter.Or = requestStorageLensGroup_storageLensGroup_Filter_storageLensGroup_Filter_Or;
-                requestStorageLensGroup_storageLensGroup_FilterIsNull = false;
-            }
-             // determine if requestStorageLensGroup_storageLensGroup_Filter should be set to null
-            if (requestStorageLensGroup_storageLensGroup_FilterIsNull)
-            {
-                requestStorageLensGroup_storageLensGroup_Filter = null;
             }
             if (requestStorageLensGroup_storageLensGroup_Filter != null)
             {

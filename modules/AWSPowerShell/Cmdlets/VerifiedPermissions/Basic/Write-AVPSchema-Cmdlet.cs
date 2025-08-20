@@ -172,7 +172,6 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             
             
              // populate Definition
-            var requestDefinitionIsNull = true;
             request.Definition = new Amazon.VerifiedPermissions.Model.SchemaDefinition();
             System.String requestDefinition_definition_CedarJson = null;
             if (cmdletContext.Definition_CedarJson != null)
@@ -182,12 +181,6 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             if (requestDefinition_definition_CedarJson != null)
             {
                 request.Definition.CedarJson = requestDefinition_definition_CedarJson;
-                requestDefinitionIsNull = false;
-            }
-             // determine if request.Definition should be set to null
-            if (requestDefinitionIsNull)
-            {
-                request.Definition = null;
             }
             if (cmdletContext.PolicyStoreId != null)
             {

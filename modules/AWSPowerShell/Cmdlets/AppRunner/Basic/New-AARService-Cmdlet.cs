@@ -937,7 +937,6 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             }
             
              // populate SourceConfiguration
-            var requestSourceConfigurationIsNull = true;
             request.SourceConfiguration = new Amazon.AppRunner.Model.SourceConfiguration();
             System.Boolean? requestSourceConfiguration_sourceConfiguration_AutoDeploymentsEnabled = null;
             if (cmdletContext.SourceConfiguration_AutoDeploymentsEnabled != null)
@@ -947,7 +946,6 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             if (requestSourceConfiguration_sourceConfiguration_AutoDeploymentsEnabled != null)
             {
                 request.SourceConfiguration.AutoDeploymentsEnabled = requestSourceConfiguration_sourceConfiguration_AutoDeploymentsEnabled.Value;
-                requestSourceConfigurationIsNull = false;
             }
             Amazon.AppRunner.Model.AuthenticationConfiguration requestSourceConfiguration_sourceConfiguration_AuthenticationConfiguration = null;
             
@@ -982,7 +980,6 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             if (requestSourceConfiguration_sourceConfiguration_AuthenticationConfiguration != null)
             {
                 request.SourceConfiguration.AuthenticationConfiguration = requestSourceConfiguration_sourceConfiguration_AuthenticationConfiguration;
-                requestSourceConfigurationIsNull = false;
             }
             Amazon.AppRunner.Model.ImageRepository requestSourceConfiguration_sourceConfiguration_ImageRepository = null;
             
@@ -1072,7 +1069,6 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             if (requestSourceConfiguration_sourceConfiguration_ImageRepository != null)
             {
                 request.SourceConfiguration.ImageRepository = requestSourceConfiguration_sourceConfiguration_ImageRepository;
-                requestSourceConfigurationIsNull = false;
             }
             Amazon.AppRunner.Model.CodeRepository requestSourceConfiguration_sourceConfiguration_CodeRepository = null;
             
@@ -1242,12 +1238,6 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             if (requestSourceConfiguration_sourceConfiguration_CodeRepository != null)
             {
                 request.SourceConfiguration.CodeRepository = requestSourceConfiguration_sourceConfiguration_CodeRepository;
-                requestSourceConfigurationIsNull = false;
-            }
-             // determine if request.SourceConfiguration should be set to null
-            if (requestSourceConfigurationIsNull)
-            {
-                request.SourceConfiguration = null;
             }
             if (cmdletContext.Tag != null)
             {

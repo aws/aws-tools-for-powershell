@@ -160,7 +160,6 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             
             
              // populate CommunicationLimitsConfig
-            var requestCommunicationLimitsConfigIsNull = true;
             request.CommunicationLimitsConfig = new Amazon.ConnectCampaignsV2.Model.InstanceCommunicationLimitsConfig();
             Amazon.ConnectCampaignsV2.Model.CommunicationLimits requestCommunicationLimitsConfig_communicationLimitsConfig_AllChannelSubtypes = null;
             
@@ -185,12 +184,6 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestCommunicationLimitsConfig_communicationLimitsConfig_AllChannelSubtypes != null)
             {
                 request.CommunicationLimitsConfig.AllChannelSubtypes = requestCommunicationLimitsConfig_communicationLimitsConfig_AllChannelSubtypes;
-                requestCommunicationLimitsConfigIsNull = false;
-            }
-             // determine if request.CommunicationLimitsConfig should be set to null
-            if (requestCommunicationLimitsConfigIsNull)
-            {
-                request.CommunicationLimitsConfig = null;
             }
             if (cmdletContext.ConnectInstanceId != null)
             {

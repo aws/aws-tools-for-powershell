@@ -1825,7 +1825,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             }
             
              // populate WriteCampaignRequest
-            var requestWriteCampaignRequestIsNull = true;
             request.WriteCampaignRequest = new Amazon.Pinpoint.Model.WriteCampaignRequest();
             List<Amazon.Pinpoint.Model.WriteTreatmentResource> requestWriteCampaignRequest_writeCampaignRequest_AdditionalTreatment = null;
             if (cmdletContext.WriteCampaignRequest_AdditionalTreatment != null)
@@ -1835,7 +1834,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_AdditionalTreatment != null)
             {
                 request.WriteCampaignRequest.AdditionalTreatments = requestWriteCampaignRequest_writeCampaignRequest_AdditionalTreatment;
-                requestWriteCampaignRequestIsNull = false;
             }
             System.String requestWriteCampaignRequest_writeCampaignRequest_Description = null;
             if (cmdletContext.WriteCampaignRequest_Description != null)
@@ -1845,7 +1843,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_Description != null)
             {
                 request.WriteCampaignRequest.Description = requestWriteCampaignRequest_writeCampaignRequest_Description;
-                requestWriteCampaignRequestIsNull = false;
             }
             System.Int32? requestWriteCampaignRequest_writeCampaignRequest_HoldoutPercent = null;
             if (cmdletContext.WriteCampaignRequest_HoldoutPercent != null)
@@ -1855,7 +1852,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_HoldoutPercent != null)
             {
                 request.WriteCampaignRequest.HoldoutPercent = requestWriteCampaignRequest_writeCampaignRequest_HoldoutPercent.Value;
-                requestWriteCampaignRequestIsNull = false;
             }
             System.Boolean? requestWriteCampaignRequest_writeCampaignRequest_IsPaused = null;
             if (cmdletContext.WriteCampaignRequest_IsPaused != null)
@@ -1865,7 +1861,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_IsPaused != null)
             {
                 request.WriteCampaignRequest.IsPaused = requestWriteCampaignRequest_writeCampaignRequest_IsPaused.Value;
-                requestWriteCampaignRequestIsNull = false;
             }
             System.String requestWriteCampaignRequest_writeCampaignRequest_Name = null;
             if (cmdletContext.WriteCampaignRequest_Name != null)
@@ -1875,7 +1870,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_Name != null)
             {
                 request.WriteCampaignRequest.Name = requestWriteCampaignRequest_writeCampaignRequest_Name;
-                requestWriteCampaignRequestIsNull = false;
             }
             System.Int32? requestWriteCampaignRequest_writeCampaignRequest_Priority = null;
             if (cmdletContext.WriteCampaignRequest_Priority != null)
@@ -1885,7 +1879,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_Priority != null)
             {
                 request.WriteCampaignRequest.Priority = requestWriteCampaignRequest_writeCampaignRequest_Priority.Value;
-                requestWriteCampaignRequestIsNull = false;
             }
             System.String requestWriteCampaignRequest_writeCampaignRequest_SegmentId = null;
             if (cmdletContext.WriteCampaignRequest_SegmentId != null)
@@ -1895,7 +1888,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_SegmentId != null)
             {
                 request.WriteCampaignRequest.SegmentId = requestWriteCampaignRequest_writeCampaignRequest_SegmentId;
-                requestWriteCampaignRequestIsNull = false;
             }
             System.Int32? requestWriteCampaignRequest_writeCampaignRequest_SegmentVersion = null;
             if (cmdletContext.WriteCampaignRequest_SegmentVersion != null)
@@ -1905,7 +1897,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_SegmentVersion != null)
             {
                 request.WriteCampaignRequest.SegmentVersion = requestWriteCampaignRequest_writeCampaignRequest_SegmentVersion.Value;
-                requestWriteCampaignRequestIsNull = false;
             }
             Dictionary<System.String, System.String> requestWriteCampaignRequest_writeCampaignRequest_Tag = null;
             if (cmdletContext.WriteCampaignRequest_Tag != null)
@@ -1915,7 +1906,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_Tag != null)
             {
                 request.WriteCampaignRequest.Tags = requestWriteCampaignRequest_writeCampaignRequest_Tag;
-                requestWriteCampaignRequestIsNull = false;
             }
             System.String requestWriteCampaignRequest_writeCampaignRequest_TreatmentDescription = null;
             if (cmdletContext.WriteCampaignRequest_TreatmentDescription != null)
@@ -1925,7 +1915,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_TreatmentDescription != null)
             {
                 request.WriteCampaignRequest.TreatmentDescription = requestWriteCampaignRequest_writeCampaignRequest_TreatmentDescription;
-                requestWriteCampaignRequestIsNull = false;
             }
             System.String requestWriteCampaignRequest_writeCampaignRequest_TreatmentName = null;
             if (cmdletContext.WriteCampaignRequest_TreatmentName != null)
@@ -1935,7 +1924,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_TreatmentName != null)
             {
                 request.WriteCampaignRequest.TreatmentName = requestWriteCampaignRequest_writeCampaignRequest_TreatmentName;
-                requestWriteCampaignRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.CustomDeliveryConfiguration requestWriteCampaignRequest_writeCampaignRequest_CustomDeliveryConfiguration = null;
             
@@ -1970,7 +1958,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_CustomDeliveryConfiguration != null)
             {
                 request.WriteCampaignRequest.CustomDeliveryConfiguration = requestWriteCampaignRequest_writeCampaignRequest_CustomDeliveryConfiguration;
-                requestWriteCampaignRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.CampaignHook requestWriteCampaignRequest_writeCampaignRequest_Hook = null;
             
@@ -2015,7 +2002,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_Hook != null)
             {
                 request.WriteCampaignRequest.Hook = requestWriteCampaignRequest_writeCampaignRequest_Hook;
-                requestWriteCampaignRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.CampaignLimits requestWriteCampaignRequest_writeCampaignRequest_Limits = null;
             
@@ -2080,7 +2066,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_Limits != null)
             {
                 request.WriteCampaignRequest.Limits = requestWriteCampaignRequest_writeCampaignRequest_Limits;
-                requestWriteCampaignRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.TemplateConfiguration requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration = null;
             
@@ -2270,7 +2255,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration != null)
             {
                 request.WriteCampaignRequest.TemplateConfiguration = requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration;
-                requestWriteCampaignRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.Schedule requestWriteCampaignRequest_writeCampaignRequest_Schedule = null;
             
@@ -2345,7 +2329,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             Amazon.Pinpoint.Model.EventDimensions requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions = null;
             
              // populate Dimensions
-            var requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_DimensionsIsNull = true;
             requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions = new Amazon.Pinpoint.Model.EventDimensions();
             Dictionary<System.String, Amazon.Pinpoint.Model.AttributeDimension> requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_dimensions_Attribute = null;
             if (cmdletContext.Dimensions_Attribute != null)
@@ -2355,7 +2338,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_dimensions_Attribute != null)
             {
                 requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions.Attributes = requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_dimensions_Attribute;
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_DimensionsIsNull = false;
             }
             Dictionary<System.String, Amazon.Pinpoint.Model.MetricDimension> requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_dimensions_Metric = null;
             if (cmdletContext.Dimensions_Metric != null)
@@ -2365,7 +2347,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_dimensions_Metric != null)
             {
                 requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions.Metrics = requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_dimensions_Metric;
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_DimensionsIsNull = false;
             }
             Amazon.Pinpoint.Model.SetDimension requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType = null;
             
@@ -2400,12 +2381,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType != null)
             {
                 requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions.EventType = requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType;
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_DimensionsIsNull = false;
-            }
-             // determine if requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions should be set to null
-            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_DimensionsIsNull)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions = null;
             }
             if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions != null)
             {
@@ -2465,7 +2440,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_Schedule != null)
             {
                 request.WriteCampaignRequest.Schedule = requestWriteCampaignRequest_writeCampaignRequest_Schedule;
-                requestWriteCampaignRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.MessageConfiguration requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration = null;
             
@@ -3375,12 +3349,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration != null)
             {
                 request.WriteCampaignRequest.MessageConfiguration = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration;
-                requestWriteCampaignRequestIsNull = false;
-            }
-             // determine if request.WriteCampaignRequest should be set to null
-            if (requestWriteCampaignRequestIsNull)
-            {
-                request.WriteCampaignRequest = null;
             }
             
             CmdletOutput output;

@@ -161,7 +161,6 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
             }
             
              // populate AppInstanceRetentionSettings
-            var requestAppInstanceRetentionSettingsIsNull = true;
             request.AppInstanceRetentionSettings = new Amazon.ChimeSDKIdentity.Model.AppInstanceRetentionSettings();
             Amazon.ChimeSDKIdentity.Model.ChannelRetentionSettings requestAppInstanceRetentionSettings_appInstanceRetentionSettings_ChannelRetentionSettings = null;
             
@@ -186,12 +185,6 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
             if (requestAppInstanceRetentionSettings_appInstanceRetentionSettings_ChannelRetentionSettings != null)
             {
                 request.AppInstanceRetentionSettings.ChannelRetentionSettings = requestAppInstanceRetentionSettings_appInstanceRetentionSettings_ChannelRetentionSettings;
-                requestAppInstanceRetentionSettingsIsNull = false;
-            }
-             // determine if request.AppInstanceRetentionSettings should be set to null
-            if (requestAppInstanceRetentionSettingsIsNull)
-            {
-                request.AppInstanceRetentionSettings = null;
             }
             
             CmdletOutput output;

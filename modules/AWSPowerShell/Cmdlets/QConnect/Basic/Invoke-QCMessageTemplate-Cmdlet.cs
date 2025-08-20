@@ -964,7 +964,6 @@ namespace Amazon.PowerShell.Cmdlets.QC
             
             
              // populate Attributes
-            var requestAttributesIsNull = true;
             request.Attributes = new Amazon.QConnect.Model.MessageTemplateAttributes();
             Dictionary<System.String, System.String> requestAttributes_attributes_CustomAttribute = null;
             if (cmdletContext.Attributes_CustomAttribute != null)
@@ -974,7 +973,6 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestAttributes_attributes_CustomAttribute != null)
             {
                 request.Attributes.CustomAttributes = requestAttributes_attributes_CustomAttribute;
-                requestAttributesIsNull = false;
             }
             Amazon.QConnect.Model.AgentAttributes requestAttributes_attributes_AgentAttributes = null;
             
@@ -1009,7 +1007,6 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestAttributes_attributes_AgentAttributes != null)
             {
                 request.Attributes.AgentAttributes = requestAttributes_attributes_AgentAttributes;
-                requestAttributesIsNull = false;
             }
             Amazon.QConnect.Model.SystemAttributes requestAttributes_attributes_SystemAttributes = null;
             
@@ -1084,7 +1081,6 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestAttributes_attributes_SystemAttributes != null)
             {
                 request.Attributes.SystemAttributes = requestAttributes_attributes_SystemAttributes;
-                requestAttributesIsNull = false;
             }
             Amazon.QConnect.Model.CustomerProfileAttributes requestAttributes_attributes_CustomerProfileAttributes = null;
             
@@ -1679,12 +1675,6 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestAttributes_attributes_CustomerProfileAttributes != null)
             {
                 request.Attributes.CustomerProfileAttributes = requestAttributes_attributes_CustomerProfileAttributes;
-                requestAttributesIsNull = false;
-            }
-             // determine if request.Attributes should be set to null
-            if (requestAttributesIsNull)
-            {
-                request.Attributes = null;
             }
             if (cmdletContext.KnowledgeBaseId != null)
             {

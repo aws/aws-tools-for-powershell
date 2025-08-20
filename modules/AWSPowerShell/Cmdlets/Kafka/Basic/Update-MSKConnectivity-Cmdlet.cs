@@ -224,7 +224,6 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             }
             
              // populate ConnectivityInfo
-            var requestConnectivityInfoIsNull = true;
             request.ConnectivityInfo = new Amazon.Kafka.Model.ConnectivityInfo();
             Amazon.Kafka.Model.PublicAccess requestConnectivityInfo_connectivityInfo_PublicAccess = null;
             
@@ -249,7 +248,6 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             if (requestConnectivityInfo_connectivityInfo_PublicAccess != null)
             {
                 request.ConnectivityInfo.PublicAccess = requestConnectivityInfo_connectivityInfo_PublicAccess;
-                requestConnectivityInfoIsNull = false;
             }
             Amazon.Kafka.Model.VpcConnectivity requestConnectivityInfo_connectivityInfo_VpcConnectivity = null;
             
@@ -369,12 +367,6 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             if (requestConnectivityInfo_connectivityInfo_VpcConnectivity != null)
             {
                 request.ConnectivityInfo.VpcConnectivity = requestConnectivityInfo_connectivityInfo_VpcConnectivity;
-                requestConnectivityInfoIsNull = false;
-            }
-             // determine if request.ConnectivityInfo should be set to null
-            if (requestConnectivityInfoIsNull)
-            {
-                request.ConnectivityInfo = null;
             }
             if (cmdletContext.CurrentVersion != null)
             {

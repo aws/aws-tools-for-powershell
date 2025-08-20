@@ -440,7 +440,6 @@ namespace Amazon.PowerShell.Cmdlets.CGR
             Amazon.CodeGuruReviewer.Model.RepositoryAnalysis requestType_type_RepositoryAnalysis = null;
             
              // populate RepositoryAnalysis
-            var requestType_type_RepositoryAnalysisIsNull = true;
             requestType_type_RepositoryAnalysis = new Amazon.CodeGuruReviewer.Model.RepositoryAnalysis();
             Amazon.CodeGuruReviewer.Model.RepositoryHeadSourceCodeType requestType_type_RepositoryAnalysis_type_RepositoryAnalysis_RepositoryHead = null;
             
@@ -465,7 +464,6 @@ namespace Amazon.PowerShell.Cmdlets.CGR
             if (requestType_type_RepositoryAnalysis_type_RepositoryAnalysis_RepositoryHead != null)
             {
                 requestType_type_RepositoryAnalysis.RepositoryHead = requestType_type_RepositoryAnalysis_type_RepositoryAnalysis_RepositoryHead;
-                requestType_type_RepositoryAnalysisIsNull = false;
             }
             Amazon.CodeGuruReviewer.Model.SourceCodeType requestType_type_RepositoryAnalysis_type_RepositoryAnalysis_SourceCodeType = null;
             
@@ -750,12 +748,6 @@ namespace Amazon.PowerShell.Cmdlets.CGR
             if (requestType_type_RepositoryAnalysis_type_RepositoryAnalysis_SourceCodeType != null)
             {
                 requestType_type_RepositoryAnalysis.SourceCodeType = requestType_type_RepositoryAnalysis_type_RepositoryAnalysis_SourceCodeType;
-                requestType_type_RepositoryAnalysisIsNull = false;
-            }
-             // determine if requestType_type_RepositoryAnalysis should be set to null
-            if (requestType_type_RepositoryAnalysisIsNull)
-            {
-                requestType_type_RepositoryAnalysis = null;
             }
             if (requestType_type_RepositoryAnalysis != null)
             {

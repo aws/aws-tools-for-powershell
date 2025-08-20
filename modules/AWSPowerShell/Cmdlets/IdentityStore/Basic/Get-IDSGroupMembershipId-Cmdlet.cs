@@ -179,7 +179,6 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             }
             
              // populate MemberId
-            var requestMemberIdIsNull = true;
             request.MemberId = new Amazon.IdentityStore.Model.MemberId();
             System.String requestMemberId_memberId_UserId = null;
             if (cmdletContext.MemberId_UserId != null)
@@ -189,12 +188,6 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             if (requestMemberId_memberId_UserId != null)
             {
                 request.MemberId.UserId = requestMemberId_memberId_UserId;
-                requestMemberIdIsNull = false;
-            }
-             // determine if request.MemberId should be set to null
-            if (requestMemberIdIsNull)
-            {
-                request.MemberId = null;
             }
             
             CmdletOutput output;

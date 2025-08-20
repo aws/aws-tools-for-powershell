@@ -418,7 +418,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             
             
              // populate GenerationAttributes
-            var requestGenerationAttributesIsNull = true;
             request.GenerationAttributes = new Amazon.PaymentCryptographyData.Model.CardGenerationAttributes();
             Amazon.PaymentCryptographyData.Model.AmexCardSecurityCodeVersion1 requestGenerationAttributes_generationAttributes_AmexCardSecurityCodeVersion1 = null;
             
@@ -443,7 +442,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestGenerationAttributes_generationAttributes_AmexCardSecurityCodeVersion1 != null)
             {
                 request.GenerationAttributes.AmexCardSecurityCodeVersion1 = requestGenerationAttributes_generationAttributes_AmexCardSecurityCodeVersion1;
-                requestGenerationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.CardVerificationValue2 requestGenerationAttributes_generationAttributes_CardVerificationValue2 = null;
             
@@ -468,7 +466,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestGenerationAttributes_generationAttributes_CardVerificationValue2 != null)
             {
                 request.GenerationAttributes.CardVerificationValue2 = requestGenerationAttributes_generationAttributes_CardVerificationValue2;
-                requestGenerationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.AmexCardSecurityCodeVersion2 requestGenerationAttributes_generationAttributes_AmexCardSecurityCodeVersion2 = null;
             
@@ -503,7 +500,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestGenerationAttributes_generationAttributes_AmexCardSecurityCodeVersion2 != null)
             {
                 request.GenerationAttributes.AmexCardSecurityCodeVersion2 = requestGenerationAttributes_generationAttributes_AmexCardSecurityCodeVersion2;
-                requestGenerationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.CardVerificationValue1 requestGenerationAttributes_generationAttributes_CardVerificationValue1 = null;
             
@@ -538,7 +534,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestGenerationAttributes_generationAttributes_CardVerificationValue1 != null)
             {
                 request.GenerationAttributes.CardVerificationValue1 = requestGenerationAttributes_generationAttributes_CardVerificationValue1;
-                requestGenerationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.CardHolderVerificationValue requestGenerationAttributes_generationAttributes_CardHolderVerificationValue = null;
             
@@ -583,7 +578,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestGenerationAttributes_generationAttributes_CardHolderVerificationValue != null)
             {
                 request.GenerationAttributes.CardHolderVerificationValue = requestGenerationAttributes_generationAttributes_CardHolderVerificationValue;
-                requestGenerationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.DynamicCardVerificationCode requestGenerationAttributes_generationAttributes_DynamicCardVerificationCode = null;
             
@@ -638,7 +632,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestGenerationAttributes_generationAttributes_DynamicCardVerificationCode != null)
             {
                 request.GenerationAttributes.DynamicCardVerificationCode = requestGenerationAttributes_generationAttributes_DynamicCardVerificationCode;
-                requestGenerationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.DynamicCardVerificationValue requestGenerationAttributes_generationAttributes_DynamicCardVerificationValue = null;
             
@@ -693,12 +686,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestGenerationAttributes_generationAttributes_DynamicCardVerificationValue != null)
             {
                 request.GenerationAttributes.DynamicCardVerificationValue = requestGenerationAttributes_generationAttributes_DynamicCardVerificationValue;
-                requestGenerationAttributesIsNull = false;
-            }
-             // determine if request.GenerationAttributes should be set to null
-            if (requestGenerationAttributesIsNull)
-            {
-                request.GenerationAttributes = null;
             }
             if (cmdletContext.KeyIdentifier != null)
             {

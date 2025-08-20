@@ -498,7 +498,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             
              // populate UserConfiguration
-            var requestUserConfigurationIsNull = true;
             request.UserConfiguration = new Amazon.QuickSight.Model.SnapshotUserConfiguration();
             List<Amazon.QuickSight.Model.SnapshotAnonymousUser> requestUserConfiguration_userConfiguration_AnonymousUser = null;
             if (cmdletContext.UserConfiguration_AnonymousUser != null)
@@ -508,12 +507,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestUserConfiguration_userConfiguration_AnonymousUser != null)
             {
                 request.UserConfiguration.AnonymousUsers = requestUserConfiguration_userConfiguration_AnonymousUser;
-                requestUserConfigurationIsNull = false;
-            }
-             // determine if request.UserConfiguration should be set to null
-            if (requestUserConfigurationIsNull)
-            {
-                request.UserConfiguration = null;
             }
             
             CmdletOutput output;

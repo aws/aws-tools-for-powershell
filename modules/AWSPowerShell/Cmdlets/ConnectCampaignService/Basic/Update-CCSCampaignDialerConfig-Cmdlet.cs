@@ -205,7 +205,6 @@ namespace Amazon.PowerShell.Cmdlets.CCS
             
             
              // populate DialerConfig
-            var requestDialerConfigIsNull = true;
             request.DialerConfig = new Amazon.ConnectCampaignService.Model.DialerConfig();
             Amazon.ConnectCampaignService.Model.AgentlessDialerConfig requestDialerConfig_dialerConfig_AgentlessDialerConfig = null;
             
@@ -230,7 +229,6 @@ namespace Amazon.PowerShell.Cmdlets.CCS
             if (requestDialerConfig_dialerConfig_AgentlessDialerConfig != null)
             {
                 request.DialerConfig.AgentlessDialerConfig = requestDialerConfig_dialerConfig_AgentlessDialerConfig;
-                requestDialerConfigIsNull = false;
             }
             Amazon.ConnectCampaignService.Model.PredictiveDialerConfig requestDialerConfig_dialerConfig_PredictiveDialerConfig = null;
             
@@ -265,7 +263,6 @@ namespace Amazon.PowerShell.Cmdlets.CCS
             if (requestDialerConfig_dialerConfig_PredictiveDialerConfig != null)
             {
                 request.DialerConfig.PredictiveDialerConfig = requestDialerConfig_dialerConfig_PredictiveDialerConfig;
-                requestDialerConfigIsNull = false;
             }
             Amazon.ConnectCampaignService.Model.ProgressiveDialerConfig requestDialerConfig_dialerConfig_ProgressiveDialerConfig = null;
             
@@ -300,12 +297,6 @@ namespace Amazon.PowerShell.Cmdlets.CCS
             if (requestDialerConfig_dialerConfig_ProgressiveDialerConfig != null)
             {
                 request.DialerConfig.ProgressiveDialerConfig = requestDialerConfig_dialerConfig_ProgressiveDialerConfig;
-                requestDialerConfigIsNull = false;
-            }
-             // determine if request.DialerConfig should be set to null
-            if (requestDialerConfigIsNull)
-            {
-                request.DialerConfig = null;
             }
             if (cmdletContext.Id != null)
             {

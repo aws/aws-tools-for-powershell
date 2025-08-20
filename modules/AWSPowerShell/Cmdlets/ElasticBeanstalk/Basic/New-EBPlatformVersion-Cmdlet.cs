@@ -241,7 +241,6 @@ namespace Amazon.PowerShell.Cmdlets.EB
             }
             
              // populate PlatformDefinitionBundle
-            var requestPlatformDefinitionBundleIsNull = true;
             request.PlatformDefinitionBundle = new Amazon.ElasticBeanstalk.Model.S3Location();
             System.String requestPlatformDefinitionBundle_platformDefinitionBundle_S3Bucket = null;
             if (cmdletContext.PlatformDefinitionBundle_S3Bucket != null)
@@ -251,7 +250,6 @@ namespace Amazon.PowerShell.Cmdlets.EB
             if (requestPlatformDefinitionBundle_platformDefinitionBundle_S3Bucket != null)
             {
                 request.PlatformDefinitionBundle.S3Bucket = requestPlatformDefinitionBundle_platformDefinitionBundle_S3Bucket;
-                requestPlatformDefinitionBundleIsNull = false;
             }
             System.String requestPlatformDefinitionBundle_platformDefinitionBundle_S3Key = null;
             if (cmdletContext.PlatformDefinitionBundle_S3Key != null)
@@ -261,12 +259,6 @@ namespace Amazon.PowerShell.Cmdlets.EB
             if (requestPlatformDefinitionBundle_platformDefinitionBundle_S3Key != null)
             {
                 request.PlatformDefinitionBundle.S3Key = requestPlatformDefinitionBundle_platformDefinitionBundle_S3Key;
-                requestPlatformDefinitionBundleIsNull = false;
-            }
-             // determine if request.PlatformDefinitionBundle should be set to null
-            if (requestPlatformDefinitionBundleIsNull)
-            {
-                request.PlatformDefinitionBundle = null;
             }
             if (cmdletContext.PlatformName != null)
             {

@@ -336,7 +336,6 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             }
             
              // populate UpdateConfiguration
-            var requestUpdateConfigurationIsNull = true;
             request.UpdateConfiguration = new Amazon.VerifiedPermissions.Model.UpdateConfiguration();
             Amazon.VerifiedPermissions.Model.UpdateCognitoUserPoolConfiguration requestUpdateConfiguration_updateConfiguration_CognitoUserPoolConfiguration = null;
             
@@ -396,7 +395,6 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             if (requestUpdateConfiguration_updateConfiguration_CognitoUserPoolConfiguration != null)
             {
                 request.UpdateConfiguration.CognitoUserPoolConfiguration = requestUpdateConfiguration_updateConfiguration_CognitoUserPoolConfiguration;
-                requestUpdateConfigurationIsNull = false;
             }
             Amazon.VerifiedPermissions.Model.UpdateOpenIdConnectConfiguration requestUpdateConfiguration_updateConfiguration_OpenIdConnectConfiguration = null;
             
@@ -461,7 +459,6 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             Amazon.VerifiedPermissions.Model.UpdateOpenIdConnectTokenSelection requestUpdateConfiguration_updateConfiguration_OpenIdConnectConfiguration_updateConfiguration_OpenIdConnectConfiguration_TokenSelection = null;
             
              // populate TokenSelection
-            var requestUpdateConfiguration_updateConfiguration_OpenIdConnectConfiguration_updateConfiguration_OpenIdConnectConfiguration_TokenSelectionIsNull = true;
             requestUpdateConfiguration_updateConfiguration_OpenIdConnectConfiguration_updateConfiguration_OpenIdConnectConfiguration_TokenSelection = new Amazon.VerifiedPermissions.Model.UpdateOpenIdConnectTokenSelection();
             Amazon.VerifiedPermissions.Model.UpdateOpenIdConnectAccessTokenConfiguration requestUpdateConfiguration_updateConfiguration_OpenIdConnectConfiguration_updateConfiguration_OpenIdConnectConfiguration_TokenSelection_updateConfiguration_OpenIdConnectConfiguration_TokenSelection_AccessTokenOnly = null;
             
@@ -496,7 +493,6 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             if (requestUpdateConfiguration_updateConfiguration_OpenIdConnectConfiguration_updateConfiguration_OpenIdConnectConfiguration_TokenSelection_updateConfiguration_OpenIdConnectConfiguration_TokenSelection_AccessTokenOnly != null)
             {
                 requestUpdateConfiguration_updateConfiguration_OpenIdConnectConfiguration_updateConfiguration_OpenIdConnectConfiguration_TokenSelection.AccessTokenOnly = requestUpdateConfiguration_updateConfiguration_OpenIdConnectConfiguration_updateConfiguration_OpenIdConnectConfiguration_TokenSelection_updateConfiguration_OpenIdConnectConfiguration_TokenSelection_AccessTokenOnly;
-                requestUpdateConfiguration_updateConfiguration_OpenIdConnectConfiguration_updateConfiguration_OpenIdConnectConfiguration_TokenSelectionIsNull = false;
             }
             Amazon.VerifiedPermissions.Model.UpdateOpenIdConnectIdentityTokenConfiguration requestUpdateConfiguration_updateConfiguration_OpenIdConnectConfiguration_updateConfiguration_OpenIdConnectConfiguration_TokenSelection_updateConfiguration_OpenIdConnectConfiguration_TokenSelection_IdentityTokenOnly = null;
             
@@ -531,12 +527,6 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             if (requestUpdateConfiguration_updateConfiguration_OpenIdConnectConfiguration_updateConfiguration_OpenIdConnectConfiguration_TokenSelection_updateConfiguration_OpenIdConnectConfiguration_TokenSelection_IdentityTokenOnly != null)
             {
                 requestUpdateConfiguration_updateConfiguration_OpenIdConnectConfiguration_updateConfiguration_OpenIdConnectConfiguration_TokenSelection.IdentityTokenOnly = requestUpdateConfiguration_updateConfiguration_OpenIdConnectConfiguration_updateConfiguration_OpenIdConnectConfiguration_TokenSelection_updateConfiguration_OpenIdConnectConfiguration_TokenSelection_IdentityTokenOnly;
-                requestUpdateConfiguration_updateConfiguration_OpenIdConnectConfiguration_updateConfiguration_OpenIdConnectConfiguration_TokenSelectionIsNull = false;
-            }
-             // determine if requestUpdateConfiguration_updateConfiguration_OpenIdConnectConfiguration_updateConfiguration_OpenIdConnectConfiguration_TokenSelection should be set to null
-            if (requestUpdateConfiguration_updateConfiguration_OpenIdConnectConfiguration_updateConfiguration_OpenIdConnectConfiguration_TokenSelectionIsNull)
-            {
-                requestUpdateConfiguration_updateConfiguration_OpenIdConnectConfiguration_updateConfiguration_OpenIdConnectConfiguration_TokenSelection = null;
             }
             if (requestUpdateConfiguration_updateConfiguration_OpenIdConnectConfiguration_updateConfiguration_OpenIdConnectConfiguration_TokenSelection != null)
             {
@@ -551,12 +541,6 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             if (requestUpdateConfiguration_updateConfiguration_OpenIdConnectConfiguration != null)
             {
                 request.UpdateConfiguration.OpenIdConnectConfiguration = requestUpdateConfiguration_updateConfiguration_OpenIdConnectConfiguration;
-                requestUpdateConfigurationIsNull = false;
-            }
-             // determine if request.UpdateConfiguration should be set to null
-            if (requestUpdateConfigurationIsNull)
-            {
-                request.UpdateConfiguration = null;
             }
             
             CmdletOutput output;

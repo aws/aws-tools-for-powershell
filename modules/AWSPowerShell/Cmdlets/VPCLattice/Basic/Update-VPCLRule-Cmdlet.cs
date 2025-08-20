@@ -409,7 +409,6 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             Amazon.VPCLattice.Model.PathMatchType requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_Match = null;
             
              // populate Match
-            var requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_MatchIsNull = true;
             requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_Match = new Amazon.VPCLattice.Model.PathMatchType();
             System.String requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_Match_match_Exact = null;
             if (cmdletContext.Match_Exact != null)
@@ -419,7 +418,6 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_Match_match_Exact != null)
             {
                 requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_Match.Exact = requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_Match_match_Exact;
-                requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_MatchIsNull = false;
             }
             System.String requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_Match_match_Prefix = null;
             if (cmdletContext.Match_Prefix != null)
@@ -429,12 +427,6 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_Match_match_Prefix != null)
             {
                 requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_Match.Prefix = requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_Match_match_Prefix;
-                requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_MatchIsNull = false;
-            }
-             // determine if requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_Match should be set to null
-            if (requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_MatchIsNull)
-            {
-                requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_Match = null;
             }
             if (requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_Match != null)
             {

@@ -235,7 +235,6 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             }
             
              // populate Filters
-            var requestFiltersIsNull = true;
             request.Filters = new Amazon.DevOpsGuru.Model.ListEventsFilters();
             Amazon.DevOpsGuru.EventDataSource requestFilters_filters_DataSource = null;
             if (cmdletContext.Filters_DataSource != null)
@@ -245,7 +244,6 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             if (requestFilters_filters_DataSource != null)
             {
                 request.Filters.DataSource = requestFilters_filters_DataSource;
-                requestFiltersIsNull = false;
             }
             Amazon.DevOpsGuru.EventClass requestFilters_filters_EventClass = null;
             if (cmdletContext.Filters_EventClass != null)
@@ -255,7 +253,6 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             if (requestFilters_filters_EventClass != null)
             {
                 request.Filters.EventClass = requestFilters_filters_EventClass;
-                requestFiltersIsNull = false;
             }
             System.String requestFilters_filters_EventSource = null;
             if (cmdletContext.Filters_EventSource != null)
@@ -265,7 +262,6 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             if (requestFilters_filters_EventSource != null)
             {
                 request.Filters.EventSource = requestFilters_filters_EventSource;
-                requestFiltersIsNull = false;
             }
             Amazon.DevOpsGuru.Model.EventTimeRange requestFilters_filters_EventTimeRange = null;
             if (cmdletContext.Filters_EventTimeRange != null)
@@ -275,7 +271,6 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             if (requestFilters_filters_EventTimeRange != null)
             {
                 request.Filters.EventTimeRange = requestFilters_filters_EventTimeRange;
-                requestFiltersIsNull = false;
             }
             System.String requestFilters_filters_InsightId = null;
             if (cmdletContext.Filters_InsightId != null)
@@ -285,7 +280,6 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             if (requestFilters_filters_InsightId != null)
             {
                 request.Filters.InsightId = requestFilters_filters_InsightId;
-                requestFiltersIsNull = false;
             }
             Amazon.DevOpsGuru.Model.ResourceCollection requestFilters_filters_ResourceCollection = null;
             if (cmdletContext.Filters_ResourceCollection != null)
@@ -295,12 +289,6 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             if (requestFilters_filters_ResourceCollection != null)
             {
                 request.Filters.ResourceCollection = requestFilters_filters_ResourceCollection;
-                requestFiltersIsNull = false;
-            }
-             // determine if request.Filters should be set to null
-            if (requestFiltersIsNull)
-            {
-                request.Filters = null;
             }
             if (cmdletContext.MaxResult != null)
             {

@@ -217,7 +217,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             
              // populate SchedulerConfig
-            var requestSchedulerConfigIsNull = true;
             request.SchedulerConfig = new Amazon.SageMaker.Model.SchedulerConfig();
             Amazon.SageMaker.FairShare requestSchedulerConfig_schedulerConfig_FairShare = null;
             if (cmdletContext.SchedulerConfig_FairShare != null)
@@ -227,7 +226,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestSchedulerConfig_schedulerConfig_FairShare != null)
             {
                 request.SchedulerConfig.FairShare = requestSchedulerConfig_schedulerConfig_FairShare;
-                requestSchedulerConfigIsNull = false;
             }
             List<Amazon.SageMaker.Model.PriorityClass> requestSchedulerConfig_schedulerConfig_PriorityClass = null;
             if (cmdletContext.SchedulerConfig_PriorityClass != null)
@@ -237,12 +235,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestSchedulerConfig_schedulerConfig_PriorityClass != null)
             {
                 request.SchedulerConfig.PriorityClasses = requestSchedulerConfig_schedulerConfig_PriorityClass;
-                requestSchedulerConfigIsNull = false;
-            }
-             // determine if request.SchedulerConfig should be set to null
-            if (requestSchedulerConfigIsNull)
-            {
-                request.SchedulerConfig = null;
             }
             if (cmdletContext.Tag != null)
             {

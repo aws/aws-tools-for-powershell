@@ -219,7 +219,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             }
             
              // populate LoRaWAN
-            var requestLoRaWANIsNull = true;
             request.LoRaWAN = new Amazon.IoTWireless.Model.LoRaWANMulticast();
             Amazon.IoTWireless.DlClass requestLoRaWAN_loRaWAN_DlClass = null;
             if (cmdletContext.LoRaWAN_DlClass != null)
@@ -229,7 +228,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestLoRaWAN_loRaWAN_DlClass != null)
             {
                 request.LoRaWAN.DlClass = requestLoRaWAN_loRaWAN_DlClass;
-                requestLoRaWANIsNull = false;
             }
             Amazon.IoTWireless.SupportedRfRegion requestLoRaWAN_loRaWAN_RfRegion = null;
             if (cmdletContext.LoRaWAN_RfRegion != null)
@@ -239,7 +237,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestLoRaWAN_loRaWAN_RfRegion != null)
             {
                 request.LoRaWAN.RfRegion = requestLoRaWAN_loRaWAN_RfRegion;
-                requestLoRaWANIsNull = false;
             }
             Amazon.IoTWireless.Model.ParticipatingGatewaysMulticast requestLoRaWAN_loRaWAN_ParticipatingGateways = null;
             
@@ -274,12 +271,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestLoRaWAN_loRaWAN_ParticipatingGateways != null)
             {
                 request.LoRaWAN.ParticipatingGateways = requestLoRaWAN_loRaWAN_ParticipatingGateways;
-                requestLoRaWANIsNull = false;
-            }
-             // determine if request.LoRaWAN should be set to null
-            if (requestLoRaWANIsNull)
-            {
-                request.LoRaWAN = null;
             }
             if (cmdletContext.Name != null)
             {

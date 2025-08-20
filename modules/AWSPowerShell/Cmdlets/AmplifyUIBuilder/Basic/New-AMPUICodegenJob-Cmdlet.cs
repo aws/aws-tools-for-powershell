@@ -487,7 +487,6 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             Amazon.AmplifyUIBuilder.Model.CodegenJobRenderConfig requestCodegenJobToCreate_codegenJobToCreate_RenderConfig = null;
             
              // populate RenderConfig
-            var requestCodegenJobToCreate_codegenJobToCreate_RenderConfigIsNull = true;
             requestCodegenJobToCreate_codegenJobToCreate_RenderConfig = new Amazon.AmplifyUIBuilder.Model.CodegenJobRenderConfig();
             Amazon.AmplifyUIBuilder.Model.ReactStartCodegenJobData requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React = null;
             
@@ -662,12 +661,6 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React != null)
             {
                 requestCodegenJobToCreate_codegenJobToCreate_RenderConfig.React = requestCodegenJobToCreate_codegenJobToCreate_RenderConfig_codegenJobToCreate_RenderConfig_React;
-                requestCodegenJobToCreate_codegenJobToCreate_RenderConfigIsNull = false;
-            }
-             // determine if requestCodegenJobToCreate_codegenJobToCreate_RenderConfig should be set to null
-            if (requestCodegenJobToCreate_codegenJobToCreate_RenderConfigIsNull)
-            {
-                requestCodegenJobToCreate_codegenJobToCreate_RenderConfig = null;
             }
             if (requestCodegenJobToCreate_codegenJobToCreate_RenderConfig != null)
             {

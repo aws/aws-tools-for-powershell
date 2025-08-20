@@ -534,7 +534,6 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             Amazon.CleanRooms.Model.SnowflakeTableSchema requestTableReference_tableReference_Snowflake_tableReference_Snowflake_TableSchema = null;
             
              // populate TableSchema
-            var requestTableReference_tableReference_Snowflake_tableReference_Snowflake_TableSchemaIsNull = true;
             requestTableReference_tableReference_Snowflake_tableReference_Snowflake_TableSchema = new Amazon.CleanRooms.Model.SnowflakeTableSchema();
             List<Amazon.CleanRooms.Model.SnowflakeTableSchemaV1> requestTableReference_tableReference_Snowflake_tableReference_Snowflake_TableSchema_tableSchema_V1 = null;
             if (cmdletContext.TableSchema_V1 != null)
@@ -544,12 +543,6 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestTableReference_tableReference_Snowflake_tableReference_Snowflake_TableSchema_tableSchema_V1 != null)
             {
                 requestTableReference_tableReference_Snowflake_tableReference_Snowflake_TableSchema.V1 = requestTableReference_tableReference_Snowflake_tableReference_Snowflake_TableSchema_tableSchema_V1;
-                requestTableReference_tableReference_Snowflake_tableReference_Snowflake_TableSchemaIsNull = false;
-            }
-             // determine if requestTableReference_tableReference_Snowflake_tableReference_Snowflake_TableSchema should be set to null
-            if (requestTableReference_tableReference_Snowflake_tableReference_Snowflake_TableSchemaIsNull)
-            {
-                requestTableReference_tableReference_Snowflake_tableReference_Snowflake_TableSchema = null;
             }
             if (requestTableReference_tableReference_Snowflake_tableReference_Snowflake_TableSchema != null)
             {

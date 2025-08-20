@@ -286,7 +286,6 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             Amazon.CloudDirectory.Model.ObjectReference requestTypedLinkSpecifier_typedLinkSpecifier_SourceObjectReference = null;
             
              // populate SourceObjectReference
-            var requestTypedLinkSpecifier_typedLinkSpecifier_SourceObjectReferenceIsNull = true;
             requestTypedLinkSpecifier_typedLinkSpecifier_SourceObjectReference = new Amazon.CloudDirectory.Model.ObjectReference();
             System.String requestTypedLinkSpecifier_typedLinkSpecifier_SourceObjectReference_sourceObjectReference_Selector = null;
             if (cmdletContext.SourceObjectReference_Selector != null)
@@ -296,12 +295,6 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             if (requestTypedLinkSpecifier_typedLinkSpecifier_SourceObjectReference_sourceObjectReference_Selector != null)
             {
                 requestTypedLinkSpecifier_typedLinkSpecifier_SourceObjectReference.Selector = requestTypedLinkSpecifier_typedLinkSpecifier_SourceObjectReference_sourceObjectReference_Selector;
-                requestTypedLinkSpecifier_typedLinkSpecifier_SourceObjectReferenceIsNull = false;
-            }
-             // determine if requestTypedLinkSpecifier_typedLinkSpecifier_SourceObjectReference should be set to null
-            if (requestTypedLinkSpecifier_typedLinkSpecifier_SourceObjectReferenceIsNull)
-            {
-                requestTypedLinkSpecifier_typedLinkSpecifier_SourceObjectReference = null;
             }
             if (requestTypedLinkSpecifier_typedLinkSpecifier_SourceObjectReference != null)
             {
@@ -311,7 +304,6 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             Amazon.CloudDirectory.Model.ObjectReference requestTypedLinkSpecifier_typedLinkSpecifier_TargetObjectReference = null;
             
              // populate TargetObjectReference
-            var requestTypedLinkSpecifier_typedLinkSpecifier_TargetObjectReferenceIsNull = true;
             requestTypedLinkSpecifier_typedLinkSpecifier_TargetObjectReference = new Amazon.CloudDirectory.Model.ObjectReference();
             System.String requestTypedLinkSpecifier_typedLinkSpecifier_TargetObjectReference_targetObjectReference_Selector = null;
             if (cmdletContext.TargetObjectReference_Selector != null)
@@ -321,12 +313,6 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             if (requestTypedLinkSpecifier_typedLinkSpecifier_TargetObjectReference_targetObjectReference_Selector != null)
             {
                 requestTypedLinkSpecifier_typedLinkSpecifier_TargetObjectReference.Selector = requestTypedLinkSpecifier_typedLinkSpecifier_TargetObjectReference_targetObjectReference_Selector;
-                requestTypedLinkSpecifier_typedLinkSpecifier_TargetObjectReferenceIsNull = false;
-            }
-             // determine if requestTypedLinkSpecifier_typedLinkSpecifier_TargetObjectReference should be set to null
-            if (requestTypedLinkSpecifier_typedLinkSpecifier_TargetObjectReferenceIsNull)
-            {
-                requestTypedLinkSpecifier_typedLinkSpecifier_TargetObjectReference = null;
             }
             if (requestTypedLinkSpecifier_typedLinkSpecifier_TargetObjectReference != null)
             {

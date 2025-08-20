@@ -246,7 +246,6 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             }
             
              // populate ResourceConfig
-            var requestResourceConfigIsNull = true;
             request.ResourceConfig = new Amazon.CloudWatchLogs.Model.ResourceConfig();
             Amazon.CloudWatchLogs.Model.OpenSearchResourceConfig requestResourceConfig_resourceConfig_OpenSearchResourceConfig = null;
             
@@ -311,12 +310,6 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (requestResourceConfig_resourceConfig_OpenSearchResourceConfig != null)
             {
                 request.ResourceConfig.OpenSearchResourceConfig = requestResourceConfig_resourceConfig_OpenSearchResourceConfig;
-                requestResourceConfigIsNull = false;
-            }
-             // determine if request.ResourceConfig should be set to null
-            if (requestResourceConfigIsNull)
-            {
-                request.ResourceConfig = null;
             }
             
             CmdletOutput output;

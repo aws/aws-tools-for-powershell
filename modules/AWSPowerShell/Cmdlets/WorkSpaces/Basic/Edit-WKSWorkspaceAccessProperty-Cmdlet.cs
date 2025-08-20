@@ -293,7 +293,6 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             }
             
              // populate WorkspaceAccessProperties
-            var requestWorkspaceAccessPropertiesIsNull = true;
             request.WorkspaceAccessProperties = new Amazon.WorkSpaces.Model.WorkspaceAccessProperties();
             Amazon.WorkSpaces.AccessPropertyValue requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeAndroid = null;
             if (cmdletContext.WorkspaceAccessProperties_DeviceTypeAndroid != null)
@@ -303,7 +302,6 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeAndroid != null)
             {
                 request.WorkspaceAccessProperties.DeviceTypeAndroid = requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeAndroid;
-                requestWorkspaceAccessPropertiesIsNull = false;
             }
             Amazon.WorkSpaces.AccessPropertyValue requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeChromeOs = null;
             if (cmdletContext.WorkspaceAccessProperties_DeviceTypeChromeOs != null)
@@ -313,7 +311,6 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeChromeOs != null)
             {
                 request.WorkspaceAccessProperties.DeviceTypeChromeOs = requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeChromeOs;
-                requestWorkspaceAccessPropertiesIsNull = false;
             }
             Amazon.WorkSpaces.AccessPropertyValue requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeIo = null;
             if (cmdletContext.WorkspaceAccessProperties_DeviceTypeIo != null)
@@ -323,7 +320,6 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeIo != null)
             {
                 request.WorkspaceAccessProperties.DeviceTypeIos = requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeIo;
-                requestWorkspaceAccessPropertiesIsNull = false;
             }
             Amazon.WorkSpaces.AccessPropertyValue requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeLinux = null;
             if (cmdletContext.WorkspaceAccessProperties_DeviceTypeLinux != null)
@@ -333,7 +329,6 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeLinux != null)
             {
                 request.WorkspaceAccessProperties.DeviceTypeLinux = requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeLinux;
-                requestWorkspaceAccessPropertiesIsNull = false;
             }
             Amazon.WorkSpaces.AccessPropertyValue requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeOsx = null;
             if (cmdletContext.WorkspaceAccessProperties_DeviceTypeOsx != null)
@@ -343,7 +338,6 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeOsx != null)
             {
                 request.WorkspaceAccessProperties.DeviceTypeOsx = requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeOsx;
-                requestWorkspaceAccessPropertiesIsNull = false;
             }
             Amazon.WorkSpaces.AccessPropertyValue requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeWeb = null;
             if (cmdletContext.WorkspaceAccessProperties_DeviceTypeWeb != null)
@@ -353,7 +347,6 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeWeb != null)
             {
                 request.WorkspaceAccessProperties.DeviceTypeWeb = requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeWeb;
-                requestWorkspaceAccessPropertiesIsNull = false;
             }
             Amazon.WorkSpaces.AccessPropertyValue requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeWindow = null;
             if (cmdletContext.WorkspaceAccessProperties_DeviceTypeWindow != null)
@@ -363,7 +356,6 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeWindow != null)
             {
                 request.WorkspaceAccessProperties.DeviceTypeWindows = requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeWindow;
-                requestWorkspaceAccessPropertiesIsNull = false;
             }
             Amazon.WorkSpaces.AccessPropertyValue requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeWorkSpacesThinClient = null;
             if (cmdletContext.WorkspaceAccessProperties_DeviceTypeWorkSpacesThinClient != null)
@@ -373,7 +365,6 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeWorkSpacesThinClient != null)
             {
                 request.WorkspaceAccessProperties.DeviceTypeWorkSpacesThinClient = requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeWorkSpacesThinClient;
-                requestWorkspaceAccessPropertiesIsNull = false;
             }
             Amazon.WorkSpaces.AccessPropertyValue requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeZeroClient = null;
             if (cmdletContext.WorkspaceAccessProperties_DeviceTypeZeroClient != null)
@@ -383,7 +374,6 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeZeroClient != null)
             {
                 request.WorkspaceAccessProperties.DeviceTypeZeroClient = requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeZeroClient;
-                requestWorkspaceAccessPropertiesIsNull = false;
             }
             Amazon.WorkSpaces.Model.AccessEndpointConfig requestWorkspaceAccessProperties_workspaceAccessProperties_AccessEndpointConfig = null;
             
@@ -418,12 +408,6 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestWorkspaceAccessProperties_workspaceAccessProperties_AccessEndpointConfig != null)
             {
                 request.WorkspaceAccessProperties.AccessEndpointConfig = requestWorkspaceAccessProperties_workspaceAccessProperties_AccessEndpointConfig;
-                requestWorkspaceAccessPropertiesIsNull = false;
-            }
-             // determine if request.WorkspaceAccessProperties should be set to null
-            if (requestWorkspaceAccessPropertiesIsNull)
-            {
-                request.WorkspaceAccessProperties = null;
             }
             
             CmdletOutput output;

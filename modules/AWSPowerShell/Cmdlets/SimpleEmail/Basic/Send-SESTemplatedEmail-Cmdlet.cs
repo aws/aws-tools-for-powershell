@@ -402,7 +402,6 @@ namespace Amazon.PowerShell.Cmdlets.SES
             }
             
              // populate Destination
-            var requestDestinationIsNull = true;
             request.Destination = new Amazon.SimpleEmail.Model.Destination();
             List<System.String> requestDestination_destination_BccAddress = null;
             if (cmdletContext.Destination_BccAddress != null)
@@ -412,7 +411,6 @@ namespace Amazon.PowerShell.Cmdlets.SES
             if (requestDestination_destination_BccAddress != null)
             {
                 request.Destination.BccAddresses = requestDestination_destination_BccAddress;
-                requestDestinationIsNull = false;
             }
             List<System.String> requestDestination_destination_CcAddress = null;
             if (cmdletContext.Destination_CcAddress != null)
@@ -422,7 +420,6 @@ namespace Amazon.PowerShell.Cmdlets.SES
             if (requestDestination_destination_CcAddress != null)
             {
                 request.Destination.CcAddresses = requestDestination_destination_CcAddress;
-                requestDestinationIsNull = false;
             }
             List<System.String> requestDestination_destination_ToAddress = null;
             if (cmdletContext.Destination_ToAddress != null)
@@ -432,12 +429,6 @@ namespace Amazon.PowerShell.Cmdlets.SES
             if (requestDestination_destination_ToAddress != null)
             {
                 request.Destination.ToAddresses = requestDestination_destination_ToAddress;
-                requestDestinationIsNull = false;
-            }
-             // determine if request.Destination should be set to null
-            if (requestDestinationIsNull)
-            {
-                request.Destination = null;
             }
             if (cmdletContext.ReplyToAddress != null)
             {

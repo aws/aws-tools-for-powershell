@@ -4722,7 +4722,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             Amazon.LexModelsV2.Model.DefaultConditionalBranch requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch = null;
             
              // populate DefaultBranch
-            var requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranchIsNull = true;
             requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch = new Amazon.LexModelsV2.Model.DefaultConditionalBranch();
             Amazon.LexModelsV2.Model.ResponseSpecification requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_Response = null;
             
@@ -4757,7 +4756,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_Response != null)
             {
                 requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch.Response = requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_Response;
-                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranchIsNull = false;
             }
             Amazon.LexModelsV2.Model.DialogState requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_NextStep = null;
             
@@ -4862,12 +4860,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_NextStep != null)
             {
                 requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch.NextStep = requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_NextStep;
-                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranchIsNull = false;
-            }
-             // determine if requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch should be set to null
-            if (requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranchIsNull)
-            {
-                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch = null;
             }
             if (requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch != null)
             {
@@ -5017,7 +5009,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             Amazon.LexModelsV2.Model.DefaultConditionalBranch requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch = null;
             
              // populate DefaultBranch
-            var requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranchIsNull = true;
             requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch = new Amazon.LexModelsV2.Model.DefaultConditionalBranch();
             Amazon.LexModelsV2.Model.ResponseSpecification requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_Response = null;
             
@@ -5052,7 +5043,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_Response != null)
             {
                 requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch.Response = requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_Response;
-                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranchIsNull = false;
             }
             Amazon.LexModelsV2.Model.DialogState requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_NextStep = null;
             
@@ -5157,12 +5147,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_NextStep != null)
             {
                 requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch.NextStep = requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_NextStep;
-                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranchIsNull = false;
-            }
-             // determine if requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch should be set to null
-            if (requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranchIsNull)
-            {
-                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch = null;
             }
             if (requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch != null)
             {
@@ -5312,7 +5296,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             Amazon.LexModelsV2.Model.DefaultConditionalBranch requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch = null;
             
              // populate DefaultBranch
-            var requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranchIsNull = true;
             requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch = new Amazon.LexModelsV2.Model.DefaultConditionalBranch();
             Amazon.LexModelsV2.Model.ResponseSpecification requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_Response = null;
             
@@ -5347,7 +5330,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_Response != null)
             {
                 requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch.Response = requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_Response;
-                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranchIsNull = false;
             }
             Amazon.LexModelsV2.Model.DialogState requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_NextStep = null;
             
@@ -5452,12 +5434,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_NextStep != null)
             {
                 requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch.NextStep = requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_NextStep;
-                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranchIsNull = false;
-            }
-             // determine if requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch should be set to null
-            if (requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranchIsNull)
-            {
-                requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch = null;
             }
             if (requestFulfillmentCodeHook_fulfillmentCodeHook_PostFulfillmentStatusSpecification_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_fulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch != null)
             {
@@ -5661,7 +5637,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             Amazon.LexModelsV2.Model.DefaultConditionalBranch requestInitialResponseSetting_initialResponseSetting_Conditional_initialResponseSetting_Conditional_DefaultBranch = null;
             
              // populate DefaultBranch
-            var requestInitialResponseSetting_initialResponseSetting_Conditional_initialResponseSetting_Conditional_DefaultBranchIsNull = true;
             requestInitialResponseSetting_initialResponseSetting_Conditional_initialResponseSetting_Conditional_DefaultBranch = new Amazon.LexModelsV2.Model.DefaultConditionalBranch();
             Amazon.LexModelsV2.Model.ResponseSpecification requestInitialResponseSetting_initialResponseSetting_Conditional_initialResponseSetting_Conditional_DefaultBranch_initialResponseSetting_Conditional_DefaultBranch_Response = null;
             
@@ -5696,7 +5671,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestInitialResponseSetting_initialResponseSetting_Conditional_initialResponseSetting_Conditional_DefaultBranch_initialResponseSetting_Conditional_DefaultBranch_Response != null)
             {
                 requestInitialResponseSetting_initialResponseSetting_Conditional_initialResponseSetting_Conditional_DefaultBranch.Response = requestInitialResponseSetting_initialResponseSetting_Conditional_initialResponseSetting_Conditional_DefaultBranch_initialResponseSetting_Conditional_DefaultBranch_Response;
-                requestInitialResponseSetting_initialResponseSetting_Conditional_initialResponseSetting_Conditional_DefaultBranchIsNull = false;
             }
             Amazon.LexModelsV2.Model.DialogState requestInitialResponseSetting_initialResponseSetting_Conditional_initialResponseSetting_Conditional_DefaultBranch_initialResponseSetting_Conditional_DefaultBranch_NextStep = null;
             
@@ -5801,12 +5775,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestInitialResponseSetting_initialResponseSetting_Conditional_initialResponseSetting_Conditional_DefaultBranch_initialResponseSetting_Conditional_DefaultBranch_NextStep != null)
             {
                 requestInitialResponseSetting_initialResponseSetting_Conditional_initialResponseSetting_Conditional_DefaultBranch.NextStep = requestInitialResponseSetting_initialResponseSetting_Conditional_initialResponseSetting_Conditional_DefaultBranch_initialResponseSetting_Conditional_DefaultBranch_NextStep;
-                requestInitialResponseSetting_initialResponseSetting_Conditional_initialResponseSetting_Conditional_DefaultBranchIsNull = false;
-            }
-             // determine if requestInitialResponseSetting_initialResponseSetting_Conditional_initialResponseSetting_Conditional_DefaultBranch should be set to null
-            if (requestInitialResponseSetting_initialResponseSetting_Conditional_initialResponseSetting_Conditional_DefaultBranchIsNull)
-            {
-                requestInitialResponseSetting_initialResponseSetting_Conditional_initialResponseSetting_Conditional_DefaultBranch = null;
             }
             if (requestInitialResponseSetting_initialResponseSetting_Conditional_initialResponseSetting_Conditional_DefaultBranch != null)
             {
@@ -5966,7 +5934,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             Amazon.LexModelsV2.Model.PostDialogCodeHookInvocationSpecification requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification = null;
             
              // populate PostCodeHookSpecification
-            var requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecificationIsNull = true;
             requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification = new Amazon.LexModelsV2.Model.PostDialogCodeHookInvocationSpecification();
             Amazon.LexModelsV2.Model.ResponseSpecification requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureResponse = null;
             
@@ -6001,7 +5968,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureResponse != null)
             {
                 requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification.FailureResponse = requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureResponse;
-                requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecificationIsNull = false;
             }
             Amazon.LexModelsV2.Model.ResponseSpecification requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessResponse = null;
             
@@ -6036,7 +6002,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessResponse != null)
             {
                 requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification.SuccessResponse = requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessResponse;
-                requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecificationIsNull = false;
             }
             Amazon.LexModelsV2.Model.ResponseSpecification requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutResponse = null;
             
@@ -6071,7 +6036,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutResponse != null)
             {
                 requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification.TimeoutResponse = requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutResponse;
-                requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecificationIsNull = false;
             }
             Amazon.LexModelsV2.Model.ConditionalSpecification requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional = null;
             
@@ -6101,7 +6065,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             Amazon.LexModelsV2.Model.DefaultConditionalBranch requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch = null;
             
              // populate DefaultBranch
-            var requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranchIsNull = true;
             requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch = new Amazon.LexModelsV2.Model.DefaultConditionalBranch();
             Amazon.LexModelsV2.Model.ResponseSpecification requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_Response = null;
             
@@ -6136,7 +6099,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_Response != null)
             {
                 requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch.Response = requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_Response;
-                requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranchIsNull = false;
             }
             Amazon.LexModelsV2.Model.DialogState requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep = null;
             
@@ -6241,12 +6203,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep != null)
             {
                 requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch.NextStep = requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep;
-                requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranchIsNull = false;
-            }
-             // determine if requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch should be set to null
-            if (requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranchIsNull)
-            {
-                requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch = null;
             }
             if (requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch != null)
             {
@@ -6261,7 +6217,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional != null)
             {
                 requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification.FailureConditional = requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional;
-                requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecificationIsNull = false;
             }
             Amazon.LexModelsV2.Model.DialogState requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureNextStep = null;
             
@@ -6366,7 +6321,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureNextStep != null)
             {
                 requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification.FailureNextStep = requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_FailureNextStep;
-                requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecificationIsNull = false;
             }
             Amazon.LexModelsV2.Model.ConditionalSpecification requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional = null;
             
@@ -6396,7 +6350,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             Amazon.LexModelsV2.Model.DefaultConditionalBranch requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch = null;
             
              // populate DefaultBranch
-            var requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranchIsNull = true;
             requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch = new Amazon.LexModelsV2.Model.DefaultConditionalBranch();
             Amazon.LexModelsV2.Model.ResponseSpecification requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_Response = null;
             
@@ -6431,7 +6384,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_Response != null)
             {
                 requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch.Response = requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_Response;
-                requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranchIsNull = false;
             }
             Amazon.LexModelsV2.Model.DialogState requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep = null;
             
@@ -6536,12 +6488,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep != null)
             {
                 requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch.NextStep = requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep;
-                requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranchIsNull = false;
-            }
-             // determine if requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch should be set to null
-            if (requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranchIsNull)
-            {
-                requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch = null;
             }
             if (requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch != null)
             {
@@ -6556,7 +6502,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional != null)
             {
                 requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification.SuccessConditional = requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional;
-                requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecificationIsNull = false;
             }
             Amazon.LexModelsV2.Model.DialogState requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep = null;
             
@@ -6661,7 +6606,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep != null)
             {
                 requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification.SuccessNextStep = requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep;
-                requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecificationIsNull = false;
             }
             Amazon.LexModelsV2.Model.ConditionalSpecification requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional = null;
             
@@ -6691,7 +6635,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             Amazon.LexModelsV2.Model.DefaultConditionalBranch requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch = null;
             
              // populate DefaultBranch
-            var requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranchIsNull = true;
             requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch = new Amazon.LexModelsV2.Model.DefaultConditionalBranch();
             Amazon.LexModelsV2.Model.ResponseSpecification requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_Response = null;
             
@@ -6726,7 +6669,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_Response != null)
             {
                 requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch.Response = requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_Response;
-                requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranchIsNull = false;
             }
             Amazon.LexModelsV2.Model.DialogState requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep = null;
             
@@ -6831,12 +6773,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep != null)
             {
                 requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch.NextStep = requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep;
-                requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranchIsNull = false;
-            }
-             // determine if requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch should be set to null
-            if (requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranchIsNull)
-            {
-                requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch = null;
             }
             if (requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch != null)
             {
@@ -6851,7 +6787,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional != null)
             {
                 requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification.TimeoutConditional = requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional;
-                requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecificationIsNull = false;
             }
             Amazon.LexModelsV2.Model.DialogState requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep = null;
             
@@ -6956,12 +6891,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep != null)
             {
                 requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification.TimeoutNextStep = requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification_initialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep;
-                requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecificationIsNull = false;
-            }
-             // determine if requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification should be set to null
-            if (requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecificationIsNull)
-            {
-                requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification = null;
             }
             if (requestInitialResponseSetting_initialResponseSetting_CodeHook_initialResponseSetting_CodeHook_PostCodeHookSpecification != null)
             {
@@ -7064,7 +6993,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             Amazon.LexModelsV2.Model.DefaultConditionalBranch requestIntentClosingSetting_intentClosingSetting_Conditional_intentClosingSetting_Conditional_DefaultBranch = null;
             
              // populate DefaultBranch
-            var requestIntentClosingSetting_intentClosingSetting_Conditional_intentClosingSetting_Conditional_DefaultBranchIsNull = true;
             requestIntentClosingSetting_intentClosingSetting_Conditional_intentClosingSetting_Conditional_DefaultBranch = new Amazon.LexModelsV2.Model.DefaultConditionalBranch();
             Amazon.LexModelsV2.Model.ResponseSpecification requestIntentClosingSetting_intentClosingSetting_Conditional_intentClosingSetting_Conditional_DefaultBranch_intentClosingSetting_Conditional_DefaultBranch_Response = null;
             
@@ -7099,7 +7027,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestIntentClosingSetting_intentClosingSetting_Conditional_intentClosingSetting_Conditional_DefaultBranch_intentClosingSetting_Conditional_DefaultBranch_Response != null)
             {
                 requestIntentClosingSetting_intentClosingSetting_Conditional_intentClosingSetting_Conditional_DefaultBranch.Response = requestIntentClosingSetting_intentClosingSetting_Conditional_intentClosingSetting_Conditional_DefaultBranch_intentClosingSetting_Conditional_DefaultBranch_Response;
-                requestIntentClosingSetting_intentClosingSetting_Conditional_intentClosingSetting_Conditional_DefaultBranchIsNull = false;
             }
             Amazon.LexModelsV2.Model.DialogState requestIntentClosingSetting_intentClosingSetting_Conditional_intentClosingSetting_Conditional_DefaultBranch_intentClosingSetting_Conditional_DefaultBranch_NextStep = null;
             
@@ -7204,12 +7131,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestIntentClosingSetting_intentClosingSetting_Conditional_intentClosingSetting_Conditional_DefaultBranch_intentClosingSetting_Conditional_DefaultBranch_NextStep != null)
             {
                 requestIntentClosingSetting_intentClosingSetting_Conditional_intentClosingSetting_Conditional_DefaultBranch.NextStep = requestIntentClosingSetting_intentClosingSetting_Conditional_intentClosingSetting_Conditional_DefaultBranch_intentClosingSetting_Conditional_DefaultBranch_NextStep;
-                requestIntentClosingSetting_intentClosingSetting_Conditional_intentClosingSetting_Conditional_DefaultBranchIsNull = false;
-            }
-             // determine if requestIntentClosingSetting_intentClosingSetting_Conditional_intentClosingSetting_Conditional_DefaultBranch should be set to null
-            if (requestIntentClosingSetting_intentClosingSetting_Conditional_intentClosingSetting_Conditional_DefaultBranchIsNull)
-            {
-                requestIntentClosingSetting_intentClosingSetting_Conditional_intentClosingSetting_Conditional_DefaultBranch = null;
             }
             if (requestIntentClosingSetting_intentClosingSetting_Conditional_intentClosingSetting_Conditional_DefaultBranch != null)
             {
@@ -7518,7 +7439,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             Amazon.LexModelsV2.Model.DefaultConditionalBranch requestIntentConfirmationSetting_intentConfirmationSetting_ConfirmationConditional_intentConfirmationSetting_ConfirmationConditional_DefaultBranch = null;
             
              // populate DefaultBranch
-            var requestIntentConfirmationSetting_intentConfirmationSetting_ConfirmationConditional_intentConfirmationSetting_ConfirmationConditional_DefaultBranchIsNull = true;
             requestIntentConfirmationSetting_intentConfirmationSetting_ConfirmationConditional_intentConfirmationSetting_ConfirmationConditional_DefaultBranch = new Amazon.LexModelsV2.Model.DefaultConditionalBranch();
             Amazon.LexModelsV2.Model.ResponseSpecification requestIntentConfirmationSetting_intentConfirmationSetting_ConfirmationConditional_intentConfirmationSetting_ConfirmationConditional_DefaultBranch_intentConfirmationSetting_ConfirmationConditional_DefaultBranch_Response = null;
             
@@ -7553,7 +7473,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestIntentConfirmationSetting_intentConfirmationSetting_ConfirmationConditional_intentConfirmationSetting_ConfirmationConditional_DefaultBranch_intentConfirmationSetting_ConfirmationConditional_DefaultBranch_Response != null)
             {
                 requestIntentConfirmationSetting_intentConfirmationSetting_ConfirmationConditional_intentConfirmationSetting_ConfirmationConditional_DefaultBranch.Response = requestIntentConfirmationSetting_intentConfirmationSetting_ConfirmationConditional_intentConfirmationSetting_ConfirmationConditional_DefaultBranch_intentConfirmationSetting_ConfirmationConditional_DefaultBranch_Response;
-                requestIntentConfirmationSetting_intentConfirmationSetting_ConfirmationConditional_intentConfirmationSetting_ConfirmationConditional_DefaultBranchIsNull = false;
             }
             Amazon.LexModelsV2.Model.DialogState requestIntentConfirmationSetting_intentConfirmationSetting_ConfirmationConditional_intentConfirmationSetting_ConfirmationConditional_DefaultBranch_intentConfirmationSetting_ConfirmationConditional_DefaultBranch_NextStep = null;
             
@@ -7658,12 +7577,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestIntentConfirmationSetting_intentConfirmationSetting_ConfirmationConditional_intentConfirmationSetting_ConfirmationConditional_DefaultBranch_intentConfirmationSetting_ConfirmationConditional_DefaultBranch_NextStep != null)
             {
                 requestIntentConfirmationSetting_intentConfirmationSetting_ConfirmationConditional_intentConfirmationSetting_ConfirmationConditional_DefaultBranch.NextStep = requestIntentConfirmationSetting_intentConfirmationSetting_ConfirmationConditional_intentConfirmationSetting_ConfirmationConditional_DefaultBranch_intentConfirmationSetting_ConfirmationConditional_DefaultBranch_NextStep;
-                requestIntentConfirmationSetting_intentConfirmationSetting_ConfirmationConditional_intentConfirmationSetting_ConfirmationConditional_DefaultBranchIsNull = false;
-            }
-             // determine if requestIntentConfirmationSetting_intentConfirmationSetting_ConfirmationConditional_intentConfirmationSetting_ConfirmationConditional_DefaultBranch should be set to null
-            if (requestIntentConfirmationSetting_intentConfirmationSetting_ConfirmationConditional_intentConfirmationSetting_ConfirmationConditional_DefaultBranchIsNull)
-            {
-                requestIntentConfirmationSetting_intentConfirmationSetting_ConfirmationConditional_intentConfirmationSetting_ConfirmationConditional_DefaultBranch = null;
             }
             if (requestIntentConfirmationSetting_intentConfirmationSetting_ConfirmationConditional_intentConfirmationSetting_ConfirmationConditional_DefaultBranch != null)
             {
@@ -7813,7 +7726,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             Amazon.LexModelsV2.Model.DefaultConditionalBranch requestIntentConfirmationSetting_intentConfirmationSetting_DeclinationConditional_intentConfirmationSetting_DeclinationConditional_DefaultBranch = null;
             
              // populate DefaultBranch
-            var requestIntentConfirmationSetting_intentConfirmationSetting_DeclinationConditional_intentConfirmationSetting_DeclinationConditional_DefaultBranchIsNull = true;
             requestIntentConfirmationSetting_intentConfirmationSetting_DeclinationConditional_intentConfirmationSetting_DeclinationConditional_DefaultBranch = new Amazon.LexModelsV2.Model.DefaultConditionalBranch();
             Amazon.LexModelsV2.Model.ResponseSpecification requestIntentConfirmationSetting_intentConfirmationSetting_DeclinationConditional_intentConfirmationSetting_DeclinationConditional_DefaultBranch_intentConfirmationSetting_DeclinationConditional_DefaultBranch_Response = null;
             
@@ -7848,7 +7760,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestIntentConfirmationSetting_intentConfirmationSetting_DeclinationConditional_intentConfirmationSetting_DeclinationConditional_DefaultBranch_intentConfirmationSetting_DeclinationConditional_DefaultBranch_Response != null)
             {
                 requestIntentConfirmationSetting_intentConfirmationSetting_DeclinationConditional_intentConfirmationSetting_DeclinationConditional_DefaultBranch.Response = requestIntentConfirmationSetting_intentConfirmationSetting_DeclinationConditional_intentConfirmationSetting_DeclinationConditional_DefaultBranch_intentConfirmationSetting_DeclinationConditional_DefaultBranch_Response;
-                requestIntentConfirmationSetting_intentConfirmationSetting_DeclinationConditional_intentConfirmationSetting_DeclinationConditional_DefaultBranchIsNull = false;
             }
             Amazon.LexModelsV2.Model.DialogState requestIntentConfirmationSetting_intentConfirmationSetting_DeclinationConditional_intentConfirmationSetting_DeclinationConditional_DefaultBranch_intentConfirmationSetting_DeclinationConditional_DefaultBranch_NextStep = null;
             
@@ -7953,12 +7864,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestIntentConfirmationSetting_intentConfirmationSetting_DeclinationConditional_intentConfirmationSetting_DeclinationConditional_DefaultBranch_intentConfirmationSetting_DeclinationConditional_DefaultBranch_NextStep != null)
             {
                 requestIntentConfirmationSetting_intentConfirmationSetting_DeclinationConditional_intentConfirmationSetting_DeclinationConditional_DefaultBranch.NextStep = requestIntentConfirmationSetting_intentConfirmationSetting_DeclinationConditional_intentConfirmationSetting_DeclinationConditional_DefaultBranch_intentConfirmationSetting_DeclinationConditional_DefaultBranch_NextStep;
-                requestIntentConfirmationSetting_intentConfirmationSetting_DeclinationConditional_intentConfirmationSetting_DeclinationConditional_DefaultBranchIsNull = false;
-            }
-             // determine if requestIntentConfirmationSetting_intentConfirmationSetting_DeclinationConditional_intentConfirmationSetting_DeclinationConditional_DefaultBranch should be set to null
-            if (requestIntentConfirmationSetting_intentConfirmationSetting_DeclinationConditional_intentConfirmationSetting_DeclinationConditional_DefaultBranchIsNull)
-            {
-                requestIntentConfirmationSetting_intentConfirmationSetting_DeclinationConditional_intentConfirmationSetting_DeclinationConditional_DefaultBranch = null;
             }
             if (requestIntentConfirmationSetting_intentConfirmationSetting_DeclinationConditional_intentConfirmationSetting_DeclinationConditional_DefaultBranch != null)
             {
@@ -8108,7 +8013,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             Amazon.LexModelsV2.Model.DefaultConditionalBranch requestIntentConfirmationSetting_intentConfirmationSetting_FailureConditional_intentConfirmationSetting_FailureConditional_DefaultBranch = null;
             
              // populate DefaultBranch
-            var requestIntentConfirmationSetting_intentConfirmationSetting_FailureConditional_intentConfirmationSetting_FailureConditional_DefaultBranchIsNull = true;
             requestIntentConfirmationSetting_intentConfirmationSetting_FailureConditional_intentConfirmationSetting_FailureConditional_DefaultBranch = new Amazon.LexModelsV2.Model.DefaultConditionalBranch();
             Amazon.LexModelsV2.Model.ResponseSpecification requestIntentConfirmationSetting_intentConfirmationSetting_FailureConditional_intentConfirmationSetting_FailureConditional_DefaultBranch_intentConfirmationSetting_FailureConditional_DefaultBranch_Response = null;
             
@@ -8143,7 +8047,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestIntentConfirmationSetting_intentConfirmationSetting_FailureConditional_intentConfirmationSetting_FailureConditional_DefaultBranch_intentConfirmationSetting_FailureConditional_DefaultBranch_Response != null)
             {
                 requestIntentConfirmationSetting_intentConfirmationSetting_FailureConditional_intentConfirmationSetting_FailureConditional_DefaultBranch.Response = requestIntentConfirmationSetting_intentConfirmationSetting_FailureConditional_intentConfirmationSetting_FailureConditional_DefaultBranch_intentConfirmationSetting_FailureConditional_DefaultBranch_Response;
-                requestIntentConfirmationSetting_intentConfirmationSetting_FailureConditional_intentConfirmationSetting_FailureConditional_DefaultBranchIsNull = false;
             }
             Amazon.LexModelsV2.Model.DialogState requestIntentConfirmationSetting_intentConfirmationSetting_FailureConditional_intentConfirmationSetting_FailureConditional_DefaultBranch_intentConfirmationSetting_FailureConditional_DefaultBranch_NextStep = null;
             
@@ -8248,12 +8151,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestIntentConfirmationSetting_intentConfirmationSetting_FailureConditional_intentConfirmationSetting_FailureConditional_DefaultBranch_intentConfirmationSetting_FailureConditional_DefaultBranch_NextStep != null)
             {
                 requestIntentConfirmationSetting_intentConfirmationSetting_FailureConditional_intentConfirmationSetting_FailureConditional_DefaultBranch.NextStep = requestIntentConfirmationSetting_intentConfirmationSetting_FailureConditional_intentConfirmationSetting_FailureConditional_DefaultBranch_intentConfirmationSetting_FailureConditional_DefaultBranch_NextStep;
-                requestIntentConfirmationSetting_intentConfirmationSetting_FailureConditional_intentConfirmationSetting_FailureConditional_DefaultBranchIsNull = false;
-            }
-             // determine if requestIntentConfirmationSetting_intentConfirmationSetting_FailureConditional_intentConfirmationSetting_FailureConditional_DefaultBranch should be set to null
-            if (requestIntentConfirmationSetting_intentConfirmationSetting_FailureConditional_intentConfirmationSetting_FailureConditional_DefaultBranchIsNull)
-            {
-                requestIntentConfirmationSetting_intentConfirmationSetting_FailureConditional_intentConfirmationSetting_FailureConditional_DefaultBranch = null;
             }
             if (requestIntentConfirmationSetting_intentConfirmationSetting_FailureConditional_intentConfirmationSetting_FailureConditional_DefaultBranch != null)
             {
@@ -8413,7 +8310,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             Amazon.LexModelsV2.Model.PostDialogCodeHookInvocationSpecification requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification = null;
             
              // populate PostCodeHookSpecification
-            var requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecificationIsNull = true;
             requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification = new Amazon.LexModelsV2.Model.PostDialogCodeHookInvocationSpecification();
             Amazon.LexModelsV2.Model.ResponseSpecification requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureResponse = null;
             
@@ -8448,7 +8344,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureResponse != null)
             {
                 requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification.FailureResponse = requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureResponse;
-                requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecificationIsNull = false;
             }
             Amazon.LexModelsV2.Model.ResponseSpecification requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessResponse = null;
             
@@ -8483,7 +8378,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessResponse != null)
             {
                 requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification.SuccessResponse = requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessResponse;
-                requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecificationIsNull = false;
             }
             Amazon.LexModelsV2.Model.ResponseSpecification requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutResponse = null;
             
@@ -8518,7 +8412,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutResponse != null)
             {
                 requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification.TimeoutResponse = requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutResponse;
-                requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecificationIsNull = false;
             }
             Amazon.LexModelsV2.Model.ConditionalSpecification requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional = null;
             
@@ -8548,7 +8441,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             Amazon.LexModelsV2.Model.DefaultConditionalBranch requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch = null;
             
              // populate DefaultBranch
-            var requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranchIsNull = true;
             requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch = new Amazon.LexModelsV2.Model.DefaultConditionalBranch();
             Amazon.LexModelsV2.Model.ResponseSpecification requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_Response = null;
             
@@ -8583,7 +8475,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_Response != null)
             {
                 requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch.Response = requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_Response;
-                requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranchIsNull = false;
             }
             Amazon.LexModelsV2.Model.DialogState requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep = null;
             
@@ -8688,12 +8579,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep != null)
             {
                 requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch.NextStep = requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep;
-                requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranchIsNull = false;
-            }
-             // determine if requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch should be set to null
-            if (requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranchIsNull)
-            {
-                requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch = null;
             }
             if (requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch != null)
             {
@@ -8708,7 +8593,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional != null)
             {
                 requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification.FailureConditional = requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional;
-                requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecificationIsNull = false;
             }
             Amazon.LexModelsV2.Model.DialogState requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureNextStep = null;
             
@@ -8813,7 +8697,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureNextStep != null)
             {
                 requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification.FailureNextStep = requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureNextStep;
-                requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecificationIsNull = false;
             }
             Amazon.LexModelsV2.Model.ConditionalSpecification requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional = null;
             
@@ -8843,7 +8726,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             Amazon.LexModelsV2.Model.DefaultConditionalBranch requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch = null;
             
              // populate DefaultBranch
-            var requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranchIsNull = true;
             requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch = new Amazon.LexModelsV2.Model.DefaultConditionalBranch();
             Amazon.LexModelsV2.Model.ResponseSpecification requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_Response = null;
             
@@ -8878,7 +8760,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_Response != null)
             {
                 requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch.Response = requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_Response;
-                requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranchIsNull = false;
             }
             Amazon.LexModelsV2.Model.DialogState requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep = null;
             
@@ -8983,12 +8864,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep != null)
             {
                 requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch.NextStep = requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep;
-                requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranchIsNull = false;
-            }
-             // determine if requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch should be set to null
-            if (requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranchIsNull)
-            {
-                requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch = null;
             }
             if (requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch != null)
             {
@@ -9003,7 +8878,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional != null)
             {
                 requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification.SuccessConditional = requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional;
-                requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecificationIsNull = false;
             }
             Amazon.LexModelsV2.Model.DialogState requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep = null;
             
@@ -9108,7 +8982,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep != null)
             {
                 requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification.SuccessNextStep = requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep;
-                requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecificationIsNull = false;
             }
             Amazon.LexModelsV2.Model.ConditionalSpecification requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional = null;
             
@@ -9138,7 +9011,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             Amazon.LexModelsV2.Model.DefaultConditionalBranch requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch = null;
             
              // populate DefaultBranch
-            var requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranchIsNull = true;
             requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch = new Amazon.LexModelsV2.Model.DefaultConditionalBranch();
             Amazon.LexModelsV2.Model.ResponseSpecification requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_Response = null;
             
@@ -9173,7 +9045,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_Response != null)
             {
                 requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch.Response = requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_Response;
-                requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranchIsNull = false;
             }
             Amazon.LexModelsV2.Model.DialogState requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep = null;
             
@@ -9278,12 +9149,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep != null)
             {
                 requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch.NextStep = requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep;
-                requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranchIsNull = false;
-            }
-             // determine if requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch should be set to null
-            if (requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranchIsNull)
-            {
-                requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch = null;
             }
             if (requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch != null)
             {
@@ -9298,7 +9163,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional != null)
             {
                 requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification.TimeoutConditional = requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional;
-                requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecificationIsNull = false;
             }
             Amazon.LexModelsV2.Model.DialogState requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep = null;
             
@@ -9403,12 +9267,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep != null)
             {
                 requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification.TimeoutNextStep = requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_intentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep;
-                requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecificationIsNull = false;
-            }
-             // determine if requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification should be set to null
-            if (requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecificationIsNull)
-            {
-                requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification = null;
             }
             if (requestIntentConfirmationSetting_intentConfirmationSetting_CodeHook_intentConfirmationSetting_CodeHook_PostCodeHookSpecification != null)
             {

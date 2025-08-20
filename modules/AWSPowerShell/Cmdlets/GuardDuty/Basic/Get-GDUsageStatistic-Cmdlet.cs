@@ -294,7 +294,6 @@ namespace Amazon.PowerShell.Cmdlets.GD
             }
             
              // populate UsageCriteria
-            var requestUsageCriteriaIsNull = true;
             request.UsageCriteria = new Amazon.GuardDuty.Model.UsageCriteria();
             List<System.String> requestUsageCriteria_usageCriteria_AccountId = null;
             if (cmdletContext.UsageCriteria_AccountId != null)
@@ -304,7 +303,6 @@ namespace Amazon.PowerShell.Cmdlets.GD
             if (requestUsageCriteria_usageCriteria_AccountId != null)
             {
                 request.UsageCriteria.AccountIds = requestUsageCriteria_usageCriteria_AccountId;
-                requestUsageCriteriaIsNull = false;
             }
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             List<System.String> requestUsageCriteria_usageCriteria_DataSource = null;
@@ -315,7 +313,6 @@ namespace Amazon.PowerShell.Cmdlets.GD
             if (requestUsageCriteria_usageCriteria_DataSource != null)
             {
                 request.UsageCriteria.DataSources = requestUsageCriteria_usageCriteria_DataSource;
-                requestUsageCriteriaIsNull = false;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             List<System.String> requestUsageCriteria_usageCriteria_Feature = null;
@@ -326,7 +323,6 @@ namespace Amazon.PowerShell.Cmdlets.GD
             if (requestUsageCriteria_usageCriteria_Feature != null)
             {
                 request.UsageCriteria.Features = requestUsageCriteria_usageCriteria_Feature;
-                requestUsageCriteriaIsNull = false;
             }
             List<System.String> requestUsageCriteria_usageCriteria_Resource = null;
             if (cmdletContext.UsageCriteria_Resource != null)
@@ -336,12 +332,6 @@ namespace Amazon.PowerShell.Cmdlets.GD
             if (requestUsageCriteria_usageCriteria_Resource != null)
             {
                 request.UsageCriteria.Resources = requestUsageCriteria_usageCriteria_Resource;
-                requestUsageCriteriaIsNull = false;
-            }
-             // determine if request.UsageCriteria should be set to null
-            if (requestUsageCriteriaIsNull)
-            {
-                request.UsageCriteria = null;
             }
             if (cmdletContext.UsageStatisticType != null)
             {

@@ -1115,7 +1115,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             }
             
              // populate KeyMaterial
-            var requestKeyMaterialIsNull = true;
             request.KeyMaterial = new Amazon.PaymentCryptography.Model.ExportKeyMaterial();
             Amazon.PaymentCryptography.Model.ExportTr31KeyBlock requestKeyMaterial_keyMaterial_Tr31KeyBlock = null;
             
@@ -1290,7 +1289,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_Tr31KeyBlock != null)
             {
                 request.KeyMaterial.Tr31KeyBlock = requestKeyMaterial_keyMaterial_Tr31KeyBlock;
-                requestKeyMaterialIsNull = false;
             }
             Amazon.PaymentCryptography.Model.ExportKeyCryptogram requestKeyMaterial_keyMaterial_KeyCryptogram = null;
             
@@ -1335,7 +1333,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_KeyCryptogram != null)
             {
                 request.KeyMaterial.KeyCryptogram = requestKeyMaterial_keyMaterial_KeyCryptogram;
-                requestKeyMaterialIsNull = false;
             }
             Amazon.PaymentCryptography.Model.ExportTr34KeyBlock requestKeyMaterial_keyMaterial_Tr34KeyBlock = null;
             
@@ -1550,7 +1547,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_Tr34KeyBlock != null)
             {
                 request.KeyMaterial.Tr34KeyBlock = requestKeyMaterial_keyMaterial_Tr34KeyBlock;
-                requestKeyMaterialIsNull = false;
             }
             Amazon.PaymentCryptography.Model.ExportDiffieHellmanTr31KeyBlock requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock = null;
             
@@ -1620,7 +1616,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             Amazon.PaymentCryptography.Model.DiffieHellmanDerivationData requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData = null;
             
              // populate DerivationData
-            var requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationDataIsNull = true;
             requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData = new Amazon.PaymentCryptography.Model.DiffieHellmanDerivationData();
             System.String requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData_derivationData_SharedInformation = null;
             if (cmdletContext.DerivationData_SharedInformation != null)
@@ -1630,12 +1625,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData_derivationData_SharedInformation != null)
             {
                 requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData.SharedInformation = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData_derivationData_SharedInformation;
-                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationDataIsNull = false;
-            }
-             // determine if requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData should be set to null
-            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationDataIsNull)
-            {
-                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData = null;
             }
             if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData != null)
             {
@@ -1800,12 +1789,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock != null)
             {
                 request.KeyMaterial.DiffieHellmanTr31KeyBlock = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock;
-                requestKeyMaterialIsNull = false;
-            }
-             // determine if request.KeyMaterial should be set to null
-            if (requestKeyMaterialIsNull)
-            {
-                request.KeyMaterial = null;
             }
             
             CmdletOutput output;

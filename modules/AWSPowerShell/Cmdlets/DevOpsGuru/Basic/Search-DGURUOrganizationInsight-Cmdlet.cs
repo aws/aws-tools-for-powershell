@@ -451,7 +451,6 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             }
             
              // populate StartTimeRange
-            var requestStartTimeRangeIsNull = true;
             request.StartTimeRange = new Amazon.DevOpsGuru.Model.StartTimeRange();
             System.DateTime? requestStartTimeRange_startTimeRange_FromTime = null;
             if (cmdletContext.StartTimeRange_FromTime != null)
@@ -461,7 +460,6 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             if (requestStartTimeRange_startTimeRange_FromTime != null)
             {
                 request.StartTimeRange.FromTime = requestStartTimeRange_startTimeRange_FromTime.Value;
-                requestStartTimeRangeIsNull = false;
             }
             System.DateTime? requestStartTimeRange_startTimeRange_ToTime = null;
             if (cmdletContext.StartTimeRange_ToTime != null)
@@ -471,12 +469,6 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             if (requestStartTimeRange_startTimeRange_ToTime != null)
             {
                 request.StartTimeRange.ToTime = requestStartTimeRange_startTimeRange_ToTime.Value;
-                requestStartTimeRangeIsNull = false;
-            }
-             // determine if request.StartTimeRange should be set to null
-            if (requestStartTimeRangeIsNull)
-            {
-                request.StartTimeRange = null;
             }
             if (cmdletContext.Type != null)
             {

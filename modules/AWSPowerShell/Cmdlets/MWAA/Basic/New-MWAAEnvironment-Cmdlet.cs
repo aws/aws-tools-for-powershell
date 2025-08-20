@@ -902,7 +902,6 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             }
             
              // populate NetworkConfiguration
-            var requestNetworkConfigurationIsNull = true;
             request.NetworkConfiguration = new Amazon.MWAA.Model.NetworkConfiguration();
             List<System.String> requestNetworkConfiguration_networkConfiguration_SecurityGroupId = null;
             if (cmdletContext.NetworkConfiguration_SecurityGroupId != null)
@@ -912,7 +911,6 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             if (requestNetworkConfiguration_networkConfiguration_SecurityGroupId != null)
             {
                 request.NetworkConfiguration.SecurityGroupIds = requestNetworkConfiguration_networkConfiguration_SecurityGroupId;
-                requestNetworkConfigurationIsNull = false;
             }
             List<System.String> requestNetworkConfiguration_networkConfiguration_SubnetId = null;
             if (cmdletContext.NetworkConfiguration_SubnetId != null)
@@ -922,12 +920,6 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             if (requestNetworkConfiguration_networkConfiguration_SubnetId != null)
             {
                 request.NetworkConfiguration.SubnetIds = requestNetworkConfiguration_networkConfiguration_SubnetId;
-                requestNetworkConfigurationIsNull = false;
-            }
-             // determine if request.NetworkConfiguration should be set to null
-            if (requestNetworkConfigurationIsNull)
-            {
-                request.NetworkConfiguration = null;
             }
             if (cmdletContext.PluginsS3ObjectVersion != null)
             {

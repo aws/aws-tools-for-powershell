@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>A valid refresh token that can authorize the request for new tokens. When refresh
         /// token rotation is active in the requested app client, this token is invalidated after
-        /// the request is complete.</para>
+        /// the request is complete and after an optional grace period.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -653,7 +653,6 @@ namespace Amazon.PowerShell.Cmdlets.LS
             }
             
              // populate DefaultCacheBehavior
-            var requestDefaultCacheBehaviorIsNull = true;
             request.DefaultCacheBehavior = new Amazon.Lightsail.Model.CacheBehavior();
             Amazon.Lightsail.BehaviorEnum requestDefaultCacheBehavior_defaultCacheBehavior_Behavior = null;
             if (cmdletContext.DefaultCacheBehavior_Behavior != null)
@@ -663,12 +662,6 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (requestDefaultCacheBehavior_defaultCacheBehavior_Behavior != null)
             {
                 request.DefaultCacheBehavior.Behavior = requestDefaultCacheBehavior_defaultCacheBehavior_Behavior;
-                requestDefaultCacheBehaviorIsNull = false;
-            }
-             // determine if request.DefaultCacheBehavior should be set to null
-            if (requestDefaultCacheBehaviorIsNull)
-            {
-                request.DefaultCacheBehavior = null;
             }
             if (cmdletContext.DistributionName != null)
             {
@@ -680,7 +673,6 @@ namespace Amazon.PowerShell.Cmdlets.LS
             }
             
              // populate Origin
-            var requestOriginIsNull = true;
             request.Origin = new Amazon.Lightsail.Model.InputOrigin();
             System.String requestOrigin_origin_Name = null;
             if (cmdletContext.Origin_Name != null)
@@ -690,7 +682,6 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (requestOrigin_origin_Name != null)
             {
                 request.Origin.Name = requestOrigin_origin_Name;
-                requestOriginIsNull = false;
             }
             Amazon.Lightsail.OriginProtocolPolicyEnum requestOrigin_origin_ProtocolPolicy = null;
             if (cmdletContext.Origin_ProtocolPolicy != null)
@@ -700,7 +691,6 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (requestOrigin_origin_ProtocolPolicy != null)
             {
                 request.Origin.ProtocolPolicy = requestOrigin_origin_ProtocolPolicy;
-                requestOriginIsNull = false;
             }
             Amazon.Lightsail.RegionName requestOrigin_origin_RegionName = null;
             if (cmdletContext.Origin_RegionName != null)
@@ -710,7 +700,6 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (requestOrigin_origin_RegionName != null)
             {
                 request.Origin.RegionName = requestOrigin_origin_RegionName;
-                requestOriginIsNull = false;
             }
             System.Int32? requestOrigin_origin_ResponseTimeout = null;
             if (cmdletContext.Origin_ResponseTimeout != null)
@@ -720,12 +709,6 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (requestOrigin_origin_ResponseTimeout != null)
             {
                 request.Origin.ResponseTimeout = requestOrigin_origin_ResponseTimeout.Value;
-                requestOriginIsNull = false;
-            }
-             // determine if request.Origin should be set to null
-            if (requestOriginIsNull)
-            {
-                request.Origin = null;
             }
             if (cmdletContext.Tag != null)
             {

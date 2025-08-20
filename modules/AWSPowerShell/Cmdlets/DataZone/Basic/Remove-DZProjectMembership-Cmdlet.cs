@@ -195,7 +195,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             
              // populate Member
-            var requestMemberIsNull = true;
             request.Member = new Amazon.DataZone.Model.Member();
             System.String requestMember_member_GroupIdentifier = null;
             if (cmdletContext.Member_GroupIdentifier != null)
@@ -205,7 +204,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestMember_member_GroupIdentifier != null)
             {
                 request.Member.GroupIdentifier = requestMember_member_GroupIdentifier;
-                requestMemberIsNull = false;
             }
             System.String requestMember_member_UserIdentifier = null;
             if (cmdletContext.Member_UserIdentifier != null)
@@ -215,12 +213,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestMember_member_UserIdentifier != null)
             {
                 request.Member.UserIdentifier = requestMember_member_UserIdentifier;
-                requestMemberIsNull = false;
-            }
-             // determine if request.Member should be set to null
-            if (requestMemberIsNull)
-            {
-                request.Member = null;
             }
             if (cmdletContext.ProjectIdentifier != null)
             {

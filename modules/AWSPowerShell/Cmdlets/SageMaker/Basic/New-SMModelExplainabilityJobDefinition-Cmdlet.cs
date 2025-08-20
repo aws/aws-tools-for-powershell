@@ -951,7 +951,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             
              // populate ModelExplainabilityJobInput
-            var requestModelExplainabilityJobInputIsNull = true;
             request.ModelExplainabilityJobInput = new Amazon.SageMaker.Model.ModelExplainabilityJobInput();
             Amazon.SageMaker.Model.EndpointInput requestModelExplainabilityJobInput_modelExplainabilityJobInput_EndpointInput = null;
             
@@ -1076,7 +1075,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestModelExplainabilityJobInput_modelExplainabilityJobInput_EndpointInput != null)
             {
                 request.ModelExplainabilityJobInput.EndpointInput = requestModelExplainabilityJobInput_modelExplainabilityJobInput_EndpointInput;
-                requestModelExplainabilityJobInputIsNull = false;
             }
             Amazon.SageMaker.Model.BatchTransformInput requestModelExplainabilityJobInput_modelExplainabilityJobInput_BatchTransformInput = null;
             
@@ -1196,7 +1194,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             Amazon.SageMaker.Model.MonitoringDatasetFormat requestModelExplainabilityJobInput_modelExplainabilityJobInput_BatchTransformInput_modelExplainabilityJobInput_BatchTransformInput_DatasetFormat = null;
             
              // populate DatasetFormat
-            var requestModelExplainabilityJobInput_modelExplainabilityJobInput_BatchTransformInput_modelExplainabilityJobInput_BatchTransformInput_DatasetFormatIsNull = true;
             requestModelExplainabilityJobInput_modelExplainabilityJobInput_BatchTransformInput_modelExplainabilityJobInput_BatchTransformInput_DatasetFormat = new Amazon.SageMaker.Model.MonitoringDatasetFormat();
             Amazon.SageMaker.Model.MonitoringParquetDatasetFormat requestModelExplainabilityJobInput_modelExplainabilityJobInput_BatchTransformInput_modelExplainabilityJobInput_BatchTransformInput_DatasetFormat_datasetFormat_Parquet = null;
             if (cmdletContext.DatasetFormat_Parquet != null)
@@ -1206,7 +1203,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestModelExplainabilityJobInput_modelExplainabilityJobInput_BatchTransformInput_modelExplainabilityJobInput_BatchTransformInput_DatasetFormat_datasetFormat_Parquet != null)
             {
                 requestModelExplainabilityJobInput_modelExplainabilityJobInput_BatchTransformInput_modelExplainabilityJobInput_BatchTransformInput_DatasetFormat.Parquet = requestModelExplainabilityJobInput_modelExplainabilityJobInput_BatchTransformInput_modelExplainabilityJobInput_BatchTransformInput_DatasetFormat_datasetFormat_Parquet;
-                requestModelExplainabilityJobInput_modelExplainabilityJobInput_BatchTransformInput_modelExplainabilityJobInput_BatchTransformInput_DatasetFormatIsNull = false;
             }
             Amazon.SageMaker.Model.MonitoringCsvDatasetFormat requestModelExplainabilityJobInput_modelExplainabilityJobInput_BatchTransformInput_modelExplainabilityJobInput_BatchTransformInput_DatasetFormat_modelExplainabilityJobInput_BatchTransformInput_DatasetFormat_Csv = null;
             
@@ -1231,7 +1227,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestModelExplainabilityJobInput_modelExplainabilityJobInput_BatchTransformInput_modelExplainabilityJobInput_BatchTransformInput_DatasetFormat_modelExplainabilityJobInput_BatchTransformInput_DatasetFormat_Csv != null)
             {
                 requestModelExplainabilityJobInput_modelExplainabilityJobInput_BatchTransformInput_modelExplainabilityJobInput_BatchTransformInput_DatasetFormat.Csv = requestModelExplainabilityJobInput_modelExplainabilityJobInput_BatchTransformInput_modelExplainabilityJobInput_BatchTransformInput_DatasetFormat_modelExplainabilityJobInput_BatchTransformInput_DatasetFormat_Csv;
-                requestModelExplainabilityJobInput_modelExplainabilityJobInput_BatchTransformInput_modelExplainabilityJobInput_BatchTransformInput_DatasetFormatIsNull = false;
             }
             Amazon.SageMaker.Model.MonitoringJsonDatasetFormat requestModelExplainabilityJobInput_modelExplainabilityJobInput_BatchTransformInput_modelExplainabilityJobInput_BatchTransformInput_DatasetFormat_modelExplainabilityJobInput_BatchTransformInput_DatasetFormat_Json = null;
             
@@ -1256,12 +1251,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestModelExplainabilityJobInput_modelExplainabilityJobInput_BatchTransformInput_modelExplainabilityJobInput_BatchTransformInput_DatasetFormat_modelExplainabilityJobInput_BatchTransformInput_DatasetFormat_Json != null)
             {
                 requestModelExplainabilityJobInput_modelExplainabilityJobInput_BatchTransformInput_modelExplainabilityJobInput_BatchTransformInput_DatasetFormat.Json = requestModelExplainabilityJobInput_modelExplainabilityJobInput_BatchTransformInput_modelExplainabilityJobInput_BatchTransformInput_DatasetFormat_modelExplainabilityJobInput_BatchTransformInput_DatasetFormat_Json;
-                requestModelExplainabilityJobInput_modelExplainabilityJobInput_BatchTransformInput_modelExplainabilityJobInput_BatchTransformInput_DatasetFormatIsNull = false;
-            }
-             // determine if requestModelExplainabilityJobInput_modelExplainabilityJobInput_BatchTransformInput_modelExplainabilityJobInput_BatchTransformInput_DatasetFormat should be set to null
-            if (requestModelExplainabilityJobInput_modelExplainabilityJobInput_BatchTransformInput_modelExplainabilityJobInput_BatchTransformInput_DatasetFormatIsNull)
-            {
-                requestModelExplainabilityJobInput_modelExplainabilityJobInput_BatchTransformInput_modelExplainabilityJobInput_BatchTransformInput_DatasetFormat = null;
             }
             if (requestModelExplainabilityJobInput_modelExplainabilityJobInput_BatchTransformInput_modelExplainabilityJobInput_BatchTransformInput_DatasetFormat != null)
             {
@@ -1276,12 +1265,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestModelExplainabilityJobInput_modelExplainabilityJobInput_BatchTransformInput != null)
             {
                 request.ModelExplainabilityJobInput.BatchTransformInput = requestModelExplainabilityJobInput_modelExplainabilityJobInput_BatchTransformInput;
-                requestModelExplainabilityJobInputIsNull = false;
-            }
-             // determine if request.ModelExplainabilityJobInput should be set to null
-            if (requestModelExplainabilityJobInputIsNull)
-            {
-                request.ModelExplainabilityJobInput = null;
             }
             
              // populate ModelExplainabilityJobOutputConfig

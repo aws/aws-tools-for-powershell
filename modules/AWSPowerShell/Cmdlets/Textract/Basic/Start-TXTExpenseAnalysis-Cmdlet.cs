@@ -251,7 +251,6 @@ namespace Amazon.PowerShell.Cmdlets.TXT
             }
             
              // populate DocumentLocation
-            var requestDocumentLocationIsNull = true;
             request.DocumentLocation = new Amazon.Textract.Model.DocumentLocation();
             Amazon.Textract.Model.S3Object requestDocumentLocation_documentLocation_S3Object = null;
             
@@ -296,12 +295,6 @@ namespace Amazon.PowerShell.Cmdlets.TXT
             if (requestDocumentLocation_documentLocation_S3Object != null)
             {
                 request.DocumentLocation.S3Object = requestDocumentLocation_documentLocation_S3Object;
-                requestDocumentLocationIsNull = false;
-            }
-             // determine if request.DocumentLocation should be set to null
-            if (requestDocumentLocationIsNull)
-            {
-                request.DocumentLocation = null;
             }
             if (cmdletContext.JobTag != null)
             {

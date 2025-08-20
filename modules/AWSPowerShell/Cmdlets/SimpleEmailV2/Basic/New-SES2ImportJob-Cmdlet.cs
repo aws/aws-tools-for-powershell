@@ -220,7 +220,6 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             }
             
              // populate ImportDestination
-            var requestImportDestinationIsNull = true;
             request.ImportDestination = new Amazon.SimpleEmailV2.Model.ImportDestination();
             Amazon.SimpleEmailV2.Model.SuppressionListDestination requestImportDestination_importDestination_SuppressionListDestination = null;
             
@@ -245,7 +244,6 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (requestImportDestination_importDestination_SuppressionListDestination != null)
             {
                 request.ImportDestination.SuppressionListDestination = requestImportDestination_importDestination_SuppressionListDestination;
-                requestImportDestinationIsNull = false;
             }
             Amazon.SimpleEmailV2.Model.ContactListDestination requestImportDestination_importDestination_ContactListDestination = null;
             
@@ -280,12 +278,6 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (requestImportDestination_importDestination_ContactListDestination != null)
             {
                 request.ImportDestination.ContactListDestination = requestImportDestination_importDestination_ContactListDestination;
-                requestImportDestinationIsNull = false;
-            }
-             // determine if request.ImportDestination should be set to null
-            if (requestImportDestinationIsNull)
-            {
-                request.ImportDestination = null;
             }
             
             CmdletOutput output;

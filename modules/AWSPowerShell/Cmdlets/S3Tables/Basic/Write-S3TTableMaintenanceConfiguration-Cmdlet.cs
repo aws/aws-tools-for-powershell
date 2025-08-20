@@ -282,7 +282,6 @@ namespace Amazon.PowerShell.Cmdlets.S3T
             }
             
              // populate Value
-            var requestValueIsNull = true;
             request.Value = new Amazon.S3Tables.Model.TableMaintenanceConfigurationValue();
             Amazon.S3Tables.MaintenanceStatus requestValue_value_Status = null;
             if (cmdletContext.Value_Status != null)
@@ -292,7 +291,6 @@ namespace Amazon.PowerShell.Cmdlets.S3T
             if (requestValue_value_Status != null)
             {
                 request.Value.Status = requestValue_value_Status;
-                requestValueIsNull = false;
             }
             Amazon.S3Tables.Model.TableMaintenanceSettings requestValue_value_Settings = null;
             
@@ -377,12 +375,6 @@ namespace Amazon.PowerShell.Cmdlets.S3T
             if (requestValue_value_Settings != null)
             {
                 request.Value.Settings = requestValue_value_Settings;
-                requestValueIsNull = false;
-            }
-             // determine if request.Value should be set to null
-            if (requestValueIsNull)
-            {
-                request.Value = null;
             }
             
             CmdletOutput output;

@@ -883,7 +883,6 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             }
             
              // populate StandardOutputConfiguration
-            var requestStandardOutputConfigurationIsNull = true;
             request.StandardOutputConfiguration = new Amazon.BedrockDataAutomation.Model.StandardOutputConfiguration();
             Amazon.BedrockDataAutomation.Model.AudioStandardOutputConfiguration requestStandardOutputConfiguration_standardOutputConfiguration_Audio = null;
             
@@ -983,7 +982,6 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             if (requestStandardOutputConfiguration_standardOutputConfiguration_Audio != null)
             {
                 request.StandardOutputConfiguration.Audio = requestStandardOutputConfiguration_standardOutputConfiguration_Audio;
-                requestStandardOutputConfigurationIsNull = false;
             }
             Amazon.BedrockDataAutomation.Model.ImageStandardOutputConfiguration requestStandardOutputConfiguration_standardOutputConfiguration_Image = null;
             
@@ -1108,7 +1106,6 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             if (requestStandardOutputConfiguration_standardOutputConfiguration_Image != null)
             {
                 request.StandardOutputConfiguration.Image = requestStandardOutputConfiguration_standardOutputConfiguration_Image;
-                requestStandardOutputConfigurationIsNull = false;
             }
             Amazon.BedrockDataAutomation.Model.VideoStandardOutputConfiguration requestStandardOutputConfiguration_standardOutputConfiguration_Video = null;
             
@@ -1233,7 +1230,6 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             if (requestStandardOutputConfiguration_standardOutputConfiguration_Video != null)
             {
                 request.StandardOutputConfiguration.Video = requestStandardOutputConfiguration_standardOutputConfiguration_Video;
-                requestStandardOutputConfigurationIsNull = false;
             }
             Amazon.BedrockDataAutomation.Model.DocumentStandardOutputConfiguration requestStandardOutputConfiguration_standardOutputConfiguration_Document = null;
             
@@ -1298,7 +1294,6 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             Amazon.BedrockDataAutomation.Model.DocumentExtractionGranularity requestStandardOutputConfiguration_standardOutputConfiguration_Document_standardOutputConfiguration_Document_Extraction_standardOutputConfiguration_Document_Extraction_Granularity = null;
             
              // populate Granularity
-            var requestStandardOutputConfiguration_standardOutputConfiguration_Document_standardOutputConfiguration_Document_Extraction_standardOutputConfiguration_Document_Extraction_GranularityIsNull = true;
             requestStandardOutputConfiguration_standardOutputConfiguration_Document_standardOutputConfiguration_Document_Extraction_standardOutputConfiguration_Document_Extraction_Granularity = new Amazon.BedrockDataAutomation.Model.DocumentExtractionGranularity();
             List<System.String> requestStandardOutputConfiguration_standardOutputConfiguration_Document_standardOutputConfiguration_Document_Extraction_standardOutputConfiguration_Document_Extraction_Granularity_granularity_Type = null;
             if (cmdletContext.Granularity_Type != null)
@@ -1308,12 +1303,6 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             if (requestStandardOutputConfiguration_standardOutputConfiguration_Document_standardOutputConfiguration_Document_Extraction_standardOutputConfiguration_Document_Extraction_Granularity_granularity_Type != null)
             {
                 requestStandardOutputConfiguration_standardOutputConfiguration_Document_standardOutputConfiguration_Document_Extraction_standardOutputConfiguration_Document_Extraction_Granularity.Types = requestStandardOutputConfiguration_standardOutputConfiguration_Document_standardOutputConfiguration_Document_Extraction_standardOutputConfiguration_Document_Extraction_Granularity_granularity_Type;
-                requestStandardOutputConfiguration_standardOutputConfiguration_Document_standardOutputConfiguration_Document_Extraction_standardOutputConfiguration_Document_Extraction_GranularityIsNull = false;
-            }
-             // determine if requestStandardOutputConfiguration_standardOutputConfiguration_Document_standardOutputConfiguration_Document_Extraction_standardOutputConfiguration_Document_Extraction_Granularity should be set to null
-            if (requestStandardOutputConfiguration_standardOutputConfiguration_Document_standardOutputConfiguration_Document_Extraction_standardOutputConfiguration_Document_Extraction_GranularityIsNull)
-            {
-                requestStandardOutputConfiguration_standardOutputConfiguration_Document_standardOutputConfiguration_Document_Extraction_standardOutputConfiguration_Document_Extraction_Granularity = null;
             }
             if (requestStandardOutputConfiguration_standardOutputConfiguration_Document_standardOutputConfiguration_Document_Extraction_standardOutputConfiguration_Document_Extraction_Granularity != null)
             {
@@ -1363,7 +1352,6 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             Amazon.BedrockDataAutomation.Model.DocumentOutputTextFormat requestStandardOutputConfiguration_standardOutputConfiguration_Document_standardOutputConfiguration_Document_OutputFormat_standardOutputConfiguration_Document_OutputFormat_TextFormat = null;
             
              // populate TextFormat
-            var requestStandardOutputConfiguration_standardOutputConfiguration_Document_standardOutputConfiguration_Document_OutputFormat_standardOutputConfiguration_Document_OutputFormat_TextFormatIsNull = true;
             requestStandardOutputConfiguration_standardOutputConfiguration_Document_standardOutputConfiguration_Document_OutputFormat_standardOutputConfiguration_Document_OutputFormat_TextFormat = new Amazon.BedrockDataAutomation.Model.DocumentOutputTextFormat();
             List<System.String> requestStandardOutputConfiguration_standardOutputConfiguration_Document_standardOutputConfiguration_Document_OutputFormat_standardOutputConfiguration_Document_OutputFormat_TextFormat_textFormat_Type = null;
             if (cmdletContext.TextFormat_Type != null)
@@ -1373,12 +1361,6 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             if (requestStandardOutputConfiguration_standardOutputConfiguration_Document_standardOutputConfiguration_Document_OutputFormat_standardOutputConfiguration_Document_OutputFormat_TextFormat_textFormat_Type != null)
             {
                 requestStandardOutputConfiguration_standardOutputConfiguration_Document_standardOutputConfiguration_Document_OutputFormat_standardOutputConfiguration_Document_OutputFormat_TextFormat.Types = requestStandardOutputConfiguration_standardOutputConfiguration_Document_standardOutputConfiguration_Document_OutputFormat_standardOutputConfiguration_Document_OutputFormat_TextFormat_textFormat_Type;
-                requestStandardOutputConfiguration_standardOutputConfiguration_Document_standardOutputConfiguration_Document_OutputFormat_standardOutputConfiguration_Document_OutputFormat_TextFormatIsNull = false;
-            }
-             // determine if requestStandardOutputConfiguration_standardOutputConfiguration_Document_standardOutputConfiguration_Document_OutputFormat_standardOutputConfiguration_Document_OutputFormat_TextFormat should be set to null
-            if (requestStandardOutputConfiguration_standardOutputConfiguration_Document_standardOutputConfiguration_Document_OutputFormat_standardOutputConfiguration_Document_OutputFormat_TextFormatIsNull)
-            {
-                requestStandardOutputConfiguration_standardOutputConfiguration_Document_standardOutputConfiguration_Document_OutputFormat_standardOutputConfiguration_Document_OutputFormat_TextFormat = null;
             }
             if (requestStandardOutputConfiguration_standardOutputConfiguration_Document_standardOutputConfiguration_Document_OutputFormat_standardOutputConfiguration_Document_OutputFormat_TextFormat != null)
             {
@@ -1403,12 +1385,6 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             if (requestStandardOutputConfiguration_standardOutputConfiguration_Document != null)
             {
                 request.StandardOutputConfiguration.Document = requestStandardOutputConfiguration_standardOutputConfiguration_Document;
-                requestStandardOutputConfigurationIsNull = false;
-            }
-             // determine if request.StandardOutputConfiguration should be set to null
-            if (requestStandardOutputConfigurationIsNull)
-            {
-                request.StandardOutputConfiguration = null;
             }
             
             CmdletOutput output;

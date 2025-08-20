@@ -318,7 +318,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             }
             
              // populate DataLakeSettings
-            var requestDataLakeSettingsIsNull = true;
             request.DataLakeSettings = new Amazon.LakeFormation.Model.DataLakeSettings();
             System.Boolean? requestDataLakeSettings_dataLakeSettings_AllowExternalDataFiltering = null;
             if (cmdletContext.DataLakeSettings_AllowExternalDataFiltering != null)
@@ -328,7 +327,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestDataLakeSettings_dataLakeSettings_AllowExternalDataFiltering != null)
             {
                 request.DataLakeSettings.AllowExternalDataFiltering = requestDataLakeSettings_dataLakeSettings_AllowExternalDataFiltering.Value;
-                requestDataLakeSettingsIsNull = false;
             }
             System.Boolean? requestDataLakeSettings_dataLakeSettings_AllowFullTableExternalDataAccess = null;
             if (cmdletContext.DataLakeSettings_AllowFullTableExternalDataAccess != null)
@@ -338,7 +336,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestDataLakeSettings_dataLakeSettings_AllowFullTableExternalDataAccess != null)
             {
                 request.DataLakeSettings.AllowFullTableExternalDataAccess = requestDataLakeSettings_dataLakeSettings_AllowFullTableExternalDataAccess.Value;
-                requestDataLakeSettingsIsNull = false;
             }
             List<System.String> requestDataLakeSettings_dataLakeSettings_AuthorizedSessionTagValueList = null;
             if (cmdletContext.DataLakeSettings_AuthorizedSessionTagValueList != null)
@@ -348,7 +345,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestDataLakeSettings_dataLakeSettings_AuthorizedSessionTagValueList != null)
             {
                 request.DataLakeSettings.AuthorizedSessionTagValueList = requestDataLakeSettings_dataLakeSettings_AuthorizedSessionTagValueList;
-                requestDataLakeSettingsIsNull = false;
             }
             List<Amazon.LakeFormation.Model.PrincipalPermissions> requestDataLakeSettings_dataLakeSettings_CreateDatabaseDefaultPermission = null;
             if (cmdletContext.DataLakeSettings_CreateDatabaseDefaultPermission != null)
@@ -358,7 +354,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestDataLakeSettings_dataLakeSettings_CreateDatabaseDefaultPermission != null)
             {
                 request.DataLakeSettings.CreateDatabaseDefaultPermissions = requestDataLakeSettings_dataLakeSettings_CreateDatabaseDefaultPermission;
-                requestDataLakeSettingsIsNull = false;
             }
             List<Amazon.LakeFormation.Model.PrincipalPermissions> requestDataLakeSettings_dataLakeSettings_CreateTableDefaultPermission = null;
             if (cmdletContext.DataLakeSettings_CreateTableDefaultPermission != null)
@@ -368,7 +363,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestDataLakeSettings_dataLakeSettings_CreateTableDefaultPermission != null)
             {
                 request.DataLakeSettings.CreateTableDefaultPermissions = requestDataLakeSettings_dataLakeSettings_CreateTableDefaultPermission;
-                requestDataLakeSettingsIsNull = false;
             }
             List<Amazon.LakeFormation.Model.DataLakePrincipal> requestDataLakeSettings_dataLakeSettings_DataLakeAdmin = null;
             if (cmdletContext.DataLakeSettings_DataLakeAdmin != null)
@@ -378,7 +372,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestDataLakeSettings_dataLakeSettings_DataLakeAdmin != null)
             {
                 request.DataLakeSettings.DataLakeAdmins = requestDataLakeSettings_dataLakeSettings_DataLakeAdmin;
-                requestDataLakeSettingsIsNull = false;
             }
             List<Amazon.LakeFormation.Model.DataLakePrincipal> requestDataLakeSettings_dataLakeSettings_ExternalDataFilteringAllowList = null;
             if (cmdletContext.DataLakeSettings_ExternalDataFilteringAllowList != null)
@@ -388,7 +381,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestDataLakeSettings_dataLakeSettings_ExternalDataFilteringAllowList != null)
             {
                 request.DataLakeSettings.ExternalDataFilteringAllowList = requestDataLakeSettings_dataLakeSettings_ExternalDataFilteringAllowList;
-                requestDataLakeSettingsIsNull = false;
             }
             Dictionary<System.String, System.String> requestDataLakeSettings_dataLakeSettings_Parameter = null;
             if (cmdletContext.DataLakeSettings_Parameter != null)
@@ -398,7 +390,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestDataLakeSettings_dataLakeSettings_Parameter != null)
             {
                 request.DataLakeSettings.Parameters = requestDataLakeSettings_dataLakeSettings_Parameter;
-                requestDataLakeSettingsIsNull = false;
             }
             List<Amazon.LakeFormation.Model.DataLakePrincipal> requestDataLakeSettings_dataLakeSettings_ReadOnlyAdmin = null;
             if (cmdletContext.DataLakeSettings_ReadOnlyAdmin != null)
@@ -408,7 +399,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestDataLakeSettings_dataLakeSettings_ReadOnlyAdmin != null)
             {
                 request.DataLakeSettings.ReadOnlyAdmins = requestDataLakeSettings_dataLakeSettings_ReadOnlyAdmin;
-                requestDataLakeSettingsIsNull = false;
             }
             List<System.String> requestDataLakeSettings_dataLakeSettings_TrustedResourceOwner = null;
             if (cmdletContext.DataLakeSettings_TrustedResourceOwner != null)
@@ -418,12 +408,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestDataLakeSettings_dataLakeSettings_TrustedResourceOwner != null)
             {
                 request.DataLakeSettings.TrustedResourceOwners = requestDataLakeSettings_dataLakeSettings_TrustedResourceOwner;
-                requestDataLakeSettingsIsNull = false;
-            }
-             // determine if request.DataLakeSettings should be set to null
-            if (requestDataLakeSettingsIsNull)
-            {
-                request.DataLakeSettings = null;
             }
             
             CmdletOutput output;

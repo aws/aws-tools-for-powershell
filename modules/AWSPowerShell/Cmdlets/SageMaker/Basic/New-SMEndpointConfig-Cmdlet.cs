@@ -861,7 +861,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             Amazon.SageMaker.Model.AsyncInferenceOutputConfig requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig = null;
             
              // populate OutputConfig
-            var requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfigIsNull = true;
             requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig = new Amazon.SageMaker.Model.AsyncInferenceOutputConfig();
             System.String requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_outputConfig_KmsKeyId = null;
             if (cmdletContext.OutputConfig_KmsKeyId != null)
@@ -871,7 +870,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_outputConfig_KmsKeyId != null)
             {
                 requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig.KmsKeyId = requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_outputConfig_KmsKeyId;
-                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfigIsNull = false;
             }
             System.String requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_outputConfig_S3FailurePath = null;
             if (cmdletContext.OutputConfig_S3FailurePath != null)
@@ -881,7 +879,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_outputConfig_S3FailurePath != null)
             {
                 requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig.S3FailurePath = requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_outputConfig_S3FailurePath;
-                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfigIsNull = false;
             }
             System.String requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_outputConfig_S3OutputPath = null;
             if (cmdletContext.OutputConfig_S3OutputPath != null)
@@ -891,7 +888,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_outputConfig_S3OutputPath != null)
             {
                 requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig.S3OutputPath = requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_outputConfig_S3OutputPath;
-                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfigIsNull = false;
             }
             Amazon.SageMaker.Model.AsyncInferenceNotificationConfig requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig = null;
             
@@ -936,12 +932,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig != null)
             {
                 requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig.NotificationConfig = requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig;
-                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfigIsNull = false;
-            }
-             // determine if requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig should be set to null
-            if (requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfigIsNull)
-            {
-                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig = null;
             }
             if (requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig != null)
             {
@@ -1151,7 +1141,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             Amazon.SageMaker.Model.ClarifyShapBaselineConfig requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig = null;
             
              // populate ShapBaselineConfig
-            var requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfigIsNull = true;
             requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig = new Amazon.SageMaker.Model.ClarifyShapBaselineConfig();
             System.String requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_shapBaselineConfig_MimeType = null;
             if (cmdletContext.ShapBaselineConfig_MimeType != null)
@@ -1161,7 +1150,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_shapBaselineConfig_MimeType != null)
             {
                 requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig.MimeType = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_shapBaselineConfig_MimeType;
-                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfigIsNull = false;
             }
             System.String requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_shapBaselineConfig_ShapBaseline = null;
             if (cmdletContext.ShapBaselineConfig_ShapBaseline != null)
@@ -1171,7 +1159,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_shapBaselineConfig_ShapBaseline != null)
             {
                 requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig.ShapBaseline = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_shapBaselineConfig_ShapBaseline;
-                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfigIsNull = false;
             }
             System.String requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_shapBaselineConfig_ShapBaselineUri = null;
             if (cmdletContext.ShapBaselineConfig_ShapBaselineUri != null)
@@ -1181,12 +1168,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_shapBaselineConfig_ShapBaselineUri != null)
             {
                 requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig.ShapBaselineUri = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_shapBaselineConfig_ShapBaselineUri;
-                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfigIsNull = false;
-            }
-             // determine if requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig should be set to null
-            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfigIsNull)
-            {
-                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig = null;
             }
             if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig != null)
             {

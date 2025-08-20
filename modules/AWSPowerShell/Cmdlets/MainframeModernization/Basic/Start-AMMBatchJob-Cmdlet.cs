@@ -360,7 +360,6 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             }
             
              // populate BatchJobIdentifier
-            var requestBatchJobIdentifierIsNull = true;
             request.BatchJobIdentifier = new Amazon.MainframeModernization.Model.BatchJobIdentifier();
             Amazon.MainframeModernization.Model.ScriptBatchJobIdentifier requestBatchJobIdentifier_batchJobIdentifier_ScriptBatchJobIdentifier = null;
             
@@ -385,7 +384,6 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             if (requestBatchJobIdentifier_batchJobIdentifier_ScriptBatchJobIdentifier != null)
             {
                 request.BatchJobIdentifier.ScriptBatchJobIdentifier = requestBatchJobIdentifier_batchJobIdentifier_ScriptBatchJobIdentifier;
-                requestBatchJobIdentifierIsNull = false;
             }
             Amazon.MainframeModernization.Model.FileBatchJobIdentifier requestBatchJobIdentifier_batchJobIdentifier_FileBatchJobIdentifier = null;
             
@@ -420,7 +418,6 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             if (requestBatchJobIdentifier_batchJobIdentifier_FileBatchJobIdentifier != null)
             {
                 request.BatchJobIdentifier.FileBatchJobIdentifier = requestBatchJobIdentifier_batchJobIdentifier_FileBatchJobIdentifier;
-                requestBatchJobIdentifierIsNull = false;
             }
             Amazon.MainframeModernization.Model.RestartBatchJobIdentifier requestBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier = null;
             
@@ -520,7 +517,6 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             if (requestBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier != null)
             {
                 request.BatchJobIdentifier.RestartBatchJobIdentifier = requestBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier;
-                requestBatchJobIdentifierIsNull = false;
             }
             Amazon.MainframeModernization.Model.S3BatchJobIdentifier requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier = null;
             
@@ -550,7 +546,6 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             Amazon.MainframeModernization.Model.JobIdentifier requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier = null;
             
              // populate Identifier
-            var requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_IdentifierIsNull = true;
             requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier = new Amazon.MainframeModernization.Model.JobIdentifier();
             System.String requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier_identifier_FileName = null;
             if (cmdletContext.Identifier_FileName != null)
@@ -560,7 +555,6 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             if (requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier_identifier_FileName != null)
             {
                 requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier.FileName = requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier_identifier_FileName;
-                requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_IdentifierIsNull = false;
             }
             System.String requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier_identifier_ScriptName = null;
             if (cmdletContext.Identifier_ScriptName != null)
@@ -570,12 +564,6 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             if (requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier_identifier_ScriptName != null)
             {
                 requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier.ScriptName = requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier_identifier_ScriptName;
-                requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_IdentifierIsNull = false;
-            }
-             // determine if requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier should be set to null
-            if (requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_IdentifierIsNull)
-            {
-                requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier = null;
             }
             if (requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier_Identifier != null)
             {
@@ -590,12 +578,6 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             if (requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier != null)
             {
                 request.BatchJobIdentifier.S3BatchJobIdentifier = requestBatchJobIdentifier_batchJobIdentifier_S3BatchJobIdentifier;
-                requestBatchJobIdentifierIsNull = false;
-            }
-             // determine if request.BatchJobIdentifier should be set to null
-            if (requestBatchJobIdentifierIsNull)
-            {
-                request.BatchJobIdentifier = null;
             }
             if (cmdletContext.JobParam != null)
             {

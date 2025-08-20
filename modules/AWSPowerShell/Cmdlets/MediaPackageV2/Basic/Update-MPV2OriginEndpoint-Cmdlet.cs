@@ -792,7 +792,6 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             Amazon.MediaPackageV2.Model.EncryptionMethod requestSegment_segment_Encryption_segment_Encryption_EncryptionMethod = null;
             
              // populate EncryptionMethod
-            var requestSegment_segment_Encryption_segment_Encryption_EncryptionMethodIsNull = true;
             requestSegment_segment_Encryption_segment_Encryption_EncryptionMethod = new Amazon.MediaPackageV2.Model.EncryptionMethod();
             Amazon.MediaPackageV2.CmafEncryptionMethod requestSegment_segment_Encryption_segment_Encryption_EncryptionMethod_encryptionMethod_CmafEncryptionMethod = null;
             if (cmdletContext.EncryptionMethod_CmafEncryptionMethod != null)
@@ -802,7 +801,6 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             if (requestSegment_segment_Encryption_segment_Encryption_EncryptionMethod_encryptionMethod_CmafEncryptionMethod != null)
             {
                 requestSegment_segment_Encryption_segment_Encryption_EncryptionMethod.CmafEncryptionMethod = requestSegment_segment_Encryption_segment_Encryption_EncryptionMethod_encryptionMethod_CmafEncryptionMethod;
-                requestSegment_segment_Encryption_segment_Encryption_EncryptionMethodIsNull = false;
             }
             Amazon.MediaPackageV2.IsmEncryptionMethod requestSegment_segment_Encryption_segment_Encryption_EncryptionMethod_encryptionMethod_IsmEncryptionMethod = null;
             if (cmdletContext.EncryptionMethod_IsmEncryptionMethod != null)
@@ -812,7 +810,6 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             if (requestSegment_segment_Encryption_segment_Encryption_EncryptionMethod_encryptionMethod_IsmEncryptionMethod != null)
             {
                 requestSegment_segment_Encryption_segment_Encryption_EncryptionMethod.IsmEncryptionMethod = requestSegment_segment_Encryption_segment_Encryption_EncryptionMethod_encryptionMethod_IsmEncryptionMethod;
-                requestSegment_segment_Encryption_segment_Encryption_EncryptionMethodIsNull = false;
             }
             Amazon.MediaPackageV2.TsEncryptionMethod requestSegment_segment_Encryption_segment_Encryption_EncryptionMethod_encryptionMethod_TsEncryptionMethod = null;
             if (cmdletContext.EncryptionMethod_TsEncryptionMethod != null)
@@ -822,12 +819,6 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             if (requestSegment_segment_Encryption_segment_Encryption_EncryptionMethod_encryptionMethod_TsEncryptionMethod != null)
             {
                 requestSegment_segment_Encryption_segment_Encryption_EncryptionMethod.TsEncryptionMethod = requestSegment_segment_Encryption_segment_Encryption_EncryptionMethod_encryptionMethod_TsEncryptionMethod;
-                requestSegment_segment_Encryption_segment_Encryption_EncryptionMethodIsNull = false;
-            }
-             // determine if requestSegment_segment_Encryption_segment_Encryption_EncryptionMethod should be set to null
-            if (requestSegment_segment_Encryption_segment_Encryption_EncryptionMethodIsNull)
-            {
-                requestSegment_segment_Encryption_segment_Encryption_EncryptionMethod = null;
             }
             if (requestSegment_segment_Encryption_segment_Encryption_EncryptionMethod != null)
             {

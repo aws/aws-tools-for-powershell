@@ -268,7 +268,6 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             }
             
              // populate ComputeType
-            var requestComputeTypeIsNull = true;
             request.ComputeType = new Amazon.WorkSpaces.Model.ComputeType();
             Amazon.WorkSpaces.Compute requestComputeType_computeType_Name = null;
             if (cmdletContext.ComputeType_Name != null)
@@ -278,12 +277,6 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestComputeType_computeType_Name != null)
             {
                 request.ComputeType.Name = requestComputeType_computeType_Name;
-                requestComputeTypeIsNull = false;
-            }
-             // determine if request.ComputeType should be set to null
-            if (requestComputeTypeIsNull)
-            {
-                request.ComputeType = null;
             }
             if (cmdletContext.ImageId != null)
             {

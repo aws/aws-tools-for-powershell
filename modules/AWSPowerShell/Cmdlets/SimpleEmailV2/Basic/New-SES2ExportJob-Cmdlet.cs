@@ -469,7 +469,6 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             
             
              // populate ExportDataSource
-            var requestExportDataSourceIsNull = true;
             request.ExportDataSource = new Amazon.SimpleEmailV2.Model.ExportDataSource();
             Amazon.SimpleEmailV2.Model.MessageInsightsDataSource requestExportDataSource_exportDataSource_MessageInsightsDataSource = null;
             
@@ -664,7 +663,6 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (requestExportDataSource_exportDataSource_MessageInsightsDataSource != null)
             {
                 request.ExportDataSource.MessageInsightsDataSource = requestExportDataSource_exportDataSource_MessageInsightsDataSource;
-                requestExportDataSourceIsNull = false;
             }
             Amazon.SimpleEmailV2.Model.MetricsDataSource requestExportDataSource_exportDataSource_MetricsDataSource = null;
             
@@ -729,12 +727,6 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (requestExportDataSource_exportDataSource_MetricsDataSource != null)
             {
                 request.ExportDataSource.MetricsDataSource = requestExportDataSource_exportDataSource_MetricsDataSource;
-                requestExportDataSourceIsNull = false;
-            }
-             // determine if request.ExportDataSource should be set to null
-            if (requestExportDataSourceIsNull)
-            {
-                request.ExportDataSource = null;
             }
             
              // populate ExportDestination

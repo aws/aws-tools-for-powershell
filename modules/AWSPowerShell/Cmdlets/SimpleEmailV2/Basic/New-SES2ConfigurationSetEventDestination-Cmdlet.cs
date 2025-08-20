@@ -292,7 +292,6 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             }
             
              // populate EventDestination
-            var requestEventDestinationIsNull = true;
             request.EventDestination = new Amazon.SimpleEmailV2.Model.EventDestinationDefinition();
             System.Boolean? requestEventDestination_eventDestination_Enabled = null;
             if (cmdletContext.EventDestination_Enabled != null)
@@ -302,7 +301,6 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (requestEventDestination_eventDestination_Enabled != null)
             {
                 request.EventDestination.Enabled = requestEventDestination_eventDestination_Enabled.Value;
-                requestEventDestinationIsNull = false;
             }
             List<System.String> requestEventDestination_eventDestination_MatchingEventType = null;
             if (cmdletContext.EventDestination_MatchingEventType != null)
@@ -312,7 +310,6 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (requestEventDestination_eventDestination_MatchingEventType != null)
             {
                 request.EventDestination.MatchingEventTypes = requestEventDestination_eventDestination_MatchingEventType;
-                requestEventDestinationIsNull = false;
             }
             Amazon.SimpleEmailV2.Model.CloudWatchDestination requestEventDestination_eventDestination_CloudWatchDestination = null;
             
@@ -337,7 +334,6 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (requestEventDestination_eventDestination_CloudWatchDestination != null)
             {
                 request.EventDestination.CloudWatchDestination = requestEventDestination_eventDestination_CloudWatchDestination;
-                requestEventDestinationIsNull = false;
             }
             Amazon.SimpleEmailV2.Model.EventBridgeDestination requestEventDestination_eventDestination_EventBridgeDestination = null;
             
@@ -362,7 +358,6 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (requestEventDestination_eventDestination_EventBridgeDestination != null)
             {
                 request.EventDestination.EventBridgeDestination = requestEventDestination_eventDestination_EventBridgeDestination;
-                requestEventDestinationIsNull = false;
             }
             Amazon.SimpleEmailV2.Model.PinpointDestination requestEventDestination_eventDestination_PinpointDestination = null;
             
@@ -387,7 +382,6 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (requestEventDestination_eventDestination_PinpointDestination != null)
             {
                 request.EventDestination.PinpointDestination = requestEventDestination_eventDestination_PinpointDestination;
-                requestEventDestinationIsNull = false;
             }
             Amazon.SimpleEmailV2.Model.SnsDestination requestEventDestination_eventDestination_SnsDestination = null;
             
@@ -412,7 +406,6 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (requestEventDestination_eventDestination_SnsDestination != null)
             {
                 request.EventDestination.SnsDestination = requestEventDestination_eventDestination_SnsDestination;
-                requestEventDestinationIsNull = false;
             }
             Amazon.SimpleEmailV2.Model.KinesisFirehoseDestination requestEventDestination_eventDestination_KinesisFirehoseDestination = null;
             
@@ -447,12 +440,6 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (requestEventDestination_eventDestination_KinesisFirehoseDestination != null)
             {
                 request.EventDestination.KinesisFirehoseDestination = requestEventDestination_eventDestination_KinesisFirehoseDestination;
-                requestEventDestinationIsNull = false;
-            }
-             // determine if request.EventDestination should be set to null
-            if (requestEventDestinationIsNull)
-            {
-                request.EventDestination = null;
             }
             if (cmdletContext.EventDestinationName != null)
             {

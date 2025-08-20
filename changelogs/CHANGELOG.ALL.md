@@ -1,4 +1,22 @@
-﻿### 4.1.882 (2025-08-19 19:58Z)
+﻿### 4.1.883 (2025-08-20 21:24Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1106.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Runtime
+    * Added cmdlet Get-BDRRCountToken leveraging the CountTokens service API.
+  * Amazon Cognito Identity Provider
+    * Added cmdlet Get-CGIPTerm leveraging the DescribeTerms service API.
+    * Added cmdlet Get-CGIPTermList leveraging the ListTerms service API.
+    * Added cmdlet New-CGIPTerm leveraging the CreateTerms service API.
+    * Added cmdlet Remove-CGIPTerm leveraging the DeleteTerms service API.
+    * Added cmdlet Update-CGIPTerm leveraging the UpdateTerms service API.
+  * Amazon DataZone
+    * Modified cmdlet Remove-DZPolicyGrant: added parameter GrantIdentifier.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet New-EKSAddon: added parameter NamespaceConfig_Namespace.
+  * Amazon Pinpoint SMS Voice V2
+    * Modified cmdlet New-SMSVPhoneNumber: added parameter InternationalSendingEnabled.
+    * Modified cmdlet Update-SMSVPhoneNumber: added parameter InternationalSendingEnabled.
+
+### 4.1.882 (2025-08-19 19:58Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1105.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Clean Rooms Service
     * Modified cmdlet New-CRSAnalysisTemplate: added parameter ErrorMessageConfiguration_Type.

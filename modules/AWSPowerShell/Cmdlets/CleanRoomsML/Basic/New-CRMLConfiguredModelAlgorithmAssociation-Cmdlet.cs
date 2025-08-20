@@ -372,7 +372,6 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             Amazon.CleanRoomsML.Model.PrivacyConfigurationPolicies requestPrivacyConfiguration_privacyConfiguration_Policies = null;
             
              // populate Policies
-            var requestPrivacyConfiguration_privacyConfiguration_PoliciesIsNull = true;
             requestPrivacyConfiguration_privacyConfiguration_Policies = new Amazon.CleanRoomsML.Model.PrivacyConfigurationPolicies();
             Amazon.CleanRoomsML.Model.TrainedModelExportsConfigurationPolicy requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModelExports = null;
             
@@ -432,7 +431,6 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             if (requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModelExports != null)
             {
                 requestPrivacyConfiguration_privacyConfiguration_Policies.TrainedModelExports = requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModelExports;
-                requestPrivacyConfiguration_privacyConfiguration_PoliciesIsNull = false;
             }
             Amazon.CleanRoomsML.Model.TrainedModelInferenceJobsConfigurationPolicy requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModelInferenceJobs = null;
             
@@ -492,7 +490,6 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             if (requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModelInferenceJobs != null)
             {
                 requestPrivacyConfiguration_privacyConfiguration_Policies.TrainedModelInferenceJobs = requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModelInferenceJobs;
-                requestPrivacyConfiguration_privacyConfiguration_PoliciesIsNull = false;
             }
             Amazon.CleanRoomsML.Model.TrainedModelsConfigurationPolicy requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels = null;
             
@@ -577,12 +574,6 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             if (requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels != null)
             {
                 requestPrivacyConfiguration_privacyConfiguration_Policies.TrainedModels = requestPrivacyConfiguration_privacyConfiguration_Policies_privacyConfiguration_Policies_TrainedModels;
-                requestPrivacyConfiguration_privacyConfiguration_PoliciesIsNull = false;
-            }
-             // determine if requestPrivacyConfiguration_privacyConfiguration_Policies should be set to null
-            if (requestPrivacyConfiguration_privacyConfiguration_PoliciesIsNull)
-            {
-                requestPrivacyConfiguration_privacyConfiguration_Policies = null;
             }
             if (requestPrivacyConfiguration_privacyConfiguration_Policies != null)
             {

@@ -799,7 +799,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             }
             
              // populate PushNotificationTemplateRequest
-            var requestPushNotificationTemplateRequestIsNull = true;
             request.PushNotificationTemplateRequest = new Amazon.Pinpoint.Model.PushNotificationTemplateRequest();
             System.String requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_DefaultSubstitution = null;
             if (cmdletContext.PushNotificationTemplateRequest_DefaultSubstitution != null)
@@ -809,7 +808,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_DefaultSubstitution != null)
             {
                 request.PushNotificationTemplateRequest.DefaultSubstitutions = requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_DefaultSubstitution;
-                requestPushNotificationTemplateRequestIsNull = false;
             }
             System.String requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_RecommenderId = null;
             if (cmdletContext.PushNotificationTemplateRequest_RecommenderId != null)
@@ -819,7 +817,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_RecommenderId != null)
             {
                 request.PushNotificationTemplateRequest.RecommenderId = requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_RecommenderId;
-                requestPushNotificationTemplateRequestIsNull = false;
             }
             Dictionary<System.String, System.String> requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_Tag = null;
             if (cmdletContext.PushNotificationTemplateRequest_Tag != null)
@@ -829,7 +826,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_Tag != null)
             {
                 request.PushNotificationTemplateRequest.Tags = requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_Tag;
-                requestPushNotificationTemplateRequestIsNull = false;
             }
             System.String requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_TemplateDescription = null;
             if (cmdletContext.PushNotificationTemplateRequest_TemplateDescription != null)
@@ -839,7 +835,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_TemplateDescription != null)
             {
                 request.PushNotificationTemplateRequest.TemplateDescription = requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_TemplateDescription;
-                requestPushNotificationTemplateRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.DefaultPushNotificationTemplate requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_Default = null;
             
@@ -904,7 +899,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_Default != null)
             {
                 request.PushNotificationTemplateRequest.Default = requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_Default;
-                requestPushNotificationTemplateRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.APNSPushNotificationTemplate requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_APNS = null;
             
@@ -989,7 +983,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_APNS != null)
             {
                 request.PushNotificationTemplateRequest.APNS = requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_APNS;
-                requestPushNotificationTemplateRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.AndroidPushNotificationTemplate requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_ADM = null;
             
@@ -1094,7 +1087,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_ADM != null)
             {
                 request.PushNotificationTemplateRequest.ADM = requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_ADM;
-                requestPushNotificationTemplateRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.AndroidPushNotificationTemplate requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_Baidu = null;
             
@@ -1199,7 +1191,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_Baidu != null)
             {
                 request.PushNotificationTemplateRequest.Baidu = requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_Baidu;
-                requestPushNotificationTemplateRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.AndroidPushNotificationTemplate requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_GCM = null;
             
@@ -1304,12 +1295,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_GCM != null)
             {
                 request.PushNotificationTemplateRequest.GCM = requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_GCM;
-                requestPushNotificationTemplateRequestIsNull = false;
-            }
-             // determine if request.PushNotificationTemplateRequest should be set to null
-            if (requestPushNotificationTemplateRequestIsNull)
-            {
-                request.PushNotificationTemplateRequest = null;
             }
             if (cmdletContext.TemplateName != null)
             {

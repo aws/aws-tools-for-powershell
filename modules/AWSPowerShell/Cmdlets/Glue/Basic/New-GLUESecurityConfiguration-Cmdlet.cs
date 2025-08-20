@@ -239,7 +239,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             
             
              // populate EncryptionConfiguration
-            var requestEncryptionConfigurationIsNull = true;
             request.EncryptionConfiguration = new Amazon.Glue.Model.EncryptionConfiguration();
             List<Amazon.Glue.Model.S3Encryption> requestEncryptionConfiguration_encryptionConfiguration_S3Encryption = null;
             if (cmdletContext.EncryptionConfiguration_S3Encryption != null)
@@ -249,7 +248,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestEncryptionConfiguration_encryptionConfiguration_S3Encryption != null)
             {
                 request.EncryptionConfiguration.S3Encryption = requestEncryptionConfiguration_encryptionConfiguration_S3Encryption;
-                requestEncryptionConfigurationIsNull = false;
             }
             Amazon.Glue.Model.CloudWatchEncryption requestEncryptionConfiguration_encryptionConfiguration_CloudWatchEncryption = null;
             
@@ -284,7 +282,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestEncryptionConfiguration_encryptionConfiguration_CloudWatchEncryption != null)
             {
                 request.EncryptionConfiguration.CloudWatchEncryption = requestEncryptionConfiguration_encryptionConfiguration_CloudWatchEncryption;
-                requestEncryptionConfigurationIsNull = false;
             }
             Amazon.Glue.Model.DataQualityEncryption requestEncryptionConfiguration_encryptionConfiguration_DataQualityEncryption = null;
             
@@ -319,7 +316,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestEncryptionConfiguration_encryptionConfiguration_DataQualityEncryption != null)
             {
                 request.EncryptionConfiguration.DataQualityEncryption = requestEncryptionConfiguration_encryptionConfiguration_DataQualityEncryption;
-                requestEncryptionConfigurationIsNull = false;
             }
             Amazon.Glue.Model.JobBookmarksEncryption requestEncryptionConfiguration_encryptionConfiguration_JobBookmarksEncryption = null;
             
@@ -354,12 +350,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestEncryptionConfiguration_encryptionConfiguration_JobBookmarksEncryption != null)
             {
                 request.EncryptionConfiguration.JobBookmarksEncryption = requestEncryptionConfiguration_encryptionConfiguration_JobBookmarksEncryption;
-                requestEncryptionConfigurationIsNull = false;
-            }
-             // determine if request.EncryptionConfiguration should be set to null
-            if (requestEncryptionConfigurationIsNull)
-            {
-                request.EncryptionConfiguration = null;
             }
             if (cmdletContext.Name != null)
             {

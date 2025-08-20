@@ -543,7 +543,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             
              // populate ConnectionLogOptions
-            var requestConnectionLogOptionsIsNull = true;
             request.ConnectionLogOptions = new Amazon.EC2.Model.ConnectionLogOptions();
             System.String requestConnectionLogOptions_connectionLogOptions_CloudwatchLogGroup = null;
             if (cmdletContext.ConnectionLogOptions_CloudwatchLogGroup != null)
@@ -553,7 +552,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestConnectionLogOptions_connectionLogOptions_CloudwatchLogGroup != null)
             {
                 request.ConnectionLogOptions.CloudwatchLogGroup = requestConnectionLogOptions_connectionLogOptions_CloudwatchLogGroup;
-                requestConnectionLogOptionsIsNull = false;
             }
             System.String requestConnectionLogOptions_connectionLogOptions_CloudwatchLogStream = null;
             if (cmdletContext.ConnectionLogOptions_CloudwatchLogStream != null)
@@ -563,7 +561,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestConnectionLogOptions_connectionLogOptions_CloudwatchLogStream != null)
             {
                 request.ConnectionLogOptions.CloudwatchLogStream = requestConnectionLogOptions_connectionLogOptions_CloudwatchLogStream;
-                requestConnectionLogOptionsIsNull = false;
             }
             System.Boolean? requestConnectionLogOptions_connectionLogOptions_Enabled = null;
             if (cmdletContext.ConnectionLogOptions_Enabled != null)
@@ -573,12 +570,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestConnectionLogOptions_connectionLogOptions_Enabled != null)
             {
                 request.ConnectionLogOptions.Enabled = requestConnectionLogOptions_connectionLogOptions_Enabled.Value;
-                requestConnectionLogOptionsIsNull = false;
-            }
-             // determine if request.ConnectionLogOptions should be set to null
-            if (requestConnectionLogOptionsIsNull)
-            {
-                request.ConnectionLogOptions = null;
             }
             if (cmdletContext.Description != null)
             {

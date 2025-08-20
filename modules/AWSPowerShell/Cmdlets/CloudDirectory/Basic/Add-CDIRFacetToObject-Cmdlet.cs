@@ -213,7 +213,6 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             }
             
              // populate ObjectReference
-            var requestObjectReferenceIsNull = true;
             request.ObjectReference = new Amazon.CloudDirectory.Model.ObjectReference();
             System.String requestObjectReference_objectReference_Selector = null;
             if (cmdletContext.ObjectReference_Selector != null)
@@ -223,16 +222,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             if (requestObjectReference_objectReference_Selector != null)
             {
                 request.ObjectReference.Selector = requestObjectReference_objectReference_Selector;
-                requestObjectReferenceIsNull = false;
-            }
-             // determine if request.ObjectReference should be set to null
-            if (requestObjectReferenceIsNull)
-            {
-                request.ObjectReference = null;
             }
             
              // populate SchemaFacet
-            var requestSchemaFacetIsNull = true;
             request.SchemaFacet = new Amazon.CloudDirectory.Model.SchemaFacet();
             System.String requestSchemaFacet_schemaFacet_FacetName = null;
             if (cmdletContext.SchemaFacet_FacetName != null)
@@ -242,7 +234,6 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             if (requestSchemaFacet_schemaFacet_FacetName != null)
             {
                 request.SchemaFacet.FacetName = requestSchemaFacet_schemaFacet_FacetName;
-                requestSchemaFacetIsNull = false;
             }
             System.String requestSchemaFacet_schemaFacet_SchemaArn = null;
             if (cmdletContext.SchemaFacet_SchemaArn != null)
@@ -252,12 +243,6 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             if (requestSchemaFacet_schemaFacet_SchemaArn != null)
             {
                 request.SchemaFacet.SchemaArn = requestSchemaFacet_schemaFacet_SchemaArn;
-                requestSchemaFacetIsNull = false;
-            }
-             // determine if request.SchemaFacet should be set to null
-            if (requestSchemaFacetIsNull)
-            {
-                request.SchemaFacet = null;
             }
             
             CmdletOutput output;

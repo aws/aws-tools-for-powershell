@@ -462,7 +462,6 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             }
             
              // populate S3JobDefinition
-            var requestS3JobDefinitionIsNull = true;
             request.S3JobDefinition = new Amazon.Macie2.Model.S3JobDefinition();
             List<Amazon.Macie2.Model.S3BucketDefinitionForJob> requestS3JobDefinition_s3JobDefinition_BucketDefinition = null;
             if (cmdletContext.S3JobDefinition_BucketDefinition != null)
@@ -472,7 +471,6 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             if (requestS3JobDefinition_s3JobDefinition_BucketDefinition != null)
             {
                 request.S3JobDefinition.BucketDefinitions = requestS3JobDefinition_s3JobDefinition_BucketDefinition;
-                requestS3JobDefinitionIsNull = false;
             }
             Amazon.Macie2.Model.S3BucketCriteriaForJob requestS3JobDefinition_s3JobDefinition_BucketCriteria = null;
             
@@ -537,7 +535,6 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             if (requestS3JobDefinition_s3JobDefinition_BucketCriteria != null)
             {
                 request.S3JobDefinition.BucketCriteria = requestS3JobDefinition_s3JobDefinition_BucketCriteria;
-                requestS3JobDefinitionIsNull = false;
             }
             Amazon.Macie2.Model.Scoping requestS3JobDefinition_s3JobDefinition_Scoping = null;
             
@@ -602,12 +599,6 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             if (requestS3JobDefinition_s3JobDefinition_Scoping != null)
             {
                 request.S3JobDefinition.Scoping = requestS3JobDefinition_s3JobDefinition_Scoping;
-                requestS3JobDefinitionIsNull = false;
-            }
-             // determine if request.S3JobDefinition should be set to null
-            if (requestS3JobDefinitionIsNull)
-            {
-                request.S3JobDefinition = null;
             }
             if (cmdletContext.SamplingPercentage != null)
             {

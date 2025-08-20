@@ -668,7 +668,6 @@ namespace Amazon.PowerShell.Cmdlets.QC
             Amazon.QConnect.Model.UrlConfiguration requestSourceConfiguration_sourceConfiguration_ManagedSourceConfiguration_sourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_sourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_UrlConfiguration = null;
             
              // populate UrlConfiguration
-            var requestSourceConfiguration_sourceConfiguration_ManagedSourceConfiguration_sourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_sourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_UrlConfigurationIsNull = true;
             requestSourceConfiguration_sourceConfiguration_ManagedSourceConfiguration_sourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_sourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_UrlConfiguration = new Amazon.QConnect.Model.UrlConfiguration();
             List<Amazon.QConnect.Model.SeedUrl> requestSourceConfiguration_sourceConfiguration_ManagedSourceConfiguration_sourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_sourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_UrlConfiguration_urlConfiguration_SeedUrl = null;
             if (cmdletContext.UrlConfiguration_SeedUrl != null)
@@ -678,12 +677,6 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestSourceConfiguration_sourceConfiguration_ManagedSourceConfiguration_sourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_sourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_UrlConfiguration_urlConfiguration_SeedUrl != null)
             {
                 requestSourceConfiguration_sourceConfiguration_ManagedSourceConfiguration_sourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_sourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_UrlConfiguration.SeedUrls = requestSourceConfiguration_sourceConfiguration_ManagedSourceConfiguration_sourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_sourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_UrlConfiguration_urlConfiguration_SeedUrl;
-                requestSourceConfiguration_sourceConfiguration_ManagedSourceConfiguration_sourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_sourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_UrlConfigurationIsNull = false;
-            }
-             // determine if requestSourceConfiguration_sourceConfiguration_ManagedSourceConfiguration_sourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_sourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_UrlConfiguration should be set to null
-            if (requestSourceConfiguration_sourceConfiguration_ManagedSourceConfiguration_sourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_sourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_UrlConfigurationIsNull)
-            {
-                requestSourceConfiguration_sourceConfiguration_ManagedSourceConfiguration_sourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_sourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_UrlConfiguration = null;
             }
             if (requestSourceConfiguration_sourceConfiguration_ManagedSourceConfiguration_sourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_sourceConfiguration_ManagedSourceConfiguration_WebCrawlerConfiguration_UrlConfiguration != null)
             {

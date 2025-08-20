@@ -173,7 +173,6 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             }
             
              // populate IntegrationIdentifier
-            var requestIntegrationIdentifierIsNull = true;
             request.IntegrationIdentifier = new Amazon.ConnectCampaignsV2.Model.IntegrationIdentifier();
             Amazon.ConnectCampaignsV2.Model.CustomerProfilesIntegrationIdentifier requestIntegrationIdentifier_integrationIdentifier_CustomerProfiles = null;
             
@@ -198,7 +197,6 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestIntegrationIdentifier_integrationIdentifier_CustomerProfiles != null)
             {
                 request.IntegrationIdentifier.CustomerProfiles = requestIntegrationIdentifier_integrationIdentifier_CustomerProfiles;
-                requestIntegrationIdentifierIsNull = false;
             }
             Amazon.ConnectCampaignsV2.Model.QConnectIntegrationIdentifier requestIntegrationIdentifier_integrationIdentifier_QConnect = null;
             
@@ -223,12 +221,6 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestIntegrationIdentifier_integrationIdentifier_QConnect != null)
             {
                 request.IntegrationIdentifier.QConnect = requestIntegrationIdentifier_integrationIdentifier_QConnect;
-                requestIntegrationIdentifierIsNull = false;
-            }
-             // determine if request.IntegrationIdentifier should be set to null
-            if (requestIntegrationIdentifierIsNull)
-            {
-                request.IntegrationIdentifier = null;
             }
             
             CmdletOutput output;

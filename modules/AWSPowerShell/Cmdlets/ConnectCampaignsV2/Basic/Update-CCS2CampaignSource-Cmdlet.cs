@@ -172,7 +172,6 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             }
             
              // populate Source
-            var requestSourceIsNull = true;
             request.Source = new Amazon.ConnectCampaignsV2.Model.Source();
             System.String requestSource_source_CustomerProfilesSegmentArn = null;
             if (cmdletContext.Source_CustomerProfilesSegmentArn != null)
@@ -182,7 +181,6 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestSource_source_CustomerProfilesSegmentArn != null)
             {
                 request.Source.CustomerProfilesSegmentArn = requestSource_source_CustomerProfilesSegmentArn;
-                requestSourceIsNull = false;
             }
             Amazon.ConnectCampaignsV2.Model.EventTrigger requestSource_source_EventTrigger = null;
             
@@ -207,12 +205,6 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestSource_source_EventTrigger != null)
             {
                 request.Source.EventTrigger = requestSource_source_EventTrigger;
-                requestSourceIsNull = false;
-            }
-             // determine if request.Source should be set to null
-            if (requestSourceIsNull)
-            {
-                request.Source = null;
             }
             
             CmdletOutput output;

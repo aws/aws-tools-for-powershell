@@ -149,6 +149,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public Amazon.DataZone.TargetEntityType EntityType { get; set; }
         #endregion
         
+        #region Parameter GrantIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the policy grant that is to be removed from a specified entity.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GrantIdentifier { get; set; }
+        #endregion
+        
         #region Parameter Group_GroupIdentifier
         /// <summary>
         /// <para>
@@ -316,6 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter EntityType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.GrantIdentifier = this.GrantIdentifier;
             context.PolicyType = this.PolicyType;
             #if MODULAR
             if (this.PolicyType == null && ParameterWasBound(nameof(this.PolicyType)))
@@ -365,13 +376,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             {
                 request.EntityType = cmdletContext.EntityType;
             }
+            if (cmdletContext.GrantIdentifier != null)
+            {
+                request.GrantIdentifier = cmdletContext.GrantIdentifier;
+            }
             if (cmdletContext.PolicyType != null)
             {
                 request.PolicyType = cmdletContext.PolicyType;
             }
             
              // populate Principal
-            var requestPrincipalIsNull = true;
             request.Principal = new Amazon.DataZone.Model.PolicyGrantPrincipal();
             Amazon.DataZone.Model.GroupPolicyGrantPrincipal requestPrincipal_principal_Group = null;
             
@@ -396,7 +410,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestPrincipal_principal_Group != null)
             {
                 request.Principal.Group = requestPrincipal_principal_Group;
-                requestPrincipalIsNull = false;
             }
             Amazon.DataZone.Model.UserPolicyGrantPrincipal requestPrincipal_principal_User = null;
             
@@ -431,7 +444,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestPrincipal_principal_User != null)
             {
                 request.Principal.User = requestPrincipal_principal_User;
-                requestPrincipalIsNull = false;
             }
             Amazon.DataZone.Model.DomainUnitPolicyGrantPrincipal requestPrincipal_principal_DomainUnit = null;
             
@@ -491,7 +503,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestPrincipal_principal_DomainUnit != null)
             {
                 request.Principal.DomainUnit = requestPrincipal_principal_DomainUnit;
-                requestPrincipalIsNull = false;
             }
             Amazon.DataZone.Model.ProjectPolicyGrantPrincipal requestPrincipal_principal_Project = null;
             
@@ -576,12 +587,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestPrincipal_principal_Project != null)
             {
                 request.Principal.Project = requestPrincipal_principal_Project;
-                requestPrincipalIsNull = false;
-            }
-             // determine if request.Principal should be set to null
-            if (requestPrincipalIsNull)
-            {
-                request.Principal = null;
             }
             
             CmdletOutput output;
@@ -648,6 +653,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String DomainIdentifier { get; set; }
             public System.String EntityIdentifier { get; set; }
             public Amazon.DataZone.TargetEntityType EntityType { get; set; }
+            public System.String GrantIdentifier { get; set; }
             public Amazon.DataZone.ManagedPolicyType PolicyType { get; set; }
             public Amazon.DataZone.DomainUnitDesignation DomainUnit_DomainUnitDesignation { get; set; }
             public Amazon.DataZone.Model.AllDomainUnitsGrantFilter DomainUnitGrantFilter_AllDomainUnitsGrantFilter { get; set; }

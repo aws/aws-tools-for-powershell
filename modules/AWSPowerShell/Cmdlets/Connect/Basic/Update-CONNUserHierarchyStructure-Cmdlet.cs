@@ -206,7 +206,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             
             
              // populate HierarchyStructure
-            var requestHierarchyStructureIsNull = true;
             request.HierarchyStructure = new Amazon.Connect.Model.HierarchyStructureUpdate();
             Amazon.Connect.Model.HierarchyLevelUpdate requestHierarchyStructure_hierarchyStructure_LevelFive = null;
             
@@ -231,7 +230,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestHierarchyStructure_hierarchyStructure_LevelFive != null)
             {
                 request.HierarchyStructure.LevelFive = requestHierarchyStructure_hierarchyStructure_LevelFive;
-                requestHierarchyStructureIsNull = false;
             }
             Amazon.Connect.Model.HierarchyLevelUpdate requestHierarchyStructure_hierarchyStructure_LevelFour = null;
             
@@ -256,7 +254,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestHierarchyStructure_hierarchyStructure_LevelFour != null)
             {
                 request.HierarchyStructure.LevelFour = requestHierarchyStructure_hierarchyStructure_LevelFour;
-                requestHierarchyStructureIsNull = false;
             }
             Amazon.Connect.Model.HierarchyLevelUpdate requestHierarchyStructure_hierarchyStructure_LevelOne = null;
             
@@ -281,7 +278,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestHierarchyStructure_hierarchyStructure_LevelOne != null)
             {
                 request.HierarchyStructure.LevelOne = requestHierarchyStructure_hierarchyStructure_LevelOne;
-                requestHierarchyStructureIsNull = false;
             }
             Amazon.Connect.Model.HierarchyLevelUpdate requestHierarchyStructure_hierarchyStructure_LevelThree = null;
             
@@ -306,7 +302,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestHierarchyStructure_hierarchyStructure_LevelThree != null)
             {
                 request.HierarchyStructure.LevelThree = requestHierarchyStructure_hierarchyStructure_LevelThree;
-                requestHierarchyStructureIsNull = false;
             }
             Amazon.Connect.Model.HierarchyLevelUpdate requestHierarchyStructure_hierarchyStructure_LevelTwo = null;
             
@@ -331,12 +326,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestHierarchyStructure_hierarchyStructure_LevelTwo != null)
             {
                 request.HierarchyStructure.LevelTwo = requestHierarchyStructure_hierarchyStructure_LevelTwo;
-                requestHierarchyStructureIsNull = false;
-            }
-             // determine if request.HierarchyStructure should be set to null
-            if (requestHierarchyStructureIsNull)
-            {
-                request.HierarchyStructure = null;
             }
             if (cmdletContext.InstanceId != null)
             {

@@ -198,7 +198,6 @@ namespace Amazon.PowerShell.Cmdlets.STS
             }
             
              // populate TaskPolicyArn
-            var requestTaskPolicyArnIsNull = true;
             request.TaskPolicyArn = new Amazon.SecurityToken.Model.PolicyDescriptorType();
             System.String requestTaskPolicyArn_taskPolicyArn_Arn = null;
             if (cmdletContext.TaskPolicyArn_Arn != null)
@@ -208,12 +207,6 @@ namespace Amazon.PowerShell.Cmdlets.STS
             if (requestTaskPolicyArn_taskPolicyArn_Arn != null)
             {
                 request.TaskPolicyArn.Arn = requestTaskPolicyArn_taskPolicyArn_Arn;
-                requestTaskPolicyArnIsNull = false;
-            }
-             // determine if request.TaskPolicyArn should be set to null
-            if (requestTaskPolicyArnIsNull)
-            {
-                request.TaskPolicyArn = null;
             }
             
             CmdletOutput output;

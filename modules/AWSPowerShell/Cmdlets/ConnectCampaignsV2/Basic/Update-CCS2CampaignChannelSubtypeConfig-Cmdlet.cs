@@ -358,7 +358,6 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             
             
              // populate ChannelSubtypeConfig
-            var requestChannelSubtypeConfigIsNull = true;
             request.ChannelSubtypeConfig = new Amazon.ConnectCampaignsV2.Model.ChannelSubtypeConfig();
             Amazon.ConnectCampaignsV2.Model.EmailChannelSubtypeConfig requestChannelSubtypeConfig_channelSubtypeConfig_Email = null;
             
@@ -378,7 +377,6 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             Amazon.ConnectCampaignsV2.Model.EmailOutboundMode requestChannelSubtypeConfig_channelSubtypeConfig_Email_channelSubtypeConfig_Email_OutboundMode = null;
             
              // populate OutboundMode
-            var requestChannelSubtypeConfig_channelSubtypeConfig_Email_channelSubtypeConfig_Email_OutboundModeIsNull = true;
             requestChannelSubtypeConfig_channelSubtypeConfig_Email_channelSubtypeConfig_Email_OutboundMode = new Amazon.ConnectCampaignsV2.Model.EmailOutboundMode();
             Amazon.ConnectCampaignsV2.Model.AgentlessConfig requestChannelSubtypeConfig_channelSubtypeConfig_Email_channelSubtypeConfig_Email_OutboundMode_channelSubtypeConfig_Email_OutboundMode_Agentless = null;
             if (cmdletContext.ChannelSubtypeConfig_Email_OutboundMode_Agentless != null)
@@ -388,12 +386,6 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestChannelSubtypeConfig_channelSubtypeConfig_Email_channelSubtypeConfig_Email_OutboundMode_channelSubtypeConfig_Email_OutboundMode_Agentless != null)
             {
                 requestChannelSubtypeConfig_channelSubtypeConfig_Email_channelSubtypeConfig_Email_OutboundMode.Agentless = requestChannelSubtypeConfig_channelSubtypeConfig_Email_channelSubtypeConfig_Email_OutboundMode_channelSubtypeConfig_Email_OutboundMode_Agentless;
-                requestChannelSubtypeConfig_channelSubtypeConfig_Email_channelSubtypeConfig_Email_OutboundModeIsNull = false;
-            }
-             // determine if requestChannelSubtypeConfig_channelSubtypeConfig_Email_channelSubtypeConfig_Email_OutboundMode should be set to null
-            if (requestChannelSubtypeConfig_channelSubtypeConfig_Email_channelSubtypeConfig_Email_OutboundModeIsNull)
-            {
-                requestChannelSubtypeConfig_channelSubtypeConfig_Email_channelSubtypeConfig_Email_OutboundMode = null;
             }
             if (requestChannelSubtypeConfig_channelSubtypeConfig_Email_channelSubtypeConfig_Email_OutboundMode != null)
             {
@@ -453,7 +445,6 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestChannelSubtypeConfig_channelSubtypeConfig_Email != null)
             {
                 request.ChannelSubtypeConfig.Email = requestChannelSubtypeConfig_channelSubtypeConfig_Email;
-                requestChannelSubtypeConfigIsNull = false;
             }
             Amazon.ConnectCampaignsV2.Model.SmsChannelSubtypeConfig requestChannelSubtypeConfig_channelSubtypeConfig_Sms = null;
             
@@ -473,7 +464,6 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             Amazon.ConnectCampaignsV2.Model.SmsOutboundMode requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_OutboundMode = null;
             
              // populate OutboundMode
-            var requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_OutboundModeIsNull = true;
             requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_OutboundMode = new Amazon.ConnectCampaignsV2.Model.SmsOutboundMode();
             Amazon.ConnectCampaignsV2.Model.AgentlessConfig requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_OutboundMode_channelSubtypeConfig_Sms_OutboundMode_Agentless = null;
             if (cmdletContext.ChannelSubtypeConfig_Sms_OutboundMode_Agentless != null)
@@ -483,12 +473,6 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_OutboundMode_channelSubtypeConfig_Sms_OutboundMode_Agentless != null)
             {
                 requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_OutboundMode.Agentless = requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_OutboundMode_channelSubtypeConfig_Sms_OutboundMode_Agentless;
-                requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_OutboundModeIsNull = false;
-            }
-             // determine if requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_OutboundMode should be set to null
-            if (requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_OutboundModeIsNull)
-            {
-                requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_OutboundMode = null;
             }
             if (requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_OutboundMode != null)
             {
@@ -538,7 +522,6 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestChannelSubtypeConfig_channelSubtypeConfig_Sms != null)
             {
                 request.ChannelSubtypeConfig.Sms = requestChannelSubtypeConfig_channelSubtypeConfig_Sms;
-                requestChannelSubtypeConfigIsNull = false;
             }
             Amazon.ConnectCampaignsV2.Model.TelephonyChannelSubtypeConfig requestChannelSubtypeConfig_channelSubtypeConfig_Telephony = null;
             
@@ -638,7 +621,6 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             Amazon.ConnectCampaignsV2.Model.TelephonyOutboundMode requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode = null;
             
              // populate OutboundMode
-            var requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundModeIsNull = true;
             requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode = new Amazon.ConnectCampaignsV2.Model.TelephonyOutboundMode();
             Amazon.ConnectCampaignsV2.Model.AgentlessConfig requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Agentless = null;
             if (cmdletContext.ChannelSubtypeConfig_Telephony_OutboundMode_Agentless != null)
@@ -648,7 +630,6 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Agentless != null)
             {
                 requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode.Agentless = requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Agentless;
-                requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundModeIsNull = false;
             }
             Amazon.ConnectCampaignsV2.Model.PredictiveConfig requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Predictive = null;
             
@@ -673,7 +654,6 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Predictive != null)
             {
                 requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode.Predictive = requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Predictive;
-                requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundModeIsNull = false;
             }
             Amazon.ConnectCampaignsV2.Model.ProgressiveConfig requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Progressive = null;
             
@@ -698,12 +678,6 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Progressive != null)
             {
                 requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode.Progressive = requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Progressive;
-                requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundModeIsNull = false;
-            }
-             // determine if requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode should be set to null
-            if (requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundModeIsNull)
-            {
-                requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode = null;
             }
             if (requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode != null)
             {
@@ -718,12 +692,6 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestChannelSubtypeConfig_channelSubtypeConfig_Telephony != null)
             {
                 request.ChannelSubtypeConfig.Telephony = requestChannelSubtypeConfig_channelSubtypeConfig_Telephony;
-                requestChannelSubtypeConfigIsNull = false;
-            }
-             // determine if request.ChannelSubtypeConfig should be set to null
-            if (requestChannelSubtypeConfigIsNull)
-            {
-                request.ChannelSubtypeConfig = null;
             }
             if (cmdletContext.Id != null)
             {

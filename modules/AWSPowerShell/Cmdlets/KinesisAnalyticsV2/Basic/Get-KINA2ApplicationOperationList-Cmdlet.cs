@@ -28,8 +28,16 @@ using Amazon.KinesisAnalyticsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.KINA2
 {
     /// <summary>
-    /// Lists information about operations performed on a Managed Service for Apache Flink
-    /// application<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all the operations performed for the specified application such as UpdateApplication,
+    /// StartApplication etc. The response also includes a summary of the operation.
+    /// 
+    ///  
+    /// <para>
+    /// To get the complete description of a specific operation, invoke the <a>DescribeApplicationOperation</a>
+    /// operation.
+    /// </para><note><para>
+    /// This operation is supported only for Managed Service for Apache Flink.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "KINA2ApplicationOperationList")]
     [OutputType("Amazon.KinesisAnalyticsV2.Model.ApplicationOperationInfo")]

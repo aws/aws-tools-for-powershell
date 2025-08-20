@@ -269,7 +269,6 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             }
             
              // populate Grant
-            var requestGrantIsNull = true;
             request.Grant = new Amazon.SSOAdmin.Model.Grant();
             Amazon.SSOAdmin.Model.RefreshTokenGrant requestGrant_grant_RefreshToken = null;
             if (cmdletContext.Grant_RefreshToken != null)
@@ -279,7 +278,6 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             if (requestGrant_grant_RefreshToken != null)
             {
                 request.Grant.RefreshToken = requestGrant_grant_RefreshToken;
-                requestGrantIsNull = false;
             }
             Amazon.SSOAdmin.Model.TokenExchangeGrant requestGrant_grant_TokenExchange = null;
             if (cmdletContext.Grant_TokenExchange != null)
@@ -289,7 +287,6 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             if (requestGrant_grant_TokenExchange != null)
             {
                 request.Grant.TokenExchange = requestGrant_grant_TokenExchange;
-                requestGrantIsNull = false;
             }
             Amazon.SSOAdmin.Model.AuthorizationCodeGrant requestGrant_grant_AuthorizationCode = null;
             
@@ -314,7 +311,6 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             if (requestGrant_grant_AuthorizationCode != null)
             {
                 request.Grant.AuthorizationCode = requestGrant_grant_AuthorizationCode;
-                requestGrantIsNull = false;
             }
             Amazon.SSOAdmin.Model.JwtBearerGrant requestGrant_grant_JwtBearer = null;
             
@@ -339,12 +335,6 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             if (requestGrant_grant_JwtBearer != null)
             {
                 request.Grant.JwtBearer = requestGrant_grant_JwtBearer;
-                requestGrantIsNull = false;
-            }
-             // determine if request.Grant should be set to null
-            if (requestGrantIsNull)
-            {
-                request.Grant = null;
             }
             if (cmdletContext.GrantType != null)
             {

@@ -279,7 +279,6 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
             }
             
              // populate AppMonitorDetails
-            var requestAppMonitorDetailsIsNull = true;
             request.AppMonitorDetails = new Amazon.CloudWatchRUM.Model.AppMonitorDetails();
             System.String requestAppMonitorDetails_appMonitorDetails_Id = null;
             if (cmdletContext.AppMonitorDetails_Id != null)
@@ -289,7 +288,6 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
             if (requestAppMonitorDetails_appMonitorDetails_Id != null)
             {
                 request.AppMonitorDetails.Id = requestAppMonitorDetails_appMonitorDetails_Id;
-                requestAppMonitorDetailsIsNull = false;
             }
             System.String requestAppMonitorDetails_appMonitorDetails_Name = null;
             if (cmdletContext.AppMonitorDetails_Name != null)
@@ -299,7 +297,6 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
             if (requestAppMonitorDetails_appMonitorDetails_Name != null)
             {
                 request.AppMonitorDetails.Name = requestAppMonitorDetails_appMonitorDetails_Name;
-                requestAppMonitorDetailsIsNull = false;
             }
             System.String requestAppMonitorDetails_appMonitorDetails_Version = null;
             if (cmdletContext.AppMonitorDetails_Version != null)
@@ -309,12 +306,6 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
             if (requestAppMonitorDetails_appMonitorDetails_Version != null)
             {
                 request.AppMonitorDetails.Version = requestAppMonitorDetails_appMonitorDetails_Version;
-                requestAppMonitorDetailsIsNull = false;
-            }
-             // determine if request.AppMonitorDetails should be set to null
-            if (requestAppMonitorDetailsIsNull)
-            {
-                request.AppMonitorDetails = null;
             }
             if (cmdletContext.BatchId != null)
             {
@@ -330,7 +321,6 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
             }
             
              // populate UserDetails
-            var requestUserDetailsIsNull = true;
             request.UserDetails = new Amazon.CloudWatchRUM.Model.UserDetails();
             System.String requestUserDetails_userDetails_SessionId = null;
             if (cmdletContext.UserDetails_SessionId != null)
@@ -340,7 +330,6 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
             if (requestUserDetails_userDetails_SessionId != null)
             {
                 request.UserDetails.SessionId = requestUserDetails_userDetails_SessionId;
-                requestUserDetailsIsNull = false;
             }
             System.String requestUserDetails_userDetails_UserId = null;
             if (cmdletContext.UserDetails_UserId != null)
@@ -350,12 +339,6 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
             if (requestUserDetails_userDetails_UserId != null)
             {
                 request.UserDetails.UserId = requestUserDetails_userDetails_UserId;
-                requestUserDetailsIsNull = false;
-            }
-             // determine if request.UserDetails should be set to null
-            if (requestUserDetailsIsNull)
-            {
-                request.UserDetails = null;
             }
             
             CmdletOutput output;

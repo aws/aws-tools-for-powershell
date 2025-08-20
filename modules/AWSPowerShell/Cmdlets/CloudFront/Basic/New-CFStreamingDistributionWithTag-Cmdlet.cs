@@ -406,7 +406,6 @@ namespace Amazon.PowerShell.Cmdlets.CF
             Amazon.CloudFront.Model.Tags requestStreamingDistributionConfigWithTags_streamingDistributionConfigWithTags_Tags = null;
             
              // populate Tags
-            var requestStreamingDistributionConfigWithTags_streamingDistributionConfigWithTags_TagsIsNull = true;
             requestStreamingDistributionConfigWithTags_streamingDistributionConfigWithTags_Tags = new Amazon.CloudFront.Model.Tags();
             List<Amazon.CloudFront.Model.Tag> requestStreamingDistributionConfigWithTags_streamingDistributionConfigWithTags_Tags_tags_Item = null;
             if (cmdletContext.Tags_Item != null)
@@ -416,12 +415,6 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (requestStreamingDistributionConfigWithTags_streamingDistributionConfigWithTags_Tags_tags_Item != null)
             {
                 requestStreamingDistributionConfigWithTags_streamingDistributionConfigWithTags_Tags.Items = requestStreamingDistributionConfigWithTags_streamingDistributionConfigWithTags_Tags_tags_Item;
-                requestStreamingDistributionConfigWithTags_streamingDistributionConfigWithTags_TagsIsNull = false;
-            }
-             // determine if requestStreamingDistributionConfigWithTags_streamingDistributionConfigWithTags_Tags should be set to null
-            if (requestStreamingDistributionConfigWithTags_streamingDistributionConfigWithTags_TagsIsNull)
-            {
-                requestStreamingDistributionConfigWithTags_streamingDistributionConfigWithTags_Tags = null;
             }
             if (requestStreamingDistributionConfigWithTags_streamingDistributionConfigWithTags_Tags != null)
             {

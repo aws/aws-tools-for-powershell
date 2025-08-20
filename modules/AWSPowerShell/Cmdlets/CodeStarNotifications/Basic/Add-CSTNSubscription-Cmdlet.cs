@@ -193,7 +193,6 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
             }
             
              // populate Target
-            var requestTargetIsNull = true;
             request.Target = new Amazon.CodeStarNotifications.Model.Target();
             System.String requestTarget_target_TargetAddress = null;
             if (cmdletContext.Target_TargetAddress != null)
@@ -203,7 +202,6 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
             if (requestTarget_target_TargetAddress != null)
             {
                 request.Target.TargetAddress = requestTarget_target_TargetAddress;
-                requestTargetIsNull = false;
             }
             System.String requestTarget_target_TargetType = null;
             if (cmdletContext.Target_TargetType != null)
@@ -213,12 +211,6 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
             if (requestTarget_target_TargetType != null)
             {
                 request.Target.TargetType = requestTarget_target_TargetType;
-                requestTargetIsNull = false;
-            }
-             // determine if request.Target should be set to null
-            if (requestTargetIsNull)
-            {
-                request.Target = null;
             }
             
             CmdletOutput output;

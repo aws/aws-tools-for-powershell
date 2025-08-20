@@ -297,7 +297,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             }
             
              // populate ModelDataSource
-            var requestModelDataSourceIsNull = true;
             request.ModelDataSource = new Amazon.Bedrock.Model.ModelDataSource();
             Amazon.Bedrock.Model.S3DataSource requestModelDataSource_modelDataSource_S3DataSource = null;
             
@@ -322,12 +321,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestModelDataSource_modelDataSource_S3DataSource != null)
             {
                 request.ModelDataSource.S3DataSource = requestModelDataSource_modelDataSource_S3DataSource;
-                requestModelDataSourceIsNull = false;
-            }
-             // determine if request.ModelDataSource should be set to null
-            if (requestModelDataSourceIsNull)
-            {
-                request.ModelDataSource = null;
             }
             if (cmdletContext.RoleArn != null)
             {

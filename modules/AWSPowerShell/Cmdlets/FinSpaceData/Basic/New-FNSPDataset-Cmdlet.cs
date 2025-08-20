@@ -334,7 +334,6 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
             }
             
              // populate PermissionGroupParams
-            var requestPermissionGroupParamsIsNull = true;
             request.PermissionGroupParams = new Amazon.FinSpaceData.Model.PermissionGroupParams();
             List<Amazon.FinSpaceData.Model.ResourcePermission> requestPermissionGroupParams_permissionGroupParams_DatasetPermission = null;
             if (cmdletContext.PermissionGroupParams_DatasetPermission != null)
@@ -344,7 +343,6 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
             if (requestPermissionGroupParams_permissionGroupParams_DatasetPermission != null)
             {
                 request.PermissionGroupParams.DatasetPermissions = requestPermissionGroupParams_permissionGroupParams_DatasetPermission;
-                requestPermissionGroupParamsIsNull = false;
             }
             System.String requestPermissionGroupParams_permissionGroupParams_PermissionGroupId = null;
             if (cmdletContext.PermissionGroupParams_PermissionGroupId != null)
@@ -354,12 +352,6 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
             if (requestPermissionGroupParams_permissionGroupParams_PermissionGroupId != null)
             {
                 request.PermissionGroupParams.PermissionGroupId = requestPermissionGroupParams_permissionGroupParams_PermissionGroupId;
-                requestPermissionGroupParamsIsNull = false;
-            }
-             // determine if request.PermissionGroupParams should be set to null
-            if (requestPermissionGroupParamsIsNull)
-            {
-                request.PermissionGroupParams = null;
             }
             
              // populate SchemaDefinition

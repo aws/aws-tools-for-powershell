@@ -533,7 +533,6 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             }
             
              // populate IntegrationConfig
-            var requestIntegrationConfigIsNull = true;
             request.IntegrationConfig = new Amazon.CustomerProfiles.Model.IntegrationConfig();
             Amazon.CustomerProfiles.Model.AppflowIntegration requestIntegrationConfig_integrationConfig_AppflowIntegration = null;
             
@@ -773,7 +772,6 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             Amazon.CustomerProfiles.Model.SourceConnectorProperties requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties = null;
             
              // populate SourceConnectorProperties
-            var requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorPropertiesIsNull = true;
             requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties = new Amazon.CustomerProfiles.Model.SourceConnectorProperties();
             Amazon.CustomerProfiles.Model.MarketoSourceProperties requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_Marketo = null;
             
@@ -798,7 +796,6 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_Marketo != null)
             {
                 requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties.Marketo = requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_Marketo;
-                requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.CustomerProfiles.Model.ServiceNowSourceProperties requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_ServiceNow = null;
             
@@ -823,7 +820,6 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_ServiceNow != null)
             {
                 requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties.ServiceNow = requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_ServiceNow;
-                requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.CustomerProfiles.Model.ZendeskSourceProperties requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_Zendesk = null;
             
@@ -848,7 +844,6 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_Zendesk != null)
             {
                 requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties.Zendesk = requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_Zendesk;
-                requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.CustomerProfiles.Model.S3SourceProperties requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_S3 = null;
             
@@ -883,7 +878,6 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_S3 != null)
             {
                 requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties.S3 = requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_S3;
-                requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.CustomerProfiles.Model.SalesforceSourceProperties requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_Salesforce = null;
             
@@ -928,12 +922,6 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_Salesforce != null)
             {
                 requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties.Salesforce = requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties_Salesforce;
-                requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorPropertiesIsNull = false;
-            }
-             // determine if requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties should be set to null
-            if (requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorPropertiesIsNull)
-            {
-                requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties = null;
             }
             if (requestIntegrationConfig_integrationConfig_AppflowIntegration_integrationConfig_AppflowIntegration_FlowDefinition_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_integrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_SourceConnectorProperties != null)
             {
@@ -968,12 +956,6 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (requestIntegrationConfig_integrationConfig_AppflowIntegration != null)
             {
                 request.IntegrationConfig.AppflowIntegration = requestIntegrationConfig_integrationConfig_AppflowIntegration;
-                requestIntegrationConfigIsNull = false;
-            }
-             // determine if request.IntegrationConfig should be set to null
-            if (requestIntegrationConfigIsNull)
-            {
-                request.IntegrationConfig = null;
             }
             if (cmdletContext.ObjectTypeName != null)
             {

@@ -185,7 +185,6 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             }
             
              // populate AuthenticationMethod
-            var requestAuthenticationMethodIsNull = true;
             request.AuthenticationMethod = new Amazon.SSOAdmin.Model.AuthenticationMethod();
             Amazon.SSOAdmin.Model.IamAuthenticationMethod requestAuthenticationMethod_authenticationMethod_Iam = null;
             
@@ -210,12 +209,6 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             if (requestAuthenticationMethod_authenticationMethod_Iam != null)
             {
                 request.AuthenticationMethod.Iam = requestAuthenticationMethod_authenticationMethod_Iam;
-                requestAuthenticationMethodIsNull = false;
-            }
-             // determine if request.AuthenticationMethod should be set to null
-            if (requestAuthenticationMethodIsNull)
-            {
-                request.AuthenticationMethod = null;
             }
             if (cmdletContext.AuthenticationMethodType != null)
             {

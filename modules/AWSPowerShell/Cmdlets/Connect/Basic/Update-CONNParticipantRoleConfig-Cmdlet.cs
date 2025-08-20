@@ -201,7 +201,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             
             
              // populate ChannelConfiguration
-            var requestChannelConfigurationIsNull = true;
             request.ChannelConfiguration = new Amazon.Connect.Model.UpdateParticipantRoleConfigChannelInfo();
             Amazon.Connect.Model.ChatParticipantRoleConfig requestChannelConfiguration_channelConfiguration_Chat = null;
             
@@ -226,12 +225,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestChannelConfiguration_channelConfiguration_Chat != null)
             {
                 request.ChannelConfiguration.Chat = requestChannelConfiguration_channelConfiguration_Chat;
-                requestChannelConfigurationIsNull = false;
-            }
-             // determine if request.ChannelConfiguration should be set to null
-            if (requestChannelConfigurationIsNull)
-            {
-                request.ChannelConfiguration = null;
             }
             if (cmdletContext.ContactId != null)
             {

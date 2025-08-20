@@ -337,7 +337,6 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 }
                 
                  // populate Geometry
-                var requestGeometryIsNull = true;
                 request.Geometry = new Amazon.LocationService.Model.GeofenceGeometry();
                 System.IO.MemoryStream requestGeometry_geometry_Geobuf = null;
                 if (cmdletContext.Geometry_Geobuf != null)
@@ -348,7 +347,6 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 if (requestGeometry_geometry_Geobuf != null)
                 {
                     request.Geometry.Geobuf = requestGeometry_geometry_Geobuf;
-                    requestGeometryIsNull = false;
                 }
                 List<List<List<List<System.Double>>>> requestGeometry_geometry_MultiPolygon = null;
                 if (cmdletContext.Geometry_MultiPolygon != null)
@@ -358,7 +356,6 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 if (requestGeometry_geometry_MultiPolygon != null)
                 {
                     request.Geometry.MultiPolygon = requestGeometry_geometry_MultiPolygon;
-                    requestGeometryIsNull = false;
                 }
                 List<List<List<System.Double>>> requestGeometry_geometry_Polygon = null;
                 if (cmdletContext.Geometry_Polygon != null)
@@ -368,7 +365,6 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 if (requestGeometry_geometry_Polygon != null)
                 {
                     request.Geometry.Polygon = requestGeometry_geometry_Polygon;
-                    requestGeometryIsNull = false;
                 }
                 Amazon.LocationService.Model.Circle requestGeometry_geometry_Circle = null;
                 
@@ -403,12 +399,6 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 if (requestGeometry_geometry_Circle != null)
                 {
                     request.Geometry.Circle = requestGeometry_geometry_Circle;
-                    requestGeometryIsNull = false;
-                }
-                 // determine if request.Geometry should be set to null
-                if (requestGeometryIsNull)
-                {
-                    request.Geometry = null;
                 }
                 
                 CmdletOutput output;

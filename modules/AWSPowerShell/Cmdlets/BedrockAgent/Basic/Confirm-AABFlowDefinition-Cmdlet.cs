@@ -136,7 +136,6 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             
             
              // populate Definition
-            var requestDefinitionIsNull = true;
             request.Definition = new Amazon.BedrockAgent.Model.FlowDefinition();
             List<Amazon.BedrockAgent.Model.FlowConnection> requestDefinition_definition_Connection = null;
             if (cmdletContext.Definition_Connection != null)
@@ -146,7 +145,6 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             if (requestDefinition_definition_Connection != null)
             {
                 request.Definition.Connections = requestDefinition_definition_Connection;
-                requestDefinitionIsNull = false;
             }
             List<Amazon.BedrockAgent.Model.FlowNode> requestDefinition_definition_Node = null;
             if (cmdletContext.Definition_Node != null)
@@ -156,12 +154,6 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             if (requestDefinition_definition_Node != null)
             {
                 request.Definition.Nodes = requestDefinition_definition_Node;
-                requestDefinitionIsNull = false;
-            }
-             // determine if request.Definition should be set to null
-            if (requestDefinitionIsNull)
-            {
-                request.Definition = null;
             }
             
             CmdletOutput output;

@@ -278,7 +278,6 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             }
             
              // populate Criteria
-            var requestCriteriaIsNull = true;
             request.Criteria = new Amazon.SecurityHub.Model.Criteria();
             Amazon.SecurityHub.Model.OcsfFindingFilters requestCriteria_criteria_OcsfFindingCriteria = null;
             
@@ -313,12 +312,6 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_OcsfFindingCriteria != null)
             {
                 request.Criteria.OcsfFindingCriteria = requestCriteria_criteria_OcsfFindingCriteria;
-                requestCriteriaIsNull = false;
-            }
-             // determine if request.Criteria should be set to null
-            if (requestCriteriaIsNull)
-            {
-                request.Criteria = null;
             }
             if (cmdletContext.Description != null)
             {

@@ -538,7 +538,6 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             }
             
              // populate Media
-            var requestMediaIsNull = true;
             request.Media = new Amazon.TranscribeService.Model.Media();
             System.String requestMedia_media_MediaFileUri = null;
             if (cmdletContext.Media_MediaFileUri != null)
@@ -548,7 +547,6 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (requestMedia_media_MediaFileUri != null)
             {
                 request.Media.MediaFileUri = requestMedia_media_MediaFileUri;
-                requestMediaIsNull = false;
             }
             System.String requestMedia_media_RedactedMediaFileUri = null;
             if (cmdletContext.Media_RedactedMediaFileUri != null)
@@ -558,12 +556,6 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (requestMedia_media_RedactedMediaFileUri != null)
             {
                 request.Media.RedactedMediaFileUri = requestMedia_media_RedactedMediaFileUri;
-                requestMediaIsNull = false;
-            }
-             // determine if request.Media should be set to null
-            if (requestMediaIsNull)
-            {
-                request.Media = null;
             }
             if (cmdletContext.MediaFormat != null)
             {

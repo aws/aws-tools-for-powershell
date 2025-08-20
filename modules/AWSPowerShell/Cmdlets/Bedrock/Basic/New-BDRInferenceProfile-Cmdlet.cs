@@ -221,7 +221,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             }
             
              // populate ModelSource
-            var requestModelSourceIsNull = true;
             request.ModelSource = new Amazon.Bedrock.Model.InferenceProfileModelSource();
             System.String requestModelSource_modelSource_CopyFrom = null;
             if (cmdletContext.ModelSource_CopyFrom != null)
@@ -231,12 +230,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestModelSource_modelSource_CopyFrom != null)
             {
                 request.ModelSource.CopyFrom = requestModelSource_modelSource_CopyFrom;
-                requestModelSourceIsNull = false;
-            }
-             // determine if request.ModelSource should be set to null
-            if (requestModelSourceIsNull)
-            {
-                request.ModelSource = null;
             }
             if (cmdletContext.Tag != null)
             {

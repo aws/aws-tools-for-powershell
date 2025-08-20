@@ -172,7 +172,6 @@ namespace Amazon.PowerShell.Cmdlets.MPA
             }
             
              // populate IdentitySourceParameters
-            var requestIdentitySourceParametersIsNull = true;
             request.IdentitySourceParameters = new Amazon.MPA.Model.IdentitySourceParameters();
             Amazon.MPA.Model.IamIdentityCenter requestIdentitySourceParameters_identitySourceParameters_IamIdentityCenter = null;
             
@@ -207,12 +206,6 @@ namespace Amazon.PowerShell.Cmdlets.MPA
             if (requestIdentitySourceParameters_identitySourceParameters_IamIdentityCenter != null)
             {
                 request.IdentitySourceParameters.IamIdentityCenter = requestIdentitySourceParameters_identitySourceParameters_IamIdentityCenter;
-                requestIdentitySourceParametersIsNull = false;
-            }
-             // determine if request.IdentitySourceParameters should be set to null
-            if (requestIdentitySourceParametersIsNull)
-            {
-                request.IdentitySourceParameters = null;
             }
             if (cmdletContext.Tag != null)
             {

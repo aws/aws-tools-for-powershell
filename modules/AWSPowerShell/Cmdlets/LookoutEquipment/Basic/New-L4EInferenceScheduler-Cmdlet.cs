@@ -382,7 +382,6 @@ namespace Amazon.PowerShell.Cmdlets.L4E
             }
             
              // populate DataInputConfiguration
-            var requestDataInputConfigurationIsNull = true;
             request.DataInputConfiguration = new Amazon.LookoutEquipment.Model.InferenceInputConfiguration();
             System.String requestDataInputConfiguration_dataInputConfiguration_InputTimeZoneOffset = null;
             if (cmdletContext.DataInputConfiguration_InputTimeZoneOffset != null)
@@ -392,7 +391,6 @@ namespace Amazon.PowerShell.Cmdlets.L4E
             if (requestDataInputConfiguration_dataInputConfiguration_InputTimeZoneOffset != null)
             {
                 request.DataInputConfiguration.InputTimeZoneOffset = requestDataInputConfiguration_dataInputConfiguration_InputTimeZoneOffset;
-                requestDataInputConfigurationIsNull = false;
             }
             Amazon.LookoutEquipment.Model.InferenceInputNameConfiguration requestDataInputConfiguration_dataInputConfiguration_InferenceInputNameConfiguration = null;
             
@@ -427,7 +425,6 @@ namespace Amazon.PowerShell.Cmdlets.L4E
             if (requestDataInputConfiguration_dataInputConfiguration_InferenceInputNameConfiguration != null)
             {
                 request.DataInputConfiguration.InferenceInputNameConfiguration = requestDataInputConfiguration_dataInputConfiguration_InferenceInputNameConfiguration;
-                requestDataInputConfigurationIsNull = false;
             }
             Amazon.LookoutEquipment.Model.InferenceS3InputConfiguration requestDataInputConfiguration_dataInputConfiguration_S3InputConfiguration = null;
             
@@ -462,12 +459,6 @@ namespace Amazon.PowerShell.Cmdlets.L4E
             if (requestDataInputConfiguration_dataInputConfiguration_S3InputConfiguration != null)
             {
                 request.DataInputConfiguration.S3InputConfiguration = requestDataInputConfiguration_dataInputConfiguration_S3InputConfiguration;
-                requestDataInputConfigurationIsNull = false;
-            }
-             // determine if request.DataInputConfiguration should be set to null
-            if (requestDataInputConfigurationIsNull)
-            {
-                request.DataInputConfiguration = null;
             }
             
              // populate DataOutputConfiguration

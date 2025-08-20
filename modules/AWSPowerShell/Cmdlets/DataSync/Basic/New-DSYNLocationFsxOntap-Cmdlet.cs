@@ -296,7 +296,6 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             
             
              // populate Protocol
-            var requestProtocolIsNull = true;
             request.Protocol = new Amazon.DataSync.Model.FsxProtocol();
             Amazon.DataSync.Model.FsxProtocolNfs requestProtocol_protocol_NFS = null;
             
@@ -336,7 +335,6 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             if (requestProtocol_protocol_NFS != null)
             {
                 request.Protocol.NFS = requestProtocol_protocol_NFS;
-                requestProtocolIsNull = false;
             }
             Amazon.DataSync.Model.FsxProtocolSmb requestProtocol_protocol_SMB = null;
             
@@ -406,12 +404,6 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             if (requestProtocol_protocol_SMB != null)
             {
                 request.Protocol.SMB = requestProtocol_protocol_SMB;
-                requestProtocolIsNull = false;
-            }
-             // determine if request.Protocol should be set to null
-            if (requestProtocolIsNull)
-            {
-                request.Protocol = null;
             }
             if (cmdletContext.SecurityGroupArn != null)
             {

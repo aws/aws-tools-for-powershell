@@ -627,7 +627,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             }
             
              // populate TrainingDataConfig
-            var requestTrainingDataConfigIsNull = true;
             request.TrainingDataConfig = new Amazon.Bedrock.Model.TrainingDataConfig();
             System.String requestTrainingDataConfig_trainingDataConfig_S3Uri = null;
             if (cmdletContext.TrainingDataConfig_S3Uri != null)
@@ -637,7 +636,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestTrainingDataConfig_trainingDataConfig_S3Uri != null)
             {
                 request.TrainingDataConfig.S3Uri = requestTrainingDataConfig_trainingDataConfig_S3Uri;
-                requestTrainingDataConfigIsNull = false;
             }
             Amazon.Bedrock.Model.InvocationLogsConfig requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig = null;
             
@@ -657,7 +655,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             Amazon.Bedrock.Model.InvocationLogSource requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_InvocationLogSource = null;
             
              // populate InvocationLogSource
-            var requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_InvocationLogSourceIsNull = true;
             requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_InvocationLogSource = new Amazon.Bedrock.Model.InvocationLogSource();
             System.String requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_InvocationLogSource_invocationLogSource_S3Uri = null;
             if (cmdletContext.InvocationLogSource_S3Uri != null)
@@ -667,12 +664,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_InvocationLogSource_invocationLogSource_S3Uri != null)
             {
                 requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_InvocationLogSource.S3Uri = requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_InvocationLogSource_invocationLogSource_S3Uri;
-                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_InvocationLogSourceIsNull = false;
-            }
-             // determine if requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_InvocationLogSource should be set to null
-            if (requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_InvocationLogSourceIsNull)
-            {
-                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_InvocationLogSource = null;
             }
             if (requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_InvocationLogSource != null)
             {
@@ -742,12 +733,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig != null)
             {
                 request.TrainingDataConfig.InvocationLogsConfig = requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig;
-                requestTrainingDataConfigIsNull = false;
-            }
-             // determine if request.TrainingDataConfig should be set to null
-            if (requestTrainingDataConfigIsNull)
-            {
-                request.TrainingDataConfig = null;
             }
             
              // populate ValidationDataConfig

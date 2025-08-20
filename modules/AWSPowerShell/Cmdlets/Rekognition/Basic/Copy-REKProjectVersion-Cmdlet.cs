@@ -295,7 +295,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
             }
             
              // populate OutputConfig
-            var requestOutputConfigIsNull = true;
             request.OutputConfig = new Amazon.Rekognition.Model.OutputConfig();
             System.String requestOutputConfig_outputConfig_S3Bucket = null;
             if (cmdletContext.OutputConfig_S3Bucket != null)
@@ -305,7 +304,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
             if (requestOutputConfig_outputConfig_S3Bucket != null)
             {
                 request.OutputConfig.S3Bucket = requestOutputConfig_outputConfig_S3Bucket;
-                requestOutputConfigIsNull = false;
             }
             System.String requestOutputConfig_outputConfig_S3KeyPrefix = null;
             if (cmdletContext.OutputConfig_S3KeyPrefix != null)
@@ -315,12 +313,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
             if (requestOutputConfig_outputConfig_S3KeyPrefix != null)
             {
                 request.OutputConfig.S3KeyPrefix = requestOutputConfig_outputConfig_S3KeyPrefix;
-                requestOutputConfigIsNull = false;
-            }
-             // determine if request.OutputConfig should be set to null
-            if (requestOutputConfigIsNull)
-            {
-                request.OutputConfig = null;
             }
             if (cmdletContext.SourceProjectArn != null)
             {

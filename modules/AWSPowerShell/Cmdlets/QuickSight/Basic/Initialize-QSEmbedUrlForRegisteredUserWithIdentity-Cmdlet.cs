@@ -498,7 +498,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             
              // populate ExperienceConfiguration
-            var requestExperienceConfigurationIsNull = true;
             request.ExperienceConfiguration = new Amazon.QuickSight.Model.RegisteredUserEmbeddingExperienceConfiguration();
             Amazon.QuickSight.Model.RegisteredUserDashboardVisualEmbeddingConfiguration requestExperienceConfiguration_experienceConfiguration_DashboardVisual = null;
             
@@ -558,7 +557,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestExperienceConfiguration_experienceConfiguration_DashboardVisual != null)
             {
                 request.ExperienceConfiguration.DashboardVisual = requestExperienceConfiguration_experienceConfiguration_DashboardVisual;
-                requestExperienceConfigurationIsNull = false;
             }
             Amazon.QuickSight.Model.RegisteredUserGenerativeQnAEmbeddingConfiguration requestExperienceConfiguration_experienceConfiguration_GenerativeQnA = null;
             
@@ -583,7 +581,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestExperienceConfiguration_experienceConfiguration_GenerativeQnA != null)
             {
                 request.ExperienceConfiguration.GenerativeQnA = requestExperienceConfiguration_experienceConfiguration_GenerativeQnA;
-                requestExperienceConfigurationIsNull = false;
             }
             Amazon.QuickSight.Model.RegisteredUserQSearchBarEmbeddingConfiguration requestExperienceConfiguration_experienceConfiguration_QSearchBar = null;
             
@@ -608,7 +605,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestExperienceConfiguration_experienceConfiguration_QSearchBar != null)
             {
                 request.ExperienceConfiguration.QSearchBar = requestExperienceConfiguration_experienceConfiguration_QSearchBar;
-                requestExperienceConfigurationIsNull = false;
             }
             Amazon.QuickSight.Model.RegisteredUserDashboardEmbeddingConfiguration requestExperienceConfiguration_experienceConfiguration_Dashboard = null;
             
@@ -838,7 +834,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestExperienceConfiguration_experienceConfiguration_Dashboard != null)
             {
                 request.ExperienceConfiguration.Dashboard = requestExperienceConfiguration_experienceConfiguration_Dashboard;
-                requestExperienceConfigurationIsNull = false;
             }
             Amazon.QuickSight.Model.RegisteredUserQuickSightConsoleEmbeddingConfiguration requestExperienceConfiguration_experienceConfiguration_QuickSightConsole = null;
             
@@ -1118,12 +1113,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestExperienceConfiguration_experienceConfiguration_QuickSightConsole != null)
             {
                 request.ExperienceConfiguration.QuickSightConsole = requestExperienceConfiguration_experienceConfiguration_QuickSightConsole;
-                requestExperienceConfigurationIsNull = false;
-            }
-             // determine if request.ExperienceConfiguration should be set to null
-            if (requestExperienceConfigurationIsNull)
-            {
-                request.ExperienceConfiguration = null;
             }
             if (cmdletContext.SessionLifetimeInMinute != null)
             {

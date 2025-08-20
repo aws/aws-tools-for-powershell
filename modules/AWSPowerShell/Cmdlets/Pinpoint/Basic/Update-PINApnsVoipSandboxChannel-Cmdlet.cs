@@ -242,7 +242,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             
             
              // populate APNSVoipSandboxChannelRequest
-            var requestAPNSVoipSandboxChannelRequestIsNull = true;
             request.APNSVoipSandboxChannelRequest = new Amazon.Pinpoint.Model.APNSVoipSandboxChannelRequest();
             System.String requestAPNSVoipSandboxChannelRequest_aPNSVoipSandboxChannelRequest_BundleId = null;
             if (cmdletContext.APNSVoipSandboxChannelRequest_BundleId != null)
@@ -252,7 +251,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestAPNSVoipSandboxChannelRequest_aPNSVoipSandboxChannelRequest_BundleId != null)
             {
                 request.APNSVoipSandboxChannelRequest.BundleId = requestAPNSVoipSandboxChannelRequest_aPNSVoipSandboxChannelRequest_BundleId;
-                requestAPNSVoipSandboxChannelRequestIsNull = false;
             }
             System.String requestAPNSVoipSandboxChannelRequest_aPNSVoipSandboxChannelRequest_Certificate = null;
             if (cmdletContext.APNSVoipSandboxChannelRequest_Certificate != null)
@@ -262,7 +260,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestAPNSVoipSandboxChannelRequest_aPNSVoipSandboxChannelRequest_Certificate != null)
             {
                 request.APNSVoipSandboxChannelRequest.Certificate = requestAPNSVoipSandboxChannelRequest_aPNSVoipSandboxChannelRequest_Certificate;
-                requestAPNSVoipSandboxChannelRequestIsNull = false;
             }
             System.String requestAPNSVoipSandboxChannelRequest_aPNSVoipSandboxChannelRequest_DefaultAuthenticationMethod = null;
             if (cmdletContext.APNSVoipSandboxChannelRequest_DefaultAuthenticationMethod != null)
@@ -272,7 +269,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestAPNSVoipSandboxChannelRequest_aPNSVoipSandboxChannelRequest_DefaultAuthenticationMethod != null)
             {
                 request.APNSVoipSandboxChannelRequest.DefaultAuthenticationMethod = requestAPNSVoipSandboxChannelRequest_aPNSVoipSandboxChannelRequest_DefaultAuthenticationMethod;
-                requestAPNSVoipSandboxChannelRequestIsNull = false;
             }
             System.Boolean? requestAPNSVoipSandboxChannelRequest_aPNSVoipSandboxChannelRequest_Enabled = null;
             if (cmdletContext.APNSVoipSandboxChannelRequest_Enabled != null)
@@ -282,7 +278,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestAPNSVoipSandboxChannelRequest_aPNSVoipSandboxChannelRequest_Enabled != null)
             {
                 request.APNSVoipSandboxChannelRequest.Enabled = requestAPNSVoipSandboxChannelRequest_aPNSVoipSandboxChannelRequest_Enabled.Value;
-                requestAPNSVoipSandboxChannelRequestIsNull = false;
             }
             System.String requestAPNSVoipSandboxChannelRequest_aPNSVoipSandboxChannelRequest_PrivateKey = null;
             if (cmdletContext.APNSVoipSandboxChannelRequest_PrivateKey != null)
@@ -292,7 +287,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestAPNSVoipSandboxChannelRequest_aPNSVoipSandboxChannelRequest_PrivateKey != null)
             {
                 request.APNSVoipSandboxChannelRequest.PrivateKey = requestAPNSVoipSandboxChannelRequest_aPNSVoipSandboxChannelRequest_PrivateKey;
-                requestAPNSVoipSandboxChannelRequestIsNull = false;
             }
             System.String requestAPNSVoipSandboxChannelRequest_aPNSVoipSandboxChannelRequest_TeamId = null;
             if (cmdletContext.APNSVoipSandboxChannelRequest_TeamId != null)
@@ -302,7 +296,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestAPNSVoipSandboxChannelRequest_aPNSVoipSandboxChannelRequest_TeamId != null)
             {
                 request.APNSVoipSandboxChannelRequest.TeamId = requestAPNSVoipSandboxChannelRequest_aPNSVoipSandboxChannelRequest_TeamId;
-                requestAPNSVoipSandboxChannelRequestIsNull = false;
             }
             System.String requestAPNSVoipSandboxChannelRequest_aPNSVoipSandboxChannelRequest_TokenKey = null;
             if (cmdletContext.APNSVoipSandboxChannelRequest_TokenKey != null)
@@ -312,7 +305,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestAPNSVoipSandboxChannelRequest_aPNSVoipSandboxChannelRequest_TokenKey != null)
             {
                 request.APNSVoipSandboxChannelRequest.TokenKey = requestAPNSVoipSandboxChannelRequest_aPNSVoipSandboxChannelRequest_TokenKey;
-                requestAPNSVoipSandboxChannelRequestIsNull = false;
             }
             System.String requestAPNSVoipSandboxChannelRequest_aPNSVoipSandboxChannelRequest_TokenKeyId = null;
             if (cmdletContext.APNSVoipSandboxChannelRequest_TokenKeyId != null)
@@ -322,12 +314,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestAPNSVoipSandboxChannelRequest_aPNSVoipSandboxChannelRequest_TokenKeyId != null)
             {
                 request.APNSVoipSandboxChannelRequest.TokenKeyId = requestAPNSVoipSandboxChannelRequest_aPNSVoipSandboxChannelRequest_TokenKeyId;
-                requestAPNSVoipSandboxChannelRequestIsNull = false;
-            }
-             // determine if request.APNSVoipSandboxChannelRequest should be set to null
-            if (requestAPNSVoipSandboxChannelRequestIsNull)
-            {
-                request.APNSVoipSandboxChannelRequest = null;
             }
             if (cmdletContext.ApplicationId != null)
             {

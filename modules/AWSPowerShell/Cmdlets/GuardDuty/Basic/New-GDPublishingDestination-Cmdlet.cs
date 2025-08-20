@@ -211,7 +211,6 @@ namespace Amazon.PowerShell.Cmdlets.GD
             }
             
              // populate DestinationProperties
-            var requestDestinationPropertiesIsNull = true;
             request.DestinationProperties = new Amazon.GuardDuty.Model.DestinationProperties();
             System.String requestDestinationProperties_destinationProperties_DestinationArn = null;
             if (cmdletContext.DestinationProperties_DestinationArn != null)
@@ -221,7 +220,6 @@ namespace Amazon.PowerShell.Cmdlets.GD
             if (requestDestinationProperties_destinationProperties_DestinationArn != null)
             {
                 request.DestinationProperties.DestinationArn = requestDestinationProperties_destinationProperties_DestinationArn;
-                requestDestinationPropertiesIsNull = false;
             }
             System.String requestDestinationProperties_destinationProperties_KmsKeyArn = null;
             if (cmdletContext.DestinationProperties_KmsKeyArn != null)
@@ -231,12 +229,6 @@ namespace Amazon.PowerShell.Cmdlets.GD
             if (requestDestinationProperties_destinationProperties_KmsKeyArn != null)
             {
                 request.DestinationProperties.KmsKeyArn = requestDestinationProperties_destinationProperties_KmsKeyArn;
-                requestDestinationPropertiesIsNull = false;
-            }
-             // determine if request.DestinationProperties should be set to null
-            if (requestDestinationPropertiesIsNull)
-            {
-                request.DestinationProperties = null;
             }
             if (cmdletContext.DestinationType != null)
             {

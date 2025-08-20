@@ -404,7 +404,6 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             }
             
              // populate UpdatedComponent
-            var requestUpdatedComponentIsNull = true;
             request.UpdatedComponent = new Amazon.AmplifyUIBuilder.Model.UpdateComponentData();
             Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.ComponentBindingPropertiesValue> requestUpdatedComponent_updatedComponent_BindingProperty = null;
             if (cmdletContext.UpdatedComponent_BindingProperty != null)
@@ -414,7 +413,6 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestUpdatedComponent_updatedComponent_BindingProperty != null)
             {
                 request.UpdatedComponent.BindingProperties = requestUpdatedComponent_updatedComponent_BindingProperty;
-                requestUpdatedComponentIsNull = false;
             }
             List<Amazon.AmplifyUIBuilder.Model.ComponentChild> requestUpdatedComponent_updatedComponent_Child = null;
             if (cmdletContext.UpdatedComponent_Child != null)
@@ -424,7 +422,6 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestUpdatedComponent_updatedComponent_Child != null)
             {
                 request.UpdatedComponent.Children = requestUpdatedComponent_updatedComponent_Child;
-                requestUpdatedComponentIsNull = false;
             }
             Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.ComponentDataConfiguration> requestUpdatedComponent_updatedComponent_CollectionProperty = null;
             if (cmdletContext.UpdatedComponent_CollectionProperty != null)
@@ -434,7 +431,6 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestUpdatedComponent_updatedComponent_CollectionProperty != null)
             {
                 request.UpdatedComponent.CollectionProperties = requestUpdatedComponent_updatedComponent_CollectionProperty;
-                requestUpdatedComponentIsNull = false;
             }
             System.String requestUpdatedComponent_updatedComponent_ComponentType = null;
             if (cmdletContext.UpdatedComponent_ComponentType != null)
@@ -444,7 +440,6 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestUpdatedComponent_updatedComponent_ComponentType != null)
             {
                 request.UpdatedComponent.ComponentType = requestUpdatedComponent_updatedComponent_ComponentType;
-                requestUpdatedComponentIsNull = false;
             }
             Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.ComponentEvent> requestUpdatedComponent_updatedComponent_Event = null;
             if (cmdletContext.UpdatedComponent_Event != null)
@@ -454,7 +449,6 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestUpdatedComponent_updatedComponent_Event != null)
             {
                 request.UpdatedComponent.Events = requestUpdatedComponent_updatedComponent_Event;
-                requestUpdatedComponentIsNull = false;
             }
             System.String requestUpdatedComponent_updatedComponent_Id = null;
             if (cmdletContext.UpdatedComponent_Id != null)
@@ -464,7 +458,6 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestUpdatedComponent_updatedComponent_Id != null)
             {
                 request.UpdatedComponent.Id = requestUpdatedComponent_updatedComponent_Id;
-                requestUpdatedComponentIsNull = false;
             }
             System.String requestUpdatedComponent_updatedComponent_Name = null;
             if (cmdletContext.UpdatedComponent_Name != null)
@@ -474,7 +467,6 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestUpdatedComponent_updatedComponent_Name != null)
             {
                 request.UpdatedComponent.Name = requestUpdatedComponent_updatedComponent_Name;
-                requestUpdatedComponentIsNull = false;
             }
             Dictionary<System.String, Dictionary<System.String, System.String>> requestUpdatedComponent_updatedComponent_Override = null;
             if (cmdletContext.UpdatedComponent_Override != null)
@@ -484,7 +476,6 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestUpdatedComponent_updatedComponent_Override != null)
             {
                 request.UpdatedComponent.Overrides = requestUpdatedComponent_updatedComponent_Override;
-                requestUpdatedComponentIsNull = false;
             }
             Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.ComponentProperty> requestUpdatedComponent_updatedComponent_Property = null;
             if (cmdletContext.UpdatedComponent_Property != null)
@@ -494,7 +485,6 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestUpdatedComponent_updatedComponent_Property != null)
             {
                 request.UpdatedComponent.Properties = requestUpdatedComponent_updatedComponent_Property;
-                requestUpdatedComponentIsNull = false;
             }
             System.String requestUpdatedComponent_updatedComponent_SchemaVersion = null;
             if (cmdletContext.UpdatedComponent_SchemaVersion != null)
@@ -504,7 +494,6 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestUpdatedComponent_updatedComponent_SchemaVersion != null)
             {
                 request.UpdatedComponent.SchemaVersion = requestUpdatedComponent_updatedComponent_SchemaVersion;
-                requestUpdatedComponentIsNull = false;
             }
             System.String requestUpdatedComponent_updatedComponent_SourceId = null;
             if (cmdletContext.UpdatedComponent_SourceId != null)
@@ -514,7 +503,6 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestUpdatedComponent_updatedComponent_SourceId != null)
             {
                 request.UpdatedComponent.SourceId = requestUpdatedComponent_updatedComponent_SourceId;
-                requestUpdatedComponentIsNull = false;
             }
             List<Amazon.AmplifyUIBuilder.Model.ComponentVariant> requestUpdatedComponent_updatedComponent_Variant = null;
             if (cmdletContext.UpdatedComponent_Variant != null)
@@ -524,12 +512,6 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestUpdatedComponent_updatedComponent_Variant != null)
             {
                 request.UpdatedComponent.Variants = requestUpdatedComponent_updatedComponent_Variant;
-                requestUpdatedComponentIsNull = false;
-            }
-             // determine if request.UpdatedComponent should be set to null
-            if (requestUpdatedComponentIsNull)
-            {
-                request.UpdatedComponent = null;
             }
             
             CmdletOutput output;

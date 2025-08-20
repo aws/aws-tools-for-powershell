@@ -186,7 +186,6 @@ namespace Amazon.PowerShell.Cmdlets.SD
             }
             
              // populate Namespace
-            var requestNamespaceIsNull = true;
             request.Namespace = new Amazon.ServiceDiscovery.Model.PrivateDnsNamespaceChange();
             System.String requestNamespace_namespace_Description = null;
             if (cmdletContext.Namespace_Description != null)
@@ -196,7 +195,6 @@ namespace Amazon.PowerShell.Cmdlets.SD
             if (requestNamespace_namespace_Description != null)
             {
                 request.Namespace.Description = requestNamespace_namespace_Description;
-                requestNamespaceIsNull = false;
             }
             Amazon.ServiceDiscovery.Model.PrivateDnsNamespacePropertiesChange requestNamespace_namespace_Properties = null;
             
@@ -251,12 +249,6 @@ namespace Amazon.PowerShell.Cmdlets.SD
             if (requestNamespace_namespace_Properties != null)
             {
                 request.Namespace.Properties = requestNamespace_namespace_Properties;
-                requestNamespaceIsNull = false;
-            }
-             // determine if request.Namespace should be set to null
-            if (requestNamespaceIsNull)
-            {
-                request.Namespace = null;
             }
             if (cmdletContext.UpdaterRequestId != null)
             {

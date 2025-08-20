@@ -281,7 +281,6 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
             Amazon.ConnectWisdomService.Model.Configuration requestExternalSourceConfiguration_externalSourceConfiguration_Configuration = null;
             
              // populate Configuration
-            var requestExternalSourceConfiguration_externalSourceConfiguration_ConfigurationIsNull = true;
             requestExternalSourceConfiguration_externalSourceConfiguration_Configuration = new Amazon.ConnectWisdomService.Model.Configuration();
             Amazon.ConnectWisdomService.Model.ConnectConfiguration requestExternalSourceConfiguration_externalSourceConfiguration_Configuration_externalSourceConfiguration_Configuration_ConnectConfiguration = null;
             
@@ -306,12 +305,6 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
             if (requestExternalSourceConfiguration_externalSourceConfiguration_Configuration_externalSourceConfiguration_Configuration_ConnectConfiguration != null)
             {
                 requestExternalSourceConfiguration_externalSourceConfiguration_Configuration.ConnectConfiguration = requestExternalSourceConfiguration_externalSourceConfiguration_Configuration_externalSourceConfiguration_Configuration_ConnectConfiguration;
-                requestExternalSourceConfiguration_externalSourceConfiguration_ConfigurationIsNull = false;
-            }
-             // determine if requestExternalSourceConfiguration_externalSourceConfiguration_Configuration should be set to null
-            if (requestExternalSourceConfiguration_externalSourceConfiguration_ConfigurationIsNull)
-            {
-                requestExternalSourceConfiguration_externalSourceConfiguration_Configuration = null;
             }
             if (requestExternalSourceConfiguration_externalSourceConfiguration_Configuration != null)
             {

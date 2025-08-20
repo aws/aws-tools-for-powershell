@@ -258,7 +258,6 @@ namespace Amazon.PowerShell.Cmdlets.KINA
             }
             
              // populate ApplicationUpdate
-            var requestApplicationUpdateIsNull = true;
             request.ApplicationUpdate = new Amazon.KinesisAnalytics.Model.ApplicationUpdate();
             System.String requestApplicationUpdate_applicationUpdate_ApplicationCodeUpdate = null;
             if (cmdletContext.ApplicationUpdate_ApplicationCodeUpdate != null)
@@ -268,7 +267,6 @@ namespace Amazon.PowerShell.Cmdlets.KINA
             if (requestApplicationUpdate_applicationUpdate_ApplicationCodeUpdate != null)
             {
                 request.ApplicationUpdate.ApplicationCodeUpdate = requestApplicationUpdate_applicationUpdate_ApplicationCodeUpdate;
-                requestApplicationUpdateIsNull = false;
             }
             List<Amazon.KinesisAnalytics.Model.CloudWatchLoggingOptionUpdate> requestApplicationUpdate_applicationUpdate_CloudWatchLoggingOptionUpdate = null;
             if (cmdletContext.ApplicationUpdate_CloudWatchLoggingOptionUpdate != null)
@@ -278,7 +276,6 @@ namespace Amazon.PowerShell.Cmdlets.KINA
             if (requestApplicationUpdate_applicationUpdate_CloudWatchLoggingOptionUpdate != null)
             {
                 request.ApplicationUpdate.CloudWatchLoggingOptionUpdates = requestApplicationUpdate_applicationUpdate_CloudWatchLoggingOptionUpdate;
-                requestApplicationUpdateIsNull = false;
             }
             List<Amazon.KinesisAnalytics.Model.InputUpdate> requestApplicationUpdate_applicationUpdate_InputUpdate = null;
             if (cmdletContext.ApplicationUpdate_InputUpdate != null)
@@ -288,7 +285,6 @@ namespace Amazon.PowerShell.Cmdlets.KINA
             if (requestApplicationUpdate_applicationUpdate_InputUpdate != null)
             {
                 request.ApplicationUpdate.InputUpdates = requestApplicationUpdate_applicationUpdate_InputUpdate;
-                requestApplicationUpdateIsNull = false;
             }
             List<Amazon.KinesisAnalytics.Model.OutputUpdate> requestApplicationUpdate_applicationUpdate_OutputUpdate = null;
             if (cmdletContext.ApplicationUpdate_OutputUpdate != null)
@@ -298,7 +294,6 @@ namespace Amazon.PowerShell.Cmdlets.KINA
             if (requestApplicationUpdate_applicationUpdate_OutputUpdate != null)
             {
                 request.ApplicationUpdate.OutputUpdates = requestApplicationUpdate_applicationUpdate_OutputUpdate;
-                requestApplicationUpdateIsNull = false;
             }
             List<Amazon.KinesisAnalytics.Model.ReferenceDataSourceUpdate> requestApplicationUpdate_applicationUpdate_ReferenceDataSourceUpdate = null;
             if (cmdletContext.ApplicationUpdate_ReferenceDataSourceUpdate != null)
@@ -308,12 +303,6 @@ namespace Amazon.PowerShell.Cmdlets.KINA
             if (requestApplicationUpdate_applicationUpdate_ReferenceDataSourceUpdate != null)
             {
                 request.ApplicationUpdate.ReferenceDataSourceUpdates = requestApplicationUpdate_applicationUpdate_ReferenceDataSourceUpdate;
-                requestApplicationUpdateIsNull = false;
-            }
-             // determine if request.ApplicationUpdate should be set to null
-            if (requestApplicationUpdateIsNull)
-            {
-                request.ApplicationUpdate = null;
             }
             if (cmdletContext.CurrentApplicationVersionId != null)
             {

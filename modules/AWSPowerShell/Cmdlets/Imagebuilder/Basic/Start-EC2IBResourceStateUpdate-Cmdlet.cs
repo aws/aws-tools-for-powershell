@@ -471,7 +471,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             }
             
              // populate State
-            var requestStateIsNull = true;
             request.State = new Amazon.Imagebuilder.Model.ResourceState();
             Amazon.Imagebuilder.ResourceStatus requestState_state_Status = null;
             if (cmdletContext.State_Status != null)
@@ -481,12 +480,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             if (requestState_state_Status != null)
             {
                 request.State.Status = requestState_state_Status;
-                requestStateIsNull = false;
-            }
-             // determine if request.State should be set to null
-            if (requestStateIsNull)
-            {
-                request.State = null;
             }
             if (cmdletContext.UpdateAt != null)
             {

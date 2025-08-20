@@ -351,7 +351,6 @@ namespace Amazon.PowerShell.Cmdlets.CGR
             }
             
              // populate Repository
-            var requestRepositoryIsNull = true;
             request.Repository = new Amazon.CodeGuruReviewer.Model.Repository();
             Amazon.CodeGuruReviewer.Model.CodeCommitRepository requestRepository_repository_CodeCommit = null;
             
@@ -376,7 +375,6 @@ namespace Amazon.PowerShell.Cmdlets.CGR
             if (requestRepository_repository_CodeCommit != null)
             {
                 request.Repository.CodeCommit = requestRepository_repository_CodeCommit;
-                requestRepositoryIsNull = false;
             }
             Amazon.CodeGuruReviewer.Model.S3Repository requestRepository_repository_S3Bucket = null;
             
@@ -411,7 +409,6 @@ namespace Amazon.PowerShell.Cmdlets.CGR
             if (requestRepository_repository_S3Bucket != null)
             {
                 request.Repository.S3Bucket = requestRepository_repository_S3Bucket;
-                requestRepositoryIsNull = false;
             }
             Amazon.CodeGuruReviewer.Model.ThirdPartySourceRepository requestRepository_repository_Bitbucket = null;
             
@@ -456,7 +453,6 @@ namespace Amazon.PowerShell.Cmdlets.CGR
             if (requestRepository_repository_Bitbucket != null)
             {
                 request.Repository.Bitbucket = requestRepository_repository_Bitbucket;
-                requestRepositoryIsNull = false;
             }
             Amazon.CodeGuruReviewer.Model.ThirdPartySourceRepository requestRepository_repository_GitHubEnterpriseServer = null;
             
@@ -501,12 +497,6 @@ namespace Amazon.PowerShell.Cmdlets.CGR
             if (requestRepository_repository_GitHubEnterpriseServer != null)
             {
                 request.Repository.GitHubEnterpriseServer = requestRepository_repository_GitHubEnterpriseServer;
-                requestRepositoryIsNull = false;
-            }
-             // determine if request.Repository should be set to null
-            if (requestRepositoryIsNull)
-            {
-                request.Repository = null;
             }
             if (cmdletContext.Tag != null)
             {

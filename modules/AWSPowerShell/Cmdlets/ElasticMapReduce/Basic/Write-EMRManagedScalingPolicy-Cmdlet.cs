@@ -253,7 +253,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             }
             
              // populate ManagedScalingPolicy
-            var requestManagedScalingPolicyIsNull = true;
             request.ManagedScalingPolicy = new Amazon.ElasticMapReduce.Model.ManagedScalingPolicy();
             Amazon.ElasticMapReduce.ScalingStrategy requestManagedScalingPolicy_managedScalingPolicy_ScalingStrategy = null;
             if (cmdletContext.ManagedScalingPolicy_ScalingStrategy != null)
@@ -263,7 +262,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (requestManagedScalingPolicy_managedScalingPolicy_ScalingStrategy != null)
             {
                 request.ManagedScalingPolicy.ScalingStrategy = requestManagedScalingPolicy_managedScalingPolicy_ScalingStrategy;
-                requestManagedScalingPolicyIsNull = false;
             }
             System.Int32? requestManagedScalingPolicy_managedScalingPolicy_UtilizationPerformanceIndex = null;
             if (cmdletContext.ManagedScalingPolicy_UtilizationPerformanceIndex != null)
@@ -273,7 +271,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (requestManagedScalingPolicy_managedScalingPolicy_UtilizationPerformanceIndex != null)
             {
                 request.ManagedScalingPolicy.UtilizationPerformanceIndex = requestManagedScalingPolicy_managedScalingPolicy_UtilizationPerformanceIndex.Value;
-                requestManagedScalingPolicyIsNull = false;
             }
             Amazon.ElasticMapReduce.Model.ComputeLimits requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits = null;
             
@@ -338,12 +335,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits != null)
             {
                 request.ManagedScalingPolicy.ComputeLimits = requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits;
-                requestManagedScalingPolicyIsNull = false;
-            }
-             // determine if request.ManagedScalingPolicy should be set to null
-            if (requestManagedScalingPolicyIsNull)
-            {
-                request.ManagedScalingPolicy = null;
             }
             
             CmdletOutput output;

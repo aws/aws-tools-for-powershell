@@ -308,7 +308,6 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             }
             
              // populate TrustedTokenIssuerConfiguration
-            var requestTrustedTokenIssuerConfigurationIsNull = true;
             request.TrustedTokenIssuerConfiguration = new Amazon.SSOAdmin.Model.TrustedTokenIssuerConfiguration();
             Amazon.SSOAdmin.Model.OidcJwtConfiguration requestTrustedTokenIssuerConfiguration_trustedTokenIssuerConfiguration_OidcJwtConfiguration = null;
             
@@ -363,12 +362,6 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             if (requestTrustedTokenIssuerConfiguration_trustedTokenIssuerConfiguration_OidcJwtConfiguration != null)
             {
                 request.TrustedTokenIssuerConfiguration.OidcJwtConfiguration = requestTrustedTokenIssuerConfiguration_trustedTokenIssuerConfiguration_OidcJwtConfiguration;
-                requestTrustedTokenIssuerConfigurationIsNull = false;
-            }
-             // determine if request.TrustedTokenIssuerConfiguration should be set to null
-            if (requestTrustedTokenIssuerConfigurationIsNull)
-            {
-                request.TrustedTokenIssuerConfiguration = null;
             }
             if (cmdletContext.TrustedTokenIssuerType != null)
             {

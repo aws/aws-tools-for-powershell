@@ -202,7 +202,6 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             }
             
              // populate WorkloadConfiguration
-            var requestWorkloadConfigurationIsNull = true;
             request.WorkloadConfiguration = new Amazon.ApplicationInsights.Model.WorkloadConfiguration();
             System.String requestWorkloadConfiguration_workloadConfiguration_Configuration = null;
             if (cmdletContext.WorkloadConfiguration_Configuration != null)
@@ -212,7 +211,6 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             if (requestWorkloadConfiguration_workloadConfiguration_Configuration != null)
             {
                 request.WorkloadConfiguration.Configuration = requestWorkloadConfiguration_workloadConfiguration_Configuration;
-                requestWorkloadConfigurationIsNull = false;
             }
             Amazon.ApplicationInsights.Tier requestWorkloadConfiguration_workloadConfiguration_Tier = null;
             if (cmdletContext.WorkloadConfiguration_Tier != null)
@@ -222,7 +220,6 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             if (requestWorkloadConfiguration_workloadConfiguration_Tier != null)
             {
                 request.WorkloadConfiguration.Tier = requestWorkloadConfiguration_workloadConfiguration_Tier;
-                requestWorkloadConfigurationIsNull = false;
             }
             System.String requestWorkloadConfiguration_workloadConfiguration_WorkloadName = null;
             if (cmdletContext.WorkloadConfiguration_WorkloadName != null)
@@ -232,12 +229,6 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             if (requestWorkloadConfiguration_workloadConfiguration_WorkloadName != null)
             {
                 request.WorkloadConfiguration.WorkloadName = requestWorkloadConfiguration_workloadConfiguration_WorkloadName;
-                requestWorkloadConfigurationIsNull = false;
-            }
-             // determine if request.WorkloadConfiguration should be set to null
-            if (requestWorkloadConfigurationIsNull)
-            {
-                request.WorkloadConfiguration = null;
             }
             if (cmdletContext.WorkloadId != null)
             {

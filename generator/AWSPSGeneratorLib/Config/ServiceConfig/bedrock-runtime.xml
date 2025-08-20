@@ -30,6 +30,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CountTokens" OutputProperty="InputTokens" Verb="Get" Noun="CountToken" ShouldProcessTarget="" PipelineParameter="ModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAsyncInvoke" OutputProperty="*" Verb="Get" Noun="AsyncInvoke" PipelineParameter="InvocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

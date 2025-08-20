@@ -149,7 +149,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             
             
              // populate RegistryId
-            var requestRegistryIdIsNull = true;
             request.RegistryId = new Amazon.Glue.Model.RegistryId();
             System.String requestRegistryId_registryId_RegistryArn = null;
             if (cmdletContext.RegistryId_RegistryArn != null)
@@ -159,7 +158,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestRegistryId_registryId_RegistryArn != null)
             {
                 request.RegistryId.RegistryArn = requestRegistryId_registryId_RegistryArn;
-                requestRegistryIdIsNull = false;
             }
             System.String requestRegistryId_registryId_RegistryName = null;
             if (cmdletContext.RegistryId_RegistryName != null)
@@ -169,12 +167,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestRegistryId_registryId_RegistryName != null)
             {
                 request.RegistryId.RegistryName = requestRegistryId_registryId_RegistryName;
-                requestRegistryIdIsNull = false;
-            }
-             // determine if request.RegistryId should be set to null
-            if (requestRegistryIdIsNull)
-            {
-                request.RegistryId = null;
             }
             
             CmdletOutput output;

@@ -159,7 +159,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             
             
              // populate SchemaId
-            var requestSchemaIdIsNull = true;
             request.SchemaId = new Amazon.Glue.Model.SchemaId();
             System.String requestSchemaId_schemaId_RegistryName = null;
             if (cmdletContext.SchemaId_RegistryName != null)
@@ -169,7 +168,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestSchemaId_schemaId_RegistryName != null)
             {
                 request.SchemaId.RegistryName = requestSchemaId_schemaId_RegistryName;
-                requestSchemaIdIsNull = false;
             }
             System.String requestSchemaId_schemaId_SchemaArn = null;
             if (cmdletContext.SchemaId_SchemaArn != null)
@@ -179,7 +177,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestSchemaId_schemaId_SchemaArn != null)
             {
                 request.SchemaId.SchemaArn = requestSchemaId_schemaId_SchemaArn;
-                requestSchemaIdIsNull = false;
             }
             System.String requestSchemaId_schemaId_SchemaName = null;
             if (cmdletContext.SchemaId_SchemaName != null)
@@ -189,12 +186,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestSchemaId_schemaId_SchemaName != null)
             {
                 request.SchemaId.SchemaName = requestSchemaId_schemaId_SchemaName;
-                requestSchemaIdIsNull = false;
-            }
-             // determine if request.SchemaId should be set to null
-            if (requestSchemaIdIsNull)
-            {
-                request.SchemaId = null;
             }
             
             CmdletOutput output;

@@ -309,7 +309,6 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             Amazon.B2bi.Model.EdiType requestConfiguration_configuration_Edi_configuration_Edi_Type = null;
             
              // populate Type
-            var requestConfiguration_configuration_Edi_configuration_Edi_TypeIsNull = true;
             requestConfiguration_configuration_Edi_configuration_Edi_Type = new Amazon.B2bi.Model.EdiType();
             Amazon.B2bi.Model.X12Details requestConfiguration_configuration_Edi_configuration_Edi_Type_configuration_Edi_Type_X12Details = null;
             
@@ -344,12 +343,6 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             if (requestConfiguration_configuration_Edi_configuration_Edi_Type_configuration_Edi_Type_X12Details != null)
             {
                 requestConfiguration_configuration_Edi_configuration_Edi_Type.X12Details = requestConfiguration_configuration_Edi_configuration_Edi_Type_configuration_Edi_Type_X12Details;
-                requestConfiguration_configuration_Edi_configuration_Edi_TypeIsNull = false;
-            }
-             // determine if requestConfiguration_configuration_Edi_configuration_Edi_Type should be set to null
-            if (requestConfiguration_configuration_Edi_configuration_Edi_TypeIsNull)
-            {
-                requestConfiguration_configuration_Edi_configuration_Edi_Type = null;
             }
             if (requestConfiguration_configuration_Edi_configuration_Edi_Type != null)
             {
@@ -359,7 +352,6 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             Amazon.B2bi.Model.S3Location requestConfiguration_configuration_Edi_configuration_Edi_InputLocation = null;
             
              // populate InputLocation
-            var requestConfiguration_configuration_Edi_configuration_Edi_InputLocationIsNull = true;
             requestConfiguration_configuration_Edi_configuration_Edi_InputLocation = new Amazon.B2bi.Model.S3Location();
             System.String requestConfiguration_configuration_Edi_configuration_Edi_InputLocation_inputLocation_BucketName = null;
             if (cmdletContext.InputLocation_BucketName != null)
@@ -369,7 +361,6 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             if (requestConfiguration_configuration_Edi_configuration_Edi_InputLocation_inputLocation_BucketName != null)
             {
                 requestConfiguration_configuration_Edi_configuration_Edi_InputLocation.BucketName = requestConfiguration_configuration_Edi_configuration_Edi_InputLocation_inputLocation_BucketName;
-                requestConfiguration_configuration_Edi_configuration_Edi_InputLocationIsNull = false;
             }
             System.String requestConfiguration_configuration_Edi_configuration_Edi_InputLocation_inputLocation_Key = null;
             if (cmdletContext.InputLocation_Key != null)
@@ -379,12 +370,6 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             if (requestConfiguration_configuration_Edi_configuration_Edi_InputLocation_inputLocation_Key != null)
             {
                 requestConfiguration_configuration_Edi_configuration_Edi_InputLocation.Key = requestConfiguration_configuration_Edi_configuration_Edi_InputLocation_inputLocation_Key;
-                requestConfiguration_configuration_Edi_configuration_Edi_InputLocationIsNull = false;
-            }
-             // determine if requestConfiguration_configuration_Edi_configuration_Edi_InputLocation should be set to null
-            if (requestConfiguration_configuration_Edi_configuration_Edi_InputLocationIsNull)
-            {
-                requestConfiguration_configuration_Edi_configuration_Edi_InputLocation = null;
             }
             if (requestConfiguration_configuration_Edi_configuration_Edi_InputLocation != null)
             {
@@ -394,7 +379,6 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             Amazon.B2bi.Model.S3Location requestConfiguration_configuration_Edi_configuration_Edi_OutputLocation = null;
             
              // populate OutputLocation
-            var requestConfiguration_configuration_Edi_configuration_Edi_OutputLocationIsNull = true;
             requestConfiguration_configuration_Edi_configuration_Edi_OutputLocation = new Amazon.B2bi.Model.S3Location();
             System.String requestConfiguration_configuration_Edi_configuration_Edi_OutputLocation_outputLocation_BucketName = null;
             if (cmdletContext.OutputLocation_BucketName != null)
@@ -404,7 +388,6 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             if (requestConfiguration_configuration_Edi_configuration_Edi_OutputLocation_outputLocation_BucketName != null)
             {
                 requestConfiguration_configuration_Edi_configuration_Edi_OutputLocation.BucketName = requestConfiguration_configuration_Edi_configuration_Edi_OutputLocation_outputLocation_BucketName;
-                requestConfiguration_configuration_Edi_configuration_Edi_OutputLocationIsNull = false;
             }
             System.String requestConfiguration_configuration_Edi_configuration_Edi_OutputLocation_outputLocation_Key = null;
             if (cmdletContext.OutputLocation_Key != null)
@@ -414,12 +397,6 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             if (requestConfiguration_configuration_Edi_configuration_Edi_OutputLocation_outputLocation_Key != null)
             {
                 requestConfiguration_configuration_Edi_configuration_Edi_OutputLocation.Key = requestConfiguration_configuration_Edi_configuration_Edi_OutputLocation_outputLocation_Key;
-                requestConfiguration_configuration_Edi_configuration_Edi_OutputLocationIsNull = false;
-            }
-             // determine if requestConfiguration_configuration_Edi_configuration_Edi_OutputLocation should be set to null
-            if (requestConfiguration_configuration_Edi_configuration_Edi_OutputLocationIsNull)
-            {
-                requestConfiguration_configuration_Edi_configuration_Edi_OutputLocation = null;
             }
             if (requestConfiguration_configuration_Edi_configuration_Edi_OutputLocation != null)
             {

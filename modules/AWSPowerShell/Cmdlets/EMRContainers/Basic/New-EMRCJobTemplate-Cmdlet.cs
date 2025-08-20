@@ -561,7 +561,6 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             Amazon.EMRContainers.Model.JobDriver requestJobTemplateData_jobTemplateData_JobDriver = null;
             
              // populate JobDriver
-            var requestJobTemplateData_jobTemplateData_JobDriverIsNull = true;
             requestJobTemplateData_jobTemplateData_JobDriver = new Amazon.EMRContainers.Model.JobDriver();
             Amazon.EMRContainers.Model.SparkSqlJobDriver requestJobTemplateData_jobTemplateData_JobDriver_jobTemplateData_JobDriver_SparkSqlJobDriver = null;
             
@@ -596,7 +595,6 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             if (requestJobTemplateData_jobTemplateData_JobDriver_jobTemplateData_JobDriver_SparkSqlJobDriver != null)
             {
                 requestJobTemplateData_jobTemplateData_JobDriver.SparkSqlJobDriver = requestJobTemplateData_jobTemplateData_JobDriver_jobTemplateData_JobDriver_SparkSqlJobDriver;
-                requestJobTemplateData_jobTemplateData_JobDriverIsNull = false;
             }
             Amazon.EMRContainers.Model.SparkSubmitJobDriver requestJobTemplateData_jobTemplateData_JobDriver_jobTemplateData_JobDriver_SparkSubmitJobDriver = null;
             
@@ -641,12 +639,6 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             if (requestJobTemplateData_jobTemplateData_JobDriver_jobTemplateData_JobDriver_SparkSubmitJobDriver != null)
             {
                 requestJobTemplateData_jobTemplateData_JobDriver.SparkSubmitJobDriver = requestJobTemplateData_jobTemplateData_JobDriver_jobTemplateData_JobDriver_SparkSubmitJobDriver;
-                requestJobTemplateData_jobTemplateData_JobDriverIsNull = false;
-            }
-             // determine if requestJobTemplateData_jobTemplateData_JobDriver should be set to null
-            if (requestJobTemplateData_jobTemplateData_JobDriverIsNull)
-            {
-                requestJobTemplateData_jobTemplateData_JobDriver = null;
             }
             if (requestJobTemplateData_jobTemplateData_JobDriver != null)
             {

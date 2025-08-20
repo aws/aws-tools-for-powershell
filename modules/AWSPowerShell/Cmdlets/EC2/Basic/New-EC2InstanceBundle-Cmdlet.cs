@@ -229,7 +229,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             
              // populate Storage
-            var requestStorageIsNull = true;
             request.Storage = new Amazon.EC2.Model.Storage();
             Amazon.EC2.Model.S3Storage requestStorage_storage_S3 = null;
             
@@ -294,12 +293,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestStorage_storage_S3 != null)
             {
                 request.Storage.S3 = requestStorage_storage_S3;
-                requestStorageIsNull = false;
-            }
-             // determine if request.Storage should be set to null
-            if (requestStorageIsNull)
-            {
-                request.Storage = null;
             }
             
             CmdletOutput output;

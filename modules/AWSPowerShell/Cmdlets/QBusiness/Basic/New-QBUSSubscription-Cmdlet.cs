@@ -206,7 +206,6 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             }
             
              // populate Principal
-            var requestPrincipalIsNull = true;
             request.Principal = new Amazon.QBusiness.Model.SubscriptionPrincipal();
             System.String requestPrincipal_principal_Group = null;
             if (cmdletContext.Principal_Group != null)
@@ -216,7 +215,6 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (requestPrincipal_principal_Group != null)
             {
                 request.Principal.Group = requestPrincipal_principal_Group;
-                requestPrincipalIsNull = false;
             }
             System.String requestPrincipal_principal_User = null;
             if (cmdletContext.Principal_User != null)
@@ -226,12 +224,6 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (requestPrincipal_principal_User != null)
             {
                 request.Principal.User = requestPrincipal_principal_User;
-                requestPrincipalIsNull = false;
-            }
-             // determine if request.Principal should be set to null
-            if (requestPrincipalIsNull)
-            {
-                request.Principal = null;
             }
             if (cmdletContext.Type != null)
             {

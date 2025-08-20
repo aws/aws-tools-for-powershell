@@ -193,7 +193,6 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             
             
              // populate ServiceIntegration
-            var requestServiceIntegrationIsNull = true;
             request.ServiceIntegration = new Amazon.DevOpsGuru.Model.UpdateServiceIntegrationConfig();
             Amazon.DevOpsGuru.Model.OpsCenterIntegrationConfig requestServiceIntegration_serviceIntegration_OpsCenter = null;
             if (cmdletContext.ServiceIntegration_OpsCenter != null)
@@ -203,7 +202,6 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             if (requestServiceIntegration_serviceIntegration_OpsCenter != null)
             {
                 request.ServiceIntegration.OpsCenter = requestServiceIntegration_serviceIntegration_OpsCenter;
-                requestServiceIntegrationIsNull = false;
             }
             Amazon.DevOpsGuru.Model.LogsAnomalyDetectionIntegrationConfig requestServiceIntegration_serviceIntegration_LogsAnomalyDetection = null;
             
@@ -228,7 +226,6 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             if (requestServiceIntegration_serviceIntegration_LogsAnomalyDetection != null)
             {
                 request.ServiceIntegration.LogsAnomalyDetection = requestServiceIntegration_serviceIntegration_LogsAnomalyDetection;
-                requestServiceIntegrationIsNull = false;
             }
             Amazon.DevOpsGuru.Model.KMSServerSideEncryptionIntegrationConfig requestServiceIntegration_serviceIntegration_KMSServerSideEncryption = null;
             
@@ -273,12 +270,6 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             if (requestServiceIntegration_serviceIntegration_KMSServerSideEncryption != null)
             {
                 request.ServiceIntegration.KMSServerSideEncryption = requestServiceIntegration_serviceIntegration_KMSServerSideEncryption;
-                requestServiceIntegrationIsNull = false;
-            }
-             // determine if request.ServiceIntegration should be set to null
-            if (requestServiceIntegrationIsNull)
-            {
-                request.ServiceIntegration = null;
             }
             
             CmdletOutput output;

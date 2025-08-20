@@ -53,6 +53,17 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         public System.Boolean? DeletionProtectionEnabled { get; set; }
         #endregion
         
+        #region Parameter InternationalSendingEnabled
+        /// <summary>
+        /// <para>
+        /// <para>By default this is set to false. When set to true the international sending of phone
+        /// number is Enabled. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? InternationalSendingEnabled { get; set; }
+        #endregion
+        
         #region Parameter IsoCountryCode
         /// <summary>
         /// <para>
@@ -226,6 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             }
             context.ClientToken = this.ClientToken;
             context.DeletionProtectionEnabled = this.DeletionProtectionEnabled;
+            context.InternationalSendingEnabled = this.InternationalSendingEnabled;
             context.IsoCountryCode = this.IsoCountryCode;
             #if MODULAR
             if (this.IsoCountryCode == null && ParameterWasBound(nameof(this.IsoCountryCode)))
@@ -287,6 +299,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             if (cmdletContext.DeletionProtectionEnabled != null)
             {
                 request.DeletionProtectionEnabled = cmdletContext.DeletionProtectionEnabled.Value;
+            }
+            if (cmdletContext.InternationalSendingEnabled != null)
+            {
+                request.InternationalSendingEnabled = cmdletContext.InternationalSendingEnabled.Value;
             }
             if (cmdletContext.IsoCountryCode != null)
             {
@@ -383,6 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         {
             public System.String ClientToken { get; set; }
             public System.Boolean? DeletionProtectionEnabled { get; set; }
+            public System.Boolean? InternationalSendingEnabled { get; set; }
             public System.String IsoCountryCode { get; set; }
             public Amazon.PinpointSMSVoiceV2.MessageType MessageType { get; set; }
             public List<System.String> NumberCapability { get; set; }

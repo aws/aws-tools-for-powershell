@@ -260,7 +260,6 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             Amazon.LookoutMetrics.Model.FileFormatDescriptor requestS3SourceConfig_s3SourceConfig_FileFormatDescriptor = null;
             
              // populate FileFormatDescriptor
-            var requestS3SourceConfig_s3SourceConfig_FileFormatDescriptorIsNull = true;
             requestS3SourceConfig_s3SourceConfig_FileFormatDescriptor = new Amazon.LookoutMetrics.Model.FileFormatDescriptor();
             Amazon.LookoutMetrics.Model.JsonFormatDescriptor requestS3SourceConfig_s3SourceConfig_FileFormatDescriptor_s3SourceConfig_FileFormatDescriptor_JsonFormatDescriptor = null;
             
@@ -295,7 +294,6 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             if (requestS3SourceConfig_s3SourceConfig_FileFormatDescriptor_s3SourceConfig_FileFormatDescriptor_JsonFormatDescriptor != null)
             {
                 requestS3SourceConfig_s3SourceConfig_FileFormatDescriptor.JsonFormatDescriptor = requestS3SourceConfig_s3SourceConfig_FileFormatDescriptor_s3SourceConfig_FileFormatDescriptor_JsonFormatDescriptor;
-                requestS3SourceConfig_s3SourceConfig_FileFormatDescriptorIsNull = false;
             }
             Amazon.LookoutMetrics.Model.CsvFormatDescriptor requestS3SourceConfig_s3SourceConfig_FileFormatDescriptor_s3SourceConfig_FileFormatDescriptor_CsvFormatDescriptor = null;
             
@@ -370,12 +368,6 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             if (requestS3SourceConfig_s3SourceConfig_FileFormatDescriptor_s3SourceConfig_FileFormatDescriptor_CsvFormatDescriptor != null)
             {
                 requestS3SourceConfig_s3SourceConfig_FileFormatDescriptor.CsvFormatDescriptor = requestS3SourceConfig_s3SourceConfig_FileFormatDescriptor_s3SourceConfig_FileFormatDescriptor_CsvFormatDescriptor;
-                requestS3SourceConfig_s3SourceConfig_FileFormatDescriptorIsNull = false;
-            }
-             // determine if requestS3SourceConfig_s3SourceConfig_FileFormatDescriptor should be set to null
-            if (requestS3SourceConfig_s3SourceConfig_FileFormatDescriptorIsNull)
-            {
-                requestS3SourceConfig_s3SourceConfig_FileFormatDescriptor = null;
             }
             if (requestS3SourceConfig_s3SourceConfig_FileFormatDescriptor != null)
             {

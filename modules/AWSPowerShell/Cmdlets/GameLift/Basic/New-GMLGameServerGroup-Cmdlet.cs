@@ -502,7 +502,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
             }
             
              // populate LaunchTemplate
-            var requestLaunchTemplateIsNull = true;
             request.LaunchTemplate = new Amazon.GameLift.Model.LaunchTemplateSpecification();
             System.String requestLaunchTemplate_launchTemplate_LaunchTemplateId = null;
             if (cmdletContext.LaunchTemplate_LaunchTemplateId != null)
@@ -512,7 +511,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (requestLaunchTemplate_launchTemplate_LaunchTemplateId != null)
             {
                 request.LaunchTemplate.LaunchTemplateId = requestLaunchTemplate_launchTemplate_LaunchTemplateId;
-                requestLaunchTemplateIsNull = false;
             }
             System.String requestLaunchTemplate_launchTemplate_LaunchTemplateName = null;
             if (cmdletContext.LaunchTemplate_LaunchTemplateName != null)
@@ -522,7 +520,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (requestLaunchTemplate_launchTemplate_LaunchTemplateName != null)
             {
                 request.LaunchTemplate.LaunchTemplateName = requestLaunchTemplate_launchTemplate_LaunchTemplateName;
-                requestLaunchTemplateIsNull = false;
             }
             System.String requestLaunchTemplate_launchTemplate_Version = null;
             if (cmdletContext.LaunchTemplate_Version != null)
@@ -532,12 +529,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (requestLaunchTemplate_launchTemplate_Version != null)
             {
                 request.LaunchTemplate.Version = requestLaunchTemplate_launchTemplate_Version;
-                requestLaunchTemplateIsNull = false;
-            }
-             // determine if request.LaunchTemplate should be set to null
-            if (requestLaunchTemplateIsNull)
-            {
-                request.LaunchTemplate = null;
             }
             if (cmdletContext.MaxSize != null)
             {

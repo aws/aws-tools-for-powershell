@@ -708,7 +708,6 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             Amazon.BedrockAgentRuntime.Model.KnowledgeBaseVectorSearchConfiguration requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration = null;
             
              // populate VectorSearchConfiguration
-            var requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfigurationIsNull = true;
             requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration = new Amazon.BedrockAgentRuntime.Model.KnowledgeBaseVectorSearchConfiguration();
             System.Int32? requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_vectorSearchConfiguration_NumberOfResult = null;
             if (cmdletContext.VectorSearchConfiguration_NumberOfResult != null)
@@ -718,7 +717,6 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_vectorSearchConfiguration_NumberOfResult != null)
             {
                 requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration.NumberOfResults = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_vectorSearchConfiguration_NumberOfResult.Value;
-                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfigurationIsNull = false;
             }
             Amazon.BedrockAgentRuntime.SearchType requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_vectorSearchConfiguration_OverrideSearchType = null;
             if (cmdletContext.VectorSearchConfiguration_OverrideSearchType != null)
@@ -728,7 +726,6 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_vectorSearchConfiguration_OverrideSearchType != null)
             {
                 requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration.OverrideSearchType = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_vectorSearchConfiguration_OverrideSearchType;
-                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfigurationIsNull = false;
             }
             Amazon.BedrockAgentRuntime.Model.ImplicitFilterConfiguration requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration = null;
             
@@ -763,7 +760,6 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration != null)
             {
                 requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration.ImplicitFilterConfiguration = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration;
-                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfigurationIsNull = false;
             }
             Amazon.BedrockAgentRuntime.Model.VectorSearchRerankingConfiguration requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration = null;
             
@@ -908,7 +904,6 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration != null)
             {
                 requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration.RerankingConfiguration = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration;
-                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfigurationIsNull = false;
             }
             Amazon.BedrockAgentRuntime.Model.RetrievalFilter requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter = null;
             
@@ -1328,12 +1323,6 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter != null)
             {
                 requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration.Filter = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter;
-                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfigurationIsNull = false;
-            }
-             // determine if requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration should be set to null
-            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfigurationIsNull)
-            {
-                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration = null;
             }
             if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration != null)
             {

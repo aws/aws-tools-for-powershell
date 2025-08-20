@@ -274,7 +274,6 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             }
             
              // populate SecurityConfigurationData
-            var requestSecurityConfigurationDataIsNull = true;
             request.SecurityConfigurationData = new Amazon.EMRContainers.Model.SecurityConfigurationData();
             Amazon.EMRContainers.Model.AuthorizationConfiguration requestSecurityConfigurationData_securityConfigurationData_AuthorizationConfiguration = null;
             
@@ -434,12 +433,6 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             if (requestSecurityConfigurationData_securityConfigurationData_AuthorizationConfiguration != null)
             {
                 request.SecurityConfigurationData.AuthorizationConfiguration = requestSecurityConfigurationData_securityConfigurationData_AuthorizationConfiguration;
-                requestSecurityConfigurationDataIsNull = false;
-            }
-             // determine if request.SecurityConfigurationData should be set to null
-            if (requestSecurityConfigurationDataIsNull)
-            {
-                request.SecurityConfigurationData = null;
             }
             if (cmdletContext.Tag != null)
             {

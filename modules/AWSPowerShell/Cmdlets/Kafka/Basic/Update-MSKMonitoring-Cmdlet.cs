@@ -311,7 +311,6 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             Amazon.Kafka.Model.BrokerLogs requestLoggingInfo_loggingInfo_BrokerLogs = null;
             
              // populate BrokerLogs
-            var requestLoggingInfo_loggingInfo_BrokerLogsIsNull = true;
             requestLoggingInfo_loggingInfo_BrokerLogs = new Amazon.Kafka.Model.BrokerLogs();
             Amazon.Kafka.Model.CloudWatchLogs requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_CloudWatchLogs = null;
             
@@ -346,7 +345,6 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             if (requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_CloudWatchLogs != null)
             {
                 requestLoggingInfo_loggingInfo_BrokerLogs.CloudWatchLogs = requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_CloudWatchLogs;
-                requestLoggingInfo_loggingInfo_BrokerLogsIsNull = false;
             }
             Amazon.Kafka.Model.Firehose requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_Firehose = null;
             
@@ -381,7 +379,6 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             if (requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_Firehose != null)
             {
                 requestLoggingInfo_loggingInfo_BrokerLogs.Firehose = requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_Firehose;
-                requestLoggingInfo_loggingInfo_BrokerLogsIsNull = false;
             }
             Amazon.Kafka.Model.S3 requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3 = null;
             
@@ -426,12 +423,6 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             if (requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3 != null)
             {
                 requestLoggingInfo_loggingInfo_BrokerLogs.S3 = requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3;
-                requestLoggingInfo_loggingInfo_BrokerLogsIsNull = false;
-            }
-             // determine if requestLoggingInfo_loggingInfo_BrokerLogs should be set to null
-            if (requestLoggingInfo_loggingInfo_BrokerLogsIsNull)
-            {
-                requestLoggingInfo_loggingInfo_BrokerLogs = null;
             }
             if (requestLoggingInfo_loggingInfo_BrokerLogs != null)
             {
@@ -450,7 +441,6 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             Amazon.Kafka.Model.PrometheusInfo requestOpenMonitoring_openMonitoring_Prometheus = null;
             
              // populate Prometheus
-            var requestOpenMonitoring_openMonitoring_PrometheusIsNull = true;
             requestOpenMonitoring_openMonitoring_Prometheus = new Amazon.Kafka.Model.PrometheusInfo();
             Amazon.Kafka.Model.JmxExporterInfo requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_JmxExporter = null;
             
@@ -475,7 +465,6 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             if (requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_JmxExporter != null)
             {
                 requestOpenMonitoring_openMonitoring_Prometheus.JmxExporter = requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_JmxExporter;
-                requestOpenMonitoring_openMonitoring_PrometheusIsNull = false;
             }
             Amazon.Kafka.Model.NodeExporterInfo requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_NodeExporter = null;
             
@@ -500,12 +489,6 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             if (requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_NodeExporter != null)
             {
                 requestOpenMonitoring_openMonitoring_Prometheus.NodeExporter = requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_NodeExporter;
-                requestOpenMonitoring_openMonitoring_PrometheusIsNull = false;
-            }
-             // determine if requestOpenMonitoring_openMonitoring_Prometheus should be set to null
-            if (requestOpenMonitoring_openMonitoring_PrometheusIsNull)
-            {
-                requestOpenMonitoring_openMonitoring_Prometheus = null;
             }
             if (requestOpenMonitoring_openMonitoring_Prometheus != null)
             {

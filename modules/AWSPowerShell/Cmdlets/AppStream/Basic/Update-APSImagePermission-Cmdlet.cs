@@ -192,7 +192,6 @@ namespace Amazon.PowerShell.Cmdlets.APS
             
             
              // populate ImagePermissions
-            var requestImagePermissionsIsNull = true;
             request.ImagePermissions = new Amazon.AppStream.Model.ImagePermissions();
             System.Boolean? requestImagePermissions_imagePermissions_AllowFleet = null;
             if (cmdletContext.ImagePermissions_AllowFleet != null)
@@ -202,7 +201,6 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (requestImagePermissions_imagePermissions_AllowFleet != null)
             {
                 request.ImagePermissions.AllowFleet = requestImagePermissions_imagePermissions_AllowFleet.Value;
-                requestImagePermissionsIsNull = false;
             }
             System.Boolean? requestImagePermissions_imagePermissions_AllowImageBuilder = null;
             if (cmdletContext.ImagePermissions_AllowImageBuilder != null)
@@ -212,12 +210,6 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (requestImagePermissions_imagePermissions_AllowImageBuilder != null)
             {
                 request.ImagePermissions.AllowImageBuilder = requestImagePermissions_imagePermissions_AllowImageBuilder.Value;
-                requestImagePermissionsIsNull = false;
-            }
-             // determine if request.ImagePermissions should be set to null
-            if (requestImagePermissionsIsNull)
-            {
-                request.ImagePermissions = null;
             }
             if (cmdletContext.Name != null)
             {

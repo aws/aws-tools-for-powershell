@@ -303,7 +303,6 @@ namespace Amazon.PowerShell.Cmdlets.OS
             }
             
              // populate LocalDomainInfo
-            var requestLocalDomainInfoIsNull = true;
             request.LocalDomainInfo = new Amazon.OpenSearchService.Model.DomainInformationContainer();
             Amazon.OpenSearchService.Model.AWSDomainInformation requestLocalDomainInfo_localDomainInfo_AWSDomainInformation = null;
             
@@ -348,16 +347,9 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (requestLocalDomainInfo_localDomainInfo_AWSDomainInformation != null)
             {
                 request.LocalDomainInfo.AWSDomainInformation = requestLocalDomainInfo_localDomainInfo_AWSDomainInformation;
-                requestLocalDomainInfoIsNull = false;
-            }
-             // determine if request.LocalDomainInfo should be set to null
-            if (requestLocalDomainInfoIsNull)
-            {
-                request.LocalDomainInfo = null;
             }
             
              // populate RemoteDomainInfo
-            var requestRemoteDomainInfoIsNull = true;
             request.RemoteDomainInfo = new Amazon.OpenSearchService.Model.DomainInformationContainer();
             Amazon.OpenSearchService.Model.AWSDomainInformation requestRemoteDomainInfo_remoteDomainInfo_AWSDomainInformation = null;
             
@@ -402,12 +394,6 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (requestRemoteDomainInfo_remoteDomainInfo_AWSDomainInformation != null)
             {
                 request.RemoteDomainInfo.AWSDomainInformation = requestRemoteDomainInfo_remoteDomainInfo_AWSDomainInformation;
-                requestRemoteDomainInfoIsNull = false;
-            }
-             // determine if request.RemoteDomainInfo should be set to null
-            if (requestRemoteDomainInfoIsNull)
-            {
-                request.RemoteDomainInfo = null;
             }
             
             CmdletOutput output;

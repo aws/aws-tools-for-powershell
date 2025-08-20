@@ -275,7 +275,6 @@ namespace Amazon.PowerShell.Cmdlets.CB
             
             
              // populate ExportConfig
-            var requestExportConfigIsNull = true;
             request.ExportConfig = new Amazon.CodeBuild.Model.ReportExportConfig();
             Amazon.CodeBuild.ReportExportConfigType requestExportConfig_exportConfig_ExportConfigType = null;
             if (cmdletContext.ExportConfig_ExportConfigType != null)
@@ -285,7 +284,6 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (requestExportConfig_exportConfig_ExportConfigType != null)
             {
                 request.ExportConfig.ExportConfigType = requestExportConfig_exportConfig_ExportConfigType;
-                requestExportConfigIsNull = false;
             }
             Amazon.CodeBuild.Model.S3ReportExportConfig requestExportConfig_exportConfig_S3Destination = null;
             
@@ -360,12 +358,6 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (requestExportConfig_exportConfig_S3Destination != null)
             {
                 request.ExportConfig.S3Destination = requestExportConfig_exportConfig_S3Destination;
-                requestExportConfigIsNull = false;
-            }
-             // determine if request.ExportConfig should be set to null
-            if (requestExportConfigIsNull)
-            {
-                request.ExportConfig = null;
             }
             if (cmdletContext.Name != null)
             {

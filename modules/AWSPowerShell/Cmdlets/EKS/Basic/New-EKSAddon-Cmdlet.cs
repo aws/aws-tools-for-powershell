@@ -117,6 +117,17 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.String ConfigurationValue { get; set; }
         #endregion
         
+        #region Parameter NamespaceConfig_Namespace
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Kubernetes namespace to install the addon in. Must be a valid RFC
+        /// 1123 DNS label.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NamespaceConfig_Namespace { get; set; }
+        #endregion
+        
         #region Parameter PodIdentityAssociation
         /// <summary>
         /// <para>
@@ -260,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             }
             #endif
             context.ConfigurationValue = this.ConfigurationValue;
+            context.NamespaceConfig_Namespace = this.NamespaceConfig_Namespace;
             if (this.PodIdentityAssociation != null)
             {
                 context.PodIdentityAssociation = new List<Amazon.EKS.Model.AddonPodIdentityAssociations>(this.PodIdentityAssociation);
@@ -309,6 +321,25 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (cmdletContext.ConfigurationValue != null)
             {
                 request.ConfigurationValues = cmdletContext.ConfigurationValue;
+            }
+            
+             // populate NamespaceConfig
+            var requestNamespaceConfigIsNull = true;
+            request.NamespaceConfig = new Amazon.EKS.Model.AddonNamespaceConfigRequest();
+            System.String requestNamespaceConfig_namespaceConfig_Namespace = null;
+            if (cmdletContext.NamespaceConfig_Namespace != null)
+            {
+                requestNamespaceConfig_namespaceConfig_Namespace = cmdletContext.NamespaceConfig_Namespace;
+            }
+            if (requestNamespaceConfig_namespaceConfig_Namespace != null)
+            {
+                request.NamespaceConfig.Namespace = requestNamespaceConfig_namespaceConfig_Namespace;
+                requestNamespaceConfigIsNull = false;
+            }
+             // determine if request.NamespaceConfig should be set to null
+            if (requestNamespaceConfigIsNull)
+            {
+                request.NamespaceConfig = null;
             }
             if (cmdletContext.PodIdentityAssociation != null)
             {
@@ -392,6 +423,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.String ClientRequestToken { get; set; }
             public System.String ClusterName { get; set; }
             public System.String ConfigurationValue { get; set; }
+            public System.String NamespaceConfig_Namespace { get; set; }
             public List<Amazon.EKS.Model.AddonPodIdentityAssociations> PodIdentityAssociation { get; set; }
             public Amazon.EKS.ResolveConflicts ResolveConflict { get; set; }
             public System.String ServiceAccountRoleArn { get; set; }

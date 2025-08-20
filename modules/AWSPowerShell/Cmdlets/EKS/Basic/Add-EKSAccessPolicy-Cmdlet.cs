@@ -226,7 +226,6 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             
             
              // populate AccessScope
-            var requestAccessScopeIsNull = true;
             request.AccessScope = new Amazon.EKS.Model.AccessScope();
             List<System.String> requestAccessScope_accessScope_Namespace = null;
             if (cmdletContext.AccessScope_Namespace != null)
@@ -236,7 +235,6 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (requestAccessScope_accessScope_Namespace != null)
             {
                 request.AccessScope.Namespaces = requestAccessScope_accessScope_Namespace;
-                requestAccessScopeIsNull = false;
             }
             Amazon.EKS.AccessScopeType requestAccessScope_accessScope_Type = null;
             if (cmdletContext.AccessScope_Type != null)
@@ -246,12 +244,6 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (requestAccessScope_accessScope_Type != null)
             {
                 request.AccessScope.Type = requestAccessScope_accessScope_Type;
-                requestAccessScopeIsNull = false;
-            }
-             // determine if request.AccessScope should be set to null
-            if (requestAccessScopeIsNull)
-            {
-                request.AccessScope = null;
             }
             if (cmdletContext.ClusterName != null)
             {

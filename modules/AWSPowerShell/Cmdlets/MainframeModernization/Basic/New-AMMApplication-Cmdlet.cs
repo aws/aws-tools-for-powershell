@@ -264,7 +264,6 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             }
             
              // populate Definition
-            var requestDefinitionIsNull = true;
             request.Definition = new Amazon.MainframeModernization.Model.Definition();
             System.String requestDefinition_definition_Content = null;
             if (cmdletContext.Definition_Content != null)
@@ -274,7 +273,6 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             if (requestDefinition_definition_Content != null)
             {
                 request.Definition.Content = requestDefinition_definition_Content;
-                requestDefinitionIsNull = false;
             }
             System.String requestDefinition_definition_S3Location = null;
             if (cmdletContext.Definition_S3Location != null)
@@ -284,12 +282,6 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             if (requestDefinition_definition_S3Location != null)
             {
                 request.Definition.S3Location = requestDefinition_definition_S3Location;
-                requestDefinitionIsNull = false;
-            }
-             // determine if request.Definition should be set to null
-            if (requestDefinitionIsNull)
-            {
-                request.Definition = null;
             }
             if (cmdletContext.Description != null)
             {

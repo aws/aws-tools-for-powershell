@@ -288,7 +288,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             }
             
              // populate ResourceSpecification
-            var requestResourceSpecificationIsNull = true;
             request.ResourceSpecification = new Amazon.LexModelsV2.Model.ExportResourceSpecification();
             Amazon.LexModelsV2.Model.TestSetExportSpecification requestResourceSpecification_resourceSpecification_TestSetExportSpecification = null;
             
@@ -313,7 +312,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestResourceSpecification_resourceSpecification_TestSetExportSpecification != null)
             {
                 request.ResourceSpecification.TestSetExportSpecification = requestResourceSpecification_resourceSpecification_TestSetExportSpecification;
-                requestResourceSpecificationIsNull = false;
             }
             Amazon.LexModelsV2.Model.BotExportSpecification requestResourceSpecification_resourceSpecification_BotExportSpecification = null;
             
@@ -348,7 +346,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestResourceSpecification_resourceSpecification_BotExportSpecification != null)
             {
                 request.ResourceSpecification.BotExportSpecification = requestResourceSpecification_resourceSpecification_BotExportSpecification;
-                requestResourceSpecificationIsNull = false;
             }
             Amazon.LexModelsV2.Model.BotLocaleExportSpecification requestResourceSpecification_resourceSpecification_BotLocaleExportSpecification = null;
             
@@ -393,7 +390,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestResourceSpecification_resourceSpecification_BotLocaleExportSpecification != null)
             {
                 request.ResourceSpecification.BotLocaleExportSpecification = requestResourceSpecification_resourceSpecification_BotLocaleExportSpecification;
-                requestResourceSpecificationIsNull = false;
             }
             Amazon.LexModelsV2.Model.CustomVocabularyExportSpecification requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecification = null;
             
@@ -438,12 +434,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecification != null)
             {
                 request.ResourceSpecification.CustomVocabularyExportSpecification = requestResourceSpecification_resourceSpecification_CustomVocabularyExportSpecification;
-                requestResourceSpecificationIsNull = false;
-            }
-             // determine if request.ResourceSpecification should be set to null
-            if (requestResourceSpecificationIsNull)
-            {
-                request.ResourceSpecification = null;
             }
             
             CmdletOutput output;

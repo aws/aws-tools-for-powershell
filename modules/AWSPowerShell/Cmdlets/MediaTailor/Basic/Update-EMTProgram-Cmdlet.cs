@@ -244,7 +244,6 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             }
             
              // populate ScheduleConfiguration
-            var requestScheduleConfigurationIsNull = true;
             request.ScheduleConfiguration = new Amazon.MediaTailor.Model.UpdateProgramScheduleConfiguration();
             Amazon.MediaTailor.Model.ClipRange requestScheduleConfiguration_scheduleConfiguration_ClipRange = null;
             
@@ -279,7 +278,6 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (requestScheduleConfiguration_scheduleConfiguration_ClipRange != null)
             {
                 request.ScheduleConfiguration.ClipRange = requestScheduleConfiguration_scheduleConfiguration_ClipRange;
-                requestScheduleConfigurationIsNull = false;
             }
             Amazon.MediaTailor.Model.UpdateProgramTransition requestScheduleConfiguration_scheduleConfiguration_Transition = null;
             
@@ -314,12 +312,6 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (requestScheduleConfiguration_scheduleConfiguration_Transition != null)
             {
                 request.ScheduleConfiguration.Transition = requestScheduleConfiguration_scheduleConfiguration_Transition;
-                requestScheduleConfigurationIsNull = false;
-            }
-             // determine if request.ScheduleConfiguration should be set to null
-            if (requestScheduleConfigurationIsNull)
-            {
-                request.ScheduleConfiguration = null;
             }
             
             CmdletOutput output;

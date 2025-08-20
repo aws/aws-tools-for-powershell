@@ -244,7 +244,6 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             }
             
              // populate EdiType
-            var requestEdiTypeIsNull = true;
             request.EdiType = new Amazon.B2bi.Model.EdiType();
             Amazon.B2bi.Model.X12Details requestEdiType_ediType_X12Details = null;
             
@@ -279,12 +278,6 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             if (requestEdiType_ediType_X12Details != null)
             {
                 request.EdiType.X12Details = requestEdiType_ediType_X12Details;
-                requestEdiTypeIsNull = false;
-            }
-             // determine if request.EdiType should be set to null
-            if (requestEdiTypeIsNull)
-            {
-                request.EdiType = null;
             }
             if (cmdletContext.FileFormat != null)
             {
@@ -292,7 +285,6 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             }
             
              // populate InputFile
-            var requestInputFileIsNull = true;
             request.InputFile = new Amazon.B2bi.Model.S3Location();
             System.String requestInputFile_inputFile_BucketName = null;
             if (cmdletContext.InputFile_BucketName != null)
@@ -302,7 +294,6 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             if (requestInputFile_inputFile_BucketName != null)
             {
                 request.InputFile.BucketName = requestInputFile_inputFile_BucketName;
-                requestInputFileIsNull = false;
             }
             System.String requestInputFile_inputFile_Key = null;
             if (cmdletContext.InputFile_Key != null)
@@ -312,12 +303,6 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             if (requestInputFile_inputFile_Key != null)
             {
                 request.InputFile.Key = requestInputFile_inputFile_Key;
-                requestInputFileIsNull = false;
-            }
-             // determine if request.InputFile should be set to null
-            if (requestInputFileIsNull)
-            {
-                request.InputFile = null;
             }
             
             CmdletOutput output;

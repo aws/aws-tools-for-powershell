@@ -269,7 +269,6 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             }
             
              // populate Term
-            var requestTermIsNull = true;
             request.Term = new Amazon.EKS.Model.EksAnywhereSubscriptionTerm();
             System.Int32? requestTerm_term_Duration = null;
             if (cmdletContext.Term_Duration != null)
@@ -279,7 +278,6 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (requestTerm_term_Duration != null)
             {
                 request.Term.Duration = requestTerm_term_Duration.Value;
-                requestTermIsNull = false;
             }
             Amazon.EKS.EksAnywhereSubscriptionTermUnit requestTerm_term_Unit = null;
             if (cmdletContext.Term_Unit != null)
@@ -289,12 +287,6 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (requestTerm_term_Unit != null)
             {
                 request.Term.Unit = requestTerm_term_Unit;
-                requestTermIsNull = false;
-            }
-             // determine if request.Term should be set to null
-            if (requestTermIsNull)
-            {
-                request.Term = null;
             }
             
             CmdletOutput output;

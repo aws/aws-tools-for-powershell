@@ -192,7 +192,6 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
             
             
              // populate DestinationConfiguration
-            var requestDestinationConfigurationIsNull = true;
             request.DestinationConfiguration = new Amazon.Ivschat.Model.DestinationConfiguration();
             Amazon.Ivschat.Model.CloudWatchLogsDestinationConfiguration requestDestinationConfiguration_destinationConfiguration_CloudWatchLogs = null;
             
@@ -217,7 +216,6 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
             if (requestDestinationConfiguration_destinationConfiguration_CloudWatchLogs != null)
             {
                 request.DestinationConfiguration.CloudWatchLogs = requestDestinationConfiguration_destinationConfiguration_CloudWatchLogs;
-                requestDestinationConfigurationIsNull = false;
             }
             Amazon.Ivschat.Model.FirehoseDestinationConfiguration requestDestinationConfiguration_destinationConfiguration_Firehose = null;
             
@@ -242,7 +240,6 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
             if (requestDestinationConfiguration_destinationConfiguration_Firehose != null)
             {
                 request.DestinationConfiguration.Firehose = requestDestinationConfiguration_destinationConfiguration_Firehose;
-                requestDestinationConfigurationIsNull = false;
             }
             Amazon.Ivschat.Model.S3DestinationConfiguration requestDestinationConfiguration_destinationConfiguration_S3 = null;
             
@@ -267,12 +264,6 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
             if (requestDestinationConfiguration_destinationConfiguration_S3 != null)
             {
                 request.DestinationConfiguration.S3 = requestDestinationConfiguration_destinationConfiguration_S3;
-                requestDestinationConfigurationIsNull = false;
-            }
-             // determine if request.DestinationConfiguration should be set to null
-            if (requestDestinationConfigurationIsNull)
-            {
-                request.DestinationConfiguration = null;
             }
             if (cmdletContext.Name != null)
             {

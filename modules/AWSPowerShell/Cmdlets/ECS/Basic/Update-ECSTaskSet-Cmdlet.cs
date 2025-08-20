@@ -226,7 +226,6 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             }
             
              // populate Scale
-            var requestScaleIsNull = true;
             request.Scale = new Amazon.ECS.Model.Scale();
             Amazon.ECS.ScaleUnit requestScale_scale_Unit = null;
             if (cmdletContext.Scale_Unit != null)
@@ -236,7 +235,6 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (requestScale_scale_Unit != null)
             {
                 request.Scale.Unit = requestScale_scale_Unit;
-                requestScaleIsNull = false;
             }
             System.Double? requestScale_scale_Value = null;
             if (cmdletContext.Scale_Value != null)
@@ -246,12 +244,6 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (requestScale_scale_Value != null)
             {
                 request.Scale.Value = requestScale_scale_Value.Value;
-                requestScaleIsNull = false;
-            }
-             // determine if request.Scale should be set to null
-            if (requestScaleIsNull)
-            {
-                request.Scale = null;
             }
             if (cmdletContext.Service != null)
             {

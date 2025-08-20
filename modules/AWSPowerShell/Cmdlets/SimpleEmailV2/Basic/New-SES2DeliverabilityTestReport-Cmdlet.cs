@@ -421,7 +421,6 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 
                 
                  // populate Content
-                var requestContentIsNull = true;
                 request.Content = new Amazon.SimpleEmailV2.Model.EmailContent();
                 Amazon.SimpleEmailV2.Model.RawMessage requestContent_content_Raw = null;
                 
@@ -447,7 +446,6 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 if (requestContent_content_Raw != null)
                 {
                     request.Content.Raw = requestContent_content_Raw;
-                    requestContentIsNull = false;
                 }
                 Amazon.SimpleEmailV2.Model.Message requestContent_content_Simple = null;
                 
@@ -477,7 +475,6 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 Amazon.SimpleEmailV2.Model.Body requestContent_content_Simple_content_Simple_Body = null;
                 
                  // populate Body
-                var requestContent_content_Simple_content_Simple_BodyIsNull = true;
                 requestContent_content_Simple_content_Simple_Body = new Amazon.SimpleEmailV2.Model.Body();
                 Amazon.SimpleEmailV2.Model.Content requestContent_content_Simple_content_Simple_Body_content_Simple_Body_Html = null;
                 
@@ -512,7 +509,6 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 if (requestContent_content_Simple_content_Simple_Body_content_Simple_Body_Html != null)
                 {
                     requestContent_content_Simple_content_Simple_Body.Html = requestContent_content_Simple_content_Simple_Body_content_Simple_Body_Html;
-                    requestContent_content_Simple_content_Simple_BodyIsNull = false;
                 }
                 Amazon.SimpleEmailV2.Model.Content requestContent_content_Simple_content_Simple_Body_content_Simple_Body_Text = null;
                 
@@ -547,12 +543,6 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 if (requestContent_content_Simple_content_Simple_Body_content_Simple_Body_Text != null)
                 {
                     requestContent_content_Simple_content_Simple_Body.Text = requestContent_content_Simple_content_Simple_Body_content_Simple_Body_Text;
-                    requestContent_content_Simple_content_Simple_BodyIsNull = false;
-                }
-                 // determine if requestContent_content_Simple_content_Simple_Body should be set to null
-                if (requestContent_content_Simple_content_Simple_BodyIsNull)
-                {
-                    requestContent_content_Simple_content_Simple_Body = null;
                 }
                 if (requestContent_content_Simple_content_Simple_Body != null)
                 {
@@ -602,7 +592,6 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 if (requestContent_content_Simple != null)
                 {
                     request.Content.Simple = requestContent_content_Simple;
-                    requestContentIsNull = false;
                 }
                 Amazon.SimpleEmailV2.Model.Template requestContent_content_Template = null;
                 
@@ -712,12 +701,6 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 if (requestContent_content_Template != null)
                 {
                     request.Content.Template = requestContent_content_Template;
-                    requestContentIsNull = false;
-                }
-                 // determine if request.Content should be set to null
-                if (requestContentIsNull)
-                {
-                    request.Content = null;
                 }
                 if (cmdletContext.FromEmailAddress != null)
                 {

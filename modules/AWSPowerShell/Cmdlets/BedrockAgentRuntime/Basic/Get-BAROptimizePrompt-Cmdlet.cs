@@ -146,7 +146,6 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             
             
              // populate Input
-            var requestInputIsNull = true;
             request.Input = new Amazon.BedrockAgentRuntime.Model.InputPrompt();
             Amazon.BedrockAgentRuntime.Model.TextPrompt requestInput_input_TextPrompt = null;
             
@@ -171,12 +170,6 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (requestInput_input_TextPrompt != null)
             {
                 request.Input.TextPrompt = requestInput_input_TextPrompt;
-                requestInputIsNull = false;
-            }
-             // determine if request.Input should be set to null
-            if (requestInputIsNull)
-            {
-                request.Input = null;
             }
             if (cmdletContext.TargetModelId != null)
             {

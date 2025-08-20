@@ -222,7 +222,6 @@ namespace Amazon.PowerShell.Cmdlets.QC
             }
             
              // populate Association
-            var requestAssociationIsNull = true;
             request.Association = new Amazon.QConnect.Model.AssistantAssociationInputData();
             System.String requestAssociation_association_KnowledgeBaseId = null;
             if (cmdletContext.Association_KnowledgeBaseId != null)
@@ -232,12 +231,6 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestAssociation_association_KnowledgeBaseId != null)
             {
                 request.Association.KnowledgeBaseId = requestAssociation_association_KnowledgeBaseId;
-                requestAssociationIsNull = false;
-            }
-             // determine if request.Association should be set to null
-            if (requestAssociationIsNull)
-            {
-                request.Association = null;
             }
             if (cmdletContext.AssociationType != null)
             {

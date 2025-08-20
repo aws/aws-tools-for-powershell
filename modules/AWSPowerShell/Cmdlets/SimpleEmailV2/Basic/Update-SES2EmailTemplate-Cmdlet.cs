@@ -167,7 +167,6 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             
             
              // populate TemplateContent
-            var requestTemplateContentIsNull = true;
             request.TemplateContent = new Amazon.SimpleEmailV2.Model.EmailTemplateContent();
             System.String requestTemplateContent_templateContent_Html = null;
             if (cmdletContext.TemplateContent_Html != null)
@@ -177,7 +176,6 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (requestTemplateContent_templateContent_Html != null)
             {
                 request.TemplateContent.Html = requestTemplateContent_templateContent_Html;
-                requestTemplateContentIsNull = false;
             }
             System.String requestTemplateContent_templateContent_Subject = null;
             if (cmdletContext.TemplateContent_Subject != null)
@@ -187,7 +185,6 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (requestTemplateContent_templateContent_Subject != null)
             {
                 request.TemplateContent.Subject = requestTemplateContent_templateContent_Subject;
-                requestTemplateContentIsNull = false;
             }
             System.String requestTemplateContent_templateContent_Text = null;
             if (cmdletContext.TemplateContent_Text != null)
@@ -197,12 +194,6 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (requestTemplateContent_templateContent_Text != null)
             {
                 request.TemplateContent.Text = requestTemplateContent_templateContent_Text;
-                requestTemplateContentIsNull = false;
-            }
-             // determine if request.TemplateContent should be set to null
-            if (requestTemplateContentIsNull)
-            {
-                request.TemplateContent = null;
             }
             if (cmdletContext.TemplateName != null)
             {

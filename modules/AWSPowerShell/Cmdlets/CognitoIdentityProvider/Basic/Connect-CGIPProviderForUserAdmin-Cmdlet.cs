@@ -235,7 +235,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             
             
              // populate DestinationUser
-            var requestDestinationUserIsNull = true;
             request.DestinationUser = new Amazon.CognitoIdentityProvider.Model.ProviderUserIdentifierType();
             System.String requestDestinationUser_destinationUser_ProviderAttributeName = null;
             if (cmdletContext.DestinationUser_ProviderAttributeName != null)
@@ -245,7 +244,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (requestDestinationUser_destinationUser_ProviderAttributeName != null)
             {
                 request.DestinationUser.ProviderAttributeName = requestDestinationUser_destinationUser_ProviderAttributeName;
-                requestDestinationUserIsNull = false;
             }
             System.String requestDestinationUser_destinationUser_ProviderAttributeValue = null;
             if (cmdletContext.DestinationUser_ProviderAttributeValue != null)
@@ -255,7 +253,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (requestDestinationUser_destinationUser_ProviderAttributeValue != null)
             {
                 request.DestinationUser.ProviderAttributeValue = requestDestinationUser_destinationUser_ProviderAttributeValue;
-                requestDestinationUserIsNull = false;
             }
             System.String requestDestinationUser_destinationUser_ProviderName = null;
             if (cmdletContext.DestinationUser_ProviderName != null)
@@ -265,16 +262,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (requestDestinationUser_destinationUser_ProviderName != null)
             {
                 request.DestinationUser.ProviderName = requestDestinationUser_destinationUser_ProviderName;
-                requestDestinationUserIsNull = false;
-            }
-             // determine if request.DestinationUser should be set to null
-            if (requestDestinationUserIsNull)
-            {
-                request.DestinationUser = null;
             }
             
              // populate SourceUser
-            var requestSourceUserIsNull = true;
             request.SourceUser = new Amazon.CognitoIdentityProvider.Model.ProviderUserIdentifierType();
             System.String requestSourceUser_sourceUser_ProviderAttributeName = null;
             if (cmdletContext.SourceUser_ProviderAttributeName != null)
@@ -284,7 +274,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (requestSourceUser_sourceUser_ProviderAttributeName != null)
             {
                 request.SourceUser.ProviderAttributeName = requestSourceUser_sourceUser_ProviderAttributeName;
-                requestSourceUserIsNull = false;
             }
             System.String requestSourceUser_sourceUser_ProviderAttributeValue = null;
             if (cmdletContext.SourceUser_ProviderAttributeValue != null)
@@ -294,7 +283,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (requestSourceUser_sourceUser_ProviderAttributeValue != null)
             {
                 request.SourceUser.ProviderAttributeValue = requestSourceUser_sourceUser_ProviderAttributeValue;
-                requestSourceUserIsNull = false;
             }
             System.String requestSourceUser_sourceUser_ProviderName = null;
             if (cmdletContext.SourceUser_ProviderName != null)
@@ -304,12 +292,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (requestSourceUser_sourceUser_ProviderName != null)
             {
                 request.SourceUser.ProviderName = requestSourceUser_sourceUser_ProviderName;
-                requestSourceUserIsNull = false;
-            }
-             // determine if request.SourceUser should be set to null
-            if (requestSourceUserIsNull)
-            {
-                request.SourceUser = null;
             }
             if (cmdletContext.UserPoolId != null)
             {

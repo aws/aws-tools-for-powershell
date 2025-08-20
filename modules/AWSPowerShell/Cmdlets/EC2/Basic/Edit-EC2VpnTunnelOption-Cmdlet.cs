@@ -510,7 +510,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             
              // populate TunnelOptions
-            var requestTunnelOptionsIsNull = true;
             request.TunnelOptions = new Amazon.EC2.Model.ModifyVpnTunnelOptionsSpecification();
             System.String requestTunnelOptions_tunnelOptions_DPDTimeoutAction = null;
             if (cmdletContext.TunnelOptions_DPDTimeoutAction != null)
@@ -520,7 +519,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestTunnelOptions_tunnelOptions_DPDTimeoutAction != null)
             {
                 request.TunnelOptions.DPDTimeoutAction = requestTunnelOptions_tunnelOptions_DPDTimeoutAction;
-                requestTunnelOptionsIsNull = false;
             }
             System.Int32? requestTunnelOptions_tunnelOptions_DPDTimeoutSecond = null;
             if (cmdletContext.TunnelOptions_DPDTimeoutSecond != null)
@@ -530,7 +528,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestTunnelOptions_tunnelOptions_DPDTimeoutSecond != null)
             {
                 request.TunnelOptions.DPDTimeoutSeconds = requestTunnelOptions_tunnelOptions_DPDTimeoutSecond.Value;
-                requestTunnelOptionsIsNull = false;
             }
             System.Boolean? requestTunnelOptions_tunnelOptions_EnableTunnelLifecycleControl = null;
             if (cmdletContext.TunnelOptions_EnableTunnelLifecycleControl != null)
@@ -540,7 +537,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestTunnelOptions_tunnelOptions_EnableTunnelLifecycleControl != null)
             {
                 request.TunnelOptions.EnableTunnelLifecycleControl = requestTunnelOptions_tunnelOptions_EnableTunnelLifecycleControl.Value;
-                requestTunnelOptionsIsNull = false;
             }
             List<Amazon.EC2.Model.IKEVersionsRequestListValue> requestTunnelOptions_tunnelOptions_IKEVersion = null;
             if (cmdletContext.TunnelOptions_IKEVersion != null)
@@ -550,7 +546,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestTunnelOptions_tunnelOptions_IKEVersion != null)
             {
                 request.TunnelOptions.IKEVersions = requestTunnelOptions_tunnelOptions_IKEVersion;
-                requestTunnelOptionsIsNull = false;
             }
             List<Amazon.EC2.Model.Phase1DHGroupNumbersRequestListValue> requestTunnelOptions_tunnelOptions_Phase1DHGroupNumber = null;
             if (cmdletContext.TunnelOptions_Phase1DHGroupNumber != null)
@@ -560,7 +555,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestTunnelOptions_tunnelOptions_Phase1DHGroupNumber != null)
             {
                 request.TunnelOptions.Phase1DHGroupNumbers = requestTunnelOptions_tunnelOptions_Phase1DHGroupNumber;
-                requestTunnelOptionsIsNull = false;
             }
             List<Amazon.EC2.Model.Phase1EncryptionAlgorithmsRequestListValue> requestTunnelOptions_tunnelOptions_Phase1EncryptionAlgorithm = null;
             if (cmdletContext.TunnelOptions_Phase1EncryptionAlgorithm != null)
@@ -570,7 +564,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestTunnelOptions_tunnelOptions_Phase1EncryptionAlgorithm != null)
             {
                 request.TunnelOptions.Phase1EncryptionAlgorithms = requestTunnelOptions_tunnelOptions_Phase1EncryptionAlgorithm;
-                requestTunnelOptionsIsNull = false;
             }
             List<Amazon.EC2.Model.Phase1IntegrityAlgorithmsRequestListValue> requestTunnelOptions_tunnelOptions_Phase1IntegrityAlgorithm = null;
             if (cmdletContext.TunnelOptions_Phase1IntegrityAlgorithm != null)
@@ -580,7 +573,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestTunnelOptions_tunnelOptions_Phase1IntegrityAlgorithm != null)
             {
                 request.TunnelOptions.Phase1IntegrityAlgorithms = requestTunnelOptions_tunnelOptions_Phase1IntegrityAlgorithm;
-                requestTunnelOptionsIsNull = false;
             }
             System.Int32? requestTunnelOptions_tunnelOptions_Phase1LifetimeSecond = null;
             if (cmdletContext.TunnelOptions_Phase1LifetimeSecond != null)
@@ -590,7 +582,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestTunnelOptions_tunnelOptions_Phase1LifetimeSecond != null)
             {
                 request.TunnelOptions.Phase1LifetimeSeconds = requestTunnelOptions_tunnelOptions_Phase1LifetimeSecond.Value;
-                requestTunnelOptionsIsNull = false;
             }
             List<Amazon.EC2.Model.Phase2DHGroupNumbersRequestListValue> requestTunnelOptions_tunnelOptions_Phase2DHGroupNumber = null;
             if (cmdletContext.TunnelOptions_Phase2DHGroupNumber != null)
@@ -600,7 +591,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestTunnelOptions_tunnelOptions_Phase2DHGroupNumber != null)
             {
                 request.TunnelOptions.Phase2DHGroupNumbers = requestTunnelOptions_tunnelOptions_Phase2DHGroupNumber;
-                requestTunnelOptionsIsNull = false;
             }
             List<Amazon.EC2.Model.Phase2EncryptionAlgorithmsRequestListValue> requestTunnelOptions_tunnelOptions_Phase2EncryptionAlgorithm = null;
             if (cmdletContext.TunnelOptions_Phase2EncryptionAlgorithm != null)
@@ -610,7 +600,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestTunnelOptions_tunnelOptions_Phase2EncryptionAlgorithm != null)
             {
                 request.TunnelOptions.Phase2EncryptionAlgorithms = requestTunnelOptions_tunnelOptions_Phase2EncryptionAlgorithm;
-                requestTunnelOptionsIsNull = false;
             }
             List<Amazon.EC2.Model.Phase2IntegrityAlgorithmsRequestListValue> requestTunnelOptions_tunnelOptions_Phase2IntegrityAlgorithm = null;
             if (cmdletContext.TunnelOptions_Phase2IntegrityAlgorithm != null)
@@ -620,7 +609,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestTunnelOptions_tunnelOptions_Phase2IntegrityAlgorithm != null)
             {
                 request.TunnelOptions.Phase2IntegrityAlgorithms = requestTunnelOptions_tunnelOptions_Phase2IntegrityAlgorithm;
-                requestTunnelOptionsIsNull = false;
             }
             System.Int32? requestTunnelOptions_tunnelOptions_Phase2LifetimeSecond = null;
             if (cmdletContext.TunnelOptions_Phase2LifetimeSecond != null)
@@ -630,7 +618,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestTunnelOptions_tunnelOptions_Phase2LifetimeSecond != null)
             {
                 request.TunnelOptions.Phase2LifetimeSeconds = requestTunnelOptions_tunnelOptions_Phase2LifetimeSecond.Value;
-                requestTunnelOptionsIsNull = false;
             }
             System.String requestTunnelOptions_tunnelOptions_PreSharedKey = null;
             if (cmdletContext.TunnelOptions_PreSharedKey != null)
@@ -640,7 +627,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestTunnelOptions_tunnelOptions_PreSharedKey != null)
             {
                 request.TunnelOptions.PreSharedKey = requestTunnelOptions_tunnelOptions_PreSharedKey;
-                requestTunnelOptionsIsNull = false;
             }
             System.Int32? requestTunnelOptions_tunnelOptions_RekeyFuzzPercentage = null;
             if (cmdletContext.TunnelOptions_RekeyFuzzPercentage != null)
@@ -650,7 +636,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestTunnelOptions_tunnelOptions_RekeyFuzzPercentage != null)
             {
                 request.TunnelOptions.RekeyFuzzPercentage = requestTunnelOptions_tunnelOptions_RekeyFuzzPercentage.Value;
-                requestTunnelOptionsIsNull = false;
             }
             System.Int32? requestTunnelOptions_tunnelOptions_RekeyMarginTimeSecond = null;
             if (cmdletContext.TunnelOptions_RekeyMarginTimeSecond != null)
@@ -660,7 +645,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestTunnelOptions_tunnelOptions_RekeyMarginTimeSecond != null)
             {
                 request.TunnelOptions.RekeyMarginTimeSeconds = requestTunnelOptions_tunnelOptions_RekeyMarginTimeSecond.Value;
-                requestTunnelOptionsIsNull = false;
             }
             System.Int32? requestTunnelOptions_tunnelOptions_ReplayWindowSize = null;
             if (cmdletContext.TunnelOptions_ReplayWindowSize != null)
@@ -670,7 +654,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestTunnelOptions_tunnelOptions_ReplayWindowSize != null)
             {
                 request.TunnelOptions.ReplayWindowSize = requestTunnelOptions_tunnelOptions_ReplayWindowSize.Value;
-                requestTunnelOptionsIsNull = false;
             }
             System.String requestTunnelOptions_tunnelOptions_StartupAction = null;
             if (cmdletContext.TunnelOptions_StartupAction != null)
@@ -680,7 +663,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestTunnelOptions_tunnelOptions_StartupAction != null)
             {
                 request.TunnelOptions.StartupAction = requestTunnelOptions_tunnelOptions_StartupAction;
-                requestTunnelOptionsIsNull = false;
             }
             System.String requestTunnelOptions_tunnelOptions_TunnelInsideCidr = null;
             if (cmdletContext.TunnelOptions_TunnelInsideCidr != null)
@@ -690,7 +672,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestTunnelOptions_tunnelOptions_TunnelInsideCidr != null)
             {
                 request.TunnelOptions.TunnelInsideCidr = requestTunnelOptions_tunnelOptions_TunnelInsideCidr;
-                requestTunnelOptionsIsNull = false;
             }
             System.String requestTunnelOptions_tunnelOptions_TunnelInsideIpv6Cidr = null;
             if (cmdletContext.TunnelOptions_TunnelInsideIpv6Cidr != null)
@@ -700,7 +681,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestTunnelOptions_tunnelOptions_TunnelInsideIpv6Cidr != null)
             {
                 request.TunnelOptions.TunnelInsideIpv6Cidr = requestTunnelOptions_tunnelOptions_TunnelInsideIpv6Cidr;
-                requestTunnelOptionsIsNull = false;
             }
             Amazon.EC2.Model.VpnTunnelLogOptionsSpecification requestTunnelOptions_tunnelOptions_LogOptions = null;
             
@@ -760,12 +740,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestTunnelOptions_tunnelOptions_LogOptions != null)
             {
                 request.TunnelOptions.LogOptions = requestTunnelOptions_tunnelOptions_LogOptions;
-                requestTunnelOptionsIsNull = false;
-            }
-             // determine if request.TunnelOptions should be set to null
-            if (requestTunnelOptionsIsNull)
-            {
-                request.TunnelOptions = null;
             }
             if (cmdletContext.VpnConnectionId != null)
             {

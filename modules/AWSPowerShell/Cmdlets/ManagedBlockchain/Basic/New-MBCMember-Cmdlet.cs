@@ -360,7 +360,6 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             Amazon.ManagedBlockchain.Model.MemberFrameworkConfiguration requestMemberConfiguration_memberConfiguration_FrameworkConfiguration = null;
             
              // populate FrameworkConfiguration
-            var requestMemberConfiguration_memberConfiguration_FrameworkConfigurationIsNull = true;
             requestMemberConfiguration_memberConfiguration_FrameworkConfiguration = new Amazon.ManagedBlockchain.Model.MemberFrameworkConfiguration();
             Amazon.ManagedBlockchain.Model.MemberFabricConfiguration requestMemberConfiguration_memberConfiguration_FrameworkConfiguration_memberConfiguration_FrameworkConfiguration_Fabric = null;
             
@@ -395,12 +394,6 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             if (requestMemberConfiguration_memberConfiguration_FrameworkConfiguration_memberConfiguration_FrameworkConfiguration_Fabric != null)
             {
                 requestMemberConfiguration_memberConfiguration_FrameworkConfiguration.Fabric = requestMemberConfiguration_memberConfiguration_FrameworkConfiguration_memberConfiguration_FrameworkConfiguration_Fabric;
-                requestMemberConfiguration_memberConfiguration_FrameworkConfigurationIsNull = false;
-            }
-             // determine if requestMemberConfiguration_memberConfiguration_FrameworkConfiguration should be set to null
-            if (requestMemberConfiguration_memberConfiguration_FrameworkConfigurationIsNull)
-            {
-                requestMemberConfiguration_memberConfiguration_FrameworkConfiguration = null;
             }
             if (requestMemberConfiguration_memberConfiguration_FrameworkConfiguration != null)
             {

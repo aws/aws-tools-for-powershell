@@ -31,7 +31,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddPolicyGrant" Verb="Add" Noun="PolicyGrant" ShouldProcessTarget="EntityIdentifier" PipelineParameter="DomainIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AddPolicyGrant" OutputProperty="GrantId" Verb="Add" Noun="PolicyGrant" ShouldProcessTarget="EntityIdentifier" PipelineParameter="DomainIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

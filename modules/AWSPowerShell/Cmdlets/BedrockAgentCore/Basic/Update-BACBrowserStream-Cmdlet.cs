@@ -188,7 +188,6 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             }
             
              // populate StreamUpdate
-            var requestStreamUpdateIsNull = true;
             request.StreamUpdate = new Amazon.BedrockAgentCore.Model.StreamUpdate();
             Amazon.BedrockAgentCore.Model.AutomationStreamUpdate requestStreamUpdate_streamUpdate_AutomationStreamUpdate = null;
             
@@ -213,12 +212,6 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (requestStreamUpdate_streamUpdate_AutomationStreamUpdate != null)
             {
                 request.StreamUpdate.AutomationStreamUpdate = requestStreamUpdate_streamUpdate_AutomationStreamUpdate;
-                requestStreamUpdateIsNull = false;
-            }
-             // determine if request.StreamUpdate should be set to null
-            if (requestStreamUpdateIsNull)
-            {
-                request.StreamUpdate = null;
             }
             
             CmdletOutput output;

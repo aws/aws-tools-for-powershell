@@ -219,7 +219,6 @@ namespace Amazon.PowerShell.Cmdlets.OS
             }
             
              // populate DataSourceType
-            var requestDataSourceTypeIsNull = true;
             request.DataSourceType = new Amazon.OpenSearchService.Model.DirectQueryDataSourceType();
             Amazon.OpenSearchService.Model.CloudWatchDirectQueryDataSource requestDataSourceType_dataSourceType_CloudWatchLog = null;
             
@@ -244,7 +243,6 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (requestDataSourceType_dataSourceType_CloudWatchLog != null)
             {
                 request.DataSourceType.CloudWatchLog = requestDataSourceType_dataSourceType_CloudWatchLog;
-                requestDataSourceTypeIsNull = false;
             }
             Amazon.OpenSearchService.Model.SecurityLakeDirectQueryDataSource requestDataSourceType_dataSourceType_SecurityLake = null;
             
@@ -269,12 +267,6 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (requestDataSourceType_dataSourceType_SecurityLake != null)
             {
                 request.DataSourceType.SecurityLake = requestDataSourceType_dataSourceType_SecurityLake;
-                requestDataSourceTypeIsNull = false;
-            }
-             // determine if request.DataSourceType should be set to null
-            if (requestDataSourceTypeIsNull)
-            {
-                request.DataSourceType = null;
             }
             if (cmdletContext.Description != null)
             {

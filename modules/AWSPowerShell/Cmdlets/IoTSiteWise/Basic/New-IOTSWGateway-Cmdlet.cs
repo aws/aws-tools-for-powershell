@@ -223,7 +223,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             }
             
              // populate GatewayPlatform
-            var requestGatewayPlatformIsNull = true;
             request.GatewayPlatform = new Amazon.IoTSiteWise.Model.GatewayPlatform();
             Amazon.IoTSiteWise.Model.Greengrass requestGatewayPlatform_gatewayPlatform_Greengrass = null;
             
@@ -248,7 +247,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestGatewayPlatform_gatewayPlatform_Greengrass != null)
             {
                 request.GatewayPlatform.Greengrass = requestGatewayPlatform_gatewayPlatform_Greengrass;
-                requestGatewayPlatformIsNull = false;
             }
             Amazon.IoTSiteWise.Model.SiemensIE requestGatewayPlatform_gatewayPlatform_SiemensIE = null;
             
@@ -273,7 +271,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestGatewayPlatform_gatewayPlatform_SiemensIE != null)
             {
                 request.GatewayPlatform.SiemensIE = requestGatewayPlatform_gatewayPlatform_SiemensIE;
-                requestGatewayPlatformIsNull = false;
             }
             Amazon.IoTSiteWise.Model.GreengrassV2 requestGatewayPlatform_gatewayPlatform_GreengrassV2 = null;
             
@@ -308,12 +305,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestGatewayPlatform_gatewayPlatform_GreengrassV2 != null)
             {
                 request.GatewayPlatform.GreengrassV2 = requestGatewayPlatform_gatewayPlatform_GreengrassV2;
-                requestGatewayPlatformIsNull = false;
-            }
-             // determine if request.GatewayPlatform should be set to null
-            if (requestGatewayPlatformIsNull)
-            {
-                request.GatewayPlatform = null;
             }
             if (cmdletContext.GatewayVersion != null)
             {

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// <summary>
     /// Creates a new set of branding settings for a user pool style and associates it with
     /// an app client. This operation is the programmatic option for the creation of a new
-    /// style in the branding designer.
+    /// style in the branding editor.
     /// 
     ///  
     /// <para>
@@ -102,7 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>A JSON file, encoded as a <c>Document</c> type, with the the settings that you want
-        /// to apply to your style.</para>
+        /// to apply to your style.</para><para>The following components are not currently implemented and reserved for future use:</para><ul><li><para><c>signUp</c></para></li><li><para><c>instructions</c></para></li><li><para><c>sessionTimerDisplay</c></para></li><li><para><c>languageSelector</c> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed
+        /// login localization)</a></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>When true, applies the default branding style options. These default options are managed
-        /// by Amazon Cognito. You can modify them later in the branding designer.</para><para>When you specify <c>true</c> for this option, you must also omit values for <c>Settings</c>
+        /// by Amazon Cognito. You can modify them later in the branding editor.</para><para>When you specify <c>true</c> for this option, you must also omit values for <c>Settings</c>
         /// and <c>Assets</c> in the request.</para>
         /// </para>
         /// </summary>

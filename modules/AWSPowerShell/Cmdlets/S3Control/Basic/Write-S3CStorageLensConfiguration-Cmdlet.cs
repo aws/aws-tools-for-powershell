@@ -1054,7 +1054,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             Amazon.S3Control.Model.BucketLevel requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel = null;
             
              // populate BucketLevel
-            var requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevelIsNull = true;
             requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel = new Amazon.S3Control.Model.BucketLevel();
             Amazon.S3Control.Model.ActivityMetrics requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics = null;
             
@@ -1079,7 +1078,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics != null)
             {
                 requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel.ActivityMetrics = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics;
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevelIsNull = false;
             }
             Amazon.S3Control.Model.AdvancedCostOptimizationMetrics requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedCostOptimizationMetrics = null;
             
@@ -1104,7 +1102,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedCostOptimizationMetrics != null)
             {
                 requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel.AdvancedCostOptimizationMetrics = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedCostOptimizationMetrics;
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevelIsNull = false;
             }
             Amazon.S3Control.Model.AdvancedDataProtectionMetrics requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedDataProtectionMetrics = null;
             
@@ -1129,7 +1126,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedDataProtectionMetrics != null)
             {
                 requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel.AdvancedDataProtectionMetrics = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedDataProtectionMetrics;
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevelIsNull = false;
             }
             Amazon.S3Control.Model.DetailedStatusCodesMetrics requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_DetailedStatusCodesMetrics = null;
             
@@ -1154,7 +1150,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_DetailedStatusCodesMetrics != null)
             {
                 requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel.DetailedStatusCodesMetrics = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_DetailedStatusCodesMetrics;
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevelIsNull = false;
             }
             Amazon.S3Control.Model.PrefixLevel requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel = null;
             
@@ -1164,7 +1159,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             Amazon.S3Control.Model.PrefixLevelStorageMetrics requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics = null;
             
              // populate StorageMetrics
-            var requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetricsIsNull = true;
             requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics = new Amazon.S3Control.Model.PrefixLevelStorageMetrics();
             System.Boolean? requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageMetrics_IsEnabled = null;
             if (cmdletContext.StorageMetrics_IsEnabled != null)
@@ -1174,7 +1168,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageMetrics_IsEnabled != null)
             {
                 requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics.IsEnabled = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageMetrics_IsEnabled.Value;
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetricsIsNull = false;
             }
             Amazon.S3Control.Model.SelectionCriteria requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria = null;
             
@@ -1219,12 +1212,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria != null)
             {
                 requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics.SelectionCriteria = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria;
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetricsIsNull = false;
-            }
-             // determine if requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics should be set to null
-            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetricsIsNull)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics = null;
             }
             if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics != null)
             {
@@ -1239,12 +1226,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel != null)
             {
                 requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel.PrefixLevel = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel;
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevelIsNull = false;
-            }
-             // determine if requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel should be set to null
-            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevelIsNull)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel = null;
             }
             if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel != null)
             {

@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>A version number that indicates the state of managed login for your domain. Version
         /// <c>1</c> is hosted UI (classic). Version <c>2</c> is the newer managed login with
-        /// the branding designer. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html">Managed
+        /// the branding editor. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html">Managed
         /// login</a>.</para>
         /// </para>
         /// </summary>

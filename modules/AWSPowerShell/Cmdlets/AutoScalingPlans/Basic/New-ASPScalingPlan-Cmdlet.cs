@@ -202,7 +202,6 @@ namespace Amazon.PowerShell.Cmdlets.ASP
             
             
              // populate ApplicationSource
-            var requestApplicationSourceIsNull = true;
             request.ApplicationSource = new Amazon.AutoScalingPlans.Model.ApplicationSource();
             System.String requestApplicationSource_applicationSource_CloudFormationStackARN = null;
             if (cmdletContext.ApplicationSource_CloudFormationStackARN != null)
@@ -212,7 +211,6 @@ namespace Amazon.PowerShell.Cmdlets.ASP
             if (requestApplicationSource_applicationSource_CloudFormationStackARN != null)
             {
                 request.ApplicationSource.CloudFormationStackARN = requestApplicationSource_applicationSource_CloudFormationStackARN;
-                requestApplicationSourceIsNull = false;
             }
             List<Amazon.AutoScalingPlans.Model.TagFilter> requestApplicationSource_applicationSource_TagFilter = null;
             if (cmdletContext.ApplicationSource_TagFilter != null)
@@ -222,12 +220,6 @@ namespace Amazon.PowerShell.Cmdlets.ASP
             if (requestApplicationSource_applicationSource_TagFilter != null)
             {
                 request.ApplicationSource.TagFilters = requestApplicationSource_applicationSource_TagFilter;
-                requestApplicationSourceIsNull = false;
-            }
-             // determine if request.ApplicationSource should be set to null
-            if (requestApplicationSourceIsNull)
-            {
-                request.ApplicationSource = null;
             }
             if (cmdletContext.ScalingInstruction != null)
             {

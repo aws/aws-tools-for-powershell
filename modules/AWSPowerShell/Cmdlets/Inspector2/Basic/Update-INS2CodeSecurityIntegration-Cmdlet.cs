@@ -191,7 +191,6 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             
             
              // populate Details
-            var requestDetailsIsNull = true;
             request.Details = new Amazon.Inspector2.Model.UpdateIntegrationDetails();
             Amazon.Inspector2.Model.UpdateGitLabSelfManagedIntegrationDetail requestDetails_details_GitlabSelfManaged = null;
             
@@ -216,7 +215,6 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestDetails_details_GitlabSelfManaged != null)
             {
                 request.Details.GitlabSelfManaged = requestDetails_details_GitlabSelfManaged;
-                requestDetailsIsNull = false;
             }
             Amazon.Inspector2.Model.UpdateGitHubIntegrationDetail requestDetails_details_Github = null;
             
@@ -251,12 +249,6 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestDetails_details_Github != null)
             {
                 request.Details.Github = requestDetails_details_Github;
-                requestDetailsIsNull = false;
-            }
-             // determine if request.Details should be set to null
-            if (requestDetailsIsNull)
-            {
-                request.Details = null;
             }
             if (cmdletContext.IntegrationArn != null)
             {

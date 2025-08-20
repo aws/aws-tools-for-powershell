@@ -134,7 +134,6 @@ namespace Amazon.PowerShell.Cmdlets.CGS
             
             
              // populate EncryptionConfig
-            var requestEncryptionConfigIsNull = true;
             request.EncryptionConfig = new Amazon.CodeGuruSecurity.Model.EncryptionConfig();
             System.String requestEncryptionConfig_encryptionConfig_KmsKeyArn = null;
             if (cmdletContext.EncryptionConfig_KmsKeyArn != null)
@@ -144,12 +143,6 @@ namespace Amazon.PowerShell.Cmdlets.CGS
             if (requestEncryptionConfig_encryptionConfig_KmsKeyArn != null)
             {
                 request.EncryptionConfig.KmsKeyArn = requestEncryptionConfig_encryptionConfig_KmsKeyArn;
-                requestEncryptionConfigIsNull = false;
-            }
-             // determine if request.EncryptionConfig should be set to null
-            if (requestEncryptionConfigIsNull)
-            {
-                request.EncryptionConfig = null;
             }
             
             CmdletOutput output;

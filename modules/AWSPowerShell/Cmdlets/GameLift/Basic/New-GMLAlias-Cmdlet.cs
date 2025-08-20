@@ -240,7 +240,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
             }
             
              // populate RoutingStrategy
-            var requestRoutingStrategyIsNull = true;
             request.RoutingStrategy = new Amazon.GameLift.Model.RoutingStrategy();
             System.String requestRoutingStrategy_routingStrategy_FleetId = null;
             if (cmdletContext.RoutingStrategy_FleetId != null)
@@ -250,7 +249,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (requestRoutingStrategy_routingStrategy_FleetId != null)
             {
                 request.RoutingStrategy.FleetId = requestRoutingStrategy_routingStrategy_FleetId;
-                requestRoutingStrategyIsNull = false;
             }
             System.String requestRoutingStrategy_routingStrategy_Message = null;
             if (cmdletContext.RoutingStrategy_Message != null)
@@ -260,7 +258,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (requestRoutingStrategy_routingStrategy_Message != null)
             {
                 request.RoutingStrategy.Message = requestRoutingStrategy_routingStrategy_Message;
-                requestRoutingStrategyIsNull = false;
             }
             Amazon.GameLift.RoutingStrategyType requestRoutingStrategy_routingStrategy_Type = null;
             if (cmdletContext.RoutingStrategy_Type != null)
@@ -270,12 +267,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (requestRoutingStrategy_routingStrategy_Type != null)
             {
                 request.RoutingStrategy.Type = requestRoutingStrategy_routingStrategy_Type;
-                requestRoutingStrategyIsNull = false;
-            }
-             // determine if request.RoutingStrategy should be set to null
-            if (requestRoutingStrategyIsNull)
-            {
-                request.RoutingStrategy = null;
             }
             if (cmdletContext.Tag != null)
             {

@@ -550,7 +550,6 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             Amazon.Kafka.Model.BrokerLogs requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs = null;
             
              // populate BrokerLogs
-            var requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogsIsNull = true;
             requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs = new Amazon.Kafka.Model.BrokerLogs();
             Amazon.Kafka.Model.CloudWatchLogs requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs = null;
             
@@ -585,7 +584,6 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs != null)
             {
                 requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs.CloudWatchLogs = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_CloudWatchLogs;
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogsIsNull = false;
             }
             Amazon.Kafka.Model.Firehose requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose = null;
             
@@ -620,7 +618,6 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose != null)
             {
                 requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs.Firehose = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_Firehose;
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogsIsNull = false;
             }
             Amazon.Kafka.Model.S3 requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3 = null;
             
@@ -665,12 +662,6 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3 != null)
             {
                 requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs.S3 = requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs_provisioned_LoggingInfo_BrokerLogs_S3;
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogsIsNull = false;
-            }
-             // determine if requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs should be set to null
-            if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogsIsNull)
-            {
-                requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs = null;
             }
             if (requestProvisioned_provisioned_LoggingInfo_provisioned_LoggingInfo_BrokerLogs != null)
             {
@@ -695,7 +686,6 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             Amazon.Kafka.Model.PrometheusInfo requestProvisioned_provisioned_OpenMonitoring_provisioned_OpenMonitoring_Prometheus = null;
             
              // populate Prometheus
-            var requestProvisioned_provisioned_OpenMonitoring_provisioned_OpenMonitoring_PrometheusIsNull = true;
             requestProvisioned_provisioned_OpenMonitoring_provisioned_OpenMonitoring_Prometheus = new Amazon.Kafka.Model.PrometheusInfo();
             Amazon.Kafka.Model.JmxExporterInfo requestProvisioned_provisioned_OpenMonitoring_provisioned_OpenMonitoring_Prometheus_provisioned_OpenMonitoring_Prometheus_JmxExporter = null;
             
@@ -720,7 +710,6 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             if (requestProvisioned_provisioned_OpenMonitoring_provisioned_OpenMonitoring_Prometheus_provisioned_OpenMonitoring_Prometheus_JmxExporter != null)
             {
                 requestProvisioned_provisioned_OpenMonitoring_provisioned_OpenMonitoring_Prometheus.JmxExporter = requestProvisioned_provisioned_OpenMonitoring_provisioned_OpenMonitoring_Prometheus_provisioned_OpenMonitoring_Prometheus_JmxExporter;
-                requestProvisioned_provisioned_OpenMonitoring_provisioned_OpenMonitoring_PrometheusIsNull = false;
             }
             Amazon.Kafka.Model.NodeExporterInfo requestProvisioned_provisioned_OpenMonitoring_provisioned_OpenMonitoring_Prometheus_provisioned_OpenMonitoring_Prometheus_NodeExporter = null;
             
@@ -745,12 +734,6 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             if (requestProvisioned_provisioned_OpenMonitoring_provisioned_OpenMonitoring_Prometheus_provisioned_OpenMonitoring_Prometheus_NodeExporter != null)
             {
                 requestProvisioned_provisioned_OpenMonitoring_provisioned_OpenMonitoring_Prometheus.NodeExporter = requestProvisioned_provisioned_OpenMonitoring_provisioned_OpenMonitoring_Prometheus_provisioned_OpenMonitoring_Prometheus_NodeExporter;
-                requestProvisioned_provisioned_OpenMonitoring_provisioned_OpenMonitoring_PrometheusIsNull = false;
-            }
-             // determine if requestProvisioned_provisioned_OpenMonitoring_provisioned_OpenMonitoring_Prometheus should be set to null
-            if (requestProvisioned_provisioned_OpenMonitoring_provisioned_OpenMonitoring_PrometheusIsNull)
-            {
-                requestProvisioned_provisioned_OpenMonitoring_provisioned_OpenMonitoring_Prometheus = null;
             }
             if (requestProvisioned_provisioned_OpenMonitoring_provisioned_OpenMonitoring_Prometheus != null)
             {

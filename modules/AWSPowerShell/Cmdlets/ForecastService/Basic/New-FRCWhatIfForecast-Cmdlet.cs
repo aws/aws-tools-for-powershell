@@ -313,7 +313,6 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             Amazon.ForecastService.Model.Schema requestTimeSeriesReplacementsDataSource_timeSeriesReplacementsDataSource_Schema = null;
             
              // populate Schema
-            var requestTimeSeriesReplacementsDataSource_timeSeriesReplacementsDataSource_SchemaIsNull = true;
             requestTimeSeriesReplacementsDataSource_timeSeriesReplacementsDataSource_Schema = new Amazon.ForecastService.Model.Schema();
             List<Amazon.ForecastService.Model.SchemaAttribute> requestTimeSeriesReplacementsDataSource_timeSeriesReplacementsDataSource_Schema_schema_Attribute = null;
             if (cmdletContext.Schema_Attribute != null)
@@ -323,12 +322,6 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             if (requestTimeSeriesReplacementsDataSource_timeSeriesReplacementsDataSource_Schema_schema_Attribute != null)
             {
                 requestTimeSeriesReplacementsDataSource_timeSeriesReplacementsDataSource_Schema.Attributes = requestTimeSeriesReplacementsDataSource_timeSeriesReplacementsDataSource_Schema_schema_Attribute;
-                requestTimeSeriesReplacementsDataSource_timeSeriesReplacementsDataSource_SchemaIsNull = false;
-            }
-             // determine if requestTimeSeriesReplacementsDataSource_timeSeriesReplacementsDataSource_Schema should be set to null
-            if (requestTimeSeriesReplacementsDataSource_timeSeriesReplacementsDataSource_SchemaIsNull)
-            {
-                requestTimeSeriesReplacementsDataSource_timeSeriesReplacementsDataSource_Schema = null;
             }
             if (requestTimeSeriesReplacementsDataSource_timeSeriesReplacementsDataSource_Schema != null)
             {

@@ -380,7 +380,6 @@ namespace Amazon.PowerShell.Cmdlets.QC
             }
             
              // populate TemplateConfiguration
-            var requestTemplateConfigurationIsNull = true;
             request.TemplateConfiguration = new Amazon.QConnect.Model.AIPromptTemplateConfiguration();
             Amazon.QConnect.Model.TextFullAIPromptEditTemplateConfiguration requestTemplateConfiguration_templateConfiguration_TextFullAIPromptEditTemplateConfiguration = null;
             
@@ -405,12 +404,6 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestTemplateConfiguration_templateConfiguration_TextFullAIPromptEditTemplateConfiguration != null)
             {
                 request.TemplateConfiguration.TextFullAIPromptEditTemplateConfiguration = requestTemplateConfiguration_templateConfiguration_TextFullAIPromptEditTemplateConfiguration;
-                requestTemplateConfigurationIsNull = false;
-            }
-             // determine if request.TemplateConfiguration should be set to null
-            if (requestTemplateConfigurationIsNull)
-            {
-                request.TemplateConfiguration = null;
             }
             if (cmdletContext.TemplateType != null)
             {

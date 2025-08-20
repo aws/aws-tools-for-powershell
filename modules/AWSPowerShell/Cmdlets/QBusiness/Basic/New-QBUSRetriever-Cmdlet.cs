@@ -304,7 +304,6 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             }
             
              // populate Configuration
-            var requestConfigurationIsNull = true;
             request.Configuration = new Amazon.QBusiness.Model.RetrieverConfiguration();
             Amazon.QBusiness.Model.KendraIndexConfiguration requestConfiguration_configuration_KendraIndexConfiguration = null;
             
@@ -329,7 +328,6 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (requestConfiguration_configuration_KendraIndexConfiguration != null)
             {
                 request.Configuration.KendraIndexConfiguration = requestConfiguration_configuration_KendraIndexConfiguration;
-                requestConfigurationIsNull = false;
             }
             Amazon.QBusiness.Model.NativeIndexConfiguration requestConfiguration_configuration_NativeIndexConfiguration = null;
             
@@ -374,12 +372,6 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (requestConfiguration_configuration_NativeIndexConfiguration != null)
             {
                 request.Configuration.NativeIndexConfiguration = requestConfiguration_configuration_NativeIndexConfiguration;
-                requestConfigurationIsNull = false;
-            }
-             // determine if request.Configuration should be set to null
-            if (requestConfigurationIsNull)
-            {
-                request.Configuration = null;
             }
             if (cmdletContext.DisplayName != null)
             {
