@@ -87,7 +87,9 @@ $ErrorActionPreference = "Stop"
 $paramSetRemoteName = "remote"
 $paramSetLocalName = "local"
 
-Import-Module Microsoft.PowerShell.PSResourceGet
+# Import module Microsoft.PowerShell.PSResourceGet using path to psd1 as there is an issue with pwsh 7.4.6 in codebuild where assemblies of other module versions were being loaded.
+$psResourceGetModulePath = (Get-Module 'Microsoft.PowerShell.PSResourceGet' -ListAvailable | Where-Object {$_.Version -eq '1.1.1'})[0].Path
+Import-Module -Name $psResourceGetModulePath -Force
 
 # in pwsh 7.1.0, running Publish-PSResource errors out with
 # Cannot retrieve the dynamic parameters for the cmdlet. Loading repository store failed: Could not find file 'C:\Users\ContainerAdministrator\AppData\Local\PSResourceGet\PSResourceRepository.xml'.
@@ -124,6 +126,12 @@ $currentLocation = (Get-Location).Path
 $awsPowerShellModuleLocation = Join-Path $currentLocation "AWSPowerShell"
 $awsPowerShellCoreModuleLocation = Join-Path $currentLocation "AWSPowerShell.NetCore"
 $awsPowerShellModularModulesLocation = Join-Path $currentLocation "AWS.Tools"
+$s3ModularModuleLocation = Join-Path $awsPowerShellModularModulesLocation "AWS.Tools.S3"
+
+# Validate the generated nuget package from Microsoft.PowerShell.PSResourceGet for AWS.Tools.S3 is valid
+# It is enough to test a single Tools module since the psd1 template is same for all service modules
+.\Test-NugetPackageDependencyVersion.ps1 -ModulePath $s3ModularModuleLocation
+
 
 if (-not $DryRun -and $PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
     #Import SecretsManager needed to get the secret key.
