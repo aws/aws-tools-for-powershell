@@ -28,7 +28,9 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Annotate datapoints over time for a specific data quality statistic.
+    /// Annotate datapoints over time for a specific data quality statistic. The API requires
+    /// both profileID and statisticID as part of the InclusionAnnotation input. The API only
+    /// works for a single statisticId across multiple profiles.
     /// </summary>
     [Cmdlet("Set", "GLUEBatchDataQualityStatisticAnnotation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Glue.Model.AnnotationError")]
@@ -45,7 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter InclusionAnnotation
         /// <summary>
         /// <para>
-        /// <para>A list of <c>DatapointInclusionAnnotation</c>'s.</para>
+        /// <para>A list of <c>DatapointInclusionAnnotation</c>'s. The InclusionAnnotations must contain
+        /// a profileId and statisticId. If there are multiple InclusionAnnotations, the list
+        /// must refer to a single statisticId across multiple profileIds.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

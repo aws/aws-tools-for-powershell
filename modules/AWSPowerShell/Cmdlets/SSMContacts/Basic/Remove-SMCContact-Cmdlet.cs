@@ -28,10 +28,11 @@ using Amazon.SSMContacts.Model;
 namespace Amazon.PowerShell.Cmdlets.SMC
 {
     /// <summary>
-    /// To remove a contact from Incident Manager, you can delete the contact. Deleting a
-    /// contact removes them from all escalation plans and related response plans. Deleting
-    /// an escalation plan removes it from all related response plans. You will have to recreate
-    /// the contact and its contact channels before you can use it again.
+    /// To remove a contact from Incident Manager, you can delete the contact. However, deleting
+    /// a contact does not remove it from escalation plans and related response plans. Deleting
+    /// an escalation plan also does not remove it from all related response plans. To modify
+    /// an escalation plan, we recommend using the <a>UpdateContact</a> action to specify
+    /// a different existing contact.
     /// </summary>
     [Cmdlet("Remove", "SMCContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

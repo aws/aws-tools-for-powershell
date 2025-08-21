@@ -28,7 +28,7 @@ using Amazon.SSMContacts.Model;
 namespace Amazon.PowerShell.Cmdlets.SMC
 {
     /// <summary>
-    /// Lists the tags of an escalation plan or contact.
+    /// Lists the tags of a contact, escalation plan, rotation, or on-call schedule.
     /// </summary>
     [Cmdlet("Get", "SMCResourceTag")]
     [OutputType("Amazon.SSMContacts.Model.Tag")]
@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the contact or escalation plan.</para>
+        /// <para>The Amazon Resource Name (ARN) of the contact, escalation plan, rotation, or on-call
+        /// schedule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

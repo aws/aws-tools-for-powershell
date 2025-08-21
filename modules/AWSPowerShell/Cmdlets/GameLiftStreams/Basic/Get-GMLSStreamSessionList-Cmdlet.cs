@@ -55,9 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <summary>
         /// <para>
         /// <para>Filter by the exported files status. You can specify one status in each request to
-        /// retrieve only sessions that currently have that exported files status.</para><para> Exported files can be in one of the following states: </para><ul><li><para><b>SUCCEEDED</b>: The exported files are successfully stored in S3 bucket. </para></li><li><para><b>FAILED</b>: The session ended but Amazon GameLift Streams couldn't collect and
-        /// upload the to S3. </para></li><li><para><b>PENDING</b>: Either the stream session is still in progress, or uploading the
-        /// exported files to the S3 bucket is in progress. </para></li></ul>
+        /// retrieve only sessions that currently have that exported files status.</para><para> Exported files can be in one of the following states: </para><ul><li><para><c>SUCCEEDED</c>: The exported files are successfully stored in an S3 bucket.</para></li><li><para><c>FAILED</c>: The session ended but Amazon GameLift Streams couldn't collect and
+        /// upload the files to S3.</para></li><li><para><c>PENDING</c>: Either the stream session is still in progress, or uploading the
+        /// exported files to the S3 bucket is in progress.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

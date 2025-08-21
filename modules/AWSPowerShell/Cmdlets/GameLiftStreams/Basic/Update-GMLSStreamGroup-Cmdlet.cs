@@ -40,11 +40,13 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
     /// of capacity, always-on and on-demand: 
     /// </para><ul><li><para><b>Always-on</b>: The streaming capacity that is allocated and ready to handle stream
     /// requests without delay. You pay for this capacity whether it's in use or not. Best
-    /// for quickest time from streaming request to streaming session. 
+    /// for quickest time from streaming request to streaming session. Default is 1 when creating
+    /// a stream group or adding a location. 
     /// </para></li><li><para><b>On-demand</b>: The streaming capacity that Amazon GameLift Streams can allocate
     /// in response to stream requests, and then de-allocate when the session has terminated.
     /// This offers a cost control measure at the expense of a greater startup time (typically
-    /// under 5 minutes). 
+    /// under 5 minutes). Default is 0 when creating a stream group or adding a location.
+    /// 
     /// </para></li></ul><para>
     /// To update a stream group, specify the stream group's Amazon Resource Name (ARN) and
     /// provide the new values. If the request is successful, Amazon GameLift Streams returns
@@ -61,6 +63,25 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter DefaultApplicationIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the Amazon GameLift Streams application that you want to
+        /// set as the default application in a stream group. The application that you specify
+        /// must be in <c>READY</c> status. The default application is pre-cached on always-on
+        /// compute resources, reducing stream startup times. Other applications are automatically
+        /// cached as needed.</para><para>Note that this parameter only sets the default application in a stream group. To associate
+        /// a new application to an existing stream group, you must use <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_AssociateApplications.html">AssociateApplications</a>.</para><para>When you switch default applications in a stream group, it can take up to a few hours
+        /// for the new default application to be pre-cached.</para><para>This value is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon
+        /// Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Example
+        /// ARN: <c>arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6</c>.
+        /// Example ID: <c>a-9ZY8X7Wv6</c>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DefaultApplicationIdentifier { get; set; }
+        #endregion
         
         #region Parameter Description
         /// <summary>
@@ -165,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
                 context.Select = (response, cmdlet) => this.Identifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DefaultApplicationIdentifier = this.DefaultApplicationIdentifier;
             context.Description = this.Description;
             context.Identifier = this.Identifier;
             #if MODULAR
@@ -193,6 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
             // create request
             var request = new Amazon.GameLiftStreams.Model.UpdateStreamGroupRequest();
             
+            if (cmdletContext.DefaultApplicationIdentifier != null)
+            {
+                request.DefaultApplicationIdentifier = cmdletContext.DefaultApplicationIdentifier;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -266,6 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String DefaultApplicationIdentifier { get; set; }
             public System.String Description { get; set; }
             public System.String Identifier { get; set; }
             public List<Amazon.GameLiftStreams.Model.LocationConfiguration> LocationConfiguration { get; set; }

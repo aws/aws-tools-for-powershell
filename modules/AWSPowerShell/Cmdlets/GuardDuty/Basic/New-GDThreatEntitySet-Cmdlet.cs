@@ -130,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A user-friendly name to identify the threat entity set.</para><para><b>List naming constraints</b> - The name of your list can include lowercase letters,
-        /// uppercase letters, numbers, dash (-), and underscore (_).</para>
+        /// <para>A user-friendly name to identify the threat entity set.</para><para>The name of your list can include lowercase letters, uppercase letters, numbers, dash
+        /// (-), and underscore (_).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

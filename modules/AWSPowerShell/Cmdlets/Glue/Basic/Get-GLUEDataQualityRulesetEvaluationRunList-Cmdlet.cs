@@ -43,6 +43,19 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter DataQualityGlueTable_AdditionalOption
+        /// <summary>
+        /// <para>
+        /// <para>Additional options for the table. Currently there are two keys supported:</para><ul><li><para><c>pushDownPredicate</c>: to filter on partitions without having to list and read
+        /// all the files in your dataset.</para></li><li><para><c>catalogPartitionPredicate</c>: to use server-side partition pruning using partition
+        /// indexes in the Glue Data Catalog.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_DataSource_DataQualityGlueTable_AdditionalOptions")]
+        public System.Collections.Hashtable DataQualityGlueTable_AdditionalOption { get; set; }
+        #endregion
+        
         #region Parameter GlueTable_AdditionalOption
         /// <summary>
         /// <para>
@@ -56,6 +69,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.Collections.Hashtable GlueTable_AdditionalOption { get; set; }
         #endregion
         
+        #region Parameter DataQualityGlueTable_CatalogId
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier for the Glue Data Catalog.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_DataSource_DataQualityGlueTable_CatalogId")]
+        public System.String DataQualityGlueTable_CatalogId { get; set; }
+        #endregion
+        
         #region Parameter GlueTable_CatalogId
         /// <summary>
         /// <para>
@@ -65,6 +89,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Filter_DataSource_GlueTable_CatalogId")]
         public System.String GlueTable_CatalogId { get; set; }
+        #endregion
+        
+        #region Parameter DataQualityGlueTable_ConnectionName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the connection to the Glue Data Catalog.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_DataSource_DataQualityGlueTable_ConnectionName")]
+        public System.String DataQualityGlueTable_ConnectionName { get; set; }
         #endregion
         
         #region Parameter GlueTable_ConnectionName
@@ -78,6 +113,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String GlueTable_ConnectionName { get; set; }
         #endregion
         
+        #region Parameter DataQualityGlueTable_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>A database name in the Glue Data Catalog.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_DataSource_DataQualityGlueTable_DatabaseName")]
+        public System.String DataQualityGlueTable_DatabaseName { get; set; }
+        #endregion
+        
         #region Parameter GlueTable_DatabaseName
         /// <summary>
         /// <para>
@@ -87,6 +133,18 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Filter_DataSource_GlueTable_DatabaseName")]
         public System.String GlueTable_DatabaseName { get; set; }
+        #endregion
+        
+        #region Parameter DataQualityGlueTable_PreProcessingQuery
+        /// <summary>
+        /// <para>
+        /// <para>SQL Query of SparkSQL format that can be used to pre-process the data for the table
+        /// in Glue Data Catalog, before running the Data Quality Operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_DataSource_DataQualityGlueTable_PreProcessingQuery")]
+        public System.String DataQualityGlueTable_PreProcessingQuery { get; set; }
         #endregion
         
         #region Parameter Filter_StartedAfter
@@ -107,6 +165,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.DateTime? Filter_StartedBefore { get; set; }
+        #endregion
+        
+        #region Parameter DataQualityGlueTable_TableName
+        /// <summary>
+        /// <para>
+        /// <para>A table name in the Glue Data Catalog.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_DataSource_DataQualityGlueTable_TableName")]
+        public System.String DataQualityGlueTable_TableName { get; set; }
         #endregion
         
         #region Parameter GlueTable_TableName
@@ -181,6 +250,19 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.Select = CreateSelectDelegate<Amazon.Glue.Model.ListDataQualityRulesetEvaluationRunsResponse, GetGLUEDataQualityRulesetEvaluationRunListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.DataQualityGlueTable_AdditionalOption != null)
+            {
+                context.DataQualityGlueTable_AdditionalOption = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.DataQualityGlueTable_AdditionalOption.Keys)
+                {
+                    context.DataQualityGlueTable_AdditionalOption.Add((String)hashKey, (System.String)(this.DataQualityGlueTable_AdditionalOption[hashKey]));
+                }
+            }
+            context.DataQualityGlueTable_CatalogId = this.DataQualityGlueTable_CatalogId;
+            context.DataQualityGlueTable_ConnectionName = this.DataQualityGlueTable_ConnectionName;
+            context.DataQualityGlueTable_DatabaseName = this.DataQualityGlueTable_DatabaseName;
+            context.DataQualityGlueTable_PreProcessingQuery = this.DataQualityGlueTable_PreProcessingQuery;
+            context.DataQualityGlueTable_TableName = this.DataQualityGlueTable_TableName;
             if (this.GlueTable_AdditionalOption != null)
             {
                 context.GlueTable_AdditionalOption = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -242,7 +324,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             Amazon.Glue.Model.DataSource requestFilter_filter_DataSource = null;
             
              // populate DataSource
-            var requestFilter_filter_DataSourceIsNull = true;
             requestFilter_filter_DataSource = new Amazon.Glue.Model.DataSource();
             Amazon.Glue.Model.GlueTable requestFilter_filter_DataSource_filter_DataSource_GlueTable = null;
             
@@ -307,12 +388,80 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestFilter_filter_DataSource_filter_DataSource_GlueTable != null)
             {
                 requestFilter_filter_DataSource.GlueTable = requestFilter_filter_DataSource_filter_DataSource_GlueTable;
-                requestFilter_filter_DataSourceIsNull = false;
             }
-             // determine if requestFilter_filter_DataSource should be set to null
-            if (requestFilter_filter_DataSourceIsNull)
+            Amazon.Glue.Model.DataQualityGlueTable requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable = null;
+            
+             // populate DataQualityGlueTable
+            var requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTableIsNull = true;
+            requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable = new Amazon.Glue.Model.DataQualityGlueTable();
+            Dictionary<System.String, System.String> requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable_dataQualityGlueTable_AdditionalOption = null;
+            if (cmdletContext.DataQualityGlueTable_AdditionalOption != null)
             {
-                requestFilter_filter_DataSource = null;
+                requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable_dataQualityGlueTable_AdditionalOption = cmdletContext.DataQualityGlueTable_AdditionalOption;
+            }
+            if (requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable_dataQualityGlueTable_AdditionalOption != null)
+            {
+                requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable.AdditionalOptions = requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable_dataQualityGlueTable_AdditionalOption;
+                requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTableIsNull = false;
+            }
+            System.String requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable_dataQualityGlueTable_CatalogId = null;
+            if (cmdletContext.DataQualityGlueTable_CatalogId != null)
+            {
+                requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable_dataQualityGlueTable_CatalogId = cmdletContext.DataQualityGlueTable_CatalogId;
+            }
+            if (requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable_dataQualityGlueTable_CatalogId != null)
+            {
+                requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable.CatalogId = requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable_dataQualityGlueTable_CatalogId;
+                requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTableIsNull = false;
+            }
+            System.String requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable_dataQualityGlueTable_ConnectionName = null;
+            if (cmdletContext.DataQualityGlueTable_ConnectionName != null)
+            {
+                requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable_dataQualityGlueTable_ConnectionName = cmdletContext.DataQualityGlueTable_ConnectionName;
+            }
+            if (requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable_dataQualityGlueTable_ConnectionName != null)
+            {
+                requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable.ConnectionName = requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable_dataQualityGlueTable_ConnectionName;
+                requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTableIsNull = false;
+            }
+            System.String requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable_dataQualityGlueTable_DatabaseName = null;
+            if (cmdletContext.DataQualityGlueTable_DatabaseName != null)
+            {
+                requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable_dataQualityGlueTable_DatabaseName = cmdletContext.DataQualityGlueTable_DatabaseName;
+            }
+            if (requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable_dataQualityGlueTable_DatabaseName != null)
+            {
+                requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable.DatabaseName = requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable_dataQualityGlueTable_DatabaseName;
+                requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTableIsNull = false;
+            }
+            System.String requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable_dataQualityGlueTable_PreProcessingQuery = null;
+            if (cmdletContext.DataQualityGlueTable_PreProcessingQuery != null)
+            {
+                requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable_dataQualityGlueTable_PreProcessingQuery = cmdletContext.DataQualityGlueTable_PreProcessingQuery;
+            }
+            if (requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable_dataQualityGlueTable_PreProcessingQuery != null)
+            {
+                requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable.PreProcessingQuery = requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable_dataQualityGlueTable_PreProcessingQuery;
+                requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTableIsNull = false;
+            }
+            System.String requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable_dataQualityGlueTable_TableName = null;
+            if (cmdletContext.DataQualityGlueTable_TableName != null)
+            {
+                requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable_dataQualityGlueTable_TableName = cmdletContext.DataQualityGlueTable_TableName;
+            }
+            if (requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable_dataQualityGlueTable_TableName != null)
+            {
+                requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable.TableName = requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable_dataQualityGlueTable_TableName;
+                requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTableIsNull = false;
+            }
+             // determine if requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable should be set to null
+            if (requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTableIsNull)
+            {
+                requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable = null;
+            }
+            if (requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable != null)
+            {
+                requestFilter_filter_DataSource.DataQualityGlueTable = requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable;
             }
             if (requestFilter_filter_DataSource != null)
             {
@@ -413,6 +562,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Dictionary<System.String, System.String> DataQualityGlueTable_AdditionalOption { get; set; }
+            public System.String DataQualityGlueTable_CatalogId { get; set; }
+            public System.String DataQualityGlueTable_ConnectionName { get; set; }
+            public System.String DataQualityGlueTable_DatabaseName { get; set; }
+            public System.String DataQualityGlueTable_PreProcessingQuery { get; set; }
+            public System.String DataQualityGlueTable_TableName { get; set; }
             public Dictionary<System.String, System.String> GlueTable_AdditionalOption { get; set; }
             public System.String GlueTable_CatalogId { get; set; }
             public System.String GlueTable_ConnectionName { get; set; }

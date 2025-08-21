@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>To create an escalation plan use <c>ESCALATION</c>. To create a contact use <c>PERSONAL</c>.</para>
+        /// <para>The type of contact to create.</para><ul><li><para><c>PERSONAL</c>: A single, individual contact.</para></li><li><para><c>ESCALATION</c>: An escalation plan.</para></li><li><para><c>ONCALL_SCHEDULE</c>: An on-call schedule.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -32,6 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
     /// Streams can launch the application using the stream group's allocated compute resources.
     /// The stream group must be in <c>ACTIVE</c> status. You can reverse this action by using
     /// <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_DisassociateApplications.html">DisassociateApplications</a>.
+    /// 
+    ///  
+    /// <para>
+    /// If a stream group does not already have a linked application, Amazon GameLift Streams
+    /// will automatically assign the first application provided in <c>ApplicationIdentifiers</c>
+    /// as the default.
+    /// </para>
     /// </summary>
     [Cmdlet("Connect", "GMLSApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLiftStreams.Model.AssociateApplicationsResponse")]

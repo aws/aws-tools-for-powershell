@@ -107,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         /// <summary>
         /// <para>
         /// <para>The number of contacts, or shift team members designated to be on call concurrently
-        /// during a shift. For example, in an on-call schedule containing ten contacts, a value
-        /// of <c>2</c> designates that two of them are on call at any given time.</para>
+        /// during a shift. For example, in an on-call schedule that contains ten contacts, a
+        /// value of <c>2</c> designates that two of them are on call at any given time.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -163,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         #region Parameter Recurrence_ShiftCoverage
         /// <summary>
         /// <para>
-        /// <para>Information about the days of the week included in on-call rotation coverage.</para>
+        /// <para>Information about the days of the week that the on-call rotation coverage includes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
