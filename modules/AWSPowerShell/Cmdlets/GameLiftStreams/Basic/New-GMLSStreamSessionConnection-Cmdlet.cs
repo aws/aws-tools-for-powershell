@@ -30,26 +30,39 @@ using Amazon.GameLiftStreams.Model;
 namespace Amazon.PowerShell.Cmdlets.GMLS
 {
     /// <summary>
-    /// Allows clients to reconnect to a recently disconnected stream session without losing
-    /// any data from the last session.
+    /// Enables clients to reconnect to a stream session while preserving all session state
+    /// and data in the disconnected session. This reconnection process can be initiated when
+    /// a stream session is in either <c>PENDING_CLIENT_RECONNECTION</c> or <c>ACTIVE</c>
+    /// status. The process works as follows: 
     /// 
-    ///  
-    /// <para>
-    /// A client can reconnect to a stream session that's in <c>PENDING_CLIENT_RECONNECTION</c>
-    /// or <c>ACTIVE</c> status. In the stream session life cycle, when the client disconnects
-    /// from the stream session, the stream session transitions from <c>CONNECTED</c> to <c>PENDING_CLIENT_RECONNECTION</c>
-    /// status. When a client requests to reconnect by calling <c>CreateStreamSessionConnection</c>,
-    /// the stream session transitions to <c>RECONNECTING</c> status. When the reconnection
-    /// is successful, the stream session transitions to <c>ACTIVE</c> status. After a stream
-    /// session is disconnected for longer than <c>ConnectionTimeoutSeconds</c>, the stream
-    /// session transitions to the <c>TERMINATED</c> status.
+    ///  <ol><li><para>
+    /// Initial disconnect:
+    /// </para><ul><li><para>
+    /// When a client disconnects or loses connection, the stream session transitions from
+    /// <c>CONNECTED</c> to <c>PENDING_CLIENT_RECONNECTION</c></para></li></ul></li><li><para>
+    /// Reconnection time window:
+    /// </para><ul><li><para>
+    /// Clients have <c>ConnectionTimeoutSeconds</c> (defined in <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_StartStreamSession.html">StartStreamSession</a>)
+    /// to reconnect before session termination
+    /// </para></li><li><para>
+    /// Your backend server must call <b>CreateStreamSessionConnection</b> to initiate reconnection
+    /// </para></li><li><para>
+    /// Session transitions to <c>RECONNECTING</c> status
+    /// </para></li></ul></li><li><para>
+    /// Reconnection completion:
+    /// </para><ul><li><para>
+    /// On successful <b>CreateStreamSessionConnection</b>, session status changes to <c>ACTIVE</c></para></li><li><para>
+    /// Provide the new connection information to the requesting client
+    /// </para></li><li><para>
+    /// Client must establish connection within <c>ConnectionTimeoutSeconds</c></para></li><li><para>
+    /// Session terminates automatically if client fails to connect in time
+    /// </para></li></ul></li></ol><para>
+    /// For more information about the stream session lifecycle, see <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/stream-sessions.html">Stream
+    /// sessions</a> in the <i>Amazon GameLift Streams Developer Guide</i>.
     /// </para><para>
-    /// To connect to an existing stream session, specify the stream group ID and stream session
-    /// ID that you want to reconnect to, as well as the signal request settings to use with
-    /// the stream.
-    /// </para><para><c>ConnectionTimeoutSeconds</c> defines the amount of time after the stream session
-    /// disconnects that a reconnection is allowed. If a client is disconnected from the stream
-    /// for longer than <c>ConnectionTimeoutSeconds</c>, the stream session ends.
+    /// To begin re-connecting to an existing stream session, specify the stream group ID
+    /// and stream session ID that you want to reconnect to, and the signal request to use
+    /// with the stream.
     /// </para>
     /// </summary>
     [Cmdlet("New", "GMLSStreamSessionConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -71,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource.
         /// Example ARN: <c>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</c>.
         /// Example ID: <c>sg-1AB2C3De4</c>. </para><para> The stream group that you want to run this stream session with. The stream group
-        /// must be in <c>ACTIVE</c> status and have idle stream capacity. </para>
+        /// must be in <c>ACTIVE</c> status. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

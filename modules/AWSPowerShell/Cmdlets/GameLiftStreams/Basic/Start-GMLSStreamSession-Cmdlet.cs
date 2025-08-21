@@ -33,36 +33,86 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
     /// This action initiates a new stream session and outputs connection information that
     /// clients can use to access the stream. A stream session refers to an instance of a
     /// stream that Amazon GameLift Streams transmits from the server to the end-user. A stream
-    /// session runs on a compute resource that a stream group has allocated. 
+    /// session runs on a compute resource that a stream group has allocated. The start stream
+    /// session process works as follows: 
     /// 
-    ///  
-    /// <para>
-    /// To start a new stream session, specify a stream group and application ID, along with
-    /// the transport protocol and signal request settings to use with the stream. You must
-    /// have associated at least one application to the stream group before starting a stream
-    /// session, either when creating the stream group, or by using <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_AssociateApplications.html">AssociateApplications</a>.
+    ///  <ol><li><para>
+    /// Prerequisites:
+    /// </para><ul><li><para>
+    /// You must have a stream group in <c>ACTIVE</c> state
+    /// </para></li><li><para>
+    /// You must have idle or on-demand capacity in a stream group in the location you want
+    /// to stream from
+    /// </para></li><li><para>
+    /// You must have at least one application associated to the stream group (use <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_AssociateApplications.html">AssociateApplications</a>
+    /// if needed)
+    /// </para></li></ul></li><li><para>
+    /// Start stream request:
+    /// </para><ul><li><para>
+    /// Your backend server calls <b>StartStreamSession</b> to initiate connection
+    /// </para></li><li><para>
+    /// Amazon GameLift Streams creates the stream session resource, assigns an Amazon Resource
+    /// Name (ARN) value, and begins searching for available stream capacity to run the stream
+    /// </para></li><li><para>
+    /// Session transitions to <c>ACTIVATING</c> status
+    /// </para></li></ul></li><li><para>
+    /// Placement completion:
+    /// </para><ul><li><para>
+    /// If Amazon GameLift Streams is successful in finding capacity for the stream, the stream
+    /// session status changes to <c>ACTIVE</c> status and <b>StartStreamSession</b> returns
+    /// stream connection information
+    /// </para></li><li><para>
+    /// If Amazon GameLift Streams was not successful in finding capacity within the placement
+    /// timeout period (defined according to the capacity type and platform type), the stream
+    /// session status changes to <c>ERROR</c> status and <b>StartStreamSession</b> returns
+    /// a <c>StatusReason</c> of <c>placementTimeout</c></para></li></ul></li><li><para>
+    /// Connection completion:
+    /// </para><ul><li><para>
+    /// Provide the new connection information to the requesting client
+    /// </para></li><li><para>
+    /// Client must establish connection within <c>ConnectionTimeoutSeconds</c> (specified
+    /// in <b>StartStreamSession</b> parameters)
+    /// </para></li><li><para>
+    /// Session terminates automatically if client fails to connect in time
+    /// </para></li></ul></li></ol><para>
+    /// For more information about the stream session lifecycle, see <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/stream-sessions.html">Stream
+    /// sessions</a> in the <i>Amazon GameLift Streams Developer Guide</i>.
     /// </para><para>
-    ///  For stream groups that have multiple locations, provide a set of locations ordered
+    /// Timeouts to be aware of that affect a stream session:
+    /// </para><ul><li><para><b>Placement timeout</b>: The amount of time that Amazon GameLift Streams has to
+    /// find capacity for a stream request. Placement timeout varies based on the capacity
+    /// type used to fulfill your stream request:
+    /// </para><ul><li><para><b>Always-on capacity</b>: 75 seconds
+    /// </para></li><li><para><b>On-demand capacity</b>:
+    /// </para><ul><li><para>
+    /// Linux/Proton runtimes: 90 seconds
+    /// </para></li><li><para>
+    /// Windows runtime: 10 minutes
+    /// </para></li></ul></li></ul></li><li><para><b>Connection timeout</b>: The amount of time that Amazon GameLift Streams waits
+    /// for a client to connect to a stream session in <c>ACTIVE</c> status, or reconnect
+    /// to a stream session in <c>PENDING_CLIENT_RECONNECTION</c> status, the latter of which
+    /// occurs when a client disconnects or loses connection from a stream session. If no
+    /// client connects before the timeout, Amazon GameLift Streams terminates the stream
+    /// session. This value is specified by <c>ConnectionTimeoutSeconds</c> in the <c>StartStreamSession</c>
+    /// parameters.
+    /// </para></li><li><para><b>Idle timeout</b>: A stream session will be terminated if no user input has been
+    /// received for 60 minutes.
+    /// </para></li><li><para><b>Maximum session length</b>: A stream session will be terminated after this amount
+    /// of time has elapsed since it started, regardless of any existing client connections.
+    /// This value is specified by <c>SessionLengthSeconds</c> in the <c>StartStreamSession</c>
+    /// parameters.
+    /// </para></li></ul><para>
+    /// To start a new stream session, specify a stream group ID and application ID, along
+    /// with the transport protocol and signal request to use with the stream session.
+    /// </para><para>
+    /// For stream groups that have multiple locations, provide a set of locations ordered
     /// by priority using a <c>Locations</c> parameter. Amazon GameLift Streams will start
     /// a single stream session in the next available location. An application must be finished
-    /// replicating in a remote location before the remote location can host a stream. 
+    /// replicating to a remote location before the remote location can host a stream.
     /// </para><para>
-    ///  If the request is successful, Amazon GameLift Streams begins to prepare the stream.
-    /// Amazon GameLift Streams assigns an Amazon Resource Name (ARN) value to the stream
-    /// session resource and sets the status to <c>ACTIVATING</c>. During the stream preparation
-    /// process, Amazon GameLift Streams queues the request and searches for available stream
-    /// capacity to run the stream. This results in one of the following: 
-    /// </para><ul><li><para>
-    ///  Amazon GameLift Streams identifies an available compute resource to run the application
-    /// content and start the stream. When the stream is ready, the stream session's status
-    /// changes to <c>ACTIVE</c> and includes stream connection information. Provide the connection
-    /// information to the requesting client to join the stream session.
-    /// </para></li><li><para>
-    ///  Amazon GameLift Streams doesn't identify an available resource within a certain time,
-    /// set by <c>ClientToken</c>. In this case, Amazon GameLift Streams stops processing
-    /// the request, and the stream session object status changes to <c>ERROR</c> with status
-    /// reason <c>placementTimeout</c>.
-    /// </para></li></ul>
+    /// To reconnect to a stream session after a client disconnects or loses connection, use
+    /// <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_CreateStreamSessionConnection.html">CreateStreamSessionConnection</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Start", "GMLSStreamSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLiftStreams.Model.StartStreamSessionResponse")]
@@ -143,10 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <summary>
         /// <para>
         /// <para>Length of time (in seconds) that Amazon GameLift Streams should wait for a client
-        /// to connect or reconnect to the stream session. This time span starts when the stream
-        /// session reaches <c>ACTIVE</c> status. If no client connects before the timeout, Amazon
-        /// GameLift Streams stops the stream session with status of <c>TERMINATED</c>. Default
-        /// value is 120.</para>
+        /// to connect or reconnect to the stream session. Applies to both connection and reconnection
+        /// scenarios. This time span starts when the stream session reaches <c>ACTIVE</c> state.
+        /// If no client connects before the timeout, Amazon GameLift Streams terminates the stream
+        /// session. Default value is 120.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,10 +238,11 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <summary>
         /// <para>
         /// <para> A list of locations, in order of priority, where you want Amazon GameLift Streams
-        /// to start a stream from. Amazon GameLift Streams selects the location with the next
-        /// available capacity to start a single stream session in. If this value is empty, Amazon
-        /// GameLift Streams attempts to start a stream session in the primary location. </para><para> This value is A set of location names. For example, <c>us-east-1</c>. For a complete
-        /// list of locations that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions,
+        /// to start a stream from. For example, <c>us-east-1</c>. Amazon GameLift Streams selects
+        /// the location with the next available capacity to start a single stream session in.
+        /// If this value is empty, Amazon GameLift Streams attempts to start a stream session
+        /// in the primary location. </para><para> For a complete list of locations that Amazon GameLift Streams supports, refer to
+        /// <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions,
         /// quotas, and limitations</a> in the <i>Amazon GameLift Streams Developer Guide</i>.
         /// </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
@@ -225,9 +276,9 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         #region Parameter SessionLengthSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum length of time (in seconds) that Amazon GameLift Streams keeps the stream
-        /// session open. At this point, Amazon GameLift Streams ends the stream session regardless
-        /// of any existing client connections. Default value is 43200.</para>
+        /// <para>The maximum duration of a session. Amazon GameLift Streams will automatically terminate
+        /// a session after this amount of time has elapsed, regardless of any existing client
+        /// connections. Default value is 43200 (12 hours).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -58,8 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of contact. A contact is type <c>PERSONAL</c> and an escalation plan is type
-        /// <c>ESCALATION</c>.</para>
+        /// <para>The type of contact.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

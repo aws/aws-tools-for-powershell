@@ -872,7 +872,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDataQualityRuleRecommendationRun" OutputProperty="RunId" Verb="Start" Noun="DataQualityRuleRecommendationRun" ShouldProcessTarget="" PipelineParameter="Role" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="StartDataQualityRuleRecommendationRun" OutputProperty="RunId" Verb="Start" Noun="DataQualityRuleRecommendationRun" ShouldProcessTarget="CreatedRulesetName" PipelineParameter="Role" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

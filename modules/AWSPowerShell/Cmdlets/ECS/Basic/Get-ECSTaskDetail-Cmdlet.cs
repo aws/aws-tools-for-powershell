@@ -57,8 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task
-        /// or tasks to describe. If you do not specify a cluster, the default cluster is assumed.
-        /// If you do not specify a value, the <c>default</c> cluster is used.</para>
+        /// or tasks to describe. If you do not specify a cluster, the default cluster is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

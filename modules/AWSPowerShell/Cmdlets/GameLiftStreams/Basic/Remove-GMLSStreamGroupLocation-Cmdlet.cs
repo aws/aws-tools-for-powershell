@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         #region Parameter Location
         /// <summary>
         /// <para>
-        /// <para> A set of locations to remove this stream group. </para><para> A set of location names. For example, <c>us-east-1</c>. For a complete list of locations
-        /// that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions,
+        /// <para> A set of locations to remove this stream group. For example, <c>us-east-1</c>.</para><para> For a complete list of locations that Amazon GameLift Streams supports, refer to
+        /// <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions,
         /// quotas, and limitations</a> in the <i>Amazon GameLift Streams Developer Guide</i>.
         /// </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned

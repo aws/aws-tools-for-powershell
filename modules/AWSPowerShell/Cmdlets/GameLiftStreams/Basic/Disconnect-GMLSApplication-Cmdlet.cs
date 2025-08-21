@@ -33,15 +33,16 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
     /// When you disassociate, or unlink, an application from a stream group, you can no
     /// longer stream this application by using that stream group's allocated compute resources.
     /// Any streams in process will continue until they terminate, which helps avoid interrupting
-    /// an end-user's stream. Amazon GameLift Streams will not initiate new streams using
-    /// this stream group. The disassociate action does not affect the stream capacity of
-    /// a stream group. 
+    /// an end-user's stream. Amazon GameLift Streams will not initiate new streams in the
+    /// stream group using the disassociated application. The disassociate action does not
+    /// affect the stream capacity of a stream group. 
     /// 
     ///  
     /// <para>
-    ///  You can only disassociate an application if it's not a default application of the
-    /// stream group. Check <c>DefaultApplicationIdentifier</c> by calling <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamGroup.html">GetStreamGroup</a>.
-    /// 
+    ///  If you disassociate the default application, Amazon GameLift Streams will automatically
+    /// choose a new default application from the remaining associated applications. To change
+    /// which application is the default application, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_UpdateStreamGroup.html">UpdateStreamGroup</a>
+    /// and specify a new <c>DefaultApplicationIdentifier</c>. 
     /// </para>
     /// </summary>
     [Cmdlet("Disconnect", "GMLSApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

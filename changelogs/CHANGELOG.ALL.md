@@ -1,4 +1,15 @@
-﻿### 5.0.37 (2025-08-20 21:26Z)
+﻿### 5.0.38 (2025-08-21 21:49Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.75.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon GameLiftStreams
+    * Modified cmdlet Update-GMLSStreamGroup: added parameter DefaultApplicationIdentifier.
+  * Amazon Glue
+    * Modified cmdlet Get-GLUEDataQualityResultList: added parameters DataQualityGlueTable_AdditionalOption, DataQualityGlueTable_CatalogId, DataQualityGlueTable_ConnectionName, DataQualityGlueTable_DatabaseName, DataQualityGlueTable_PreProcessingQuery and DataQualityGlueTable_TableName.
+    * Modified cmdlet Get-GLUEDataQualityRuleRecommendationRunList: added parameters DataQualityGlueTable_AdditionalOption, DataQualityGlueTable_CatalogId, DataQualityGlueTable_ConnectionName, DataQualityGlueTable_DatabaseName, DataQualityGlueTable_PreProcessingQuery and DataQualityGlueTable_TableName.
+    * Modified cmdlet Get-GLUEDataQualityRulesetEvaluationRunList: added parameters DataQualityGlueTable_AdditionalOption, DataQualityGlueTable_CatalogId, DataQualityGlueTable_ConnectionName, DataQualityGlueTable_DatabaseName, DataQualityGlueTable_PreProcessingQuery and DataQualityGlueTable_TableName.
+    * Modified cmdlet Start-GLUEDataQualityRuleRecommendationRun: added parameters DataQualityGlueTable_AdditionalOption, DataQualityGlueTable_CatalogId, DataQualityGlueTable_ConnectionName, DataQualityGlueTable_DatabaseName, DataQualityGlueTable_PreProcessingQuery and DataQualityGlueTable_TableName.
+    * Modified cmdlet Start-GLUEDataQualityRulesetEvaluationRun: added parameters DataQualityGlueTable_AdditionalOption, DataQualityGlueTable_CatalogId, DataQualityGlueTable_ConnectionName, DataQualityGlueTable_DatabaseName, DataQualityGlueTable_PreProcessingQuery and DataQualityGlueTable_TableName.
+
+### 5.0.37 (2025-08-20 21:26Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.74.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Runtime
     * Added cmdlet Get-BDRRCountToken leveraging the CountTokens service API.

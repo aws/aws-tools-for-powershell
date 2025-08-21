@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Names (ARNs) of the contacts to include in the updated rotation.
-        /// </para><para>The order in which you list the contacts is their shift order in the rotation schedule.</para><para />
+        /// </para><note><para>Only the <c>PERSONAL</c> contact type is supported. The contact types <c>ESCALATION</c>
+        /// and <c>ONCALL_SCHEDULE</c> are not supported for this operation. </para></note><para>The order in which you list the contacts is their shift order in the rotation schedule.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -95,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         /// <summary>
         /// <para>
         /// <para>The number of contacts, or shift team members designated to be on call concurrently
-        /// during a shift. For example, in an on-call schedule containing ten contacts, a value
-        /// of <c>2</c> designates that two of them are on call at any given time.</para>
+        /// during a shift. For example, in an on-call schedule that contains ten contacts, a
+        /// value of <c>2</c> designates that two of them are on call at any given time.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -146,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         #region Parameter Recurrence_ShiftCoverage
         /// <summary>
         /// <para>
-        /// <para>Information about the days of the week included in on-call rotation coverage.</para><para />
+        /// <para>Information about the days of the week that the on-call rotation coverage includes.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -175,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         /// Authority (IANA) format. For example: "America/Los_Angeles", "UTC", or "Asia/Seoul".
         /// For more information, see the <a href="https://www.iana.org/time-zones">Time Zone
         /// Database</a> on the IANA website.</para><note><para>Designators for time zones that don’t support Daylight Savings Time Rules, such as
-        /// Pacific Standard Time (PST) and Pacific Daylight Time (PDT), aren't supported.</para></note>
+        /// Pacific Standard Time (PST), aren't supported.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
