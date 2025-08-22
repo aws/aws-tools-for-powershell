@@ -70,7 +70,7 @@ namespace AWSPowerShellGenerator.Analysis
         /// The set of properties to be emitted as cmdlet parameters. Members of complex
         /// properties are flattened to individual parameters.
         /// </summary>
-        public List<SimplePropertyInfo> AnalyzedParameters { get; private set; }
+        public List<SimplePropertyInfo> AnalyzedParameters { get; protected set; }
 
         /// <summary>
         /// The set of actual properties the cmdlet needs to deal with to populate
@@ -135,7 +135,7 @@ namespace AWSPowerShellGenerator.Analysis
         /// of settings defined at the global service level, overridden at the 
         /// operation level if needed.
         /// </summary>
-        public AutoIteration AutoIterateSettings
+        public virtual AutoIteration AutoIterateSettings
         {
             get
             {
@@ -385,7 +385,7 @@ namespace AWSPowerShellGenerator.Analysis
             AllModels = allModels;
             CurrentModel = currentModel;
             CurrentOperation = currentOperation;
-            AssemblyDocumentation = assemblyDocumentation;
+            AssemblyDocumentation = assemblyDocumentation ?? new XmlDocument();
         }
 
         /// <summary>
@@ -764,7 +764,7 @@ namespace AWSPowerShellGenerator.Analysis
         /// Returns the true number of parameters for an operation, disregarding any that
         /// have been declared as part of auto-iteration support.
         /// </summary>
-        public IEnumerable<SimplePropertyInfo> NonIterationParameters
+        public virtual IEnumerable<SimplePropertyInfo> NonIterationParameters
         {
             get
             {
@@ -1042,7 +1042,7 @@ namespace AWSPowerShellGenerator.Analysis
         /// acceptable to be piped in.
         /// </summary>
         /// <param name="generator"></param>
-        private void DeterminePipelineParameter(CmdletGenerator generator)
+        protected virtual void DeterminePipelineParameter(CmdletGenerator generator)
         {
             if (CurrentOperation.NoPipelineParameter && !string.IsNullOrEmpty(CurrentOperation.PipelineParameter))
             {
@@ -1073,12 +1073,18 @@ namespace AWSPowerShellGenerator.Analysis
                     switch (candidateParameters.Count)
                     {
                         case 0:
+                            // For new cmdlets with no candidate parameters, set NoPipelineParameter=true
+                            CurrentOperation.NoPipelineParameter = true;
+                            InfoMessage.NoPipelineParameterCandidates(CurrentModel, CurrentOperation);
                             return;
                         case 1:
                             pipelineParam = candidateParameters.First().AnalyzedName;
+                            InfoMessage.SinglePipelineParameterCandidate(CurrentModel, CurrentOperation, candidateParameters.First());
                             break;
                         default:
-                            AnalysisError.MissingPipelineConfiguration(CurrentModel, CurrentOperation, candidateParameters);
+                            // For new cmdlets with multiple candidate parameters, set NoPipelineParameter=true
+                            CurrentOperation.NoPipelineParameter = true;
+                            InfoMessage.MultiplePipelineParameterCandidates(CurrentModel, CurrentOperation, candidateParameters);
                             return;
                     }
                 }
@@ -1202,7 +1208,7 @@ namespace AWSPowerShellGenerator.Analysis
 
         //If there are multiple candidates, try further restricting the list by only using required root parameters
 
-        private List<SimplePropertyInfo> SelectPreferredCandidateParameters(IEnumerable<SimplePropertyInfo> parameters)
+        protected virtual List<SimplePropertyInfo> SelectPreferredCandidateParameters(IEnumerable<SimplePropertyInfo> parameters)
         {
             var autoIterateSettings = AutoIterateSettings;
             var result = parameters
