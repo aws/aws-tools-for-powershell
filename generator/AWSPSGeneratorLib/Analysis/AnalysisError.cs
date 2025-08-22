@@ -275,4 +275,48 @@ namespace AWSPowerShellGenerator.Analysis
             new AnalysisError(service, $"Error while loading paginator attributes: {exception}");
         }
     }
+
+    public struct InfoMessage
+    {
+        public readonly string Service;
+        public readonly string Operation;
+        public readonly string Message;
+
+        private InfoMessage(ConfigModel service, ServiceOperation operation, string message)
+        {
+            Service = service.ServiceName;
+            Operation = operation?.MethodName;
+            Message = message;
+
+            if (operation != null)
+            {
+                operation.InfoMessages.Add(this);
+            }
+        }
+
+        public override string ToString()
+        {
+            if (Operation != null)
+            {
+                return $"{Service} - {Operation}. {Message}";
+            }
+            return $"{Service}. {Message}";
+        }
+
+        public static void NoPipelineParameterCandidates(ConfigModel service, ServiceOperation operation)
+        {
+            new InfoMessage(service, operation, "No suitable pipeline parameter candidates found. Setting NoPipelineParameter=true for this new cmdlet.");
+        }
+
+        public static void SinglePipelineParameterCandidate(ConfigModel service, ServiceOperation operation, SimplePropertyInfo candidateParameter)
+        {
+            new InfoMessage(service, operation, $"Single pipeline parameter candidate found: {candidateParameter.AnalyzedName}. Automatically selected as PipelineParameter for this new cmdlet.");
+        }
+
+        public static void MultiplePipelineParameterCandidates(ConfigModel service, ServiceOperation operation, IEnumerable<SimplePropertyInfo> candidateParameters)
+        {
+            var candidateNames = string.Join(", ", candidateParameters.Select(param => param.AnalyzedName));
+            new InfoMessage(service, operation, $"Multiple pipeline parameter candidates found: {candidateNames}. Setting NoPipelineParameter=true for this new cmdlet.");
+        }
+    }
 }

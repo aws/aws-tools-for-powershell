@@ -1055,6 +1055,9 @@ namespace AWSPowerShellGenerator.ServiceConfig
         [XmlIgnore]
         public readonly List<AnalysisError> AnalysisErrors = new List<AnalysisError>();
 
+        [XmlIgnore]
+        public readonly List<InfoMessage> InfoMessages = new List<InfoMessage>();
+
         #endregion
     }
 

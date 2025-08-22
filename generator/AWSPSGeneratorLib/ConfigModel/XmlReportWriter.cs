@@ -161,6 +161,10 @@ namespace AWSPowerShellGenerator.ServiceConfig
                             {
                                 operation.element.AddFirst(new XComment($"ERROR - {error.Message}"));
                             }
+                            foreach (var info in operation.operation.InfoMessages)
+                            {
+                                operation.element.AddFirst(new XComment($"INFO - {info.Message}"));
+                            }
 
                             try
                             {
