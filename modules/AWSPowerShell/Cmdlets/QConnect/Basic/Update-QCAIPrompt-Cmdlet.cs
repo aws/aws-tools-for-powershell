@@ -90,6 +90,17 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter ModelId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the model used for this AI Prompt.</para><note><para>For more information on supported models, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-ai-prompts.html#cli-create-aiprompt">Supported
+        /// models for system and custom prompts</a>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ModelId { get; set; }
+        #endregion
+        
         #region Parameter TextFullAIPromptEditTemplateConfiguration_Text
         /// <summary>
         /// <para>
@@ -193,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             #endif
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.ModelId = this.ModelId;
             context.TextFullAIPromptEditTemplateConfiguration_Text = this.TextFullAIPromptEditTemplateConfiguration_Text;
             context.VisibilityStatus = this.VisibilityStatus;
             #if MODULAR
@@ -232,6 +244,10 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.ModelId != null)
+            {
+                request.ModelId = cmdletContext.ModelId;
             }
             
              // populate TemplateConfiguration
@@ -330,6 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             public System.String AssistantId { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public System.String ModelId { get; set; }
             public System.String TextFullAIPromptEditTemplateConfiguration_Text { get; set; }
             public Amazon.QConnect.VisibilityStatus VisibilityStatus { get; set; }
             public System.Func<Amazon.QConnect.Model.UpdateAIPromptResponse, UpdateQCAIPromptCmdlet, object> Select { get; set; } =

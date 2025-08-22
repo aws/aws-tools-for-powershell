@@ -117,6 +117,21 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         public Amazon.WAFV2.Model.AllowAction DefaultAction_Allow { get; set; }
         #endregion
         
+        #region Parameter ApplicationConfig_Attribute
+        /// <summary>
+        /// <para>
+        /// <para>Contains the attribute name and a list of values for that attribute.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ApplicationConfig_Attributes")]
+        public Amazon.WAFV2.Model.ApplicationAttribute[] ApplicationConfig_Attribute { get; set; }
+        #endregion
+        
         #region Parameter DefaultAction_Block
         /// <summary>
         /// <para>
@@ -443,6 +458,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 context.Select = CreateSelectDelegate<Amazon.WAFV2.Model.UpdateWebACLResponse, UpdateWAF2WebACLCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.ApplicationConfig_Attribute != null)
+            {
+                context.ApplicationConfig_Attribute = new List<Amazon.WAFV2.Model.ApplicationAttribute>(this.ApplicationConfig_Attribute);
+            }
             if (this.AssociationConfig_RequestBody != null)
             {
                 context.AssociationConfig_RequestBody = new Dictionary<System.String, Amazon.WAFV2.Model.RequestBodyAssociatedResourceTypeConfig>(StringComparer.Ordinal);
@@ -542,6 +561,25 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             // create request
             var request = new Amazon.WAFV2.Model.UpdateWebACLRequest();
             
+            
+             // populate ApplicationConfig
+            var requestApplicationConfigIsNull = true;
+            request.ApplicationConfig = new Amazon.WAFV2.Model.ApplicationConfig();
+            List<Amazon.WAFV2.Model.ApplicationAttribute> requestApplicationConfig_applicationConfig_Attribute = null;
+            if (cmdletContext.ApplicationConfig_Attribute != null)
+            {
+                requestApplicationConfig_applicationConfig_Attribute = cmdletContext.ApplicationConfig_Attribute;
+            }
+            if (requestApplicationConfig_applicationConfig_Attribute != null)
+            {
+                request.ApplicationConfig.Attributes = requestApplicationConfig_applicationConfig_Attribute;
+                requestApplicationConfigIsNull = false;
+            }
+             // determine if request.ApplicationConfig should be set to null
+            if (requestApplicationConfigIsNull)
+            {
+                request.ApplicationConfig = null;
+            }
             
              // populate AssociationConfig
             var requestAssociationConfigIsNull = true;
@@ -814,6 +852,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.WAFV2.Model.ApplicationAttribute> ApplicationConfig_Attribute { get; set; }
             public Dictionary<System.String, Amazon.WAFV2.Model.RequestBodyAssociatedResourceTypeConfig> AssociationConfig_RequestBody { get; set; }
             public System.Int64? CaptchaConfig_ImmunityTimeProperty_ImmunityTime { get; set; }
             public System.Int64? ChallengeConfig_ImmunityTimeProperty_ImmunityTime { get; set; }

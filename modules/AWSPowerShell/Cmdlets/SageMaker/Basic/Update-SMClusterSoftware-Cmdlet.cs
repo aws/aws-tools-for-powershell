@@ -90,12 +90,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>When configuring your HyperPod cluster, you can specify an image ID using one of the
-        /// following options:</para><ul><li><para><c>HyperPodPublicAmiId</c>: Use a HyperPod public AMI</para></li><li><para><c>CustomAmiId</c>: Use your custom AMI</para></li><li><para><c>default</c>: Use the default latest system image</para></li></ul><para>f you choose to use a custom AMI (<c>CustomAmiId</c>), ensure it meets the following
+        /// following options:</para><ul><li><para><c>HyperPodPublicAmiId</c>: Use a HyperPod public AMI</para></li><li><para><c>CustomAmiId</c>: Use your custom AMI</para></li><li><para><c>default</c>: Use the default latest system image</para></li></ul><para>If you choose to use a custom AMI (<c>CustomAmiId</c>), ensure it meets the following
         /// requirements:</para><ul><li><para>Encryption: The custom AMI must be unencrypted.</para></li><li><para>Ownership: The custom AMI must be owned by the same Amazon Web Services account that
         /// is creating the HyperPod cluster.</para></li><li><para>Volume support: Only the primary AMI snapshot volume is supported; additional AMI
         /// volumes are not supported.</para></li></ul><para>When updating the instance group's AMI through the <c>UpdateClusterSoftware</c> operation,
         /// if an instance group uses a custom AMI, you must provide an <c>ImageId</c> or use
-        /// the default as input.</para>
+        /// the default as input. Note that if you don't specify an instance group in your <c>UpdateClusterSoftware</c>
+        /// request, then all of the instance groups are patched with the specified image.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -585,6 +585,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String AmazonQSettings_QProfileArn { get; set; }
         #endregion
         
+        #region Parameter DockerSettings_RootlessDocker
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to use rootless Docker. Default value is <c>DISABLED</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettingsForUpdate_DockerSettings_RootlessDocker")]
+        [AWSConstantClassSource("Amazon.SageMaker.FeatureStatus")]
+        public Amazon.SageMaker.FeatureStatus DockerSettings_RootlessDocker { get; set; }
+        #endregion
+        
         #region Parameter RStudioServerProDomainSettingsForUpdate_RStudioConnectUrl
         /// <summary>
         /// <para>
@@ -1005,6 +1017,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.AmazonQSettings_QProfileArn = this.AmazonQSettings_QProfileArn;
             context.AmazonQSettings_Status = this.AmazonQSettings_Status;
             context.DockerSettings_EnableDockerAccess = this.DockerSettings_EnableDockerAccess;
+            context.DockerSettings_RootlessDocker = this.DockerSettings_RootlessDocker;
             if (this.DockerSettings_VpcOnlyTrustedAccount != null)
             {
                 context.DockerSettings_VpcOnlyTrustedAccount = new List<System.String>(this.DockerSettings_VpcOnlyTrustedAccount);
@@ -1716,6 +1729,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettings.EnableDockerAccess = requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettings_dockerSettings_EnableDockerAccess;
                 requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettingsIsNull = false;
             }
+            Amazon.SageMaker.FeatureStatus requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettings_dockerSettings_RootlessDocker = null;
+            if (cmdletContext.DockerSettings_RootlessDocker != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettings_dockerSettings_RootlessDocker = cmdletContext.DockerSettings_RootlessDocker;
+            }
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettings_dockerSettings_RootlessDocker != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettings.RootlessDocker = requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettings_dockerSettings_RootlessDocker;
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettingsIsNull = false;
+            }
             List<System.String> requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettings_dockerSettings_VpcOnlyTrustedAccount = null;
             if (cmdletContext.DockerSettings_VpcOnlyTrustedAccount != null)
             {
@@ -2052,6 +2075,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String AmazonQSettings_QProfileArn { get; set; }
             public Amazon.SageMaker.FeatureStatus AmazonQSettings_Status { get; set; }
             public Amazon.SageMaker.FeatureStatus DockerSettings_EnableDockerAccess { get; set; }
+            public Amazon.SageMaker.FeatureStatus DockerSettings_RootlessDocker { get; set; }
             public List<System.String> DockerSettings_VpcOnlyTrustedAccount { get; set; }
             public Amazon.SageMaker.ExecutionRoleIdentityConfig DomainSettingsForUpdate_ExecutionRoleIdentityConfig { get; set; }
             public Amazon.SageMaker.AppInstanceType DefaultResourceSpec_InstanceType { get; set; }

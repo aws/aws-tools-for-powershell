@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// 
     ///  
     /// <para>
-    /// Amazon RDS supports upgrading DB snapshots for MySQL, PostgreSQL, and Oracle. This
-    /// operation doesn't apply to RDS Custom or RDS for Db2.
+    /// Amazon RDS supports upgrading DB snapshots for MariaDB, MySQL, PostgreSQL, and Oracle.
+    /// This operation doesn't apply to RDS Custom or RDS for Db2.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "RDSDBSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,9 +73,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The engine version to upgrade the DB snapshot to.</para><para>The following are the database engines and engine versions that are available when
-        /// you upgrade a DB snapshot.</para><para><b>MySQL</b></para><para>For the list of engine versions that are available for upgrading a DB snapshot, see
+        /// you upgrade a DB snapshot.</para><para><b>MariaDB</b></para><para>For the list of engine versions that are available for upgrading a DB snapshot, see
+        /// <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mariadb-upgrade-snapshot.html">
+        /// Upgrading a MariaDB DB snapshot engine version</a> in the <i>Amazon RDS User Guide.</i></para><para><b>MySQL</b></para><para>For the list of engine versions that are available for upgrading a DB snapshot, see
         /// <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql-upgrade-snapshot.html">
-        /// Upgrading a MySQL DB snapshot engine version</a> in the <i>Amazon RDS User Guide.</i></para><para><b>Oracle</b></para><ul><li><para><c>19.0.0.0.ru-2022-01.rur-2022-01.r1</c> (supported for 12.2.0.1 DB snapshots)</para></li><li><para><c>19.0.0.0.ru-2022-07.rur-2022-07.r1</c> (supported for 12.1.0.2 DB snapshots)</para></li><li><para><c>12.1.0.2.v8</c> (supported for 12.1.0.1 DB snapshots)</para></li><li><para><c>11.2.0.4.v12</c> (supported for 11.2.0.2 DB snapshots)</para></li><li><para><c>11.2.0.4.v11</c> (supported for 11.2.0.3 DB snapshots)</para></li></ul><para><b>PostgreSQL</b></para><para>For the list of engine versions that are available for upgrading a DB snapshot, see
+        /// Upgrading a MySQL DB snapshot engine version</a> in the <i>Amazon RDS User Guide.</i></para><para><b>Oracle</b></para><ul><li><para><c>21.0.0.0.ru-2025-04.rur-2025-04.r1</c> (supported for 21.0.0.0.ru-2022-01.rur-2022-01.r1,
+        /// 21.0.0.0.ru-2022-04.rur-2022-04.r1, 21.0.0.0.ru-2022-07.rur-2022-07.r1, 21.0.0.0.ru-2022-10.rur-2022-10.r1,
+        /// 21.0.0.0.ru-2023-01.rur-2023-01.r1 and 21.0.0.0.ru-2023-01.rur-2023-01.r2 DB snapshots)</para></li><li><para><c>19.0.0.0.ru-2025-04.rur-2025-04.r1</c> (supported for 19.0.0.0.ru-2019-07.rur-2019-07.r1,
+        /// 19.0.0.0.ru-2019-10.rur-2019-10.r1 and 0.0.0.ru-2020-01.rur-2020-01.r1 DB snapshots)</para></li><li><para><c>19.0.0.0.ru-2022-01.rur-2022-01.r1</c> (supported for 12.2.0.1 DB snapshots)</para></li><li><para><c>19.0.0.0.ru-2022-07.rur-2022-07.r1</c> (supported for 12.1.0.2 DB snapshots)</para></li><li><para><c>12.1.0.2.v8</c> (supported for 12.1.0.1 DB snapshots)</para></li><li><para><c>11.2.0.4.v12</c> (supported for 11.2.0.2 DB snapshots)</para></li><li><para><c>11.2.0.4.v11</c> (supported for 11.2.0.3 DB snapshots)</para></li></ul><para><b>PostgreSQL</b></para><para>For the list of engine versions that are available for upgrading a DB snapshot, see
         /// <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBSnapshot.PostgreSQL.html">
         /// Upgrading a PostgreSQL DB snapshot engine version</a> in the <i>Amazon RDS User Guide.</i></para>
         /// </para>
