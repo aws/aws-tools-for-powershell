@@ -80,6 +80,17 @@ $CWSYN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Synthetics.BrowserType
+        {
+            ($_ -eq "Get-CWSYNCanariesLastRun/BrowserType") -Or
+            ($_ -eq "Start-CWSYNCanaryDryRun/VisualReference_BrowserType") -Or
+            ($_ -eq "Update-CWSYNCanary/VisualReference_BrowserType")
+        }
+        {
+            $v = "CHROME","FIREFOX"
+            break
+        }
+
         # Amazon.Synthetics.EncryptionMode
         {
             ($_ -eq "New-CWSYNCanary/S3Encryption_EncryptionMode") -Or
@@ -118,9 +129,11 @@ $CWSYN_Completers = {
 }
 
 $CWSYN_map = @{
+    "BrowserType"=@("Get-CWSYNCanariesLastRun")
     "ProvisionedResourceCleanup"=@("New-CWSYNCanary","Start-CWSYNCanaryDryRun","Update-CWSYNCanary")
     "RunType"=@("Get-CWSYNCanaryRun")
     "S3Encryption_EncryptionMode"=@("New-CWSYNCanary","Start-CWSYNCanaryDryRun","Update-CWSYNCanary")
+    "VisualReference_BrowserType"=@("Start-CWSYNCanaryDryRun","Update-CWSYNCanary")
 }
 
 _awsArgumentCompleterRegistration $CWSYN_Completers $CWSYN_map

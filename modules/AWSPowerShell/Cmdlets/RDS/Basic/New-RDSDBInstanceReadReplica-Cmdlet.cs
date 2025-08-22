@@ -29,18 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Creates a new DB instance that acts as a read replica for an existing source DB instance
-    /// or Multi-AZ DB cluster. You can create a read replica for a DB instance running MariaDB,
-    /// MySQL, Oracle, PostgreSQL, or SQL Server. You can create a read replica for a Multi-AZ
-    /// DB cluster running MySQL or PostgreSQL. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working
+    /// or Multi-AZ DB cluster. You can create a read replica for a DB instance running Db2,
+    /// MariaDB, MySQL, Oracle, PostgreSQL, or SQL Server. You can create a read replica for
+    /// a Multi-AZ DB cluster running MySQL or PostgreSQL. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working
     /// with read replicas</a> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html#multi-az-db-clusters-migrating-to-instance-with-read-replica">Migrating
     /// from a Multi-AZ DB cluster to a DB instance using a read replica</a> in the <i>Amazon
     /// RDS User Guide</i>.
     /// 
     ///  
     /// <para>
-    /// Amazon RDS for Db2 supports this operation for standby replicas. To create a standby
-    /// replica for a DB instance running Db2, you must set <c>ReplicaMode</c> to <c>mounted</c>.
-    /// </para><para>
     /// Amazon Aurora doesn't support this operation. To create a DB instance for an Aurora
     /// DB cluster, use the <c>CreateDBInstance</c> operation.
     /// </para><para>
@@ -592,11 +589,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ReplicaMode
         /// <summary>
         /// <para>
-        /// <para>The open mode of the replica database.</para><note><para>This parameter is only supported for Db2 DB instances and Oracle DB instances.</para></note><dl><dt>Db2</dt><dd><para>Standby DB replicas are included in Db2 Advanced Edition (AE) and Db2 Standard Edition
+        /// <para>The open mode of the replica database.</para><para>This parameter is only supported for Db2 DB instances and Oracle DB instances.</para><dl><dt>Db2</dt><dd><para>Standby DB replicas are included in Db2 Advanced Edition (AE) and Db2 Standard Edition
         /// (SE). The main use case for standby replicas is cross-Region disaster recovery. Because
         /// it doesn't accept user connections, a standby replica can't serve a read-only workload.</para><para>You can create a combination of standby and read-only DB replicas for the same primary
         /// DB instance. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-replication.html">Working
-        /// with read replicas for Amazon RDS for Db2</a> in the <i>Amazon RDS User Guide</i>.</para><para>To create standby DB replicas for RDS for Db2, set this parameter to <c>mounted</c>.</para></dd><dt>Oracle</dt><dd><para>Mounted DB replicas are included in Oracle Database Enterprise Edition. The main use
+        /// with replicas for Amazon RDS for Db2</a> in the <i>Amazon RDS User Guide</i>.</para><para>To create standby DB replicas for RDS for Db2, set this parameter to <c>mounted</c>.</para></dd><dt>Oracle</dt><dd><para>Mounted DB replicas are included in Oracle Database Enterprise Edition. The main use
         /// case for mounted replicas is cross-Region disaster recovery. The primary database
         /// doesn't use Active Data Guard to transmit information to the mounted replica. Because
         /// it doesn't accept user connections, a mounted replica can't serve a read-only workload.</para><para>You can create a combination of mounted and read-only DB replicas for the same primary

@@ -57,6 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter BrowserType
+        /// <summary>
+        /// <para>
+        /// <para>The type of browser to use for the canary run.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Synthetics.BrowserType")]
+        public Amazon.Synthetics.BrowserType BrowserType { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -138,6 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 context.Select = CreateSelectDelegate<Amazon.Synthetics.Model.DescribeCanariesLastRunResponse, GetCWSYNCanariesLastRunCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.BrowserType = this.BrowserType;
             context.MaxResult = this.MaxResult;
             if (this.Name != null)
             {
@@ -162,6 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             // create request and set iteration invariants
             var request = new Amazon.Synthetics.Model.DescribeCanariesLastRunRequest();
             
+            if (cmdletContext.BrowserType != null)
+            {
+                request.BrowserType = cmdletContext.BrowserType;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -255,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Synthetics.BrowserType BrowserType { get; set; }
             public System.Int32? MaxResult { get; set; }
             public List<System.String> Name { get; set; }
             public System.String NextToken { get; set; }

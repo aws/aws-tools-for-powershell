@@ -32,6 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     /// 
     ///  
     /// <para>
+    /// For multibrowser canaries, you can add or remove browsers by updating the browserConfig
+    /// list in the update call. For example:
+    /// </para><ul><li><para>
+    /// To add Firefox to a canary that currently uses Chrome, specify browserConfigs as [CHROME,
+    /// FIREFOX]
+    /// </para></li><li><para>
+    /// To remove Firefox and keep only Chrome, specify browserConfigs as [CHROME]
+    /// </para></li></ul><para>
     /// You can't use this operation to update the tags of an existing canary. To change the
     /// tags of an existing canary, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_TagResource.html">TagResource</a>.
     /// </para><note><para>
@@ -106,6 +114,29 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("VisualReference_BaseScreenshots")]
         public Amazon.Synthetics.Model.BaseScreenshot[] VisualReference_BaseScreenshot { get; set; }
+        #endregion
+        
+        #region Parameter BrowserConfig
+        /// <summary>
+        /// <para>
+        /// <para>A structure that specifies the browser type to use for a canary run. CloudWatch Synthetics
+        /// supports running canaries on both <c>CHROME</c> and <c>FIREFOX</c> browsers.</para><note><para>If not specified, <c>browserConfigs</c> defaults to Chrome.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BrowserConfigs")]
+        public Amazon.Synthetics.Model.BrowserConfig[] BrowserConfig { get; set; }
+        #endregion
+        
+        #region Parameter VisualReference_BrowserType
+        /// <summary>
+        /// <para>
+        /// <para>The browser type associated with this visual reference.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Synthetics.BrowserType")]
+        public Amazon.Synthetics.BrowserType VisualReference_BrowserType { get; set; }
         #endregion
         
         #region Parameter Code_Dependency
@@ -415,6 +446,28 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         public System.Int32? RunConfig_TimeoutInSecond { get; set; }
         #endregion
         
+        #region Parameter VisualReference
+        /// <summary>
+        /// <para>
+        /// <para>A list of visual reference configurations for the canary, one for each browser type
+        /// that the canary is configured to run on. Visual references are used for visual monitoring
+        /// comparisons.</para><para><c>syn-nodejs-puppeteer-11.0</c> and above, and <c>syn-nodejs-playwright-3.0</c>
+        /// and above, only supports <c>visualReferences</c>. <c>visualReference</c> field is
+        /// not supported.</para><para>Versions older than <c>syn-nodejs-puppeteer-11.0</c> supports both <c>visualReference</c>
+        /// and <c>visualReferences</c> for backward compatibility. It is recommended to use <c>visualReferences</c>
+        /// for consistency and future compatibility.</para><para>For multibrowser visual monitoring, you can update the baseline for all configured
+        /// browsers in a single update call by specifying a list of VisualReference objects,
+        /// one per browser. Each VisualReference object maps to a specific browser configuration,
+        /// allowing you to manage visual baselines for multiple browsers simultaneously.</para><para>For single configuration canaries using Chrome browser (default browser), use visualReferences
+        /// for <c>syn-nodejs-puppeteer-11.0</c> and above, and <c>syn-nodejs-playwright-3.0</c>
+        /// and above canaries. The browserType in the visualReference object is not mandatory.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VisualReferences")]
+        public Amazon.Synthetics.Model.VisualReferenceInput[] VisualReference { get; set; }
+        #endregion
+        
         #region Parameter Code_ZipFile
         /// <summary>
         /// <para>
@@ -494,6 +547,10 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             context.S3Encryption_EncryptionMode = this.S3Encryption_EncryptionMode;
             context.S3Encryption_KmsKeyArn = this.S3Encryption_KmsKeyArn;
             context.ArtifactS3Location = this.ArtifactS3Location;
+            if (this.BrowserConfig != null)
+            {
+                context.BrowserConfig = new List<Amazon.Synthetics.Model.BrowserConfig>(this.BrowserConfig);
+            }
             if (this.Code_Dependency != null)
             {
                 context.Code_Dependency = new List<Amazon.Synthetics.Model.Dependency>(this.Code_Dependency);
@@ -535,6 +592,11 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             if (this.VisualReference_BaseScreenshot != null)
             {
                 context.VisualReference_BaseScreenshot = new List<Amazon.Synthetics.Model.BaseScreenshot>(this.VisualReference_BaseScreenshot);
+            }
+            context.VisualReference_BrowserType = this.VisualReference_BrowserType;
+            if (this.VisualReference != null)
+            {
+                context.VisualReference = new List<Amazon.Synthetics.Model.VisualReferenceInput>(this.VisualReference);
             }
             context.VpcConfig_Ipv6AllowedForDualStack = this.VpcConfig_Ipv6AllowedForDualStack;
             if (this.VpcConfig_SecurityGroupId != null)
@@ -612,6 +674,10 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 if (cmdletContext.ArtifactS3Location != null)
                 {
                     request.ArtifactS3Location = cmdletContext.ArtifactS3Location;
+                }
+                if (cmdletContext.BrowserConfig != null)
+                {
+                    request.BrowserConfigs = cmdletContext.BrowserConfig;
                 }
                 
                  // populate Code
@@ -848,10 +914,24 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                     request.VisualReference.BaseScreenshots = requestVisualReference_visualReference_BaseScreenshot;
                     requestVisualReferenceIsNull = false;
                 }
+                Amazon.Synthetics.BrowserType requestVisualReference_visualReference_BrowserType = null;
+                if (cmdletContext.VisualReference_BrowserType != null)
+                {
+                    requestVisualReference_visualReference_BrowserType = cmdletContext.VisualReference_BrowserType;
+                }
+                if (requestVisualReference_visualReference_BrowserType != null)
+                {
+                    request.VisualReference.BrowserType = requestVisualReference_visualReference_BrowserType;
+                    requestVisualReferenceIsNull = false;
+                }
                  // determine if request.VisualReference should be set to null
                 if (requestVisualReferenceIsNull)
                 {
                     request.VisualReference = null;
+                }
+                if (cmdletContext.VisualReference != null)
+                {
+                    request.VisualReferences = cmdletContext.VisualReference;
                 }
                 
                  // populate VpcConfig
@@ -964,6 +1044,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             public Amazon.Synthetics.EncryptionMode S3Encryption_EncryptionMode { get; set; }
             public System.String S3Encryption_KmsKeyArn { get; set; }
             public System.String ArtifactS3Location { get; set; }
+            public List<Amazon.Synthetics.Model.BrowserConfig> BrowserConfig { get; set; }
             public List<Amazon.Synthetics.Model.Dependency> Code_Dependency { get; set; }
             public System.String Code_Handler { get; set; }
             public System.String Code_S3Bucket { get; set; }
@@ -987,6 +1068,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             public System.Int32? SuccessRetentionPeriodInDay { get; set; }
             public System.String VisualReference_BaseCanaryRunId { get; set; }
             public List<Amazon.Synthetics.Model.BaseScreenshot> VisualReference_BaseScreenshot { get; set; }
+            public Amazon.Synthetics.BrowserType VisualReference_BrowserType { get; set; }
+            public List<Amazon.Synthetics.Model.VisualReferenceInput> VisualReference { get; set; }
             public System.Boolean? VpcConfig_Ipv6AllowedForDualStack { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }
             public List<System.String> VpcConfig_SubnetId { get; set; }

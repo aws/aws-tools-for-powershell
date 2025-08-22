@@ -96,6 +96,20 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         public System.String ArtifactS3Location { get; set; }
         #endregion
         
+        #region Parameter BrowserConfig
+        /// <summary>
+        /// <para>
+        /// <para>CloudWatch Synthetics now supports multibrowser canaries for <c>syn-nodejs-puppeteer-11.0</c>
+        /// and <c>syn-nodejs-playwright-3.0</c> runtimes. This feature allows you to run your
+        /// canaries on both Firefox and Chrome browsers. To create a multibrowser canary, you
+        /// need to specify the BrowserConfigs with a list of browsers you want to use.</para><note><para>If not specified, <c>browserConfigs</c> defaults to Chrome.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BrowserConfigs")]
+        public Amazon.Synthetics.Model.BrowserConfig[] BrowserConfig { get; set; }
+        #endregion
+        
         #region Parameter Code_Dependency
         /// <summary>
         /// <para>
@@ -540,6 +554,10 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 WriteWarning("You are passing $null as a value for parameter ArtifactS3Location which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.BrowserConfig != null)
+            {
+                context.BrowserConfig = new List<Amazon.Synthetics.Model.BrowserConfig>(this.BrowserConfig);
+            }
             if (this.Code_Dependency != null)
             {
                 context.Code_Dependency = new List<Amazon.Synthetics.Model.Dependency>(this.Code_Dependency);
@@ -688,6 +706,10 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 if (cmdletContext.ArtifactS3Location != null)
                 {
                     request.ArtifactS3Location = cmdletContext.ArtifactS3Location;
+                }
+                if (cmdletContext.BrowserConfig != null)
+                {
+                    request.BrowserConfigs = cmdletContext.BrowserConfig;
                 }
                 
                  // populate Code
@@ -1015,6 +1037,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             public Amazon.Synthetics.EncryptionMode S3Encryption_EncryptionMode { get; set; }
             public System.String S3Encryption_KmsKeyArn { get; set; }
             public System.String ArtifactS3Location { get; set; }
+            public List<Amazon.Synthetics.Model.BrowserConfig> BrowserConfig { get; set; }
             public List<Amazon.Synthetics.Model.Dependency> Code_Dependency { get; set; }
             public System.String Code_Handler { get; set; }
             public System.String Code_S3Bucket { get; set; }

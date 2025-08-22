@@ -559,8 +559,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter LicenseModel
         /// <summary>
         /// <para>
-        /// <para>The license model information for this DB instance.</para><note><para>License models for RDS for Db2 require additional configuration. The Bring Your Own
-        /// License (BYOL) model requires a custom parameter group and an Amazon Web Services
+        /// <para>The license model information for this DB instance.</para><note><para>License models for RDS for Db2 require additional configuration. The bring your own
+        /// license (BYOL) model requires a custom parameter group and an Amazon Web Services
         /// License Manager self-managed license. The Db2 license through Amazon Web Services
         /// Marketplace model requires an Amazon Web Services Marketplace subscription. For more
         /// information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-licensing.html">Amazon
@@ -671,7 +671,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specifies whether the DB instance is a Multi-AZ deployment. You can't set the <c>AvailabilityZone</c>
-        /// parameter if the DB instance is a Multi-AZ deployment.</para><para>This setting doesn't apply to the following DB instances:</para><ul><li><para>Amazon Aurora (DB instance Availability Zones (AZs) are managed by the DB cluster.)</para></li><li><para>RDS Custom</para></li></ul>
+        /// parameter if the DB instance is a Multi-AZ deployment.</para><para>This setting doesn't apply to Amazon Aurora because the DB instance Availability Zones
+        /// (AZs) are managed by the DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

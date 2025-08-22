@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
 {
     /// <summary>
     /// Creates an Amazon Q in Connect AI Prompt.
+    /// 
+    ///  <note><para>
+    /// For more information on supported models, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-ai-prompts.html#cli-create-aiprompt">Supported
+    /// models for system and custom prompts</a>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "QCAIPrompt", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QConnect.Model.AIPromptData")]

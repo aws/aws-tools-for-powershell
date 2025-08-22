@@ -1,4 +1,19 @@
-﻿### 4.1.884 (2025-08-21 21:46Z)
+﻿### 4.1.885 (2025-08-22 20:54Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1108.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Synthetics
+    * Modified cmdlet Get-CWSYNCanariesLastRun: added parameter BrowserType.
+    * Modified cmdlet New-CWSYNCanary: added parameter BrowserConfig.
+    * Modified cmdlet Start-CWSYNCanaryDryRun: added parameters BrowserConfig, VisualReference and VisualReference_BrowserType.
+    * Modified cmdlet Update-CWSYNCanary: added parameters BrowserConfig, VisualReference and VisualReference_BrowserType.
+  * Amazon Q Connect
+    * Modified cmdlet Update-QCAIPrompt: added parameter ModelId.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMDomain: added parameter DockerSettings_RootlessDocker.
+    * Modified cmdlet Update-SMDomain: added parameter DockerSettings_RootlessDocker.
+  * Amazon WAF V2
+    * Modified cmdlet Update-WAF2WebACL: added parameter ApplicationConfig_Attribute.
+
+### 4.1.884 (2025-08-21 21:46Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1107.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon GameLiftStreams
     * Modified cmdlet Update-GMLSStreamGroup: added parameter DefaultApplicationIdentifier.
