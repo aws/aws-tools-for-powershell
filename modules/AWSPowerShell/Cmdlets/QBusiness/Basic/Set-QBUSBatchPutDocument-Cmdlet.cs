@@ -87,7 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter Document
         /// <summary>
         /// <para>
-        /// <para>One or more documents to add to the index.</para>
+        /// <para>One or more documents to add to the index.</para><important><para>Ensure that the name of your document doesn't contain any confidential information.
+        /// Amazon Q Business returns document names in chat responses and citations when relevant.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR

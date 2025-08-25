@@ -222,7 +222,7 @@ $QBUS_Completers = {
         # Amazon.QBusiness.OutputFormat
         "Get-QBUSDocumentContent/OutputFormat"
         {
-            $v = "RAW"
+            $v = "EXTRACTED","RAW"
             break
         }
 

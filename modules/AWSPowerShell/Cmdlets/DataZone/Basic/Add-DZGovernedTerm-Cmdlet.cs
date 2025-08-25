@@ -28,37 +28,24 @@ using Amazon.DataZone.Model;
 namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Creates an Amazon DataZone business glossary.
+    /// Associates governed terms with an asset.
     /// </summary>
-    [Cmdlet("New", "DZGlossary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DataZone.Model.CreateGlossaryResponse")]
-    [AWSCmdlet("Calls the Amazon DataZone CreateGlossary API operation.", Operation = new[] {"CreateGlossary"}, SelectReturnType = typeof(Amazon.DataZone.Model.CreateGlossaryResponse))]
-    [AWSCmdletOutput("Amazon.DataZone.Model.CreateGlossaryResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.CreateGlossaryResponse object containing multiple properties."
+    [Cmdlet("Add", "DZGovernedTerm", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon DataZone AssociateGovernedTerms API operation.", Operation = new[] {"AssociateGovernedTerms"}, SelectReturnType = typeof(Amazon.DataZone.Model.AssociateGovernedTermsResponse))]
+    [AWSCmdletOutput("None or Amazon.DataZone.Model.AssociateGovernedTermsResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.DataZone.Model.AssociateGovernedTermsResponse) be returned by specifying '-Select *'."
     )]
-    public partial class NewDZGlossaryCmdlet : AmazonDataZoneClientCmdlet, IExecutor
+    public partial class AddDZGovernedTermCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        
-        #region Parameter Description
-        /// <summary>
-        /// <para>
-        /// <para>The description of this business glossary.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
-        #endregion
         
         #region Parameter DomainIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon DataZone domain in which this business glossary is created.</para>
+        /// <para>The ID of the domain where governed terms are to be associated with an asset.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,27 +59,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String DomainIdentifier { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter EntityIdentifier
         /// <summary>
         /// <para>
-        /// <para>The name of this business glossary.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter OwningProjectIdentifier
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the project that currently owns business glossary.</para>
+        /// <para>The ID of the asset with which you want to associate a governed term.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -103,47 +73,48 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String OwningProjectIdentifier { get; set; }
+        public System.String EntityIdentifier { get; set; }
         #endregion
         
-        #region Parameter Status
+        #region Parameter EntityType
         /// <summary>
         /// <para>
-        /// <para>The status of this business glossary.</para>
+        /// <para>The type of the asset with which you want to associate a governed term.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.DataZone.GlossaryStatus")]
-        public Amazon.DataZone.GlossaryStatus Status { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.DataZone.GovernedEntityType")]
+        public Amazon.DataZone.GovernedEntityType EntityType { get; set; }
         #endregion
         
-        #region Parameter UsageRestriction
+        #region Parameter GovernedGlossaryTerm
         /// <summary>
         /// <para>
-        /// <para>The usage restriction of the restricted glossary.</para>
+        /// <para>The glossary terms in a restricted glossary.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("UsageRestrictions")]
-        public System.String[] UsageRestriction { get; set; }
-        #endregion
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A unique, case-sensitive identifier that is provided to ensure the idempotency of
-        /// the request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("GovernedGlossaryTerms")]
+        public System.String[] GovernedGlossaryTerm { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.CreateGlossaryResponse).
-        /// Specifying the name of a property of type Amazon.DataZone.Model.CreateGlossaryResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.AssociateGovernedTermsResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,10 +123,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the OwningProjectIdentifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^OwningProjectIdentifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the EntityIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^EntityIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^OwningProjectIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^EntityIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -175,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.OwningProjectIdentifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DZGlossary (CreateGlossary)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.EntityIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-DZGovernedTerm (AssociateGovernedTerms)"))
             {
                 return;
             }
@@ -189,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.CreateGlossaryResponse, NewDZGlossaryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.AssociateGovernedTermsResponse, AddDZGovernedTermCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -198,11 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.OwningProjectIdentifier;
+                context.Select = (response, cmdlet) => this.EntityIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClientToken = this.ClientToken;
-            context.Description = this.Description;
             context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
             if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
@@ -210,25 +179,30 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Name = this.Name;
+            context.EntityIdentifier = this.EntityIdentifier;
             #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            if (this.EntityIdentifier == null && ParameterWasBound(nameof(this.EntityIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter EntityIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.OwningProjectIdentifier = this.OwningProjectIdentifier;
+            context.EntityType = this.EntityType;
             #if MODULAR
-            if (this.OwningProjectIdentifier == null && ParameterWasBound(nameof(this.OwningProjectIdentifier)))
+            if (this.EntityType == null && ParameterWasBound(nameof(this.EntityType)))
             {
-                WriteWarning("You are passing $null as a value for parameter OwningProjectIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter EntityType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Status = this.Status;
-            if (this.UsageRestriction != null)
+            if (this.GovernedGlossaryTerm != null)
             {
-                context.UsageRestriction = new List<System.String>(this.UsageRestriction);
+                context.GovernedGlossaryTerm = new List<System.String>(this.GovernedGlossaryTerm);
             }
+            #if MODULAR
+            if (this.GovernedGlossaryTerm == null && ParameterWasBound(nameof(this.GovernedGlossaryTerm)))
+            {
+                WriteWarning("You are passing $null as a value for parameter GovernedGlossaryTerm which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -243,35 +217,23 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataZone.Model.CreateGlossaryRequest();
+            var request = new Amazon.DataZone.Model.AssociateGovernedTermsRequest();
             
-            if (cmdletContext.ClientToken != null)
-            {
-                request.ClientToken = cmdletContext.ClientToken;
-            }
-            if (cmdletContext.Description != null)
-            {
-                request.Description = cmdletContext.Description;
-            }
             if (cmdletContext.DomainIdentifier != null)
             {
                 request.DomainIdentifier = cmdletContext.DomainIdentifier;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.EntityIdentifier != null)
             {
-                request.Name = cmdletContext.Name;
+                request.EntityIdentifier = cmdletContext.EntityIdentifier;
             }
-            if (cmdletContext.OwningProjectIdentifier != null)
+            if (cmdletContext.EntityType != null)
             {
-                request.OwningProjectIdentifier = cmdletContext.OwningProjectIdentifier;
+                request.EntityType = cmdletContext.EntityType;
             }
-            if (cmdletContext.Status != null)
+            if (cmdletContext.GovernedGlossaryTerm != null)
             {
-                request.Status = cmdletContext.Status;
-            }
-            if (cmdletContext.UsageRestriction != null)
-            {
-                request.UsageRestrictions = cmdletContext.UsageRestriction;
+                request.GovernedGlossaryTerms = cmdletContext.GovernedGlossaryTerm;
             }
             
             CmdletOutput output;
@@ -306,15 +268,15 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region AWS Service Operation Call
         
-        private Amazon.DataZone.Model.CreateGlossaryResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.CreateGlossaryRequest request)
+        private Amazon.DataZone.Model.AssociateGovernedTermsResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.AssociateGovernedTermsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "CreateGlossary");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "AssociateGovernedTerms");
             try
             {
                 #if DESKTOP
-                return client.CreateGlossary(request);
+                return client.AssociateGovernedTerms(request);
                 #elif CORECLR
-                return client.CreateGlossaryAsync(request).GetAwaiter().GetResult();
+                return client.AssociateGovernedTermsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -334,15 +296,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
-            public System.String Description { get; set; }
             public System.String DomainIdentifier { get; set; }
-            public System.String Name { get; set; }
-            public System.String OwningProjectIdentifier { get; set; }
-            public Amazon.DataZone.GlossaryStatus Status { get; set; }
-            public List<System.String> UsageRestriction { get; set; }
-            public System.Func<Amazon.DataZone.Model.CreateGlossaryResponse, NewDZGlossaryCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String EntityIdentifier { get; set; }
+            public Amazon.DataZone.GovernedEntityType EntityType { get; set; }
+            public List<System.String> GovernedGlossaryTerm { get; set; }
+            public System.Func<Amazon.DataZone.Model.AssociateGovernedTermsResponse, AddDZGovernedTermCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

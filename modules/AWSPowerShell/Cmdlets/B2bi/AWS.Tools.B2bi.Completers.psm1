@@ -219,9 +219,12 @@ $B2BI_Completers = {
 
         # Amazon.B2bi.X12SplitBy
         {
-            ($_ -eq "New-B2BITransformer/SplitOptions_SplitBy") -Or
-            ($_ -eq "Test-B2BIParsing/SplitOptions_SplitBy") -Or
-            ($_ -eq "Update-B2BITransformer/SplitOptions_SplitBy")
+            ($_ -eq "New-B2BITransformer/InputConversion_AdvancedOptions_X12_SplitOptions_SplitBy") -Or
+            ($_ -eq "Update-B2BITransformer/InputConversion_AdvancedOptions_X12_SplitOptions_SplitBy") -Or
+            ($_ -eq "New-B2BITransformer/OutputConversion_AdvancedOptions_X12_SplitOptions_SplitBy") -Or
+            ($_ -eq "Update-B2BITransformer/OutputConversion_AdvancedOptions_X12_SplitOptions_SplitBy") -Or
+            ($_ -eq "Test-B2BIConversion/SplitOptions_SplitBy") -Or
+            ($_ -eq "Test-B2BIParsing/SplitOptions_SplitBy")
         }
         {
             $v = "NONE","TRANSACTION"
@@ -290,17 +293,19 @@ $B2BI_map = @{
     "Common_Gs05TimeFormat"=@("New-B2BIPartnership","Update-B2BIPartnership")
     "Edi_CapabilityDirection"=@("New-B2BICapability","Update-B2BICapability")
     "FileFormat"=@("New-B2BITransformer","Test-B2BIMapping","Test-B2BIParsing","Update-B2BITransformer")
+    "InputConversion_AdvancedOptions_X12_SplitOptions_SplitBy"=@("New-B2BITransformer","Update-B2BITransformer")
     "InputConversion_FormatOptions_X12_TransactionSet"=@("New-B2BITransformer","Update-B2BITransformer")
     "InputConversion_FormatOptions_X12_Version"=@("New-B2BITransformer","Update-B2BITransformer")
     "InputConversion_FromFormat"=@("New-B2BITransformer","Update-B2BITransformer")
     "Logging"=@("New-B2BIProfile")
     "Mapping_TemplateLanguage"=@("New-B2BITransformer","Update-B2BITransformer")
     "MappingType"=@("Get-B2BIGeneratedMapping","New-B2BIStarterMappingTemplate")
+    "OutputConversion_AdvancedOptions_X12_SplitOptions_SplitBy"=@("New-B2BITransformer","Update-B2BITransformer")
     "OutputConversion_FormatOptions_X12_TransactionSet"=@("New-B2BITransformer","Update-B2BITransformer")
     "OutputConversion_FormatOptions_X12_Version"=@("New-B2BITransformer","Update-B2BITransformer")
     "OutputConversion_ToFormat"=@("New-B2BITransformer","Update-B2BITransformer")
     "Source_FileFormat"=@("Test-B2BIConversion")
-    "SplitOptions_SplitBy"=@("New-B2BITransformer","Test-B2BIParsing","Update-B2BITransformer")
+    "SplitOptions_SplitBy"=@("Test-B2BIConversion","Test-B2BIParsing")
     "Status"=@("Update-B2BITransformer")
     "Target_FileFormat"=@("Test-B2BIConversion")
     "Type"=@("New-B2BICapability")

@@ -1,4 +1,20 @@
-﻿### 4.1.885 (2025-08-22 20:54Z)
+﻿### 4.1.886 (2025-08-25 23:09Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1109.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon B2B Data Interchange
+    * Modified cmdlet New-B2BITransformer: added parameters InputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules, OutputConversion_AdvancedOptions_X12_SplitOptions_SplitBy and OutputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules.
+    * Modified cmdlet Test-B2BIConversion: added parameters SplitOptions_SplitBy and ValidationOptions_ValidationRule.
+    * Modified cmdlet Test-B2BIParsing: added parameter ValidationOptions_ValidationRule.
+    * Modified cmdlet Update-B2BITransformer: added parameters InputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules, OutputConversion_AdvancedOptions_X12_SplitOptions_SplitBy and OutputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules.
+  * Amazon DataZone
+    * Added cmdlet Add-DZGovernedTerm leveraging the AssociateGovernedTerms service API.
+    * Added cmdlet Remove-DZGovernedTerm leveraging the DisassociateGovernedTerms service API.
+    * Modified cmdlet New-DZGlossary: added parameter UsageRestriction.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet New-EC2ClientVpnEndpoint: added parameters EndpointIpAddressType and TrafficIpAddressType.
+  * Amazon Elemental MediaConvert
+    * Added cmdlet New-EMCResourceShare leveraging the CreateResourceShare service API.
+
+### 4.1.885 (2025-08-22 20:54Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1108.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Synthetics
     * Modified cmdlet Get-CWSYNCanariesLastRun: added parameter BrowserType.

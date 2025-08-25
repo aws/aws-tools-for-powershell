@@ -6024,9 +6024,12 @@ $B2BI_Completers = {
 
         # Amazon.B2bi.X12SplitBy
         {
-            ($_ -eq "New-B2BITransformer/SplitOptions_SplitBy") -Or
-            ($_ -eq "Test-B2BIParsing/SplitOptions_SplitBy") -Or
-            ($_ -eq "Update-B2BITransformer/SplitOptions_SplitBy")
+            ($_ -eq "New-B2BITransformer/InputConversion_AdvancedOptions_X12_SplitOptions_SplitBy") -Or
+            ($_ -eq "Update-B2BITransformer/InputConversion_AdvancedOptions_X12_SplitOptions_SplitBy") -Or
+            ($_ -eq "New-B2BITransformer/OutputConversion_AdvancedOptions_X12_SplitOptions_SplitBy") -Or
+            ($_ -eq "Update-B2BITransformer/OutputConversion_AdvancedOptions_X12_SplitOptions_SplitBy") -Or
+            ($_ -eq "Test-B2BIConversion/SplitOptions_SplitBy") -Or
+            ($_ -eq "Test-B2BIParsing/SplitOptions_SplitBy")
         }
         {
             $v = "NONE","TRANSACTION"
@@ -6095,17 +6098,19 @@ $B2BI_map = @{
     "Common_Gs05TimeFormat"=@("New-B2BIPartnership","Update-B2BIPartnership")
     "Edi_CapabilityDirection"=@("New-B2BICapability","Update-B2BICapability")
     "FileFormat"=@("New-B2BITransformer","Test-B2BIMapping","Test-B2BIParsing","Update-B2BITransformer")
+    "InputConversion_AdvancedOptions_X12_SplitOptions_SplitBy"=@("New-B2BITransformer","Update-B2BITransformer")
     "InputConversion_FormatOptions_X12_TransactionSet"=@("New-B2BITransformer","Update-B2BITransformer")
     "InputConversion_FormatOptions_X12_Version"=@("New-B2BITransformer","Update-B2BITransformer")
     "InputConversion_FromFormat"=@("New-B2BITransformer","Update-B2BITransformer")
     "Logging"=@("New-B2BIProfile")
     "Mapping_TemplateLanguage"=@("New-B2BITransformer","Update-B2BITransformer")
     "MappingType"=@("Get-B2BIGeneratedMapping","New-B2BIStarterMappingTemplate")
+    "OutputConversion_AdvancedOptions_X12_SplitOptions_SplitBy"=@("New-B2BITransformer","Update-B2BITransformer")
     "OutputConversion_FormatOptions_X12_TransactionSet"=@("New-B2BITransformer","Update-B2BITransformer")
     "OutputConversion_FormatOptions_X12_Version"=@("New-B2BITransformer","Update-B2BITransformer")
     "OutputConversion_ToFormat"=@("New-B2BITransformer","Update-B2BITransformer")
     "Source_FileFormat"=@("Test-B2BIConversion")
-    "SplitOptions_SplitBy"=@("New-B2BITransformer","Test-B2BIParsing","Update-B2BITransformer")
+    "SplitOptions_SplitBy"=@("Test-B2BIConversion","Test-B2BIParsing")
     "Status"=@("Update-B2BITransformer")
     "Target_FileFormat"=@("Test-B2BIConversion")
     "Type"=@("New-B2BICapability")
@@ -22066,6 +22071,16 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.GovernedEntityType
+        {
+            ($_ -eq "Add-DZGovernedTerm/EntityType") -Or
+            ($_ -eq "Remove-DZGovernedTerm/EntityType")
+        }
+        {
+            $v = "ASSET"
+            break
+        }
+
         # Amazon.DataZone.GroupProfileStatus
         "Update-DZGroupProfile/Status"
         {
@@ -22409,7 +22424,7 @@ $DZ_map = @{
     "DomainUnit_DomainUnitDesignation"=@("Add-DZPolicyGrant","Remove-DZPolicyGrant")
     "DomainVersion"=@("New-DZDomain")
     "EnableSetting"=@("New-DZDataSource","Update-DZDataSource")
-    "EntityType"=@("Add-DZEntityOwner","Add-DZPolicyGrant","Get-DZEntityOwnerList","Get-DZPolicyGrantList","Get-DZTimeSeriesDataPoint","Get-DZTimeSeriesDataPointList","New-DZListingChangeSet","New-DZTimeSeriesDataPoint","Remove-DZEntityOwner","Remove-DZPolicyGrant","Remove-DZTimeSeriesDataPoint")
+    "EntityType"=@("Add-DZEntityOwner","Add-DZGovernedTerm","Add-DZPolicyGrant","Get-DZEntityOwnerList","Get-DZPolicyGrantList","Get-DZTimeSeriesDataPoint","Get-DZTimeSeriesDataPointList","New-DZListingChangeSet","New-DZTimeSeriesDataPoint","Remove-DZEntityOwner","Remove-DZGovernedTerm","Remove-DZPolicyGrant","Remove-DZTimeSeriesDataPoint")
     "EnvironmentDeploymentDetails_OverallDeploymentStatus"=@("Update-DZProject")
     "GlueConnectionInput_ConnectionType"=@("New-DZConnection")
     "GroupType"=@("Search-DZGroupProfile")
@@ -22490,6 +22505,7 @@ $DZ_SelectMap = @{
                "Add-DZEntityOwner",
                "Add-DZPolicyGrant",
                "Set-DZEnvironmentRole",
+               "Add-DZGovernedTerm",
                "Stop-DZMetadataGenerationRun",
                "Stop-DZSubscription",
                "New-DZAccountPool",
@@ -22545,6 +22561,7 @@ $DZ_SelectMap = @{
                "Remove-DZSubscriptionTarget",
                "Remove-DZTimeSeriesDataPoint",
                "Reset-DZEnvironmentRole",
+               "Remove-DZGovernedTerm",
                "Get-DZAccountPool",
                "Get-DZAsset",
                "Get-DZAssetFilter",
@@ -26800,6 +26817,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.EndpointIpAddressType
+        "New-EC2ClientVpnEndpoint/EndpointIpAddressType"
+        {
+            $v = "dual-stack","ipv4","ipv6"
+            break
+        }
+
         # Amazon.EC2.EventType
         "Get-EC2SpotFleetRequestHistory/EventType"
         {
@@ -27588,6 +27612,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.TrafficIpAddressType
+        "New-EC2ClientVpnEndpoint/TrafficIpAddressType"
+        {
+            $v = "dual-stack","ipv4","ipv6"
+            break
+        }
+
         # Amazon.EC2.TrafficMirrorRuleAction
         {
             ($_ -eq "Edit-EC2TrafficMirrorFilterRule/RuleAction") -Or
@@ -27761,6 +27792,7 @@ $EC2_map = @{
     "DnsOptions_DnsRecordIpType"=@("Edit-EC2VpcEndpoint","New-EC2VpcEndpoint")
     "Domain"=@("New-EC2Address")
     "EndDateType"=@("Add-EC2CapacityReservation","Edit-EC2CapacityReservation")
+    "EndpointIpAddressType"=@("New-EC2ClientVpnEndpoint")
     "EndpointType"=@("New-EC2VerifiedAccessEndpoint")
     "EventType"=@("Get-EC2FleetHistory","Get-EC2SpotFleetRequestHistory")
     "ExcessCapacityTerminationPolicy"=@("Edit-EC2Fleet","Edit-EC2SpotFleetRequest","New-EC2Fleet")
@@ -27877,6 +27909,7 @@ $EC2_map = @{
     "Tier"=@("Edit-EC2Ipam","New-EC2Ipam")
     "TpmSupport"=@("Register-EC2Image")
     "TrafficDirection"=@("Edit-EC2TrafficMirrorFilterRule","New-EC2TrafficMirrorFilterRule")
+    "TrafficIpAddressType"=@("New-EC2ClientVpnEndpoint")
     "TrafficType"=@("New-EC2FlowLog")
     "TransportProtocol"=@("New-EC2ClientVpnEndpoint")
     "TrustProviderType"=@("New-EC2VerifiedAccessTrustProvider")
@@ -50295,6 +50328,7 @@ $EMC_SelectMap = @{
                "New-EMCJobTemplate",
                "New-EMCPreset",
                "New-EMCQueue",
+               "New-EMCResourceShare",
                "Remove-EMCJobTemplate",
                "Remove-EMCPolicy",
                "Remove-EMCPreset",
@@ -61841,7 +61875,7 @@ $QBUS_Completers = {
         # Amazon.QBusiness.OutputFormat
         "Get-QBUSDocumentContent/OutputFormat"
         {
-            $v = "RAW"
+            $v = "EXTRACTED","RAW"
             break
         }
 

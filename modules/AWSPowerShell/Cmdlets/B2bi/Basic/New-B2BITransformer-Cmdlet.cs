@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         public System.String Name { get; set; }
         #endregion
         
-        #region Parameter SplitOptions_SplitBy
+        #region Parameter InputConversion_AdvancedOptions_X12_SplitOptions_SplitBy
         /// <summary>
         /// <para>
         /// <para>Specifies the method used to split X12 EDI files. Valid values include <c>TRANSACTION</c>
@@ -117,9 +117,21 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("InputConversion_AdvancedOptions_X12_SplitOptions_SplitBy")]
+        [Alias("SplitOptions_SplitBy")]
         [AWSConstantClassSource("Amazon.B2bi.X12SplitBy")]
-        public Amazon.B2bi.X12SplitBy SplitOptions_SplitBy { get; set; }
+        public Amazon.B2bi.X12SplitBy InputConversion_AdvancedOptions_X12_SplitOptions_SplitBy { get; set; }
+        #endregion
+        
+        #region Parameter OutputConversion_AdvancedOptions_X12_SplitOptions_SplitBy
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the method used to split X12 EDI files. Valid values include <c>TRANSACTION</c>
+        /// (split by individual transaction sets), or <c>NONE</c> (no splitting).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.B2bi.X12SplitBy")]
+        public Amazon.B2bi.X12SplitBy OutputConversion_AdvancedOptions_X12_SplitOptions_SplitBy { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -203,6 +215,30 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.B2bi.X12TransactionSet")]
         public Amazon.B2bi.X12TransactionSet OutputConversion_FormatOptions_X12_TransactionSet { get; set; }
+        #endregion
+        
+        #region Parameter InputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a list of validation rules to apply during EDI document processing. These
+        /// rules can include code list modifications, element length constraints, and element
+        /// requirement changes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.B2bi.Model.X12ValidationRule[] InputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules { get; set; }
+        #endregion
+        
+        #region Parameter OutputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a list of validation rules to apply during EDI document processing. These
+        /// rules can include code list modifications, element length constraints, and element
+        /// requirement changes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.B2bi.Model.X12ValidationRule[] OutputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules { get; set; }
         #endregion
         
         #region Parameter X12Details_Version
@@ -338,7 +374,11 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.FileFormat = this.FileFormat;
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.SplitOptions_SplitBy = this.SplitOptions_SplitBy;
+            context.InputConversion_AdvancedOptions_X12_SplitOptions_SplitBy = this.InputConversion_AdvancedOptions_X12_SplitOptions_SplitBy;
+            if (this.InputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules != null)
+            {
+                context.InputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules = new List<Amazon.B2bi.Model.X12ValidationRule>(this.InputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules);
+            }
             context.InputConversion_FormatOptions_X12_TransactionSet = this.InputConversion_FormatOptions_X12_TransactionSet;
             context.InputConversion_FormatOptions_X12_Version = this.InputConversion_FormatOptions_X12_Version;
             context.InputConversion_FromFormat = this.InputConversion_FromFormat;
@@ -354,6 +394,11 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OutputConversion_AdvancedOptions_X12_SplitOptions_SplitBy = this.OutputConversion_AdvancedOptions_X12_SplitOptions_SplitBy;
+            if (this.OutputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules != null)
+            {
+                context.OutputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules = new List<Amazon.B2bi.Model.X12ValidationRule>(this.OutputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules);
+            }
             context.OutputConversion_FormatOptions_X12_TransactionSet = this.OutputConversion_FormatOptions_X12_TransactionSet;
             context.OutputConversion_FormatOptions_X12_Version = this.OutputConversion_FormatOptions_X12_Version;
             context.OutputConversion_ToFormat = this.OutputConversion_ToFormat;
@@ -468,14 +513,14 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
              // populate SplitOptions
             var requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_SplitOptionsIsNull = true;
             requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_SplitOptions = new Amazon.B2bi.Model.X12SplitOptions();
-            Amazon.B2bi.X12SplitBy requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_SplitOptions_splitOptions_SplitBy = null;
-            if (cmdletContext.SplitOptions_SplitBy != null)
+            Amazon.B2bi.X12SplitBy requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_SplitOptions_inputConversion_AdvancedOptions_X12_SplitOptions_SplitBy = null;
+            if (cmdletContext.InputConversion_AdvancedOptions_X12_SplitOptions_SplitBy != null)
             {
-                requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_SplitOptions_splitOptions_SplitBy = cmdletContext.SplitOptions_SplitBy;
+                requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_SplitOptions_inputConversion_AdvancedOptions_X12_SplitOptions_SplitBy = cmdletContext.InputConversion_AdvancedOptions_X12_SplitOptions_SplitBy;
             }
-            if (requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_SplitOptions_splitOptions_SplitBy != null)
+            if (requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_SplitOptions_inputConversion_AdvancedOptions_X12_SplitOptions_SplitBy != null)
             {
-                requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_SplitOptions.SplitBy = requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_SplitOptions_splitOptions_SplitBy;
+                requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_SplitOptions.SplitBy = requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_SplitOptions_inputConversion_AdvancedOptions_X12_SplitOptions_SplitBy;
                 requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_SplitOptionsIsNull = false;
             }
              // determine if requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_SplitOptions should be set to null
@@ -486,6 +531,31 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             if (requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_SplitOptions != null)
             {
                 requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12.SplitOptions = requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_SplitOptions;
+                requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12IsNull = false;
+            }
+            Amazon.B2bi.Model.X12ValidationOptions requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_ValidationOptions = null;
+            
+             // populate ValidationOptions
+            var requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_ValidationOptionsIsNull = true;
+            requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_ValidationOptions = new Amazon.B2bi.Model.X12ValidationOptions();
+            List<Amazon.B2bi.Model.X12ValidationRule> requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_ValidationOptions_inputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules = null;
+            if (cmdletContext.InputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules != null)
+            {
+                requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_ValidationOptions_inputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules = cmdletContext.InputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules;
+            }
+            if (requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_ValidationOptions_inputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules != null)
+            {
+                requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_ValidationOptions.ValidationRules = requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_ValidationOptions_inputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules;
+                requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_ValidationOptionsIsNull = false;
+            }
+             // determine if requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_ValidationOptions should be set to null
+            if (requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_ValidationOptionsIsNull)
+            {
+                requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_ValidationOptions = null;
+            }
+            if (requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_ValidationOptions != null)
+            {
+                requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12.ValidationOptions = requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12_inputConversion_AdvancedOptions_X12_ValidationOptions;
                 requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12IsNull = false;
             }
              // determine if requestInputConversion_inputConversion_AdvancedOptions_inputConversion_AdvancedOptions_X12 should be set to null
@@ -614,6 +684,86 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             if (requestOutputConversion_outputConversion_ToFormat != null)
             {
                 request.OutputConversion.ToFormat = requestOutputConversion_outputConversion_ToFormat;
+                requestOutputConversionIsNull = false;
+            }
+            Amazon.B2bi.Model.AdvancedOptions requestOutputConversion_outputConversion_AdvancedOptions = null;
+            
+             // populate AdvancedOptions
+            var requestOutputConversion_outputConversion_AdvancedOptionsIsNull = true;
+            requestOutputConversion_outputConversion_AdvancedOptions = new Amazon.B2bi.Model.AdvancedOptions();
+            Amazon.B2bi.Model.X12AdvancedOptions requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12 = null;
+            
+             // populate X12
+            var requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12IsNull = true;
+            requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12 = new Amazon.B2bi.Model.X12AdvancedOptions();
+            Amazon.B2bi.Model.X12SplitOptions requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_SplitOptions = null;
+            
+             // populate SplitOptions
+            var requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_SplitOptionsIsNull = true;
+            requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_SplitOptions = new Amazon.B2bi.Model.X12SplitOptions();
+            Amazon.B2bi.X12SplitBy requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_SplitOptions_outputConversion_AdvancedOptions_X12_SplitOptions_SplitBy = null;
+            if (cmdletContext.OutputConversion_AdvancedOptions_X12_SplitOptions_SplitBy != null)
+            {
+                requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_SplitOptions_outputConversion_AdvancedOptions_X12_SplitOptions_SplitBy = cmdletContext.OutputConversion_AdvancedOptions_X12_SplitOptions_SplitBy;
+            }
+            if (requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_SplitOptions_outputConversion_AdvancedOptions_X12_SplitOptions_SplitBy != null)
+            {
+                requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_SplitOptions.SplitBy = requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_SplitOptions_outputConversion_AdvancedOptions_X12_SplitOptions_SplitBy;
+                requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_SplitOptionsIsNull = false;
+            }
+             // determine if requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_SplitOptions should be set to null
+            if (requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_SplitOptionsIsNull)
+            {
+                requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_SplitOptions = null;
+            }
+            if (requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_SplitOptions != null)
+            {
+                requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12.SplitOptions = requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_SplitOptions;
+                requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12IsNull = false;
+            }
+            Amazon.B2bi.Model.X12ValidationOptions requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_ValidationOptions = null;
+            
+             // populate ValidationOptions
+            var requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_ValidationOptionsIsNull = true;
+            requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_ValidationOptions = new Amazon.B2bi.Model.X12ValidationOptions();
+            List<Amazon.B2bi.Model.X12ValidationRule> requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_ValidationOptions_outputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules = null;
+            if (cmdletContext.OutputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules != null)
+            {
+                requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_ValidationOptions_outputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules = cmdletContext.OutputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules;
+            }
+            if (requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_ValidationOptions_outputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules != null)
+            {
+                requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_ValidationOptions.ValidationRules = requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_ValidationOptions_outputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules;
+                requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_ValidationOptionsIsNull = false;
+            }
+             // determine if requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_ValidationOptions should be set to null
+            if (requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_ValidationOptionsIsNull)
+            {
+                requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_ValidationOptions = null;
+            }
+            if (requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_ValidationOptions != null)
+            {
+                requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12.ValidationOptions = requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12_outputConversion_AdvancedOptions_X12_ValidationOptions;
+                requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12IsNull = false;
+            }
+             // determine if requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12 should be set to null
+            if (requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12IsNull)
+            {
+                requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12 = null;
+            }
+            if (requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12 != null)
+            {
+                requestOutputConversion_outputConversion_AdvancedOptions.X12 = requestOutputConversion_outputConversion_AdvancedOptions_outputConversion_AdvancedOptions_X12;
+                requestOutputConversion_outputConversion_AdvancedOptionsIsNull = false;
+            }
+             // determine if requestOutputConversion_outputConversion_AdvancedOptions should be set to null
+            if (requestOutputConversion_outputConversion_AdvancedOptionsIsNull)
+            {
+                requestOutputConversion_outputConversion_AdvancedOptions = null;
+            }
+            if (requestOutputConversion_outputConversion_AdvancedOptions != null)
+            {
+                request.OutputConversion.AdvancedOptions = requestOutputConversion_outputConversion_AdvancedOptions;
                 requestOutputConversionIsNull = false;
             }
             Amazon.B2bi.Model.FormatOptions requestOutputConversion_outputConversion_FormatOptions = null;
@@ -776,7 +926,8 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             public Amazon.B2bi.X12Version X12Details_Version { get; set; }
             [System.ObsoleteAttribute]
             public Amazon.B2bi.FileFormat FileFormat { get; set; }
-            public Amazon.B2bi.X12SplitBy SplitOptions_SplitBy { get; set; }
+            public Amazon.B2bi.X12SplitBy InputConversion_AdvancedOptions_X12_SplitOptions_SplitBy { get; set; }
+            public List<Amazon.B2bi.Model.X12ValidationRule> InputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules { get; set; }
             public Amazon.B2bi.X12TransactionSet InputConversion_FormatOptions_X12_TransactionSet { get; set; }
             public Amazon.B2bi.X12Version InputConversion_FormatOptions_X12_Version { get; set; }
             public Amazon.B2bi.FromFormat InputConversion_FromFormat { get; set; }
@@ -785,6 +936,8 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             [System.ObsoleteAttribute]
             public System.String MappingTemplate { get; set; }
             public System.String Name { get; set; }
+            public Amazon.B2bi.X12SplitBy OutputConversion_AdvancedOptions_X12_SplitOptions_SplitBy { get; set; }
+            public List<Amazon.B2bi.Model.X12ValidationRule> OutputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules { get; set; }
             public Amazon.B2bi.X12TransactionSet OutputConversion_FormatOptions_X12_TransactionSet { get; set; }
             public Amazon.B2bi.X12Version OutputConversion_FormatOptions_X12_Version { get; set; }
             public Amazon.B2bi.ToFormat OutputConversion_ToFormat { get; set; }

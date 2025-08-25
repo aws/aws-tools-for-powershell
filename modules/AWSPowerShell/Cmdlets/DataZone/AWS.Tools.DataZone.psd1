@@ -89,6 +89,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-DZEntityOwner', 
+        'Add-DZGovernedTerm', 
         'Add-DZPolicyGrant', 
         'Add-DZResourceTag', 
         'Approve-DZPrediction', 
@@ -208,6 +209,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-DZFormType', 
         'Remove-DZGlossary', 
         'Remove-DZGlossaryTerm', 
+        'Remove-DZGovernedTerm', 
         'Remove-DZListing', 
         'Remove-DZPolicyGrant', 
         'Remove-DZProject', 

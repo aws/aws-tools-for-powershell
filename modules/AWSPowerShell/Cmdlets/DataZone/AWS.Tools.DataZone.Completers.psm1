@@ -246,6 +246,16 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.GovernedEntityType
+        {
+            ($_ -eq "Add-DZGovernedTerm/EntityType") -Or
+            ($_ -eq "Remove-DZGovernedTerm/EntityType")
+        }
+        {
+            $v = "ASSET"
+            break
+        }
+
         # Amazon.DataZone.GroupProfileStatus
         "Update-DZGroupProfile/Status"
         {
@@ -589,7 +599,7 @@ $DZ_map = @{
     "DomainUnit_DomainUnitDesignation"=@("Add-DZPolicyGrant","Remove-DZPolicyGrant")
     "DomainVersion"=@("New-DZDomain")
     "EnableSetting"=@("New-DZDataSource","Update-DZDataSource")
-    "EntityType"=@("Add-DZEntityOwner","Add-DZPolicyGrant","Get-DZEntityOwnerList","Get-DZPolicyGrantList","Get-DZTimeSeriesDataPoint","Get-DZTimeSeriesDataPointList","New-DZListingChangeSet","New-DZTimeSeriesDataPoint","Remove-DZEntityOwner","Remove-DZPolicyGrant","Remove-DZTimeSeriesDataPoint")
+    "EntityType"=@("Add-DZEntityOwner","Add-DZGovernedTerm","Add-DZPolicyGrant","Get-DZEntityOwnerList","Get-DZPolicyGrantList","Get-DZTimeSeriesDataPoint","Get-DZTimeSeriesDataPointList","New-DZListingChangeSet","New-DZTimeSeriesDataPoint","Remove-DZEntityOwner","Remove-DZGovernedTerm","Remove-DZPolicyGrant","Remove-DZTimeSeriesDataPoint")
     "EnvironmentDeploymentDetails_OverallDeploymentStatus"=@("Update-DZProject")
     "GlueConnectionInput_ConnectionType"=@("New-DZConnection")
     "GroupType"=@("Search-DZGroupProfile")
@@ -670,6 +680,7 @@ $DZ_SelectMap = @{
                "Add-DZEntityOwner",
                "Add-DZPolicyGrant",
                "Set-DZEnvironmentRole",
+               "Add-DZGovernedTerm",
                "Stop-DZMetadataGenerationRun",
                "Stop-DZSubscription",
                "New-DZAccountPool",
@@ -725,6 +736,7 @@ $DZ_SelectMap = @{
                "Remove-DZSubscriptionTarget",
                "Remove-DZTimeSeriesDataPoint",
                "Reset-DZEnvironmentRole",
+               "Remove-DZGovernedTerm",
                "Get-DZAccountPool",
                "Get-DZAsset",
                "Get-DZAssetFilter",

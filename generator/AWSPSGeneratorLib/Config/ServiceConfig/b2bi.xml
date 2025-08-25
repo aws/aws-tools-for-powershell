@@ -40,6 +40,10 @@
                 <Param Name="InputConversion_FormatOptions_X12_Version" NewName="InputConversion_FormatOptions_X12_Version" />
                 <Param Name="OutputConversion_FormatOptions_X12_TransactionSet" NewName="OutputConversion_FormatOptions_X12_TransactionSet" />
                 <Param Name="OutputConversion_FormatOptions_X12_Version" NewName="OutputConversion_FormatOptions_X12_Version" />
+                <Param Name="InputConversion_AdvancedOptions_X12_SplitOptions_SplitBy" NewName="InputConversion_AdvancedOptions_X12_SplitOptions_SplitBy" Alias="SplitOptions_SplitBy" />
+                <Param Name="InputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules" NewName="InputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules" />
+                <Param Name="OutputConversion_AdvancedOptions_X12_SplitOptions_SplitBy" NewName="OutputConversion_AdvancedOptions_X12_SplitOptions_SplitBy" />
+                <Param Name="OutputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules" NewName="OutputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -145,6 +149,10 @@
                 <Param Name="InputConversion_FormatOptions_X12_Version" NewName="InputConversion_FormatOptions_X12_Version" />
                 <Param Name="OutputConversion_FormatOptions_X12_TransactionSet" NewName="OutputConversion_FormatOptions_X12_TransactionSet" />
                 <Param Name="OutputConversion_FormatOptions_X12_Version" NewName="OutputConversion_FormatOptions_X12_Version" />
+                <Param Name="InputConversion_AdvancedOptions_X12_SplitOptions_SplitBy" NewName="InputConversion_AdvancedOptions_X12_SplitOptions_SplitBy" Alias="SplitOptions_SplitBy" />
+                <Param Name="InputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules" NewName="InputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules" />
+                <Param Name="OutputConversion_AdvancedOptions_X12_SplitOptions_SplitBy" NewName="OutputConversion_AdvancedOptions_X12_SplitOptions_SplitBy" />
+                <Param Name="OutputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules" NewName="OutputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
