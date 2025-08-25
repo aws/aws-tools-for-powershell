@@ -90,7 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter Document
         /// <summary>
         /// <para>
-        /// <para>One or more documents to add to the index.</para><para />
+        /// <para>One or more documents to add to the index.</para><important><para>Ensure that the name of your document doesn't contain any confidential information.
+        /// Amazon Q Business returns document names in chat responses and citations when relevant.</para></important><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

@@ -39,6 +39,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateGovernedTerms" Verb="Add" Noun="GovernedTerm" ShouldProcessTarget="EntityIdentifier" PipelineParameter="EntityIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelMetadataGenerationRun" Verb="Stop" Noun="MetadataGenerationRun" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -264,6 +268,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateEnvironmentRole" Verb="Reset" Noun="EnvironmentRole" ShouldProcessTarget="EnvironmentIdentifier" PipelineParameter="EnvironmentIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateGovernedTerms" Verb="Remove" Noun="GovernedTerm" ShouldProcessTarget="EntityIdentifier" PipelineParameter="EntityIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

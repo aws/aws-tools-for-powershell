@@ -392,6 +392,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.EndpointIpAddressType
+        "New-EC2ClientVpnEndpoint/EndpointIpAddressType"
+        {
+            $v = "dual-stack","ipv4","ipv6"
+            break
+        }
+
         # Amazon.EC2.EventType
         "Get-EC2SpotFleetRequestHistory/EventType"
         {
@@ -1180,6 +1187,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.TrafficIpAddressType
+        "New-EC2ClientVpnEndpoint/TrafficIpAddressType"
+        {
+            $v = "dual-stack","ipv4","ipv6"
+            break
+        }
+
         # Amazon.EC2.TrafficMirrorRuleAction
         {
             ($_ -eq "Edit-EC2TrafficMirrorFilterRule/RuleAction") -Or
@@ -1353,6 +1367,7 @@ $EC2_map = @{
     "DnsOptions_DnsRecordIpType"=@("Edit-EC2VpcEndpoint","New-EC2VpcEndpoint")
     "Domain"=@("New-EC2Address")
     "EndDateType"=@("Add-EC2CapacityReservation","Edit-EC2CapacityReservation")
+    "EndpointIpAddressType"=@("New-EC2ClientVpnEndpoint")
     "EndpointType"=@("New-EC2VerifiedAccessEndpoint")
     "EventType"=@("Get-EC2FleetHistory","Get-EC2SpotFleetRequestHistory")
     "ExcessCapacityTerminationPolicy"=@("Edit-EC2Fleet","Edit-EC2SpotFleetRequest","New-EC2Fleet")
@@ -1469,6 +1484,7 @@ $EC2_map = @{
     "Tier"=@("Edit-EC2Ipam","New-EC2Ipam")
     "TpmSupport"=@("Register-EC2Image")
     "TrafficDirection"=@("Edit-EC2TrafficMirrorFilterRule","New-EC2TrafficMirrorFilterRule")
+    "TrafficIpAddressType"=@("New-EC2ClientVpnEndpoint")
     "TrafficType"=@("New-EC2FlowLog")
     "TransportProtocol"=@("New-EC2ClientVpnEndpoint")
     "TrustProviderType"=@("New-EC2VerifiedAccessTrustProvider")

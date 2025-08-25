@@ -91,7 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter MessageBody
         /// <summary>
         /// <para>
-        /// <para>The message to send. The minimum size is one character. The maximum size is 256 KiB.</para><important><para>A message can include only XML, JSON, and unformatted text. The following Unicode
+        /// <para>The message to send. The minimum size is one character. The maximum size is 1 MiB
+        /// or 1,048,576 bytes</para><important><para>A message can include only XML, JSON, and unformatted text. The following Unicode
         /// characters are allowed. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C
         /// specification for characters</a>.</para><para><c>#x9</c> | <c>#xA</c> | <c>#xD</c> | <c>#x20</c> to <c>#xD7FF</c> | <c>#xE000</c>
         /// to <c>#xFFFD</c> | <c>#x10000</c> to <c>#x10FFFF</c></para><para>Amazon SQS does not throw an exception or completely reject the message if it contains

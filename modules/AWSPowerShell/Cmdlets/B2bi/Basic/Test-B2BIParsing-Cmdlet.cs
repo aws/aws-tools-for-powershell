@@ -110,6 +110,23 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         public Amazon.B2bi.X12TransactionSet X12Details_TransactionSet { get; set; }
         #endregion
         
+        #region Parameter ValidationOptions_ValidationRule
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a list of validation rules to apply during EDI document processing. These
+        /// rules can include code list modifications, element length constraints, and element
+        /// requirement changes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdvancedOptions_X12_ValidationOptions_ValidationRules")]
+        public Amazon.B2bi.Model.X12ValidationRule[] ValidationOptions_ValidationRule { get; set; }
+        #endregion
+        
         #region Parameter X12Details_Version
         /// <summary>
         /// <para>
@@ -153,6 +170,10 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.SplitOptions_SplitBy = this.SplitOptions_SplitBy;
+            if (this.ValidationOptions_ValidationRule != null)
+            {
+                context.ValidationOptions_ValidationRule = new List<Amazon.B2bi.Model.X12ValidationRule>(this.ValidationOptions_ValidationRule);
+            }
             context.X12Details_TransactionSet = this.X12Details_TransactionSet;
             context.X12Details_Version = this.X12Details_Version;
             context.FileFormat = this.FileFormat;
@@ -212,6 +233,31 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             if (requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_SplitOptions != null)
             {
                 requestAdvancedOptions_advancedOptions_X12.SplitOptions = requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_SplitOptions;
+                requestAdvancedOptions_advancedOptions_X12IsNull = false;
+            }
+            Amazon.B2bi.Model.X12ValidationOptions requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_ValidationOptions = null;
+            
+             // populate ValidationOptions
+            var requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_ValidationOptionsIsNull = true;
+            requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_ValidationOptions = new Amazon.B2bi.Model.X12ValidationOptions();
+            List<Amazon.B2bi.Model.X12ValidationRule> requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_ValidationOptions_validationOptions_ValidationRule = null;
+            if (cmdletContext.ValidationOptions_ValidationRule != null)
+            {
+                requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_ValidationOptions_validationOptions_ValidationRule = cmdletContext.ValidationOptions_ValidationRule;
+            }
+            if (requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_ValidationOptions_validationOptions_ValidationRule != null)
+            {
+                requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_ValidationOptions.ValidationRules = requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_ValidationOptions_validationOptions_ValidationRule;
+                requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_ValidationOptionsIsNull = false;
+            }
+             // determine if requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_ValidationOptions should be set to null
+            if (requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_ValidationOptionsIsNull)
+            {
+                requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_ValidationOptions = null;
+            }
+            if (requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_ValidationOptions != null)
+            {
+                requestAdvancedOptions_advancedOptions_X12.ValidationOptions = requestAdvancedOptions_advancedOptions_X12_advancedOptions_X12_ValidationOptions;
                 requestAdvancedOptions_advancedOptions_X12IsNull = false;
             }
              // determine if requestAdvancedOptions_advancedOptions_X12 should be set to null
@@ -347,6 +393,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.B2bi.X12SplitBy SplitOptions_SplitBy { get; set; }
+            public List<Amazon.B2bi.Model.X12ValidationRule> ValidationOptions_ValidationRule { get; set; }
             public Amazon.B2bi.X12TransactionSet X12Details_TransactionSet { get; set; }
             public Amazon.B2bi.X12Version X12Details_Version { get; set; }
             public Amazon.B2bi.FileFormat FileFormat { get; set; }

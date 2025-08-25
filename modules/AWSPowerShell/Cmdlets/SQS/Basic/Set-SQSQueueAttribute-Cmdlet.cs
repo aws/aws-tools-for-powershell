@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// that the <c>SetQueueAttributes</c> action uses:</para><ul><li><para><c>DelaySeconds</c> – The length of time, in seconds, for which the delivery of all
         /// messages in the queue is delayed. Valid values: An integer from 0 to 900 (15 minutes).
         /// Default: 0. </para></li><li><para><c>MaximumMessageSize</c> – The limit of how many bytes a message can contain before
-        /// Amazon SQS rejects it. Valid values: An integer from 1,024 bytes (1 KiB) up to 262,144
-        /// bytes (256 KiB). Default: 262,144 (256 KiB). </para></li><li><para><c>MessageRetentionPeriod</c> – The length of time, in seconds, for which Amazon
+        /// Amazon SQS rejects it. Valid values: An integer from 1,024 bytes (1 KiB) up to 1,048,576
+        /// bytes (1 MiB). Default: 1,048,576 bytes (1 MiB). </para></li><li><para><c>MessageRetentionPeriod</c> – The length of time, in seconds, for which Amazon
         /// SQS retains a message. Valid values: An integer representing seconds, from 60 (1 minute)
         /// to 1,209,600 (14 days). Default: 345,600 (4 days). When you change a queue's attributes,
         /// the change can take up to 60 seconds for most of the attributes to propagate throughout

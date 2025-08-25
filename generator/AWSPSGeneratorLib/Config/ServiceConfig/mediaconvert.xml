@@ -43,6 +43,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateResourceShare" Verb="New" Noun="ResourceShare" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteJobTemplate" Verb="Remove" Noun="JobTemplate" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -59,7 +63,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="Endpoint" PipelineParameter="Mode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="Endpoint" PipelineParameter="Mode" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -89,21 +93,21 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobs" OutputProperty="Jobs" Verb="Get" Noun="JobList" PipelineParameter="Queue" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListJobs" OutputProperty="Jobs" Verb="Get" Noun="JobList" PipelineParameter="Queue" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params>
                 <Param Name="Queue" Alias="Name" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobTemplates" OutputProperty="JobTemplates" Verb="Get" Noun="JobTemplateList" PipelineParameter="Category" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListJobTemplates" OutputProperty="JobTemplates" Verb="Get" Noun="JobTemplateList" PipelineParameter="Category" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPresets" OutputProperty="Presets" Verb="Get" Noun="PresetList" PipelineParameter="Category" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPresets" OutputProperty="Presets" Verb="Get" Noun="PresetList" PipelineParameter="Category" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQueues" OutputProperty="Queues" Verb="Get" Noun="QueueList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListQueues" OutputProperty="Queues" Verb="Get" Noun="QueueList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

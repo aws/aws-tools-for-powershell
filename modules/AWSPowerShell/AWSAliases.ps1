@@ -8056,6 +8056,9 @@ Set-Alias -Name DZ-AddEntityOwner -Value Add-DZEntityOwner
 Set-Alias -Name DZ-AddPolicyGrant -Value Add-DZPolicyGrant
 Set-Alias -Name Associate-DZEnvironmentRole -Value Set-DZEnvironmentRole
 Set-Alias -Name DZ-AssociateEnvironmentRole -Value Set-DZEnvironmentRole
+Set-Alias -Name Associate-DZGovernedTerms -Value Add-DZGovernedTerm
+Set-Alias -Name Associate-DZGovernedTerm -Value Add-DZGovernedTerm
+Set-Alias -Name DZ-AssociateGovernedTerms -Value Add-DZGovernedTerm
 Set-Alias -Name Cancel-DZMetadataGenerationRun -Value Stop-DZMetadataGenerationRun
 Set-Alias -Name DZ-CancelMetadataGenerationRun -Value Stop-DZMetadataGenerationRun
 Set-Alias -Name Cancel-DZSubscription -Value Stop-DZSubscription
@@ -8167,6 +8170,9 @@ Set-Alias -Name Delete-DZTimeSeriesDataPoint -Value Remove-DZTimeSeriesDataPoint
 Set-Alias -Name DZ-DeleteTimeSeriesDataPoints -Value Remove-DZTimeSeriesDataPoint
 Set-Alias -Name Disassociate-DZEnvironmentRole -Value Reset-DZEnvironmentRole
 Set-Alias -Name DZ-DisassociateEnvironmentRole -Value Reset-DZEnvironmentRole
+Set-Alias -Name Disassociate-DZGovernedTerms -Value Remove-DZGovernedTerm
+Set-Alias -Name Disassociate-DZGovernedTerm -Value Remove-DZGovernedTerm
+Set-Alias -Name DZ-DisassociateGovernedTerms -Value Remove-DZGovernedTerm
 Set-Alias -Name DZ-GetAccountPool -Value Get-DZAccountPool
 Set-Alias -Name DZ-GetAsset -Value Get-DZAsset
 Set-Alias -Name DZ-GetAssetFilter -Value Get-DZAssetFilter
@@ -20229,6 +20235,8 @@ Set-Alias -Name Create-EMCPreset -Value New-EMCPreset
 Set-Alias -Name EMC-CreatePreset -Value New-EMCPreset
 Set-Alias -Name Create-EMCQueue -Value New-EMCQueue
 Set-Alias -Name EMC-CreateQueue -Value New-EMCQueue
+Set-Alias -Name Create-EMCResourceShare -Value New-EMCResourceShare
+Set-Alias -Name EMC-CreateResourceShare -Value New-EMCResourceShare
 Set-Alias -Name Delete-EMCJobTemplate -Value Remove-EMCJobTemplate
 Set-Alias -Name EMC-DeleteJobTemplate -Value Remove-EMCJobTemplate
 Set-Alias -Name Delete-EMCPolicy -Value Remove-EMCPolicy

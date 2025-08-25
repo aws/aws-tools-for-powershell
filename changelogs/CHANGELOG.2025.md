@@ -1,4 +1,20 @@
-﻿### 5.0.39 (2025-08-22 20:54Z)
+﻿### 5.0.40 (2025-08-25 23:21Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.77.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon B2B Data Interchange
+    * Modified cmdlet New-B2BITransformer: added parameters InputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules, OutputConversion_AdvancedOptions_X12_SplitOptions_SplitBy and OutputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules.
+    * Modified cmdlet Test-B2BIConversion: added parameters SplitOptions_SplitBy and ValidationOptions_ValidationRule.
+    * Modified cmdlet Test-B2BIParsing: added parameter ValidationOptions_ValidationRule.
+    * Modified cmdlet Update-B2BITransformer: added parameters InputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules, OutputConversion_AdvancedOptions_X12_SplitOptions_SplitBy and OutputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules.
+  * Amazon DataZone
+    * Added cmdlet Add-DZGovernedTerm leveraging the AssociateGovernedTerms service API.
+    * Added cmdlet Remove-DZGovernedTerm leveraging the DisassociateGovernedTerms service API.
+    * Modified cmdlet New-DZGlossary: added parameter UsageRestriction.
+  * Amazon Elastic Compute Cloud
+    * Modified cmdlet New-EC2ClientVpnEndpoint: added parameters EndpointIpAddressType and TrafficIpAddressType.
+  * Amazon Elemental MediaConvert
+    * Added cmdlet New-EMCResourceShare leveraging the CreateResourceShare service API.
+
+### 5.0.39 (2025-08-22 20:54Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.76.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Synthetics
     * Modified cmdlet Get-CWSYNCanariesLastRun: added parameter BrowserType.

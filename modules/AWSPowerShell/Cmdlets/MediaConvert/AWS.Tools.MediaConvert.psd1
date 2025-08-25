@@ -105,6 +105,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-EMCJobTemplate', 
         'New-EMCPreset', 
         'New-EMCQueue', 
+        'New-EMCResourceShare', 
         'Register-EMCCertificate', 
         'Remove-EMCJobTemplate', 
         'Remove-EMCPolicy', 

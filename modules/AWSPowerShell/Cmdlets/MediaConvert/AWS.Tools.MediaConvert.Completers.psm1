@@ -296,6 +296,7 @@ $EMC_SelectMap = @{
                "New-EMCJobTemplate",
                "New-EMCPreset",
                "New-EMCQueue",
+               "New-EMCResourceShare",
                "Remove-EMCJobTemplate",
                "Remove-EMCPolicy",
                "Remove-EMCPreset",

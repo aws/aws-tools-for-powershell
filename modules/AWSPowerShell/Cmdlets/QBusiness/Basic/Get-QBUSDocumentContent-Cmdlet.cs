@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter OutputFormat
         /// <summary>
         /// <para>
-        /// <para>Raw document outputFormat.</para>
+        /// <para>Document outputFormat. Defaults to RAW if not selected.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

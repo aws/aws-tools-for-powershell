@@ -90,14 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// a size of at least /22 and must not be greater than /12.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ClientCidrBlock { get; set; }
         #endregion
         
@@ -205,6 +198,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? ConnectionLogOptions_Enabled { get; set; }
         #endregion
         
+        #region Parameter EndpointIpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address type for the Client VPN endpoint. Valid values are <c>ipv4</c> (default)
+        /// for IPv4 addressing only, <c>ipv6</c> for IPv6 addressing only, or <c>dual-stack</c>
+        /// for both IPv4 and IPv6 addressing. When set to <c>dual-stack,</c> clients can connect
+        /// to the endpoint using either IPv4 or IPv6 addresses..</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.EndpointIpAddressType")]
+        public Amazon.EC2.EndpointIpAddressType EndpointIpAddressType { get; set; }
+        #endregion
+        
         #region Parameter ClientRouteEnforcementOptions_Enforced
         /// <summary>
         /// <para>
@@ -308,6 +315,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
         #endregion
         
+        #region Parameter TrafficIpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address type for traffic within the Client VPN tunnel. Valid values are <c>ipv4</c>
+        /// (default) for IPv4 traffic only, <c>ipv6</c> for IPv6 addressing only, or <c>dual-stack</c>
+        /// for both IPv4 and IPv6 traffic. When set to <c>dual-stack</c>, clients can access
+        /// both IPv4 and IPv6 resources through the VPN .</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.TrafficIpAddressType")]
+        public Amazon.EC2.TrafficIpAddressType TrafficIpAddressType { get; set; }
+        #endregion
+        
         #region Parameter TransportProtocol
         /// <summary>
         /// <para>
@@ -409,12 +430,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.ClientCidrBlock = this.ClientCidrBlock;
-            #if MODULAR
-            if (this.ClientCidrBlock == null && ParameterWasBound(nameof(this.ClientCidrBlock)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ClientCidrBlock which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ClientConnectOptions_Enabled = this.ClientConnectOptions_Enabled;
             context.ClientConnectOptions_LambdaFunctionArn = this.ClientConnectOptions_LambdaFunctionArn;
             context.ClientLoginBannerOptions_BannerText = this.ClientLoginBannerOptions_BannerText;
@@ -431,6 +446,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.DnsServer = new List<System.String>(this.DnsServer);
             }
             context.DryRun = this.DryRun;
+            context.EndpointIpAddressType = this.EndpointIpAddressType;
             if (this.SecurityGroupId != null)
             {
                 context.SecurityGroupId = new List<System.String>(this.SecurityGroupId);
@@ -449,6 +465,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
             }
+            context.TrafficIpAddressType = this.TrafficIpAddressType;
             context.TransportProtocol = this.TransportProtocol;
             context.VpcId = this.VpcId;
             context.VpnPort = this.VpnPort;
@@ -603,6 +620,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.DryRun = cmdletContext.DryRun.Value;
             }
+            if (cmdletContext.EndpointIpAddressType != null)
+            {
+                request.EndpointIpAddressType = cmdletContext.EndpointIpAddressType;
+            }
             if (cmdletContext.SecurityGroupId != null)
             {
                 request.SecurityGroupIds = cmdletContext.SecurityGroupId;
@@ -626,6 +647,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.TagSpecification != null)
             {
                 request.TagSpecifications = cmdletContext.TagSpecification;
+            }
+            if (cmdletContext.TrafficIpAddressType != null)
+            {
+                request.TrafficIpAddressType = cmdletContext.TrafficIpAddressType;
             }
             if (cmdletContext.TransportProtocol != null)
             {
@@ -709,12 +734,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? DisconnectOnSessionTimeout { get; set; }
             public List<System.String> DnsServer { get; set; }
             public System.Boolean? DryRun { get; set; }
+            public Amazon.EC2.EndpointIpAddressType EndpointIpAddressType { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public Amazon.EC2.SelfServicePortal SelfServicePortal { get; set; }
             public System.String ServerCertificateArn { get; set; }
             public System.Int32? SessionTimeoutHour { get; set; }
             public System.Boolean? SplitTunnel { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
+            public Amazon.EC2.TrafficIpAddressType TrafficIpAddressType { get; set; }
             public Amazon.EC2.TransportProtocol TransportProtocol { get; set; }
             public System.String VpcId { get; set; }
             public System.Int32? VpnPort { get; set; }
