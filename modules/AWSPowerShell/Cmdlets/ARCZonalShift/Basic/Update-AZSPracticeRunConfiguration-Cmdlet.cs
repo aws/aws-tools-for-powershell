@@ -43,6 +43,24 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AllowedWindow
+        /// <summary>
+        /// <para>
+        /// <para>Add, change, or remove windows of days and times for when you can, optionally, allow
+        /// ARC to start a practice run for a resource.</para><para>The format for allowed windows is: DAY:HH:SS-DAY:HH:SS. Keep in mind, when you specify
+        /// dates, that dates and times for practice runs are in UTC. Also, be aware of potential
+        /// time adjustments that might be required for daylight saving time differences. Separate
+        /// multiple allowed windows with spaces.</para><para>For example, say you want to allow practice runs only on Wednesdays and Fridays from
+        /// noon to 5 p.m. For this scenario, you could set the following recurring days and times
+        /// as allowed windows, for example: <c>Wed-12:00-Wed:17:00 Fri-12:00-Fri:17:00</c>.</para><important><para>The <c>allowedWindows</c> have to start and end on the same day. Windows that span
+        /// multiple days aren't supported.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AllowedWindows")]
+        public System.String[] AllowedWindow { get; set; }
+        #endregion
+        
         #region Parameter BlockedDate
         /// <summary>
         /// <para>
@@ -78,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         #region Parameter BlockingAlarm
         /// <summary>
         /// <para>
-        /// <para>Add, change, or remove the Amazon CloudWatch alarm that you optionally specify as
-        /// the blocking alarm for practice runs.</para>
+        /// <para>Add, change, or remove the Amazon CloudWatch alarms that you optionally specify as
+        /// the blocking alarms for practice runs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         #region Parameter OutcomeAlarm
         /// <summary>
         /// <para>
-        /// <para>Specify a new the Amazon CloudWatch alarm as the outcome alarm for practice runs.</para>
+        /// <para>Specify one or more Amazon CloudWatch alarms as the outcome alarms for practice runs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,6 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.AZS
                 context.Select = (response, cmdlet) => this.ResourceIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AllowedWindow != null)
+            {
+                context.AllowedWindow = new List<System.String>(this.AllowedWindow);
+            }
             if (this.BlockedDate != null)
             {
                 context.BlockedDate = new List<System.String>(this.BlockedDate);
@@ -217,6 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.AZS
             // create request
             var request = new Amazon.ARCZonalShift.Model.UpdatePracticeRunConfigurationRequest();
             
+            if (cmdletContext.AllowedWindow != null)
+            {
+                request.AllowedWindows = cmdletContext.AllowedWindow;
+            }
             if (cmdletContext.BlockedDate != null)
             {
                 request.BlockedDates = cmdletContext.BlockedDate;
@@ -298,6 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AllowedWindow { get; set; }
             public List<System.String> BlockedDate { get; set; }
             public List<System.String> BlockedWindow { get; set; }
             public List<Amazon.ARCZonalShift.Model.ControlCondition> BlockingAlarm { get; set; }

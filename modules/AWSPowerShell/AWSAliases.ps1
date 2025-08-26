@@ -10068,6 +10068,8 @@ Set-Alias -Name Create-EC2FpgaImage -Value New-EC2FpgaImage
 Set-Alias -Name EC2-CreateFpgaImage -Value New-EC2FpgaImage
 Set-Alias -Name Create-EC2Image -Value New-EC2Image
 Set-Alias -Name EC2-CreateImage -Value New-EC2Image
+Set-Alias -Name Create-EC2ImageUsageReport -Value New-EC2ImageUsageReport
+Set-Alias -Name EC2-CreateImageUsageReport -Value New-EC2ImageUsageReport
 Set-Alias -Name Create-EC2InstanceConnectEndpoint -Value New-EC2InstanceConnectEndpoint
 Set-Alias -Name EC2-CreateInstanceConnectEndpoint -Value New-EC2InstanceConnectEndpoint
 Set-Alias -Name Create-EC2InstanceEventWindow -Value New-EC2InstanceEventWindow
@@ -10243,6 +10245,8 @@ Set-Alias -Name Delete-EC2FlowLog -Value Remove-EC2FlowLog
 Set-Alias -Name EC2-DeleteFlowLogs -Value Remove-EC2FlowLog
 Set-Alias -Name Delete-EC2FpgaImage -Value Remove-EC2FpgaImage
 Set-Alias -Name EC2-DeleteFpgaImage -Value Remove-EC2FpgaImage
+Set-Alias -Name Delete-EC2ImageUsageReport -Value Remove-EC2ImageUsageReport
+Set-Alias -Name EC2-DeleteImageUsageReport -Value Remove-EC2ImageUsageReport
 Set-Alias -Name Delete-EC2InstanceConnectEndpoint -Value Remove-EC2InstanceConnectEndpoint
 Set-Alias -Name EC2-DeleteInstanceConnectEndpoint -Value Remove-EC2InstanceConnectEndpoint
 Set-Alias -Name Delete-EC2InstanceEventWindow -Value Remove-EC2InstanceEventWindow
@@ -10540,9 +10544,18 @@ Set-Alias -Name Describe-EC2IdFormat -Value Get-EC2IdFormat
 Set-Alias -Name EC2-DescribeIdFormat -Value Get-EC2IdFormat
 Set-Alias -Name Describe-EC2ImageAttribute -Value Get-EC2ImageAttribute
 Set-Alias -Name EC2-DescribeImageAttribute -Value Get-EC2ImageAttribute
+Set-Alias -Name Describe-EC2ImageReferences -Value Get-EC2ImageReference
+Set-Alias -Name Describe-EC2ImageReference -Value Get-EC2ImageReference
+Set-Alias -Name EC2-DescribeImageReferences -Value Get-EC2ImageReference
 Set-Alias -Name Describe-EC2Images -Value Get-EC2Image
 Set-Alias -Name Describe-EC2Image -Value Get-EC2Image
 Set-Alias -Name EC2-DescribeImages -Value Get-EC2Image
+Set-Alias -Name Describe-EC2ImageUsageReportEntries -Value Get-EC2ImageUsageReportEntry
+Set-Alias -Name Describe-EC2ImageUsageReportEntry -Value Get-EC2ImageUsageReportEntry
+Set-Alias -Name EC2-DescribeImageUsageReportEntries -Value Get-EC2ImageUsageReportEntry
+Set-Alias -Name Describe-EC2ImageUsageReports -Value Get-EC2ImageUsageReport
+Set-Alias -Name Describe-EC2ImageUsageReport -Value Get-EC2ImageUsageReport
+Set-Alias -Name EC2-DescribeImageUsageReports -Value Get-EC2ImageUsageReport
 Set-Alias -Name Describe-EC2ImportImageTasks -Value Get-EC2ImportImageTask
 Set-Alias -Name Describe-EC2ImportImageTask -Value Get-EC2ImportImageTask
 Set-Alias -Name EC2-DescribeImportImageTasks -Value Get-EC2ImportImageTask
