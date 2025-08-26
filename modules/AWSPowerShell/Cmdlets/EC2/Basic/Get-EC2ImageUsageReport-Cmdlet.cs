@@ -30,17 +30,23 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the VPC resources, VPC endpoint services, Amazon Lattice services, or service
-    /// networks associated with the VPC endpoint.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the configuration and status of image usage reports, filtered by report
+    /// IDs or image IDs.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-ami-usage.html">View
+    /// your AMI usage</a> in the <i>Amazon EC2 User Guide</i>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "EC2VpcEndpointAssociation")]
-    [OutputType("Amazon.EC2.Model.VpcEndpointAssociation")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeVpcEndpointAssociations API operation.", Operation = new[] {"DescribeVpcEndpointAssociations"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeVpcEndpointAssociationsResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.VpcEndpointAssociation or Amazon.EC2.Model.DescribeVpcEndpointAssociationsResponse",
-        "This cmdlet returns a collection of Amazon.EC2.Model.VpcEndpointAssociation objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeVpcEndpointAssociationsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "EC2ImageUsageReport")]
+    [OutputType("Amazon.EC2.Model.ImageUsageReport")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeImageUsageReports API operation.", Operation = new[] {"DescribeImageUsageReports"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeImageUsageReportsResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.ImageUsageReport or Amazon.EC2.Model.DescribeImageUsageReportsResponse",
+        "This cmdlet returns a collection of Amazon.EC2.Model.ImageUsageReport objects.",
+        "The service call response (type Amazon.EC2.Model.DescribeImageUsageReportsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetEC2VpcEndpointAssociationCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class GetEC2ImageUsageReportCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -61,11 +67,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><c>vpc-endpoint-id</c> - The ID of the VPC endpoint.</para></li><li><para><c>associated-resource-accessibility</c> - The association state. When the state
-        /// is <c>accessible</c>, it returns <c>AVAILABLE</c>. When the state is <c>inaccessible</c>,
-        /// it returns <c>PENDING</c> or <c>FAILED</c>.</para></li><li><para><c>association-id</c> - The ID of the VPC endpoint association.</para></li><li><para><c>associated-resource-id</c> - The ID of the associated resource configuration.</para></li><li><para><c>service-network-arn</c> - The Amazon Resource Name (ARN) of the associated service
-        /// network. Only VPC endpoints of type service network will be returned.</para></li><li><para><c>resource-configuration-group-arn</c> - The Amazon Resource Name (ARN) of the resource
-        /// configuration of type GROUP.</para></li><li><para><c>service-network-resource-association-id</c> - The ID of the association.</para></li></ul><para />
+        /// <para>The filters.</para><ul><li><para><c>creation-time</c> - The time when the report was created, in the ISO 8601 format
+        /// in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <c>2025-11-29T11:04:43.305Z</c>.
+        /// You can use a wildcard (<c>*</c>), for example, <c>2025-11-29T*</c>, which matches
+        /// an entire day.</para></li><li><para><c>state</c> - The state of the report (<c>available</c> | <c>pending</c> | <c>error</c>).</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -77,10 +82,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
         #endregion
         
-        #region Parameter VpcEndpointId
+        #region Parameter ImageId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the VPC endpoints.</para><para />
+        /// <para>The IDs of the images for filtering the reports. If specified, only reports containing
+        /// these images are returned.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -88,25 +94,48 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("VpcEndpointIds")]
-        public System.String[] VpcEndpointId { get; set; }
+        [Alias("ImageIds")]
+        public System.String[] ImageId { get; set; }
+        #endregion
+        
+        #region Parameter ReportId
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the image usage reports.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReportIds")]
+        public System.String[] ReportId { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum page size.</para>
+        /// <para>The maximum number of items to return for this request. To get the next page of items,
+        /// make another request with the token returned in the output. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
+        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
+        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
+        [Alias("MaxItems","MaxResults")]
+        public int? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The pagination token.</para>
+        /// <para>The token returned from a previous paginated request. Pagination continues from the
+        /// end of the items returned by the previous request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -119,13 +148,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'VpcEndpointAssociations'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DescribeVpcEndpointAssociationsResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.DescribeVpcEndpointAssociationsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ImageUsageReports'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DescribeImageUsageReportsResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.DescribeImageUsageReportsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "VpcEndpointAssociations";
+        public string Select { get; set; } = "ImageUsageReports";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -154,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DescribeVpcEndpointAssociationsResponse, GetEC2VpcEndpointAssociationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DescribeImageUsageReportsResponse, GetEC2ImageUsageReportCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.DryRun = this.DryRun;
@@ -162,11 +191,24 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
-            if (this.VpcEndpointId != null)
+            if (this.ImageId != null)
             {
-                context.VpcEndpointId = new List<System.String>(this.VpcEndpointId);
+                context.ImageId = new List<System.String>(this.ImageId);
+            }
+            context.MaxResult = this.MaxResult;
+            #if !MODULAR
+            if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
+            {
+                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxResult parameter to limit the total number of items returned by the cmdlet." +
+                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
+                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxResult" +
+                    " to the service to specify how many items should be returned by each service call.");
+            }
+            #endif
+            context.NextToken = this.NextToken;
+            if (this.ReportId != null)
+            {
+                context.ReportId = new List<System.String>(this.ReportId);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -184,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.EC2.Model.DescribeVpcEndpointAssociationsRequest();
+            var request = new Amazon.EC2.Model.DescribeImageUsageReportsRequest();
             
             if (cmdletContext.DryRun != null)
             {
@@ -194,13 +236,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.Filters = cmdletContext.Filter;
             }
+            if (cmdletContext.ImageId != null)
+            {
+                request.ImageIds = cmdletContext.ImageId;
+            }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
+                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
-            if (cmdletContext.VpcEndpointId != null)
+            if (cmdletContext.ReportId != null)
             {
-                request.VpcEndpointIds = cmdletContext.VpcEndpointId;
+                request.ReportIds = cmdletContext.ReportId;
             }
             
             // Initialize loop variant and commence piping
@@ -259,12 +305,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.DescribeVpcEndpointAssociationsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeVpcEndpointAssociationsRequest request)
+        private Amazon.EC2.Model.DescribeImageUsageReportsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeImageUsageReportsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeVpcEndpointAssociations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeImageUsageReports");
             try
             {
-                return client.DescribeVpcEndpointAssociationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DescribeImageUsageReportsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -283,11 +329,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.Boolean? DryRun { get; set; }
             public List<Amazon.EC2.Model.Filter> Filter { get; set; }
-            public System.Int32? MaxResult { get; set; }
+            public List<System.String> ImageId { get; set; }
+            public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public List<System.String> VpcEndpointId { get; set; }
-            public System.Func<Amazon.EC2.Model.DescribeVpcEndpointAssociationsResponse, GetEC2VpcEndpointAssociationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.VpcEndpointAssociations;
+            public List<System.String> ReportId { get; set; }
+            public System.Func<Amazon.EC2.Model.DescribeImageUsageReportsResponse, GetEC2ImageUsageReportCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ImageUsageReports;
         }
         
     }

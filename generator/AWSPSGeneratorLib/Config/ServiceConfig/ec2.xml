@@ -379,6 +379,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateImageUsageReport" OutputProperty="ReportId" Verb="New" Noun="ImageUsageReport" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateInstanceConnectEndpoint" OutputProperty="InstanceConnectEndpoint" Verb="New" Noun="InstanceConnectEndpoint" ShouldProcessTarget="SubnetId" PipelineParameter="SubnetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -736,6 +740,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteFpgaImage" OutputProperty="Return" Verb="Remove" Noun="FpgaImage" ShouldProcessTarget="FpgaImageId" PipelineParameter="FpgaImageId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteImageUsageReport" OutputProperty="Return" Verb="Remove" Noun="ImageUsageReport" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1249,10 +1257,22 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeImageReferences" OutputProperty="ImageReferences" Verb="Get" Noun="ImageReference" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeImages" OutputProperty="Images" Verb="Get" Noun="Image" PositionalParameters="Owners;ExecutableUsers;Filters" PipelineParameter="ImageIds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="ExecutableUsers" NewName="ExecutableUser" Alias="ExecutableBy" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeImageUsageReportEntries" OutputProperty="ImageUsageReportEntries" Verb="Get" Noun="ImageUsageReportEntry" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeImageUsageReports" OutputProperty="ImageUsageReports" Verb="Get" Noun="ImageUsageReport" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeImportImageTasks" OutputProperty="ImportImageTasks" Verb="Get" Noun="ImportImageTask" PipelineParameter="ImportTaskIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">

@@ -61,6 +61,28 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AllowedWindow
+        /// <summary>
+        /// <para>
+        /// <para>Optionally, you can allow ARC to start practice runs for specific windows of days
+        /// and times. </para><para>The format for allowed windows is: DAY:HH:SS-DAY:HH:SS. Keep in mind, when you specify
+        /// dates, that dates and times for practice runs are in UTC. Also, be aware of potential
+        /// time adjustments that might be required for daylight saving time differences. Separate
+        /// multiple allowed windows with spaces.</para><para>For example, say you want to allow practice runs only on Wednesdays and Fridays from
+        /// noon to 5 p.m. For this scenario, you could set the following recurring days and times
+        /// as allowed windows, for example: <c>Wed-12:00-Wed:17:00 Fri-12:00-Fri:17:00</c>.</para><important><para>The <c>allowedWindows</c> have to start and end on the same day. Windows that span
+        /// multiple days aren't supported.</para></important><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AllowedWindows")]
+        public System.String[] AllowedWindow { get; set; }
+        #endregion
+        
         #region Parameter BlockedDate
         /// <summary>
         /// <para>
@@ -89,8 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         /// dates, that dates and times for practice runs are in UTC. Also, be aware of potential
         /// time adjustments that might be required for daylight saving time differences. Separate
         /// multiple blocked windows with spaces.</para><para>For example, say you run business report summaries three days a week. For this scenario,
-        /// you might set the following recurring days and times as blocked windows, for example:
-        /// <c>MON-20:30-21:30 WED-20:30-21:30 FRI-20:30-21:30</c>.</para><para />
+        /// you could set the following recurring days and times as blocked windows, for example:
+        /// <c>Mon:00:00-Mon:10:00 Wed-20:30-Wed:21:30 Fri-20:30-Fri:21:30</c>.</para><important><para>The <c>blockedWindows</c> have to start and end on the same day. Windows that span
+        /// multiple days aren't supported.</para></important><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -105,9 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         #region Parameter BlockingAlarm
         /// <summary>
         /// <para>
-        /// <para>An Amazon CloudWatch alarm that you can specify for zonal autoshift practice runs.
-        /// This alarm blocks ARC from starting practice run zonal shifts, and ends a practice
-        /// run that's in progress, when the alarm is in an <c>ALARM</c> state. </para><para />
+        /// <para><i>Blocking alarms</i> for practice runs are optional alarms that you can specify
+        /// that block practice runs when one or more of the alarms is in an <c>ALARM</c> state.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -122,12 +144,11 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         #region Parameter OutcomeAlarm
         /// <summary>
         /// <para>
-        /// <para>The <i>outcome alarm</i> for practice runs is a required Amazon CloudWatch alarm that
-        /// you specify that ends a practice run when the alarm is in an <c>ALARM</c> state.</para><para>Configure the alarm to monitor the health of your application when traffic is shifted
-        /// away from an Availability Zone during each practice run. You should configure the
-        /// alarm to go into an <c>ALARM</c> state if your application is impacted by the zonal
-        /// shift, and you want to stop the zonal shift, to let traffic for the resource return
-        /// to the Availability Zone.</para><para />
+        /// <para><i>Outcome alarms</i> for practice runs are alarms that you specify that end a practice
+        /// run when one or more of the alarms is in an <c>ALARM</c> state.</para><para>Configure one or more of these alarms to monitor the health of your application when
+        /// traffic is shifted away from an Availability Zone during each practice run. You should
+        /// configure these alarms to go into an <c>ALARM</c> state if you want to stop a zonal
+        /// shift, to let traffic for the resource return to the original Availability Zone.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -216,6 +237,10 @@ namespace Amazon.PowerShell.Cmdlets.AZS
                 context.Select = CreateSelectDelegate<Amazon.ARCZonalShift.Model.CreatePracticeRunConfigurationResponse, NewAZSPracticeRunConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AllowedWindow != null)
+            {
+                context.AllowedWindow = new List<System.String>(this.AllowedWindow);
+            }
             if (this.BlockedDate != null)
             {
                 context.BlockedDate = new List<System.String>(this.BlockedDate);
@@ -261,6 +286,10 @@ namespace Amazon.PowerShell.Cmdlets.AZS
             // create request
             var request = new Amazon.ARCZonalShift.Model.CreatePracticeRunConfigurationRequest();
             
+            if (cmdletContext.AllowedWindow != null)
+            {
+                request.AllowedWindows = cmdletContext.AllowedWindow;
+            }
             if (cmdletContext.BlockedDate != null)
             {
                 request.BlockedDates = cmdletContext.BlockedDate;
@@ -336,6 +365,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AllowedWindow { get; set; }
             public List<System.String> BlockedDate { get; set; }
             public List<System.String> BlockedWindow { get; set; }
             public List<Amazon.ARCZonalShift.Model.ControlCondition> BlockingAlarm { get; set; }

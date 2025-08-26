@@ -1,4 +1,16 @@
-﻿### 5.0.40 (2025-08-25 23:21Z)
+﻿### 5.0.41 (2025-08-26 21:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.78.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon ARC - Zonal Shift
+    * Modified cmdlet New-AZSPracticeRunConfiguration: added parameter AllowedWindow.
+    * Modified cmdlet Update-AZSPracticeRunConfiguration: added parameter AllowedWindow.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Get-EC2ImageReference leveraging the DescribeImageReferences service API.
+    * Added cmdlet Get-EC2ImageUsageReport leveraging the DescribeImageUsageReports service API.
+    * Added cmdlet Get-EC2ImageUsageReportEntry leveraging the DescribeImageUsageReportEntries service API.
+    * Added cmdlet New-EC2ImageUsageReport leveraging the CreateImageUsageReport service API.
+    * Added cmdlet Remove-EC2ImageUsageReport leveraging the DeleteImageUsageReport service API.
+
+### 5.0.40 (2025-08-25 23:21Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.77.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon B2B Data Interchange
     * Modified cmdlet New-B2BITransformer: added parameters InputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules, OutputConversion_AdvancedOptions_X12_SplitOptions_SplitBy and OutputConversion_AdvancedOptions_X12_ValidationOptions_ValidationRules.
