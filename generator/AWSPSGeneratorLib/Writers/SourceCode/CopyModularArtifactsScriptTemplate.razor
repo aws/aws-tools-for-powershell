@@ -104,6 +104,4 @@ foreach ($project in $projectNameList)
     }
 }
 
-New-Item -Path "$modularDeploymentFolder/AWS.Tools.Installer" -ItemType Directory
-Copy-Item -Path "$installerModuleFolder/AWS.Tools.Installer.psd1" -Destination "$modularDeploymentFolder/AWS.Tools.Installer/AWS.Tools.Installer.psd1"
-Copy-Item -Path "$installerModuleFolder/AWS.Tools.Installer.psm1" -Destination "$modularDeploymentFolder/AWS.Tools.Installer/AWS.Tools.Installer.psm1"
+Copy-Item -Path "$installerModuleFolder" -Destination "$modularDeploymentFolder/AWS.Tools.Installer" -Recurse

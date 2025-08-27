@@ -10,7 +10,7 @@
     CompatiblePSEditions = @('Core', 'Desktop')
 
     # Version number of this module.
-    ModuleVersion = '1.0.3'
+    ModuleVersion = '2.0.0'
 
     # ID used to uniquely identify this module
     GUID = '450031c1-9177-4fc1-9518-93166b1a926b'
@@ -25,9 +25,10 @@
     Copyright = 'Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
-    Description = 'The AWS.Tools.Installer module makes it easier to install, update and uninstall other AWS.Tools modules (see https://www.powershellgallery.com/packages/AWS.Tools.Common/).
+    Description = 'The AWS.Tools.Installer module makes it easier to install, update and uninstall AWS.Tools modules (see https://www.powershellgallery.com/packages/AWS.Tools.Common/).
 You can use a single command like ''Install-AWSToolsModule EC2,S3'' to install multiple modules.
-You can also update all your installed AWS.Tools modules and remove old versions by running `Update-AWSToolsModule -CleanUp`.'
+You can also update all your installed AWS.Tools modules and remove old versions by running `Update-AWSToolsModule -CleanUp`.
+The installer is now distributed separately via CloudFront for improved reliability and enables self-update capabilities using Install-AWSToolsInstaller and Uninstall-AWSToolsInstaller.'
 
     # Minimum version of the PowerShell engine required by this module
     PowerShellVersion = '5.1'
@@ -73,7 +74,9 @@ You can also update all your installed AWS.Tools modules and remove old versions
     FunctionsToExport = @(
         'Uninstall-AWSToolsModule', 
         'Install-AWSToolsModule', 
-        'Update-AWSToolsModule' )
+        'Update-AWSToolsModule',
+        'Install-AWSToolsInstaller',
+        'Uninstall-AWSToolsInstaller' )
 
     # Cmdlets to export from this module
     CmdletsToExport = @( )
@@ -82,7 +85,7 @@ You can also update all your installed AWS.Tools modules and remove old versions
     VariablesToExport = @( )
 
     # Aliases to export from this module
-    AliasesToExport = @( )
+    AliasesToExport = @()
 
     # List of all modules packaged with this module
     ModuleList = @()
