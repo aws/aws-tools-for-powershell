@@ -25708,6 +25708,7 @@ $DS_SelectMap = @{
                "Unregister-DSCertificate",
                "Unregister-DSEventTopic",
                "Get-DSADAssessment",
+               "Get-DSCAEnrollmentPolicy",
                "Get-DSCertificate",
                "Get-DSClientAuthenticationSetting",
                "Get-DSConditionalForwarder",
@@ -25723,11 +25724,13 @@ $DS_SelectMap = @{
                "Get-DSSnapshot",
                "Get-DSTrust",
                "Get-DSUpdateDirectory",
+               "Disable-DSCAEnrollmentPolicy",
                "Disable-DSClientAuthentication",
                "Disable-DSDirectoryDataAccess",
                "Disable-DSLDAPS",
                "Disable-DSRadius",
                "Disable-DSSso",
+               "Enable-DSCAEnrollmentPolicy",
                "Enable-DSClientAuthentication",
                "Enable-DSDirectoryDataAccess",
                "Enable-DSLDAPS",
@@ -29585,6 +29588,7 @@ $EKS_SelectMap = @{
                "Get-EKSFargateProfile",
                "Get-EKSIdentityProviderConfig",
                "Get-EKSInsight",
+               "Get-EKSInsightsRefresh",
                "Get-EKSNodegroup",
                "Get-EKSPodIdentityAssociation",
                "Get-EKSUpdate",
@@ -29604,6 +29608,7 @@ $EKS_SelectMap = @{
                "Get-EKSResourceTag",
                "Get-EKSUpdateList",
                "Register-EKSCluster",
+               "Start-EKSInsightsRefresh",
                "Add-EKSResourceTag",
                "Remove-EKSResourceTag",
                "Update-EKSAccessEntry",
@@ -54401,7 +54406,9 @@ $NEPTG_SelectMap = @{
                "Reset-NEPTGGraph",
                "Restore-NEPTGGraphFromSnapshot",
                "Start-NEPTGExportTask",
+               "Start-NEPTGGraph",
                "Start-NEPTGImportTask",
+               "Stop-NEPTGGraph",
                "Add-NEPTGResourceTag",
                "Remove-NEPTGResourceTag",
                "Update-NEPTGGraph")
@@ -69210,6 +69217,26 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.ClusterAutoScalerType
+        {
+            ($_ -eq "New-SMCluster/AutoScaling_AutoScalerType") -Or
+            ($_ -eq "Update-SMCluster/AutoScaling_AutoScalerType")
+        }
+        {
+            $v = "Karpenter"
+            break
+        }
+
+        # Amazon.SageMaker.ClusterAutoScalingMode
+        {
+            ($_ -eq "New-SMCluster/AutoScaling_Mode") -Or
+            ($_ -eq "Update-SMCluster/AutoScaling_Mode")
+        }
+        {
+            $v = "Disable","Enable"
+            break
+        }
+
         # Amazon.SageMaker.ClusterEventResourceType
         "Get-SMClusterEventList/ResourceType"
         {
@@ -70646,6 +70673,8 @@ $SM_map = @{
     "AuthType"=@("New-SMPartnerApp")
     "AutoMLJobConfig_Mode"=@("New-SMAutoMLJob")
     "AutoMLJobObjective_MetricName"=@("New-SMAutoMLJob","New-SMAutoMLJobV2")
+    "AutoScaling_AutoScalerType"=@("New-SMCluster","Update-SMCluster")
+    "AutoScaling_Mode"=@("New-SMCluster","Update-SMCluster")
     "Autotune_Mode"=@("New-SMHyperParameterTuningJob")
     "BatchStrategy"=@("New-SMTransformJob")
     "BatchTransformInput_S3DataDistributionType"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition")

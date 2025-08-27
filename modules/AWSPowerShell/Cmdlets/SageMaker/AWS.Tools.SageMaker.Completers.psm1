@@ -326,6 +326,26 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.ClusterAutoScalerType
+        {
+            ($_ -eq "New-SMCluster/AutoScaling_AutoScalerType") -Or
+            ($_ -eq "Update-SMCluster/AutoScaling_AutoScalerType")
+        }
+        {
+            $v = "Karpenter"
+            break
+        }
+
+        # Amazon.SageMaker.ClusterAutoScalingMode
+        {
+            ($_ -eq "New-SMCluster/AutoScaling_Mode") -Or
+            ($_ -eq "Update-SMCluster/AutoScaling_Mode")
+        }
+        {
+            $v = "Disable","Enable"
+            break
+        }
+
         # Amazon.SageMaker.ClusterEventResourceType
         "Get-SMClusterEventList/ResourceType"
         {
@@ -1762,6 +1782,8 @@ $SM_map = @{
     "AuthType"=@("New-SMPartnerApp")
     "AutoMLJobConfig_Mode"=@("New-SMAutoMLJob")
     "AutoMLJobObjective_MetricName"=@("New-SMAutoMLJob","New-SMAutoMLJobV2")
+    "AutoScaling_AutoScalerType"=@("New-SMCluster","Update-SMCluster")
+    "AutoScaling_Mode"=@("New-SMCluster","Update-SMCluster")
     "Autotune_Mode"=@("New-SMHyperParameterTuningJob")
     "BatchStrategy"=@("New-SMTransformJob")
     "BatchTransformInput_S3DataDistributionType"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition")
