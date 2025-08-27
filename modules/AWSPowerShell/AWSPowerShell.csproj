@@ -925,12 +925,6 @@
     <Reference Include="AWSSDK.OpenSearchService">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.OpenSearchService.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.OpsWorks">
-      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.OpsWorks.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.OpsWorksCM">
-      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.OpsWorksCM.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.Organizations">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Organizations.dll</HintPath>
     </Reference>
@@ -2169,12 +2163,6 @@
     </Reference>
     <Reference Include="AWSSDK.OpenSearchService">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.OpenSearchService.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.OpsWorks">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.OpsWorks.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.OpsWorksCM">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.OpsWorksCM.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Organizations">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Organizations.dll</HintPath>

@@ -275,14 +275,6 @@
             },
             "InPreview"               : false
         },
-        "OpsWorks"             : {
-            "Version" : "4.0.0.20",
-            "AssemblyVersionOverride" : "4.0",
-            "Dependencies"            : {
-                "Core" : "4.0.0.24"
-            },
-            "InPreview"               : false
-        },
         "RDS"                  : {
             "Version" : "4.0.5.5",
             "AssemblyVersionOverride" : "4.0",
@@ -645,14 +637,6 @@
         },
         "AppStream"                       : {
             "Version" : "4.0.1.0",
-            "AssemblyVersionOverride" : "4.0",
-            "Dependencies"            : {
-                "Core" : "4.0.0.24"
-            },
-            "InPreview"               : false
-        },
-        "OpsWorksCM"                      : {
-            "Version" : "4.0.0.20",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.24"

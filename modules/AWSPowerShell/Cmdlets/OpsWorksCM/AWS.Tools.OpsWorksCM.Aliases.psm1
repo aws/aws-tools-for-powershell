@@ -1,3 +1,0 @@
-﻿# OpsWorksCM
-
-Export-ModuleMember -Alias *
