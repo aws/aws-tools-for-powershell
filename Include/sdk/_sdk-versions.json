@@ -275,14 +275,6 @@
             },
             "InPreview"               : false
         },
-        "OpsWorks"             : {
-            "Version" : "3.7.500.11",
-            "AssemblyVersionOverride" : "3.3",
-            "Dependencies"            : {
-                "Core" : "3.7.500.11"
-            },
-            "InPreview"               : false
-        },
         "RDS"                  : {
             "Version" : "3.7.501.9",
             "AssemblyVersionOverride" : "3.3",
@@ -645,14 +637,6 @@
         },
         "AppStream"                       : {
             "Version" : "3.7.501.2",
-            "AssemblyVersionOverride" : "3.3",
-            "Dependencies"            : {
-                "Core" : "3.7.500.11"
-            },
-            "InPreview"               : false
-        },
-        "OpsWorksCM"                      : {
-            "Version" : "3.7.500.11",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.11"
