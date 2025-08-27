@@ -250,7 +250,9 @@ $NEPTG_SelectMap = @{
                "Reset-NEPTGGraph",
                "Restore-NEPTGGraphFromSnapshot",
                "Start-NEPTGExportTask",
+               "Start-NEPTGGraph",
                "Start-NEPTGImportTask",
+               "Stop-NEPTGGraph",
                "Add-NEPTGResourceTag",
                "Remove-NEPTGResourceTag",
                "Update-NEPTGGraph")

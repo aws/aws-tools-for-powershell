@@ -130,7 +130,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartGraph" OutputProperty="*" Verb="Start" Noun="Graph" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartImportTask" OutputProperty="*" Verb="Start" Noun="ImportTask" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopGraph" OutputProperty="*" Verb="Stop" Noun="Graph" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

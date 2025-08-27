@@ -49,6 +49,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AutoScaling_AutoScalerType
+        /// <summary>
+        /// <para>
+        /// <para>The type of autoscaler to use. Currently supported value is <c>Karpenter</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.ClusterAutoScalerType")]
+        public Amazon.SageMaker.ClusterAutoScalerType AutoScaling_AutoScalerType { get; set; }
+        #endregion
+        
         #region Parameter Eks_ClusterArn
         /// <summary>
         /// <para>
@@ -78,6 +89,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String ClusterName { get; set; }
         #endregion
         
+        #region Parameter ClusterRole
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role that HyperPod assumes to perform cluster
+        /// autoscaling operations. This role must have permissions for <c>sagemaker:BatchAddClusterNodes</c>
+        /// and <c>sagemaker:BatchDeleteClusterNodes</c>. This is only required when autoscaling
+        /// is enabled and when HyperPod is performing autoscaling operations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClusterRole { get; set; }
+        #endregion
+        
         #region Parameter InstanceGroup
         /// <summary>
         /// <para>
@@ -91,6 +115,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("InstanceGroups")]
         public Amazon.SageMaker.Model.ClusterInstanceGroupSpecification[] InstanceGroup { get; set; }
+        #endregion
+        
+        #region Parameter AutoScaling_Mode
+        /// <summary>
+        /// <para>
+        /// <para>Describes whether autoscaling is enabled or disabled for the cluster. Valid values
+        /// are <c>Enable</c> and <c>Disable</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.ClusterAutoScalingMode")]
+        public Amazon.SageMaker.ClusterAutoScalingMode AutoScaling_Mode { get; set; }
         #endregion
         
         #region Parameter NodeProvisioningMode
@@ -236,6 +272,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.CreateClusterResponse, NewSMClusterCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AutoScaling_AutoScalerType = this.AutoScaling_AutoScalerType;
+            context.AutoScaling_Mode = this.AutoScaling_Mode;
             context.ClusterName = this.ClusterName;
             #if MODULAR
             if (this.ClusterName == null && ParameterWasBound(nameof(this.ClusterName)))
@@ -243,6 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ClusterRole = this.ClusterRole;
             if (this.InstanceGroup != null)
             {
                 context.InstanceGroup = new List<Amazon.SageMaker.Model.ClusterInstanceGroupSpecification>(this.InstanceGroup);
@@ -282,9 +321,42 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.CreateClusterRequest();
             
+            
+             // populate AutoScaling
+            var requestAutoScalingIsNull = true;
+            request.AutoScaling = new Amazon.SageMaker.Model.ClusterAutoScalingConfig();
+            Amazon.SageMaker.ClusterAutoScalerType requestAutoScaling_autoScaling_AutoScalerType = null;
+            if (cmdletContext.AutoScaling_AutoScalerType != null)
+            {
+                requestAutoScaling_autoScaling_AutoScalerType = cmdletContext.AutoScaling_AutoScalerType;
+            }
+            if (requestAutoScaling_autoScaling_AutoScalerType != null)
+            {
+                request.AutoScaling.AutoScalerType = requestAutoScaling_autoScaling_AutoScalerType;
+                requestAutoScalingIsNull = false;
+            }
+            Amazon.SageMaker.ClusterAutoScalingMode requestAutoScaling_autoScaling_Mode = null;
+            if (cmdletContext.AutoScaling_Mode != null)
+            {
+                requestAutoScaling_autoScaling_Mode = cmdletContext.AutoScaling_Mode;
+            }
+            if (requestAutoScaling_autoScaling_Mode != null)
+            {
+                request.AutoScaling.Mode = requestAutoScaling_autoScaling_Mode;
+                requestAutoScalingIsNull = false;
+            }
+             // determine if request.AutoScaling should be set to null
+            if (requestAutoScalingIsNull)
+            {
+                request.AutoScaling = null;
+            }
             if (cmdletContext.ClusterName != null)
             {
                 request.ClusterName = cmdletContext.ClusterName;
+            }
+            if (cmdletContext.ClusterRole != null)
+            {
+                request.ClusterRole = cmdletContext.ClusterRole;
             }
             if (cmdletContext.InstanceGroup != null)
             {
@@ -424,7 +496,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.SageMaker.ClusterAutoScalerType AutoScaling_AutoScalerType { get; set; }
+            public Amazon.SageMaker.ClusterAutoScalingMode AutoScaling_Mode { get; set; }
             public System.String ClusterName { get; set; }
+            public System.String ClusterRole { get; set; }
             public List<Amazon.SageMaker.Model.ClusterInstanceGroupSpecification> InstanceGroup { get; set; }
             public Amazon.SageMaker.ClusterNodeProvisioningMode NodeProvisioningMode { get; set; }
             public Amazon.SageMaker.ClusterNodeRecovery NodeRecovery { get; set; }

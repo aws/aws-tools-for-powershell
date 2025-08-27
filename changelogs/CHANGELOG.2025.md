@@ -1,4 +1,22 @@
-﻿### 5.0.41 (2025-08-26 21:17Z)
+﻿### 5.0.42 (2025-08-27 21:15Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.79.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * [Breaking Change] Removed support for Amazon OpsWorks
+  * [Breaking Change] Removed support for Amazon OpsWorksCM
+  * Amazon Directory Service
+    * Added cmdlet Disable-DSCAEnrollmentPolicy leveraging the DisableCAEnrollmentPolicy service API.
+    * Added cmdlet Enable-DSCAEnrollmentPolicy leveraging the EnableCAEnrollmentPolicy service API.
+    * Added cmdlet Get-DSCAEnrollmentPolicy leveraging the DescribeCAEnrollmentPolicy service API.
+  * Amazon Elastic Container Service for Kubernetes
+    * Added cmdlet Get-EKSInsightsRefresh leveraging the DescribeInsightsRefresh service API.
+    * Added cmdlet Start-EKSInsightsRefresh leveraging the StartInsightsRefresh service API.
+  * Amazon Neptune Graph
+    * Added cmdlet Start-NEPTGGraph leveraging the StartGraph service API.
+    * Added cmdlet Stop-NEPTGGraph leveraging the StopGraph service API.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMCluster: added parameters AutoScaling_AutoScalerType, AutoScaling_Mode and ClusterRole.
+    * Modified cmdlet Update-SMCluster: added parameters AutoScaling_AutoScalerType, AutoScaling_Mode and ClusterRole.
+
+### 5.0.41 (2025-08-26 21:17Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.78.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon ARC - Zonal Shift
     * Modified cmdlet New-AZSPracticeRunConfiguration: added parameter AllowedWindow.
