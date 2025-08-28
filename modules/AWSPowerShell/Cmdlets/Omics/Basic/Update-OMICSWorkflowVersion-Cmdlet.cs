@@ -69,7 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// <summary>
         /// <para>
         /// <para>The default static storage capacity (in gibibytes) for runs that use this workflow
-        /// or workflow version.</para>
+        /// version. The <c>storageCapacity</c> can be overwritten at run time. The storage capacity
+        /// is not required for runs with a <c>DYNAMIC</c> storage type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,11 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>The default storage type for runs that use this workflow. STATIC storage allocates
-        /// a fixed amount of storage. DYNAMIC storage dynamically scales the storage up or down,
-        /// based on file system utilization. For more information about static and dynamic storage,
-        /// see <a href="https://docs.aws.amazon.com/omics/latest/dev/Using-workflows.html">Running
-        /// workflows</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</para>
+        /// <para>The default storage type for runs that use this workflow version. The <c>storageType</c>
+        /// can be overridden at run time. <c>DYNAMIC</c> storage dynamically scales the storage
+        /// up or down, based on file system utilization. STATIC storage allocates a fixed amount
+        /// of storage. For more information about dynamic and static storage types, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-run-types.html">Run
+        /// storage types</a> in the <i>in the <i>Amazon Web Services HealthOmics User Guide</i></i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter WorkflowId
         /// <summary>
         /// <para>
-        /// <para>The workflow's ID.</para>
+        /// <para>The workflow's ID. The <c>workflowId</c> is not the UUID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

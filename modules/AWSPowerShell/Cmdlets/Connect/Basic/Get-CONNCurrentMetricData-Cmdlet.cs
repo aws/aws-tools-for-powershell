@@ -65,6 +65,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Filters_AgentStatus
+        /// <summary>
+        /// <para>
+        /// <para>A list of up to 50 agent status IDs or ARNs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_AgentStatuses")]
+        public System.String[] Filters_AgentStatus { get; set; }
+        #endregion
+        
         #region Parameter Filters_Channel
         /// <summary>
         /// <para>
@@ -109,11 +120,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Grouping
         /// <summary>
         /// <para>
-        /// <para>The grouping applied to the metrics returned. For example, when grouped by <c>QUEUE</c>,
-        /// the metrics returned apply to each queue rather than aggregated for all queues. </para><ul><li><para>If you group by <c>CHANNEL</c>, you should include a Channels filter. VOICE, CHAT,
-        /// and TASK channels are supported.</para></li><li><para>If you group by <c>ROUTING_PROFILE</c>, you must include either a queue or routing
+        /// <para>Defines the level of aggregation for metrics data by a dimension(s). Its similar to
+        /// sorting items into buckets based on a common characteristic, then counting or calculating
+        /// something for each bucket. For example, when grouped by <c>QUEUE</c>, the metrics
+        /// returned apply to each queue rather than aggregated for all queues. </para><para>The grouping list is an ordered list, with the first item in the list defined as the
+        /// primary grouping. If no grouping is included in the request, the aggregation happens
+        /// at the instance-level.</para><ul><li><para>If you group by <c>CHANNEL</c>, you should include a Channels filter. VOICE, CHAT,
+        /// and TASK channels are supported.</para></li><li><para>If you group by <c>AGENT_STATUS</c>, you must include the <c>QUEUE</c> as the primary
+        /// grouping and use queue filter. When you group by <c>AGENT_STATUS</c>, the only metric
+        /// available is the <c>AGENTS_ONLINE</c> metric.</para></li><li><para>If you group by <c>ROUTING_PROFILE</c>, you must include either a queue or routing
         /// profile filter. In addition, a routing profile filter is required for metrics <c>CONTACTS_SCHEDULED</c>,
-        /// <c>CONTACTS_IN_QUEUE</c>, and <c> OLDEST_CONTACT_AGE</c>.</para></li><li><para>If no <c>Grouping</c> is included in the request, a summary of metrics is returned.</para></li><li><para>When using the <c>RoutingStepExpression</c> filter, group by <c>ROUTING_STEP_EXPRESSION</c>
+        /// <c>CONTACTS_IN_QUEUE</c>, and <c> OLDEST_CONTACT_AGE</c>.</para></li><li><para>When using the <c>RoutingStepExpression</c> filter, group by <c>ROUTING_STEP_EXPRESSION</c>
         /// is required.</para></li></ul>
         /// </para>
         /// </summary>
@@ -285,6 +302,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter CurrentMetric which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Filters_AgentStatus != null)
+            {
+                context.Filters_AgentStatus = new List<System.String>(this.Filters_AgentStatus);
+            }
             if (this.Filters_Channel != null)
             {
                 context.Filters_Channel = new List<System.String>(this.Filters_Channel);
@@ -346,6 +367,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             
              // populate Filters
             request.Filters = new Amazon.Connect.Model.Filters();
+            List<System.String> requestFilters_filters_AgentStatus = null;
+            if (cmdletContext.Filters_AgentStatus != null)
+            {
+                requestFilters_filters_AgentStatus = cmdletContext.Filters_AgentStatus;
+            }
+            if (requestFilters_filters_AgentStatus != null)
+            {
+                request.Filters.AgentStatuses = requestFilters_filters_AgentStatus;
+            }
             List<System.String> requestFilters_filters_Channel = null;
             if (cmdletContext.Filters_Channel != null)
             {
@@ -459,6 +489,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             
              // populate Filters
             request.Filters = new Amazon.Connect.Model.Filters();
+            List<System.String> requestFilters_filters_AgentStatus = null;
+            if (cmdletContext.Filters_AgentStatus != null)
+            {
+                requestFilters_filters_AgentStatus = cmdletContext.Filters_AgentStatus;
+            }
+            if (requestFilters_filters_AgentStatus != null)
+            {
+                request.Filters.AgentStatuses = requestFilters_filters_AgentStatus;
+            }
             List<System.String> requestFilters_filters_Channel = null;
             if (cmdletContext.Filters_Channel != null)
             {
@@ -578,6 +617,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.Connect.Model.CurrentMetric> CurrentMetric { get; set; }
+            public List<System.String> Filters_AgentStatus { get; set; }
             public List<System.String> Filters_Channel { get; set; }
             public List<System.String> Filters_Queue { get; set; }
             public List<System.String> Filters_RoutingProfile { get; set; }

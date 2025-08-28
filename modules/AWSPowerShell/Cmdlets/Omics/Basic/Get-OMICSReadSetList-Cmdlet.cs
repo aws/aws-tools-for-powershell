@@ -28,7 +28,8 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Retrieves a list of read sets.
+    /// Retrieves a list of read sets from a sequence store ID and returns the metadata in
+    /// JSON format.
     /// </summary>
     [Cmdlet("Get", "OMICSReadSetList")]
     [OutputType("Amazon.Omics.Model.ReadSetListItem")]

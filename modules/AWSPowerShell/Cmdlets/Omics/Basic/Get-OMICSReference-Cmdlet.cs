@@ -28,7 +28,14 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Gets a reference file.
+    /// Downloads parts of data from a reference genome and returns the reference file in
+    /// the same format that it was uploaded.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/create-reference-store.html">Creating
+    /// a HealthOmics reference store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "OMICSReference")]
     [OutputType("System.IO.Stream")]

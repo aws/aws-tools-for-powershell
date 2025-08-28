@@ -28,7 +28,30 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Begins a multipart read set upload.
+    /// Initiates a multipart read set upload for uploading partitioned source files into
+    /// a sequence store. You can directly import source files from an EC2 instance and other
+    /// local compute, or from an S3 bucket. To separate these source files into parts, use
+    /// the <c>split</c> operation. Each part cannot be larger than 100 MB. If the operation
+    /// is successful, it provides an <c>uploadId</c> which is required by the <c>UploadReadSetPart</c>
+    /// API operation to upload parts into a sequence store.
+    /// 
+    ///  
+    /// <para>
+    /// To continue uploading a multipart read set into your sequence store, you must use
+    /// the <c>UploadReadSetPart</c> API operation to upload each part individually following
+    /// the steps below:
+    /// </para><ul><li><para>
+    /// Specify the <c>uploadId</c> obtained from the previous call to <c>CreateMultipartReadSetUpload</c>.
+    /// </para></li><li><para>
+    /// Upload parts for that <c>uploadId</c>.
+    /// </para></li></ul><para>
+    /// When you have finished uploading parts, use the <c>CompleteMultipartReadSetUpload</c>
+    /// API to complete the multipart read set upload and to retrieve the final read set IDs
+    /// in the response.
+    /// </para><para>
+    /// To learn more about creating parts and the <c>split</c> operation, see <a href="https://docs.aws.amazon.com/omics/latest/dev/synchronous-uploads.html">Direct
+    /// upload to a sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "OMICSMultipartReadSetUpload", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Omics.Model.CreateMultipartReadSetUploadResponse")]

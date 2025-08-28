@@ -28,7 +28,7 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Retrieves a list of reference import jobs.
+    /// Retrieves the metadata of one or more reference import jobs for a reference store.
     /// </summary>
     [Cmdlet("Get", "OMICSReferenceImportJobList")]
     [OutputType("Amazon.Omics.Model.ImportReferenceJobItem")]

@@ -28,7 +28,8 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Gets information about a reference import job.
+    /// Monitors the status of a reference import job. This operation can be called after
+    /// calling the <c>StartReferenceImportJob</c> operation.
     /// </summary>
     [Cmdlet("Get", "OMICSReferenceImportJob")]
     [OutputType("Amazon.Omics.Model.GetReferenceImportJobResponse")]

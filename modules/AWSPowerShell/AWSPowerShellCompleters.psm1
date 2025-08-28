@@ -37782,6 +37782,13 @@ $AHL_Completers = {
             break
         }
 
+        # Amazon.HealthLake.ValidationLevel
+        "Start-AHLFHIRImportJob/ValidationLevel"
+        {
+            $v = "minimal","strict","structure-only"
+            break
+        }
+
 
     }
 
@@ -37797,6 +37804,7 @@ $AHL_map = @{
     "JobStatus"=@("Get-AHLFHIRExportJobList","Get-AHLFHIRImportJobList")
     "KmsEncryptionConfig_CmkType"=@("New-AHLFHIRDatastore")
     "PreloadDataConfig_PreloadDataType"=@("New-AHLFHIRDatastore")
+    "ValidationLevel"=@("Start-AHLFHIRImportJob")
 }
 
 _awsArgumentCompleterRegistration $AHL_Completers $AHL_map
@@ -74626,6 +74634,13 @@ $SMSAP_Completers = {
             break
         }
 
+        # Amazon.SsmSap.ConfigurationCheckOperationListingMode
+        "Get-SMSAPConfigurationCheckOperationList/ListMode"
+        {
+            $v = "ALL_OPERATIONS","LATEST_PER_CHECK"
+            break
+        }
+
         # Amazon.SsmSap.ConnectedEntityType
         "Stop-SMSAPApplication/StopConnectedEntity"
         {
@@ -74656,6 +74671,7 @@ $SMSAP_map = @{
     "ActionType"=@("Get-SMSAPResourcePermission","Remove-SMSAPResourcePermission","Write-SMSAPResourcePermission")
     "ApplicationType"=@("Register-SMSAPApplication")
     "Backint_BackintMode"=@("Update-SMSAPApplicationSetting")
+    "ListMode"=@("Get-SMSAPConfigurationCheckOperationList")
     "StopConnectedEntity"=@("Stop-SMSAPApplication")
 }
 
@@ -74713,19 +74729,25 @@ $SMSAP_SelectMap = @{
                "Unregister-SMSAPApplication",
                "Get-SMSAPApplication",
                "Get-SMSAPComponent",
+               "Get-SMSAPConfigurationCheckOperation",
                "Get-SMSAPDatabase",
                "Get-SMSAPOperation",
                "Get-SMSAPResourcePermission",
                "Get-SMSAPApplicationList",
                "Get-SMSAPComponentList",
+               "Get-SMSAPConfigurationCheckDefinitionList",
+               "Get-SMSAPConfigurationCheckOperationList",
                "Get-SMSAPDatabasisList",
                "Get-SMSAPOperationEventList",
                "Get-SMSAPOperationList",
+               "Get-SMSAPSubCheckResultList",
+               "Get-SMSAPSubCheckRuleResultList",
                "Get-SMSAPResourceTag",
                "Write-SMSAPResourcePermission",
                "Register-SMSAPApplication",
                "Start-SMSAPApplication",
                "Start-SMSAPApplicationRefresh",
+               "Start-SMSAPConfigurationCheck",
                "Stop-SMSAPApplication",
                "Add-SMSAPResourceTag",
                "Remove-SMSAPResourceTag",

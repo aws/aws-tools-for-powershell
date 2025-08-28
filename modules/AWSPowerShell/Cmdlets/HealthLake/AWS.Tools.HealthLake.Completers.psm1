@@ -125,6 +125,13 @@ $AHL_Completers = {
             break
         }
 
+        # Amazon.HealthLake.ValidationLevel
+        "Start-AHLFHIRImportJob/ValidationLevel"
+        {
+            $v = "minimal","strict","structure-only"
+            break
+        }
+
 
     }
 
@@ -140,6 +147,7 @@ $AHL_map = @{
     "JobStatus"=@("Get-AHLFHIRExportJobList","Get-AHLFHIRImportJobList")
     "KmsEncryptionConfig_CmkType"=@("New-AHLFHIRDatastore")
     "PreloadDataConfig_PreloadDataType"=@("New-AHLFHIRDatastore")
+    "ValidationLevel"=@("Start-AHLFHIRImportJob")
 }
 
 _awsArgumentCompleterRegistration $AHL_Completers $AHL_map

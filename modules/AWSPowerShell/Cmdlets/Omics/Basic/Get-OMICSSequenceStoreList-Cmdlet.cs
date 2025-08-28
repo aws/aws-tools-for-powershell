@@ -28,7 +28,13 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Retrieves a list of sequence stores.
+    /// Retrieves a list of sequence stores and returns each sequence store's metadata.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/create-sequence-store.html">Creating
+    /// a HealthOmics sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "OMICSSequenceStoreList")]
     [OutputType("Amazon.Omics.Model.SequenceStoreDetail")]

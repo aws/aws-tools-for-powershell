@@ -40,8 +40,9 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     /// (Optional) <i>Parameter template</i>: You can create a parameter template file that
     /// defines the run parameters, or Amazon Web Services HealthOmics can generate the parameter
     /// template for you.
-    /// </para></li><li><para><i>ECR container images</i>: Create one or more container images for the workflow.
-    /// Store the images in a private ECR repository.
+    /// </para></li><li><para><i>ECR container images</i>: Create container images for the workflow in a private
+    /// ECR repository, or synchronize images from a supported upstream registry with your
+    /// Amazon ECR private repository.
     /// </para></li><li><para>
     /// (Optional) <i>Sentieon licenses</i>: Request a Sentieon license if using the Sentieon
     /// software in a private workflow.
@@ -82,6 +83,16 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DefinitionRepository_ConnectionArn { get; set; }
+        #endregion
+        
+        #region Parameter ContainerRegistryMapUri
+        /// <summary>
+        /// <para>
+        /// <para>(Optional) URI of the S3 location for the registry mapping file.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ContainerRegistryMapUri { get; set; }
         #endregion
         
         #region Parameter DefinitionUri
@@ -154,6 +165,18 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DefinitionRepository_FullRepositoryId { get; set; }
+        #endregion
+        
+        #region Parameter ContainerRegistryMap_ImageMapping
+        /// <summary>
+        /// <para>
+        /// <para>Image mappings specify path mappings between the ECR private repository and their
+        /// corresponding external repositories.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContainerRegistryMap_ImageMappings")]
+        public Amazon.Omics.Model.ImageMapping[] ContainerRegistryMap_ImageMapping { get; set; }
         #endregion
         
         #region Parameter Main
@@ -238,6 +261,18 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ReadmeUri { get; set; }
+        #endregion
+        
+        #region Parameter ContainerRegistryMap_RegistryMapping
+        /// <summary>
+        /// <para>
+        /// <para>Mapping that provides the ECR repository path where upstream container images are
+        /// pulled and synchronized.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContainerRegistryMap_RegistryMappings")]
+        public Amazon.Omics.Model.RegistryMapping[] ContainerRegistryMap_RegistryMapping { get; set; }
         #endregion
         
         #region Parameter RequestId
@@ -369,6 +404,15 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Accelerator = this.Accelerator;
+            if (this.ContainerRegistryMap_ImageMapping != null)
+            {
+                context.ContainerRegistryMap_ImageMapping = new List<Amazon.Omics.Model.ImageMapping>(this.ContainerRegistryMap_ImageMapping);
+            }
+            if (this.ContainerRegistryMap_RegistryMapping != null)
+            {
+                context.ContainerRegistryMap_RegistryMapping = new List<Amazon.Omics.Model.RegistryMapping>(this.ContainerRegistryMap_RegistryMapping);
+            }
+            context.ContainerRegistryMapUri = this.ContainerRegistryMapUri;
             context.DefinitionRepository_ConnectionArn = this.DefinitionRepository_ConnectionArn;
             if (this.DefinitionRepository_ExcludeFilePattern != null)
             {
@@ -430,6 +474,39 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                 if (cmdletContext.Accelerator != null)
                 {
                     request.Accelerators = cmdletContext.Accelerator;
+                }
+                
+                 // populate ContainerRegistryMap
+                var requestContainerRegistryMapIsNull = true;
+                request.ContainerRegistryMap = new Amazon.Omics.Model.ContainerRegistryMap();
+                List<Amazon.Omics.Model.ImageMapping> requestContainerRegistryMap_containerRegistryMap_ImageMapping = null;
+                if (cmdletContext.ContainerRegistryMap_ImageMapping != null)
+                {
+                    requestContainerRegistryMap_containerRegistryMap_ImageMapping = cmdletContext.ContainerRegistryMap_ImageMapping;
+                }
+                if (requestContainerRegistryMap_containerRegistryMap_ImageMapping != null)
+                {
+                    request.ContainerRegistryMap.ImageMappings = requestContainerRegistryMap_containerRegistryMap_ImageMapping;
+                    requestContainerRegistryMapIsNull = false;
+                }
+                List<Amazon.Omics.Model.RegistryMapping> requestContainerRegistryMap_containerRegistryMap_RegistryMapping = null;
+                if (cmdletContext.ContainerRegistryMap_RegistryMapping != null)
+                {
+                    requestContainerRegistryMap_containerRegistryMap_RegistryMapping = cmdletContext.ContainerRegistryMap_RegistryMapping;
+                }
+                if (requestContainerRegistryMap_containerRegistryMap_RegistryMapping != null)
+                {
+                    request.ContainerRegistryMap.RegistryMappings = requestContainerRegistryMap_containerRegistryMap_RegistryMapping;
+                    requestContainerRegistryMapIsNull = false;
+                }
+                 // determine if request.ContainerRegistryMap should be set to null
+                if (requestContainerRegistryMapIsNull)
+                {
+                    request.ContainerRegistryMap = null;
+                }
+                if (cmdletContext.ContainerRegistryMapUri != null)
+                {
+                    request.ContainerRegistryMapUri = cmdletContext.ContainerRegistryMapUri;
                 }
                 
                  // populate DefinitionRepository
@@ -640,6 +717,9 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.Omics.Accelerators Accelerator { get; set; }
+            public List<Amazon.Omics.Model.ImageMapping> ContainerRegistryMap_ImageMapping { get; set; }
+            public List<Amazon.Omics.Model.RegistryMapping> ContainerRegistryMap_RegistryMapping { get; set; }
+            public System.String ContainerRegistryMapUri { get; set; }
             public System.String DefinitionRepository_ConnectionArn { get; set; }
             public List<System.String> DefinitionRepository_ExcludeFilePattern { get; set; }
             public System.String DefinitionRepository_FullRepositoryId { get; set; }

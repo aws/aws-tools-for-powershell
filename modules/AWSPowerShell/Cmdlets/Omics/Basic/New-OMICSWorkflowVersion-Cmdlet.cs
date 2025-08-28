@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     /// Provide a version name that is unique for this workflow. You cannot change the name
     /// after HealthOmics creates the version.
     /// </para><note><para>
-    /// Don’t include any personally identifiable information (PII) in the version name. Version
+    /// Don't include any personally identifiable information (PII) in the version name. Version
     /// names appear in the workflow version ARN.
     /// </para></note><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html">Workflow
@@ -80,10 +80,21 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         public System.String DefinitionRepository_ConnectionArn { get; set; }
         #endregion
         
+        #region Parameter ContainerRegistryMapUri
+        /// <summary>
+        /// <para>
+        /// <para>(Optional) URI of the S3 location for the registry mapping file.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ContainerRegistryMapUri { get; set; }
+        #endregion
+        
         #region Parameter DefinitionUri
         /// <summary>
         /// <para>
-        /// <para>The URI specifies the location of the workflow definition for this workflow version.</para>
+        /// <para>The S3 URI of a definition for this workflow version. The S3 bucket must be in the
+        /// same region as this workflow version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter DefinitionZip
         /// <summary>
         /// <para>
-        /// <para>A zip archive containing the workflow definition for this workflow version.</para>
+        /// <para>A ZIP archive containing the main workflow definition file and dependencies that it
+        /// imports for this workflow version. You can use a file with a ://fileb prefix instead
+        /// of the Base64 string. For more information, see Workflow definition requirements in
+        /// the <i>Amazon Web Services HealthOmics User Guide</i>.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -115,7 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The workflow engine for this workflow version.</para>
+        /// <para>The workflow engine for this workflow version. This is only required if you have workflow
+        /// definition files from more than one engine in your zip file. Otherwise, the service
+        /// can detect the engine automatically from your workflow definition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,10 +162,25 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         public System.String DefinitionRepository_FullRepositoryId { get; set; }
         #endregion
         
+        #region Parameter ContainerRegistryMap_ImageMapping
+        /// <summary>
+        /// <para>
+        /// <para>Image mappings specify path mappings between the ECR private repository and their
+        /// corresponding external repositories.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContainerRegistryMap_ImageMappings")]
+        public Amazon.Omics.Model.ImageMapping[] ContainerRegistryMap_ImageMapping { get; set; }
+        #endregion
+        
         #region Parameter Main
         /// <summary>
         /// <para>
-        /// <para>The path of the main definition file for this workflow version.</para>
+        /// <para>The path of the main definition file for this workflow version. This parameter is
+        /// not required if the ZIP archive contains only one workflow definition file, or if
+        /// the main definition file is named “main”. An example path is: <c>workflow-definition/main-file.wdl</c>.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,8 +190,11 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter ParameterTemplate
         /// <summary>
         /// <para>
-        /// <para>The parameter template defines the input parameters for runs that use this workflow
-        /// version.</para>
+        /// <para>A parameter template for this workflow version. If this field is blank, Amazon Web
+        /// Services HealthOmics will automatically parse the parameter template values from your
+        /// workflow definition file. To override these service generated default values, provide
+        /// a parameter template. To view an example of a parameter template, see <a href="https://docs.aws.amazon.com/omics/latest/dev/parameter-templates.html">Parameter
+        /// template files</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -213,10 +247,23 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         public System.String ReadmeUri { get; set; }
         #endregion
         
+        #region Parameter ContainerRegistryMap_RegistryMapping
+        /// <summary>
+        /// <para>
+        /// <para>Mapping that provides the ECR repository path where upstream container images are
+        /// pulled and synchronized.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContainerRegistryMap_RegistryMappings")]
+        public Amazon.Omics.Model.RegistryMapping[] ContainerRegistryMap_RegistryMapping { get; set; }
+        #endregion
+        
         #region Parameter RequestId
         /// <summary>
         /// <para>
-        /// <para>To ensure that requests don't run multiple times, specify a unique ID for each request.</para>
+        /// <para>An idempotency token to ensure that duplicate workflows are not created when Amazon
+        /// Web Services HealthOmics submits retry requests.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -227,7 +274,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// <summary>
         /// <para>
         /// <para>The default static storage capacity (in gibibytes) for runs that use this workflow
-        /// or workflow version.</para>
+        /// version. The <c>storageCapacity</c> can be overwritten at run time. The storage capacity
+        /// is not required for runs with a <c>DYNAMIC</c> storage type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -237,11 +285,11 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>The default storage type for runs that use this workflow. STATIC storage allocates
-        /// a fixed amount of storage. DYNAMIC storage dynamically scales the storage up or down,
-        /// based on file system utilization. For more information about static and dynamic storage,
-        /// see <a href="https://docs.aws.amazon.com/omics/latest/dev/Using-workflows.html">Running
-        /// workflows</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</para>
+        /// <para>The default storage type for runs that use this workflow version. The <c>storageType</c>
+        /// can be overridden at run time. <c>DYNAMIC</c> storage dynamically scales the storage
+        /// up or down, based on file system utilization. STATIC storage allocates a fixed amount
+        /// of storage. For more information about dynamic and static storage types, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflows-run-types.html">Run
+        /// storage types</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -252,7 +300,9 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Optional tags to associate with this workflow version.</para>
+        /// <para>Tags for this workflow version. You can define up to 50 tags for the workflow. For
+        /// more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/add-a-tag.html">Adding
+        /// a tag</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -319,7 +369,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter WorkflowId
         /// <summary>
         /// <para>
-        /// <para>The ID of the workflow where you are creating the new version.</para>
+        /// <para>The ID of the workflow where you are creating the new version. The <c>workflowId</c>
+        /// is not the UUID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -396,6 +447,15 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Accelerator = this.Accelerator;
+            if (this.ContainerRegistryMap_ImageMapping != null)
+            {
+                context.ContainerRegistryMap_ImageMapping = new List<Amazon.Omics.Model.ImageMapping>(this.ContainerRegistryMap_ImageMapping);
+            }
+            if (this.ContainerRegistryMap_RegistryMapping != null)
+            {
+                context.ContainerRegistryMap_RegistryMapping = new List<Amazon.Omics.Model.RegistryMapping>(this.ContainerRegistryMap_RegistryMapping);
+            }
+            context.ContainerRegistryMapUri = this.ContainerRegistryMapUri;
             context.DefinitionRepository_ConnectionArn = this.DefinitionRepository_ConnectionArn;
             if (this.DefinitionRepository_ExcludeFilePattern != null)
             {
@@ -470,6 +530,39 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                 if (cmdletContext.Accelerator != null)
                 {
                     request.Accelerators = cmdletContext.Accelerator;
+                }
+                
+                 // populate ContainerRegistryMap
+                var requestContainerRegistryMapIsNull = true;
+                request.ContainerRegistryMap = new Amazon.Omics.Model.ContainerRegistryMap();
+                List<Amazon.Omics.Model.ImageMapping> requestContainerRegistryMap_containerRegistryMap_ImageMapping = null;
+                if (cmdletContext.ContainerRegistryMap_ImageMapping != null)
+                {
+                    requestContainerRegistryMap_containerRegistryMap_ImageMapping = cmdletContext.ContainerRegistryMap_ImageMapping;
+                }
+                if (requestContainerRegistryMap_containerRegistryMap_ImageMapping != null)
+                {
+                    request.ContainerRegistryMap.ImageMappings = requestContainerRegistryMap_containerRegistryMap_ImageMapping;
+                    requestContainerRegistryMapIsNull = false;
+                }
+                List<Amazon.Omics.Model.RegistryMapping> requestContainerRegistryMap_containerRegistryMap_RegistryMapping = null;
+                if (cmdletContext.ContainerRegistryMap_RegistryMapping != null)
+                {
+                    requestContainerRegistryMap_containerRegistryMap_RegistryMapping = cmdletContext.ContainerRegistryMap_RegistryMapping;
+                }
+                if (requestContainerRegistryMap_containerRegistryMap_RegistryMapping != null)
+                {
+                    request.ContainerRegistryMap.RegistryMappings = requestContainerRegistryMap_containerRegistryMap_RegistryMapping;
+                    requestContainerRegistryMapIsNull = false;
+                }
+                 // determine if request.ContainerRegistryMap should be set to null
+                if (requestContainerRegistryMapIsNull)
+                {
+                    request.ContainerRegistryMap = null;
+                }
+                if (cmdletContext.ContainerRegistryMapUri != null)
+                {
+                    request.ContainerRegistryMapUri = cmdletContext.ContainerRegistryMapUri;
                 }
                 
                  // populate DefinitionRepository
@@ -684,6 +777,9 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.Omics.Accelerators Accelerator { get; set; }
+            public List<Amazon.Omics.Model.ImageMapping> ContainerRegistryMap_ImageMapping { get; set; }
+            public List<Amazon.Omics.Model.RegistryMapping> ContainerRegistryMap_RegistryMapping { get; set; }
+            public System.String ContainerRegistryMapUri { get; set; }
             public System.String DefinitionRepository_ConnectionArn { get; set; }
             public List<System.String> DefinitionRepository_ExcludeFilePattern { get; set; }
             public System.String DefinitionRepository_FullRepositoryId { get; set; }

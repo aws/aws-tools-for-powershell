@@ -22,76 +22,70 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.SsmSap;
+using Amazon.SsmSap.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.SMSAP
 {
     /// <summary>
-    /// Describes the configuration and status of image usage reports, filtered by report
-    /// IDs or image IDs.
-    /// 
-    ///  
-    /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/your-ec2-ami-usage.html">View
-    /// your AMI usage</a> in the <i>Amazon EC2 User Guide</i>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the configuration check operations performed by AWS Systems Manager for SAP.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "EC2ImageUsageReport")]
-    [OutputType("Amazon.EC2.Model.ImageUsageReport")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeImageUsageReports API operation.", Operation = new[] {"DescribeImageUsageReports"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeImageUsageReportsResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.ImageUsageReport or Amazon.EC2.Model.DescribeImageUsageReportsResponse",
-        "This cmdlet returns a collection of Amazon.EC2.Model.ImageUsageReport objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeImageUsageReportsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "SMSAPConfigurationCheckOperationList")]
+    [OutputType("Amazon.SsmSap.Model.ConfigurationCheckOperation")]
+    [AWSCmdlet("Calls the AWS Systems Manager for SAP ListConfigurationCheckOperations API operation.", Operation = new[] {"ListConfigurationCheckOperations"}, SelectReturnType = typeof(Amazon.SsmSap.Model.ListConfigurationCheckOperationsResponse))]
+    [AWSCmdletOutput("Amazon.SsmSap.Model.ConfigurationCheckOperation or Amazon.SsmSap.Model.ListConfigurationCheckOperationsResponse",
+        "This cmdlet returns a collection of Amazon.SsmSap.Model.ConfigurationCheckOperation objects.",
+        "The service call response (type Amazon.SsmSap.Model.ListConfigurationCheckOperationsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetEC2ImageUsageReportCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class GetSMSAPConfigurationCheckOperationListCmdlet : AmazonSsmSapClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ApplicationId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the application.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ApplicationId { get; set; }
+        #endregion
+        
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><c>creation-time</c> - The time when the report was created, in the ISO 8601 format
-        /// in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <c>2025-11-29T11:04:43.305Z</c>.
-        /// You can use a wildcard (<c>*</c>), for example, <c>2025-11-29T*</c>, which matches
-        /// an entire day.</para></li><li><para><c>state</c> - The state of the report (<c>available</c> | <c>pending</c> | <c>error</c>).</para></li></ul>
+        /// <para>The filters of an operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Filters")]
-        public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        public Amazon.SsmSap.Model.Filter[] Filter { get; set; }
         #endregion
         
-        #region Parameter ImageId
+        #region Parameter ListMode
         /// <summary>
         /// <para>
-        /// <para>The IDs of the images for filtering the reports. If specified, only reports containing
-        /// these images are returned.</para>
+        /// <para>The mode for listing configuration check operations. Defaults to "LATEST_PER_CHECK".</para><ul><li><para>LATEST_PER_CHECK - Will list the latest configuration check operation per check type.</para></li><li><para>ALL_OPERATIONS - Will list all configuration check operations performed on the application.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ImageIds")]
-        public System.String[] ImageId { get; set; }
-        #endregion
-        
-        #region Parameter ReportId
-        /// <summary>
-        /// <para>
-        /// <para>The IDs of the image usage reports.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ReportIds")]
-        public System.String[] ReportId { get; set; }
+        [AWSConstantClassSource("Amazon.SsmSap.ConfigurationCheckOperationListingMode")]
+        public Amazon.SsmSap.ConfigurationCheckOperationListingMode ListMode { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return for this request. To get the next page of items,
-        /// make another request with the token returned in the output. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</para>
+        /// <para>The maximum number of results to return with a single call. To retrieve the remaining
+        /// results, make another call with the returned nextToken value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,8 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token returned from a previous paginated request. Pagination continues from the
-        /// end of the items returned by the previous request.</para>
+        /// <para>The token for the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -116,13 +109,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ImageUsageReports'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DescribeImageUsageReportsResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.DescribeImageUsageReportsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ConfigurationCheckOperations'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SsmSap.Model.ListConfigurationCheckOperationsResponse).
+        /// Specifying the name of a property of type Amazon.SsmSap.Model.ListConfigurationCheckOperationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ImageUsageReports";
+        public string Select { get; set; } = "ConfigurationCheckOperations";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the ApplicationId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ApplicationId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ApplicationId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter NoAutoIteration
@@ -145,25 +148,35 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DescribeImageUsageReportsResponse, GetEC2ImageUsageReportCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SsmSap.Model.ListConfigurationCheckOperationsResponse, GetSMSAPConfigurationCheckOperationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.ApplicationId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ApplicationId = this.ApplicationId;
+            #if MODULAR
+            if (this.ApplicationId == null && ParameterWasBound(nameof(this.ApplicationId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.Filter != null)
             {
-                context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
+                context.Filter = new List<Amazon.SsmSap.Model.Filter>(this.Filter);
             }
-            if (this.ImageId != null)
-            {
-                context.ImageId = new List<System.String>(this.ImageId);
-            }
+            context.ListMode = this.ListMode;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            if (this.ReportId != null)
-            {
-                context.ReportId = new List<System.String>(this.ReportId);
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -177,26 +190,28 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.EC2.Model.DescribeImageUsageReportsRequest();
+            var request = new Amazon.SsmSap.Model.ListConfigurationCheckOperationsRequest();
             
+            if (cmdletContext.ApplicationId != null)
+            {
+                request.ApplicationId = cmdletContext.ApplicationId;
+            }
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
             }
-            if (cmdletContext.ImageId != null)
+            if (cmdletContext.ListMode != null)
             {
-                request.ImageIds = cmdletContext.ImageId;
+                request.ListMode = cmdletContext.ListMode;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.ReportId != null)
-            {
-                request.ReportIds = cmdletContext.ReportId;
             }
             
             // Initialize loop variant and commence piping
@@ -255,15 +270,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.DescribeImageUsageReportsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeImageUsageReportsRequest request)
+        private Amazon.SsmSap.Model.ListConfigurationCheckOperationsResponse CallAWSServiceOperation(IAmazonSsmSap client, Amazon.SsmSap.Model.ListConfigurationCheckOperationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeImageUsageReports");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager for SAP", "ListConfigurationCheckOperations");
             try
             {
                 #if DESKTOP
-                return client.DescribeImageUsageReports(request);
+                return client.ListConfigurationCheckOperations(request);
                 #elif CORECLR
-                return client.DescribeImageUsageReportsAsync(request).GetAwaiter().GetResult();
+                return client.ListConfigurationCheckOperationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -283,13 +298,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.EC2.Model.Filter> Filter { get; set; }
-            public List<System.String> ImageId { get; set; }
+            public System.String ApplicationId { get; set; }
+            public List<Amazon.SsmSap.Model.Filter> Filter { get; set; }
+            public Amazon.SsmSap.ConfigurationCheckOperationListingMode ListMode { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public List<System.String> ReportId { get; set; }
-            public System.Func<Amazon.EC2.Model.DescribeImageUsageReportsResponse, GetEC2ImageUsageReportCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ImageUsageReports;
+            public System.Func<Amazon.SsmSap.Model.ListConfigurationCheckOperationsResponse, GetSMSAPConfigurationCheckOperationListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ConfigurationCheckOperations;
         }
         
     }

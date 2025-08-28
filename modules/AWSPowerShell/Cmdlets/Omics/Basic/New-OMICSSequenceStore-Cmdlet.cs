@@ -28,7 +28,32 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Creates a sequence store.
+    /// Creates a sequence store and returns its metadata. Sequence stores are used to store
+    /// sequence data files called read sets that are saved in FASTQ, BAM, uBAM, or CRAM formats.
+    /// For aligned formats (BAM and CRAM), a sequence store can only use one reference genome.
+    /// For unaligned formats (FASTQ and uBAM), a reference genome is not required. You can
+    /// create multiple sequence stores per region per account. 
+    /// 
+    ///  
+    /// <para>
+    /// The following are optional parameters you can specify for your sequence store:
+    /// </para><ul><li><para>
+    /// Use <c>s3AccessConfig</c> to configure your sequence store with S3 access logs (recommended).
+    /// </para></li><li><para>
+    /// Use <c>sseConfig</c> to define your own KMS key for encryption.
+    /// </para></li><li><para>
+    /// Use <c>eTagAlgorithmFamily</c> to define which algorithm to use for the HealthOmics
+    /// eTag on objects.
+    /// </para></li><li><para>
+    /// Use <c>fallbackLocation</c> to define a backup location for storing files that have
+    /// failed a direct upload.
+    /// </para></li><li><para>
+    /// Use <c>propagatedSetLevelTags</c> to configure tags that propagate to all objects
+    /// in your store.
+    /// </para></li></ul><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/create-sequence-store.html">Creating
+    /// a HealthOmics sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "OMICSSequenceStore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Omics.Model.CreateSequenceStoreResponse")]
@@ -64,7 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter ETagAlgorithmFamily
         /// <summary>
         /// <para>
-        /// <para>The ETag algorithm family to use for ingested read sets.</para>
+        /// <para>The ETag algorithm family to use for ingested read sets. The default value is MD5up.
+        /// For more information on ETags, see <a href="https://docs.aws.amazon.com/omics/latest/dev/etags-and-provenance.html">ETags
+        /// and data provenance</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter FallbackLocation
         /// <summary>
         /// <para>
-        /// <para>An S3 location that is used to store files that have failed a direct upload.</para>
+        /// <para>An S3 location that is used to store files that have failed a direct upload. You can
+        /// add or change the <c>fallbackLocation</c> after creating a sequence store. This is
+        /// not required if you are uploading files from a different S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// <summary>
         /// <para>
         /// <para>The tags keys to propagate to the S3 objects associated with read sets in the sequence
-        /// store.</para>
+        /// store. These tags can be used as input to add metadata to your read sets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags for the store.</para>
+        /// <para>Tags for the store. You can configure up to 50 tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,8 +175,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>To ensure that requests don't run multiple times, specify a unique token for each
-        /// request.</para>
+        /// <para>An idempotency token used to dedupe retry requests so that duplicate runs are not
+        /// created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

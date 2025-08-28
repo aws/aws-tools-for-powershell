@@ -28,7 +28,7 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Retrieves a list of read set import jobs.
+    /// Retrieves a list of read set import jobs and returns the data in JSON format.
     /// </summary>
     [Cmdlet("Get", "OMICSReadSetImportJobList")]
     [OutputType("Amazon.Omics.Model.ImportReadSetJobItem")]

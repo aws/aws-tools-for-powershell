@@ -28,7 +28,7 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Gets information about a sequence store.
+    /// Retrieves metadata for a sequence store using its ID and returns it in JSON format.
     /// </summary>
     [Cmdlet("Get", "OMICSSequenceStore")]
     [OutputType("Amazon.Omics.Model.GetSequenceStoreResponse")]

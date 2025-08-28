@@ -28,7 +28,14 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Retrieves a list of reference stores.
+    /// Retrieves a list of reference stores linked to your account and returns their metadata
+    /// in JSON format.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/create-reference-store.html">Creating
+    /// a reference store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "OMICSReferenceStoreList")]
     [OutputType("Amazon.Omics.Model.ReferenceStoreDetail")]

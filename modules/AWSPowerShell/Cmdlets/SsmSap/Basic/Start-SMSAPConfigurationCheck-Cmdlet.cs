@@ -22,32 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Omics;
-using Amazon.Omics.Model;
+using Amazon.SsmSap;
+using Amazon.SsmSap.Model;
 
-namespace Amazon.PowerShell.Cmdlets.OMICS
+namespace Amazon.PowerShell.Cmdlets.SMSAP
 {
     /// <summary>
-    /// Lists in-progress multipart read set uploads for a sequence store and returns it in
-    /// a JSON formatted output. Multipart read set uploads are initiated by the <c>CreateMultipartReadSetUploads</c>
-    /// API operation. This operation returns a response with no body when the upload is complete.
+    /// Initiates configuration check operations against a specified application.
     /// </summary>
-    [Cmdlet("Get", "OMICSMultipartReadSetUploadList")]
-    [OutputType("Amazon.Omics.Model.MultipartReadSetUploadListItem")]
-    [AWSCmdlet("Calls the Amazon Omics ListMultipartReadSetUploads API operation.", Operation = new[] {"ListMultipartReadSetUploads"}, SelectReturnType = typeof(Amazon.Omics.Model.ListMultipartReadSetUploadsResponse))]
-    [AWSCmdletOutput("Amazon.Omics.Model.MultipartReadSetUploadListItem or Amazon.Omics.Model.ListMultipartReadSetUploadsResponse",
-        "This cmdlet returns a collection of Amazon.Omics.Model.MultipartReadSetUploadListItem objects.",
-        "The service call response (type Amazon.Omics.Model.ListMultipartReadSetUploadsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Start", "SMSAPConfigurationCheck", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.SsmSap.Model.ConfigurationCheckOperation")]
+    [AWSCmdlet("Calls the AWS Systems Manager for SAP StartConfigurationChecks API operation.", Operation = new[] {"StartConfigurationChecks"}, SelectReturnType = typeof(Amazon.SsmSap.Model.StartConfigurationChecksResponse))]
+    [AWSCmdletOutput("Amazon.SsmSap.Model.ConfigurationCheckOperation or Amazon.SsmSap.Model.StartConfigurationChecksResponse",
+        "This cmdlet returns a collection of Amazon.SsmSap.Model.ConfigurationCheckOperation objects.",
+        "The service call response (type Amazon.SsmSap.Model.StartConfigurationChecksResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetOMICSMultipartReadSetUploadListCmdlet : AmazonOmicsClientCmdlet, IExecutor
+    public partial class StartSMSAPConfigurationCheckCmdlet : AmazonSsmSapClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter SequenceStoreId
+        #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The Sequence Store ID used for the multipart uploads.</para>
+        /// <para>The ID of the application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,56 +56,61 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String SequenceStoreId { get; set; }
+        public System.String ApplicationId { get; set; }
         #endregion
         
-        #region Parameter MaxResult
+        #region Parameter ConfigurationCheckId
         /// <summary>
         /// <para>
-        /// <para>The maximum number of multipart uploads returned in a page.</para>
+        /// <para>The list of configuration checks to perform.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para>Next token returned in the response of a previous ListMultipartReadSetUploads call.
-        /// Used to get the next page of results.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
+        [Alias("ConfigurationCheckIds")]
+        public System.String[] ConfigurationCheckId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Uploads'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Omics.Model.ListMultipartReadSetUploadsResponse).
-        /// Specifying the name of a property of type Amazon.Omics.Model.ListMultipartReadSetUploadsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ConfigurationCheckOperations'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SsmSap.Model.StartConfigurationChecksResponse).
+        /// Specifying the name of a property of type Amazon.SsmSap.Model.StartConfigurationChecksResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Uploads";
+        public string Select { get; set; } = "ConfigurationCheckOperations";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the SequenceStoreId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^SequenceStoreId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ApplicationId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ApplicationId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SequenceStoreId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ApplicationId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ApplicationId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-SMSAPConfigurationCheck (StartConfigurationChecks)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -117,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Omics.Model.ListMultipartReadSetUploadsResponse, GetOMICSMultipartReadSetUploadListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SsmSap.Model.StartConfigurationChecksResponse, StartSMSAPConfigurationCheckCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -126,18 +129,20 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.SequenceStoreId;
+                context.Select = (response, cmdlet) => this.ApplicationId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
-            context.SequenceStoreId = this.SequenceStoreId;
+            context.ApplicationId = this.ApplicationId;
             #if MODULAR
-            if (this.SequenceStoreId == null && ParameterWasBound(nameof(this.SequenceStoreId)))
+            if (this.ApplicationId == null && ParameterWasBound(nameof(this.ApplicationId)))
             {
-                WriteWarning("You are passing $null as a value for parameter SequenceStoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ConfigurationCheckId != null)
+            {
+                context.ConfigurationCheckId = new List<System.String>(this.ConfigurationCheckId);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -152,19 +157,15 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Omics.Model.ListMultipartReadSetUploadsRequest();
+            var request = new Amazon.SsmSap.Model.StartConfigurationChecksRequest();
             
-            if (cmdletContext.MaxResult != null)
+            if (cmdletContext.ApplicationId != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
+                request.ApplicationId = cmdletContext.ApplicationId;
             }
-            if (cmdletContext.NextToken != null)
+            if (cmdletContext.ConfigurationCheckId != null)
             {
-                request.NextToken = cmdletContext.NextToken;
-            }
-            if (cmdletContext.SequenceStoreId != null)
-            {
-                request.SequenceStoreId = cmdletContext.SequenceStoreId;
+                request.ConfigurationCheckIds = cmdletContext.ConfigurationCheckId;
             }
             
             CmdletOutput output;
@@ -199,15 +200,15 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         
         #region AWS Service Operation Call
         
-        private Amazon.Omics.Model.ListMultipartReadSetUploadsResponse CallAWSServiceOperation(IAmazonOmics client, Amazon.Omics.Model.ListMultipartReadSetUploadsRequest request)
+        private Amazon.SsmSap.Model.StartConfigurationChecksResponse CallAWSServiceOperation(IAmazonSsmSap client, Amazon.SsmSap.Model.StartConfigurationChecksRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Omics", "ListMultipartReadSetUploads");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager for SAP", "StartConfigurationChecks");
             try
             {
                 #if DESKTOP
-                return client.ListMultipartReadSetUploads(request);
+                return client.StartConfigurationChecks(request);
                 #elif CORECLR
-                return client.ListMultipartReadSetUploadsAsync(request).GetAwaiter().GetResult();
+                return client.StartConfigurationChecksAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -227,11 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? MaxResult { get; set; }
-            public System.String NextToken { get; set; }
-            public System.String SequenceStoreId { get; set; }
-            public System.Func<Amazon.Omics.Model.ListMultipartReadSetUploadsResponse, GetOMICSMultipartReadSetUploadListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Uploads;
+            public System.String ApplicationId { get; set; }
+            public List<System.String> ConfigurationCheckId { get; set; }
+            public System.Func<Amazon.SsmSap.Model.StartConfigurationChecksResponse, StartSMSAPConfigurationCheckCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ConfigurationCheckOperations;
         }
         
     }

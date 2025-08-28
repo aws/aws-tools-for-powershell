@@ -28,7 +28,7 @@ using Amazon.HealthLake.Model;
 namespace Amazon.PowerShell.Cmdlets.AHL
 {
     /// <summary>
-    /// Begins a FHIR export job.
+    /// Start a FHIR export job.
     /// </summary>
     [Cmdlet("Start", "AHLFHIRExportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.HealthLake.Model.StartFHIRExportJobResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter DataAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name used during the initiation of the job.</para>
+        /// <para>The Amazon Resource Name (ARN) used during initiation of the export job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,8 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter DatastoreId
         /// <summary>
         /// <para>
-        /// <para>The AWS generated ID for the data store from which files are being exported for an
-        /// export job.</para>
+        /// <para>The data store identifier from which files are being exported.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter JobName
         /// <summary>
         /// <para>
-        /// <para>The user generated name for an export job.</para>
+        /// <para>The export job name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter S3Configuration_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para> The KMS key ID used to access the S3 bucket. </para>
+        /// <para>The Key Management Service (KMS) key ID used to access the S3 bucket. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter S3Configuration_S3Uri
         /// <summary>
         /// <para>
-        /// <para> The S3Uri is the user specified S3 location of the FHIR data to be imported into
-        /// AWS HealthLake. </para>
+        /// <para>The <c>S3Uri</c> is the user-specified S3 location of the FHIR data to be imported
+        /// into AWS HealthLake.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>An optional user provided token used for ensuring idempotency.</para>
+        /// <para>An optional user provided token used for ensuring API idempotency.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

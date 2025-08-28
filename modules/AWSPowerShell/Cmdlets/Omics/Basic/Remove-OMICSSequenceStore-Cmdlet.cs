@@ -28,7 +28,19 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Deletes a sequence store.
+    /// Deletes a sequence store and returns a response with no body if the operation is successful.
+    /// You can only delete a sequence store when it does not contain any read sets.
+    /// 
+    ///  
+    /// <para>
+    /// Use the <c>BatchDeleteReadSet</c> API operation to ensure that all read sets in the
+    /// sequence store are deleted. When a sequence store is deleted, all tags associated
+    /// with the store are also deleted.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/deleting-reference-and-sequence-stores.html">Deleting
+    /// HealthOmics reference and sequence stores</a> in the <i>Amazon Web Services HealthOmics
+    /// User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "OMICSSequenceStore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

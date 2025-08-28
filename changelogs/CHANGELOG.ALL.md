@@ -1,4 +1,25 @@
-﻿### 4.1.888 (2025-08-27 21:20Z)
+﻿### 4.1.889 (2025-08-28 21:29Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1112.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Modified cmdlet Get-CONNCurrentMetricData: added parameter Filters_AgentStatus.
+    * Modified cmdlet Get-CONNMetricData: added parameter Filters_AgentStatus.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Copy-EC2Image: added parameters DestinationAvailabilityZone and DestinationAvailabilityZoneId.
+    * Modified cmdlet Copy-EC2Snapshot: added parameter DestinationAvailabilityZone.
+  * Amazon HealthLake
+    * Modified cmdlet Start-AHLFHIRImportJob: added parameter ValidationLevel.
+  * Amazon Omics
+    * Modified cmdlet New-OMICSWorkflow: added parameters ContainerRegistryMap_ImageMapping, ContainerRegistryMap_RegistryMapping and ContainerRegistryMapUri.
+    * Modified cmdlet New-OMICSWorkflowVersion: added parameters ContainerRegistryMap_ImageMapping, ContainerRegistryMap_RegistryMapping and ContainerRegistryMapUri.
+  * Amazon Systems Manager for SAP
+    * Added cmdlet Get-SMSAPConfigurationCheckDefinitionList leveraging the ListConfigurationCheckDefinitions service API.
+    * Added cmdlet Get-SMSAPConfigurationCheckOperation leveraging the GetConfigurationCheckOperation service API.
+    * Added cmdlet Get-SMSAPConfigurationCheckOperationList leveraging the ListConfigurationCheckOperations service API.
+    * Added cmdlet Get-SMSAPSubCheckResultList leveraging the ListSubCheckResults service API.
+    * Added cmdlet Get-SMSAPSubCheckRuleResultList leveraging the ListSubCheckRuleResults service API.
+    * Added cmdlet Start-SMSAPConfigurationCheck leveraging the StartConfigurationChecks service API.
+
+### 4.1.888 (2025-08-27 21:20Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1111.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * [Breaking Change] Removed support for Amazon OpsWorks
   * [Breaking Change] Removed support for Amazon OpsWorksCM

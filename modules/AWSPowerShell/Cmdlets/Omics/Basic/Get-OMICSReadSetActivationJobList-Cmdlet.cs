@@ -28,7 +28,9 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Retrieves a list of read set activation jobs.
+    /// Retrieves a list of read set activation jobs and returns the metadata in a JSON formatted
+    /// output. To extract metadata from a read set activation job, use the <c>GetReadSetActivationJob</c>
+    /// API operation.
     /// </summary>
     [Cmdlet("Get", "OMICSReadSetActivationJobList")]
     [OutputType("Amazon.Omics.Model.ActivateReadSetJobItem")]

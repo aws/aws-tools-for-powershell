@@ -28,7 +28,13 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Retrieves a list of references.
+    /// Retrieves the metadata of one or more reference genomes in a reference store.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/create-reference-store.html">Creating
+    /// a reference store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "OMICSReferenceList")]
     [OutputType("Amazon.Omics.Model.ReferenceListItem")]

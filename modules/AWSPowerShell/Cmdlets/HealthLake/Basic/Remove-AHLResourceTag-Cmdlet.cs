@@ -28,7 +28,7 @@ using Amazon.HealthLake.Model;
 namespace Amazon.PowerShell.Cmdlets.AHL
 {
     /// <summary>
-    /// Removes tags from a data store.
+    /// Remove a user-specifed key and value tag from a data store.
     /// </summary>
     [Cmdlet("Remove", "AHLResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name(ARN) of the data store for which tags are being removed.</para>
+        /// <para>The Amazon Resource Name (ARN) of the data store from which tags are being removed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para> The keys for the tags to be removed from the HealthLake data store. </para>
+        /// <para>The keys for the tags to be removed from the data store.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

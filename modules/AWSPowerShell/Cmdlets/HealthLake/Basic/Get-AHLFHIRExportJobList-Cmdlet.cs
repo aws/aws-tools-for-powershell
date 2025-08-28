@@ -45,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter DatastoreId
         /// <summary>
         /// <para>
-        /// <para> This parameter limits the response to the export job with the specified data store
-        /// ID. </para>
+        /// <para>Limits the response to the export job with the specified data store ID. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,8 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter JobName
         /// <summary>
         /// <para>
-        /// <para> This parameter limits the response to the export job with the specified job name.
-        /// </para>
+        /// <para>Limits the response to the export job with the specified job name. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,8 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter JobStatus
         /// <summary>
         /// <para>
-        /// <para> This parameter limits the response to the export jobs with the specified job status.
-        /// </para>
+        /// <para>Limits the response to export jobs with the specified job status. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,8 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter SubmittedAfter
         /// <summary>
         /// <para>
-        /// <para> This parameter limits the response to FHIR export jobs submitted after a user specified
-        /// date. </para>
+        /// <para>Limits the response to FHIR export jobs submitted after a user-specified date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,8 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter SubmittedBefore
         /// <summary>
         /// <para>
-        /// <para> This parameter limits the response to FHIR export jobs submitted before a user specified
-        /// date. </para>
+        /// <para>Limits the response to FHIR export jobs submitted before a user- specified date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> This parameter limits the number of results returned for a ListFHIRExportJobs to
-        /// a maximum quantity specified by the user. </para>
+        /// <para>Limits the number of results returned for a ListFHIRExportJobs to a maximum quantity
+        /// specified by the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,8 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> A pagination token used to identify the next page of results to return for a ListFHIRExportJobs
-        /// query. </para>
+        /// <para>A pagination token used to identify the next page of results to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

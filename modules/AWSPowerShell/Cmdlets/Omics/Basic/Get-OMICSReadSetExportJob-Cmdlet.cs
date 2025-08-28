@@ -28,7 +28,8 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Gets information about a read set export job.
+    /// Retrieves status information about a read set export job and returns the data in JSON
+    /// format. Use this operation to actively monitor the progress of an export job.
     /// </summary>
     [Cmdlet("Get", "OMICSReadSetExportJob")]
     [OutputType("Amazon.Omics.Model.GetReadSetExportJobResponse")]
