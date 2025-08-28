@@ -30,7 +30,7 @@ using Amazon.HealthLake.Model;
 namespace Amazon.PowerShell.Cmdlets.AHL
 {
     /// <summary>
-    /// Adds a user specified key and value tag to a data store.
+    /// Add a user-specifed key and value tag to a data store.
     /// </summary>
     [Cmdlet("Add", "AHLResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name(ARN)that gives AWS HealthLake access to the data store which
-        /// tags are being added to. </para>
+        /// <para>The Amazon Resource Name (ARN) that grants access to the data store tags are being
+        /// added to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> The user specified key and value pair tags being added to a data store. </para><para />
+        /// <para>The user-specified key and value pair tags being added to a data store.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

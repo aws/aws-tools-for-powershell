@@ -30,7 +30,9 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Starts a read set import job.
+    /// Imports a read set from the sequence store. Read set import jobs support a maximum
+    /// of 100 read sets of different types. Monitor the progress of your read set import
+    /// job by calling the <c>GetReadSetImportJob</c> API operation.
     /// </summary>
     [Cmdlet("Start", "OMICSReadSetImportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Omics.Model.StartReadSetImportJobResponse")]

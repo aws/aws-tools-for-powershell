@@ -30,8 +30,8 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Deletes a workflow by specifying its ID. No response is returned if the deletion is
-    /// successful.
+    /// Deletes a workflow by specifying its ID. This operation returns a response with no
+    /// body if the deletion is successful.
     /// 
     ///  
     /// <para>

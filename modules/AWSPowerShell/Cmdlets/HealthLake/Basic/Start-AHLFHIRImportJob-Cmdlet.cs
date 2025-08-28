@@ -30,7 +30,9 @@ using Amazon.HealthLake.Model;
 namespace Amazon.PowerShell.Cmdlets.AHL
 {
     /// <summary>
-    /// Begins a FHIR Import job.
+    /// Start importing bulk FHIR data into an ACTIVE data store. The import job imports FHIR
+    /// data found in the <c>InputDataConfig</c> object and stores processing results in the
+    /// <c>JobOutputDataConfig</c> object.
     /// </summary>
     [Cmdlet("Start", "AHLFHIRImportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.HealthLake.Model.StartFHIRImportJobResponse")]
@@ -47,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter DataAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) that gives AWS HealthLake access permission.</para>
+        /// <para>The Amazon Resource Name (ARN) that grants access permission to AWS HealthLake.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter DatastoreId
         /// <summary>
         /// <para>
-        /// <para>The AWS-generated data store ID.</para>
+        /// <para>The data store identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter JobName
         /// <summary>
         /// <para>
-        /// <para>The name of the FHIR Import job in the StartFHIRImport job request.</para>
+        /// <para>The import job name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter S3Configuration_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para> The KMS key ID used to access the S3 bucket. </para>
+        /// <para>The Key Management Service (KMS) key ID used to access the S3 bucket. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter InputDataConfig_S3Uri
         /// <summary>
         /// <para>
-        /// <para>The S3Uri is the user specified S3 location of the FHIR data to be imported into AWS
-        /// HealthLake. </para>
+        /// <para>The <c>S3Uri</c> is the user-specified S3 location of the FHIR data to be imported
+        /// into AWS HealthLake.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter S3Configuration_S3Uri
         /// <summary>
         /// <para>
-        /// <para> The S3Uri is the user specified S3 location of the FHIR data to be imported into
-        /// AWS HealthLake. </para>
+        /// <para>The <c>S3Uri</c> is the user-specified S3 location of the FHIR data to be imported
+        /// into AWS HealthLake.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,10 +124,21 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         public System.String S3Configuration_S3Uri { get; set; }
         #endregion
         
+        #region Parameter ValidationLevel
+        /// <summary>
+        /// <para>
+        /// <para>The validation level of the import job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.HealthLake.ValidationLevel")]
+        public Amazon.HealthLake.ValidationLevel ValidationLevel { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Optional user provided token used for ensuring idempotency.</para>
+        /// <para>The optional user-provided token used for ensuring API idempotency.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,6 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             context.JobName = this.JobName;
             context.S3Configuration_KmsKeyId = this.S3Configuration_KmsKeyId;
             context.S3Configuration_S3Uri = this.S3Configuration_S3Uri;
+            context.ValidationLevel = this.ValidationLevel;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -278,6 +292,10 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             {
                 request.JobOutputDataConfig.S3Configuration = requestJobOutputDataConfig_jobOutputDataConfig_S3Configuration;
             }
+            if (cmdletContext.ValidationLevel != null)
+            {
+                request.ValidationLevel = cmdletContext.ValidationLevel;
+            }
             
             CmdletOutput output;
             
@@ -340,6 +358,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             public System.String JobName { get; set; }
             public System.String S3Configuration_KmsKeyId { get; set; }
             public System.String S3Configuration_S3Uri { get; set; }
+            public Amazon.HealthLake.ValidationLevel ValidationLevel { get; set; }
             public System.Func<Amazon.HealthLake.Model.StartFHIRImportJobResponse, StartAHLFHIRImportJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

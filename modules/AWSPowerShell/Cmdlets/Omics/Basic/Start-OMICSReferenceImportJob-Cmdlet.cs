@@ -30,7 +30,10 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Starts a reference import job.
+    /// Imports a reference genome from Amazon S3 into a specified reference store. You can
+    /// have multiple reference genomes in a reference store. You can only import reference
+    /// genomes one at a time into each reference store. Monitor the status of your reference
+    /// import job by using the <c>GetReferenceImportJob</c> API operation.
     /// </summary>
     [Cmdlet("Start", "OMICSReferenceImportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Omics.Model.StartReferenceImportJobResponse")]

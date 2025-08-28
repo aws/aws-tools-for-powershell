@@ -30,8 +30,8 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// This operation will list all parts in a requested multipart upload for a sequence
-    /// store.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// Lists all parts in a multipart read set upload for a sequence store and returns the
+    /// metadata in a JSON formatted output.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
     /// </summary>
     [Cmdlet("Get", "OMICSReadSetUploadPartList")]
     [OutputType("Amazon.Omics.Model.ReadSetUploadPartListItem")]

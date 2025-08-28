@@ -59,6 +59,21 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Filters_AgentStatus
+        /// <summary>
+        /// <para>
+        /// <para>A list of up to 50 agent status IDs or ARNs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_AgentStatuses")]
+        public System.String[] Filters_AgentStatus { get; set; }
+        #endregion
+        
         #region Parameter Filters_Channel
         /// <summary>
         /// <para>
@@ -324,6 +339,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter EndTime which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Filters_AgentStatus != null)
+            {
+                context.Filters_AgentStatus = new List<System.String>(this.Filters_AgentStatus);
+            }
             if (this.Filters_Channel != null)
             {
                 context.Filters_Channel = new List<System.String>(this.Filters_Channel);
@@ -412,6 +431,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             
              // populate Filters
             request.Filters = new Amazon.Connect.Model.Filters();
+            List<System.String> requestFilters_filters_AgentStatus = null;
+            if (cmdletContext.Filters_AgentStatus != null)
+            {
+                requestFilters_filters_AgentStatus = cmdletContext.Filters_AgentStatus;
+            }
+            if (requestFilters_filters_AgentStatus != null)
+            {
+                request.Filters.AgentStatuses = requestFilters_filters_AgentStatus;
+            }
             List<System.String> requestFilters_filters_Channel = null;
             if (cmdletContext.Filters_Channel != null)
             {
@@ -530,6 +558,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             
              // populate Filters
             request.Filters = new Amazon.Connect.Model.Filters();
+            List<System.String> requestFilters_filters_AgentStatus = null;
+            if (cmdletContext.Filters_AgentStatus != null)
+            {
+                requestFilters_filters_AgentStatus = cmdletContext.Filters_AgentStatus;
+            }
+            if (requestFilters_filters_AgentStatus != null)
+            {
+                request.Filters.AgentStatuses = requestFilters_filters_AgentStatus;
+            }
             List<System.String> requestFilters_filters_Channel = null;
             if (cmdletContext.Filters_Channel != null)
             {
@@ -700,6 +737,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.DateTime? EndTime { get; set; }
+            public List<System.String> Filters_AgentStatus { get; set; }
             public List<System.String> Filters_Channel { get; set; }
             public List<System.String> Filters_Queue { get; set; }
             public List<System.String> Filters_RoutingProfile { get; set; }

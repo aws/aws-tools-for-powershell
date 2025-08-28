@@ -30,7 +30,7 @@ using Amazon.HealthLake.Model;
 namespace Amazon.PowerShell.Cmdlets.AHL
 {
     /// <summary>
-    /// Lists all FHIR import jobs associated with an account and their statuses.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// List all FHIR import jobs associated with an account and their statuses.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "AHLFHIRImportJobList")]
     [OutputType("Amazon.HealthLake.Model.ImportJobProperties")]
@@ -48,8 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter DatastoreId
         /// <summary>
         /// <para>
-        /// <para> This parameter limits the response to the import job with the specified data store
-        /// ID. </para>
+        /// <para>Limits the response to the import job with the specified data store ID. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,8 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter JobName
         /// <summary>
         /// <para>
-        /// <para> This parameter limits the response to the import job with the specified job name.
-        /// </para>
+        /// <para>Limits the response to the import job with the specified job name. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,8 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter JobStatus
         /// <summary>
         /// <para>
-        /// <para> This parameter limits the response to the import job with the specified job status.
-        /// </para>
+        /// <para>Limits the response to the import job with the specified job status. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,8 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter SubmittedAfter
         /// <summary>
         /// <para>
-        /// <para> This parameter limits the response to FHIR import jobs submitted after a user specified
-        /// date. </para>
+        /// <para>Limits the response to FHIR import jobs submitted after a user-specified date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,8 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter SubmittedBefore
         /// <summary>
         /// <para>
-        /// <para> This parameter limits the response to FHIR import jobs submitted before a user specified
-        /// date. </para>
+        /// <para>Limits the response to FHIR import jobs submitted before a user- specified date. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> This parameter limits the number of results returned for a ListFHIRImportJobs to
-        /// a maximum quantity specified by the user. </para>
+        /// <para>Limits the number of results returned for <c>ListFHIRImportJobs</c> to a maximum quantity
+        /// specified by the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,8 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> A pagination token used to identify the next page of results to return for a ListFHIRImportJobs
-        /// query. </para>
+        /// <para>The pagination token used to identify the next page of results to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

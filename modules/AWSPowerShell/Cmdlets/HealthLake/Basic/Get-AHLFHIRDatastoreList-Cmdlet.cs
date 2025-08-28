@@ -30,8 +30,7 @@ using Amazon.HealthLake.Model;
 namespace Amazon.PowerShell.Cmdlets.AHL
 {
     /// <summary>
-    /// Lists all FHIR data stores that are in the user’s account, regardless of data store
-    /// status.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// List all FHIR-enabled data stores in a user’s account, regardless of data store status.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "AHLFHIRDatastoreList")]
     [OutputType("Amazon.HealthLake.Model.DatastoreProperties")]
@@ -49,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter Filter_CreatedAfter
         /// <summary>
         /// <para>
-        /// <para>A filter that allows the user to set cutoff dates for records. All data stores created
-        /// after the specified date will be included in the results.</para>
+        /// <para>Filter to set cutoff dates for records. All data stores created after the specified
+        /// date are included in the results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter Filter_CreatedBefore
         /// <summary>
         /// <para>
-        /// <para>A filter that allows the user to set cutoff dates for records. All data stores created
-        /// before the specified date will be included in the results. </para>
+        /// <para>Filter to set cutoff dates for records. All data stores created before the specified
+        /// date are included in the results. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter Filter_DatastoreName
         /// <summary>
         /// <para>
-        /// <para>Allows the user to filter data store results by name.</para>
+        /// <para>Filter data store results by name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter Filter_DatastoreStatus
         /// <summary>
         /// <para>
-        /// <para>Allows the user to filter data store results by status.</para>
+        /// <para>Filter data store results by status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,8 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of data stores returned in a single page of a ListFHIRDatastoresRequest
-        /// call.</para>
+        /// <para>The maximum number of data stores returned on a page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Fetches the next page of data stores when results are paginated.</para>
+        /// <para>The token used to retrieve the next page of data stores when results are paginated.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

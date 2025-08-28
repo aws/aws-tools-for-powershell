@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter WorkflowId
         /// <summary>
         /// <para>
-        /// <para>The workflow's ID.</para>
+        /// <para>The workflow's ID. The <c>workflowId</c> is not the UUID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -108,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter WorkflowOwnerId
         /// <summary>
         /// <para>
-        /// <para>Amazon Web Services Id of the owner of the workflow.</para>
+        /// <para>The 12-digit account ID of the workflow owner. The workflow owner ID can be retrieved
+        /// using the <c>GetShare</c> API operation. If you are the workflow owner, you do not
+        /// need to include this ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

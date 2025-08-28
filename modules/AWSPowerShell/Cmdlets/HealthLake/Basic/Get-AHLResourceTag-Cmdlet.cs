@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name(ARN) of the data store for which tags are being added. </para>
+        /// <para>The Amazon Resource Name (ARN) of the data store to which tags are being added.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

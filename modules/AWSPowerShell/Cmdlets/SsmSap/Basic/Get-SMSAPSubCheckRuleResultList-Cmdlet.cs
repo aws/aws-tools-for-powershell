@@ -23,34 +23,32 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Omics;
-using Amazon.Omics.Model;
+using Amazon.SsmSap;
+using Amazon.SsmSap.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.OMICS
+namespace Amazon.PowerShell.Cmdlets.SMSAP
 {
     /// <summary>
-    /// Lists in-progress multipart read set uploads for a sequence store and returns it in
-    /// a JSON formatted output. Multipart read set uploads are initiated by the <c>CreateMultipartReadSetUploads</c>
-    /// API operation. This operation returns a response with no body when the upload is complete.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// Lists the rules of a specified sub-check belonging to a configuration check operation.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "OMICSMultipartReadSetUploadList")]
-    [OutputType("Amazon.Omics.Model.MultipartReadSetUploadListItem")]
-    [AWSCmdlet("Calls the Amazon Omics ListMultipartReadSetUploads API operation.", Operation = new[] {"ListMultipartReadSetUploads"}, SelectReturnType = typeof(Amazon.Omics.Model.ListMultipartReadSetUploadsResponse))]
-    [AWSCmdletOutput("Amazon.Omics.Model.MultipartReadSetUploadListItem or Amazon.Omics.Model.ListMultipartReadSetUploadsResponse",
-        "This cmdlet returns a collection of Amazon.Omics.Model.MultipartReadSetUploadListItem objects.",
-        "The service call response (type Amazon.Omics.Model.ListMultipartReadSetUploadsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "SMSAPSubCheckRuleResultList")]
+    [OutputType("Amazon.SsmSap.Model.RuleResult")]
+    [AWSCmdlet("Calls the AWS Systems Manager for SAP ListSubCheckRuleResults API operation.", Operation = new[] {"ListSubCheckRuleResults"}, SelectReturnType = typeof(Amazon.SsmSap.Model.ListSubCheckRuleResultsResponse))]
+    [AWSCmdletOutput("Amazon.SsmSap.Model.RuleResult or Amazon.SsmSap.Model.ListSubCheckRuleResultsResponse",
+        "This cmdlet returns a collection of Amazon.SsmSap.Model.RuleResult objects.",
+        "The service call response (type Amazon.SsmSap.Model.ListSubCheckRuleResultsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetOMICSMultipartReadSetUploadListCmdlet : AmazonOmicsClientCmdlet, IExecutor
+    public partial class GetSMSAPSubCheckRuleResultListCmdlet : AmazonSsmSapClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter SequenceStoreId
+        #region Parameter SubCheckResultId
         /// <summary>
         /// <para>
-        /// <para>The Sequence Store ID used for the multipart uploads.</para>
+        /// <para>The ID of the sub check result.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,13 +59,14 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String SequenceStoreId { get; set; }
+        public System.String SubCheckResultId { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of multipart uploads returned in a page.</para>
+        /// <para>The maximum number of results to return with a single call. To retrieve the remaining
+        /// results, make another call with the returned nextToken value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -83,8 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Next token returned in the response of a previous ListMultipartReadSetUploads call.
-        /// Used to get the next page of results.</para>
+        /// <para>The token for the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -97,13 +95,13 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Uploads'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Omics.Model.ListMultipartReadSetUploadsResponse).
-        /// Specifying the name of a property of type Amazon.Omics.Model.ListMultipartReadSetUploadsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'RuleResults'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SsmSap.Model.ListSubCheckRuleResultsResponse).
+        /// Specifying the name of a property of type Amazon.SsmSap.Model.ListSubCheckRuleResultsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Uploads";
+        public string Select { get; set; } = "RuleResults";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -111,7 +109,6 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
         /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
         /// as the start point.
-        /// This cmdlet didn't autopaginate in V4. To preserve the V4 autopagination behavior for all cmdlets, run Set-AWSAutoIterationMode -IterationMode v4.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter NoAutoIteration { get; set; }
@@ -133,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Omics.Model.ListMultipartReadSetUploadsResponse, GetOMICSMultipartReadSetUploadListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SsmSap.Model.ListSubCheckRuleResultsResponse, GetSMSAPSubCheckRuleResultListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.MaxResult = this.MaxResult;
@@ -147,11 +144,11 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             }
             #endif
             context.NextToken = this.NextToken;
-            context.SequenceStoreId = this.SequenceStoreId;
+            context.SubCheckResultId = this.SubCheckResultId;
             #if MODULAR
-            if (this.SequenceStoreId == null && ParameterWasBound(nameof(this.SequenceStoreId)))
+            if (this.SubCheckResultId == null && ParameterWasBound(nameof(this.SubCheckResultId)))
             {
-                WriteWarning("You are passing $null as a value for parameter SequenceStoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter SubCheckResultId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -170,21 +167,20 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.Omics.Model.ListMultipartReadSetUploadsRequest();
+            var request = new Amazon.SsmSap.Model.ListSubCheckRuleResultsRequest();
             
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
-            if (cmdletContext.SequenceStoreId != null)
+            if (cmdletContext.SubCheckResultId != null)
             {
-                request.SequenceStoreId = cmdletContext.SequenceStoreId;
+                request.SubCheckResultId = cmdletContext.SubCheckResultId;
             }
             
             // Initialize loop variant and commence piping
             var _nextToken = cmdletContext.NextToken;
             var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
-            var _shouldAutoIterate = !(SessionState.PSVariable.GetValue("AWSPowerShell_AutoIteration_Mode")?.ToString() == "v4");
             
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             do
@@ -218,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                 
                 ProcessOutput(output);
                 
-            } while (!_userControllingPaging && _shouldAutoIterate && AutoIterationHelpers.HasValue(_nextToken));
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
             
             if (useParameterSelect)
             {
@@ -238,12 +234,12 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         
         #region AWS Service Operation Call
         
-        private Amazon.Omics.Model.ListMultipartReadSetUploadsResponse CallAWSServiceOperation(IAmazonOmics client, Amazon.Omics.Model.ListMultipartReadSetUploadsRequest request)
+        private Amazon.SsmSap.Model.ListSubCheckRuleResultsResponse CallAWSServiceOperation(IAmazonSsmSap client, Amazon.SsmSap.Model.ListSubCheckRuleResultsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Omics", "ListMultipartReadSetUploads");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager for SAP", "ListSubCheckRuleResults");
             try
             {
-                return client.ListMultipartReadSetUploadsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListSubCheckRuleResultsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -262,9 +258,9 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         {
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String SequenceStoreId { get; set; }
-            public System.Func<Amazon.Omics.Model.ListMultipartReadSetUploadsResponse, GetOMICSMultipartReadSetUploadListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Uploads;
+            public System.String SubCheckResultId { get; set; }
+            public System.Func<Amazon.SsmSap.Model.ListSubCheckRuleResultsResponse, GetSMSAPSubCheckRuleResultListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.RuleResults;
         }
         
     }

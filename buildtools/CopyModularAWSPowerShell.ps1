@@ -94,4 +94,6 @@ foreach ($project in $projectNameList)
 Copy-Item -Path "$assembliesFolder/netstandard2.0/AWSSDK.Extensions.CloudFront.Signers.dll" -Destination "$modularDeploymentFolder/AWS.Tools.CloudFront/AWSSDK.Extensions.CloudFront.Signers.dll"
 Copy-Item -Path "$assembliesFolder/netstandard2.0/AWSSDK.Extensions.EC2.DecryptPassword.dll" -Destination "$modularDeploymentFolder/AWS.Tools.EC2/AWSSDK.Extensions.EC2.DecryptPassword.dll"
 
-Copy-Item -Path "$installerModuleFolder" -Destination "$modularDeploymentFolder/AWS.Tools.Installer" -Recurse
+New-Item -Path "$modularDeploymentFolder/AWS.Tools.Installer" -ItemType Directory
+Copy-Item -Path "$installerModuleFolder/AWS.Tools.Installer.psd1" -Destination "$modularDeploymentFolder/AWS.Tools.Installer/AWS.Tools.Installer.psd1"
+Copy-Item -Path "$installerModuleFolder/AWS.Tools.Installer.psm1" -Destination "$modularDeploymentFolder/AWS.Tools.Installer/AWS.Tools.Installer.psm1"

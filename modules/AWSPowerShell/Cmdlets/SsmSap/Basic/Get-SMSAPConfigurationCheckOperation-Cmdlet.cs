@@ -23,32 +23,32 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Omics;
-using Amazon.Omics.Model;
+using Amazon.SsmSap;
+using Amazon.SsmSap.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.OMICS
+namespace Amazon.PowerShell.Cmdlets.SMSAP
 {
     /// <summary>
-    /// Gets detailed and status information about a read set import job and returns the data
-    /// in JSON format.
+    /// Gets the details of a configuration check operation by specifying the operation ID.
     /// </summary>
-    [Cmdlet("Get", "OMICSReadSetImportJob")]
-    [OutputType("Amazon.Omics.Model.GetReadSetImportJobResponse")]
-    [AWSCmdlet("Calls the Amazon Omics GetReadSetImportJob API operation.", Operation = new[] {"GetReadSetImportJob"}, SelectReturnType = typeof(Amazon.Omics.Model.GetReadSetImportJobResponse))]
-    [AWSCmdletOutput("Amazon.Omics.Model.GetReadSetImportJobResponse",
-        "This cmdlet returns an Amazon.Omics.Model.GetReadSetImportJobResponse object containing multiple properties."
+    [Cmdlet("Get", "SMSAPConfigurationCheckOperation")]
+    [OutputType("Amazon.SsmSap.Model.ConfigurationCheckOperation")]
+    [AWSCmdlet("Calls the AWS Systems Manager for SAP GetConfigurationCheckOperation API operation.", Operation = new[] {"GetConfigurationCheckOperation"}, SelectReturnType = typeof(Amazon.SsmSap.Model.GetConfigurationCheckOperationResponse))]
+    [AWSCmdletOutput("Amazon.SsmSap.Model.ConfigurationCheckOperation or Amazon.SsmSap.Model.GetConfigurationCheckOperationResponse",
+        "This cmdlet returns an Amazon.SsmSap.Model.ConfigurationCheckOperation object.",
+        "The service call response (type Amazon.SsmSap.Model.GetConfigurationCheckOperationResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetOMICSReadSetImportJobCmdlet : AmazonOmicsClientCmdlet, IExecutor
+    public partial class GetSMSAPConfigurationCheckOperationCmdlet : AmazonSsmSapClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Id
+        #region Parameter OperationId
         /// <summary>
         /// <para>
-        /// <para>The job's ID.</para>
+        /// <para>The ID of the configuration check operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,35 +59,18 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Id { get; set; }
-        #endregion
-        
-        #region Parameter SequenceStoreId
-        /// <summary>
-        /// <para>
-        /// <para>The job's sequence store ID.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String SequenceStoreId { get; set; }
+        public System.String OperationId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Omics.Model.GetReadSetImportJobResponse).
-        /// Specifying the name of a property of type Amazon.Omics.Model.GetReadSetImportJobResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ConfigurationCheckOperation'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SsmSap.Model.GetConfigurationCheckOperationResponse).
+        /// Specifying the name of a property of type Amazon.SsmSap.Model.GetConfigurationCheckOperationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "ConfigurationCheckOperation";
         #endregion
         
         protected override void StopProcessing()
@@ -106,21 +89,14 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Omics.Model.GetReadSetImportJobResponse, GetOMICSReadSetImportJobCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SsmSap.Model.GetConfigurationCheckOperationResponse, GetSMSAPConfigurationCheckOperationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Id = this.Id;
+            context.OperationId = this.OperationId;
             #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            if (this.OperationId == null && ParameterWasBound(nameof(this.OperationId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.SequenceStoreId = this.SequenceStoreId;
-            #if MODULAR
-            if (this.SequenceStoreId == null && ParameterWasBound(nameof(this.SequenceStoreId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SequenceStoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter OperationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -137,15 +113,11 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Omics.Model.GetReadSetImportJobRequest();
+            var request = new Amazon.SsmSap.Model.GetConfigurationCheckOperationRequest();
             
-            if (cmdletContext.Id != null)
+            if (cmdletContext.OperationId != null)
             {
-                request.Id = cmdletContext.Id;
-            }
-            if (cmdletContext.SequenceStoreId != null)
-            {
-                request.SequenceStoreId = cmdletContext.SequenceStoreId;
+                request.OperationId = cmdletContext.OperationId;
             }
             
             CmdletOutput output;
@@ -180,12 +152,12 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         
         #region AWS Service Operation Call
         
-        private Amazon.Omics.Model.GetReadSetImportJobResponse CallAWSServiceOperation(IAmazonOmics client, Amazon.Omics.Model.GetReadSetImportJobRequest request)
+        private Amazon.SsmSap.Model.GetConfigurationCheckOperationResponse CallAWSServiceOperation(IAmazonSsmSap client, Amazon.SsmSap.Model.GetConfigurationCheckOperationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Omics", "GetReadSetImportJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager for SAP", "GetConfigurationCheckOperation");
             try
             {
-                return client.GetReadSetImportJobAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetConfigurationCheckOperationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -202,10 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Id { get; set; }
-            public System.String SequenceStoreId { get; set; }
-            public System.Func<Amazon.Omics.Model.GetReadSetImportJobResponse, GetOMICSReadSetImportJobCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String OperationId { get; set; }
+            public System.Func<Amazon.SsmSap.Model.GetConfigurationCheckOperationResponse, GetSMSAPConfigurationCheckOperationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ConfigurationCheckOperation;
         }
         
     }

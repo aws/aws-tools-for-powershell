@@ -30,7 +30,8 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Gets information about a read set activation job.
+    /// Returns detailed information about the status of a read set activation job in JSON
+    /// format.
     /// </summary>
     [Cmdlet("Get", "OMICSReadSetActivationJob")]
     [OutputType("Amazon.Omics.Model.GetReadSetActivationJobResponse")]

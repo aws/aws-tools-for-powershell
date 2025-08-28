@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The type of attribute.</para><note><para>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature,
-        /// contact Amazon Web ServicesSupport for allowlisting.</para></note>
+        /// contact Amazon Web Services Support for allowlisting.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

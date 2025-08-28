@@ -30,8 +30,16 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// This operation uploads a specific part of a read set. If you upload a new part using
-    /// a previously used part number, the previously uploaded part will be overwritten.
+    /// Uploads a specific part of a read set into a sequence store. When you a upload a read
+    /// set part with a part number that already exists, the new part replaces the existing
+    /// one. This operation returns a JSON formatted response containing a string identifier
+    /// that is used to confirm that parts are being added to the intended upload.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/synchronous-uploads.html">Direct
+    /// upload to a sequence store</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Set", "OMICSReadSetPart", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

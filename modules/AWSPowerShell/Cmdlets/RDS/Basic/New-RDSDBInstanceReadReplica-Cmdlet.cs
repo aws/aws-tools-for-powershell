@@ -192,14 +192,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBParameterGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the DB parameter group to associate with this read replica DB instance.</para><para>For the Db2 DB engine, if your source DB instance uses the Bring Your Own License
-        /// model, then a custom parameter group must be associated with the replica. For a same
-        /// Amazon Web Services Region replica, if you don't specify a custom parameter group,
-        /// Amazon RDS associates the custom parameter group associated with the source DB instance.
-        /// For a cross-Region replica, you must specify a custom parameter group. This custom
-        /// parameter group must include your IBM Site ID and IBM Customer ID. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-licensing.html#db2-prereqs-ibm-info">
-        /// IBM IDs for Bring Your Own License for Db2</a>. </para><para>For Single-AZ or Multi-AZ DB instance read replica instances, if you don't specify
+        /// <para>The name of the DB parameter group to associate with this read replica DB instance.</para><para>For the Db2 DB engine, if your source DB instance uses the bring your own license
+        /// (BYOL) model, then a custom parameter group must be associated with the replica. For
+        /// a same Amazon Web Services Region replica, if you don't specify a custom parameter
+        /// group, Amazon RDS associates the custom parameter group associated with the source
+        /// DB instance. For a cross-Region replica, you must specify a custom parameter group.
+        /// This custom parameter group must include your IBM Site ID and IBM Customer ID. For
+        /// more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-licensing.html#db2-prereqs-ibm-info">IBM
+        /// IDs for bring your own license (BYOL) for Db2</a>. </para><para>For Single-AZ or Multi-AZ DB instance read replica instances, if you don't specify
         /// a value for <c>DBParameterGroupName</c>, then Amazon RDS uses the <c>DBParameterGroup</c>
         /// of the source DB instance for a same Region read replica, or the default <c>DBParameterGroup</c>
         /// for the specified DB engine for a cross-Region read replica.</para><para>For Multi-AZ DB cluster same Region read replica instances, if you don't specify a

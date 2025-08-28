@@ -30,7 +30,7 @@ using Amazon.HealthLake.Model;
 namespace Amazon.PowerShell.Cmdlets.AHL
 {
     /// <summary>
-    /// Removes tags from a data store.
+    /// Remove a user-specifed key and value tag from a data store.
     /// </summary>
     [Cmdlet("Remove", "AHLResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name(ARN) of the data store for which tags are being removed.</para>
+        /// <para>The Amazon Resource Name (ARN) of the data store from which tags are being removed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para> The keys for the tags to be removed from the HealthLake data store. </para><para />
+        /// <para>The keys for the tags to be removed from the data store.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

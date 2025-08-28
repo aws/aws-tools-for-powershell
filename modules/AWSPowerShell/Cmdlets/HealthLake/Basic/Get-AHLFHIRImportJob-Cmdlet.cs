@@ -30,8 +30,7 @@ using Amazon.HealthLake.Model;
 namespace Amazon.PowerShell.Cmdlets.AHL
 {
     /// <summary>
-    /// Displays the properties of a FHIR import job, including the ID, ARN, name, and the
-    /// status of the job.
+    /// Get the import job properties to learn more about the job or job progress.
     /// </summary>
     [Cmdlet("Get", "AHLFHIRImportJob")]
     [OutputType("Amazon.HealthLake.Model.ImportJobProperties")]
@@ -49,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter DatastoreId
         /// <summary>
         /// <para>
-        /// <para>The AWS-generated ID of the data store.</para>
+        /// <para>The data store identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The AWS-generated job ID.</para>
+        /// <para>The import job identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -30,7 +30,9 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Retrieves a list of read set activation jobs.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// Retrieves a list of read set activation jobs and returns the metadata in a JSON formatted
+    /// output. To extract metadata from a read set activation job, use the <c>GetReadSetActivationJob</c>
+    /// API operation.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
     /// </summary>
     [Cmdlet("Get", "OMICSReadSetActivationJobList")]
     [OutputType("Amazon.Omics.Model.ActivateReadSetJobItem")]

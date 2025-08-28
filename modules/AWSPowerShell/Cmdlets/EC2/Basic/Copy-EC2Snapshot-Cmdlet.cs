@@ -30,15 +30,22 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Copies a point-in-time snapshot of an EBS volume and stores it in Amazon S3. You can
-    /// copy a snapshot within the same Region, from one Region to another, or from a Region
-    /// to an Outpost. You can't copy a snapshot from an Outpost to a Region, from one Outpost
-    /// to another, or within the same Outpost.
+    /// Creates an exact copy of an Amazon EBS snapshot.
     /// 
     ///  
     /// <para>
-    /// You can use the snapshot to create EBS volumes or Amazon Machine Images (AMIs).
-    /// </para><para>
+    /// The location of the source snapshot determines whether you can copy it or not, and
+    /// the allowed destinations for the snapshot copy.
+    /// </para><ul><li><para>
+    /// If the source snapshot is in a Region, you can copy it within that Region, to another
+    /// Region, to an Outpost associated with that Region, or to a Local Zone in that Region.
+    /// </para></li><li><para>
+    /// If the source snapshot is in a Local Zone, you can copy it within that Local Zone,
+    /// to another Local Zone in the same zone group, or to the parent Region of the Local
+    /// Zone.
+    /// </para></li><li><para>
+    /// If the source snapshot is on an Outpost, you can't copy it.
+    /// </para></li></ul><para>
     /// When copying snapshots to a Region, copies of encrypted EBS snapshots remain encrypted.
     /// Copies of unencrypted snapshots remain unencrypted, unless you enable encryption for
     /// the snapshot copy operation. By default, encrypted snapshot copies use the default
@@ -50,10 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// key for the Region, or a different key that you specify in the request using <b>KmsKeyId</b>.
     /// Outposts do not support unencrypted snapshots. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#ami">Amazon
     /// EBS local snapshots on Outposts</a> in the <i>Amazon EBS User Guide</i>.
-    /// </para><para>
-    /// Snapshots created by copying another snapshot have an arbitrary volume ID that should
-    /// not be used for any purpose.
-    /// </para><para>
+    /// </para><note><para>
+    /// Snapshots copies have an arbitrary source volume ID. Do not use this volume ID for
+    /// any purpose.
+    /// </para></note><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-copy-snapshot.html">Copy
     /// an Amazon EBS snapshot</a> in the <i>Amazon EBS User Guide</i>.
     /// </para>
@@ -74,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CompletionDurationMinute
         /// <summary>
         /// <para>
-        /// <para>Specify a completion duration, in 15 minute increments, to initiate a time-based snapshot
+        /// <note><para>Not supported when copying snapshots to or from Local Zones or Outposts.</para></note><para>Specify a completion duration, in 15 minute increments, to initiate a time-based snapshot
         /// copy. Time-based snapshot copy operations complete within the specified duration.
         /// For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/time-based-copies.html">
         /// Time-based copies</a>.</para><para>If you do not specify a value, the snapshot copy operation is completed on a best-effort
@@ -96,14 +103,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter DestinationAvailabilityZone
+        /// <summary>
+        /// <para>
+        /// <para>The Local Zone, for example, <c>cn-north-1-pkx-1a</c> to which to copy the snapshot.</para><note><para>Only supported when copying a snapshot to a Local Zone.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DestinationAvailabilityZone { get; set; }
+        #endregion
+        
         #region Parameter DestinationOutpostArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Outpost to which to copy the snapshot. Only
-        /// specify this parameter when copying a snapshot from an Amazon Web Services Region
-        /// to an Outpost. The snapshot must be in the Region for the destination Outpost. You
-        /// cannot copy a snapshot from an Outpost to a Region, from one Outpost to another, or
-        /// within the same Outpost.</para><para>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#copy-snapshots">
+        /// <para>The Amazon Resource Name (ARN) of the Outpost to which to copy the snapshot.</para><note><para>Only supported when copying a snapshot to an Outpost.</para></note><para>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#copy-snapshots">
         /// Copy snapshots from an Amazon Web Services Region to an Outpost</a> in the <i>Amazon
         /// EBS User Guide</i>.</para>
         /// </para>
@@ -265,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             context.CompletionDurationMinute = this.CompletionDurationMinute;
             context.Description = this.Description;
+            context.DestinationAvailabilityZone = this.DestinationAvailabilityZone;
             context.DestinationOutpostArn = this.DestinationOutpostArn;
             context.DestinationRegion = this.DestinationRegion;
             context.DryRun = this.DryRun;
@@ -311,6 +325,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.DestinationAvailabilityZone != null)
+            {
+                request.DestinationAvailabilityZone = cmdletContext.DestinationAvailabilityZone;
             }
             if (cmdletContext.DestinationOutpostArn != null)
             {
@@ -401,6 +419,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.Int32? CompletionDurationMinute { get; set; }
             public System.String Description { get; set; }
+            public System.String DestinationAvailabilityZone { get; set; }
             public System.String DestinationOutpostArn { get; set; }
             public System.String DestinationRegion { get; set; }
             public System.Boolean? DryRun { get; set; }

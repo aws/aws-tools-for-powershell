@@ -30,7 +30,10 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Stops a multipart upload.
+    /// Stops a multipart read set upload into a sequence store and returns a response with
+    /// no body if the operation is successful. To confirm that a multipart read set upload
+    /// has been stopped, use the <c>ListMultipartReadSetUploads</c> API operation to view
+    /// all active multipart read set uploads.
     /// </summary>
     [Cmdlet("Remove", "OMICSMultipartReadSetUpload", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
