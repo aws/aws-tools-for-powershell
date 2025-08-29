@@ -1,4 +1,7 @@
-﻿### 5.0.44 (2025-08-29 20:21Z)
+﻿### 5.0.45 (2025-08-29 22:58Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.81.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 5.0.44 (2025-08-29 20:21Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.81.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon X-Ray
     * Modified cmdlet Get-XRSamplingTarget: added parameter SamplingBoostStatisticsDocument.
