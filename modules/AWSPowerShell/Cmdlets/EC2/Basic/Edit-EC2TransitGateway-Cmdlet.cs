@@ -112,8 +112,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Options_DefaultRouteTablePropagation
         /// <summary>
         /// <para>
-        /// <para>Enable or disable automatic propagation of routes to the default propagation route
-        /// table.</para>
+        /// <para>Indicates whether resource attachments automatically propagate routes to the default
+        /// propagation route table. Enabled by default. If <c>defaultRouteTablePropagation</c>
+        /// is set to <c>enable</c>, Amazon Web Services Transit Gateway will create the default
+        /// transit gateway route table.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

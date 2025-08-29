@@ -247,8 +247,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ModifiedSinceDate
         /// <summary>
         /// <para>
-        /// Returns the object only if it has been modified since the specified time, 
-        /// otherwise returns a PreconditionFailed.
+        /// <para>Return the object only if it has been modified since the specified time; otherwise,
+        /// return a 304 (not modified) error.</para><para>If both of the <c>If-None-Match</c> and <c>If-Modified-Since</c> headers are present
+        /// in the request as follows:</para><ul><li><para><c>If-None-Match</c> condition evaluates to <c>false</c>, and;</para></li><li><para><c>If-Modified-Since</c> condition evaluates to <c>true</c>;</para></li></ul><para>Then Amazon S3 returns the <c>304 Not Modified</c> response code.</para><para>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC
+        /// 7232</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -390,8 +392,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter UnmodifiedSinceDate
         /// <summary>
         /// <para>
-        /// Returns the object only if it has not been modified since the specified time, 
-        /// otherwise returns a PreconditionFailed.
+        /// <para>Return the object only if it has not been modified since the specified time; otherwise,
+        /// return a 412 (precondition failed) error.</para><para>If both of the <c>If-Match</c> and <c>If-Unmodified-Since</c> headers are present
+        /// in the request as follows:</para><ul><li><para><c>If-Match</c> condition evaluates to <c>true</c>, and;</para></li><li><para><c>If-Unmodified-Since</c> condition evaluates to <c>false</c>;</para></li></ul><para>Then Amazon S3 returns <c>200 OK</c> and the data requested.</para><para>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC
+        /// 7232</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -439,8 +443,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.Select = CreateSelectDelegate<Amazon.S3.Model.GetObjectMetadataResponse, GetS3ObjectMetadataCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ModifiedSinceDate = this.ModifiedSinceDate;
-            context.UnmodifiedSinceDate = this.UnmodifiedSinceDate;
             context.BucketName = this.BucketName;
             #if MODULAR
             if (this.BucketName == null && ParameterWasBound(nameof(this.BucketName)))
@@ -459,6 +461,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 WriteWarning("You are passing $null as a value for parameter Key which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ModifiedSinceDate = this.ModifiedSinceDate;
             context.PartNumber = this.PartNumber;
             context.Range = this.Range;
             context.RequestPayer = this.RequestPayer;
@@ -471,6 +474,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.ServerSideEncryptionCustomerMethod = this.ServerSideEncryptionCustomerMethod;
             context.ServerSideEncryptionCustomerProvidedKey = this.ServerSideEncryptionCustomerProvidedKey;
             context.ServerSideEncryptionCustomerProvidedKeyMD5 = this.ServerSideEncryptionCustomerProvidedKeyMD5;
+            context.UnmodifiedSinceDate = this.UnmodifiedSinceDate;
             context.VersionId = this.VersionId;
             
             // allow further manipulation of loaded context prior to processing
@@ -488,14 +492,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             // create request
             var request = new Amazon.S3.Model.GetObjectMetadataRequest();
             
-            if (cmdletContext.ModifiedSinceDate != null)
-            {
-                request.ModifiedSinceDate = cmdletContext.ModifiedSinceDate.Value;
-            }
-            if (cmdletContext.UnmodifiedSinceDate != null)
-            {
-                request.UnmodifiedSinceDate = cmdletContext.UnmodifiedSinceDate.Value;
-            }
             if (cmdletContext.BucketName != null)
             {
                 request.BucketName = cmdletContext.BucketName;
@@ -519,6 +515,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.Key != null)
             {
                 request.Key = cmdletContext.Key;
+            }
+            if (cmdletContext.ModifiedSinceDate != null)
+            {
+                request.ModifiedSinceDate = cmdletContext.ModifiedSinceDate.Value;
             }
             if (cmdletContext.PartNumber != null)
             {
@@ -567,6 +567,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.ServerSideEncryptionCustomerProvidedKeyMD5 != null)
             {
                 request.ServerSideEncryptionCustomerProvidedKeyMD5 = cmdletContext.ServerSideEncryptionCustomerProvidedKeyMD5;
+            }
+            if (cmdletContext.UnmodifiedSinceDate != null)
+            {
+                request.UnmodifiedSinceDate = cmdletContext.UnmodifiedSinceDate.Value;
             }
             if (cmdletContext.VersionId != null)
             {
@@ -627,14 +631,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.DateTime? ModifiedSinceDate { get; set; }
-            public System.DateTime? UnmodifiedSinceDate { get; set; }
             public System.String BucketName { get; set; }
             public Amazon.S3.ChecksumMode ChecksumMode { get; set; }
             public System.String EtagToMatch { get; set; }
             public System.String EtagToNotMatch { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
             public System.String Key { get; set; }
+            public System.DateTime? ModifiedSinceDate { get; set; }
             public System.Int32? PartNumber { get; set; }
             public System.String Range { get; set; }
             public Amazon.S3.RequestPayer RequestPayer { get; set; }
@@ -647,6 +650,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public Amazon.S3.ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
             public System.String ServerSideEncryptionCustomerProvidedKey { get; set; }
             public System.String ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
+            public System.DateTime? UnmodifiedSinceDate { get; set; }
             public System.String VersionId { get; set; }
             public System.Func<Amazon.S3.Model.GetObjectMetadataResponse, GetS3ObjectMetadataCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

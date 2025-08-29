@@ -44,6 +44,21 @@ namespace Amazon.PowerShell.Cmdlets.XR
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter SamplingBoostStatisticsDocument
+        /// <summary>
+        /// <para>
+        /// <para>Information about rules that the service is using to boost sampling rate.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SamplingBoostStatisticsDocuments")]
+        public Amazon.XRay.Model.SamplingBoostStatisticsDocument[] SamplingBoostStatisticsDocument { get; set; }
+        #endregion
+        
         #region Parameter SamplingStatisticsDocument
         /// <summary>
         /// <para>
@@ -96,6 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.XR
                 context.Select = CreateSelectDelegate<Amazon.XRay.Model.GetSamplingTargetsResponse, GetXRSamplingTargetCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.SamplingBoostStatisticsDocument != null)
+            {
+                context.SamplingBoostStatisticsDocument = new List<Amazon.XRay.Model.SamplingBoostStatisticsDocument>(this.SamplingBoostStatisticsDocument);
+            }
             if (this.SamplingStatisticsDocument != null)
             {
                 context.SamplingStatisticsDocument = new List<Amazon.XRay.Model.SamplingStatisticsDocument>(this.SamplingStatisticsDocument);
@@ -122,6 +141,10 @@ namespace Amazon.PowerShell.Cmdlets.XR
             // create request
             var request = new Amazon.XRay.Model.GetSamplingTargetsRequest();
             
+            if (cmdletContext.SamplingBoostStatisticsDocument != null)
+            {
+                request.SamplingBoostStatisticsDocuments = cmdletContext.SamplingBoostStatisticsDocument;
+            }
             if (cmdletContext.SamplingStatisticsDocument != null)
             {
                 request.SamplingStatisticsDocuments = cmdletContext.SamplingStatisticsDocument;
@@ -181,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.XRay.Model.SamplingBoostStatisticsDocument> SamplingBoostStatisticsDocument { get; set; }
             public List<Amazon.XRay.Model.SamplingStatisticsDocument> SamplingStatisticsDocument { get; set; }
             public System.Func<Amazon.XRay.Model.GetSamplingTargetsResponse, GetXRSamplingTargetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

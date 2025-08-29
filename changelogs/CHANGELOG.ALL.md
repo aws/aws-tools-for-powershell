@@ -1,4 +1,11 @@
-﻿### 5.0.43 (2025-08-28 21:26Z)
+﻿### 5.0.44 (2025-08-29 20:21Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.81.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon X-Ray
+    * Modified cmdlet Get-XRSamplingTarget: added parameter SamplingBoostStatisticsDocument.
+    * Modified cmdlet New-XRSamplingRule: added parameters SamplingRateBoost_CooldownWindowMinute and SamplingRateBoost_MaxRate.
+    * Modified cmdlet Update-XRSamplingRule: added parameters SamplingRateBoost_CooldownWindowMinute and SamplingRateBoost_MaxRate.
+
+### 5.0.43 (2025-08-28 21:26Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.80.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Modified cmdlet Get-CONNCurrentMetricData: added parameter Filters_AgentStatus.

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
     /// 
     ///  
     /// <para>
-    /// This API does not initiate a retrieval job. To start a trace retrieval, use <c>StartTraceRetrieval</c>,
+    /// This API does not initiate a retrieval process. To start a trace retrieval, use <c>StartTraceRetrieval</c>,
     /// which generates the required <c>RetrievalToken</c>.
     /// </para><para>
     ///  When the <c>RetrievalStatus</c> is not <i>COMPLETE</i>, the API will return an empty
@@ -45,12 +45,12 @@ namespace Amazon.PowerShell.Cmdlets.XR
     /// of traces.
     /// </para><para>
     /// For cross-account observability, this API can retrieve traces from linked accounts
-    /// when CloudWatch log is the destination across relevant accounts. For more details,
+    /// when CloudWatch log is set as the destination across relevant accounts. For more details,
     /// see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch
     /// cross-account observability</a>.
     /// </para><para>
-    /// For retrieving data from X-Ray directly as opposed to the Transaction-Search Log group,
-    /// see <a href="https://docs.aws.amazon.com/xray/latest/api/API_BatchGetTraces.html">BatchGetTraces</a>.
+    /// For retrieving data from X-Ray directly as opposed to the Transaction Search generated
+    /// log group, see <a href="https://docs.aws.amazon.com/xray/latest/api/API_BatchGetTraces.html">BatchGetTraces</a>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "XRRetrievedTraceList")]

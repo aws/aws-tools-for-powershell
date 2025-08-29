@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// is <c>accessible</c>, it returns <c>AVAILABLE</c>. When the state is <c>inaccessible</c>,
         /// it returns <c>PENDING</c> or <c>FAILED</c>.</para></li><li><para><c>association-id</c> - The ID of the VPC endpoint association.</para></li><li><para><c>associated-resource-id</c> - The ID of the associated resource configuration.</para></li><li><para><c>service-network-arn</c> - The Amazon Resource Name (ARN) of the associated service
         /// network. Only VPC endpoints of type service network will be returned.</para></li><li><para><c>resource-configuration-group-arn</c> - The Amazon Resource Name (ARN) of the resource
-        /// configuration of type GROUP.</para></li><li><para><c>service-network-resource-association-id</c> - The ID of the association.</para></li></ul><para />
+        /// configuration of type GROUP.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
