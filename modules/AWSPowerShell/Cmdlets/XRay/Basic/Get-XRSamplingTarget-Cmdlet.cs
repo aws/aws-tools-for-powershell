@@ -41,6 +41,17 @@ namespace Amazon.PowerShell.Cmdlets.XR
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter SamplingBoostStatisticsDocument
+        /// <summary>
+        /// <para>
+        /// <para>Information about rules that the service is using to boost sampling rate.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SamplingBoostStatisticsDocuments")]
+        public Amazon.XRay.Model.SamplingBoostStatisticsDocument[] SamplingBoostStatisticsDocument { get; set; }
+        #endregion
+        
         #region Parameter SamplingStatisticsDocument
         /// <summary>
         /// <para>
@@ -105,6 +116,10 @@ namespace Amazon.PowerShell.Cmdlets.XR
                 context.Select = (response, cmdlet) => this.SamplingStatisticsDocument;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.SamplingBoostStatisticsDocument != null)
+            {
+                context.SamplingBoostStatisticsDocument = new List<Amazon.XRay.Model.SamplingBoostStatisticsDocument>(this.SamplingBoostStatisticsDocument);
+            }
             if (this.SamplingStatisticsDocument != null)
             {
                 context.SamplingStatisticsDocument = new List<Amazon.XRay.Model.SamplingStatisticsDocument>(this.SamplingStatisticsDocument);
@@ -131,6 +146,10 @@ namespace Amazon.PowerShell.Cmdlets.XR
             // create request
             var request = new Amazon.XRay.Model.GetSamplingTargetsRequest();
             
+            if (cmdletContext.SamplingBoostStatisticsDocument != null)
+            {
+                request.SamplingBoostStatisticsDocuments = cmdletContext.SamplingBoostStatisticsDocument;
+            }
             if (cmdletContext.SamplingStatisticsDocument != null)
             {
                 request.SamplingStatisticsDocuments = cmdletContext.SamplingStatisticsDocument;
@@ -196,6 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.XRay.Model.SamplingBoostStatisticsDocument> SamplingBoostStatisticsDocument { get; set; }
             public List<Amazon.XRay.Model.SamplingStatisticsDocument> SamplingStatisticsDocument { get; set; }
             public System.Func<Amazon.XRay.Model.GetSamplingTargetsResponse, GetXRSamplingTargetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

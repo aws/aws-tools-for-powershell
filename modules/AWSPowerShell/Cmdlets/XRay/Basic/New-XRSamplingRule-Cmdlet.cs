@@ -59,6 +59,18 @@ namespace Amazon.PowerShell.Cmdlets.XR
         public System.Collections.Hashtable SamplingRule_Attribute { get; set; }
         #endregion
         
+        #region Parameter SamplingRateBoost_CooldownWindowMinute
+        /// <summary>
+        /// <para>
+        /// <para>Sets the time window (in minutes) in which only one sampling rate boost can be triggered.
+        /// After a boost occurs, no further boosts are allowed until the next window.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SamplingRule_SamplingRateBoost_CooldownWindowMinutes")]
+        public System.Int32? SamplingRateBoost_CooldownWindowMinute { get; set; }
+        #endregion
+        
         #region Parameter SamplingRule_FixedRate
         /// <summary>
         /// <para>
@@ -107,6 +119,18 @@ namespace Amazon.PowerShell.Cmdlets.XR
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SamplingRule_HTTPMethod { get; set; }
+        #endregion
+        
+        #region Parameter SamplingRateBoost_MaxRate
+        /// <summary>
+        /// <para>
+        /// <para>Defines max temporary sampling rate to apply when a boost is triggered. Calculated
+        /// boost rate by X-Ray will be less than or equal to this max rate.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SamplingRule_SamplingRateBoost_MaxRate")]
+        public System.Double? SamplingRateBoost_MaxRate { get; set; }
         #endregion
         
         #region Parameter SamplingRule_Priority
@@ -356,6 +380,8 @@ namespace Amazon.PowerShell.Cmdlets.XR
             #endif
             context.SamplingRule_RuleARN = this.SamplingRule_RuleARN;
             context.SamplingRule_RuleName = this.SamplingRule_RuleName;
+            context.SamplingRateBoost_CooldownWindowMinute = this.SamplingRateBoost_CooldownWindowMinute;
+            context.SamplingRateBoost_MaxRate = this.SamplingRateBoost_MaxRate;
             context.SamplingRule_ServiceName = this.SamplingRule_ServiceName;
             #if MODULAR
             if (this.SamplingRule_ServiceName == null && ParameterWasBound(nameof(this.SamplingRule_ServiceName)))
@@ -538,6 +564,41 @@ namespace Amazon.PowerShell.Cmdlets.XR
                 request.SamplingRule.Version = requestSamplingRule_samplingRule_Version.Value;
                 requestSamplingRuleIsNull = false;
             }
+            Amazon.XRay.Model.SamplingRateBoost requestSamplingRule_samplingRule_SamplingRateBoost = null;
+            
+             // populate SamplingRateBoost
+            var requestSamplingRule_samplingRule_SamplingRateBoostIsNull = true;
+            requestSamplingRule_samplingRule_SamplingRateBoost = new Amazon.XRay.Model.SamplingRateBoost();
+            System.Int32? requestSamplingRule_samplingRule_SamplingRateBoost_samplingRateBoost_CooldownWindowMinute = null;
+            if (cmdletContext.SamplingRateBoost_CooldownWindowMinute != null)
+            {
+                requestSamplingRule_samplingRule_SamplingRateBoost_samplingRateBoost_CooldownWindowMinute = cmdletContext.SamplingRateBoost_CooldownWindowMinute.Value;
+            }
+            if (requestSamplingRule_samplingRule_SamplingRateBoost_samplingRateBoost_CooldownWindowMinute != null)
+            {
+                requestSamplingRule_samplingRule_SamplingRateBoost.CooldownWindowMinutes = requestSamplingRule_samplingRule_SamplingRateBoost_samplingRateBoost_CooldownWindowMinute.Value;
+                requestSamplingRule_samplingRule_SamplingRateBoostIsNull = false;
+            }
+            System.Double? requestSamplingRule_samplingRule_SamplingRateBoost_samplingRateBoost_MaxRate = null;
+            if (cmdletContext.SamplingRateBoost_MaxRate != null)
+            {
+                requestSamplingRule_samplingRule_SamplingRateBoost_samplingRateBoost_MaxRate = cmdletContext.SamplingRateBoost_MaxRate.Value;
+            }
+            if (requestSamplingRule_samplingRule_SamplingRateBoost_samplingRateBoost_MaxRate != null)
+            {
+                requestSamplingRule_samplingRule_SamplingRateBoost.MaxRate = requestSamplingRule_samplingRule_SamplingRateBoost_samplingRateBoost_MaxRate.Value;
+                requestSamplingRule_samplingRule_SamplingRateBoostIsNull = false;
+            }
+             // determine if requestSamplingRule_samplingRule_SamplingRateBoost should be set to null
+            if (requestSamplingRule_samplingRule_SamplingRateBoostIsNull)
+            {
+                requestSamplingRule_samplingRule_SamplingRateBoost = null;
+            }
+            if (requestSamplingRule_samplingRule_SamplingRateBoost != null)
+            {
+                request.SamplingRule.SamplingRateBoost = requestSamplingRule_samplingRule_SamplingRateBoost;
+                requestSamplingRuleIsNull = false;
+            }
              // determine if request.SamplingRule should be set to null
             if (requestSamplingRuleIsNull)
             {
@@ -617,6 +678,8 @@ namespace Amazon.PowerShell.Cmdlets.XR
             public System.String SamplingRule_ResourceARN { get; set; }
             public System.String SamplingRule_RuleARN { get; set; }
             public System.String SamplingRule_RuleName { get; set; }
+            public System.Int32? SamplingRateBoost_CooldownWindowMinute { get; set; }
+            public System.Double? SamplingRateBoost_MaxRate { get; set; }
             public System.String SamplingRule_ServiceName { get; set; }
             public System.String SamplingRule_ServiceType { get; set; }
             public System.String SamplingRule_URLPath { get; set; }

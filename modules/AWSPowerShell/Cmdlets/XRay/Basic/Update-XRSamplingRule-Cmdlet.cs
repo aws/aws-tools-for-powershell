@@ -53,6 +53,18 @@ namespace Amazon.PowerShell.Cmdlets.XR
         public System.Collections.Hashtable SamplingRuleUpdate_Attribute { get; set; }
         #endregion
         
+        #region Parameter SamplingRateBoost_CooldownWindowMinute
+        /// <summary>
+        /// <para>
+        /// <para>Sets the time window (in minutes) in which only one sampling rate boost can be triggered.
+        /// After a boost occurs, no further boosts are allowed until the next window.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SamplingRuleUpdate_SamplingRateBoost_CooldownWindowMinutes")]
+        public System.Int32? SamplingRateBoost_CooldownWindowMinute { get; set; }
+        #endregion
+        
         #region Parameter SamplingRuleUpdate_FixedRate
         /// <summary>
         /// <para>
@@ -81,6 +93,18 @@ namespace Amazon.PowerShell.Cmdlets.XR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SamplingRuleUpdate_HTTPMethod { get; set; }
+        #endregion
+        
+        #region Parameter SamplingRateBoost_MaxRate
+        /// <summary>
+        /// <para>
+        /// <para>Defines max temporary sampling rate to apply when a boost is triggered. Calculated
+        /// boost rate by X-Ray will be less than or equal to this max rate.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SamplingRuleUpdate_SamplingRateBoost_MaxRate")]
+        public System.Double? SamplingRateBoost_MaxRate { get; set; }
         #endregion
         
         #region Parameter SamplingRuleUpdate_Priority
@@ -223,6 +247,8 @@ namespace Amazon.PowerShell.Cmdlets.XR
             context.SamplingRuleUpdate_ResourceARN = this.SamplingRuleUpdate_ResourceARN;
             context.SamplingRuleUpdate_RuleARN = this.SamplingRuleUpdate_RuleARN;
             context.SamplingRuleUpdate_RuleName = this.SamplingRuleUpdate_RuleName;
+            context.SamplingRateBoost_CooldownWindowMinute = this.SamplingRateBoost_CooldownWindowMinute;
+            context.SamplingRateBoost_MaxRate = this.SamplingRateBoost_MaxRate;
             context.SamplingRuleUpdate_ServiceName = this.SamplingRuleUpdate_ServiceName;
             context.SamplingRuleUpdate_ServiceType = this.SamplingRuleUpdate_ServiceType;
             context.SamplingRuleUpdate_URLPath = this.SamplingRuleUpdate_URLPath;
@@ -353,6 +379,40 @@ namespace Amazon.PowerShell.Cmdlets.XR
             {
                 request.SamplingRuleUpdate.URLPath = requestSamplingRuleUpdate_samplingRuleUpdate_URLPath;
             }
+            Amazon.XRay.Model.SamplingRateBoost requestSamplingRuleUpdate_samplingRuleUpdate_SamplingRateBoost = null;
+            
+             // populate SamplingRateBoost
+            var requestSamplingRuleUpdate_samplingRuleUpdate_SamplingRateBoostIsNull = true;
+            requestSamplingRuleUpdate_samplingRuleUpdate_SamplingRateBoost = new Amazon.XRay.Model.SamplingRateBoost();
+            System.Int32? requestSamplingRuleUpdate_samplingRuleUpdate_SamplingRateBoost_samplingRateBoost_CooldownWindowMinute = null;
+            if (cmdletContext.SamplingRateBoost_CooldownWindowMinute != null)
+            {
+                requestSamplingRuleUpdate_samplingRuleUpdate_SamplingRateBoost_samplingRateBoost_CooldownWindowMinute = cmdletContext.SamplingRateBoost_CooldownWindowMinute.Value;
+            }
+            if (requestSamplingRuleUpdate_samplingRuleUpdate_SamplingRateBoost_samplingRateBoost_CooldownWindowMinute != null)
+            {
+                requestSamplingRuleUpdate_samplingRuleUpdate_SamplingRateBoost.CooldownWindowMinutes = requestSamplingRuleUpdate_samplingRuleUpdate_SamplingRateBoost_samplingRateBoost_CooldownWindowMinute.Value;
+                requestSamplingRuleUpdate_samplingRuleUpdate_SamplingRateBoostIsNull = false;
+            }
+            System.Double? requestSamplingRuleUpdate_samplingRuleUpdate_SamplingRateBoost_samplingRateBoost_MaxRate = null;
+            if (cmdletContext.SamplingRateBoost_MaxRate != null)
+            {
+                requestSamplingRuleUpdate_samplingRuleUpdate_SamplingRateBoost_samplingRateBoost_MaxRate = cmdletContext.SamplingRateBoost_MaxRate.Value;
+            }
+            if (requestSamplingRuleUpdate_samplingRuleUpdate_SamplingRateBoost_samplingRateBoost_MaxRate != null)
+            {
+                requestSamplingRuleUpdate_samplingRuleUpdate_SamplingRateBoost.MaxRate = requestSamplingRuleUpdate_samplingRuleUpdate_SamplingRateBoost_samplingRateBoost_MaxRate.Value;
+                requestSamplingRuleUpdate_samplingRuleUpdate_SamplingRateBoostIsNull = false;
+            }
+             // determine if requestSamplingRuleUpdate_samplingRuleUpdate_SamplingRateBoost should be set to null
+            if (requestSamplingRuleUpdate_samplingRuleUpdate_SamplingRateBoostIsNull)
+            {
+                requestSamplingRuleUpdate_samplingRuleUpdate_SamplingRateBoost = null;
+            }
+            if (requestSamplingRuleUpdate_samplingRuleUpdate_SamplingRateBoost != null)
+            {
+                request.SamplingRuleUpdate.SamplingRateBoost = requestSamplingRuleUpdate_samplingRuleUpdate_SamplingRateBoost;
+            }
             
             CmdletOutput output;
             
@@ -423,6 +483,8 @@ namespace Amazon.PowerShell.Cmdlets.XR
             public System.String SamplingRuleUpdate_ResourceARN { get; set; }
             public System.String SamplingRuleUpdate_RuleARN { get; set; }
             public System.String SamplingRuleUpdate_RuleName { get; set; }
+            public System.Int32? SamplingRateBoost_CooldownWindowMinute { get; set; }
+            public System.Double? SamplingRateBoost_MaxRate { get; set; }
             public System.String SamplingRuleUpdate_ServiceName { get; set; }
             public System.String SamplingRuleUpdate_ServiceType { get; set; }
             public System.String SamplingRuleUpdate_URLPath { get; set; }
