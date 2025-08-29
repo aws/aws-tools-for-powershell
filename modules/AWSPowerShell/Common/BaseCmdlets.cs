@@ -168,51 +168,145 @@ namespace Amazon.PowerShell.Common
         /// </summary>
         public string FormatParameterValuesForConfirmationMsg(string targetParameterName, IDictionary<string, object> boundParameters)
         {
-            if (string.IsNullOrEmpty(targetParameterName) || boundParameters.Keys.Count == 0)
-                return string.Empty;
-
-            object paramValue;
-            if (!boundParameters.TryGetValue(targetParameterName, out paramValue) || paramValue == null)
-                return string.Empty;
-
-            // probe to determine the data type and format accordingly - very few types will actually
-            // be used as resource-identifier parameters (string and string[] are the most likely)
-            var asString = paramValue as string;
-            if (asString != null)
-                return asString;
-
-            var asEnumerable = paramValue as IEnumerable;
-            if (asEnumerable != null)
+            try
             {
-                // try and keep the set of items to a reasonable value, to avoid the
-                // command line 'exploding' with a wall of text. Take() would work here
-                // except we want to add a 'plus n more items' suffix, so we need the
-                // overall count
-                var sb = new StringBuilder();
-                var itemCount = 0;
-                foreach (var item in asEnumerable)
-                {
-                    if (itemCount < ArrayTruncationThreshold)
-                    {
-                        if (sb.Length != 0)
-                            sb.Append(", ");
-                        sb.Append(item);
-                    }
+                // Backward compatibility - single parameter
+                return FormatParameterValuesForConfirmationMsg(new[] { targetParameterName }, boundParameters);
+            }
+            catch
+            {
+                return string.Empty;
+            }
+        }
 
-                    itemCount++;
+        /// <summary>
+        /// Returns formatted string containing the target of the operation for use in
+        /// confirmation messages. Collections are truncated to avoid message bloat.
+        /// For multiple parameters, values are concatenated with hyphens and truncated to 100 characters.
+        /// </summary>
+        public string FormatParameterValuesForConfirmationMsg(string[] targetParameterNames, IDictionary<string, object> boundParameters)
+        {
+            try
+            {
+                if (targetParameterNames == null || targetParameterNames.Length == 0 || boundParameters == null || boundParameters.Keys.Count == 0)
+                    return string.Empty;
+
+                if (targetParameterNames.Length == 1)
+                {
+                    // Single parameter - use existing logic for backward compatibility
+                    var parameterName = targetParameterNames[0];
+                    if (string.IsNullOrEmpty(parameterName))
+                        return string.Empty;
+
+                    object paramValue;
+                    if (!boundParameters.TryGetValue(parameterName, out paramValue) || paramValue == null)
+                        return string.Empty;
+
+                    return FormatSingleParameterValue(paramValue, parameterName);
                 }
 
-                if (itemCount > ArrayTruncationThreshold)
-                    sb.AppendFormat(" (plus {0} more)", itemCount - ArrayTruncationThreshold);
+                // Multiple parameters - concatenate with hyphens
+                var parameterValues = new List<string>();
+                
+                foreach (var paramName in targetParameterNames)
+                {
+                    if (string.IsNullOrEmpty(paramName))
+                        continue;
 
-                return sb.ToString();
+                    object paramValue;
+                    if (boundParameters.TryGetValue(paramName, out paramValue) && paramValue != null)
+                    {
+                        // For multiple parameters, if any parameter is an array, use only the first parameter
+                        var asEnumerable = paramValue as IEnumerable;
+                        if (asEnumerable != null && !(paramValue is string))
+                        {
+                            // Found an array parameter - use only the first parameter's value
+                            var firstParamName = targetParameterNames[0];
+                            object firstParamValue;
+                            if (boundParameters.TryGetValue(firstParamName, out firstParamValue) && firstParamValue != null)
+                            {
+                                return FormatSingleParameterValue(firstParamValue, firstParamName);
+                            }
+                            return string.Empty;
+                        }
+
+                        var formattedValue = FormatSingleParameterValue(paramValue, paramName);
+                        if (!string.IsNullOrEmpty(formattedValue))
+                        {
+                            parameterValues.Add(formattedValue);
+                        }
+                    }
+                }
+                
+                if (parameterValues.Count == 0)
+                    return string.Empty;
+                
+                var result = string.Join("-", parameterValues);
+                
+                // Truncate to 100 characters for multiple parameters
+                if (result.Length > 100)
+                {
+                    result = result.Substring(0, 100) + "...";
+                }
+                
+                return result;
             }
+            catch
+            {
+                return string.Empty;
+            }
+        }
 
-            if (paramValue.GetType().IsValueType) // unlikely but just in case...
-                return paramValue.ToString();
+        /// <summary>
+        /// Formats a single parameter value for confirmation messages.
+        /// </summary>
+        private string FormatSingleParameterValue(object paramValue, string parameterName)
+        {
+            try
+            {
+                // probe to determine the data type and format accordingly - very few types will actually
+                // be used as resource-identifier parameters (string and string[] are the most likely)
+                var asString = paramValue as string;
+                if (asString != null)
+                    return asString;
 
-            // otherwise give up and report the parameter name for x-checking purposes
-            return string.Format("values bound to the parameter {0}", targetParameterName);
+                var asEnumerable = paramValue as IEnumerable;
+                if (asEnumerable != null && !(paramValue is string))
+                {
+                    // try and keep the set of items to a reasonable value, to avoid the
+                    // command line 'exploding' with a wall of text. Take() would work here
+                    // except we want to add a 'plus n more items' suffix, so we need the
+                    // overall count
+                    var sb = new StringBuilder();
+                    var itemCount = 0;
+                    foreach (var item in asEnumerable)
+                    {
+                        if (itemCount < ArrayTruncationThreshold)
+                        {
+                            if (sb.Length != 0)
+                                sb.Append(", ");
+                            sb.Append(item?.ToString() ?? "null");
+                        }
+
+                        itemCount++;
+                    }
+
+                    if (itemCount > ArrayTruncationThreshold)
+                        sb.AppendFormat(" (plus {0} more)", itemCount - ArrayTruncationThreshold);
+
+                    return sb.ToString();
+                }
+
+                if (paramValue.GetType().IsValueType) // unlikely but just in case...
+                    return paramValue.ToString();
+
+                // otherwise give up and report the parameter name for x-checking purposes
+                return string.Format("values bound to the parameter {0}", parameterName);
+            }
+            catch
+            {
+                return string.Empty;
+            }
         }
 
         /// <summary>

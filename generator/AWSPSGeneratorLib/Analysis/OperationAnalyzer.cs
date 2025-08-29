@@ -328,10 +328,7 @@ namespace AWSPowerShellGenerator.Analysis
         /// multiple parameters exhibit more than one suffix, an error will be logged
         /// requiring the user to specify manual configuration using ShouldProcessTarget.
         /// </summary>
-        private readonly List<string> _supportsShouldProcessParameterSuffixes = new List<string>
-        {
-            "Id", "Name", "Arn", "Identifier"
-        };
+        private readonly List<string> _supportsShouldProcessParameterSuffixes = ["Id", "Name", "Arn", "Identifier"];
 
         /// <summary>
         /// Collection of verbs for which the cmdlet's ConfirmImpact setting should be 'high'
@@ -1083,14 +1080,9 @@ namespace AWSPowerShellGenerator.Analysis
             }
         }
 
-        public bool RequiresShouldProcessPromt
-        {
-            get
-            {
-                return !_supportsShouldProcessVerbSuppressions.Contains(CurrentOperation.SelectedVerb) &&
-                       !CurrentOperation.IgnoreSupportsShouldProcess;
-            }
-        }
+        public bool RequiresShouldProcessPrompt =>
+            !_supportsShouldProcessVerbSuppressions.Contains(CurrentOperation.SelectedVerb) &&
+            !CurrentOperation.IgnoreSupportsShouldProcess;
 
         /// <summary>
         /// If the cmdlet changes system state, indicate that it must be attributed with 
@@ -1103,7 +1095,7 @@ namespace AWSPowerShellGenerator.Analysis
         /// <param name="generator"></param>
         private void DetermineSupportsShouldProcessRequirement(CmdletGenerator generator)
         {
-            if (!RequiresShouldProcessPromt ||
+            if (!RequiresShouldProcessPrompt ||
                 CurrentOperation.AnonymousShouldProcessTarget)
             {
                 if (!string.IsNullOrEmpty(CurrentOperation.ShouldProcessTarget))
@@ -1116,78 +1108,341 @@ namespace AWSPowerShellGenerator.Analysis
 
             if (!string.IsNullOrEmpty(CurrentOperation.ShouldProcessTarget))
             {
-                // the config specifies the parameter to use as the target then obey
-                var target = NonIterationParameters.SingleOrDefault(parameter => parameter.AnalyzedName == CurrentOperation.ShouldProcessTarget);
-                if (target == null)
+                // the config specifies the parameter(s) to use as the target then obey
+                var targetParameterNames = CurrentOperation.ShouldProcessTarget.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                    .Select(name => name.Trim())
+                    .ToArray();
+
+                // Validate that all specified parameters exist
+                var missingParameters = new List<string>();
+                foreach (var paramName in targetParameterNames)
+                {
+                    var target = NonIterationParameters.SingleOrDefault(parameter => parameter.AnalyzedName == paramName);
+                    if (target == null)
+                    {
+                        missingParameters.Add(paramName);
+                    }
+                }
+
+                if (missingParameters.Any())
                 {
                     AnalysisError.InvalidShouldProcessTargetConfiguration(CurrentModel, CurrentOperation, NonIterationParameters);
                 }
             }
+            else if (!CurrentOperation.IsAutoConfiguring && AcceptsValueFromPipelineParameter != null && NonIterationParameters.Any())
+            {
+                // if this is an existing operation and ShouldProcessTarget is not set. Use the PipeLineParameter
+                var existingPipelineParameter = NonIterationParameters
+                    .SingleOrDefault(parameter => parameter.AnalyzedName == AcceptsValueFromPipelineParameter.AnalyzedName);
+                CurrentOperation.ShouldProcessTarget = existingPipelineParameter?.AnalyzedName;
+
+            }
+            else if(CurrentOperation.IsAutoConfiguring)
+            {
+                // new operations
+                DetermineSupportsShouldProcessParameter();
+            }
             else if (NonIterationParameters.Any())
             {
-                //we are supposed to have a target parameter but it is not configured
-                DetermineSupportsShouldProcessParameter();
+                // if this is reached, this would be an error and the existing config was changed and is invalid.
+                var suggestedParameters = SelectShouldProcessTargetCandidateParameters(NonIterationParameters, isRequiredParameter: false, isRootLevelParameter: false, excludeCollections: false);
+
+                var targetParameterName = suggestedParameters.Count == 1 
+                    ? suggestedParameters.First().AnalyzedName 
+                    : string.Join(",", suggestedParameters.Select(p => p.AnalyzedName));
+                AnalysisError.OutdatedShouldProcessTargetConfiguration(CurrentModel, CurrentOperation, targetParameterName);
             }
         }
 
-        private void DetermineSupportsShouldProcessParameter()
+        protected virtual void DetermineSupportsShouldProcessParameter()
         {
-            // otherwise attempt auto-discovery based on parameter name suffixes - note
-            // that we use the finalized names of the parameters here, since PowerShell
-            // will introspect on them.
-            var potentialTargets = SelectPreferredCandidateParameters(
-                _supportsShouldProcessParameterSuffixes.SelectMany(suffix =>
-                    NonIterationParameters.Where(parameter => parameter.CmdletParameterName.EndsWith(suffix)))); ;
-
-             SimplePropertyInfo targetParameter = null;
-
-            if (NonIterationParameters.Count() == 1) //Single parameter, auto-selected as target
-            {
-                targetParameter = NonIterationParameters.First();
-            }
-            else
-            {
-                switch (potentialTargets.Count)
+            // Apply enhanced parameter selection hierarchy to all parameters
+            var targetParameters = SelectShouldProcessTarget();
+                
+                switch (targetParameters.Count)
                 {
-                    case 0: //auto-assigned from pipeline parameter
-                        targetParameter = AcceptsValueFromPipelineParameter;
-                        if (targetParameter == null)
-                        {
-                            var suggestedParameters = SelectPreferredCandidateParameters(NonIterationParameters);
-                            AnalysisError.MultipleTargetsForShouldProcessParameter(CurrentModel, CurrentOperation, suggestedParameters);
-                        }
+                    case 0:
+                    case > 3:
+                        // When no suitable target is found or too many candidates, set AnonymousShouldProcessTarget=true
+                        CurrentOperation.AnonymousShouldProcessTarget = true;
+                        CurrentOperation.ShouldProcessTarget = string.Empty;
+                        InfoMessage.ShouldProcessTargetSetToAnonymous(CurrentModel, CurrentOperation);
                         break;
-                    case 1: //single parameter with recognized suffix
-                        targetParameter = potentialTargets[0];
+                        
+                    case 1:
+                        CurrentOperation.ShouldProcessTarget = targetParameters.First().AnalyzedName;
                         break;
-                    default: //potentialTargets.Count > 1
-                        // When multiple targets exist, if one of them is the value-from-pipeline 
-                        // parameter we can (probably) safely assume it should be the target (if this
-                        // is wrong it can be safely rectified by adding a manual entry to the config
-                        // for the operation).
-                        var pipelineParameter = AcceptsValueFromPipelineParameter;
-                        if (pipelineParameter != null)
-                        {
-                            targetParameter = potentialTargets.Where(potentialTarget => potentialTarget.AnalyzedName == pipelineParameter.AnalyzedName).SingleOrDefault();
-                        }
-                        else
-                        {
-                            AnalysisError.MultipleTargetsForShouldProcessParameter(CurrentModel, CurrentOperation, potentialTargets);
-                        }
+                        
+                    case >= 2 and <= 3:
+                        // Multiple parameters - create comma-separated string
+                        var parameterNames = string.Join(",", targetParameters.Select(param => param.AnalyzedName));
+                        CurrentOperation.ShouldProcessTarget = parameterNames;
                         break;
+                }
+        }
+
+        /// <summary>
+        /// Selects ShouldProcessTarget using a priority-based parameter selection hierarchy.
+        /// Uses a systematic approach to find the most appropriate parameter(s) for PowerShell confirmation messages.
+        /// The hierarchy prioritizes exact matches first, then falls back to pattern-based matching and candidate filtering.
+        /// </summary>
+        /// <returns>List of selected parameters, empty list if no suitable parameters found</returns>
+        protected virtual List<SimplePropertyInfo> SelectShouldProcessTarget()
+        {
+            // Get filtered parameter sets for different priority levels
+            // Allow collections of primitive types since FormatParameterValuesForConfirmationMsg handles them well
+            var allParameters = SelectShouldProcessTargetCandidateParameters(NonIterationParameters, isRequiredParameter: false, isRootLevelParameter: false, excludeCollections: false);
+            var requiredParameters = SelectShouldProcessTargetCandidateParameters(NonIterationParameters, isRequiredParameter: true, isRootLevelParameter: false, excludeCollections: false);
+            var requiredRootLevelParameters = requiredParameters.Where(p => p.Parent is null).ToList();
+
+            // Early exit if no candidate parameters found
+            if (allParameters.Count == 0)
+            {
+                InfoMessage.NoShouldProcessTargetParameters(CurrentModel, CurrentOperation, NonIterationParameters.Select(p => p.AnalyzedName));
+                return [];
+            }
+
+            // Try single parameter selection first - handle the simplest cases
+            var singleParameterResult = TrySelectIfSingleParameter(requiredRootLevelParameters, requiredParameters, allParameters);
+            if (singleParameterResult.Any())
+                return singleParameterResult;
+
+            // Try exact noun matching - look for parameters that exactly match the method noun
+            var exactNounMatchResult = TrySelectByExactNounMatch(allParameters);
+            if (exactNounMatchResult.Any())
+                return exactNounMatchResult;
+
+            // Try single parameter with suffix selection
+            var singleSuffixResult = TrySelectIfSingleParameter(requiredRootLevelParameters, requiredParameters, allParameters, requireSuffix: true);
+            if (singleSuffixResult.Any())
+                return singleSuffixResult;
+
+            // Try noun prefix matching - parameters that start with noun and end with suffix
+            var nounPrefixResult = TrySelectStartsWithNounEndsWithSuffix(requiredRootLevelParameters, requiredParameters, allParameters);
+            if (nounPrefixResult.Any())
+                return nounPrefixResult;
+
+            // Handle multiple parameters with suffix - check for reasonable count for combination
+            // For suffix-based filtering, exclude collections to focus on simple identifier parameters
+            var suffixCandidates = GetParametersWithSuffixExcludingCollections(requiredRootLevelParameters);
+            if (suffixCandidates.Count is >= 2 and <= 3)
+            {
+                InfoMessage.ShouldProcessTargetSelectedMultipleParameters(CurrentModel, CurrentOperation, suffixCandidates);
+                return suffixCandidates;
+            }
+
+            // Fallback: Too many candidate parameters (>3)
+            if (suffixCandidates.Count > 3)
+            {
+                InfoMessage.ShouldProcessTargetMultipleCandidatesFound(CurrentModel, CurrentOperation, suffixCandidates);
+                return [];
+            }
+
+            return [];
+        }
+
+        /// <summary>
+        /// Selects if there's exactly one parameter in a category.
+        /// Can optionally filter by suffix for more specific matching.
+        /// </summary>
+        private List<SimplePropertyInfo> TrySelectIfSingleParameter(
+            List<SimplePropertyInfo> requiredRootLevelParameters,
+            List<SimplePropertyInfo> requiredParameters,
+            List<SimplePropertyInfo> allParameters,
+            bool requireSuffix = false)
+        {
+            var (rootLevelCandidates, requiredCandidates, allCandidates) = requireSuffix
+                ? (GetParametersWithSuffix(requiredRootLevelParameters), GetParametersWithSuffix(requiredParameters), GetParametersWithSuffix(allParameters))
+                : (requiredRootLevelParameters, requiredParameters, allParameters);
+
+            // Only a single root level required parameter (with/without suffix)
+            if (rootLevelCandidates.Count == 1)
+            {
+                var candidate = rootLevelCandidates.First();
+                if (requireSuffix)
+                {
+                    InfoMessage.ShouldProcessTargetSelectedSuffixMatch(CurrentModel, CurrentOperation, candidate);
+                }
+                else
+                {
+                    InfoMessage.ShouldProcessTargetSelectedSingleParameter(CurrentModel, CurrentOperation, candidate);
+                }
+                return rootLevelCandidates;
+            }
+
+            // Only a single required parameter (with/without suffix)
+            if (requiredCandidates.Count == 1)
+            {
+                var candidate = requiredCandidates.First();
+                if (requireSuffix)
+                {
+                    InfoMessage.ShouldProcessTargetSelectedSuffixMatch(CurrentModel, CurrentOperation, candidate);
+                }
+                else
+                {
+                    InfoMessage.ShouldProcessTargetSelectedSingleParameter(CurrentModel, CurrentOperation, candidate);
+                }
+                return requiredCandidates;
+            }
+
+            // Only a single parameter (with/without suffix)
+            if (allCandidates.Count == 1)
+            {
+                var candidate = allCandidates.First();
+                if (requireSuffix)
+                {
+                    InfoMessage.ShouldProcessTargetSelectedSuffixMatch(CurrentModel, CurrentOperation, candidate);
+                }
+                else
+                {
+                    InfoMessage.ShouldProcessTargetSelectedSingleParameter(CurrentModel, CurrentOperation, candidate);
+                }
+                return allCandidates;
+            }
+
+            return [];
+        }
+
+        /// <summary>
+        /// Handles Exact noun matching - find parameters that exactly match the method noun.
+        /// </summary>
+        private List<SimplePropertyInfo> TrySelectByExactNounMatch(List<SimplePropertyInfo> allParameters)
+        {
+            var methodNoun = CurrentOperation.OriginalNoun;
+
+            // Look for exact match with method noun name. e.g. CreateResources method matches Resources parameter
+            // AnalyzedName has the original parameter name
+            var exactNounMatch = allParameters.FirstOrDefault(p => 
+                string.Equals(p.AnalyzedName, methodNoun, StringComparison.OrdinalIgnoreCase));
+            if (exactNounMatch != null)
+            {
+                InfoMessage.ShouldProcessTargetSelectedExactNounMatch(CurrentModel, CurrentOperation, exactNounMatch);
+                return new List<SimplePropertyInfo> { exactNounMatch };
+            }
+
+            // Look for exact match with singularized method noun name.
+            // e.g. CreateResources method matches Resource parameter
+            // e.g. CreateResource method matches Resources parameter
+            // CmdletParameterName has singular parameter name.
+            
+            var singularizedMethodNoun = SingularizeTerm(methodNoun);
+            if (!string.Equals(methodNoun, singularizedMethodNoun, StringComparison.OrdinalIgnoreCase))
+            {
+                var singularizedNounMatch = allParameters.FirstOrDefault(p => 
+                    string.Equals(p.CmdletParameterName, singularizedMethodNoun, StringComparison.OrdinalIgnoreCase));
+                if (singularizedNounMatch != null)
+                {
+                    InfoMessage.ShouldProcessTargetSelectedSingularizedNounMatch(CurrentModel, CurrentOperation, singularizedNounMatch);
+                    return [singularizedNounMatch];
                 }
             }
 
-            if (CurrentOperation.IsAutoConfiguring)
-            {
-                //Setting the value to string.Empty instead of null makes the attribute appear in the configuration file so that it is easy to fill the value in.
-                CurrentOperation.ShouldProcessTarget = targetParameter?.AnalyzedName ?? string.Empty;
-            }
-            else if (targetParameter != null)
-            {
-                AnalysisError.OutdatedShouldProcessTargetConfiguration(CurrentModel, CurrentOperation, targetParameter?.AnalyzedName);
-            }
+            return [];
         }
+
+
+        /// <summary>
+        /// Noun prefix matching - returns parameters that start with noun (or singular noun) and end with suffix.
+        /// </summary>
+        private List<SimplePropertyInfo> TrySelectStartsWithNounEndsWithSuffix(
+            List<SimplePropertyInfo> requiredRootLevelParameters,
+            List<SimplePropertyInfo> requiredParameters,
+            List<SimplePropertyInfo> allParameters)
+        {
+            var methodNoun = CurrentOperation.OriginalNoun;
+
+            // Try root-level required parameters first
+            var nounPrefixMatch = TryFindNounPrefixWithSuffix(requiredRootLevelParameters, methodNoun);
+            if (nounPrefixMatch.HasValue)
+            {
+                InfoMessage.ShouldProcessTargetSelectedNounPrefixMatch(CurrentModel, CurrentOperation, nounPrefixMatch.Value.parameter);
+                return [nounPrefixMatch.Value.parameter];
+            }
+
+            // Try required parameters
+            nounPrefixMatch = TryFindNounPrefixWithSuffix(requiredParameters, methodNoun);
+            if (nounPrefixMatch.HasValue)
+            {
+                InfoMessage.ShouldProcessTargetSelectedNounPrefixMatch(CurrentModel, CurrentOperation, nounPrefixMatch.Value.parameter);
+                return [nounPrefixMatch.Value.parameter];
+            }
+
+            // Try all parameters
+            nounPrefixMatch = TryFindNounPrefixWithSuffix(allParameters, methodNoun);
+            if (nounPrefixMatch.HasValue)
+            {
+                InfoMessage.ShouldProcessTargetSelectedNounPrefixMatch(CurrentModel, CurrentOperation, nounPrefixMatch.Value.parameter);
+                return [nounPrefixMatch.Value.parameter];
+            }
+
+            return [];
+        }
+
+        /// <summary>
+        /// Helper method to find a parameter that starts with noun (or singular noun) and ends with suffix.
+        /// </summary>
+        private (SimplePropertyInfo parameter, string suffix)? TryFindNounPrefixWithSuffix(List<SimplePropertyInfo> parameters, string methodNoun)
+        {
+            if (string.IsNullOrEmpty(methodNoun))
+                return null;
+
+            // Try original method noun first
+            foreach (var suffix in _supportsShouldProcessParameterSuffixes)
+            {
+                var nounPrefixMatch = parameters.FirstOrDefault(p =>
+                    p.AnalyzedName.StartsWith(methodNoun, StringComparison.OrdinalIgnoreCase) &&
+                    p.AnalyzedName.EndsWith(suffix, StringComparison.OrdinalIgnoreCase));
+                if (nounPrefixMatch != null)
+                {
+                    return (nounPrefixMatch, suffix);
+                }
+            }
+
+            // Try singularized method noun
+            var singularizedMethodNoun = SingularizeTerm(methodNoun);
+            if (!string.Equals(methodNoun, singularizedMethodNoun, StringComparison.OrdinalIgnoreCase))
+            {
+                foreach (var suffix in _supportsShouldProcessParameterSuffixes)
+                {
+                    var nounPrefixSingularizedMatch = parameters.FirstOrDefault(p =>
+                        p.AnalyzedName.StartsWith(singularizedMethodNoun, StringComparison.OrdinalIgnoreCase) &&
+                        p.AnalyzedName.EndsWith(suffix, StringComparison.OrdinalIgnoreCase));
+                    if (nounPrefixSingularizedMatch != null)
+                    {
+                        return (nounPrefixSingularizedMatch, suffix);
+                    }
+                }
+            }
+
+            return null;
+        }
+
+
+
+        /// <summary>
+        /// Gets parameters that end with any of the meaningful identifier suffixes.
+        /// </summary>
+        private List<SimplePropertyInfo> GetParametersWithSuffix(List<SimplePropertyInfo> parameters)
+        {
+            return _supportsShouldProcessParameterSuffixes.SelectMany(suffix =>
+                parameters.Where(parameter => parameter.CmdletParameterName.EndsWith(suffix, StringComparison.OrdinalIgnoreCase)))
+                .ToList();
+        }
+
+
+        /// <summary>
+        /// Gets parameters that end with any of the meaningful identifier suffixes, excluding collections.
+        /// Used for suffix-based filtering where we want to focus on simple identifier parameters.
+        /// </summary>
+        private List<SimplePropertyInfo> GetParametersWithSuffixExcludingCollections(List<SimplePropertyInfo> parameters)
+        {
+            return _supportsShouldProcessParameterSuffixes.SelectMany(suffix =>
+                parameters.Where(parameter => 
+                    parameter.CmdletParameterName.EndsWith(suffix, StringComparison.OrdinalIgnoreCase) &&
+                    (parameter.PropertyType == typeof(string) || !typeof(System.Collections.IEnumerable).IsAssignableFrom(parameter.PropertyType))))
+                .ToList();
+        }
+
 
         //If there are multiple candidates, try further restricting the list by only using required root parameters
 
@@ -1224,6 +1479,127 @@ namespace AWSPowerShellGenerator.Analysis
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Selects preferred candidate parameters for ShouldProcessTarget with support for primitive collections.
+        /// This method allows collections of primitive types since FormatParameterValuesForConfirmationMsg handles them well.
+        /// </summary>
+        /// <param name="parameters">Parameters to filter</param>
+        /// <param name="isRequiredParameter">Whether to prioritize required parameters</param>
+        /// <param name="isRootLevelParameter">Whether to prioritize root-level parameters</param>
+        /// <param name="excludeCollections">Whether to exclude collections (true for suffix-based filtering, false for general filtering)</param>
+        /// <returns>Filtered list of candidate parameters</returns>
+        protected virtual List<SimplePropertyInfo> SelectShouldProcessTargetCandidateParameters(IEnumerable<SimplePropertyInfo> parameters, bool isRequiredParameter = true, bool isRootLevelParameter = true, bool excludeCollections = false)
+        {
+            var autoIterateSettings = AutoIterateSettings;
+            var result = parameters
+                //Excluding collections based on excludeCollections parameter
+                .Where(param => {
+                    if (param.PropertyType == typeof(string))
+                        return true; // Always include strings
+                    
+                    if (!typeof(System.Collections.IEnumerable).IsAssignableFrom(param.PropertyType))
+                        return true; // Include non-collections
+                    
+                    if (excludeCollections)
+                        return false; // Exclude all collections when excludeCollections is true
+                    
+                    // When excludeCollections is false, include collections of primitive types
+                    return IsCollectionOfPrimitiveType(param.PropertyType);
+                })
+                //Excluding metadata and deprecated properties
+                .Where(param => !(AllModels.MetadataParameterNames.Contains(param.AnalyzedName) ||
+                                 CurrentModel.MetadataPropertyNames.Contains(param.AnalyzedName) ||
+                                 param.IsDeprecated ||
+                                 (autoIterateSettings?.IsIterationParameter(param.AnalyzedName) ?? false)))
+                .ToList();
+
+            if (result.Count > 1 && isRequiredParameter)
+            {
+                var requiredParameters = result.Where(parameter => parameter.IsRecursivelyRequired).ToList();
+                if (requiredParameters.Any())
+                {
+                    result = requiredParameters;
+                }
+            }
+
+            if (result.Count > 1 && isRootLevelParameter)
+            {
+                var rootParameters = result.Where(parameter => parameter.Parent == null).ToList();
+                if (rootParameters.Any())
+                {
+                    result = rootParameters;
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Determines if a type is a collection of primitive types that can be formatted well by FormatParameterValuesForConfirmationMsg.
+        /// </summary>
+        /// <param name="type">The type to check</param>
+        /// <returns>True if it's a collection of primitive types, false otherwise</returns>
+        private bool IsCollectionOfPrimitiveType(Type type)
+        {
+            if (type == typeof(string))
+                return false; // String is not considered a collection here
+            
+            if (!typeof(System.Collections.IEnumerable).IsAssignableFrom(type))
+                return false; // Not a collection
+            
+            // Handle arrays
+            if (type.IsArray)
+            {
+                var elementType = type.GetElementType();
+                return IsPrimitiveOrFormattableType(elementType);
+            }
+            
+            // Handle generic collections (List<T>, IEnumerable<T>, etc.)
+            if (type.IsGenericType)
+            {
+                var genericArguments = type.GetGenericArguments();
+                if (genericArguments.Length == 1)
+                {
+                    return IsPrimitiveOrFormattableType(genericArguments[0]);
+                }
+            }
+            
+            return false; // Unknown collection type, exclude to be safe
+        }
+
+        /// <summary>
+        /// Determines if a type is primitive or has a meaningful ToString() implementation for confirmation messages.
+        /// </summary>
+        /// <param name="type">The type to check</param>
+        /// <returns>True if the type can be formatted meaningfully, false otherwise</returns>
+        private bool IsPrimitiveOrFormattableType(Type type)
+        {
+            // Handle nullable types
+            if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>))
+            {
+                type = Nullable.GetUnderlyingType(type);
+            }
+            
+            // Primitive types
+            if (type.IsPrimitive)
+                return true;
+            
+            // Common value types that format well
+            if (type == typeof(string) || 
+                type == typeof(decimal) || 
+                type == typeof(DateTime) || 
+                type == typeof(DateTimeOffset) ||
+                type == typeof(TimeSpan) ||
+                type == typeof(Guid))
+                return true;
+            
+            // Enums format well (show enum name)
+            if (type.IsEnum)
+                return true;
+            
+            return false; // Complex types don't format well
         }
 
         /// <summary>

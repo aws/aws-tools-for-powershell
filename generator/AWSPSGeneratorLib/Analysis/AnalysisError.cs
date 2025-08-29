@@ -318,5 +318,58 @@ namespace AWSPowerShellGenerator.Analysis
             var candidateNames = string.Join(", ", candidateParameters.Select(param => param.AnalyzedName));
             new InfoMessage(service, operation, $"Multiple pipeline parameter candidates found: {candidateNames}. Setting NoPipelineParameter=true for this new cmdlet.");
         }
+
+        public static void NoShouldProcessTargetParameters(ConfigModel service, ServiceOperation operation, IEnumerable<string> filteredParameterNames)
+        {
+            var parameterList = filteredParameterNames?.ToList() ?? new List<string>();
+            var message = "No suitable ShouldProcessTarget parameters found after applying selection filters.";
+            if (parameterList.Any())
+            {
+                message += $" The following parameter(s) were filtered out as they were either complex collection types, deprecated, or metadata parameters: {string.Join(", ", parameterList)}.";
+            }
+            new InfoMessage(service, operation, message);
+        }
+
+        public static void ShouldProcessTargetSelectedSingleParameter(ConfigModel service, ServiceOperation operation, SimplePropertyInfo selectedParameter)
+        {
+            new InfoMessage(service, operation, $"ShouldProcessTarget selected single parameter: {selectedParameter.AnalyzedName}");
+        }
+
+        public static void ShouldProcessTargetSelectedExactNounMatch(ConfigModel service, ServiceOperation operation, SimplePropertyInfo selectedParameter)
+        {
+            new InfoMessage(service, operation, $"ShouldProcessTarget selected exact noun match: {selectedParameter.AnalyzedName}");
+        }
+
+        public static void ShouldProcessTargetSelectedSingularizedNounMatch(ConfigModel service, ServiceOperation operation, SimplePropertyInfo selectedParameter)
+        {
+            new InfoMessage(service, operation, $"ShouldProcessTarget selected singularized noun match: {selectedParameter.AnalyzedName}");
+        }
+
+        public static void ShouldProcessTargetSelectedSuffixMatch(ConfigModel service, ServiceOperation operation, SimplePropertyInfo selectedParameter)
+        {
+            new InfoMessage(service, operation, $"ShouldProcessTarget selected suffix match: {selectedParameter.AnalyzedName}");
+        }
+
+        public static void ShouldProcessTargetSelectedNounPrefixMatch(ConfigModel service, ServiceOperation operation, SimplePropertyInfo selectedParameter)
+        {
+            new InfoMessage(service, operation, $"ShouldProcessTarget selected noun prefix match: {selectedParameter.AnalyzedName}");
+        }
+
+        public static void ShouldProcessTargetSelectedMultipleParameters(ConfigModel service, ServiceOperation operation, IEnumerable<SimplePropertyInfo> selectedParameters)
+        {
+            var parameterNames = string.Join(", ", selectedParameters.Select(param => param.AnalyzedName));
+            new InfoMessage(service, operation, $"ShouldProcessTarget selected multiple parameters: {parameterNames}");
+        }
+
+        public static void ShouldProcessTargetMultipleCandidatesFound(ConfigModel service, ServiceOperation operation, IEnumerable<SimplePropertyInfo> candidateParameters)
+        {
+            var candidateNames = string.Join(", ", candidateParameters.Select(param => param.AnalyzedName));
+            new InfoMessage(service, operation, $"ShouldProcessTarget multiple candidates found: {candidateNames}");
+        }
+
+        public static void ShouldProcessTargetSetToAnonymous(ConfigModel service, ServiceOperation operation)
+        {
+            new InfoMessage(service, operation, $"ShouldProcessTarget set to anonymous");
+        }
     }
 }
