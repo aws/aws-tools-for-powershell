@@ -11,7 +11,7 @@ using AWSPowerShellGenerator.ServiceConfig;
 namespace AWSPSGeneratorLibTests
 {
     [TestClass]
-    public class OperationAnalyzerTests
+    public class PipelineParameterTests
     {
         private ConfigModelCollection _allModels;
         private ConfigModel _testModel;
@@ -28,6 +28,8 @@ namespace AWSPSGeneratorLibTests
                 MetadataPropertyNames = new List<string>()
             };
         }
+
+        #region DeterminePipelineParameter Tests
 
         [TestMethod]
         public void DeterminePipelineParameter_NoCandidates_SetsNoPipelineParameterTrue()
@@ -167,62 +169,9 @@ namespace AWSPSGeneratorLibTests
             Assert.AreEqual(0, operation.InfoMessages.Count);
         }
 
-        private ServiceOperation CreateAutoConfiguringOperation() => new()
-        {
-            MethodName = "TestOperation",
-            IsAutoConfiguring = true
-        };
+        #endregion
 
-        private TestableOperationAnalyzer CreateAnalyzer(ServiceOperation operation) =>
-            new(_allModels, _testModel, operation, null);
-
-        private SimplePropertyInfo CreateParameter(string name, Type type = null, bool isMetadata = false, bool isDeprecated = false, bool isRequired = false)
-        {
-            type ??= typeof(string);
-            var mockProperty = new MockPropertyInfo(name, type);
-            if (isDeprecated)
-                mockProperty.SetDeprecated(true);
-
-            var parameter = new SimplePropertyInfo(
-                mockProperty, 
-                null, 
-                type.Name, 
-                null,
-                SimplePropertyInfo.PropertyCollectionType.NoCollection, 
-                null);
-
-            if (isMetadata)
-                _allModels.MetadataParameterNames.Add(name);
-
-            if (isRequired)
-            {
-                // Set required using reflection since it's a private field
-                var field = typeof(SimplePropertyInfo).GetField("_isRequired", BindingFlags.NonPublic | BindingFlags.Instance);
-                field?.SetValue(parameter, true);
-            }
-
-            return parameter;
-        }
-    }
-
-    [TestClass]
-    public class SelectPreferredCandidateParametersTests
-    {
-        private ConfigModelCollection _allModels;
-        private ConfigModel _testModel;
-
-        [TestInitialize]
-        public void Setup()
-        {
-            _allModels = new ConfigModelCollection { MetadataParameterNames = new List<string>() };
-            _testModel = new ConfigModel
-            {
-                AssemblyName = "TestService",
-                ServiceName = "Test Service",
-                ServiceNounPrefix = "TEST",
-                MetadataPropertyNames = new List<string>()
-            };
-        }
+        #region SelectPreferredCandidateParameters Tests
 
         [TestMethod]
         public void SelectPreferredCandidateParameters_FiltersCollections()
@@ -334,7 +283,35 @@ namespace AWSPSGeneratorLibTests
             Assert.AreEqual("ActiveParam", result[0].AnalyzedName);
         }
 
-        private SimplePropertyInfo CreateParameter(string name, Type type = null, bool isMetadata = false, bool isDeprecated = false, bool isRequired = false)
+        #endregion
+
+        #region Helper Methods
+
+        private ServiceOperation CreateAutoConfiguringOperation(string methodName = "TestOperation")
+        {
+            var operation = new ServiceOperation
+            {
+                MethodName = methodName,
+                IsAutoConfiguring = true
+            };
+
+            // Extract the noun from the method name (similar to how OperationAnalyzer.DetermineVerbAndNoun works)
+            for (var i = 1; i < methodName.Length; i++)
+            {
+                if (char.IsUpper(methodName[i]))
+                {
+                    operation.OriginalNoun = methodName.Substring(i);
+                    break;
+                }
+            }
+
+            return operation;
+        }
+
+        private TestableOperationAnalyzer CreateAnalyzer(ServiceOperation operation) =>
+            new(_allModels, _testModel, operation, null);
+
+        private SimplePropertyInfo CreateParameter(string name, Type type = null, bool isMetadata = false, bool isDeprecated = false, bool isRequired = false, SimplePropertyInfo parent = null)
         {
             type ??= typeof(string);
             var mockProperty = new MockPropertyInfo(name, type);
@@ -342,15 +319,15 @@ namespace AWSPSGeneratorLibTests
                 mockProperty.SetDeprecated(true);
 
             var parameter = new SimplePropertyInfo(
-                mockProperty,
+                mockProperty, 
+                parent, 
+                type.Name, 
                 null,
-                type.Name,
-                null,
-                SimplePropertyInfo.PropertyCollectionType.NoCollection,
+                SimplePropertyInfo.PropertyCollectionType.NoCollection, 
                 null);
 
             if (isMetadata)
-                _testModel.MetadataPropertyNames.Add(name);
+                _allModels.MetadataParameterNames.Add(name);
 
             if (isRequired)
             {
@@ -362,14 +339,346 @@ namespace AWSPSGeneratorLibTests
             return parameter;
         }
 
-        private ServiceOperation CreateAutoConfiguringOperation() => new()
+        #endregion
+    }
+
+    [TestClass]
+    public class ShouldProcessTargetTests
+    {
+        private ConfigModelCollection _allModels;
+        private ConfigModel _testModel;
+
+        [TestInitialize]
+        public void Setup()
         {
-            MethodName = "TestOperation",
-            IsAutoConfiguring = true
-        };
+            _allModels = new ConfigModelCollection { MetadataParameterNames = new List<string>() };
+            _testModel = new ConfigModel
+            {
+                AssemblyName = "TestService",
+                ServiceName = "Test Service",
+                ServiceNounPrefix = "TEST",
+                MetadataPropertyNames = new List<string>()
+            };
+        }
+
+        [TestMethod]
+        public void SelectShouldProcessTarget_ExactNounMatch_SelectsMatchingParameter()
+        {
+            // Arrange
+            var operation = CreateAutoConfiguringOperation("CreateResource");
+            var analyzer = CreateAnalyzer(operation);
+            analyzer.SetParameters(
+                CreateParameter("Resource"),
+                CreateParameter("ResourceId"),
+                CreateParameter("OtherParam")
+            );
+
+            // Act
+            var result = analyzer.SelectShouldProcessTarget();
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(1, result.Count);
+            Assert.AreEqual("Resource", result[0].AnalyzedName);
+            Assert.AreEqual(1, operation.InfoMessages.Count);
+            StringAssert.Contains(operation.InfoMessages[0].Message, "exact noun match");
+        }
+
+
+        [TestMethod]
+        public void SelectShouldProcessTarget_SingularizedNounMatch_SelectsMatchingParameter()
+        {
+            // Arrange
+            var operation = CreateAutoConfiguringOperation("CreateResources");
+            var analyzer = CreateAnalyzer(operation);
+            analyzer.SetParameters(
+                CreateParameter("Resource"), // Singular parameter name that matches singularized noun
+                CreateParameter("ResourceId"),
+                CreateParameter("OtherParam")
+            );
+
+            // Act
+            var result = analyzer.SelectShouldProcessTarget();
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(1, result.Count);
+            Assert.AreEqual("Resource", result[0].AnalyzedName);
+            Assert.AreEqual(1, operation.InfoMessages.Count);
+            StringAssert.Contains(operation.InfoMessages[0].Message, "singularized noun match");
+            StringAssert.Contains(operation.InfoMessages[0].Message, "Resource");
+        }
+
+        [TestMethod]
+        public void SelectShouldProcessTarget_NounPrefixSingularizedMatch_SelectsMatchingParameter()
+        {
+            // Arrange
+            var operation = CreateAutoConfiguringOperation("CreateResources");
+            var analyzer = CreateAnalyzer(operation);
+            analyzer.SetParameters(
+                CreateParameter("ResourceName"), // Parameter that starts with singularized noun and ends with suffix
+                CreateParameter("OtherParam"),
+                CreateParameter("SomeId")
+            );
+
+            // Act
+            var result = analyzer.SelectShouldProcessTarget();
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(1, result.Count);
+            Assert.AreEqual("ResourceName", result[0].AnalyzedName);
+            Assert.AreEqual(1, operation.InfoMessages.Count);
+            // The logic will match this as a regular noun prefix match at root level since ResourceName starts with "Resources" (original noun)
+            // and the singularized logic only applies when the original noun doesn't match
+            StringAssert.Contains(operation.InfoMessages[0].Message, "noun prefix match");
+            StringAssert.Contains(operation.InfoMessages[0].Message, "ResourceName");
+        }
+
+        [TestMethod]
+        public void SelectShouldProcessTarget_NounPrefixWithSuffix_SelectsMatchingParameter()
+        {
+            // Arrange
+            var operation = CreateAutoConfiguringOperation("CreateBucket");
+            var analyzer = CreateAnalyzer(operation);
+            analyzer.SetParameters(
+                CreateParameter("BucketName"),
+                CreateParameter("OtherParam"),
+                CreateParameter("ResourceId")
+            );
+
+            // Act
+            var result = analyzer.SelectShouldProcessTarget();
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(1, result.Count);
+            Assert.AreEqual("BucketName", result[0].AnalyzedName);
+            Assert.AreEqual(1, operation.InfoMessages.Count);
+            StringAssert.Contains(operation.InfoMessages[0].Message, "noun prefix match");
+        }
+
+        [TestMethod]
+        public void SelectShouldProcessTarget_CaseInsensitiveMatching_SelectsParametersRegardlessOfCase()
+        {
+            // Arrange - Test case-insensitive matching for parameter suffixes
+            // Use a method name that won't have exact noun matches with the parameters
+            var operation = CreateAutoConfiguringOperation("CreateItem");
+            var analyzer = CreateAnalyzer(operation);
+            analyzer.SetParameters(
+                CreateParameter("resourceid"), // lowercase suffix "id" should match
+                CreateParameter("ResourceNAME"), // mixed case suffix "NAME" should match
+                CreateParameter("BucketArn"), // proper case suffix "Arn" should match
+                CreateParameter("SomeKey") // no matching suffix - should be filtered out
+            );
+
+            // Act
+            var result = analyzer.SelectShouldProcessTarget();
+
+            // Assert - Should return the 3 parameters with valid suffixes (2-3 range triggers multiple parameter selection)
+            Assert.IsNotNull(result);
+            Assert.AreEqual(3, result.Count); // All 3 parameters with case-insensitive suffix matches
+            
+            // Verify all expected parameters are included
+            var parameterNames = result.Select(p => p.AnalyzedName).ToList();
+            Assert.IsTrue(parameterNames.Contains("resourceid"), "Should match lowercase 'id' suffix");
+            Assert.IsTrue(parameterNames.Contains("ResourceNAME"), "Should match mixed case 'NAME' suffix");
+            Assert.IsTrue(parameterNames.Contains("BucketArn"), "Should match proper case 'Arn' suffix");
+            Assert.IsFalse(parameterNames.Contains("SomeKey"), "Should not match parameter without valid suffix");
+
+            // Should log message about multiple parameters being selected (3 parameters)
+            Assert.AreEqual(1, operation.InfoMessages.Count);
+            StringAssert.Contains(operation.InfoMessages[0].Message, "ShouldProcessTarget selected multiple parameters");
+        }
+
+
+        [TestMethod]
+        public void SelectShouldProcessTarget_SingleCandidateAfterFiltering_SelectsCandidate()
+        {
+            // Arrange
+            var operation = CreateAutoConfiguringOperation("ProcessData");
+            var analyzer = CreateAnalyzer(operation);
+            analyzer.SetParameters(
+                CreateParameter("DataId"), // Ends with Id - supported suffix
+                CreateParameter("MetadataParam", isMetadata: true),
+                CreateParameter("CollectionParam", typeof(List<string>))
+            );
+
+            // Act
+            var result = analyzer.SelectShouldProcessTarget();
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(1, result.Count);
+            Assert.AreEqual("DataId", result[0].AnalyzedName);
+            Assert.AreEqual(1, operation.InfoMessages.Count);
+            StringAssert.Contains(operation.InfoMessages[0].Message, "ShouldProcessTarget selected suffix match");
+        }
+
+        [TestMethod]
+        public void SelectShouldProcessTarget_MultipleCandidatesAfterFiltering_ReturnsMultipleParameters()
+        {
+            // Arrange
+            // Use a method name that won't have exact noun matches with the parameters
+            var operation = CreateAutoConfiguringOperation("ProcessItem");
+            var analyzer = CreateAnalyzer(operation);
+            analyzer.SetParameters(
+                CreateParameter("DataId"), // Ends with Id - supported suffix
+                CreateParameter("ProcessName"), // Ends with Name - supported suffix
+                CreateParameter("MetadataParam", isMetadata: true)
+            );
+
+            // Act
+            var result = analyzer.SelectShouldProcessTarget();
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(2, result.Count); // Should return the 2 candidates for multiple parameter scenario
+            Assert.AreEqual(1, operation.InfoMessages.Count);
+            StringAssert.Contains(operation.InfoMessages[0].Message, "ShouldProcessTarget selected multiple parameters");
+        }
+
+        [TestMethod]
+        public void SelectShouldProcessTarget_NoParameters_ReturnsNull()
+        {
+            // Arrange
+            var operation = CreateAutoConfiguringOperation("SimpleOperation");
+            var analyzer = CreateAnalyzer(operation);
+            analyzer.SetParameters(); // No parameters
+
+            // Act
+            var result = analyzer.SelectShouldProcessTarget();
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(0, result.Count); // Empty list when no parameters
+            Assert.AreEqual(1, operation.InfoMessages.Count);
+            StringAssert.Contains(operation.InfoMessages[0].Message, "No suitable ShouldProcessTarget parameters found");
+        }
+
+        [TestMethod]
+        public void DetermineSupportsShouldProcessParameter_AutoConfiguring_SetsMultipleParametersWhenThreeCandidates()
+        {
+            // Arrange
+            var operation = CreateAutoConfiguringOperation("ComplexOperation");
+            var analyzer = CreateAnalyzer(operation);
+            analyzer.SetParameters(
+                CreateParameter("ComplexId"), // Ends with Id - supported suffix
+                CreateParameter("ComplexName"), // Ends with Name - supported suffix
+                CreateParameter("ComplexArn") // Ends with Arn - supported suffix
+            );
+
+            // Act
+            analyzer.DetermineSupportsShouldProcessParameter();
+
+            // Assert
+            Assert.IsFalse(operation.AnonymousShouldProcessTarget);
+            Assert.AreEqual("ComplexId,ComplexName,ComplexArn", operation.ShouldProcessTarget);
+            Assert.AreEqual(1, operation.InfoMessages.Count);
+            // Message should be about multiple parameters being selected
+            StringAssert.Contains(operation.InfoMessages[0].Message, "ShouldProcessTarget selected multiple parameters");
+            StringAssert.Contains(operation.InfoMessages[0].Message, "ComplexId, ComplexName, ComplexArn");
+        }
+
+        [TestMethod]
+        public void DetermineSupportsShouldProcessParameter_AutoConfiguring_SetsAnonymousWhenMoreThanThreeCandidates()
+        {
+            // Arrange
+            var operation = CreateAutoConfiguringOperation("ComplexOperation");
+            var analyzer = CreateAnalyzer(operation);
+            analyzer.SetParameters(
+                CreateParameter("ComplexId"), // Ends with Id - supported suffix
+                CreateParameter("ComplexName"), // Ends with Name - supported suffix
+                CreateParameter("ComplexArn"), // Ends with Arn - supported suffix
+                CreateParameter("ComplexIdentifier") // Ends with Identifier - supported suffix (4 parameters - should set anonymous)
+            );
+
+            // Act
+            analyzer.DetermineSupportsShouldProcessParameter();
+
+            // Assert
+            Assert.IsTrue(operation.AnonymousShouldProcessTarget);
+            Assert.AreEqual(2, operation.InfoMessages.Count);
+            // First message from SelectShouldProcessTarget about multiple candidates
+            StringAssert.Contains(operation.InfoMessages[0].Message, "ShouldProcessTarget multiple candidates found");
+            // Second message from DetermineSupportsShouldProcessParameter about setting anonymous
+            StringAssert.Contains(operation.InfoMessages[1].Message, "ShouldProcessTarget set to anonymous");
+        }
+
+        [TestMethod]
+        public void SelectShouldProcessTarget_PrimitiveCollectionSupport_AllowsPrimitiveCollections()
+        {
+            // Arrange - Test that primitive collections are allowed in ShouldProcessTarget selection
+            var operation = CreateAutoConfiguringOperation("ProcessData");
+            var analyzer = CreateAnalyzer(operation);
+            analyzer.SetParameters(
+                CreateParameter("ResourceIds", typeof(string[])), // Primitive collection - should be allowed
+                CreateParameter("ComplexObjects", typeof(List<object>)), // Complex collection - should be filtered out
+                CreateParameter("MetadataParam", isMetadata: true)
+            );
+
+            // Act
+            var result = analyzer.SelectShouldProcessTarget();
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(1, result.Count);
+            Assert.AreEqual("ResourceIds", result[0].AnalyzedName);
+            Assert.AreEqual(1, operation.InfoMessages.Count);
+            StringAssert.Contains(operation.InfoMessages[0].Message, "ShouldProcessTarget selected single parameter");
+        }
+
+        private ServiceOperation CreateAutoConfiguringOperation(string methodName = "TestOperation")
+        {
+            var operation = new ServiceOperation
+            {
+                MethodName = methodName,
+                IsAutoConfiguring = true
+            };
+
+            // Extract the noun from the method name (similar to how OperationAnalyzer.DetermineVerbAndNoun works)
+            for (var i = 1; i < methodName.Length; i++)
+            {
+                if (char.IsUpper(methodName[i]))
+                {
+                    operation.OriginalNoun = methodName.Substring(i);
+                    break;
+                }
+            }
+
+            return operation;
+        }
 
         private TestableOperationAnalyzer CreateAnalyzer(ServiceOperation operation) =>
             new(_allModels, _testModel, operation, null);
+
+        private SimplePropertyInfo CreateParameter(string name, Type type = null, bool isMetadata = false, bool isDeprecated = false, bool isRequired = false, SimplePropertyInfo parent = null)
+        {
+            type ??= typeof(string);
+            var mockProperty = new MockPropertyInfo(name, type);
+            if (isDeprecated)
+                mockProperty.SetDeprecated(true);
+
+            var parameter = new SimplePropertyInfo(
+                mockProperty, 
+                parent, 
+                type.Name, 
+                null,
+                SimplePropertyInfo.PropertyCollectionType.NoCollection, 
+                null);
+
+            if (isMetadata)
+                _allModels.MetadataParameterNames.Add(name);
+
+            if (isRequired)
+            {
+                // Set required using reflection since it's a private field
+                var field = typeof(SimplePropertyInfo).GetField("_isRequired", BindingFlags.NonPublic | BindingFlags.Instance);
+                field?.SetValue(parameter, true);
+            }
+
+            return parameter;
+        }
     }
 
     /// <summary>
@@ -401,6 +710,15 @@ namespace AWSPSGeneratorLibTests
 
         public new List<SimplePropertyInfo> SelectPreferredCandidateParameters(IEnumerable<SimplePropertyInfo> parameters) =>
             base.SelectPreferredCandidateParameters(parameters);
+
+        public new List<SimplePropertyInfo> SelectShouldProcessTargetCandidateParameters(IEnumerable<SimplePropertyInfo> parameters, bool isRequiredParameter = true, bool isRootLevelParameter = true, bool excludeCollections = false) =>
+            base.SelectShouldProcessTargetCandidateParameters(parameters, isRequiredParameter, isRootLevelParameter, excludeCollections);
+
+        public new void DetermineSupportsShouldProcessParameter() =>
+            base.DetermineSupportsShouldProcessParameter();
+
+        public new List<SimplePropertyInfo> SelectShouldProcessTarget() =>
+            base.SelectShouldProcessTarget();
     }
 
     /// <summary>

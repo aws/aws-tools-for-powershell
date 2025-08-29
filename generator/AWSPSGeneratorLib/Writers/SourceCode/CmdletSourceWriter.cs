@@ -31,7 +31,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         private readonly ServiceOperation Operation;
         private readonly OperationAnalyzer MethodAnalysis;
 
-        private readonly static char[] Vowels = new char[] { 'a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y' };
+        private readonly static char[] Vowels = ['a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y'];
 
         /// <summary>
         /// Initializes the cmdlet source writer.
@@ -80,10 +80,10 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             writer.OpenRegion();
             {
                 writer.WriteLine(commentedTypeDocumentation);
-                writer.WriteLine($"[Cmdlet(\"{Operation.SelectedVerb}\", \"{Operation.SelectedNoun}\"{(MethodAnalysis.RequiresShouldProcessPromt ? $", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.{MethodAnalysis.ConfirmImpactSetting}" : "")}{(Operation.DefaultParameterSet != null ? $", DefaultParameterSetName=\"{Operation.DefaultParameterSet}\"" : "")})]");
+                writer.WriteLine($"[Cmdlet(\"{Operation.SelectedVerb}\", \"{Operation.SelectedNoun}\"{(MethodAnalysis.RequiresShouldProcessPrompt ? $", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.{MethodAnalysis.ConfirmImpactSetting}" : "")}{(Operation.DefaultParameterSet != null ? $", DefaultParameterSetName=\"{Operation.DefaultParameterSet}\"" : "")})]");
 
                 // Define the output type so that running Get-Command on the cmdlet has a populated OutputType
-                // value (this is independant of help). Use the string format of the attr so we don't risk
+                // value (this is independent of help). Use the string format of the attr so we don't risk
                 // namespace collisions on collection members (eg EMR and PowerShell both have 'Job' classes)
                 if (analyzedResult.ReturnType != null)
                 {
@@ -168,7 +168,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                         writer.WriteLine("base.ProcessRecord();");
                         writer.WriteLine();
 
-                        if (MethodAnalysis.RequiresShouldProcessPromt)
+                        if (MethodAnalysis.RequiresShouldProcessPrompt)
                             WriteShouldProcessConfirmationCalls(writer);
 
                         // create context object
@@ -417,9 +417,32 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         {
             if (!string.IsNullOrEmpty(Operation.ShouldProcessTarget))
             {
-                var targetParameter = MethodAnalysis.AnalyzedParameters.Where(parameter => parameter.AnalyzedName == Operation.ShouldProcessTarget).Single();
+                var targetParameterNames = Operation.ShouldProcessTarget.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                    .Select(name => name.Trim())
+                    .ToArray();
 
-                writer.WriteLine($"var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.{targetParameter.CmdletParameterName}), MyInvocation.BoundParameters);");
+                if (targetParameterNames.Length == 1)
+                {
+                    // Single parameter - use existing logic for backward compatibility
+                    var targetParameter = MethodAnalysis.AnalyzedParameters.Where(parameter => parameter.AnalyzedName == targetParameterNames[0]).Single();
+                    writer.WriteLine($"var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.{targetParameter.CmdletParameterName}), MyInvocation.BoundParameters);");
+                }
+                else
+                {
+                    // Multiple parameters - use new array-based method
+                    writer.WriteLine("var targetParameterNames = new string[]");
+                    writer.OpenRegion();
+                    
+                    for (int i = 0; i < targetParameterNames.Length; i++)
+                    {
+                        var targetParameter = MethodAnalysis.AnalyzedParameters.Where(parameter => parameter.AnalyzedName == targetParameterNames[i]).Single();
+                        var comma = i < targetParameterNames.Length - 1 ? "," : "";
+                        writer.WriteLine($"nameof(this.{targetParameter.CmdletParameterName}){comma}");
+                    }
+                    
+                    writer.CloseRegion("};");
+                    writer.WriteLine("var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters);");
+                }
             }
             else
             {
@@ -499,7 +522,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         /// <param name="writer"></param>
         public void WriteForceSwitchParam(IndentedTextWriter writer)
         {
-            if (!MethodAnalysis.RequiresShouldProcessPromt)
+            if (!MethodAnalysis.RequiresShouldProcessPrompt)
             {
                 return;
             }
