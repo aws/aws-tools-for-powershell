@@ -34,7 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.UNO
     /// 
     ///  
     /// <para>
-    /// Supported Channels include Chatbot, the Console Mobile Application, and emails (notifications-contacts).
+    /// Supported Channels include Amazon Q Developer in chat applications, the Console Mobile
+    /// Application, and emails (notifications-contacts).
     /// </para>
     /// </summary>
     [Cmdlet("Add", "UNOManagedNotificationAdditionalChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -53,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter ChannelArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Channel to associate with the <c>ManagedNotificationConfiguration</c>.</para><para>Supported ARNs include Chatbot, the Console Mobile Application, and email (notifications-contacts).</para>
+        /// <para>The Amazon Resource Name (ARN) of the Channel to associate with the <c>ManagedNotificationConfiguration</c>.</para><para>Supported ARNs include Amazon Q Developer in chat applications, the Console Mobile
+        /// Application, and email (notifications-contacts).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

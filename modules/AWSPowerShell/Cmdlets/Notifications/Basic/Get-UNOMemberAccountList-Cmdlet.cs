@@ -30,72 +30,74 @@ using Amazon.Notifications.Model;
 namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
-    /// Returns a list of abbreviated <c>NotificationConfigurations</c> according to specified
-    /// filters, in reverse chronological order (newest first).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// Returns a list of member accounts associated with a notification configuration.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "UNONotificationConfigurationList")]
-    [OutputType("Amazon.Notifications.Model.NotificationConfigurationStructure")]
-    [AWSCmdlet("Calls the AWS User Notifications ListNotificationConfigurations API operation.", Operation = new[] {"ListNotificationConfigurations"}, SelectReturnType = typeof(Amazon.Notifications.Model.ListNotificationConfigurationsResponse))]
-    [AWSCmdletOutput("Amazon.Notifications.Model.NotificationConfigurationStructure or Amazon.Notifications.Model.ListNotificationConfigurationsResponse",
-        "This cmdlet returns a collection of Amazon.Notifications.Model.NotificationConfigurationStructure objects.",
-        "The service call response (type Amazon.Notifications.Model.ListNotificationConfigurationsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "UNOMemberAccountList")]
+    [OutputType("Amazon.Notifications.Model.MemberAccount")]
+    [AWSCmdlet("Calls the AWS User Notifications ListMemberAccounts API operation.", Operation = new[] {"ListMemberAccounts"}, SelectReturnType = typeof(Amazon.Notifications.Model.ListMemberAccountsResponse))]
+    [AWSCmdletOutput("Amazon.Notifications.Model.MemberAccount or Amazon.Notifications.Model.ListMemberAccountsResponse",
+        "This cmdlet returns a collection of Amazon.Notifications.Model.MemberAccount objects.",
+        "The service call response (type Amazon.Notifications.Model.ListMemberAccountsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetUNONotificationConfigurationListCmdlet : AmazonNotificationsClientCmdlet, IExecutor
+    public partial class GetUNOMemberAccountListCmdlet : AmazonNotificationsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ChannelArn
+        #region Parameter MemberAccount
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Channel to match.</para>
+        /// <para>The member account identifier used to filter the results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ChannelArn { get; set; }
+        public System.String MemberAccount { get; set; }
         #endregion
         
-        #region Parameter EventRuleSource
+        #region Parameter NotificationConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>The matched event source.</para><para>Must match one of the valid EventBridge sources. Only Amazon Web Services service
-        /// sourced events are supported. For example, <c>aws.ec2</c> and <c>aws.cloudwatch</c>.
-        /// For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level">Event
-        /// delivery from Amazon Web Services services</a> in the <i>Amazon EventBridge User Guide</i>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the notification configuration used to filter the
+        /// member accounts.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String NotificationConfigurationArn { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationalUnitId
+        /// <summary>
+        /// <para>
+        /// <para>The organizational unit ID used to filter the member accounts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String EventRuleSource { get; set; }
+        public System.String OrganizationalUnitId { get; set; }
         #endregion
         
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The <c>NotificationConfiguration</c> status to match.</para><ul><li><para>Values:</para><ul><li><para><c>ACTIVE</c></para><ul><li><para>All <c>EventRules</c> are <c>ACTIVE</c> and any call can be run.</para></li></ul></li><li><para><c>PARTIALLY_ACTIVE</c></para><ul><li><para>Some <c>EventRules</c> are <c>ACTIVE</c> and some are <c>INACTIVE</c>. Any call can
-        /// be run.</para></li><li><para>Any call can be run.</para></li></ul></li><li><para><c>INACTIVE</c></para><ul><li><para>All <c>EventRules</c> are <c>INACTIVE</c> and any call can be run.</para></li></ul></li><li><para><c>DELETING</c></para><ul><li><para>This <c>NotificationConfiguration</c> is being deleted.</para></li><li><para>Only <c>GET</c> and <c>LIST</c> calls can be run.</para></li></ul></li></ul></li></ul>
+        /// <para>The status used to filter the member accounts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Notifications.NotificationConfigurationStatus")]
-        public Amazon.Notifications.NotificationConfigurationStatus Status { get; set; }
-        #endregion
-        
-        #region Parameter Subtype
-        /// <summary>
-        /// <para>
-        /// <para>The subtype used to filter the notification configurations in the request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Notifications.NotificationConfigurationSubtype")]
-        public Amazon.Notifications.NotificationConfigurationSubtype Subtype { get; set; }
+        [AWSConstantClassSource("Amazon.Notifications.MemberAccountNotificationConfigurationStatus")]
+        public Amazon.Notifications.MemberAccountNotificationConfigurationStatus Status { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to be returned in this call. Defaults to 20.</para>
+        /// <para>The maximum number of results to return in a single call. Valid values are 1-100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -111,8 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The start token for paginated calls. Retrieved from the response of a previous <c>ListEventRules</c>
-        /// call. Next token uses Base64 encoding.</para>
+        /// <para>The token for the next page of results. Use the value returned in the previous response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -125,13 +126,13 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'NotificationConfigurations'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Notifications.Model.ListNotificationConfigurationsResponse).
-        /// Specifying the name of a property of type Amazon.Notifications.Model.ListNotificationConfigurationsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'MemberAccounts'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Notifications.Model.ListMemberAccountsResponse).
+        /// Specifying the name of a property of type Amazon.Notifications.Model.ListMemberAccountsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "NotificationConfigurations";
+        public string Select { get; set; } = "MemberAccounts";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -139,7 +140,6 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
         /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
         /// as the start point.
-        /// This cmdlet didn't autopaginate in V4. To preserve the V4 autopagination behavior for all cmdlets, run Set-AWSAutoIterationMode -IterationMode v4.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter NoAutoIteration { get; set; }
@@ -161,11 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.UNO
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Notifications.Model.ListNotificationConfigurationsResponse, GetUNONotificationConfigurationListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Notifications.Model.ListMemberAccountsResponse, GetUNOMemberAccountListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ChannelArn = this.ChannelArn;
-            context.EventRuleSource = this.EventRuleSource;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -176,9 +174,17 @@ namespace Amazon.PowerShell.Cmdlets.UNO
                     " to the service to specify how many items should be returned by each service call.");
             }
             #endif
+            context.MemberAccount = this.MemberAccount;
             context.NextToken = this.NextToken;
+            context.NotificationConfigurationArn = this.NotificationConfigurationArn;
+            #if MODULAR
+            if (this.NotificationConfigurationArn == null && ParameterWasBound(nameof(this.NotificationConfigurationArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter NotificationConfigurationArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.OrganizationalUnitId = this.OrganizationalUnitId;
             context.Status = this.Status;
-            context.Subtype = this.Subtype;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -195,33 +201,32 @@ namespace Amazon.PowerShell.Cmdlets.UNO
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.Notifications.Model.ListNotificationConfigurationsRequest();
+            var request = new Amazon.Notifications.Model.ListMemberAccountsRequest();
             
-            if (cmdletContext.ChannelArn != null)
-            {
-                request.ChannelArn = cmdletContext.ChannelArn;
-            }
-            if (cmdletContext.EventRuleSource != null)
-            {
-                request.EventRuleSource = cmdletContext.EventRuleSource;
-            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.MemberAccount != null)
+            {
+                request.MemberAccount = cmdletContext.MemberAccount;
+            }
+            if (cmdletContext.NotificationConfigurationArn != null)
+            {
+                request.NotificationConfigurationArn = cmdletContext.NotificationConfigurationArn;
+            }
+            if (cmdletContext.OrganizationalUnitId != null)
+            {
+                request.OrganizationalUnitId = cmdletContext.OrganizationalUnitId;
             }
             if (cmdletContext.Status != null)
             {
                 request.Status = cmdletContext.Status;
             }
-            if (cmdletContext.Subtype != null)
-            {
-                request.Subtype = cmdletContext.Subtype;
-            }
             
             // Initialize loop variant and commence piping
             var _nextToken = cmdletContext.NextToken;
             var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
-            var _shouldAutoIterate = !(SessionState.PSVariable.GetValue("AWSPowerShell_AutoIteration_Mode")?.ToString() == "v4");
             
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             do
@@ -255,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
                 
                 ProcessOutput(output);
                 
-            } while (!_userControllingPaging && _shouldAutoIterate && AutoIterationHelpers.HasValue(_nextToken));
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
             
             if (useParameterSelect)
             {
@@ -275,12 +280,12 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         
         #region AWS Service Operation Call
         
-        private Amazon.Notifications.Model.ListNotificationConfigurationsResponse CallAWSServiceOperation(IAmazonNotifications client, Amazon.Notifications.Model.ListNotificationConfigurationsRequest request)
+        private Amazon.Notifications.Model.ListMemberAccountsResponse CallAWSServiceOperation(IAmazonNotifications client, Amazon.Notifications.Model.ListMemberAccountsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS User Notifications", "ListNotificationConfigurations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS User Notifications", "ListMemberAccounts");
             try
             {
-                return client.ListNotificationConfigurationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListMemberAccountsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -297,14 +302,14 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ChannelArn { get; set; }
-            public System.String EventRuleSource { get; set; }
             public int? MaxResult { get; set; }
+            public System.String MemberAccount { get; set; }
             public System.String NextToken { get; set; }
-            public Amazon.Notifications.NotificationConfigurationStatus Status { get; set; }
-            public Amazon.Notifications.NotificationConfigurationSubtype Subtype { get; set; }
-            public System.Func<Amazon.Notifications.Model.ListNotificationConfigurationsResponse, GetUNONotificationConfigurationListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.NotificationConfigurations;
+            public System.String NotificationConfigurationArn { get; set; }
+            public System.String OrganizationalUnitId { get; set; }
+            public Amazon.Notifications.MemberAccountNotificationConfigurationStatus Status { get; set; }
+            public System.Func<Amazon.Notifications.Model.ListMemberAccountsResponse, GetUNOMemberAccountListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.MemberAccounts;
         }
         
     }

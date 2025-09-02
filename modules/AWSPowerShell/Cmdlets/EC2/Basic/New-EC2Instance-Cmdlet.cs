@@ -143,9 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Placement_AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Availability Zone of the instance.</para><para>Either <c>AvailabilityZone</c> or <c>AvailabilityZoneId</c> can be specified, but
-        /// not both. If neither is specified, Amazon EC2 automatically selects an Availability
-        /// Zone based on the load balancing criteria for the Region.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
+        /// <para>The Availability Zone of the instance.</para><para>On input, you can specify <c>AvailabilityZone</c> or <c>AvailabilityZoneId</c>, but
+        /// not both. If you specify neither one, Amazon EC2 automatically selects an Availability
+        /// Zone for you.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -156,9 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Placement_AvailabilityZoneId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Availability Zone of the instance.</para><para>Either <c>AvailabilityZone</c> or <c>AvailabilityZoneId</c> can be specified, but
-        /// not both. If neither is specified, Amazon EC2 automatically selects an Availability
-        /// Zone based on the load balancing criteria for the Region.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
+        /// <para>The ID of the Availability Zone of the instance.</para><para>On input, you can specify <c>AvailabilityZone</c> or <c>AvailabilityZoneId</c>, but
+        /// not both. If you specify neither one, Amazon EC2 automatically selects an Availability
+        /// Zone for you.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -375,8 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Placement_GroupId
         /// <summary>
         /// <para>
-        /// <para>The ID of the placement group that the instance is in. If you specify <c>GroupId</c>,
-        /// you can't specify <c>GroupName</c>.</para>
+        /// <para>The ID of the placement group that the instance is in.</para><para>On input, you can specify <c>GroupId</c> or <c>GroupName</c>, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -386,8 +385,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Placement_GroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the placement group that the instance is in. If you specify <c>GroupName</c>,
-        /// you can't specify <c>GroupId</c>.</para>
+        /// <para>The name of the placement group that the instance is in.</para><para>On input, you can specify <c>GroupId</c> or <c>GroupName</c>, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -424,8 +422,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Placement_HostResourceGroupArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the host resource group in which to launch the instances.</para><para>If you specify this parameter, either omit the <b>Tenancy</b> parameter or set it
-        /// to <c>host</c>.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
+        /// <para>The ARN of the host resource group in which to launch the instances.</para><para>On input, if you specify this parameter, either omit the <b>Tenancy</b> parameter
+        /// or set it to <c>host</c>.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

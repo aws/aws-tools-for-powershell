@@ -22303,6 +22303,8 @@ Set-Alias -Name Associate-UNOManagedNotificationAccountContact -Value Add-UNOMan
 Set-Alias -Name UNO-AssociateManagedNotificationAccountContact -Value Add-UNOManagedNotificationAccountContact
 Set-Alias -Name Associate-UNOManagedNotificationAdditionalChannel -Value Add-UNOManagedNotificationAdditionalChannel
 Set-Alias -Name UNO-AssociateManagedNotificationAdditionalChannel -Value Add-UNOManagedNotificationAdditionalChannel
+Set-Alias -Name Associate-UNOOrganizationalUnit -Value Add-UNOOrganizationalUnit
+Set-Alias -Name UNO-AssociateOrganizationalUnit -Value Add-UNOOrganizationalUnit
 Set-Alias -Name Create-UNOEventRule -Value New-UNOEventRule
 Set-Alias -Name UNO-CreateEventRule -Value New-UNOEventRule
 Set-Alias -Name Create-UNONotificationConfiguration -Value New-UNONotificationConfiguration
@@ -22320,6 +22322,8 @@ Set-Alias -Name Disassociate-UNOManagedNotificationAccountContact -Value Remove-
 Set-Alias -Name UNO-DisassociateManagedNotificationAccountContact -Value Remove-UNOManagedNotificationAccountContact
 Set-Alias -Name Disassociate-UNOManagedNotificationAdditionalChannel -Value Remove-UNOManagedNotificationAdditionalChannel
 Set-Alias -Name UNO-DisassociateManagedNotificationAdditionalChannel -Value Remove-UNOManagedNotificationAdditionalChannel
+Set-Alias -Name Disassociate-UNOOrganizationalUnit -Value Remove-UNOOrganizationalUnit
+Set-Alias -Name UNO-DisassociateOrganizationalUnit -Value Remove-UNOOrganizationalUnit
 Set-Alias -Name UNO-EnableNotificationsAccessForOrganization -Value Enable-UNONotificationsAccessForOrganization
 Set-Alias -Name UNO-GetEventRule -Value Get-UNOEventRule
 Set-Alias -Name UNO-GetManagedNotificationChildEvent -Value Get-UNOManagedNotificationChildEvent
@@ -22346,6 +22350,9 @@ Set-Alias -Name UNO-ListManagedNotificationConfigurations -Value Get-UNOManagedN
 Set-Alias -Name List-UNOManagedNotificationEvents -Value Get-UNOManagedNotificationEventList
 Set-Alias -Name List-UNOManagedNotificationEventList -Value Get-UNOManagedNotificationEventList
 Set-Alias -Name UNO-ListManagedNotificationEvents -Value Get-UNOManagedNotificationEventList
+Set-Alias -Name List-UNOMemberAccounts -Value Get-UNOMemberAccountList
+Set-Alias -Name List-UNOMemberAccountList -Value Get-UNOMemberAccountList
+Set-Alias -Name UNO-ListMemberAccounts -Value Get-UNOMemberAccountList
 Set-Alias -Name List-UNONotificationConfigurations -Value Get-UNONotificationConfigurationList
 Set-Alias -Name List-UNONotificationConfigurationList -Value Get-UNONotificationConfigurationList
 Set-Alias -Name UNO-ListNotificationConfigurations -Value Get-UNONotificationConfigurationList
@@ -22355,6 +22362,9 @@ Set-Alias -Name UNO-ListNotificationEvents -Value Get-UNONotificationEventList
 Set-Alias -Name List-UNONotificationHubs -Value Get-UNONotificationHubList
 Set-Alias -Name List-UNONotificationHubList -Value Get-UNONotificationHubList
 Set-Alias -Name UNO-ListNotificationHubs -Value Get-UNONotificationHubList
+Set-Alias -Name List-UNOOrganizationalUnits -Value Get-UNOOrganizationalUnitList
+Set-Alias -Name List-UNOOrganizationalUnitList -Value Get-UNOOrganizationalUnitList
+Set-Alias -Name UNO-ListOrganizationalUnits -Value Get-UNOOrganizationalUnitList
 Set-Alias -Name UNO-ListTagsForResource -Value Get-UNOResourceTag
 Set-Alias -Name UNO-RegisterNotificationHub -Value Register-UNONotificationHub
 Set-Alias -Name UNO-TagResource -Value Add-UNOResourceTag

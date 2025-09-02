@@ -465,6 +465,22 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         public System.Int32? PromotionTier { get; set; }
         #endregion
         
+        #region Parameter PubliclyAccessible
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the DB instance is publicly accessible.</para><para>When the DB instance is publicly accessible and you connect from outside of the DB
+        /// instance's virtual private cloud (VPC), its Domain Name System (DNS) endpoint resolves
+        /// to the public IP address. When you connect from within the same VPC as the DB instance,
+        /// the endpoint resolves to the private IP address. Access to the DB instance is ultimately
+        /// controlled by the security group it uses. That public access isn't permitted if the
+        /// security group assigned to the DB cluster doesn't permit it.</para><para>When the DB instance isn't publicly accessible, it is an internal DB instance with
+        /// a DNS name that resolves to a private IP address.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? PubliclyAccessible { get; set; }
+        #endregion
+        
         #region Parameter StorageEncrypted
         /// <summary>
         /// <para>
@@ -545,18 +561,6 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("VpcSecurityGroupIds")]
         public System.String[] VpcSecurityGroupId { get; set; }
-        #endregion
-        
-        #region Parameter PubliclyAccessible
-        /// <summary>
-        /// <para>
-        /// <para>This flag should no longer be used.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [System.ObsoleteAttribute("This parameter is not supported")]
-        public System.Boolean? PubliclyAccessible { get; set; }
         #endregion
         
         #region Parameter Select
@@ -670,9 +674,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             context.PreferredBackupWindow = this.PreferredBackupWindow;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
             context.PromotionTier = this.PromotionTier;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.PubliclyAccessible = this.PubliclyAccessible;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.StorageEncrypted = this.StorageEncrypted;
             context.StorageType = this.StorageType;
             if (this.Tag != null)
@@ -842,12 +844,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             {
                 request.PromotionTier = cmdletContext.PromotionTier.Value;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.PubliclyAccessible != null)
             {
                 request.PubliclyAccessible = cmdletContext.PubliclyAccessible.Value;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.StorageEncrypted != null)
             {
                 request.StorageEncrypted = cmdletContext.StorageEncrypted.Value;
@@ -966,7 +966,6 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             public System.String PreferredBackupWindow { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
             public System.Int32? PromotionTier { get; set; }
-            [System.ObsoleteAttribute]
             public System.Boolean? PubliclyAccessible { get; set; }
             public System.Boolean? StorageEncrypted { get; set; }
             public System.String StorageType { get; set; }

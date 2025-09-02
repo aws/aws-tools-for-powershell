@@ -1,4 +1,14 @@
-﻿### 5.0.45 (2025-08-29 22:58Z)
+﻿### 5.0.46 (2025-09-02 20:09Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.82.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon User Notifications
+    * Added cmdlet Add-UNOOrganizationalUnit leveraging the AssociateOrganizationalUnit service API.
+    * Added cmdlet Get-UNOMemberAccountList leveraging the ListMemberAccounts service API.
+    * Added cmdlet Get-UNOOrganizationalUnitList leveraging the ListOrganizationalUnits service API.
+    * Added cmdlet Remove-UNOOrganizationalUnit leveraging the DisassociateOrganizationalUnit service API.
+    * Modified cmdlet Get-UNONotificationConfigurationList: added parameter Subtype.
+    * Modified cmdlet Get-UNONotificationEventList: added parameter OrganizationalUnitId.
+
+### 5.0.45 (2025-08-29 22:58Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.81.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 5.0.44 (2025-08-29 20:21Z)

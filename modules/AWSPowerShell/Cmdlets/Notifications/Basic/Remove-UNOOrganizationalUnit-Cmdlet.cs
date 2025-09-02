@@ -30,49 +30,43 @@ using Amazon.Notifications.Model;
 namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
-    /// Disassociates an additional Channel from a particular <c>ManagedNotificationConfiguration</c>.
-    /// 
-    ///  
-    /// <para>
-    /// Supported Channels include Amazon Q Developer in chat applications, the Console Mobile
-    /// Application, and emails (notifications-contacts).
-    /// </para>
+    /// Removes the association between an organizational unit and a notification configuration.
     /// </summary>
-    [Cmdlet("Remove", "UNOManagedNotificationAdditionalChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "UNOOrganizationalUnit", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS User Notifications DisassociateManagedNotificationAdditionalChannel API operation.", Operation = new[] {"DisassociateManagedNotificationAdditionalChannel"}, SelectReturnType = typeof(Amazon.Notifications.Model.DisassociateManagedNotificationAdditionalChannelResponse))]
-    [AWSCmdletOutput("None or Amazon.Notifications.Model.DisassociateManagedNotificationAdditionalChannelResponse",
+    [AWSCmdlet("Calls the AWS User Notifications DisassociateOrganizationalUnit API operation.", Operation = new[] {"DisassociateOrganizationalUnit"}, SelectReturnType = typeof(Amazon.Notifications.Model.DisassociateOrganizationalUnitResponse))]
+    [AWSCmdletOutput("None or Amazon.Notifications.Model.DisassociateOrganizationalUnitResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Notifications.Model.DisassociateManagedNotificationAdditionalChannelResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.Notifications.Model.DisassociateOrganizationalUnitResponse) be returned by specifying '-Select *'."
     )]
-    public partial class RemoveUNOManagedNotificationAdditionalChannelCmdlet : AmazonNotificationsClientCmdlet, IExecutor
+    public partial class RemoveUNOOrganizationalUnitCmdlet : AmazonNotificationsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ChannelArn
+        #region Parameter NotificationConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Channel to associate with the <c>ManagedNotificationConfiguration</c>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the notification configuration to disassociate from
+        /// the organizational unit.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ChannelArn { get; set; }
+        public System.String NotificationConfigurationArn { get; set; }
         #endregion
         
-        #region Parameter ManagedNotificationConfigurationArn
+        #region Parameter OrganizationalUnitId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Managed Notification Configuration to associate
-        /// with the additional Channel.</para>
+        /// <para>The unique identifier of the organizational unit to disassociate.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,13 +77,13 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ManagedNotificationConfigurationArn { get; set; }
+        public System.String OrganizationalUnitId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Notifications.Model.DisassociateManagedNotificationAdditionalChannelResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Notifications.Model.DisassociateOrganizationalUnitResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-UNOManagedNotificationAdditionalChannel (DisassociateManagedNotificationAdditionalChannel)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.OrganizationalUnitId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-UNOOrganizationalUnit (DisassociateOrganizationalUnit)"))
             {
                 return;
             }
@@ -128,21 +122,21 @@ namespace Amazon.PowerShell.Cmdlets.UNO
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Notifications.Model.DisassociateManagedNotificationAdditionalChannelResponse, RemoveUNOManagedNotificationAdditionalChannelCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Notifications.Model.DisassociateOrganizationalUnitResponse, RemoveUNOOrganizationalUnitCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ChannelArn = this.ChannelArn;
+            context.NotificationConfigurationArn = this.NotificationConfigurationArn;
             #if MODULAR
-            if (this.ChannelArn == null && ParameterWasBound(nameof(this.ChannelArn)))
+            if (this.NotificationConfigurationArn == null && ParameterWasBound(nameof(this.NotificationConfigurationArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ChannelArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter NotificationConfigurationArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ManagedNotificationConfigurationArn = this.ManagedNotificationConfigurationArn;
+            context.OrganizationalUnitId = this.OrganizationalUnitId;
             #if MODULAR
-            if (this.ManagedNotificationConfigurationArn == null && ParameterWasBound(nameof(this.ManagedNotificationConfigurationArn)))
+            if (this.OrganizationalUnitId == null && ParameterWasBound(nameof(this.OrganizationalUnitId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ManagedNotificationConfigurationArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter OrganizationalUnitId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -159,15 +153,15 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Notifications.Model.DisassociateManagedNotificationAdditionalChannelRequest();
+            var request = new Amazon.Notifications.Model.DisassociateOrganizationalUnitRequest();
             
-            if (cmdletContext.ChannelArn != null)
+            if (cmdletContext.NotificationConfigurationArn != null)
             {
-                request.ChannelArn = cmdletContext.ChannelArn;
+                request.NotificationConfigurationArn = cmdletContext.NotificationConfigurationArn;
             }
-            if (cmdletContext.ManagedNotificationConfigurationArn != null)
+            if (cmdletContext.OrganizationalUnitId != null)
             {
-                request.ManagedNotificationConfigurationArn = cmdletContext.ManagedNotificationConfigurationArn;
+                request.OrganizationalUnitId = cmdletContext.OrganizationalUnitId;
             }
             
             CmdletOutput output;
@@ -202,12 +196,12 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         
         #region AWS Service Operation Call
         
-        private Amazon.Notifications.Model.DisassociateManagedNotificationAdditionalChannelResponse CallAWSServiceOperation(IAmazonNotifications client, Amazon.Notifications.Model.DisassociateManagedNotificationAdditionalChannelRequest request)
+        private Amazon.Notifications.Model.DisassociateOrganizationalUnitResponse CallAWSServiceOperation(IAmazonNotifications client, Amazon.Notifications.Model.DisassociateOrganizationalUnitRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS User Notifications", "DisassociateManagedNotificationAdditionalChannel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS User Notifications", "DisassociateOrganizationalUnit");
             try
             {
-                return client.DisassociateManagedNotificationAdditionalChannelAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DisassociateOrganizationalUnitAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -224,9 +218,9 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ChannelArn { get; set; }
-            public System.String ManagedNotificationConfigurationArn { get; set; }
-            public System.Func<Amazon.Notifications.Model.DisassociateManagedNotificationAdditionalChannelResponse, RemoveUNOManagedNotificationAdditionalChannelCmdlet, object> Select { get; set; } =
+            public System.String NotificationConfigurationArn { get; set; }
+            public System.String OrganizationalUnitId { get; set; }
+            public System.Func<Amazon.Notifications.Model.DisassociateOrganizationalUnitResponse, RemoveUNOOrganizationalUnitCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

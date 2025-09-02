@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
     /// Associates a delivery <a href="https://docs.aws.amazon.com/notifications/latest/userguide/managing-delivery-channels.html">Channel</a>
-    /// with a particular <c>NotificationConfiguration</c>. Supported Channels include Chatbot,
-    /// the Console Mobile Application, and emails (notifications-contacts).
+    /// with a particular <c>NotificationConfiguration</c>. Supported Channels include Amazon
+    /// Q Developer in chat applications, the Console Mobile Application, and emails (notifications-contacts).
     /// </summary>
     [Cmdlet("Add", "UNOChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -50,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Channel to associate with the <c>NotificationConfiguration</c>.</para><para>Supported ARNs include Chatbot, the Console Mobile Application, and notifications-contacts.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Channel to associate with the <c>NotificationConfiguration</c>.</para><para>Supported ARNs include Amazon Q Developer in chat applications, the Console Mobile
+        /// Application, and notifications-contacts.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

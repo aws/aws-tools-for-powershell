@@ -31,6 +31,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateOrganizationalUnit" Verb="Add" Noun="OrganizationalUnit" ShouldProcessTarget="OrganizationalUnitId" PipelineParameter="NotificationConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateEventRule" OutputProperty="*" Verb="New" Noun="EventRule" ShouldProcessTarget="NotificationConfigurationArn" PipelineParameter="NotificationConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Regions" NewName="EventRuleRegion" AutoApplyAlias="false" />
@@ -66,6 +70,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateManagedNotificationAdditionalChannel" Verb="Remove" Noun="ManagedNotificationAdditionalChannel" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateOrganizationalUnit" Verb="Remove" Noun="OrganizationalUnit" ShouldProcessTarget="OrganizationalUnitId" PipelineParameter="NotificationConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -125,6 +133,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListMemberAccounts" OutputProperty="MemberAccounts" Verb="Get" Noun="MemberAccountList" PipelineParameter="NotificationConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListNotificationConfigurations" OutputProperty="NotificationConfigurations" Verb="Get" Noun="NotificationConfigurationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -134,6 +146,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListNotificationHubs" OutputProperty="NotificationHubs" Verb="Get" Noun="NotificationHubList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOrganizationalUnits" OutputProperty="OrganizationalUnits" Verb="Get" Noun="OrganizationalUnitList" PipelineParameter="NotificationConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
