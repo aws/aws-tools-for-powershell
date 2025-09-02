@@ -51,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// | <c>false</c>).</para></li><li><para><c>burstable-performance-supported</c> - Indicates whether the instance type is a
         /// burstable performance T instance type (<c>true</c> | <c>false</c>).</para></li><li><para><c>current-generation</c> - Indicates whether this instance type is the latest generation
         /// instance type of an instance family (<c>true</c> | <c>false</c>).</para></li><li><para><c>dedicated-hosts-supported</c> - Indicates whether the instance type supports Dedicated
-        /// Hosts. (<c>true</c> | <c>false</c>)</para></li><li><para><c>ebs-info.ebs-optimized-info.baseline-bandwidth-in-mbps</c> - The baseline bandwidth
+        /// Hosts. (<c>true</c> | <c>false</c>)</para></li><li><para><c>ebs-info.attachment-limit-type</c> - The type of Amazon EBS volume attachment
+        /// limit (<c>shared</c> | <c>dedicated</c>).</para></li><li><para><c>ebs-info.maximum-ebs-attachments</c> - The maximum number of Amazon EBS volumes
+        /// that can be attached to the instance type.</para></li><li><para><c>ebs-info.ebs-optimized-info.baseline-bandwidth-in-mbps</c> - The baseline bandwidth
         /// performance for an EBS-optimized instance type, in Mbps.</para></li><li><para><c>ebs-info.ebs-optimized-info.baseline-iops</c> - The baseline input/output storage
         /// operations per second for an EBS-optimized instance type.</para></li><li><para><c>ebs-info.ebs-optimized-info.baseline-throughput-in-mbps</c> - The baseline throughput
         /// performance for an EBS-optimized instance type, in MB/s.</para></li><li><para><c>ebs-info.ebs-optimized-info.maximum-bandwidth-in-mbps</c> - The maximum bandwidth

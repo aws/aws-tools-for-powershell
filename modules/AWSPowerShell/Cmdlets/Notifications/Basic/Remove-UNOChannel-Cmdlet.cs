@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
     /// Disassociates a Channel from a specified <c>NotificationConfiguration</c>. Supported
-    /// Channels include Chatbot, the Console Mobile Application, and emails (notifications-contacts).
+    /// Channels include Amazon Q Developer in chat applications, the Console Mobile Application,
+    /// and emails (notifications-contacts).
     /// </summary>
     [Cmdlet("Remove", "UNOChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

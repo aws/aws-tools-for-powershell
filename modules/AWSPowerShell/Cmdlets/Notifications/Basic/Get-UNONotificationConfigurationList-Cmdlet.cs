@@ -78,6 +78,17 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         public Amazon.Notifications.NotificationConfigurationStatus Status { get; set; }
         #endregion
         
+        #region Parameter Subtype
+        /// <summary>
+        /// <para>
+        /// <para>The subtype used to filter the notification configurations in the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Notifications.NotificationConfigurationSubtype")]
+        public Amazon.Notifications.NotificationConfigurationSubtype Subtype { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -131,6 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.Status = this.Status;
+            context.Subtype = this.Subtype;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -166,6 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.UNO
             if (cmdletContext.Status != null)
             {
                 request.Status = cmdletContext.Status;
+            }
+            if (cmdletContext.Subtype != null)
+            {
+                request.Subtype = cmdletContext.Subtype;
             }
             
             CmdletOutput output;
@@ -233,6 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.Notifications.NotificationConfigurationStatus Status { get; set; }
+            public Amazon.Notifications.NotificationConfigurationSubtype Subtype { get; set; }
             public System.Func<Amazon.Notifications.Model.ListNotificationConfigurationsResponse, GetUNONotificationConfigurationListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.NotificationConfigurations;
         }

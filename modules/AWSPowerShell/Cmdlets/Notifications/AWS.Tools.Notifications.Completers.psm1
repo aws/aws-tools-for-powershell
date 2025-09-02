@@ -114,10 +114,24 @@ $UNO_Completers = {
             break
         }
 
+        # Amazon.Notifications.MemberAccountNotificationConfigurationStatus
+        "Get-UNOMemberAccountList/Status"
+        {
+            $v = "ACTIVE","CREATING","DELETING","INACTIVE","PENDING"
+            break
+        }
+
         # Amazon.Notifications.NotificationConfigurationStatus
         "Get-UNONotificationConfigurationList/Status"
         {
             $v = "ACTIVE","DELETING","INACTIVE","PARTIALLY_ACTIVE"
+            break
+        }
+
+        # Amazon.Notifications.NotificationConfigurationSubtype
+        "Get-UNONotificationConfigurationList/Subtype"
+        {
+            $v = "ACCOUNT","ADMIN_MANAGED"
             break
         }
 
@@ -133,7 +147,8 @@ $UNO_map = @{
     "AggregationDuration"=@("New-UNONotificationConfiguration","Update-UNONotificationConfiguration")
     "ContactIdentifier"=@("Add-UNOManagedNotificationAccountContact","Remove-UNOManagedNotificationAccountContact")
     "Locale"=@("Get-UNOManagedNotificationChildEvent","Get-UNOManagedNotificationChildEventList","Get-UNOManagedNotificationEvent","Get-UNOManagedNotificationEventList","Get-UNONotificationEvent","Get-UNONotificationEventList")
-    "Status"=@("Get-UNONotificationConfigurationList")
+    "Status"=@("Get-UNOMemberAccountList","Get-UNONotificationConfigurationList")
+    "Subtype"=@("Get-UNONotificationConfigurationList")
 }
 
 _awsArgumentCompleterRegistration $UNO_Completers $UNO_map
@@ -189,6 +204,7 @@ $UNO_SelectMap = @{
     "Select"=@("Add-UNOChannel",
                "Add-UNOManagedNotificationAccountContact",
                "Add-UNOManagedNotificationAdditionalChannel",
+               "Add-UNOOrganizationalUnit",
                "New-UNOEventRule",
                "New-UNONotificationConfiguration",
                "Remove-UNOEventRule",
@@ -198,6 +214,7 @@ $UNO_SelectMap = @{
                "Remove-UNOChannel",
                "Remove-UNOManagedNotificationAccountContact",
                "Remove-UNOManagedNotificationAdditionalChannel",
+               "Remove-UNOOrganizationalUnit",
                "Enable-UNONotificationsAccessForOrganization",
                "Get-UNOEventRule",
                "Get-UNOManagedNotificationChildEvent",
@@ -212,9 +229,11 @@ $UNO_SelectMap = @{
                "Get-UNOManagedNotificationChildEventList",
                "Get-UNOManagedNotificationConfigurationList",
                "Get-UNOManagedNotificationEventList",
+               "Get-UNOMemberAccountList",
                "Get-UNONotificationConfigurationList",
                "Get-UNONotificationEventList",
                "Get-UNONotificationHubList",
+               "Get-UNOOrganizationalUnitList",
                "Get-UNOResourceTag",
                "Register-UNONotificationHub",
                "Add-UNOResourceTag",

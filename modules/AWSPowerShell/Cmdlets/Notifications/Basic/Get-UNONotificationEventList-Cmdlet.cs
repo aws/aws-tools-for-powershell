@@ -96,6 +96,16 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         public Amazon.Notifications.LocaleCode Locale { get; set; }
         #endregion
         
+        #region Parameter OrganizationalUnitId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the organizational unit used to filter notification events.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OrganizationalUnitId { get; set; }
+        #endregion
+        
         #region Parameter Source
         /// <summary>
         /// <para>
@@ -173,6 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
             context.Locale = this.Locale;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.OrganizationalUnitId = this.OrganizationalUnitId;
             context.Source = this.Source;
             context.StartTime = this.StartTime;
             
@@ -214,6 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.UNO
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.OrganizationalUnitId != null)
+            {
+                request.OrganizationalUnitId = cmdletContext.OrganizationalUnitId;
             }
             if (cmdletContext.Source != null)
             {
@@ -290,6 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
             public Amazon.Notifications.LocaleCode Locale { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.String OrganizationalUnitId { get; set; }
             public System.String Source { get; set; }
             public System.DateTime? StartTime { get; set; }
             public System.Func<Amazon.Notifications.Model.ListNotificationEventsResponse, GetUNONotificationEventListCmdlet, object> Select { get; set; } =
