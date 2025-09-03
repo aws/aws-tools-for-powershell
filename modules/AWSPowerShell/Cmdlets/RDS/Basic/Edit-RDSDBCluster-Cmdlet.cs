@@ -190,8 +190,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>Specifies the mode of Database Insights to enable for the DB cluster.</para><para>If you change the value from <c>standard</c> to <c>advanced</c>, you must set the
         /// <c>PerformanceInsightsEnabled</c> parameter to <c>true</c> and the <c>PerformanceInsightsRetentionPeriod</c>
-        /// parameter to 465.</para><para>If you change the value from <c>advanced</c> to <c>standard</c>, you must set the
-        /// <c>PerformanceInsightsEnabled</c> parameter to <c>false</c>.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// parameter to 465.</para><para>If you change the value from <c>advanced</c> to <c>standard</c>, you can set the <c>PerformanceInsightsEnabled</c>
+        /// parameter to <c>true</c> to collect detailed database counter and per-query metrics.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -458,6 +458,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? ManageMasterUserPassword { get; set; }
+        #endregion
+        
+        #region Parameter MasterUserAuthenticationType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the authentication type for the master user. With IAM master user authentication,
+        /// you can change the master DB user to use IAM database authentication.</para><para>You can specify one of the following values:</para><ul><li><para><c>password</c> - Use standard database authentication with a password.</para></li><li><para><c>iam-db-auth</c> - Use IAM database authentication for the master user.</para></li></ul><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>This option is only valid for RDS for PostgreSQL and Aurora PostgreSQL engines.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RDS.MasterUserAuthenticationType")]
+        public Amazon.RDS.MasterUserAuthenticationType MasterUserAuthenticationType { get; set; }
         #endregion
         
         #region Parameter MasterUserPassword
@@ -851,6 +863,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.EngineVersion = this.EngineVersion;
             context.Iops = this.Iops;
             context.ManageMasterUserPassword = this.ManageMasterUserPassword;
+            context.MasterUserAuthenticationType = this.MasterUserAuthenticationType;
             context.MasterUserPassword = this.MasterUserPassword;
             context.MasterUserSecretKmsKeyId = this.MasterUserSecretKmsKeyId;
             context.MonitoringInterval = this.MonitoringInterval;
@@ -1034,6 +1047,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.ManageMasterUserPassword != null)
             {
                 request.ManageMasterUserPassword = cmdletContext.ManageMasterUserPassword.Value;
+            }
+            if (cmdletContext.MasterUserAuthenticationType != null)
+            {
+                request.MasterUserAuthenticationType = cmdletContext.MasterUserAuthenticationType;
             }
             if (cmdletContext.MasterUserPassword != null)
             {
@@ -1288,6 +1305,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String EngineVersion { get; set; }
             public System.Int32? Iops { get; set; }
             public System.Boolean? ManageMasterUserPassword { get; set; }
+            public Amazon.RDS.MasterUserAuthenticationType MasterUserAuthenticationType { get; set; }
             public System.String MasterUserPassword { get; set; }
             public System.String MasterUserSecretKmsKeyId { get; set; }
             public System.Int32? MonitoringInterval { get; set; }

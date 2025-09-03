@@ -38,6 +38,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCollaborationChangeRequest" OutputProperty="CollaborationChangeRequest" Verb="New" Noun="CollaborationChangeRequest" ShouldProcessTarget="CollaborationIdentifier" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateConfiguredAudienceModelAssociation" OutputProperty="ConfiguredAudienceModelAssociation" Verb="New" Noun="ConfiguredAudienceModelAssociation" ShouldProcessTarget="ConfiguredAudienceModelArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -137,6 +141,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCollaborationChangeRequest" OutputProperty="CollaborationChangeRequest" Verb="Get" Noun="CollaborationChangeRequest" PipelineParameter="ChangeRequestIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetCollaborationConfiguredAudienceModelAssociation" OutputProperty="CollaborationConfiguredAudienceModelAssociation" Verb="Get" Noun="CollaborationConfiguredAudienceModelAssociation" PipelineParameter="ConfiguredAudienceModelAssociationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -206,6 +214,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListCollaborationAnalysisTemplates" OutputProperty="CollaborationAnalysisTemplateSummaries" Verb="Get" Noun="CollaborationAnalysisTemplateList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCollaborationChangeRequests" OutputProperty="CollaborationChangeRequestSummaries" Verb="Get" Noun="CollaborationChangeRequestList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

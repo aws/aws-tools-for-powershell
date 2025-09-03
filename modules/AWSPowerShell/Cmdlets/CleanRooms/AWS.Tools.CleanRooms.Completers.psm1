@@ -128,6 +128,13 @@ $CRS_Completers = {
             break
         }
 
+        # Amazon.CleanRooms.ChangeRequestStatus
+        "Get-CRSCollaborationChangeRequestList/Status"
+        {
+            $v = "APPROVED","CANCELLED","COMMITTED","DENIED","PENDING"
+            break
+        }
+
         # Amazon.CleanRooms.CollaborationJobLogStatus
         "New-CRSCollaboration/JobLogStatus"
         {
@@ -328,7 +335,7 @@ $CRS_map = @{
     "QueryLogStatus"=@("New-CRSCollaboration","New-CRSMembership","Update-CRSMembership")
     "S3_ResultFormat"=@("New-CRSMembership","Start-CRSProtectedQuery","Update-CRSMembership")
     "SchemaType"=@("Get-CRSSchemaList")
-    "Status"=@("Get-CRSMembershipList","Get-CRSProtectedJobList","Get-CRSProtectedQueryList")
+    "Status"=@("Get-CRSCollaborationChangeRequestList","Get-CRSMembershipList","Get-CRSProtectedJobList","Get-CRSProtectedQueryList")
     "TargetStatus"=@("Update-CRSProtectedJob","Update-CRSProtectedQuery")
     "Type"=@("Get-CRSSchemaAnalysisRule","Start-CRSProtectedJob","Start-CRSProtectedQuery")
     "Worker_Type"=@("Start-CRSProtectedQuery")
@@ -389,6 +396,7 @@ $CRS_SelectMap = @{
                "Get-CRSBatchGetSchemaAnalysisRule",
                "New-CRSAnalysisTemplate",
                "New-CRSCollaboration",
+               "New-CRSCollaborationChangeRequest",
                "New-CRSConfiguredAudienceModelAssociation",
                "New-CRSConfiguredTable",
                "New-CRSConfiguredTableAnalysisRule",
@@ -413,6 +421,7 @@ $CRS_SelectMap = @{
                "Get-CRSAnalysisTemplate",
                "Get-CRSCollaboration",
                "Get-CRSCollaborationAnalysisTemplate",
+               "Get-CRSCollaborationChangeRequest",
                "Get-CRSCollaborationConfiguredAudienceModelAssociation",
                "Get-CRSCollaborationIdNamespaceAssociation",
                "Get-CRSCollaborationPrivacyBudgetTemplate",
@@ -431,6 +440,7 @@ $CRS_SelectMap = @{
                "Get-CRSSchemaAnalysisRule",
                "Get-CRSAnalysisTemplateList",
                "Get-CRSCollaborationAnalysisTemplateList",
+               "Get-CRSCollaborationChangeRequestList",
                "Get-CRSCollaborationConfiguredAudienceModelAssociationList",
                "Get-CRSCollaborationIdNamespaceAssociationList",
                "Get-CRSCollaborationPrivacyBudgetList",

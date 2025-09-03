@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.82.0",
+    "ProductVersion"    : "4.0.83.0",
     "CoreVersion"       : "4.0.0.26",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -40,7 +40,7 @@
             "InPreview"               : false
         },
         "CloudFront"     : {
-            "Version" : "4.0.4.1",
+            "Version" : "4.0.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"
@@ -276,7 +276,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "4.0.6.1",
+            "Version" : "4.0.7.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"
@@ -292,7 +292,7 @@
             "InPreview"               : false
         },
         "Route53"              : {
-            "Version" : "4.0.3.1",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"
@@ -300,7 +300,7 @@
             "InPreview"               : false
         },
         "Route53Domains"       : {
-            "Version" : "4.0.1.1",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"
@@ -876,7 +876,7 @@
             "InPreview"               : false
         },
         "MQ"                              : {
-            "Version" : "4.0.1.1",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"
@@ -1020,7 +1020,7 @@
             "InPreview"               : false
         },
         "TranscribeStreaming"             : {
-            "Version" : "4.0.2.4",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"
@@ -2588,7 +2588,7 @@
             "InPreview"               : false
         },
         "CleanRooms"                          : {
-            "Version" : "4.0.4.1",
+            "Version" : "4.0.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"
@@ -2876,7 +2876,7 @@
             "InPreview"               : false
         },
         "CleanRoomsML"                        : {
-            "Version" : "4.0.3.1",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"

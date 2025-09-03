@@ -580,6 +580,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean? ManageMasterUserPassword { get; set; }
         #endregion
         
+        #region Parameter MasterUserAuthenticationType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the authentication type for the master user. With IAM master user authentication,
+        /// you can change the master DB user to use IAM database authentication.</para><para>You can specify one of the following values:</para><ul><li><para><c>password</c> - Use standard database authentication with a password.</para></li><li><para><c>iam-db-auth</c> - Use IAM database authentication for the master user.</para></li></ul><para>This option is only valid for RDS for PostgreSQL and Aurora PostgreSQL engines.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RDS.MasterUserAuthenticationType")]
+        public Amazon.RDS.MasterUserAuthenticationType MasterUserAuthenticationType { get; set; }
+        #endregion
+        
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
@@ -1070,6 +1082,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.Iops = this.Iops;
             context.LicenseModel = this.LicenseModel;
             context.ManageMasterUserPassword = this.ManageMasterUserPassword;
+            context.MasterUserAuthenticationType = this.MasterUserAuthenticationType;
             context.MasterUserPassword = this.MasterUserPassword;
             context.MasterUserSecretKmsKeyId = this.MasterUserSecretKmsKeyId;
             context.MaxAllocatedStorage = this.MaxAllocatedStorage;
@@ -1283,6 +1296,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.ManageMasterUserPassword = cmdletContext.ManageMasterUserPassword.Value;
             }
+            if (cmdletContext.MasterUserAuthenticationType != null)
+            {
+                request.MasterUserAuthenticationType = cmdletContext.MasterUserAuthenticationType;
+            }
             if (cmdletContext.MasterUserPassword != null)
             {
                 request.MasterUserPassword = cmdletContext.MasterUserPassword;
@@ -1478,6 +1495,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? Iops { get; set; }
             public System.String LicenseModel { get; set; }
             public System.Boolean? ManageMasterUserPassword { get; set; }
+            public Amazon.RDS.MasterUserAuthenticationType MasterUserAuthenticationType { get; set; }
             public System.String MasterUserPassword { get; set; }
             public System.String MasterUserSecretKmsKeyId { get; set; }
             public System.Int32? MaxAllocatedStorage { get; set; }
