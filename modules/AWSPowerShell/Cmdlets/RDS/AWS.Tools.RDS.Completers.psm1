@@ -150,6 +150,18 @@ $RDS_Completers = {
             break
         }
 
+        # Amazon.RDS.MasterUserAuthenticationType
+        {
+            ($_ -eq "Edit-RDSDBCluster/MasterUserAuthenticationType") -Or
+            ($_ -eq "Edit-RDSDBInstance/MasterUserAuthenticationType") -Or
+            ($_ -eq "New-RDSDBCluster/MasterUserAuthenticationType") -Or
+            ($_ -eq "New-RDSDBInstance/MasterUserAuthenticationType")
+        }
+        {
+            $v = "iam-db-auth","password"
+            break
+        }
+
         # Amazon.RDS.ReplicaMode
         {
             ($_ -eq "New-RDSDBCluster/RdsCustomClusterConfiguration_ReplicaMode") -Or
@@ -184,6 +196,7 @@ $RDS_map = @{
     "ClusterScalabilityType"=@("New-RDSDBCluster")
     "DatabaseInsightsMode"=@("Edit-RDSDBCluster","Edit-RDSDBInstance","New-RDSDBCluster","New-RDSDBInstance","New-RDSDBInstanceReadReplica","Restore-RDSDBInstanceFromS3")
     "EngineFamily"=@("New-RDSDBProxy")
+    "MasterUserAuthenticationType"=@("Edit-RDSDBCluster","Edit-RDSDBInstance","New-RDSDBCluster","New-RDSDBInstance")
     "Mode"=@("Start-RDSActivityStream")
     "RdsCustomClusterConfiguration_ReplicaMode"=@("New-RDSDBCluster","Restore-RDSDBClusterFromSnapshot","Restore-RDSDBClusterToPointInTime")
     "ReplicaMode"=@("Edit-RDSDBInstance","New-RDSDBInstanceReadReplica")

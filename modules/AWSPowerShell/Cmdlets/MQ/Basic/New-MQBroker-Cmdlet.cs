@@ -475,19 +475,14 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// <summary>
         /// <para>
         /// <para>The list of broker users (persons or applications) who can access queues and topics.
-        /// For Amazon MQ for RabbitMQ brokers, one and only one administrative user is accepted
-        /// and created when a broker is first provisioned. All subsequent broker users are created
-        /// by making RabbitMQ API calls directly to brokers or via the RabbitMQ web console.</para>
+        /// For Amazon MQ for RabbitMQ brokers, an administrative user is required if using simple
+        /// authentication and authorization. For brokers using OAuth2, this user is optional.
+        /// When provided, one and only one administrative user is accepted and created when a
+        /// broker is first provisioned. All subsequent broker users are created by making RabbitMQ
+        /// API calls directly to brokers or via the RabbitMQ web console.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Users")]
         public Amazon.MQ.Model.User[] User { get; set; }
         #endregion
@@ -661,12 +656,6 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             {
                 context.User = new List<Amazon.MQ.Model.User>(this.User);
             }
-            #if MODULAR
-            if (this.User == null && ParameterWasBound(nameof(this.User)))
-            {
-                WriteWarning("You are passing $null as a value for parameter User which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

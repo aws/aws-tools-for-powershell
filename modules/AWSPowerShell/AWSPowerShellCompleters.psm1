@@ -11813,6 +11813,13 @@ $CRS_Completers = {
             break
         }
 
+        # Amazon.CleanRooms.ChangeRequestStatus
+        "Get-CRSCollaborationChangeRequestList/Status"
+        {
+            $v = "APPROVED","CANCELLED","COMMITTED","DENIED","PENDING"
+            break
+        }
+
         # Amazon.CleanRooms.CollaborationJobLogStatus
         "New-CRSCollaboration/JobLogStatus"
         {
@@ -12013,7 +12020,7 @@ $CRS_map = @{
     "QueryLogStatus"=@("New-CRSCollaboration","New-CRSMembership","Update-CRSMembership")
     "S3_ResultFormat"=@("New-CRSMembership","Start-CRSProtectedQuery","Update-CRSMembership")
     "SchemaType"=@("Get-CRSSchemaList")
-    "Status"=@("Get-CRSMembershipList","Get-CRSProtectedJobList","Get-CRSProtectedQueryList")
+    "Status"=@("Get-CRSCollaborationChangeRequestList","Get-CRSMembershipList","Get-CRSProtectedJobList","Get-CRSProtectedQueryList")
     "TargetStatus"=@("Update-CRSProtectedJob","Update-CRSProtectedQuery")
     "Type"=@("Get-CRSSchemaAnalysisRule","Start-CRSProtectedJob","Start-CRSProtectedQuery")
     "Worker_Type"=@("Start-CRSProtectedQuery")
@@ -12074,6 +12081,7 @@ $CRS_SelectMap = @{
                "Get-CRSBatchGetSchemaAnalysisRule",
                "New-CRSAnalysisTemplate",
                "New-CRSCollaboration",
+               "New-CRSCollaborationChangeRequest",
                "New-CRSConfiguredAudienceModelAssociation",
                "New-CRSConfiguredTable",
                "New-CRSConfiguredTableAnalysisRule",
@@ -12098,6 +12106,7 @@ $CRS_SelectMap = @{
                "Get-CRSAnalysisTemplate",
                "Get-CRSCollaboration",
                "Get-CRSCollaborationAnalysisTemplate",
+               "Get-CRSCollaborationChangeRequest",
                "Get-CRSCollaborationConfiguredAudienceModelAssociation",
                "Get-CRSCollaborationIdNamespaceAssociation",
                "Get-CRSCollaborationPrivacyBudgetTemplate",
@@ -12116,6 +12125,7 @@ $CRS_SelectMap = @{
                "Get-CRSSchemaAnalysisRule",
                "Get-CRSAnalysisTemplateList",
                "Get-CRSCollaborationAnalysisTemplateList",
+               "Get-CRSCollaborationChangeRequestList",
                "Get-CRSCollaborationConfiguredAudienceModelAssociationList",
                "Get-CRSCollaborationIdNamespaceAssociationList",
                "Get-CRSCollaborationPrivacyBudgetList",
@@ -12185,7 +12195,7 @@ $CRML_Completers = {
         # Amazon.CleanRoomsML.InstanceType
         "New-CRMLTrainedModel/ResourceConfig_InstanceType"
         {
-            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r5d.12xlarge","ml.r5d.16xlarge","ml.r5d.24xlarge","ml.r5d.2xlarge","ml.r5d.4xlarge","ml.r5d.8xlarge","ml.r5d.large","ml.r5d.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge"
+            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5en.48xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r5d.12xlarge","ml.r5d.16xlarge","ml.r5d.24xlarge","ml.r5d.2xlarge","ml.r5d.4xlarge","ml.r5d.8xlarge","ml.r5d.large","ml.r5d.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge"
             break
         }
 
@@ -53799,7 +53809,7 @@ $MQ_Completers = {
             ($_ -eq "Update-MQBroker/AuthenticationStrategy")
         }
         {
-            $v = "LDAP","SIMPLE"
+            $v = "CONFIG_MANAGED","LDAP","SIMPLE"
             break
         }
 
@@ -63788,6 +63798,18 @@ $RDS_Completers = {
             break
         }
 
+        # Amazon.RDS.MasterUserAuthenticationType
+        {
+            ($_ -eq "Edit-RDSDBCluster/MasterUserAuthenticationType") -Or
+            ($_ -eq "Edit-RDSDBInstance/MasterUserAuthenticationType") -Or
+            ($_ -eq "New-RDSDBCluster/MasterUserAuthenticationType") -Or
+            ($_ -eq "New-RDSDBInstance/MasterUserAuthenticationType")
+        }
+        {
+            $v = "iam-db-auth","password"
+            break
+        }
+
         # Amazon.RDS.ReplicaMode
         {
             ($_ -eq "New-RDSDBCluster/RdsCustomClusterConfiguration_ReplicaMode") -Or
@@ -63822,6 +63844,7 @@ $RDS_map = @{
     "ClusterScalabilityType"=@("New-RDSDBCluster")
     "DatabaseInsightsMode"=@("Edit-RDSDBCluster","Edit-RDSDBInstance","New-RDSDBCluster","New-RDSDBInstance","New-RDSDBInstanceReadReplica","Restore-RDSDBInstanceFromS3")
     "EngineFamily"=@("New-RDSDBProxy")
+    "MasterUserAuthenticationType"=@("Edit-RDSDBCluster","Edit-RDSDBInstance","New-RDSDBCluster","New-RDSDBInstance")
     "Mode"=@("Start-RDSActivityStream")
     "RdsCustomClusterConfiguration_ReplicaMode"=@("New-RDSDBCluster","Restore-RDSDBClusterFromSnapshot","Restore-RDSDBClusterToPointInTime")
     "ReplicaMode"=@("Edit-RDSDBInstance","New-RDSDBInstanceReadReplica")
@@ -66323,7 +66346,7 @@ $R53_Completers = {
             ($_ -eq "Update-R53HealthCheck/AlarmIdentifier_Region")
         }
         {
-            $v = "af-south-1","ap-east-1","ap-east-2","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ap-southeast-5","ap-southeast-7","ca-central-1","ca-west-1","cn-north-1","cn-northwest-1","eu-central-1","eu-central-2","eu-isoe-west-1","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","il-central-1","me-central-1","me-south-1","mx-central-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-isof-east-1","us-isof-south-1","us-west-1","us-west-2"
+            $v = "af-south-1","ap-east-1","ap-east-2","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ap-southeast-5","ap-southeast-6","ap-southeast-7","ca-central-1","ca-west-1","cn-north-1","cn-northwest-1","eu-central-1","eu-central-2","eu-isoe-west-1","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","il-central-1","me-central-1","me-south-1","mx-central-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-isof-east-1","us-isof-south-1","us-west-1","us-west-2"
             break
         }
 
@@ -66399,7 +66422,7 @@ $R53_Completers = {
             ($_ -eq "Get-R53HostedZonesByVPC/VPCRegion")
         }
         {
-            $v = "af-south-1","ap-east-1","ap-east-2","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ap-southeast-5","ap-southeast-7","ca-central-1","ca-west-1","cn-north-1","cn-northwest-1","eu-central-1","eu-central-2","eu-isoe-west-1","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","il-central-1","me-central-1","me-south-1","mx-central-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-isof-east-1","us-isof-south-1","us-west-1","us-west-2"
+            $v = "af-south-1","ap-east-1","ap-east-2","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ap-southeast-5","ap-southeast-6","ap-southeast-7","ca-central-1","ca-west-1","cn-north-1","cn-northwest-1","eu-central-1","eu-central-2","eu-isoe-west-1","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","il-central-1","me-central-1","me-south-1","mx-central-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-isof-east-1","us-isof-south-1","us-west-1","us-west-2"
             break
         }
 

@@ -90,6 +90,17 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public Amazon.CleanRooms.AnalyticsEngine AnalyticsEngine { get; set; }
         #endregion
         
+        #region Parameter AutoApprovedChangeRequestType
+        /// <summary>
+        /// <para>
+        /// <para>The types of change requests that are automatically approved for this collaboration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoApprovedChangeRequestTypes")]
+        public System.String[] AutoApprovedChangeRequestType { get; set; }
+        #endregion
+        
         #region Parameter CreatorDisplayName
         /// <summary>
         /// <para>
@@ -353,6 +364,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AnalyticsEngine = this.AnalyticsEngine;
+            if (this.AutoApprovedChangeRequestType != null)
+            {
+                context.AutoApprovedChangeRequestType = new List<System.String>(this.AutoApprovedChangeRequestType);
+            }
             context.CreatorDisplayName = this.CreatorDisplayName;
             #if MODULAR
             if (this.CreatorDisplayName == null && ParameterWasBound(nameof(this.CreatorDisplayName)))
@@ -441,6 +456,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (cmdletContext.AnalyticsEngine != null)
             {
                 request.AnalyticsEngine = cmdletContext.AnalyticsEngine;
+            }
+            if (cmdletContext.AutoApprovedChangeRequestType != null)
+            {
+                request.AutoApprovedChangeRequestTypes = cmdletContext.AutoApprovedChangeRequestType;
             }
             if (cmdletContext.CreatorDisplayName != null)
             {
@@ -728,6 +747,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.CleanRooms.AnalyticsEngine AnalyticsEngine { get; set; }
+            public List<System.String> AutoApprovedChangeRequestType { get; set; }
             public System.String CreatorDisplayName { get; set; }
             public List<System.String> CreatorMemberAbility { get; set; }
             public List<System.String> CreatorMLMemberAbilities_CustomMLMemberAbility { get; set; }

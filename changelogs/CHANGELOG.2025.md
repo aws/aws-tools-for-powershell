@@ -1,4 +1,17 @@
-﻿### 4.1.891 (2025-09-02 20:06Z)
+﻿### 4.1.892 (2025-09-03 22:35Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1115.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Clean Rooms Service
+    * Added cmdlet Get-CRSCollaborationChangeRequest leveraging the GetCollaborationChangeRequest service API.
+    * Added cmdlet Get-CRSCollaborationChangeRequestList leveraging the ListCollaborationChangeRequests service API.
+    * Added cmdlet New-CRSCollaborationChangeRequest leveraging the CreateCollaborationChangeRequest service API.
+    * Modified cmdlet New-CRSCollaboration: added parameter AutoApprovedChangeRequestType.
+  * Amazon Relational Database Service
+    * Modified cmdlet Edit-RDSDBCluster: added parameter MasterUserAuthenticationType.
+    * Modified cmdlet Edit-RDSDBInstance: added parameter MasterUserAuthenticationType.
+    * Modified cmdlet New-RDSDBCluster: added parameter MasterUserAuthenticationType.
+    * Modified cmdlet New-RDSDBInstance: added parameter MasterUserAuthenticationType.
+
+### 4.1.891 (2025-09-02 20:06Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1114.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon User Notifications
     * Added cmdlet Add-UNOOrganizationalUnit leveraging the AssociateOrganizationalUnit service API.

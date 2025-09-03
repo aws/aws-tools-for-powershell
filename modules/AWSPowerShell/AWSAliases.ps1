@@ -3996,6 +3996,8 @@ Set-Alias -Name Create-CRSAnalysisTemplate -Value New-CRSAnalysisTemplate
 Set-Alias -Name CRS-CreateAnalysisTemplate -Value New-CRSAnalysisTemplate
 Set-Alias -Name Create-CRSCollaboration -Value New-CRSCollaboration
 Set-Alias -Name CRS-CreateCollaboration -Value New-CRSCollaboration
+Set-Alias -Name Create-CRSCollaborationChangeRequest -Value New-CRSCollaborationChangeRequest
+Set-Alias -Name CRS-CreateCollaborationChangeRequest -Value New-CRSCollaborationChangeRequest
 Set-Alias -Name Create-CRSConfiguredAudienceModelAssociation -Value New-CRSConfiguredAudienceModelAssociation
 Set-Alias -Name CRS-CreateConfiguredAudienceModelAssociation -Value New-CRSConfiguredAudienceModelAssociation
 Set-Alias -Name Create-CRSConfiguredTableAnalysisRule -Value New-CRSConfiguredTableAnalysisRule
@@ -4041,6 +4043,7 @@ Set-Alias -Name CRS-DeletePrivacyBudgetTemplate -Value Remove-CRSPrivacyBudgetTe
 Set-Alias -Name CRS-GetAnalysisTemplate -Value Get-CRSAnalysisTemplate
 Set-Alias -Name CRS-GetCollaborationAnalysisTemplate -Value Get-CRSCollaborationAnalysisTemplate
 Set-Alias -Name CRS-GetCollaboration -Value Get-CRSCollaboration
+Set-Alias -Name CRS-GetCollaborationChangeRequest -Value Get-CRSCollaborationChangeRequest
 Set-Alias -Name CRS-GetCollaborationConfiguredAudienceModelAssociation -Value Get-CRSCollaborationConfiguredAudienceModelAssociation
 Set-Alias -Name CRS-GetCollaborationIdNamespaceAssociation -Value Get-CRSCollaborationIdNamespaceAssociation
 Set-Alias -Name CRS-GetCollaborationPrivacyBudgetTemplate -Value Get-CRSCollaborationPrivacyBudgetTemplate
@@ -4063,6 +4066,9 @@ Set-Alias -Name CRS-ListAnalysisTemplates -Value Get-CRSAnalysisTemplateList
 Set-Alias -Name List-CRSCollaborationAnalysisTemplates -Value Get-CRSCollaborationAnalysisTemplateList
 Set-Alias -Name List-CRSCollaborationAnalysisTemplateList -Value Get-CRSCollaborationAnalysisTemplateList
 Set-Alias -Name CRS-ListCollaborationAnalysisTemplates -Value Get-CRSCollaborationAnalysisTemplateList
+Set-Alias -Name List-CRSCollaborationChangeRequests -Value Get-CRSCollaborationChangeRequestList
+Set-Alias -Name List-CRSCollaborationChangeRequestList -Value Get-CRSCollaborationChangeRequestList
+Set-Alias -Name CRS-ListCollaborationChangeRequests -Value Get-CRSCollaborationChangeRequestList
 Set-Alias -Name List-CRSCollaborationConfiguredAudienceModelAssociations -Value Get-CRSCollaborationConfiguredAudienceModelAssociationList
 Set-Alias -Name List-CRSCollaborationConfiguredAudienceModelAssociationList -Value Get-CRSCollaborationConfiguredAudienceModelAssociationList
 Set-Alias -Name CRS-ListCollaborationConfiguredAudienceModelAssociations -Value Get-CRSCollaborationConfiguredAudienceModelAssociationList
