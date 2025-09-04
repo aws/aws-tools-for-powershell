@@ -81,6 +81,29 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.String MembershipIdentifier { get; set; }
         #endregion
         
+        #region Parameter Worker_Number
+        /// <summary>
+        /// <para>
+        /// <para>The number of workers for a PySpark job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ComputeConfiguration_Worker_Number")]
+        public System.Int32? Worker_Number { get; set; }
+        #endregion
+        
+        #region Parameter Worker_Type
+        /// <summary>
+        /// <para>
+        /// <para>The worker compute configuration type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ComputeConfiguration_Worker_Type")]
+        [AWSConstantClassSource("Amazon.CleanRooms.ProtectedJobWorkerComputeType")]
+        public Amazon.CleanRooms.ProtectedJobWorkerComputeType Worker_Type { get; set; }
+        #endregion
+        
         #region Parameter Type
         /// <summary>
         /// <para>
@@ -160,6 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 context.Select = (response, cmdlet) => this.MembershipIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Worker_Number = this.Worker_Number;
+            context.Worker_Type = this.Worker_Type;
             context.JobParameters_AnalysisTemplateArn = this.JobParameters_AnalysisTemplateArn;
             context.MembershipIdentifier = this.MembershipIdentifier;
             #if MODULAR
@@ -192,6 +217,50 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             // create request
             var request = new Amazon.CleanRooms.Model.StartProtectedJobRequest();
             
+            
+             // populate ComputeConfiguration
+            var requestComputeConfigurationIsNull = true;
+            request.ComputeConfiguration = new Amazon.CleanRooms.Model.ProtectedJobComputeConfiguration();
+            Amazon.CleanRooms.Model.ProtectedJobWorkerComputeConfiguration requestComputeConfiguration_computeConfiguration_Worker = null;
+            
+             // populate Worker
+            var requestComputeConfiguration_computeConfiguration_WorkerIsNull = true;
+            requestComputeConfiguration_computeConfiguration_Worker = new Amazon.CleanRooms.Model.ProtectedJobWorkerComputeConfiguration();
+            System.Int32? requestComputeConfiguration_computeConfiguration_Worker_worker_Number = null;
+            if (cmdletContext.Worker_Number != null)
+            {
+                requestComputeConfiguration_computeConfiguration_Worker_worker_Number = cmdletContext.Worker_Number.Value;
+            }
+            if (requestComputeConfiguration_computeConfiguration_Worker_worker_Number != null)
+            {
+                requestComputeConfiguration_computeConfiguration_Worker.Number = requestComputeConfiguration_computeConfiguration_Worker_worker_Number.Value;
+                requestComputeConfiguration_computeConfiguration_WorkerIsNull = false;
+            }
+            Amazon.CleanRooms.ProtectedJobWorkerComputeType requestComputeConfiguration_computeConfiguration_Worker_worker_Type = null;
+            if (cmdletContext.Worker_Type != null)
+            {
+                requestComputeConfiguration_computeConfiguration_Worker_worker_Type = cmdletContext.Worker_Type;
+            }
+            if (requestComputeConfiguration_computeConfiguration_Worker_worker_Type != null)
+            {
+                requestComputeConfiguration_computeConfiguration_Worker.Type = requestComputeConfiguration_computeConfiguration_Worker_worker_Type;
+                requestComputeConfiguration_computeConfiguration_WorkerIsNull = false;
+            }
+             // determine if requestComputeConfiguration_computeConfiguration_Worker should be set to null
+            if (requestComputeConfiguration_computeConfiguration_WorkerIsNull)
+            {
+                requestComputeConfiguration_computeConfiguration_Worker = null;
+            }
+            if (requestComputeConfiguration_computeConfiguration_Worker != null)
+            {
+                request.ComputeConfiguration.Worker = requestComputeConfiguration_computeConfiguration_Worker;
+                requestComputeConfigurationIsNull = false;
+            }
+             // determine if request.ComputeConfiguration should be set to null
+            if (requestComputeConfigurationIsNull)
+            {
+                request.ComputeConfiguration = null;
+            }
             
              // populate JobParameters
             request.JobParameters = new Amazon.CleanRooms.Model.ProtectedJobParameters();
@@ -315,6 +384,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? Worker_Number { get; set; }
+            public Amazon.CleanRooms.ProtectedJobWorkerComputeType Worker_Type { get; set; }
             public System.String JobParameters_AnalysisTemplateArn { get; set; }
             public System.String MembershipIdentifier { get; set; }
             public System.String Member_AccountId { get; set; }

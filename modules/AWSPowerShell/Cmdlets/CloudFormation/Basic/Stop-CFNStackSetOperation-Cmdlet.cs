@@ -28,9 +28,9 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Stops an in-progress operation on a stack set and its associated stack instances.
-    /// StackSets will cancel all the unstarted stack instance deployments and wait for those
-    /// are in-progress to complete.
+    /// Stops an in-progress operation on a StackSet and its associated stack instances. StackSets
+    /// will cancel all the unstarted stack instance deployments and wait for those are in-progress
+    /// to complete.
     /// </summary>
     [Cmdlet("Stop", "CFNStackSetOperation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -47,9 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter CallAs
         /// <summary>
         /// <para>
-        /// <para>[Service-managed permissions] Specifies whether you are acting as an account administrator
-        /// in the organization's management account or as a delegated administrator in a member
-        /// account.</para><para>By default, <c>SELF</c> is specified. Use <c>SELF</c> for stack sets with self-managed
+        /// <para>Specifies whether you are acting as an account administrator in the organization's
+        /// management account or as a delegated administrator in a member account. Valid only
+        /// if the StackSet uses service-managed permissions.</para><para>By default, <c>SELF</c> is specified. Use <c>SELF</c> for StackSets with self-managed
         /// permissions.</para><ul><li><para>If you are signed in to the management account, specify <c>SELF</c>.</para></li><li><para>If you are signed in to a delegated administrator account, specify <c>DELEGATED_ADMIN</c>.</para><para>Your Amazon Web Services account must be registered as a delegated administrator in
         /// the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register
         /// a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</para></li></ul>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackSetName
         /// <summary>
         /// <para>
-        /// <para>The name or unique ID of the stack set that you want to stop the operation for.</para>
+        /// <para>The name or unique ID of the StackSet that you want to stop the operation for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

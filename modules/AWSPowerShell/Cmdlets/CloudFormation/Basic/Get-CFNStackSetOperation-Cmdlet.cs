@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>[Service-managed permissions] Specifies whether you are acting as an account administrator
         /// in the organization's management account or as a delegated administrator in a member
-        /// account.</para><para>By default, <c>SELF</c> is specified. Use <c>SELF</c> for stack sets with self-managed
+        /// account.</para><para>By default, <c>SELF</c> is specified. Use <c>SELF</c> for StackSets with self-managed
         /// permissions.</para><ul><li><para>If you are signed in to the management account, specify <c>SELF</c>.</para></li><li><para>If you are signed in to a delegated administrator account, specify <c>DELEGATED_ADMIN</c>.</para><para>Your Amazon Web Services account must be registered as a delegated administrator in
         /// the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register
         /// a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</para></li></ul>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter OperationId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the stack set operation.</para>
+        /// <para>The unique ID of the StackSet operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackSetName
         /// <summary>
         /// <para>
-        /// <para>The name or the unique stack ID of the stack set for the stack operation.</para>
+        /// <para>The name or the unique stack ID of the StackSet for the stack operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

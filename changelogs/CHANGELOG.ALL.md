@@ -1,4 +1,15 @@
-﻿### 4.1.892 (2025-09-03 22:35Z)
+﻿### 4.1.893 (2025-09-04 20:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1116.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Clean Rooms Service
+    * [Breaking Change] Modified cmdlet Get-CRSCollaborationChangeRequest: removed parameter PassThru; parameter ChangeRequestIdentifier doesn't support pipeline ByValue anymore; parameter ChangeRequestIdentifier cannot be used positionally anymore.
+    * Modified cmdlet Start-CRSProtectedJob: added parameters Worker_Number and Worker_Type.
+  * Amazon CloudFormation
+    * Modified cmdlet Get-CFNHookResult: added parameters Status and TypeArn.
+  * Amazon Relational Database Service
+    * Modified cmdlet New-RDSDBProxy: added parameters EndpointNetworkType and TargetConnectionNetworkType.
+    * Modified cmdlet New-RDSDBProxyEndpoint: added parameter EndpointNetworkType.
+
+### 4.1.892 (2025-09-03 22:35Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1115.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Clean Rooms Service
     * Added cmdlet Get-CRSCollaborationChangeRequest leveraging the GetCollaborationChangeRequest service API.

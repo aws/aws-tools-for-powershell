@@ -28,7 +28,7 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Returns summary information about stack sets that are associated with the user.
+    /// Returns summary information about StackSets that are associated with the user.
     /// 
     ///  <note><para>
     /// This API provides <i>strongly consistent</i> reads meaning it will always return the
@@ -36,14 +36,14 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// </para></note><ul><li><para>
     /// [Self-managed permissions] If you set the <c>CallAs</c> parameter to <c>SELF</c> while
     /// signed in to your Amazon Web Services account, <c>ListStackSets</c> returns all self-managed
-    /// stack sets in your Amazon Web Services account.
+    /// StackSets in your Amazon Web Services account.
     /// </para></li><li><para>
     /// [Service-managed permissions] If you set the <c>CallAs</c> parameter to <c>SELF</c>
     /// while signed in to the organization's management account, <c>ListStackSets</c> returns
-    /// all stack sets in the management account.
+    /// all StackSets in the management account.
     /// </para></li><li><para>
     /// [Service-managed permissions] If you set the <c>CallAs</c> parameter to <c>DELEGATED_ADMIN</c>
-    /// while signed in to your member account, <c>ListStackSets</c> returns all stack sets
+    /// while signed in to your member account, <c>ListStackSets</c> returns all StackSets
     /// with service-managed permissions in the management account.
     /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>[Service-managed permissions] Specifies whether you are acting as an account administrator
-        /// in the management account or as a delegated administrator in a member account.</para><para>By default, <c>SELF</c> is specified. Use <c>SELF</c> for stack sets with self-managed
+        /// in the management account or as a delegated administrator in a member account.</para><para>By default, <c>SELF</c> is specified. Use <c>SELF</c> for StackSets with self-managed
         /// permissions.</para><ul><li><para>If you are signed in to the management account, specify <c>SELF</c>.</para></li><li><para>If you are signed in to a delegated administrator account, specify <c>DELEGATED_ADMIN</c>.</para><para>Your Amazon Web Services account must be registered as a delegated administrator in
         /// the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register
         /// a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</para></li></ul>
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The status of the stack sets that you want to get summary information about.</para>
+        /// <para>The status of the StackSets that you want to get summary information about.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

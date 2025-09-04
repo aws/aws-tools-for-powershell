@@ -28,7 +28,7 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Deletes a stack set. Before you can delete a stack set, all its member stack instances
+    /// Deletes a StackSet. Before you can delete a StackSet, all its member stack instances
     /// must be deleted. For more information about how to complete this, see <a>DeleteStackInstances</a>.
     /// </summary>
     [Cmdlet("Remove", "CFNStackSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>[Service-managed permissions] Specifies whether you are acting as an account administrator
         /// in the organization's management account or as a delegated administrator in a member
-        /// account.</para><para>By default, <c>SELF</c> is specified. Use <c>SELF</c> for stack sets with self-managed
+        /// account.</para><para>By default, <c>SELF</c> is specified. Use <c>SELF</c> for StackSets with self-managed
         /// permissions.</para><ul><li><para>If you are signed in to the management account, specify <c>SELF</c>.</para></li><li><para>If you are signed in to a delegated administrator account, specify <c>DELEGATED_ADMIN</c>.</para><para>Your Amazon Web Services account must be registered as a delegated administrator in
         /// the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register
         /// a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</para></li></ul>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackSetName
         /// <summary>
         /// <para>
-        /// <para>The name or unique ID of the stack set that you're deleting. You can obtain this value
+        /// <para>The name or unique ID of the StackSet that you're deleting. You can obtain this value
         /// by running <a>ListStackSets</a>.</para>
         /// </para>
         /// </summary>

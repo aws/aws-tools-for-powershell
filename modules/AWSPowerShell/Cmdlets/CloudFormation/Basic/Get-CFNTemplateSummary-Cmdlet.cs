@@ -30,12 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// <summary>
     /// Returns information about a new or existing template. The <c>GetTemplateSummary</c>
     /// action is useful for viewing parameter information, such as default parameter values
-    /// and parameter types, before you create or update a stack or stack set.
+    /// and parameter types, before you create or update a stack or StackSet.
     /// 
     ///  
     /// <para>
     /// You can use the <c>GetTemplateSummary</c> action when you submit a template, or you
-    /// can get template information for a stack set, or a running or deleted stack.
+    /// can get template information for a StackSet, or a running or deleted stack.
     /// </para><para>
     /// For deleted stacks, <c>GetTemplateSummary</c> returns the template information for
     /// up to 90 days after the stack has been deleted. If the template doesn't exist, a <c>ValidationError</c>
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>[Service-managed permissions] Specifies whether you are acting as an account administrator
         /// in the organization's management account or as a delegated administrator in a member
-        /// account.</para><para>By default, <c>SELF</c> is specified. Use <c>SELF</c> for stack sets with self-managed
+        /// account.</para><para>By default, <c>SELF</c> is specified. Use <c>SELF</c> for StackSets with self-managed
         /// permissions.</para><ul><li><para>If you are signed in to the management account, specify <c>SELF</c>.</para></li><li><para>If you are signed in to a delegated administrator account, specify <c>DELEGATED_ADMIN</c>.</para><para>Your Amazon Web Services account must be registered as a delegated administrator in
         /// the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register
         /// a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</para></li></ul>
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackSetName
         /// <summary>
         /// <para>
-        /// <para>The name or unique ID of the stack set from which the stack was created.</para><para>Conditional: You must specify only one of the following parameters: <c>StackName</c>,
+        /// <para>The name or unique ID of the StackSet from which the stack was created.</para><para>Conditional: You must specify only one of the following parameters: <c>StackName</c>,
         /// <c>StackSetName</c>, <c>TemplateBody</c>, or <c>TemplateURL</c>.</para>
         /// </para>
         /// </summary>

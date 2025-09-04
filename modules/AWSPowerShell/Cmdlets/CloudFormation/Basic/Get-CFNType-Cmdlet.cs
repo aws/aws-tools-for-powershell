@@ -28,7 +28,8 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Returns detailed information about an extension that has been registered.
+    /// Returns detailed information about an extension from the CloudFormation registry in
+    /// your current account and Region.
     /// 
     ///  
     /// <para>

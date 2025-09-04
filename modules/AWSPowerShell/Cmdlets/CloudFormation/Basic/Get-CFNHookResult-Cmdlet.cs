@@ -28,8 +28,20 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Returns summaries of invoked Hooks when a change set or Cloud Control API operation
-    /// target is provided.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns summaries of invoked Hooks. For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/hooks-view-invocations.html">View
+    /// CloudFormation Hooks invocations</a> in the <i>CloudFormation Hooks User Guide</i>.
+    /// 
+    ///  
+    /// <para>
+    /// This operation supports the following parameter combinations:
+    /// </para><ul><li><para>
+    /// No parameters: Returns all Hook invocation summaries.
+    /// </para></li><li><para><c>TypeArn</c> only: Returns summaries for a specific Hook.
+    /// </para></li><li><para><c>TypeArn</c> and <c>Status</c>: Returns summaries for a specific Hook filtered
+    /// by status.
+    /// </para></li><li><para><c>TargetId</c> and <c>TargetType</c>: Returns summaries for a specific Hook invocation
+    /// target.
+    /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFNHookResult")]
     [OutputType("Amazon.CloudFormation.Model.ListHookResultsResponse")]
@@ -42,41 +54,50 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Status
+        /// <summary>
+        /// <para>
+        /// <para>Filters results by the status of Hook invocations. Can only be used in combination
+        /// with <c>TypeArn</c>. Valid values are:</para><ul><li><para><c>HOOK_IN_PROGRESS</c>: The Hook is currently running.</para></li><li><para><c>HOOK_COMPLETE_SUCCEEDED</c>: The Hook completed successfully.</para></li><li><para><c>HOOK_COMPLETE_FAILED</c>: The Hook completed but failed validation.</para></li><li><para><c>HOOK_FAILED</c>: The Hook encountered an error during execution.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudFormation.HookStatus")]
+        public Amazon.CloudFormation.HookStatus Status { get; set; }
+        #endregion
+        
         #region Parameter TargetId
         /// <summary>
         /// <para>
-        /// <para>The logical ID of the target the operation is acting on by the Hook. If the target
-        /// is a change set, it's the ARN of the change set.</para><para>If the target is a Cloud Control API operation, this will be the <c>HookRequestToken</c>
-        /// returned by the Cloud Control API operation request. For more information on the <c>HookRequestToken</c>,
-        /// see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_ProgressEvent.html">ProgressEvent</a>.</para>
+        /// <para>Filters results by the unique identifier of the target the Hook was invoked against.</para><para>For change sets, this is the change set ARN. When the target is a Cloud Control API
+        /// operation, this value must be the <c>HookRequestToken</c> returned by the Cloud Control
+        /// API request. For more information on the <c>HookRequestToken</c>, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_ProgressEvent.html">ProgressEvent</a>.</para><para>Required when <c>TargetType</c> is specified and cannot be used otherwise.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TargetId { get; set; }
         #endregion
         
         #region Parameter TargetType
         /// <summary>
         /// <para>
-        /// <para>The type of operation being targeted by the Hook.</para>
+        /// <para>Filters results by target type. Currently, only <c>CHANGE_SET</c> and <c>CLOUD_CONTROL</c>
+        /// are supported filter options.</para><para>Required when <c>TargetId</c> is specified and cannot be used otherwise.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.CloudFormation.ListHookResultsTargetType")]
         public Amazon.CloudFormation.ListHookResultsTargetType TargetType { get; set; }
+        #endregion
+        
+        #region Parameter TypeArn
+        /// <summary>
+        /// <para>
+        /// <para>Filters results by the ARN of the Hook. Can be used alone or in combination with <c>Status</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TypeArn { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -150,20 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.NextToken = this.NextToken;
+            context.Status = this.Status;
             context.TargetId = this.TargetId;
-            #if MODULAR
-            if (this.TargetId == null && ParameterWasBound(nameof(this.TargetId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TargetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.TargetType = this.TargetType;
-            #if MODULAR
-            if (this.TargetType == null && ParameterWasBound(nameof(this.TargetType)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TargetType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.TypeArn = this.TypeArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -184,6 +195,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             // create request and set iteration invariants
             var request = new Amazon.CloudFormation.Model.ListHookResultsRequest();
             
+            if (cmdletContext.Status != null)
+            {
+                request.Status = cmdletContext.Status;
+            }
             if (cmdletContext.TargetId != null)
             {
                 request.TargetId = cmdletContext.TargetId;
@@ -191,6 +206,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.TargetType != null)
             {
                 request.TargetType = cmdletContext.TargetType;
+            }
+            if (cmdletContext.TypeArn != null)
+            {
+                request.TypeArn = cmdletContext.TypeArn;
             }
             
             // Initialize loop variant and commence piping
@@ -278,8 +297,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String NextToken { get; set; }
+            public Amazon.CloudFormation.HookStatus Status { get; set; }
             public System.String TargetId { get; set; }
             public Amazon.CloudFormation.ListHookResultsTargetType TargetType { get; set; }
+            public System.String TypeArn { get; set; }
             public System.Func<Amazon.CloudFormation.Model.ListHookResultsResponse, GetCFNHookResultCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

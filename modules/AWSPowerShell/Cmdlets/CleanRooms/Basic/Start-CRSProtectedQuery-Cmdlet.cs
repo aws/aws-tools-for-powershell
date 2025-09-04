@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter Worker_Number
         /// <summary>
         /// <para>
-        /// <para> The number of workers.</para>
+        /// <para> The number of workers.</para><para>SQL queries support a minimum value of 2 and a maximum value of 400. </para><para>PySpark jobs support a minimum value of 4 and a maximum value of 128.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -93,6 +93,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean? DebugLogging { get; set; }
         #endregion
         
+        #region Parameter EndpointNetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The network type of the DB proxy endpoint. The network type determines the IP version
+        /// that the proxy endpoint supports.</para><para>Valid values:</para><ul><li><para><c>IPV4</c> - The proxy endpoint supports IPv4 only.</para></li><li><para><c>IPV6</c> - The proxy endpoint supports IPv6 only.</para></li><li><para><c>DUAL</c> - The proxy endpoint supports both IPv4 and IPv6.</para></li></ul><para>Default: <c>IPV4</c></para><para>Constraints:</para><ul><li><para>If you specify <c>IPV6</c> or <c>DUAL</c>, the VPC and all subnets must have an IPv6
+        /// CIDR block.</para></li><li><para>If you specify <c>IPV6</c> or <c>DUAL</c>, the VPC tenancy cannot be <c>dedicated</c>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RDS.EndpointNetworkType")]
+        public Amazon.RDS.EndpointNetworkType EndpointNetworkType { get; set; }
+        #endregion
+        
         #region Parameter EngineFamily
         /// <summary>
         /// <para>
@@ -166,6 +179,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter TargetConnectionNetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The network type that the proxy uses to connect to the target database. The network
+        /// type determines the IP version that the proxy uses for connections to the database.</para><para>Valid values:</para><ul><li><para><c>IPV4</c> - The proxy connects to the database using IPv4 only.</para></li><li><para><c>IPV6</c> - The proxy connects to the database using IPv6 only.</para></li></ul><para>Default: <c>IPV4</c></para><para>Constraints:</para><ul><li><para>If you specify <c>IPV6</c>, the database must support dual-stack mode. RDS doesn't
+        /// support IPv6-only databases.</para></li><li><para>All targets registered with the proxy must be compatible with the specified network
+        /// type.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RDS.TargetConnectionNetworkType")]
+        public Amazon.RDS.TargetConnectionNetworkType TargetConnectionNetworkType { get; set; }
         #endregion
         
         #region Parameter VpcSecurityGroupId
@@ -277,6 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             #endif
             context.DebugLogging = this.DebugLogging;
+            context.EndpointNetworkType = this.EndpointNetworkType;
             context.EngineFamily = this.EngineFamily;
             #if MODULAR
             if (this.EngineFamily == null && ParameterWasBound(nameof(this.EngineFamily)))
@@ -297,6 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 context.Tag = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
+            context.TargetConnectionNetworkType = this.TargetConnectionNetworkType;
             if (this.VpcSecurityGroupId != null)
             {
                 context.VpcSecurityGroupId = new List<System.String>(this.VpcSecurityGroupId);
@@ -339,6 +368,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.DebugLogging = cmdletContext.DebugLogging.Value;
             }
+            if (cmdletContext.EndpointNetworkType != null)
+            {
+                request.EndpointNetworkType = cmdletContext.EndpointNetworkType;
+            }
             if (cmdletContext.EngineFamily != null)
             {
                 request.EngineFamily = cmdletContext.EngineFamily;
@@ -358,6 +391,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.TargetConnectionNetworkType != null)
+            {
+                request.TargetConnectionNetworkType = cmdletContext.TargetConnectionNetworkType;
             }
             if (cmdletContext.VpcSecurityGroupId != null)
             {
@@ -431,11 +468,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public List<Amazon.RDS.Model.UserAuthConfig> Auth { get; set; }
             public System.String DBProxyName { get; set; }
             public System.Boolean? DebugLogging { get; set; }
+            public Amazon.RDS.EndpointNetworkType EndpointNetworkType { get; set; }
             public Amazon.RDS.EngineFamily EngineFamily { get; set; }
             public System.Int32? IdleClientTimeout { get; set; }
             public System.Boolean? RequireTLS { get; set; }
             public System.String RoleArn { get; set; }
             public List<Amazon.RDS.Model.Tag> Tag { get; set; }
+            public Amazon.RDS.TargetConnectionNetworkType TargetConnectionNetworkType { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }
             public List<System.String> VpcSubnetId { get; set; }
             public System.Func<Amazon.RDS.Model.CreateDBProxyResponse, NewRDSDBProxyCmdlet, object> Select { get; set; } =
