@@ -30,7 +30,7 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Returns summary information about deployment targets for a stack set.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns summary information about deployment targets for a StackSet.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFNStackSetAutoDeploymentTarget")]
     [OutputType("Amazon.CloudFormation.Model.StackSetAutoDeploymentTargetSummary")]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackSetName
         /// <summary>
         /// <para>
-        /// <para>The name or unique ID of the stack set that you want to get automatic deployment targets
+        /// <para>The name or unique ID of the StackSet that you want to get automatic deployment targets
         /// for.</para>
         /// </para>
         /// </summary>
@@ -95,8 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A string that identifies the next page of stack set deployment targets that you want
-        /// to retrieve.</para>
+        /// <para>A string that identifies the next page of deployment targets that you want to retrieve.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

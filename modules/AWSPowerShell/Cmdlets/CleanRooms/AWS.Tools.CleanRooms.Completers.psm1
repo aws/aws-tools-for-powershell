@@ -257,6 +257,13 @@ $CRS_Completers = {
             break
         }
 
+        # Amazon.CleanRooms.ProtectedJobWorkerComputeType
+        "Start-CRSProtectedJob/Worker_Type"
+        {
+            $v = "CR.1X","CR.4X"
+            break
+        }
+
         # Amazon.CleanRooms.ProtectedQueryStatus
         "Get-CRSProtectedQueryList/Status"
         {
@@ -338,7 +345,7 @@ $CRS_map = @{
     "Status"=@("Get-CRSCollaborationChangeRequestList","Get-CRSMembershipList","Get-CRSProtectedJobList","Get-CRSProtectedQueryList")
     "TargetStatus"=@("Update-CRSProtectedJob","Update-CRSProtectedQuery")
     "Type"=@("Get-CRSSchemaAnalysisRule","Start-CRSProtectedJob","Start-CRSProtectedQuery")
-    "Worker_Type"=@("Start-CRSProtectedQuery")
+    "Worker_Type"=@("Start-CRSProtectedJob","Start-CRSProtectedQuery")
 }
 
 _awsArgumentCompleterRegistration $CRS_Completers $CRS_map

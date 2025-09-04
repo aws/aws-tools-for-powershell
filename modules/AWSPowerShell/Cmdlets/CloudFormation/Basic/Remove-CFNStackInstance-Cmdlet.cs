@@ -60,12 +60,17 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter DeploymentTargets_AccountFilterType
         /// <summary>
         /// <para>
-        /// <para>Limit deployment targets to individual accounts or include additional accounts with
-        /// provided OUs.</para><para>The following is a list of possible values for the <c>AccountFilterType</c> operation.</para><ul><li><para><c>INTERSECTION</c>: StackSets deploys to the accounts specified in <c>Accounts</c>
-        /// parameter. </para></li><li><para><c>DIFFERENCE</c>: StackSets excludes the accounts specified in <c>Accounts</c> parameter.
-        /// This enables user to avoid certain accounts within an OU such as suspended accounts.</para></li><li><para><c>UNION</c>: StackSets includes additional accounts deployment targets. </para><para>This is the default value if <c>AccountFilterType</c> is not provided. This enables
-        /// user to update an entire OU and individual accounts from a different OU in one request,
-        /// which used to be two separate requests.</para></li><li><para><c>NONE</c>: Deploys to all the accounts in specified organizational units (OU).</para></li></ul>
+        /// <para>Refines which accounts will have stack operations performed on them by specifying
+        /// how to use the <c>Accounts</c> and <c>OrganizationalUnitIds</c> properties together.</para><para>The following values determine how CloudFormation selects target accounts:</para><ul><li><para><c>INTERSECTION</c>: Performs stack operations only on specific individual accounts
+        /// within the selected OUs. Only accounts that are both specified in the <c>Accounts</c>
+        /// property and belong to the specified OUs will be targeted.</para></li><li><para><c>DIFFERENCE</c>: Performs stack operations on all accounts in the selected OUs
+        /// except for specific accounts listed in the <c>Accounts</c> property. This enables
+        /// you to exclude certain accounts within an OU, such as suspended accounts.</para></li><li><para><c>UNION</c>: Performs stack operations on the specified OUs plus additional individual
+        /// accounts listed in the <c>Accounts</c> property. This is the default value if <c>AccountFilterType</c>
+        /// is not provided. This lets you target an entire OU and individual accounts from a
+        /// different OU in one request. Note that <c>UNION</c> is not supported for <c>CreateStackInstances</c>
+        /// operations.</para></li><li><para><c>NONE</c>: Performs stack operations on all accounts in the specified organizational
+        /// units (OUs).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,8 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter DeploymentTargets_Account
         /// <summary>
         /// <para>
-        /// <para>The account IDs of the Amazon Web Services accounts. If you have many account numbers,
-        /// you can provide those accounts using the <c>AccountsUrl</c> property instead.</para><para />
+        /// <para>The Amazon Web Services account IDs where you want to perform stack operations. How
+        /// these accounts are used depends on the <c>AccountFilterType</c> property.</para><para>If you have many account numbers, you can provide those accounts using the <c>AccountsUrl</c>
+        /// property instead.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -111,7 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>The Amazon S3 URL path to a file that contains a list of Amazon Web Services account
         /// IDs. The file format must be either <c>.csv</c> or <c>.txt</c>, and the data can be
         /// comma-separated or new-line-separated. There is currently a 10MB limit for the data
-        /// (approximately 800,000 accounts).</para>
+        /// (approximately 800,000 accounts).</para><para>This property serves the same purpose as <c>Accounts</c> but allows you to specify
+        /// a large number of accounts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>[Service-managed permissions] Specifies whether you are acting as an account administrator
         /// in the organization's management account or as a delegated administrator in a member
-        /// account.</para><para>By default, <c>SELF</c> is specified. Use <c>SELF</c> for stack sets with self-managed
+        /// account.</para><para>By default, <c>SELF</c> is specified. Use <c>SELF</c> for StackSets with self-managed
         /// permissions.</para><ul><li><para>If you are signed in to the management account, specify <c>SELF</c>.</para></li><li><para>If you are signed in to a delegated administrator account, specify <c>DELEGATED_ADMIN</c>.</para><para>Your Amazon Web Services account must be registered as a delegated administrator in
         /// the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register
         /// a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</para></li></ul>
@@ -137,10 +144,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter OperationId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for this stack set operation.</para><para>If you don't specify an operation ID, the SDK generates one automatically.</para><para>The operation ID also functions as an idempotency token, to ensure that CloudFormation
-        /// performs the stack set operation only once, even if you retry the request multiple
-        /// times. You can retry stack set operation requests to ensure that CloudFormation successfully
-        /// received them.</para><para>Repeating this stack set operation with a new operation ID retries all stack instances
+        /// <para>The unique identifier for this StackSet operation.</para><para>If you don't specify an operation ID, the SDK generates one automatically.</para><para>The operation ID also functions as an idempotency token, to ensure that CloudFormation
+        /// performs the StackSet operation only once, even if you retry the request multiple
+        /// times. You can retry StackSet operation requests to ensure that CloudFormation successfully
+        /// received them.</para><para>Repeating this StackSet operation with a new operation ID retries all stack instances
         /// whose status is <c>OUTDATED</c>.</para>
         /// </para>
         /// </summary>
@@ -151,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter OperationPreference
         /// <summary>
         /// <para>
-        /// <para>Preferences for how CloudFormation performs this stack set operation.</para>
+        /// <para>Preferences for how CloudFormation performs this StackSet operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,7 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter DeploymentTargets_OrganizationalUnitId
         /// <summary>
         /// <para>
-        /// <para>The organization root ID or organizational unit (OU) IDs.</para><para />
+        /// <para>The organization root ID or organizational unit (OU) IDs where you want to perform
+        /// stack operations. CloudFormation will perform operations on accounts within these
+        /// OUs and their child OUs.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -177,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackInstanceRegion
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services Regions where you want to delete stack set instances.</para><para />
+        /// <para>The Amazon Web Services Regions where you want to delete StackSet instances.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -198,10 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter RetainStack
         /// <summary>
         /// <para>
-        /// <para>Removes the stack instances from the specified stack set, but doesn't delete the stacks.
+        /// <para>Removes the stack instances from the specified StackSet, but doesn't delete the stacks.
         /// You can't reassociate a retained stack or add an existing, saved stack to a new stack
-        /// set.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html#stackset-ops-options">Stack
-        /// set operation options</a>.</para>
+        /// set.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">StackSet
+        /// operation options</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -218,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackSetName
         /// <summary>
         /// <para>
-        /// <para>The name or unique ID of the stack set that you want to delete stack instances for.</para>
+        /// <para>The name or unique ID of the StackSet that you want to delete stack instances for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

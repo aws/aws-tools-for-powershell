@@ -178,6 +178,13 @@ $CFN_Completers = {
             break
         }
 
+        # Amazon.CloudFormation.HookStatus
+        "Get-CFNHookResult/Status"
+        {
+            $v = "HOOK_COMPLETE_FAILED","HOOK_COMPLETE_SUCCEEDED","HOOK_FAILED","HOOK_IN_PROGRESS"
+            break
+        }
+
         # Amazon.CloudFormation.ListHookResultsTargetType
         "Get-CFNHookResult/TargetType"
         {
@@ -345,7 +352,7 @@ $CFN_map = @{
     "ProvisioningType"=@("Get-CFNTypeList")
     "RegistrationStatusFilter"=@("Get-CFNTypeRegistrationList")
     "ScanTypeFilter"=@("Get-CFNResourceScanList")
-    "Status"=@("Get-CFNStackSetList","Send-CFNResourceSignal","Test-CFNStack","Wait-CFNStack")
+    "Status"=@("Get-CFNHookResult","Get-CFNStackSetList","Send-CFNResourceSignal","Test-CFNStack","Wait-CFNStack")
     "TargetType"=@("Get-CFNHookResult")
     "TemplateConfiguration_DeletionPolicy"=@("New-CFNGeneratedTemplate","Update-CFNGeneratedTemplate")
     "TemplateConfiguration_UpdateReplacePolicy"=@("New-CFNGeneratedTemplate","Update-CFNGeneratedTemplate")

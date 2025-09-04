@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.83.0",
+    "ProductVersion"    : "4.0.84.0",
     "CoreVersion"       : "4.0.0.26",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -32,7 +32,7 @@
             "InPreview"               : false
         },
         "CloudFormation" : {
-            "Version" : "4.0.2.10",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "4.0.36.0",
+            "Version" : "4.0.37.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"
@@ -276,7 +276,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "4.0.7.0",
+            "Version" : "4.0.8.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"
@@ -2508,7 +2508,7 @@
             "InPreview"               : false
         },
         "OpenSearchServerless"                : {
-            "Version" : "4.0.2.4",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"
@@ -2588,7 +2588,7 @@
             "InPreview"               : false
         },
         "CleanRooms"                          : {
-            "Version" : "4.0.5.0",
+            "Version" : "4.0.6.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"
@@ -2676,7 +2676,7 @@
             "InPreview"               : false
         },
         "VerifiedPermissions"                 : {
-            "Version" : "4.0.2.1",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"

@@ -141,7 +141,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCollaborationChangeRequest" OutputProperty="CollaborationChangeRequest" Verb="Get" Noun="CollaborationChangeRequest" PipelineParameter="ChangeRequestIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCollaborationChangeRequest" OutputProperty="CollaborationChangeRequest" Verb="Get" Noun="CollaborationChangeRequest" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

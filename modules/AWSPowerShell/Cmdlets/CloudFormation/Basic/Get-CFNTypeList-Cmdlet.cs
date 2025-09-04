@@ -30,7 +30,9 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Returns summary information about extension that have been registered with CloudFormation.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns summary information about all extensions, including your private resource
+    /// types, modules, and Hooks as well as all public extensions from Amazon Web Services
+    /// and third-party publishers.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFNTypeList")]
     [OutputType("Amazon.CloudFormation.Model.TypeSummary")]
