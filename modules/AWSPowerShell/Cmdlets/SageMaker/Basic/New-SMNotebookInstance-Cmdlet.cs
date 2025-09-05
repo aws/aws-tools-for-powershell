@@ -158,6 +158,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.InstanceType InstanceType { get; set; }
         #endregion
         
+        #region Parameter IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address type for the notebook instance. Specify <c>ipv4</c> for IPv4-only connectivity
+        /// or <c>dualstack</c> for both IPv4 and IPv6 connectivity. When you specify <c>dualstack</c>,
+        /// the subnet must support IPv6 CIDR blocks. If not specified, defaults to <c>ipv4</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.IPAddressType")]
+        public Amazon.SageMaker.IPAddressType IpAddressType { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
@@ -389,6 +402,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter InstanceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IpAddressType = this.IpAddressType;
             context.KmsKeyId = this.KmsKeyId;
             context.LifecycleConfigName = this.LifecycleConfigName;
             context.NotebookInstanceName = this.NotebookInstanceName;
@@ -471,6 +485,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.InstanceType != null)
             {
                 request.InstanceType = cmdletContext.InstanceType;
+            }
+            if (cmdletContext.IpAddressType != null)
+            {
+                request.IpAddressType = cmdletContext.IpAddressType;
             }
             if (cmdletContext.KmsKeyId != null)
             {
@@ -579,6 +597,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.DirectInternetAccess DirectInternetAccess { get; set; }
             public System.String InstanceMetadataServiceConfiguration_MinimumInstanceMetadataServiceVersion { get; set; }
             public Amazon.SageMaker.InstanceType InstanceType { get; set; }
+            public Amazon.SageMaker.IPAddressType IpAddressType { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String LifecycleConfigName { get; set; }
             public System.String NotebookInstanceName { get; set; }

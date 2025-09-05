@@ -28,17 +28,17 @@ using Amazon.PCS.Model;
 namespace Amazon.PowerShell.Cmdlets.PCS
 {
     /// <summary>
-    /// Creates a cluster in your account. Amazon Web Services PCS creates the cluster controller
-    /// in a service-owned account. The cluster controller communicates with the cluster resources
-    /// in your account. The subnets and security groups for the cluster must already exist
-    /// before you use this API action.
+    /// Creates a cluster in your account. PCS creates the cluster controller in a service-owned
+    /// account. The cluster controller communicates with the cluster resources in your account.
+    /// The subnets and security groups for the cluster must already exist before you use
+    /// this API action.
     /// 
     ///  <note><para>
-    /// It takes time for Amazon Web Services PCS to create the cluster. The cluster is in
-    /// a <c>Creating</c> state until it is ready to use. There can only be 1 cluster in a
-    /// <c>Creating</c> state per Amazon Web Services Region per Amazon Web Services account.
-    /// <c>CreateCluster</c> fails with a <c>ServiceQuotaExceededException</c> if there is
-    /// already a cluster in a <c>Creating</c> state.
+    /// It takes time for PCS to create the cluster. The cluster is in a <c>Creating</c> state
+    /// until it is ready to use. There can only be 1 cluster in a <c>Creating</c> state per
+    /// Amazon Web Services Region per Amazon Web Services account. <c>CreateCluster</c> fails
+    /// with a <c>ServiceQuotaExceededException</c> if there is already a cluster in a <c>Creating</c>
+    /// state.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "PCSCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         #region Parameter Scheduler_Type
         /// <summary>
         /// <para>
-        /// <para>The software Amazon Web Services PCS uses to manage cluster scaling and job scheduling.</para>
+        /// <para>The software PCS uses to manage cluster scaling and job scheduling.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -205,9 +205,9 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         #region Parameter Scheduler_Version
         /// <summary>
         /// <para>
-        /// <para>The version of the specified scheduling software that Amazon Web Services PCS uses
-        /// to manage cluster scaling and job scheduling. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html">Slurm
-        /// versions in Amazon Web Services PCS</a> in the <i>Amazon Web Services PCS User Guide</i>.</para><para>Valid Values: <c>23.11 | 24.05 | 24.11</c></para>
+        /// <para>The version of the specified scheduling software that PCS uses to manage cluster scaling
+        /// and job scheduling. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html">Slurm
+        /// versions in PCS</a> in the <i>PCS User Guide</i>.</para><para>Valid Values: <c>23.11 | 24.05 | 24.11</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

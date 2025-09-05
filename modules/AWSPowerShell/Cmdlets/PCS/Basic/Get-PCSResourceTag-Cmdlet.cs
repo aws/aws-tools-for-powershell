@@ -28,7 +28,7 @@ using Amazon.PCS.Model;
 namespace Amazon.PowerShell.Cmdlets.PCS
 {
     /// <summary>
-    /// Returns a list of all tags on an Amazon Web Services PCS resource.
+    /// Returns a list of all tags on an PCS resource.
     /// </summary>
     [Cmdlet("Get", "PCSResourceTag")]
     [OutputType("System.String")]

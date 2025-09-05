@@ -1,4 +1,12 @@
-﻿### 4.1.893 (2025-09-04 20:12Z)
+﻿### 4.1.894 (2025-09-05 20:08Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1117.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMCluster: added parameters TieredStorageConfig_InstanceMemoryAllocationPercentage and TieredStorageConfig_Mode.
+    * Modified cmdlet New-SMNotebookInstance: added parameter IpAddressType.
+    * Modified cmdlet Update-SMCluster: added parameters TieredStorageConfig_InstanceMemoryAllocationPercentage and TieredStorageConfig_Mode.
+    * Modified cmdlet Update-SMNotebookInstance: added parameter IpAddressType.
+
+### 4.1.893 (2025-09-04 20:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1116.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Clean Rooms Service
     * [Breaking Change] Modified cmdlet Get-CRSCollaborationChangeRequest: removed parameter PassThru; parameter ChangeRequestIdentifier doesn't support pipeline ByValue anymore; parameter ChangeRequestIdentifier cannot be used positionally anymore.

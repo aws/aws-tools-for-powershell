@@ -151,6 +151,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.InstanceType InstanceType { get; set; }
         #endregion
         
+        #region Parameter IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address type for the notebook instance. Specify <c>ipv4</c> for IPv4-only connectivity
+        /// or <c>dualstack</c> for both IPv4 and IPv6 connectivity. The notebook instance must
+        /// be stopped before updating this setting. When you specify <c>dualstack</c>, the subnet
+        /// must support IPv6 addressing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.IPAddressType")]
+        public Amazon.SageMaker.IPAddressType IpAddressType { get; set; }
+        #endregion
+        
         #region Parameter LifecycleConfigName
         /// <summary>
         /// <para>
@@ -310,6 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.DisassociateLifecycleConfig = this.DisassociateLifecycleConfig;
             context.InstanceMetadataServiceConfiguration_MinimumInstanceMetadataServiceVersion = this.InstanceMetadataServiceConfiguration_MinimumInstanceMetadataServiceVersion;
             context.InstanceType = this.InstanceType;
+            context.IpAddressType = this.IpAddressType;
             context.LifecycleConfigName = this.LifecycleConfigName;
             context.NotebookInstanceName = this.NotebookInstanceName;
             #if MODULAR
@@ -387,6 +402,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.InstanceType != null)
             {
                 request.InstanceType = cmdletContext.InstanceType;
+            }
+            if (cmdletContext.IpAddressType != null)
+            {
+                request.IpAddressType = cmdletContext.IpAddressType;
             }
             if (cmdletContext.LifecycleConfigName != null)
             {
@@ -478,6 +497,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Boolean? DisassociateLifecycleConfig { get; set; }
             public System.String InstanceMetadataServiceConfiguration_MinimumInstanceMetadataServiceVersion { get; set; }
             public Amazon.SageMaker.InstanceType InstanceType { get; set; }
+            public Amazon.SageMaker.IPAddressType IpAddressType { get; set; }
             public System.String LifecycleConfigName { get; set; }
             public System.String NotebookInstanceName { get; set; }
             public System.String RoleArn { get; set; }
