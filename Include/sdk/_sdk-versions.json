@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.84.0",
+    "ProductVersion"    : "4.0.85.0",
     "CoreVersion"       : "4.0.0.26",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -162,7 +162,7 @@
             "InPreview"               : false
         },
         "ECS"               : {
-            "Version" : "4.0.4.7",
+            "Version" : "4.0.4.8",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"
@@ -916,7 +916,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "4.0.23.1",
+            "Version" : "4.0.24.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"
@@ -3036,7 +3036,7 @@
             "InPreview"               : false
         },
         "PCS"                                 : {
-            "Version" : "4.0.7.1",
+            "Version" : "4.0.7.2",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"

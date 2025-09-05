@@ -66,9 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         #region Parameter AmiId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Machine Image (AMI) that Amazon Web Services PCS uses to launch
-        /// instances. If not provided, Amazon Web Services PCS uses the AMI ID specified in the
-        /// custom launch template.</para>
+        /// <para>The ID of the Amazon Machine Image (AMI) that PCS uses to launch instances. If not
+        /// provided, PCS uses the AMI ID specified in the custom launch template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

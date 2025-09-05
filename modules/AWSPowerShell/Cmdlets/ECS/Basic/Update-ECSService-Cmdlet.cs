@@ -191,7 +191,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>Indicates whether to use Availability Zone rebalancing for the service.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html">Balancing
         /// an Amazon ECS service across Availability Zones</a> in the <i><i>Amazon Elastic Container
-        /// Service Developer Guide</i></i>.</para><para>This parameter doesn't trigger a new service deployment.</para>
+        /// Service Developer Guide</i></i>.</para><para>The default behavior of <c>AvailabilityZoneRebalancing</c> differs between create
+        /// and update requests:</para><ul><li><para>For create service requests, when when no value is specified for <c>AvailabilityZoneRebalancing</c>,
+        /// Amazon ECS defaults the value to to <c>ENABLED</c>.</para></li><li><para>For update service requests, when no value is specified for <c>AvailabilityZoneRebalancing</c>,
+        /// Amazon ECS defaults to the existing service’s <c>AvailabilityZoneRebalancing</c> value.
+        /// If the service never had an <c>AvailabilityZoneRebalancing</c> value set, Amazon ECS
+        /// treats this as <c>DISABLED</c>.</para></li></ul><para>This parameter doesn't trigger a new service deployment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -455,7 +460,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// one-by-one — using the <c>minimumHealthyPercent</c> as a constraint — to clear up
         /// capacity to launch replacement tasks. For more information about how the scheduler
         /// replaces unhealthy tasks, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Amazon
-        /// ECS services</a> . </para><para>For services that <i>do not</i> use a load balancer, the following should be noted:</para><ul><li><para>A service is considered healthy if all essential containers within the tasks in the
+        /// ECS services</a>. </para><para>For services that <i>do not</i> use a load balancer, the following should be noted:</para><ul><li><para>A service is considered healthy if all essential containers within the tasks in the
         /// service pass their health checks.</para></li><li><para>If a task has no essential containers with a health check defined, the service scheduler
         /// will wait for 40 seconds after a task reaches a <c>RUNNING</c> state before the task
         /// is counted towards the minimum healthy percent total.</para></li><li><para>If a task has one or more essential containers with a health check defined, the service

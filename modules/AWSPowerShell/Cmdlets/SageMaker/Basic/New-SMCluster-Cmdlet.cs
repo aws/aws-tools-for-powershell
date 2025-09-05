@@ -117,6 +117,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.ClusterInstanceGroupSpecification[] InstanceGroup { get; set; }
         #endregion
         
+        #region Parameter TieredStorageConfig_InstanceMemoryAllocationPercentage
+        /// <summary>
+        /// <para>
+        /// <para>The percentage (int) of cluster memory to allocate for checkpointing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? TieredStorageConfig_InstanceMemoryAllocationPercentage { get; set; }
+        #endregion
+        
         #region Parameter AutoScaling_Mode
         /// <summary>
         /// <para>
@@ -127,6 +137,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.SageMaker.ClusterAutoScalingMode")]
         public Amazon.SageMaker.ClusterAutoScalingMode AutoScaling_Mode { get; set; }
+        #endregion
+        
+        #region Parameter TieredStorageConfig_Mode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether managed tier checkpointing is enabled or disabled for the HyperPod
+        /// cluster. When set to <c>Enable</c>, the system installs a memory management daemon
+        /// that provides disaggregated memory as a service for checkpoint storage. When set to
+        /// <c>Disable</c>, the feature is turned off and the memory management daemon is removed
+        /// from the cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.ClusterConfigMode")]
+        public Amazon.SageMaker.ClusterConfigMode TieredStorageConfig_Mode { get; set; }
         #endregion
         
         #region Parameter NodeProvisioningMode
@@ -297,6 +322,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
             }
+            context.TieredStorageConfig_InstanceMemoryAllocationPercentage = this.TieredStorageConfig_InstanceMemoryAllocationPercentage;
+            context.TieredStorageConfig_Mode = this.TieredStorageConfig_Mode;
             if (this.VpcConfig_SecurityGroupId != null)
             {
                 context.VpcConfig_SecurityGroupId = new List<System.String>(this.VpcConfig_SecurityGroupId);
@@ -413,6 +440,35 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.Tags = cmdletContext.Tag;
             }
             
+             // populate TieredStorageConfig
+            var requestTieredStorageConfigIsNull = true;
+            request.TieredStorageConfig = new Amazon.SageMaker.Model.ClusterTieredStorageConfig();
+            System.Int32? requestTieredStorageConfig_tieredStorageConfig_InstanceMemoryAllocationPercentage = null;
+            if (cmdletContext.TieredStorageConfig_InstanceMemoryAllocationPercentage != null)
+            {
+                requestTieredStorageConfig_tieredStorageConfig_InstanceMemoryAllocationPercentage = cmdletContext.TieredStorageConfig_InstanceMemoryAllocationPercentage.Value;
+            }
+            if (requestTieredStorageConfig_tieredStorageConfig_InstanceMemoryAllocationPercentage != null)
+            {
+                request.TieredStorageConfig.InstanceMemoryAllocationPercentage = requestTieredStorageConfig_tieredStorageConfig_InstanceMemoryAllocationPercentage.Value;
+                requestTieredStorageConfigIsNull = false;
+            }
+            Amazon.SageMaker.ClusterConfigMode requestTieredStorageConfig_tieredStorageConfig_Mode = null;
+            if (cmdletContext.TieredStorageConfig_Mode != null)
+            {
+                requestTieredStorageConfig_tieredStorageConfig_Mode = cmdletContext.TieredStorageConfig_Mode;
+            }
+            if (requestTieredStorageConfig_tieredStorageConfig_Mode != null)
+            {
+                request.TieredStorageConfig.Mode = requestTieredStorageConfig_tieredStorageConfig_Mode;
+                requestTieredStorageConfigIsNull = false;
+            }
+             // determine if request.TieredStorageConfig should be set to null
+            if (requestTieredStorageConfigIsNull)
+            {
+                request.TieredStorageConfig = null;
+            }
+            
              // populate VpcConfig
             var requestVpcConfigIsNull = true;
             request.VpcConfig = new Amazon.SageMaker.Model.VpcConfig();
@@ -506,6 +562,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String Eks_ClusterArn { get; set; }
             public List<Amazon.SageMaker.Model.ClusterRestrictedInstanceGroupSpecification> RestrictedInstanceGroup { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
+            public System.Int32? TieredStorageConfig_InstanceMemoryAllocationPercentage { get; set; }
+            public Amazon.SageMaker.ClusterConfigMode TieredStorageConfig_Mode { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }
             public List<System.String> VpcConfig_Subnet { get; set; }
             public System.Func<Amazon.SageMaker.Model.CreateClusterResponse, NewSMClusterCmdlet, object> Select { get; set; } =

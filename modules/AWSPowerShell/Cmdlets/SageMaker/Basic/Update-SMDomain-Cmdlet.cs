@@ -588,7 +588,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DockerSettings_RootlessDocker
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to use rootless Docker. Default value is <c>DISABLED</c>.</para>
+        /// <para>Indicates whether to use rootless Docker.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

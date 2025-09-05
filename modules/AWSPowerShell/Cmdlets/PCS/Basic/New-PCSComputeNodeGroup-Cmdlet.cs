@@ -31,13 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.PCS
 {
     /// <summary>
     /// Creates a managed set of compute nodes. You associate a compute node group with a
-    /// cluster through 1 or more Amazon Web Services PCS queues or as part of the login fleet.
-    /// A compute node group includes the definition of the compute properties and lifecycle
-    /// management. Amazon Web Services PCS uses the information you provide to this API action
-    /// to launch compute nodes in your account. You can only specify subnets in the same
-    /// Amazon VPC as your cluster. You receive billing charges for the compute nodes that
-    /// Amazon Web Services PCS launches in your account. You must already have a launch template
-    /// before you call this API. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launch
+    /// cluster through 1 or more PCS queues or as part of the login fleet. A compute node
+    /// group includes the definition of the compute properties and lifecycle management.
+    /// PCS uses the information you provide to this API action to launch compute nodes in
+    /// your account. You can only specify subnets in the same Amazon VPC as your cluster.
+    /// You receive billing charges for the compute nodes that PCS launches in your account.
+    /// You must already have a launch template before you call this API. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launch
     /// an instance from a launch template</a> in the <i>Amazon Elastic Compute Cloud User
     /// Guide for Linux Instances</i>.
     /// </summary>
@@ -73,9 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         #region Parameter AmiId
         /// <summary>
         /// <para>
-        /// <para> The ID of the Amazon Machine Image (AMI) that Amazon Web Services PCS uses to launch
-        /// compute nodes (Amazon EC2 instances). If you don't provide this value, Amazon Web
-        /// Services PCS uses the AMI ID specified in the custom launch template.</para>
+        /// <para> The ID of the Amazon Machine Image (AMI) that PCS uses to launch compute nodes (Amazon
+        /// EC2 instances). If you don't provide this value, PCS uses the AMI ID specified in
+        /// the custom launch template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
