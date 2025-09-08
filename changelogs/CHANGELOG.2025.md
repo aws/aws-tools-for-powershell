@@ -1,4 +1,9 @@
-﻿### 4.1.894 (2025-09-05 20:08Z)
+﻿### 4.1.895 (2025-09-08 20:42Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1118.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon IoT SiteWise
+    * Modified cmdlet Get-IOTSWComputationModel: added parameter ComputationModelVersion.
+
+### 4.1.894 (2025-09-05 20:08Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1117.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon SageMaker Service
     * Modified cmdlet New-SMCluster: added parameters TieredStorageConfig_InstanceMemoryAllocationPercentage and TieredStorageConfig_Mode.

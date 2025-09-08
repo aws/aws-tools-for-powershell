@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return at one time.</para><ul><li><para>Minimum is 1</para></li><li><para>Maximum is 20000</para></li><li><para>Default is 250</para></li></ul>
+        /// <para>The maximum number of results to return at one time.</para><ul><li><para>Minimum is 1</para></li><li><para>Maximum is 20000</para></li><li><para>Default is 20000</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

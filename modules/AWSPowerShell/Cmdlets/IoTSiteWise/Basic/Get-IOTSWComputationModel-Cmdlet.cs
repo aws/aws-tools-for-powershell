@@ -58,6 +58,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         public System.String ComputationModelId { get; set; }
         #endregion
         
+        #region Parameter ComputationModelVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of the computation model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ComputationModelVersion { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -111,6 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 WriteWarning("You are passing $null as a value for parameter ComputationModelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ComputationModelVersion = this.ComputationModelVersion;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -130,6 +141,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (cmdletContext.ComputationModelId != null)
             {
                 request.ComputationModelId = cmdletContext.ComputationModelId;
+            }
+            if (cmdletContext.ComputationModelVersion != null)
+            {
+                request.ComputationModelVersion = cmdletContext.ComputationModelVersion;
             }
             
             CmdletOutput output;
@@ -193,6 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ComputationModelId { get; set; }
+            public System.String ComputationModelVersion { get; set; }
             public System.Func<Amazon.IoTSiteWise.Model.DescribeComputationModelResponse, GetIOTSWComputationModelCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
