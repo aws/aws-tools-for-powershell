@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.85.0",
+    "ProductVersion"    : "4.0.86.0",
     "CoreVersion"       : "4.0.0.26",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -308,7 +308,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "4.0.6.13",
+            "Version" : "4.0.7.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"
@@ -1252,7 +1252,7 @@
             "InPreview"               : false
         },
         "SecurityHub"                     : {
-            "Version" : "4.0.3.1",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"
@@ -1700,7 +1700,7 @@
             "InPreview"               : false
         },
         "IoTSiteWise"                     : {
-            "Version" : "4.0.2.5",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"
