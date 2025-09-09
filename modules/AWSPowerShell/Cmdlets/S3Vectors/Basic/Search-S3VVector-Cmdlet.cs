@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.S3V
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TopK), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Search-S3VVector (QueryVectors)"))
             {
                 return;

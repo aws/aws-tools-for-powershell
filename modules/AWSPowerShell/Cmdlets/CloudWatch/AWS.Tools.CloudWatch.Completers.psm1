@@ -90,7 +90,7 @@ $CW_Completers = {
         # Amazon.CloudWatch.HistoryItemType
         "Get-CWAlarmHistory/HistoryItemType"
         {
-            $v = "Action","ConfigurationUpdate","StateUpdate"
+            $v = "Action","AlarmContributorAction","AlarmContributorStateUpdate","ConfigurationUpdate","StateUpdate"
             break
         }
 
@@ -223,6 +223,7 @@ $CW_SelectMap = @{
                "Remove-CWDashboard",
                "Remove-CWInsightRule",
                "Remove-CWMetricStream",
+               "Get-CWAlarmContributor",
                "Get-CWAlarmHistory",
                "Get-CWAlarm",
                "Get-CWAlarmForMetric",

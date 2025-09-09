@@ -246,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Cluster), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-ECSCluster (UpdateCluster)"))
             {
                 return;

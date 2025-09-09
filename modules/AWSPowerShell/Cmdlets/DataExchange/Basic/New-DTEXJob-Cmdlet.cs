@@ -639,7 +639,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Type), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DTEXJob (CreateJob)"))
             {
                 return;

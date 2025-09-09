@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SubnetChangeProtection), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-NWFWSubnetChangeProtection (UpdateSubnetChangeProtection)"))
             {
                 return;

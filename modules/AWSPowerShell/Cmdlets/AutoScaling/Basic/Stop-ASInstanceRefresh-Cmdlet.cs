@@ -74,6 +74,19 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.String AutoScalingGroupName { get; set; }
         #endregion
         
+        #region Parameter WaitForTransitioningInstance
+        /// <summary>
+        /// <para>
+        /// <para>When cancelling an instance refresh, this indicates whether to wait for in-flight
+        /// launches and terminations to complete. The default is true.</para><para>When set to false, Amazon EC2 Auto Scaling cancels the instance refresh without waiting
+        /// for any pending launches or terminations to complete.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WaitForTransitioningInstances")]
+        public System.Boolean? WaitForTransitioningInstance { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'InstanceRefreshId'.
@@ -127,6 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 WriteWarning("You are passing $null as a value for parameter AutoScalingGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.WaitForTransitioningInstance = this.WaitForTransitioningInstance;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -146,6 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.AutoScalingGroupName != null)
             {
                 request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
+            }
+            if (cmdletContext.WaitForTransitioningInstance != null)
+            {
+                request.WaitForTransitioningInstances = cmdletContext.WaitForTransitioningInstance.Value;
             }
             
             CmdletOutput output;
@@ -203,6 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AutoScalingGroupName { get; set; }
+            public System.Boolean? WaitForTransitioningInstance { get; set; }
             public System.Func<Amazon.AutoScaling.Model.CancelInstanceRefreshResponse, StopASInstanceRefreshCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.InstanceRefreshId;
         }

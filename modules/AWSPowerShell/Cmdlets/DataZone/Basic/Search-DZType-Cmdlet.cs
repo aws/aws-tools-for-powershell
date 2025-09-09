@@ -30,7 +30,25 @@ using Amazon.DataZone.Model;
 namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Searches for types in Amazon DataZone.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Searches for types in Amazon DataZone.
+    /// 
+    ///  
+    /// <para>
+    /// Prerequisites:
+    /// </para><ul><li><para>
+    /// The --domain-identifier must refer to an existing Amazon DataZone domain. 
+    /// </para></li><li><para>
+    /// --search-scope must be one of the valid values including: ASSET_TYPE, GLOSSARY_TERM_TYPE,
+    /// DATA_PRODUCT_TYPE.
+    /// </para></li><li><para>
+    /// The --managed flag must be present without a value.
+    /// </para></li><li><para>
+    /// The user must have permissions for form or asset types in the domain.
+    /// </para></li><li><para>
+    /// If using --filters, ensure that the JSON is valid.
+    /// </para></li><li><para>
+    /// Filters contain correct structure (attribute, value, operator).
+    /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Search", "DZType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DataZone.Model.SearchTypesResponse")]

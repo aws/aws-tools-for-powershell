@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.S3V
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Policy), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-S3VVectorBucketPolicy (PutVectorBucketPolicy)"))
             {
                 return;

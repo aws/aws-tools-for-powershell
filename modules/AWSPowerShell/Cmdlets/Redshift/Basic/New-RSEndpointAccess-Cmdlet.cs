@@ -147,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ClusterIdentifier), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-RSEndpointAccess (CreateEndpointAccess)"))
             {
                 return;

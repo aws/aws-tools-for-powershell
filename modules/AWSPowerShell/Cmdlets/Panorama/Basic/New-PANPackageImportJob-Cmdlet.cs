@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.PAN
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.JobType), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-PANPackageImportJob (CreatePackageImportJob)"))
             {
                 return;

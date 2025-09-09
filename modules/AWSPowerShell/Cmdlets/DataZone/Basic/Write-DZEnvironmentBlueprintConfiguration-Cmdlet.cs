@@ -110,6 +110,21 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String EnvironmentRolePermissionBoundary { get; set; }
         #endregion
         
+        #region Parameter GlobalParameter
+        /// <summary>
+        /// <para>
+        /// <para>Region-agnostic environment blueprint parameters. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("GlobalParameters")]
+        public System.Collections.Hashtable GlobalParameter { get; set; }
+        #endregion
+        
         #region Parameter ManageAccessRoleArn
         /// <summary>
         /// <para>
@@ -231,6 +246,14 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             #endif
             context.EnvironmentRolePermissionBoundary = this.EnvironmentRolePermissionBoundary;
+            if (this.GlobalParameter != null)
+            {
+                context.GlobalParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.GlobalParameter.Keys)
+                {
+                    context.GlobalParameter.Add((String)hashKey, (System.String)(this.GlobalParameter[hashKey]));
+                }
+            }
             context.ManageAccessRoleArn = this.ManageAccessRoleArn;
             if (this.ProvisioningConfiguration != null)
             {
@@ -276,6 +299,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.EnvironmentRolePermissionBoundary != null)
             {
                 request.EnvironmentRolePermissionBoundary = cmdletContext.EnvironmentRolePermissionBoundary;
+            }
+            if (cmdletContext.GlobalParameter != null)
+            {
+                request.GlobalParameters = cmdletContext.GlobalParameter;
             }
             if (cmdletContext.ManageAccessRoleArn != null)
             {
@@ -352,6 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public List<System.String> EnabledRegion { get; set; }
             public System.String EnvironmentBlueprintIdentifier { get; set; }
             public System.String EnvironmentRolePermissionBoundary { get; set; }
+            public Dictionary<System.String, System.String> GlobalParameter { get; set; }
             public System.String ManageAccessRoleArn { get; set; }
             public List<Amazon.DataZone.Model.ProvisioningConfiguration> ProvisioningConfiguration { get; set; }
             public System.String ProvisioningRoleArn { get; set; }

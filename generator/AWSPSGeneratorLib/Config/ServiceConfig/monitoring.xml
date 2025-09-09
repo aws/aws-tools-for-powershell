@@ -45,8 +45,12 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAlarmHistory" OutputProperty="AlarmHistoryItems" Verb="Get" Noun="AlarmHistory" PositionalParameters="HistoryItemType;StartDate;EndDate" PipelineParameter="AlarmName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
-			<Params />
+        <ServiceOperation MethodName="DescribeAlarmContributors" OutputProperty="AlarmContributors" Verb="Get" Noun="AlarmContributor" PipelineParameter="AlarmName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAlarmHistory" OutputProperty="AlarmHistoryItems" Verb="Get" Noun="AlarmHistory" PositionalParameters="HistoryItemType;StartDate;EndDate" PipelineParameter="AlarmName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAlarms" OutputProperty="*" Verb="Get" Noun="Alarm" PipelineParameter="AlarmNames" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -89,12 +93,12 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMetricData" OutputProperty="*" Verb="Get" Noun="MetricData" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
-			<Params />
+        <ServiceOperation MethodName="GetMetricData" OutputProperty="*" Verb="Get" Noun="MetricData" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMetricStatistics" OutputProperty="*" Verb="Get" Noun="MetricStatistic" PositionalParameters="MetricName;Dimensions" PipelineParameter="Namespace" NoPipelineParameter="false" LegacyAlias="Get-CWMetricStatistics" LegacyV4Pagination="true">
-			<Params />
+        <ServiceOperation MethodName="GetMetricStatistics" OutputProperty="*" Verb="Get" Noun="MetricStatistic" PositionalParameters="MetricName;Dimensions" PipelineParameter="Namespace" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-CWMetricStatistics">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetMetricStream" OutputProperty="*" Verb="Get" Noun="MetricStream" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -114,7 +118,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMetrics" OutputProperty="Metrics" Verb="Get" Noun="MetricList" PositionalParameters="MetricName;Dimensions" PipelineParameter="Namespace" NoPipelineParameter="false" LegacyAlias="Get-CWMetrics" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMetrics" OutputProperty="Metrics" Verb="Get" Noun="MetricList" PositionalParameters="MetricName;Dimensions" PipelineParameter="Namespace" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-CWMetrics">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

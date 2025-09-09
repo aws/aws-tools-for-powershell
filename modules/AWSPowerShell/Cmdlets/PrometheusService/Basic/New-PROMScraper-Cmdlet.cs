@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Alias), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-PROMScraper (CreateScraper)"))
             {
                 return;

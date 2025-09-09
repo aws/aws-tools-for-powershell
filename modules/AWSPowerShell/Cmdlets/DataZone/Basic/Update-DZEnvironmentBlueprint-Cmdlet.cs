@@ -30,26 +30,15 @@ using Amazon.DataZone.Model;
 namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Creates a metadata form type.
-    /// 
-    ///  
-    /// <para>
-    /// Prerequisites:
-    /// </para><ul><li><para>
-    /// The domain must exist and be in an <c>ENABLED</c> state. 
-    /// </para></li><li><para>
-    /// The owning project must exist and be accessible.
-    /// </para></li><li><para>
-    /// The name must be unique within the domain.
-    /// </para></li></ul>
+    /// Updates an environment blueprint in Amazon DataZone.
     /// </summary>
-    [Cmdlet("New", "DZFormType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DataZone.Model.CreateFormTypeResponse")]
-    [AWSCmdlet("Calls the Amazon DataZone CreateFormType API operation.", Operation = new[] {"CreateFormType"}, SelectReturnType = typeof(Amazon.DataZone.Model.CreateFormTypeResponse))]
-    [AWSCmdletOutput("Amazon.DataZone.Model.CreateFormTypeResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.CreateFormTypeResponse object containing multiple properties."
+    [Cmdlet("Update", "DZEnvironmentBlueprint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.DataZone.Model.UpdateEnvironmentBlueprintResponse")]
+    [AWSCmdlet("Calls the Amazon DataZone UpdateEnvironmentBlueprint API operation.", Operation = new[] {"UpdateEnvironmentBlueprint"}, SelectReturnType = typeof(Amazon.DataZone.Model.UpdateEnvironmentBlueprintResponse))]
+    [AWSCmdletOutput("Amazon.DataZone.Model.UpdateEnvironmentBlueprintResponse",
+        "This cmdlet returns an Amazon.DataZone.Model.UpdateEnvironmentBlueprintResponse object containing multiple properties."
     )]
-    public partial class NewDZFormTypeCmdlet : AmazonDataZoneClientCmdlet, IExecutor
+    public partial class UpdateDZEnvironmentBlueprintCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -58,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of this Amazon DataZone metadata form type.</para>
+        /// <para>The description to be updated as part of the <c>UpdateEnvironmentBlueprint</c> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter DomainIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon DataZone domain in which this metadata form type is created.</para>
+        /// <para>The identifier of the Amazon DataZone domain in which an environment blueprint is
+        /// to be updated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,10 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String DomainIdentifier { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The name of this Amazon DataZone metadata form type.</para>
+        /// <para>The identifier of the environment blueprint to be updated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,52 +86,42 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
+        public System.String Identifier { get; set; }
         #endregion
         
-        #region Parameter OwningProjectIdentifier
+        #region Parameter CloudFormation_TemplateUrl
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon DataZone project that owns this metadata form type.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String OwningProjectIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter Model_Smithy
-        /// <summary>
-        /// <para>
-        /// <para>Indicates the smithy model of the API.</para>
+        /// <para>The template URL of the cloud formation provisioning properties of the environment
+        /// blueprint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Model_Smithy { get; set; }
+        [Alias("ProvisioningProperties_CloudFormation_TemplateUrl")]
+        public System.String CloudFormation_TemplateUrl { get; set; }
         #endregion
         
-        #region Parameter Status
+        #region Parameter UserParameter
         /// <summary>
         /// <para>
-        /// <para>The status of this Amazon DataZone metadata form type.</para>
+        /// <para>The user parameters to be updated as part of the <c>UpdateEnvironmentBlueprint</c>
+        /// action.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.DataZone.FormTypeStatus")]
-        public Amazon.DataZone.FormTypeStatus Status { get; set; }
+        [Alias("UserParameters")]
+        public Amazon.DataZone.Model.CustomParameter[] UserParameter { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.CreateFormTypeResponse).
-        /// Specifying the name of a property of type Amazon.DataZone.Model.CreateFormTypeResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.UpdateEnvironmentBlueprintResponse).
+        /// Specifying the name of a property of type Amazon.DataZone.Model.UpdateEnvironmentBlueprintResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.OwningProjectIdentifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DZFormType (CreateFormType)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Identifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-DZEnvironmentBlueprint (UpdateEnvironmentBlueprint)"))
             {
                 return;
             }
@@ -180,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.CreateFormTypeResponse, NewDZFormTypeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.UpdateEnvironmentBlueprintResponse, UpdateDZEnvironmentBlueprintCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Description = this.Description;
@@ -191,22 +171,18 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Model_Smithy = this.Model_Smithy;
-            context.Name = this.Name;
+            context.Identifier = this.Identifier;
             #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.OwningProjectIdentifier = this.OwningProjectIdentifier;
-            #if MODULAR
-            if (this.OwningProjectIdentifier == null && ParameterWasBound(nameof(this.OwningProjectIdentifier)))
+            context.CloudFormation_TemplateUrl = this.CloudFormation_TemplateUrl;
+            if (this.UserParameter != null)
             {
-                WriteWarning("You are passing $null as a value for parameter OwningProjectIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.UserParameter = new List<Amazon.DataZone.Model.CustomParameter>(this.UserParameter);
             }
-            #endif
-            context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -221,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataZone.Model.CreateFormTypeRequest();
+            var request = new Amazon.DataZone.Model.UpdateEnvironmentBlueprintRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -231,29 +207,47 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             {
                 request.DomainIdentifier = cmdletContext.DomainIdentifier;
             }
+            if (cmdletContext.Identifier != null)
+            {
+                request.Identifier = cmdletContext.Identifier;
+            }
             
-             // populate Model
-            request.Model = new Amazon.DataZone.Model.Model();
-            System.String requestModel_model_Smithy = null;
-            if (cmdletContext.Model_Smithy != null)
+             // populate ProvisioningProperties
+            var requestProvisioningPropertiesIsNull = true;
+            request.ProvisioningProperties = new Amazon.DataZone.Model.ProvisioningProperties();
+            Amazon.DataZone.Model.CloudFormationProperties requestProvisioningProperties_provisioningProperties_CloudFormation = null;
+            
+             // populate CloudFormation
+            var requestProvisioningProperties_provisioningProperties_CloudFormationIsNull = true;
+            requestProvisioningProperties_provisioningProperties_CloudFormation = new Amazon.DataZone.Model.CloudFormationProperties();
+            System.String requestProvisioningProperties_provisioningProperties_CloudFormation_cloudFormation_TemplateUrl = null;
+            if (cmdletContext.CloudFormation_TemplateUrl != null)
             {
-                requestModel_model_Smithy = cmdletContext.Model_Smithy;
+                requestProvisioningProperties_provisioningProperties_CloudFormation_cloudFormation_TemplateUrl = cmdletContext.CloudFormation_TemplateUrl;
             }
-            if (requestModel_model_Smithy != null)
+            if (requestProvisioningProperties_provisioningProperties_CloudFormation_cloudFormation_TemplateUrl != null)
             {
-                request.Model.Smithy = requestModel_model_Smithy;
+                requestProvisioningProperties_provisioningProperties_CloudFormation.TemplateUrl = requestProvisioningProperties_provisioningProperties_CloudFormation_cloudFormation_TemplateUrl;
+                requestProvisioningProperties_provisioningProperties_CloudFormationIsNull = false;
             }
-            if (cmdletContext.Name != null)
+             // determine if requestProvisioningProperties_provisioningProperties_CloudFormation should be set to null
+            if (requestProvisioningProperties_provisioningProperties_CloudFormationIsNull)
             {
-                request.Name = cmdletContext.Name;
+                requestProvisioningProperties_provisioningProperties_CloudFormation = null;
             }
-            if (cmdletContext.OwningProjectIdentifier != null)
+            if (requestProvisioningProperties_provisioningProperties_CloudFormation != null)
             {
-                request.OwningProjectIdentifier = cmdletContext.OwningProjectIdentifier;
+                request.ProvisioningProperties.CloudFormation = requestProvisioningProperties_provisioningProperties_CloudFormation;
+                requestProvisioningPropertiesIsNull = false;
             }
-            if (cmdletContext.Status != null)
+             // determine if request.ProvisioningProperties should be set to null
+            if (requestProvisioningPropertiesIsNull)
             {
-                request.Status = cmdletContext.Status;
+                request.ProvisioningProperties = null;
+            }
+            if (cmdletContext.UserParameter != null)
+            {
+                request.UserParameters = cmdletContext.UserParameter;
             }
             
             CmdletOutput output;
@@ -288,12 +282,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region AWS Service Operation Call
         
-        private Amazon.DataZone.Model.CreateFormTypeResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.CreateFormTypeRequest request)
+        private Amazon.DataZone.Model.UpdateEnvironmentBlueprintResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.UpdateEnvironmentBlueprintRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "CreateFormType");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "UpdateEnvironmentBlueprint");
             try
             {
-                return client.CreateFormTypeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.UpdateEnvironmentBlueprintAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -312,11 +306,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             public System.String Description { get; set; }
             public System.String DomainIdentifier { get; set; }
-            public System.String Model_Smithy { get; set; }
-            public System.String Name { get; set; }
-            public System.String OwningProjectIdentifier { get; set; }
-            public Amazon.DataZone.FormTypeStatus Status { get; set; }
-            public System.Func<Amazon.DataZone.Model.CreateFormTypeResponse, NewDZFormTypeCmdlet, object> Select { get; set; } =
+            public System.String Identifier { get; set; }
+            public System.String CloudFormation_TemplateUrl { get; set; }
+            public List<Amazon.DataZone.Model.CustomParameter> UserParameter { get; set; }
+            public System.Func<Amazon.DataZone.Model.UpdateEnvironmentBlueprintResponse, UpdateDZEnvironmentBlueprintCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

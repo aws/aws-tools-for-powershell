@@ -248,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Video), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-REKSegmentDetection (StartSegmentDetection)"))
             {
                 return;

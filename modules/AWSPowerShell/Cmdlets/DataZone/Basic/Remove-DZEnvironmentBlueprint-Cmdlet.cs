@@ -30,26 +30,16 @@ using Amazon.DataZone.Model;
 namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Gets a business glossary term in Amazon DataZone.
-    /// 
-    ///  
-    /// <para>
-    /// Prerequisites:
-    /// </para><ul><li><para>
-    /// Glossary term with identifier must exist in the domain. 
-    /// </para></li><li><para>
-    /// User must have permission on the glossary term.
-    /// </para></li><li><para>
-    /// Domain must be accessible and active.
-    /// </para></li></ul>
+    /// Deletes a blueprint in Amazon DataZone.
     /// </summary>
-    [Cmdlet("Get", "DZGlossaryTerm")]
-    [OutputType("Amazon.DataZone.Model.GetGlossaryTermResponse")]
-    [AWSCmdlet("Calls the Amazon DataZone GetGlossaryTerm API operation.", Operation = new[] {"GetGlossaryTerm"}, SelectReturnType = typeof(Amazon.DataZone.Model.GetGlossaryTermResponse))]
-    [AWSCmdletOutput("Amazon.DataZone.Model.GetGlossaryTermResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.GetGlossaryTermResponse object containing multiple properties."
+    [Cmdlet("Remove", "DZEnvironmentBlueprint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon DataZone DeleteEnvironmentBlueprint API operation.", Operation = new[] {"DeleteEnvironmentBlueprint"}, SelectReturnType = typeof(Amazon.DataZone.Model.DeleteEnvironmentBlueprintResponse))]
+    [AWSCmdletOutput("None or Amazon.DataZone.Model.DeleteEnvironmentBlueprintResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.DataZone.Model.DeleteEnvironmentBlueprintResponse) be returned by specifying '-Select *'."
     )]
-    public partial class GetDZGlossaryTermCmdlet : AmazonDataZoneClientCmdlet, IExecutor
+    public partial class RemoveDZEnvironmentBlueprintCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -58,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter DomainIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon DataZone domain in which this business glossary term exists.</para>
+        /// <para>The ID of the Amazon DataZone domain in which the blueprint is deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,13 +65,13 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The ID of the business glossary term.</para>
+        /// <para>The ID of the blueprint that is deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -91,13 +81,22 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.GetGlossaryTermResponse).
-        /// Specifying the name of a property of type Amazon.DataZone.Model.GetGlossaryTermResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.DeleteEnvironmentBlueprintResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -109,6 +108,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             base.ProcessRecord();
             
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Identifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DZEnvironmentBlueprint (DeleteEnvironmentBlueprint)"))
+            {
+                return;
+            }
+            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -116,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.GetGlossaryTermResponse, GetDZGlossaryTermCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.DeleteEnvironmentBlueprintResponse, RemoveDZEnvironmentBlueprintCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.DomainIdentifier = this.DomainIdentifier;
@@ -147,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataZone.Model.GetGlossaryTermRequest();
+            var request = new Amazon.DataZone.Model.DeleteEnvironmentBlueprintRequest();
             
             if (cmdletContext.DomainIdentifier != null)
             {
@@ -190,12 +195,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region AWS Service Operation Call
         
-        private Amazon.DataZone.Model.GetGlossaryTermResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.GetGlossaryTermRequest request)
+        private Amazon.DataZone.Model.DeleteEnvironmentBlueprintResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.DeleteEnvironmentBlueprintRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "GetGlossaryTerm");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "DeleteEnvironmentBlueprint");
             try
             {
-                return client.GetGlossaryTermAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteEnvironmentBlueprintAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -214,8 +219,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             public System.String DomainIdentifier { get; set; }
             public System.String Identifier { get; set; }
-            public System.Func<Amazon.DataZone.Model.GetGlossaryTermResponse, GetDZGlossaryTermCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.DataZone.Model.DeleteEnvironmentBlueprintResponse, RemoveDZEnvironmentBlueprintCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

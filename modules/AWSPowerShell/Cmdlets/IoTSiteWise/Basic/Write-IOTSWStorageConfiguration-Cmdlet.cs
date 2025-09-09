@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.StorageType), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-IOTSWStorageConfiguration (PutStorageConfiguration)"))
             {
                 return;

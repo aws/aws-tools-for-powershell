@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.FirewallPolicyChangeProtection), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-NWFWFirewallPolicyChangeProtection (UpdateFirewallPolicyChangeProtection)"))
             {
                 return;

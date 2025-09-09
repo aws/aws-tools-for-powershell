@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ConnectionAlias), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-OSOutboundConnection (CreateOutboundConnection)"))
             {
                 return;

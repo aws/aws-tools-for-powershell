@@ -175,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.IngestProtocol), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-IVSRTIngestConfiguration (CreateIngestConfiguration)"))
             {
                 return;

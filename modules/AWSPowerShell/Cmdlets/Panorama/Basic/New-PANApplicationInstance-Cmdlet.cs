@@ -167,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.PAN
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DefaultRuntimeContextDevice), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-PANApplicationInstance (CreateApplicationInstance)"))
             {
                 return;

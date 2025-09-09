@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ConnectionAlias), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-ESOutboundCrossClusterSearchConnection (CreateOutboundCrossClusterSearchConnection)"))
             {
                 return;

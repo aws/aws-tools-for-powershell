@@ -277,7 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SourceServerID), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-EDRSReplicationConfiguration (UpdateReplicationConfiguration)"))
             {
                 return;

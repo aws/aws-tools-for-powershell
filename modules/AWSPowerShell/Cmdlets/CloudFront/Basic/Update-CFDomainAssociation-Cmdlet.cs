@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Domain), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CFDomainAssociation (UpdateDomainAssociation)"))
             {
                 return;

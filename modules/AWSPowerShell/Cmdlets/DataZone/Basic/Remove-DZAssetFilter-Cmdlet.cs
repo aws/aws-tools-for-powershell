@@ -31,6 +31,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
     /// Deletes an asset filter.
+    /// 
+    ///  
+    /// <para>
+    /// Prerequisites:
+    /// </para><ul><li><para>
+    /// The asset filter must exist. 
+    /// </para></li><li><para>
+    /// The domain and asset must not have been deleted.
+    /// </para></li><li><para>
+    /// Ensure the --identifier refers to a valid filter ID.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "DZAssetFilter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

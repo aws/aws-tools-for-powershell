@@ -220,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Target), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-IOTTGSystemInstance (CreateSystemInstance)"))
             {
                 return;

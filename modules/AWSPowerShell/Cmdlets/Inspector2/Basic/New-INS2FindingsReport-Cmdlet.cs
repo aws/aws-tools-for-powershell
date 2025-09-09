@@ -804,7 +804,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ReportFormat), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-INS2FindingsReport (CreateFindingsReport)"))
             {
                 return;

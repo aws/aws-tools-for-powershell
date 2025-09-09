@@ -23,50 +23,34 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Connect;
-using Amazon.Connect.Model;
+using Amazon.CloudWatch;
+using Amazon.CloudWatch.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.CONN
+namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
-    /// Lists predefined attributes for the specified Amazon Connect instance. A <i>predefined
-    /// attribute</i> is made up of a name and a value. You can use predefined attributes
-    /// for:
-    /// 
-    ///  <ul><li><para>
-    /// Routing proficiency (for example, agent certification) that has predefined values
-    /// (for example, a list of possible certifications). For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html">Create
-    /// predefined attributes for routing contacts to agents</a>.
-    /// </para></li><li><para>
-    /// Contact information that varies between transfers or conferences, such as the name
-    /// of the business unit handling the contact. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html">Use
-    /// contact segment attributes</a>.
-    /// </para></li></ul><para>
-    /// For the predefined attributes per instance quota, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas">Amazon
-    /// Connect quotas</a>.
-    /// </para><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon
-    /// Connect endpoints and quotas</a>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns the information of the current alarm contributors that are in <c>ALARM</c>
+    /// state. This operation returns details about the individual time series that contribute
+    /// to the alarm's state.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CONNPredefinedAttributeList")]
-    [OutputType("Amazon.Connect.Model.PredefinedAttributeSummary")]
-    [AWSCmdlet("Calls the Amazon Connect Service ListPredefinedAttributes API operation.", Operation = new[] {"ListPredefinedAttributes"}, SelectReturnType = typeof(Amazon.Connect.Model.ListPredefinedAttributesResponse))]
-    [AWSCmdletOutput("Amazon.Connect.Model.PredefinedAttributeSummary or Amazon.Connect.Model.ListPredefinedAttributesResponse",
-        "This cmdlet returns a collection of Amazon.Connect.Model.PredefinedAttributeSummary objects.",
-        "The service call response (type Amazon.Connect.Model.ListPredefinedAttributesResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "CWAlarmContributor")]
+    [OutputType("Amazon.CloudWatch.Model.AlarmContributor")]
+    [AWSCmdlet("Calls the Amazon CloudWatch DescribeAlarmContributors API operation.", Operation = new[] {"DescribeAlarmContributors"}, SelectReturnType = typeof(Amazon.CloudWatch.Model.DescribeAlarmContributorsResponse))]
+    [AWSCmdletOutput("Amazon.CloudWatch.Model.AlarmContributor or Amazon.CloudWatch.Model.DescribeAlarmContributorsResponse",
+        "This cmdlet returns a collection of Amazon.CloudWatch.Model.AlarmContributor objects.",
+        "The service call response (type Amazon.CloudWatch.Model.DescribeAlarmContributorsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetCONNPredefinedAttributeListCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class GetCWAlarmContributorCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter InstanceId
+        #region Parameter AlarmName
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can find the instance ID in the
-        /// Amazon Resource Name (ARN) of the instance.</para>
+        /// <para>The name of the alarm for which to retrieve contributor information.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,25 +61,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
-        #endregion
-        
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of results to return per page.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
+        public System.String AlarmName { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of results. Use the value returned in the previous response
-        /// in the next request to retrieve the next set of results.</para>
+        /// <para>The token returned by a previous call to indicate that there is more data available.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -108,13 +80,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'PredefinedAttributeSummaryList'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.ListPredefinedAttributesResponse).
-        /// Specifying the name of a property of type Amazon.Connect.Model.ListPredefinedAttributesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AlarmContributors'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatch.Model.DescribeAlarmContributorsResponse).
+        /// Specifying the name of a property of type Amazon.CloudWatch.Model.DescribeAlarmContributorsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "PredefinedAttributeSummaryList";
+        public string Select { get; set; } = "AlarmContributors";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -143,17 +115,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.ListPredefinedAttributesResponse, GetCONNPredefinedAttributeListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudWatch.Model.DescribeAlarmContributorsResponse, GetCWAlarmContributorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.InstanceId = this.InstanceId;
+            context.AlarmName = this.AlarmName;
             #if MODULAR
-            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
+            if (this.AlarmName == null && ParameterWasBound(nameof(this.AlarmName)))
             {
-                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AlarmName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -171,15 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.Connect.Model.ListPredefinedAttributesRequest();
+            var request = new Amazon.CloudWatch.Model.DescribeAlarmContributorsRequest();
             
-            if (cmdletContext.InstanceId != null)
+            if (cmdletContext.AlarmName != null)
             {
-                request.InstanceId = cmdletContext.InstanceId;
-            }
-            if (cmdletContext.MaxResult != null)
-            {
-                request.MaxResults = cmdletContext.MaxResult.Value;
+                request.AlarmName = cmdletContext.AlarmName;
             }
             
             // Initialize loop variant and commence piping
@@ -238,12 +205,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.ListPredefinedAttributesResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.ListPredefinedAttributesRequest request)
+        private Amazon.CloudWatch.Model.DescribeAlarmContributorsResponse CallAWSServiceOperation(IAmazonCloudWatch client, Amazon.CloudWatch.Model.DescribeAlarmContributorsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "ListPredefinedAttributes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch", "DescribeAlarmContributors");
             try
             {
-                return client.ListPredefinedAttributesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DescribeAlarmContributorsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -260,11 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String InstanceId { get; set; }
-            public System.Int32? MaxResult { get; set; }
+            public System.String AlarmName { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.Connect.Model.ListPredefinedAttributesResponse, GetCONNPredefinedAttributeListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.PredefinedAttributeSummaryList;
+            public System.Func<Amazon.CloudWatch.Model.DescribeAlarmContributorsResponse, GetCWAlarmContributorCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AlarmContributors;
         }
         
     }

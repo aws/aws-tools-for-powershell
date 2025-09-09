@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.EBS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.VolumeSize), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-EBSSnapshot (StartSnapshot)"))
             {
                 return;

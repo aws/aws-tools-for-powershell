@@ -31,6 +31,18 @@ namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
     /// Gets an asset filter.
+    /// 
+    ///  
+    /// <para>
+    /// Prerequisites:
+    /// </para><ul><li><para>
+    /// Domain (<c>--domain-identifier</c>), asset (<c>--asset-identifier</c>), and filter
+    /// (<c>--identifier</c>) must all exist. 
+    /// </para></li><li><para>
+    /// The asset filter should not have been deleted.
+    /// </para></li><li><para>
+    /// The asset must still exist (since the filter is linked to it).
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "DZAssetFilter")]
     [OutputType("Amazon.DataZone.Model.GetAssetFilterResponse")]

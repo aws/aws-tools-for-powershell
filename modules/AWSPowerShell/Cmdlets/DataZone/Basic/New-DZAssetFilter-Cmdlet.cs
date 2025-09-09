@@ -31,6 +31,28 @@ namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
     /// Creates a data asset filter.
+    /// 
+    ///  
+    /// <para>
+    /// Asset filters provide a sophisticated way to create controlled views of data assets
+    /// by selecting specific columns or applying row-level filters. This capability is crucial
+    /// for organizations that need to share data while maintaining security and privacy controls.
+    /// For example, your database might be filtered to show only non-PII fields to certain
+    /// users, or sales data might be filtered by region for different regional teams. Asset
+    /// filters enable fine-grained access control while maintaining a single source of truth.
+    /// </para><para>
+    /// Prerequisites:
+    /// </para><ul><li><para>
+    /// A valid domain (<c>--domain-identifier</c>) must exist. 
+    /// </para></li><li><para>
+    /// A data asset (<c>--asset-identifier</c>) must already be created under that domain.
+    /// </para></li><li><para>
+    /// The asset must have the referenced columns available in its schema for column-based
+    /// filtering.
+    /// </para></li><li><para>
+    /// You cannot specify both (<c>columnConfiguration</c>, <c>rowConfiguration</c>)at the
+    /// same time.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "DZAssetFilter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DataZone.Model.CreateAssetFilterResponse")]

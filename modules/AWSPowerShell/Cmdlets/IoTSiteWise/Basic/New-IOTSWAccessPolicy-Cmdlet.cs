@@ -197,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AccessPolicyPermission), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-IOTSWAccessPolicy (CreateAccessPolicy)"))
             {
                 return;

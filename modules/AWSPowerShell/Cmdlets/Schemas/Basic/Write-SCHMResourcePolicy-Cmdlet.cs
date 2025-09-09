@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Policy), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-SCHMResourcePolicy (PutResourcePolicy)"))
             {
                 return;

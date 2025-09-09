@@ -30,7 +30,23 @@ using Amazon.DataZone.Model;
 namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Lists all metadata generation runs.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all metadata generation runs.
+    /// 
+    ///  
+    /// <para>
+    /// Metadata generation runs represent automated processes that leverage AI/ML capabilities
+    /// to create or enhance asset metadata at scale. This feature helps organizations maintain
+    /// comprehensive and consistent metadata across large numbers of assets without manual
+    /// intervention. It can automatically generate business descriptions, tags, and other
+    /// metadata elements, significantly reducing the time and effort required for metadata
+    /// management while improving consistency and completeness.
+    /// </para><para>
+    /// Prerequisites:
+    /// </para><ul><li><para>
+    /// Valid domain identifier. 
+    /// </para></li><li><para>
+    /// User must have access to metadata generation runs in the domain.
+    /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DZMetadataGenerationRunList")]
     [OutputType("Amazon.DataZone.Model.MetadataGenerationRunItem")]
