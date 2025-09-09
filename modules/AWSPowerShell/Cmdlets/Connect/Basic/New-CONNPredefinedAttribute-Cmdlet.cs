@@ -28,11 +28,28 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Creates a new predefined attribute for the specified Amazon Connect instance. <i>Predefined
-    /// attributes</i> are attributes in an Amazon Connect instance that can be used to route
-    /// contacts to an agent or pools of agents within a queue. For more information, see
-    /// <a href="https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html">Create
+    /// Creates a new predefined attribute for the specified Amazon Connect instance. A <i>predefined
+    /// attribute</i> is made up of a name and a value.
+    /// 
+    ///  
+    /// <para>
+    /// For the predefined attributes per instance quota, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas">Amazon
+    /// Connect quotas</a>.
+    /// </para><para><b>Use cases</b></para><para>
+    /// Following are common uses cases for this API:
+    /// </para><ul><li><para>
+    /// Create an attribute for routing proficiency (for example, agent certification) that
+    /// has predefined values (for example, a list of possible certifications). For more information,
+    /// see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html">Create
     /// predefined attributes for routing contacts to agents</a>.
+    /// </para></li><li><para>
+    /// Create an attribute for business unit name that has a list of predefined business
+    /// unit names used in your organization. This is a use case where information for a contact
+    /// varies between transfers or conferences. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html">Use
+    /// contact segment attributes</a>.
+    /// </para></li></ul><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon
+    /// Connect endpoints and quotas</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "CONNPredefinedAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,6 +62,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter AttributeConfiguration_EnableValueValidationOnAssociation
+        /// <summary>
+        /// <para>
+        /// <para>When this parameter is set to true, Amazon Connect enforces strict validation on the
+        /// specific values, if the values are predefined in attributes. The contact will store
+        /// only valid and predefined values for the predefined attribute key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AttributeConfiguration_EnableValueValidationOnAssociation { get; set; }
+        #endregion
         
         #region Parameter InstanceId
         /// <summary>
@@ -79,6 +108,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Purpose
+        /// <summary>
+        /// <para>
+        /// <para>Values that enable you to categorize your predefined attributes. You can use them
+        /// in custom UI elements across the Amazon Connect admin website.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Purposes")]
+        public System.String[] Purpose { get; set; }
         #endregion
         
         #region Parameter Values_StringList
@@ -152,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AttributeConfiguration_EnableValueValidationOnAssociation = this.AttributeConfiguration_EnableValueValidationOnAssociation;
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
@@ -166,6 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Purpose != null)
+            {
+                context.Purpose = new List<System.String>(this.Purpose);
+            }
             if (this.Values_StringList != null)
             {
                 context.Values_StringList = new List<System.String>(this.Values_StringList);
@@ -186,6 +232,25 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             // create request
             var request = new Amazon.Connect.Model.CreatePredefinedAttributeRequest();
             
+            
+             // populate AttributeConfiguration
+            var requestAttributeConfigurationIsNull = true;
+            request.AttributeConfiguration = new Amazon.Connect.Model.InputPredefinedAttributeConfiguration();
+            System.Boolean? requestAttributeConfiguration_attributeConfiguration_EnableValueValidationOnAssociation = null;
+            if (cmdletContext.AttributeConfiguration_EnableValueValidationOnAssociation != null)
+            {
+                requestAttributeConfiguration_attributeConfiguration_EnableValueValidationOnAssociation = cmdletContext.AttributeConfiguration_EnableValueValidationOnAssociation.Value;
+            }
+            if (requestAttributeConfiguration_attributeConfiguration_EnableValueValidationOnAssociation != null)
+            {
+                request.AttributeConfiguration.EnableValueValidationOnAssociation = requestAttributeConfiguration_attributeConfiguration_EnableValueValidationOnAssociation.Value;
+                requestAttributeConfigurationIsNull = false;
+            }
+             // determine if request.AttributeConfiguration should be set to null
+            if (requestAttributeConfigurationIsNull)
+            {
+                request.AttributeConfiguration = null;
+            }
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
@@ -194,8 +259,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.Purpose != null)
+            {
+                request.Purposes = cmdletContext.Purpose;
+            }
             
              // populate Values
+            var requestValuesIsNull = true;
             request.Values = new Amazon.Connect.Model.PredefinedAttributeValues();
             List<System.String> requestValues_values_StringList = null;
             if (cmdletContext.Values_StringList != null)
@@ -205,6 +275,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestValues_values_StringList != null)
             {
                 request.Values.StringList = requestValues_values_StringList;
+                requestValuesIsNull = false;
+            }
+             // determine if request.Values should be set to null
+            if (requestValuesIsNull)
+            {
+                request.Values = null;
             }
             
             CmdletOutput output;
@@ -267,8 +343,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AttributeConfiguration_EnableValueValidationOnAssociation { get; set; }
             public System.String InstanceId { get; set; }
             public System.String Name { get; set; }
+            public List<System.String> Purpose { get; set; }
             public List<System.String> Values_StringList { get; set; }
             public System.Func<Amazon.Connect.Model.CreatePredefinedAttributeResponse, NewCONNPredefinedAttributeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

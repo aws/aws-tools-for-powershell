@@ -165,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Alias), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-WMOrganization (CreateOrganization)"))
             {
                 return;

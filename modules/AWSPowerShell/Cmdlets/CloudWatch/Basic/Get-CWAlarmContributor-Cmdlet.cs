@@ -22,29 +22,32 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Schemas;
-using Amazon.Schemas.Model;
+using Amazon.CloudWatch;
+using Amazon.CloudWatch.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SCHM
+namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
-    /// The name of the policy.
+    /// Returns the information of the current alarm contributors that are in <c>ALARM</c>
+    /// state. This operation returns details about the individual time series that contribute
+    /// to the alarm's state.
     /// </summary>
-    [Cmdlet("Write", "SCHMResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Schemas.Model.PutResourcePolicyResponse")]
-    [AWSCmdlet("Calls the Amazon EventBridge Schema Registry PutResourcePolicy API operation.", Operation = new[] {"PutResourcePolicy"}, SelectReturnType = typeof(Amazon.Schemas.Model.PutResourcePolicyResponse))]
-    [AWSCmdletOutput("Amazon.Schemas.Model.PutResourcePolicyResponse",
-        "This cmdlet returns an Amazon.Schemas.Model.PutResourcePolicyResponse object containing multiple properties."
+    [Cmdlet("Get", "CWAlarmContributor")]
+    [OutputType("Amazon.CloudWatch.Model.AlarmContributor")]
+    [AWSCmdlet("Calls the Amazon CloudWatch DescribeAlarmContributors API operation.", Operation = new[] {"DescribeAlarmContributors"}, SelectReturnType = typeof(Amazon.CloudWatch.Model.DescribeAlarmContributorsResponse))]
+    [AWSCmdletOutput("Amazon.CloudWatch.Model.AlarmContributor or Amazon.CloudWatch.Model.DescribeAlarmContributorsResponse",
+        "This cmdlet returns a collection of Amazon.CloudWatch.Model.AlarmContributor objects.",
+        "The service call response (type Amazon.CloudWatch.Model.DescribeAlarmContributorsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class WriteSCHMResourcePolicyCmdlet : AmazonSchemasClientCmdlet, IExecutor
+    public partial class GetCWAlarmContributorCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Policy
+        #region Parameter AlarmName
         /// <summary>
         /// <para>
-        /// <para>The resource-based policy.</para>
+        /// <para>The name of the alarm for which to retrieve contributor information.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -55,70 +58,44 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Policy { get; set; }
+        public System.String AlarmName { get; set; }
         #endregion
         
-        #region Parameter RegistryName
+        #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The name of the registry.</para>
+        /// <para>The token returned by a previous call to indicate that there is more data available.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String RegistryName { get; set; }
-        #endregion
-        
-        #region Parameter RevisionId
-        /// <summary>
-        /// <para>
-        /// <para>The revision ID of the policy.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String RevisionId { get; set; }
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Schemas.Model.PutResourcePolicyResponse).
-        /// Specifying the name of a property of type Amazon.Schemas.Model.PutResourcePolicyResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AlarmContributors'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatch.Model.DescribeAlarmContributorsResponse).
+        /// Specifying the name of a property of type Amazon.CloudWatch.Model.DescribeAlarmContributorsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "AlarmContributors";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Policy parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Policy' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AlarmName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AlarmName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Policy' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AlarmName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Policy), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-SCHMResourcePolicy (PutResourcePolicy)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -128,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Schemas.Model.PutResourcePolicyResponse, WriteSCHMResourcePolicyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudWatch.Model.DescribeAlarmContributorsResponse, GetCWAlarmContributorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -137,18 +114,17 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Policy;
+                context.Select = (response, cmdlet) => this.AlarmName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Policy = this.Policy;
+            context.AlarmName = this.AlarmName;
             #if MODULAR
-            if (this.Policy == null && ParameterWasBound(nameof(this.Policy)))
+            if (this.AlarmName == null && ParameterWasBound(nameof(this.AlarmName)))
             {
-                WriteWarning("You are passing $null as a value for parameter Policy which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AlarmName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.RegistryName = this.RegistryName;
-            context.RevisionId = this.RevisionId;
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -163,19 +139,15 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Schemas.Model.PutResourcePolicyRequest();
+            var request = new Amazon.CloudWatch.Model.DescribeAlarmContributorsRequest();
             
-            if (cmdletContext.Policy != null)
+            if (cmdletContext.AlarmName != null)
             {
-                request.Policy = cmdletContext.Policy;
+                request.AlarmName = cmdletContext.AlarmName;
             }
-            if (cmdletContext.RegistryName != null)
+            if (cmdletContext.NextToken != null)
             {
-                request.RegistryName = cmdletContext.RegistryName;
-            }
-            if (cmdletContext.RevisionId != null)
-            {
-                request.RevisionId = cmdletContext.RevisionId;
+                request.NextToken = cmdletContext.NextToken;
             }
             
             CmdletOutput output;
@@ -210,15 +182,15 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
         
         #region AWS Service Operation Call
         
-        private Amazon.Schemas.Model.PutResourcePolicyResponse CallAWSServiceOperation(IAmazonSchemas client, Amazon.Schemas.Model.PutResourcePolicyRequest request)
+        private Amazon.CloudWatch.Model.DescribeAlarmContributorsResponse CallAWSServiceOperation(IAmazonCloudWatch client, Amazon.CloudWatch.Model.DescribeAlarmContributorsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EventBridge Schema Registry", "PutResourcePolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch", "DescribeAlarmContributors");
             try
             {
                 #if DESKTOP
-                return client.PutResourcePolicy(request);
+                return client.DescribeAlarmContributors(request);
                 #elif CORECLR
-                return client.PutResourcePolicyAsync(request).GetAwaiter().GetResult();
+                return client.DescribeAlarmContributorsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -238,11 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Policy { get; set; }
-            public System.String RegistryName { get; set; }
-            public System.String RevisionId { get; set; }
-            public System.Func<Amazon.Schemas.Model.PutResourcePolicyResponse, WriteSCHMResourcePolicyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String AlarmName { get; set; }
+            public System.String NextToken { get; set; }
+            public System.Func<Amazon.CloudWatch.Model.DescribeAlarmContributorsResponse, GetCWAlarmContributorCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AlarmContributors;
         }
         
     }

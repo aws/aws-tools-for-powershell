@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </para><para>
     /// You can enable a policy type in a root only if that policy type is available in the
     /// organization. To view the status of available policy types in the organization, use
-    /// <a>DescribeOrganization</a>.
+    /// <a>ListRoots</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Enable", "ORGPolicyType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

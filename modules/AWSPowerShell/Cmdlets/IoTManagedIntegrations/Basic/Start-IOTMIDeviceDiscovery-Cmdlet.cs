@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DiscoveryType), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-IOTMIDeviceDiscovery (StartDeviceDiscovery)"))
             {
                 return;

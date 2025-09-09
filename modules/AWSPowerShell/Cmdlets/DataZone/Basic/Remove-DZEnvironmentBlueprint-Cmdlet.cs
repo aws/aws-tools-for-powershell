@@ -28,51 +28,24 @@ using Amazon.DataZone.Model;
 namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Updates the business glossary in Amazon DataZone.
-    /// 
-    ///  
-    /// <para>
-    /// Prerequisites:
-    /// </para><ul><li><para>
-    /// The glossary must exist in the given domain. 
-    /// </para></li><li><para>
-    /// The caller must have the <c>datazone:UpdateGlossary</c> permission to update it.
-    /// </para></li><li><para>
-    /// When updating the name, the new name must be unique within the domain.
-    /// </para></li><li><para>
-    /// The glossary must not be deleted or in a terminal state.
-    /// </para></li></ul>
+    /// Deletes a blueprint in Amazon DataZone.
     /// </summary>
-    [Cmdlet("Update", "DZGlossary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DataZone.Model.UpdateGlossaryResponse")]
-    [AWSCmdlet("Calls the Amazon DataZone UpdateGlossary API operation.", Operation = new[] {"UpdateGlossary"}, SelectReturnType = typeof(Amazon.DataZone.Model.UpdateGlossaryResponse))]
-    [AWSCmdletOutput("Amazon.DataZone.Model.UpdateGlossaryResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.UpdateGlossaryResponse object containing multiple properties."
+    [Cmdlet("Remove", "DZEnvironmentBlueprint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon DataZone DeleteEnvironmentBlueprint API operation.", Operation = new[] {"DeleteEnvironmentBlueprint"}, SelectReturnType = typeof(Amazon.DataZone.Model.DeleteEnvironmentBlueprintResponse))]
+    [AWSCmdletOutput("None or Amazon.DataZone.Model.DeleteEnvironmentBlueprintResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.DataZone.Model.DeleteEnvironmentBlueprintResponse) be returned by specifying '-Select *'."
     )]
-    public partial class UpdateDZGlossaryCmdlet : AmazonDataZoneClientCmdlet, IExecutor
+    public partial class RemoveDZEnvironmentBlueprintCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        
-        #region Parameter Description
-        /// <summary>
-        /// <para>
-        /// <para>The description to be updated as part of the <c>UpdateGlossary</c> action.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
-        #endregion
         
         #region Parameter DomainIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon DataZone domain in which a business glossary is to be
-        /// updated.</para>
+        /// <para>The ID of the Amazon DataZone domain in which the blueprint is deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,13 +62,13 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the business glossary to be updated.</para>
+        /// <para>The ID of the blueprint that is deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -103,57 +76,14 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String Identifier { get; set; }
         #endregion
         
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>The name to be updated as part of the <c>UpdateGlossary</c> action.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter Status
-        /// <summary>
-        /// <para>
-        /// <para>The status to be updated as part of the <c>UpdateGlossary</c> action.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.DataZone.GlossaryStatus")]
-        public Amazon.DataZone.GlossaryStatus Status { get; set; }
-        #endregion
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A unique, case-sensitive identifier that is provided to ensure the idempotency of
-        /// the request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.UpdateGlossaryResponse).
-        /// Specifying the name of a property of type Amazon.DataZone.Model.UpdateGlossaryResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.DeleteEnvironmentBlueprintResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Identifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -172,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Identifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-DZGlossary (UpdateGlossary)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DZEnvironmentBlueprint (DeleteEnvironmentBlueprint)"))
             {
                 return;
             }
@@ -182,23 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.UpdateGlossaryResponse, UpdateDZGlossaryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.DeleteEnvironmentBlueprintResponse, RemoveDZEnvironmentBlueprintCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.Identifier;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClientToken = this.ClientToken;
-            context.Description = this.Description;
             context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
             if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
@@ -213,8 +131,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Name = this.Name;
-            context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -229,16 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataZone.Model.UpdateGlossaryRequest();
+            var request = new Amazon.DataZone.Model.DeleteEnvironmentBlueprintRequest();
             
-            if (cmdletContext.ClientToken != null)
-            {
-                request.ClientToken = cmdletContext.ClientToken;
-            }
-            if (cmdletContext.Description != null)
-            {
-                request.Description = cmdletContext.Description;
-            }
             if (cmdletContext.DomainIdentifier != null)
             {
                 request.DomainIdentifier = cmdletContext.DomainIdentifier;
@@ -246,14 +154,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.Identifier != null)
             {
                 request.Identifier = cmdletContext.Identifier;
-            }
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
-            }
-            if (cmdletContext.Status != null)
-            {
-                request.Status = cmdletContext.Status;
             }
             
             CmdletOutput output;
@@ -288,15 +188,15 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region AWS Service Operation Call
         
-        private Amazon.DataZone.Model.UpdateGlossaryResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.UpdateGlossaryRequest request)
+        private Amazon.DataZone.Model.DeleteEnvironmentBlueprintResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.DeleteEnvironmentBlueprintRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "UpdateGlossary");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "DeleteEnvironmentBlueprint");
             try
             {
                 #if DESKTOP
-                return client.UpdateGlossary(request);
+                return client.DeleteEnvironmentBlueprint(request);
                 #elif CORECLR
-                return client.UpdateGlossaryAsync(request).GetAwaiter().GetResult();
+                return client.DeleteEnvironmentBlueprintAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -316,14 +216,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
-            public System.String Description { get; set; }
             public System.String DomainIdentifier { get; set; }
             public System.String Identifier { get; set; }
-            public System.String Name { get; set; }
-            public Amazon.DataZone.GlossaryStatus Status { get; set; }
-            public System.Func<Amazon.DataZone.Model.UpdateGlossaryResponse, UpdateDZGlossaryCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.DataZone.Model.DeleteEnvironmentBlueprintResponse, RemoveDZEnvironmentBlueprintCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

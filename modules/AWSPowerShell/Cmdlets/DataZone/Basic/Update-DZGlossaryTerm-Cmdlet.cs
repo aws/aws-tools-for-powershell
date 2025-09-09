@@ -29,6 +29,19 @@ namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
     /// Updates a business glossary term in Amazon DataZone.
+    /// 
+    ///  
+    /// <para>
+    /// Prerequisites:
+    /// </para><ul><li><para>
+    /// Glossary term must exist in the specified domain. 
+    /// </para></li><li><para>
+    /// New name must not conflict with existing terms in the same glossary.
+    /// </para></li><li><para>
+    /// User must have permissions on the term.
+    /// </para></li><li><para>
+    /// The term must not be in DELETED status.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Update", "DZGlossaryTerm", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DataZone.Model.UpdateGlossaryTermResponse")]

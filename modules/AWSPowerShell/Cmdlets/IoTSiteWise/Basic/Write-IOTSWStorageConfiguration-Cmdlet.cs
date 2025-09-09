@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.StorageType), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-IOTSWStorageConfiguration (PutStorageConfiguration)"))
             {
                 return;

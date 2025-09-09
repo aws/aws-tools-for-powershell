@@ -29,6 +29,26 @@ namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
     /// Creates an Amazon DataZone business glossary.
+    /// 
+    ///  
+    /// <para>
+    /// Specifies that this is a create glossary policy.
+    /// </para><para>
+    /// A glossary serves as the central repository for business terminology and definitions
+    /// within an organization. It helps establish and maintain a common language across different
+    /// departments and teams, reducing miscommunication and ensuring consistent interpretation
+    /// of business concepts. Glossaries can include hierarchical relationships between terms,
+    /// cross-references, and links to actual data assets, making them invaluable for both
+    /// business users and technical teams trying to understand and use data correctly.
+    /// </para><para>
+    /// Prerequisites:
+    /// </para><ul><li><para>
+    /// Domain must exist and be in an active state. 
+    /// </para></li><li><para>
+    /// Owning project must exist and be accessible by the caller.
+    /// </para></li><li><para>
+    /// The glossary name must be unique within the domain.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "DZGlossary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DataZone.Model.CreateGlossaryResponse")]

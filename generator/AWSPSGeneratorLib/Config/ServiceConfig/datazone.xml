@@ -103,6 +103,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateEnvironmentBlueprint" OutputProperty="*" Verb="New" Noun="EnvironmentBlueprint" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateEnvironmentProfile" OutputProperty="*" Verb="New" Noun="EnvironmentProfile" ShouldProcessTarget="EnvironmentBlueprintIdentifier" PipelineParameter="EnvironmentBlueprintIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -208,6 +212,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteEnvironmentAction" Verb="Remove" Noun="EnvironmentAction" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEnvironmentBlueprint" Verb="Remove" Noun="EnvironmentBlueprint" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -657,6 +665,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEnvironmentAction" OutputProperty="*" Verb="Update" Noun="EnvironmentAction" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEnvironmentBlueprint" OutputProperty="*" Verb="Update" Noun="EnvironmentBlueprint" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -29,6 +29,18 @@ namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
     /// Deletes an asset in Amazon DataZone.
+    /// 
+    ///  <ul><li><para>
+    /// --domain-identifier must refer to a valid and existing domain. 
+    /// </para></li><li><para>
+    /// --identifier must refer to an existing asset in the specified domain.
+    /// </para></li><li><para>
+    /// Asset must not be referenced in any existing asset filters.
+    /// </para></li><li><para>
+    /// Asset must not be linked to any draft or published data product.
+    /// </para></li><li><para>
+    /// User must have delete permissions for the domain and project.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "DZAsset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

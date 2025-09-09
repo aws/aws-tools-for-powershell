@@ -29,6 +29,26 @@ namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
     /// Gets an Amazon DataZone asset.
+    /// 
+    ///  
+    /// <para>
+    /// An asset is the fundamental building block in Amazon DataZone, representing any data
+    /// resource that needs to be cataloged and managed. It can take many forms, from Amazon
+    /// S3 buckets and database tables to dashboards and machine learning models. Each asset
+    /// contains comprehensive metadata about the resource, including its location, schema,
+    /// ownership, and lineage information. Assets are essential for organizing and managing
+    /// data resources across an organization, making them discoverable and usable while maintaining
+    /// proper governance.
+    /// </para><para>
+    /// Before using the Amazon DataZone GetAsset command, ensure the following prerequisites
+    /// are met:
+    /// </para><ul><li><para>
+    /// Domain identifier must exist and be valid
+    /// </para></li><li><para>
+    /// Asset identifier must exist
+    /// </para></li><li><para>
+    /// User must have the required permissions to perform the action
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "DZAsset")]
     [OutputType("Amazon.DataZone.Model.GetAssetResponse")]

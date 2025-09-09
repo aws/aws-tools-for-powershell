@@ -28,7 +28,21 @@ using Amazon.DataZone.Model;
 namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Lists the revisions for the asset.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the revisions for the asset.
+    /// 
+    ///  
+    /// <para>
+    /// Prerequisites:
+    /// </para><ul><li><para>
+    /// The asset must exist in the domain. 
+    /// </para></li><li><para>
+    /// There must be at least one revision of the asset (which happens automatically after
+    /// creation).
+    /// </para></li><li><para>
+    /// The domain must be valid and active.
+    /// </para></li><li><para>
+    /// User must have permissions on the asset and domain.
+    /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DZAssetRevisionList")]
     [OutputType("Amazon.DataZone.Model.AssetRevision")]

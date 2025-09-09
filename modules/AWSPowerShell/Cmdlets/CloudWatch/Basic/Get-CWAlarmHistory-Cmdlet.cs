@@ -54,6 +54,17 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AlarmContributorId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of a specific alarm contributor to filter the alarm history
+        /// results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AlarmContributorId { get; set; }
+        #endregion
+        
         #region Parameter AlarmName
         /// <summary>
         /// <para>
@@ -240,6 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 context.Select = (response, cmdlet) => this.AlarmName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AlarmContributorId = this.AlarmContributorId;
             context.AlarmName = this.AlarmName;
             if (this.AlarmType != null)
             {
@@ -287,6 +299,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             // create request and set iteration invariants
             var request = new Amazon.CloudWatch.Model.DescribeAlarmHistoryRequest();
             
+            if (cmdletContext.AlarmContributorId != null)
+            {
+                request.AlarmContributorId = cmdletContext.AlarmContributorId;
+            }
             if (cmdletContext.AlarmName != null)
             {
                 request.AlarmName = cmdletContext.AlarmName;
@@ -390,6 +406,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             
             // create request and set iteration invariants
             var request = new Amazon.CloudWatch.Model.DescribeAlarmHistoryRequest();
+            if (cmdletContext.AlarmContributorId != null)
+            {
+                request.AlarmContributorId = cmdletContext.AlarmContributorId;
+            }
             if (cmdletContext.AlarmName != null)
             {
                 request.AlarmName = cmdletContext.AlarmName;
@@ -553,6 +573,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AlarmContributorId { get; set; }
             public System.String AlarmName { get; set; }
             public List<System.String> AlarmType { get; set; }
             public System.DateTime? UtcEndDate { get; set; }

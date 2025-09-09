@@ -103,6 +103,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String EnvironmentRolePermissionBoundary { get; set; }
         #endregion
         
+        #region Parameter GlobalParameter
+        /// <summary>
+        /// <para>
+        /// <para>Region-agnostic environment blueprint parameters. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("GlobalParameters")]
+        public System.Collections.Hashtable GlobalParameter { get; set; }
+        #endregion
+        
         #region Parameter ManageAccessRoleArn
         /// <summary>
         /// <para>
@@ -232,6 +243,14 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             #endif
             context.EnvironmentRolePermissionBoundary = this.EnvironmentRolePermissionBoundary;
+            if (this.GlobalParameter != null)
+            {
+                context.GlobalParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.GlobalParameter.Keys)
+                {
+                    context.GlobalParameter.Add((String)hashKey, (System.String)(this.GlobalParameter[hashKey]));
+                }
+            }
             context.ManageAccessRoleArn = this.ManageAccessRoleArn;
             if (this.ProvisioningConfiguration != null)
             {
@@ -277,6 +296,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.EnvironmentRolePermissionBoundary != null)
             {
                 request.EnvironmentRolePermissionBoundary = cmdletContext.EnvironmentRolePermissionBoundary;
+            }
+            if (cmdletContext.GlobalParameter != null)
+            {
+                request.GlobalParameters = cmdletContext.GlobalParameter;
             }
             if (cmdletContext.ManageAccessRoleArn != null)
             {
@@ -359,6 +382,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public List<System.String> EnabledRegion { get; set; }
             public System.String EnvironmentBlueprintIdentifier { get; set; }
             public System.String EnvironmentRolePermissionBoundary { get; set; }
+            public Dictionary<System.String, System.String> GlobalParameter { get; set; }
             public System.String ManageAccessRoleArn { get; set; }
             public List<Amazon.DataZone.Model.ProvisioningConfiguration> ProvisioningConfiguration { get; set; }
             public System.String ProvisioningRoleArn { get; set; }

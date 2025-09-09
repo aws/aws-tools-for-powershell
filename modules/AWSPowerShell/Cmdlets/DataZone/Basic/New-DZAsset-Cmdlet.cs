@@ -29,6 +29,24 @@ namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
     /// Creates an asset in Amazon DataZone catalog.
+    /// 
+    ///  
+    /// <para>
+    /// Before creating assets, make sure that the following requirements are met:
+    /// </para><ul><li><para><c>--domain-identifier</c> must refer to an existing domain.
+    /// </para></li><li><para><c>--owning-project-identifier</c> must be a valid project within the domain.
+    /// </para></li><li><para>
+    /// Asset type must be created beforehand using <c>create-asset-type</c>, or be a supported
+    /// system-defined type. For more information, see <a href="https://docs.aws.amazon.com/cli/latest/reference/datazone/create-asset-type.html">create-asset-type</a>.
+    /// </para></li><li><para><c>--type-revision</c> (if used) must match a valid revision of the asset type.
+    /// </para></li><li><para>
+    /// Form type must exist and be associated with the asset type. Use <c>create-form-type</c>
+    /// to define. For more information, see <a href="https://docs.aws.amazon.com/cli/latest/reference/datazone/create-form-type.html">create-form-type</a>.
+    /// </para></li><li><para>
+    /// Form content must include all required fields as per the form schema (e.g., <c>bucketArn</c>).
+    /// </para></li></ul><para>
+    /// You must invoke the following pre-requisite commands before invoking this API:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateFormType.html">CreateFormType</a></para></li><li><para><a href="https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateAssetType.html">CreateAssetType</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "DZAsset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DataZone.Model.CreateAssetResponse")]

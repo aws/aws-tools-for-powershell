@@ -257,7 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ReplicationConfigurationTemplateID), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-EDRSReplicationConfigurationTemplate (UpdateReplicationConfigurationTemplate)"))
             {
                 return;

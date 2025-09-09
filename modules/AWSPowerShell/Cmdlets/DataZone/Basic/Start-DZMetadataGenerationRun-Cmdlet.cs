@@ -29,6 +29,22 @@ namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
     /// Starts the metadata generation run.
+    /// 
+    ///  
+    /// <para>
+    /// Prerequisites:
+    /// </para><ul><li><para>
+    /// Asset must be created and belong to the specified domain and project. 
+    /// </para></li><li><para>
+    /// Asset type must be supported for metadata generation (e.g., Amazon Web Services Glue
+    /// table).
+    /// </para></li><li><para>
+    /// Asset must have a structured schema with valid rows and columns.
+    /// </para></li><li><para>
+    /// Valid values for --type: BUSINESS_DESCRIPTIONS, BUSINESS_NAMES.
+    /// </para></li><li><para>
+    /// The user must have permission to run metadata generation in the domain/project.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Start", "DZMetadataGenerationRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DataZone.Model.StartMetadataGenerationRunResponse")]

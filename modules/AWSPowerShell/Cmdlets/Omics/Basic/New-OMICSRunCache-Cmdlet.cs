@@ -178,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CacheS3Location), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-OMICSRunCache (CreateRunCache)"))
             {
                 return;

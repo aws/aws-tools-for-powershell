@@ -440,6 +440,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.AppInstanceType DefaultResourceSpec_InstanceType { get; set; }
         #endregion
         
+        #region Parameter DomainSettings_IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address type for the domain. Specify <c>ipv4</c> for IPv4-only connectivity
+        /// or <c>dualstack</c> for both IPv4 and IPv6 connectivity. When you specify <c>dualstack</c>,
+        /// the subnet must support IPv6 CIDR blocks. If not specified, defaults to <c>ipv4</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.IPAddressType")]
+        public Amazon.SageMaker.IPAddressType DomainSettings_IpAddressType { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
@@ -1098,6 +1111,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.DockerSettings_VpcOnlyTrustedAccount = new List<System.String>(this.DockerSettings_VpcOnlyTrustedAccount);
             }
             context.DomainSettings_ExecutionRoleIdentityConfig = this.DomainSettings_ExecutionRoleIdentityConfig;
+            context.DomainSettings_IpAddressType = this.DomainSettings_IpAddressType;
             context.DefaultResourceSpec_InstanceType = this.DefaultResourceSpec_InstanceType;
             context.DefaultResourceSpec_LifecycleConfigArn = this.DefaultResourceSpec_LifecycleConfigArn;
             context.DefaultResourceSpec_SageMakerImageArn = this.DefaultResourceSpec_SageMakerImageArn;
@@ -1732,6 +1746,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.DomainSettings.ExecutionRoleIdentityConfig = requestDomainSettings_domainSettings_ExecutionRoleIdentityConfig;
                 requestDomainSettingsIsNull = false;
             }
+            Amazon.SageMaker.IPAddressType requestDomainSettings_domainSettings_IpAddressType = null;
+            if (cmdletContext.DomainSettings_IpAddressType != null)
+            {
+                requestDomainSettings_domainSettings_IpAddressType = cmdletContext.DomainSettings_IpAddressType;
+            }
+            if (requestDomainSettings_domainSettings_IpAddressType != null)
+            {
+                request.DomainSettings.IpAddressType = requestDomainSettings_domainSettings_IpAddressType;
+                requestDomainSettingsIsNull = false;
+            }
             List<System.String> requestDomainSettings_domainSettings_SecurityGroupId = null;
             if (cmdletContext.DomainSettings_SecurityGroupId != null)
             {
@@ -2191,6 +2215,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.FeatureStatus DockerSettings_RootlessDocker { get; set; }
             public List<System.String> DockerSettings_VpcOnlyTrustedAccount { get; set; }
             public Amazon.SageMaker.ExecutionRoleIdentityConfig DomainSettings_ExecutionRoleIdentityConfig { get; set; }
+            public Amazon.SageMaker.IPAddressType DomainSettings_IpAddressType { get; set; }
             public Amazon.SageMaker.AppInstanceType DefaultResourceSpec_InstanceType { get; set; }
             public System.String DefaultResourceSpec_LifecycleConfigArn { get; set; }
             public System.String DefaultResourceSpec_SageMakerImageArn { get; set; }

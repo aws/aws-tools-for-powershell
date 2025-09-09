@@ -1,4 +1,23 @@
-﻿### 4.1.895 (2025-09-08 20:42Z)
+﻿### 4.1.896 (2025-09-09 20:22Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1119.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Auto Scaling
+    * Modified cmdlet Stop-ASInstanceRefresh: added parameter WaitForTransitioningInstance.
+  * Amazon CloudWatch
+    * Added cmdlet Get-CWAlarmContributor leveraging the DescribeAlarmContributors service API.
+    * Modified cmdlet Get-CWAlarmHistory: added parameter AlarmContributorId.
+  * Amazon Connect Service
+    * Modified cmdlet New-CONNPredefinedAttribute: added parameters AttributeConfiguration_EnableValueValidationOnAssociation and Purpose.
+    * Modified cmdlet Update-CONNPredefinedAttribute: added parameters AttributeConfiguration_EnableValueValidationOnAssociation and Purpose.
+  * Amazon DataZone
+    * Added cmdlet New-DZEnvironmentBlueprint leveraging the CreateEnvironmentBlueprint service API.
+    * Added cmdlet Remove-DZEnvironmentBlueprint leveraging the DeleteEnvironmentBlueprint service API.
+    * Added cmdlet Update-DZEnvironmentBlueprint leveraging the UpdateEnvironmentBlueprint service API.
+    * Modified cmdlet Write-DZEnvironmentBlueprintConfiguration: added parameter GlobalParameter.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMDomain: added parameter DomainSettings_IpAddressType.
+    * Modified cmdlet Update-SMDomain: added parameter DomainSettingsForUpdate_IpAddressType.
+
+### 4.1.895 (2025-09-08 20:42Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1118.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon IoT SiteWise
     * Modified cmdlet Get-IOTSWComputationModel: added parameter ComputationModelVersion.

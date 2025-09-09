@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// This operation can be called only from the organization's management account or by
     /// a member account that is a delegated administrator.
     /// </para><para>
-    ///  To view the status of available policy types in the organization, use <a>DescribeOrganization</a>.
+    ///  To view the status of available policy types in the organization, use <a>ListRoots</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Disable", "ORGPolicyType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -94,6 +94,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Enable-CWAlarmAction', 
         'Enable-CWInsightRule', 
         'Get-CWAlarm', 
+        'Get-CWAlarmContributor', 
         'Get-CWAlarmForMetric', 
         'Get-CWAlarmHistory', 
         'Get-CWAnomalyDetector', 

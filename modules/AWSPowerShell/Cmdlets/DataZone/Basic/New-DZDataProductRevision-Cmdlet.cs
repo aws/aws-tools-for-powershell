@@ -29,6 +29,19 @@ namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
     /// Creates a data product revision.
+    /// 
+    ///  
+    /// <para>
+    /// Prerequisites:
+    /// </para><ul><li><para>
+    /// The original data product must exist in the given domain. 
+    /// </para></li><li><para>
+    /// User must have permissions on the data product.
+    /// </para></li><li><para>
+    /// The domain must be valid and accessible.
+    /// </para></li><li><para>
+    /// The new revision name must comply with naming constraints (if required).
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "DZDataProductRevision", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DataZone.Model.CreateDataProductRevisionResponse")]

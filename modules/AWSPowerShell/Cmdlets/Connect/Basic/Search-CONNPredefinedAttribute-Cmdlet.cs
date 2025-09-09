@@ -28,10 +28,23 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Searches predefined attributes that meet certain criteria. <i>Predefined attributes</i>
-    /// are attributes in an Amazon Connect instance that can be used to route contacts to
-    /// an agent or pools of agents within a queue. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html">Create
-    /// predefined attributes for routing contacts to agents</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Searches predefined attributes that meet certain criteria. A <i>predefined attribute</i>
+    /// is made up of a name and a value. You can use predefined attributes for:
+    /// 
+    ///  <ul><li><para>
+    /// Routing proficiency (for example, agent certification) that has predefined values
+    /// (for example, a list of possible certifications). For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html">Create
+    /// predefined attributes for routing contacts to agents</a>.
+    /// </para></li><li><para>
+    /// Contact information that varies between transfers or conferences, such as the name
+    /// of the business unit handling the contact. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/use-contact-segment-attributes.html">Use
+    /// contact segment attributes</a>.
+    /// </para></li></ul><para>
+    /// For the predefined attributes per instance quota, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas">Amazon
+    /// Connect quotas</a>.
+    /// </para><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon
+    /// Connect endpoints and quotas</a>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Search", "CONNPredefinedAttribute")]
     [OutputType("Amazon.Connect.Model.SearchPredefinedAttributesResponse")]

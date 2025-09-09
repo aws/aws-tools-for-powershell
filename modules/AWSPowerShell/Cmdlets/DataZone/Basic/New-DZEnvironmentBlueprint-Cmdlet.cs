@@ -28,28 +28,15 @@ using Amazon.DataZone.Model;
 namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Updates the business glossary in Amazon DataZone.
-    /// 
-    ///  
-    /// <para>
-    /// Prerequisites:
-    /// </para><ul><li><para>
-    /// The glossary must exist in the given domain. 
-    /// </para></li><li><para>
-    /// The caller must have the <c>datazone:UpdateGlossary</c> permission to update it.
-    /// </para></li><li><para>
-    /// When updating the name, the new name must be unique within the domain.
-    /// </para></li><li><para>
-    /// The glossary must not be deleted or in a terminal state.
-    /// </para></li></ul>
+    /// Creates a Amazon DataZone blueprint.
     /// </summary>
-    [Cmdlet("Update", "DZGlossary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DataZone.Model.UpdateGlossaryResponse")]
-    [AWSCmdlet("Calls the Amazon DataZone UpdateGlossary API operation.", Operation = new[] {"UpdateGlossary"}, SelectReturnType = typeof(Amazon.DataZone.Model.UpdateGlossaryResponse))]
-    [AWSCmdletOutput("Amazon.DataZone.Model.UpdateGlossaryResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.UpdateGlossaryResponse object containing multiple properties."
+    [Cmdlet("New", "DZEnvironmentBlueprint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.DataZone.Model.CreateEnvironmentBlueprintResponse")]
+    [AWSCmdlet("Calls the Amazon DataZone CreateEnvironmentBlueprint API operation.", Operation = new[] {"CreateEnvironmentBlueprint"}, SelectReturnType = typeof(Amazon.DataZone.Model.CreateEnvironmentBlueprintResponse))]
+    [AWSCmdletOutput("Amazon.DataZone.Model.CreateEnvironmentBlueprintResponse",
+        "This cmdlet returns an Amazon.DataZone.Model.CreateEnvironmentBlueprintResponse object containing multiple properties."
     )]
-    public partial class UpdateDZGlossaryCmdlet : AmazonDataZoneClientCmdlet, IExecutor
+    public partial class NewDZEnvironmentBlueprintCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {
         
         protected override bool IsSensitiveRequest { get; set; } = true;
@@ -61,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description to be updated as part of the <c>UpdateGlossary</c> action.</para>
+        /// <para>The description of the Amazon DataZone blueprint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,8 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter DomainIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon DataZone domain in which a business glossary is to be
-        /// updated.</para>
+        /// <para>The identifier of the domain in which this blueprint is created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,74 +72,55 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String DomainIdentifier { get; set; }
         #endregion
         
-        #region Parameter Identifier
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The identifier of the business glossary to be updated.</para>
+        /// <para>The name of this Amazon DataZone blueprint.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Identifier { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>The name to be updated as part of the <c>UpdateGlossary</c> action.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
         #endregion
         
-        #region Parameter Status
+        #region Parameter CloudFormation_TemplateUrl
         /// <summary>
         /// <para>
-        /// <para>The status to be updated as part of the <c>UpdateGlossary</c> action.</para>
+        /// <para>The template URL of the cloud formation provisioning properties of the environment
+        /// blueprint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.DataZone.GlossaryStatus")]
-        public Amazon.DataZone.GlossaryStatus Status { get; set; }
+        [Alias("ProvisioningProperties_CloudFormation_TemplateUrl")]
+        public System.String CloudFormation_TemplateUrl { get; set; }
         #endregion
         
-        #region Parameter ClientToken
+        #region Parameter UserParameter
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier that is provided to ensure the idempotency of
-        /// the request.</para>
+        /// <para>The user parameters of this Amazon DataZone blueprint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        [Alias("UserParameters")]
+        public Amazon.DataZone.Model.CustomParameter[] UserParameter { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.UpdateGlossaryResponse).
-        /// Specifying the name of a property of type Amazon.DataZone.Model.UpdateGlossaryResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.CreateEnvironmentBlueprintResponse).
+        /// Specifying the name of a property of type Amazon.DataZone.Model.CreateEnvironmentBlueprintResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Identifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -171,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Identifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-DZGlossary (UpdateGlossary)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DZEnvironmentBlueprint (CreateEnvironmentBlueprint)"))
             {
                 return;
             }
@@ -182,22 +149,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.UpdateGlossaryResponse, UpdateDZGlossaryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.CreateEnvironmentBlueprintResponse, NewDZEnvironmentBlueprintCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.Identifier;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
@@ -206,15 +162,18 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Identifier = this.Identifier;
+            context.Name = this.Name;
             #if MODULAR
-            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
-                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Name = this.Name;
-            context.Status = this.Status;
+            context.CloudFormation_TemplateUrl = this.CloudFormation_TemplateUrl;
+            if (this.UserParameter != null)
+            {
+                context.UserParameter = new List<Amazon.DataZone.Model.CustomParameter>(this.UserParameter);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -229,12 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataZone.Model.UpdateGlossaryRequest();
+            var request = new Amazon.DataZone.Model.CreateEnvironmentBlueprintRequest();
             
-            if (cmdletContext.ClientToken != null)
-            {
-                request.ClientToken = cmdletContext.ClientToken;
-            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -243,17 +198,40 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             {
                 request.DomainIdentifier = cmdletContext.DomainIdentifier;
             }
-            if (cmdletContext.Identifier != null)
-            {
-                request.Identifier = cmdletContext.Identifier;
-            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.Status != null)
+            
+             // populate ProvisioningProperties
+            request.ProvisioningProperties = new Amazon.DataZone.Model.ProvisioningProperties();
+            Amazon.DataZone.Model.CloudFormationProperties requestProvisioningProperties_provisioningProperties_CloudFormation = null;
+            
+             // populate CloudFormation
+            var requestProvisioningProperties_provisioningProperties_CloudFormationIsNull = true;
+            requestProvisioningProperties_provisioningProperties_CloudFormation = new Amazon.DataZone.Model.CloudFormationProperties();
+            System.String requestProvisioningProperties_provisioningProperties_CloudFormation_cloudFormation_TemplateUrl = null;
+            if (cmdletContext.CloudFormation_TemplateUrl != null)
             {
-                request.Status = cmdletContext.Status;
+                requestProvisioningProperties_provisioningProperties_CloudFormation_cloudFormation_TemplateUrl = cmdletContext.CloudFormation_TemplateUrl;
+            }
+            if (requestProvisioningProperties_provisioningProperties_CloudFormation_cloudFormation_TemplateUrl != null)
+            {
+                requestProvisioningProperties_provisioningProperties_CloudFormation.TemplateUrl = requestProvisioningProperties_provisioningProperties_CloudFormation_cloudFormation_TemplateUrl;
+                requestProvisioningProperties_provisioningProperties_CloudFormationIsNull = false;
+            }
+             // determine if requestProvisioningProperties_provisioningProperties_CloudFormation should be set to null
+            if (requestProvisioningProperties_provisioningProperties_CloudFormationIsNull)
+            {
+                requestProvisioningProperties_provisioningProperties_CloudFormation = null;
+            }
+            if (requestProvisioningProperties_provisioningProperties_CloudFormation != null)
+            {
+                request.ProvisioningProperties.CloudFormation = requestProvisioningProperties_provisioningProperties_CloudFormation;
+            }
+            if (cmdletContext.UserParameter != null)
+            {
+                request.UserParameters = cmdletContext.UserParameter;
             }
             
             CmdletOutput output;
@@ -288,15 +266,15 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region AWS Service Operation Call
         
-        private Amazon.DataZone.Model.UpdateGlossaryResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.UpdateGlossaryRequest request)
+        private Amazon.DataZone.Model.CreateEnvironmentBlueprintResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.CreateEnvironmentBlueprintRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "UpdateGlossary");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "CreateEnvironmentBlueprint");
             try
             {
                 #if DESKTOP
-                return client.UpdateGlossary(request);
+                return client.CreateEnvironmentBlueprint(request);
                 #elif CORECLR
-                return client.UpdateGlossaryAsync(request).GetAwaiter().GetResult();
+                return client.CreateEnvironmentBlueprintAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -316,13 +294,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public System.String DomainIdentifier { get; set; }
-            public System.String Identifier { get; set; }
             public System.String Name { get; set; }
-            public Amazon.DataZone.GlossaryStatus Status { get; set; }
-            public System.Func<Amazon.DataZone.Model.UpdateGlossaryResponse, UpdateDZGlossaryCmdlet, object> Select { get; set; } =
+            public System.String CloudFormation_TemplateUrl { get; set; }
+            public List<Amazon.DataZone.Model.CustomParameter> UserParameter { get; set; }
+            public System.Func<Amazon.DataZone.Model.CreateEnvironmentBlueprintResponse, NewDZEnvironmentBlueprintCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

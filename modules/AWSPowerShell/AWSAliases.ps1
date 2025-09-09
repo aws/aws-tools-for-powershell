@@ -8095,6 +8095,8 @@ Set-Alias -Name Create-DZEnvironmentAction -Value New-DZEnvironmentAction
 Set-Alias -Name DZ-CreateEnvironmentAction -Value New-DZEnvironmentAction
 Set-Alias -Name Create-DZEnvironment -Value New-DZEnvironment
 Set-Alias -Name DZ-CreateEnvironment -Value New-DZEnvironment
+Set-Alias -Name Create-DZEnvironmentBlueprint -Value New-DZEnvironmentBlueprint
+Set-Alias -Name DZ-CreateEnvironmentBlueprint -Value New-DZEnvironmentBlueprint
 Set-Alias -Name Create-DZEnvironmentProfile -Value New-DZEnvironmentProfile
 Set-Alias -Name DZ-CreateEnvironmentProfile -Value New-DZEnvironmentProfile
 Set-Alias -Name Create-DZFormType -Value New-DZFormType
@@ -8145,6 +8147,8 @@ Set-Alias -Name Delete-DZEnvironmentAction -Value Remove-DZEnvironmentAction
 Set-Alias -Name DZ-DeleteEnvironmentAction -Value Remove-DZEnvironmentAction
 Set-Alias -Name Delete-DZEnvironment -Value Remove-DZEnvironment
 Set-Alias -Name DZ-DeleteEnvironment -Value Remove-DZEnvironment
+Set-Alias -Name Delete-DZEnvironmentBlueprint -Value Remove-DZEnvironmentBlueprint
+Set-Alias -Name DZ-DeleteEnvironmentBlueprint -Value Remove-DZEnvironmentBlueprint
 Set-Alias -Name Delete-DZEnvironmentBlueprintConfiguration -Value Remove-DZEnvironmentBlueprintConfiguration
 Set-Alias -Name DZ-DeleteEnvironmentBlueprintConfiguration -Value Remove-DZEnvironmentBlueprintConfiguration
 Set-Alias -Name Delete-DZEnvironmentProfile -Value Remove-DZEnvironmentProfile
@@ -8350,6 +8354,7 @@ Set-Alias -Name DZ-UpdateDomain -Value Update-DZDomain
 Set-Alias -Name DZ-UpdateDomainUnit -Value Update-DZDomainUnit
 Set-Alias -Name DZ-UpdateEnvironmentAction -Value Update-DZEnvironmentAction
 Set-Alias -Name DZ-UpdateEnvironment -Value Update-DZEnvironment
+Set-Alias -Name DZ-UpdateEnvironmentBlueprint -Value Update-DZEnvironmentBlueprint
 Set-Alias -Name DZ-UpdateEnvironmentProfile -Value Update-DZEnvironmentProfile
 Set-Alias -Name DZ-UpdateGlossary -Value Update-DZGlossary
 Set-Alias -Name DZ-UpdateGlossaryTerm -Value Update-DZGlossaryTerm
@@ -21440,6 +21445,9 @@ Set-Alias -Name Delete-CWInsightRule -Value Remove-CWInsightRule
 Set-Alias -Name CW-DeleteInsightRules -Value Remove-CWInsightRule
 Set-Alias -Name Delete-CWMetricStream -Value Remove-CWMetricStream
 Set-Alias -Name CW-DeleteMetricStream -Value Remove-CWMetricStream
+Set-Alias -Name Describe-CWAlarmContributors -Value Get-CWAlarmContributor
+Set-Alias -Name Describe-CWAlarmContributor -Value Get-CWAlarmContributor
+Set-Alias -Name CW-DescribeAlarmContributors -Value Get-CWAlarmContributor
 Set-Alias -Name Describe-CWAlarmHistory -Value Get-CWAlarmHistory
 Set-Alias -Name CW-DescribeAlarmHistory -Value Get-CWAlarmHistory
 Set-Alias -Name Describe-CWAlarms -Value Get-CWAlarm

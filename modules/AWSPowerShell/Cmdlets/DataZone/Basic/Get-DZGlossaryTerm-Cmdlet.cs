@@ -29,6 +29,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
     /// Gets a business glossary term in Amazon DataZone.
+    /// 
+    ///  
+    /// <para>
+    /// Prerequisites:
+    /// </para><ul><li><para>
+    /// Glossary term with identifier must exist in the domain. 
+    /// </para></li><li><para>
+    /// User must have permission on the glossary term.
+    /// </para></li><li><para>
+    /// Domain must be accessible and active.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "DZGlossaryTerm")]
     [OutputType("Amazon.DataZone.Model.GetGlossaryTermResponse")]

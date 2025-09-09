@@ -29,6 +29,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
     /// Creates a metadata form type.
+    /// 
+    ///  
+    /// <para>
+    /// Prerequisites:
+    /// </para><ul><li><para>
+    /// The domain must exist and be in an <c>ENABLED</c> state. 
+    /// </para></li><li><para>
+    /// The owning project must exist and be accessible.
+    /// </para></li><li><para>
+    /// The name must be unique within the domain.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "DZFormType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DataZone.Model.CreateFormTypeResponse")]

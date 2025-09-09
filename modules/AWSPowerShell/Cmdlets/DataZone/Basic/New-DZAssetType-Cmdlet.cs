@@ -29,6 +29,23 @@ namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
     /// Creates a custom asset type.
+    /// 
+    ///  
+    /// <para>
+    /// Prerequisites:
+    /// </para><ul><li><para>
+    /// The form type with <c>typeIdentifier</c> and <c>typeRevision</c> must exist and be
+    /// published. 
+    /// </para></li><li><para>
+    /// You must have <c>CreateAssetType</c> permissions.
+    /// </para></li><li><para>
+    /// The domain-identifier and owning-project-identifier must be valid and active.
+    /// </para></li><li><para>
+    /// The name of the asset type must be unique within the domain — duplicate names will
+    /// cause failure.
+    /// </para></li><li><para>
+    /// JSON input must be valid — incorrect formatting causes Invalid JSON errors.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "DZAssetType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DataZone.Model.CreateAssetTypeResponse")]

@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ConnectionAlias), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-ESOutboundCrossClusterSearchConnection (CreateOutboundCrossClusterSearchConnection)"))
             {
                 return;

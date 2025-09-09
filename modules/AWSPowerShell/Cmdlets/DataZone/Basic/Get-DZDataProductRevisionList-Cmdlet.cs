@@ -28,7 +28,18 @@ using Amazon.DataZone.Model;
 namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Lists data product revisions.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists data product revisions.
+    /// 
+    ///  
+    /// <para>
+    /// Prerequisites:
+    /// </para><ul><li><para>
+    /// The data product ID must exist within the domain. 
+    /// </para></li><li><para>
+    /// User must have view permissions on the data product.
+    /// </para></li><li><para>
+    /// The domain must be in a valid and accessible state.
+    /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DZDataProductRevisionList")]
     [OutputType("Amazon.DataZone.Model.DataProductRevision")]

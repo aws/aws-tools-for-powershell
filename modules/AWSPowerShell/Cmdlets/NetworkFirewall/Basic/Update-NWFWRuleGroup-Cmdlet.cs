@@ -403,7 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.UpdateToken), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-NWFWRuleGroup (UpdateRuleGroup)"))
             {
                 return;

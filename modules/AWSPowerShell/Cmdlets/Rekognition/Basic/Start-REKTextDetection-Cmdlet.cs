@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Video), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-REKTextDetection (StartTextDetection)"))
             {
                 return;

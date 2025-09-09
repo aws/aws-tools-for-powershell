@@ -29,6 +29,29 @@ namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
     /// Creates a data product.
+    /// 
+    ///  
+    /// <para>
+    /// A data product is a comprehensive package that combines data assets with their associated
+    /// metadata, documentation, and access controls. It's designed to serve specific business
+    /// needs or use cases, making it easier for users to find and consume data appropriately.
+    /// Data products include important information about data quality, freshness, and usage
+    /// guidelines, effectively bridging the gap between data producers and consumers while
+    /// ensuring proper governance.
+    /// </para><para>
+    /// Prerequisites:
+    /// </para><ul><li><para>
+    /// The domain must exist and be accessible. 
+    /// </para></li><li><para>
+    /// The owning project must be valid and active.
+    /// </para></li><li><para>
+    /// The name must be unique within the domain (no existing data product with the same
+    /// name).
+    /// </para></li><li><para>
+    /// User must have create permissions for data products in the project.
+    /// </para></li><li><para>
+    /// The domain must have Amazon DataZone publishing enabled.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "DZDataProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DataZone.Model.CreateDataProductResponse")]
