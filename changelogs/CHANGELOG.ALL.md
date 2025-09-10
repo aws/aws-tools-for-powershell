@@ -1,4 +1,15 @@
-﻿### 4.1.896 (2025-09-09 20:22Z)
+﻿### 4.1.897 (2025-09-10 20:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1120.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Payment Cryptography Control Plane
+    * Added cmdlet Add-PAYCCKeyReplicationRegion leveraging the AddKeyReplicationRegions service API.
+    * Added cmdlet Disable-PAYCCDefaultKeyReplicationRegion leveraging the DisableDefaultKeyReplicationRegions service API.
+    * Added cmdlet Enable-PAYCCDefaultKeyReplicationRegion leveraging the EnableDefaultKeyReplicationRegions service API.
+    * Added cmdlet Get-PAYCCDefaultKeyReplicationRegion leveraging the GetDefaultKeyReplicationRegions service API.
+    * Added cmdlet Remove-PAYCCKeyReplicationRegion leveraging the RemoveKeyReplicationRegions service API.
+    * Modified cmdlet Import-PAYCCKey: added parameter ReplicationRegion.
+    * Modified cmdlet New-PAYCCKey: added parameter ReplicationRegion.
+
+### 4.1.896 (2025-09-09 20:22Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1119.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Auto Scaling
     * Modified cmdlet Stop-ASInstanceRefresh: added parameter WaitForTransitioningInstance.

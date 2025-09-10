@@ -44,7 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.NFM
         #region Parameter LocalResourcesToAdd
         /// <summary>
         /// <para>
-        /// <para>The local resources to add, as an array of resources with identifiers and types.</para>
+        /// <para>Additional local resources to specify network flows for a monitor, as an array of
+        /// resources with identifiers and types. A local resource in a workload is the location
+        /// of hosts where the Network Flow Monitor agent is installed. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.NFM
         #region Parameter RemoteResourcesToAdd
         /// <summary>
         /// <para>
-        /// <para>The remove resources to add, as an array of resources with identifiers and types.</para>
+        /// <para>The remote resources to add, as an array of resources with identifiers and types.</para><para>A remote resource is the other endpoint in the flow of a workload, with a local resource.
+        /// For example, Amazon Dynamo DB can be a remote resource. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.NFM
         #region Parameter RemoteResourcesToRemove
         /// <summary>
         /// <para>
-        /// <para>The remove resources to remove, as an array of resources with identifiers and types.</para>
+        /// <para>The remote resources to remove, as an array of resources with identifiers and types.</para><para>A remote resource is the other endpoint specified for the network flow of a workload,
+        /// with a local resource. For example, Amazon Dynamo DB can be a remote resource. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,8 +28,10 @@ using Amazon.PaymentCryptography.Model;
 namespace Amazon.PowerShell.Cmdlets.PAYCC
 {
     /// <summary>
-    /// Gets the key material for an Amazon Web Services Payment Cryptography key, including
-    /// the immutable and mutable data specified when the key was created.
+    /// Gets the key metadata for an Amazon Web Services Payment Cryptography key, including
+    /// the immutable and mutable attributes specified when the key was created. Returns key
+    /// metadata including attributes, state, and timestamps, but does not return the actual
+    /// cryptographic key material.
     /// 
     ///  
     /// <para><b>Cross-account use:</b> This operation can't be used across different Amazon Web

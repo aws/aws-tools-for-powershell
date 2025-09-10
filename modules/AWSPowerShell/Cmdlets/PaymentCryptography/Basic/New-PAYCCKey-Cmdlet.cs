@@ -254,6 +254,17 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public System.Boolean? KeyModesOfUse_NoRestriction { get; set; }
         #endregion
         
+        #region Parameter ReplicationRegion
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReplicationRegions")]
+        public System.String[] ReplicationRegion { get; set; }
+        #endregion
+        
         #region Parameter KeyModesOfUse_Sign
         /// <summary>
         /// <para>
@@ -422,6 +433,10 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             }
             #endif
             context.KeyCheckValueAlgorithm = this.KeyCheckValueAlgorithm;
+            if (this.ReplicationRegion != null)
+            {
+                context.ReplicationRegion = new List<System.String>(this.ReplicationRegion);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.PaymentCryptography.Model.Tag>(this.Tag);
@@ -587,6 +602,10 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             {
                 request.KeyCheckValueAlgorithm = cmdletContext.KeyCheckValueAlgorithm;
             }
+            if (cmdletContext.ReplicationRegion != null)
+            {
+                request.ReplicationRegions = cmdletContext.ReplicationRegion;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -668,6 +687,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             public System.Boolean? KeyModesOfUse_Wrap { get; set; }
             public Amazon.PaymentCryptography.KeyUsage KeyAttributes_KeyUsage { get; set; }
             public Amazon.PaymentCryptography.KeyCheckValueAlgorithm KeyCheckValueAlgorithm { get; set; }
+            public List<System.String> ReplicationRegion { get; set; }
             public List<Amazon.PaymentCryptography.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.PaymentCryptography.Model.CreateKeyResponse, NewPAYCCKeyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Key;

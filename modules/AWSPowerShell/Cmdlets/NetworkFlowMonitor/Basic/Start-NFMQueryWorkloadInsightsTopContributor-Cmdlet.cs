@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.NFM
         /// <summary>
         /// <para>
         /// <para>The destination category for a top contributors row. Destination categories can be
-        /// one of the following: </para><ul><li><para><c>INTRA_AZ</c>: Top contributor network flows within a single Availability Zone</para></li><li><para><c>INTER_AZ</c>: Top contributor network flows between Availability Zones</para></li><li><para><c>INTER_VPC</c>: Top contributor network flows between VPCs</para></li><li><para><c>AWS_SERVICES</c>: Top contributor network flows to or from Amazon Web Services
+        /// one of the following: </para><ul><li><para><c>INTRA_AZ</c>: Top contributor network flows within a single Availability Zone</para></li><li><para><c>INTER_AZ</c>: Top contributor network flows between Availability Zones</para></li><li><para><c>INTER_REGION</c>: Top contributor network flows between Regions (to the edge of
+        /// another Region)</para></li><li><para><c>INTER_VPC</c>: Top contributor network flows between VPCs</para></li><li><para><c>AWS_SERVICES</c>: Top contributor network flows to or from Amazon Web Services
         /// services</para></li><li><para><c>UNCLASSIFIED</c>: Top contributor network flows that do not have a bucket classification</para></li></ul>
         /// </para>
         /// </summary>
@@ -135,8 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.NFM
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>The timestamp that is the date and time beginning of the period that you want to retrieve
-        /// results for with your query.</para>
+        /// <para>The timestamp that is the date and time that is the beginning of the period that you
+        /// want to retrieve results for with your query.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

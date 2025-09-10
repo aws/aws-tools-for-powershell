@@ -87,7 +87,7 @@ $NFM_Completers = {
             ($_ -eq "Start-NFMQueryWorkloadInsightsTopContributorsData/DestinationCategory")
         }
         {
-            $v = "AMAZON_DYNAMODB","AMAZON_S3","INTER_AZ","INTER_VPC","INTRA_AZ","UNCLASSIFIED"
+            $v = "AMAZON_DYNAMODB","AMAZON_S3","INTER_AZ","INTER_REGION","INTER_VPC","INTRA_AZ","UNCLASSIFIED"
             break
         }
 

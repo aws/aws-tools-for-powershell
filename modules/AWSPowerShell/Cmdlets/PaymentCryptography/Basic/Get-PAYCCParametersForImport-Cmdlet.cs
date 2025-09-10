@@ -51,8 +51,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     public partial class GetPAYCCParametersForImportCmdlet : AmazonPaymentCryptographyClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter KeyMaterialType

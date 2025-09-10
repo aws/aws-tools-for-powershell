@@ -28,27 +28,32 @@ using Amazon.PaymentCryptography.Model;
 namespace Amazon.PowerShell.Cmdlets.PAYCC
 {
     /// <summary>
-    /// Gets the public key certificate of the asymmetric key pair that exists within Amazon
-    /// Web Services Payment Cryptography.
+    /// Adds replication Amazon Web Services Regions to an existing Amazon Web Services Payment
+    /// Cryptography key, enabling the key to be used for cryptographic operations in additional
+    /// Amazon Web Services Regions.
     /// 
     ///  
     /// <para>
-    /// Unlike the private key of an asymmetric key, which never leaves Amazon Web Services
-    /// Payment Cryptography unencrypted, callers with <c>GetPublicKeyCertificate</c> permission
-    /// can download the public key certificate of the asymmetric key. You can share the public
-    /// key certificate to allow others to encrypt messages and verify signatures outside
-    /// of Amazon Web Services Payment Cryptography
+    /// Multi-region keys allow you to use the same key material across multiple Amazon Web
+    /// Services Regions, providing lower latency for applications distributed across regions.
+    /// When you add Replication Regions, Amazon Web Services Payment Cryptography securely
+    /// replicates the key material to the specified Amazon Web Services Regions.
+    /// </para><para>
+    /// The key must be in an active state to add Replication Regions. You can add multiple
+    /// regions in a single operation, and the key will be available for use in those regions
+    /// once replication is complete.
     /// </para><para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
     /// Services accounts.
-    /// </para>
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_RemoveKeyReplicationRegions.html">RemoveKeyReplicationRegions</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_EnableDefaultKeyReplicationRegions.html">EnableDefaultKeyReplicationRegions</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetDefaultKeyReplicationRegions.html">GetDefaultKeyReplicationRegions</a></para></li></ul>
     /// </summary>
-    [Cmdlet("Get", "PAYCCPublicKeyCertificate")]
-    [OutputType("Amazon.PaymentCryptography.Model.GetPublicKeyCertificateResponse")]
-    [AWSCmdlet("Calls the Payment Cryptography Control Plane GetPublicKeyCertificate API operation.", Operation = new[] {"GetPublicKeyCertificate"}, SelectReturnType = typeof(Amazon.PaymentCryptography.Model.GetPublicKeyCertificateResponse))]
-    [AWSCmdletOutput("Amazon.PaymentCryptography.Model.GetPublicKeyCertificateResponse",
-        "This cmdlet returns an Amazon.PaymentCryptography.Model.GetPublicKeyCertificateResponse object containing multiple properties."
+    [Cmdlet("Add", "PAYCCKeyReplicationRegion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.PaymentCryptography.Model.Key")]
+    [AWSCmdlet("Calls the Payment Cryptography Control Plane AddKeyReplicationRegions API operation.", Operation = new[] {"AddKeyReplicationRegions"}, SelectReturnType = typeof(Amazon.PaymentCryptography.Model.AddKeyReplicationRegionsResponse))]
+    [AWSCmdletOutput("Amazon.PaymentCryptography.Model.Key or Amazon.PaymentCryptography.Model.AddKeyReplicationRegionsResponse",
+        "This cmdlet returns an Amazon.PaymentCryptography.Model.Key object.",
+        "The service call response (type Amazon.PaymentCryptography.Model.AddKeyReplicationRegionsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetPAYCCPublicKeyCertificateCmdlet : AmazonPaymentCryptographyClientCmdlet, IExecutor
+    public partial class AddPAYCCKeyReplicationRegionCmdlet : AmazonPaymentCryptographyClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -56,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter KeyIdentifier
         /// <summary>
         /// <para>
-        /// <para>The <c>KeyARN</c> of the asymmetric key pair.</para>
+        /// <para>The key identifier (ARN or alias) of the key for which to add replication regions.</para><para>This key must exist and be in a valid state for replication operations.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,15 +75,35 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public System.String KeyIdentifier { get; set; }
         #endregion
         
+        #region Parameter ReplicationRegion
+        /// <summary>
+        /// <para>
+        /// <para>The list of Amazon Web Services Regions to add to the key's replication configuration.</para><para>Each region must be a valid Amazon Web Services Region where Amazon Web Services Payment
+        /// Cryptography is available. The key will be replicated to these regions, allowing cryptographic
+        /// operations to be performed closer to your applications.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("ReplicationRegions")]
+        public System.String[] ReplicationRegion { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PaymentCryptography.Model.GetPublicKeyCertificateResponse).
-        /// Specifying the name of a property of type Amazon.PaymentCryptography.Model.GetPublicKeyCertificateResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Key'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PaymentCryptography.Model.AddKeyReplicationRegionsResponse).
+        /// Specifying the name of a property of type Amazon.PaymentCryptography.Model.AddKeyReplicationRegionsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Key";
         #endregion
         
         #region Parameter PassThru
@@ -91,10 +116,26 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public SwitchParameter PassThru { get; set; }
         #endregion
         
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.KeyIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-PAYCCKeyReplicationRegion (AddKeyReplicationRegions)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -104,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.PaymentCryptography.Model.GetPublicKeyCertificateResponse, GetPAYCCPublicKeyCertificateCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PaymentCryptography.Model.AddKeyReplicationRegionsResponse, AddPAYCCKeyReplicationRegionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -123,6 +164,16 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
                 WriteWarning("You are passing $null as a value for parameter KeyIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ReplicationRegion != null)
+            {
+                context.ReplicationRegion = new List<System.String>(this.ReplicationRegion);
+            }
+            #if MODULAR
+            if (this.ReplicationRegion == null && ParameterWasBound(nameof(this.ReplicationRegion)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ReplicationRegion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -137,11 +188,15 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.PaymentCryptography.Model.GetPublicKeyCertificateRequest();
+            var request = new Amazon.PaymentCryptography.Model.AddKeyReplicationRegionsRequest();
             
             if (cmdletContext.KeyIdentifier != null)
             {
                 request.KeyIdentifier = cmdletContext.KeyIdentifier;
+            }
+            if (cmdletContext.ReplicationRegion != null)
+            {
+                request.ReplicationRegions = cmdletContext.ReplicationRegion;
             }
             
             CmdletOutput output;
@@ -176,15 +231,15 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         
         #region AWS Service Operation Call
         
-        private Amazon.PaymentCryptography.Model.GetPublicKeyCertificateResponse CallAWSServiceOperation(IAmazonPaymentCryptography client, Amazon.PaymentCryptography.Model.GetPublicKeyCertificateRequest request)
+        private Amazon.PaymentCryptography.Model.AddKeyReplicationRegionsResponse CallAWSServiceOperation(IAmazonPaymentCryptography client, Amazon.PaymentCryptography.Model.AddKeyReplicationRegionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Payment Cryptography Control Plane", "GetPublicKeyCertificate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Payment Cryptography Control Plane", "AddKeyReplicationRegions");
             try
             {
                 #if DESKTOP
-                return client.GetPublicKeyCertificate(request);
+                return client.AddKeyReplicationRegions(request);
                 #elif CORECLR
-                return client.GetPublicKeyCertificateAsync(request).GetAwaiter().GetResult();
+                return client.AddKeyReplicationRegionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -205,8 +260,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String KeyIdentifier { get; set; }
-            public System.Func<Amazon.PaymentCryptography.Model.GetPublicKeyCertificateResponse, GetPAYCCPublicKeyCertificateCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public List<System.String> ReplicationRegion { get; set; }
+            public System.Func<Amazon.PaymentCryptography.Model.AddKeyReplicationRegionsResponse, AddPAYCCKeyReplicationRegionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Key;
         }
         
     }
