@@ -108,7 +108,7 @@ $PAYCC_Completers = {
             ($_ -eq "New-PAYCCKey/KeyCheckValueAlgorithm")
         }
         {
-            $v = "ANSI_X9_24","CMAC","HMAC"
+            $v = "ANSI_X9_24","CMAC","HMAC","SHA_1"
             break
         }
 
@@ -299,12 +299,16 @@ $PAYCC_SelectCompleters = {
 }
 
 $PAYCC_SelectMap = @{
-    "Select"=@("New-PAYCCAlias",
+    "Select"=@("Add-PAYCCKeyReplicationRegion",
+               "New-PAYCCAlias",
                "New-PAYCCKey",
                "Remove-PAYCCAlias",
                "Remove-PAYCCKey",
+               "Disable-PAYCCDefaultKeyReplicationRegion",
+               "Enable-PAYCCDefaultKeyReplicationRegion",
                "Export-PAYCCKey",
                "Get-PAYCCAlias",
+               "Get-PAYCCDefaultKeyReplicationRegion",
                "Get-PAYCCKey",
                "Get-PAYCCParametersForExport",
                "Get-PAYCCParametersForImport",
@@ -313,6 +317,7 @@ $PAYCC_SelectMap = @{
                "Get-PAYCCAliasList",
                "Get-PAYCCKeyList",
                "Get-PAYCCResourceTag",
+               "Remove-PAYCCKeyReplicationRegion",
                "Restore-PAYCCKey",
                "Start-PAYCCKeyUsage",
                "Stop-PAYCCKeyUsage",

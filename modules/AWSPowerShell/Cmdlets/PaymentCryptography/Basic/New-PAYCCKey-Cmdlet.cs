@@ -257,6 +257,21 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public System.Boolean? KeyModesOfUse_NoRestriction { get; set; }
         #endregion
         
+        #region Parameter ReplicationRegion
+        /// <summary>
+        /// <para>
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReplicationRegions")]
+        public System.String[] ReplicationRegion { get; set; }
+        #endregion
+        
         #region Parameter KeyModesOfUse_Sign
         /// <summary>
         /// <para>
@@ -413,6 +428,10 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             }
             #endif
             context.KeyCheckValueAlgorithm = this.KeyCheckValueAlgorithm;
+            if (this.ReplicationRegion != null)
+            {
+                context.ReplicationRegion = new List<System.String>(this.ReplicationRegion);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.PaymentCryptography.Model.Tag>(this.Tag);
@@ -578,6 +597,10 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             {
                 request.KeyCheckValueAlgorithm = cmdletContext.KeyCheckValueAlgorithm;
             }
+            if (cmdletContext.ReplicationRegion != null)
+            {
+                request.ReplicationRegions = cmdletContext.ReplicationRegion;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -653,6 +676,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             public System.Boolean? KeyModesOfUse_Wrap { get; set; }
             public Amazon.PaymentCryptography.KeyUsage KeyAttributes_KeyUsage { get; set; }
             public Amazon.PaymentCryptography.KeyCheckValueAlgorithm KeyCheckValueAlgorithm { get; set; }
+            public List<System.String> ReplicationRegion { get; set; }
             public List<Amazon.PaymentCryptography.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.PaymentCryptography.Model.CreateKeyResponse, NewPAYCCKeyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Key;

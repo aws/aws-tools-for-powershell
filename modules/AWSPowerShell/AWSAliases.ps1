@@ -23324,6 +23324,8 @@ Set-Alias -Name Verify-PAYCDMac -Value Test-PAYCDMac
 Set-Alias -Name PAYCD-VerifyMac -Value Test-PAYCDMac
 Set-Alias -Name Verify-PAYCDPinData -Value Test-PAYCDPinData
 Set-Alias -Name PAYCD-VerifyPinData -Value Test-PAYCDPinData
+Set-Alias -Name Add-PAYCCKeyReplicationRegions -Value Add-PAYCCKeyReplicationRegion
+Set-Alias -Name PAYCC-AddKeyReplicationRegions -Value Add-PAYCCKeyReplicationRegion
 Set-Alias -Name Create-PAYCCAlias -Value New-PAYCCAlias
 Set-Alias -Name PAYCC-CreateAlias -Value New-PAYCCAlias
 Set-Alias -Name Create-PAYCCKey -Value New-PAYCCKey
@@ -23332,8 +23334,14 @@ Set-Alias -Name Delete-PAYCCAlias -Value Remove-PAYCCAlias
 Set-Alias -Name PAYCC-DeleteAlias -Value Remove-PAYCCAlias
 Set-Alias -Name Delete-PAYCCKey -Value Remove-PAYCCKey
 Set-Alias -Name PAYCC-DeleteKey -Value Remove-PAYCCKey
+Set-Alias -Name Disable-PAYCCDefaultKeyReplicationRegions -Value Disable-PAYCCDefaultKeyReplicationRegion
+Set-Alias -Name PAYCC-DisableDefaultKeyReplicationRegions -Value Disable-PAYCCDefaultKeyReplicationRegion
+Set-Alias -Name Enable-PAYCCDefaultKeyReplicationRegions -Value Enable-PAYCCDefaultKeyReplicationRegion
+Set-Alias -Name PAYCC-EnableDefaultKeyReplicationRegions -Value Enable-PAYCCDefaultKeyReplicationRegion
 Set-Alias -Name PAYCC-ExportKey -Value Export-PAYCCKey
 Set-Alias -Name PAYCC-GetAlias -Value Get-PAYCCAlias
+Set-Alias -Name Get-PAYCCDefaultKeyReplicationRegions -Value Get-PAYCCDefaultKeyReplicationRegion
+Set-Alias -Name PAYCC-GetDefaultKeyReplicationRegions -Value Get-PAYCCDefaultKeyReplicationRegion
 Set-Alias -Name PAYCC-GetKey -Value Get-PAYCCKey
 Set-Alias -Name PAYCC-GetParametersForExport -Value Get-PAYCCParametersForExport
 Set-Alias -Name PAYCC-GetParametersForImport -Value Get-PAYCCParametersForImport
@@ -23346,6 +23354,8 @@ Set-Alias -Name List-PAYCCKeys -Value Get-PAYCCKeyList
 Set-Alias -Name List-PAYCCKeyList -Value Get-PAYCCKeyList
 Set-Alias -Name PAYCC-ListKeys -Value Get-PAYCCKeyList
 Set-Alias -Name PAYCC-ListTagsForResource -Value Get-PAYCCResourceTag
+Set-Alias -Name Remove-PAYCCKeyReplicationRegions -Value Remove-PAYCCKeyReplicationRegion
+Set-Alias -Name PAYCC-RemoveKeyReplicationRegions -Value Remove-PAYCCKeyReplicationRegion
 Set-Alias -Name PAYCC-RestoreKey -Value Restore-PAYCCKey
 Set-Alias -Name PAYCC-StartKeyUsage -Value Start-PAYCCKeyUsage
 Set-Alias -Name PAYCC-StopKeyUsage -Value Stop-PAYCCKeyUsage

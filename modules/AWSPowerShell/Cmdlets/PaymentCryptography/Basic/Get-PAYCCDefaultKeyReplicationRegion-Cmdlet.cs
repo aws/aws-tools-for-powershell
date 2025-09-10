@@ -30,55 +30,40 @@ using Amazon.PaymentCryptography.Model;
 namespace Amazon.PowerShell.Cmdlets.PAYCC
 {
     /// <summary>
-    /// Gets the key metadata for an Amazon Web Services Payment Cryptography key, including
-    /// the immutable and mutable attributes specified when the key was created. Returns key
-    /// metadata including attributes, state, and timestamps, but does not return the actual
-    /// cryptographic key material.
+    /// Retrieves the list of regions where default key replication is currently enabled for
+    /// your account.
     /// 
     ///  
-    /// <para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
+    /// <para>
+    /// This operation returns the current configuration of default Replication Regions. New
+    /// keys created in your account will be automatically replicated to these regions unless
+    /// explicitly overridden during key creation.
+    /// </para><para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
     /// Services accounts.
-    /// </para><para><b>Related operations:</b></para><ul><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html">CreateKey</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteKey.html">DeleteKey</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListKeys.html">ListKeys</a></para></li></ul>
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_EnableDefaultKeyReplicationRegions.html">EnableDefaultKeyReplicationRegions</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DisableDefaultKeyReplicationRegions.html">DisableDefaultKeyReplicationRegions</a></para></li></ul>
     /// </summary>
-    [Cmdlet("Get", "PAYCCKey")]
-    [OutputType("Amazon.PaymentCryptography.Model.Key")]
-    [AWSCmdlet("Calls the Payment Cryptography Control Plane GetKey API operation.", Operation = new[] {"GetKey"}, SelectReturnType = typeof(Amazon.PaymentCryptography.Model.GetKeyResponse))]
-    [AWSCmdletOutput("Amazon.PaymentCryptography.Model.Key or Amazon.PaymentCryptography.Model.GetKeyResponse",
-        "This cmdlet returns an Amazon.PaymentCryptography.Model.Key object.",
-        "The service call response (type Amazon.PaymentCryptography.Model.GetKeyResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "PAYCCDefaultKeyReplicationRegion")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Payment Cryptography Control Plane GetDefaultKeyReplicationRegions API operation.", Operation = new[] {"GetDefaultKeyReplicationRegions"}, SelectReturnType = typeof(Amazon.PaymentCryptography.Model.GetDefaultKeyReplicationRegionsResponse))]
+    [AWSCmdletOutput("System.String or Amazon.PaymentCryptography.Model.GetDefaultKeyReplicationRegionsResponse",
+        "This cmdlet returns a collection of System.String objects.",
+        "The service call response (type Amazon.PaymentCryptography.Model.GetDefaultKeyReplicationRegionsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetPAYCCKeyCmdlet : AmazonPaymentCryptographyClientCmdlet, IExecutor
+    public partial class GetPAYCCDefaultKeyReplicationRegionCmdlet : AmazonPaymentCryptographyClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter KeyIdentifier
-        /// <summary>
-        /// <para>
-        /// <para>The <c>KeyARN</c> of the Amazon Web Services Payment Cryptography key.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String KeyIdentifier { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Key'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PaymentCryptography.Model.GetKeyResponse).
-        /// Specifying the name of a property of type Amazon.PaymentCryptography.Model.GetKeyResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'EnabledReplicationRegions'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PaymentCryptography.Model.GetDefaultKeyReplicationRegionsResponse).
+        /// Specifying the name of a property of type Amazon.PaymentCryptography.Model.GetDefaultKeyReplicationRegionsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Key";
+        public string Select { get; set; } = "EnabledReplicationRegions";
         #endregion
         
         protected override void StopProcessing()
@@ -97,16 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.PaymentCryptography.Model.GetKeyResponse, GetPAYCCKeyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PaymentCryptography.Model.GetDefaultKeyReplicationRegionsResponse, GetPAYCCDefaultKeyReplicationRegionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.KeyIdentifier = this.KeyIdentifier;
-            #if MODULAR
-            if (this.KeyIdentifier == null && ParameterWasBound(nameof(this.KeyIdentifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter KeyIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -121,12 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.PaymentCryptography.Model.GetKeyRequest();
+            var request = new Amazon.PaymentCryptography.Model.GetDefaultKeyReplicationRegionsRequest();
             
-            if (cmdletContext.KeyIdentifier != null)
-            {
-                request.KeyIdentifier = cmdletContext.KeyIdentifier;
-            }
             
             CmdletOutput output;
             
@@ -160,12 +134,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         
         #region AWS Service Operation Call
         
-        private Amazon.PaymentCryptography.Model.GetKeyResponse CallAWSServiceOperation(IAmazonPaymentCryptography client, Amazon.PaymentCryptography.Model.GetKeyRequest request)
+        private Amazon.PaymentCryptography.Model.GetDefaultKeyReplicationRegionsResponse CallAWSServiceOperation(IAmazonPaymentCryptography client, Amazon.PaymentCryptography.Model.GetDefaultKeyReplicationRegionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Payment Cryptography Control Plane", "GetKey");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Payment Cryptography Control Plane", "GetDefaultKeyReplicationRegions");
             try
             {
-                return client.GetKeyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetDefaultKeyReplicationRegionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -182,9 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String KeyIdentifier { get; set; }
-            public System.Func<Amazon.PaymentCryptography.Model.GetKeyResponse, GetPAYCCKeyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Key;
+            public System.Func<Amazon.PaymentCryptography.Model.GetDefaultKeyReplicationRegionsResponse, GetPAYCCDefaultKeyReplicationRegionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.EnabledReplicationRegions;
         }
         
     }

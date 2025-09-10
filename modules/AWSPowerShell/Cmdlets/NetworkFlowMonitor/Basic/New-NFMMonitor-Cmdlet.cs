@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.NFM
     /// Create a monitor for specific network flows between local and remote resources, so
     /// that you can monitor network performance for one or several of your workloads. For
     /// each monitor, Network Flow Monitor publishes detailed end-to-end performance metrics
-    /// and a network health indicators (NHI) that informs you whether there were Amazon Web
+    /// and a network health indicator (NHI) that informs you whether there were Amazon Web
     /// Services network issues for one or more of the network flows tracked by a monitor,
     /// during a time period that you choose.
     /// </summary>
@@ -52,11 +52,11 @@ namespace Amazon.PowerShell.Cmdlets.NFM
         #region Parameter LocalResource
         /// <summary>
         /// <para>
-        /// <para>The local resources to monitor. A local resource, in a bi-directional flow of a workload,
-        /// is the host where the agent is installed. For example, if a workload consists of an
-        /// interaction between a web service and a backend database (for example, Amazon Relational
-        /// Database Service (RDS)), the EC2 instance hosting the web service, which also runs
-        /// the agent, is the local resource.</para><para />
+        /// <para>The local resources to monitor. A local resource in a workload is the location of
+        /// the host, or hosts, where the Network Flow Monitor agent is installed. For example,
+        /// if a workload consists of an interaction between a web service and a backend database
+        /// (for example, Amazon Dynamo DB), the subnet with the EC2 instance that hosts the web
+        /// service, which also runs the agent, is the local resource.</para><para>Be aware that all local resources must belong to the current Region.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -96,8 +96,12 @@ namespace Amazon.PowerShell.Cmdlets.NFM
         /// <summary>
         /// <para>
         /// <para>The remote resources to monitor. A remote resource is the other endpoint in the bi-directional
-        /// flow of a workload, with a local resource. For example, Amazon Relational Database
-        /// Service (RDS) can be a remote resource.</para><para />
+        /// flow of a workload, with a local resource. For example, Amazon Dynamo DB can be a
+        /// remote resource.</para><para>When you specify remote resources, be aware that specific combinations of resources
+        /// are allowed and others are not, including the following constraints:</para><ul><li><para>All remote resources that you specify must all belong to a single Region.</para></li><li><para>If you specify Amazon Web Services services as remote resources, any other remote
+        /// resources that you specify must be in the current Region.</para></li><li><para>When you specify a remote resource for another Region, you can only specify the <c>Region</c>
+        /// resource type. You cannot specify a subnet, VPC, or Availability Zone in another Region.</para></li><li><para>If you leave the <c>RemoteResources</c> parameter empty, the monitor will include
+        /// all network flows that terminate in the current Region.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

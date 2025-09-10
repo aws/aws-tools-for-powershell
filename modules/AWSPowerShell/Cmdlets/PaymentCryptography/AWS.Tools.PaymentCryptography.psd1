@@ -87,10 +87,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-PAYCCKeyReplicationRegion', 
         'Add-PAYCCResourceTag', 
+        'Disable-PAYCCDefaultKeyReplicationRegion', 
+        'Enable-PAYCCDefaultKeyReplicationRegion', 
         'Export-PAYCCKey', 
         'Get-PAYCCAlias', 
         'Get-PAYCCAliasList', 
+        'Get-PAYCCDefaultKeyReplicationRegion', 
         'Get-PAYCCKey', 
         'Get-PAYCCKeyList', 
         'Get-PAYCCParametersForExport', 
@@ -102,6 +106,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-PAYCCKey', 
         'Remove-PAYCCAlias', 
         'Remove-PAYCCKey', 
+        'Remove-PAYCCKeyReplicationRegion', 
         'Remove-PAYCCResourceTag', 
         'Restore-PAYCCKey', 
         'Start-PAYCCKeyUsage', 
