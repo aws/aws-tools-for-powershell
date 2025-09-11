@@ -28,9 +28,8 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Updates an Amazon QuickSight application with a token exchange grant. This operation
-    /// only supports Amazon QuickSight applications that are registered with IAM Identity
-    /// Center.
+    /// Updates an QuickSight application with a token exchange grant. This operation only
+    /// supports QuickSight applications that are registered with IAM Identity Center.
     /// </summary>
     [Cmdlet("Update", "QSApplicationWithTokenExchangeGrant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.UpdateApplicationWithTokenExchangeGrantResponse")]
@@ -63,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The namespace of the Amazon QuickSight application.</para>
+        /// <para>The namespace of the QuickSight application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

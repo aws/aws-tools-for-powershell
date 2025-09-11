@@ -157,10 +157,12 @@ $EVS_SelectCompleters = {
 }
 
 $EVS_SelectMap = @{
-    "Select"=@("New-EVSEnvironment",
+    "Select"=@("Register-EVSEipToVlan",
+               "New-EVSEnvironment",
                "New-EVSEnvironmentHost",
                "Remove-EVSEnvironment",
                "Remove-EVSEnvironmentHost",
+               "Unregister-EVSEipFromVlan",
                "Get-EVSEnvironment",
                "Get-EVSEnvironmentHostList",
                "Get-EVSEnvironmentList",

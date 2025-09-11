@@ -28,45 +28,24 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Predicts existing visuals or generates new visuals to answer a given query.
-    /// 
-    ///  
-    /// <para>
-    /// This API uses <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation.html">trusted
-    /// identity propagation</a> to ensure that an end user is authenticated and receives
-    /// the embed URL that is specific to that user. The IAM Identity Center application that
-    /// the user has logged into needs to have <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-using-customermanagedapps-specify-trusted-apps.html">trusted
-    /// Identity Propagation enabled for QuickSight</a> with the scope value set to <c>quicksight:read</c>.
-    /// Before you use this action, make sure that you have configured the relevant QuickSight
-    /// resource and permissions.
-    /// </para><para>
-    /// We recommend enabling the <c>QSearchStatus</c> API to unlock the full potential of
-    /// <c>PredictQnA</c>. When <c>QSearchStatus</c> is enabled, it first checks the specified
-    /// dashboard for any existing visuals that match the question. If no matching visuals
-    /// are found, <c>PredictQnA</c> uses generative Q&amp;A to provide an answer. To update
-    /// the <c>QSearchStatus</c>, see <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateQuickSightQSearchConfiguration.html">UpdateQuickSightQSearchConfiguration</a>.
-    /// </para>
+    /// Unapplies a custom permissions profile from an account.
     /// </summary>
-    [Cmdlet("Search", "QSQAResult", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.QuickSight.Model.PredictQAResultsResponse")]
-    [AWSCmdlet("Calls the Amazon QuickSight PredictQAResults API operation.", Operation = new[] {"PredictQAResults"}, SelectReturnType = typeof(Amazon.QuickSight.Model.PredictQAResultsResponse))]
-    [AWSCmdletOutput("Amazon.QuickSight.Model.PredictQAResultsResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.PredictQAResultsResponse object containing multiple properties."
+    [Cmdlet("Remove", "QSAccountCustomPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.QuickSight.Model.DeleteAccountCustomPermissionResponse")]
+    [AWSCmdlet("Calls the Amazon QuickSight DeleteAccountCustomPermission API operation.", Operation = new[] {"DeleteAccountCustomPermission"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DeleteAccountCustomPermissionResponse))]
+    [AWSCmdletOutput("Amazon.QuickSight.Model.DeleteAccountCustomPermissionResponse",
+        "This cmdlet returns an Amazon.QuickSight.Model.DeleteAccountCustomPermissionResponse object containing multiple properties."
     )]
-    public partial class SearchQSQAResultCmdlet : AmazonQuickSightClientCmdlet, IExecutor
+    public partial class RemoveQSAccountCustomPermissionCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services account that the user wants to execute Predict QA
-        /// results in.</para>
+        /// <para>The ID of the Amazon Web Services account from which you want to unapply the custom
+        /// permissions profile.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,60 +59,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String AwsAccountId { get; set; }
         #endregion
         
-        #region Parameter IncludeGeneratedAnswer
-        /// <summary>
-        /// <para>
-        /// <para>Indicates whether generated answers are included or excluded.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.QuickSight.IncludeGeneratedAnswer")]
-        public Amazon.QuickSight.IncludeGeneratedAnswer IncludeGeneratedAnswer { get; set; }
-        #endregion
-        
-        #region Parameter IncludeQuickSightQIndex
-        /// <summary>
-        /// <para>
-        /// <para>Indicates whether Q indicies are included or excluded.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.QuickSight.IncludeQuickSightQIndex")]
-        public Amazon.QuickSight.IncludeQuickSightQIndex IncludeQuickSightQIndex { get; set; }
-        #endregion
-        
-        #region Parameter MaxTopicsToConsider
-        /// <summary>
-        /// <para>
-        /// <para>The number of maximum topics to be considered to predict QA results.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? MaxTopicsToConsider { get; set; }
-        #endregion
-        
-        #region Parameter QueryText
-        /// <summary>
-        /// <para>
-        /// <para>The query text to be used to predict QA results.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String QueryText { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.PredictQAResultsResponse).
-        /// Specifying the name of a property of type Amazon.QuickSight.Model.PredictQAResultsResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.DeleteAccountCustomPermissionResponse).
+        /// Specifying the name of a property of type Amazon.QuickSight.Model.DeleteAccountCustomPermissionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AwsAccountId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Search-QSQAResult (PredictQAResults)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-QSAccountCustomPermission (DeleteAccountCustomPermission)"))
             {
                 return;
             }
@@ -179,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.PredictQAResultsResponse, SearchQSQAResultCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.DeleteAccountCustomPermissionResponse, RemoveQSAccountCustomPermissionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -198,16 +128,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.IncludeGeneratedAnswer = this.IncludeGeneratedAnswer;
-            context.IncludeQuickSightQIndex = this.IncludeQuickSightQIndex;
-            context.MaxTopicsToConsider = this.MaxTopicsToConsider;
-            context.QueryText = this.QueryText;
-            #if MODULAR
-            if (this.QueryText == null && ParameterWasBound(nameof(this.QueryText)))
-            {
-                WriteWarning("You are passing $null as a value for parameter QueryText which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -222,27 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.QuickSight.Model.PredictQAResultsRequest();
+            var request = new Amazon.QuickSight.Model.DeleteAccountCustomPermissionRequest();
             
             if (cmdletContext.AwsAccountId != null)
             {
                 request.AwsAccountId = cmdletContext.AwsAccountId;
-            }
-            if (cmdletContext.IncludeGeneratedAnswer != null)
-            {
-                request.IncludeGeneratedAnswer = cmdletContext.IncludeGeneratedAnswer;
-            }
-            if (cmdletContext.IncludeQuickSightQIndex != null)
-            {
-                request.IncludeQuickSightQIndex = cmdletContext.IncludeQuickSightQIndex;
-            }
-            if (cmdletContext.MaxTopicsToConsider != null)
-            {
-                request.MaxTopicsToConsider = cmdletContext.MaxTopicsToConsider.Value;
-            }
-            if (cmdletContext.QueryText != null)
-            {
-                request.QueryText = cmdletContext.QueryText;
             }
             
             CmdletOutput output;
@@ -277,15 +181,15 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         #region AWS Service Operation Call
         
-        private Amazon.QuickSight.Model.PredictQAResultsResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.PredictQAResultsRequest request)
+        private Amazon.QuickSight.Model.DeleteAccountCustomPermissionResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.DeleteAccountCustomPermissionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "PredictQAResults");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "DeleteAccountCustomPermission");
             try
             {
                 #if DESKTOP
-                return client.PredictQAResults(request);
+                return client.DeleteAccountCustomPermission(request);
                 #elif CORECLR
-                return client.PredictQAResultsAsync(request).GetAwaiter().GetResult();
+                return client.DeleteAccountCustomPermissionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -306,11 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AwsAccountId { get; set; }
-            public Amazon.QuickSight.IncludeGeneratedAnswer IncludeGeneratedAnswer { get; set; }
-            public Amazon.QuickSight.IncludeQuickSightQIndex IncludeQuickSightQIndex { get; set; }
-            public System.Int32? MaxTopicsToConsider { get; set; }
-            public System.String QueryText { get; set; }
-            public System.Func<Amazon.QuickSight.Model.PredictQAResultsResponse, SearchQSQAResultCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.QuickSight.Model.DeleteAccountCustomPermissionResponse, RemoveQSAccountCustomPermissionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

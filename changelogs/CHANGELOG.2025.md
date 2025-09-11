@@ -1,4 +1,31 @@
-﻿### 4.1.897 (2025-09-10 20:13Z)
+﻿### 4.1.898 (2025-09-11 20:21Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1121.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic VMware Service
+    * Added cmdlet Register-EVSEipToVlan leveraging the AssociateEipToVlan service API.
+    * Added cmdlet Unregister-EVSEipFromVlan leveraging the DisassociateEipFromVlan service API.
+    * Modified cmdlet New-EVSEnvironment: added parameters InitialVlans_HcxNetworkAclId and InitialVlans_IsHcxPublic.
+  * Amazon EMR Containers
+    * Modified cmdlet New-EMRCSecurityConfiguration: added parameters ContainerProvider_Id, ContainerProvider_Type, EksInfo_Namespace and EksInfo_NodeLabel.
+    * Modified cmdlet New-EMRCVirtualCluster: added parameter EksInfo_NodeLabel.
+  * Amazon Prometheus Service
+    * Added cmdlet Get-PROMScraperLoggingConfiguration leveraging the DescribeScraperLoggingConfiguration service API.
+    * Added cmdlet Remove-PROMScraperLoggingConfiguration leveraging the DeleteScraperLoggingConfiguration service API.
+    * Added cmdlet Update-PROMScraperLoggingConfiguration leveraging the UpdateScraperLoggingConfiguration service API.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSAccountCustomPermission leveraging the DescribeAccountCustomPermission service API.
+    * Added cmdlet Remove-QSAccountCustomPermission leveraging the DeleteAccountCustomPermission service API.
+    * Added cmdlet Update-QSAccountCustomPermission leveraging the UpdateAccountCustomPermission service API.
+    * Modified cmdlet New-QSCustomPermission: added parameters Capabilities_Analysis and Capabilities_Dashboard.
+    * Modified cmdlet New-QSDashboard: added parameters DataStoriesSharingOption_AvailabilityStatus and ExecutiveSummaryOption_AvailabilityStatus.
+    * Modified cmdlet New-QSDataSource: added parameter CustomConnectionParameters_ConnectionType.
+    * Modified cmdlet Update-QSCustomPermission: added parameters Capabilities_Analysis and Capabilities_Dashboard.
+    * Modified cmdlet Update-QSDashboard: added parameters DataStoriesSharingOption_AvailabilityStatus and ExecutiveSummaryOption_AvailabilityStatus.
+    * Modified cmdlet Update-QSDataSource: added parameter CustomConnectionParameters_ConnectionType.
+  * Amazon Relational Database Service
+    * Modified cmdlet Edit-RDSDBProxy: added parameter DefaultAuthScheme.
+    * Modified cmdlet New-RDSDBProxy: added parameter DefaultAuthScheme.
+
+### 4.1.897 (2025-09-10 20:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1120.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Payment Cryptography Control Plane
     * Added cmdlet Add-PAYCCKeyReplicationRegion leveraging the AddKeyReplicationRegions service API.

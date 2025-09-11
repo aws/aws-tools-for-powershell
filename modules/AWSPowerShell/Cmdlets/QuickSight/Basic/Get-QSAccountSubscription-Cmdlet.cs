@@ -28,10 +28,10 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Use the DescribeAccountSubscription operation to receive a description of an Amazon
-    /// QuickSight account's subscription. A successful API call returns an <c>AccountInfo</c>
-    /// object that includes an account's name, subscription status, authentication type,
-    /// edition, and notification email address.
+    /// Use the DescribeAccountSubscription operation to receive a description of an QuickSight
+    /// account's subscription. A successful API call returns an <c>AccountInfo</c> object
+    /// that includes an account's name, subscription status, authentication type, edition,
+    /// and notification email address.
     /// </summary>
     [Cmdlet("Get", "QSAccountSubscription")]
     [OutputType("Amazon.QuickSight.Model.AccountInfo")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services account ID associated with your Amazon QuickSight account.</para>
+        /// <para>The Amazon Web Services account ID associated with your QuickSight account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

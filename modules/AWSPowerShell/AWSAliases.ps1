@@ -1528,6 +1528,8 @@ Set-Alias -Name Delete-PROMRuleGroupsNamespace -Value Remove-PROMRuleGroupsNames
 Set-Alias -Name PROM-DeleteRuleGroupsNamespace -Value Remove-PROMRuleGroupsNamespace
 Set-Alias -Name Delete-PROMScraper -Value Remove-PROMScraper
 Set-Alias -Name PROM-DeleteScraper -Value Remove-PROMScraper
+Set-Alias -Name Delete-PROMScraperLoggingConfiguration -Value Remove-PROMScraperLoggingConfiguration
+Set-Alias -Name PROM-DeleteScraperLoggingConfiguration -Value Remove-PROMScraperLoggingConfiguration
 Set-Alias -Name Delete-PROMWorkspace -Value Remove-PROMWorkspace
 Set-Alias -Name PROM-DeleteWorkspace -Value Remove-PROMWorkspace
 Set-Alias -Name Describe-PROMAlertManagerDefinition -Value Get-PROMAlertManagerDefinition
@@ -1542,6 +1544,8 @@ Set-Alias -Name Describe-PROMRuleGroupsNamespace -Value Get-PROMRuleGroupsNamesp
 Set-Alias -Name PROM-DescribeRuleGroupsNamespace -Value Get-PROMRuleGroupsNamespace
 Set-Alias -Name Describe-PROMScraper -Value Get-PROMScraper
 Set-Alias -Name PROM-DescribeScraper -Value Get-PROMScraper
+Set-Alias -Name Describe-PROMScraperLoggingConfiguration -Value Get-PROMScraperLoggingConfiguration
+Set-Alias -Name PROM-DescribeScraperLoggingConfiguration -Value Get-PROMScraperLoggingConfiguration
 Set-Alias -Name Describe-PROMWorkspace -Value Get-PROMWorkspace
 Set-Alias -Name PROM-DescribeWorkspace -Value Get-PROMWorkspace
 Set-Alias -Name Describe-PROMWorkspaceConfiguration -Value Get-PROMWorkspaceConfiguration
@@ -1568,6 +1572,7 @@ Set-Alias -Name PROM-UntagResource -Value Remove-PROMResourceTag
 Set-Alias -Name PROM-UpdateLoggingConfiguration -Value Update-PROMLoggingConfiguration
 Set-Alias -Name PROM-UpdateQueryLoggingConfiguration -Value Update-PROMQueryLoggingConfiguration
 Set-Alias -Name PROM-UpdateScraper -Value Update-PROMScraper
+Set-Alias -Name PROM-UpdateScraperLoggingConfiguration -Value Update-PROMScraperLoggingConfiguration
 Set-Alias -Name PROM-UpdateWorkspaceAlias -Value Update-PROMWorkspaceAlias
 Set-Alias -Name PROM-UpdateWorkspaceConfiguration -Value Update-PROMWorkspaceConfiguration
 Set-Alias -Name ARC-ApprovePlanExecutionStep -Value Approve-ARCPlanExecutionStep
@@ -13131,6 +13136,8 @@ Set-Alias -Name CWEVD-UpdateFeature -Value Update-CWEVDFeature
 Set-Alias -Name CWEVD-UpdateLaunch -Value Update-CWEVDLaunch
 Set-Alias -Name CWEVD-UpdateProject -Value Update-CWEVDProject
 Set-Alias -Name CWEVD-UpdateProjectDataDelivery -Value Update-CWEVDProjectDataDelivery
+Set-Alias -Name Associate-EVSEipToVlan -Value Register-EVSEipToVlan
+Set-Alias -Name EVS-AssociateEipToVlan -Value Register-EVSEipToVlan
 Set-Alias -Name Create-EVSEnvironment -Value New-EVSEnvironment
 Set-Alias -Name EVS-CreateEnvironment -Value New-EVSEnvironment
 Set-Alias -Name Create-EVSEnvironmentHost -Value New-EVSEnvironmentHost
@@ -13139,6 +13146,8 @@ Set-Alias -Name Delete-EVSEnvironment -Value Remove-EVSEnvironment
 Set-Alias -Name EVS-DeleteEnvironment -Value Remove-EVSEnvironment
 Set-Alias -Name Delete-EVSEnvironmentHost -Value Remove-EVSEnvironmentHost
 Set-Alias -Name EVS-DeleteEnvironmentHost -Value Remove-EVSEnvironmentHost
+Set-Alias -Name Disassociate-EVSEipFromVlan -Value Unregister-EVSEipFromVlan
+Set-Alias -Name EVS-DisassociateEipFromVlan -Value Unregister-EVSEipFromVlan
 Set-Alias -Name EVS-GetEnvironment -Value Get-EVSEnvironment
 Set-Alias -Name List-EVSEnvironmentHosts -Value Get-EVSEnvironmentHostList
 Set-Alias -Name List-EVSEnvironmentHostList -Value Get-EVSEnvironmentHostList
@@ -24847,6 +24856,8 @@ Set-Alias -Name Create-QSVPCConnection -Value New-QSVPCConnection
 Set-Alias -Name QS-CreateVPCConnection -Value New-QSVPCConnection
 Set-Alias -Name Delete-QSAccountCustomization -Value Remove-QSAccountCustomization
 Set-Alias -Name QS-DeleteAccountCustomization -Value Remove-QSAccountCustomization
+Set-Alias -Name Delete-QSAccountCustomPermission -Value Remove-QSAccountCustomPermission
+Set-Alias -Name QS-DeleteAccountCustomPermission -Value Remove-QSAccountCustomPermission
 Set-Alias -Name Delete-QSAccountSubscription -Value Remove-QSAccountSubscription
 Set-Alias -Name QS-DeleteAccountSubscription -Value Remove-QSAccountSubscription
 Set-Alias -Name Delete-QSAnalysis -Value Remove-QSAnalysis
@@ -24911,6 +24922,8 @@ Set-Alias -Name Delete-QSVPCConnection -Value Remove-QSVPCConnection
 Set-Alias -Name QS-DeleteVPCConnection -Value Remove-QSVPCConnection
 Set-Alias -Name Describe-QSAccountCustomization -Value Get-QSAccountCustomization
 Set-Alias -Name QS-DescribeAccountCustomization -Value Get-QSAccountCustomization
+Set-Alias -Name Describe-QSAccountCustomPermission -Value Get-QSAccountCustomPermission
+Set-Alias -Name QS-DescribeAccountCustomPermission -Value Get-QSAccountCustomPermission
 Set-Alias -Name Describe-QSAccountSettings -Value Get-QSAccountSetting
 Set-Alias -Name Describe-QSAccountSetting -Value Get-QSAccountSetting
 Set-Alias -Name QS-DescribeAccountSettings -Value Get-QSAccountSetting
@@ -25161,6 +25174,7 @@ Set-Alias -Name QS-StartDashboardSnapshotJobSchedule -Value Start-QSDashboardSna
 Set-Alias -Name QS-TagResource -Value Add-QSResourceTag
 Set-Alias -Name QS-UntagResource -Value Remove-QSResourceTag
 Set-Alias -Name QS-UpdateAccountCustomization -Value Update-QSAccountCustomization
+Set-Alias -Name QS-UpdateAccountCustomPermission -Value Update-QSAccountCustomPermission
 Set-Alias -Name Update-QSAccountSettings -Value Update-QSAccountSetting
 Set-Alias -Name QS-UpdateAccountSettings -Value Update-QSAccountSetting
 Set-Alias -Name QS-UpdateAnalysis -Value Update-QSAnalysis

@@ -135,6 +135,7 @@ $PROM_SelectMap = @{
                "Remove-PROMResourcePolicy",
                "Remove-PROMRuleGroupsNamespace",
                "Remove-PROMScraper",
+               "Remove-PROMScraperLoggingConfiguration",
                "Remove-PROMWorkspace",
                "Get-PROMAlertManagerDefinition",
                "Get-PROMLoggingConfiguration",
@@ -142,6 +143,7 @@ $PROM_SelectMap = @{
                "Get-PROMResourcePolicy",
                "Get-PROMRuleGroupsNamespace",
                "Get-PROMScraper",
+               "Get-PROMScraperLoggingConfiguration",
                "Get-PROMWorkspace",
                "Get-PROMWorkspaceConfiguration",
                "Get-PROMDefaultScraperConfiguration",
@@ -157,6 +159,7 @@ $PROM_SelectMap = @{
                "Update-PROMLoggingConfiguration",
                "Update-PROMQueryLoggingConfiguration",
                "Update-PROMScraper",
+               "Update-PROMScraperLoggingConfiguration",
                "Update-PROMWorkspaceAlias",
                "Update-PROMWorkspaceConfiguration")
 }

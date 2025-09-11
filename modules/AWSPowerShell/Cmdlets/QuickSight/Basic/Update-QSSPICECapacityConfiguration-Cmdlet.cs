@@ -28,7 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Updates the SPICE capacity configuration for a Amazon QuickSight account.
+    /// Updates the SPICE capacity configuration for a QuickSight account.
     /// </summary>
     [Cmdlet("Update", "QSSPICECapacityConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.UpdateSPICECapacityConfigurationResponse")]

@@ -4570,6 +4570,7 @@ $PROM_SelectMap = @{
                "Remove-PROMResourcePolicy",
                "Remove-PROMRuleGroupsNamespace",
                "Remove-PROMScraper",
+               "Remove-PROMScraperLoggingConfiguration",
                "Remove-PROMWorkspace",
                "Get-PROMAlertManagerDefinition",
                "Get-PROMLoggingConfiguration",
@@ -4577,6 +4578,7 @@ $PROM_SelectMap = @{
                "Get-PROMResourcePolicy",
                "Get-PROMRuleGroupsNamespace",
                "Get-PROMScraper",
+               "Get-PROMScraperLoggingConfiguration",
                "Get-PROMWorkspace",
                "Get-PROMWorkspaceConfiguration",
                "Get-PROMDefaultScraperConfiguration",
@@ -4592,6 +4594,7 @@ $PROM_SelectMap = @{
                "Update-PROMLoggingConfiguration",
                "Update-PROMQueryLoggingConfiguration",
                "Update-PROMScraper",
+               "Update-PROMScraperLoggingConfiguration",
                "Update-PROMWorkspaceAlias",
                "Update-PROMWorkspaceConfiguration")
 }
@@ -31160,6 +31163,7 @@ $EMRC_Completers = {
 
         # Amazon.EMRContainers.ContainerProviderType
         {
+            ($_ -eq "New-EMRCSecurityConfiguration/ContainerProvider_Type") -Or
             ($_ -eq "New-EMRCVirtualCluster/ContainerProvider_Type") -Or
             ($_ -eq "Get-EMRCVirtualClusterList/ContainerProviderType")
         }
@@ -31187,7 +31191,7 @@ $EMRC_Completers = {
 }
 
 $EMRC_map = @{
-    "ContainerProvider_Type"=@("New-EMRCVirtualCluster")
+    "ContainerProvider_Type"=@("New-EMRCSecurityConfiguration","New-EMRCVirtualCluster")
     "ContainerProviderType"=@("Get-EMRCVirtualClusterList")
     "ManagedLogs_AllowAWSToRetainLog"=@("New-EMRCManagedEndpoint","Start-EMRCJobRun")
     "MonitoringConfiguration_PersistentAppUI"=@("New-EMRCManagedEndpoint","Start-EMRCJobRun")
@@ -32518,10 +32522,12 @@ $EVS_SelectCompleters = {
 }
 
 $EVS_SelectMap = @{
-    "Select"=@("New-EVSEnvironment",
+    "Select"=@("Register-EVSEipToVlan",
+               "New-EVSEnvironment",
                "New-EVSEnvironmentHost",
                "Remove-EVSEnvironment",
                "Remove-EVSEnvironmentHost",
+               "Unregister-EVSEipFromVlan",
                "Get-EVSEnvironment",
                "Get-EVSEnvironmentHostList",
                "Get-EVSEnvironmentList",
@@ -62494,6 +62500,8 @@ $QS_Completers = {
         {
             ($_ -eq "New-QSCustomPermission/Capabilities_AddOrRunAnomalyDetectionForAnalyses") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_AddOrRunAnomalyDetectionForAnalyses") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_Analysis") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_Analysis") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateDashboardEmailReport") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateDashboardEmailReport") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateDataset") -Or
@@ -62508,6 +62516,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateSharedFolder") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_CreateSPICEDataset") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_CreateSPICEDataset") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_Dashboard") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_Dashboard") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ExportToCsv") -Or
             ($_ -eq "Update-QSCustomPermission/Capabilities_ExportToCsv") -Or
             ($_ -eq "New-QSCustomPermission/Capabilities_ExportToCsvInScheduledReport") -Or
@@ -62556,6 +62566,10 @@ $QS_Completers = {
             ($_ -eq "Update-QSDashboard/DataPointTooltipOption_AvailabilityStatus") -Or
             ($_ -eq "New-QSDashboard/DataQAEnabledOption_AvailabilityStatus") -Or
             ($_ -eq "Update-QSDashboard/DataQAEnabledOption_AvailabilityStatus") -Or
+            ($_ -eq "New-QSDashboard/DataStoriesSharingOption_AvailabilityStatus") -Or
+            ($_ -eq "Update-QSDashboard/DataStoriesSharingOption_AvailabilityStatus") -Or
+            ($_ -eq "New-QSDashboard/ExecutiveSummaryOption_AvailabilityStatus") -Or
+            ($_ -eq "Update-QSDashboard/ExecutiveSummaryOption_AvailabilityStatus") -Or
             ($_ -eq "New-QSDashboard/ExportHiddenFieldsOption_AvailabilityStatus") -Or
             ($_ -eq "Update-QSDashboard/ExportHiddenFieldsOption_AvailabilityStatus") -Or
             ($_ -eq "New-QSDashboard/ExportToCSVOption_AvailabilityStatus") -Or
@@ -62611,7 +62625,7 @@ $QS_Completers = {
         # Amazon.QuickSight.DataSourceType
         "New-QSDataSource/Type"
         {
-            $v = "ADOBE_ANALYTICS","AMAZON_ELASTICSEARCH","AMAZON_OPENSEARCH","ATHENA","AURORA","AURORA_POSTGRESQL","AWS_IOT_ANALYTICS","BIGQUERY","DATABRICKS","EXASOL","GITHUB","JIRA","MARIADB","MYSQL","ORACLE","POSTGRESQL","PRESTO","REDSHIFT","S3","SALESFORCE","SERVICENOW","SNOWFLAKE","SPARK","SQLSERVER","STARBURST","TERADATA","TIMESTREAM","TRINO","TWITTER"
+            $v = "ADOBE_ANALYTICS","AMAZON_ELASTICSEARCH","AMAZON_OPENSEARCH","ATHENA","AURORA","AURORA_POSTGRESQL","AWS_IOT_ANALYTICS","BIGQUERY","DATABRICKS","EXASOL","GITHUB","GOOGLESHEETS","JIRA","MARIADB","MYSQL","ORACLE","POSTGRESQL","PRESTO","REDSHIFT","S3","SALESFORCE","SERVICENOW","SNOWFLAKE","SPARK","SQLSERVER","STARBURST","TERADATA","TIMESTREAM","TRINO","TWITTER"
             break
         }
 
@@ -62994,6 +63008,7 @@ $QS_map = @{
     "AssignmentStatus"=@("Get-QSIAMPolicyAssignmentList","New-QSIAMPolicyAssignment","Update-QSIAMPolicyAssignment")
     "AuthenticationMethod"=@("New-QSAccountSubscription")
     "Capabilities_AddOrRunAnomalyDetectionForAnalyses"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_Analysis"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateDashboardEmailReport"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateDataset"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateAndUpdateDataSource"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -63001,6 +63016,7 @@ $QS_map = @{
     "Capabilities_CreateAndUpdateThresholdAlert"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateSharedFolder"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_CreateSPICEDataset"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_Dashboard"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ExportToCsv"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ExportToCsvInScheduledReport"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ExportToExcel"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -63021,9 +63037,11 @@ $QS_map = @{
     "DataPointMenuLabelOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataPointTooltipOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataQAEnabledOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "DataStoriesSharingOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DefaultNewSheetConfiguration_SheetContentType"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "Edition"=@("New-QSAccountSubscription")
     "EmailAlert_AlertStatus"=@("Write-QSDataSetRefreshProperty")
+    "ExecutiveSummaryOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "ExportFormat"=@("Start-QSAssetBundleExportJob")
     "ExportHiddenFieldsOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "ExportToCSVOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
@@ -63152,6 +63170,7 @@ $QS_SelectMap = @{
                "New-QSTopicRefreshSchedule",
                "New-QSVPCConnection",
                "Remove-QSAccountCustomization",
+               "Remove-QSAccountCustomPermission",
                "Remove-QSAccountSubscription",
                "Remove-QSAnalysis",
                "Remove-QSBrand",
@@ -63183,6 +63202,7 @@ $QS_SelectMap = @{
                "Remove-QSUserCustomPermission",
                "Remove-QSVPCConnection",
                "Get-QSAccountCustomization",
+               "Get-QSAccountCustomPermission",
                "Get-QSAccountSetting",
                "Get-QSAccountSubscription",
                "Get-QSAnalysis",
@@ -63290,6 +63310,7 @@ $QS_SelectMap = @{
                "Add-QSResourceTag",
                "Remove-QSResourceTag",
                "Update-QSAccountCustomization",
+               "Update-QSAccountCustomPermission",
                "Update-QSAccountSetting",
                "Update-QSAnalysis",
                "Update-QSAnalysisPermission",
@@ -63807,6 +63828,16 @@ $RDS_Completers = {
             break
         }
 
+        # Amazon.RDS.DefaultAuthScheme
+        {
+            ($_ -eq "Edit-RDSDBProxy/DefaultAuthScheme") -Or
+            ($_ -eq "New-RDSDBProxy/DefaultAuthScheme")
+        }
+        {
+            $v = "IAM_AUTH","NONE"
+            break
+        }
+
         # Amazon.RDS.EndpointNetworkType
         {
             ($_ -eq "New-RDSDBProxy/EndpointNetworkType") -Or
@@ -63883,6 +63914,7 @@ $RDS_map = @{
     "AutomationMode"=@("Edit-RDSDBInstance")
     "ClusterScalabilityType"=@("New-RDSDBCluster")
     "DatabaseInsightsMode"=@("Edit-RDSDBCluster","Edit-RDSDBInstance","New-RDSDBCluster","New-RDSDBInstance","New-RDSDBInstanceReadReplica","Restore-RDSDBInstanceFromS3")
+    "DefaultAuthScheme"=@("Edit-RDSDBProxy","New-RDSDBProxy")
     "EndpointNetworkType"=@("New-RDSDBProxy","New-RDSDBProxyEndpoint")
     "EngineFamily"=@("New-RDSDBProxy")
     "MasterUserAuthenticationType"=@("Edit-RDSDBCluster","Edit-RDSDBInstance","New-RDSDBCluster","New-RDSDBInstance")

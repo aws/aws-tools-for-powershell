@@ -28,13 +28,12 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Adds or updates services and authorized targets to configure what the Amazon QuickSight
-    /// IAM Identity Center application can access.
+    /// Adds or updates services and authorized targets to configure what the QuickSight IAM
+    /// Identity Center application can access.
     /// 
     ///  
     /// <para>
-    /// This operation is only supported for Amazon QuickSight accounts using IAM Identity
-    /// Center
+    /// This operation is only supported for QuickSight accounts using IAM Identity Center
     /// </para>
     /// </summary>
     [Cmdlet("Update", "QSIdentityPropagationConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -45,13 +45,13 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// files. If the job fails, the <c>DescribeDashboardSnapshotJobResult</c> API returns
     /// detailed information about the error that occurred.
     /// </para><para><b>StartDashboardSnapshotJob API throttling</b></para><para>
-    /// Amazon QuickSight utilizes API throttling to create a more consistent user experience
-    /// within a time span for customers when they call the <c>StartDashboardSnapshotJob</c>.
-    /// By default, 12 jobs can run simlutaneously in one Amazon Web Services account and
-    /// users can submit up 10 API requests per second before an account is throttled. If
-    /// an overwhelming number of API requests are made by the same user in a short period
-    /// of time, Amazon QuickSight throttles the API calls to maintin an optimal experience
-    /// and reliability for all Amazon QuickSight users.
+    /// QuickSight utilizes API throttling to create a more consistent user experience within
+    /// a time span for customers when they call the <c>StartDashboardSnapshotJob</c>. By
+    /// default, 12 jobs can run simlutaneously in one Amazon Web Services account and users
+    /// can submit up 10 API requests per second before an account is throttled. If an overwhelming
+    /// number of API requests are made by the same user in a short period of time, QuickSight
+    /// throttles the API calls to maintin an optimal experience and reliability for all QuickSight
+    /// users.
     /// </para><para><b>Common throttling scenarios</b></para><para>
     /// The following list provides information about the most commin throttling scenarios
     /// that can occur.
@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// request fails and returns a <c>LimitExceededException</c> error. Wait for a current
     /// job to comlpete before you resubmit the new job.
     /// </para></li><li><para><b>A large number of API requests are submitted on an Amazon Web Services account.</b>
-    /// When a user makes more than 10 API calls to the Amazon QuickSight API in one second,
-    /// a <c>ThrottlingException</c> is returned.
+    /// When a user makes more than 10 API calls to the QuickSight API in one second, a <c>ThrottlingException</c>
+    /// is returned.
     /// </para></li></ul><para>
     /// If your use case requires a higher throttling limit, contact your account admin or
     /// <a href="http://aws.amazon.com/contact-us/">Amazon Web ServicesSupport</a> to explore
@@ -71,10 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// If your use case projects high levels of API traffic, try to reduce the degree of
     /// frequency and parallelism of API calls as much as you can to avoid throttling. You
     /// can also perform a timing test to calculate an estimate for the total processing time
-    /// of your projected load that stays within the throttling limits of the Amazon QuickSight
-    /// APIs. For example, if your projected traffic is 100 snapshot jobs before 12:00 PM
-    /// per day, start 12 jobs in parallel and measure the amount of time it takes to proccess
-    /// all 12 jobs. Once you obtain the result, multiply the duration by 9, for example <c>(12
+    /// of your projected load that stays within the throttling limits of the QuickSight APIs.
+    /// For example, if your projected traffic is 100 snapshot jobs before 12:00 PM per day,
+    /// start 12 jobs in parallel and measure the amount of time it takes to proccess all
+    /// 12 jobs. Once you obtain the result, multiply the duration by 9, for example <c>(12
     /// minutes * 9 = 108 minutes)</c>. Use the new result to determine the latest time at
     /// which the jobs need to be started to meet your target deadline.
     /// </para><para>

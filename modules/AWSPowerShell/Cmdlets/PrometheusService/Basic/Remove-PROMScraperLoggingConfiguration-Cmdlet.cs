@@ -22,40 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.QuickSight;
-using Amazon.QuickSight.Model;
+using Amazon.PrometheusService;
+using Amazon.PrometheusService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.QS
+namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Use the <c>UpdatePublicSharingSettings</c> operation to turn on or turn off the public
-    /// sharing settings of an QuickSight dashboard.
-    /// 
-    ///  
-    /// <para>
-    /// To use this operation, turn on session capacity pricing for your QuickSight account.
-    /// </para><para>
-    /// Before you can turn on public sharing on your account, make sure to give public sharing
-    /// permissions to an administrative user in the Identity and Access Management (IAM)
-    /// console. For more information on using IAM with QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html">Using
-    /// QuickSight with IAM</a> in the <i>QuickSight User Guide</i>.
-    /// </para>
+    /// Deletes the logging configuration for a Amazon Managed Service for Prometheus scraper.
     /// </summary>
-    [Cmdlet("Update", "QSPublicSharingSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.QuickSight.Model.UpdatePublicSharingSettingsResponse")]
-    [AWSCmdlet("Calls the Amazon QuickSight UpdatePublicSharingSettings API operation.", Operation = new[] {"UpdatePublicSharingSettings"}, SelectReturnType = typeof(Amazon.QuickSight.Model.UpdatePublicSharingSettingsResponse))]
-    [AWSCmdletOutput("Amazon.QuickSight.Model.UpdatePublicSharingSettingsResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.UpdatePublicSharingSettingsResponse object containing multiple properties."
+    [Cmdlet("Remove", "PROMScraperLoggingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Prometheus Service DeleteScraperLoggingConfiguration API operation.", Operation = new[] {"DeleteScraperLoggingConfiguration"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.DeleteScraperLoggingConfigurationResponse))]
+    [AWSCmdletOutput("None or Amazon.PrometheusService.Model.DeleteScraperLoggingConfigurationResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.PrometheusService.Model.DeleteScraperLoggingConfigurationResponse) be returned by specifying '-Select *'."
     )]
-    public partial class UpdateQSPublicSharingSettingCmdlet : AmazonQuickSightClientCmdlet, IExecutor
+    public partial class RemovePROMScraperLoggingConfigurationCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AwsAccountId
+        #region Parameter ScraperId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services account ID associated with your QuickSight subscription.</para>
+        /// <para>The ID of the scraper whose logging configuration will be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,25 +56,24 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AwsAccountId { get; set; }
+        public System.String ScraperId { get; set; }
         #endregion
         
-        #region Parameter PublicSharingEnabled
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A Boolean value that indicates whether public sharing is turned on for an QuickSight
-        /// account.</para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the request is processed
+        /// exactly once.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? PublicSharingEnabled { get; set; }
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.UpdatePublicSharingSettingsResponse).
-        /// Specifying the name of a property of type Amazon.QuickSight.Model.UpdatePublicSharingSettingsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PrometheusService.Model.DeleteScraperLoggingConfigurationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,10 +82,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AwsAccountId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AwsAccountId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ScraperId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ScraperId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AwsAccountId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ScraperId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -116,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AwsAccountId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-QSPublicSharingSetting (UpdatePublicSharingSettings)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ScraperId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-PROMScraperLoggingConfiguration (DeleteScraperLoggingConfiguration)"))
             {
                 return;
             }
@@ -130,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.UpdatePublicSharingSettingsResponse, UpdateQSPublicSharingSettingCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PrometheusService.Model.DeleteScraperLoggingConfigurationResponse, RemovePROMScraperLoggingConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -139,17 +128,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AwsAccountId;
+                context.Select = (response, cmdlet) => this.ScraperId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AwsAccountId = this.AwsAccountId;
+            context.ClientToken = this.ClientToken;
+            context.ScraperId = this.ScraperId;
             #if MODULAR
-            if (this.AwsAccountId == null && ParameterWasBound(nameof(this.AwsAccountId)))
+            if (this.ScraperId == null && ParameterWasBound(nameof(this.ScraperId)))
             {
-                WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ScraperId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.PublicSharingEnabled = this.PublicSharingEnabled;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -164,15 +153,15 @@ namespace Amazon.PowerShell.Cmdlets.QS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.QuickSight.Model.UpdatePublicSharingSettingsRequest();
+            var request = new Amazon.PrometheusService.Model.DeleteScraperLoggingConfigurationRequest();
             
-            if (cmdletContext.AwsAccountId != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.AwsAccountId = cmdletContext.AwsAccountId;
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.PublicSharingEnabled != null)
+            if (cmdletContext.ScraperId != null)
             {
-                request.PublicSharingEnabled = cmdletContext.PublicSharingEnabled.Value;
+                request.ScraperId = cmdletContext.ScraperId;
             }
             
             CmdletOutput output;
@@ -207,15 +196,15 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         #region AWS Service Operation Call
         
-        private Amazon.QuickSight.Model.UpdatePublicSharingSettingsResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.UpdatePublicSharingSettingsRequest request)
+        private Amazon.PrometheusService.Model.DeleteScraperLoggingConfigurationResponse CallAWSServiceOperation(IAmazonPrometheusService client, Amazon.PrometheusService.Model.DeleteScraperLoggingConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "UpdatePublicSharingSettings");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Prometheus Service", "DeleteScraperLoggingConfiguration");
             try
             {
                 #if DESKTOP
-                return client.UpdatePublicSharingSettings(request);
+                return client.DeleteScraperLoggingConfiguration(request);
                 #elif CORECLR
-                return client.UpdatePublicSharingSettingsAsync(request).GetAwaiter().GetResult();
+                return client.DeleteScraperLoggingConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -235,10 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AwsAccountId { get; set; }
-            public System.Boolean? PublicSharingEnabled { get; set; }
-            public System.Func<Amazon.QuickSight.Model.UpdatePublicSharingSettingsResponse, UpdateQSPublicSharingSettingCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ClientToken { get; set; }
+            public System.String ScraperId { get; set; }
+            public System.Func<Amazon.PrometheusService.Model.DeleteScraperLoggingConfigurationResponse, RemovePROMScraperLoggingConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

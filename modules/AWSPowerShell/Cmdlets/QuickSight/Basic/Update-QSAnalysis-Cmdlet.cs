@@ -229,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>A descriptive name for the analysis that you're updating. This name displays for the
-        /// analysis in the Amazon QuickSight console.</para>
+        /// analysis in the QuickSight console.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -330,9 +330,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ScreenCanvasSizeOptions_ResizeOption
         /// <summary>
         /// <para>
-        /// <para>This value determines the layout behavior when the viewport is resized.</para><ul><li><para><c>FIXED</c>: A fixed width will be used when optimizing the layout. In the Amazon
-        /// QuickSight console, this option is called <c>Classic</c>.</para></li><li><para><c>RESPONSIVE</c>: The width of the canvas will be responsive and optimized to the
-        /// view port. In the Amazon QuickSight console, this option is called <c>Tiled</c>.</para></li></ul>
+        /// <para>This value determines the layout behavior when the viewport is resized.</para><ul><li><para><c>FIXED</c>: A fixed width will be used when optimizing the layout. In the QuickSight
+        /// console, this option is called <c>Classic</c>.</para></li><li><para><c>RESPONSIVE</c>: The width of the canvas will be responsive and optimized to the
+        /// view port. In the QuickSight console, this option is called <c>Tiled</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -402,8 +402,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) for the theme to apply to the analysis that you're
-        /// creating. To see the theme in the Amazon QuickSight console, make sure that you have
-        /// access to it.</para>
+        /// creating. To see the theme in the QuickSight console, make sure that you have access
+        /// to it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

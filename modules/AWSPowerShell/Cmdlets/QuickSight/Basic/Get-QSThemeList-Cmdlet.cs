@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of themes that you want to list. Valid options include the following:</para><ul><li><para><c>ALL (default)</c>- Display all existing themes.</para></li><li><para><c>CUSTOM</c> - Display only the themes created by people using Amazon QuickSight.</para></li><li><para><c>QUICKSIGHT</c> - Display only the starting themes defined by Amazon QuickSight.</para></li></ul>
+        /// <para>The type of themes that you want to list. Valid options include the following:</para><ul><li><para><c>ALL (default)</c>- Display all existing themes.</para></li><li><para><c>CUSTOM</c> - Display only the themes created by people using Amazon QuickSight.</para></li><li><para><c>QUICKSIGHT</c> - Display only the starting themes defined by QuickSight.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

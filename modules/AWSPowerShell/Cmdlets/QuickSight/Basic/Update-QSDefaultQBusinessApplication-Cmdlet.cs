@@ -28,7 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Updates a Amazon Q Business application that is linked to a Amazon QuickSight account.
+    /// Updates a Amazon Q Business application that is linked to a QuickSight account.
     /// </summary>
     [Cmdlet("Update", "QSDefaultQBusinessApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.UpdateDefaultQBusinessApplicationResponse")]
@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon QuickSight account that is connected to the Amazon Q Business
-        /// application that you want to update.</para>
+        /// <para>The ID of the QuickSight account that is connected to the Amazon Q Business application
+        /// that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,9 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The Amazon QuickSight namespace that contains the linked Amazon Q Business application.
-        /// If this field is left blank, the default namespace is used. Currently, the default
-        /// namespace is the only valid value for this parameter.</para>
+        /// <para>The QuickSight namespace that contains the linked Amazon Q Business application. If
+        /// this field is left blank, the default namespace is used. Currently, the default namespace
+        /// is the only valid value for this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

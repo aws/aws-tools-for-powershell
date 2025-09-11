@@ -83,6 +83,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean? DebugLogging { get; set; }
         #endregion
         
+        #region Parameter DefaultAuthScheme
+        /// <summary>
+        /// <para>
+        /// <para>The default authentication scheme that the proxy uses for client connections to the
+        /// proxy and connections from the proxy to the underlying database. Valid values are
+        /// <c>NONE</c> and <c>IAM_AUTH</c>. When set to <c>IAM_AUTH</c>, the proxy uses end-to-end
+        /// IAM authentication to connect to the database.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RDS.DefaultAuthScheme")]
+        public Amazon.RDS.DefaultAuthScheme DefaultAuthScheme { get; set; }
+        #endregion
+        
         #region Parameter IdleClientTimeout
         /// <summary>
         /// <para>
@@ -215,6 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             #endif
             context.DebugLogging = this.DebugLogging;
+            context.DefaultAuthScheme = this.DefaultAuthScheme;
             context.IdleClientTimeout = this.IdleClientTimeout;
             context.NewDBProxyName = this.NewDBProxyName;
             context.RequireTLS = this.RequireTLS;
@@ -250,6 +265,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DebugLogging != null)
             {
                 request.DebugLogging = cmdletContext.DebugLogging.Value;
+            }
+            if (cmdletContext.DefaultAuthScheme != null)
+            {
+                request.DefaultAuthScheme = cmdletContext.DefaultAuthScheme;
             }
             if (cmdletContext.IdleClientTimeout != null)
             {
@@ -335,6 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public List<Amazon.RDS.Model.UserAuthConfig> Auth { get; set; }
             public System.String DBProxyName { get; set; }
             public System.Boolean? DebugLogging { get; set; }
+            public Amazon.RDS.DefaultAuthScheme DefaultAuthScheme { get; set; }
             public System.Int32? IdleClientTimeout { get; set; }
             public System.String NewDBProxyName { get; set; }
             public System.Boolean? RequireTLS { get; set; }

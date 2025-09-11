@@ -193,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter BrandId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon QuickSight brand.</para>
+        /// <para>The ID of the QuickSight brand.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -53,6 +53,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.CapabilityState Capabilities_AddOrRunAnomalyDetectionForAnalyses { get; set; }
         #endregion
         
+        #region Parameter Capabilities_Analysis
+        /// <summary>
+        /// <para>
+        /// <para>The ability to perform analysis-related actions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_Analysis { get; set; }
+        #endregion
+        
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
@@ -169,6 +180,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String CustomPermissionsName { get; set; }
+        #endregion
+        
+        #region Parameter Capabilities_Dashboard
+        /// <summary>
+        /// <para>
+        /// <para>The ability to perform dashboard-related actions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.CapabilityState")]
+        public Amazon.QuickSight.CapabilityState Capabilities_Dashboard { get; set; }
         #endregion
         
         #region Parameter Capabilities_ExportToCsv
@@ -415,6 +437,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             #endif
             context.Capabilities_AddOrRunAnomalyDetectionForAnalyses = this.Capabilities_AddOrRunAnomalyDetectionForAnalyses;
+            context.Capabilities_Analysis = this.Capabilities_Analysis;
             context.Capabilities_CreateAndUpdateDashboardEmailReport = this.Capabilities_CreateAndUpdateDashboardEmailReport;
             context.Capabilities_CreateAndUpdateDataset = this.Capabilities_CreateAndUpdateDataset;
             context.Capabilities_CreateAndUpdateDataSource = this.Capabilities_CreateAndUpdateDataSource;
@@ -422,6 +445,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Capabilities_CreateAndUpdateThresholdAlert = this.Capabilities_CreateAndUpdateThresholdAlert;
             context.Capabilities_CreateSharedFolder = this.Capabilities_CreateSharedFolder;
             context.Capabilities_CreateSPICEDataset = this.Capabilities_CreateSPICEDataset;
+            context.Capabilities_Dashboard = this.Capabilities_Dashboard;
             context.Capabilities_ExportToCsv = this.Capabilities_ExportToCsv;
             context.Capabilities_ExportToCsvInScheduledReport = this.Capabilities_ExportToCsvInScheduledReport;
             context.Capabilities_ExportToExcel = this.Capabilities_ExportToExcel;
@@ -476,6 +500,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_AddOrRunAnomalyDetectionForAnalyses != null)
             {
                 request.Capabilities.AddOrRunAnomalyDetectionForAnalyses = requestCapabilities_capabilities_AddOrRunAnomalyDetectionForAnalyses;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_Analysis = null;
+            if (cmdletContext.Capabilities_Analysis != null)
+            {
+                requestCapabilities_capabilities_Analysis = cmdletContext.Capabilities_Analysis;
+            }
+            if (requestCapabilities_capabilities_Analysis != null)
+            {
+                request.Capabilities.Analysis = requestCapabilities_capabilities_Analysis;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_CreateAndUpdateDashboardEmailReport = null;
@@ -546,6 +580,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCapabilities_capabilities_CreateSPICEDataset != null)
             {
                 request.Capabilities.CreateSPICEDataset = requestCapabilities_capabilities_CreateSPICEDataset;
+                requestCapabilitiesIsNull = false;
+            }
+            Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_Dashboard = null;
+            if (cmdletContext.Capabilities_Dashboard != null)
+            {
+                requestCapabilities_capabilities_Dashboard = cmdletContext.Capabilities_Dashboard;
+            }
+            if (requestCapabilities_capabilities_Dashboard != null)
+            {
+                request.Capabilities.Dashboard = requestCapabilities_capabilities_Dashboard;
                 requestCapabilitiesIsNull = false;
             }
             Amazon.QuickSight.CapabilityState requestCapabilities_capabilities_ExportToCsv = null;
@@ -770,6 +814,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         {
             public System.String AwsAccountId { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_AddOrRunAnomalyDetectionForAnalyses { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_Analysis { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateDashboardEmailReport { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateDataset { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateDataSource { get; set; }
@@ -777,6 +822,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.CapabilityState Capabilities_CreateAndUpdateThresholdAlert { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateSharedFolder { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_CreateSPICEDataset { get; set; }
+            public Amazon.QuickSight.CapabilityState Capabilities_Dashboard { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ExportToCsv { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ExportToCsvInScheduledReport { get; set; }
             public Amazon.QuickSight.CapabilityState Capabilities_ExportToExcel { get; set; }

@@ -28,10 +28,9 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Generates an embed URL that you can use to embed an Amazon QuickSight experience in
-    /// your website. This action can be used for any type of user that is registered in an
-    /// Amazon QuickSight account that uses IAM Identity Center for authentication. This API
-    /// requires <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overview.html#types-identity-enhanced-iam-role-sessions">identity-enhanced
+    /// Generates an embed URL that you can use to embed an QuickSight experience in your
+    /// website. This action can be used for any type of user that is registered in an QuickSight
+    /// account that uses IAM Identity Center for authentication. This API requires <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overview.html#types-identity-enhanced-iam-role-sessions">identity-enhanced
     /// IAM Role sessions</a> for the authenticated user that the API call is being made for.
     /// 
     ///  
@@ -40,9 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// identity propagation</a> to ensure that an end user is authenticated and receives
     /// the embed URL that is specific to that user. The IAM Identity Center application that
     /// the user has logged into needs to have <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-using-customermanagedapps-specify-trusted-apps.html">trusted
-    /// Identity Propagation enabled for Amazon QuickSight</a> with the scope value set to
-    /// <c>quicksight:read</c>. Before you use this action, make sure that you have configured
-    /// the relevant Amazon QuickSight resource and permissions.
+    /// Identity Propagation enabled for QuickSight</a> with the scope value set to <c>quicksight:read</c>.
+    /// Before you use this action, make sure that you have configured the relevant QuickSight
+    /// resource and permissions.
     /// </para>
     /// </summary>
     [Cmdlet("Initialize", "QSEmbedUrlForRegisteredUserWithIdentity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -92,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The ID of the dashboard that has the visual that you want to embed. The <c>DashboardId</c>
         /// can be found in the <c>IDs for developers</c> section of the <c>Embed visual</c> pane
-        /// of the visual's on-visual menu of the Amazon QuickSight console. You can also get
-        /// the <c>DashboardId</c> with a <c>ListDashboards</c> API operation.</para>
+        /// of the visual's on-visual menu of the QuickSight console. You can also get the <c>DashboardId</c>
+        /// with a <c>ListDashboards</c> API operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Dashboard_ExecutiveSummary_Enabled
         /// <summary>
         /// <para>
-        /// <para>The executive summary settings of an embedded Amazon QuickSight console or dashboard.</para>
+        /// <para>The executive summary settings of an embedded QuickSight console or dashboard.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Dashboard_RecentSnapshots_Enabled
         /// <summary>
         /// <para>
-        /// <para>The recent snapshots configuration for an embedded Amazon QuickSight dashboard.</para>
+        /// <para>The recent snapshots configuration for an embedded QuickSight dashboard.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Dashboard_Schedules_Enabled
         /// <summary>
         /// <para>
-        /// <para>The schedules configuration for an embedded Amazon QuickSight dashboard.</para>
+        /// <para>The schedules configuration for an embedded QuickSight dashboard.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,8 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ExperienceConfiguration_Dashboard_FeatureConfigurations_StatePersistence_Enabled
         /// <summary>
         /// <para>
-        /// <para>Determines if a Amazon QuickSight dashboard's state persistence settings are turned
-        /// on or off.</para>
+        /// <para>Determines if a QuickSight dashboard's state persistence settings are turned on or
+        /// off.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Dashboard_ThresholdAlerts_Enabled
         /// <summary>
         /// <para>
-        /// <para>The threshold alerts configuration for an embedded Amazon QuickSight dashboard.</para>
+        /// <para>The threshold alerts configuration for an embedded QuickSight dashboard.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -180,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DataQnA_Enabled
         /// <summary>
         /// <para>
-        /// <para>The generative Q&amp;A settings of an embedded Amazon QuickSight console.</para>
+        /// <para>The generative Q&amp;A settings of an embedded QuickSight console.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DataStories_Enabled
         /// <summary>
         /// <para>
-        /// <para>The data story settings of an embedded Amazon QuickSight console.</para>
+        /// <para>The data story settings of an embedded QuickSight console.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -202,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Console_ExecutiveSummary_Enabled
         /// <summary>
         /// <para>
-        /// <para>The executive summary settings of an embedded Amazon QuickSight console or dashboard.</para>
+        /// <para>The executive summary settings of an embedded QuickSight console or dashboard.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -213,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter GenerativeAuthoring_Enabled
         /// <summary>
         /// <para>
-        /// <para>The generative BI authoring settings of an embedded Amazon QuickSight console.</para>
+        /// <para>The generative BI authoring settings of an embedded QuickSight console.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -224,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Console_RecentSnapshots_Enabled
         /// <summary>
         /// <para>
-        /// <para>The recent snapshots configuration for an embedded Amazon QuickSight dashboard.</para>
+        /// <para>The recent snapshots configuration for an embedded QuickSight dashboard.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -235,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Console_Schedules_Enabled
         /// <summary>
         /// <para>
-        /// <para>The schedules configuration for an embedded Amazon QuickSight dashboard.</para>
+        /// <para>The schedules configuration for an embedded QuickSight dashboard.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -257,8 +256,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_StatePersistence_Enabled
         /// <summary>
         /// <para>
-        /// <para>Determines if a Amazon QuickSight dashboard's state persistence settings are turned
-        /// on or off.</para>
+        /// <para>Determines if a QuickSight dashboard's state persistence settings are turned on or
+        /// off.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -268,7 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Console_ThresholdAlerts_Enabled
         /// <summary>
         /// <para>
-        /// <para>The threshold alerts configuration for an embedded Amazon QuickSight dashboard.</para>
+        /// <para>The threshold alerts configuration for an embedded QuickSight dashboard.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -280,8 +279,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The dashboard ID for the dashboard that you want the user to see first. This ID is
-        /// included in the output URL. When the URL in response is accessed, Amazon QuickSight
-        /// renders this dashboard if the user has permissions to view it.</para><para>If the user does not have permission to view this dashboard, they see a permissions
+        /// included in the output URL. When the URL in response is accessed, QuickSight renders
+        /// this dashboard if the user has permissions to view it.</para><para>If the user does not have permission to view this dashboard, they see a permissions
         /// error message.</para>
         /// </para>
         /// </summary>
@@ -293,9 +292,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter QuickSightConsole_InitialPath
         /// <summary>
         /// <para>
-        /// <para>The initial URL path for the Amazon QuickSight console. <c>InitialPath</c> is required.</para><para>The entry point URL is constrained to the following paths:</para><ul><li><para><c>/start</c></para></li><li><para><c>/start/analyses</c></para></li><li><para><c>/start/dashboards</c></para></li><li><para><c>/start/favorites</c></para></li><li><para><c>/dashboards/DashboardId</c>. <i>DashboardId</i> is the actual ID key from the
-        /// Amazon QuickSight console URL of the dashboard.</para></li><li><para><c>/analyses/AnalysisId</c>. <i>AnalysisId</i> is the actual ID key from the Amazon
-        /// QuickSight console URL of the analysis.</para></li></ul>
+        /// <para>The initial URL path for the QuickSight console. <c>InitialPath</c> is required.</para><para>The entry point URL is constrained to the following paths:</para><ul><li><para><c>/start</c></para></li><li><para><c>/start/analyses</c></para></li><li><para><c>/start/dashboards</c></para></li><li><para><c>/start/favorites</c></para></li><li><para><c>/dashboards/DashboardId</c>. <i>DashboardId</i> is the actual ID key from the
+        /// QuickSight console URL of the dashboard.</para></li><li><para><c>/analyses/AnalysisId</c>. <i>AnalysisId</i> is the actual ID key from the QuickSight
+        /// console URL of the analysis.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -308,8 +307,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The ID of the new Q reader experience topic that you want to make the starting topic
         /// in the Generative Q&amp;A experience. You can find a topic ID by navigating to the
-        /// Topics pane in the Amazon QuickSight application and opening a topic. The ID is in
-        /// the URL for the topic that you open.</para><para>If you don't specify an initial topic or you specify a legacy topic, a list of all
+        /// Topics pane in the QuickSight application and opening a topic. The ID is in the URL
+        /// for the topic that you open.</para><para>If you don't specify an initial topic or you specify a legacy topic, a list of all
         /// shared new reader experience topics is shown in the Generative Q&amp;A experience
         /// for your readers. When you select an initial new reader experience topic, you can
         /// specify whether or not readers are allowed to select other new reader experience topics
@@ -325,11 +324,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The ID of the legacy Q topic that you want to use as the starting topic in the Q search
-        /// bar. To locate the topic ID of the topic that you want to use, open the <a href="https://quicksight.aws.amazon.com/">Amazon
-        /// QuickSight console</a>, navigate to the <b>Topics</b> pane, and choose thre topic
-        /// that you want to use. The <c>TopicID</c> is located in the URL of the topic that opens.
-        /// When you select an initial topic, you can specify whether or not readers are allowed
-        /// to select other topics from the list of available topics.</para><para>If you don't specify an initial topic or if you specify a new reader experience topic,
+        /// bar. To locate the topic ID of the topic that you want to use, open the <a href="https://quicksight.aws.amazon.com/">QuickSight
+        /// console</a>, navigate to the <b>Topics</b> pane, and choose thre topic that you want
+        /// to use. The <c>TopicID</c> is located in the URL of the topic that opens. When you
+        /// select an initial topic, you can specify whether or not readers are allowed to select
+        /// other topics from the list of available topics.</para><para>If you don't specify an initial topic or if you specify a new reader experience topic,
         /// a list of all shared legacy topics is shown in the Q bar. </para>
         /// </para>
         /// </summary>
@@ -354,7 +353,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The ID of the sheet that the has visual that you want to embed. The <c>SheetId</c>
         /// can be found in the <c>IDs for developers</c> section of the <c>Embed visual</c> pane
-        /// of the visual's on-visual menu of the Amazon QuickSight console.</para>
+        /// of the visual's on-visual menu of the QuickSight console.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -367,7 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The ID of the visual that you want to embed. The <c>VisualID</c> can be found in the
         /// <c>IDs for developers</c> section of the <c>Embed visual</c> pane of the visual's
-        /// on-visual menu of the Amazon QuickSight console.</para>
+        /// on-visual menu of the QuickSight console.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

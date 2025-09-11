@@ -74,9 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The domains that you want to add to the allow list for access to the generated URL
         /// that is then embedded. This optional parameter overrides the static domains that are
-        /// configured in the Manage QuickSight menu in the Amazon QuickSight console. Instead,
-        /// it allows only the domains that you include in this parameter. You can list up to
-        /// three domains or subdomains in each API call.</para><para>To include all subdomains under a specific domain to the allow list, use <c>*</c>.
+        /// configured in the Manage QuickSight menu in the QuickSight console. Instead, it allows
+        /// only the domains that you include in this parameter. You can list up to three domains
+        /// or subdomains in each API call.</para><para>To include all subdomains under a specific domain to the allow list, use <c>*</c>.
         /// For example, <c>https://*.sapp.amazon.com</c> includes all subdomains under <c>https://sapp.amazon.com</c>.</para>
         /// </para>
         /// </summary>
@@ -88,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AuthorizedResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARNs) for the Amazon QuickSight resources that the user
-        /// is authorized to access during the lifetime of the session.</para><para>If you choose <c>Dashboard</c> embedding experience, pass the list of dashboard ARNs
+        /// <para>The Amazon Resource Names (ARNs) for the QuickSight resources that the user is authorized
+        /// to access during the lifetime of the session.</para><para>If you choose <c>Dashboard</c> embedding experience, pass the list of dashboard ARNs
         /// in the account that you want the user to be able to view.</para><para>If you want to make changes to the theme of your embedded content, pass a list of
         /// theme ARNs that the anonymous users need access to.</para><para>Currently, you can pass up to 25 theme ARNs in each API call.</para>
         /// </para>
@@ -129,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The ID of the dashboard that has the visual that you want to embed. The <c>DashboardId</c>
         /// can be found in the <c>IDs for developers</c> section of the <c>Embed visual</c> pane
-        /// of the visual's on-visual menu of the Amazon QuickSight console. You can also get
-        /// the <c>DashboardId</c> with a <c>ListDashboards</c> API operation.</para>
+        /// of the visual's on-visual menu of the QuickSight console. You can also get the <c>DashboardId</c>
+        /// with a <c>ListDashboards</c> API operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -175,8 +175,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The dashboard ID for the dashboard that you want the user to see first. This ID is
-        /// included in the output URL. When the URL in response is accessed, Amazon QuickSight
-        /// renders this dashboard.</para><para>The Amazon Resource Name (ARN) of this dashboard must be included in the <c>AuthorizedResourceArns</c>
+        /// included in the output URL. When the URL in response is accessed, QuickSight renders
+        /// this dashboard.</para><para>The Amazon Resource Name (ARN) of this dashboard must be included in the <c>AuthorizedResourceArns</c>
         /// parameter. Otherwise, the request will fail with <c>InvalidParameterValueException</c>.</para>
         /// </para>
         /// </summary>
@@ -188,10 +188,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter GenerativeQnA_InitialTopicId
         /// <summary>
         /// <para>
-        /// <para>The Amazon QuickSight Q topic ID of the new reader experience topic that you want
-        /// the anonymous user to see first. This ID is included in the output URL. When the URL
-        /// in response is accessed, Amazon QuickSight renders the Generative Q&amp;A experience
-        /// with this new reader experience topic pre selected.</para><para>The Amazon Resource Name (ARN) of this Q new reader experience topic must be included
+        /// <para>The QuickSight Q topic ID of the new reader experience topic that you want the anonymous
+        /// user to see first. This ID is included in the output URL. When the URL in response
+        /// is accessed, QuickSight renders the Generative Q&amp;A experience with this new reader
+        /// experience topic pre selected.</para><para>The Amazon Resource Name (ARN) of this Q new reader experience topic must be included
         /// in the <c>AuthorizedResourceArns</c> parameter. Otherwise, the request fails with
         /// an <c>InvalidParameterValueException</c> error.</para>
         /// </para>
@@ -204,9 +204,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter QSearchBar_InitialTopicId
         /// <summary>
         /// <para>
-        /// <para>The Amazon QuickSight Q topic ID of the legacy topic that you want the anonymous user
-        /// to see first. This ID is included in the output URL. When the URL in response is accessed,
-        /// Amazon QuickSight renders the Q search bar with this legacy topic pre-selected.</para><para>The Amazon Resource Name (ARN) of this Q legacy topic must be included in the <c>AuthorizedResourceArns</c>
+        /// <para>The QuickSight Q topic ID of the legacy topic that you want the anonymous user to
+        /// see first. This ID is included in the output URL. When the URL in response is accessed,
+        /// QuickSight renders the Q search bar with this legacy topic pre-selected.</para><para>The Amazon Resource Name (ARN) of this Q legacy topic must be included in the <c>AuthorizedResourceArns</c>
         /// parameter. Otherwise, the request fails with an <c>InvalidParameterValueException</c>
         /// error.</para>
         /// </para>
@@ -219,8 +219,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The Amazon QuickSight namespace that the anonymous user virtually belongs to. If you
-        /// are not using an Amazon QuickSight custom namespace, set this to <c>default</c>.</para>
+        /// <para>The QuickSight namespace that the anonymous user virtually belongs to. If you are
+        /// not using an Amazon QuickSight custom namespace, set this to <c>default</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -266,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The ID of the sheet that the has visual that you want to embed. The <c>SheetId</c>
         /// can be found in the <c>IDs for developers</c> section of the <c>Embed visual</c> pane
-        /// of the visual's on-visual menu of the Amazon QuickSight console.</para>
+        /// of the visual's on-visual menu of the QuickSight console.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -279,7 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The ID of the visual that you want to embed. The <c>VisualID</c> can be found in the
         /// <c>IDs for developers</c> section of the <c>Embed visual</c> pane of the visual's
-        /// on-visual menu of the Amazon QuickSight console.</para>
+        /// on-visual menu of the QuickSight console.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -174,6 +174,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String RedshiftParameters_ClusterId { get; set; }
         #endregion
         
+        #region Parameter CustomConnectionParameters_ConnectionType
+        /// <summary>
+        /// <para>
+        /// <para>The type of custom connector.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_CustomConnectionParameters_ConnectionType")]
+        public System.String CustomConnectionParameters_ConnectionType { get; set; }
+        #endregion
+        
         #region Parameter Credentials_CopySourceArn
         /// <summary>
         /// <para>
@@ -344,10 +355,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter IAMParameters_DatabaseGroup
         /// <summary>
         /// <para>
-        /// <para>A list of groups whose permissions will be granted to Amazon QuickSight to access
-        /// the cluster. These permissions are combined with the permissions granted to Amazon
-        /// QuickSight by the <c>DatabaseUser</c>. If you choose to include this parameter, the
-        /// <c>RoleArn</c> must grant access to <c>redshift:JoinGroup</c>.</para>
+        /// <para>A list of groups whose permissions will be granted to QuickSight to access the cluster.
+        /// These permissions are combined with the permissions granted to QuickSight by the <c>DatabaseUser</c>.
+        /// If you choose to include this parameter, the <c>RoleArn</c> must grant access to <c>redshift:JoinGroup</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -358,11 +368,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter IAMParameters_DatabaseUser
         /// <summary>
         /// <para>
-        /// <para>The user whose permissions and group memberships will be used by Amazon QuickSight
-        /// to access the cluster. If this user already exists in your database, Amazon QuickSight
-        /// is granted the same permissions that the user has. If the user doesn't exist, set
-        /// the value of <c>AutoCreateDatabaseUser</c> to <c>True</c> to create a new user with
-        /// PUBLIC permissions.</para>
+        /// <para>The user whose permissions and group memberships will be used by QuickSight to access
+        /// the cluster. If this user already exists in your database, QuickSight is granted the
+        /// same permissions that the user has. If the user doesn't exist, set the value of <c>AutoCreateDatabaseUser</c>
+        /// to <c>True</c> to create a new user with PUBLIC permissions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -466,7 +475,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter FolderArn
         /// <summary>
         /// <para>
-        /// <para>When you create the data source, Amazon QuickSight adds the data source to these folders.</para>
+        /// <para>When you create the data source, QuickSight adds the data source to these folders.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1002,10 +1011,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter IAMParameters_RoleArn
         /// <summary>
         /// <para>
-        /// <para>Use the <c>RoleArn</c> structure to allow Amazon QuickSight to call <c>redshift:GetClusterCredentials</c>
+        /// <para>Use the <c>RoleArn</c> structure to allow QuickSight to call <c>redshift:GetClusterCredentials</c>
         /// on your cluster. The calling principal must have <c>iam:PassRole</c> access to pass
-        /// the role to Amazon QuickSight. The role's trust policy must allow the Amazon QuickSight
-        /// service principal to assume the role.</para>
+        /// the role to QuickSight. The role's trust policy must allow the QuickSight service
+        /// principal to assume the role.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1306,6 +1315,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.AwsIotAnalyticsParameters_DataSetName = this.AwsIotAnalyticsParameters_DataSetName;
             context.BigQueryParameters_DataSetRegion = this.BigQueryParameters_DataSetRegion;
             context.BigQueryParameters_ProjectId = this.BigQueryParameters_ProjectId;
+            context.CustomConnectionParameters_ConnectionType = this.CustomConnectionParameters_ConnectionType;
             context.DatabricksParameters_Host = this.DatabricksParameters_Host;
             context.DatabricksParameters_Port = this.DatabricksParameters_Port;
             context.DatabricksParameters_SqlEndpointPath = this.DatabricksParameters_SqlEndpointPath;
@@ -1585,6 +1595,31 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDataSourceParameters_dataSourceParameters_AwsIotAnalyticsParameters != null)
             {
                 request.DataSourceParameters.AwsIotAnalyticsParameters = requestDataSourceParameters_dataSourceParameters_AwsIotAnalyticsParameters;
+                requestDataSourceParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.CustomConnectionParameters requestDataSourceParameters_dataSourceParameters_CustomConnectionParameters = null;
+            
+             // populate CustomConnectionParameters
+            var requestDataSourceParameters_dataSourceParameters_CustomConnectionParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_CustomConnectionParameters = new Amazon.QuickSight.Model.CustomConnectionParameters();
+            System.String requestDataSourceParameters_dataSourceParameters_CustomConnectionParameters_customConnectionParameters_ConnectionType = null;
+            if (cmdletContext.CustomConnectionParameters_ConnectionType != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_CustomConnectionParameters_customConnectionParameters_ConnectionType = cmdletContext.CustomConnectionParameters_ConnectionType;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_CustomConnectionParameters_customConnectionParameters_ConnectionType != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_CustomConnectionParameters.ConnectionType = requestDataSourceParameters_dataSourceParameters_CustomConnectionParameters_customConnectionParameters_ConnectionType;
+                requestDataSourceParameters_dataSourceParameters_CustomConnectionParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_CustomConnectionParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_CustomConnectionParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_CustomConnectionParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_CustomConnectionParameters != null)
+            {
+                request.DataSourceParameters.CustomConnectionParameters = requestDataSourceParameters_dataSourceParameters_CustomConnectionParameters;
                 requestDataSourceParametersIsNull = false;
             }
             Amazon.QuickSight.Model.JiraParameters requestDataSourceParameters_dataSourceParameters_JiraParameters = null;
@@ -3052,6 +3087,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String AwsIotAnalyticsParameters_DataSetName { get; set; }
             public System.String BigQueryParameters_DataSetRegion { get; set; }
             public System.String BigQueryParameters_ProjectId { get; set; }
+            public System.String CustomConnectionParameters_ConnectionType { get; set; }
             public System.String DatabricksParameters_Host { get; set; }
             public System.Int32? DatabricksParameters_Port { get; set; }
             public System.String DatabricksParameters_SqlEndpointPath { get; set; }

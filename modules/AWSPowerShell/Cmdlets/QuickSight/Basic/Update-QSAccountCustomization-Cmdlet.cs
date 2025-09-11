@@ -34,10 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
     ///  
     /// <para>
     /// You can use customizations for your Amazon Web Services account or, if you specify
-    /// a namespace, for a Amazon QuickSight namespace instead. Customizations that apply
-    /// to a namespace override customizations that apply to an Amazon Web Services account.
-    /// To find out which customizations apply, use the <c>DescribeAccountCustomization</c>
-    /// API operation. 
+    /// a namespace, for a QuickSight namespace instead. Customizations that apply to a namespace
+    /// override customizations that apply to an Amazon Web Services account. To find out
+    /// which customizations apply, use the <c>DescribeAccountCustomization</c> API operation.
+    /// 
     /// </para>
     /// </summary>
     [Cmdlet("Update", "QSAccountCustomization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID for the Amazon Web Services account that you want to update Amazon QuickSight
-        /// customizations for.</para>
+        /// <para>The ID for the Amazon Web Services account that you want to update QuickSight customizations
+        /// for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AccountCustomization_DefaultTheme
         /// <summary>
         /// <para>
-        /// <para>The default theme for this Amazon QuickSight subscription.</para>
+        /// <para>The default theme for this QuickSight subscription.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The namespace that you want to update Amazon QuickSight customizations for.</para>
+        /// <para>The namespace that you want to update QuickSight customizations for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

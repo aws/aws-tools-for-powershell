@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID for the Amazon Web Services account that contains the Amazon QuickSight namespaces
+        /// <para>The ID for the Amazon Web Services account that contains the QuickSight namespaces
         /// that you want to list.</para>
         /// </para>
         /// </summary>

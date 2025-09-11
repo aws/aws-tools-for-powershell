@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID for the Amazon Web Services account that contains the Amazon QuickSight settings
-        /// that you want to list.</para>
+        /// <para>The ID for the Amazon Web Services account that contains the QuickSight settings that
+        /// you want to list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The default namespace for this Amazon Web Services account. Currently, the default
-        /// is <c>default</c>. IAM users that register for the first time with Amazon QuickSight
-        /// provide an email address that becomes associated with the default namespace. </para>
+        /// is <c>default</c>. IAM users that register for the first time with QuickSight provide
+        /// an email address that becomes associated with the default namespace. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter NotificationEmail
         /// <summary>
         /// <para>
-        /// <para>The email address that you want Amazon QuickSight to send notifications to regarding
-        /// your Amazon Web Services account or Amazon QuickSight subscription.</para>
+        /// <para>The email address that you want QuickSight to send notifications to regarding your
+        /// Amazon Web Services account or QuickSight subscription.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,10 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter TerminationProtectionEnabled
         /// <summary>
         /// <para>
-        /// <para>A boolean value that determines whether or not an Amazon QuickSight account can be
-        /// deleted. A <c>True</c> value doesn't allow the account to be deleted and results in
-        /// an error message if a user tries to make a <c>DeleteAccountSubscription</c> request.
-        /// A <c>False</c> value will allow the account to be deleted.</para>
+        /// <para>A boolean value that determines whether or not an QuickSight account can be deleted.
+        /// A <c>True</c> value doesn't allow the account to be deleted and results in an error
+        /// message if a user tries to make a <c>DeleteAccountSubscription</c> request. A <c>False</c>
+        /// value will allow the account to be deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

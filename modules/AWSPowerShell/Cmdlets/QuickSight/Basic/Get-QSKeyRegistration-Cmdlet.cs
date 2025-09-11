@@ -28,7 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Describes all customer managed key registrations in a Amazon QuickSight account.
+    /// Describes all customer managed key registrations in a QuickSight account.
     /// </summary>
     [Cmdlet("Get", "QSKeyRegistration")]
     [OutputType("Amazon.QuickSight.Model.DescribeKeyRegistrationResponse")]

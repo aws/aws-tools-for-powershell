@@ -32,12 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// 
     ///  
     /// <para>
-    /// An Asset Bundle export job exports specified Amazon QuickSight assets. You can also
-    /// choose to export any asset dependencies in the same job. Export jobs run asynchronously
-    /// and can be polled with a <c>DescribeAssetBundleExportJob</c> API call. When a job
-    /// is successfully completed, a download URL that contains the exported assets is returned.
-    /// The URL is valid for 5 minutes and can be refreshed with a <c>DescribeAssetBundleExportJob</c>
-    /// API call. Each Amazon QuickSight account can run up to 5 export jobs concurrently.
+    /// An Asset Bundle export job exports specified QuickSight assets. You can also choose
+    /// to export any asset dependencies in the same job. Export jobs run asynchronously and
+    /// can be polled with a <c>DescribeAssetBundleExportJob</c> API call. When a job is successfully
+    /// completed, a download URL that contains the exported assets is returned. The URL is
+    /// valid for 5 minutes and can be refreshed with a <c>DescribeAssetBundleExportJob</c>
+    /// API call. Each QuickSight account can run up to 5 export jobs concurrently.
     /// </para><para>
     /// The API caller must have the necessary permissions in their IAM role to access each
     /// resource before the resources can be exported.

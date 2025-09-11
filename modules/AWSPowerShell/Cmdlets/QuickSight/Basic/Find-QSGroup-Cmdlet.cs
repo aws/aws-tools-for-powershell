@@ -28,8 +28,8 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Use the <c>SearchGroups</c> operation to search groups in a specified Amazon QuickSight
-    /// namespace using the supplied filters.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Use the <c>SearchGroups</c> operation to search groups in a specified QuickSight namespace
+    /// using the supplied filters.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Find", "QSGroup")]
     [OutputType("Amazon.QuickSight.Model.Group")]

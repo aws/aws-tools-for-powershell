@@ -32,11 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// 
     ///  
     /// <para>
-    /// An Asset Bundle import job imports specified Amazon QuickSight assets into an Amazon
-    /// QuickSight account. You can also choose to import a naming prefix and specified configuration
+    /// An Asset Bundle import job imports specified QuickSight assets into an QuickSight
+    /// account. You can also choose to import a naming prefix and specified configuration
     /// overrides. The assets that are contained in the bundle file that you provide are used
-    /// to create or update a new or existing asset in your Amazon QuickSight account. Each
-    /// Amazon QuickSight account can run up to 5 import jobs concurrently.
+    /// to create or update a new or existing asset in your QuickSight account. Each QuickSight
+    /// account can run up to 5 import jobs concurrently.
     /// </para><para>
     /// The API caller must have the necessary <c>"create"</c>, <c>"describe"</c>, and <c>"update"</c>
     /// permissions in their IAM role to access each resource type that is contained in the
@@ -254,8 +254,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The failure action for the import job.</para><para>If you choose <c>ROLLBACK</c>, failed import jobs will attempt to undo any asset changes
         /// caused by the failed job.</para><para>If you choose <c>DO_NOTHING</c>, failed import jobs will not attempt to roll back
-        /// any asset changes caused by the failed job, possibly keeping the Amazon QuickSight
-        /// account in an inconsistent state.</para>
+        /// any asset changes caused by the failed job, possibly keeping the QuickSight account
+        /// in an inconsistent state.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

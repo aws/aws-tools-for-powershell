@@ -67,6 +67,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteScraperLoggingConfiguration" Verb="Remove" Noun="ScraperLoggingConfiguration" ShouldProcessTarget="ScraperId" PipelineParameter="ScraperId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteWorkspace" Verb="Remove" Noun="Workspace" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -92,6 +96,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeScraper" OutputProperty="Scraper" Verb="Get" Noun="Scraper" PipelineParameter="ScraperId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScraperLoggingConfiguration" OutputProperty="*" Verb="Get" Noun="ScraperLoggingConfiguration" PipelineParameter="ScraperId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -152,6 +160,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateScraper" OutputProperty="*" Verb="Update" Noun="Scraper" ShouldProcessTarget="ScraperId" PipelineParameter="ScraperId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateScraperLoggingConfiguration" OutputProperty="Status" Verb="Update" Noun="ScraperLoggingConfiguration" ShouldProcessTarget="ScraperId" PipelineParameter="ScraperId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

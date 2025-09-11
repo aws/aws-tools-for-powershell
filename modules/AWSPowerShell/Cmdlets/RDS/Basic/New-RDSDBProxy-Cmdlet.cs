@@ -48,14 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The authorization mechanism that the proxy uses.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public Amazon.RDS.Model.UserAuthConfig[] Auth { get; set; }
         #endregion
         
@@ -91,6 +84,21 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? DebugLogging { get; set; }
+        #endregion
+        
+        #region Parameter DefaultAuthScheme
+        /// <summary>
+        /// <para>
+        /// <para>The default authentication scheme that the proxy uses for client connections to the
+        /// proxy and connections from the proxy to the underlying database. Valid values are
+        /// <c>NONE</c> and <c>IAM_AUTH</c>. When set to <c>IAM_AUTH</c>, the proxy uses end-to-end
+        /// IAM authentication to connect to the database. If you don't specify <c>DefaultAuthScheme</c>
+        /// or specify this parameter as <c>NONE</c>, you must specify the <c>Auth</c> option.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RDS.DefaultAuthScheme")]
+        public Amazon.RDS.DefaultAuthScheme DefaultAuthScheme { get; set; }
         #endregion
         
         #region Parameter EndpointNetworkType
@@ -290,12 +298,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 context.Auth = new List<Amazon.RDS.Model.UserAuthConfig>(this.Auth);
             }
-            #if MODULAR
-            if (this.Auth == null && ParameterWasBound(nameof(this.Auth)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Auth which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.DBProxyName = this.DBProxyName;
             #if MODULAR
             if (this.DBProxyName == null && ParameterWasBound(nameof(this.DBProxyName)))
@@ -304,6 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             #endif
             context.DebugLogging = this.DebugLogging;
+            context.DefaultAuthScheme = this.DefaultAuthScheme;
             context.EndpointNetworkType = this.EndpointNetworkType;
             context.EngineFamily = this.EngineFamily;
             #if MODULAR
@@ -367,6 +370,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DebugLogging != null)
             {
                 request.DebugLogging = cmdletContext.DebugLogging.Value;
+            }
+            if (cmdletContext.DefaultAuthScheme != null)
+            {
+                request.DefaultAuthScheme = cmdletContext.DefaultAuthScheme;
             }
             if (cmdletContext.EndpointNetworkType != null)
             {
@@ -468,6 +475,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public List<Amazon.RDS.Model.UserAuthConfig> Auth { get; set; }
             public System.String DBProxyName { get; set; }
             public System.Boolean? DebugLogging { get; set; }
+            public Amazon.RDS.DefaultAuthScheme DefaultAuthScheme { get; set; }
             public Amazon.RDS.EndpointNetworkType EndpointNetworkType { get; set; }
             public Amazon.RDS.EngineFamily EngineFamily { get; set; }
             public System.Int32? IdleClientTimeout { get; set; }

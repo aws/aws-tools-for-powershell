@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ColumnGroup
         /// <summary>
         /// <para>
-        /// <para>Groupings of columns that work together in certain Amazon QuickSight features. Currently,
+        /// <para>Groupings of columns that work together in certain QuickSight features. Currently,
         /// only geospatial hierarchy is supported.</para>
         /// </para>
         /// </summary>
@@ -159,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter FolderArn
         /// <summary>
         /// <para>
-        /// <para>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</para>
+        /// <para>When you create the dataset, QuickSight adds the dataset to these folders.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
