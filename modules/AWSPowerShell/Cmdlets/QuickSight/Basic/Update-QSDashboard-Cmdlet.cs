@@ -121,6 +121,30 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.DashboardBehavior DataQAEnabledOption_AvailabilityStatus { get; set; }
         #endregion
         
+        #region Parameter DataStoriesSharingOption_AvailabilityStatus
+        /// <summary>
+        /// <para>
+        /// <para>Availability status.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DashboardPublishOptions_DataStoriesSharingOption_AvailabilityStatus")]
+        [AWSConstantClassSource("Amazon.QuickSight.DashboardBehavior")]
+        public Amazon.QuickSight.DashboardBehavior DataStoriesSharingOption_AvailabilityStatus { get; set; }
+        #endregion
+        
+        #region Parameter ExecutiveSummaryOption_AvailabilityStatus
+        /// <summary>
+        /// <para>
+        /// <para>Availability status.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DashboardPublishOptions_ExecutiveSummaryOption_AvailabilityStatus")]
+        [AWSConstantClassSource("Amazon.QuickSight.DashboardBehavior")]
+        public Amazon.QuickSight.DashboardBehavior ExecutiveSummaryOption_AvailabilityStatus { get; set; }
+        #endregion
+        
         #region Parameter ExportToCSVOption_AvailabilityStatus
         /// <summary>
         /// <para>
@@ -498,9 +522,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ScreenCanvasSizeOptions_ResizeOption
         /// <summary>
         /// <para>
-        /// <para>This value determines the layout behavior when the viewport is resized.</para><ul><li><para><c>FIXED</c>: A fixed width will be used when optimizing the layout. In the Amazon
-        /// QuickSight console, this option is called <c>Classic</c>.</para></li><li><para><c>RESPONSIVE</c>: The width of the canvas will be responsive and optimized to the
-        /// view port. In the Amazon QuickSight console, this option is called <c>Tiled</c>.</para></li></ul>
+        /// <para>This value determines the layout behavior when the viewport is resized.</para><ul><li><para><c>FIXED</c>: A fixed width will be used when optimizing the layout. In the QuickSight
+        /// console, this option is called <c>Classic</c>.</para></li><li><para><c>RESPONSIVE</c>: The width of the canvas will be responsive and optimized to the
+        /// view port. In the QuickSight console, this option is called <c>Tiled</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -724,6 +748,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.DataPointMenuLabelOption_AvailabilityStatus = this.DataPointMenuLabelOption_AvailabilityStatus;
             context.DataPointTooltipOption_AvailabilityStatus = this.DataPointTooltipOption_AvailabilityStatus;
             context.DataQAEnabledOption_AvailabilityStatus = this.DataQAEnabledOption_AvailabilityStatus;
+            context.DataStoriesSharingOption_AvailabilityStatus = this.DataStoriesSharingOption_AvailabilityStatus;
+            context.ExecutiveSummaryOption_AvailabilityStatus = this.ExecutiveSummaryOption_AvailabilityStatus;
             context.ExportToCSVOption_AvailabilityStatus = this.ExportToCSVOption_AvailabilityStatus;
             context.ExportWithHiddenFieldsOption_AvailabilityStatus = this.ExportWithHiddenFieldsOption_AvailabilityStatus;
             context.SheetControlsOption_VisibilityState = this.SheetControlsOption_VisibilityState;
@@ -959,6 +985,56 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDashboardPublishOptions_dashboardPublishOptions_DataQAEnabledOption != null)
             {
                 request.DashboardPublishOptions.DataQAEnabledOption = requestDashboardPublishOptions_dashboardPublishOptions_DataQAEnabledOption;
+                requestDashboardPublishOptionsIsNull = false;
+            }
+            Amazon.QuickSight.Model.DataStoriesSharingOption requestDashboardPublishOptions_dashboardPublishOptions_DataStoriesSharingOption = null;
+            
+             // populate DataStoriesSharingOption
+            var requestDashboardPublishOptions_dashboardPublishOptions_DataStoriesSharingOptionIsNull = true;
+            requestDashboardPublishOptions_dashboardPublishOptions_DataStoriesSharingOption = new Amazon.QuickSight.Model.DataStoriesSharingOption();
+            Amazon.QuickSight.DashboardBehavior requestDashboardPublishOptions_dashboardPublishOptions_DataStoriesSharingOption_dataStoriesSharingOption_AvailabilityStatus = null;
+            if (cmdletContext.DataStoriesSharingOption_AvailabilityStatus != null)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_DataStoriesSharingOption_dataStoriesSharingOption_AvailabilityStatus = cmdletContext.DataStoriesSharingOption_AvailabilityStatus;
+            }
+            if (requestDashboardPublishOptions_dashboardPublishOptions_DataStoriesSharingOption_dataStoriesSharingOption_AvailabilityStatus != null)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_DataStoriesSharingOption.AvailabilityStatus = requestDashboardPublishOptions_dashboardPublishOptions_DataStoriesSharingOption_dataStoriesSharingOption_AvailabilityStatus;
+                requestDashboardPublishOptions_dashboardPublishOptions_DataStoriesSharingOptionIsNull = false;
+            }
+             // determine if requestDashboardPublishOptions_dashboardPublishOptions_DataStoriesSharingOption should be set to null
+            if (requestDashboardPublishOptions_dashboardPublishOptions_DataStoriesSharingOptionIsNull)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_DataStoriesSharingOption = null;
+            }
+            if (requestDashboardPublishOptions_dashboardPublishOptions_DataStoriesSharingOption != null)
+            {
+                request.DashboardPublishOptions.DataStoriesSharingOption = requestDashboardPublishOptions_dashboardPublishOptions_DataStoriesSharingOption;
+                requestDashboardPublishOptionsIsNull = false;
+            }
+            Amazon.QuickSight.Model.ExecutiveSummaryOption requestDashboardPublishOptions_dashboardPublishOptions_ExecutiveSummaryOption = null;
+            
+             // populate ExecutiveSummaryOption
+            var requestDashboardPublishOptions_dashboardPublishOptions_ExecutiveSummaryOptionIsNull = true;
+            requestDashboardPublishOptions_dashboardPublishOptions_ExecutiveSummaryOption = new Amazon.QuickSight.Model.ExecutiveSummaryOption();
+            Amazon.QuickSight.DashboardBehavior requestDashboardPublishOptions_dashboardPublishOptions_ExecutiveSummaryOption_executiveSummaryOption_AvailabilityStatus = null;
+            if (cmdletContext.ExecutiveSummaryOption_AvailabilityStatus != null)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_ExecutiveSummaryOption_executiveSummaryOption_AvailabilityStatus = cmdletContext.ExecutiveSummaryOption_AvailabilityStatus;
+            }
+            if (requestDashboardPublishOptions_dashboardPublishOptions_ExecutiveSummaryOption_executiveSummaryOption_AvailabilityStatus != null)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_ExecutiveSummaryOption.AvailabilityStatus = requestDashboardPublishOptions_dashboardPublishOptions_ExecutiveSummaryOption_executiveSummaryOption_AvailabilityStatus;
+                requestDashboardPublishOptions_dashboardPublishOptions_ExecutiveSummaryOptionIsNull = false;
+            }
+             // determine if requestDashboardPublishOptions_dashboardPublishOptions_ExecutiveSummaryOption should be set to null
+            if (requestDashboardPublishOptions_dashboardPublishOptions_ExecutiveSummaryOptionIsNull)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_ExecutiveSummaryOption = null;
+            }
+            if (requestDashboardPublishOptions_dashboardPublishOptions_ExecutiveSummaryOption != null)
+            {
+                request.DashboardPublishOptions.ExecutiveSummaryOption = requestDashboardPublishOptions_dashboardPublishOptions_ExecutiveSummaryOption;
                 requestDashboardPublishOptionsIsNull = false;
             }
             Amazon.QuickSight.Model.ExportToCSVOption requestDashboardPublishOptions_dashboardPublishOptions_ExportToCSVOption = null;
@@ -1798,6 +1874,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.DashboardBehavior DataPointMenuLabelOption_AvailabilityStatus { get; set; }
             public Amazon.QuickSight.DashboardBehavior DataPointTooltipOption_AvailabilityStatus { get; set; }
             public Amazon.QuickSight.DashboardBehavior DataQAEnabledOption_AvailabilityStatus { get; set; }
+            public Amazon.QuickSight.DashboardBehavior DataStoriesSharingOption_AvailabilityStatus { get; set; }
+            public Amazon.QuickSight.DashboardBehavior ExecutiveSummaryOption_AvailabilityStatus { get; set; }
             public Amazon.QuickSight.DashboardBehavior ExportToCSVOption_AvailabilityStatus { get; set; }
             public Amazon.QuickSight.DashboardBehavior ExportWithHiddenFieldsOption_AvailabilityStatus { get; set; }
             public Amazon.QuickSight.DashboardUIState SheetControlsOption_VisibilityState { get; set; }

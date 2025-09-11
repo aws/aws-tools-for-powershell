@@ -30,16 +30,16 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Describes the current namespace.
+    /// Describes the custom permissions profile that is applied to an account.
     /// </summary>
-    [Cmdlet("Get", "QSNamespace")]
-    [OutputType("Amazon.QuickSight.Model.NamespaceInfoV2")]
-    [AWSCmdlet("Calls the Amazon QuickSight DescribeNamespace API operation.", Operation = new[] {"DescribeNamespace"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DescribeNamespaceResponse))]
-    [AWSCmdletOutput("Amazon.QuickSight.Model.NamespaceInfoV2 or Amazon.QuickSight.Model.DescribeNamespaceResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.NamespaceInfoV2 object.",
-        "The service call response (type Amazon.QuickSight.Model.DescribeNamespaceResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "QSAccountCustomPermission")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon QuickSight DescribeAccountCustomPermission API operation.", Operation = new[] {"DescribeAccountCustomPermission"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DescribeAccountCustomPermissionResponse))]
+    [AWSCmdletOutput("System.String or Amazon.QuickSight.Model.DescribeAccountCustomPermissionResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.QuickSight.Model.DescribeAccountCustomPermissionResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetQSNamespaceCmdlet : AmazonQuickSightClientCmdlet, IExecutor
+    public partial class GetQSAccountCustomPermissionCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -48,25 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID for the Amazon Web Services account that contains the QuickSight namespace
-        /// that you want to describe.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AwsAccountId { get; set; }
-        #endregion
-        
-        #region Parameter Namespace
-        /// <summary>
-        /// <para>
-        /// <para>The namespace that you want to describe.</para>
+        /// <para>The ID of the Amazon Web Services account for which you want to describe the applied
+        /// custom permissions profile.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,18 +60,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Namespace { get; set; }
+        public System.String AwsAccountId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Namespace'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.DescribeNamespaceResponse).
-        /// Specifying the name of a property of type Amazon.QuickSight.Model.DescribeNamespaceResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'CustomPermissionsName'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.DescribeAccountCustomPermissionResponse).
+        /// Specifying the name of a property of type Amazon.QuickSight.Model.DescribeAccountCustomPermissionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Namespace";
+        public string Select { get; set; } = "CustomPermissionsName";
         #endregion
         
         protected override void StopProcessing()
@@ -107,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.DescribeNamespaceResponse, GetQSNamespaceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.DescribeAccountCustomPermissionResponse, GetQSAccountCustomPermissionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AwsAccountId = this.AwsAccountId;
@@ -115,13 +98,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (this.AwsAccountId == null && ParameterWasBound(nameof(this.AwsAccountId)))
             {
                 WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.Namespace = this.Namespace;
-            #if MODULAR
-            if (this.Namespace == null && ParameterWasBound(nameof(this.Namespace)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Namespace which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -138,15 +114,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.QuickSight.Model.DescribeNamespaceRequest();
+            var request = new Amazon.QuickSight.Model.DescribeAccountCustomPermissionRequest();
             
             if (cmdletContext.AwsAccountId != null)
             {
                 request.AwsAccountId = cmdletContext.AwsAccountId;
-            }
-            if (cmdletContext.Namespace != null)
-            {
-                request.Namespace = cmdletContext.Namespace;
             }
             
             CmdletOutput output;
@@ -181,12 +153,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         #region AWS Service Operation Call
         
-        private Amazon.QuickSight.Model.DescribeNamespaceResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.DescribeNamespaceRequest request)
+        private Amazon.QuickSight.Model.DescribeAccountCustomPermissionResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.DescribeAccountCustomPermissionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "DescribeNamespace");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "DescribeAccountCustomPermission");
             try
             {
-                return client.DescribeNamespaceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DescribeAccountCustomPermissionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -204,9 +176,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AwsAccountId { get; set; }
-            public System.String Namespace { get; set; }
-            public System.Func<Amazon.QuickSight.Model.DescribeNamespaceResponse, GetQSNamespaceCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Namespace;
+            public System.Func<Amazon.QuickSight.Model.DescribeAccountCustomPermissionResponse, GetQSAccountCustomPermissionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.CustomPermissionsName;
         }
         
     }

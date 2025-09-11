@@ -95,9 +95,11 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EVSResourceTag', 
         'New-EVSEnvironment', 
         'New-EVSEnvironmentHost', 
+        'Register-EVSEipToVlan', 
         'Remove-EVSEnvironment', 
         'Remove-EVSEnvironmentHost', 
-        'Remove-EVSResourceTag')
+        'Remove-EVSResourceTag', 
+        'Unregister-EVSEipFromVlan')
 
     # Variables to export from this module
     VariablesToExport = '*'

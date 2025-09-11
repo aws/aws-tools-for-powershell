@@ -23,50 +23,31 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.QuickSight;
-using Amazon.QuickSight.Model;
+using Amazon.PrometheusService;
+using Amazon.PrometheusService.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.QS
+namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Describes the current namespace.
+    /// Describes the logging configuration for a Amazon Managed Service for Prometheus scraper.
     /// </summary>
-    [Cmdlet("Get", "QSNamespace")]
-    [OutputType("Amazon.QuickSight.Model.NamespaceInfoV2")]
-    [AWSCmdlet("Calls the Amazon QuickSight DescribeNamespace API operation.", Operation = new[] {"DescribeNamespace"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DescribeNamespaceResponse))]
-    [AWSCmdletOutput("Amazon.QuickSight.Model.NamespaceInfoV2 or Amazon.QuickSight.Model.DescribeNamespaceResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.NamespaceInfoV2 object.",
-        "The service call response (type Amazon.QuickSight.Model.DescribeNamespaceResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "PROMScraperLoggingConfiguration")]
+    [OutputType("Amazon.PrometheusService.Model.DescribeScraperLoggingConfigurationResponse")]
+    [AWSCmdlet("Calls the Amazon Prometheus Service DescribeScraperLoggingConfiguration API operation.", Operation = new[] {"DescribeScraperLoggingConfiguration"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.DescribeScraperLoggingConfigurationResponse))]
+    [AWSCmdletOutput("Amazon.PrometheusService.Model.DescribeScraperLoggingConfigurationResponse",
+        "This cmdlet returns an Amazon.PrometheusService.Model.DescribeScraperLoggingConfigurationResponse object containing multiple properties."
     )]
-    public partial class GetQSNamespaceCmdlet : AmazonQuickSightClientCmdlet, IExecutor
+    public partial class GetPROMScraperLoggingConfigurationCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter AwsAccountId
+        #region Parameter ScraperId
         /// <summary>
         /// <para>
-        /// <para>The ID for the Amazon Web Services account that contains the QuickSight namespace
-        /// that you want to describe.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AwsAccountId { get; set; }
-        #endregion
-        
-        #region Parameter Namespace
-        /// <summary>
-        /// <para>
-        /// <para>The namespace that you want to describe.</para>
+        /// <para>The ID of the scraper whose logging configuration will be described.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,18 +58,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Namespace { get; set; }
+        public System.String ScraperId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Namespace'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.DescribeNamespaceResponse).
-        /// Specifying the name of a property of type Amazon.QuickSight.Model.DescribeNamespaceResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PrometheusService.Model.DescribeScraperLoggingConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.PrometheusService.Model.DescribeScraperLoggingConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Namespace";
+        public string Select { get; set; } = "*";
         #endregion
         
         protected override void StopProcessing()
@@ -107,21 +88,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.DescribeNamespaceResponse, GetQSNamespaceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PrometheusService.Model.DescribeScraperLoggingConfigurationResponse, GetPROMScraperLoggingConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.AwsAccountId = this.AwsAccountId;
+            context.ScraperId = this.ScraperId;
             #if MODULAR
-            if (this.AwsAccountId == null && ParameterWasBound(nameof(this.AwsAccountId)))
+            if (this.ScraperId == null && ParameterWasBound(nameof(this.ScraperId)))
             {
-                WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.Namespace = this.Namespace;
-            #if MODULAR
-            if (this.Namespace == null && ParameterWasBound(nameof(this.Namespace)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Namespace which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ScraperId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -138,15 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.QuickSight.Model.DescribeNamespaceRequest();
+            var request = new Amazon.PrometheusService.Model.DescribeScraperLoggingConfigurationRequest();
             
-            if (cmdletContext.AwsAccountId != null)
+            if (cmdletContext.ScraperId != null)
             {
-                request.AwsAccountId = cmdletContext.AwsAccountId;
-            }
-            if (cmdletContext.Namespace != null)
-            {
-                request.Namespace = cmdletContext.Namespace;
+                request.ScraperId = cmdletContext.ScraperId;
             }
             
             CmdletOutput output;
@@ -181,12 +151,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         #region AWS Service Operation Call
         
-        private Amazon.QuickSight.Model.DescribeNamespaceResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.DescribeNamespaceRequest request)
+        private Amazon.PrometheusService.Model.DescribeScraperLoggingConfigurationResponse CallAWSServiceOperation(IAmazonPrometheusService client, Amazon.PrometheusService.Model.DescribeScraperLoggingConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "DescribeNamespace");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Prometheus Service", "DescribeScraperLoggingConfiguration");
             try
             {
-                return client.DescribeNamespaceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DescribeScraperLoggingConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -203,10 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AwsAccountId { get; set; }
-            public System.String Namespace { get; set; }
-            public System.Func<Amazon.QuickSight.Model.DescribeNamespaceResponse, GetQSNamespaceCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Namespace;
+            public System.String ScraperId { get; set; }
+            public System.Func<Amazon.PrometheusService.Model.DescribeScraperLoggingConfigurationResponse, GetPROMScraperLoggingConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

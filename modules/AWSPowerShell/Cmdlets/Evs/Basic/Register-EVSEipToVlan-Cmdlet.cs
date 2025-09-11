@@ -23,34 +23,33 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.QuickSight;
-using Amazon.QuickSight.Model;
+using Amazon.Evs;
+using Amazon.Evs.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.QS
+namespace Amazon.PowerShell.Cmdlets.EVS
 {
     /// <summary>
-    /// Use <c>CreateRoleMembership</c> to add an existing QuickSight group to an existing
-    /// role.
+    /// Associates an Elastic IP address with a public HCX VLAN. This operation is only allowed
+    /// for public HCX VLANs at this time.
     /// </summary>
-    [Cmdlet("New", "QSRoleMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.QuickSight.Model.CreateRoleMembershipResponse")]
-    [AWSCmdlet("Calls the Amazon QuickSight CreateRoleMembership API operation.", Operation = new[] {"CreateRoleMembership"}, SelectReturnType = typeof(Amazon.QuickSight.Model.CreateRoleMembershipResponse))]
-    [AWSCmdletOutput("Amazon.QuickSight.Model.CreateRoleMembershipResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.CreateRoleMembershipResponse object containing multiple properties."
+    [Cmdlet("Register", "EVSEipToVlan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Evs.Model.Vlan")]
+    [AWSCmdlet("Calls the Amazon Elastic VMware Service AssociateEipToVlan API operation.", Operation = new[] {"AssociateEipToVlan"}, SelectReturnType = typeof(Amazon.Evs.Model.AssociateEipToVlanResponse))]
+    [AWSCmdletOutput("Amazon.Evs.Model.Vlan or Amazon.Evs.Model.AssociateEipToVlanResponse",
+        "This cmdlet returns an Amazon.Evs.Model.Vlan object.",
+        "The service call response (type Amazon.Evs.Model.AssociateEipToVlanResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class NewQSRoleMembershipCmdlet : AmazonQuickSightClientCmdlet, IExecutor
+    public partial class RegisterEVSEipToVlanCmdlet : AmazonEvsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter AwsAccountId
+        #region Parameter AllocationId
         /// <summary>
         /// <para>
-        /// <para>The ID for the Amazon Web Services account that you want to create a group in. The
-        /// Amazon Web Services account ID that you provide must be the same Amazon Web Services
-        /// account that contains your Amazon QuickSight account.</para>
+        /// <para>The Elastic IP address allocation ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,13 +60,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AwsAccountId { get; set; }
+        public System.String AllocationId { get; set; }
         #endregion
         
-        #region Parameter MemberName
+        #region Parameter EnvironmentId
         /// <summary>
         /// <para>
-        /// <para>The name of the group that you want to add to the role.</para>
+        /// <para>A unique ID for the environment containing the VLAN that the Elastic IP address associates
+        /// with.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,13 +78,13 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String MemberName { get; set; }
+        public System.String EnvironmentId { get; set; }
         #endregion
         
-        #region Parameter Namespace
+        #region Parameter VlanName
         /// <summary>
         /// <para>
-        /// <para>The namespace that the role belongs to.</para>
+        /// <para>The name of the VLAN. <c>hcx</c> is the only accepted VLAN name at this time.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,35 +95,31 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Namespace { get; set; }
+        public System.String VlanName { get; set; }
         #endregion
         
-        #region Parameter Role
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The role that you want to add a group to.</para>
+        /// <para><note><para>This parameter is not used in Amazon EVS currently. If you supply input for this parameter,
+        /// it will have no effect.</para></note><para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the environment creation request. If you do not specify a client token, a randomly
+        /// generated token is used for the request to ensure idempotency.</para></para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.QuickSight.Role")]
-        public Amazon.QuickSight.Role Role { get; set; }
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.CreateRoleMembershipResponse).
-        /// Specifying the name of a property of type Amazon.QuickSight.Model.CreateRoleMembershipResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Vlan'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Evs.Model.AssociateEipToVlanResponse).
+        /// Specifying the name of a property of type Amazon.Evs.Model.AssociateEipToVlanResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Vlan";
         #endregion
         
         #region Parameter Force
@@ -145,8 +141,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-QSRoleMembership (CreateRoleMembership)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.VlanName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-EVSEipToVlan (AssociateEipToVlan)"))
             {
                 return;
             }
@@ -158,35 +154,29 @@ namespace Amazon.PowerShell.Cmdlets.QS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.CreateRoleMembershipResponse, NewQSRoleMembershipCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Evs.Model.AssociateEipToVlanResponse, RegisterEVSEipToVlanCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.AwsAccountId = this.AwsAccountId;
+            context.AllocationId = this.AllocationId;
             #if MODULAR
-            if (this.AwsAccountId == null && ParameterWasBound(nameof(this.AwsAccountId)))
+            if (this.AllocationId == null && ParameterWasBound(nameof(this.AllocationId)))
             {
-                WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AllocationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MemberName = this.MemberName;
+            context.ClientToken = this.ClientToken;
+            context.EnvironmentId = this.EnvironmentId;
             #if MODULAR
-            if (this.MemberName == null && ParameterWasBound(nameof(this.MemberName)))
+            if (this.EnvironmentId == null && ParameterWasBound(nameof(this.EnvironmentId)))
             {
-                WriteWarning("You are passing $null as a value for parameter MemberName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter EnvironmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Namespace = this.Namespace;
+            context.VlanName = this.VlanName;
             #if MODULAR
-            if (this.Namespace == null && ParameterWasBound(nameof(this.Namespace)))
+            if (this.VlanName == null && ParameterWasBound(nameof(this.VlanName)))
             {
-                WriteWarning("You are passing $null as a value for parameter Namespace which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.Role = this.Role;
-            #if MODULAR
-            if (this.Role == null && ParameterWasBound(nameof(this.Role)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Role which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter VlanName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -203,23 +193,23 @@ namespace Amazon.PowerShell.Cmdlets.QS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.QuickSight.Model.CreateRoleMembershipRequest();
+            var request = new Amazon.Evs.Model.AssociateEipToVlanRequest();
             
-            if (cmdletContext.AwsAccountId != null)
+            if (cmdletContext.AllocationId != null)
             {
-                request.AwsAccountId = cmdletContext.AwsAccountId;
+                request.AllocationId = cmdletContext.AllocationId;
             }
-            if (cmdletContext.MemberName != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.MemberName = cmdletContext.MemberName;
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.Namespace != null)
+            if (cmdletContext.EnvironmentId != null)
             {
-                request.Namespace = cmdletContext.Namespace;
+                request.EnvironmentId = cmdletContext.EnvironmentId;
             }
-            if (cmdletContext.Role != null)
+            if (cmdletContext.VlanName != null)
             {
-                request.Role = cmdletContext.Role;
+                request.VlanName = cmdletContext.VlanName;
             }
             
             CmdletOutput output;
@@ -254,12 +244,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         #region AWS Service Operation Call
         
-        private Amazon.QuickSight.Model.CreateRoleMembershipResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.CreateRoleMembershipRequest request)
+        private Amazon.Evs.Model.AssociateEipToVlanResponse CallAWSServiceOperation(IAmazonEvs client, Amazon.Evs.Model.AssociateEipToVlanRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "CreateRoleMembership");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic VMware Service", "AssociateEipToVlan");
             try
             {
-                return client.CreateRoleMembershipAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.AssociateEipToVlanAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -276,12 +266,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AwsAccountId { get; set; }
-            public System.String MemberName { get; set; }
-            public System.String Namespace { get; set; }
-            public Amazon.QuickSight.Role Role { get; set; }
-            public System.Func<Amazon.QuickSight.Model.CreateRoleMembershipResponse, NewQSRoleMembershipCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String AllocationId { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String EnvironmentId { get; set; }
+            public System.String VlanName { get; set; }
+            public System.Func<Amazon.Evs.Model.AssociateEipToVlanResponse, RegisterEVSEipToVlanCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Vlan;
         }
         
     }

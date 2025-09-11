@@ -93,6 +93,18 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         public System.String EksInfo_Namespace { get; set; }
         #endregion
         
+        #region Parameter EksInfo_NodeLabel
+        /// <summary>
+        /// <para>
+        /// <para>The nodeLabel of the nodes where the resources of this virtual cluster can get scheduled.
+        /// It requires relevant scaling and policy engine addons.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContainerProvider_Info_EksInfo_NodeLabel")]
+        public System.String EksInfo_NodeLabel { get; set; }
+        #endregion
+        
         #region Parameter SecurityConfigurationId
         /// <summary>
         /// <para>
@@ -200,6 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             }
             #endif
             context.EksInfo_Namespace = this.EksInfo_Namespace;
+            context.EksInfo_NodeLabel = this.EksInfo_NodeLabel;
             context.ContainerProvider_Type = this.ContainerProvider_Type;
             #if MODULAR
             if (this.ContainerProvider_Type == null && ParameterWasBound(nameof(this.ContainerProvider_Type)))
@@ -285,6 +298,16 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             if (requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfo_eksInfo_Namespace != null)
             {
                 requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfo.Namespace = requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfo_eksInfo_Namespace;
+                requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfoIsNull = false;
+            }
+            System.String requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfo_eksInfo_NodeLabel = null;
+            if (cmdletContext.EksInfo_NodeLabel != null)
+            {
+                requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfo_eksInfo_NodeLabel = cmdletContext.EksInfo_NodeLabel;
+            }
+            if (requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfo_eksInfo_NodeLabel != null)
+            {
+                requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfo.NodeLabel = requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfo_eksInfo_NodeLabel;
                 requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfoIsNull = false;
             }
              // determine if requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfo should be set to null
@@ -382,6 +405,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             public System.String ClientToken { get; set; }
             public System.String ContainerProvider_Id { get; set; }
             public System.String EksInfo_Namespace { get; set; }
+            public System.String EksInfo_NodeLabel { get; set; }
             public Amazon.EMRContainers.ContainerProviderType ContainerProvider_Type { get; set; }
             public System.String Name { get; set; }
             public System.String SecurityConfigurationId { get; set; }

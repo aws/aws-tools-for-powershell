@@ -30,12 +30,12 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Use the <c>DeleteAccountSubscription</c> operation to delete an Amazon QuickSight
-    /// account. This operation will result in an error message if you have configured your
-    /// account termination protection settings to <c>True</c>. To change this setting and
-    /// delete your account, call the <c>UpdateAccountSettings</c> API and set the value of
-    /// the <c>TerminationProtectionEnabled</c> parameter to <c>False</c>, then make another
-    /// call to the <c>DeleteAccountSubscription</c> API.
+    /// Use the <c>DeleteAccountSubscription</c> operation to delete an QuickSight account.
+    /// This operation will result in an error message if you have configured your account
+    /// termination protection settings to <c>True</c>. To change this setting and delete
+    /// your account, call the <c>UpdateAccountSettings</c> API and set the value of the <c>TerminationProtectionEnabled</c>
+    /// parameter to <c>False</c>, then make another call to the <c>DeleteAccountSubscription</c>
+    /// API.
     /// </summary>
     [Cmdlet("Remove", "QSAccountSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.QuickSight.Model.DeleteAccountSubscriptionResponse")]

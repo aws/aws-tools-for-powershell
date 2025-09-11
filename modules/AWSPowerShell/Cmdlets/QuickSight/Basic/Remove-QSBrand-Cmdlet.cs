@@ -30,7 +30,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Deletes an Amazon QuickSight brand.
+    /// Deletes an QuickSight brand.
     /// </summary>
     [Cmdlet("Remove", "QSBrand", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.QuickSight.Model.DeleteBrandResponse")]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter BrandId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon QuickSight brand.</para>
+        /// <para>The ID of the QuickSight brand.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

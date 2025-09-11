@@ -31,9 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Describes the customizations associated with the provided Amazon Web Services account
-    /// and Amazon Amazon QuickSight namespace in an Amazon Web Services Region. The Amazon
-    /// QuickSight console evaluates which customizations to apply by running this API operation
-    /// with the <c>Resolved</c> flag included. 
+    /// and Amazon QuickSight namespace in an Amazon Web Services Region. The QuickSight console
+    /// evaluates which customizations to apply by running this API operation with the <c>Resolved</c>
+    /// flag included. 
     /// 
     ///  
     /// <para>
@@ -41,16 +41,15 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// visualize the relationship of the entities involved. 
     /// </para><ul><li><para><c>Amazon Web Services account</c> - The Amazon Web Services account exists at the
     /// top of the hierarchy. It has the potential to use all of the Amazon Web Services Regions
-    /// and Amazon Web Services Services. When you subscribe to Amazon QuickSight, you choose
-    /// one Amazon Web Services Region to use as your home Region. That's where your free
-    /// SPICE capacity is located. You can use Amazon QuickSight in any supported Amazon Web
-    /// Services Region. 
-    /// </para></li><li><para><c>Amazon Web Services Region</c> - In each Amazon Web Services Region where you
-    /// sign in to Amazon QuickSight at least once, Amazon QuickSight acts as a separate instance
-    /// of the same service. If you have a user directory, it resides in us-east-1, which
-    /// is the US East (N. Virginia). Generally speaking, these users have access to Amazon
-    /// QuickSight in any Amazon Web Services Region, unless they are constrained to a namespace.
+    /// and Amazon Web Services Services. When you subscribe to QuickSight, you choose one
+    /// Amazon Web Services Region to use as your home Region. That's where your free SPICE
+    /// capacity is located. You can use QuickSight in any supported Amazon Web Services Region.
     /// 
+    /// </para></li><li><para><c>Amazon Web Services Region</c> - In each Amazon Web Services Region where you
+    /// sign in to QuickSight at least once, QuickSight acts as a separate instance of the
+    /// same service. If you have a user directory, it resides in us-east-1, which is the
+    /// US East (N. Virginia). Generally speaking, these users have access to QuickSight in
+    /// any Amazon Web Services Region, unless they are constrained to a namespace. 
     /// </para><para>
     /// To run the command in a different Amazon Web Services Region, you change your Region
     /// settings. If you're using the CLI, you can use one of the following options:
@@ -70,11 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// People who share a namespace are completely isolated from users and assets in other
     /// namespaces, even if they are in the same Amazon Web Services account and Amazon Web
     /// Services Region.
-    /// </para></li><li><para><c>Applied customizations</c> - Within an Amazon Web Services Region, a set of Amazon
-    /// QuickSight customizations can apply to an Amazon Web Services account or to a namespace.
-    /// Settings that you apply to a namespace override settings that you apply to an Amazon
-    /// Web Services account. All settings are isolated to a single Amazon Web Services Region.
-    /// To apply them in other Amazon Web Services Regions, run the <c>CreateAccountCustomization</c>
+    /// </para></li><li><para><c>Applied customizations</c> - Within an Amazon Web Services Region, a set of QuickSight
+    /// customizations can apply to an Amazon Web Services account or to a namespace. Settings
+    /// that you apply to a namespace override settings that you apply to an Amazon Web Services
+    /// account. All settings are isolated to a single Amazon Web Services Region. To apply
+    /// them in other Amazon Web Services Regions, run the <c>CreateAccountCustomization</c>
     /// command in each Amazon Web Services Region where you want to apply the same customizations.
     /// 
     /// </para></li></ul>
@@ -94,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID for the Amazon Web Services account that you want to describe Amazon QuickSight
-        /// customizations for.</para>
+        /// <para>The ID for the Amazon Web Services account that you want to describe QuickSight customizations
+        /// for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -112,8 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The Amazon QuickSight namespace that you want to describe Amazon QuickSight customizations
-        /// for.</para>
+        /// <para>The QuickSight namespace that you want to describe QuickSight customizations for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,10 +122,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The <c>Resolved</c> flag works with the other parameters to determine which view of
-        /// Amazon QuickSight customizations is returned. You can add this flag to your command
-        /// to use the same view that Amazon QuickSight uses to identify which customizations
-        /// to apply to the console. Omit this flag, or set it to <c>no-resolved</c>, to reveal
-        /// customizations that are configured at different levels. </para>
+        /// QuickSight customizations is returned. You can add this flag to your command to use
+        /// the same view that QuickSight uses to identify which customizations to apply to the
+        /// console. Omit this flag, or set it to <c>no-resolved</c>, to reveal customizations
+        /// that are configured at different levels. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

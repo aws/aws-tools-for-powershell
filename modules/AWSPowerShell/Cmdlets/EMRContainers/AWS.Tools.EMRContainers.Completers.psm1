@@ -99,6 +99,7 @@ $EMRC_Completers = {
 
         # Amazon.EMRContainers.ContainerProviderType
         {
+            ($_ -eq "New-EMRCSecurityConfiguration/ContainerProvider_Type") -Or
             ($_ -eq "New-EMRCVirtualCluster/ContainerProvider_Type") -Or
             ($_ -eq "Get-EMRCVirtualClusterList/ContainerProviderType")
         }
@@ -126,7 +127,7 @@ $EMRC_Completers = {
 }
 
 $EMRC_map = @{
-    "ContainerProvider_Type"=@("New-EMRCVirtualCluster")
+    "ContainerProvider_Type"=@("New-EMRCSecurityConfiguration","New-EMRCVirtualCluster")
     "ContainerProviderType"=@("Get-EMRCVirtualClusterList")
     "ManagedLogs_AllowAWSToRetainLog"=@("New-EMRCManagedEndpoint","Start-EMRCJobRun")
     "MonitoringConfiguration_PersistentAppUI"=@("New-EMRCManagedEndpoint","Start-EMRCJobRun")

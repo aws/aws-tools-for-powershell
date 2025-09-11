@@ -136,6 +136,16 @@ $RDS_Completers = {
             break
         }
 
+        # Amazon.RDS.DefaultAuthScheme
+        {
+            ($_ -eq "Edit-RDSDBProxy/DefaultAuthScheme") -Or
+            ($_ -eq "New-RDSDBProxy/DefaultAuthScheme")
+        }
+        {
+            $v = "IAM_AUTH","NONE"
+            break
+        }
+
         # Amazon.RDS.EndpointNetworkType
         {
             ($_ -eq "New-RDSDBProxy/EndpointNetworkType") -Or
@@ -212,6 +222,7 @@ $RDS_map = @{
     "AutomationMode"=@("Edit-RDSDBInstance")
     "ClusterScalabilityType"=@("New-RDSDBCluster")
     "DatabaseInsightsMode"=@("Edit-RDSDBCluster","Edit-RDSDBInstance","New-RDSDBCluster","New-RDSDBInstance","New-RDSDBInstanceReadReplica","Restore-RDSDBInstanceFromS3")
+    "DefaultAuthScheme"=@("Edit-RDSDBProxy","New-RDSDBProxy")
     "EndpointNetworkType"=@("New-RDSDBProxy","New-RDSDBProxyEndpoint")
     "EngineFamily"=@("New-RDSDBProxy")
     "MasterUserAuthenticationType"=@("Edit-RDSDBCluster","Edit-RDSDBInstance","New-RDSDBCluster","New-RDSDBInstance")

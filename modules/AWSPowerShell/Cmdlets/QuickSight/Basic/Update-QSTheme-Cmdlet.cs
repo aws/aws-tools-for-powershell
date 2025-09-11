@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The theme ID, defined by Amazon QuickSight, that a custom theme inherits from. All
-        /// themes initially inherit from a default Amazon QuickSight theme.</para>
+        /// themes initially inherit from a default QuickSight theme.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

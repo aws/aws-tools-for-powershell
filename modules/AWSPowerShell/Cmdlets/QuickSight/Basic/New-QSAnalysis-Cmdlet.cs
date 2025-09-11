@@ -227,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter FolderArn
         /// <summary>
         /// <para>
-        /// <para>When you create the analysis, Amazon QuickSight adds the analysis to these folders.</para><para />
+        /// <para>When you create the analysis, QuickSight adds the analysis to these folders.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -282,7 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>A descriptive name for the analysis that you're creating. This name displays for the
-        /// analysis in the Amazon QuickSight console. </para>
+        /// analysis in the QuickSight console. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -405,9 +405,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ScreenCanvasSizeOptions_ResizeOption
         /// <summary>
         /// <para>
-        /// <para>This value determines the layout behavior when the viewport is resized.</para><ul><li><para><c>FIXED</c>: A fixed width will be used when optimizing the layout. In the Amazon
-        /// QuickSight console, this option is called <c>Classic</c>.</para></li><li><para><c>RESPONSIVE</c>: The width of the canvas will be responsive and optimized to the
-        /// view port. In the Amazon QuickSight console, this option is called <c>Tiled</c>.</para></li></ul>
+        /// <para>This value determines the layout behavior when the viewport is resized.</para><ul><li><para><c>FIXED</c>: A fixed width will be used when optimizing the layout. In the QuickSight
+        /// console, this option is called <c>Classic</c>.</para></li><li><para><c>RESPONSIVE</c>: The width of the canvas will be responsive and optimized to the
+        /// view port. In the QuickSight console, this option is called <c>Tiled</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -505,7 +505,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The ARN for the theme to apply to the analysis that you're creating. To see the theme
-        /// in the Amazon QuickSight console, make sure that you have access to it.</para>
+        /// in the QuickSight console, make sure that you have access to it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

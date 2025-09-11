@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The ID of the Amazon Web Services account where you want to assign an IAM policy to
-        /// Amazon QuickSight users or groups.</para>
+        /// QuickSight users or groups.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Identity
         /// <summary>
         /// <para>
-        /// <para>The Amazon QuickSight users, groups, or both that you want to assign the policy to.</para><para />
+        /// <para>The QuickSight users, groups, or both that you want to assign the policy to.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -137,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter PolicyArn
         /// <summary>
         /// <para>
-        /// <para>The ARN for the IAM policy to apply to the Amazon QuickSight users and groups specified
-        /// in this assignment.</para>
+        /// <para>The ARN for the IAM policy to apply to the QuickSight users and groups specified in
+        /// this assignment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

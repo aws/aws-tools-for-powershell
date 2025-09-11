@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.88.0",
+    "ProductVersion"    : "4.0.89.0",
     "CoreVersion"       : "4.0.0.26",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -162,7 +162,7 @@
             "InPreview"               : false
         },
         "ECS"               : {
-            "Version" : "4.0.4.8",
+            "Version" : "4.0.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"
@@ -276,7 +276,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "4.0.8.0",
+            "Version" : "4.0.9.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"
@@ -844,7 +844,7 @@
             "InPreview"               : false
         },
         "MediaLive"                       : {
-            "Version" : "4.0.4.1",
+            "Version" : "4.0.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"
@@ -884,7 +884,7 @@
             "InPreview"               : false
         },
         "GuardDuty"                       : {
-            "Version" : "4.0.6.1",
+            "Version" : "4.0.7.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"
@@ -1172,7 +1172,7 @@
             "InPreview"               : false
         },
         "QuickSight"                      : {
-            "Version" : "4.0.5.1",
+            "Version" : "4.0.6.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"
@@ -1892,7 +1892,7 @@
             "InPreview"               : false
         },
         "EMRContainers"                   : {
-            "Version" : "4.0.0.21",
+            "Version" : "4.0.1.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"
@@ -1924,7 +1924,7 @@
             "InPreview"               : false
         },
         "PrometheusService"               : {
-            "Version" : "4.0.3.1",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"
@@ -2748,7 +2748,7 @@
             "InPreview"               : false
         },
         "DataZone"                            : {
-            "Version" : "4.0.8.0",
+            "Version" : "4.0.9.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"
@@ -3244,7 +3244,7 @@
             "InPreview"               : false
         },
         "Evs"                                 : {
-            "Version" : "4.0.2.1",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"

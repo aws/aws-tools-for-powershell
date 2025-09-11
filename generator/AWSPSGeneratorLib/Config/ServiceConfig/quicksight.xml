@@ -162,6 +162,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccountCustomPermission" OutputProperty="*" Verb="Remove" Noun="AccountCustomPermission" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAccountSubscription" OutputProperty="*" Verb="Remove" Noun="AccountSubscription" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -283,6 +287,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAccountCustomization" OutputProperty="*" Verb="Get" Noun="AccountCustomization" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccountCustomPermission" OutputProperty="CustomPermissionsName" Verb="Get" Noun="AccountCustomPermission" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -739,6 +747,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAccountCustomization" OutputProperty="*" Verb="Update" Noun="AccountCustomization" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAccountCustomPermission" OutputProperty="*" Verb="Update" Noun="AccountCustomPermission" ShouldProcessTarget="AwsAccountId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

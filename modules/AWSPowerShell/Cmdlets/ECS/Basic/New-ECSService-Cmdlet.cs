@@ -209,8 +209,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>Indicates whether to use Availability Zone rebalancing for the service.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html">Balancing
         /// an Amazon ECS service across Availability Zones</a> in the <i><i>Amazon Elastic Container
         /// Service Developer Guide</i></i>.</para><para>The default behavior of <c>AvailabilityZoneRebalancing</c> differs between create
-        /// and update requests:</para><ul><li><para>For create service requests, when when no value is specified for <c>AvailabilityZoneRebalancing</c>,
-        /// Amazon ECS defaults the value to to <c>ENABLED</c>.</para></li><li><para>For update service requests, when no value is specified for <c>AvailabilityZoneRebalancing</c>,
+        /// and update requests:</para><ul><li><para>For create service requests, when no value is specified for <c>AvailabilityZoneRebalancing</c>,
+        /// Amazon ECS defaults the value to <c>ENABLED</c>.</para></li><li><para>For update service requests, when no value is specified for <c>AvailabilityZoneRebalancing</c>,
         /// Amazon ECS defaults to the existing service’s <c>AvailabilityZoneRebalancing</c> value.
         /// If the service never had an <c>AvailabilityZoneRebalancing</c> value set, Amazon ECS
         /// treats this as <c>DISABLED</c>.</para></li></ul>

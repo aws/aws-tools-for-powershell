@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ColumnGroup
         /// <summary>
         /// <para>
-        /// <para>Groupings of columns that work together in certain Amazon QuickSight features. Currently,
+        /// <para>Groupings of columns that work together in certain QuickSight features. Currently,
         /// only geospatial hierarchy is supported.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller

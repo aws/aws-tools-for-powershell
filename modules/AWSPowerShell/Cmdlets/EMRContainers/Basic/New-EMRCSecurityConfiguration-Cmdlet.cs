@@ -81,6 +81,16 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         public System.String SecureNamespaceInfo_ClusterId { get; set; }
         #endregion
         
+        #region Parameter ContainerProvider_Id
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the container cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ContainerProvider_Id { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -98,6 +108,17 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter EksInfo_Namespace
+        /// <summary>
+        /// <para>
+        /// <para>The namespaces of the Amazon EKS cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContainerProvider_Info_EksInfo_Namespace")]
+        public System.String EksInfo_Namespace { get; set; }
+        #endregion
+        
         #region Parameter SecureNamespaceInfo_Namespace
         /// <summary>
         /// <para>
@@ -107,6 +128,18 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SecurityConfigurationData_AuthorizationConfiguration_LakeFormationConfiguration_SecureNamespaceInfo_Namespace")]
         public System.String SecureNamespaceInfo_Namespace { get; set; }
+        #endregion
+        
+        #region Parameter EksInfo_NodeLabel
+        /// <summary>
+        /// <para>
+        /// <para>The nodeLabel of the nodes where the resources of this virtual cluster can get scheduled.
+        /// It requires relevant scaling and policy engine addons.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContainerProvider_Info_EksInfo_NodeLabel")]
+        public System.String EksInfo_NodeLabel { get; set; }
         #endregion
         
         #region Parameter TlsCertificateConfiguration_PrivateCertificateSecretArn
@@ -158,6 +191,17 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter ContainerProvider_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of the container provider. Amazon EKS is the only supported type as of now.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EMRContainers.ContainerProviderType")]
+        public Amazon.EMRContainers.ContainerProviderType ContainerProvider_Type { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -217,6 +261,10 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientToken = this.ClientToken;
+            context.ContainerProvider_Id = this.ContainerProvider_Id;
+            context.EksInfo_Namespace = this.EksInfo_Namespace;
+            context.EksInfo_NodeLabel = this.EksInfo_NodeLabel;
+            context.ContainerProvider_Type = this.ContainerProvider_Type;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -258,6 +306,85 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            
+             // populate ContainerProvider
+            var requestContainerProviderIsNull = true;
+            request.ContainerProvider = new Amazon.EMRContainers.Model.ContainerProvider();
+            System.String requestContainerProvider_containerProvider_Id = null;
+            if (cmdletContext.ContainerProvider_Id != null)
+            {
+                requestContainerProvider_containerProvider_Id = cmdletContext.ContainerProvider_Id;
+            }
+            if (requestContainerProvider_containerProvider_Id != null)
+            {
+                request.ContainerProvider.Id = requestContainerProvider_containerProvider_Id;
+                requestContainerProviderIsNull = false;
+            }
+            Amazon.EMRContainers.ContainerProviderType requestContainerProvider_containerProvider_Type = null;
+            if (cmdletContext.ContainerProvider_Type != null)
+            {
+                requestContainerProvider_containerProvider_Type = cmdletContext.ContainerProvider_Type;
+            }
+            if (requestContainerProvider_containerProvider_Type != null)
+            {
+                request.ContainerProvider.Type = requestContainerProvider_containerProvider_Type;
+                requestContainerProviderIsNull = false;
+            }
+            Amazon.EMRContainers.Model.ContainerInfo requestContainerProvider_containerProvider_Info = null;
+            
+             // populate Info
+            var requestContainerProvider_containerProvider_InfoIsNull = true;
+            requestContainerProvider_containerProvider_Info = new Amazon.EMRContainers.Model.ContainerInfo();
+            Amazon.EMRContainers.Model.EksInfo requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfo = null;
+            
+             // populate EksInfo
+            var requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfoIsNull = true;
+            requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfo = new Amazon.EMRContainers.Model.EksInfo();
+            System.String requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfo_eksInfo_Namespace = null;
+            if (cmdletContext.EksInfo_Namespace != null)
+            {
+                requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfo_eksInfo_Namespace = cmdletContext.EksInfo_Namespace;
+            }
+            if (requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfo_eksInfo_Namespace != null)
+            {
+                requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfo.Namespace = requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfo_eksInfo_Namespace;
+                requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfoIsNull = false;
+            }
+            System.String requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfo_eksInfo_NodeLabel = null;
+            if (cmdletContext.EksInfo_NodeLabel != null)
+            {
+                requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfo_eksInfo_NodeLabel = cmdletContext.EksInfo_NodeLabel;
+            }
+            if (requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfo_eksInfo_NodeLabel != null)
+            {
+                requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfo.NodeLabel = requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfo_eksInfo_NodeLabel;
+                requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfoIsNull = false;
+            }
+             // determine if requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfo should be set to null
+            if (requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfoIsNull)
+            {
+                requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfo = null;
+            }
+            if (requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfo != null)
+            {
+                requestContainerProvider_containerProvider_Info.EksInfo = requestContainerProvider_containerProvider_Info_containerProvider_Info_EksInfo;
+                requestContainerProvider_containerProvider_InfoIsNull = false;
+            }
+             // determine if requestContainerProvider_containerProvider_Info should be set to null
+            if (requestContainerProvider_containerProvider_InfoIsNull)
+            {
+                requestContainerProvider_containerProvider_Info = null;
+            }
+            if (requestContainerProvider_containerProvider_Info != null)
+            {
+                request.ContainerProvider.Info = requestContainerProvider_containerProvider_Info;
+                requestContainerProviderIsNull = false;
+            }
+             // determine if request.ContainerProvider should be set to null
+            if (requestContainerProviderIsNull)
+            {
+                request.ContainerProvider = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -485,6 +612,10 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.String ContainerProvider_Id { get; set; }
+            public System.String EksInfo_Namespace { get; set; }
+            public System.String EksInfo_NodeLabel { get; set; }
+            public Amazon.EMRContainers.ContainerProviderType ContainerProvider_Type { get; set; }
             public System.String Name { get; set; }
             public Amazon.EMRContainers.CertificateProviderType TlsCertificateConfiguration_CertificateProviderType { get; set; }
             public System.String TlsCertificateConfiguration_PrivateCertificateSecretArn { get; set; }

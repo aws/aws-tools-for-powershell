@@ -290,6 +290,17 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         public System.String EnvironmentName { get; set; }
         #endregion
         
+        #region Parameter InitialVlans_HcxNetworkAclId
+        /// <summary>
+        /// <para>
+        /// <para>A unique ID for a network access control list that the HCX VLAN uses. Required when
+        /// <c>isHcxPublic</c> is set to <c>true</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InitialVlans_HcxNetworkAclId { get; set; }
+        #endregion
+        
         #region Parameter Hosts
         /// <summary>
         /// <para>
@@ -312,6 +323,16 @@ namespace Amazon.PowerShell.Cmdlets.EVS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public Amazon.Evs.Model.HostInfoForCreate[] Hosts { get; set; }
+        #endregion
+        
+        #region Parameter InitialVlans_IsHcxPublic
+        /// <summary>
+        /// <para>
+        /// <para>Determines if the HCX VLAN that Amazon EVS provisions is public or private.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? InitialVlans_IsHcxPublic { get; set; }
         #endregion
         
         #region Parameter KmsKeyId
@@ -751,6 +772,8 @@ namespace Amazon.PowerShell.Cmdlets.EVS
                 WriteWarning("You are passing $null as a value for parameter Hcx_Cidr which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.InitialVlans_HcxNetworkAclId = this.InitialVlans_HcxNetworkAclId;
+            context.InitialVlans_IsHcxPublic = this.InitialVlans_IsHcxPublic;
             context.NsxUplink_Cidr = this.NsxUplink_Cidr;
             #if MODULAR
             if (this.NsxUplink_Cidr == null && ParameterWasBound(nameof(this.NsxUplink_Cidr)))
@@ -965,6 +988,26 @@ namespace Amazon.PowerShell.Cmdlets.EVS
              // populate InitialVlans
             var requestInitialVlansIsNull = true;
             request.InitialVlans = new Amazon.Evs.Model.InitialVlans();
+            System.String requestInitialVlans_initialVlans_HcxNetworkAclId = null;
+            if (cmdletContext.InitialVlans_HcxNetworkAclId != null)
+            {
+                requestInitialVlans_initialVlans_HcxNetworkAclId = cmdletContext.InitialVlans_HcxNetworkAclId;
+            }
+            if (requestInitialVlans_initialVlans_HcxNetworkAclId != null)
+            {
+                request.InitialVlans.HcxNetworkAclId = requestInitialVlans_initialVlans_HcxNetworkAclId;
+                requestInitialVlansIsNull = false;
+            }
+            System.Boolean? requestInitialVlans_initialVlans_IsHcxPublic = null;
+            if (cmdletContext.InitialVlans_IsHcxPublic != null)
+            {
+                requestInitialVlans_initialVlans_IsHcxPublic = cmdletContext.InitialVlans_IsHcxPublic.Value;
+            }
+            if (requestInitialVlans_initialVlans_IsHcxPublic != null)
+            {
+                request.InitialVlans.IsHcxPublic = requestInitialVlans_initialVlans_IsHcxPublic.Value;
+                requestInitialVlansIsNull = false;
+            }
             Amazon.Evs.Model.InitialVlanInfo requestInitialVlans_initialVlans_EdgeVTep = null;
             
              // populate EdgeVTep
@@ -1433,6 +1476,8 @@ namespace Amazon.PowerShell.Cmdlets.EVS
             public System.String ExpansionVlan1_Cidr { get; set; }
             public System.String ExpansionVlan2_Cidr { get; set; }
             public System.String Hcx_Cidr { get; set; }
+            public System.String InitialVlans_HcxNetworkAclId { get; set; }
+            public System.Boolean? InitialVlans_IsHcxPublic { get; set; }
             public System.String NsxUplink_Cidr { get; set; }
             public System.String VmkManagement_Cidr { get; set; }
             public System.String VmManagement_Cidr { get; set; }
