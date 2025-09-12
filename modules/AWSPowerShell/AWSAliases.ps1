@@ -23351,6 +23351,7 @@ Set-Alias -Name Enable-PAYCCDefaultKeyReplicationRegions -Value Enable-PAYCCDefa
 Set-Alias -Name PAYCC-EnableDefaultKeyReplicationRegions -Value Enable-PAYCCDefaultKeyReplicationRegion
 Set-Alias -Name PAYCC-ExportKey -Value Export-PAYCCKey
 Set-Alias -Name PAYCC-GetAlias -Value Get-PAYCCAlias
+Set-Alias -Name PAYCC-GetCertificateSigningRequest -Value Get-PAYCCCertificateSigningRequest
 Set-Alias -Name Get-PAYCCDefaultKeyReplicationRegions -Value Get-PAYCCDefaultKeyReplicationRegion
 Set-Alias -Name PAYCC-GetDefaultKeyReplicationRegions -Value Get-PAYCCDefaultKeyReplicationRegion
 Set-Alias -Name PAYCC-GetKey -Value Get-PAYCCKey

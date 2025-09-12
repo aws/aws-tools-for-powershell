@@ -747,6 +747,28 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public System.Boolean? KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign { get; set; }
         #endregion
         
+        #region Parameter Tr34KeyBlock_SigningKeyCertificate
+        /// <summary>
+        /// <para>
+        /// <para>Certificate used for signing the export key</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KeyMaterial_Tr34KeyBlock_SigningKeyCertificate")]
+        public System.String Tr34KeyBlock_SigningKeyCertificate { get; set; }
+        #endregion
+        
+        #region Parameter Tr34KeyBlock_SigningKeyIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>Key Identifier used for signing the export key</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KeyMaterial_Tr34KeyBlock_SigningKeyIdentifier")]
+        public System.String Tr34KeyBlock_SigningKeyIdentifier { get; set; }
+        #endregion
+        
         #region Parameter KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap
         /// <summary>
         /// <para>
@@ -1046,6 +1068,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
                 }
             }
             context.Tr34KeyBlock_RandomNonce = this.Tr34KeyBlock_RandomNonce;
+            context.Tr34KeyBlock_SigningKeyCertificate = this.Tr34KeyBlock_SigningKeyCertificate;
+            context.Tr34KeyBlock_SigningKeyIdentifier = this.Tr34KeyBlock_SigningKeyIdentifier;
             context.Tr34KeyBlock_WrappingKeyCertificate = this.Tr34KeyBlock_WrappingKeyCertificate;
             
             // allow further manipulation of loaded context prior to processing
@@ -1332,220 +1356,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             {
                 request.KeyMaterial.KeyCryptogram = requestKeyMaterial_keyMaterial_KeyCryptogram;
             }
-            Amazon.PaymentCryptography.Model.ExportTr34KeyBlock requestKeyMaterial_keyMaterial_Tr34KeyBlock = null;
-            
-             // populate Tr34KeyBlock
-            var requestKeyMaterial_keyMaterial_Tr34KeyBlockIsNull = true;
-            requestKeyMaterial_keyMaterial_Tr34KeyBlock = new Amazon.PaymentCryptography.Model.ExportTr34KeyBlock();
-            System.String requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier = null;
-            if (cmdletContext.Tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier = cmdletContext.Tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier;
-            }
-            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock.CertificateAuthorityPublicKeyIdentifier = requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier;
-                requestKeyMaterial_keyMaterial_Tr34KeyBlockIsNull = false;
-            }
-            System.String requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_ExportToken = null;
-            if (cmdletContext.Tr34KeyBlock_ExportToken != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_ExportToken = cmdletContext.Tr34KeyBlock_ExportToken;
-            }
-            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_ExportToken != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock.ExportToken = requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_ExportToken;
-                requestKeyMaterial_keyMaterial_Tr34KeyBlockIsNull = false;
-            }
-            Amazon.PaymentCryptography.Tr34KeyBlockFormat requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_KeyBlockFormat = null;
-            if (cmdletContext.Tr34KeyBlock_KeyBlockFormat != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_KeyBlockFormat = cmdletContext.Tr34KeyBlock_KeyBlockFormat;
-            }
-            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_KeyBlockFormat != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock.KeyBlockFormat = requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_KeyBlockFormat;
-                requestKeyMaterial_keyMaterial_Tr34KeyBlockIsNull = false;
-            }
-            System.String requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_RandomNonce = null;
-            if (cmdletContext.Tr34KeyBlock_RandomNonce != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_RandomNonce = cmdletContext.Tr34KeyBlock_RandomNonce;
-            }
-            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_RandomNonce != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock.RandomNonce = requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_RandomNonce;
-                requestKeyMaterial_keyMaterial_Tr34KeyBlockIsNull = false;
-            }
-            System.String requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_WrappingKeyCertificate = null;
-            if (cmdletContext.Tr34KeyBlock_WrappingKeyCertificate != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_WrappingKeyCertificate = cmdletContext.Tr34KeyBlock_WrappingKeyCertificate;
-            }
-            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_WrappingKeyCertificate != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock.WrappingKeyCertificate = requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_WrappingKeyCertificate;
-                requestKeyMaterial_keyMaterial_Tr34KeyBlockIsNull = false;
-            }
-            Amazon.PaymentCryptography.Model.KeyBlockHeaders requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders = null;
-            
-             // populate KeyBlockHeaders
-            var requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeadersIsNull = true;
-            requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders = new Amazon.PaymentCryptography.Model.KeyBlockHeaders();
-            Amazon.PaymentCryptography.KeyExportability requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyExportability = null;
-            if (cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyExportability != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyExportability = cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyExportability;
-            }
-            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyExportability != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders.KeyExportability = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyExportability;
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeadersIsNull = false;
-            }
-            System.String requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyVersion = null;
-            if (cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyVersion != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyVersion = cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyVersion;
-            }
-            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyVersion != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders.KeyVersion = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyVersion;
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeadersIsNull = false;
-            }
-            Dictionary<System.String, System.String> requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_OptionalBlocks = null;
-            if (cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_OptionalBlocks != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_OptionalBlocks = cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_OptionalBlocks;
-            }
-            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_OptionalBlocks != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders.OptionalBlocks = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_OptionalBlocks;
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeadersIsNull = false;
-            }
-            Amazon.PaymentCryptography.Model.KeyModesOfUse requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse = null;
-            
-             // populate KeyModesOfUse
-            var requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = true;
-            requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse = new Amazon.PaymentCryptography.Model.KeyModesOfUse();
-            System.Boolean? requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt = null;
-            if (cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt = cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt.Value;
-            }
-            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse.Decrypt = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt.Value;
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
-            }
-            System.Boolean? requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey = null;
-            if (cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey = cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey.Value;
-            }
-            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse.DeriveKey = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey.Value;
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
-            }
-            System.Boolean? requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt = null;
-            if (cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt = cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt.Value;
-            }
-            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse.Encrypt = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt.Value;
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
-            }
-            System.Boolean? requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate = null;
-            if (cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate = cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate.Value;
-            }
-            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse.Generate = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate.Value;
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
-            }
-            System.Boolean? requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions = null;
-            if (cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions = cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions.Value;
-            }
-            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse.NoRestrictions = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions.Value;
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
-            }
-            System.Boolean? requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign = null;
-            if (cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign = cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign.Value;
-            }
-            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse.Sign = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign.Value;
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
-            }
-            System.Boolean? requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap = null;
-            if (cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap = cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap.Value;
-            }
-            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse.Unwrap = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap.Value;
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
-            }
-            System.Boolean? requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify = null;
-            if (cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify = cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify.Value;
-            }
-            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse.Verify = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify.Value;
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
-            }
-            System.Boolean? requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap = null;
-            if (cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap = cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap.Value;
-            }
-            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse.Wrap = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap.Value;
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
-            }
-             // determine if requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse should be set to null
-            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse = null;
-            }
-            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders.KeyModesOfUse = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse;
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeadersIsNull = false;
-            }
-             // determine if requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders should be set to null
-            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeadersIsNull)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders = null;
-            }
-            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders != null)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock.KeyBlockHeaders = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders;
-                requestKeyMaterial_keyMaterial_Tr34KeyBlockIsNull = false;
-            }
-             // determine if requestKeyMaterial_keyMaterial_Tr34KeyBlock should be set to null
-            if (requestKeyMaterial_keyMaterial_Tr34KeyBlockIsNull)
-            {
-                requestKeyMaterial_keyMaterial_Tr34KeyBlock = null;
-            }
-            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock != null)
-            {
-                request.KeyMaterial.Tr34KeyBlock = requestKeyMaterial_keyMaterial_Tr34KeyBlock;
-            }
             Amazon.PaymentCryptography.Model.ExportDiffieHellmanTr31KeyBlock requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock = null;
             
              // populate DiffieHellmanTr31KeyBlock
@@ -1788,6 +1598,240 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             {
                 request.KeyMaterial.DiffieHellmanTr31KeyBlock = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock;
             }
+            Amazon.PaymentCryptography.Model.ExportTr34KeyBlock requestKeyMaterial_keyMaterial_Tr34KeyBlock = null;
+            
+             // populate Tr34KeyBlock
+            var requestKeyMaterial_keyMaterial_Tr34KeyBlockIsNull = true;
+            requestKeyMaterial_keyMaterial_Tr34KeyBlock = new Amazon.PaymentCryptography.Model.ExportTr34KeyBlock();
+            System.String requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier = null;
+            if (cmdletContext.Tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier = cmdletContext.Tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier;
+            }
+            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock.CertificateAuthorityPublicKeyIdentifier = requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier;
+                requestKeyMaterial_keyMaterial_Tr34KeyBlockIsNull = false;
+            }
+            System.String requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_ExportToken = null;
+            if (cmdletContext.Tr34KeyBlock_ExportToken != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_ExportToken = cmdletContext.Tr34KeyBlock_ExportToken;
+            }
+            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_ExportToken != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock.ExportToken = requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_ExportToken;
+                requestKeyMaterial_keyMaterial_Tr34KeyBlockIsNull = false;
+            }
+            Amazon.PaymentCryptography.Tr34KeyBlockFormat requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_KeyBlockFormat = null;
+            if (cmdletContext.Tr34KeyBlock_KeyBlockFormat != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_KeyBlockFormat = cmdletContext.Tr34KeyBlock_KeyBlockFormat;
+            }
+            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_KeyBlockFormat != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock.KeyBlockFormat = requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_KeyBlockFormat;
+                requestKeyMaterial_keyMaterial_Tr34KeyBlockIsNull = false;
+            }
+            System.String requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_RandomNonce = null;
+            if (cmdletContext.Tr34KeyBlock_RandomNonce != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_RandomNonce = cmdletContext.Tr34KeyBlock_RandomNonce;
+            }
+            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_RandomNonce != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock.RandomNonce = requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_RandomNonce;
+                requestKeyMaterial_keyMaterial_Tr34KeyBlockIsNull = false;
+            }
+            System.String requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_SigningKeyCertificate = null;
+            if (cmdletContext.Tr34KeyBlock_SigningKeyCertificate != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_SigningKeyCertificate = cmdletContext.Tr34KeyBlock_SigningKeyCertificate;
+            }
+            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_SigningKeyCertificate != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock.SigningKeyCertificate = requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_SigningKeyCertificate;
+                requestKeyMaterial_keyMaterial_Tr34KeyBlockIsNull = false;
+            }
+            System.String requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_SigningKeyIdentifier = null;
+            if (cmdletContext.Tr34KeyBlock_SigningKeyIdentifier != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_SigningKeyIdentifier = cmdletContext.Tr34KeyBlock_SigningKeyIdentifier;
+            }
+            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_SigningKeyIdentifier != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock.SigningKeyIdentifier = requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_SigningKeyIdentifier;
+                requestKeyMaterial_keyMaterial_Tr34KeyBlockIsNull = false;
+            }
+            System.String requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_WrappingKeyCertificate = null;
+            if (cmdletContext.Tr34KeyBlock_WrappingKeyCertificate != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_WrappingKeyCertificate = cmdletContext.Tr34KeyBlock_WrappingKeyCertificate;
+            }
+            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_WrappingKeyCertificate != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock.WrappingKeyCertificate = requestKeyMaterial_keyMaterial_Tr34KeyBlock_tr34KeyBlock_WrappingKeyCertificate;
+                requestKeyMaterial_keyMaterial_Tr34KeyBlockIsNull = false;
+            }
+            Amazon.PaymentCryptography.Model.KeyBlockHeaders requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders = null;
+            
+             // populate KeyBlockHeaders
+            var requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeadersIsNull = true;
+            requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders = new Amazon.PaymentCryptography.Model.KeyBlockHeaders();
+            Amazon.PaymentCryptography.KeyExportability requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyExportability = null;
+            if (cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyExportability != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyExportability = cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyExportability;
+            }
+            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyExportability != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders.KeyExportability = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyExportability;
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeadersIsNull = false;
+            }
+            System.String requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyVersion = null;
+            if (cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyVersion != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyVersion = cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyVersion;
+            }
+            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyVersion != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders.KeyVersion = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyVersion;
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeadersIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_OptionalBlocks = null;
+            if (cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_OptionalBlocks != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_OptionalBlocks = cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_OptionalBlocks;
+            }
+            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_OptionalBlocks != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders.OptionalBlocks = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_OptionalBlocks;
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeadersIsNull = false;
+            }
+            Amazon.PaymentCryptography.Model.KeyModesOfUse requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse = null;
+            
+             // populate KeyModesOfUse
+            var requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = true;
+            requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse = new Amazon.PaymentCryptography.Model.KeyModesOfUse();
+            System.Boolean? requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt = null;
+            if (cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt = cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse.Decrypt = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt.Value;
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
+            }
+            System.Boolean? requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey = null;
+            if (cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey = cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse.DeriveKey = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey.Value;
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
+            }
+            System.Boolean? requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt = null;
+            if (cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt = cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse.Encrypt = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt.Value;
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
+            }
+            System.Boolean? requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate = null;
+            if (cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate = cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse.Generate = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate.Value;
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
+            }
+            System.Boolean? requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions = null;
+            if (cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions = cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse.NoRestrictions = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions.Value;
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
+            }
+            System.Boolean? requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign = null;
+            if (cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign = cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse.Sign = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign.Value;
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
+            }
+            System.Boolean? requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap = null;
+            if (cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap = cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse.Unwrap = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap.Value;
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
+            }
+            System.Boolean? requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify = null;
+            if (cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify = cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse.Verify = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify.Value;
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
+            }
+            System.Boolean? requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap = null;
+            if (cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap = cmdletContext.KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse.Wrap = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap.Value;
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
+            }
+             // determine if requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse should be set to null
+            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse = null;
+            }
+            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders.KeyModesOfUse = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_keyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse;
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeadersIsNull = false;
+            }
+             // determine if requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders should be set to null
+            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeadersIsNull)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders = null;
+            }
+            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders != null)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock.KeyBlockHeaders = requestKeyMaterial_keyMaterial_Tr34KeyBlock_keyMaterial_Tr34KeyBlock_KeyBlockHeaders;
+                requestKeyMaterial_keyMaterial_Tr34KeyBlockIsNull = false;
+            }
+             // determine if requestKeyMaterial_keyMaterial_Tr34KeyBlock should be set to null
+            if (requestKeyMaterial_keyMaterial_Tr34KeyBlockIsNull)
+            {
+                requestKeyMaterial_keyMaterial_Tr34KeyBlock = null;
+            }
+            if (requestKeyMaterial_keyMaterial_Tr34KeyBlock != null)
+            {
+                request.KeyMaterial.Tr34KeyBlock = requestKeyMaterial_keyMaterial_Tr34KeyBlock;
+            }
             
             CmdletOutput output;
             
@@ -1903,6 +1947,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             public System.String KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyVersion { get; set; }
             public Dictionary<System.String, System.String> KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_OptionalBlocks { get; set; }
             public System.String Tr34KeyBlock_RandomNonce { get; set; }
+            public System.String Tr34KeyBlock_SigningKeyCertificate { get; set; }
+            public System.String Tr34KeyBlock_SigningKeyIdentifier { get; set; }
             public System.String Tr34KeyBlock_WrappingKeyCertificate { get; set; }
             public System.Func<Amazon.PaymentCryptography.Model.ExportKeyResponse, ExportPAYCCKeyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.WrappedKey;

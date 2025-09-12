@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1121.0",
+    "ProductVersion"    : "3.7.1122.0",
     "CoreVersion"       : "3.7.500.18",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -2652,7 +2652,7 @@
             "InPreview"               : false
         },
         "PaymentCryptography"                 : {
-            "Version" : "3.7.502.1",
+            "Version" : "3.7.503.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.18"

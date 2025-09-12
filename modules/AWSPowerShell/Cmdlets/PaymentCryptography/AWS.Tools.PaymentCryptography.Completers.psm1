@@ -184,6 +184,13 @@ $PAYCC_Completers = {
             break
         }
 
+        # Amazon.PaymentCryptography.SigningAlgorithmType
+        "Get-PAYCCCertificateSigningRequest/SigningAlgorithm"
+        {
+            $v = "SHA224","SHA256","SHA384","SHA512"
+            break
+        }
+
         # Amazon.PaymentCryptography.SymmetricKeyAlgorithm
         {
             ($_ -eq "Export-PAYCCKey/DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm") -Or
@@ -244,6 +251,7 @@ $PAYCC_map = @{
     "KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyExportability"=@("Export-PAYCCKey")
     "KeyMaterialType"=@("Get-PAYCCParametersForExport","Get-PAYCCParametersForImport")
     "KeyState"=@("Get-PAYCCKeyList")
+    "SigningAlgorithm"=@("Get-PAYCCCertificateSigningRequest")
     "SigningKeyAlgorithm"=@("Get-PAYCCParametersForExport")
     "Tr34KeyBlock_KeyBlockFormat"=@("Export-PAYCCKey","Import-PAYCCKey")
     "WrappingKeyAlgorithm"=@("Get-PAYCCParametersForImport")
@@ -308,6 +316,7 @@ $PAYCC_SelectMap = @{
                "Enable-PAYCCDefaultKeyReplicationRegion",
                "Export-PAYCCKey",
                "Get-PAYCCAlias",
+               "Get-PAYCCCertificateSigningRequest",
                "Get-PAYCCDefaultKeyReplicationRegion",
                "Get-PAYCCKey",
                "Get-PAYCCParametersForExport",

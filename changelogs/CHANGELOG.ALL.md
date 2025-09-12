@@ -1,4 +1,11 @@
-﻿### 4.1.898 (2025-09-11 20:21Z)
+﻿### 4.1.899 (2025-09-12 19:59Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1122.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Payment Cryptography Control Plane
+    * Added cmdlet Get-PAYCCCertificateSigningRequest leveraging the GetCertificateSigningRequest service API.
+    * Modified cmdlet Export-PAYCCKey: added parameters Tr34KeyBlock_SigningKeyCertificate and Tr34KeyBlock_SigningKeyIdentifier.
+    * Modified cmdlet Import-PAYCCKey: added parameters Tr34KeyBlock_WrappingKeyCertificate and Tr34KeyBlock_WrappingKeyIdentifier.
+
+### 4.1.898 (2025-09-11 20:21Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1121.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic VMware Service
     * Added cmdlet Register-EVSEipToVlan leveraging the AssociateEipToVlan service API.
