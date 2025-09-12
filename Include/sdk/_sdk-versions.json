@@ -1,8 +1,8 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.89.0",
-    "CoreVersion"       : "4.0.0.26",
+    "ProductVersion"    : "4.0.90.0",
+    "CoreVersion"       : "4.0.0.27",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
     "PreviewLabel"        : "",
@@ -308,7 +308,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "4.0.7.0",
+            "Version" : "4.0.7.1",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"
@@ -2660,7 +2660,7 @@
             "InPreview"               : false
         },
         "PaymentCryptography"                 : {
-            "Version" : "4.0.3.0",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.26"

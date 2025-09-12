@@ -79,6 +79,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCertificateSigningRequest" OutputProperty="CertificateSigningRequest" Verb="Get" Noun="CertificateSigningRequest" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDefaultKeyReplicationRegions" OutputProperty="EnabledReplicationRegions" Verb="Get" Noun="DefaultKeyReplicationRegion" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
