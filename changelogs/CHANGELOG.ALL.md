@@ -1,4 +1,18 @@
-﻿### 5.0.54 (2025-09-12 19:47Z)
+﻿### 5.0.55 (2025-09-15 20:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.91.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * [Breaking Change] Removed support for Amazon Server Migration Service
+  * Amazon CloudWatch Observability Admin Service
+    * Added cmdlet Get-CWOADMNCentralizationRuleForOrganization leveraging the GetCentralizationRuleForOrganization service API.
+    * Added cmdlet Get-CWOADMNCentralizationRulesForOrganizationList leveraging the ListCentralizationRulesForOrganization service API.
+    * Added cmdlet New-CWOADMNCentralizationRuleForOrganization leveraging the CreateCentralizationRuleForOrganization service API.
+    * Added cmdlet Remove-CWOADMNCentralizationRuleForOrganization leveraging the DeleteCentralizationRuleForOrganization service API.
+    * Added cmdlet Update-CWOADMNCentralizationRuleForOrganization leveraging the UpdateCentralizationRuleForOrganization service API.
+  * Amazon Medical Imaging Service
+    * Modified cmdlet New-MISDatastore: added parameter LambdaAuthorizerArn.
+  * Amazon S3 Control
+    * Modified cmdlet New-S3CJob: added parameter Filter_MatchAnyObjectEncryption.
+
+### 5.0.54 (2025-09-12 19:47Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.90.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Payment Cryptography Control Plane
     * Added cmdlet Get-PAYCCCertificateSigningRequest leveraging the GetCertificateSigningRequest service API.

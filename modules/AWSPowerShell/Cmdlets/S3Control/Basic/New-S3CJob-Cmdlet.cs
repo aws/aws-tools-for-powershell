@@ -622,6 +622,25 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public System.String ManifestOutputLocation_ManifestPrefix { get; set; }
         #endregion
         
+        #region Parameter Filter_MatchAnyObjectEncryption
+        /// <summary>
+        /// <para>
+        /// <para>If provided, the generated object list includes only source bucket objects with the
+        /// indicated server-side encryption type (SSE-S3, SSE-KMS, DSSE-KMS, SSE-C, or NOT-SSE).
+        /// If you select SSE-KMS or DSSE-KMS, you can optionally further filter your results
+        /// by specifying a specific KMS Key ARN. If you select SSE-KMS, you can also optionally
+        /// further filter your results by Bucket Key enabled status.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManifestGenerator_S3JobManifestGenerator_Filter_MatchAnyObjectEncryption")]
+        public Amazon.S3Control.Model.ObjectEncryptionFilter[] Filter_MatchAnyObjectEncryption { get; set; }
+        #endregion
+        
         #region Parameter KeyNameConstraint_MatchAnyPrefix
         /// <summary>
         /// <para>
@@ -1256,6 +1275,10 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             {
                 context.KeyNameConstraint_MatchAnySuffix = new List<System.String>(this.KeyNameConstraint_MatchAnySuffix);
             }
+            if (this.Filter_MatchAnyObjectEncryption != null)
+            {
+                context.Filter_MatchAnyObjectEncryption = new List<Amazon.S3Control.Model.ObjectEncryptionFilter>(this.Filter_MatchAnyObjectEncryption);
+            }
             if (this.Filter_MatchAnyStorageClass != null)
             {
                 context.Filter_MatchAnyStorageClass = new List<System.String>(this.Filter_MatchAnyStorageClass);
@@ -1673,6 +1696,16 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter_filter_EligibleForReplication != null)
             {
                 requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter.EligibleForReplication = requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter_filter_EligibleForReplication.Value;
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_FilterIsNull = false;
+            }
+            List<Amazon.S3Control.Model.ObjectEncryptionFilter> requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter_filter_MatchAnyObjectEncryption = null;
+            if (cmdletContext.Filter_MatchAnyObjectEncryption != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter_filter_MatchAnyObjectEncryption = cmdletContext.Filter_MatchAnyObjectEncryption;
+            }
+            if (requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter_filter_MatchAnyObjectEncryption != null)
+            {
+                requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter.MatchAnyObjectEncryption = requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter_filter_MatchAnyObjectEncryption;
                 requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_FilterIsNull = false;
             }
             List<System.String> requestManifestGenerator_manifestGenerator_S3JobManifestGenerator_manifestGenerator_S3JobManifestGenerator_Filter_filter_MatchAnyStorageClass = null;
@@ -2585,6 +2618,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             public List<System.String> KeyNameConstraint_MatchAnyPrefix { get; set; }
             public List<System.String> KeyNameConstraint_MatchAnySubstring { get; set; }
             public List<System.String> KeyNameConstraint_MatchAnySuffix { get; set; }
+            public List<Amazon.S3Control.Model.ObjectEncryptionFilter> Filter_MatchAnyObjectEncryption { get; set; }
             public List<System.String> Filter_MatchAnyStorageClass { get; set; }
             public List<System.String> Filter_ObjectReplicationStatus { get; set; }
             public System.Int64? Filter_ObjectSizeGreaterThanByte { get; set; }
