@@ -1132,9 +1132,6 @@
     <Reference Include="AWSSDK.ServerlessApplicationRepository">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ServerlessApplicationRepository.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.ServerMigrationService">
-      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ServerMigrationService.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.ServiceCatalog">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.ServiceCatalog.dll</HintPath>
     </Reference>
@@ -2370,9 +2367,6 @@
     </Reference>
     <Reference Include="AWSSDK.ServerlessApplicationRepository">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ServerlessApplicationRepository.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.ServerMigrationService">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ServerMigrationService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ServiceCatalog">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ServiceCatalog.dll</HintPath>

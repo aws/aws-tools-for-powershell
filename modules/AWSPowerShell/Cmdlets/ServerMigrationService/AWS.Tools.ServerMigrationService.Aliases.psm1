@@ -1,3 +1,0 @@
-﻿# ServerMigrationService
-
-Export-ModuleMember -Alias *

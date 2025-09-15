@@ -411,7 +411,6 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.SecurityLake.dll',
         'AWSSDK.SecurityToken.dll',
         'AWSSDK.ServerlessApplicationRepository.dll',
-        'AWSSDK.ServerMigrationService.dll',
         'AWSSDK.ServiceCatalog.dll',
         'AWSSDK.ServiceDiscovery.dll',
         'AWSSDK.ServiceQuotas.dll',

@@ -595,14 +595,6 @@
             },
             "InPreview"               : false
         },
-        "ServerMigrationService"          : {
-            "Version" : "4.0.0.21",
-            "AssemblyVersionOverride" : "4.0",
-            "Dependencies"            : {
-                "Core" : "4.0.0.26"
-            },
-            "InPreview"               : false
-        },
         "Rekognition"                     : {
             "Version" : "4.0.2.1",
             "AssemblyVersionOverride" : "4.0",
