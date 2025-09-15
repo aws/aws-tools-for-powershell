@@ -62,6 +62,16 @@ namespace Amazon.PowerShell.Cmdlets.MIS
         public System.String KmsKeyArn { get; set; }
         #endregion
         
+        #region Parameter LambdaAuthorizerArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the authorizer's Lambda function.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LambdaAuthorizerArn { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -148,6 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.MIS
             context.ClientToken = this.ClientToken;
             context.DatastoreName = this.DatastoreName;
             context.KmsKeyArn = this.KmsKeyArn;
+            context.LambdaAuthorizerArn = this.LambdaAuthorizerArn;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -183,6 +194,10 @@ namespace Amazon.PowerShell.Cmdlets.MIS
             if (cmdletContext.KmsKeyArn != null)
             {
                 request.KmsKeyArn = cmdletContext.KmsKeyArn;
+            }
+            if (cmdletContext.LambdaAuthorizerArn != null)
+            {
+                request.LambdaAuthorizerArn = cmdletContext.LambdaAuthorizerArn;
             }
             if (cmdletContext.Tag != null)
             {
@@ -252,6 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.MIS
             public System.String ClientToken { get; set; }
             public System.String DatastoreName { get; set; }
             public System.String KmsKeyArn { get; set; }
+            public System.String LambdaAuthorizerArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.MedicalImaging.Model.CreateDatastoreResponse, NewMISDatastoreCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

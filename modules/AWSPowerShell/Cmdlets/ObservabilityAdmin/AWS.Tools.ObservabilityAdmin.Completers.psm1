@@ -92,6 +92,36 @@ $CWOADMN_Completers = {
             break
         }
 
+        # Amazon.ObservabilityAdmin.EncryptedLogGroupStrategy
+        {
+            ($_ -eq "New-CWOADMNCentralizationRuleForOrganization/SourceLogsConfiguration_EncryptedLogGroupStrategy") -Or
+            ($_ -eq "Update-CWOADMNCentralizationRuleForOrganization/SourceLogsConfiguration_EncryptedLogGroupStrategy")
+        }
+        {
+            $v = "ALLOW","SKIP"
+            break
+        }
+
+        # Amazon.ObservabilityAdmin.EncryptionConflictResolutionStrategy
+        {
+            ($_ -eq "New-CWOADMNCentralizationRuleForOrganization/LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy") -Or
+            ($_ -eq "Update-CWOADMNCentralizationRuleForOrganization/LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy")
+        }
+        {
+            $v = "ALLOW","SKIP"
+            break
+        }
+
+        # Amazon.ObservabilityAdmin.EncryptionStrategy
+        {
+            ($_ -eq "New-CWOADMNCentralizationRuleForOrganization/LogsEncryptionConfiguration_EncryptionStrategy") -Or
+            ($_ -eq "Update-CWOADMNCentralizationRuleForOrganization/LogsEncryptionConfiguration_EncryptionStrategy")
+        }
+        {
+            $v = "AWS_OWNED","CUSTOMER_MANAGED"
+            break
+        }
+
         # Amazon.ObservabilityAdmin.ResourceType
         {
             ($_ -eq "New-CWOADMNTelemetryRule/Rule_ResourceType") -Or
@@ -126,8 +156,11 @@ $CWOADMN_Completers = {
 
 $CWOADMN_map = @{
     "DestinationConfiguration_DestinationType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
+    "LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
+    "LogsEncryptionConfiguration_EncryptionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
     "Rule_ResourceType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "Rule_TelemetryType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
+    "SourceLogsConfiguration_EncryptedLogGroupStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
 }
 
 _awsArgumentCompleterRegistration $CWOADMN_Completers $CWOADMN_map
@@ -180,14 +213,18 @@ $CWOADMN_SelectCompleters = {
 }
 
 $CWOADMN_SelectMap = @{
-    "Select"=@("New-CWOADMNTelemetryRule",
+    "Select"=@("New-CWOADMNCentralizationRuleForOrganization",
+               "New-CWOADMNTelemetryRule",
                "New-CWOADMNTelemetryRuleForOrganization",
+               "Remove-CWOADMNCentralizationRuleForOrganization",
                "Remove-CWOADMNTelemetryRule",
                "Remove-CWOADMNTelemetryRuleForOrganization",
+               "Get-CWOADMNCentralizationRuleForOrganization",
                "Get-CWOADMNTelemetryEvaluationStatus",
                "Get-CWOADMNTelemetryEvaluationStatusForOrganization",
                "Get-CWOADMNTelemetryRule",
                "Get-CWOADMNTelemetryRuleForOrganization",
+               "Get-CWOADMNCentralizationRulesForOrganizationList",
                "Get-CWOADMNResourceTelemetryList",
                "Get-CWOADMNResourceTelemetryForOrganizationList",
                "Get-CWOADMNResourceTag",
@@ -199,6 +236,7 @@ $CWOADMN_SelectMap = @{
                "Stop-CWOADMNTelemetryEvaluationForOrganization",
                "Add-CWOADMNResourceTag",
                "Remove-CWOADMNResourceTag",
+               "Update-CWOADMNCentralizationRuleForOrganization",
                "Update-CWOADMNTelemetryRule",
                "Update-CWOADMNTelemetryRuleForOrganization")
 }

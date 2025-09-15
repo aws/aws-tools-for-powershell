@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateCentralizationRuleForOrganization" OutputProperty="RuleArn" Verb="New" Noun="CentralizationRuleForOrganization" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateTelemetryRule" OutputProperty="RuleArn" Verb="New" Noun="TelemetryRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -27,11 +31,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCentralizationRuleForOrganization" Verb="Remove" Noun="CentralizationRuleForOrganization" ShouldProcessTarget="RuleIdentifier" PipelineParameter="RuleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteTelemetryRule" Verb="Remove" Noun="TelemetryRule" ShouldProcessTarget="RuleIdentifier" PipelineParameter="RuleIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteTelemetryRuleForOrganization" Verb="Remove" Noun="TelemetryRuleForOrganization" ShouldProcessTarget="RuleIdentifier" PipelineParameter="RuleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCentralizationRuleForOrganization" OutputProperty="*" Verb="Get" Noun="CentralizationRuleForOrganization" PipelineParameter="RuleIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -48,6 +60,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetTelemetryRuleForOrganization" OutputProperty="*" Verb="Get" Noun="TelemetryRuleForOrganization" PipelineParameter="RuleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCentralizationRulesForOrganization" OutputProperty="CentralizationRuleSummaries" Verb="Get" Noun="CentralizationRulesForOrganizationList" PipelineParameter="RuleNamePrefix" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -92,6 +108,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCentralizationRuleForOrganization" OutputProperty="RuleArn" Verb="Update" Noun="CentralizationRuleForOrganization" ShouldProcessTarget="RuleIdentifier" PipelineParameter="RuleIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
