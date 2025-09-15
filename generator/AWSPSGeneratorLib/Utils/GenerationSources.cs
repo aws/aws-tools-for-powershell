@@ -1,4 +1,9 @@
-﻿using System;
+﻿using AWSPowerShellGenerator.Analysis;
+using AWSPowerShellGenerator.Generators;
+using AWSPowerShellGenerator.ServiceConfig;
+using AWSPowerShellGenerator.Writers.SourceCode;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
@@ -6,11 +11,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Xml;
-using AWSPowerShellGenerator.Analysis;
-using AWSPowerShellGenerator.Generators;
-using AWSPowerShellGenerator.ServiceConfig;
-using AWSPowerShellGenerator.Writers.SourceCode;
-using Newtonsoft.Json.Linq;
+using System.Xml.Linq;
 
 namespace AWSPowerShellGenerator.Utils
 {
@@ -163,7 +164,8 @@ namespace AWSPowerShellGenerator.Utils
                 .Where(name => !name.StartsWith("Extensions.", StringComparison.OrdinalIgnoreCase)
                     && !name.Equals("Core", StringComparison.OrdinalIgnoreCase)
                     && !name.Equals("OpsWorks", StringComparison.OrdinalIgnoreCase)
-                    && !name.Equals("OpsWorksCM", StringComparison.OrdinalIgnoreCase));
+                    && !name.Equals("OpsWorksCM", StringComparison.OrdinalIgnoreCase)
+                    && !name.Equals("ServerMigrationService", StringComparison.OrdinalIgnoreCase));
 
             return distinctAssemblyFilenames;
         }
