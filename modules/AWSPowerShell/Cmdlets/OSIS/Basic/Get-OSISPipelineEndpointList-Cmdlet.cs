@@ -22,50 +22,43 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CloudWatchLogs;
-using Amazon.CloudWatchLogs.Model;
+using Amazon.OSIS;
+using Amazon.OSIS.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CWL
+namespace Amazon.PowerShell.Cmdlets.OSIS
 {
     /// <summary>
-    /// Returns a list of custom and default field indexes which are discovered in log data.
-    /// For more information about field index policies, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutIndexPolicy.html">PutIndexPolicy</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all pipeline endpoints in your account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CWLFieldIndex")]
-    [OutputType("Amazon.CloudWatchLogs.Model.FieldIndex")]
-    [AWSCmdlet("Calls the Amazon CloudWatch Logs DescribeFieldIndexes API operation.", Operation = new[] {"DescribeFieldIndexes"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.DescribeFieldIndexesResponse))]
-    [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.FieldIndex or Amazon.CloudWatchLogs.Model.DescribeFieldIndexesResponse",
-        "This cmdlet returns a collection of Amazon.CloudWatchLogs.Model.FieldIndex objects.",
-        "The service call response (type Amazon.CloudWatchLogs.Model.DescribeFieldIndexesResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "OSISPipelineEndpointList")]
+    [OutputType("Amazon.OSIS.Model.PipelineEndpoint")]
+    [AWSCmdlet("Calls the Amazon OpenSearch Ingestion ListPipelineEndpoints API operation.", Operation = new[] {"ListPipelineEndpoints"}, SelectReturnType = typeof(Amazon.OSIS.Model.ListPipelineEndpointsResponse))]
+    [AWSCmdletOutput("Amazon.OSIS.Model.PipelineEndpoint or Amazon.OSIS.Model.ListPipelineEndpointsResponse",
+        "This cmdlet returns a collection of Amazon.OSIS.Model.PipelineEndpoint objects.",
+        "The service call response (type Amazon.OSIS.Model.ListPipelineEndpointsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetCWLFieldIndexCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
+    public partial class GetOSISPipelineEndpointListCmdlet : AmazonOSISClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter LogGroupIdentifier
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>An array containing the names or ARNs of the log groups that you want to retrieve
-        /// field indexes for.</para>
+        /// <para>The maximum number of pipeline endpoints to return in the response.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("LogGroupIdentifiers")]
-        public System.String[] LogGroupIdentifier { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>If your initial <c>ListPipelineEndpoints</c> operation returns a <c>NextToken</c>,
+        /// you can include the returned <c>NextToken</c> in subsequent <c>ListPipelineEndpoints</c>
+        /// operations, which returns results in the next page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -78,13 +71,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'FieldIndexes'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatchLogs.Model.DescribeFieldIndexesResponse).
-        /// Specifying the name of a property of type Amazon.CloudWatchLogs.Model.DescribeFieldIndexesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'PipelineEndpoints'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OSIS.Model.ListPipelineEndpointsResponse).
+        /// Specifying the name of a property of type Amazon.OSIS.Model.ListPipelineEndpointsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "FieldIndexes";
+        public string Select { get; set; } = "PipelineEndpoints";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -109,19 +102,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.DescribeFieldIndexesResponse, GetCWLFieldIndexCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.OSIS.Model.ListPipelineEndpointsResponse, GetOSISPipelineEndpointListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.LogGroupIdentifier != null)
-            {
-                context.LogGroupIdentifier = new List<System.String>(this.LogGroupIdentifier);
-            }
-            #if MODULAR
-            if (this.LogGroupIdentifier == null && ParameterWasBound(nameof(this.LogGroupIdentifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter LogGroupIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -139,11 +123,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.CloudWatchLogs.Model.DescribeFieldIndexesRequest();
+            var request = new Amazon.OSIS.Model.ListPipelineEndpointsRequest();
             
-            if (cmdletContext.LogGroupIdentifier != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.LogGroupIdentifiers = cmdletContext.LogGroupIdentifier;
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -202,15 +186,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudWatchLogs.Model.DescribeFieldIndexesResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.DescribeFieldIndexesRequest request)
+        private Amazon.OSIS.Model.ListPipelineEndpointsResponse CallAWSServiceOperation(IAmazonOSIS client, Amazon.OSIS.Model.ListPipelineEndpointsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Logs", "DescribeFieldIndexes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon OpenSearch Ingestion", "ListPipelineEndpoints");
             try
             {
                 #if DESKTOP
-                return client.DescribeFieldIndexes(request);
+                return client.ListPipelineEndpoints(request);
                 #elif CORECLR
-                return client.DescribeFieldIndexesAsync(request).GetAwaiter().GetResult();
+                return client.ListPipelineEndpointsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -230,10 +214,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> LogGroupIdentifier { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.CloudWatchLogs.Model.DescribeFieldIndexesResponse, GetCWLFieldIndexCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.FieldIndexes;
+            public System.Func<Amazon.OSIS.Model.ListPipelineEndpointsResponse, GetOSISPipelineEndpointListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.PipelineEndpoints;
         }
         
     }

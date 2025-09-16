@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// </para></li><li><para>
     /// A time range
     /// </para></li><li><para>
-    /// The log stream name, or a log stream name prefix that matches mutltiple log streams
+    /// The log stream name, or a log stream name prefix that matches multiple log streams
     /// </para></li></ul><para>
     /// You must have the <c>logs:FilterLogEvents</c> permission to perform this operation.
     /// </para><para>

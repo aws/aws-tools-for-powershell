@@ -151,6 +151,14 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// if you have one policy filtered to log groups that start with <c>my-log</c>, you can't
     /// have another field index policy filtered to <c>my-logpprod</c> or <c>my-logging</c>.
     /// </para><para>
+    /// CloudWatch Logs provides default field indexes for all log groups in the Standard
+    /// log class. Default field indexes are automatically available for the following fields:
+    /// 
+    /// </para><ul><li><para><c>@aws.region</c></para></li><li><para><c>@aws.account</c></para></li><li><para><c>@source.log</c></para></li><li><para><c>traceId</c></para></li></ul><para>
+    /// Default field indexes are in addition to any custom field indexes you define within
+    /// your policy. Default field indexes are not counted towards your field index quota.
+    /// 
+    /// </para><para>
     /// You can also set up a transformer at the log-group level. For more information, see
     /// <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html">PutTransformer</a>.
     /// If there is both a log-group level transformer created with <c>PutTransformer</c>

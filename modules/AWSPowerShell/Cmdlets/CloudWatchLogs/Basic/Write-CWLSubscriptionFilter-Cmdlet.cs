@@ -130,6 +130,34 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public Amazon.CloudWatchLogs.Distribution Distribution { get; set; }
         #endregion
         
+        #region Parameter EmitSystemField
+        /// <summary>
+        /// <para>
+        /// <para>A list of system fields to include in the log events sent to the subscription destination.
+        /// Valid values are <c>@aws.account</c> and <c>@aws.region</c>. These fields provide
+        /// source information for centralized log data in the forwarded payload.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EmitSystemFields")]
+        public System.String[] EmitSystemField { get; set; }
+        #endregion
+        
+        #region Parameter FieldSelectionCriterion
+        /// <summary>
+        /// <para>
+        /// <para>A filter expression that specifies which log events should be processed by this subscription
+        /// filter based on system fields such as source account and source region. Uses selection
+        /// criteria syntax with operators like <c>=</c>, <c>!=</c>, <c>AND</c>, <c>OR</c>, <c>IN</c>,
+        /// <c>NOT IN</c>. Example: <c>@aws.region NOT IN ["cn-north-1"]</c> or <c>@aws.account
+        /// = "123456789012" AND @aws.region = "us-east-1"</c>. Maximum length: 2000 characters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FieldSelectionCriteria")]
+        public System.String FieldSelectionCriterion { get; set; }
+        #endregion
+        
         #region Parameter FilterName
         /// <summary>
         /// <para>
@@ -265,6 +293,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             }
             #endif
             context.Distribution = this.Distribution;
+            if (this.EmitSystemField != null)
+            {
+                context.EmitSystemField = new List<System.String>(this.EmitSystemField);
+            }
+            context.FieldSelectionCriterion = this.FieldSelectionCriterion;
             context.FilterName = this.FilterName;
             #if MODULAR
             if (this.FilterName == null && ParameterWasBound(nameof(this.FilterName)))
@@ -314,6 +347,14 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.Distribution != null)
             {
                 request.Distribution = cmdletContext.Distribution;
+            }
+            if (cmdletContext.EmitSystemField != null)
+            {
+                request.EmitSystemFields = cmdletContext.EmitSystemField;
+            }
+            if (cmdletContext.FieldSelectionCriterion != null)
+            {
+                request.FieldSelectionCriteria = cmdletContext.FieldSelectionCriterion;
             }
             if (cmdletContext.FilterName != null)
             {
@@ -395,6 +436,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             public System.Boolean? ApplyOnTransformedLog { get; set; }
             public System.String DestinationArn { get; set; }
             public Amazon.CloudWatchLogs.Distribution Distribution { get; set; }
+            public List<System.String> EmitSystemField { get; set; }
+            public System.String FieldSelectionCriterion { get; set; }
             public System.String FilterName { get; set; }
             public System.String FilterPattern { get; set; }
             public System.String LogGroupName { get; set; }

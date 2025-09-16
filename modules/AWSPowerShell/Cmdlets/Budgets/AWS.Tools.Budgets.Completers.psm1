@@ -156,7 +156,7 @@ $BGT_Completers = {
             ($_ -eq "Update-BGTBudget/HealthStatus_StatusReason")
         }
         {
-            $v = "BILLING_VIEW_NO_ACCESS","BILLING_VIEW_UNHEALTHY","FILTER_INVALID"
+            $v = "BILLING_VIEW_NO_ACCESS","BILLING_VIEW_UNHEALTHY","FILTER_INVALID","MULTI_YEAR_HISTORICAL_DATA_DISABLED"
             break
         }
 
@@ -240,7 +240,7 @@ $BGT_Completers = {
             ($_ -eq "Update-BGTBudget/NewBudget_TimeUnit")
         }
         {
-            $v = "ANNUALLY","DAILY","MONTHLY","QUARTERLY"
+            $v = "ANNUALLY","CUSTOM","DAILY","MONTHLY","QUARTERLY"
             break
         }
 

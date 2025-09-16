@@ -52,6 +52,14 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// CloudWatch Logs Insights query on that log group that includes <c>requestId = <i>value</i></c> or <c>requestId IN [<i>value</i>, <i>value</i>, ...]</c> will process fewer log
     /// events to reduce costs, and have improved performance.
     /// </para><para>
+    /// CloudWatch Logs provides default field indexes for all log groups in the Standard
+    /// log class. Default field indexes are automatically available for the following fields:
+    /// 
+    /// </para><ul><li><para><c>@aws.region</c></para></li><li><para><c>@aws.account</c></para></li><li><para><c>@source.log</c></para></li><li><para><c>traceId</c></para></li></ul><para>
+    /// Default field indexes are in addition to any custom field indexes you define within
+    /// your policy. Default field indexes are not counted towards your field index quota.
+    /// 
+    /// </para><para>
     /// Each index policy has the following quotas and restrictions:
     /// </para><ul><li><para>
     /// As many as 20 fields can be included in the policy.

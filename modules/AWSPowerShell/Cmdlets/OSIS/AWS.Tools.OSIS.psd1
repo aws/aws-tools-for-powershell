@@ -93,15 +93,23 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-OSISPipelineBlueprint', 
         'Get-OSISPipelineBlueprintList', 
         'Get-OSISPipelineChangeProgress', 
+        'Get-OSISPipelineEndpointConnectionList', 
+        'Get-OSISPipelineEndpointList', 
         'Get-OSISPipelineList', 
+        'Get-OSISResourcePolicy', 
         'Get-OSISResourceTag', 
         'New-OSISPipeline', 
+        'New-OSISPipelineEndpoint', 
         'Remove-OSISPipeline', 
+        'Remove-OSISPipelineEndpoint', 
+        'Remove-OSISResourcePolicy', 
         'Remove-OSISResourceTag', 
+        'Revoke-OSISPipelineEndpointConnection', 
         'Start-OSISPipeline', 
         'Stop-OSISPipeline', 
         'Update-OSISPipeline', 
-        'Use-OSISPipeline')
+        'Use-OSISPipeline', 
+        'Write-OSISResourcePolicy')
 
     # Variables to export from this module
     VariablesToExport = '*'

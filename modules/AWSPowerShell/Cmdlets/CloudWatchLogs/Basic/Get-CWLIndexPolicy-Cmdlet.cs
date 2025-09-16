@@ -28,8 +28,8 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Returns the field index policies of one or more log groups. For more information about
-    /// field index policies, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutIndexPolicy.html">PutIndexPolicy</a>.
+    /// Returns the field index policies of the specified log group. For more information
+    /// about field index policies, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutIndexPolicy.html">PutIndexPolicy</a>.
     /// 
     ///  
     /// <para>
