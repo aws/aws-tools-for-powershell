@@ -1,4 +1,21 @@
-﻿### 5.0.55 (2025-09-15 20:13Z)
+﻿### 5.0.56 (2025-09-16 20:23Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.92.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Logs
+    * Modified cmdlet Write-CWLMetricFilter: added parameters EmitSystemFieldDimension and FieldSelectionCriterion.
+    * Modified cmdlet Write-CWLSubscriptionFilter: added parameters EmitSystemField and FieldSelectionCriterion.
+  * Amazon Interactive Video Service RealTime
+    * Modified cmdlet Start-IVSRTComposition: added parameters Grid_ParticipantOrderAttribute and Pip_ParticipantOrderAttribute.
+  * Amazon OpenSearch Ingestion
+    * Added cmdlet Get-OSISPipelineEndpointConnectionList leveraging the ListPipelineEndpointConnections service API.
+    * Added cmdlet Get-OSISPipelineEndpointList leveraging the ListPipelineEndpoints service API.
+    * Added cmdlet Get-OSISResourcePolicy leveraging the GetResourcePolicy service API.
+    * Added cmdlet New-OSISPipelineEndpoint leveraging the CreatePipelineEndpoint service API.
+    * Added cmdlet Remove-OSISPipelineEndpoint leveraging the DeletePipelineEndpoint service API.
+    * Added cmdlet Remove-OSISResourcePolicy leveraging the DeleteResourcePolicy service API.
+    * Added cmdlet Revoke-OSISPipelineEndpointConnection leveraging the RevokePipelineEndpointConnections service API.
+    * Added cmdlet Write-OSISResourcePolicy leveraging the PutResourcePolicy service API.
+
+### 5.0.55 (2025-09-15 20:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.91.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * [Breaking Change] Removed support for Amazon Server Migration Service
   * Amazon CloudWatch Observability Admin Service

@@ -89,6 +89,39 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public System.Boolean? ApplyOnTransformedLog { get; set; }
         #endregion
         
+        #region Parameter EmitSystemFieldDimension
+        /// <summary>
+        /// <para>
+        /// <para>A list of system fields to emit as additional dimensions in the generated metrics.
+        /// Valid values are <c>@aws.account</c> and <c>@aws.region</c>. These dimensions help
+        /// identify the source of centralized log data and count toward the total dimension limit
+        /// for metric filters.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EmitSystemFieldDimensions")]
+        public System.String[] EmitSystemFieldDimension { get; set; }
+        #endregion
+        
+        #region Parameter FieldSelectionCriterion
+        /// <summary>
+        /// <para>
+        /// <para>A filter expression that specifies which log events should be processed by this metric
+        /// filter based on system fields such as source account and source region. Uses selection
+        /// criteria syntax with operators like <c>=</c>, <c>!=</c>, <c>AND</c>, <c>OR</c>, <c>IN</c>,
+        /// <c>NOT IN</c>. Example: <c>@aws.region = "us-east-1"</c> or <c>@aws.account IN ["123456789012",
+        /// "987654321098"]</c>. Maximum length: 2000 characters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FieldSelectionCriteria")]
+        public System.String FieldSelectionCriterion { get; set; }
+        #endregion
+        
         #region Parameter FilterName
         /// <summary>
         /// <para>
@@ -208,6 +241,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ApplyOnTransformedLog = this.ApplyOnTransformedLog;
+            if (this.EmitSystemFieldDimension != null)
+            {
+                context.EmitSystemFieldDimension = new List<System.String>(this.EmitSystemFieldDimension);
+            }
+            context.FieldSelectionCriterion = this.FieldSelectionCriterion;
             context.FilterName = this.FilterName;
             #if MODULAR
             if (this.FilterName == null && ParameterWasBound(nameof(this.FilterName)))
@@ -258,6 +296,14 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.ApplyOnTransformedLog != null)
             {
                 request.ApplyOnTransformedLogs = cmdletContext.ApplyOnTransformedLog.Value;
+            }
+            if (cmdletContext.EmitSystemFieldDimension != null)
+            {
+                request.EmitSystemFieldDimensions = cmdletContext.EmitSystemFieldDimension;
+            }
+            if (cmdletContext.FieldSelectionCriterion != null)
+            {
+                request.FieldSelectionCriteria = cmdletContext.FieldSelectionCriterion;
             }
             if (cmdletContext.FilterName != null)
             {
@@ -331,6 +377,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? ApplyOnTransformedLog { get; set; }
+            public List<System.String> EmitSystemFieldDimension { get; set; }
+            public System.String FieldSelectionCriterion { get; set; }
             public System.String FilterName { get; set; }
             public System.String FilterPattern { get; set; }
             public System.String LogGroupName { get; set; }

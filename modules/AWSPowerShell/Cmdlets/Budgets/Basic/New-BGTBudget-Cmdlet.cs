@@ -445,9 +445,9 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         /// <para>
         /// <para>The start date for a budget. If you created your budget and didn't specify a start
         /// date, Amazon Web Services defaults to the start of your chosen time period (DAILY,
-        /// MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January
-        /// 24, 2018, chose <c>DAILY</c>, and didn't set a start date, Amazon Web Services set
-        /// your start date to <c>01/24/18 00:00 UTC</c>. If you chose <c>MONTHLY</c>, Amazon
+        /// MONTHLY, QUARTERLY, ANNUALLY, or CUSTOM). For example, if you created your budget
+        /// on January 24, 2018, chose <c>DAILY</c>, and didn't set a start date, Amazon Web Services
+        /// set your start date to <c>01/24/18 00:00 UTC</c>. If you chose <c>MONTHLY</c>, Amazon
         /// Web Services set your start date to <c>01/01/18 00:00 UTC</c>. The defaults are the
         /// same for the Billing and Cost Management console and the API.</para><para>You can change your start date with the <c>UpdateBudget</c> operation.</para>
         /// </para>
@@ -474,7 +474,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         /// <para>
         /// <para>The reason for the current status.</para><ul><li><para><c>BILLING_VIEW_NO_ACCESS</c>: The billing view resource does not grant <c>billing:GetBillingViewData</c>
         /// permission to this account.</para></li><li><para><c>BILLING_VIEW_UNHEALTHY</c>: The billing view associated with the budget is unhealthy.</para></li><li><para><c>FILTER_INVALID</c>: The filter contains reference to an account you do not have
-        /// access to.</para></li></ul>
+        /// access to.</para></li><li><para><c>MULTI_YEAR_HISTORICAL_DATA_DISABLED</c>: The budget is not being updated. Enable
+        /// multi-year historical data in your Cost Management preferences.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

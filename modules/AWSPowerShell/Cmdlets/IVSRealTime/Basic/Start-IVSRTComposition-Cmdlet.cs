@@ -166,6 +166,32 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         public System.Boolean? Pip_OmitStoppedVideo { get; set; }
         #endregion
         
+        #region Parameter Grid_ParticipantOrderAttribute
+        /// <summary>
+        /// <para>
+        /// <para>Attribute name in <a>ParticipantTokenConfiguration</a> identifying the participant
+        /// ordering key. Participants with <c>participantOrderAttribute</c> set to <c>""</c>
+        /// or not specified are ordered based on their arrival time into the stage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Layout_Grid_ParticipantOrderAttribute")]
+        public System.String Grid_ParticipantOrderAttribute { get; set; }
+        #endregion
+        
+        #region Parameter Pip_ParticipantOrderAttribute
+        /// <summary>
+        /// <para>
+        /// <para>Attribute name in <a>ParticipantTokenConfiguration</a> identifying the participant
+        /// ordering key. Participants with <c>participantOrderAttribute</c> set to <c>""</c>
+        /// or not specified are ordered based on their arrival time into the stage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Layout_Pip_ParticipantOrderAttribute")]
+        public System.String Pip_ParticipantOrderAttribute { get; set; }
+        #endregion
+        
         #region Parameter Pip_PipBehavior
         /// <summary>
         /// <para>
@@ -380,11 +406,13 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             context.Grid_FeaturedParticipantAttribute = this.Grid_FeaturedParticipantAttribute;
             context.Grid_GridGap = this.Grid_GridGap;
             context.Grid_OmitStoppedVideo = this.Grid_OmitStoppedVideo;
+            context.Grid_ParticipantOrderAttribute = this.Grid_ParticipantOrderAttribute;
             context.Grid_VideoAspectRatio = this.Grid_VideoAspectRatio;
             context.Grid_VideoFillMode = this.Grid_VideoFillMode;
             context.Pip_FeaturedParticipantAttribute = this.Pip_FeaturedParticipantAttribute;
             context.Pip_GridGap = this.Pip_GridGap;
             context.Pip_OmitStoppedVideo = this.Pip_OmitStoppedVideo;
+            context.Pip_ParticipantOrderAttribute = this.Pip_ParticipantOrderAttribute;
             context.Pip_PipBehavior = this.Pip_PipBehavior;
             context.Pip_PipHeight = this.Pip_PipHeight;
             context.Pip_PipOffset = this.Pip_PipOffset;
@@ -470,6 +498,16 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
                 requestLayout_layout_Grid.OmitStoppedVideo = requestLayout_layout_Grid_grid_OmitStoppedVideo.Value;
                 requestLayout_layout_GridIsNull = false;
             }
+            System.String requestLayout_layout_Grid_grid_ParticipantOrderAttribute = null;
+            if (cmdletContext.Grid_ParticipantOrderAttribute != null)
+            {
+                requestLayout_layout_Grid_grid_ParticipantOrderAttribute = cmdletContext.Grid_ParticipantOrderAttribute;
+            }
+            if (requestLayout_layout_Grid_grid_ParticipantOrderAttribute != null)
+            {
+                requestLayout_layout_Grid.ParticipantOrderAttribute = requestLayout_layout_Grid_grid_ParticipantOrderAttribute;
+                requestLayout_layout_GridIsNull = false;
+            }
             Amazon.IVSRealTime.VideoAspectRatio requestLayout_layout_Grid_grid_VideoAspectRatio = null;
             if (cmdletContext.Grid_VideoAspectRatio != null)
             {
@@ -533,6 +571,16 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             if (requestLayout_layout_Pip_pip_OmitStoppedVideo != null)
             {
                 requestLayout_layout_Pip.OmitStoppedVideo = requestLayout_layout_Pip_pip_OmitStoppedVideo.Value;
+                requestLayout_layout_PipIsNull = false;
+            }
+            System.String requestLayout_layout_Pip_pip_ParticipantOrderAttribute = null;
+            if (cmdletContext.Pip_ParticipantOrderAttribute != null)
+            {
+                requestLayout_layout_Pip_pip_ParticipantOrderAttribute = cmdletContext.Pip_ParticipantOrderAttribute;
+            }
+            if (requestLayout_layout_Pip_pip_ParticipantOrderAttribute != null)
+            {
+                requestLayout_layout_Pip.ParticipantOrderAttribute = requestLayout_layout_Pip_pip_ParticipantOrderAttribute;
                 requestLayout_layout_PipIsNull = false;
             }
             Amazon.IVSRealTime.PipBehavior requestLayout_layout_Pip_pip_PipBehavior = null;
@@ -688,11 +736,13 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             public System.String Grid_FeaturedParticipantAttribute { get; set; }
             public System.Int32? Grid_GridGap { get; set; }
             public System.Boolean? Grid_OmitStoppedVideo { get; set; }
+            public System.String Grid_ParticipantOrderAttribute { get; set; }
             public Amazon.IVSRealTime.VideoAspectRatio Grid_VideoAspectRatio { get; set; }
             public Amazon.IVSRealTime.VideoFillMode Grid_VideoFillMode { get; set; }
             public System.String Pip_FeaturedParticipantAttribute { get; set; }
             public System.Int32? Pip_GridGap { get; set; }
             public System.Boolean? Pip_OmitStoppedVideo { get; set; }
+            public System.String Pip_ParticipantOrderAttribute { get; set; }
             public Amazon.IVSRealTime.PipBehavior Pip_PipBehavior { get; set; }
             public System.Int32? Pip_PipHeight { get; set; }
             public System.Int32? Pip_PipOffset { get; set; }

@@ -9742,7 +9742,7 @@ $BGT_Completers = {
             ($_ -eq "Update-BGTBudget/HealthStatus_StatusReason")
         }
         {
-            $v = "BILLING_VIEW_NO_ACCESS","BILLING_VIEW_UNHEALTHY","FILTER_INVALID"
+            $v = "BILLING_VIEW_NO_ACCESS","BILLING_VIEW_UNHEALTHY","FILTER_INVALID","MULTI_YEAR_HISTORICAL_DATA_DISABLED"
             break
         }
 
@@ -9826,7 +9826,7 @@ $BGT_Completers = {
             ($_ -eq "Update-BGTBudget/NewBudget_TimeUnit")
         }
         {
-            $v = "ANNUALLY","DAILY","MONTHLY","QUARTERLY"
+            $v = "ANNUALLY","CUSTOM","DAILY","MONTHLY","QUARTERLY"
             break
         }
 
@@ -57393,13 +57393,21 @@ $OSIS_SelectCompleters = {
 
 $OSIS_SelectMap = @{
     "Select"=@("New-OSISPipeline",
+               "New-OSISPipelineEndpoint",
                "Remove-OSISPipeline",
+               "Remove-OSISPipelineEndpoint",
+               "Remove-OSISResourcePolicy",
                "Get-OSISPipeline",
                "Get-OSISPipelineBlueprint",
                "Get-OSISPipelineChangeProgress",
+               "Get-OSISResourcePolicy",
                "Get-OSISPipelineBlueprintList",
+               "Get-OSISPipelineEndpointConnectionList",
+               "Get-OSISPipelineEndpointList",
                "Get-OSISPipelineList",
                "Get-OSISResourceTag",
+               "Write-OSISResourcePolicy",
+               "Revoke-OSISPipelineEndpointConnection",
                "Start-OSISPipeline",
                "Stop-OSISPipeline",
                "Add-OSISResourceTag",
