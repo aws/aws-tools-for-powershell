@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <para>Required. The Availability Zones where you want to create firewall endpoints for a
         /// transit gateway-attached firewall. You must specify at least one Availability Zone.
         /// Consider enabling the firewall in every Availability Zone where you have workloads
-        /// to maintain Availability Zone independence.</para><para>You can modify Availability Zones later using <a>AssociateAvailabilityZones</a> or
+        /// to maintain Availability Zone isolation.</para><para>You can modify Availability Zones later using <a>AssociateAvailabilityZones</a> or
         /// <a>DisassociateAvailabilityZones</a>, but this may briefly disrupt traffic. The <c>AvailabilityZoneChangeProtection</c>
         /// setting controls whether you can make these modifications.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
