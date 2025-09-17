@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     /// 
     ///  
     /// <para>
-    /// Only the firewall owner can reject the attachment. After rejection, no traffic will
-    /// flow through the firewall endpoints for this attachment.
+    /// Only the transit gateway owner can reject the attachment. After rejection, no traffic
+    /// will flow through the firewall endpoints for this attachment.
     /// </para><para>
     /// Use <a>DescribeFirewall</a> to monitor the rejection status. To accept the attachment
     /// instead of rejecting it, use <a>AcceptNetworkFirewallTransitGatewayAttachment</a>.

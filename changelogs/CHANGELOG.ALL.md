@@ -1,4 +1,10 @@
-﻿### 4.1.901 (2025-09-16 20:40Z)
+﻿### 4.1.902 (2025-09-17 20:28Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1125.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Network Firewall
+    * Modified cmdlet New-NWFWFirewallPolicy: added parameter FirewallPolicy_EnableTLSSessionHolding.
+    * Modified cmdlet Update-NWFWFirewallPolicy: added parameter FirewallPolicy_EnableTLSSessionHolding.
+
+### 4.1.901 (2025-09-16 20:40Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1124.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Logs
     * Modified cmdlet Write-CWLMetricFilter: added parameters EmitSystemFieldDimension and FieldSelectionCriterion.

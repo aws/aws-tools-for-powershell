@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     /// owner or the transit gateway owner can delete the attachment.
     /// 
     ///  <important><para>
-    /// After you delete a transit gateway attachment, raffic will no longer flow through
+    /// After you delete a transit gateway attachment, traffic will no longer flow through
     /// the firewall endpoints.
     /// </para></important><para>
     /// After you initiate the delete operation, use <a>DescribeFirewall</a> to monitor the

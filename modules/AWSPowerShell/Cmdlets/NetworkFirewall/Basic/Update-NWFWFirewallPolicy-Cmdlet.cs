@@ -68,6 +68,18 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public System.Boolean? DryRun { get; set; }
         #endregion
         
+        #region Parameter FirewallPolicy_EnableTLSSessionHolding
+        /// <summary>
+        /// <para>
+        /// <para>When true, prevents TCP and TLS packets from reaching destination servers until TLS
+        /// Inspection has evaluated Server Name Indication (SNI) rules. Requires an associated
+        /// TLS Inspection configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? FirewallPolicy_EnableTLSSessionHolding { get; set; }
+        #endregion
+        
         #region Parameter FirewallPolicyArn
         /// <summary>
         /// <para>
@@ -393,6 +405,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             context.DryRun = this.DryRun;
             context.EncryptionConfiguration_KeyId = this.EncryptionConfiguration_KeyId;
             context.EncryptionConfiguration_Type = this.EncryptionConfiguration_Type;
+            context.FirewallPolicy_EnableTLSSessionHolding = this.FirewallPolicy_EnableTLSSessionHolding;
             if (this.PolicyVariables_RuleVariable != null)
             {
                 context.PolicyVariables_RuleVariable = new Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSet>(StringComparer.Ordinal);
@@ -507,6 +520,16 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
              // populate FirewallPolicy
             var requestFirewallPolicyIsNull = true;
             request.FirewallPolicy = new Amazon.NetworkFirewall.Model.FirewallPolicy();
+            System.Boolean? requestFirewallPolicy_firewallPolicy_EnableTLSSessionHolding = null;
+            if (cmdletContext.FirewallPolicy_EnableTLSSessionHolding != null)
+            {
+                requestFirewallPolicy_firewallPolicy_EnableTLSSessionHolding = cmdletContext.FirewallPolicy_EnableTLSSessionHolding.Value;
+            }
+            if (requestFirewallPolicy_firewallPolicy_EnableTLSSessionHolding != null)
+            {
+                request.FirewallPolicy.EnableTLSSessionHolding = requestFirewallPolicy_firewallPolicy_EnableTLSSessionHolding.Value;
+                requestFirewallPolicyIsNull = false;
+            }
             List<System.String> requestFirewallPolicy_firewallPolicy_StatefulDefaultAction = null;
             if (cmdletContext.FirewallPolicy_StatefulDefaultAction != null)
             {
@@ -744,6 +767,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             public System.Boolean? DryRun { get; set; }
             public System.String EncryptionConfiguration_KeyId { get; set; }
             public Amazon.NetworkFirewall.EncryptionType EncryptionConfiguration_Type { get; set; }
+            public System.Boolean? FirewallPolicy_EnableTLSSessionHolding { get; set; }
             public Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSet> PolicyVariables_RuleVariable { get; set; }
             public List<System.String> FirewallPolicy_StatefulDefaultAction { get; set; }
             public System.Int32? FlowTimeouts_TcpIdleTimeoutSecond { get; set; }

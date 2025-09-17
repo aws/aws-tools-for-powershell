@@ -47,9 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         #region Parameter SpotOptions_AllocationStrategy
         /// <summary>
         /// <para>
-        /// <para>The Amazon EC2 allocation strategy Amazon Web Services PCS uses to provision EC2 instances.
-        /// Amazon Web Services PCS supports <b>lowest price</b>, <b>capacity optimized</b>, and
-        /// <b>price capacity optimized</b>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html">Use
+        /// <para>The Amazon EC2 allocation strategy PCS uses to provision EC2 instances. PCS supports
+        /// <b>lowest price</b>, <b>capacity optimized</b>, and <b>price capacity optimized</b>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html">Use
         /// allocation strategies to determine how EC2 Fleet or Spot Fleet fulfills Spot and On-Demand
         /// capacity</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. If you don't provide
         /// this option, it defaults to <b>price capacity optimized</b>.</para>
@@ -153,9 +153,11 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         #region Parameter PurchaseOption
         /// <summary>
         /// <para>
-        /// <para>Specifies how EC2 instances are purchased on your behalf. Amazon Web Services PCS
-        /// supports On-Demand and Spot instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html">Instance
-        /// purchasing options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. If you
+        /// <para>Specifies how EC2 instances are purchased on your behalf. PCS supports On-Demand Instances,
+        /// Spot Instances, and Amazon EC2 Capacity Blocks for ML. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html">Amazon
+        /// EC2 billing and purchasing options</a> in the <i>Amazon Elastic Compute Cloud User
+        /// Guide</i>. For more information about PCS support for Capacity Blocks, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/capacity-blocks.html">Using
+        /// Amazon EC2 Capacity Blocks for ML with PCS</a> in the <i>PCS User Guide</i>. If you
         /// don't provide this option, it defaults to On-Demand.</para>
         /// </para>
         /// </summary>
