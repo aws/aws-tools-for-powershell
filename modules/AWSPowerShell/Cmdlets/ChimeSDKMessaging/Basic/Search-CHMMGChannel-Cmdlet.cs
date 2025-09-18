@@ -38,7 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     /// <para>
     /// The <c>x-amz-chime-bearer</c> request header is mandatory. Use the ARN of the <c>AppInstanceUser</c>
     /// or <c>AppInstanceBot</c> that makes the API call as the value in the header.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// </para><note><para>
+    /// This operation isn't supported for <c>AppInstanceUsers</c> with a large number of
+    /// memberships.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
     /// </summary>
     [Cmdlet("Search", "CHMMGChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKMessaging.Model.ChannelSummary")]

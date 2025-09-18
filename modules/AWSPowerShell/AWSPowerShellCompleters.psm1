@@ -11144,6 +11144,13 @@ $CHMMG_Completers = {
             break
         }
 
+        # Amazon.ChimeSDKMessaging.NetworkType
+        "Get-CHMMGMessagingSessionEndpoint/NetworkType"
+        {
+            $v = "DUAL_STACK","IPV4_ONLY"
+            break
+        }
+
         # Amazon.ChimeSDKMessaging.PushNotificationType
         {
             ($_ -eq "Send-CHMMGChannelFlowCallback/PushNotification_Type") -Or
@@ -11172,6 +11179,7 @@ $CHMMG_Completers = {
 $CHMMG_map = @{
     "ExpirationSettings_ExpirationCriterion"=@("New-CHMMGChannel","Write-CHMMGChannelExpirationSetting")
     "Mode"=@("New-CHMMGChannel","Update-CHMMGChannel")
+    "NetworkType"=@("Get-CHMMGMessagingSessionEndpoint")
     "Persistence"=@("Send-CHMMGChannelMessage")
     "Privacy"=@("Get-CHMMGChannelList","New-CHMMGChannel")
     "PushNotification_Type"=@("Send-CHMMGChannelFlowCallback","Send-CHMMGChannelMessage")

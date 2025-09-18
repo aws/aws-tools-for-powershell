@@ -30,8 +30,8 @@ using Amazon.ChimeSDKMessaging.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMMG
 {
     /// <summary>
-    /// Redacts message content, but not metadata. The message exists in the back end, but
-    /// the action returns null content, and the state shows as redacted.
+    /// Redacts message content and metadata. The message exists in the back end, but the
+    /// action returns null content, and the state shows as redacted.
     /// 
     ///  <note><para>
     /// The <c>x-amz-chime-bearer</c> request header is mandatory. Use the ARN of the <c>AppInstanceUser</c>

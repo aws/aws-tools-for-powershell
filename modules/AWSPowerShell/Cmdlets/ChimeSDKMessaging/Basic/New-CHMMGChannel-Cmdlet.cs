@@ -72,7 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChannelId
         /// <summary>
         /// <para>
-        /// <para>The ID of the channel in the request.</para>
+        /// <para>An ID for the channel being created. If you do not specify an ID, a UUID will be created
+        /// for the channel.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

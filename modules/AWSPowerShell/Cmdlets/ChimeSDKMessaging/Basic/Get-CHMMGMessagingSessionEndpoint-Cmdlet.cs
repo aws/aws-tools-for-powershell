@@ -45,6 +45,18 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The type of network for the messaging session endpoint. Either IPv4 only or dual-stack
+        /// (IPv4 and IPv6).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [AWSConstantClassSource("Amazon.ChimeSDKMessaging.NetworkType")]
+        public Amazon.ChimeSDKMessaging.NetworkType NetworkType { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Endpoint'.
@@ -75,6 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
                 context.Select = CreateSelectDelegate<Amazon.ChimeSDKMessaging.Model.GetMessagingSessionEndpointResponse, GetCHMMGMessagingSessionEndpointCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.NetworkType = this.NetworkType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -91,6 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             // create request
             var request = new Amazon.ChimeSDKMessaging.Model.GetMessagingSessionEndpointRequest();
             
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
+            }
             
             CmdletOutput output;
             
@@ -146,6 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.ChimeSDKMessaging.NetworkType NetworkType { get; set; }
             public System.Func<Amazon.ChimeSDKMessaging.Model.GetMessagingSessionEndpointResponse, GetCHMMGMessagingSessionEndpointCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Endpoint;
         }
