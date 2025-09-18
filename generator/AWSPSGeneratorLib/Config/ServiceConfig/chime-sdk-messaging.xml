@@ -122,7 +122,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMessagingSessionEndpoint" OutputProperty="Endpoint" Verb="Get" Noun="MessagingSessionEndpoint" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetMessagingSessionEndpoint" OutputProperty="Endpoint" Verb="Get" Noun="MessagingSessionEndpoint" PipelineParameter="NetworkType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

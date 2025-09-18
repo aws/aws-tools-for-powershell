@@ -1,4 +1,11 @@
-﻿### 4.1.902 (2025-09-17 20:28Z)
+﻿### 4.1.903 (2025-09-18 20:24Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1126.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock
+    * [Breaking Change] Modified cmdlet Update-BDRAutomatedReasoningPolicyTestCase: removed parameter KmsKeyArn.
+  * Amazon Chime SDK Messaging
+    * Modified cmdlet Get-CHMMGMessagingSessionEndpoint: added parameters NetworkType and PassThru.
+
+### 4.1.902 (2025-09-17 20:28Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1125.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Network Firewall
     * Modified cmdlet New-NWFWFirewallPolicy: added parameter FirewallPolicy_EnableTLSSessionHolding.

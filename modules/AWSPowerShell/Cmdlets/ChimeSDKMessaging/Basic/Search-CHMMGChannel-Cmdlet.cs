@@ -36,7 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     /// <para>
     /// The <c>x-amz-chime-bearer</c> request header is mandatory. Use the ARN of the <c>AppInstanceUser</c>
     /// or <c>AppInstanceBot</c> that makes the API call as the value in the header.
-    /// </para>
+    /// </para><note><para>
+    /// This operation isn't supported for <c>AppInstanceUsers</c> with a large number of
+    /// memberships.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Search", "CHMMGChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKMessaging.Model.ChannelSummary")]

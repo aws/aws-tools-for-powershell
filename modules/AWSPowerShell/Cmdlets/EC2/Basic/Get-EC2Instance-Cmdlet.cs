@@ -154,13 +154,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// is applied, if applicable. Valid values: <c>default</c>, <c>vpc-1</c>, <c>ebs-1</c>.</para></li><li><para><c>operator.managed</c> - A Boolean that indicates whether this is a managed instance.</para></li><li><para><c>operator.principal</c> - The principal that manages the instance. Only valid for
         /// managed instances, where <c>managed</c> is <c>true</c>.</para></li><li><para><c>outpost-arn</c> - The Amazon Resource Name (ARN) of the Outpost.</para></li><li><para><c>owner-id</c> - The Amazon Web Services account ID of the instance owner.</para></li><li><para><c>placement-group-name</c> - The name of the placement group for the instance.</para></li><li><para><c>placement-partition-number</c> - The partition in which the instance is located.</para></li><li><para><c>platform</c> - The platform. To list only Windows instances, use <c>windows</c>.</para></li><li><para><c>platform-details</c> - The platform (<c>Linux/UNIX</c> | <c>Red Hat BYOL Linux</c>
         /// | <c> Red Hat Enterprise Linux</c> | <c>Red Hat Enterprise Linux with HA</c> | <c>Red
-        /// Hat Enterprise Linux with SQL Server Standard and HA</c> | <c>Red Hat Enterprise Linux
-        /// with SQL Server Enterprise and HA</c> | <c>Red Hat Enterprise Linux with SQL Server
-        /// Standard</c> | <c>Red Hat Enterprise Linux with SQL Server Web</c> | <c>Red Hat Enterprise
-        /// Linux with SQL Server Enterprise</c> | <c>SQL Server Enterprise</c> | <c>SQL Server
-        /// Standard</c> | <c>SQL Server Web</c> | <c>SUSE Linux</c> | <c>Ubuntu Pro</c> | <c>Windows</c>
-        /// | <c>Windows BYOL</c> | <c>Windows with SQL Server Enterprise</c> | <c>Windows with
-        /// SQL Server Standard</c> | <c>Windows with SQL Server Web</c>).</para></li><li><para><c>private-dns-name</c> - The private IPv4 DNS name of the instance.</para></li><li><para><c>private-dns-name-options.enable-resource-name-dns-a-record</c> - A Boolean that
+        /// Hat Enterprise Linux with High Availability</c> | <c>Red Hat Enterprise Linux with
+        /// SQL Server Standard and HA</c> | <c>Red Hat Enterprise Linux with SQL Server Enterprise
+        /// and HA</c> | <c>Red Hat Enterprise Linux with SQL Server Standard</c> | <c>Red Hat
+        /// Enterprise Linux with SQL Server Web</c> | <c>Red Hat Enterprise Linux with SQL Server
+        /// Enterprise</c> | <c>SQL Server Enterprise</c> | <c>SQL Server Standard</c> | <c>SQL
+        /// Server Web</c> | <c>SUSE Linux</c> | <c>Ubuntu Pro</c> | <c>Windows</c> | <c>Windows
+        /// BYOL</c> | <c>Windows with SQL Server Enterprise</c> | <c>Windows with SQL Server
+        /// Standard</c> | <c>Windows with SQL Server Web</c>).</para></li><li><para><c>private-dns-name</c> - The private IPv4 DNS name of the instance.</para></li><li><para><c>private-dns-name-options.enable-resource-name-dns-a-record</c> - A Boolean that
         /// indicates whether to respond to DNS queries for instance hostnames with DNS A records.</para></li><li><para><c>private-dns-name-options.enable-resource-name-dns-aaaa-record</c> - A Boolean
         /// that indicates whether to respond to DNS queries for instance hostnames with DNS AAAA
         /// records.</para></li><li><para><c>private-dns-name-options.hostname-type</c> - The type of hostname (<c>ip-name</c>

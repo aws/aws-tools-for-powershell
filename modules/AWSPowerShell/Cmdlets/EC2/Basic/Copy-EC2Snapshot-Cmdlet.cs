@@ -44,17 +44,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para></li><li><para>
     /// If the source snapshot is on an Outpost, you can't copy it.
     /// </para></li></ul><para>
-    /// When copying snapshots to a Region, copies of encrypted EBS snapshots remain encrypted.
-    /// Copies of unencrypted snapshots remain unencrypted, unless you enable encryption for
-    /// the snapshot copy operation. By default, encrypted snapshot copies use the default
-    /// KMS key; however, you can specify a different KMS key. To copy an encrypted snapshot
-    /// that has been shared from another account, you must have permissions for the KMS key
-    /// used to encrypt the snapshot.
+    /// When copying snapshots to a Region, the encryption outcome for the snapshot copy depends
+    /// on the Amazon EBS encryption by default setting for the destination Region, the encryption
+    /// status of the source snapshot, and the encryption parameters you specify in the request.
+    /// For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-copy-snapshot.html#creating-encrypted-snapshots">
+    /// Encryption and snapshot copying</a>.
     /// </para><para>
-    /// Snapshots copied to an Outpost are encrypted by default using the default encryption
-    /// key for the Region, or a different key that you specify in the request using <b>KmsKeyId</b>.
-    /// Outposts do not support unencrypted snapshots. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#ami">Amazon
-    /// EBS local snapshots on Outposts</a> in the <i>Amazon EBS User Guide</i>.
+    /// Snapshots copied to an Outpost must be encrypted. Unencrypted snapshots are not supported
+    /// on Outposts. For more information, <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#considerations">
+    /// Amazon EBS local snapshots on Outposts</a>.
     /// </para><note><para>
     /// Snapshots copies have an arbitrary source volume ID. Do not use this volume ID for
     /// any purpose.
@@ -141,10 +139,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled,
-        /// enable encryption using this parameter. Otherwise, omit this parameter. Encrypted
-        /// snapshots are encrypted, even if you omit this parameter and encryption by default
-        /// is not enabled. You cannot set this parameter to false. For more information, see
-        /// <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon
+        /// enable encryption using this parameter. Otherwise, omit this parameter. Copies of
+        /// encrypted snapshots are encrypted, even if you omit this parameter and encryption
+        /// by default is not enabled. You cannot set this parameter to false. For more information,
+        /// see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon
         /// EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</para>
         /// </para>
         /// </summary>

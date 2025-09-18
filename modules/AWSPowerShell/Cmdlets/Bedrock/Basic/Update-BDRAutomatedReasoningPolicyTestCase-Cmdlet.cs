@@ -101,17 +101,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public System.String GuardContent { get; set; }
         #endregion
         
-        #region Parameter KmsKeyArn
-        /// <summary>
-        /// <para>
-        /// <para>The KMS key ARN for encrypting the test at rest. If not provided, the key will not
-        /// be updated. Use <c>DISCARD</c> to remove the key.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String KmsKeyArn { get; set; }
-        #endregion
-        
         #region Parameter LastUpdatedAt
         /// <summary>
         /// <para>
@@ -252,7 +241,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
                 WriteWarning("You are passing $null as a value for parameter GuardContent which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.KmsKeyArn = this.KmsKeyArn;
             context.LastUpdatedAt = this.LastUpdatedAt;
             #if MODULAR
             if (this.LastUpdatedAt == null && ParameterWasBound(nameof(this.LastUpdatedAt)))
@@ -306,10 +294,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (cmdletContext.GuardContent != null)
             {
                 request.GuardContent = cmdletContext.GuardContent;
-            }
-            if (cmdletContext.KmsKeyArn != null)
-            {
-                request.KmsKeyArn = cmdletContext.KmsKeyArn;
             }
             if (cmdletContext.LastUpdatedAt != null)
             {
@@ -392,7 +376,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             public System.Double? ConfidenceThreshold { get; set; }
             public Amazon.Bedrock.AutomatedReasoningCheckResult ExpectedAggregatedFindingsResult { get; set; }
             public System.String GuardContent { get; set; }
-            public System.String KmsKeyArn { get; set; }
             public System.DateTime? LastUpdatedAt { get; set; }
             public System.String PolicyArn { get; set; }
             public System.String QueryContent { get; set; }

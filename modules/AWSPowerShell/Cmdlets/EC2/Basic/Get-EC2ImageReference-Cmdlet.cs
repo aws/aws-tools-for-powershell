@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Specifies whether to check all supported Amazon Web Services resource types for image
         /// references. When specified, default values are applied for <c>ResourceTypeOptions</c>.
-        /// For the default values, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-ami-references-works.html">How
+        /// For the default values, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-ami-references.html#how-ami-references-works">How
         /// AMI reference checks work</a> in the <i>Amazon EC2 User Guide</i>. If you also specify
         /// <c>ResourceTypes</c> with <c>ResourceTypeOptions</c>, your specified values override
         /// the default values.</para><para>Supported resource types: <c>ec2:Instance</c> | <c>ec2:LaunchTemplate</c> | <c>ssm:Parameter</c>

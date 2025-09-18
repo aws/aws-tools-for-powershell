@@ -42,6 +42,18 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The type of network for the messaging session endpoint. Either IPv4 only or dual-stack
+        /// (IPv4 and IPv6).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [AWSConstantClassSource("Amazon.ChimeSDKMessaging.NetworkType")]
+        public Amazon.ChimeSDKMessaging.NetworkType NetworkType { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Endpoint'.
@@ -51,6 +63,16 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "Endpoint";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the NetworkType parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^NetworkType' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^NetworkType' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -63,11 +85,22 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.ChimeSDKMessaging.Model.GetMessagingSessionEndpointResponse, GetCHMMGMessagingSessionEndpointCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.NetworkType;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.NetworkType = this.NetworkType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -84,6 +117,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             // create request
             var request = new Amazon.ChimeSDKMessaging.Model.GetMessagingSessionEndpointRequest();
             
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
+            }
             
             CmdletOutput output;
             
@@ -145,6 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.ChimeSDKMessaging.NetworkType NetworkType { get; set; }
             public System.Func<Amazon.ChimeSDKMessaging.Model.GetMessagingSessionEndpointResponse, GetCHMMGMessagingSessionEndpointCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Endpoint;
         }

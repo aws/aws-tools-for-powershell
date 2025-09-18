@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// The create operation is asynchronous. To verify that the AFI is ready for use, check
-    /// the output logs.
+    /// The create operation is asynchronous. To verify that the AFI was successfully created
+    /// and is ready for use, check the output logs.
     /// </para><para>
     /// An AFI contains the FPGA bitstream that is ready to download to an FPGA. You can securely
     /// deploy an AFI on multiple FPGA-accelerated instances. For more information, see the
