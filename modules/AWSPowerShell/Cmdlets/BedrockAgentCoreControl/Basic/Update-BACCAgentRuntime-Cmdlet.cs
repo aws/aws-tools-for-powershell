@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter AgentRuntimeId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the agent runtime to update.</para>
+        /// <para>The unique identifier of the AgentCore Runtime to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The updated description of the agent runtime.</para>
+        /// <para>The updated description of the AgentCore Runtime.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter EnvironmentVariable
         /// <summary>
         /// <para>
-        /// <para>Updated environment variables to set in the agent runtime environment.</para><para />
+        /// <para>Updated environment variables to set in the AgentCore Runtime environment.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter NetworkConfiguration_NetworkMode
         /// <summary>
         /// <para>
-        /// <para>The network mode for the agent runtime.</para>
+        /// <para>The network mode for the AgentCore Runtime.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -158,10 +158,24 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public Amazon.BedrockAgentCoreControl.NetworkMode NetworkConfiguration_NetworkMode { get; set; }
         #endregion
         
+        #region Parameter RequestHeaderConfiguration_RequestHeaderAllowlist
+        /// <summary>
+        /// <para>
+        /// <para>A list of HTTP request headers that are allowed to be passed through to the runtime.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] RequestHeaderConfiguration_RequestHeaderAllowlist { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The updated IAM role ARN that provides permissions for the agent runtime.</para>
+        /// <para>The updated IAM role ARN that provides permissions for the AgentCore Runtime.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -175,6 +189,21 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter NetworkModeConfig_SecurityGroup
+        /// <summary>
+        /// <para>
+        /// <para>The security groups associated with the VPC configuration.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NetworkConfiguration_NetworkModeConfig_SecurityGroups")]
+        public System.String[] NetworkModeConfig_SecurityGroup { get; set; }
+        #endregion
+        
         #region Parameter ProtocolConfiguration_ServerProtocol
         /// <summary>
         /// <para>
@@ -185,6 +214,21 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.ServerProtocol")]
         public Amazon.BedrockAgentCoreControl.ServerProtocol ProtocolConfiguration_ServerProtocol { get; set; }
+        #endregion
+        
+        #region Parameter NetworkModeConfig_Subnet
+        /// <summary>
+        /// <para>
+        /// <para>The subnets associated with the VPC configuration.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NetworkConfiguration_NetworkModeConfig_Subnets")]
+        public System.String[] NetworkModeConfig_Subnet { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -277,7 +321,19 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 WriteWarning("You are passing $null as a value for parameter NetworkConfiguration_NetworkMode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.NetworkModeConfig_SecurityGroup != null)
+            {
+                context.NetworkModeConfig_SecurityGroup = new List<System.String>(this.NetworkModeConfig_SecurityGroup);
+            }
+            if (this.NetworkModeConfig_Subnet != null)
+            {
+                context.NetworkModeConfig_Subnet = new List<System.String>(this.NetworkModeConfig_Subnet);
+            }
             context.ProtocolConfiguration_ServerProtocol = this.ProtocolConfiguration_ServerProtocol;
+            if (this.RequestHeaderConfiguration_RequestHeaderAllowlist != null)
+            {
+                context.RequestHeaderConfiguration_RequestHeaderAllowlist = new List<System.String>(this.RequestHeaderConfiguration_RequestHeaderAllowlist);
+            }
             context.RoleArn = this.RoleArn;
             #if MODULAR
             if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
@@ -303,7 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             
             
              // populate AgentRuntimeArtifact
-            request.AgentRuntimeArtifact = new Amazon.BedrockAgentCoreControl.Model.AgentArtifact();
+            request.AgentRuntimeArtifact = new Amazon.BedrockAgentCoreControl.Model.AgentRuntimeArtifact();
             Amazon.BedrockAgentCoreControl.Model.ContainerConfiguration requestAgentRuntimeArtifact_agentRuntimeArtifact_ContainerConfiguration = null;
             
              // populate ContainerConfiguration
@@ -412,6 +468,41 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 request.NetworkConfiguration.NetworkMode = requestNetworkConfiguration_networkConfiguration_NetworkMode;
                 requestNetworkConfigurationIsNull = false;
             }
+            Amazon.BedrockAgentCoreControl.Model.VpcConfig requestNetworkConfiguration_networkConfiguration_NetworkModeConfig = null;
+            
+             // populate NetworkModeConfig
+            var requestNetworkConfiguration_networkConfiguration_NetworkModeConfigIsNull = true;
+            requestNetworkConfiguration_networkConfiguration_NetworkModeConfig = new Amazon.BedrockAgentCoreControl.Model.VpcConfig();
+            List<System.String> requestNetworkConfiguration_networkConfiguration_NetworkModeConfig_networkModeConfig_SecurityGroup = null;
+            if (cmdletContext.NetworkModeConfig_SecurityGroup != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_NetworkModeConfig_networkModeConfig_SecurityGroup = cmdletContext.NetworkModeConfig_SecurityGroup;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_NetworkModeConfig_networkModeConfig_SecurityGroup != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_NetworkModeConfig.SecurityGroups = requestNetworkConfiguration_networkConfiguration_NetworkModeConfig_networkModeConfig_SecurityGroup;
+                requestNetworkConfiguration_networkConfiguration_NetworkModeConfigIsNull = false;
+            }
+            List<System.String> requestNetworkConfiguration_networkConfiguration_NetworkModeConfig_networkModeConfig_Subnet = null;
+            if (cmdletContext.NetworkModeConfig_Subnet != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_NetworkModeConfig_networkModeConfig_Subnet = cmdletContext.NetworkModeConfig_Subnet;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_NetworkModeConfig_networkModeConfig_Subnet != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_NetworkModeConfig.Subnets = requestNetworkConfiguration_networkConfiguration_NetworkModeConfig_networkModeConfig_Subnet;
+                requestNetworkConfiguration_networkConfiguration_NetworkModeConfigIsNull = false;
+            }
+             // determine if requestNetworkConfiguration_networkConfiguration_NetworkModeConfig should be set to null
+            if (requestNetworkConfiguration_networkConfiguration_NetworkModeConfigIsNull)
+            {
+                requestNetworkConfiguration_networkConfiguration_NetworkModeConfig = null;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_NetworkModeConfig != null)
+            {
+                request.NetworkConfiguration.NetworkModeConfig = requestNetworkConfiguration_networkConfiguration_NetworkModeConfig;
+                requestNetworkConfigurationIsNull = false;
+            }
              // determine if request.NetworkConfiguration should be set to null
             if (requestNetworkConfigurationIsNull)
             {
@@ -435,6 +526,25 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestProtocolConfigurationIsNull)
             {
                 request.ProtocolConfiguration = null;
+            }
+            
+             // populate RequestHeaderConfiguration
+            var requestRequestHeaderConfigurationIsNull = true;
+            request.RequestHeaderConfiguration = new Amazon.BedrockAgentCoreControl.Model.RequestHeaderConfiguration();
+            List<System.String> requestRequestHeaderConfiguration_requestHeaderConfiguration_RequestHeaderAllowlist = null;
+            if (cmdletContext.RequestHeaderConfiguration_RequestHeaderAllowlist != null)
+            {
+                requestRequestHeaderConfiguration_requestHeaderConfiguration_RequestHeaderAllowlist = cmdletContext.RequestHeaderConfiguration_RequestHeaderAllowlist;
+            }
+            if (requestRequestHeaderConfiguration_requestHeaderConfiguration_RequestHeaderAllowlist != null)
+            {
+                request.RequestHeaderConfiguration.RequestHeaderAllowlist = requestRequestHeaderConfiguration_requestHeaderConfiguration_RequestHeaderAllowlist;
+                requestRequestHeaderConfigurationIsNull = false;
+            }
+             // determine if request.RequestHeaderConfiguration should be set to null
+            if (requestRequestHeaderConfigurationIsNull)
+            {
+                request.RequestHeaderConfiguration = null;
             }
             if (cmdletContext.RoleArn != null)
             {
@@ -504,7 +614,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String Description { get; set; }
             public Dictionary<System.String, System.String> EnvironmentVariable { get; set; }
             public Amazon.BedrockAgentCoreControl.NetworkMode NetworkConfiguration_NetworkMode { get; set; }
+            public List<System.String> NetworkModeConfig_SecurityGroup { get; set; }
+            public List<System.String> NetworkModeConfig_Subnet { get; set; }
             public Amazon.BedrockAgentCoreControl.ServerProtocol ProtocolConfiguration_ServerProtocol { get; set; }
+            public List<System.String> RequestHeaderConfiguration_RequestHeaderAllowlist { get; set; }
             public System.String RoleArn { get; set; }
             public System.Func<Amazon.BedrockAgentCoreControl.Model.UpdateAgentRuntimeResponse, UpdateBACCAgentRuntimeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

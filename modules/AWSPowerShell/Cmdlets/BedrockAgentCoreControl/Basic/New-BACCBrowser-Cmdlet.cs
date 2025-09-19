@@ -134,6 +134,52 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String S3Location_Prefix { get; set; }
         #endregion
         
+        #region Parameter VpcConfig_SecurityGroup
+        /// <summary>
+        /// <para>
+        /// <para>The security groups associated with the VPC configuration.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NetworkConfiguration_VpcConfig_SecurityGroups")]
+        public System.String[] VpcConfig_SecurityGroup { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfig_Subnet
+        /// <summary>
+        /// <para>
+        /// <para>The subnets associated with the VPC configuration.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NetworkConfiguration_VpcConfig_Subnets")]
+        public System.String[] VpcConfig_Subnet { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A map of tag keys and values to assign to the browser. Tags enable you to categorize
+        /// your resources in different ways, for example, by purpose, owner, or environment.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -209,9 +255,25 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 WriteWarning("You are passing $null as a value for parameter NetworkConfiguration_NetworkMode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.VpcConfig_SecurityGroup != null)
+            {
+                context.VpcConfig_SecurityGroup = new List<System.String>(this.VpcConfig_SecurityGroup);
+            }
+            if (this.VpcConfig_Subnet != null)
+            {
+                context.VpcConfig_Subnet = new List<System.String>(this.VpcConfig_Subnet);
+            }
             context.Recording_Enabled = this.Recording_Enabled;
             context.S3Location_Bucket = this.S3Location_Bucket;
             context.S3Location_Prefix = this.S3Location_Prefix;
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -256,6 +318,41 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestNetworkConfiguration_networkConfiguration_NetworkMode != null)
             {
                 request.NetworkConfiguration.NetworkMode = requestNetworkConfiguration_networkConfiguration_NetworkMode;
+                requestNetworkConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.VpcConfig requestNetworkConfiguration_networkConfiguration_VpcConfig = null;
+            
+             // populate VpcConfig
+            var requestNetworkConfiguration_networkConfiguration_VpcConfigIsNull = true;
+            requestNetworkConfiguration_networkConfiguration_VpcConfig = new Amazon.BedrockAgentCoreControl.Model.VpcConfig();
+            List<System.String> requestNetworkConfiguration_networkConfiguration_VpcConfig_vpcConfig_SecurityGroup = null;
+            if (cmdletContext.VpcConfig_SecurityGroup != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_VpcConfig_vpcConfig_SecurityGroup = cmdletContext.VpcConfig_SecurityGroup;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_VpcConfig_vpcConfig_SecurityGroup != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_VpcConfig.SecurityGroups = requestNetworkConfiguration_networkConfiguration_VpcConfig_vpcConfig_SecurityGroup;
+                requestNetworkConfiguration_networkConfiguration_VpcConfigIsNull = false;
+            }
+            List<System.String> requestNetworkConfiguration_networkConfiguration_VpcConfig_vpcConfig_Subnet = null;
+            if (cmdletContext.VpcConfig_Subnet != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_VpcConfig_vpcConfig_Subnet = cmdletContext.VpcConfig_Subnet;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_VpcConfig_vpcConfig_Subnet != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_VpcConfig.Subnets = requestNetworkConfiguration_networkConfiguration_VpcConfig_vpcConfig_Subnet;
+                requestNetworkConfiguration_networkConfiguration_VpcConfigIsNull = false;
+            }
+             // determine if requestNetworkConfiguration_networkConfiguration_VpcConfig should be set to null
+            if (requestNetworkConfiguration_networkConfiguration_VpcConfigIsNull)
+            {
+                requestNetworkConfiguration_networkConfiguration_VpcConfig = null;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_VpcConfig != null)
+            {
+                request.NetworkConfiguration.VpcConfig = requestNetworkConfiguration_networkConfiguration_VpcConfig;
                 requestNetworkConfigurationIsNull = false;
             }
              // determine if request.NetworkConfiguration should be set to null
@@ -317,6 +414,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             {
                 request.Recording = null;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -377,9 +478,12 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String ExecutionRoleArn { get; set; }
             public System.String Name { get; set; }
             public Amazon.BedrockAgentCoreControl.BrowserNetworkMode NetworkConfiguration_NetworkMode { get; set; }
+            public List<System.String> VpcConfig_SecurityGroup { get; set; }
+            public List<System.String> VpcConfig_Subnet { get; set; }
             public System.Boolean? Recording_Enabled { get; set; }
             public System.String S3Location_Bucket { get; set; }
             public System.String S3Location_Prefix { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.BedrockAgentCoreControl.Model.CreateBrowserResponse, NewBACCBrowserCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

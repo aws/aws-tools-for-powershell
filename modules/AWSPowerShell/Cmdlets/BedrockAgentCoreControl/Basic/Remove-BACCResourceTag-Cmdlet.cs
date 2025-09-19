@@ -30,59 +30,64 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Deletes a gateway target.
+    /// Removes the specified tags from the specified resource.
     /// </summary>
-    [Cmdlet("Remove", "BACCGatewayTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer DeleteGatewayTarget API operation.", Operation = new[] {"DeleteGatewayTarget"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetResponse))]
-    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetResponse",
-        "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetResponse object containing multiple properties."
+    [Cmdlet("Remove", "BACCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.UntagResourceResponse))]
+    [AWSCmdletOutput("None or Amazon.BedrockAgentCoreControl.Model.UntagResourceResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.BedrockAgentCoreControl.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
-    public partial class RemoveBACCGatewayTargetCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
+    public partial class RemoveBACCResourceTagCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter GatewayIdentifier
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the gateway associated with the target.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource that you want to untag.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String GatewayIdentifier { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
-        #region Parameter TargetId
+        #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the gateway target to delete.</para>
+        /// <para>The tag keys of the tags to remove from the resource.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TargetId { get; set; }
+        [Alias("TagKeys")]
+        public System.String[] TagKey { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetResponse).
-        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.UntagResourceResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,8 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TargetId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BACCGatewayTarget (DeleteGatewayTarget)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BACCResourceTag (UntagResource)"))
             {
                 return;
             }
@@ -121,21 +126,24 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetResponse, RemoveBACCGatewayTargetCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.UntagResourceResponse, RemoveBACCResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.GatewayIdentifier = this.GatewayIdentifier;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.GatewayIdentifier == null && ParameterWasBound(nameof(this.GatewayIdentifier)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter GatewayIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.TargetId = this.TargetId;
-            #if MODULAR
-            if (this.TargetId == null && ParameterWasBound(nameof(this.TargetId)))
+            if (this.TagKey != null)
             {
-                WriteWarning("You are passing $null as a value for parameter TargetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.TagKey = new List<System.String>(this.TagKey);
+            }
+            #if MODULAR
+            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -152,15 +160,15 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetRequest();
+            var request = new Amazon.BedrockAgentCoreControl.Model.UntagResourceRequest();
             
-            if (cmdletContext.GatewayIdentifier != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.GatewayIdentifier = cmdletContext.GatewayIdentifier;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
-            if (cmdletContext.TargetId != null)
+            if (cmdletContext.TagKey != null)
             {
-                request.TargetId = cmdletContext.TargetId;
+                request.TagKeys = cmdletContext.TagKey;
             }
             
             CmdletOutput output;
@@ -195,12 +203,12 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         #region AWS Service Operation Call
         
-        private Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetRequest request)
+        private Amazon.BedrockAgentCoreControl.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.UntagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "DeleteGatewayTarget");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "UntagResource");
             try
             {
-                return client.DeleteGatewayTargetAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.UntagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -217,10 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String GatewayIdentifier { get; set; }
-            public System.String TargetId { get; set; }
-            public System.Func<Amazon.BedrockAgentCoreControl.Model.DeleteGatewayTargetResponse, RemoveBACCGatewayTargetCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ResourceArn { get; set; }
+            public List<System.String> TagKey { get; set; }
+            public System.Func<Amazon.BedrockAgentCoreControl.Model.UntagResourceResponse, RemoveBACCResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

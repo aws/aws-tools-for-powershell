@@ -30,7 +30,7 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Retrieves information about a specific Gateway Target.
+    /// Retrieves information about a specific gateway target.
     /// </summary>
     [Cmdlet("Get", "BACCGatewayTarget")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.GetGatewayTargetResponse")]
@@ -47,8 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter GatewayIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the gateway that contains the target. This can be either the gateway
-        /// ID or the gateway ARN.</para>
+        /// <para>The identifier of the gateway that contains the target.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -8078,14 +8078,14 @@ $BACC_Completers = {
         # Amazon.BedrockAgentCoreControl.BrowserNetworkMode
         "New-BACCBrowser/NetworkConfiguration_NetworkMode"
         {
-            $v = "PUBLIC"
+            $v = "PUBLIC","VPC"
             break
         }
 
         # Amazon.BedrockAgentCoreControl.CodeInterpreterNetworkMode
         "New-BACCCodeInterpreter/NetworkConfiguration_NetworkMode"
         {
-            $v = "PUBLIC","SANDBOX"
+            $v = "PUBLIC","SANDBOX","VPC"
             break
         }
 
@@ -8132,7 +8132,7 @@ $BACC_Completers = {
             ($_ -eq "Update-BACCAgentRuntime/NetworkConfiguration_NetworkMode")
         }
         {
-            $v = "PUBLIC"
+            $v = "PUBLIC","VPC"
             break
         }
 
@@ -8277,8 +8277,11 @@ $BACC_SelectMap = @{
                "Get-BACCGatewayTargetList",
                "Get-BACCMemoryList",
                "Get-BACCOauth2CredentialProviderList",
+               "Get-BACCResourceTag",
                "Get-BACCWorkloadIdentityList",
                "Set-BACCTokenVaultCMK",
+               "Add-BACCResourceTag",
+               "Remove-BACCResourceTag",
                "Update-BACCAgentRuntime",
                "Update-BACCAgentRuntimeEndpoint",
                "Update-BACCApiKeyCredentialProvider",

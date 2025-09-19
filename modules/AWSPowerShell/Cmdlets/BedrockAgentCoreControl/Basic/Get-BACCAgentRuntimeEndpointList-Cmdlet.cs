@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// Lists all endpoints for a specific Amazon Secure Agent.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BACCAgentRuntimeEndpointList")]
-    [OutputType("Amazon.BedrockAgentCoreControl.Model.AgentEndpoint")]
+    [OutputType("Amazon.BedrockAgentCoreControl.Model.AgentRuntimeEndpoint")]
     [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ListAgentRuntimeEndpoints API operation.", Operation = new[] {"ListAgentRuntimeEndpoints"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListAgentRuntimeEndpointsResponse))]
-    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.AgentEndpoint or Amazon.BedrockAgentCoreControl.Model.ListAgentRuntimeEndpointsResponse",
-        "This cmdlet returns a collection of Amazon.BedrockAgentCoreControl.Model.AgentEndpoint objects.",
+    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.AgentRuntimeEndpoint or Amazon.BedrockAgentCoreControl.Model.ListAgentRuntimeEndpointsResponse",
+        "This cmdlet returns a collection of Amazon.BedrockAgentCoreControl.Model.AgentRuntimeEndpoint objects.",
         "The service call response (type Amazon.BedrockAgentCoreControl.Model.ListAgentRuntimeEndpointsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetBACCAgentRuntimeEndpointListCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter AgentRuntimeId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the agent runtime to list endpoints for.</para>
+        /// <para>The unique identifier of the AgentCore Runtime to list endpoints for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

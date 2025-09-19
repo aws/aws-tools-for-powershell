@@ -30,7 +30,7 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Updates an existing Amazon Secure AgentEndpoint.
+    /// Updates an existing Amazon Bedrock AgentCore Runtime endpoint.
     /// </summary>
     [Cmdlet("Update", "BACCAgentRuntimeEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.UpdateAgentRuntimeEndpointResponse")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter AgentRuntimeId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the agent runtime associated with the endpoint.</para>
+        /// <para>The unique identifier of the AgentCore Runtime associated with the endpoint.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter AgentRuntimeVersion
         /// <summary>
         /// <para>
-        /// <para>The updated version of the agent runtime for the endpoint.</para>
+        /// <para>The updated version of the AgentCore Runtime for the endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The updated description of the agent runtime endpoint.</para>
+        /// <para>The updated description of the AgentCore Runtime endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter EndpointName
         /// <summary>
         /// <para>
-        /// <para>The name of the agent runtime endpoint to update.</para>
+        /// <para>The name of the AgentCore Runtime endpoint to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

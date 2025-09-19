@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter EffectiveTill
         /// <summary>
         /// <para>
-        /// <para>The date till when the hours of operation override would be effective.</para>
+        /// <para>The date until the hours of operation override is effective.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

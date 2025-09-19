@@ -30,7 +30,7 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Gets an Amazon Secure Agent.
+    /// Gets an Amazon Bedrock AgentCore Runtime.
     /// </summary>
     [Cmdlet("Get", "BACCAgentRuntime")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.GetAgentRuntimeResponse")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter AgentRuntimeId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the agent runtime to retrieve.</para>
+        /// <para>The unique identifier of the AgentCore Runtime to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter AgentRuntimeVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the agent runtime to retrieve.</para>
+        /// <para>The version of the AgentCore Runtime to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

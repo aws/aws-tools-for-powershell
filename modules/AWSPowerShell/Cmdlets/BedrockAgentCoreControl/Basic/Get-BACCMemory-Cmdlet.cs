@@ -30,7 +30,7 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Retrieve an existing memory.
+    /// Retrieve an existing Amazon Bedrock AgentCore Memory resource.
     /// </summary>
     [Cmdlet("Get", "BACCMemory")]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.Memory")]

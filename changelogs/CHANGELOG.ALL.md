@@ -1,4 +1,31 @@
-﻿### 5.0.58 (2025-09-18 20:06Z)
+﻿### 5.0.59 (2025-09-19 20:26Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.95.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Added cmdlet Add-BACCResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-BACCResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-BACCResourceTag leveraging the UntagResource service API.
+    * [Breaking Change] Modified cmdlet Get-BACCAgentRuntimeEndpointList: output changed from Amazon.BedrockAgentCoreControl.Model.AgentEndpoint to Amazon.BedrockAgentCoreControl.Model.AgentRuntimeEndpoint.
+    * [Breaking Change] Modified cmdlet Get-BACCAgentRuntimeList: output changed from Amazon.BedrockAgentCoreControl.Model.Agent to Amazon.BedrockAgentCoreControl.Model.AgentRuntime.
+    * [Breaking Change] Modified cmdlet Get-BACCAgentRuntimeVersionList: output changed from Amazon.BedrockAgentCoreControl.Model.Agent to Amazon.BedrockAgentCoreControl.Model.AgentRuntime.
+    * Modified cmdlet New-BACCAgentRuntime: added parameters NetworkModeConfig_SecurityGroup, NetworkModeConfig_Subnet, RequestHeaderConfiguration_RequestHeaderAllowlist and Tag.
+    * Modified cmdlet New-BACCAgentRuntimeEndpoint: added parameter Tag.
+    * Modified cmdlet New-BACCBrowser: added parameters Tag, VpcConfig_SecurityGroup and VpcConfig_Subnet.
+    * Modified cmdlet New-BACCCodeInterpreter: added parameters Tag, VpcConfig_SecurityGroup and VpcConfig_Subnet.
+    * [Breaking Change] Modified cmdlet Remove-BACCAgentRuntime: output changed from Amazon.BedrockAgentCoreControl.AgentStatus to Amazon.BedrockAgentCoreControl.AgentRuntimeStatus.
+    * [Breaking Change] Modified cmdlet Remove-BACCAgentRuntimeEndpoint: output changed from Amazon.BedrockAgentCoreControl.AgentEndpointStatus to Amazon.BedrockAgentCoreControl.AgentRuntimeEndpointStatus.
+    * Modified cmdlet Update-BACCAgentRuntime: added parameters NetworkModeConfig_SecurityGroup, NetworkModeConfig_Subnet and RequestHeaderConfiguration_RequestHeaderAllowlist.
+  * Amazon License Manager User Subscription
+    * Modified cmdlet Add-LMUSUser: added parameter ActiveDirectoryIdentityProvider_IsSharedActiveDirectory.
+    * Modified cmdlet Get-LMUSProductSubscriptionList: added parameter ActiveDirectoryIdentityProvider_IsSharedActiveDirectory.
+    * Modified cmdlet Get-LMUSUserAssociationList: added parameter ActiveDirectoryIdentityProvider_IsSharedActiveDirectory.
+    * Modified cmdlet Register-LMUSIdentityProvider: added parameter ActiveDirectoryIdentityProvider_IsSharedActiveDirectory.
+    * Modified cmdlet Remove-LMUSUser: added parameter ActiveDirectoryIdentityProvider_IsSharedActiveDirectory.
+    * Modified cmdlet Start-LMUSProductSubscription: added parameter ActiveDirectoryIdentityProvider_IsSharedActiveDirectory.
+    * Modified cmdlet Stop-LMUSProductSubscription: added parameter ActiveDirectoryIdentityProvider_IsSharedActiveDirectory.
+    * Modified cmdlet Unregister-LMUSIdentityProvider: added parameter ActiveDirectoryIdentityProvider_IsSharedActiveDirectory.
+    * Modified cmdlet Update-LMUSIdentityProviderSetting: added parameter ActiveDirectoryIdentityProvider_IsSharedActiveDirectory.
+
+### 5.0.58 (2025-09-18 20:06Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.94.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock
     * [Breaking Change] Modified cmdlet Update-BDRAutomatedReasoningPolicyTestCase: removed parameter KmsKeyArn.

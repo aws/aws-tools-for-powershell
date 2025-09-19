@@ -125,9 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter ExceptionLevel
         /// <summary>
         /// <para>
-        /// <para>The verbosity of exception messages. Use DEBUG mode to see granular exception messages
-        /// from a Gateway. If this parameter is not set, exception messages are by default sanitized
-        /// for presentation to end users.</para>
+        /// <para>The level of detail in error messages returned when invoking the gateway.</para><ul><li><para>If the value is <c>DEBUG</c>, granular exception messages are returned to help a user
+        /// debug the gateway.</para></li><li><para>If the value is omitted, a generic error message is returned to the end user.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter ProtocolType
         /// <summary>
         /// <para>
-        /// <para>The protocol type for the gateway. Currently supports MCP (Model Context Protocol).</para>
+        /// <para>The protocol type for the gateway.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -242,9 +241,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier to ensure that the operation completes no more
-        /// than one time. If this token matches a previous request, Amazon Bedrock ignores the
-        /// request but does not return an error.</para>
+        /// <para>A unique, case-sensitive identifier to ensure that the API request completes no more
+        /// than one time. If this token matches a previous request, the service ignores the request,
+        /// but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// idempotency</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

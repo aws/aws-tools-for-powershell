@@ -87,6 +87,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-BACCResourceTag', 
         'Get-BACCAgentRuntime', 
         'Get-BACCAgentRuntimeEndpoint', 
         'Get-BACCAgentRuntimeEndpointList', 
@@ -106,6 +107,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-BACCMemoryList', 
         'Get-BACCOauth2CredentialProvider', 
         'Get-BACCOauth2CredentialProviderList', 
+        'Get-BACCResourceTag', 
         'Get-BACCTokenVault', 
         'Get-BACCWorkloadIdentity', 
         'Get-BACCWorkloadIdentityList', 
@@ -128,6 +130,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-BACCGatewayTarget', 
         'Remove-BACCMemory', 
         'Remove-BACCOauth2CredentialProvider', 
+        'Remove-BACCResourceTag', 
         'Remove-BACCWorkloadIdentity', 
         'Set-BACCTokenVaultCMK', 
         'Update-BACCAgentRuntime', 

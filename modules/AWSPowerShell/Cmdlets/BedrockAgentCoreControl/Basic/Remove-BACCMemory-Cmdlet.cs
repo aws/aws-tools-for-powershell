@@ -30,7 +30,7 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Deletes a memory.
+    /// Deletes an Amazon Bedrock AgentCore Memory resource.
     /// </summary>
     [Cmdlet("Remove", "BACCMemory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.DeleteMemoryResponse")]
