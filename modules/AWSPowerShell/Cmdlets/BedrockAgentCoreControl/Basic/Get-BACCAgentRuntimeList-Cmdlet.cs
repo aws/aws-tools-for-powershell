@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// Lists all Amazon Secure Agents in your account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BACCAgentRuntimeList")]
-    [OutputType("Amazon.BedrockAgentCoreControl.Model.Agent")]
+    [OutputType("Amazon.BedrockAgentCoreControl.Model.AgentRuntime")]
     [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ListAgentRuntimes API operation.", Operation = new[] {"ListAgentRuntimes"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListAgentRuntimesResponse))]
-    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.Agent or Amazon.BedrockAgentCoreControl.Model.ListAgentRuntimesResponse",
-        "This cmdlet returns a collection of Amazon.BedrockAgentCoreControl.Model.Agent objects.",
+    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.AgentRuntime or Amazon.BedrockAgentCoreControl.Model.ListAgentRuntimesResponse",
+        "This cmdlet returns a collection of Amazon.BedrockAgentCoreControl.Model.AgentRuntime objects.",
         "The service call response (type Amazon.BedrockAgentCoreControl.Model.ListAgentRuntimesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetBACCAgentRuntimeListCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor

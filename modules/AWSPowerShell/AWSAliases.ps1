@@ -2876,10 +2876,13 @@ Set-Alias -Name BACC-ListMemories -Value Get-BACCMemoryList
 Set-Alias -Name List-BACCOauth2CredentialProviders -Value Get-BACCOauth2CredentialProviderList
 Set-Alias -Name List-BACCOauth2CredentialProviderList -Value Get-BACCOauth2CredentialProviderList
 Set-Alias -Name BACC-ListOauth2CredentialProviders -Value Get-BACCOauth2CredentialProviderList
+Set-Alias -Name BACC-ListTagsForResource -Value Get-BACCResourceTag
 Set-Alias -Name List-BACCWorkloadIdentities -Value Get-BACCWorkloadIdentityList
 Set-Alias -Name List-BACCWorkloadIdentityList -Value Get-BACCWorkloadIdentityList
 Set-Alias -Name BACC-ListWorkloadIdentities -Value Get-BACCWorkloadIdentityList
 Set-Alias -Name BACC-SetTokenVaultCMK -Value Set-BACCTokenVaultCMK
+Set-Alias -Name BACC-TagResource -Value Add-BACCResourceTag
+Set-Alias -Name BACC-UntagResource -Value Remove-BACCResourceTag
 Set-Alias -Name BACC-UpdateAgentRuntime -Value Update-BACCAgentRuntime
 Set-Alias -Name BACC-UpdateAgentRuntimeEndpoint -Value Update-BACCAgentRuntimeEndpoint
 Set-Alias -Name BACC-UpdateApiKeyCredentialProvider -Value Update-BACCApiKeyCredentialProvider

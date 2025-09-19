@@ -28,13 +28,13 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Deletes an Amazon Secure Agent.
+    /// Deletes an Amazon Bedrock AgentCore Runtime.
     /// </summary>
     [Cmdlet("Remove", "BACCAgentRuntime", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.BedrockAgentCoreControl.AgentStatus")]
+    [OutputType("Amazon.BedrockAgentCoreControl.AgentRuntimeStatus")]
     [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer DeleteAgentRuntime API operation.", Operation = new[] {"DeleteAgentRuntime"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteAgentRuntimeResponse))]
-    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.AgentStatus or Amazon.BedrockAgentCoreControl.Model.DeleteAgentRuntimeResponse",
-        "This cmdlet returns an Amazon.BedrockAgentCoreControl.AgentStatus object.",
+    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.AgentRuntimeStatus or Amazon.BedrockAgentCoreControl.Model.DeleteAgentRuntimeResponse",
+        "This cmdlet returns an Amazon.BedrockAgentCoreControl.AgentRuntimeStatus object.",
         "The service call response (type Amazon.BedrockAgentCoreControl.Model.DeleteAgentRuntimeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveBACCAgentRuntimeCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter AgentRuntimeId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the agent runtime to delete.</para>
+        /// <para>The unique identifier of the AgentCore Runtime to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

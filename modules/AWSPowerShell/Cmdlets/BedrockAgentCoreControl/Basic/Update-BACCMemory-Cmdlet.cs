@@ -28,7 +28,7 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Update memory.
+    /// Update an Amazon Bedrock AgentCore Memory resource memory.
     /// </summary>
     [Cmdlet("Update", "BACCMemory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.Memory")]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The updated description of the memory.</para>
+        /// <para>The updated description of the AgentCore Memory resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter MemoryExecutionRoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role that provides permissions for the memory.</para>
+        /// <para>The ARN of the IAM role that provides permissions for the AgentCore Memory resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Updates an existing Gateway.
+    /// Updates an existing gateway.
     /// </summary>
     [Cmdlet("Update", "BACCGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.UpdateGatewayResponse")]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter AuthorizerType
         /// <summary>
         /// <para>
-        /// <para>The updated authorizer type for the Gateway.</para>
+        /// <para>The updated authorizer type for the gateway.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The updated description for the Gateway.</para>
+        /// <para>The updated description for the gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,9 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter ExceptionLevel
         /// <summary>
         /// <para>
-        /// <para>The verbosity of exception messages. Use DEBUG mode to see granular exception messages
-        /// from a Gateway. If this parameter is not set, exception messages are by default sanitized
-        /// for presentation to end users.</para>
+        /// <para>The level of detail in error messages returned when invoking the gateway.</para><ul><li><para>If the value is <c>DEBUG</c>, granular exception messages are returned to help a user
+        /// debug the gateway.</para></li><li><para>If the value is omitted, a generic error message is returned to the end user.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,8 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter GatewayIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the gateway to update. This can be either the gateway ID or the
-        /// gateway ARN.</para>
+        /// <para>The identifier of the gateway to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -154,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The updated ARN of the KMS key used to encrypt the Gateway.</para>
+        /// <para>The updated ARN of the KMS key used to encrypt the gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,7 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The updated name for the Gateway.</para>
+        /// <para>The name of the gateway. This name must be the same as the one when the gateway was
+        /// created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -181,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter ProtocolType
         /// <summary>
         /// <para>
-        /// <para>The updated protocol type for the Gateway.</para>
+        /// <para>The updated protocol type for the gateway.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -198,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The updated IAM role ARN that provides permissions for the Gateway.</para>
+        /// <para>The updated IAM role ARN that provides permissions for the gateway.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

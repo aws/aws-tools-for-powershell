@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter AgentRuntimeId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the agent runtime associated with the endpoint.</para>
+        /// <para>The unique identifier of the AgentCore Runtime associated with the endpoint.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter EndpointName
         /// <summary>
         /// <para>
-        /// <para>The name of the agent runtime endpoint to retrieve.</para>
+        /// <para>The name of the AgentCore Runtime endpoint to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

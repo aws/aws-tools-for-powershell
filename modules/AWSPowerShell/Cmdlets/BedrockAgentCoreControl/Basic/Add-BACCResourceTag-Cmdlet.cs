@@ -22,37 +22,32 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Connect;
-using Amazon.Connect.Model;
+using Amazon.BedrockAgentCoreControl;
+using Amazon.BedrockAgentCoreControl.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CONN
+namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Disassociates a set of queues from a routing profile.
-    /// 
-    ///  
-    /// <para>
-    /// Up to 10 queue references can be disassociated in a single API call. More than 10
-    /// queue references results in a single call results in an InvalidParameterException.
-    /// </para>
+    /// Associates the specified tags to a resource with the specified resourceArn. If existing
+    /// tags on a resource are not specified in the request parameters, they are not changed.
+    /// When a resource is deleted, the tags associated with that resource are also deleted.
     /// </summary>
-    [Cmdlet("Disconnect", "CONNRoutingProfileQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Add", "BACCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Service DisassociateRoutingProfileQueues API operation.", Operation = new[] {"DisassociateRoutingProfileQueues"}, SelectReturnType = typeof(Amazon.Connect.Model.DisassociateRoutingProfileQueuesResponse))]
-    [AWSCmdletOutput("None or Amazon.Connect.Model.DisassociateRoutingProfileQueuesResponse",
+    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.TagResourceResponse))]
+    [AWSCmdletOutput("None or Amazon.BedrockAgentCoreControl.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.DisassociateRoutingProfileQueuesResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.BedrockAgentCoreControl.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
-    public partial class DisconnectCONNRoutingProfileQueueCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class AddBACCResourceTagCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter InstanceId
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
-        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource that you want to tag.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,13 +58,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
-        #region Parameter QueueReference
+        #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The queues to disassociate from this routing profile.</para>
+        /// <para>The tags to add to the resource. A tag is a key-value pair.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,31 +75,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("QueueReferences")]
-        public Amazon.Connect.Model.RoutingProfileQueueReference[] QueueReference { get; set; }
-        #endregion
-        
-        #region Parameter RoutingProfileId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the routing profile.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String RoutingProfileId { get; set; }
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.DisassociateRoutingProfileQueuesResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.TagResourceResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,10 +91,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -136,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disconnect-CONNRoutingProfileQueue (DisassociateRoutingProfileQueues)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-BACCResourceTag (TagResource)"))
             {
                 return;
             }
@@ -150,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.DisassociateRoutingProfileQueuesResponse, DisconnectCONNRoutingProfileQueueCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.TagResourceResponse, AddBACCResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -159,31 +137,28 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.InstanceId;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.InstanceId = this.InstanceId;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.QueueReference != null)
+            if (this.Tag != null)
             {
-                context.QueueReference = new List<Amazon.Connect.Model.RoutingProfileQueueReference>(this.QueueReference);
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
             }
             #if MODULAR
-            if (this.QueueReference == null && ParameterWasBound(nameof(this.QueueReference)))
+            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
             {
-                WriteWarning("You are passing $null as a value for parameter QueueReference which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.RoutingProfileId = this.RoutingProfileId;
-            #if MODULAR
-            if (this.RoutingProfileId == null && ParameterWasBound(nameof(this.RoutingProfileId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter RoutingProfileId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -200,19 +175,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.DisassociateRoutingProfileQueuesRequest();
+            var request = new Amazon.BedrockAgentCoreControl.Model.TagResourceRequest();
             
-            if (cmdletContext.InstanceId != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.InstanceId = cmdletContext.InstanceId;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
-            if (cmdletContext.QueueReference != null)
+            if (cmdletContext.Tag != null)
             {
-                request.QueueReferences = cmdletContext.QueueReference;
-            }
-            if (cmdletContext.RoutingProfileId != null)
-            {
-                request.RoutingProfileId = cmdletContext.RoutingProfileId;
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -247,15 +218,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.DisassociateRoutingProfileQueuesResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.DisassociateRoutingProfileQueuesRequest request)
+        private Amazon.BedrockAgentCoreControl.Model.TagResourceResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "DisassociateRoutingProfileQueues");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "TagResource");
             try
             {
                 #if DESKTOP
-                return client.DisassociateRoutingProfileQueues(request);
+                return client.TagResource(request);
                 #elif CORECLR
-                return client.DisassociateRoutingProfileQueuesAsync(request).GetAwaiter().GetResult();
+                return client.TagResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -275,10 +246,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String InstanceId { get; set; }
-            public List<Amazon.Connect.Model.RoutingProfileQueueReference> QueueReference { get; set; }
-            public System.String RoutingProfileId { get; set; }
-            public System.Func<Amazon.Connect.Model.DisassociateRoutingProfileQueuesResponse, DisconnectCONNRoutingProfileQueueCmdlet, object> Select { get; set; } =
+            public System.String ResourceArn { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.Func<Amazon.BedrockAgentCoreControl.Model.TagResourceResponse, AddBACCResourceTagCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

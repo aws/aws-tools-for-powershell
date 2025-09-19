@@ -99,6 +99,18 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
         public System.String ActiveDirectorySettings_DomainName { get; set; }
         #endregion
         
+        #region Parameter ActiveDirectoryIdentityProvider_IsSharedActiveDirectory
+        /// <summary>
+        /// <para>
+        /// <para>Whether this directory is shared from an Amazon Web Services Managed Active Directory.
+        /// The default value is false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IdentityProvider_ActiveDirectoryIdentityProvider_IsSharedActiveDirectory")]
+        public System.Boolean? ActiveDirectoryIdentityProvider_IsSharedActiveDirectory { get; set; }
+        #endregion
+        
         #region Parameter Product
         /// <summary>
         /// <para>
@@ -227,6 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
             }
             context.ActiveDirectoryIdentityProvider_ActiveDirectoryType = this.ActiveDirectoryIdentityProvider_ActiveDirectoryType;
             context.ActiveDirectoryIdentityProvider_DirectoryId = this.ActiveDirectoryIdentityProvider_DirectoryId;
+            context.ActiveDirectoryIdentityProvider_IsSharedActiveDirectory = this.ActiveDirectoryIdentityProvider_IsSharedActiveDirectory;
             context.Product = this.Product;
             context.ProductUserArn = this.ProductUserArn;
             context.Username = this.Username;
@@ -277,6 +290,16 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
             if (requestIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_activeDirectoryIdentityProvider_DirectoryId != null)
             {
                 requestIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider.DirectoryId = requestIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_activeDirectoryIdentityProvider_DirectoryId;
+                requestIdentityProvider_identityProvider_ActiveDirectoryIdentityProviderIsNull = false;
+            }
+            System.Boolean? requestIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_activeDirectoryIdentityProvider_IsSharedActiveDirectory = null;
+            if (cmdletContext.ActiveDirectoryIdentityProvider_IsSharedActiveDirectory != null)
+            {
+                requestIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_activeDirectoryIdentityProvider_IsSharedActiveDirectory = cmdletContext.ActiveDirectoryIdentityProvider_IsSharedActiveDirectory.Value;
+            }
+            if (requestIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_activeDirectoryIdentityProvider_IsSharedActiveDirectory != null)
+            {
+                requestIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider.IsSharedActiveDirectory = requestIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_activeDirectoryIdentityProvider_IsSharedActiveDirectory.Value;
                 requestIdentityProvider_identityProvider_ActiveDirectoryIdentityProviderIsNull = false;
             }
             Amazon.LicenseManagerUserSubscriptions.Model.ActiveDirectorySettings requestIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings = null;
@@ -474,6 +497,7 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
             public List<System.String> DomainNetworkSettings_Subnet { get; set; }
             public Amazon.LicenseManagerUserSubscriptions.ActiveDirectoryType ActiveDirectoryIdentityProvider_ActiveDirectoryType { get; set; }
             public System.String ActiveDirectoryIdentityProvider_DirectoryId { get; set; }
+            public System.Boolean? ActiveDirectoryIdentityProvider_IsSharedActiveDirectory { get; set; }
             public System.String Product { get; set; }
             public System.String ProductUserArn { get; set; }
             public System.String Username { get; set; }

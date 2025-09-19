@@ -28,7 +28,7 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Updates an existing Gateway Target.
+    /// Updates an existing gateway target.
     /// </summary>
     [Cmdlet("Update", "BACCGatewayTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.UpdateGatewayTargetResponse")]
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter CredentialProviderConfiguration
         /// <summary>
         /// <para>
-        /// <para>The updated credential provider configurations for the Gateway Target.</para>
+        /// <para>The updated credential provider configurations for the gateway target.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The updated description for the Gateway Target.</para>
+        /// <para>The updated description for the gateway target.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter GatewayIdentifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the Gateway associated with the target.</para>
+        /// <para>The unique identifier of the gateway associated with the target.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -175,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The updated name for the Gateway Target.</para>
+        /// <para>The updated name for the gateway target.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter TargetId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the Gateway Target to update.</para>
+        /// <para>The unique identifier of the gateway target to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

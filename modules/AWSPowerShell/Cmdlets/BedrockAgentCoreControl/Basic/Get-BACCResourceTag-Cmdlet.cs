@@ -28,25 +28,24 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Gets an Amazon Bedrock AgentCore Runtime.
+    /// Lists the tags associated with the specified resource.
     /// </summary>
-    [Cmdlet("Get", "BACCAgentRuntime")]
-    [OutputType("Amazon.BedrockAgentCoreControl.Model.GetAgentRuntimeResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer GetAgentRuntime API operation.", Operation = new[] {"GetAgentRuntime"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.GetAgentRuntimeResponse))]
-    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.GetAgentRuntimeResponse",
-        "This cmdlet returns an Amazon.BedrockAgentCoreControl.Model.GetAgentRuntimeResponse object containing multiple properties."
+    [Cmdlet("Get", "BACCResourceTag")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse))]
+    [AWSCmdletOutput("System.String or Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse",
+        "This cmdlet returns a collection of System.String objects.",
+        "The service call response (type Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetBACCAgentRuntimeCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
+    public partial class GetBACCResourceTagCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AgentRuntimeId
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the AgentCore Runtime to retrieve.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource for which you want to list tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,36 +56,26 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AgentRuntimeId { get; set; }
-        #endregion
-        
-        #region Parameter AgentRuntimeVersion
-        /// <summary>
-        /// <para>
-        /// <para>The version of the AgentCore Runtime to retrieve.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AgentRuntimeVersion { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.GetAgentRuntimeResponse).
-        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.GetAgentRuntimeResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tags'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse).
+        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Tags";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AgentRuntimeId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AgentRuntimeId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AgentRuntimeId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -104,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.GetAgentRuntimeResponse, GetBACCAgentRuntimeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse, GetBACCResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -113,17 +102,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AgentRuntimeId;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AgentRuntimeId = this.AgentRuntimeId;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.AgentRuntimeId == null && ParameterWasBound(nameof(this.AgentRuntimeId)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter AgentRuntimeId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.AgentRuntimeVersion = this.AgentRuntimeVersion;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -138,15 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.BedrockAgentCoreControl.Model.GetAgentRuntimeRequest();
+            var request = new Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceRequest();
             
-            if (cmdletContext.AgentRuntimeId != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.AgentRuntimeId = cmdletContext.AgentRuntimeId;
-            }
-            if (cmdletContext.AgentRuntimeVersion != null)
-            {
-                request.AgentRuntimeVersion = cmdletContext.AgentRuntimeVersion;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -181,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         #region AWS Service Operation Call
         
-        private Amazon.BedrockAgentCoreControl.Model.GetAgentRuntimeResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.GetAgentRuntimeRequest request)
+        private Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "GetAgentRuntime");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "ListTagsForResource");
             try
             {
                 #if DESKTOP
-                return client.GetAgentRuntime(request);
+                return client.ListTagsForResource(request);
                 #elif CORECLR
-                return client.GetAgentRuntimeAsync(request).GetAwaiter().GetResult();
+                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -209,10 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AgentRuntimeId { get; set; }
-            public System.String AgentRuntimeVersion { get; set; }
-            public System.Func<Amazon.BedrockAgentCoreControl.Model.GetAgentRuntimeResponse, GetBACCAgentRuntimeCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse, GetBACCResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Tags;
         }
         
     }

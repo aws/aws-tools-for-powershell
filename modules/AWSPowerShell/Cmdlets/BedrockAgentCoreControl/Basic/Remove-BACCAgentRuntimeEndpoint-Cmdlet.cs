@@ -28,13 +28,13 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Deletes an Amazon Secure AgentEndpoint.
+    /// Deletes an AAgentCore Runtime endpoint.
     /// </summary>
     [Cmdlet("Remove", "BACCAgentRuntimeEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.BedrockAgentCoreControl.AgentEndpointStatus")]
+    [OutputType("Amazon.BedrockAgentCoreControl.AgentRuntimeEndpointStatus")]
     [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer DeleteAgentRuntimeEndpoint API operation.", Operation = new[] {"DeleteAgentRuntimeEndpoint"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.DeleteAgentRuntimeEndpointResponse))]
-    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.AgentEndpointStatus or Amazon.BedrockAgentCoreControl.Model.DeleteAgentRuntimeEndpointResponse",
-        "This cmdlet returns an Amazon.BedrockAgentCoreControl.AgentEndpointStatus object.",
+    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.AgentRuntimeEndpointStatus or Amazon.BedrockAgentCoreControl.Model.DeleteAgentRuntimeEndpointResponse",
+        "This cmdlet returns an Amazon.BedrockAgentCoreControl.AgentRuntimeEndpointStatus object.",
         "The service call response (type Amazon.BedrockAgentCoreControl.Model.DeleteAgentRuntimeEndpointResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveBACCAgentRuntimeEndpointCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter AgentRuntimeId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the agent runtime associated with the endpoint.</para>
+        /// <para>The unique identifier of the AgentCore Runtime associated with the endpoint.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter EndpointName
         /// <summary>
         /// <para>
-        /// <para>The name of the agent runtime endpoint to delete.</para>
+        /// <para>The name of the AgentCore Runtime endpoint to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

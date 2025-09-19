@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// Lists all versions of a specific Amazon Secure Agent.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BACCAgentRuntimeVersionList")]
-    [OutputType("Amazon.BedrockAgentCoreControl.Model.Agent")]
+    [OutputType("Amazon.BedrockAgentCoreControl.Model.AgentRuntime")]
     [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ListAgentRuntimeVersions API operation.", Operation = new[] {"ListAgentRuntimeVersions"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListAgentRuntimeVersionsResponse))]
-    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.Agent or Amazon.BedrockAgentCoreControl.Model.ListAgentRuntimeVersionsResponse",
-        "This cmdlet returns a collection of Amazon.BedrockAgentCoreControl.Model.Agent objects.",
+    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.AgentRuntime or Amazon.BedrockAgentCoreControl.Model.ListAgentRuntimeVersionsResponse",
+        "This cmdlet returns a collection of Amazon.BedrockAgentCoreControl.Model.AgentRuntime objects.",
         "The service call response (type Amazon.BedrockAgentCoreControl.Model.ListAgentRuntimeVersionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetBACCAgentRuntimeVersionListCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter AgentRuntimeId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the agent runtime to list versions for.</para>
+        /// <para>The unique identifier of the AgentCore Runtime to list versions for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

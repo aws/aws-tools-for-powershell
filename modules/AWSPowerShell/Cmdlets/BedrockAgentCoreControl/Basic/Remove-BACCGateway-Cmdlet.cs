@@ -28,7 +28,7 @@ using Amazon.BedrockAgentCoreControl.Model;
 namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
-    /// Deletes a Gateway.
+    /// Deletes a gateway.
     /// </summary>
     [Cmdlet("Remove", "BACCGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgentCoreControl.Model.DeleteGatewayResponse")]
@@ -44,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter GatewayIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the gateway to delete. This can be either the gateway ID or the
-        /// gateway ARN.</para>
+        /// <para>The identifier of the gateway to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

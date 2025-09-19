@@ -46,8 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter GatewayIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the gateway to retrieve. This can be either the gateway ID or the
-        /// gateway ARN.</para>
+        /// <para>The identifier of the gateway to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
