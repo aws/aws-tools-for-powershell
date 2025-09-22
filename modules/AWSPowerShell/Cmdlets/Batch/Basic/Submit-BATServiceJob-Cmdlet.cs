@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The share identifier for the service job. Don't specify this parameter if the job
-        /// queue doesn't have a fair- share scheduling policy. If the job queue has a fair-share
+        /// queue doesn't have a fair-share scheduling policy. If the job queue has a fair-share
         /// scheduling policy, then this parameter must be specified.</para>
         /// </para>
         /// </summary>

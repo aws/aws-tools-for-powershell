@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.95.0",
+    "ProductVersion"    : "4.0.96.0",
     "CoreVersion"       : "4.0.0.28",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -308,7 +308,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "4.0.7.2",
+            "Version" : "4.0.7.3",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.28"
@@ -684,7 +684,7 @@
             "InPreview"               : false
         },
         "Batch"                           : {
-            "Version" : "4.0.2.10",
+            "Version" : "4.0.2.11",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.28"
@@ -1084,7 +1084,7 @@
             "InPreview"               : false
         },
         "EKS"                             : {
-            "Version" : "4.0.5.2",
+            "Version" : "4.0.6.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.28"
@@ -1564,7 +1564,7 @@
             "InPreview"               : false
         },
         "Imagebuilder"                    : {
-            "Version" : "4.0.1.2",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.28"
