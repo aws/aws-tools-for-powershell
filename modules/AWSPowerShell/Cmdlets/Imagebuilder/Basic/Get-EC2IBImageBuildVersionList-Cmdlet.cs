@@ -59,14 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <para>The Amazon Resource Name (ARN) of the image whose build versions you want to retrieve.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ImageVersionArn { get; set; }
         #endregion
         
@@ -157,12 +150,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                 context.Filter = new List<Amazon.Imagebuilder.Model.Filter>(this.Filter);
             }
             context.ImageVersionArn = this.ImageVersionArn;
-            #if MODULAR
-            if (this.ImageVersionArn == null && ParameterWasBound(nameof(this.ImageVersionArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ImageVersionArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             

@@ -228,6 +228,32 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.Collections.Hashtable Label { get; set; }
         #endregion
         
+        #region Parameter NodeRepairConfig_MaxParallelNodesRepairedCount
+        /// <summary>
+        /// <para>
+        /// <para>Specify the maximum number of nodes that can be repaired concurrently or in parallel,
+        /// expressed as a count of unhealthy nodes. This gives you finer-grained control over
+        /// the pace of node replacements. When using this, you cannot also set <c>maxParallelNodesRepairedPercentage</c>
+        /// at the same time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? NodeRepairConfig_MaxParallelNodesRepairedCount { get; set; }
+        #endregion
+        
+        #region Parameter NodeRepairConfig_MaxParallelNodesRepairedPercentage
+        /// <summary>
+        /// <para>
+        /// <para>Specify the maximum number of nodes that can be repaired concurrently or in parallel,
+        /// expressed as a percentage of unhealthy nodes. This gives you finer-grained control
+        /// over the pace of node replacements. When using this, you cannot also set <c>maxParallelNodesRepairedCount</c>
+        /// at the same time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? NodeRepairConfig_MaxParallelNodesRepairedPercentage { get; set; }
+        #endregion
+        
         #region Parameter ScalingConfig_MaxSize
         /// <summary>
         /// <para>
@@ -262,6 +288,30 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? UpdateConfig_MaxUnavailablePercentage { get; set; }
+        #endregion
+        
+        #region Parameter NodeRepairConfig_MaxUnhealthyNodeThresholdCount
+        /// <summary>
+        /// <para>
+        /// <para>Specify a count threshold of unhealthy nodes, above which node auto repair actions
+        /// will stop. When using this, you cannot also set <c>maxUnhealthyNodeThresholdPercentage</c>
+        /// at the same time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? NodeRepairConfig_MaxUnhealthyNodeThresholdCount { get; set; }
+        #endregion
+        
+        #region Parameter NodeRepairConfig_MaxUnhealthyNodeThresholdPercentage
+        /// <summary>
+        /// <para>
+        /// <para>Specify a percentage threshold of unhealthy nodes, above which node auto repair actions
+        /// will stop. When using this, you cannot also set <c>maxUnhealthyNodeThresholdCount</c>
+        /// at the same time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? NodeRepairConfig_MaxUnhealthyNodeThresholdPercentage { get; set; }
         #endregion
         
         #region Parameter ScalingConfig_MinSize
@@ -300,6 +350,19 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String NodegroupName { get; set; }
+        #endregion
+        
+        #region Parameter NodeRepairConfig_NodeRepairConfigOverride
+        /// <summary>
+        /// <para>
+        /// <para>Specify granular overrides for specific repair actions. These overrides control the
+        /// repair action and the repair delay time before a node is considered eligible for repair.
+        /// If you use this, you must specify all the values.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NodeRepairConfig_NodeRepairConfigOverrides")]
+        public Amazon.EKS.Model.NodeRepairConfigOverrides[] NodeRepairConfig_NodeRepairConfigOverride { get; set; }
         #endregion
         
         #region Parameter NodeRole
@@ -552,6 +615,14 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             }
             #endif
             context.NodeRepairConfig_Enabled = this.NodeRepairConfig_Enabled;
+            context.NodeRepairConfig_MaxParallelNodesRepairedCount = this.NodeRepairConfig_MaxParallelNodesRepairedCount;
+            context.NodeRepairConfig_MaxParallelNodesRepairedPercentage = this.NodeRepairConfig_MaxParallelNodesRepairedPercentage;
+            context.NodeRepairConfig_MaxUnhealthyNodeThresholdCount = this.NodeRepairConfig_MaxUnhealthyNodeThresholdCount;
+            context.NodeRepairConfig_MaxUnhealthyNodeThresholdPercentage = this.NodeRepairConfig_MaxUnhealthyNodeThresholdPercentage;
+            if (this.NodeRepairConfig_NodeRepairConfigOverride != null)
+            {
+                context.NodeRepairConfig_NodeRepairConfigOverride = new List<Amazon.EKS.Model.NodeRepairConfigOverrides>(this.NodeRepairConfig_NodeRepairConfigOverride);
+            }
             context.NodeRole = this.NodeRole;
             #if MODULAR
             if (this.NodeRole == null && ParameterWasBound(nameof(this.NodeRole)))
@@ -693,6 +764,56 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (requestNodeRepairConfig_nodeRepairConfig_Enabled != null)
             {
                 request.NodeRepairConfig.Enabled = requestNodeRepairConfig_nodeRepairConfig_Enabled.Value;
+                requestNodeRepairConfigIsNull = false;
+            }
+            System.Int32? requestNodeRepairConfig_nodeRepairConfig_MaxParallelNodesRepairedCount = null;
+            if (cmdletContext.NodeRepairConfig_MaxParallelNodesRepairedCount != null)
+            {
+                requestNodeRepairConfig_nodeRepairConfig_MaxParallelNodesRepairedCount = cmdletContext.NodeRepairConfig_MaxParallelNodesRepairedCount.Value;
+            }
+            if (requestNodeRepairConfig_nodeRepairConfig_MaxParallelNodesRepairedCount != null)
+            {
+                request.NodeRepairConfig.MaxParallelNodesRepairedCount = requestNodeRepairConfig_nodeRepairConfig_MaxParallelNodesRepairedCount.Value;
+                requestNodeRepairConfigIsNull = false;
+            }
+            System.Int32? requestNodeRepairConfig_nodeRepairConfig_MaxParallelNodesRepairedPercentage = null;
+            if (cmdletContext.NodeRepairConfig_MaxParallelNodesRepairedPercentage != null)
+            {
+                requestNodeRepairConfig_nodeRepairConfig_MaxParallelNodesRepairedPercentage = cmdletContext.NodeRepairConfig_MaxParallelNodesRepairedPercentage.Value;
+            }
+            if (requestNodeRepairConfig_nodeRepairConfig_MaxParallelNodesRepairedPercentage != null)
+            {
+                request.NodeRepairConfig.MaxParallelNodesRepairedPercentage = requestNodeRepairConfig_nodeRepairConfig_MaxParallelNodesRepairedPercentage.Value;
+                requestNodeRepairConfigIsNull = false;
+            }
+            System.Int32? requestNodeRepairConfig_nodeRepairConfig_MaxUnhealthyNodeThresholdCount = null;
+            if (cmdletContext.NodeRepairConfig_MaxUnhealthyNodeThresholdCount != null)
+            {
+                requestNodeRepairConfig_nodeRepairConfig_MaxUnhealthyNodeThresholdCount = cmdletContext.NodeRepairConfig_MaxUnhealthyNodeThresholdCount.Value;
+            }
+            if (requestNodeRepairConfig_nodeRepairConfig_MaxUnhealthyNodeThresholdCount != null)
+            {
+                request.NodeRepairConfig.MaxUnhealthyNodeThresholdCount = requestNodeRepairConfig_nodeRepairConfig_MaxUnhealthyNodeThresholdCount.Value;
+                requestNodeRepairConfigIsNull = false;
+            }
+            System.Int32? requestNodeRepairConfig_nodeRepairConfig_MaxUnhealthyNodeThresholdPercentage = null;
+            if (cmdletContext.NodeRepairConfig_MaxUnhealthyNodeThresholdPercentage != null)
+            {
+                requestNodeRepairConfig_nodeRepairConfig_MaxUnhealthyNodeThresholdPercentage = cmdletContext.NodeRepairConfig_MaxUnhealthyNodeThresholdPercentage.Value;
+            }
+            if (requestNodeRepairConfig_nodeRepairConfig_MaxUnhealthyNodeThresholdPercentage != null)
+            {
+                request.NodeRepairConfig.MaxUnhealthyNodeThresholdPercentage = requestNodeRepairConfig_nodeRepairConfig_MaxUnhealthyNodeThresholdPercentage.Value;
+                requestNodeRepairConfigIsNull = false;
+            }
+            List<Amazon.EKS.Model.NodeRepairConfigOverrides> requestNodeRepairConfig_nodeRepairConfig_NodeRepairConfigOverride = null;
+            if (cmdletContext.NodeRepairConfig_NodeRepairConfigOverride != null)
+            {
+                requestNodeRepairConfig_nodeRepairConfig_NodeRepairConfigOverride = cmdletContext.NodeRepairConfig_NodeRepairConfigOverride;
+            }
+            if (requestNodeRepairConfig_nodeRepairConfig_NodeRepairConfigOverride != null)
+            {
+                request.NodeRepairConfig.NodeRepairConfigOverrides = requestNodeRepairConfig_nodeRepairConfig_NodeRepairConfigOverride;
                 requestNodeRepairConfigIsNull = false;
             }
              // determine if request.NodeRepairConfig should be set to null
@@ -904,6 +1025,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.String LaunchTemplate_Version { get; set; }
             public System.String NodegroupName { get; set; }
             public System.Boolean? NodeRepairConfig_Enabled { get; set; }
+            public System.Int32? NodeRepairConfig_MaxParallelNodesRepairedCount { get; set; }
+            public System.Int32? NodeRepairConfig_MaxParallelNodesRepairedPercentage { get; set; }
+            public System.Int32? NodeRepairConfig_MaxUnhealthyNodeThresholdCount { get; set; }
+            public System.Int32? NodeRepairConfig_MaxUnhealthyNodeThresholdPercentage { get; set; }
+            public List<Amazon.EKS.Model.NodeRepairConfigOverrides> NodeRepairConfig_NodeRepairConfigOverride { get; set; }
             public System.String NodeRole { get; set; }
             public System.String ReleaseVersion { get; set; }
             public System.String RemoteAccess_Ec2SshKey { get; set; }

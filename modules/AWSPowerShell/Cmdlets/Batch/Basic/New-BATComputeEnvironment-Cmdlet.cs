@@ -42,9 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// Fargate and Fargate Spot capacity in your managed compute environment. You can optionally
     /// set a maximum price so that Spot Instances only launch when the Spot Instance price
     /// is less than a specified percentage of the On-Demand price.
-    /// </para><note><para>
-    /// Multi-node parallel jobs aren't supported on Spot Instances.
-    /// </para></note><para>
+    /// </para><para>
     /// In an unmanaged compute environment, you can manage your own EC2 compute resources
     /// and have flexibility with how you configure your compute resources. For example, you
     /// can use custom AMIs. However, you must verify that each of your AMIs meet the Amazon
@@ -56,57 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// an Amazon ECS container instance</a> in the <i>Amazon Elastic Container Service Developer
     /// Guide</i>.
     /// </para><note><para>
-    /// To create a compute environment that uses EKS resources, the caller must have permissions
-    /// to call <c>eks:DescribeCluster</c>.
-    /// </para></note><note><para>
     /// Batch doesn't automatically upgrade the AMIs in a compute environment after it's created.
-    /// For example, it also doesn't update the AMIs in your compute environment when a newer
-    /// version of the Amazon ECS optimized AMI is available. You're responsible for the management
-    /// of the guest operating system. This includes any updates and security patches. You're
-    /// also responsible for any additional application software or utilities that you install
-    /// on the compute resources. There are two ways to use a new AMI for your Batch jobs.
-    /// The original method is to complete these steps:
-    /// </para><ol><li><para>
-    /// Create a new compute environment with the new AMI.
-    /// </para></li><li><para>
-    /// Add the compute environment to an existing job queue.
-    /// </para></li><li><para>
-    /// Remove the earlier compute environment from your job queue.
-    /// </para></li><li><para>
-    /// Delete the earlier compute environment.
-    /// </para></li></ol><para>
-    /// In April 2022, Batch added enhanced support for updating compute environments. For
-    /// more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
-    /// compute environments</a>. To use the enhanced updating of compute environments to
-    /// update AMIs, follow these rules:
-    /// </para><ul><li><para>
-    /// Either don't set the service role (<c>serviceRole</c>) parameter or set it to the
-    /// <b>AWSBatchServiceRole</b> service-linked role.
-    /// </para></li><li><para>
-    /// Set the allocation strategy (<c>allocationStrategy</c>) parameter to <c>BEST_FIT_PROGRESSIVE</c>,
-    /// <c>SPOT_CAPACITY_OPTIMIZED</c>, or <c>SPOT_PRICE_CAPACITY_OPTIMIZED</c>.
-    /// </para></li><li><para>
-    /// Set the update to latest image version (<c>updateToLatestImageVersion</c>) parameter
-    /// to <c>true</c>. The <c>updateToLatestImageVersion</c> parameter is used when you update
-    /// a compute environment. This parameter is ignored when you create a compute environment.
-    /// </para></li><li><para>
-    /// Don't specify an AMI ID in <c>imageId</c>, <c>imageIdOverride</c> (in <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_Ec2Configuration.html"><c>ec2Configuration</c></a>), or in the launch template (<c>launchTemplate</c>).
-    /// In that case, Batch selects the latest Amazon ECS optimized AMI that's supported by
-    /// Batch at the time the infrastructure update is initiated. Alternatively, you can specify
-    /// the AMI ID in the <c>imageId</c> or <c>imageIdOverride</c> parameters, or the launch
-    /// template identified by the <c>LaunchTemplate</c> properties. Changing any of these
-    /// properties starts an infrastructure update. If the AMI ID is specified in the launch
-    /// template, it can't be replaced by specifying an AMI ID in either the <c>imageId</c>
-    /// or <c>imageIdOverride</c> parameters. It can only be replaced by specifying a different
-    /// launch template, or if the launch template version is set to <c>$Default</c> or <c>$Latest</c>,
-    /// by setting either a new default version for the launch template (if <c>$Default</c>)
-    /// or by adding a new version to the launch template (if <c>$Latest</c>).
-    /// </para></li></ul><para>
-    /// If these rules are followed, any update that starts an infrastructure update causes
-    /// the AMI ID to be re-selected. If the <c>version</c> setting in the launch template
-    /// (<c>launchTemplate</c>) is set to <c>$Latest</c> or <c>$Default</c>, the latest or
-    /// default version of the launch template is evaluated up at the time of the infrastructure
-    /// update, even if the <c>launchTemplate</c> wasn't updated.
+    /// For more information on how to update a compute environment's AMI, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
+    /// compute environments</a> in the <i>Batch User Guide</i>.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "BATComputeEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -544,7 +494,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
         /// environments</a> in the <i>Batch User Guide</i>.</para><para> If you choose <c>SPOT</c>, you must also specify an Amazon EC2 Spot Fleet role with
         /// the <c>spotIamFleetRole</c> parameter. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html">Amazon
-        /// EC2 spot fleet role</a> in the <i>Batch User Guide</i>.</para>
+        /// EC2 spot fleet role</a> in the <i>Batch User Guide</i>.</para><note><para>Multi-node parallel jobs aren't supported on Spot Instances.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

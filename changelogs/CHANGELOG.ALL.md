@@ -1,4 +1,10 @@
-﻿### 4.1.904 (2025-09-19 20:49Z)
+﻿### 4.1.905 (2025-09-22 20:20Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1128.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet New-EKSNodegroup: added parameters NodeRepairConfig_MaxParallelNodesRepairedCount, NodeRepairConfig_MaxParallelNodesRepairedPercentage, NodeRepairConfig_MaxUnhealthyNodeThresholdCount, NodeRepairConfig_MaxUnhealthyNodeThresholdPercentage and NodeRepairConfig_NodeRepairConfigOverride.
+    * Modified cmdlet Update-EKSNodegroupConfig: added parameters NodeRepairConfig_MaxParallelNodesRepairedCount, NodeRepairConfig_MaxParallelNodesRepairedPercentage, NodeRepairConfig_MaxUnhealthyNodeThresholdCount, NodeRepairConfig_MaxUnhealthyNodeThresholdPercentage and NodeRepairConfig_NodeRepairConfigOverride.
+
+### 4.1.904 (2025-09-19 20:49Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1127.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Added cmdlet Add-BACCResourceTag leveraging the TagResource service API.

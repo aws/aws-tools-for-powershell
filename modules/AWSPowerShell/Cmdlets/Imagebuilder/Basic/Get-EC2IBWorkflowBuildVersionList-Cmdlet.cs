@@ -49,14 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// build versions.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String WorkflowVersionArn { get; set; }
         #endregion
         
@@ -145,12 +138,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.WorkflowVersionArn = this.WorkflowVersionArn;
-            #if MODULAR
-            if (this.WorkflowVersionArn == null && ParameterWasBound(nameof(this.WorkflowVersionArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter WorkflowVersionArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

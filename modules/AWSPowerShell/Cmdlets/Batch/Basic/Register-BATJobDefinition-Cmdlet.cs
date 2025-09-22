@@ -379,8 +379,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The log driver to use for the container. The valid values that are listed for this
         /// parameter are log drivers that the Amazon ECS container agent can communicate with
-        /// by default.</para><para>The supported log drivers are <c>awslogs</c>, <c>fluentd</c>, <c>gelf</c>, <c>json-file</c>,
-        /// <c>journald</c>, <c>logentries</c>, <c>syslog</c>, and <c>splunk</c>.</para><note><para>Jobs that are running on Fargate resources are restricted to the <c>awslogs</c> and
+        /// by default.</para><para>The supported log drivers are <c>awsfirelens</c>, <c>awslogs</c>, <c>fluentd</c>,
+        /// <c>gelf</c>, <c>json-file</c>, <c>journald</c>, <c>logentries</c>, <c>syslog</c>,
+        /// and <c>splunk</c>.</para><note><para>Jobs that are running on Fargate resources are restricted to the <c>awslogs</c> and
         /// <c>splunk</c> log drivers.</para></note><dl><dt>awsfirelens</dt><dd><para>Specifies the firelens logging driver. For more information on configuring Firelens,
         /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html">Send
         /// Amazon ECS logs to an Amazon Web Services service or Amazon Web Services Partner</a>
