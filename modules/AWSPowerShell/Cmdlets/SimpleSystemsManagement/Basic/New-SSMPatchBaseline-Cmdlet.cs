@@ -190,10 +190,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// If a package in the rejected patches list and already installed on the node, its status
         /// is reported as <c>INSTALLED_OTHER</c>. Any package not already installed on the node
         /// is skipped. This is the default action if no option is specified.</para></dd><dt>BLOCK</dt><dd><para><b>All OSs</b>: Packages in the rejected patches list, and packages that include
-        /// them as dependencies, aren't installed by Patch Manager under any circumstances. If
-        /// a package was installed before it was added to the rejected patches list, or is installed
-        /// outside of Patch Manager afterward, it's considered noncompliant with the patch baseline
-        /// and its status is reported as <c>INSTALLED_REJECTED</c>.</para></dd></dl>
+        /// them as dependencies, aren't installed by Patch Manager under any circumstances. </para><para>State value assignment for patch compliance:</para><ul><li><para>If a package was installed before it was added to the rejected patches list, or is
+        /// installed outside of Patch Manager afterward, it's considered noncompliant with the
+        /// patch baseline and its status is reported as <c>INSTALLED_REJECTED</c>.</para></li><li><para>If an update attempts to install a dependency package that is now rejected by the
+        /// baseline, when previous versions of the package were not rejected, the package being
+        /// updated is reported as <c>MISSING</c> for <c>SCAN</c> operations and as <c>FAILED</c>
+        /// for <c>INSTALL</c> operations.</para></li></ul></dd></dl>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

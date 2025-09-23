@@ -92,6 +92,16 @@ $ERES_Completers = {
             break
         }
 
+        # Amazon.EntityResolution.IdMappingIncrementalRunType
+        {
+            ($_ -eq "New-ERESIdMappingWorkflow/IncrementalRunConfig_IncrementalRunType") -Or
+            ($_ -eq "Update-ERESIdMappingWorkflow/IncrementalRunConfig_IncrementalRunType")
+        }
+        {
+            $v = "ON_DEMAND"
+            break
+        }
+
         # Amazon.EntityResolution.IdMappingType
         {
             ($_ -eq "New-ERESIdMappingWorkflow/IdMappingTechniques_IdMappingType") -Or
@@ -126,6 +136,13 @@ $ERES_Completers = {
         }
         {
             $v = "IMMEDIATE"
+            break
+        }
+
+        # Amazon.EntityResolution.JobType
+        "Start-ERESIdMappingJob/JobType"
+        {
+            $v = "BATCH","DELETE_ONLY","INCREMENTAL"
             break
         }
 
@@ -184,7 +201,8 @@ $ERES_Completers = {
 $ERES_map = @{
     "Effect"=@("Add-ERESPolicyStatement")
     "IdMappingTechniques_IdMappingType"=@("New-ERESIdMappingWorkflow","Update-ERESIdMappingWorkflow")
-    "IncrementalRunConfig_IncrementalRunType"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
+    "IncrementalRunConfig_IncrementalRunType"=@("New-ERESIdMappingWorkflow","New-ERESMatchingWorkflow","Update-ERESIdMappingWorkflow","Update-ERESMatchingWorkflow")
+    "JobType"=@("Start-ERESIdMappingJob")
     "ProcessingType"=@("Set-ERESMatchId")
     "ResolutionTechniques_ResolutionType"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
     "RuleBasedProperties_AttributeMatchingModel"=@("New-ERESIdMappingWorkflow","New-ERESMatchingWorkflow","Update-ERESIdMappingWorkflow","Update-ERESMatchingWorkflow")

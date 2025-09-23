@@ -63,20 +63,35 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         public System.String InstanceArn { get; set; }
         #endregion
         
+        #region Parameter EncryptionConfiguration_KeyType
+        /// <summary>
+        /// <para>
+        /// <para>The type of KMS key used for encryption.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SSOAdmin.KmsKeyType")]
+        public Amazon.SSOAdmin.KmsKeyType EncryptionConfiguration_KeyType { get; set; }
+        #endregion
+        
+        #region Parameter EncryptionConfiguration_KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the KMS key used to encrypt data. Required when KeyType is CUSTOMER_MANAGED_KEY.
+        /// Cannot be specified when KeyType is AWS_OWNED_KMS_KEY.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EncryptionConfiguration_KmsKeyArn { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>Updates the instance name.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
         #endregion
         
@@ -141,6 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
                 context.Select = (response, cmdlet) => this.InstanceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.EncryptionConfiguration_KeyType = this.EncryptionConfiguration_KeyType;
+            context.EncryptionConfiguration_KmsKeyArn = this.EncryptionConfiguration_KmsKeyArn;
             context.InstanceArn = this.InstanceArn;
             #if MODULAR
             if (this.InstanceArn == null && ParameterWasBound(nameof(this.InstanceArn)))
@@ -149,12 +166,6 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             }
             #endif
             context.Name = this.Name;
-            #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -171,6 +182,35 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             // create request
             var request = new Amazon.SSOAdmin.Model.UpdateInstanceRequest();
             
+            
+             // populate EncryptionConfiguration
+            var requestEncryptionConfigurationIsNull = true;
+            request.EncryptionConfiguration = new Amazon.SSOAdmin.Model.EncryptionConfiguration();
+            Amazon.SSOAdmin.KmsKeyType requestEncryptionConfiguration_encryptionConfiguration_KeyType = null;
+            if (cmdletContext.EncryptionConfiguration_KeyType != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_KeyType = cmdletContext.EncryptionConfiguration_KeyType;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_KeyType != null)
+            {
+                request.EncryptionConfiguration.KeyType = requestEncryptionConfiguration_encryptionConfiguration_KeyType;
+                requestEncryptionConfigurationIsNull = false;
+            }
+            System.String requestEncryptionConfiguration_encryptionConfiguration_KmsKeyArn = null;
+            if (cmdletContext.EncryptionConfiguration_KmsKeyArn != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_KmsKeyArn = cmdletContext.EncryptionConfiguration_KmsKeyArn;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_KmsKeyArn != null)
+            {
+                request.EncryptionConfiguration.KmsKeyArn = requestEncryptionConfiguration_encryptionConfiguration_KmsKeyArn;
+                requestEncryptionConfigurationIsNull = false;
+            }
+             // determine if request.EncryptionConfiguration should be set to null
+            if (requestEncryptionConfigurationIsNull)
+            {
+                request.EncryptionConfiguration = null;
+            }
             if (cmdletContext.InstanceArn != null)
             {
                 request.InstanceArn = cmdletContext.InstanceArn;
@@ -240,6 +280,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.SSOAdmin.KmsKeyType EncryptionConfiguration_KeyType { get; set; }
+            public System.String EncryptionConfiguration_KmsKeyArn { get; set; }
             public System.String InstanceArn { get; set; }
             public System.String Name { get; set; }
             public System.Func<Amazon.SSOAdmin.Model.UpdateInstanceResponse, UpdateSSOADMNInstanceCmdlet, object> Select { get; set; } =

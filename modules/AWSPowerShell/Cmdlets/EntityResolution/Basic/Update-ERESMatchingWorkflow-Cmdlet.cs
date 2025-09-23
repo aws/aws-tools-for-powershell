@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.ERES
     /// to succeed.
     /// 
     ///  <important><para>
-    /// For workflows where <c>resolutionType</c> is ML_MATCHING, incremental processing is
-    /// not supported. 
+    /// For workflows where <c>resolutionType</c> is <c>ML_MATCHING</c> or <c>PROVIDER</c>,
+    /// incremental processing is not supported. 
     /// </para></important>
     /// </summary>
     [Cmdlet("Update", "ERESMatchingWorkflow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         /// <summary>
         /// <para>
         /// <para>The type of incremental run. The only valid value is <c>IMMEDIATE</c>. This appears
-        /// as "Automatic" in the console.</para><important><para>For workflows where <c>resolutionType</c> is <c>ML_MATCHING</c>, incremental processing
-        /// is not supported. </para></important>
+        /// as "Automatic" in the console.</para><important><para>For workflows where <c>resolutionType</c> is <c>ML_MATCHING</c> or <c>PROVIDER</c>,
+        /// incremental processing is not supported. </para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,8 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter ResolutionTechniques_ResolutionType
         /// <summary>
         /// <para>
-        /// <para>The type of matching. There are three types of matching: <c>RULE_MATCHING</c>, <c>ML_MATCHING</c>,
-        /// and <c>PROVIDER</c>.</para>
+        /// <para>The type of matching workflow to create. Specify one of the following types: </para><ul><li><para><c>RULE_MATCHING</c>: Match records using configurable rule-based criteria </para></li><li><para><c>ML_MATCHING</c>: Match records using machine learning models </para></li><li><para><c>PROVIDER</c>: Match records using a third-party matching provider</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

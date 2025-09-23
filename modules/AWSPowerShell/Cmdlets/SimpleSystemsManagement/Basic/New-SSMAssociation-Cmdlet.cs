@@ -360,7 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>A location is a combination of Amazon Web Services Regions and Amazon Web Services
         /// accounts where you want to run the association. Use this action to create an association
-        /// in multiple Regions and multiple accounts.</para>
+        /// in multiple Regions and multiple accounts.</para><note><para>The <c>IncludeChildOrganizationUnits</c> parameter is not supported by State Manager.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

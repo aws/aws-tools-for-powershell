@@ -1,4 +1,17 @@
-﻿### 4.1.905 (2025-09-22 20:20Z)
+﻿### 4.1.906 (2025-09-23 20:15Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1129.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Clean Rooms Service
+    * Modified cmdlet Invoke-CRSIdMappingTable: added parameter JobType.
+  * Amazon EntityResolution
+    * Modified cmdlet New-ERESIdMappingWorkflow: added parameter IncrementalRunConfig_IncrementalRunType.
+    * Modified cmdlet Start-ERESIdMappingJob: added parameter JobType.
+    * Modified cmdlet Update-ERESIdMappingWorkflow: added parameter IncrementalRunConfig_IncrementalRunType.
+  * Amazon Single Sign-On Admin
+    * Modified cmdlet Update-SSOADMNInstance: added parameters EncryptionConfiguration_KeyType and EncryptionConfiguration_KmsKeyArn.
+  * Amazon Systems Manager
+    * Modified cmdlet Get-SSMDeployablePatchSnapshotForInstance: added parameter UseS3DualStackEndpoint.
+
+### 4.1.905 (2025-09-22 20:20Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1128.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Container Service for Kubernetes
     * Modified cmdlet New-EKSNodegroup: added parameters NodeRepairConfig_MaxParallelNodesRepairedCount, NodeRepairConfig_MaxParallelNodesRepairedPercentage, NodeRepairConfig_MaxUnhealthyNodeThresholdCount, NodeRepairConfig_MaxUnhealthyNodeThresholdPercentage and NodeRepairConfig_NodeRepairConfigOverride.
