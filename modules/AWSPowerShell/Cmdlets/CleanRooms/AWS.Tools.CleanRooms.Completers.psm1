@@ -187,6 +187,13 @@ $CRS_Completers = {
             break
         }
 
+        # Amazon.CleanRooms.JobType
+        "Invoke-CRSIdMappingTable/JobType"
+        {
+            $v = "BATCH","DELETE_ONLY","INCREMENTAL"
+            break
+        }
+
         # Amazon.CleanRooms.JoinRequiredOption
         {
             ($_ -eq "New-CRSConfiguredTableAnalysisRule/Aggregation_JoinRequired") -Or
@@ -336,6 +343,7 @@ $CRS_map = @{
     "ErrorMessageConfiguration_Type"=@("New-CRSAnalysisTemplate")
     "Format"=@("New-CRSAnalysisTemplate")
     "JobLogStatus"=@("New-CRSCollaboration","New-CRSMembership","Update-CRSMembership")
+    "JobType"=@("Invoke-CRSIdMappingTable")
     "List_AdditionalAnalysis"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "MemberStatus"=@("Get-CRSCollaborationList")
     "PrivacyBudgetType"=@("Get-CRSCollaborationPrivacyBudgetList","Get-CRSPrivacyBudgetList","New-CRSPrivacyBudgetTemplate","Update-CRSPrivacyBudgetTemplate")

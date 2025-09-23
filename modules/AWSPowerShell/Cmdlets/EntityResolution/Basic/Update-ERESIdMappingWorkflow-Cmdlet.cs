@@ -33,6 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.ERES
     /// Updates an existing <c>IdMappingWorkflow</c>. This method is identical to CreateIdMappingWorkflow,
     /// except it uses an HTTP <c>PUT</c> request instead of a <c>POST</c> request, and the
     /// <c>IdMappingWorkflow</c> must already exist for the method to succeed.
+    /// 
+    ///  <important><para>
+    /// Incremental processing is not supported for ID mapping workflows. 
+    /// </para></important>
     /// </summary>
     [Cmdlet("Update", "ERESIdMappingWorkflow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EntityResolution.Model.UpdateIdMappingWorkflowResponse")]
@@ -90,6 +94,18 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.EntityResolution.IdMappingType")]
         public Amazon.EntityResolution.IdMappingType IdMappingTechniques_IdMappingType { get; set; }
+        #endregion
+        
+        #region Parameter IncrementalRunConfig_IncrementalRunType
+        /// <summary>
+        /// <para>
+        /// <para> The incremental run type for an ID mapping workflow.</para><para>It takes only one value: <c>ON_DEMAND</c>. This setting runs the ID mapping workflow
+        /// when it's manually triggered through the <c>StartIdMappingJob</c> API.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EntityResolution.IdMappingIncrementalRunType")]
+        public Amazon.EntityResolution.IdMappingIncrementalRunType IncrementalRunConfig_IncrementalRunType { get; set; }
         #endregion
         
         #region Parameter InputSourceConfig
@@ -297,6 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             {
                 context.RuleBasedProperties_Rule = new List<Amazon.EntityResolution.Model.Rule>(this.RuleBasedProperties_Rule);
             }
+            context.IncrementalRunConfig_IncrementalRunType = this.IncrementalRunConfig_IncrementalRunType;
             if (this.InputSourceConfig != null)
             {
                 context.InputSourceConfig = new List<Amazon.EntityResolution.Model.IdMappingWorkflowInputSource>(this.InputSourceConfig);
@@ -473,6 +490,25 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             {
                 request.IdMappingTechniques = null;
             }
+            
+             // populate IncrementalRunConfig
+            var requestIncrementalRunConfigIsNull = true;
+            request.IncrementalRunConfig = new Amazon.EntityResolution.Model.IdMappingIncrementalRunConfig();
+            Amazon.EntityResolution.IdMappingIncrementalRunType requestIncrementalRunConfig_incrementalRunConfig_IncrementalRunType = null;
+            if (cmdletContext.IncrementalRunConfig_IncrementalRunType != null)
+            {
+                requestIncrementalRunConfig_incrementalRunConfig_IncrementalRunType = cmdletContext.IncrementalRunConfig_IncrementalRunType;
+            }
+            if (requestIncrementalRunConfig_incrementalRunConfig_IncrementalRunType != null)
+            {
+                request.IncrementalRunConfig.IncrementalRunType = requestIncrementalRunConfig_incrementalRunConfig_IncrementalRunType;
+                requestIncrementalRunConfigIsNull = false;
+            }
+             // determine if request.IncrementalRunConfig should be set to null
+            if (requestIncrementalRunConfigIsNull)
+            {
+                request.IncrementalRunConfig = null;
+            }
             if (cmdletContext.InputSourceConfig != null)
             {
                 request.InputSourceConfig = cmdletContext.InputSourceConfig;
@@ -553,6 +589,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             public Amazon.EntityResolution.RecordMatchingModel RuleBasedProperties_RecordMatchingModel { get; set; }
             public Amazon.EntityResolution.IdMappingWorkflowRuleDefinitionType RuleBasedProperties_RuleDefinitionType { get; set; }
             public List<Amazon.EntityResolution.Model.Rule> RuleBasedProperties_Rule { get; set; }
+            public Amazon.EntityResolution.IdMappingIncrementalRunType IncrementalRunConfig_IncrementalRunType { get; set; }
             public List<Amazon.EntityResolution.Model.IdMappingWorkflowInputSource> InputSourceConfig { get; set; }
             public List<Amazon.EntityResolution.Model.IdMappingWorkflowOutputSource> OutputSourceConfig { get; set; }
             public System.String RoleArn { get; set; }

@@ -46,6 +46,22 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter JobType
+        /// <summary>
+        /// <para>
+        /// <para> The job type for the ID mapping job.</para><para>If the <c>jobType</c> value is set to <c>INCREMENTAL</c>, only new or changed data
+        /// is processed since the last job run. This is the default value if the <c>CreateIdMappingWorkflow</c>
+        /// API is configured with an <c>incrementalRunConfig</c>.</para><para>If the <c>jobType</c> value is set to <c>BATCH</c>, all data is processed from the
+        /// input source, regardless of previous job runs. This is the default value if the <c>CreateIdMappingWorkflow</c>
+        /// API isn't configured with an <c>incrementalRunConfig</c>.</para><para>If the <c>jobType</c> value is set to <c>DELETE_ONLY</c>, only deletion requests from
+        /// <c>BatchDeleteUniqueIds</c> are processed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EntityResolution.JobType")]
+        public Amazon.EntityResolution.JobType JobType { get; set; }
+        #endregion
+        
         #region Parameter OutputSourceConfig
         /// <summary>
         /// <para>
@@ -123,6 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
                 context.Select = CreateSelectDelegate<Amazon.EntityResolution.Model.StartIdMappingJobResponse, StartERESIdMappingJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.JobType = this.JobType;
             if (this.OutputSourceConfig != null)
             {
                 context.OutputSourceConfig = new List<Amazon.EntityResolution.Model.IdMappingJobOutputSource>(this.OutputSourceConfig);
@@ -150,6 +167,10 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             // create request
             var request = new Amazon.EntityResolution.Model.StartIdMappingJobRequest();
             
+            if (cmdletContext.JobType != null)
+            {
+                request.JobType = cmdletContext.JobType;
+            }
             if (cmdletContext.OutputSourceConfig != null)
             {
                 request.OutputSourceConfig = cmdletContext.OutputSourceConfig;
@@ -213,6 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.EntityResolution.JobType JobType { get; set; }
             public List<Amazon.EntityResolution.Model.IdMappingJobOutputSource> OutputSourceConfig { get; set; }
             public System.String WorkflowName { get; set; }
             public System.Func<Amazon.EntityResolution.Model.StartIdMappingJobResponse, StartERESIdMappingJobCmdlet, object> Select { get; set; } =

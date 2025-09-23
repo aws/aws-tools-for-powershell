@@ -234,6 +234,19 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public Amazon.SimpleSystemsManagement.Model.PatchSource[] BaselineOverride_Source { get; set; }
         #endregion
         
+        #region Parameter UseS3DualStackEndpoint
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to use S3 dualstack endpoints for the patch snapshot download URL.
+        /// Set to <c>true</c> to receive a presigned URL that supports both IPv4 and IPv6 connectivity.
+        /// Set to <c>false</c> to use standard IPv4-only endpoints. Default is <c>false</c>.
+        /// This parameter is required for managed nodes in IPv6-only environments. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? UseS3DualStackEndpoint { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -303,6 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 WriteWarning("You are passing $null as a value for parameter SnapshotId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.UseS3DualStackEndpoint = this.UseS3DualStackEndpoint;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -466,6 +480,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 request.SnapshotId = cmdletContext.SnapshotId;
             }
+            if (cmdletContext.UseS3DualStackEndpoint != null)
+            {
+                request.UseS3DualStackEndpoint = cmdletContext.UseS3DualStackEndpoint.Value;
+            }
             
             CmdletOutput output;
             
@@ -533,6 +551,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public List<Amazon.SimpleSystemsManagement.Model.PatchSource> BaselineOverride_Source { get; set; }
             public System.String InstanceId { get; set; }
             public System.String SnapshotId { get; set; }
+            public System.Boolean? UseS3DualStackEndpoint { get; set; }
             public System.Func<Amazon.SimpleSystemsManagement.Model.GetDeployablePatchSnapshotForInstanceResponse, GetSSMDeployablePatchSnapshotForInstanceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

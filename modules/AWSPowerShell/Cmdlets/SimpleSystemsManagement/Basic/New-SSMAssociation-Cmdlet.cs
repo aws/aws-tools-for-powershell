@@ -375,7 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>A location is a combination of Amazon Web Services Regions and Amazon Web Services
         /// accounts where you want to run the association. Use this action to create an association
-        /// in multiple Regions and multiple accounts.</para><para />
+        /// in multiple Regions and multiple accounts.</para><note><para>The <c>IncludeChildOrganizationUnits</c> parameter is not supported by State Manager.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

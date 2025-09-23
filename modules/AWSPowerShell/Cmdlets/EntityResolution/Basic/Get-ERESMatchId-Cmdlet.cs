@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
 {
     /// <summary>
     /// Returns the corresponding Match ID of a customer record if the record has been processed
-    /// in a rule-based matching workflow or ML matching workflow.
+    /// in a rule-based matching workflow.
     /// 
     ///  
     /// <para>

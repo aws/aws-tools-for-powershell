@@ -129,6 +129,13 @@ $SSOADMN_Completers = {
             break
         }
 
+        # Amazon.SSOAdmin.KmsKeyType
+        "Update-SSOADMNInstance/EncryptionConfiguration_KeyType"
+        {
+            $v = "AWS_OWNED_KMS_KEY","CUSTOMER_MANAGED_KEY"
+            break
+        }
+
         # Amazon.SSOAdmin.PrincipalType
         {
             ($_ -eq "Get-SSOADMNAccountAssignmentsForPrincipalList/PrincipalType") -Or
@@ -216,6 +223,7 @@ $SSOADMN_Completers = {
 
 $SSOADMN_map = @{
     "AuthenticationMethodType"=@("Get-SSOADMNApplicationAuthenticationMethod","Remove-SSOADMNApplicationAuthenticationMethod","Write-SSOADMNApplicationAuthenticationMethod")
+    "EncryptionConfiguration_KeyType"=@("Update-SSOADMNInstance")
     "Filter_Status"=@("Get-SSOADMNAccountAssignmentCreationStatusList","Get-SSOADMNAccountAssignmentDeletionStatusList","Get-SSOADMNPermissionSetProvisioningStatusList")
     "GrantType"=@("Get-SSOADMNApplicationGrant","Remove-SSOADMNApplicationGrant","Write-SSOADMNApplicationGrant")
     "OidcJwtConfiguration_JwksRetrievalOption"=@("New-SSOADMNTrustedTokenIssuer","Update-SSOADMNTrustedTokenIssuer")

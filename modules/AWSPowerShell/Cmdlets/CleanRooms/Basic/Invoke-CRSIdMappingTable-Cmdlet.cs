@@ -62,6 +62,24 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.String IdMappingTableIdentifier { get; set; }
         #endregion
         
+        #region Parameter JobType
+        /// <summary>
+        /// <para>
+        /// <para>The job type of the rule-based ID mapping job. Valid values include:</para><para><c>INCREMENTAL</c>: Processes only new or changed data since the last job run. This
+        /// is the default job type if the ID mapping workflow was created in Entity Resolution
+        /// with <c>incrementalRunConfig</c> specified.</para><para><c>BATCH</c>: Processes all data from the input source, regardless of previous job
+        /// runs. This is the default job type if the ID mapping workflow was created in Entity
+        /// Resolution but <c>incrementalRunConfig</c> wasn't specified.</para><para><c>DELETE_ONLY</c>: Processes only deletion requests from <c>BatchDeleteUniqueId</c>,
+        /// which is set in Entity Resolution.</para><para>For more information about <c>incrementalRunConfig</c> and <c>BatchDeleteUniqueId</c>,
+        /// see the <a href="https://docs.aws.amazon.com/entityresolution/latest/apireference/Welcome.html">Entity
+        /// Resolution API Reference</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CleanRooms.JobType")]
+        public Amazon.CleanRooms.JobType JobType { get; set; }
+        #endregion
+        
         #region Parameter MembershipIdentifier
         /// <summary>
         /// <para>
@@ -133,6 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 WriteWarning("You are passing $null as a value for parameter IdMappingTableIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.JobType = this.JobType;
             context.MembershipIdentifier = this.MembershipIdentifier;
             #if MODULAR
             if (this.MembershipIdentifier == null && ParameterWasBound(nameof(this.MembershipIdentifier)))
@@ -159,6 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (cmdletContext.IdMappingTableIdentifier != null)
             {
                 request.IdMappingTableIdentifier = cmdletContext.IdMappingTableIdentifier;
+            }
+            if (cmdletContext.JobType != null)
+            {
+                request.JobType = cmdletContext.JobType;
             }
             if (cmdletContext.MembershipIdentifier != null)
             {
@@ -220,6 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String IdMappingTableIdentifier { get; set; }
+            public Amazon.CleanRooms.JobType JobType { get; set; }
             public System.String MembershipIdentifier { get; set; }
             public System.Func<Amazon.CleanRooms.Model.PopulateIdMappingTableResponse, InvokeCRSIdMappingTableCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.IdMappingJobId;
