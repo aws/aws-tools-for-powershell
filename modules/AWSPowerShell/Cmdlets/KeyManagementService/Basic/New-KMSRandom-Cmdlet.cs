@@ -40,14 +40,15 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// parameter.
     /// </para><para><c>GenerateRandom</c> also supports <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html">Amazon
     /// Web Services Nitro Enclaves</a>, which provide an isolated compute environment in
-    /// Amazon EC2. To call <c>GenerateRandom</c> for a Nitro enclave, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon
+    /// Amazon EC2. To call <c>GenerateRandom</c> for a Nitro enclave or NitroTPM, use the
+    /// <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon
     /// Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK. Use the <c>Recipient</c>
-    /// parameter to provide the attestation document for the enclave. Instead of plaintext
-    /// bytes, the response includes the plaintext bytes encrypted under the public key from
-    /// the attestation document (<c>CiphertextForRecipient</c>).For information about the
-    /// interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How
-    /// Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer
-    /// Guide</i>.
+    /// parameter to provide the attestation document for the attested environment. Instead
+    /// of plaintext bytes, the response includes the plaintext bytes encrypted under the
+    /// public key from the attestation document (<c>CiphertextForRecipient</c>). For information
+    /// about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon
+    /// Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic
+    /// attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para>
     /// For more information about entropy and random number generation, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#entropy-and-random-numbers">Entropy
     /// and random number generation</a> in the <i>Key Management Service Developer Guide</i>.
@@ -77,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter Recipient_AttestationDocument
         /// <summary>
         /// <para>
-        /// <para>The attestation document for an Amazon Web Services Nitro Enclave. This document includes
-        /// the enclave's public key.</para>
+        /// <para>The attestation document for an Amazon Web Services Nitro Enclave or a NitroTPM. This
+        /// document includes the enclave's public key.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -104,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>The encryption algorithm that KMS should use with the public key for an Amazon Web
-        /// Services Nitro Enclave to encrypt plaintext values for the response. The only valid
-        /// value is <c>RSAES_OAEP_SHA_256</c>.</para>
+        /// Services Nitro Enclave or NitroTPM to encrypt plaintext values for the response. The
+        /// only valid value is <c>RSAES_OAEP_SHA_256</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

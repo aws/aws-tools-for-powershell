@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1129.0",
+    "ProductVersion"    : "3.7.1130.0",
     "CoreVersion"       : "3.7.500.23",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -80,7 +80,7 @@
             "InPreview"               : false
         },
         "CloudWatch"        : {
-            "Version" : "3.7.502.7",
+            "Version" : "3.7.503.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.23"
@@ -252,7 +252,7 @@
             "InPreview"               : false
         },
         "KeyManagementService" : {
-            "Version" : "3.7.501.12",
+            "Version" : "3.7.501.13",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.23"
@@ -628,7 +628,7 @@
             "InPreview"               : false
         },
         "AppStream"                       : {
-            "Version" : "3.7.501.14",
+            "Version" : "3.7.501.15",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.23"
@@ -780,7 +780,7 @@
             "InPreview"               : false
         },
         "DAX"                             : {
-            "Version" : "3.7.500.23",
+            "Version" : "3.7.501.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.23"
@@ -1060,7 +1060,7 @@
             "InPreview"               : false
         },
         "Neptune"                         : {
-            "Version" : "3.7.502.10",
+            "Version" : "3.7.502.11",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.23"

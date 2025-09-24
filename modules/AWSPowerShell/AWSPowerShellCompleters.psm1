@@ -22733,6 +22733,13 @@ $DAX_Completers = {
             break
         }
 
+        # Amazon.DAX.NetworkType
+        "New-DAXCluster/NetworkType"
+        {
+            $v = "dual_stack","ipv4","ipv6"
+            break
+        }
+
         # Amazon.DAX.SourceType
         "Get-DAXEvent/SourceType"
         {
@@ -22750,6 +22757,7 @@ $DAX_Completers = {
 
 $DAX_map = @{
     "ClusterEndpointEncryptionType"=@("New-DAXCluster")
+    "NetworkType"=@("New-DAXCluster")
     "SourceType"=@("Get-DAXEvent")
 }
 
