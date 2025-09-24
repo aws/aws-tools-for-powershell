@@ -130,6 +130,18 @@ namespace Amazon.PowerShell.Cmdlets.DAX
         public System.String IamRoleArn { get; set; }
         #endregion
         
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the IP protocol(s) the cluster uses for network communications. Values are:</para><ul><li><para><c>ipv4</c> - The cluster is accessible only through IPv4 addresses</para></li><li><para><c>ipv6</c> - The cluster is accessible only through IPv6 addresses</para></li><li><para><c>dual_stack</c> - The cluster is accessible through both IPv4 and IPv6 addresses.</para></li></ul><note><para>If no explicit <c>NetworkType</c> is provided, the network type is derived based on
+        /// the subnet group's configuration.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DAX.NetworkType")]
+        public Amazon.DAX.NetworkType NetworkType { get; set; }
+        #endregion
+        
         #region Parameter NodeType
         /// <summary>
         /// <para>
@@ -191,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
         /// a multiple node cluster with one or more read replicas. To do this, set <c>ReplicationFactor</c>
         /// to a number between 3 (one primary and two read replicas) and 10 (one primary and
         /// nine read replicas). <c>If the AvailabilityZones</c> parameter is provided, its length
-        /// must equal the <c>ReplicationFactor</c>.</para><note><para>AWS recommends that you have at least two read replicas per cluster.</para></note>
+        /// must equal the <c>ReplicationFactor</c>.</para><note><para>Amazon Web Services recommends that you have at least two read replicas per cluster.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -313,6 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
                 WriteWarning("You are passing $null as a value for parameter IamRoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NetworkType = this.NetworkType;
             context.NodeType = this.NodeType;
             #if MODULAR
             if (this.NodeType == null && ParameterWasBound(nameof(this.NodeType)))
@@ -375,6 +388,10 @@ namespace Amazon.PowerShell.Cmdlets.DAX
             if (cmdletContext.IamRoleArn != null)
             {
                 request.IamRoleArn = cmdletContext.IamRoleArn;
+            }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
             }
             if (cmdletContext.NodeType != null)
             {
@@ -487,6 +504,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
             public System.String ClusterName { get; set; }
             public System.String Description { get; set; }
             public System.String IamRoleArn { get; set; }
+            public Amazon.DAX.NetworkType NetworkType { get; set; }
             public System.String NodeType { get; set; }
             public System.String NotificationTopicArn { get; set; }
             public System.String ParameterGroupName { get; set; }

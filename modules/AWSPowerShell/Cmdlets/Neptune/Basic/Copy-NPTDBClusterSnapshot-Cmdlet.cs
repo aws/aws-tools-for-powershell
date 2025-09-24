@@ -95,7 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter SourceDBClusterSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the DB cluster snapshot to copy. This parameter is not case-sensitive.</para><para>Constraints:</para><ul><li><para>Must specify a valid system snapshot in the "available" state.</para></li><li><para>Specify a valid DB snapshot identifier.</para></li></ul><para>Example: <c>my-cluster-snapshot1</c></para>
+        /// <para>The identifier of the DB cluster snapshot to copy. This parameter is not case-sensitive.
+        /// If the source DB cluster snapshot is in a different region or owned by another account,
+        /// specify the snapshot ARN.</para><para>Constraints:</para><ul><li><para>Must specify a valid system snapshot in the "available" state.</para></li><li><para>Specify a valid DB snapshot identifier.</para></li></ul><para>Example: <c>my-cluster-snapshot1</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -110,8 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter Recipient_AttestationDocument
         /// <summary>
         /// <para>
-        /// <para>The attestation document for an Amazon Web Services Nitro Enclave. This document includes
-        /// the enclave's public key.</para>
+        /// <para>The attestation document for an Amazon Web Services Nitro Enclave or a NitroTPM. This
+        /// document includes the enclave's public key.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -171,8 +171,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>The encryption algorithm that KMS should use with the public key for an Amazon Web
-        /// Services Nitro Enclave to encrypt plaintext values for the response. The only valid
-        /// value is <c>RSAES_OAEP_SHA_256</c>.</para>
+        /// Services Nitro Enclave or NitroTPM to encrypt plaintext values for the response. The
+        /// only valid value is <c>RSAES_OAEP_SHA_256</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

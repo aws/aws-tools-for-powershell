@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
     /// During the reboot, the node status is set to REBOOTING.
     /// 
     ///  <note><para><c>RebootNode</c> restarts the DAX engine process and does not remove the contents
-    /// of the cache. 
+    /// of the cache.
     /// </para></note>
     /// </summary>
     [Cmdlet("Restart", "DAXNode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

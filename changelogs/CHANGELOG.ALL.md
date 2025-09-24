@@ -1,4 +1,9 @@
-﻿### 5.0.61 (2025-09-23 20:27Z)
+﻿### 5.0.62 (2025-09-24 20:08Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.98.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DynamoDB Accelerator (DAX)
+    * Modified cmdlet New-DAXCluster: added parameter NetworkType.
+
+### 5.0.61 (2025-09-23 20:27Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.97.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Clean Rooms Service
     * Modified cmdlet Invoke-CRSIdMappingTable: added parameter JobType.
