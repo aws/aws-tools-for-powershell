@@ -319,6 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             Amazon.S3.Model.StorageClassAnalysis requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis = null;
             
              // populate StorageClassAnalysis
+            var requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysisIsNull = true;
             requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis = new Amazon.S3.Model.StorageClassAnalysis();
             Amazon.S3.Model.StorageClassAnalysisDataExport requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport = null;
             
@@ -413,16 +414,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport != null)
             {
                 requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis.DataExport = requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport;
+                requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysisIsNull = false;
             }
             if (requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis != null)
             {
                 request.AnalyticsConfiguration.StorageClassAnalysis = requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis;
                 requestAnalyticsConfigurationIsNull = false;
-            }
-             // determine if request.AnalyticsConfiguration should be set to null
-            if (requestAnalyticsConfigurationIsNull)
-            {
-                request.AnalyticsConfiguration = null;
             }
             if (cmdletContext.ExpectedBucketOwner != null)
             {

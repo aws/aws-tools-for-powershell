@@ -215,6 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             }
             
              // populate Spec
+            var requestSpecIsNull = true;
             request.Spec = new Amazon.AppMesh.Model.VirtualRouterSpec();
             List<Amazon.AppMesh.Model.VirtualRouterListener> requestSpec_spec_Listener = null;
             if (cmdletContext.Spec_Listener != null)
@@ -224,6 +225,12 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_Listener != null)
             {
                 request.Spec.Listeners = requestSpec_spec_Listener;
+                requestSpecIsNull = false;
+            }
+             // determine if request.Spec should be set to null
+            if (requestSpecIsNull)
+            {
+                request.Spec = null;
             }
             if (cmdletContext.VirtualRouterName != null)
             {

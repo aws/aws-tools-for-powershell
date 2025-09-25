@@ -508,6 +508,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             }
             
              // populate DecryptionAttributes
+            var requestDecryptionAttributesIsNull = true;
             request.DecryptionAttributes = new Amazon.PaymentCryptographyData.Model.EncryptionDecryptionAttributes();
             Amazon.PaymentCryptographyData.Model.AsymmetricEncryptionAttributes requestDecryptionAttributes_decryptionAttributes_Asymmetric = null;
             
@@ -532,6 +533,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestDecryptionAttributes_decryptionAttributes_Asymmetric != null)
             {
                 request.DecryptionAttributes.Asymmetric = requestDecryptionAttributes_decryptionAttributes_Asymmetric;
+                requestDecryptionAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.SymmetricEncryptionAttributes requestDecryptionAttributes_decryptionAttributes_Symmetric = null;
             
@@ -576,6 +578,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestDecryptionAttributes_decryptionAttributes_Symmetric != null)
             {
                 request.DecryptionAttributes.Symmetric = requestDecryptionAttributes_decryptionAttributes_Symmetric;
+                requestDecryptionAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.DukptEncryptionAttributes requestDecryptionAttributes_decryptionAttributes_Dukpt = null;
             
@@ -640,6 +643,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestDecryptionAttributes_decryptionAttributes_Dukpt != null)
             {
                 request.DecryptionAttributes.Dukpt = requestDecryptionAttributes_decryptionAttributes_Dukpt;
+                requestDecryptionAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.EmvEncryptionAttributes requestDecryptionAttributes_decryptionAttributes_Emv = null;
             
@@ -714,6 +718,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestDecryptionAttributes_decryptionAttributes_Emv != null)
             {
                 request.DecryptionAttributes.Emv = requestDecryptionAttributes_decryptionAttributes_Emv;
+                requestDecryptionAttributesIsNull = false;
+            }
+             // determine if request.DecryptionAttributes should be set to null
+            if (requestDecryptionAttributesIsNull)
+            {
+                request.DecryptionAttributes = null;
             }
             if (cmdletContext.KeyIdentifier != null)
             {
@@ -736,6 +746,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             Amazon.PaymentCryptographyData.Model.WrappedKeyMaterial requestWrappedKey_wrappedKey_WrappedKeyMaterial = null;
             
              // populate WrappedKeyMaterial
+            var requestWrappedKey_wrappedKey_WrappedKeyMaterialIsNull = true;
             requestWrappedKey_wrappedKey_WrappedKeyMaterial = new Amazon.PaymentCryptographyData.Model.WrappedKeyMaterial();
             System.String requestWrappedKey_wrappedKey_WrappedKeyMaterial_wrappedKeyMaterial_Tr31KeyBlock = null;
             if (cmdletContext.WrappedKeyMaterial_Tr31KeyBlock != null)
@@ -745,6 +756,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestWrappedKey_wrappedKey_WrappedKeyMaterial_wrappedKeyMaterial_Tr31KeyBlock != null)
             {
                 requestWrappedKey_wrappedKey_WrappedKeyMaterial.Tr31KeyBlock = requestWrappedKey_wrappedKey_WrappedKeyMaterial_wrappedKeyMaterial_Tr31KeyBlock;
+                requestWrappedKey_wrappedKey_WrappedKeyMaterialIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.EcdhDerivationAttributes requestWrappedKey_wrappedKey_WrappedKeyMaterial_wrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey = null;
             
@@ -819,6 +831,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestWrappedKey_wrappedKey_WrappedKeyMaterial_wrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey != null)
             {
                 requestWrappedKey_wrappedKey_WrappedKeyMaterial.DiffieHellmanSymmetricKey = requestWrappedKey_wrappedKey_WrappedKeyMaterial_wrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey;
+                requestWrappedKey_wrappedKey_WrappedKeyMaterialIsNull = false;
+            }
+             // determine if requestWrappedKey_wrappedKey_WrappedKeyMaterial should be set to null
+            if (requestWrappedKey_wrappedKey_WrappedKeyMaterialIsNull)
+            {
+                requestWrappedKey_wrappedKey_WrappedKeyMaterial = null;
             }
             if (requestWrappedKey_wrappedKey_WrappedKeyMaterial != null)
             {

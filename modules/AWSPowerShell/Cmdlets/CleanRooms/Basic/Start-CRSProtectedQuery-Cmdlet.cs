@@ -365,6 +365,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             Amazon.CleanRooms.Model.ProtectedQueryOutputConfiguration requestResultConfiguration_resultConfiguration_OutputConfiguration = null;
             
              // populate OutputConfiguration
+            var requestResultConfiguration_resultConfiguration_OutputConfigurationIsNull = true;
             requestResultConfiguration_resultConfiguration_OutputConfiguration = new Amazon.CleanRooms.Model.ProtectedQueryOutputConfiguration();
             Amazon.CleanRooms.Model.ProtectedQueryDistributeOutputConfiguration requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_Distribute = null;
             
@@ -389,6 +390,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_Distribute != null)
             {
                 requestResultConfiguration_resultConfiguration_OutputConfiguration.Distribute = requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_Distribute;
+                requestResultConfiguration_resultConfiguration_OutputConfigurationIsNull = false;
             }
             Amazon.CleanRooms.Model.ProtectedQueryMemberOutputConfiguration requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_Member = null;
             
@@ -413,6 +415,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_Member != null)
             {
                 requestResultConfiguration_resultConfiguration_OutputConfiguration.Member = requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_Member;
+                requestResultConfiguration_resultConfiguration_OutputConfigurationIsNull = false;
             }
             Amazon.CleanRooms.Model.ProtectedQueryS3OutputConfiguration requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_S3 = null;
             
@@ -467,6 +470,12 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_S3 != null)
             {
                 requestResultConfiguration_resultConfiguration_OutputConfiguration.S3 = requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_S3;
+                requestResultConfiguration_resultConfiguration_OutputConfigurationIsNull = false;
+            }
+             // determine if requestResultConfiguration_resultConfiguration_OutputConfiguration should be set to null
+            if (requestResultConfiguration_resultConfiguration_OutputConfigurationIsNull)
+            {
+                requestResultConfiguration_resultConfiguration_OutputConfiguration = null;
             }
             if (requestResultConfiguration_resultConfiguration_OutputConfiguration != null)
             {
@@ -480,6 +489,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             }
             
              // populate SqlParameters
+            var requestSqlParametersIsNull = true;
             request.SqlParameters = new Amazon.CleanRooms.Model.ProtectedQuerySQLParameters();
             System.String requestSqlParameters_sqlParameters_AnalysisTemplateArn = null;
             if (cmdletContext.SqlParameters_AnalysisTemplateArn != null)
@@ -489,6 +499,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestSqlParameters_sqlParameters_AnalysisTemplateArn != null)
             {
                 request.SqlParameters.AnalysisTemplateArn = requestSqlParameters_sqlParameters_AnalysisTemplateArn;
+                requestSqlParametersIsNull = false;
             }
             Dictionary<System.String, System.String> requestSqlParameters_sqlParameters_Parameter = null;
             if (cmdletContext.SqlParameters_Parameter != null)
@@ -498,6 +509,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestSqlParameters_sqlParameters_Parameter != null)
             {
                 request.SqlParameters.Parameters = requestSqlParameters_sqlParameters_Parameter;
+                requestSqlParametersIsNull = false;
             }
             System.String requestSqlParameters_sqlParameters_QueryString = null;
             if (cmdletContext.SqlParameters_QueryString != null)
@@ -507,6 +519,12 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestSqlParameters_sqlParameters_QueryString != null)
             {
                 request.SqlParameters.QueryString = requestSqlParameters_sqlParameters_QueryString;
+                requestSqlParametersIsNull = false;
+            }
+             // determine if request.SqlParameters should be set to null
+            if (requestSqlParametersIsNull)
+            {
+                request.SqlParameters = null;
             }
             if (cmdletContext.Type != null)
             {

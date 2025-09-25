@@ -199,6 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             }
             
              // populate IdentityProviderDetails
+            var requestIdentityProviderDetailsIsNull = true;
             request.IdentityProviderDetails = new Amazon.Transfer.Model.WebAppIdentityProviderDetails();
             Amazon.Transfer.Model.IdentityCenterConfig requestIdentityProviderDetails_identityProviderDetails_IdentityCenterConfig = null;
             
@@ -233,6 +234,12 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             if (requestIdentityProviderDetails_identityProviderDetails_IdentityCenterConfig != null)
             {
                 request.IdentityProviderDetails.IdentityCenterConfig = requestIdentityProviderDetails_identityProviderDetails_IdentityCenterConfig;
+                requestIdentityProviderDetailsIsNull = false;
+            }
+             // determine if request.IdentityProviderDetails should be set to null
+            if (requestIdentityProviderDetailsIsNull)
+            {
+                request.IdentityProviderDetails = null;
             }
             if (cmdletContext.Tag != null)
             {

@@ -254,6 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
             }
             
              // populate Plan
+            var requestPlanIsNull = true;
             request.Plan = new Amazon.SSMContacts.Model.Plan();
             List<System.String> requestPlan_plan_RotationId = null;
             if (cmdletContext.Plan_RotationId != null)
@@ -263,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
             if (requestPlan_plan_RotationId != null)
             {
                 request.Plan.RotationIds = requestPlan_plan_RotationId;
+                requestPlanIsNull = false;
             }
             List<Amazon.SSMContacts.Model.Stage> requestPlan_plan_Stage = null;
             if (cmdletContext.Plan_Stage != null)
@@ -272,6 +274,12 @@ namespace Amazon.PowerShell.Cmdlets.SMC
             if (requestPlan_plan_Stage != null)
             {
                 request.Plan.Stages = requestPlan_plan_Stage;
+                requestPlanIsNull = false;
+            }
+             // determine if request.Plan should be set to null
+            if (requestPlanIsNull)
+            {
+                request.Plan = null;
             }
             if (cmdletContext.Tag != null)
             {

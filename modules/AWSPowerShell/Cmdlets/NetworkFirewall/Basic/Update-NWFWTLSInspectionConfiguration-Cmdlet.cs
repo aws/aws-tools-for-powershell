@@ -263,6 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             }
             
              // populate TLSInspectionConfiguration
+            var requestTLSInspectionConfigurationIsNull = true;
             request.TLSInspectionConfiguration = new Amazon.NetworkFirewall.Model.TLSInspectionConfiguration();
             List<Amazon.NetworkFirewall.Model.ServerCertificateConfiguration> requestTLSInspectionConfiguration_tLSInspectionConfiguration_ServerCertificateConfiguration = null;
             if (cmdletContext.TLSInspectionConfiguration_ServerCertificateConfiguration != null)
@@ -272,6 +273,12 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             if (requestTLSInspectionConfiguration_tLSInspectionConfiguration_ServerCertificateConfiguration != null)
             {
                 request.TLSInspectionConfiguration.ServerCertificateConfigurations = requestTLSInspectionConfiguration_tLSInspectionConfiguration_ServerCertificateConfiguration;
+                requestTLSInspectionConfigurationIsNull = false;
+            }
+             // determine if request.TLSInspectionConfiguration should be set to null
+            if (requestTLSInspectionConfigurationIsNull)
+            {
+                request.TLSInspectionConfiguration = null;
             }
             if (cmdletContext.TLSInspectionConfigurationArn != null)
             {

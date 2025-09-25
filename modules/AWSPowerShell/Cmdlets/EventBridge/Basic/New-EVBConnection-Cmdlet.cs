@@ -432,6 +432,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
             }
             
              // populate AuthParameters
+            var requestAuthParametersIsNull = true;
             request.AuthParameters = new Amazon.EventBridge.Model.CreateConnectionAuthRequestParameters();
             Amazon.EventBridge.Model.ConnectivityResourceParameters requestAuthParameters_authParameters_ConnectivityParameters = null;
             
@@ -471,6 +472,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
             if (requestAuthParameters_authParameters_ConnectivityParameters != null)
             {
                 request.AuthParameters.ConnectivityParameters = requestAuthParameters_authParameters_ConnectivityParameters;
+                requestAuthParametersIsNull = false;
             }
             Amazon.EventBridge.Model.CreateConnectionApiKeyAuthRequestParameters requestAuthParameters_authParameters_ApiKeyAuthParameters = null;
             
@@ -505,6 +507,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
             if (requestAuthParameters_authParameters_ApiKeyAuthParameters != null)
             {
                 request.AuthParameters.ApiKeyAuthParameters = requestAuthParameters_authParameters_ApiKeyAuthParameters;
+                requestAuthParametersIsNull = false;
             }
             Amazon.EventBridge.Model.CreateConnectionBasicAuthRequestParameters requestAuthParameters_authParameters_BasicAuthParameters = null;
             
@@ -539,6 +542,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
             if (requestAuthParameters_authParameters_BasicAuthParameters != null)
             {
                 request.AuthParameters.BasicAuthParameters = requestAuthParameters_authParameters_BasicAuthParameters;
+                requestAuthParametersIsNull = false;
             }
             Amazon.EventBridge.Model.ConnectionHttpParameters requestAuthParameters_authParameters_InvocationHttpParameters = null;
             
@@ -583,6 +587,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
             if (requestAuthParameters_authParameters_InvocationHttpParameters != null)
             {
                 request.AuthParameters.InvocationHttpParameters = requestAuthParameters_authParameters_InvocationHttpParameters;
+                requestAuthParametersIsNull = false;
             }
             Amazon.EventBridge.Model.CreateConnectionOAuthRequestParameters requestAuthParameters_authParameters_OAuthParameters = null;
             
@@ -697,6 +702,12 @@ namespace Amazon.PowerShell.Cmdlets.EVB
             if (requestAuthParameters_authParameters_OAuthParameters != null)
             {
                 request.AuthParameters.OAuthParameters = requestAuthParameters_authParameters_OAuthParameters;
+                requestAuthParametersIsNull = false;
+            }
+             // determine if request.AuthParameters should be set to null
+            if (requestAuthParametersIsNull)
+            {
+                request.AuthParameters = null;
             }
             if (cmdletContext.Description != null)
             {

@@ -201,6 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             
             
              // populate DeliveryChannel
+            var requestDeliveryChannelIsNull = true;
             request.DeliveryChannel = new Amazon.ConfigService.Model.DeliveryChannel();
             System.String requestDeliveryChannel_deliveryChannelName = null;
             if (cmdletContext.DeliveryChannelName != null)
@@ -210,6 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (requestDeliveryChannel_deliveryChannelName != null)
             {
                 request.DeliveryChannel.Name = requestDeliveryChannel_deliveryChannelName;
+                requestDeliveryChannelIsNull = false;
             }
             System.String requestDeliveryChannel_deliveryChannel_S3BucketName = null;
             if (cmdletContext.DeliveryChannel_S3BucketName != null)
@@ -219,6 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (requestDeliveryChannel_deliveryChannel_S3BucketName != null)
             {
                 request.DeliveryChannel.S3BucketName = requestDeliveryChannel_deliveryChannel_S3BucketName;
+                requestDeliveryChannelIsNull = false;
             }
             System.String requestDeliveryChannel_deliveryChannel_S3KeyPrefix = null;
             if (cmdletContext.DeliveryChannel_S3KeyPrefix != null)
@@ -228,6 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (requestDeliveryChannel_deliveryChannel_S3KeyPrefix != null)
             {
                 request.DeliveryChannel.S3KeyPrefix = requestDeliveryChannel_deliveryChannel_S3KeyPrefix;
+                requestDeliveryChannelIsNull = false;
             }
             System.String requestDeliveryChannel_deliveryChannel_S3KmsKeyArn = null;
             if (cmdletContext.DeliveryChannel_S3KmsKeyArn != null)
@@ -237,6 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (requestDeliveryChannel_deliveryChannel_S3KmsKeyArn != null)
             {
                 request.DeliveryChannel.S3KmsKeyArn = requestDeliveryChannel_deliveryChannel_S3KmsKeyArn;
+                requestDeliveryChannelIsNull = false;
             }
             System.String requestDeliveryChannel_deliveryChannel_SnsTopicARN = null;
             if (cmdletContext.DeliveryChannel_SnsTopicARN != null)
@@ -246,6 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (requestDeliveryChannel_deliveryChannel_SnsTopicARN != null)
             {
                 request.DeliveryChannel.SnsTopicARN = requestDeliveryChannel_deliveryChannel_SnsTopicARN;
+                requestDeliveryChannelIsNull = false;
             }
             Amazon.ConfigService.Model.ConfigSnapshotDeliveryProperties requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties = null;
             
@@ -270,6 +276,12 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties != null)
             {
                 request.DeliveryChannel.ConfigSnapshotDeliveryProperties = requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties;
+                requestDeliveryChannelIsNull = false;
+            }
+             // determine if request.DeliveryChannel should be set to null
+            if (requestDeliveryChannelIsNull)
+            {
+                request.DeliveryChannel = null;
             }
             
             CmdletOutput output;

@@ -211,6 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             }
             
              // populate WorkspaceCreationProperties
+            var requestWorkspaceCreationPropertiesIsNull = true;
             request.WorkspaceCreationProperties = new Amazon.WorkSpaces.Model.WorkspaceCreationProperties();
             System.String requestWorkspaceCreationProperties_workspaceCreationProperties_CustomSecurityGroupId = null;
             if (cmdletContext.WorkspaceCreationProperties_CustomSecurityGroupId != null)
@@ -220,6 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestWorkspaceCreationProperties_workspaceCreationProperties_CustomSecurityGroupId != null)
             {
                 request.WorkspaceCreationProperties.CustomSecurityGroupId = requestWorkspaceCreationProperties_workspaceCreationProperties_CustomSecurityGroupId;
+                requestWorkspaceCreationPropertiesIsNull = false;
             }
             System.String requestWorkspaceCreationProperties_workspaceCreationProperties_DefaultOu = null;
             if (cmdletContext.WorkspaceCreationProperties_DefaultOu != null)
@@ -229,6 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestWorkspaceCreationProperties_workspaceCreationProperties_DefaultOu != null)
             {
                 request.WorkspaceCreationProperties.DefaultOu = requestWorkspaceCreationProperties_workspaceCreationProperties_DefaultOu;
+                requestWorkspaceCreationPropertiesIsNull = false;
             }
             System.Boolean? requestWorkspaceCreationProperties_workspaceCreationProperties_EnableInternetAccess = null;
             if (cmdletContext.WorkspaceCreationProperties_EnableInternetAccess != null)
@@ -238,6 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestWorkspaceCreationProperties_workspaceCreationProperties_EnableInternetAccess != null)
             {
                 request.WorkspaceCreationProperties.EnableInternetAccess = requestWorkspaceCreationProperties_workspaceCreationProperties_EnableInternetAccess.Value;
+                requestWorkspaceCreationPropertiesIsNull = false;
             }
             System.Boolean? requestWorkspaceCreationProperties_workspaceCreationProperties_EnableMaintenanceMode = null;
             if (cmdletContext.WorkspaceCreationProperties_EnableMaintenanceMode != null)
@@ -247,6 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestWorkspaceCreationProperties_workspaceCreationProperties_EnableMaintenanceMode != null)
             {
                 request.WorkspaceCreationProperties.EnableMaintenanceMode = requestWorkspaceCreationProperties_workspaceCreationProperties_EnableMaintenanceMode.Value;
+                requestWorkspaceCreationPropertiesIsNull = false;
             }
             System.String requestWorkspaceCreationProperties_workspaceCreationProperties_InstanceIamRoleArn = null;
             if (cmdletContext.WorkspaceCreationProperties_InstanceIamRoleArn != null)
@@ -256,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestWorkspaceCreationProperties_workspaceCreationProperties_InstanceIamRoleArn != null)
             {
                 request.WorkspaceCreationProperties.InstanceIamRoleArn = requestWorkspaceCreationProperties_workspaceCreationProperties_InstanceIamRoleArn;
+                requestWorkspaceCreationPropertiesIsNull = false;
             }
             System.Boolean? requestWorkspaceCreationProperties_workspaceCreationProperties_UserEnabledAsLocalAdministrator = null;
             if (cmdletContext.WorkspaceCreationProperties_UserEnabledAsLocalAdministrator != null)
@@ -265,6 +271,12 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestWorkspaceCreationProperties_workspaceCreationProperties_UserEnabledAsLocalAdministrator != null)
             {
                 request.WorkspaceCreationProperties.UserEnabledAsLocalAdministrator = requestWorkspaceCreationProperties_workspaceCreationProperties_UserEnabledAsLocalAdministrator.Value;
+                requestWorkspaceCreationPropertiesIsNull = false;
+            }
+             // determine if request.WorkspaceCreationProperties should be set to null
+            if (requestWorkspaceCreationPropertiesIsNull)
+            {
+                request.WorkspaceCreationProperties = null;
             }
             
             CmdletOutput output;

@@ -167,6 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             }
             
              // populate BillingGroupProperties
+            var requestBillingGroupPropertiesIsNull = true;
             request.BillingGroupProperties = new Amazon.IoT.Model.BillingGroupProperties();
             System.String requestBillingGroupProperties_billingGroupProperties_BillingGroupDescription = null;
             if (cmdletContext.BillingGroupProperties_BillingGroupDescription != null)
@@ -176,6 +177,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestBillingGroupProperties_billingGroupProperties_BillingGroupDescription != null)
             {
                 request.BillingGroupProperties.BillingGroupDescription = requestBillingGroupProperties_billingGroupProperties_BillingGroupDescription;
+                requestBillingGroupPropertiesIsNull = false;
+            }
+             // determine if request.BillingGroupProperties should be set to null
+            if (requestBillingGroupPropertiesIsNull)
+            {
+                request.BillingGroupProperties = null;
             }
             if (cmdletContext.ExpectedVersion != null)
             {

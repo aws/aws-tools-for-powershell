@@ -1063,6 +1063,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             }
             
              // populate FilterCriteria
+            var requestFilterCriteriaIsNull = true;
             request.FilterCriteria = new Amazon.Inspector2.Model.FilterCriteria();
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_AwsAccountId = null;
             if (cmdletContext.FilterCriteria_AwsAccountId != null)
@@ -1072,6 +1073,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_AwsAccountId != null)
             {
                 request.FilterCriteria.AwsAccountId = requestFilterCriteria_filterCriteria_AwsAccountId;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CodeRepositoryProjectName = null;
             if (cmdletContext.FilterCriteria_CodeRepositoryProjectName != null)
@@ -1081,6 +1083,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_CodeRepositoryProjectName != null)
             {
                 request.FilterCriteria.CodeRepositoryProjectName = requestFilterCriteria_filterCriteria_CodeRepositoryProjectName;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CodeRepositoryProviderType = null;
             if (cmdletContext.FilterCriteria_CodeRepositoryProviderType != null)
@@ -1090,6 +1093,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_CodeRepositoryProviderType != null)
             {
                 request.FilterCriteria.CodeRepositoryProviderType = requestFilterCriteria_filterCriteria_CodeRepositoryProviderType;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CodeVulnerabilityDetectorName = null;
             if (cmdletContext.FilterCriteria_CodeVulnerabilityDetectorName != null)
@@ -1099,6 +1103,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_CodeVulnerabilityDetectorName != null)
             {
                 request.FilterCriteria.CodeVulnerabilityDetectorName = requestFilterCriteria_filterCriteria_CodeVulnerabilityDetectorName;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CodeVulnerabilityDetectorTag = null;
             if (cmdletContext.FilterCriteria_CodeVulnerabilityDetectorTag != null)
@@ -1108,6 +1113,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_CodeVulnerabilityDetectorTag != null)
             {
                 request.FilterCriteria.CodeVulnerabilityDetectorTags = requestFilterCriteria_filterCriteria_CodeVulnerabilityDetectorTag;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_CodeVulnerabilityFilePath = null;
             if (cmdletContext.FilterCriteria_CodeVulnerabilityFilePath != null)
@@ -1117,6 +1123,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_CodeVulnerabilityFilePath != null)
             {
                 request.FilterCriteria.CodeVulnerabilityFilePath = requestFilterCriteria_filterCriteria_CodeVulnerabilityFilePath;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_ComponentId = null;
             if (cmdletContext.FilterCriteria_ComponentId != null)
@@ -1126,6 +1133,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_ComponentId != null)
             {
                 request.FilterCriteria.ComponentId = requestFilterCriteria_filterCriteria_ComponentId;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_ComponentType = null;
             if (cmdletContext.FilterCriteria_ComponentType != null)
@@ -1135,6 +1143,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_ComponentType != null)
             {
                 request.FilterCriteria.ComponentType = requestFilterCriteria_filterCriteria_ComponentType;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_Ec2InstanceImageId = null;
             if (cmdletContext.FilterCriteria_Ec2InstanceImageId != null)
@@ -1144,6 +1153,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_Ec2InstanceImageId != null)
             {
                 request.FilterCriteria.Ec2InstanceImageId = requestFilterCriteria_filterCriteria_Ec2InstanceImageId;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_Ec2InstanceSubnetId = null;
             if (cmdletContext.FilterCriteria_Ec2InstanceSubnetId != null)
@@ -1153,6 +1163,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_Ec2InstanceSubnetId != null)
             {
                 request.FilterCriteria.Ec2InstanceSubnetId = requestFilterCriteria_filterCriteria_Ec2InstanceSubnetId;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_Ec2InstanceVpcId = null;
             if (cmdletContext.FilterCriteria_Ec2InstanceVpcId != null)
@@ -1162,6 +1173,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_Ec2InstanceVpcId != null)
             {
                 request.FilterCriteria.Ec2InstanceVpcId = requestFilterCriteria_filterCriteria_Ec2InstanceVpcId;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_EcrImageArchitecture = null;
             if (cmdletContext.FilterCriteria_EcrImageArchitecture != null)
@@ -1171,6 +1183,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_EcrImageArchitecture != null)
             {
                 request.FilterCriteria.EcrImageArchitecture = requestFilterCriteria_filterCriteria_EcrImageArchitecture;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_EcrImageHash = null;
             if (cmdletContext.FilterCriteria_EcrImageHash != null)
@@ -1180,6 +1193,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_EcrImageHash != null)
             {
                 request.FilterCriteria.EcrImageHash = requestFilterCriteria_filterCriteria_EcrImageHash;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.NumberFilter> requestFilterCriteria_filterCriteria_EcrImageInUseCount = null;
             if (cmdletContext.FilterCriteria_EcrImageInUseCount != null)
@@ -1189,6 +1203,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_EcrImageInUseCount != null)
             {
                 request.FilterCriteria.EcrImageInUseCount = requestFilterCriteria_filterCriteria_EcrImageInUseCount;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.DateFilter> requestFilterCriteria_filterCriteria_EcrImageLastInUseAt = null;
             if (cmdletContext.FilterCriteria_EcrImageLastInUseAt != null)
@@ -1198,6 +1213,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_EcrImageLastInUseAt != null)
             {
                 request.FilterCriteria.EcrImageLastInUseAt = requestFilterCriteria_filterCriteria_EcrImageLastInUseAt;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.DateFilter> requestFilterCriteria_filterCriteria_EcrImagePushedAt = null;
             if (cmdletContext.FilterCriteria_EcrImagePushedAt != null)
@@ -1207,6 +1223,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_EcrImagePushedAt != null)
             {
                 request.FilterCriteria.EcrImagePushedAt = requestFilterCriteria_filterCriteria_EcrImagePushedAt;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_EcrImageRegistry = null;
             if (cmdletContext.FilterCriteria_EcrImageRegistry != null)
@@ -1216,6 +1233,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_EcrImageRegistry != null)
             {
                 request.FilterCriteria.EcrImageRegistry = requestFilterCriteria_filterCriteria_EcrImageRegistry;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_EcrImageRepositoryName = null;
             if (cmdletContext.FilterCriteria_EcrImageRepositoryName != null)
@@ -1225,6 +1243,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_EcrImageRepositoryName != null)
             {
                 request.FilterCriteria.EcrImageRepositoryName = requestFilterCriteria_filterCriteria_EcrImageRepositoryName;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_EcrImageTag = null;
             if (cmdletContext.FilterCriteria_EcrImageTag != null)
@@ -1234,6 +1253,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_EcrImageTag != null)
             {
                 request.FilterCriteria.EcrImageTags = requestFilterCriteria_filterCriteria_EcrImageTag;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.NumberFilter> requestFilterCriteria_filterCriteria_EpssScore = null;
             if (cmdletContext.FilterCriteria_EpssScore != null)
@@ -1243,6 +1263,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_EpssScore != null)
             {
                 request.FilterCriteria.EpssScore = requestFilterCriteria_filterCriteria_EpssScore;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_ExploitAvailable = null;
             if (cmdletContext.FilterCriteria_ExploitAvailable != null)
@@ -1252,6 +1273,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_ExploitAvailable != null)
             {
                 request.FilterCriteria.ExploitAvailable = requestFilterCriteria_filterCriteria_ExploitAvailable;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_FindingArn = null;
             if (cmdletContext.FilterCriteria_FindingArn != null)
@@ -1261,6 +1283,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_FindingArn != null)
             {
                 request.FilterCriteria.FindingArn = requestFilterCriteria_filterCriteria_FindingArn;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_FindingStatus = null;
             if (cmdletContext.FilterCriteria_FindingStatus != null)
@@ -1270,6 +1293,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_FindingStatus != null)
             {
                 request.FilterCriteria.FindingStatus = requestFilterCriteria_filterCriteria_FindingStatus;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_FindingType = null;
             if (cmdletContext.FilterCriteria_FindingType != null)
@@ -1279,6 +1303,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_FindingType != null)
             {
                 request.FilterCriteria.FindingType = requestFilterCriteria_filterCriteria_FindingType;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.DateFilter> requestFilterCriteria_filterCriteria_FirstObservedAt = null;
             if (cmdletContext.FilterCriteria_FirstObservedAt != null)
@@ -1288,6 +1313,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_FirstObservedAt != null)
             {
                 request.FilterCriteria.FirstObservedAt = requestFilterCriteria_filterCriteria_FirstObservedAt;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_FixAvailable = null;
             if (cmdletContext.FilterCriteria_FixAvailable != null)
@@ -1297,6 +1323,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_FixAvailable != null)
             {
                 request.FilterCriteria.FixAvailable = requestFilterCriteria_filterCriteria_FixAvailable;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.NumberFilter> requestFilterCriteria_filterCriteria_InspectorScore = null;
             if (cmdletContext.FilterCriteria_InspectorScore != null)
@@ -1306,6 +1333,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_InspectorScore != null)
             {
                 request.FilterCriteria.InspectorScore = requestFilterCriteria_filterCriteria_InspectorScore;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_LambdaFunctionExecutionRoleArn = null;
             if (cmdletContext.FilterCriteria_LambdaFunctionExecutionRoleArn != null)
@@ -1315,6 +1343,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_LambdaFunctionExecutionRoleArn != null)
             {
                 request.FilterCriteria.LambdaFunctionExecutionRoleArn = requestFilterCriteria_filterCriteria_LambdaFunctionExecutionRoleArn;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.DateFilter> requestFilterCriteria_filterCriteria_LambdaFunctionLastModifiedAt = null;
             if (cmdletContext.FilterCriteria_LambdaFunctionLastModifiedAt != null)
@@ -1324,6 +1353,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_LambdaFunctionLastModifiedAt != null)
             {
                 request.FilterCriteria.LambdaFunctionLastModifiedAt = requestFilterCriteria_filterCriteria_LambdaFunctionLastModifiedAt;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_LambdaFunctionLayer = null;
             if (cmdletContext.FilterCriteria_LambdaFunctionLayer != null)
@@ -1333,6 +1363,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_LambdaFunctionLayer != null)
             {
                 request.FilterCriteria.LambdaFunctionLayers = requestFilterCriteria_filterCriteria_LambdaFunctionLayer;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_LambdaFunctionName = null;
             if (cmdletContext.FilterCriteria_LambdaFunctionName != null)
@@ -1342,6 +1373,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_LambdaFunctionName != null)
             {
                 request.FilterCriteria.LambdaFunctionName = requestFilterCriteria_filterCriteria_LambdaFunctionName;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_LambdaFunctionRuntime = null;
             if (cmdletContext.FilterCriteria_LambdaFunctionRuntime != null)
@@ -1351,6 +1383,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_LambdaFunctionRuntime != null)
             {
                 request.FilterCriteria.LambdaFunctionRuntime = requestFilterCriteria_filterCriteria_LambdaFunctionRuntime;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.DateFilter> requestFilterCriteria_filterCriteria_LastObservedAt = null;
             if (cmdletContext.FilterCriteria_LastObservedAt != null)
@@ -1360,6 +1393,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_LastObservedAt != null)
             {
                 request.FilterCriteria.LastObservedAt = requestFilterCriteria_filterCriteria_LastObservedAt;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_NetworkProtocol = null;
             if (cmdletContext.FilterCriteria_NetworkProtocol != null)
@@ -1369,6 +1403,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_NetworkProtocol != null)
             {
                 request.FilterCriteria.NetworkProtocol = requestFilterCriteria_filterCriteria_NetworkProtocol;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.PortRangeFilter> requestFilterCriteria_filterCriteria_PortRange = null;
             if (cmdletContext.FilterCriteria_PortRange != null)
@@ -1378,6 +1413,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_PortRange != null)
             {
                 request.FilterCriteria.PortRange = requestFilterCriteria_filterCriteria_PortRange;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_RelatedVulnerability = null;
             if (cmdletContext.FilterCriteria_RelatedVulnerability != null)
@@ -1387,6 +1423,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_RelatedVulnerability != null)
             {
                 request.FilterCriteria.RelatedVulnerabilities = requestFilterCriteria_filterCriteria_RelatedVulnerability;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_ResourceId = null;
             if (cmdletContext.FilterCriteria_ResourceId != null)
@@ -1396,6 +1433,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_ResourceId != null)
             {
                 request.FilterCriteria.ResourceId = requestFilterCriteria_filterCriteria_ResourceId;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.MapFilter> requestFilterCriteria_filterCriteria_ResourceTag = null;
             if (cmdletContext.FilterCriteria_ResourceTag != null)
@@ -1405,6 +1443,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_ResourceTag != null)
             {
                 request.FilterCriteria.ResourceTags = requestFilterCriteria_filterCriteria_ResourceTag;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_ResourceType = null;
             if (cmdletContext.FilterCriteria_ResourceType != null)
@@ -1414,6 +1453,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_ResourceType != null)
             {
                 request.FilterCriteria.ResourceType = requestFilterCriteria_filterCriteria_ResourceType;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_Severity = null;
             if (cmdletContext.FilterCriteria_Severity != null)
@@ -1423,6 +1463,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_Severity != null)
             {
                 request.FilterCriteria.Severity = requestFilterCriteria_filterCriteria_Severity;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_Title = null;
             if (cmdletContext.FilterCriteria_Title != null)
@@ -1432,6 +1473,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_Title != null)
             {
                 request.FilterCriteria.Title = requestFilterCriteria_filterCriteria_Title;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.DateFilter> requestFilterCriteria_filterCriteria_UpdatedAt = null;
             if (cmdletContext.FilterCriteria_UpdatedAt != null)
@@ -1441,6 +1483,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_UpdatedAt != null)
             {
                 request.FilterCriteria.UpdatedAt = requestFilterCriteria_filterCriteria_UpdatedAt;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_VendorSeverity = null;
             if (cmdletContext.FilterCriteria_VendorSeverity != null)
@@ -1450,6 +1493,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_VendorSeverity != null)
             {
                 request.FilterCriteria.VendorSeverity = requestFilterCriteria_filterCriteria_VendorSeverity;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_VulnerabilityId = null;
             if (cmdletContext.FilterCriteria_VulnerabilityId != null)
@@ -1459,6 +1503,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_VulnerabilityId != null)
             {
                 request.FilterCriteria.VulnerabilityId = requestFilterCriteria_filterCriteria_VulnerabilityId;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_VulnerabilitySource = null;
             if (cmdletContext.FilterCriteria_VulnerabilitySource != null)
@@ -1468,6 +1513,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_VulnerabilitySource != null)
             {
                 request.FilterCriteria.VulnerabilitySource = requestFilterCriteria_filterCriteria_VulnerabilitySource;
+                requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.PackageFilter> requestFilterCriteria_filterCriteria_VulnerablePackage = null;
             if (cmdletContext.FilterCriteria_VulnerablePackage != null)
@@ -1477,6 +1523,12 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_VulnerablePackage != null)
             {
                 request.FilterCriteria.VulnerablePackages = requestFilterCriteria_filterCriteria_VulnerablePackage;
+                requestFilterCriteriaIsNull = false;
+            }
+             // determine if request.FilterCriteria should be set to null
+            if (requestFilterCriteriaIsNull)
+            {
+                request.FilterCriteria = null;
             }
             if (cmdletContext.Name != null)
             {

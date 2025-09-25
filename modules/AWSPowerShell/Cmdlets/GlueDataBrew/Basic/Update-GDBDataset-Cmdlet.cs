@@ -650,6 +650,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
             }
             
              // populate Input
+            var requestInputIsNull = true;
             request.Input = new Amazon.GlueDataBrew.Model.Input();
             Amazon.GlueDataBrew.Model.Metadata requestInput_input_Metadata = null;
             
@@ -674,6 +675,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
             if (requestInput_input_Metadata != null)
             {
                 request.Input.Metadata = requestInput_input_Metadata;
+                requestInputIsNull = false;
             }
             Amazon.GlueDataBrew.Model.S3Location requestInput_input_S3InputDefinition = null;
             
@@ -718,6 +720,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
             if (requestInput_input_S3InputDefinition != null)
             {
                 request.Input.S3InputDefinition = requestInput_input_S3InputDefinition;
+                requestInputIsNull = false;
             }
             Amazon.GlueDataBrew.Model.DatabaseInputDefinition requestInput_input_DatabaseInputDefinition = null;
             
@@ -807,6 +810,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
             if (requestInput_input_DatabaseInputDefinition != null)
             {
                 request.Input.DatabaseInputDefinition = requestInput_input_DatabaseInputDefinition;
+                requestInputIsNull = false;
             }
             Amazon.GlueDataBrew.Model.DataCatalogInputDefinition requestInput_input_DataCatalogInputDefinition = null;
             
@@ -896,6 +900,12 @@ namespace Amazon.PowerShell.Cmdlets.GDB
             if (requestInput_input_DataCatalogInputDefinition != null)
             {
                 request.Input.DataCatalogInputDefinition = requestInput_input_DataCatalogInputDefinition;
+                requestInputIsNull = false;
+            }
+             // determine if request.Input should be set to null
+            if (requestInputIsNull)
+            {
+                request.Input = null;
             }
             if (cmdletContext.Name != null)
             {

@@ -182,6 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             }
             
              // populate NamespaceIdentifier
+            var requestNamespaceIdentifierIsNull = true;
             request.NamespaceIdentifier = new Amazon.Redshift.Model.NamespaceIdentifierUnion();
             Amazon.Redshift.Model.ProvisionedIdentifier requestNamespaceIdentifier_namespaceIdentifier_ProvisionedIdentifier = null;
             
@@ -206,6 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (requestNamespaceIdentifier_namespaceIdentifier_ProvisionedIdentifier != null)
             {
                 request.NamespaceIdentifier.ProvisionedIdentifier = requestNamespaceIdentifier_namespaceIdentifier_ProvisionedIdentifier;
+                requestNamespaceIdentifierIsNull = false;
             }
             Amazon.Redshift.Model.ServerlessIdentifier requestNamespaceIdentifier_namespaceIdentifier_ServerlessIdentifier = null;
             
@@ -240,6 +242,12 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (requestNamespaceIdentifier_namespaceIdentifier_ServerlessIdentifier != null)
             {
                 request.NamespaceIdentifier.ServerlessIdentifier = requestNamespaceIdentifier_namespaceIdentifier_ServerlessIdentifier;
+                requestNamespaceIdentifierIsNull = false;
+            }
+             // determine if request.NamespaceIdentifier should be set to null
+            if (requestNamespaceIdentifierIsNull)
+            {
+                request.NamespaceIdentifier = null;
             }
             
             CmdletOutput output;

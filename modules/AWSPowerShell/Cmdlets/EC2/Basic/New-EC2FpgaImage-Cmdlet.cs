@@ -242,6 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             
              // populate InputStorageLocation
+            var requestInputStorageLocationIsNull = true;
             request.InputStorageLocation = new Amazon.EC2.Model.StorageLocation();
             System.String requestInputStorageLocation_inputStorageLocation_Bucket = null;
             if (cmdletContext.InputStorageLocation_Bucket != null)
@@ -251,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestInputStorageLocation_inputStorageLocation_Bucket != null)
             {
                 request.InputStorageLocation.Bucket = requestInputStorageLocation_inputStorageLocation_Bucket;
+                requestInputStorageLocationIsNull = false;
             }
             System.String requestInputStorageLocation_inputStorageLocation_Key = null;
             if (cmdletContext.InputStorageLocation_Key != null)
@@ -260,6 +262,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestInputStorageLocation_inputStorageLocation_Key != null)
             {
                 request.InputStorageLocation.Key = requestInputStorageLocation_inputStorageLocation_Key;
+                requestInputStorageLocationIsNull = false;
+            }
+             // determine if request.InputStorageLocation should be set to null
+            if (requestInputStorageLocationIsNull)
+            {
+                request.InputStorageLocation = null;
             }
             
              // populate LogsStorageLocation

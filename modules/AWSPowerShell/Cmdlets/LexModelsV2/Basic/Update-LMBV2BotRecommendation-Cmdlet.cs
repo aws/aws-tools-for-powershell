@@ -251,6 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             }
             
              // populate EncryptionSetting
+            var requestEncryptionSettingIsNull = true;
             request.EncryptionSetting = new Amazon.LexModelsV2.Model.EncryptionSetting();
             System.String requestEncryptionSetting_encryptionSetting_AssociatedTranscriptsPassword = null;
             if (cmdletContext.EncryptionSetting_AssociatedTranscriptsPassword != null)
@@ -260,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestEncryptionSetting_encryptionSetting_AssociatedTranscriptsPassword != null)
             {
                 request.EncryptionSetting.AssociatedTranscriptsPassword = requestEncryptionSetting_encryptionSetting_AssociatedTranscriptsPassword;
+                requestEncryptionSettingIsNull = false;
             }
             System.String requestEncryptionSetting_encryptionSetting_BotLocaleExportPassword = null;
             if (cmdletContext.EncryptionSetting_BotLocaleExportPassword != null)
@@ -269,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestEncryptionSetting_encryptionSetting_BotLocaleExportPassword != null)
             {
                 request.EncryptionSetting.BotLocaleExportPassword = requestEncryptionSetting_encryptionSetting_BotLocaleExportPassword;
+                requestEncryptionSettingIsNull = false;
             }
             System.String requestEncryptionSetting_encryptionSetting_KmsKeyArn = null;
             if (cmdletContext.EncryptionSetting_KmsKeyArn != null)
@@ -278,6 +281,12 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestEncryptionSetting_encryptionSetting_KmsKeyArn != null)
             {
                 request.EncryptionSetting.KmsKeyArn = requestEncryptionSetting_encryptionSetting_KmsKeyArn;
+                requestEncryptionSettingIsNull = false;
+            }
+             // determine if request.EncryptionSetting should be set to null
+            if (requestEncryptionSettingIsNull)
+            {
+                request.EncryptionSetting = null;
             }
             if (cmdletContext.LocaleId != null)
             {

@@ -791,6 +791,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             Amazon.AmplifyUIBuilder.Model.FormStyle requestFormToCreate_formToCreate_Style = null;
             
              // populate Style
+            var requestFormToCreate_formToCreate_StyleIsNull = true;
             requestFormToCreate_formToCreate_Style = new Amazon.AmplifyUIBuilder.Model.FormStyle();
             Amazon.AmplifyUIBuilder.Model.FormStyleConfig requestFormToCreate_formToCreate_Style_formToCreate_Style_HorizontalGap = null;
             
@@ -825,6 +826,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestFormToCreate_formToCreate_Style_formToCreate_Style_HorizontalGap != null)
             {
                 requestFormToCreate_formToCreate_Style.HorizontalGap = requestFormToCreate_formToCreate_Style_formToCreate_Style_HorizontalGap;
+                requestFormToCreate_formToCreate_StyleIsNull = false;
             }
             Amazon.AmplifyUIBuilder.Model.FormStyleConfig requestFormToCreate_formToCreate_Style_formToCreate_Style_OuterPadding = null;
             
@@ -859,6 +861,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestFormToCreate_formToCreate_Style_formToCreate_Style_OuterPadding != null)
             {
                 requestFormToCreate_formToCreate_Style.OuterPadding = requestFormToCreate_formToCreate_Style_formToCreate_Style_OuterPadding;
+                requestFormToCreate_formToCreate_StyleIsNull = false;
             }
             Amazon.AmplifyUIBuilder.Model.FormStyleConfig requestFormToCreate_formToCreate_Style_formToCreate_Style_VerticalGap = null;
             
@@ -893,6 +896,12 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestFormToCreate_formToCreate_Style_formToCreate_Style_VerticalGap != null)
             {
                 requestFormToCreate_formToCreate_Style.VerticalGap = requestFormToCreate_formToCreate_Style_formToCreate_Style_VerticalGap;
+                requestFormToCreate_formToCreate_StyleIsNull = false;
+            }
+             // determine if requestFormToCreate_formToCreate_Style should be set to null
+            if (requestFormToCreate_formToCreate_StyleIsNull)
+            {
+                requestFormToCreate_formToCreate_Style = null;
             }
             if (requestFormToCreate_formToCreate_Style != null)
             {

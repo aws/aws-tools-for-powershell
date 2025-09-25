@@ -320,6 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
             }
             
              // populate Credential
+            var requestCredentialIsNull = true;
             request.Credential = new Amazon.AppFabric.Model.Credential();
             Amazon.AppFabric.Model.ApiKeyCredential requestCredential_credential_ApiKeyCredential = null;
             
@@ -344,6 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
             if (requestCredential_credential_ApiKeyCredential != null)
             {
                 request.Credential.ApiKeyCredential = requestCredential_credential_ApiKeyCredential;
+                requestCredentialIsNull = false;
             }
             Amazon.AppFabric.Model.Oauth2Credential requestCredential_credential_Oauth2Credential = null;
             
@@ -378,6 +380,12 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
             if (requestCredential_credential_Oauth2Credential != null)
             {
                 request.Credential.Oauth2Credential = requestCredential_credential_Oauth2Credential;
+                requestCredentialIsNull = false;
+            }
+             // determine if request.Credential should be set to null
+            if (requestCredentialIsNull)
+            {
+                request.Credential = null;
             }
             if (cmdletContext.Tag != null)
             {

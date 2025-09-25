@@ -446,6 +446,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             }
             
              // populate VerificationAttributes
+            var requestVerificationAttributesIsNull = true;
             request.VerificationAttributes = new Amazon.PaymentCryptographyData.Model.CardVerificationAttributes();
             Amazon.PaymentCryptographyData.Model.AmexCardSecurityCodeVersion1 requestVerificationAttributes_verificationAttributes_AmexCardSecurityCodeVersion1 = null;
             
@@ -470,6 +471,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestVerificationAttributes_verificationAttributes_AmexCardSecurityCodeVersion1 != null)
             {
                 request.VerificationAttributes.AmexCardSecurityCodeVersion1 = requestVerificationAttributes_verificationAttributes_AmexCardSecurityCodeVersion1;
+                requestVerificationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.CardVerificationValue2 requestVerificationAttributes_verificationAttributes_CardVerificationValue2 = null;
             
@@ -494,6 +496,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestVerificationAttributes_verificationAttributes_CardVerificationValue2 != null)
             {
                 request.VerificationAttributes.CardVerificationValue2 = requestVerificationAttributes_verificationAttributes_CardVerificationValue2;
+                requestVerificationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.AmexCardSecurityCodeVersion2 requestVerificationAttributes_verificationAttributes_AmexCardSecurityCodeVersion2 = null;
             
@@ -528,6 +531,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestVerificationAttributes_verificationAttributes_AmexCardSecurityCodeVersion2 != null)
             {
                 request.VerificationAttributes.AmexCardSecurityCodeVersion2 = requestVerificationAttributes_verificationAttributes_AmexCardSecurityCodeVersion2;
+                requestVerificationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.CardVerificationValue1 requestVerificationAttributes_verificationAttributes_CardVerificationValue1 = null;
             
@@ -562,6 +566,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestVerificationAttributes_verificationAttributes_CardVerificationValue1 != null)
             {
                 request.VerificationAttributes.CardVerificationValue1 = requestVerificationAttributes_verificationAttributes_CardVerificationValue1;
+                requestVerificationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.CardHolderVerificationValue requestVerificationAttributes_verificationAttributes_CardHolderVerificationValue = null;
             
@@ -606,6 +611,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestVerificationAttributes_verificationAttributes_CardHolderVerificationValue != null)
             {
                 request.VerificationAttributes.CardHolderVerificationValue = requestVerificationAttributes_verificationAttributes_CardHolderVerificationValue;
+                requestVerificationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.DiscoverDynamicCardVerificationCode requestVerificationAttributes_verificationAttributes_DiscoverDynamicCardVerificationCode = null;
             
@@ -650,6 +656,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestVerificationAttributes_verificationAttributes_DiscoverDynamicCardVerificationCode != null)
             {
                 request.VerificationAttributes.DiscoverDynamicCardVerificationCode = requestVerificationAttributes_verificationAttributes_DiscoverDynamicCardVerificationCode;
+                requestVerificationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.DynamicCardVerificationCode requestVerificationAttributes_verificationAttributes_DynamicCardVerificationCode = null;
             
@@ -704,6 +711,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestVerificationAttributes_verificationAttributes_DynamicCardVerificationCode != null)
             {
                 request.VerificationAttributes.DynamicCardVerificationCode = requestVerificationAttributes_verificationAttributes_DynamicCardVerificationCode;
+                requestVerificationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.DynamicCardVerificationValue requestVerificationAttributes_verificationAttributes_DynamicCardVerificationValue = null;
             
@@ -758,6 +766,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestVerificationAttributes_verificationAttributes_DynamicCardVerificationValue != null)
             {
                 request.VerificationAttributes.DynamicCardVerificationValue = requestVerificationAttributes_verificationAttributes_DynamicCardVerificationValue;
+                requestVerificationAttributesIsNull = false;
+            }
+             // determine if request.VerificationAttributes should be set to null
+            if (requestVerificationAttributesIsNull)
+            {
+                request.VerificationAttributes = null;
             }
             
             CmdletOutput output;

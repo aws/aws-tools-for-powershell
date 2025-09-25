@@ -304,6 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             }
             
              // populate EmailTemplateRequest
+            var requestEmailTemplateRequestIsNull = true;
             request.EmailTemplateRequest = new Amazon.Pinpoint.Model.EmailTemplateRequest();
             System.String requestEmailTemplateRequest_emailTemplateRequest_DefaultSubstitution = null;
             if (cmdletContext.EmailTemplateRequest_DefaultSubstitution != null)
@@ -313,6 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestEmailTemplateRequest_emailTemplateRequest_DefaultSubstitution != null)
             {
                 request.EmailTemplateRequest.DefaultSubstitutions = requestEmailTemplateRequest_emailTemplateRequest_DefaultSubstitution;
+                requestEmailTemplateRequestIsNull = false;
             }
             List<Amazon.Pinpoint.Model.MessageHeader> requestEmailTemplateRequest_emailTemplateRequest_Header = null;
             if (cmdletContext.EmailTemplateRequest_Header != null)
@@ -322,6 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestEmailTemplateRequest_emailTemplateRequest_Header != null)
             {
                 request.EmailTemplateRequest.Headers = requestEmailTemplateRequest_emailTemplateRequest_Header;
+                requestEmailTemplateRequestIsNull = false;
             }
             System.String requestEmailTemplateRequest_emailTemplateRequest_HtmlPart = null;
             if (cmdletContext.EmailTemplateRequest_HtmlPart != null)
@@ -331,6 +334,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestEmailTemplateRequest_emailTemplateRequest_HtmlPart != null)
             {
                 request.EmailTemplateRequest.HtmlPart = requestEmailTemplateRequest_emailTemplateRequest_HtmlPart;
+                requestEmailTemplateRequestIsNull = false;
             }
             System.String requestEmailTemplateRequest_emailTemplateRequest_RecommenderId = null;
             if (cmdletContext.EmailTemplateRequest_RecommenderId != null)
@@ -340,6 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestEmailTemplateRequest_emailTemplateRequest_RecommenderId != null)
             {
                 request.EmailTemplateRequest.RecommenderId = requestEmailTemplateRequest_emailTemplateRequest_RecommenderId;
+                requestEmailTemplateRequestIsNull = false;
             }
             System.String requestEmailTemplateRequest_emailTemplateRequest_Subject = null;
             if (cmdletContext.EmailTemplateRequest_Subject != null)
@@ -349,6 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestEmailTemplateRequest_emailTemplateRequest_Subject != null)
             {
                 request.EmailTemplateRequest.Subject = requestEmailTemplateRequest_emailTemplateRequest_Subject;
+                requestEmailTemplateRequestIsNull = false;
             }
             Dictionary<System.String, System.String> requestEmailTemplateRequest_emailTemplateRequest_Tag = null;
             if (cmdletContext.EmailTemplateRequest_Tag != null)
@@ -358,6 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestEmailTemplateRequest_emailTemplateRequest_Tag != null)
             {
                 request.EmailTemplateRequest.Tags = requestEmailTemplateRequest_emailTemplateRequest_Tag;
+                requestEmailTemplateRequestIsNull = false;
             }
             System.String requestEmailTemplateRequest_emailTemplateRequest_TemplateDescription = null;
             if (cmdletContext.EmailTemplateRequest_TemplateDescription != null)
@@ -367,6 +374,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestEmailTemplateRequest_emailTemplateRequest_TemplateDescription != null)
             {
                 request.EmailTemplateRequest.TemplateDescription = requestEmailTemplateRequest_emailTemplateRequest_TemplateDescription;
+                requestEmailTemplateRequestIsNull = false;
             }
             System.String requestEmailTemplateRequest_emailTemplateRequest_TextPart = null;
             if (cmdletContext.EmailTemplateRequest_TextPart != null)
@@ -376,6 +384,12 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestEmailTemplateRequest_emailTemplateRequest_TextPart != null)
             {
                 request.EmailTemplateRequest.TextPart = requestEmailTemplateRequest_emailTemplateRequest_TextPart;
+                requestEmailTemplateRequestIsNull = false;
+            }
+             // determine if request.EmailTemplateRequest should be set to null
+            if (requestEmailTemplateRequestIsNull)
+            {
+                request.EmailTemplateRequest = null;
             }
             if (cmdletContext.TemplateName != null)
             {

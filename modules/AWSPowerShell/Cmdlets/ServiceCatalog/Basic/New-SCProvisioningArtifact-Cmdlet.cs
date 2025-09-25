@@ -246,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             }
             
              // populate Parameters
+            var requestParametersIsNull = true;
             request.Parameters = new Amazon.ServiceCatalog.Model.ProvisioningArtifactProperties();
             System.String requestParameters_parameters_Description = null;
             if (cmdletContext.Parameters_Description != null)
@@ -255,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (requestParameters_parameters_Description != null)
             {
                 request.Parameters.Description = requestParameters_parameters_Description;
+                requestParametersIsNull = false;
             }
             System.Boolean? requestParameters_parameters_DisableTemplateValidation = null;
             if (cmdletContext.Parameters_DisableTemplateValidation != null)
@@ -264,6 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (requestParameters_parameters_DisableTemplateValidation != null)
             {
                 request.Parameters.DisableTemplateValidation = requestParameters_parameters_DisableTemplateValidation.Value;
+                requestParametersIsNull = false;
             }
             Dictionary<System.String, System.String> requestParameters_parameters_Info = null;
             if (cmdletContext.Parameters_Info != null)
@@ -273,6 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (requestParameters_parameters_Info != null)
             {
                 request.Parameters.Info = requestParameters_parameters_Info;
+                requestParametersIsNull = false;
             }
             System.String requestParameters_parameters_Name = null;
             if (cmdletContext.Parameters_Name != null)
@@ -282,6 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (requestParameters_parameters_Name != null)
             {
                 request.Parameters.Name = requestParameters_parameters_Name;
+                requestParametersIsNull = false;
             }
             Amazon.ServiceCatalog.ProvisioningArtifactType requestParameters_parameters_Type = null;
             if (cmdletContext.Parameters_Type != null)
@@ -291,6 +296,12 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (requestParameters_parameters_Type != null)
             {
                 request.Parameters.Type = requestParameters_parameters_Type;
+                requestParametersIsNull = false;
+            }
+             // determine if request.Parameters should be set to null
+            if (requestParametersIsNull)
+            {
+                request.Parameters = null;
             }
             if (cmdletContext.ProductId != null)
             {

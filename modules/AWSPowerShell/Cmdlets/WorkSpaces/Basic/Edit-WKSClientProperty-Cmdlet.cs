@@ -161,6 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             
             
              // populate ClientProperties
+            var requestClientPropertiesIsNull = true;
             request.ClientProperties = new Amazon.WorkSpaces.Model.ClientProperties();
             Amazon.WorkSpaces.LogUploadEnum requestClientProperties_clientProperties_LogUploadEnabled = null;
             if (cmdletContext.ClientProperties_LogUploadEnabled != null)
@@ -170,6 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestClientProperties_clientProperties_LogUploadEnabled != null)
             {
                 request.ClientProperties.LogUploadEnabled = requestClientProperties_clientProperties_LogUploadEnabled;
+                requestClientPropertiesIsNull = false;
             }
             Amazon.WorkSpaces.ReconnectEnum requestClientProperties_clientProperties_ReconnectEnabled = null;
             if (cmdletContext.ClientProperties_ReconnectEnabled != null)
@@ -179,6 +181,12 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestClientProperties_clientProperties_ReconnectEnabled != null)
             {
                 request.ClientProperties.ReconnectEnabled = requestClientProperties_clientProperties_ReconnectEnabled;
+                requestClientPropertiesIsNull = false;
+            }
+             // determine if request.ClientProperties should be set to null
+            if (requestClientPropertiesIsNull)
+            {
+                request.ClientProperties = null;
             }
             if (cmdletContext.ResourceId != null)
             {

@@ -262,6 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 }
                 
                  // populate Content
+                var requestContentIsNull = true;
                 request.Content = new Amazon.Lambda.Model.LayerVersionContentInput();
                 System.String requestContent_content_S3Bucket = null;
                 if (cmdletContext.Content_S3Bucket != null)
@@ -271,6 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 if (requestContent_content_S3Bucket != null)
                 {
                     request.Content.S3Bucket = requestContent_content_S3Bucket;
+                    requestContentIsNull = false;
                 }
                 System.String requestContent_content_S3Key = null;
                 if (cmdletContext.Content_S3Key != null)
@@ -280,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 if (requestContent_content_S3Key != null)
                 {
                     request.Content.S3Key = requestContent_content_S3Key;
+                    requestContentIsNull = false;
                 }
                 System.String requestContent_content_S3ObjectVersion = null;
                 if (cmdletContext.Content_S3ObjectVersion != null)
@@ -289,6 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 if (requestContent_content_S3ObjectVersion != null)
                 {
                     request.Content.S3ObjectVersion = requestContent_content_S3ObjectVersion;
+                    requestContentIsNull = false;
                 }
                 System.IO.MemoryStream requestContent_content_ZipFile = null;
                 if (cmdletContext.Content_ZipFile != null)
@@ -299,6 +303,12 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 if (requestContent_content_ZipFile != null)
                 {
                     request.Content.ZipFile = requestContent_content_ZipFile;
+                    requestContentIsNull = false;
+                }
+                 // determine if request.Content should be set to null
+                if (requestContentIsNull)
+                {
+                    request.Content = null;
                 }
                 if (cmdletContext.Description != null)
                 {

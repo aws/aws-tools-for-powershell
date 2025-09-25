@@ -373,6 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             
              // populate Principal
+            var requestPrincipalIsNull = true;
             request.Principal = new Amazon.DataZone.Model.PolicyGrantPrincipal();
             Amazon.DataZone.Model.GroupPolicyGrantPrincipal requestPrincipal_principal_Group = null;
             
@@ -397,6 +398,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestPrincipal_principal_Group != null)
             {
                 request.Principal.Group = requestPrincipal_principal_Group;
+                requestPrincipalIsNull = false;
             }
             Amazon.DataZone.Model.UserPolicyGrantPrincipal requestPrincipal_principal_User = null;
             
@@ -431,6 +433,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestPrincipal_principal_User != null)
             {
                 request.Principal.User = requestPrincipal_principal_User;
+                requestPrincipalIsNull = false;
             }
             Amazon.DataZone.Model.DomainUnitPolicyGrantPrincipal requestPrincipal_principal_DomainUnit = null;
             
@@ -490,6 +493,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestPrincipal_principal_DomainUnit != null)
             {
                 request.Principal.DomainUnit = requestPrincipal_principal_DomainUnit;
+                requestPrincipalIsNull = false;
             }
             Amazon.DataZone.Model.ProjectPolicyGrantPrincipal requestPrincipal_principal_Project = null;
             
@@ -574,6 +578,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestPrincipal_principal_Project != null)
             {
                 request.Principal.Project = requestPrincipal_principal_Project;
+                requestPrincipalIsNull = false;
+            }
+             // determine if request.Principal should be set to null
+            if (requestPrincipalIsNull)
+            {
+                request.Principal = null;
             }
             
             CmdletOutput output;

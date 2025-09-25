@@ -585,6 +585,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             Amazon.PaymentCryptographyData.Model.WrappedKeyMaterial requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterial = null;
             
              // populate WrappedKeyMaterial
+            var requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterialIsNull = true;
             requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterial = new Amazon.PaymentCryptographyData.Model.WrappedKeyMaterial();
             System.String requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterial_wrappedKeyMaterial_Tr31KeyBlock = null;
             if (cmdletContext.WrappedKeyMaterial_Tr31KeyBlock != null)
@@ -594,6 +595,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterial_wrappedKeyMaterial_Tr31KeyBlock != null)
             {
                 requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterial.Tr31KeyBlock = requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterial_wrappedKeyMaterial_Tr31KeyBlock;
+                requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterialIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.EcdhDerivationAttributes requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterial_encryptionWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey = null;
             
@@ -668,6 +670,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterial_encryptionWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey != null)
             {
                 requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterial.DiffieHellmanSymmetricKey = requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterial_encryptionWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey;
+                requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterialIsNull = false;
+            }
+             // determine if requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterial should be set to null
+            if (requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterialIsNull)
+            {
+                requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterial = null;
             }
             if (requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterial != null)
             {
@@ -681,6 +689,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             }
             
              // populate GenerationAttributes
+            var requestGenerationAttributesIsNull = true;
             request.GenerationAttributes = new Amazon.PaymentCryptographyData.Model.PinGenerationAttributes();
             Amazon.PaymentCryptographyData.Model.VisaPin requestGenerationAttributes_generationAttributes_VisaPin = null;
             
@@ -705,6 +714,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestGenerationAttributes_generationAttributes_VisaPin != null)
             {
                 request.GenerationAttributes.VisaPin = requestGenerationAttributes_generationAttributes_VisaPin;
+                requestGenerationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.VisaPinVerificationValue requestGenerationAttributes_generationAttributes_VisaPinVerificationValue = null;
             
@@ -739,6 +749,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestGenerationAttributes_generationAttributes_VisaPinVerificationValue != null)
             {
                 request.GenerationAttributes.VisaPinVerificationValue = requestGenerationAttributes_generationAttributes_VisaPinVerificationValue;
+                requestGenerationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.Ibm3624NaturalPin requestGenerationAttributes_generationAttributes_Ibm3624NaturalPin = null;
             
@@ -783,6 +794,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestGenerationAttributes_generationAttributes_Ibm3624NaturalPin != null)
             {
                 request.GenerationAttributes.Ibm3624NaturalPin = requestGenerationAttributes_generationAttributes_Ibm3624NaturalPin;
+                requestGenerationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.Ibm3624RandomPin requestGenerationAttributes_generationAttributes_Ibm3624RandomPin = null;
             
@@ -827,6 +839,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestGenerationAttributes_generationAttributes_Ibm3624RandomPin != null)
             {
                 request.GenerationAttributes.Ibm3624RandomPin = requestGenerationAttributes_generationAttributes_Ibm3624RandomPin;
+                requestGenerationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.Ibm3624PinFromOffset requestGenerationAttributes_generationAttributes_Ibm3624PinFromOffset = null;
             
@@ -881,6 +894,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestGenerationAttributes_generationAttributes_Ibm3624PinFromOffset != null)
             {
                 request.GenerationAttributes.Ibm3624PinFromOffset = requestGenerationAttributes_generationAttributes_Ibm3624PinFromOffset;
+                requestGenerationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.Ibm3624PinOffset requestGenerationAttributes_generationAttributes_Ibm3624PinOffset = null;
             
@@ -935,6 +949,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestGenerationAttributes_generationAttributes_Ibm3624PinOffset != null)
             {
                 request.GenerationAttributes.Ibm3624PinOffset = requestGenerationAttributes_generationAttributes_Ibm3624PinOffset;
+                requestGenerationAttributesIsNull = false;
+            }
+             // determine if request.GenerationAttributes should be set to null
+            if (requestGenerationAttributesIsNull)
+            {
+                request.GenerationAttributes = null;
             }
             if (cmdletContext.GenerationKeyIdentifier != null)
             {

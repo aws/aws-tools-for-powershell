@@ -236,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
             
             
              // populate Authentication
+            var requestAuthenticationIsNull = true;
             request.Authentication = new Amazon.MailManager.Model.RelayAuthentication();
             Amazon.MailManager.Model.NoAuthentication requestAuthentication_authentication_NoAuthentication = null;
             if (cmdletContext.Authentication_NoAuthentication != null)
@@ -245,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
             if (requestAuthentication_authentication_NoAuthentication != null)
             {
                 request.Authentication.NoAuthentication = requestAuthentication_authentication_NoAuthentication;
+                requestAuthenticationIsNull = false;
             }
             System.String requestAuthentication_authentication_SecretArn = null;
             if (cmdletContext.Authentication_SecretArn != null)
@@ -254,6 +256,12 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
             if (requestAuthentication_authentication_SecretArn != null)
             {
                 request.Authentication.SecretArn = requestAuthentication_authentication_SecretArn;
+                requestAuthenticationIsNull = false;
+            }
+             // determine if request.Authentication should be set to null
+            if (requestAuthenticationIsNull)
+            {
+                request.Authentication = null;
             }
             if (cmdletContext.ClientToken != null)
             {

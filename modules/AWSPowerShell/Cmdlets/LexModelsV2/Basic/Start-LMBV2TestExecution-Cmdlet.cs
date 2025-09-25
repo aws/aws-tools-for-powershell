@@ -210,6 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             }
             
              // populate Target
+            var requestTargetIsNull = true;
             request.Target = new Amazon.LexModelsV2.Model.TestExecutionTarget();
             Amazon.LexModelsV2.Model.BotAliasTestExecutionTarget requestTarget_target_BotAliasTarget = null;
             
@@ -254,6 +255,12 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestTarget_target_BotAliasTarget != null)
             {
                 request.Target.BotAliasTarget = requestTarget_target_BotAliasTarget;
+                requestTargetIsNull = false;
+            }
+             // determine if request.Target should be set to null
+            if (requestTargetIsNull)
+            {
+                request.Target = null;
             }
             if (cmdletContext.TestExecutionModality != null)
             {

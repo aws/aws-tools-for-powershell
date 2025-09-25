@@ -204,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             
             
              // populate Termination
+            var requestTerminationIsNull = true;
             request.Termination = new Amazon.ChimeSDKVoice.Model.Termination();
             List<System.String> requestTermination_termination_CallingRegion = null;
             if (cmdletContext.Termination_CallingRegion != null)
@@ -213,6 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             if (requestTermination_termination_CallingRegion != null)
             {
                 request.Termination.CallingRegions = requestTermination_termination_CallingRegion;
+                requestTerminationIsNull = false;
             }
             List<System.String> requestTermination_termination_CidrAllowedList = null;
             if (cmdletContext.Termination_CidrAllowedList != null)
@@ -222,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             if (requestTermination_termination_CidrAllowedList != null)
             {
                 request.Termination.CidrAllowedList = requestTermination_termination_CidrAllowedList;
+                requestTerminationIsNull = false;
             }
             System.Int32? requestTermination_termination_CpsLimit = null;
             if (cmdletContext.Termination_CpsLimit != null)
@@ -231,6 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             if (requestTermination_termination_CpsLimit != null)
             {
                 request.Termination.CpsLimit = requestTermination_termination_CpsLimit.Value;
+                requestTerminationIsNull = false;
             }
             System.String requestTermination_termination_DefaultPhoneNumber = null;
             if (cmdletContext.Termination_DefaultPhoneNumber != null)
@@ -240,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             if (requestTermination_termination_DefaultPhoneNumber != null)
             {
                 request.Termination.DefaultPhoneNumber = requestTermination_termination_DefaultPhoneNumber;
+                requestTerminationIsNull = false;
             }
             System.Boolean? requestTermination_termination_Disabled = null;
             if (cmdletContext.Termination_Disabled != null)
@@ -249,6 +254,12 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             if (requestTermination_termination_Disabled != null)
             {
                 request.Termination.Disabled = requestTermination_termination_Disabled.Value;
+                requestTerminationIsNull = false;
+            }
+             // determine if request.Termination should be set to null
+            if (requestTerminationIsNull)
+            {
+                request.Termination = null;
             }
             if (cmdletContext.VoiceConnectorId != null)
             {

@@ -209,6 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.BAKS
             }
             
              // populate ExportSpecification
+            var requestExportSpecificationIsNull = true;
             request.ExportSpecification = new Amazon.BackupSearch.Model.ExportSpecification();
             Amazon.BackupSearch.Model.S3ExportSpecification requestExportSpecification_exportSpecification_S3ExportSpecification = null;
             
@@ -243,6 +244,12 @@ namespace Amazon.PowerShell.Cmdlets.BAKS
             if (requestExportSpecification_exportSpecification_S3ExportSpecification != null)
             {
                 request.ExportSpecification.S3ExportSpecification = requestExportSpecification_exportSpecification_S3ExportSpecification;
+                requestExportSpecificationIsNull = false;
+            }
+             // determine if request.ExportSpecification should be set to null
+            if (requestExportSpecificationIsNull)
+            {
+                request.ExportSpecification = null;
             }
             if (cmdletContext.RoleArn != null)
             {

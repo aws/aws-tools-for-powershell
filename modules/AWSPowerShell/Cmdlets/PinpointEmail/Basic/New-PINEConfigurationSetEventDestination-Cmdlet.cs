@@ -276,6 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
             }
             
              // populate EventDestination
+            var requestEventDestinationIsNull = true;
             request.EventDestination = new Amazon.PinpointEmail.Model.EventDestinationDefinition();
             System.Boolean? requestEventDestination_eventDestination_Enabled = null;
             if (cmdletContext.EventDestination_Enabled != null)
@@ -285,6 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
             if (requestEventDestination_eventDestination_Enabled != null)
             {
                 request.EventDestination.Enabled = requestEventDestination_eventDestination_Enabled.Value;
+                requestEventDestinationIsNull = false;
             }
             List<System.String> requestEventDestination_eventDestination_MatchingEventType = null;
             if (cmdletContext.EventDestination_MatchingEventType != null)
@@ -294,6 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
             if (requestEventDestination_eventDestination_MatchingEventType != null)
             {
                 request.EventDestination.MatchingEventTypes = requestEventDestination_eventDestination_MatchingEventType;
+                requestEventDestinationIsNull = false;
             }
             Amazon.PinpointEmail.Model.CloudWatchDestination requestEventDestination_eventDestination_CloudWatchDestination = null;
             
@@ -318,6 +321,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
             if (requestEventDestination_eventDestination_CloudWatchDestination != null)
             {
                 request.EventDestination.CloudWatchDestination = requestEventDestination_eventDestination_CloudWatchDestination;
+                requestEventDestinationIsNull = false;
             }
             Amazon.PinpointEmail.Model.PinpointDestination requestEventDestination_eventDestination_PinpointDestination = null;
             
@@ -342,6 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
             if (requestEventDestination_eventDestination_PinpointDestination != null)
             {
                 request.EventDestination.PinpointDestination = requestEventDestination_eventDestination_PinpointDestination;
+                requestEventDestinationIsNull = false;
             }
             Amazon.PinpointEmail.Model.SnsDestination requestEventDestination_eventDestination_SnsDestination = null;
             
@@ -366,6 +371,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
             if (requestEventDestination_eventDestination_SnsDestination != null)
             {
                 request.EventDestination.SnsDestination = requestEventDestination_eventDestination_SnsDestination;
+                requestEventDestinationIsNull = false;
             }
             Amazon.PinpointEmail.Model.KinesisFirehoseDestination requestEventDestination_eventDestination_KinesisFirehoseDestination = null;
             
@@ -400,6 +406,12 @@ namespace Amazon.PowerShell.Cmdlets.PINE
             if (requestEventDestination_eventDestination_KinesisFirehoseDestination != null)
             {
                 request.EventDestination.KinesisFirehoseDestination = requestEventDestination_eventDestination_KinesisFirehoseDestination;
+                requestEventDestinationIsNull = false;
+            }
+             // determine if request.EventDestination should be set to null
+            if (requestEventDestinationIsNull)
+            {
+                request.EventDestination = null;
             }
             if (cmdletContext.EventDestinationName != null)
             {

@@ -651,6 +651,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             }
             
              // populate IncomingTranslationAttributes
+            var requestIncomingTranslationAttributesIsNull = true;
             request.IncomingTranslationAttributes = new Amazon.PaymentCryptographyData.Model.TranslationIsoFormats();
             Amazon.PaymentCryptographyData.Model.TranslationPinDataIsoFormat1 requestIncomingTranslationAttributes_incomingTranslationAttributes_IsoFormat1 = null;
             if (cmdletContext.IncomingTranslationAttributes_IsoFormat1 != null)
@@ -660,6 +661,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestIncomingTranslationAttributes_incomingTranslationAttributes_IsoFormat1 != null)
             {
                 request.IncomingTranslationAttributes.IsoFormat1 = requestIncomingTranslationAttributes_incomingTranslationAttributes_IsoFormat1;
+                requestIncomingTranslationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.TranslationPinDataIsoFormat034 requestIncomingTranslationAttributes_incomingTranslationAttributes_IsoFormat0 = null;
             
@@ -684,6 +686,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestIncomingTranslationAttributes_incomingTranslationAttributes_IsoFormat0 != null)
             {
                 request.IncomingTranslationAttributes.IsoFormat0 = requestIncomingTranslationAttributes_incomingTranslationAttributes_IsoFormat0;
+                requestIncomingTranslationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.TranslationPinDataIsoFormat034 requestIncomingTranslationAttributes_incomingTranslationAttributes_IsoFormat3 = null;
             
@@ -708,6 +711,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestIncomingTranslationAttributes_incomingTranslationAttributes_IsoFormat3 != null)
             {
                 request.IncomingTranslationAttributes.IsoFormat3 = requestIncomingTranslationAttributes_incomingTranslationAttributes_IsoFormat3;
+                requestIncomingTranslationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.TranslationPinDataIsoFormat034 requestIncomingTranslationAttributes_incomingTranslationAttributes_IsoFormat4 = null;
             
@@ -732,6 +736,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestIncomingTranslationAttributes_incomingTranslationAttributes_IsoFormat4 != null)
             {
                 request.IncomingTranslationAttributes.IsoFormat4 = requestIncomingTranslationAttributes_incomingTranslationAttributes_IsoFormat4;
+                requestIncomingTranslationAttributesIsNull = false;
+            }
+             // determine if request.IncomingTranslationAttributes should be set to null
+            if (requestIncomingTranslationAttributesIsNull)
+            {
+                request.IncomingTranslationAttributes = null;
             }
             
              // populate IncomingWrappedKey
@@ -750,6 +760,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             Amazon.PaymentCryptographyData.Model.WrappedKeyMaterial requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial = null;
             
              // populate WrappedKeyMaterial
+            var requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterialIsNull = true;
             requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial = new Amazon.PaymentCryptographyData.Model.WrappedKeyMaterial();
             System.String requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock = null;
             if (cmdletContext.IncomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock != null)
@@ -759,6 +770,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock != null)
             {
                 requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial.Tr31KeyBlock = requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock;
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterialIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.EcdhDerivationAttributes requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey = null;
             
@@ -833,6 +845,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey != null)
             {
                 requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial.DiffieHellmanSymmetricKey = requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey;
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterialIsNull = false;
+            }
+             // determine if requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial should be set to null
+            if (requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterialIsNull)
+            {
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial = null;
             }
             if (requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial != null)
             {
@@ -889,6 +907,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             }
             
              // populate OutgoingTranslationAttributes
+            var requestOutgoingTranslationAttributesIsNull = true;
             request.OutgoingTranslationAttributes = new Amazon.PaymentCryptographyData.Model.TranslationIsoFormats();
             Amazon.PaymentCryptographyData.Model.TranslationPinDataIsoFormat1 requestOutgoingTranslationAttributes_outgoingTranslationAttributes_IsoFormat1 = null;
             if (cmdletContext.OutgoingTranslationAttributes_IsoFormat1 != null)
@@ -898,6 +917,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestOutgoingTranslationAttributes_outgoingTranslationAttributes_IsoFormat1 != null)
             {
                 request.OutgoingTranslationAttributes.IsoFormat1 = requestOutgoingTranslationAttributes_outgoingTranslationAttributes_IsoFormat1;
+                requestOutgoingTranslationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.TranslationPinDataIsoFormat034 requestOutgoingTranslationAttributes_outgoingTranslationAttributes_IsoFormat0 = null;
             
@@ -922,6 +942,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestOutgoingTranslationAttributes_outgoingTranslationAttributes_IsoFormat0 != null)
             {
                 request.OutgoingTranslationAttributes.IsoFormat0 = requestOutgoingTranslationAttributes_outgoingTranslationAttributes_IsoFormat0;
+                requestOutgoingTranslationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.TranslationPinDataIsoFormat034 requestOutgoingTranslationAttributes_outgoingTranslationAttributes_IsoFormat3 = null;
             
@@ -946,6 +967,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestOutgoingTranslationAttributes_outgoingTranslationAttributes_IsoFormat3 != null)
             {
                 request.OutgoingTranslationAttributes.IsoFormat3 = requestOutgoingTranslationAttributes_outgoingTranslationAttributes_IsoFormat3;
+                requestOutgoingTranslationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.TranslationPinDataIsoFormat034 requestOutgoingTranslationAttributes_outgoingTranslationAttributes_IsoFormat4 = null;
             
@@ -970,6 +992,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestOutgoingTranslationAttributes_outgoingTranslationAttributes_IsoFormat4 != null)
             {
                 request.OutgoingTranslationAttributes.IsoFormat4 = requestOutgoingTranslationAttributes_outgoingTranslationAttributes_IsoFormat4;
+                requestOutgoingTranslationAttributesIsNull = false;
+            }
+             // determine if request.OutgoingTranslationAttributes should be set to null
+            if (requestOutgoingTranslationAttributesIsNull)
+            {
+                request.OutgoingTranslationAttributes = null;
             }
             
              // populate OutgoingWrappedKey
@@ -988,6 +1016,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             Amazon.PaymentCryptographyData.Model.WrappedKeyMaterial requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial = null;
             
              // populate WrappedKeyMaterial
+            var requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterialIsNull = true;
             requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial = new Amazon.PaymentCryptographyData.Model.WrappedKeyMaterial();
             System.String requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock = null;
             if (cmdletContext.OutgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock != null)
@@ -997,6 +1026,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock != null)
             {
                 requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial.Tr31KeyBlock = requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock;
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterialIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.EcdhDerivationAttributes requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey = null;
             
@@ -1071,6 +1101,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey != null)
             {
                 requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial.DiffieHellmanSymmetricKey = requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey;
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterialIsNull = false;
+            }
+             // determine if requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial should be set to null
+            if (requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterialIsNull)
+            {
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial = null;
             }
             if (requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial != null)
             {

@@ -150,6 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             
             
              // populate ImageId
+            var requestImageIdIsNull = true;
             request.ImageId = new Amazon.ECR.Model.ImageIdentifier();
             System.String requestImageId_imageId_ImageDigest = null;
             if (cmdletContext.ImageId_ImageDigest != null)
@@ -159,6 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             if (requestImageId_imageId_ImageDigest != null)
             {
                 request.ImageId.ImageDigest = requestImageId_imageId_ImageDigest;
+                requestImageIdIsNull = false;
             }
             System.String requestImageId_imageId_ImageTag = null;
             if (cmdletContext.ImageId_ImageTag != null)
@@ -168,6 +170,12 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             if (requestImageId_imageId_ImageTag != null)
             {
                 request.ImageId.ImageTag = requestImageId_imageId_ImageTag;
+                requestImageIdIsNull = false;
+            }
+             // determine if request.ImageId should be set to null
+            if (requestImageIdIsNull)
+            {
+                request.ImageId = null;
             }
             if (cmdletContext.RegistryId != null)
             {

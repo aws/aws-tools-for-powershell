@@ -202,6 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             }
             
              // populate PolicyReference
+            var requestPolicyReferenceIsNull = true;
             request.PolicyReference = new Amazon.CloudDirectory.Model.ObjectReference();
             System.String requestPolicyReference_policyReference_Selector = null;
             if (cmdletContext.PolicyReference_Selector != null)
@@ -211,6 +212,12 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             if (requestPolicyReference_policyReference_Selector != null)
             {
                 request.PolicyReference.Selector = requestPolicyReference_policyReference_Selector;
+                requestPolicyReferenceIsNull = false;
+            }
+             // determine if request.PolicyReference should be set to null
+            if (requestPolicyReferenceIsNull)
+            {
+                request.PolicyReference = null;
             }
             
             // Initialize loop variant and commence piping

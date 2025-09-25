@@ -237,6 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             
             
              // populate AccountSource
+            var requestAccountSourceIsNull = true;
             request.AccountSource = new Amazon.DataZone.Model.AccountSource();
             List<Amazon.DataZone.Model.AccountInfo> requestAccountSource_accountSource_Account = null;
             if (cmdletContext.AccountSource_Account != null)
@@ -246,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestAccountSource_accountSource_Account != null)
             {
                 request.AccountSource.Accounts = requestAccountSource_accountSource_Account;
+                requestAccountSourceIsNull = false;
             }
             Amazon.DataZone.Model.CustomAccountPoolHandler requestAccountSource_accountSource_CustomAccountPoolHandler = null;
             
@@ -280,6 +282,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestAccountSource_accountSource_CustomAccountPoolHandler != null)
             {
                 request.AccountSource.CustomAccountPoolHandler = requestAccountSource_accountSource_CustomAccountPoolHandler;
+                requestAccountSourceIsNull = false;
+            }
+             // determine if request.AccountSource should be set to null
+            if (requestAccountSourceIsNull)
+            {
+                request.AccountSource = null;
             }
             if (cmdletContext.Description != null)
             {

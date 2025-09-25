@@ -207,6 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
                 
                 
                  // populate Input
+                var requestInputIsNull = true;
                 request.Input = new Amazon.BedrockRuntime.Model.CountTokensInput();
                 Amazon.BedrockRuntime.Model.InvokeModelTokensRequest requestInput_input_InvokeModel = null;
                 
@@ -232,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
                 if (requestInput_input_InvokeModel != null)
                 {
                     request.Input.InvokeModel = requestInput_input_InvokeModel;
+                    requestInputIsNull = false;
                 }
                 Amazon.BedrockRuntime.Model.ConverseTokensRequest requestInput_input_Converse = null;
                 
@@ -266,6 +268,12 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
                 if (requestInput_input_Converse != null)
                 {
                     request.Input.Converse = requestInput_input_Converse;
+                    requestInputIsNull = false;
+                }
+                 // determine if request.Input should be set to null
+                if (requestInputIsNull)
+                {
+                    request.Input = null;
                 }
                 if (cmdletContext.ModelId != null)
                 {

@@ -157,6 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
             }
             
              // populate Rule
+            var requestRuleIsNull = true;
             request.Rule = new Amazon.XRay.Model.IndexingRuleValueUpdate();
             Amazon.XRay.Model.ProbabilisticRuleValueUpdate requestRule_rule_Probabilistic = null;
             
@@ -181,6 +182,12 @@ namespace Amazon.PowerShell.Cmdlets.XR
             if (requestRule_rule_Probabilistic != null)
             {
                 request.Rule.Probabilistic = requestRule_rule_Probabilistic;
+                requestRuleIsNull = false;
+            }
+             // determine if request.Rule should be set to null
+            if (requestRuleIsNull)
+            {
+                request.Rule = null;
             }
             
             CmdletOutput output;

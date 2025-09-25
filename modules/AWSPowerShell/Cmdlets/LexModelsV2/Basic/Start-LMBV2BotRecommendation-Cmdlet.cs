@@ -349,6 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             }
             
              // populate TranscriptSourceSetting
+            var requestTranscriptSourceSettingIsNull = true;
             request.TranscriptSourceSetting = new Amazon.LexModelsV2.Model.TranscriptSourceSetting();
             Amazon.LexModelsV2.Model.S3BucketTranscriptSource requestTranscriptSourceSetting_transcriptSourceSetting_S3BucketTranscriptSource = null;
             
@@ -483,6 +484,12 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestTranscriptSourceSetting_transcriptSourceSetting_S3BucketTranscriptSource != null)
             {
                 request.TranscriptSourceSetting.S3BucketTranscriptSource = requestTranscriptSourceSetting_transcriptSourceSetting_S3BucketTranscriptSource;
+                requestTranscriptSourceSettingIsNull = false;
+            }
+             // determine if request.TranscriptSourceSetting should be set to null
+            if (requestTranscriptSourceSettingIsNull)
+            {
+                request.TranscriptSourceSetting = null;
             }
             
             CmdletOutput output;

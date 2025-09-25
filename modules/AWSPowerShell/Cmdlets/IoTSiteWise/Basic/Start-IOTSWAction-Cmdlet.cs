@@ -248,6 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             }
             
              // populate TargetResource
+            var requestTargetResourceIsNull = true;
             request.TargetResource = new Amazon.IoTSiteWise.Model.TargetResource();
             System.String requestTargetResource_targetResource_AssetId = null;
             if (cmdletContext.TargetResource_AssetId != null)
@@ -257,6 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestTargetResource_targetResource_AssetId != null)
             {
                 request.TargetResource.AssetId = requestTargetResource_targetResource_AssetId;
+                requestTargetResourceIsNull = false;
             }
             System.String requestTargetResource_targetResource_ComputationModelId = null;
             if (cmdletContext.TargetResource_ComputationModelId != null)
@@ -266,6 +268,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestTargetResource_targetResource_ComputationModelId != null)
             {
                 request.TargetResource.ComputationModelId = requestTargetResource_targetResource_ComputationModelId;
+                requestTargetResourceIsNull = false;
+            }
+             // determine if request.TargetResource should be set to null
+            if (requestTargetResourceIsNull)
+            {
+                request.TargetResource = null;
             }
             
             CmdletOutput output;

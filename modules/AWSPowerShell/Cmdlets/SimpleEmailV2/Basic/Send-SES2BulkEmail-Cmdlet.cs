@@ -396,6 +396,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             }
             
              // populate DefaultContent
+            var requestDefaultContentIsNull = true;
             request.DefaultContent = new Amazon.SimpleEmailV2.Model.BulkEmailContent();
             Amazon.SimpleEmailV2.Model.Template requestDefaultContent_defaultContent_Template = null;
             
@@ -505,6 +506,12 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (requestDefaultContent_defaultContent_Template != null)
             {
                 request.DefaultContent.Template = requestDefaultContent_defaultContent_Template;
+                requestDefaultContentIsNull = false;
+            }
+             // determine if request.DefaultContent should be set to null
+            if (requestDefaultContentIsNull)
+            {
+                request.DefaultContent = null;
             }
             if (cmdletContext.DefaultEmailTag != null)
             {

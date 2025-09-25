@@ -183,6 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             }
             
              // populate DomainControlValidationResource
+            var requestDomainControlValidationResourceIsNull = true;
             request.DomainControlValidationResource = new Amazon.CloudFront.Model.DistributionResourceId();
             System.String requestDomainControlValidationResource_domainControlValidationResource_DistributionId = null;
             if (cmdletContext.DomainControlValidationResource_DistributionId != null)
@@ -192,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (requestDomainControlValidationResource_domainControlValidationResource_DistributionId != null)
             {
                 request.DomainControlValidationResource.DistributionId = requestDomainControlValidationResource_domainControlValidationResource_DistributionId;
+                requestDomainControlValidationResourceIsNull = false;
             }
             System.String requestDomainControlValidationResource_domainControlValidationResource_DistributionTenantId = null;
             if (cmdletContext.DomainControlValidationResource_DistributionTenantId != null)
@@ -201,6 +203,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (requestDomainControlValidationResource_domainControlValidationResource_DistributionTenantId != null)
             {
                 request.DomainControlValidationResource.DistributionTenantId = requestDomainControlValidationResource_domainControlValidationResource_DistributionTenantId;
+                requestDomainControlValidationResourceIsNull = false;
+            }
+             // determine if request.DomainControlValidationResource should be set to null
+            if (requestDomainControlValidationResourceIsNull)
+            {
+                request.DomainControlValidationResource = null;
             }
             if (cmdletContext.MaxItem != null)
             {

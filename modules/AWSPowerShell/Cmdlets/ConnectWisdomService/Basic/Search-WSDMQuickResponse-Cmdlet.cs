@@ -288,6 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
             }
             
              // populate SearchExpression
+            var requestSearchExpressionIsNull = true;
             request.SearchExpression = new Amazon.ConnectWisdomService.Model.QuickResponseSearchExpression();
             List<Amazon.ConnectWisdomService.Model.QuickResponseFilterField> requestSearchExpression_searchExpression_Filter = null;
             if (cmdletContext.SearchExpression_Filter != null)
@@ -297,6 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
             if (requestSearchExpression_searchExpression_Filter != null)
             {
                 request.SearchExpression.Filters = requestSearchExpression_searchExpression_Filter;
+                requestSearchExpressionIsNull = false;
             }
             List<Amazon.ConnectWisdomService.Model.QuickResponseQueryField> requestSearchExpression_searchExpression_Query = null;
             if (cmdletContext.SearchExpression_Query != null)
@@ -306,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
             if (requestSearchExpression_searchExpression_Query != null)
             {
                 request.SearchExpression.Queries = requestSearchExpression_searchExpression_Query;
+                requestSearchExpressionIsNull = false;
             }
             Amazon.ConnectWisdomService.Model.QuickResponseOrderField requestSearchExpression_searchExpression_OrderOnField = null;
             
@@ -340,6 +343,12 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
             if (requestSearchExpression_searchExpression_OrderOnField != null)
             {
                 request.SearchExpression.OrderOnField = requestSearchExpression_searchExpression_OrderOnField;
+                requestSearchExpressionIsNull = false;
+            }
+             // determine if request.SearchExpression should be set to null
+            if (requestSearchExpressionIsNull)
+            {
+                request.SearchExpression = null;
             }
             
             // Initialize loop variant and commence piping

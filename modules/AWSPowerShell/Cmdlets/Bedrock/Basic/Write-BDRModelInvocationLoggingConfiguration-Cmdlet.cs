@@ -224,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             
             
              // populate LoggingConfig
+            var requestLoggingConfigIsNull = true;
             request.LoggingConfig = new Amazon.Bedrock.Model.LoggingConfig();
             System.Boolean? requestLoggingConfig_loggingConfig_EmbeddingDataDeliveryEnabled = null;
             if (cmdletContext.LoggingConfig_EmbeddingDataDeliveryEnabled != null)
@@ -233,6 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestLoggingConfig_loggingConfig_EmbeddingDataDeliveryEnabled != null)
             {
                 request.LoggingConfig.EmbeddingDataDeliveryEnabled = requestLoggingConfig_loggingConfig_EmbeddingDataDeliveryEnabled.Value;
+                requestLoggingConfigIsNull = false;
             }
             System.Boolean? requestLoggingConfig_loggingConfig_ImageDataDeliveryEnabled = null;
             if (cmdletContext.LoggingConfig_ImageDataDeliveryEnabled != null)
@@ -242,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestLoggingConfig_loggingConfig_ImageDataDeliveryEnabled != null)
             {
                 request.LoggingConfig.ImageDataDeliveryEnabled = requestLoggingConfig_loggingConfig_ImageDataDeliveryEnabled.Value;
+                requestLoggingConfigIsNull = false;
             }
             System.Boolean? requestLoggingConfig_loggingConfig_TextDataDeliveryEnabled = null;
             if (cmdletContext.LoggingConfig_TextDataDeliveryEnabled != null)
@@ -251,6 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestLoggingConfig_loggingConfig_TextDataDeliveryEnabled != null)
             {
                 request.LoggingConfig.TextDataDeliveryEnabled = requestLoggingConfig_loggingConfig_TextDataDeliveryEnabled.Value;
+                requestLoggingConfigIsNull = false;
             }
             System.Boolean? requestLoggingConfig_loggingConfig_VideoDataDeliveryEnabled = null;
             if (cmdletContext.LoggingConfig_VideoDataDeliveryEnabled != null)
@@ -260,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestLoggingConfig_loggingConfig_VideoDataDeliveryEnabled != null)
             {
                 request.LoggingConfig.VideoDataDeliveryEnabled = requestLoggingConfig_loggingConfig_VideoDataDeliveryEnabled.Value;
+                requestLoggingConfigIsNull = false;
             }
             Amazon.Bedrock.Model.S3Config requestLoggingConfig_loggingConfig_S3Config = null;
             
@@ -294,6 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestLoggingConfig_loggingConfig_S3Config != null)
             {
                 request.LoggingConfig.S3Config = requestLoggingConfig_loggingConfig_S3Config;
+                requestLoggingConfigIsNull = false;
             }
             Amazon.Bedrock.Model.CloudWatchConfig requestLoggingConfig_loggingConfig_CloudWatchConfig = null;
             
@@ -363,6 +369,12 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestLoggingConfig_loggingConfig_CloudWatchConfig != null)
             {
                 request.LoggingConfig.CloudWatchConfig = requestLoggingConfig_loggingConfig_CloudWatchConfig;
+                requestLoggingConfigIsNull = false;
+            }
+             // determine if request.LoggingConfig should be set to null
+            if (requestLoggingConfigIsNull)
+            {
+                request.LoggingConfig = null;
             }
             
             CmdletOutput output;

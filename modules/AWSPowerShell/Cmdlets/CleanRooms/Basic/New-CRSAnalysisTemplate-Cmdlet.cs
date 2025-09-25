@@ -394,6 +394,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             }
             
              // populate Source
+            var requestSourceIsNull = true;
             request.Source = new Amazon.CleanRooms.Model.AnalysisSource();
             System.String requestSource_source_Text = null;
             if (cmdletContext.Source_Text != null)
@@ -403,6 +404,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestSource_source_Text != null)
             {
                 request.Source.Text = requestSource_source_Text;
+                requestSourceIsNull = false;
             }
             Amazon.CleanRooms.Model.AnalysisTemplateArtifacts requestSource_source_Artifacts = null;
             
@@ -487,6 +489,12 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestSource_source_Artifacts != null)
             {
                 request.Source.Artifacts = requestSource_source_Artifacts;
+                requestSourceIsNull = false;
+            }
+             // determine if request.Source should be set to null
+            if (requestSourceIsNull)
+            {
+                request.Source = null;
             }
             if (cmdletContext.Tag != null)
             {

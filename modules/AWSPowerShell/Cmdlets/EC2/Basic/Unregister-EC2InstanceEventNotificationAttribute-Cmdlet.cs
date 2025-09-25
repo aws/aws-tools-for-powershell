@@ -158,6 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             
              // populate InstanceTagAttribute
+            var requestInstanceTagAttributeIsNull = true;
             request.InstanceTagAttribute = new Amazon.EC2.Model.DeregisterInstanceTagAttributeRequest();
             System.Boolean? requestInstanceTagAttribute_instanceTagAttribute_IncludeAllTagsOfInstance = null;
             if (cmdletContext.InstanceTagAttribute_IncludeAllTagsOfInstance != null)
@@ -167,6 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestInstanceTagAttribute_instanceTagAttribute_IncludeAllTagsOfInstance != null)
             {
                 request.InstanceTagAttribute.IncludeAllTagsOfInstance = requestInstanceTagAttribute_instanceTagAttribute_IncludeAllTagsOfInstance.Value;
+                requestInstanceTagAttributeIsNull = false;
             }
             List<System.String> requestInstanceTagAttribute_instanceTagAttribute_InstanceTagKey = null;
             if (cmdletContext.InstanceTagAttribute_InstanceTagKey != null)
@@ -176,6 +178,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestInstanceTagAttribute_instanceTagAttribute_InstanceTagKey != null)
             {
                 request.InstanceTagAttribute.InstanceTagKeys = requestInstanceTagAttribute_instanceTagAttribute_InstanceTagKey;
+                requestInstanceTagAttributeIsNull = false;
+            }
+             // determine if request.InstanceTagAttribute should be set to null
+            if (requestInstanceTagAttributeIsNull)
+            {
+                request.InstanceTagAttribute = null;
             }
             
             CmdletOutput output;

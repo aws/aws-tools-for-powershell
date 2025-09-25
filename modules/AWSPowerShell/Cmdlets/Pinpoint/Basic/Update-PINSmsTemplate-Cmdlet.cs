@@ -255,6 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             }
             
              // populate SMSTemplateRequest
+            var requestSMSTemplateRequestIsNull = true;
             request.SMSTemplateRequest = new Amazon.Pinpoint.Model.SMSTemplateRequest();
             System.String requestSMSTemplateRequest_sMSTemplateRequest_Body = null;
             if (cmdletContext.SMSTemplateRequest_Body != null)
@@ -264,6 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestSMSTemplateRequest_sMSTemplateRequest_Body != null)
             {
                 request.SMSTemplateRequest.Body = requestSMSTemplateRequest_sMSTemplateRequest_Body;
+                requestSMSTemplateRequestIsNull = false;
             }
             System.String requestSMSTemplateRequest_sMSTemplateRequest_DefaultSubstitution = null;
             if (cmdletContext.SMSTemplateRequest_DefaultSubstitution != null)
@@ -273,6 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestSMSTemplateRequest_sMSTemplateRequest_DefaultSubstitution != null)
             {
                 request.SMSTemplateRequest.DefaultSubstitutions = requestSMSTemplateRequest_sMSTemplateRequest_DefaultSubstitution;
+                requestSMSTemplateRequestIsNull = false;
             }
             System.String requestSMSTemplateRequest_sMSTemplateRequest_RecommenderId = null;
             if (cmdletContext.SMSTemplateRequest_RecommenderId != null)
@@ -282,6 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestSMSTemplateRequest_sMSTemplateRequest_RecommenderId != null)
             {
                 request.SMSTemplateRequest.RecommenderId = requestSMSTemplateRequest_sMSTemplateRequest_RecommenderId;
+                requestSMSTemplateRequestIsNull = false;
             }
             Dictionary<System.String, System.String> requestSMSTemplateRequest_sMSTemplateRequest_Tag = null;
             if (cmdletContext.SMSTemplateRequest_Tag != null)
@@ -291,6 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestSMSTemplateRequest_sMSTemplateRequest_Tag != null)
             {
                 request.SMSTemplateRequest.Tags = requestSMSTemplateRequest_sMSTemplateRequest_Tag;
+                requestSMSTemplateRequestIsNull = false;
             }
             System.String requestSMSTemplateRequest_sMSTemplateRequest_TemplateDescription = null;
             if (cmdletContext.SMSTemplateRequest_TemplateDescription != null)
@@ -300,6 +305,12 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestSMSTemplateRequest_sMSTemplateRequest_TemplateDescription != null)
             {
                 request.SMSTemplateRequest.TemplateDescription = requestSMSTemplateRequest_sMSTemplateRequest_TemplateDescription;
+                requestSMSTemplateRequestIsNull = false;
+            }
+             // determine if request.SMSTemplateRequest should be set to null
+            if (requestSMSTemplateRequestIsNull)
+            {
+                request.SMSTemplateRequest = null;
             }
             if (cmdletContext.TemplateName != null)
             {

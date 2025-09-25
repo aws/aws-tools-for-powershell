@@ -337,6 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             }
             
              // populate Content
+            var requestContentIsNull = true;
             request.Content = new Amazon.ConnectCases.Model.RelatedItemInputContent();
             Amazon.ConnectCases.Model.Contact requestContent_content_Contact = null;
             
@@ -361,6 +362,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             if (requestContent_content_Contact != null)
             {
                 request.Content.Contact = requestContent_content_Contact;
+                requestContentIsNull = false;
             }
             Amazon.ConnectCases.Model.FileContent requestContent_content_File = null;
             
@@ -385,6 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             if (requestContent_content_File != null)
             {
                 request.Content.File = requestContent_content_File;
+                requestContentIsNull = false;
             }
             Amazon.ConnectCases.Model.SlaInputContent requestContent_content_Sla = null;
             
@@ -464,6 +467,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             if (requestContent_content_Sla != null)
             {
                 request.Content.Sla = requestContent_content_Sla;
+                requestContentIsNull = false;
             }
             Amazon.ConnectCases.Model.CommentContent requestContent_content_Comment = null;
             
@@ -498,6 +502,12 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             if (requestContent_content_Comment != null)
             {
                 request.Content.Comment = requestContent_content_Comment;
+                requestContentIsNull = false;
+            }
+             // determine if request.Content should be set to null
+            if (requestContentIsNull)
+            {
+                request.Content = null;
             }
             if (cmdletContext.DomainId != null)
             {

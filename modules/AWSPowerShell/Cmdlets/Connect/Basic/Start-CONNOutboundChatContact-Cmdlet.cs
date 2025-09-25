@@ -401,6 +401,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             
              // populate DestinationEndpoint
+            var requestDestinationEndpointIsNull = true;
             request.DestinationEndpoint = new Amazon.Connect.Model.Endpoint();
             System.String requestDestinationEndpoint_destinationEndpoint_Address = null;
             if (cmdletContext.DestinationEndpoint_Address != null)
@@ -410,6 +411,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestDestinationEndpoint_destinationEndpoint_Address != null)
             {
                 request.DestinationEndpoint.Address = requestDestinationEndpoint_destinationEndpoint_Address;
+                requestDestinationEndpointIsNull = false;
             }
             Amazon.Connect.EndpointType requestDestinationEndpoint_destinationEndpoint_Type = null;
             if (cmdletContext.DestinationEndpoint_Type != null)
@@ -419,6 +421,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestDestinationEndpoint_destinationEndpoint_Type != null)
             {
                 request.DestinationEndpoint.Type = requestDestinationEndpoint_destinationEndpoint_Type;
+                requestDestinationEndpointIsNull = false;
+            }
+             // determine if request.DestinationEndpoint should be set to null
+            if (requestDestinationEndpointIsNull)
+            {
+                request.DestinationEndpoint = null;
             }
             
              // populate InitialSystemMessage
@@ -482,6 +490,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             
              // populate SourceEndpoint
+            var requestSourceEndpointIsNull = true;
             request.SourceEndpoint = new Amazon.Connect.Model.Endpoint();
             System.String requestSourceEndpoint_sourceEndpoint_Address = null;
             if (cmdletContext.SourceEndpoint_Address != null)
@@ -491,6 +500,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestSourceEndpoint_sourceEndpoint_Address != null)
             {
                 request.SourceEndpoint.Address = requestSourceEndpoint_sourceEndpoint_Address;
+                requestSourceEndpointIsNull = false;
             }
             Amazon.Connect.EndpointType requestSourceEndpoint_sourceEndpoint_Type = null;
             if (cmdletContext.SourceEndpoint_Type != null)
@@ -500,6 +510,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestSourceEndpoint_sourceEndpoint_Type != null)
             {
                 request.SourceEndpoint.Type = requestSourceEndpoint_sourceEndpoint_Type;
+                requestSourceEndpointIsNull = false;
+            }
+             // determine if request.SourceEndpoint should be set to null
+            if (requestSourceEndpointIsNull)
+            {
+                request.SourceEndpoint = null;
             }
             if (cmdletContext.SupportedMessagingContentType != null)
             {

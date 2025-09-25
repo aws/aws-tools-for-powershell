@@ -597,6 +597,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             }
             
              // populate UpdatedForm
+            var requestUpdatedFormIsNull = true;
             request.UpdatedForm = new Amazon.AmplifyUIBuilder.Model.UpdateFormData();
             Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.FieldConfig> requestUpdatedForm_updatedForm_Field = null;
             if (cmdletContext.UpdatedForm_Field != null)
@@ -606,6 +607,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestUpdatedForm_updatedForm_Field != null)
             {
                 request.UpdatedForm.Fields = requestUpdatedForm_updatedForm_Field;
+                requestUpdatedFormIsNull = false;
             }
             Amazon.AmplifyUIBuilder.FormActionType requestUpdatedForm_updatedForm_FormActionType = null;
             if (cmdletContext.UpdatedForm_FormActionType != null)
@@ -615,6 +617,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestUpdatedForm_updatedForm_FormActionType != null)
             {
                 request.UpdatedForm.FormActionType = requestUpdatedForm_updatedForm_FormActionType;
+                requestUpdatedFormIsNull = false;
             }
             Amazon.AmplifyUIBuilder.LabelDecorator requestUpdatedForm_updatedForm_LabelDecorator = null;
             if (cmdletContext.UpdatedForm_LabelDecorator != null)
@@ -624,6 +627,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestUpdatedForm_updatedForm_LabelDecorator != null)
             {
                 request.UpdatedForm.LabelDecorator = requestUpdatedForm_updatedForm_LabelDecorator;
+                requestUpdatedFormIsNull = false;
             }
             System.String requestUpdatedForm_updatedForm_Name = null;
             if (cmdletContext.UpdatedForm_Name != null)
@@ -633,6 +637,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestUpdatedForm_updatedForm_Name != null)
             {
                 request.UpdatedForm.Name = requestUpdatedForm_updatedForm_Name;
+                requestUpdatedFormIsNull = false;
             }
             System.String requestUpdatedForm_updatedForm_SchemaVersion = null;
             if (cmdletContext.UpdatedForm_SchemaVersion != null)
@@ -642,6 +647,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestUpdatedForm_updatedForm_SchemaVersion != null)
             {
                 request.UpdatedForm.SchemaVersion = requestUpdatedForm_updatedForm_SchemaVersion;
+                requestUpdatedFormIsNull = false;
             }
             Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.SectionalElement> requestUpdatedForm_updatedForm_SectionalElement = null;
             if (cmdletContext.UpdatedForm_SectionalElement != null)
@@ -651,6 +657,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestUpdatedForm_updatedForm_SectionalElement != null)
             {
                 request.UpdatedForm.SectionalElements = requestUpdatedForm_updatedForm_SectionalElement;
+                requestUpdatedFormIsNull = false;
             }
             Amazon.AmplifyUIBuilder.Model.FormDataTypeConfig requestUpdatedForm_updatedForm_DataType = null;
             
@@ -685,6 +692,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestUpdatedForm_updatedForm_DataType != null)
             {
                 request.UpdatedForm.DataType = requestUpdatedForm_updatedForm_DataType;
+                requestUpdatedFormIsNull = false;
             }
             Amazon.AmplifyUIBuilder.Model.FormStyle requestUpdatedForm_updatedForm_Style = null;
             
@@ -804,6 +812,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestUpdatedForm_updatedForm_Style != null)
             {
                 request.UpdatedForm.Style = requestUpdatedForm_updatedForm_Style;
+                requestUpdatedFormIsNull = false;
             }
             Amazon.AmplifyUIBuilder.Model.FormCTA requestUpdatedForm_updatedForm_Cta = null;
             
@@ -1068,6 +1077,12 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestUpdatedForm_updatedForm_Cta != null)
             {
                 request.UpdatedForm.Cta = requestUpdatedForm_updatedForm_Cta;
+                requestUpdatedFormIsNull = false;
+            }
+             // determine if request.UpdatedForm should be set to null
+            if (requestUpdatedFormIsNull)
+            {
+                request.UpdatedForm = null;
             }
             
             CmdletOutput output;

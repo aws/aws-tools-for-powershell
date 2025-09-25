@@ -1381,6 +1381,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             Amazon.BedrockAgent.Model.UrlConfiguration requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_SourceConfiguration_dataSourceConfiguration_WebConfiguration_SourceConfiguration_UrlConfiguration = null;
             
              // populate UrlConfiguration
+            var requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_SourceConfiguration_dataSourceConfiguration_WebConfiguration_SourceConfiguration_UrlConfigurationIsNull = true;
             requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_SourceConfiguration_dataSourceConfiguration_WebConfiguration_SourceConfiguration_UrlConfiguration = new Amazon.BedrockAgent.Model.UrlConfiguration();
             List<Amazon.BedrockAgent.Model.SeedUrl> requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_SourceConfiguration_dataSourceConfiguration_WebConfiguration_SourceConfiguration_UrlConfiguration_urlConfiguration_SeedUrl = null;
             if (cmdletContext.UrlConfiguration_SeedUrl != null)
@@ -1390,6 +1391,12 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             if (requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_SourceConfiguration_dataSourceConfiguration_WebConfiguration_SourceConfiguration_UrlConfiguration_urlConfiguration_SeedUrl != null)
             {
                 requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_SourceConfiguration_dataSourceConfiguration_WebConfiguration_SourceConfiguration_UrlConfiguration.SeedUrls = requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_SourceConfiguration_dataSourceConfiguration_WebConfiguration_SourceConfiguration_UrlConfiguration_urlConfiguration_SeedUrl;
+                requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_SourceConfiguration_dataSourceConfiguration_WebConfiguration_SourceConfiguration_UrlConfigurationIsNull = false;
+            }
+             // determine if requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_SourceConfiguration_dataSourceConfiguration_WebConfiguration_SourceConfiguration_UrlConfiguration should be set to null
+            if (requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_SourceConfiguration_dataSourceConfiguration_WebConfiguration_SourceConfiguration_UrlConfigurationIsNull)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_SourceConfiguration_dataSourceConfiguration_WebConfiguration_SourceConfiguration_UrlConfiguration = null;
             }
             if (requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_SourceConfiguration_dataSourceConfiguration_WebConfiguration_SourceConfiguration_UrlConfiguration != null)
             {

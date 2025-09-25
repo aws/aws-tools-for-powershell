@@ -2264,6 +2264,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 Amazon.Pinpoint.Model.DirectMessageConfiguration requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration = null;
                 
                  // populate MessageConfiguration
+                var requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfigurationIsNull = true;
                 requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration = new Amazon.Pinpoint.Model.DirectMessageConfiguration();
                 Amazon.Pinpoint.Model.DefaultMessage requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_DefaultMessage = null;
                 
@@ -2298,6 +2299,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_DefaultMessage != null)
                 {
                     requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration.DefaultMessage = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_DefaultMessage;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfigurationIsNull = false;
                 }
                 Amazon.Pinpoint.Model.VoiceMessage requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_VoiceMessage = null;
                 
@@ -2362,6 +2364,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_VoiceMessage != null)
                 {
                     requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration.VoiceMessage = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_VoiceMessage;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfigurationIsNull = false;
                 }
                 Amazon.Pinpoint.Model.DefaultPushNotificationMessage requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_DefaultPushNotificationMessage = null;
                 
@@ -2446,6 +2449,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_DefaultPushNotificationMessage != null)
                 {
                     requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration.DefaultPushNotificationMessage = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_DefaultPushNotificationMessage;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfigurationIsNull = false;
                 }
                 Amazon.Pinpoint.Model.EmailMessage requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_EmailMessage = null;
                 
@@ -2666,6 +2670,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_EmailMessage != null)
                 {
                     requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration.EmailMessage = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_EmailMessage;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfigurationIsNull = false;
                 }
                 Amazon.Pinpoint.Model.SMSMessage requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_SMSMessage = null;
                 
@@ -2770,6 +2775,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_SMSMessage != null)
                 {
                     requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration.SMSMessage = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_SMSMessage;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfigurationIsNull = false;
                 }
                 Amazon.Pinpoint.Model.BaiduMessage requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_BaiduMessage = null;
                 
@@ -2924,6 +2930,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_BaiduMessage != null)
                 {
                     requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration.BaiduMessage = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_BaiduMessage;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfigurationIsNull = false;
                 }
                 Amazon.Pinpoint.Model.ADMMessage requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_ADMMessage = null;
                 
@@ -3098,6 +3105,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_ADMMessage != null)
                 {
                     requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration.ADMMessage = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_ADMMessage;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfigurationIsNull = false;
                 }
                 Amazon.Pinpoint.Model.APNSMessage requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_APNSMessage = null;
                 
@@ -3292,6 +3300,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_APNSMessage != null)
                 {
                     requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration.APNSMessage = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_APNSMessage;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfigurationIsNull = false;
                 }
                 Amazon.Pinpoint.Model.GCMMessage requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage = null;
                 
@@ -3486,6 +3495,12 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage != null)
                 {
                     requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration.GCMMessage = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_GCMMessage;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfigurationIsNull = false;
+                }
+                 // determine if requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration should be set to null
+                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfigurationIsNull)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration = null;
                 }
                 if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration != null)
                 {

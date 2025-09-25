@@ -199,6 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             }
             
              // populate TargetReference
+            var requestTargetReferenceIsNull = true;
             request.TargetReference = new Amazon.CloudDirectory.Model.ObjectReference();
             System.String requestTargetReference_targetReference_Selector = null;
             if (cmdletContext.TargetReference_Selector != null)
@@ -208,6 +209,12 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             if (requestTargetReference_targetReference_Selector != null)
             {
                 request.TargetReference.Selector = requestTargetReference_targetReference_Selector;
+                requestTargetReferenceIsNull = false;
+            }
+             // determine if request.TargetReference should be set to null
+            if (requestTargetReferenceIsNull)
+            {
+                request.TargetReference = null;
             }
             
             // Initialize loop variant and commence piping

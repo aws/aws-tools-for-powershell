@@ -157,6 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             
             
              // populate LoggingConfiguration
+            var requestLoggingConfigurationIsNull = true;
             request.LoggingConfiguration = new Amazon.ChimeSDKVoice.Model.LoggingConfiguration();
             System.Boolean? requestLoggingConfiguration_loggingConfiguration_EnableMediaMetricLog = null;
             if (cmdletContext.LoggingConfiguration_EnableMediaMetricLog != null)
@@ -166,6 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             if (requestLoggingConfiguration_loggingConfiguration_EnableMediaMetricLog != null)
             {
                 request.LoggingConfiguration.EnableMediaMetricLogs = requestLoggingConfiguration_loggingConfiguration_EnableMediaMetricLog.Value;
+                requestLoggingConfigurationIsNull = false;
             }
             System.Boolean? requestLoggingConfiguration_loggingConfiguration_EnableSIPLog = null;
             if (cmdletContext.LoggingConfiguration_EnableSIPLog != null)
@@ -175,6 +177,12 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             if (requestLoggingConfiguration_loggingConfiguration_EnableSIPLog != null)
             {
                 request.LoggingConfiguration.EnableSIPLogs = requestLoggingConfiguration_loggingConfiguration_EnableSIPLog.Value;
+                requestLoggingConfigurationIsNull = false;
+            }
+             // determine if request.LoggingConfiguration should be set to null
+            if (requestLoggingConfigurationIsNull)
+            {
+                request.LoggingConfiguration = null;
             }
             if (cmdletContext.VoiceConnectorId != null)
             {

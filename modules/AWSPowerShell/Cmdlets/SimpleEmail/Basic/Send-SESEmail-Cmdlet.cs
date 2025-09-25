@@ -424,6 +424,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             }
             
              // populate Destination
+            var requestDestinationIsNull = true;
             request.Destination = new Amazon.SimpleEmail.Model.Destination();
             List<System.String> requestDestination_destination_BccAddress = null;
             if (cmdletContext.Destination_BccAddress != null)
@@ -433,6 +434,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             if (requestDestination_destination_BccAddress != null)
             {
                 request.Destination.BccAddresses = requestDestination_destination_BccAddress;
+                requestDestinationIsNull = false;
             }
             List<System.String> requestDestination_destination_CcAddress = null;
             if (cmdletContext.Destination_CcAddress != null)
@@ -442,6 +444,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             if (requestDestination_destination_CcAddress != null)
             {
                 request.Destination.CcAddresses = requestDestination_destination_CcAddress;
+                requestDestinationIsNull = false;
             }
             List<System.String> requestDestination_destination_ToAddress = null;
             if (cmdletContext.Destination_ToAddress != null)
@@ -451,6 +454,12 @@ namespace Amazon.PowerShell.Cmdlets.SES
             if (requestDestination_destination_ToAddress != null)
             {
                 request.Destination.ToAddresses = requestDestination_destination_ToAddress;
+                requestDestinationIsNull = false;
+            }
+             // determine if request.Destination should be set to null
+            if (requestDestinationIsNull)
+            {
+                request.Destination = null;
             }
             
              // populate Message
@@ -459,6 +468,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             Amazon.SimpleEmail.Model.Body requestMessage_message_Body = null;
             
              // populate Body
+            var requestMessage_message_BodyIsNull = true;
             requestMessage_message_Body = new Amazon.SimpleEmail.Model.Body();
             Amazon.SimpleEmail.Model.Content requestMessage_message_Body_message_Body_Html = null;
             
@@ -493,6 +503,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             if (requestMessage_message_Body_message_Body_Html != null)
             {
                 requestMessage_message_Body.Html = requestMessage_message_Body_message_Body_Html;
+                requestMessage_message_BodyIsNull = false;
             }
             Amazon.SimpleEmail.Model.Content requestMessage_message_Body_message_Body_Text = null;
             
@@ -527,6 +538,12 @@ namespace Amazon.PowerShell.Cmdlets.SES
             if (requestMessage_message_Body_message_Body_Text != null)
             {
                 requestMessage_message_Body.Text = requestMessage_message_Body_message_Body_Text;
+                requestMessage_message_BodyIsNull = false;
+            }
+             // determine if requestMessage_message_Body should be set to null
+            if (requestMessage_message_BodyIsNull)
+            {
+                requestMessage_message_Body = null;
             }
             if (requestMessage_message_Body != null)
             {

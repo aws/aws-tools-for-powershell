@@ -187,6 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             }
             
              // populate GCMChannelRequest
+            var requestGCMChannelRequestIsNull = true;
             request.GCMChannelRequest = new Amazon.Pinpoint.Model.GCMChannelRequest();
             System.String requestGCMChannelRequest_gCMChannelRequest_ApiKey = null;
             if (cmdletContext.GCMChannelRequest_ApiKey != null)
@@ -196,6 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestGCMChannelRequest_gCMChannelRequest_ApiKey != null)
             {
                 request.GCMChannelRequest.ApiKey = requestGCMChannelRequest_gCMChannelRequest_ApiKey;
+                requestGCMChannelRequestIsNull = false;
             }
             System.String requestGCMChannelRequest_gCMChannelRequest_DefaultAuthenticationMethod = null;
             if (cmdletContext.GCMChannelRequest_DefaultAuthenticationMethod != null)
@@ -205,6 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestGCMChannelRequest_gCMChannelRequest_DefaultAuthenticationMethod != null)
             {
                 request.GCMChannelRequest.DefaultAuthenticationMethod = requestGCMChannelRequest_gCMChannelRequest_DefaultAuthenticationMethod;
+                requestGCMChannelRequestIsNull = false;
             }
             System.Boolean? requestGCMChannelRequest_gCMChannelRequest_Enabled = null;
             if (cmdletContext.GCMChannelRequest_Enabled != null)
@@ -214,6 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestGCMChannelRequest_gCMChannelRequest_Enabled != null)
             {
                 request.GCMChannelRequest.Enabled = requestGCMChannelRequest_gCMChannelRequest_Enabled.Value;
+                requestGCMChannelRequestIsNull = false;
             }
             System.String requestGCMChannelRequest_gCMChannelRequest_ServiceJson = null;
             if (cmdletContext.GCMChannelRequest_ServiceJson != null)
@@ -223,6 +227,12 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestGCMChannelRequest_gCMChannelRequest_ServiceJson != null)
             {
                 request.GCMChannelRequest.ServiceJson = requestGCMChannelRequest_gCMChannelRequest_ServiceJson;
+                requestGCMChannelRequestIsNull = false;
+            }
+             // determine if request.GCMChannelRequest should be set to null
+            if (requestGCMChannelRequestIsNull)
+            {
+                request.GCMChannelRequest = null;
             }
             
             CmdletOutput output;

@@ -248,6 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
                 
                 
                  // populate CatalogData
+                var requestCatalogDataIsNull = true;
                 request.CatalogData = new Amazon.ECRPublic.Model.RepositoryCatalogDataInput();
                 System.String requestCatalogData_catalogData_AboutText = null;
                 if (cmdletContext.CatalogData_AboutText != null)
@@ -257,6 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
                 if (requestCatalogData_catalogData_AboutText != null)
                 {
                     request.CatalogData.AboutText = requestCatalogData_catalogData_AboutText;
+                    requestCatalogDataIsNull = false;
                 }
                 List<System.String> requestCatalogData_catalogData_Architecture = null;
                 if (cmdletContext.CatalogData_Architecture != null)
@@ -266,6 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
                 if (requestCatalogData_catalogData_Architecture != null)
                 {
                     request.CatalogData.Architectures = requestCatalogData_catalogData_Architecture;
+                    requestCatalogDataIsNull = false;
                 }
                 System.String requestCatalogData_catalogData_Description = null;
                 if (cmdletContext.CatalogData_Description != null)
@@ -275,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
                 if (requestCatalogData_catalogData_Description != null)
                 {
                     request.CatalogData.Description = requestCatalogData_catalogData_Description;
+                    requestCatalogDataIsNull = false;
                 }
                 System.IO.MemoryStream requestCatalogData_catalogData_LogoImageBlob = null;
                 if (cmdletContext.CatalogData_LogoImageBlob != null)
@@ -285,6 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
                 if (requestCatalogData_catalogData_LogoImageBlob != null)
                 {
                     request.CatalogData.LogoImageBlob = requestCatalogData_catalogData_LogoImageBlob;
+                    requestCatalogDataIsNull = false;
                 }
                 List<System.String> requestCatalogData_catalogData_OperatingSystem = null;
                 if (cmdletContext.CatalogData_OperatingSystem != null)
@@ -294,6 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
                 if (requestCatalogData_catalogData_OperatingSystem != null)
                 {
                     request.CatalogData.OperatingSystems = requestCatalogData_catalogData_OperatingSystem;
+                    requestCatalogDataIsNull = false;
                 }
                 System.String requestCatalogData_catalogData_UsageText = null;
                 if (cmdletContext.CatalogData_UsageText != null)
@@ -303,6 +309,12 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
                 if (requestCatalogData_catalogData_UsageText != null)
                 {
                     request.CatalogData.UsageText = requestCatalogData_catalogData_UsageText;
+                    requestCatalogDataIsNull = false;
+                }
+                 // determine if request.CatalogData should be set to null
+                if (requestCatalogDataIsNull)
+                {
+                    request.CatalogData = null;
                 }
                 if (cmdletContext.RegistryId != null)
                 {

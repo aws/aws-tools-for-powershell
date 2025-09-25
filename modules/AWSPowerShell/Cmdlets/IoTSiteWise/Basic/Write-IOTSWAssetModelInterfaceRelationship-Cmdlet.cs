@@ -227,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             }
             
              // populate PropertyMappingConfiguration
+            var requestPropertyMappingConfigurationIsNull = true;
             request.PropertyMappingConfiguration = new Amazon.IoTSiteWise.Model.PropertyMappingConfiguration();
             System.Boolean? requestPropertyMappingConfiguration_propertyMappingConfiguration_CreateMissingProperty = null;
             if (cmdletContext.PropertyMappingConfiguration_CreateMissingProperty != null)
@@ -236,6 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestPropertyMappingConfiguration_propertyMappingConfiguration_CreateMissingProperty != null)
             {
                 request.PropertyMappingConfiguration.CreateMissingProperty = requestPropertyMappingConfiguration_propertyMappingConfiguration_CreateMissingProperty.Value;
+                requestPropertyMappingConfigurationIsNull = false;
             }
             System.Boolean? requestPropertyMappingConfiguration_propertyMappingConfiguration_MatchByPropertyName = null;
             if (cmdletContext.PropertyMappingConfiguration_MatchByPropertyName != null)
@@ -245,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestPropertyMappingConfiguration_propertyMappingConfiguration_MatchByPropertyName != null)
             {
                 request.PropertyMappingConfiguration.MatchByPropertyName = requestPropertyMappingConfiguration_propertyMappingConfiguration_MatchByPropertyName.Value;
+                requestPropertyMappingConfigurationIsNull = false;
             }
             List<Amazon.IoTSiteWise.Model.PropertyMapping> requestPropertyMappingConfiguration_propertyMappingConfiguration_Override = null;
             if (cmdletContext.PropertyMappingConfiguration_Override != null)
@@ -254,6 +257,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestPropertyMappingConfiguration_propertyMappingConfiguration_Override != null)
             {
                 request.PropertyMappingConfiguration.Overrides = requestPropertyMappingConfiguration_propertyMappingConfiguration_Override;
+                requestPropertyMappingConfigurationIsNull = false;
+            }
+             // determine if request.PropertyMappingConfiguration should be set to null
+            if (requestPropertyMappingConfigurationIsNull)
+            {
+                request.PropertyMappingConfiguration = null;
             }
             
             CmdletOutput output;

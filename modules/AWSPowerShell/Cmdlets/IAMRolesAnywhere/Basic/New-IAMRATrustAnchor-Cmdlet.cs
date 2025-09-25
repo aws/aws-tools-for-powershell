@@ -241,6 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
             }
             
              // populate Source
+            var requestSourceIsNull = true;
             request.Source = new Amazon.IAMRolesAnywhere.Model.Source();
             Amazon.IAMRolesAnywhere.TrustAnchorType requestSource_source_SourceType = null;
             if (cmdletContext.Source_SourceType != null)
@@ -250,6 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
             if (requestSource_source_SourceType != null)
             {
                 request.Source.SourceType = requestSource_source_SourceType;
+                requestSourceIsNull = false;
             }
             Amazon.IAMRolesAnywhere.Model.SourceData requestSource_source_SourceData = null;
             
@@ -284,6 +286,12 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
             if (requestSource_source_SourceData != null)
             {
                 request.Source.SourceData = requestSource_source_SourceData;
+                requestSourceIsNull = false;
+            }
+             // determine if request.Source should be set to null
+            if (requestSourceIsNull)
+            {
+                request.Source = null;
             }
             if (cmdletContext.Tag != null)
             {

@@ -449,6 +449,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             }
             
              // populate EvaluationConfig
+            var requestEvaluationConfigIsNull = true;
             request.EvaluationConfig = new Amazon.Bedrock.Model.EvaluationConfig();
             Amazon.Bedrock.Model.AutomatedEvaluationConfig requestEvaluationConfig_evaluationConfig_Automated = null;
             
@@ -548,6 +549,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestEvaluationConfig_evaluationConfig_Automated != null)
             {
                 request.EvaluationConfig.Automated = requestEvaluationConfig_evaluationConfig_Automated;
+                requestEvaluationConfigIsNull = false;
             }
             Amazon.Bedrock.Model.HumanEvaluationConfig requestEvaluationConfig_evaluationConfig_Human = null;
             
@@ -617,9 +619,16 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestEvaluationConfig_evaluationConfig_Human != null)
             {
                 request.EvaluationConfig.Human = requestEvaluationConfig_evaluationConfig_Human;
+                requestEvaluationConfigIsNull = false;
+            }
+             // determine if request.EvaluationConfig should be set to null
+            if (requestEvaluationConfigIsNull)
+            {
+                request.EvaluationConfig = null;
             }
             
              // populate InferenceConfig
+            var requestInferenceConfigIsNull = true;
             request.InferenceConfig = new Amazon.Bedrock.Model.EvaluationInferenceConfig();
             List<Amazon.Bedrock.Model.EvaluationModelConfig> requestInferenceConfig_inferenceConfig_Model = null;
             if (cmdletContext.InferenceConfig_Model != null)
@@ -629,6 +638,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestInferenceConfig_inferenceConfig_Model != null)
             {
                 request.InferenceConfig.Models = requestInferenceConfig_inferenceConfig_Model;
+                requestInferenceConfigIsNull = false;
             }
             List<Amazon.Bedrock.Model.RAGConfig> requestInferenceConfig_inferenceConfig_RagConfig = null;
             if (cmdletContext.InferenceConfig_RagConfig != null)
@@ -638,6 +648,12 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestInferenceConfig_inferenceConfig_RagConfig != null)
             {
                 request.InferenceConfig.RagConfigs = requestInferenceConfig_inferenceConfig_RagConfig;
+                requestInferenceConfigIsNull = false;
+            }
+             // determine if request.InferenceConfig should be set to null
+            if (requestInferenceConfigIsNull)
+            {
+                request.InferenceConfig = null;
             }
             if (cmdletContext.JobDescription != null)
             {

@@ -235,6 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             
             
              // populate DomainEntry
+            var requestDomainEntryIsNull = true;
             request.DomainEntry = new Amazon.Lightsail.Model.DomainEntry();
             System.String requestDomainEntry_domainEntry_Id = null;
             if (cmdletContext.DomainEntry_Id != null)
@@ -244,6 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (requestDomainEntry_domainEntry_Id != null)
             {
                 request.DomainEntry.Id = requestDomainEntry_domainEntry_Id;
+                requestDomainEntryIsNull = false;
             }
             System.Boolean? requestDomainEntry_domainEntry_IsAlias = null;
             if (cmdletContext.DomainEntry_IsAlias != null)
@@ -253,6 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (requestDomainEntry_domainEntry_IsAlias != null)
             {
                 request.DomainEntry.IsAlias = requestDomainEntry_domainEntry_IsAlias.Value;
+                requestDomainEntryIsNull = false;
             }
             System.String requestDomainEntry_domainEntry_Name = null;
             if (cmdletContext.DomainEntry_Name != null)
@@ -262,6 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (requestDomainEntry_domainEntry_Name != null)
             {
                 request.DomainEntry.Name = requestDomainEntry_domainEntry_Name;
+                requestDomainEntryIsNull = false;
             }
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             Dictionary<System.String, System.String> requestDomainEntry_domainEntry_Option = null;
@@ -272,6 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (requestDomainEntry_domainEntry_Option != null)
             {
                 request.DomainEntry.Options = requestDomainEntry_domainEntry_Option;
+                requestDomainEntryIsNull = false;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.String requestDomainEntry_domainEntry_Target = null;
@@ -282,6 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (requestDomainEntry_domainEntry_Target != null)
             {
                 request.DomainEntry.Target = requestDomainEntry_domainEntry_Target;
+                requestDomainEntryIsNull = false;
             }
             System.String requestDomainEntry_domainEntry_Type = null;
             if (cmdletContext.DomainEntry_Type != null)
@@ -291,6 +297,12 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (requestDomainEntry_domainEntry_Type != null)
             {
                 request.DomainEntry.Type = requestDomainEntry_domainEntry_Type;
+                requestDomainEntryIsNull = false;
+            }
+             // determine if request.DomainEntry should be set to null
+            if (requestDomainEntryIsNull)
+            {
+                request.DomainEntry = null;
             }
             if (cmdletContext.DomainName != null)
             {

@@ -253,6 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.PAN
             }
             
              // populate ManifestPayload
+            var requestManifestPayloadIsNull = true;
             request.ManifestPayload = new Amazon.Panorama.Model.ManifestPayload();
             System.String requestManifestPayload_manifestPayload_PayloadData = null;
             if (cmdletContext.ManifestPayload_PayloadData != null)
@@ -262,6 +263,12 @@ namespace Amazon.PowerShell.Cmdlets.PAN
             if (requestManifestPayload_manifestPayload_PayloadData != null)
             {
                 request.ManifestPayload.PayloadData = requestManifestPayload_manifestPayload_PayloadData;
+                requestManifestPayloadIsNull = false;
+            }
+             // determine if request.ManifestPayload should be set to null
+            if (requestManifestPayloadIsNull)
+            {
+                request.ManifestPayload = null;
             }
             if (cmdletContext.Name != null)
             {

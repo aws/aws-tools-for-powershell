@@ -270,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
             Amazon.IoTDeviceAdvisor.Model.DeviceUnderTest requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice = null;
             
              // populate PrimaryDevice
+            var requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDeviceIsNull = true;
             requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice = new Amazon.IoTDeviceAdvisor.Model.DeviceUnderTest();
             System.String requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice_primaryDevice_CertificateArn = null;
             if (cmdletContext.PrimaryDevice_CertificateArn != null)
@@ -279,6 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
             if (requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice_primaryDevice_CertificateArn != null)
             {
                 requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice.CertificateArn = requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice_primaryDevice_CertificateArn;
+                requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDeviceIsNull = false;
             }
             System.String requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice_primaryDevice_DeviceRoleArn = null;
             if (cmdletContext.PrimaryDevice_DeviceRoleArn != null)
@@ -288,6 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
             if (requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice_primaryDevice_DeviceRoleArn != null)
             {
                 requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice.DeviceRoleArn = requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice_primaryDevice_DeviceRoleArn;
+                requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDeviceIsNull = false;
             }
             System.String requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice_primaryDevice_ThingArn = null;
             if (cmdletContext.PrimaryDevice_ThingArn != null)
@@ -297,6 +300,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
             if (requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice_primaryDevice_ThingArn != null)
             {
                 requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice.ThingArn = requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice_primaryDevice_ThingArn;
+                requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDeviceIsNull = false;
+            }
+             // determine if requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice should be set to null
+            if (requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDeviceIsNull)
+            {
+                requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice = null;
             }
             if (requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice != null)
             {

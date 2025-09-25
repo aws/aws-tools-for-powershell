@@ -254,6 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             
             
              // populate Filters
+            var requestFiltersIsNull = true;
             request.Filters = new Amazon.Connect.Model.UserDataFilters();
             List<System.String> requestFilters_filters_Agent = null;
             if (cmdletContext.Filters_Agent != null)
@@ -263,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestFilters_filters_Agent != null)
             {
                 request.Filters.Agents = requestFilters_filters_Agent;
+                requestFiltersIsNull = false;
             }
             List<System.String> requestFilters_filters_Queue = null;
             if (cmdletContext.Filters_Queue != null)
@@ -272,6 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestFilters_filters_Queue != null)
             {
                 request.Filters.Queues = requestFilters_filters_Queue;
+                requestFiltersIsNull = false;
             }
             List<System.String> requestFilters_filters_RoutingProfile = null;
             if (cmdletContext.Filters_RoutingProfile != null)
@@ -281,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestFilters_filters_RoutingProfile != null)
             {
                 request.Filters.RoutingProfiles = requestFilters_filters_RoutingProfile;
+                requestFiltersIsNull = false;
             }
             List<System.String> requestFilters_filters_UserHierarchyGroup = null;
             if (cmdletContext.Filters_UserHierarchyGroup != null)
@@ -290,6 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestFilters_filters_UserHierarchyGroup != null)
             {
                 request.Filters.UserHierarchyGroups = requestFilters_filters_UserHierarchyGroup;
+                requestFiltersIsNull = false;
             }
             Amazon.Connect.Model.ContactFilter requestFilters_filters_ContactFilter = null;
             
@@ -314,6 +319,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestFilters_filters_ContactFilter != null)
             {
                 request.Filters.ContactFilter = requestFilters_filters_ContactFilter;
+                requestFiltersIsNull = false;
+            }
+             // determine if request.Filters should be set to null
+            if (requestFiltersIsNull)
+            {
+                request.Filters = null;
             }
             if (cmdletContext.InstanceId != null)
             {

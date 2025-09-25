@@ -282,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.MPA
             
             
              // populate ApprovalStrategy
+            var requestApprovalStrategyIsNull = true;
             request.ApprovalStrategy = new Amazon.MPA.Model.ApprovalStrategy();
             Amazon.MPA.Model.MofNApprovalStrategy requestApprovalStrategy_approvalStrategy_MofN = null;
             
@@ -306,6 +307,12 @@ namespace Amazon.PowerShell.Cmdlets.MPA
             if (requestApprovalStrategy_approvalStrategy_MofN != null)
             {
                 request.ApprovalStrategy.MofN = requestApprovalStrategy_approvalStrategy_MofN;
+                requestApprovalStrategyIsNull = false;
+            }
+             // determine if request.ApprovalStrategy should be set to null
+            if (requestApprovalStrategyIsNull)
+            {
+                request.ApprovalStrategy = null;
             }
             if (cmdletContext.Approver != null)
             {

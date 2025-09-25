@@ -405,6 +405,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             
             
              // populate GenerationAttributes
+            var requestGenerationAttributesIsNull = true;
             request.GenerationAttributes = new Amazon.PaymentCryptographyData.Model.MacAttributes();
             Amazon.PaymentCryptographyData.MacAlgorithm requestGenerationAttributes_generationAttributes_Algorithm = null;
             if (cmdletContext.GenerationAttributes_Algorithm != null)
@@ -414,6 +415,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestGenerationAttributes_generationAttributes_Algorithm != null)
             {
                 request.GenerationAttributes.Algorithm = requestGenerationAttributes_generationAttributes_Algorithm;
+                requestGenerationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.MacAlgorithmDukpt requestGenerationAttributes_generationAttributes_DukptCmac = null;
             
@@ -458,6 +460,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestGenerationAttributes_generationAttributes_DukptCmac != null)
             {
                 request.GenerationAttributes.DukptCmac = requestGenerationAttributes_generationAttributes_DukptCmac;
+                requestGenerationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.MacAlgorithmDukpt requestGenerationAttributes_generationAttributes_DukptIso9797Algorithm1 = null;
             
@@ -502,6 +505,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestGenerationAttributes_generationAttributes_DukptIso9797Algorithm1 != null)
             {
                 request.GenerationAttributes.DukptIso9797Algorithm1 = requestGenerationAttributes_generationAttributes_DukptIso9797Algorithm1;
+                requestGenerationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.MacAlgorithmDukpt requestGenerationAttributes_generationAttributes_DukptIso9797Algorithm3 = null;
             
@@ -546,6 +550,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestGenerationAttributes_generationAttributes_DukptIso9797Algorithm3 != null)
             {
                 request.GenerationAttributes.DukptIso9797Algorithm3 = requestGenerationAttributes_generationAttributes_DukptIso9797Algorithm3;
+                requestGenerationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.MacAlgorithmEmv requestGenerationAttributes_generationAttributes_EmvMac = null;
             
@@ -595,6 +600,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             Amazon.PaymentCryptographyData.Model.SessionKeyDerivationValue requestGenerationAttributes_generationAttributes_EmvMac_generationAttributes_EmvMac_SessionKeyDerivationValue = null;
             
              // populate SessionKeyDerivationValue
+            var requestGenerationAttributes_generationAttributes_EmvMac_generationAttributes_EmvMac_SessionKeyDerivationValueIsNull = true;
             requestGenerationAttributes_generationAttributes_EmvMac_generationAttributes_EmvMac_SessionKeyDerivationValue = new Amazon.PaymentCryptographyData.Model.SessionKeyDerivationValue();
             System.String requestGenerationAttributes_generationAttributes_EmvMac_generationAttributes_EmvMac_SessionKeyDerivationValue_sessionKeyDerivationValue_ApplicationCryptogram = null;
             if (cmdletContext.SessionKeyDerivationValue_ApplicationCryptogram != null)
@@ -604,6 +610,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestGenerationAttributes_generationAttributes_EmvMac_generationAttributes_EmvMac_SessionKeyDerivationValue_sessionKeyDerivationValue_ApplicationCryptogram != null)
             {
                 requestGenerationAttributes_generationAttributes_EmvMac_generationAttributes_EmvMac_SessionKeyDerivationValue.ApplicationCryptogram = requestGenerationAttributes_generationAttributes_EmvMac_generationAttributes_EmvMac_SessionKeyDerivationValue_sessionKeyDerivationValue_ApplicationCryptogram;
+                requestGenerationAttributes_generationAttributes_EmvMac_generationAttributes_EmvMac_SessionKeyDerivationValueIsNull = false;
             }
             System.String requestGenerationAttributes_generationAttributes_EmvMac_generationAttributes_EmvMac_SessionKeyDerivationValue_sessionKeyDerivationValue_ApplicationTransactionCounter = null;
             if (cmdletContext.SessionKeyDerivationValue_ApplicationTransactionCounter != null)
@@ -613,6 +620,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestGenerationAttributes_generationAttributes_EmvMac_generationAttributes_EmvMac_SessionKeyDerivationValue_sessionKeyDerivationValue_ApplicationTransactionCounter != null)
             {
                 requestGenerationAttributes_generationAttributes_EmvMac_generationAttributes_EmvMac_SessionKeyDerivationValue.ApplicationTransactionCounter = requestGenerationAttributes_generationAttributes_EmvMac_generationAttributes_EmvMac_SessionKeyDerivationValue_sessionKeyDerivationValue_ApplicationTransactionCounter;
+                requestGenerationAttributes_generationAttributes_EmvMac_generationAttributes_EmvMac_SessionKeyDerivationValueIsNull = false;
+            }
+             // determine if requestGenerationAttributes_generationAttributes_EmvMac_generationAttributes_EmvMac_SessionKeyDerivationValue should be set to null
+            if (requestGenerationAttributes_generationAttributes_EmvMac_generationAttributes_EmvMac_SessionKeyDerivationValueIsNull)
+            {
+                requestGenerationAttributes_generationAttributes_EmvMac_generationAttributes_EmvMac_SessionKeyDerivationValue = null;
             }
             if (requestGenerationAttributes_generationAttributes_EmvMac_generationAttributes_EmvMac_SessionKeyDerivationValue != null)
             {
@@ -627,6 +640,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestGenerationAttributes_generationAttributes_EmvMac != null)
             {
                 request.GenerationAttributes.EmvMac = requestGenerationAttributes_generationAttributes_EmvMac;
+                requestGenerationAttributesIsNull = false;
+            }
+             // determine if request.GenerationAttributes should be set to null
+            if (requestGenerationAttributesIsNull)
+            {
+                request.GenerationAttributes = null;
             }
             if (cmdletContext.KeyIdentifier != null)
             {

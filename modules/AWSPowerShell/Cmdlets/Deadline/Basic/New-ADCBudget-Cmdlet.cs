@@ -295,6 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             }
             
              // populate Schedule
+            var requestScheduleIsNull = true;
             request.Schedule = new Amazon.Deadline.Model.BudgetSchedule();
             Amazon.Deadline.Model.FixedBudgetSchedule requestSchedule_schedule_Fixed = null;
             
@@ -329,9 +330,16 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             if (requestSchedule_schedule_Fixed != null)
             {
                 request.Schedule.Fixed = requestSchedule_schedule_Fixed;
+                requestScheduleIsNull = false;
+            }
+             // determine if request.Schedule should be set to null
+            if (requestScheduleIsNull)
+            {
+                request.Schedule = null;
             }
             
              // populate UsageTrackingResource
+            var requestUsageTrackingResourceIsNull = true;
             request.UsageTrackingResource = new Amazon.Deadline.Model.UsageTrackingResource();
             System.String requestUsageTrackingResource_usageTrackingResource_QueueId = null;
             if (cmdletContext.UsageTrackingResource_QueueId != null)
@@ -341,6 +349,12 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             if (requestUsageTrackingResource_usageTrackingResource_QueueId != null)
             {
                 request.UsageTrackingResource.QueueId = requestUsageTrackingResource_usageTrackingResource_QueueId;
+                requestUsageTrackingResourceIsNull = false;
+            }
+             // determine if request.UsageTrackingResource should be set to null
+            if (requestUsageTrackingResourceIsNull)
+            {
+                request.UsageTrackingResource = null;
             }
             
             CmdletOutput output;

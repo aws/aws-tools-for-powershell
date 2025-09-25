@@ -203,6 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             
             
              // populate Destination
+            var requestDestinationIsNull = true;
             request.Destination = new Amazon.NetworkManager.Model.RouteAnalysisEndpointOptionsSpecification();
             System.String requestDestination_destination_IpAddress = null;
             if (cmdletContext.Destination_IpAddress != null)
@@ -212,6 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             if (requestDestination_destination_IpAddress != null)
             {
                 request.Destination.IpAddress = requestDestination_destination_IpAddress;
+                requestDestinationIsNull = false;
             }
             System.String requestDestination_destination_TransitGatewayAttachmentArn = null;
             if (cmdletContext.Destination_TransitGatewayAttachmentArn != null)
@@ -221,6 +223,12 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             if (requestDestination_destination_TransitGatewayAttachmentArn != null)
             {
                 request.Destination.TransitGatewayAttachmentArn = requestDestination_destination_TransitGatewayAttachmentArn;
+                requestDestinationIsNull = false;
+            }
+             // determine if request.Destination should be set to null
+            if (requestDestinationIsNull)
+            {
+                request.Destination = null;
             }
             if (cmdletContext.GlobalNetworkId != null)
             {
@@ -232,6 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             }
             
              // populate Source
+            var requestSourceIsNull = true;
             request.Source = new Amazon.NetworkManager.Model.RouteAnalysisEndpointOptionsSpecification();
             System.String requestSource_source_IpAddress = null;
             if (cmdletContext.Source_IpAddress != null)
@@ -241,6 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             if (requestSource_source_IpAddress != null)
             {
                 request.Source.IpAddress = requestSource_source_IpAddress;
+                requestSourceIsNull = false;
             }
             System.String requestSource_source_TransitGatewayAttachmentArn = null;
             if (cmdletContext.Source_TransitGatewayAttachmentArn != null)
@@ -250,6 +260,12 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             if (requestSource_source_TransitGatewayAttachmentArn != null)
             {
                 request.Source.TransitGatewayAttachmentArn = requestSource_source_TransitGatewayAttachmentArn;
+                requestSourceIsNull = false;
+            }
+             // determine if request.Source should be set to null
+            if (requestSourceIsNull)
+            {
+                request.Source = null;
             }
             if (cmdletContext.UseMiddlebox != null)
             {

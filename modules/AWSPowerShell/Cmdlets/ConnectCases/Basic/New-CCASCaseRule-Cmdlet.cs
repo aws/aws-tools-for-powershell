@@ -215,6 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             }
             
              // populate Rule
+            var requestRuleIsNull = true;
             request.Rule = new Amazon.ConnectCases.Model.CaseRuleDetails();
             Amazon.ConnectCases.Model.RequiredCaseRule requestRule_rule_Required = null;
             
@@ -249,6 +250,12 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             if (requestRule_rule_Required != null)
             {
                 request.Rule.Required = requestRule_rule_Required;
+                requestRuleIsNull = false;
+            }
+             // determine if request.Rule should be set to null
+            if (requestRuleIsNull)
+            {
+                request.Rule = null;
             }
             
             CmdletOutput output;

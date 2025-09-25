@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.98.0",
+    "ProductVersion"    : "4.0.99.0",
     "CoreVersion"       : "4.0.0.29",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -604,7 +604,7 @@
             "InPreview"               : false
         },
         "Lightsail"                       : {
-            "Version" : "4.0.2.3",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.29"
@@ -796,7 +796,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "4.0.16.3",
+            "Version" : "4.0.17.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.29"
@@ -1804,7 +1804,7 @@
             "InPreview"               : false
         },
         "NetworkFirewall"                 : {
-            "Version" : "4.0.6.1",
+            "Version" : "4.0.7.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.29"

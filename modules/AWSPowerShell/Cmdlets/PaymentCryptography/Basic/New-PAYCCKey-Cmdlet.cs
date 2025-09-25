@@ -501,6 +501,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             Amazon.PaymentCryptography.Model.KeyModesOfUse requestKeyAttributes_keyAttributes_KeyModesOfUse = null;
             
              // populate KeyModesOfUse
+            var requestKeyAttributes_keyAttributes_KeyModesOfUseIsNull = true;
             requestKeyAttributes_keyAttributes_KeyModesOfUse = new Amazon.PaymentCryptography.Model.KeyModesOfUse();
             System.Boolean? requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_Decrypt = null;
             if (cmdletContext.KeyModesOfUse_Decrypt != null)
@@ -510,6 +511,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_Decrypt != null)
             {
                 requestKeyAttributes_keyAttributes_KeyModesOfUse.Decrypt = requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_Decrypt.Value;
+                requestKeyAttributes_keyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_DeriveKey = null;
             if (cmdletContext.KeyModesOfUse_DeriveKey != null)
@@ -519,6 +521,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_DeriveKey != null)
             {
                 requestKeyAttributes_keyAttributes_KeyModesOfUse.DeriveKey = requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_DeriveKey.Value;
+                requestKeyAttributes_keyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_Encrypt = null;
             if (cmdletContext.KeyModesOfUse_Encrypt != null)
@@ -528,6 +531,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_Encrypt != null)
             {
                 requestKeyAttributes_keyAttributes_KeyModesOfUse.Encrypt = requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_Encrypt.Value;
+                requestKeyAttributes_keyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_Generate = null;
             if (cmdletContext.KeyModesOfUse_Generate != null)
@@ -537,6 +541,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_Generate != null)
             {
                 requestKeyAttributes_keyAttributes_KeyModesOfUse.Generate = requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_Generate.Value;
+                requestKeyAttributes_keyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_NoRestriction = null;
             if (cmdletContext.KeyModesOfUse_NoRestriction != null)
@@ -546,6 +551,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_NoRestriction != null)
             {
                 requestKeyAttributes_keyAttributes_KeyModesOfUse.NoRestrictions = requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_NoRestriction.Value;
+                requestKeyAttributes_keyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_Sign = null;
             if (cmdletContext.KeyModesOfUse_Sign != null)
@@ -555,6 +561,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_Sign != null)
             {
                 requestKeyAttributes_keyAttributes_KeyModesOfUse.Sign = requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_Sign.Value;
+                requestKeyAttributes_keyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_Unwrap = null;
             if (cmdletContext.KeyModesOfUse_Unwrap != null)
@@ -564,6 +571,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_Unwrap != null)
             {
                 requestKeyAttributes_keyAttributes_KeyModesOfUse.Unwrap = requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_Unwrap.Value;
+                requestKeyAttributes_keyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_Verify = null;
             if (cmdletContext.KeyModesOfUse_Verify != null)
@@ -573,6 +581,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_Verify != null)
             {
                 requestKeyAttributes_keyAttributes_KeyModesOfUse.Verify = requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_Verify.Value;
+                requestKeyAttributes_keyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_Wrap = null;
             if (cmdletContext.KeyModesOfUse_Wrap != null)
@@ -582,6 +591,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_Wrap != null)
             {
                 requestKeyAttributes_keyAttributes_KeyModesOfUse.Wrap = requestKeyAttributes_keyAttributes_KeyModesOfUse_keyModesOfUse_Wrap.Value;
+                requestKeyAttributes_keyAttributes_KeyModesOfUseIsNull = false;
+            }
+             // determine if requestKeyAttributes_keyAttributes_KeyModesOfUse should be set to null
+            if (requestKeyAttributes_keyAttributes_KeyModesOfUseIsNull)
+            {
+                requestKeyAttributes_keyAttributes_KeyModesOfUse = null;
             }
             if (requestKeyAttributes_keyAttributes_KeyModesOfUse != null)
             {

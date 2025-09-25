@@ -216,6 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             }
             
              // populate IndexReference
+            var requestIndexReferenceIsNull = true;
             request.IndexReference = new Amazon.CloudDirectory.Model.ObjectReference();
             System.String requestIndexReference_indexReference_Selector = null;
             if (cmdletContext.IndexReference_Selector != null)
@@ -225,6 +226,12 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             if (requestIndexReference_indexReference_Selector != null)
             {
                 request.IndexReference.Selector = requestIndexReference_indexReference_Selector;
+                requestIndexReferenceIsNull = false;
+            }
+             // determine if request.IndexReference should be set to null
+            if (requestIndexReferenceIsNull)
+            {
+                request.IndexReference = null;
             }
             if (cmdletContext.MaxResult != null)
             {

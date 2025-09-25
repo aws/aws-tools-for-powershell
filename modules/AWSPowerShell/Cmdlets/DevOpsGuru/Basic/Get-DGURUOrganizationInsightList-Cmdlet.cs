@@ -270,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             }
             
              // populate StatusFilter
+            var requestStatusFilterIsNull = true;
             request.StatusFilter = new Amazon.DevOpsGuru.Model.ListInsightsStatusFilter();
             Amazon.DevOpsGuru.Model.ListInsightsOngoingStatusFilter requestStatusFilter_statusFilter_Ongoing = null;
             
@@ -294,6 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             if (requestStatusFilter_statusFilter_Ongoing != null)
             {
                 request.StatusFilter.Ongoing = requestStatusFilter_statusFilter_Ongoing;
+                requestStatusFilterIsNull = false;
             }
             Amazon.DevOpsGuru.Model.ListInsightsAnyStatusFilter requestStatusFilter_statusFilter_Any = null;
             
@@ -313,6 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             Amazon.DevOpsGuru.Model.StartTimeRange requestStatusFilter_statusFilter_Any_statusFilter_Any_StartTimeRange = null;
             
              // populate StartTimeRange
+            var requestStatusFilter_statusFilter_Any_statusFilter_Any_StartTimeRangeIsNull = true;
             requestStatusFilter_statusFilter_Any_statusFilter_Any_StartTimeRange = new Amazon.DevOpsGuru.Model.StartTimeRange();
             System.DateTime? requestStatusFilter_statusFilter_Any_statusFilter_Any_StartTimeRange_startTimeRange_FromTime = null;
             if (cmdletContext.StartTimeRange_FromTime != null)
@@ -322,6 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             if (requestStatusFilter_statusFilter_Any_statusFilter_Any_StartTimeRange_startTimeRange_FromTime != null)
             {
                 requestStatusFilter_statusFilter_Any_statusFilter_Any_StartTimeRange.FromTime = requestStatusFilter_statusFilter_Any_statusFilter_Any_StartTimeRange_startTimeRange_FromTime.Value;
+                requestStatusFilter_statusFilter_Any_statusFilter_Any_StartTimeRangeIsNull = false;
             }
             System.DateTime? requestStatusFilter_statusFilter_Any_statusFilter_Any_StartTimeRange_startTimeRange_ToTime = null;
             if (cmdletContext.StartTimeRange_ToTime != null)
@@ -331,6 +335,12 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             if (requestStatusFilter_statusFilter_Any_statusFilter_Any_StartTimeRange_startTimeRange_ToTime != null)
             {
                 requestStatusFilter_statusFilter_Any_statusFilter_Any_StartTimeRange.ToTime = requestStatusFilter_statusFilter_Any_statusFilter_Any_StartTimeRange_startTimeRange_ToTime.Value;
+                requestStatusFilter_statusFilter_Any_statusFilter_Any_StartTimeRangeIsNull = false;
+            }
+             // determine if requestStatusFilter_statusFilter_Any_statusFilter_Any_StartTimeRange should be set to null
+            if (requestStatusFilter_statusFilter_Any_statusFilter_Any_StartTimeRangeIsNull)
+            {
+                requestStatusFilter_statusFilter_Any_statusFilter_Any_StartTimeRange = null;
             }
             if (requestStatusFilter_statusFilter_Any_statusFilter_Any_StartTimeRange != null)
             {
@@ -345,6 +355,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             if (requestStatusFilter_statusFilter_Any != null)
             {
                 request.StatusFilter.Any = requestStatusFilter_statusFilter_Any;
+                requestStatusFilterIsNull = false;
             }
             Amazon.DevOpsGuru.Model.ListInsightsClosedStatusFilter requestStatusFilter_statusFilter_Closed = null;
             
@@ -364,6 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             Amazon.DevOpsGuru.Model.EndTimeRange requestStatusFilter_statusFilter_Closed_statusFilter_Closed_EndTimeRange = null;
             
              // populate EndTimeRange
+            var requestStatusFilter_statusFilter_Closed_statusFilter_Closed_EndTimeRangeIsNull = true;
             requestStatusFilter_statusFilter_Closed_statusFilter_Closed_EndTimeRange = new Amazon.DevOpsGuru.Model.EndTimeRange();
             System.DateTime? requestStatusFilter_statusFilter_Closed_statusFilter_Closed_EndTimeRange_endTimeRange_FromTime = null;
             if (cmdletContext.EndTimeRange_FromTime != null)
@@ -373,6 +385,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             if (requestStatusFilter_statusFilter_Closed_statusFilter_Closed_EndTimeRange_endTimeRange_FromTime != null)
             {
                 requestStatusFilter_statusFilter_Closed_statusFilter_Closed_EndTimeRange.FromTime = requestStatusFilter_statusFilter_Closed_statusFilter_Closed_EndTimeRange_endTimeRange_FromTime.Value;
+                requestStatusFilter_statusFilter_Closed_statusFilter_Closed_EndTimeRangeIsNull = false;
             }
             System.DateTime? requestStatusFilter_statusFilter_Closed_statusFilter_Closed_EndTimeRange_endTimeRange_ToTime = null;
             if (cmdletContext.EndTimeRange_ToTime != null)
@@ -382,6 +395,12 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             if (requestStatusFilter_statusFilter_Closed_statusFilter_Closed_EndTimeRange_endTimeRange_ToTime != null)
             {
                 requestStatusFilter_statusFilter_Closed_statusFilter_Closed_EndTimeRange.ToTime = requestStatusFilter_statusFilter_Closed_statusFilter_Closed_EndTimeRange_endTimeRange_ToTime.Value;
+                requestStatusFilter_statusFilter_Closed_statusFilter_Closed_EndTimeRangeIsNull = false;
+            }
+             // determine if requestStatusFilter_statusFilter_Closed_statusFilter_Closed_EndTimeRange should be set to null
+            if (requestStatusFilter_statusFilter_Closed_statusFilter_Closed_EndTimeRangeIsNull)
+            {
+                requestStatusFilter_statusFilter_Closed_statusFilter_Closed_EndTimeRange = null;
             }
             if (requestStatusFilter_statusFilter_Closed_statusFilter_Closed_EndTimeRange != null)
             {
@@ -396,6 +415,12 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             if (requestStatusFilter_statusFilter_Closed != null)
             {
                 request.StatusFilter.Closed = requestStatusFilter_statusFilter_Closed;
+                requestStatusFilterIsNull = false;
+            }
+             // determine if request.StatusFilter should be set to null
+            if (requestStatusFilterIsNull)
+            {
+                request.StatusFilter = null;
             }
             
             // Initialize loop variant and commence piping

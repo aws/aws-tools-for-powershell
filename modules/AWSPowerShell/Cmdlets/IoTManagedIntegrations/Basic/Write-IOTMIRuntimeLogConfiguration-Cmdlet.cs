@@ -234,6 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             }
             
              // populate RuntimeLogConfigurations
+            var requestRuntimeLogConfigurationsIsNull = true;
             request.RuntimeLogConfigurations = new Amazon.IoTManagedIntegrations.Model.RuntimeLogConfigurations();
             System.Boolean? requestRuntimeLogConfigurations_runtimeLogConfigurations_DeleteLocalStoreAfterUpload = null;
             if (cmdletContext.RuntimeLogConfigurations_DeleteLocalStoreAfterUpload != null)
@@ -243,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             if (requestRuntimeLogConfigurations_runtimeLogConfigurations_DeleteLocalStoreAfterUpload != null)
             {
                 request.RuntimeLogConfigurations.DeleteLocalStoreAfterUpload = requestRuntimeLogConfigurations_runtimeLogConfigurations_DeleteLocalStoreAfterUpload.Value;
+                requestRuntimeLogConfigurationsIsNull = false;
             }
             System.Int32? requestRuntimeLogConfigurations_runtimeLogConfigurations_LocalStoreFileRotationMaxByte = null;
             if (cmdletContext.RuntimeLogConfigurations_LocalStoreFileRotationMaxByte != null)
@@ -252,6 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             if (requestRuntimeLogConfigurations_runtimeLogConfigurations_LocalStoreFileRotationMaxByte != null)
             {
                 request.RuntimeLogConfigurations.LocalStoreFileRotationMaxBytes = requestRuntimeLogConfigurations_runtimeLogConfigurations_LocalStoreFileRotationMaxByte.Value;
+                requestRuntimeLogConfigurationsIsNull = false;
             }
             System.Int32? requestRuntimeLogConfigurations_runtimeLogConfigurations_LocalStoreFileRotationMaxFile = null;
             if (cmdletContext.RuntimeLogConfigurations_LocalStoreFileRotationMaxFile != null)
@@ -261,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             if (requestRuntimeLogConfigurations_runtimeLogConfigurations_LocalStoreFileRotationMaxFile != null)
             {
                 request.RuntimeLogConfigurations.LocalStoreFileRotationMaxFiles = requestRuntimeLogConfigurations_runtimeLogConfigurations_LocalStoreFileRotationMaxFile.Value;
+                requestRuntimeLogConfigurationsIsNull = false;
             }
             System.String requestRuntimeLogConfigurations_runtimeLogConfigurations_LocalStoreLocation = null;
             if (cmdletContext.RuntimeLogConfigurations_LocalStoreLocation != null)
@@ -270,6 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             if (requestRuntimeLogConfigurations_runtimeLogConfigurations_LocalStoreLocation != null)
             {
                 request.RuntimeLogConfigurations.LocalStoreLocation = requestRuntimeLogConfigurations_runtimeLogConfigurations_LocalStoreLocation;
+                requestRuntimeLogConfigurationsIsNull = false;
             }
             Amazon.IoTManagedIntegrations.LogLevel requestRuntimeLogConfigurations_runtimeLogConfigurations_LogFlushLevel = null;
             if (cmdletContext.RuntimeLogConfigurations_LogFlushLevel != null)
@@ -279,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             if (requestRuntimeLogConfigurations_runtimeLogConfigurations_LogFlushLevel != null)
             {
                 request.RuntimeLogConfigurations.LogFlushLevel = requestRuntimeLogConfigurations_runtimeLogConfigurations_LogFlushLevel;
+                requestRuntimeLogConfigurationsIsNull = false;
             }
             Amazon.IoTManagedIntegrations.LogLevel requestRuntimeLogConfigurations_runtimeLogConfigurations_LogLevel = null;
             if (cmdletContext.RuntimeLogConfigurations_LogLevel != null)
@@ -288,6 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             if (requestRuntimeLogConfigurations_runtimeLogConfigurations_LogLevel != null)
             {
                 request.RuntimeLogConfigurations.LogLevel = requestRuntimeLogConfigurations_runtimeLogConfigurations_LogLevel;
+                requestRuntimeLogConfigurationsIsNull = false;
             }
             System.Boolean? requestRuntimeLogConfigurations_runtimeLogConfigurations_UploadLog = null;
             if (cmdletContext.RuntimeLogConfigurations_UploadLog != null)
@@ -297,6 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             if (requestRuntimeLogConfigurations_runtimeLogConfigurations_UploadLog != null)
             {
                 request.RuntimeLogConfigurations.UploadLog = requestRuntimeLogConfigurations_runtimeLogConfigurations_UploadLog.Value;
+                requestRuntimeLogConfigurationsIsNull = false;
             }
             System.Int32? requestRuntimeLogConfigurations_runtimeLogConfigurations_UploadPeriodMinute = null;
             if (cmdletContext.RuntimeLogConfigurations_UploadPeriodMinute != null)
@@ -306,6 +314,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             if (requestRuntimeLogConfigurations_runtimeLogConfigurations_UploadPeriodMinute != null)
             {
                 request.RuntimeLogConfigurations.UploadPeriodMinutes = requestRuntimeLogConfigurations_runtimeLogConfigurations_UploadPeriodMinute.Value;
+                requestRuntimeLogConfigurationsIsNull = false;
+            }
+             // determine if request.RuntimeLogConfigurations should be set to null
+            if (requestRuntimeLogConfigurationsIsNull)
+            {
+                request.RuntimeLogConfigurations = null;
             }
             
             CmdletOutput output;

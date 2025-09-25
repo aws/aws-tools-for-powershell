@@ -206,6 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.MHO
             }
             
              // populate TemplateSource
+            var requestTemplateSourceIsNull = true;
             request.TemplateSource = new Amazon.MigrationHubOrchestrator.Model.TemplateSource();
             System.String requestTemplateSource_templateSource_WorkflowId = null;
             if (cmdletContext.TemplateSource_WorkflowId != null)
@@ -215,6 +216,12 @@ namespace Amazon.PowerShell.Cmdlets.MHO
             if (requestTemplateSource_templateSource_WorkflowId != null)
             {
                 request.TemplateSource.WorkflowId = requestTemplateSource_templateSource_WorkflowId;
+                requestTemplateSourceIsNull = false;
+            }
+             // determine if request.TemplateSource should be set to null
+            if (requestTemplateSourceIsNull)
+            {
+                request.TemplateSource = null;
             }
             
             CmdletOutput output;

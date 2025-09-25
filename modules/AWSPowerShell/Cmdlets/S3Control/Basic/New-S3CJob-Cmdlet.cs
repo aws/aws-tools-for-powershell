@@ -1820,6 +1820,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             }
             
              // populate Operation
+            var requestOperationIsNull = true;
             request.Operation = new Amazon.S3Control.Model.JobOperation();
             Amazon.S3Control.Model.S3DeleteObjectTaggingOperation requestOperation_operation_S3DeleteObjectTagging = null;
             if (cmdletContext.Operation_S3DeleteObjectTagging != null)
@@ -1829,6 +1830,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestOperation_operation_S3DeleteObjectTagging != null)
             {
                 request.Operation.S3DeleteObjectTagging = requestOperation_operation_S3DeleteObjectTagging;
+                requestOperationIsNull = false;
             }
             Amazon.S3Control.Model.S3ReplicateObjectOperation requestOperation_operation_S3ReplicateObject = null;
             if (cmdletContext.Operation_S3ReplicateObject != null)
@@ -1838,6 +1840,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestOperation_operation_S3ReplicateObject != null)
             {
                 request.Operation.S3ReplicateObject = requestOperation_operation_S3ReplicateObject;
+                requestOperationIsNull = false;
             }
             Amazon.S3Control.Model.S3SetObjectAclOperation requestOperation_operation_S3PutObjectAcl = null;
             
@@ -1877,6 +1880,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             Amazon.S3Control.Model.S3ObjectOwner requestOperation_operation_S3PutObjectAcl_operation_S3PutObjectAcl_AccessControlPolicy_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_Owner = null;
             
              // populate Owner
+            var requestOperation_operation_S3PutObjectAcl_operation_S3PutObjectAcl_AccessControlPolicy_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_OwnerIsNull = true;
             requestOperation_operation_S3PutObjectAcl_operation_S3PutObjectAcl_AccessControlPolicy_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_Owner = new Amazon.S3Control.Model.S3ObjectOwner();
             System.String requestOperation_operation_S3PutObjectAcl_operation_S3PutObjectAcl_AccessControlPolicy_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_Owner_owner_DisplayName = null;
             if (cmdletContext.Owner_DisplayName != null)
@@ -1886,6 +1890,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestOperation_operation_S3PutObjectAcl_operation_S3PutObjectAcl_AccessControlPolicy_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_Owner_owner_DisplayName != null)
             {
                 requestOperation_operation_S3PutObjectAcl_operation_S3PutObjectAcl_AccessControlPolicy_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_Owner.DisplayName = requestOperation_operation_S3PutObjectAcl_operation_S3PutObjectAcl_AccessControlPolicy_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_Owner_owner_DisplayName;
+                requestOperation_operation_S3PutObjectAcl_operation_S3PutObjectAcl_AccessControlPolicy_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_OwnerIsNull = false;
             }
             System.String requestOperation_operation_S3PutObjectAcl_operation_S3PutObjectAcl_AccessControlPolicy_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_Owner_owner_ID = null;
             if (cmdletContext.Owner_ID != null)
@@ -1895,6 +1900,12 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestOperation_operation_S3PutObjectAcl_operation_S3PutObjectAcl_AccessControlPolicy_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_Owner_owner_ID != null)
             {
                 requestOperation_operation_S3PutObjectAcl_operation_S3PutObjectAcl_AccessControlPolicy_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_Owner.ID = requestOperation_operation_S3PutObjectAcl_operation_S3PutObjectAcl_AccessControlPolicy_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_Owner_owner_ID;
+                requestOperation_operation_S3PutObjectAcl_operation_S3PutObjectAcl_AccessControlPolicy_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_OwnerIsNull = false;
+            }
+             // determine if requestOperation_operation_S3PutObjectAcl_operation_S3PutObjectAcl_AccessControlPolicy_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_Owner should be set to null
+            if (requestOperation_operation_S3PutObjectAcl_operation_S3PutObjectAcl_AccessControlPolicy_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_OwnerIsNull)
+            {
+                requestOperation_operation_S3PutObjectAcl_operation_S3PutObjectAcl_AccessControlPolicy_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_Owner = null;
             }
             if (requestOperation_operation_S3PutObjectAcl_operation_S3PutObjectAcl_AccessControlPolicy_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_operation_S3PutObjectAcl_AccessControlPolicy_AccessControlList_Owner != null)
             {
@@ -1929,6 +1940,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestOperation_operation_S3PutObjectAcl != null)
             {
                 request.Operation.S3PutObjectAcl = requestOperation_operation_S3PutObjectAcl;
+                requestOperationIsNull = false;
             }
             Amazon.S3Control.Model.S3SetObjectLegalHoldOperation requestOperation_operation_S3PutObjectLegalHold = null;
             
@@ -1968,6 +1980,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestOperation_operation_S3PutObjectLegalHold != null)
             {
                 request.Operation.S3PutObjectLegalHold = requestOperation_operation_S3PutObjectLegalHold;
+                requestOperationIsNull = false;
             }
             Amazon.S3Control.Model.S3SetObjectTaggingOperation requestOperation_operation_S3PutObjectTagging = null;
             
@@ -1992,6 +2005,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestOperation_operation_S3PutObjectTagging != null)
             {
                 request.Operation.S3PutObjectTagging = requestOperation_operation_S3PutObjectTagging;
+                requestOperationIsNull = false;
             }
             Amazon.S3Control.Model.S3ComputeObjectChecksumOperation requestOperation_operation_S3ComputeObjectChecksum = null;
             
@@ -2026,6 +2040,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestOperation_operation_S3ComputeObjectChecksum != null)
             {
                 request.Operation.S3ComputeObjectChecksum = requestOperation_operation_S3ComputeObjectChecksum;
+                requestOperationIsNull = false;
             }
             Amazon.S3Control.Model.S3InitiateRestoreObjectOperation requestOperation_operation_S3InitiateRestoreObject = null;
             
@@ -2060,6 +2075,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestOperation_operation_S3InitiateRestoreObject != null)
             {
                 request.Operation.S3InitiateRestoreObject = requestOperation_operation_S3InitiateRestoreObject;
+                requestOperationIsNull = false;
             }
             Amazon.S3Control.Model.S3SetObjectRetentionOperation requestOperation_operation_S3PutObjectRetention = null;
             
@@ -2079,6 +2095,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             Amazon.S3Control.Model.S3Retention requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention = null;
             
              // populate Retention
+            var requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_RetentionIsNull = true;
             requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention = new Amazon.S3Control.Model.S3Retention();
             Amazon.S3Control.S3ObjectLockRetentionMode requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_retention_Mode = null;
             if (cmdletContext.Retention_Mode != null)
@@ -2088,6 +2105,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_retention_Mode != null)
             {
                 requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention.Mode = requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_retention_Mode;
+                requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_RetentionIsNull = false;
             }
             System.DateTime? requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_retention_RetainUntilDate = null;
             if (cmdletContext.Retention_RetainUntilDate != null)
@@ -2097,6 +2115,12 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_retention_RetainUntilDate != null)
             {
                 requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention.RetainUntilDate = requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention_retention_RetainUntilDate.Value;
+                requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_RetentionIsNull = false;
+            }
+             // determine if requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention should be set to null
+            if (requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_RetentionIsNull)
+            {
+                requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention = null;
             }
             if (requestOperation_operation_S3PutObjectRetention_operation_S3PutObjectRetention_Retention != null)
             {
@@ -2111,6 +2135,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestOperation_operation_S3PutObjectRetention != null)
             {
                 request.Operation.S3PutObjectRetention = requestOperation_operation_S3PutObjectRetention;
+                requestOperationIsNull = false;
             }
             Amazon.S3Control.Model.LambdaInvokeOperation requestOperation_operation_LambdaInvoke = null;
             
@@ -2155,6 +2180,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestOperation_operation_LambdaInvoke != null)
             {
                 request.Operation.LambdaInvoke = requestOperation_operation_LambdaInvoke;
+                requestOperationIsNull = false;
             }
             Amazon.S3Control.Model.S3CopyObjectOperation requestOperation_operation_S3PutObjectCopy = null;
             
@@ -2464,6 +2490,12 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestOperation_operation_S3PutObjectCopy != null)
             {
                 request.Operation.S3PutObjectCopy = requestOperation_operation_S3PutObjectCopy;
+                requestOperationIsNull = false;
+            }
+             // determine if request.Operation should be set to null
+            if (requestOperationIsNull)
+            {
+                request.Operation = null;
             }
             if (cmdletContext.Priority != null)
             {

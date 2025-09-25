@@ -1782,6 +1782,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             Amazon.PcaConnectorAd.Model.KeyUsageFlags requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlags = null;
             
              // populate UsageFlags
+            var requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlagsIsNull = true;
             requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlags = new Amazon.PcaConnectorAd.Model.KeyUsageFlags();
             System.Boolean? requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_DataEncipherment = null;
             if (cmdletContext.Definition_TemplateV2_Extensions_KeyUsage_UsageFlags_DataEncipherment != null)
@@ -1791,6 +1792,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_DataEncipherment != null)
             {
                 requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlags.DataEncipherment = requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_DataEncipherment.Value;
+                requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_DigitalSignature = null;
             if (cmdletContext.Definition_TemplateV2_Extensions_KeyUsage_UsageFlags_DigitalSignature != null)
@@ -1800,6 +1802,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_DigitalSignature != null)
             {
                 requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlags.DigitalSignature = requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_DigitalSignature.Value;
+                requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_KeyAgreement = null;
             if (cmdletContext.Definition_TemplateV2_Extensions_KeyUsage_UsageFlags_KeyAgreement != null)
@@ -1809,6 +1812,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_KeyAgreement != null)
             {
                 requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlags.KeyAgreement = requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_KeyAgreement.Value;
+                requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_KeyEncipherment = null;
             if (cmdletContext.Definition_TemplateV2_Extensions_KeyUsage_UsageFlags_KeyEncipherment != null)
@@ -1818,6 +1822,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_KeyEncipherment != null)
             {
                 requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlags.KeyEncipherment = requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_KeyEncipherment.Value;
+                requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_NonRepudiation = null;
             if (cmdletContext.Definition_TemplateV2_Extensions_KeyUsage_UsageFlags_NonRepudiation != null)
@@ -1827,6 +1832,12 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_NonRepudiation != null)
             {
                 requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlags.NonRepudiation = requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_definition_TemplateV2_Extensions_KeyUsage_UsageFlags_NonRepudiation.Value;
+                requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlagsIsNull = false;
+            }
+             // determine if requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlags should be set to null
+            if (requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlagsIsNull)
+            {
+                requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlags = null;
             }
             if (requestDefinition_definition_TemplateV2_definition_TemplateV2_Extensions_definition_TemplateV2_Extensions_KeyUsage_definition_TemplateV2_Extensions_KeyUsage_UsageFlags != null)
             {
@@ -1856,6 +1867,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             Amazon.PcaConnectorAd.Model.GeneralFlagsV2 requestDefinition_definition_TemplateV2_definition_TemplateV2_GeneralFlags = null;
             
              // populate GeneralFlags
+            var requestDefinition_definition_TemplateV2_definition_TemplateV2_GeneralFlagsIsNull = true;
             requestDefinition_definition_TemplateV2_definition_TemplateV2_GeneralFlags = new Amazon.PcaConnectorAd.Model.GeneralFlagsV2();
             System.Boolean? requestDefinition_definition_TemplateV2_definition_TemplateV2_GeneralFlags_definition_TemplateV2_GeneralFlags_AutoEnrollment = null;
             if (cmdletContext.Definition_TemplateV2_GeneralFlags_AutoEnrollment != null)
@@ -1865,6 +1877,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV2_definition_TemplateV2_GeneralFlags_definition_TemplateV2_GeneralFlags_AutoEnrollment != null)
             {
                 requestDefinition_definition_TemplateV2_definition_TemplateV2_GeneralFlags.AutoEnrollment = requestDefinition_definition_TemplateV2_definition_TemplateV2_GeneralFlags_definition_TemplateV2_GeneralFlags_AutoEnrollment.Value;
+                requestDefinition_definition_TemplateV2_definition_TemplateV2_GeneralFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV2_definition_TemplateV2_GeneralFlags_definition_TemplateV2_GeneralFlags_MachineType = null;
             if (cmdletContext.Definition_TemplateV2_GeneralFlags_MachineType != null)
@@ -1874,6 +1887,12 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV2_definition_TemplateV2_GeneralFlags_definition_TemplateV2_GeneralFlags_MachineType != null)
             {
                 requestDefinition_definition_TemplateV2_definition_TemplateV2_GeneralFlags.MachineType = requestDefinition_definition_TemplateV2_definition_TemplateV2_GeneralFlags_definition_TemplateV2_GeneralFlags_MachineType.Value;
+                requestDefinition_definition_TemplateV2_definition_TemplateV2_GeneralFlagsIsNull = false;
+            }
+             // determine if requestDefinition_definition_TemplateV2_definition_TemplateV2_GeneralFlags should be set to null
+            if (requestDefinition_definition_TemplateV2_definition_TemplateV2_GeneralFlagsIsNull)
+            {
+                requestDefinition_definition_TemplateV2_definition_TemplateV2_GeneralFlags = null;
             }
             if (requestDefinition_definition_TemplateV2_definition_TemplateV2_GeneralFlags != null)
             {
@@ -1973,6 +1992,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             Amazon.PcaConnectorAd.Model.EnrollmentFlagsV2 requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlags = null;
             
              // populate EnrollmentFlags
+            var requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlagsIsNull = true;
             requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlags = new Amazon.PcaConnectorAd.Model.EnrollmentFlagsV2();
             System.Boolean? requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlags_definition_TemplateV2_EnrollmentFlags_EnableKeyReuseOnNtTokenKeysetStorageFull = null;
             if (cmdletContext.Definition_TemplateV2_EnrollmentFlags_EnableKeyReuseOnNtTokenKeysetStorageFull != null)
@@ -1982,6 +2002,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlags_definition_TemplateV2_EnrollmentFlags_EnableKeyReuseOnNtTokenKeysetStorageFull != null)
             {
                 requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlags.EnableKeyReuseOnNtTokenKeysetStorageFull = requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlags_definition_TemplateV2_EnrollmentFlags_EnableKeyReuseOnNtTokenKeysetStorageFull.Value;
+                requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlags_definition_TemplateV2_EnrollmentFlags_IncludeSymmetricAlgorithms = null;
             if (cmdletContext.Definition_TemplateV2_EnrollmentFlags_IncludeSymmetricAlgorithms != null)
@@ -1991,6 +2012,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlags_definition_TemplateV2_EnrollmentFlags_IncludeSymmetricAlgorithms != null)
             {
                 requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlags.IncludeSymmetricAlgorithms = requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlags_definition_TemplateV2_EnrollmentFlags_IncludeSymmetricAlgorithms.Value;
+                requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlags_definition_TemplateV2_EnrollmentFlags_NoSecurityExtension = null;
             if (cmdletContext.Definition_TemplateV2_EnrollmentFlags_NoSecurityExtension != null)
@@ -2000,6 +2022,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlags_definition_TemplateV2_EnrollmentFlags_NoSecurityExtension != null)
             {
                 requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlags.NoSecurityExtension = requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlags_definition_TemplateV2_EnrollmentFlags_NoSecurityExtension.Value;
+                requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlags_definition_TemplateV2_EnrollmentFlags_RemoveInvalidCertificateFromPersonalStore = null;
             if (cmdletContext.Definition_TemplateV2_EnrollmentFlags_RemoveInvalidCertificateFromPersonalStore != null)
@@ -2009,6 +2032,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlags_definition_TemplateV2_EnrollmentFlags_RemoveInvalidCertificateFromPersonalStore != null)
             {
                 requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlags.RemoveInvalidCertificateFromPersonalStore = requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlags_definition_TemplateV2_EnrollmentFlags_RemoveInvalidCertificateFromPersonalStore.Value;
+                requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlags_definition_TemplateV2_EnrollmentFlags_UserInteractionRequired = null;
             if (cmdletContext.Definition_TemplateV2_EnrollmentFlags_UserInteractionRequired != null)
@@ -2018,6 +2042,12 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlags_definition_TemplateV2_EnrollmentFlags_UserInteractionRequired != null)
             {
                 requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlags.UserInteractionRequired = requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlags_definition_TemplateV2_EnrollmentFlags_UserInteractionRequired.Value;
+                requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlagsIsNull = false;
+            }
+             // determine if requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlags should be set to null
+            if (requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlagsIsNull)
+            {
+                requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlags = null;
             }
             if (requestDefinition_definition_TemplateV2_definition_TemplateV2_EnrollmentFlags != null)
             {
@@ -2027,6 +2057,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             Amazon.PcaConnectorAd.Model.SubjectNameFlagsV2 requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags = null;
             
              // populate SubjectNameFlags
+            var requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlagsIsNull = true;
             requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags = new Amazon.PcaConnectorAd.Model.SubjectNameFlagsV2();
             System.Boolean? requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_RequireCommonName = null;
             if (cmdletContext.Definition_TemplateV2_SubjectNameFlags_RequireCommonName != null)
@@ -2036,6 +2067,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_RequireCommonName != null)
             {
                 requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags.RequireCommonName = requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_RequireCommonName.Value;
+                requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_RequireDirectoryPath = null;
             if (cmdletContext.Definition_TemplateV2_SubjectNameFlags_RequireDirectoryPath != null)
@@ -2045,6 +2077,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_RequireDirectoryPath != null)
             {
                 requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags.RequireDirectoryPath = requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_RequireDirectoryPath.Value;
+                requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_RequireDnsAsCn = null;
             if (cmdletContext.Definition_TemplateV2_SubjectNameFlags_RequireDnsAsCn != null)
@@ -2054,6 +2087,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_RequireDnsAsCn != null)
             {
                 requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags.RequireDnsAsCn = requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_RequireDnsAsCn.Value;
+                requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_RequireEmail = null;
             if (cmdletContext.Definition_TemplateV2_SubjectNameFlags_RequireEmail != null)
@@ -2063,6 +2097,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_RequireEmail != null)
             {
                 requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags.RequireEmail = requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_RequireEmail.Value;
+                requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_SanRequireDirectoryGuid = null;
             if (cmdletContext.Definition_TemplateV2_SubjectNameFlags_SanRequireDirectoryGuid != null)
@@ -2072,6 +2107,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_SanRequireDirectoryGuid != null)
             {
                 requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags.SanRequireDirectoryGuid = requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_SanRequireDirectoryGuid.Value;
+                requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_SanRequireDns = null;
             if (cmdletContext.Definition_TemplateV2_SubjectNameFlags_SanRequireDns != null)
@@ -2081,6 +2117,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_SanRequireDns != null)
             {
                 requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags.SanRequireDns = requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_SanRequireDns.Value;
+                requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_SanRequireDomainDns = null;
             if (cmdletContext.Definition_TemplateV2_SubjectNameFlags_SanRequireDomainDns != null)
@@ -2090,6 +2127,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_SanRequireDomainDns != null)
             {
                 requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags.SanRequireDomainDns = requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_SanRequireDomainDns.Value;
+                requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_SanRequireEmail = null;
             if (cmdletContext.Definition_TemplateV2_SubjectNameFlags_SanRequireEmail != null)
@@ -2099,6 +2137,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_SanRequireEmail != null)
             {
                 requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags.SanRequireEmail = requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_SanRequireEmail.Value;
+                requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_SanRequireSpn = null;
             if (cmdletContext.Definition_TemplateV2_SubjectNameFlags_SanRequireSpn != null)
@@ -2108,6 +2147,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_SanRequireSpn != null)
             {
                 requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags.SanRequireSpn = requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_SanRequireSpn.Value;
+                requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_SanRequireUpn = null;
             if (cmdletContext.Definition_TemplateV2_SubjectNameFlags_SanRequireUpn != null)
@@ -2117,6 +2157,12 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_SanRequireUpn != null)
             {
                 requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags.SanRequireUpn = requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags_definition_TemplateV2_SubjectNameFlags_SanRequireUpn.Value;
+                requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlagsIsNull = false;
+            }
+             // determine if requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags should be set to null
+            if (requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlagsIsNull)
+            {
+                requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags = null;
             }
             if (requestDefinition_definition_TemplateV2_definition_TemplateV2_SubjectNameFlags != null)
             {
@@ -2301,6 +2347,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             Amazon.PcaConnectorAd.Model.KeyUsageFlags requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlags = null;
             
              // populate UsageFlags
+            var requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlagsIsNull = true;
             requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlags = new Amazon.PcaConnectorAd.Model.KeyUsageFlags();
             System.Boolean? requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_DataEncipherment = null;
             if (cmdletContext.Definition_TemplateV3_Extensions_KeyUsage_UsageFlags_DataEncipherment != null)
@@ -2310,6 +2357,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_DataEncipherment != null)
             {
                 requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlags.DataEncipherment = requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_DataEncipherment.Value;
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_DigitalSignature = null;
             if (cmdletContext.Definition_TemplateV3_Extensions_KeyUsage_UsageFlags_DigitalSignature != null)
@@ -2319,6 +2367,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_DigitalSignature != null)
             {
                 requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlags.DigitalSignature = requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_DigitalSignature.Value;
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_KeyAgreement = null;
             if (cmdletContext.Definition_TemplateV3_Extensions_KeyUsage_UsageFlags_KeyAgreement != null)
@@ -2328,6 +2377,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_KeyAgreement != null)
             {
                 requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlags.KeyAgreement = requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_KeyAgreement.Value;
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_KeyEncipherment = null;
             if (cmdletContext.Definition_TemplateV3_Extensions_KeyUsage_UsageFlags_KeyEncipherment != null)
@@ -2337,6 +2387,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_KeyEncipherment != null)
             {
                 requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlags.KeyEncipherment = requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_KeyEncipherment.Value;
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_NonRepudiation = null;
             if (cmdletContext.Definition_TemplateV3_Extensions_KeyUsage_UsageFlags_NonRepudiation != null)
@@ -2346,6 +2397,12 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_NonRepudiation != null)
             {
                 requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlags.NonRepudiation = requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_definition_TemplateV3_Extensions_KeyUsage_UsageFlags_NonRepudiation.Value;
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlagsIsNull = false;
+            }
+             // determine if requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlags should be set to null
+            if (requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlagsIsNull)
+            {
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlags = null;
             }
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_Extensions_definition_TemplateV3_Extensions_KeyUsage_definition_TemplateV3_Extensions_KeyUsage_UsageFlags != null)
             {
@@ -2375,6 +2432,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             Amazon.PcaConnectorAd.Model.GeneralFlagsV3 requestDefinition_definition_TemplateV3_definition_TemplateV3_GeneralFlags = null;
             
              // populate GeneralFlags
+            var requestDefinition_definition_TemplateV3_definition_TemplateV3_GeneralFlagsIsNull = true;
             requestDefinition_definition_TemplateV3_definition_TemplateV3_GeneralFlags = new Amazon.PcaConnectorAd.Model.GeneralFlagsV3();
             System.Boolean? requestDefinition_definition_TemplateV3_definition_TemplateV3_GeneralFlags_definition_TemplateV3_GeneralFlags_AutoEnrollment = null;
             if (cmdletContext.Definition_TemplateV3_GeneralFlags_AutoEnrollment != null)
@@ -2384,6 +2442,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_GeneralFlags_definition_TemplateV3_GeneralFlags_AutoEnrollment != null)
             {
                 requestDefinition_definition_TemplateV3_definition_TemplateV3_GeneralFlags.AutoEnrollment = requestDefinition_definition_TemplateV3_definition_TemplateV3_GeneralFlags_definition_TemplateV3_GeneralFlags_AutoEnrollment.Value;
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_GeneralFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV3_definition_TemplateV3_GeneralFlags_definition_TemplateV3_GeneralFlags_MachineType = null;
             if (cmdletContext.Definition_TemplateV3_GeneralFlags_MachineType != null)
@@ -2393,6 +2452,12 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_GeneralFlags_definition_TemplateV3_GeneralFlags_MachineType != null)
             {
                 requestDefinition_definition_TemplateV3_definition_TemplateV3_GeneralFlags.MachineType = requestDefinition_definition_TemplateV3_definition_TemplateV3_GeneralFlags_definition_TemplateV3_GeneralFlags_MachineType.Value;
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_GeneralFlagsIsNull = false;
+            }
+             // determine if requestDefinition_definition_TemplateV3_definition_TemplateV3_GeneralFlags should be set to null
+            if (requestDefinition_definition_TemplateV3_definition_TemplateV3_GeneralFlagsIsNull)
+            {
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_GeneralFlags = null;
             }
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_GeneralFlags != null)
             {
@@ -2457,6 +2522,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             Amazon.PcaConnectorAd.Model.EnrollmentFlagsV3 requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlags = null;
             
              // populate EnrollmentFlags
+            var requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlagsIsNull = true;
             requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlags = new Amazon.PcaConnectorAd.Model.EnrollmentFlagsV3();
             System.Boolean? requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlags_definition_TemplateV3_EnrollmentFlags_EnableKeyReuseOnNtTokenKeysetStorageFull = null;
             if (cmdletContext.Definition_TemplateV3_EnrollmentFlags_EnableKeyReuseOnNtTokenKeysetStorageFull != null)
@@ -2466,6 +2532,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlags_definition_TemplateV3_EnrollmentFlags_EnableKeyReuseOnNtTokenKeysetStorageFull != null)
             {
                 requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlags.EnableKeyReuseOnNtTokenKeysetStorageFull = requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlags_definition_TemplateV3_EnrollmentFlags_EnableKeyReuseOnNtTokenKeysetStorageFull.Value;
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlags_definition_TemplateV3_EnrollmentFlags_IncludeSymmetricAlgorithms = null;
             if (cmdletContext.Definition_TemplateV3_EnrollmentFlags_IncludeSymmetricAlgorithms != null)
@@ -2475,6 +2542,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlags_definition_TemplateV3_EnrollmentFlags_IncludeSymmetricAlgorithms != null)
             {
                 requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlags.IncludeSymmetricAlgorithms = requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlags_definition_TemplateV3_EnrollmentFlags_IncludeSymmetricAlgorithms.Value;
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlags_definition_TemplateV3_EnrollmentFlags_NoSecurityExtension = null;
             if (cmdletContext.Definition_TemplateV3_EnrollmentFlags_NoSecurityExtension != null)
@@ -2484,6 +2552,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlags_definition_TemplateV3_EnrollmentFlags_NoSecurityExtension != null)
             {
                 requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlags.NoSecurityExtension = requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlags_definition_TemplateV3_EnrollmentFlags_NoSecurityExtension.Value;
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlags_definition_TemplateV3_EnrollmentFlags_RemoveInvalidCertificateFromPersonalStore = null;
             if (cmdletContext.Definition_TemplateV3_EnrollmentFlags_RemoveInvalidCertificateFromPersonalStore != null)
@@ -2493,6 +2562,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlags_definition_TemplateV3_EnrollmentFlags_RemoveInvalidCertificateFromPersonalStore != null)
             {
                 requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlags.RemoveInvalidCertificateFromPersonalStore = requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlags_definition_TemplateV3_EnrollmentFlags_RemoveInvalidCertificateFromPersonalStore.Value;
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlags_definition_TemplateV3_EnrollmentFlags_UserInteractionRequired = null;
             if (cmdletContext.Definition_TemplateV3_EnrollmentFlags_UserInteractionRequired != null)
@@ -2502,6 +2572,12 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlags_definition_TemplateV3_EnrollmentFlags_UserInteractionRequired != null)
             {
                 requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlags.UserInteractionRequired = requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlags_definition_TemplateV3_EnrollmentFlags_UserInteractionRequired.Value;
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlagsIsNull = false;
+            }
+             // determine if requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlags should be set to null
+            if (requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlagsIsNull)
+            {
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlags = null;
             }
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_EnrollmentFlags != null)
             {
@@ -2556,6 +2632,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             Amazon.PcaConnectorAd.Model.KeyUsageProperty requestDefinition_definition_TemplateV3_definition_TemplateV3_PrivateKeyAttributes_definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty = null;
             
              // populate KeyUsageProperty
+            var requestDefinition_definition_TemplateV3_definition_TemplateV3_PrivateKeyAttributes_definition_TemplateV3_PrivateKeyAttributes_KeyUsagePropertyIsNull = true;
             requestDefinition_definition_TemplateV3_definition_TemplateV3_PrivateKeyAttributes_definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty = new Amazon.PcaConnectorAd.Model.KeyUsageProperty();
             Amazon.PcaConnectorAd.KeyUsagePropertyType requestDefinition_definition_TemplateV3_definition_TemplateV3_PrivateKeyAttributes_definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_PropertyType = null;
             if (cmdletContext.Definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_PropertyType != null)
@@ -2565,6 +2642,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_PrivateKeyAttributes_definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_PropertyType != null)
             {
                 requestDefinition_definition_TemplateV3_definition_TemplateV3_PrivateKeyAttributes_definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty.PropertyType = requestDefinition_definition_TemplateV3_definition_TemplateV3_PrivateKeyAttributes_definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_PropertyType;
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_PrivateKeyAttributes_definition_TemplateV3_PrivateKeyAttributes_KeyUsagePropertyIsNull = false;
             }
             Amazon.PcaConnectorAd.Model.KeyUsagePropertyFlags requestDefinition_definition_TemplateV3_definition_TemplateV3_PrivateKeyAttributes_definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags = null;
             
@@ -2609,6 +2687,12 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_PrivateKeyAttributes_definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags != null)
             {
                 requestDefinition_definition_TemplateV3_definition_TemplateV3_PrivateKeyAttributes_definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty.PropertyFlags = requestDefinition_definition_TemplateV3_definition_TemplateV3_PrivateKeyAttributes_definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty_PropertyFlags;
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_PrivateKeyAttributes_definition_TemplateV3_PrivateKeyAttributes_KeyUsagePropertyIsNull = false;
+            }
+             // determine if requestDefinition_definition_TemplateV3_definition_TemplateV3_PrivateKeyAttributes_definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty should be set to null
+            if (requestDefinition_definition_TemplateV3_definition_TemplateV3_PrivateKeyAttributes_definition_TemplateV3_PrivateKeyAttributes_KeyUsagePropertyIsNull)
+            {
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_PrivateKeyAttributes_definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty = null;
             }
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_PrivateKeyAttributes_definition_TemplateV3_PrivateKeyAttributes_KeyUsageProperty != null)
             {
@@ -2628,6 +2712,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             Amazon.PcaConnectorAd.Model.SubjectNameFlagsV3 requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags = null;
             
              // populate SubjectNameFlags
+            var requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlagsIsNull = true;
             requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags = new Amazon.PcaConnectorAd.Model.SubjectNameFlagsV3();
             System.Boolean? requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_RequireCommonName = null;
             if (cmdletContext.Definition_TemplateV3_SubjectNameFlags_RequireCommonName != null)
@@ -2637,6 +2722,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_RequireCommonName != null)
             {
                 requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags.RequireCommonName = requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_RequireCommonName.Value;
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_RequireDirectoryPath = null;
             if (cmdletContext.Definition_TemplateV3_SubjectNameFlags_RequireDirectoryPath != null)
@@ -2646,6 +2732,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_RequireDirectoryPath != null)
             {
                 requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags.RequireDirectoryPath = requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_RequireDirectoryPath.Value;
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_RequireDnsAsCn = null;
             if (cmdletContext.Definition_TemplateV3_SubjectNameFlags_RequireDnsAsCn != null)
@@ -2655,6 +2742,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_RequireDnsAsCn != null)
             {
                 requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags.RequireDnsAsCn = requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_RequireDnsAsCn.Value;
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_RequireEmail = null;
             if (cmdletContext.Definition_TemplateV3_SubjectNameFlags_RequireEmail != null)
@@ -2664,6 +2752,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_RequireEmail != null)
             {
                 requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags.RequireEmail = requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_RequireEmail.Value;
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_SanRequireDirectoryGuid = null;
             if (cmdletContext.Definition_TemplateV3_SubjectNameFlags_SanRequireDirectoryGuid != null)
@@ -2673,6 +2762,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_SanRequireDirectoryGuid != null)
             {
                 requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags.SanRequireDirectoryGuid = requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_SanRequireDirectoryGuid.Value;
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_SanRequireDns = null;
             if (cmdletContext.Definition_TemplateV3_SubjectNameFlags_SanRequireDns != null)
@@ -2682,6 +2772,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_SanRequireDns != null)
             {
                 requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags.SanRequireDns = requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_SanRequireDns.Value;
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_SanRequireDomainDns = null;
             if (cmdletContext.Definition_TemplateV3_SubjectNameFlags_SanRequireDomainDns != null)
@@ -2691,6 +2782,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_SanRequireDomainDns != null)
             {
                 requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags.SanRequireDomainDns = requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_SanRequireDomainDns.Value;
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_SanRequireEmail = null;
             if (cmdletContext.Definition_TemplateV3_SubjectNameFlags_SanRequireEmail != null)
@@ -2700,6 +2792,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_SanRequireEmail != null)
             {
                 requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags.SanRequireEmail = requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_SanRequireEmail.Value;
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_SanRequireSpn = null;
             if (cmdletContext.Definition_TemplateV3_SubjectNameFlags_SanRequireSpn != null)
@@ -2709,6 +2802,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_SanRequireSpn != null)
             {
                 requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags.SanRequireSpn = requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_SanRequireSpn.Value;
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_SanRequireUpn = null;
             if (cmdletContext.Definition_TemplateV3_SubjectNameFlags_SanRequireUpn != null)
@@ -2718,6 +2812,12 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_SanRequireUpn != null)
             {
                 requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags.SanRequireUpn = requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags_definition_TemplateV3_SubjectNameFlags_SanRequireUpn.Value;
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlagsIsNull = false;
+            }
+             // determine if requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags should be set to null
+            if (requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlagsIsNull)
+            {
+                requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags = null;
             }
             if (requestDefinition_definition_TemplateV3_definition_TemplateV3_SubjectNameFlags != null)
             {
@@ -2902,6 +3002,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             Amazon.PcaConnectorAd.Model.KeyUsageFlags requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlags = null;
             
              // populate UsageFlags
+            var requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlagsIsNull = true;
             requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlags = new Amazon.PcaConnectorAd.Model.KeyUsageFlags();
             System.Boolean? requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_DataEncipherment = null;
             if (cmdletContext.Definition_TemplateV4_Extensions_KeyUsage_UsageFlags_DataEncipherment != null)
@@ -2911,6 +3012,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_DataEncipherment != null)
             {
                 requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlags.DataEncipherment = requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_DataEncipherment.Value;
+                requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_DigitalSignature = null;
             if (cmdletContext.Definition_TemplateV4_Extensions_KeyUsage_UsageFlags_DigitalSignature != null)
@@ -2920,6 +3022,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_DigitalSignature != null)
             {
                 requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlags.DigitalSignature = requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_DigitalSignature.Value;
+                requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_KeyAgreement = null;
             if (cmdletContext.Definition_TemplateV4_Extensions_KeyUsage_UsageFlags_KeyAgreement != null)
@@ -2929,6 +3032,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_KeyAgreement != null)
             {
                 requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlags.KeyAgreement = requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_KeyAgreement.Value;
+                requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_KeyEncipherment = null;
             if (cmdletContext.Definition_TemplateV4_Extensions_KeyUsage_UsageFlags_KeyEncipherment != null)
@@ -2938,6 +3042,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_KeyEncipherment != null)
             {
                 requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlags.KeyEncipherment = requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_KeyEncipherment.Value;
+                requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_NonRepudiation = null;
             if (cmdletContext.Definition_TemplateV4_Extensions_KeyUsage_UsageFlags_NonRepudiation != null)
@@ -2947,6 +3052,12 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_NonRepudiation != null)
             {
                 requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlags.NonRepudiation = requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_definition_TemplateV4_Extensions_KeyUsage_UsageFlags_NonRepudiation.Value;
+                requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlagsIsNull = false;
+            }
+             // determine if requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlags should be set to null
+            if (requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlagsIsNull)
+            {
+                requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlags = null;
             }
             if (requestDefinition_definition_TemplateV4_definition_TemplateV4_Extensions_definition_TemplateV4_Extensions_KeyUsage_definition_TemplateV4_Extensions_KeyUsage_UsageFlags != null)
             {
@@ -2976,6 +3087,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             Amazon.PcaConnectorAd.Model.GeneralFlagsV4 requestDefinition_definition_TemplateV4_definition_TemplateV4_GeneralFlags = null;
             
              // populate GeneralFlags
+            var requestDefinition_definition_TemplateV4_definition_TemplateV4_GeneralFlagsIsNull = true;
             requestDefinition_definition_TemplateV4_definition_TemplateV4_GeneralFlags = new Amazon.PcaConnectorAd.Model.GeneralFlagsV4();
             System.Boolean? requestDefinition_definition_TemplateV4_definition_TemplateV4_GeneralFlags_definition_TemplateV4_GeneralFlags_AutoEnrollment = null;
             if (cmdletContext.Definition_TemplateV4_GeneralFlags_AutoEnrollment != null)
@@ -2985,6 +3097,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV4_definition_TemplateV4_GeneralFlags_definition_TemplateV4_GeneralFlags_AutoEnrollment != null)
             {
                 requestDefinition_definition_TemplateV4_definition_TemplateV4_GeneralFlags.AutoEnrollment = requestDefinition_definition_TemplateV4_definition_TemplateV4_GeneralFlags_definition_TemplateV4_GeneralFlags_AutoEnrollment.Value;
+                requestDefinition_definition_TemplateV4_definition_TemplateV4_GeneralFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV4_definition_TemplateV4_GeneralFlags_definition_TemplateV4_GeneralFlags_MachineType = null;
             if (cmdletContext.Definition_TemplateV4_GeneralFlags_MachineType != null)
@@ -2994,6 +3107,12 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV4_definition_TemplateV4_GeneralFlags_definition_TemplateV4_GeneralFlags_MachineType != null)
             {
                 requestDefinition_definition_TemplateV4_definition_TemplateV4_GeneralFlags.MachineType = requestDefinition_definition_TemplateV4_definition_TemplateV4_GeneralFlags_definition_TemplateV4_GeneralFlags_MachineType.Value;
+                requestDefinition_definition_TemplateV4_definition_TemplateV4_GeneralFlagsIsNull = false;
+            }
+             // determine if requestDefinition_definition_TemplateV4_definition_TemplateV4_GeneralFlags should be set to null
+            if (requestDefinition_definition_TemplateV4_definition_TemplateV4_GeneralFlagsIsNull)
+            {
+                requestDefinition_definition_TemplateV4_definition_TemplateV4_GeneralFlags = null;
             }
             if (requestDefinition_definition_TemplateV4_definition_TemplateV4_GeneralFlags != null)
             {
@@ -3003,6 +3122,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             Amazon.PcaConnectorAd.Model.EnrollmentFlagsV4 requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlags = null;
             
              // populate EnrollmentFlags
+            var requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlagsIsNull = true;
             requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlags = new Amazon.PcaConnectorAd.Model.EnrollmentFlagsV4();
             System.Boolean? requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlags_definition_TemplateV4_EnrollmentFlags_EnableKeyReuseOnNtTokenKeysetStorageFull = null;
             if (cmdletContext.Definition_TemplateV4_EnrollmentFlags_EnableKeyReuseOnNtTokenKeysetStorageFull != null)
@@ -3012,6 +3132,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlags_definition_TemplateV4_EnrollmentFlags_EnableKeyReuseOnNtTokenKeysetStorageFull != null)
             {
                 requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlags.EnableKeyReuseOnNtTokenKeysetStorageFull = requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlags_definition_TemplateV4_EnrollmentFlags_EnableKeyReuseOnNtTokenKeysetStorageFull.Value;
+                requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlags_definition_TemplateV4_EnrollmentFlags_IncludeSymmetricAlgorithms = null;
             if (cmdletContext.Definition_TemplateV4_EnrollmentFlags_IncludeSymmetricAlgorithms != null)
@@ -3021,6 +3142,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlags_definition_TemplateV4_EnrollmentFlags_IncludeSymmetricAlgorithms != null)
             {
                 requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlags.IncludeSymmetricAlgorithms = requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlags_definition_TemplateV4_EnrollmentFlags_IncludeSymmetricAlgorithms.Value;
+                requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlags_definition_TemplateV4_EnrollmentFlags_NoSecurityExtension = null;
             if (cmdletContext.Definition_TemplateV4_EnrollmentFlags_NoSecurityExtension != null)
@@ -3030,6 +3152,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlags_definition_TemplateV4_EnrollmentFlags_NoSecurityExtension != null)
             {
                 requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlags.NoSecurityExtension = requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlags_definition_TemplateV4_EnrollmentFlags_NoSecurityExtension.Value;
+                requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlags_definition_TemplateV4_EnrollmentFlags_RemoveInvalidCertificateFromPersonalStore = null;
             if (cmdletContext.Definition_TemplateV4_EnrollmentFlags_RemoveInvalidCertificateFromPersonalStore != null)
@@ -3039,6 +3162,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlags_definition_TemplateV4_EnrollmentFlags_RemoveInvalidCertificateFromPersonalStore != null)
             {
                 requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlags.RemoveInvalidCertificateFromPersonalStore = requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlags_definition_TemplateV4_EnrollmentFlags_RemoveInvalidCertificateFromPersonalStore.Value;
+                requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlags_definition_TemplateV4_EnrollmentFlags_UserInteractionRequired = null;
             if (cmdletContext.Definition_TemplateV4_EnrollmentFlags_UserInteractionRequired != null)
@@ -3048,6 +3172,12 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlags_definition_TemplateV4_EnrollmentFlags_UserInteractionRequired != null)
             {
                 requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlags.UserInteractionRequired = requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlags_definition_TemplateV4_EnrollmentFlags_UserInteractionRequired.Value;
+                requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlagsIsNull = false;
+            }
+             // determine if requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlags should be set to null
+            if (requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlagsIsNull)
+            {
+                requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlags = null;
             }
             if (requestDefinition_definition_TemplateV4_definition_TemplateV4_EnrollmentFlags != null)
             {
@@ -3257,6 +3387,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             Amazon.PcaConnectorAd.Model.SubjectNameFlagsV4 requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags = null;
             
              // populate SubjectNameFlags
+            var requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlagsIsNull = true;
             requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags = new Amazon.PcaConnectorAd.Model.SubjectNameFlagsV4();
             System.Boolean? requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_RequireCommonName = null;
             if (cmdletContext.Definition_TemplateV4_SubjectNameFlags_RequireCommonName != null)
@@ -3266,6 +3397,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_RequireCommonName != null)
             {
                 requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags.RequireCommonName = requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_RequireCommonName.Value;
+                requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_RequireDirectoryPath = null;
             if (cmdletContext.Definition_TemplateV4_SubjectNameFlags_RequireDirectoryPath != null)
@@ -3275,6 +3407,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_RequireDirectoryPath != null)
             {
                 requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags.RequireDirectoryPath = requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_RequireDirectoryPath.Value;
+                requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_RequireDnsAsCn = null;
             if (cmdletContext.Definition_TemplateV4_SubjectNameFlags_RequireDnsAsCn != null)
@@ -3284,6 +3417,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_RequireDnsAsCn != null)
             {
                 requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags.RequireDnsAsCn = requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_RequireDnsAsCn.Value;
+                requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_RequireEmail = null;
             if (cmdletContext.Definition_TemplateV4_SubjectNameFlags_RequireEmail != null)
@@ -3293,6 +3427,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_RequireEmail != null)
             {
                 requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags.RequireEmail = requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_RequireEmail.Value;
+                requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_SanRequireDirectoryGuid = null;
             if (cmdletContext.Definition_TemplateV4_SubjectNameFlags_SanRequireDirectoryGuid != null)
@@ -3302,6 +3437,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_SanRequireDirectoryGuid != null)
             {
                 requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags.SanRequireDirectoryGuid = requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_SanRequireDirectoryGuid.Value;
+                requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_SanRequireDns = null;
             if (cmdletContext.Definition_TemplateV4_SubjectNameFlags_SanRequireDns != null)
@@ -3311,6 +3447,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_SanRequireDns != null)
             {
                 requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags.SanRequireDns = requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_SanRequireDns.Value;
+                requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_SanRequireDomainDns = null;
             if (cmdletContext.Definition_TemplateV4_SubjectNameFlags_SanRequireDomainDns != null)
@@ -3320,6 +3457,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_SanRequireDomainDns != null)
             {
                 requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags.SanRequireDomainDns = requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_SanRequireDomainDns.Value;
+                requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_SanRequireEmail = null;
             if (cmdletContext.Definition_TemplateV4_SubjectNameFlags_SanRequireEmail != null)
@@ -3329,6 +3467,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_SanRequireEmail != null)
             {
                 requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags.SanRequireEmail = requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_SanRequireEmail.Value;
+                requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_SanRequireSpn = null;
             if (cmdletContext.Definition_TemplateV4_SubjectNameFlags_SanRequireSpn != null)
@@ -3338,6 +3477,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_SanRequireSpn != null)
             {
                 requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags.SanRequireSpn = requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_SanRequireSpn.Value;
+                requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlagsIsNull = false;
             }
             System.Boolean? requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_SanRequireUpn = null;
             if (cmdletContext.Definition_TemplateV4_SubjectNameFlags_SanRequireUpn != null)
@@ -3347,6 +3487,12 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             if (requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_SanRequireUpn != null)
             {
                 requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags.SanRequireUpn = requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags_definition_TemplateV4_SubjectNameFlags_SanRequireUpn.Value;
+                requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlagsIsNull = false;
+            }
+             // determine if requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags should be set to null
+            if (requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlagsIsNull)
+            {
+                requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags = null;
             }
             if (requestDefinition_definition_TemplateV4_definition_TemplateV4_SubjectNameFlags != null)
             {

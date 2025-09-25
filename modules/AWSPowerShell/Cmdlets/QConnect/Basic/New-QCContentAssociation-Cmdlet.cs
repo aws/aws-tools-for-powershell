@@ -252,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             
             
              // populate Association
+            var requestAssociationIsNull = true;
             request.Association = new Amazon.QConnect.Model.ContentAssociationContents();
             Amazon.QConnect.Model.AmazonConnectGuideAssociationData requestAssociation_association_AmazonConnectGuideAssociation = null;
             
@@ -276,6 +277,12 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestAssociation_association_AmazonConnectGuideAssociation != null)
             {
                 request.Association.AmazonConnectGuideAssociation = requestAssociation_association_AmazonConnectGuideAssociation;
+                requestAssociationIsNull = false;
+            }
+             // determine if request.Association should be set to null
+            if (requestAssociationIsNull)
+            {
+                request.Association = null;
             }
             if (cmdletContext.AssociationType != null)
             {

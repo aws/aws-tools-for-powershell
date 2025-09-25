@@ -352,6 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             }
             
              // populate WriteApplicationSettingsRequest
+            var requestWriteApplicationSettingsRequestIsNull = true;
             request.WriteApplicationSettingsRequest = new Amazon.Pinpoint.Model.WriteApplicationSettingsRequest();
             System.Boolean? requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CloudWatchMetricsEnabled = null;
             if (cmdletContext.WriteApplicationSettingsRequest_CloudWatchMetricsEnabled != null)
@@ -361,6 +362,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CloudWatchMetricsEnabled != null)
             {
                 request.WriteApplicationSettingsRequest.CloudWatchMetricsEnabled = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CloudWatchMetricsEnabled.Value;
+                requestWriteApplicationSettingsRequestIsNull = false;
             }
             System.Boolean? requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_EventTaggingEnabled = null;
             if (cmdletContext.WriteApplicationSettingsRequest_EventTaggingEnabled != null)
@@ -370,6 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_EventTaggingEnabled != null)
             {
                 request.WriteApplicationSettingsRequest.EventTaggingEnabled = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_EventTaggingEnabled.Value;
+                requestWriteApplicationSettingsRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.QuietTime requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_QuietTime = null;
             
@@ -404,6 +407,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_QuietTime != null)
             {
                 request.WriteApplicationSettingsRequest.QuietTime = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_QuietTime;
+                requestWriteApplicationSettingsRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.CampaignHook requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHook = null;
             
@@ -448,6 +452,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHook != null)
             {
                 request.WriteApplicationSettingsRequest.CampaignHook = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CampaignHook;
+                requestWriteApplicationSettingsRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.ApplicationSettingsJourneyLimits requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits = null;
             
@@ -517,6 +522,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits != null)
             {
                 request.WriteApplicationSettingsRequest.JourneyLimits = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_JourneyLimits;
+                requestWriteApplicationSettingsRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.CampaignLimits requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits = null;
             
@@ -581,6 +587,12 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits != null)
             {
                 request.WriteApplicationSettingsRequest.Limits = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits;
+                requestWriteApplicationSettingsRequestIsNull = false;
+            }
+             // determine if request.WriteApplicationSettingsRequest should be set to null
+            if (requestWriteApplicationSettingsRequestIsNull)
+            {
+                request.WriteApplicationSettingsRequest = null;
             }
             
             CmdletOutput output;

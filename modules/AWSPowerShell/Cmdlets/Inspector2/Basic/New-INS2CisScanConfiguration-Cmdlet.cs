@@ -374,6 +374,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             }
             
              // populate Schedule
+            var requestScheduleIsNull = true;
             request.Schedule = new Amazon.Inspector2.Model.Schedule();
             Amazon.Inspector2.Model.OneTimeSchedule requestSchedule_schedule_OneTime = null;
             if (cmdletContext.Schedule_OneTime != null)
@@ -383,6 +384,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestSchedule_schedule_OneTime != null)
             {
                 request.Schedule.OneTime = requestSchedule_schedule_OneTime;
+                requestScheduleIsNull = false;
             }
             Amazon.Inspector2.Model.DailySchedule requestSchedule_schedule_Daily = null;
             
@@ -432,6 +434,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestSchedule_schedule_Daily != null)
             {
                 request.Schedule.Daily = requestSchedule_schedule_Daily;
+                requestScheduleIsNull = false;
             }
             Amazon.Inspector2.Model.MonthlySchedule requestSchedule_schedule_Monthly = null;
             
@@ -491,6 +494,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestSchedule_schedule_Monthly != null)
             {
                 request.Schedule.Monthly = requestSchedule_schedule_Monthly;
+                requestScheduleIsNull = false;
             }
             Amazon.Inspector2.Model.WeeklySchedule requestSchedule_schedule_Weekly = null;
             
@@ -550,6 +554,12 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestSchedule_schedule_Weekly != null)
             {
                 request.Schedule.Weekly = requestSchedule_schedule_Weekly;
+                requestScheduleIsNull = false;
+            }
+             // determine if request.Schedule should be set to null
+            if (requestScheduleIsNull)
+            {
+                request.Schedule = null;
             }
             if (cmdletContext.SecurityLevel != null)
             {

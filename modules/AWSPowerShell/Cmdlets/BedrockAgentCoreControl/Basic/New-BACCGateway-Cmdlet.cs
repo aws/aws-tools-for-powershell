@@ -362,6 +362,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             
             
              // populate AuthorizerConfiguration
+            var requestAuthorizerConfigurationIsNull = true;
             request.AuthorizerConfiguration = new Amazon.BedrockAgentCoreControl.Model.AuthorizerConfiguration();
             Amazon.BedrockAgentCoreControl.Model.CustomJWTAuthorizerConfiguration requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer = null;
             
@@ -406,6 +407,12 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer != null)
             {
                 request.AuthorizerConfiguration.CustomJWTAuthorizer = requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer;
+                requestAuthorizerConfigurationIsNull = false;
+            }
+             // determine if request.AuthorizerConfiguration should be set to null
+            if (requestAuthorizerConfigurationIsNull)
+            {
+                request.AuthorizerConfiguration = null;
             }
             if (cmdletContext.AuthorizerType != null)
             {

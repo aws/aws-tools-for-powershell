@@ -203,6 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             
             
              // populate Content
+            var requestContentIsNull = true;
             request.Content = new Amazon.ConnectCases.Model.LayoutContent();
             Amazon.ConnectCases.Model.BasicLayout requestContent_content_Basic = null;
             
@@ -267,6 +268,12 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             if (requestContent_content_Basic != null)
             {
                 request.Content.Basic = requestContent_content_Basic;
+                requestContentIsNull = false;
+            }
+             // determine if request.Content should be set to null
+            if (requestContentIsNull)
+            {
+                request.Content = null;
             }
             if (cmdletContext.DomainId != null)
             {

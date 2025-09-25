@@ -339,6 +339,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             }
             
              // populate Schedule
+            var requestScheduleIsNull = true;
             request.Schedule = new Amazon.RedshiftServerless.Model.Schedule();
             System.DateTime? requestSchedule_schedule_At = null;
             if (cmdletContext.Schedule_At != null)
@@ -348,6 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             if (requestSchedule_schedule_At != null)
             {
                 request.Schedule.At = requestSchedule_schedule_At.Value;
+                requestScheduleIsNull = false;
             }
             System.String requestSchedule_schedule_Cron = null;
             if (cmdletContext.Schedule_Cron != null)
@@ -357,6 +359,12 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             if (requestSchedule_schedule_Cron != null)
             {
                 request.Schedule.Cron = requestSchedule_schedule_Cron;
+                requestScheduleIsNull = false;
+            }
+             // determine if request.Schedule should be set to null
+            if (requestScheduleIsNull)
+            {
+                request.Schedule = null;
             }
             if (cmdletContext.ScheduledActionDescription != null)
             {
@@ -372,6 +380,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             }
             
              // populate TargetAction
+            var requestTargetActionIsNull = true;
             request.TargetAction = new Amazon.RedshiftServerless.Model.TargetAction();
             Amazon.RedshiftServerless.Model.CreateSnapshotScheduleActionParameters requestTargetAction_targetAction_CreateSnapshot = null;
             
@@ -426,6 +435,12 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             if (requestTargetAction_targetAction_CreateSnapshot != null)
             {
                 request.TargetAction.CreateSnapshot = requestTargetAction_targetAction_CreateSnapshot;
+                requestTargetActionIsNull = false;
+            }
+             // determine if request.TargetAction should be set to null
+            if (requestTargetActionIsNull)
+            {
+                request.TargetAction = null;
             }
             
             CmdletOutput output;

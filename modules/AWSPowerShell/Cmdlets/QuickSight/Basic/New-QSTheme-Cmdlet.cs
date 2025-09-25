@@ -581,6 +581,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             
              // populate Configuration
+            var requestConfigurationIsNull = true;
             request.Configuration = new Amazon.QuickSight.Model.ThemeConfiguration();
             Amazon.QuickSight.Model.Typography requestConfiguration_configuration_Typography = null;
             
@@ -605,6 +606,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestConfiguration_configuration_Typography != null)
             {
                 request.Configuration.Typography = requestConfiguration_configuration_Typography;
+                requestConfigurationIsNull = false;
             }
             Amazon.QuickSight.Model.SheetStyle requestConfiguration_configuration_Sheet = null;
             
@@ -724,6 +726,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestConfiguration_configuration_Sheet != null)
             {
                 request.Configuration.Sheet = requestConfiguration_configuration_Sheet;
+                requestConfigurationIsNull = false;
             }
             Amazon.QuickSight.Model.DataColorPalette requestConfiguration_configuration_DataColorPalette = null;
             
@@ -768,6 +771,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestConfiguration_configuration_DataColorPalette != null)
             {
                 request.Configuration.DataColorPalette = requestConfiguration_configuration_DataColorPalette;
+                requestConfigurationIsNull = false;
             }
             Amazon.QuickSight.Model.UIColorPalette requestConfiguration_configuration_UIColorPalette = null;
             
@@ -942,6 +946,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestConfiguration_configuration_UIColorPalette != null)
             {
                 request.Configuration.UIColorPalette = requestConfiguration_configuration_UIColorPalette;
+                requestConfigurationIsNull = false;
+            }
+             // determine if request.Configuration should be set to null
+            if (requestConfigurationIsNull)
+            {
+                request.Configuration = null;
             }
             if (cmdletContext.Name != null)
             {

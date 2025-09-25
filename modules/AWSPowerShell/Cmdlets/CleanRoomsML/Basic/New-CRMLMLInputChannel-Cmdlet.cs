@@ -405,6 +405,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             Amazon.CleanRoomsML.Model.InputChannelDataSource requestInputChannel_inputChannel_DataSource = null;
             
              // populate DataSource
+            var requestInputChannel_inputChannel_DataSourceIsNull = true;
             requestInputChannel_inputChannel_DataSource = new Amazon.CleanRoomsML.Model.InputChannelDataSource();
             Amazon.CleanRoomsML.Model.ProtectedQueryInputParameters requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters = null;
             
@@ -474,6 +475,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             Amazon.CleanRoomsML.Model.ProtectedQuerySQLParameters requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_SqlParameters = null;
             
              // populate SqlParameters
+            var requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_SqlParametersIsNull = true;
             requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_SqlParameters = new Amazon.CleanRoomsML.Model.ProtectedQuerySQLParameters();
             System.String requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_SqlParameters_sqlParameters_AnalysisTemplateArn = null;
             if (cmdletContext.SqlParameters_AnalysisTemplateArn != null)
@@ -483,6 +485,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             if (requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_SqlParameters_sqlParameters_AnalysisTemplateArn != null)
             {
                 requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_SqlParameters.AnalysisTemplateArn = requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_SqlParameters_sqlParameters_AnalysisTemplateArn;
+                requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_SqlParametersIsNull = false;
             }
             Dictionary<System.String, System.String> requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_SqlParameters_sqlParameters_Parameter = null;
             if (cmdletContext.SqlParameters_Parameter != null)
@@ -492,6 +495,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             if (requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_SqlParameters_sqlParameters_Parameter != null)
             {
                 requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_SqlParameters.Parameters = requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_SqlParameters_sqlParameters_Parameter;
+                requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_SqlParametersIsNull = false;
             }
             System.String requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_SqlParameters_sqlParameters_QueryString = null;
             if (cmdletContext.SqlParameters_QueryString != null)
@@ -501,6 +505,12 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             if (requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_SqlParameters_sqlParameters_QueryString != null)
             {
                 requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_SqlParameters.QueryString = requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_SqlParameters_sqlParameters_QueryString;
+                requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_SqlParametersIsNull = false;
+            }
+             // determine if requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_SqlParameters should be set to null
+            if (requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_SqlParametersIsNull)
+            {
+                requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_SqlParameters = null;
             }
             if (requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters_inputChannel_DataSource_ProtectedQueryInputParameters_SqlParameters != null)
             {
@@ -515,6 +525,12 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             if (requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters != null)
             {
                 requestInputChannel_inputChannel_DataSource.ProtectedQueryInputParameters = requestInputChannel_inputChannel_DataSource_inputChannel_DataSource_ProtectedQueryInputParameters;
+                requestInputChannel_inputChannel_DataSourceIsNull = false;
+            }
+             // determine if requestInputChannel_inputChannel_DataSource should be set to null
+            if (requestInputChannel_inputChannel_DataSourceIsNull)
+            {
+                requestInputChannel_inputChannel_DataSource = null;
             }
             if (requestInputChannel_inputChannel_DataSource != null)
             {

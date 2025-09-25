@@ -229,6 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             
             
              // populate APNSSandboxChannelRequest
+            var requestAPNSSandboxChannelRequestIsNull = true;
             request.APNSSandboxChannelRequest = new Amazon.Pinpoint.Model.APNSSandboxChannelRequest();
             System.String requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_BundleId = null;
             if (cmdletContext.APNSSandboxChannelRequest_BundleId != null)
@@ -238,6 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_BundleId != null)
             {
                 request.APNSSandboxChannelRequest.BundleId = requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_BundleId;
+                requestAPNSSandboxChannelRequestIsNull = false;
             }
             System.String requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_Certificate = null;
             if (cmdletContext.APNSSandboxChannelRequest_Certificate != null)
@@ -247,6 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_Certificate != null)
             {
                 request.APNSSandboxChannelRequest.Certificate = requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_Certificate;
+                requestAPNSSandboxChannelRequestIsNull = false;
             }
             System.String requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_DefaultAuthenticationMethod = null;
             if (cmdletContext.APNSSandboxChannelRequest_DefaultAuthenticationMethod != null)
@@ -256,6 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_DefaultAuthenticationMethod != null)
             {
                 request.APNSSandboxChannelRequest.DefaultAuthenticationMethod = requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_DefaultAuthenticationMethod;
+                requestAPNSSandboxChannelRequestIsNull = false;
             }
             System.Boolean? requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_Enabled = null;
             if (cmdletContext.APNSSandboxChannelRequest_Enabled != null)
@@ -265,6 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_Enabled != null)
             {
                 request.APNSSandboxChannelRequest.Enabled = requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_Enabled.Value;
+                requestAPNSSandboxChannelRequestIsNull = false;
             }
             System.String requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_PrivateKey = null;
             if (cmdletContext.APNSSandboxChannelRequest_PrivateKey != null)
@@ -274,6 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_PrivateKey != null)
             {
                 request.APNSSandboxChannelRequest.PrivateKey = requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_PrivateKey;
+                requestAPNSSandboxChannelRequestIsNull = false;
             }
             System.String requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_TeamId = null;
             if (cmdletContext.APNSSandboxChannelRequest_TeamId != null)
@@ -283,6 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_TeamId != null)
             {
                 request.APNSSandboxChannelRequest.TeamId = requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_TeamId;
+                requestAPNSSandboxChannelRequestIsNull = false;
             }
             System.String requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_TokenKey = null;
             if (cmdletContext.APNSSandboxChannelRequest_TokenKey != null)
@@ -292,6 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_TokenKey != null)
             {
                 request.APNSSandboxChannelRequest.TokenKey = requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_TokenKey;
+                requestAPNSSandboxChannelRequestIsNull = false;
             }
             System.String requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_TokenKeyId = null;
             if (cmdletContext.APNSSandboxChannelRequest_TokenKeyId != null)
@@ -301,6 +309,12 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_TokenKeyId != null)
             {
                 request.APNSSandboxChannelRequest.TokenKeyId = requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_TokenKeyId;
+                requestAPNSSandboxChannelRequestIsNull = false;
+            }
+             // determine if request.APNSSandboxChannelRequest should be set to null
+            if (requestAPNSSandboxChannelRequestIsNull)
+            {
+                request.APNSSandboxChannelRequest = null;
             }
             if (cmdletContext.ApplicationId != null)
             {

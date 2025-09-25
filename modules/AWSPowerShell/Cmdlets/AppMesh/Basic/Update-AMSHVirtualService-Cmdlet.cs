@@ -219,6 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             }
             
              // populate Spec
+            var requestSpecIsNull = true;
             request.Spec = new Amazon.AppMesh.Model.VirtualServiceSpec();
             Amazon.AppMesh.Model.VirtualServiceProvider requestSpec_spec_Provider = null;
             
@@ -283,6 +284,12 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_Provider != null)
             {
                 request.Spec.Provider = requestSpec_spec_Provider;
+                requestSpecIsNull = false;
+            }
+             // determine if request.Spec should be set to null
+            if (requestSpecIsNull)
+            {
+                request.Spec = null;
             }
             if (cmdletContext.VirtualServiceName != null)
             {

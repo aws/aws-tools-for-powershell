@@ -385,6 +385,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
             }
             
              // populate AuthParameters
+            var requestAuthParametersIsNull = true;
             request.AuthParameters = new Amazon.CloudWatchEvents.Model.CreateConnectionAuthRequestParameters();
             Amazon.CloudWatchEvents.Model.CreateConnectionApiKeyAuthRequestParameters requestAuthParameters_authParameters_ApiKeyAuthParameters = null;
             
@@ -419,6 +420,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
             if (requestAuthParameters_authParameters_ApiKeyAuthParameters != null)
             {
                 request.AuthParameters.ApiKeyAuthParameters = requestAuthParameters_authParameters_ApiKeyAuthParameters;
+                requestAuthParametersIsNull = false;
             }
             Amazon.CloudWatchEvents.Model.CreateConnectionBasicAuthRequestParameters requestAuthParameters_authParameters_BasicAuthParameters = null;
             
@@ -453,6 +455,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
             if (requestAuthParameters_authParameters_BasicAuthParameters != null)
             {
                 request.AuthParameters.BasicAuthParameters = requestAuthParameters_authParameters_BasicAuthParameters;
+                requestAuthParametersIsNull = false;
             }
             Amazon.CloudWatchEvents.Model.ConnectionHttpParameters requestAuthParameters_authParameters_InvocationHttpParameters = null;
             
@@ -497,6 +500,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
             if (requestAuthParameters_authParameters_InvocationHttpParameters != null)
             {
                 request.AuthParameters.InvocationHttpParameters = requestAuthParameters_authParameters_InvocationHttpParameters;
+                requestAuthParametersIsNull = false;
             }
             Amazon.CloudWatchEvents.Model.CreateConnectionOAuthRequestParameters requestAuthParameters_authParameters_OAuthParameters = null;
             
@@ -611,6 +615,12 @@ namespace Amazon.PowerShell.Cmdlets.CWE
             if (requestAuthParameters_authParameters_OAuthParameters != null)
             {
                 request.AuthParameters.OAuthParameters = requestAuthParameters_authParameters_OAuthParameters;
+                requestAuthParametersIsNull = false;
+            }
+             // determine if request.AuthParameters should be set to null
+            if (requestAuthParametersIsNull)
+            {
+                request.AuthParameters = null;
             }
             if (cmdletContext.Description != null)
             {

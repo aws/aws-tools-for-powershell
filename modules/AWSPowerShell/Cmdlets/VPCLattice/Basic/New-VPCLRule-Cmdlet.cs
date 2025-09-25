@@ -350,6 +350,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             
             
              // populate Action
+            var requestActionIsNull = true;
             request.Action = new Amazon.VPCLattice.Model.RuleAction();
             Amazon.VPCLattice.Model.FixedResponseAction requestAction_action_FixedResponse = null;
             
@@ -374,6 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (requestAction_action_FixedResponse != null)
             {
                 request.Action.FixedResponse = requestAction_action_FixedResponse;
+                requestActionIsNull = false;
             }
             Amazon.VPCLattice.Model.ForwardAction requestAction_action_Forward = null;
             
@@ -398,6 +400,12 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (requestAction_action_Forward != null)
             {
                 request.Action.Forward = requestAction_action_Forward;
+                requestActionIsNull = false;
+            }
+             // determine if request.Action should be set to null
+            if (requestActionIsNull)
+            {
+                request.Action = null;
             }
             if (cmdletContext.ClientToken != null)
             {
@@ -409,6 +417,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             }
             
              // populate Match
+            var requestMatchIsNull = true;
             request.Match = new Amazon.VPCLattice.Model.RuleMatch();
             Amazon.VPCLattice.Model.HttpMatch requestMatch_match_HttpMatch = null;
             
@@ -453,6 +462,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             Amazon.VPCLattice.Model.PathMatchType requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_Match = null;
             
              // populate Match
+            var requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_MatchIsNull = true;
             requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_Match = new Amazon.VPCLattice.Model.PathMatchType();
             System.String requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_Match_match_Exact = null;
             if (cmdletContext.Match_Exact != null)
@@ -462,6 +472,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_Match_match_Exact != null)
             {
                 requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_Match.Exact = requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_Match_match_Exact;
+                requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_MatchIsNull = false;
             }
             System.String requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_Match_match_Prefix = null;
             if (cmdletContext.Match_Prefix != null)
@@ -471,6 +482,12 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_Match_match_Prefix != null)
             {
                 requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_Match.Prefix = requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_Match_match_Prefix;
+                requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_MatchIsNull = false;
+            }
+             // determine if requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_Match should be set to null
+            if (requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_MatchIsNull)
+            {
+                requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_Match = null;
             }
             if (requestMatch_match_HttpMatch_match_HttpMatch_PathMatch_match_HttpMatch_PathMatch_Match != null)
             {
@@ -495,6 +512,12 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (requestMatch_match_HttpMatch != null)
             {
                 request.Match.HttpMatch = requestMatch_match_HttpMatch;
+                requestMatchIsNull = false;
+            }
+             // determine if request.Match should be set to null
+            if (requestMatchIsNull)
+            {
+                request.Match = null;
             }
             if (cmdletContext.Name != null)
             {

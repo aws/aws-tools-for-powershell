@@ -178,6 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             }
             
              // populate ResourceCollection
+            var requestResourceCollectionIsNull = true;
             request.ResourceCollection = new Amazon.DevOpsGuru.Model.CostEstimationResourceCollectionFilter();
             List<Amazon.DevOpsGuru.Model.TagCostEstimationResourceCollectionFilter> requestResourceCollection_resourceCollection_Tag = null;
             if (cmdletContext.ResourceCollection_Tag != null)
@@ -187,6 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             if (requestResourceCollection_resourceCollection_Tag != null)
             {
                 request.ResourceCollection.Tags = requestResourceCollection_resourceCollection_Tag;
+                requestResourceCollectionIsNull = false;
             }
             Amazon.DevOpsGuru.Model.CloudFormationCostEstimationResourceCollectionFilter requestResourceCollection_resourceCollection_CloudFormation = null;
             
@@ -211,6 +213,12 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             if (requestResourceCollection_resourceCollection_CloudFormation != null)
             {
                 request.ResourceCollection.CloudFormation = requestResourceCollection_resourceCollection_CloudFormation;
+                requestResourceCollectionIsNull = false;
+            }
+             // determine if request.ResourceCollection should be set to null
+            if (requestResourceCollectionIsNull)
+            {
+                request.ResourceCollection = null;
             }
             
             CmdletOutput output;

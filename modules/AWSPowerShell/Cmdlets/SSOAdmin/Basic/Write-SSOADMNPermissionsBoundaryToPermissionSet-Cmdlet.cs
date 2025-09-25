@@ -202,6 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             }
             
              // populate PermissionsBoundary
+            var requestPermissionsBoundaryIsNull = true;
             request.PermissionsBoundary = new Amazon.SSOAdmin.Model.PermissionsBoundary();
             System.String requestPermissionsBoundary_permissionsBoundary_ManagedPolicyArn = null;
             if (cmdletContext.PermissionsBoundary_ManagedPolicyArn != null)
@@ -211,6 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             if (requestPermissionsBoundary_permissionsBoundary_ManagedPolicyArn != null)
             {
                 request.PermissionsBoundary.ManagedPolicyArn = requestPermissionsBoundary_permissionsBoundary_ManagedPolicyArn;
+                requestPermissionsBoundaryIsNull = false;
             }
             Amazon.SSOAdmin.Model.CustomerManagedPolicyReference requestPermissionsBoundary_permissionsBoundary_CustomerManagedPolicyReference = null;
             
@@ -245,6 +247,12 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
             if (requestPermissionsBoundary_permissionsBoundary_CustomerManagedPolicyReference != null)
             {
                 request.PermissionsBoundary.CustomerManagedPolicyReference = requestPermissionsBoundary_permissionsBoundary_CustomerManagedPolicyReference;
+                requestPermissionsBoundaryIsNull = false;
+            }
+             // determine if request.PermissionsBoundary should be set to null
+            if (requestPermissionsBoundaryIsNull)
+            {
+                request.PermissionsBoundary = null;
             }
             if (cmdletContext.PermissionSetArn != null)
             {

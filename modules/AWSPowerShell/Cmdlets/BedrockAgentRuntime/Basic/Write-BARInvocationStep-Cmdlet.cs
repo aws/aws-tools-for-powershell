@@ -232,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             }
             
              // populate Payload
+            var requestPayloadIsNull = true;
             request.Payload = new Amazon.BedrockAgentRuntime.Model.InvocationStepPayload();
             List<Amazon.BedrockAgentRuntime.Model.BedrockSessionContentBlock> requestPayload_payload_ContentBlock = null;
             if (cmdletContext.Payload_ContentBlock != null)
@@ -241,6 +242,12 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (requestPayload_payload_ContentBlock != null)
             {
                 request.Payload.ContentBlocks = requestPayload_payload_ContentBlock;
+                requestPayloadIsNull = false;
+            }
+             // determine if request.Payload should be set to null
+            if (requestPayloadIsNull)
+            {
+                request.Payload = null;
             }
             if (cmdletContext.SessionIdentifier != null)
             {

@@ -383,6 +383,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             
              // populate Filters
+            var requestFiltersIsNull = true;
             request.Filters = new Amazon.Connect.Model.Filters();
             List<System.String> requestFilters_filters_AgentStatus = null;
             if (cmdletContext.Filters_AgentStatus != null)
@@ -392,6 +393,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestFilters_filters_AgentStatus != null)
             {
                 request.Filters.AgentStatuses = requestFilters_filters_AgentStatus;
+                requestFiltersIsNull = false;
             }
             List<System.String> requestFilters_filters_Channel = null;
             if (cmdletContext.Filters_Channel != null)
@@ -401,6 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestFilters_filters_Channel != null)
             {
                 request.Filters.Channels = requestFilters_filters_Channel;
+                requestFiltersIsNull = false;
             }
             List<System.String> requestFilters_filters_Queue = null;
             if (cmdletContext.Filters_Queue != null)
@@ -410,6 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestFilters_filters_Queue != null)
             {
                 request.Filters.Queues = requestFilters_filters_Queue;
+                requestFiltersIsNull = false;
             }
             List<System.String> requestFilters_filters_RoutingProfile = null;
             if (cmdletContext.Filters_RoutingProfile != null)
@@ -419,6 +423,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestFilters_filters_RoutingProfile != null)
             {
                 request.Filters.RoutingProfiles = requestFilters_filters_RoutingProfile;
+                requestFiltersIsNull = false;
             }
             List<System.String> requestFilters_filters_RoutingStepExpression = null;
             if (cmdletContext.Filters_RoutingStepExpression != null)
@@ -428,6 +433,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestFilters_filters_RoutingStepExpression != null)
             {
                 request.Filters.RoutingStepExpressions = requestFilters_filters_RoutingStepExpression;
+                requestFiltersIsNull = false;
+            }
+             // determine if request.Filters should be set to null
+            if (requestFiltersIsNull)
+            {
+                request.Filters = null;
             }
             if (cmdletContext.Grouping != null)
             {
@@ -505,6 +516,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             
              // populate Filters
+            var requestFiltersIsNull = true;
             request.Filters = new Amazon.Connect.Model.Filters();
             List<System.String> requestFilters_filters_AgentStatus = null;
             if (cmdletContext.Filters_AgentStatus != null)
@@ -514,6 +526,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestFilters_filters_AgentStatus != null)
             {
                 request.Filters.AgentStatuses = requestFilters_filters_AgentStatus;
+                requestFiltersIsNull = false;
             }
             List<System.String> requestFilters_filters_Channel = null;
             if (cmdletContext.Filters_Channel != null)
@@ -523,6 +536,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestFilters_filters_Channel != null)
             {
                 request.Filters.Channels = requestFilters_filters_Channel;
+                requestFiltersIsNull = false;
             }
             List<System.String> requestFilters_filters_Queue = null;
             if (cmdletContext.Filters_Queue != null)
@@ -532,6 +546,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestFilters_filters_Queue != null)
             {
                 request.Filters.Queues = requestFilters_filters_Queue;
+                requestFiltersIsNull = false;
             }
             List<System.String> requestFilters_filters_RoutingProfile = null;
             if (cmdletContext.Filters_RoutingProfile != null)
@@ -541,6 +556,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestFilters_filters_RoutingProfile != null)
             {
                 request.Filters.RoutingProfiles = requestFilters_filters_RoutingProfile;
+                requestFiltersIsNull = false;
             }
             List<System.String> requestFilters_filters_RoutingStepExpression = null;
             if (cmdletContext.Filters_RoutingStepExpression != null)
@@ -550,6 +566,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestFilters_filters_RoutingStepExpression != null)
             {
                 request.Filters.RoutingStepExpressions = requestFilters_filters_RoutingStepExpression;
+                requestFiltersIsNull = false;
+            }
+             // determine if request.Filters should be set to null
+            if (requestFiltersIsNull)
+            {
+                request.Filters = null;
             }
             if (cmdletContext.Grouping != null)
             {

@@ -451,6 +451,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             }
             
              // populate HarvestedManifests
+            var requestHarvestedManifestsIsNull = true;
             request.HarvestedManifests = new Amazon.MediaPackageV2.Model.HarvestedManifests();
             List<Amazon.MediaPackageV2.Model.HarvestedDashManifest> requestHarvestedManifests_harvestedManifests_DashManifest = null;
             if (cmdletContext.HarvestedManifests_DashManifest != null)
@@ -460,6 +461,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             if (requestHarvestedManifests_harvestedManifests_DashManifest != null)
             {
                 request.HarvestedManifests.DashManifests = requestHarvestedManifests_harvestedManifests_DashManifest;
+                requestHarvestedManifestsIsNull = false;
             }
             List<Amazon.MediaPackageV2.Model.HarvestedHlsManifest> requestHarvestedManifests_harvestedManifests_HlsManifest = null;
             if (cmdletContext.HarvestedManifests_HlsManifest != null)
@@ -469,6 +471,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             if (requestHarvestedManifests_harvestedManifests_HlsManifest != null)
             {
                 request.HarvestedManifests.HlsManifests = requestHarvestedManifests_harvestedManifests_HlsManifest;
+                requestHarvestedManifestsIsNull = false;
             }
             List<Amazon.MediaPackageV2.Model.HarvestedLowLatencyHlsManifest> requestHarvestedManifests_harvestedManifests_LowLatencyHlsManifest = null;
             if (cmdletContext.HarvestedManifests_LowLatencyHlsManifest != null)
@@ -478,6 +481,12 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             if (requestHarvestedManifests_harvestedManifests_LowLatencyHlsManifest != null)
             {
                 request.HarvestedManifests.LowLatencyHlsManifests = requestHarvestedManifests_harvestedManifests_LowLatencyHlsManifest;
+                requestHarvestedManifestsIsNull = false;
+            }
+             // determine if request.HarvestedManifests should be set to null
+            if (requestHarvestedManifestsIsNull)
+            {
+                request.HarvestedManifests = null;
             }
             if (cmdletContext.HarvestJobName != null)
             {

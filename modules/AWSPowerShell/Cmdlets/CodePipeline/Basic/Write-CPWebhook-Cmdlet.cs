@@ -376,6 +376,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
             Amazon.CodePipeline.Model.WebhookAuthConfiguration requestWebhook_webhook_AuthenticationConfiguration = null;
             
              // populate AuthenticationConfiguration
+            var requestWebhook_webhook_AuthenticationConfigurationIsNull = true;
             requestWebhook_webhook_AuthenticationConfiguration = new Amazon.CodePipeline.Model.WebhookAuthConfiguration();
             System.String requestWebhook_webhook_AuthenticationConfiguration_authenticationConfiguration_AllowedIPRange = null;
             if (cmdletContext.AuthenticationConfiguration_AllowedIPRange != null)
@@ -385,6 +386,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
             if (requestWebhook_webhook_AuthenticationConfiguration_authenticationConfiguration_AllowedIPRange != null)
             {
                 requestWebhook_webhook_AuthenticationConfiguration.AllowedIPRange = requestWebhook_webhook_AuthenticationConfiguration_authenticationConfiguration_AllowedIPRange;
+                requestWebhook_webhook_AuthenticationConfigurationIsNull = false;
             }
             System.String requestWebhook_webhook_AuthenticationConfiguration_authenticationConfiguration_SecretToken = null;
             if (cmdletContext.AuthenticationConfiguration_SecretToken != null)
@@ -394,6 +396,12 @@ namespace Amazon.PowerShell.Cmdlets.CP
             if (requestWebhook_webhook_AuthenticationConfiguration_authenticationConfiguration_SecretToken != null)
             {
                 requestWebhook_webhook_AuthenticationConfiguration.SecretToken = requestWebhook_webhook_AuthenticationConfiguration_authenticationConfiguration_SecretToken;
+                requestWebhook_webhook_AuthenticationConfigurationIsNull = false;
+            }
+             // determine if requestWebhook_webhook_AuthenticationConfiguration should be set to null
+            if (requestWebhook_webhook_AuthenticationConfigurationIsNull)
+            {
+                requestWebhook_webhook_AuthenticationConfiguration = null;
             }
             if (requestWebhook_webhook_AuthenticationConfiguration != null)
             {

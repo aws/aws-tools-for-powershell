@@ -425,6 +425,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             
             
              // populate ConfigurationRecorder
+            var requestConfigurationRecorderIsNull = true;
             request.ConfigurationRecorder = new Amazon.ConfigService.Model.ConfigurationRecorder();
             System.String requestConfigurationRecorder_configurationRecorder_Arn = null;
             if (cmdletContext.ConfigurationRecorder_Arn != null)
@@ -434,6 +435,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (requestConfigurationRecorder_configurationRecorder_Arn != null)
             {
                 request.ConfigurationRecorder.Arn = requestConfigurationRecorder_configurationRecorder_Arn;
+                requestConfigurationRecorderIsNull = false;
             }
             System.String requestConfigurationRecorder_configurationRecorderName = null;
             if (cmdletContext.ConfigurationRecorderName != null)
@@ -443,6 +445,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (requestConfigurationRecorder_configurationRecorderName != null)
             {
                 request.ConfigurationRecorder.Name = requestConfigurationRecorder_configurationRecorderName;
+                requestConfigurationRecorderIsNull = false;
             }
             Amazon.ConfigService.RecordingScope requestConfigurationRecorder_configurationRecorder_RecordingScope = null;
             if (cmdletContext.ConfigurationRecorder_RecordingScope != null)
@@ -452,6 +455,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (requestConfigurationRecorder_configurationRecorder_RecordingScope != null)
             {
                 request.ConfigurationRecorder.RecordingScope = requestConfigurationRecorder_configurationRecorder_RecordingScope;
+                requestConfigurationRecorderIsNull = false;
             }
             System.String requestConfigurationRecorder_configurationRecorder_RoleARN = null;
             if (cmdletContext.ConfigurationRecorder_RoleARN != null)
@@ -461,6 +465,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (requestConfigurationRecorder_configurationRecorder_RoleARN != null)
             {
                 request.ConfigurationRecorder.RoleARN = requestConfigurationRecorder_configurationRecorder_RoleARN;
+                requestConfigurationRecorderIsNull = false;
             }
             System.String requestConfigurationRecorder_configurationRecorder_ServicePrincipal = null;
             if (cmdletContext.ConfigurationRecorder_ServicePrincipal != null)
@@ -470,6 +475,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (requestConfigurationRecorder_configurationRecorder_ServicePrincipal != null)
             {
                 request.ConfigurationRecorder.ServicePrincipal = requestConfigurationRecorder_configurationRecorder_ServicePrincipal;
+                requestConfigurationRecorderIsNull = false;
             }
             Amazon.ConfigService.Model.RecordingMode requestConfigurationRecorder_configurationRecorder_RecordingMode = null;
             
@@ -504,6 +510,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (requestConfigurationRecorder_configurationRecorder_RecordingMode != null)
             {
                 request.ConfigurationRecorder.RecordingMode = requestConfigurationRecorder_configurationRecorder_RecordingMode;
+                requestConfigurationRecorderIsNull = false;
             }
             Amazon.ConfigService.Model.RecordingGroup requestConfigurationRecorder_configurationRecorder_RecordingGroup = null;
             
@@ -598,6 +605,12 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (requestConfigurationRecorder_configurationRecorder_RecordingGroup != null)
             {
                 request.ConfigurationRecorder.RecordingGroup = requestConfigurationRecorder_configurationRecorder_RecordingGroup;
+                requestConfigurationRecorderIsNull = false;
+            }
+             // determine if request.ConfigurationRecorder should be set to null
+            if (requestConfigurationRecorderIsNull)
+            {
+                request.ConfigurationRecorder = null;
             }
             if (cmdletContext.Tag != null)
             {

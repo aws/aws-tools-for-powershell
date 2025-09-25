@@ -293,6 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
             
             
              // populate ConfigData
+            var requestConfigDataIsNull = true;
             request.ConfigData = new Amazon.GroundStation.Model.ConfigTypeData();
             Amazon.GroundStation.Model.AntennaDownlinkConfig requestConfigData_configData_AntennaDownlinkConfig = null;
             if (cmdletContext.ConfigData_AntennaDownlinkConfig != null)
@@ -302,6 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
             if (requestConfigData_configData_AntennaDownlinkConfig != null)
             {
                 request.ConfigData.AntennaDownlinkConfig = requestConfigData_configData_AntennaDownlinkConfig;
+                requestConfigDataIsNull = false;
             }
             Amazon.GroundStation.Model.AntennaDownlinkDemodDecodeConfig requestConfigData_configData_AntennaDownlinkDemodDecodeConfig = null;
             if (cmdletContext.ConfigData_AntennaDownlinkDemodDecodeConfig != null)
@@ -311,6 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
             if (requestConfigData_configData_AntennaDownlinkDemodDecodeConfig != null)
             {
                 request.ConfigData.AntennaDownlinkDemodDecodeConfig = requestConfigData_configData_AntennaDownlinkDemodDecodeConfig;
+                requestConfigDataIsNull = false;
             }
             Amazon.GroundStation.Model.AntennaUplinkConfig requestConfigData_configData_AntennaUplinkConfig = null;
             if (cmdletContext.ConfigData_AntennaUplinkConfig != null)
@@ -320,6 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
             if (requestConfigData_configData_AntennaUplinkConfig != null)
             {
                 request.ConfigData.AntennaUplinkConfig = requestConfigData_configData_AntennaUplinkConfig;
+                requestConfigDataIsNull = false;
             }
             Amazon.GroundStation.Model.DataflowEndpointConfig requestConfigData_configData_DataflowEndpointConfig = null;
             if (cmdletContext.ConfigData_DataflowEndpointConfig != null)
@@ -329,6 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
             if (requestConfigData_configData_DataflowEndpointConfig != null)
             {
                 request.ConfigData.DataflowEndpointConfig = requestConfigData_configData_DataflowEndpointConfig;
+                requestConfigDataIsNull = false;
             }
             Amazon.GroundStation.Model.TrackingConfig requestConfigData_configData_TrackingConfig = null;
             if (cmdletContext.ConfigData_TrackingConfig != null)
@@ -338,6 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
             if (requestConfigData_configData_TrackingConfig != null)
             {
                 request.ConfigData.TrackingConfig = requestConfigData_configData_TrackingConfig;
+                requestConfigDataIsNull = false;
             }
             Amazon.GroundStation.Model.UplinkEchoConfig requestConfigData_configData_UplinkEchoConfig = null;
             if (cmdletContext.ConfigData_UplinkEchoConfig != null)
@@ -347,6 +353,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
             if (requestConfigData_configData_UplinkEchoConfig != null)
             {
                 request.ConfigData.UplinkEchoConfig = requestConfigData_configData_UplinkEchoConfig;
+                requestConfigDataIsNull = false;
             }
             Amazon.GroundStation.Model.S3RecordingConfig requestConfigData_configData_S3RecordingConfig = null;
             
@@ -391,6 +398,12 @@ namespace Amazon.PowerShell.Cmdlets.GS
             if (requestConfigData_configData_S3RecordingConfig != null)
             {
                 request.ConfigData.S3RecordingConfig = requestConfigData_configData_S3RecordingConfig;
+                requestConfigDataIsNull = false;
+            }
+             // determine if request.ConfigData should be set to null
+            if (requestConfigDataIsNull)
+            {
+                request.ConfigData = null;
             }
             if (cmdletContext.ConfigId != null)
             {

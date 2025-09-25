@@ -232,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             
              // populate Owner
+            var requestOwnerIsNull = true;
             request.Owner = new Amazon.DataZone.Model.OwnerProperties();
             Amazon.DataZone.Model.OwnerGroupProperties requestOwner_owner_Group = null;
             
@@ -256,6 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestOwner_owner_Group != null)
             {
                 request.Owner.Group = requestOwner_owner_Group;
+                requestOwnerIsNull = false;
             }
             Amazon.DataZone.Model.OwnerUserProperties requestOwner_owner_User = null;
             
@@ -280,6 +282,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestOwner_owner_User != null)
             {
                 request.Owner.User = requestOwner_owner_User;
+                requestOwnerIsNull = false;
+            }
+             // determine if request.Owner should be set to null
+            if (requestOwnerIsNull)
+            {
+                request.Owner = null;
             }
             
             CmdletOutput output;

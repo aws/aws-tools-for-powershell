@@ -357,6 +357,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             }
             
              // populate InputDataConfig
+            var requestInputDataConfigIsNull = true;
             request.InputDataConfig = new Amazon.Bedrock.Model.ModelInvocationJobInputDataConfig();
             Amazon.Bedrock.Model.ModelInvocationJobS3InputDataConfig requestInputDataConfig_inputDataConfig_S3InputDataConfig = null;
             
@@ -401,6 +402,12 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestInputDataConfig_inputDataConfig_S3InputDataConfig != null)
             {
                 request.InputDataConfig.S3InputDataConfig = requestInputDataConfig_inputDataConfig_S3InputDataConfig;
+                requestInputDataConfigIsNull = false;
+            }
+             // determine if request.InputDataConfig should be set to null
+            if (requestInputDataConfigIsNull)
+            {
+                request.InputDataConfig = null;
             }
             if (cmdletContext.JobName != null)
             {
@@ -412,6 +419,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             }
             
              // populate OutputDataConfig
+            var requestOutputDataConfigIsNull = true;
             request.OutputDataConfig = new Amazon.Bedrock.Model.ModelInvocationJobOutputDataConfig();
             Amazon.Bedrock.Model.ModelInvocationJobS3OutputDataConfig requestOutputDataConfig_outputDataConfig_S3OutputDataConfig = null;
             
@@ -456,6 +464,12 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestOutputDataConfig_outputDataConfig_S3OutputDataConfig != null)
             {
                 request.OutputDataConfig.S3OutputDataConfig = requestOutputDataConfig_outputDataConfig_S3OutputDataConfig;
+                requestOutputDataConfigIsNull = false;
+            }
+             // determine if request.OutputDataConfig should be set to null
+            if (requestOutputDataConfigIsNull)
+            {
+                request.OutputDataConfig = null;
             }
             if (cmdletContext.RoleArn != null)
             {

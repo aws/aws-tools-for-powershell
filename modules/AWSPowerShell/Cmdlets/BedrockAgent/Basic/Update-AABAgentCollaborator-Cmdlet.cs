@@ -252,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             
             
              // populate AgentDescriptor
+            var requestAgentDescriptorIsNull = true;
             request.AgentDescriptor = new Amazon.BedrockAgent.Model.AgentDescriptor();
             System.String requestAgentDescriptor_agentDescriptor_AliasArn = null;
             if (cmdletContext.AgentDescriptor_AliasArn != null)
@@ -261,6 +262,12 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             if (requestAgentDescriptor_agentDescriptor_AliasArn != null)
             {
                 request.AgentDescriptor.AliasArn = requestAgentDescriptor_agentDescriptor_AliasArn;
+                requestAgentDescriptorIsNull = false;
+            }
+             // determine if request.AgentDescriptor should be set to null
+            if (requestAgentDescriptorIsNull)
+            {
+                request.AgentDescriptor = null;
             }
             if (cmdletContext.AgentId != null)
             {

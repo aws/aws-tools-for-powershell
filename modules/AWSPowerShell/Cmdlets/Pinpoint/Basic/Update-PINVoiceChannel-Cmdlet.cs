@@ -150,6 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             }
             
              // populate VoiceChannelRequest
+            var requestVoiceChannelRequestIsNull = true;
             request.VoiceChannelRequest = new Amazon.Pinpoint.Model.VoiceChannelRequest();
             System.Boolean? requestVoiceChannelRequest_voiceChannelRequest_Enabled = null;
             if (cmdletContext.VoiceChannelRequest_Enabled != null)
@@ -159,6 +160,12 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestVoiceChannelRequest_voiceChannelRequest_Enabled != null)
             {
                 request.VoiceChannelRequest.Enabled = requestVoiceChannelRequest_voiceChannelRequest_Enabled.Value;
+                requestVoiceChannelRequestIsNull = false;
+            }
+             // determine if request.VoiceChannelRequest should be set to null
+            if (requestVoiceChannelRequestIsNull)
+            {
+                request.VoiceChannelRequest = null;
             }
             
             CmdletOutput output;

@@ -214,6 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             }
             
              // populate AuthenticationMode
+            var requestAuthenticationModeIsNull = true;
             request.AuthenticationMode = new Amazon.MemoryDB.Model.AuthenticationMode();
             List<System.String> requestAuthenticationMode_authenticationMode_Password = null;
             if (cmdletContext.AuthenticationMode_Password != null)
@@ -223,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             if (requestAuthenticationMode_authenticationMode_Password != null)
             {
                 request.AuthenticationMode.Passwords = requestAuthenticationMode_authenticationMode_Password;
+                requestAuthenticationModeIsNull = false;
             }
             Amazon.MemoryDB.InputAuthenticationType requestAuthenticationMode_authenticationMode_Type = null;
             if (cmdletContext.AuthenticationMode_Type != null)
@@ -232,6 +234,12 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             if (requestAuthenticationMode_authenticationMode_Type != null)
             {
                 request.AuthenticationMode.Type = requestAuthenticationMode_authenticationMode_Type;
+                requestAuthenticationModeIsNull = false;
+            }
+             // determine if request.AuthenticationMode should be set to null
+            if (requestAuthenticationModeIsNull)
+            {
+                request.AuthenticationMode = null;
             }
             if (cmdletContext.Tag != null)
             {

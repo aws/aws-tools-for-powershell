@@ -303,6 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             
              // populate Topic
+            var requestTopicIsNull = true;
             request.Topic = new Amazon.QuickSight.Model.TopicDetails();
             List<Amazon.QuickSight.Model.DatasetMetadata> requestTopic_topic_DataSet = null;
             if (cmdletContext.Topic_DataSet != null)
@@ -312,6 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestTopic_topic_DataSet != null)
             {
                 request.Topic.DataSets = requestTopic_topic_DataSet;
+                requestTopicIsNull = false;
             }
             System.String requestTopic_topic_Description = null;
             if (cmdletContext.Topic_Description != null)
@@ -321,6 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestTopic_topic_Description != null)
             {
                 request.Topic.Description = requestTopic_topic_Description;
+                requestTopicIsNull = false;
             }
             System.String requestTopic_topic_Name = null;
             if (cmdletContext.Topic_Name != null)
@@ -330,6 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestTopic_topic_Name != null)
             {
                 request.Topic.Name = requestTopic_topic_Name;
+                requestTopicIsNull = false;
             }
             Amazon.QuickSight.TopicUserExperienceVersion requestTopic_topic_UserExperienceVersion = null;
             if (cmdletContext.Topic_UserExperienceVersion != null)
@@ -339,6 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestTopic_topic_UserExperienceVersion != null)
             {
                 request.Topic.UserExperienceVersion = requestTopic_topic_UserExperienceVersion;
+                requestTopicIsNull = false;
             }
             Amazon.QuickSight.Model.TopicConfigOptions requestTopic_topic_ConfigOptions = null;
             
@@ -363,6 +368,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestTopic_topic_ConfigOptions != null)
             {
                 request.Topic.ConfigOptions = requestTopic_topic_ConfigOptions;
+                requestTopicIsNull = false;
+            }
+             // determine if request.Topic should be set to null
+            if (requestTopicIsNull)
+            {
+                request.Topic = null;
             }
             if (cmdletContext.TopicId != null)
             {

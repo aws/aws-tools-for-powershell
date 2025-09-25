@@ -253,6 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             
             
              // populate AccessPolicyIdentity
+            var requestAccessPolicyIdentityIsNull = true;
             request.AccessPolicyIdentity = new Amazon.IoTSiteWise.Model.Identity();
             Amazon.IoTSiteWise.Model.GroupIdentity requestAccessPolicyIdentity_accessPolicyIdentity_Group = null;
             
@@ -277,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestAccessPolicyIdentity_accessPolicyIdentity_Group != null)
             {
                 request.AccessPolicyIdentity.Group = requestAccessPolicyIdentity_accessPolicyIdentity_Group;
+                requestAccessPolicyIdentityIsNull = false;
             }
             Amazon.IoTSiteWise.Model.IAMRoleIdentity requestAccessPolicyIdentity_accessPolicyIdentity_IamRole = null;
             
@@ -301,6 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestAccessPolicyIdentity_accessPolicyIdentity_IamRole != null)
             {
                 request.AccessPolicyIdentity.IamRole = requestAccessPolicyIdentity_accessPolicyIdentity_IamRole;
+                requestAccessPolicyIdentityIsNull = false;
             }
             Amazon.IoTSiteWise.Model.IAMUserIdentity requestAccessPolicyIdentity_accessPolicyIdentity_IamUser = null;
             
@@ -325,6 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestAccessPolicyIdentity_accessPolicyIdentity_IamUser != null)
             {
                 request.AccessPolicyIdentity.IamUser = requestAccessPolicyIdentity_accessPolicyIdentity_IamUser;
+                requestAccessPolicyIdentityIsNull = false;
             }
             Amazon.IoTSiteWise.Model.UserIdentity requestAccessPolicyIdentity_accessPolicyIdentity_User = null;
             
@@ -349,6 +353,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestAccessPolicyIdentity_accessPolicyIdentity_User != null)
             {
                 request.AccessPolicyIdentity.User = requestAccessPolicyIdentity_accessPolicyIdentity_User;
+                requestAccessPolicyIdentityIsNull = false;
+            }
+             // determine if request.AccessPolicyIdentity should be set to null
+            if (requestAccessPolicyIdentityIsNull)
+            {
+                request.AccessPolicyIdentity = null;
             }
             if (cmdletContext.AccessPolicyPermission != null)
             {
@@ -356,6 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             }
             
              // populate AccessPolicyResource
+            var requestAccessPolicyResourceIsNull = true;
             request.AccessPolicyResource = new Amazon.IoTSiteWise.Model.Resource();
             Amazon.IoTSiteWise.Model.PortalResource requestAccessPolicyResource_accessPolicyResource_Portal = null;
             
@@ -380,6 +391,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestAccessPolicyResource_accessPolicyResource_Portal != null)
             {
                 request.AccessPolicyResource.Portal = requestAccessPolicyResource_accessPolicyResource_Portal;
+                requestAccessPolicyResourceIsNull = false;
             }
             Amazon.IoTSiteWise.Model.ProjectResource requestAccessPolicyResource_accessPolicyResource_Project = null;
             
@@ -404,6 +416,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestAccessPolicyResource_accessPolicyResource_Project != null)
             {
                 request.AccessPolicyResource.Project = requestAccessPolicyResource_accessPolicyResource_Project;
+                requestAccessPolicyResourceIsNull = false;
+            }
+             // determine if request.AccessPolicyResource should be set to null
+            if (requestAccessPolicyResourceIsNull)
+            {
+                request.AccessPolicyResource = null;
             }
             if (cmdletContext.ClientToken != null)
             {

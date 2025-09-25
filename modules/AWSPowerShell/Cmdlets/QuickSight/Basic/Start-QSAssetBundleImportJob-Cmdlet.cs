@@ -667,6 +667,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 }
                 
                  // populate AssetBundleImportSource
+                var requestAssetBundleImportSourceIsNull = true;
                 request.AssetBundleImportSource = new Amazon.QuickSight.Model.AssetBundleImportSource();
                 System.IO.MemoryStream requestAssetBundleImportSource_assetBundleImportSource_Body = null;
                 if (cmdletContext.AssetBundleImportSource_Body != null)
@@ -677,6 +678,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 if (requestAssetBundleImportSource_assetBundleImportSource_Body != null)
                 {
                     request.AssetBundleImportSource.Body = requestAssetBundleImportSource_assetBundleImportSource_Body;
+                    requestAssetBundleImportSourceIsNull = false;
                 }
                 System.String requestAssetBundleImportSource_assetBundleImportSource_S3Uri = null;
                 if (cmdletContext.AssetBundleImportSource_S3Uri != null)
@@ -686,6 +688,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 if (requestAssetBundleImportSource_assetBundleImportSource_S3Uri != null)
                 {
                     request.AssetBundleImportSource.S3Uri = requestAssetBundleImportSource_assetBundleImportSource_S3Uri;
+                    requestAssetBundleImportSourceIsNull = false;
+                }
+                 // determine if request.AssetBundleImportSource should be set to null
+                if (requestAssetBundleImportSourceIsNull)
+                {
+                    request.AssetBundleImportSource = null;
                 }
                 if (cmdletContext.AwsAccountId != null)
                 {

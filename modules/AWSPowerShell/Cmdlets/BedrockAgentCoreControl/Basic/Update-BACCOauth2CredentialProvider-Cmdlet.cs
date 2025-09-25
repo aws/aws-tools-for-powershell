@@ -375,6 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             }
             
              // populate Oauth2ProviderConfigInput
+            var requestOauth2ProviderConfigInputIsNull = true;
             request.Oauth2ProviderConfigInput = new Amazon.BedrockAgentCoreControl.Model.Oauth2ProviderConfigInput();
             Amazon.BedrockAgentCoreControl.Model.GithubOauth2ProviderConfigInput requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig = null;
             
@@ -409,6 +410,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig != null)
             {
                 request.Oauth2ProviderConfigInput.GithubOauth2ProviderConfig = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GithubOauth2ProviderConfig;
+                requestOauth2ProviderConfigInputIsNull = false;
             }
             Amazon.BedrockAgentCoreControl.Model.GoogleOauth2ProviderConfigInput requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig = null;
             
@@ -443,6 +445,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig != null)
             {
                 request.Oauth2ProviderConfigInput.GoogleOauth2ProviderConfig = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_GoogleOauth2ProviderConfig;
+                requestOauth2ProviderConfigInputIsNull = false;
             }
             Amazon.BedrockAgentCoreControl.Model.MicrosoftOauth2ProviderConfigInput requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig = null;
             
@@ -477,6 +480,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig != null)
             {
                 request.Oauth2ProviderConfigInput.MicrosoftOauth2ProviderConfig = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_MicrosoftOauth2ProviderConfig;
+                requestOauth2ProviderConfigInputIsNull = false;
             }
             Amazon.BedrockAgentCoreControl.Model.SalesforceOauth2ProviderConfigInput requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig = null;
             
@@ -511,6 +515,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig != null)
             {
                 request.Oauth2ProviderConfigInput.SalesforceOauth2ProviderConfig = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SalesforceOauth2ProviderConfig;
+                requestOauth2ProviderConfigInputIsNull = false;
             }
             Amazon.BedrockAgentCoreControl.Model.SlackOauth2ProviderConfigInput requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig = null;
             
@@ -545,6 +550,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig != null)
             {
                 request.Oauth2ProviderConfigInput.SlackOauth2ProviderConfig = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_SlackOauth2ProviderConfig;
+                requestOauth2ProviderConfigInputIsNull = false;
             }
             Amazon.BedrockAgentCoreControl.Model.CustomOauth2ProviderConfigInput requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig = null;
             
@@ -574,6 +580,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             Amazon.BedrockAgentCoreControl.Model.Oauth2Discovery requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery = null;
             
              // populate OauthDiscovery
+            var requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscoveryIsNull = true;
             requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery = new Amazon.BedrockAgentCoreControl.Model.Oauth2Discovery();
             System.String requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery_oauthDiscovery_DiscoveryUrl = null;
             if (cmdletContext.OauthDiscovery_DiscoveryUrl != null)
@@ -583,6 +590,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery_oauthDiscovery_DiscoveryUrl != null)
             {
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery.DiscoveryUrl = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery_oauthDiscovery_DiscoveryUrl;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscoveryIsNull = false;
             }
             Amazon.BedrockAgentCoreControl.Model.Oauth2AuthorizationServerMetadata requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery_AuthorizationServerMetadata = null;
             
@@ -637,6 +645,12 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery_AuthorizationServerMetadata != null)
             {
                 requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery.AuthorizationServerMetadata = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery_AuthorizationServerMetadata;
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscoveryIsNull = false;
+            }
+             // determine if requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery should be set to null
+            if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscoveryIsNull)
+            {
+                requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery = null;
             }
             if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_oauth2ProviderConfigInput_CustomOauth2ProviderConfig_OauthDiscovery != null)
             {
@@ -651,6 +665,12 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig != null)
             {
                 request.Oauth2ProviderConfigInput.CustomOauth2ProviderConfig = requestOauth2ProviderConfigInput_oauth2ProviderConfigInput_CustomOauth2ProviderConfig;
+                requestOauth2ProviderConfigInputIsNull = false;
+            }
+             // determine if request.Oauth2ProviderConfigInput should be set to null
+            if (requestOauth2ProviderConfigInputIsNull)
+            {
+                request.Oauth2ProviderConfigInput = null;
             }
             
             CmdletOutput output;

@@ -264,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             
             
              // populate RestoreTestingPlan
+            var requestRestoreTestingPlanIsNull = true;
             request.RestoreTestingPlan = new Amazon.Backup.Model.RestoreTestingPlanForUpdate();
             System.String requestRestoreTestingPlan_restoreTestingPlan_ScheduleExpression = null;
             if (cmdletContext.RestoreTestingPlan_ScheduleExpression != null)
@@ -273,6 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (requestRestoreTestingPlan_restoreTestingPlan_ScheduleExpression != null)
             {
                 request.RestoreTestingPlan.ScheduleExpression = requestRestoreTestingPlan_restoreTestingPlan_ScheduleExpression;
+                requestRestoreTestingPlanIsNull = false;
             }
             System.String requestRestoreTestingPlan_restoreTestingPlan_ScheduleExpressionTimezone = null;
             if (cmdletContext.RestoreTestingPlan_ScheduleExpressionTimezone != null)
@@ -282,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (requestRestoreTestingPlan_restoreTestingPlan_ScheduleExpressionTimezone != null)
             {
                 request.RestoreTestingPlan.ScheduleExpressionTimezone = requestRestoreTestingPlan_restoreTestingPlan_ScheduleExpressionTimezone;
+                requestRestoreTestingPlanIsNull = false;
             }
             System.Int32? requestRestoreTestingPlan_restoreTestingPlan_StartWindowHour = null;
             if (cmdletContext.RestoreTestingPlan_StartWindowHour != null)
@@ -291,6 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (requestRestoreTestingPlan_restoreTestingPlan_StartWindowHour != null)
             {
                 request.RestoreTestingPlan.StartWindowHours = requestRestoreTestingPlan_restoreTestingPlan_StartWindowHour.Value;
+                requestRestoreTestingPlanIsNull = false;
             }
             Amazon.Backup.Model.RestoreTestingRecoveryPointSelection requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection = null;
             
@@ -355,6 +359,12 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection != null)
             {
                 request.RestoreTestingPlan.RecoveryPointSelection = requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection;
+                requestRestoreTestingPlanIsNull = false;
+            }
+             // determine if request.RestoreTestingPlan should be set to null
+            if (requestRestoreTestingPlanIsNull)
+            {
+                request.RestoreTestingPlan = null;
             }
             if (cmdletContext.RestoreTestingPlanName != null)
             {

@@ -331,6 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             
             
              // populate AuthConfig
+            var requestAuthConfigIsNull = true;
             request.AuthConfig = new Amazon.IoTManagedIntegrations.Model.AuthConfig();
             Amazon.IoTManagedIntegrations.Model.OAuthConfig requestAuthConfig_authConfig_OAuth = null;
             
@@ -430,6 +431,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             if (requestAuthConfig_authConfig_OAuth != null)
             {
                 request.AuthConfig.OAuth = requestAuthConfig_authConfig_OAuth;
+                requestAuthConfigIsNull = false;
+            }
+             // determine if request.AuthConfig should be set to null
+            if (requestAuthConfigIsNull)
+            {
+                request.AuthConfig = null;
             }
             if (cmdletContext.AuthType != null)
             {

@@ -179,6 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             }
             
              // populate VpcOptions
+            var requestVpcOptionsIsNull = true;
             request.VpcOptions = new Amazon.OpenSearchService.Model.VPCOptions();
             List<System.String> requestVpcOptions_vpcOptions_SecurityGroupId = null;
             if (cmdletContext.VpcOptions_SecurityGroupId != null)
@@ -188,6 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (requestVpcOptions_vpcOptions_SecurityGroupId != null)
             {
                 request.VpcOptions.SecurityGroupIds = requestVpcOptions_vpcOptions_SecurityGroupId;
+                requestVpcOptionsIsNull = false;
             }
             List<System.String> requestVpcOptions_vpcOptions_SubnetId = null;
             if (cmdletContext.VpcOptions_SubnetId != null)
@@ -197,6 +199,12 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (requestVpcOptions_vpcOptions_SubnetId != null)
             {
                 request.VpcOptions.SubnetIds = requestVpcOptions_vpcOptions_SubnetId;
+                requestVpcOptionsIsNull = false;
+            }
+             // determine if request.VpcOptions should be set to null
+            if (requestVpcOptionsIsNull)
+            {
+                request.VpcOptions = null;
             }
             
             CmdletOutput output;

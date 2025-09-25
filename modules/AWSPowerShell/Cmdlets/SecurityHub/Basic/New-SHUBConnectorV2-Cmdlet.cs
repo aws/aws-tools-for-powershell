@@ -253,6 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             }
             
              // populate Provider
+            var requestProviderIsNull = true;
             request.Provider = new Amazon.SecurityHub.Model.ProviderConfiguration();
             Amazon.SecurityHub.Model.JiraCloudProviderConfiguration requestProvider_provider_JiraCloud = null;
             
@@ -277,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestProvider_provider_JiraCloud != null)
             {
                 request.Provider.JiraCloud = requestProvider_provider_JiraCloud;
+                requestProviderIsNull = false;
             }
             Amazon.SecurityHub.Model.ServiceNowProviderConfiguration requestProvider_provider_ServiceNow = null;
             
@@ -321,6 +323,12 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestProvider_provider_ServiceNow != null)
             {
                 request.Provider.ServiceNow = requestProvider_provider_ServiceNow;
+                requestProviderIsNull = false;
+            }
+             // determine if request.Provider should be set to null
+            if (requestProviderIsNull)
+            {
+                request.Provider = null;
             }
             if (cmdletContext.Tag != null)
             {

@@ -274,6 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             }
             
              // populate DefaultAction
+            var requestDefaultActionIsNull = true;
             request.DefaultAction = new Amazon.VPCLattice.Model.RuleAction();
             Amazon.VPCLattice.Model.FixedResponseAction requestDefaultAction_defaultAction_FixedResponse = null;
             
@@ -298,6 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (requestDefaultAction_defaultAction_FixedResponse != null)
             {
                 request.DefaultAction.FixedResponse = requestDefaultAction_defaultAction_FixedResponse;
+                requestDefaultActionIsNull = false;
             }
             Amazon.VPCLattice.Model.ForwardAction requestDefaultAction_defaultAction_Forward = null;
             
@@ -322,6 +324,12 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (requestDefaultAction_defaultAction_Forward != null)
             {
                 request.DefaultAction.Forward = requestDefaultAction_defaultAction_Forward;
+                requestDefaultActionIsNull = false;
+            }
+             // determine if request.DefaultAction should be set to null
+            if (requestDefaultActionIsNull)
+            {
+                request.DefaultAction = null;
             }
             if (cmdletContext.Name != null)
             {

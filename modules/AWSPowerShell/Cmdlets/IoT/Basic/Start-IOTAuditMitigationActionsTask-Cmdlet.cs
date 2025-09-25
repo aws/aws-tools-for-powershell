@@ -276,6 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             }
             
              // populate Target
+            var requestTargetIsNull = true;
             request.Target = new Amazon.IoT.Model.AuditMitigationActionsTaskTarget();
             Dictionary<System.String, List<System.String>> requestTarget_target_AuditCheckToReasonCodeFilter = null;
             if (cmdletContext.Target_AuditCheckToReasonCodeFilter != null)
@@ -285,6 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestTarget_target_AuditCheckToReasonCodeFilter != null)
             {
                 request.Target.AuditCheckToReasonCodeFilter = requestTarget_target_AuditCheckToReasonCodeFilter;
+                requestTargetIsNull = false;
             }
             System.String requestTarget_target_AuditTaskId = null;
             if (cmdletContext.Target_AuditTaskId != null)
@@ -294,6 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestTarget_target_AuditTaskId != null)
             {
                 request.Target.AuditTaskId = requestTarget_target_AuditTaskId;
+                requestTargetIsNull = false;
             }
             List<System.String> requestTarget_target_FindingId = null;
             if (cmdletContext.Target_FindingId != null)
@@ -303,6 +306,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestTarget_target_FindingId != null)
             {
                 request.Target.FindingIds = requestTarget_target_FindingId;
+                requestTargetIsNull = false;
+            }
+             // determine if request.Target should be set to null
+            if (requestTargetIsNull)
+            {
+                request.Target = null;
             }
             if (cmdletContext.TaskId != null)
             {

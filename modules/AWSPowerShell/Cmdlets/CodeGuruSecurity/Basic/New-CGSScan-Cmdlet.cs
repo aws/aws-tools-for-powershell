@@ -222,6 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.CGS
             }
             
              // populate ResourceId
+            var requestResourceIdIsNull = true;
             request.ResourceId = new Amazon.CodeGuruSecurity.Model.ResourceId();
             System.String requestResourceId_resourceId_CodeArtifactId = null;
             if (cmdletContext.ResourceId_CodeArtifactId != null)
@@ -231,6 +232,12 @@ namespace Amazon.PowerShell.Cmdlets.CGS
             if (requestResourceId_resourceId_CodeArtifactId != null)
             {
                 request.ResourceId.CodeArtifactId = requestResourceId_resourceId_CodeArtifactId;
+                requestResourceIdIsNull = false;
+            }
+             // determine if request.ResourceId should be set to null
+            if (requestResourceIdIsNull)
+            {
+                request.ResourceId = null;
             }
             if (cmdletContext.ScanName != null)
             {

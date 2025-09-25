@@ -1151,6 +1151,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             }
             
              // populate Content
+            var requestContentIsNull = true;
             request.Content = new Amazon.QConnect.Model.MessageTemplateContentProvider();
             Amazon.QConnect.Model.SMSMessageTemplateContent requestContent_content_Sms = null;
             
@@ -1205,6 +1206,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestContent_content_Sms != null)
             {
                 request.Content.Sms = requestContent_content_Sms;
+                requestContentIsNull = false;
             }
             Amazon.QConnect.Model.EmailMessageTemplateContent requestContent_content_Email = null;
             
@@ -1304,6 +1306,12 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestContent_content_Email != null)
             {
                 request.Content.Email = requestContent_content_Email;
+                requestContentIsNull = false;
+            }
+             // determine if request.Content should be set to null
+            if (requestContentIsNull)
+            {
+                request.Content = null;
             }
             
              // populate DefaultAttributes

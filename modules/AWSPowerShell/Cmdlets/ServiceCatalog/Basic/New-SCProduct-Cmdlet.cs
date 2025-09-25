@@ -525,6 +525,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             Amazon.ServiceCatalog.Model.SourceConnectionParameters requestSourceConnection_sourceConnection_ConnectionParameters = null;
             
              // populate ConnectionParameters
+            var requestSourceConnection_sourceConnection_ConnectionParametersIsNull = true;
             requestSourceConnection_sourceConnection_ConnectionParameters = new Amazon.ServiceCatalog.Model.SourceConnectionParameters();
             Amazon.ServiceCatalog.Model.CodeStarParameters requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar = null;
             
@@ -579,6 +580,12 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar != null)
             {
                 requestSourceConnection_sourceConnection_ConnectionParameters.CodeStar = requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar;
+                requestSourceConnection_sourceConnection_ConnectionParametersIsNull = false;
+            }
+             // determine if requestSourceConnection_sourceConnection_ConnectionParameters should be set to null
+            if (requestSourceConnection_sourceConnection_ConnectionParametersIsNull)
+            {
+                requestSourceConnection_sourceConnection_ConnectionParameters = null;
             }
             if (requestSourceConnection_sourceConnection_ConnectionParameters != null)
             {

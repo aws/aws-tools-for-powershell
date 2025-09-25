@@ -247,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             }
             
              // populate ContentSource
+            var requestContentSourceIsNull = true;
             request.ContentSource = new Amazon.QBusiness.Model.ContentSource();
             Amazon.QBusiness.Model.RetrieverContentSource requestContentSource_contentSource_Retriever = null;
             
@@ -271,6 +272,12 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (requestContentSource_contentSource_Retriever != null)
             {
                 request.ContentSource.Retriever = requestContentSource_contentSource_Retriever;
+                requestContentSourceIsNull = false;
+            }
+             // determine if request.ContentSource should be set to null
+            if (requestContentSourceIsNull)
+            {
+                request.ContentSource = null;
             }
             if (cmdletContext.MaxResult != null)
             {

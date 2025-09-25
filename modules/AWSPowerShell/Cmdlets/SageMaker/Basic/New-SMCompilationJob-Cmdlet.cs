@@ -686,6 +686,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             
              // populate StoppingCondition
+            var requestStoppingConditionIsNull = true;
             request.StoppingCondition = new Amazon.SageMaker.Model.StoppingCondition();
             System.Int32? requestStoppingCondition_stoppingCondition_MaxPendingTimeInSecond = null;
             if (cmdletContext.StoppingCondition_MaxPendingTimeInSecond != null)
@@ -695,6 +696,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestStoppingCondition_stoppingCondition_MaxPendingTimeInSecond != null)
             {
                 request.StoppingCondition.MaxPendingTimeInSeconds = requestStoppingCondition_stoppingCondition_MaxPendingTimeInSecond.Value;
+                requestStoppingConditionIsNull = false;
             }
             System.Int32? requestStoppingCondition_stoppingCondition_MaxRuntimeInSecond = null;
             if (cmdletContext.StoppingCondition_MaxRuntimeInSecond != null)
@@ -704,6 +706,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestStoppingCondition_stoppingCondition_MaxRuntimeInSecond != null)
             {
                 request.StoppingCondition.MaxRuntimeInSeconds = requestStoppingCondition_stoppingCondition_MaxRuntimeInSecond.Value;
+                requestStoppingConditionIsNull = false;
             }
             System.Int32? requestStoppingCondition_stoppingCondition_MaxWaitTimeInSecond = null;
             if (cmdletContext.StoppingCondition_MaxWaitTimeInSecond != null)
@@ -713,6 +716,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestStoppingCondition_stoppingCondition_MaxWaitTimeInSecond != null)
             {
                 request.StoppingCondition.MaxWaitTimeInSeconds = requestStoppingCondition_stoppingCondition_MaxWaitTimeInSecond.Value;
+                requestStoppingConditionIsNull = false;
+            }
+             // determine if request.StoppingCondition should be set to null
+            if (requestStoppingConditionIsNull)
+            {
+                request.StoppingCondition = null;
             }
             if (cmdletContext.Tag != null)
             {

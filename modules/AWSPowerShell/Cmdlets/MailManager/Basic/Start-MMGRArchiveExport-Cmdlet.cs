@@ -254,6 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
             }
             
              // populate ExportDestinationConfiguration
+            var requestExportDestinationConfigurationIsNull = true;
             request.ExportDestinationConfiguration = new Amazon.MailManager.Model.ExportDestinationConfiguration();
             Amazon.MailManager.Model.S3ExportDestinationConfiguration requestExportDestinationConfiguration_exportDestinationConfiguration_S3 = null;
             
@@ -278,6 +279,12 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
             if (requestExportDestinationConfiguration_exportDestinationConfiguration_S3 != null)
             {
                 request.ExportDestinationConfiguration.S3 = requestExportDestinationConfiguration_exportDestinationConfiguration_S3;
+                requestExportDestinationConfigurationIsNull = false;
+            }
+             // determine if request.ExportDestinationConfiguration should be set to null
+            if (requestExportDestinationConfigurationIsNull)
+            {
+                request.ExportDestinationConfiguration = null;
             }
             
              // populate Filters

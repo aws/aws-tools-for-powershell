@@ -278,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             }
             
              // populate VoiceTemplateRequest
+            var requestVoiceTemplateRequestIsNull = true;
             request.VoiceTemplateRequest = new Amazon.Pinpoint.Model.VoiceTemplateRequest();
             System.String requestVoiceTemplateRequest_voiceTemplateRequest_Body = null;
             if (cmdletContext.VoiceTemplateRequest_Body != null)
@@ -287,6 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestVoiceTemplateRequest_voiceTemplateRequest_Body != null)
             {
                 request.VoiceTemplateRequest.Body = requestVoiceTemplateRequest_voiceTemplateRequest_Body;
+                requestVoiceTemplateRequestIsNull = false;
             }
             System.String requestVoiceTemplateRequest_voiceTemplateRequest_DefaultSubstitution = null;
             if (cmdletContext.VoiceTemplateRequest_DefaultSubstitution != null)
@@ -296,6 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestVoiceTemplateRequest_voiceTemplateRequest_DefaultSubstitution != null)
             {
                 request.VoiceTemplateRequest.DefaultSubstitutions = requestVoiceTemplateRequest_voiceTemplateRequest_DefaultSubstitution;
+                requestVoiceTemplateRequestIsNull = false;
             }
             System.String requestVoiceTemplateRequest_voiceTemplateRequest_LanguageCode = null;
             if (cmdletContext.VoiceTemplateRequest_LanguageCode != null)
@@ -305,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestVoiceTemplateRequest_voiceTemplateRequest_LanguageCode != null)
             {
                 request.VoiceTemplateRequest.LanguageCode = requestVoiceTemplateRequest_voiceTemplateRequest_LanguageCode;
+                requestVoiceTemplateRequestIsNull = false;
             }
             Dictionary<System.String, System.String> requestVoiceTemplateRequest_voiceTemplateRequest_Tag = null;
             if (cmdletContext.VoiceTemplateRequest_Tag != null)
@@ -314,6 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestVoiceTemplateRequest_voiceTemplateRequest_Tag != null)
             {
                 request.VoiceTemplateRequest.Tags = requestVoiceTemplateRequest_voiceTemplateRequest_Tag;
+                requestVoiceTemplateRequestIsNull = false;
             }
             System.String requestVoiceTemplateRequest_voiceTemplateRequest_TemplateDescription = null;
             if (cmdletContext.VoiceTemplateRequest_TemplateDescription != null)
@@ -323,6 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestVoiceTemplateRequest_voiceTemplateRequest_TemplateDescription != null)
             {
                 request.VoiceTemplateRequest.TemplateDescription = requestVoiceTemplateRequest_voiceTemplateRequest_TemplateDescription;
+                requestVoiceTemplateRequestIsNull = false;
             }
             System.String requestVoiceTemplateRequest_voiceTemplateRequest_VoiceId = null;
             if (cmdletContext.VoiceTemplateRequest_VoiceId != null)
@@ -332,6 +338,12 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestVoiceTemplateRequest_voiceTemplateRequest_VoiceId != null)
             {
                 request.VoiceTemplateRequest.VoiceId = requestVoiceTemplateRequest_voiceTemplateRequest_VoiceId;
+                requestVoiceTemplateRequestIsNull = false;
+            }
+             // determine if request.VoiceTemplateRequest should be set to null
+            if (requestVoiceTemplateRequestIsNull)
+            {
+                request.VoiceTemplateRequest = null;
             }
             
             CmdletOutput output;

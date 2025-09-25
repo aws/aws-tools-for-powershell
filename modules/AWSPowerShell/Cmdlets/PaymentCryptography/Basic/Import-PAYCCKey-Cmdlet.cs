@@ -1103,6 +1103,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             }
             
              // populate KeyMaterial
+            var requestKeyMaterialIsNull = true;
             request.KeyMaterial = new Amazon.PaymentCryptography.Model.ImportKeyMaterial();
             Amazon.PaymentCryptography.Model.RootCertificatePublicKey requestKeyMaterial_keyMaterial_RootCertificatePublicKey = null;
             
@@ -1157,6 +1158,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             Amazon.PaymentCryptography.Model.KeyModesOfUse requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse = null;
             
              // populate KeyModesOfUse
+            var requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUseIsNull = true;
             requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse = new Amazon.PaymentCryptography.Model.KeyModesOfUse();
             System.Boolean? requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Decrypt = null;
             if (cmdletContext.KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Decrypt != null)
@@ -1166,6 +1168,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Decrypt != null)
             {
                 requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse.Decrypt = requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Decrypt.Value;
+                requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_DeriveKey = null;
             if (cmdletContext.KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_DeriveKey != null)
@@ -1175,6 +1178,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_DeriveKey != null)
             {
                 requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse.DeriveKey = requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_DeriveKey.Value;
+                requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Encrypt = null;
             if (cmdletContext.KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Encrypt != null)
@@ -1184,6 +1188,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Encrypt != null)
             {
                 requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse.Encrypt = requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Encrypt.Value;
+                requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Generate = null;
             if (cmdletContext.KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Generate != null)
@@ -1193,6 +1198,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Generate != null)
             {
                 requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse.Generate = requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Generate.Value;
+                requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_NoRestrictions = null;
             if (cmdletContext.KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_NoRestrictions != null)
@@ -1202,6 +1208,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_NoRestrictions != null)
             {
                 requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse.NoRestrictions = requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_NoRestrictions.Value;
+                requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Sign = null;
             if (cmdletContext.KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Sign != null)
@@ -1211,6 +1218,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Sign != null)
             {
                 requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse.Sign = requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Sign.Value;
+                requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Unwrap = null;
             if (cmdletContext.KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Unwrap != null)
@@ -1220,6 +1228,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Unwrap != null)
             {
                 requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse.Unwrap = requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Unwrap.Value;
+                requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Verify = null;
             if (cmdletContext.KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Verify != null)
@@ -1229,6 +1238,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Verify != null)
             {
                 requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse.Verify = requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Verify.Value;
+                requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Wrap = null;
             if (cmdletContext.KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Wrap != null)
@@ -1238,6 +1248,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Wrap != null)
             {
                 requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse.Wrap = requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse_Wrap.Value;
+                requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUseIsNull = false;
+            }
+             // determine if requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse should be set to null
+            if (requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUseIsNull)
+            {
+                requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse = null;
             }
             if (requestKeyMaterial_keyMaterial_RootCertificatePublicKey_keyMaterial_RootCertificatePublicKey_KeyAttributes_keyMaterial_RootCertificatePublicKey_KeyAttributes_KeyModesOfUse != null)
             {
@@ -1262,6 +1278,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_RootCertificatePublicKey != null)
             {
                 request.KeyMaterial.RootCertificatePublicKey = requestKeyMaterial_keyMaterial_RootCertificatePublicKey;
+                requestKeyMaterialIsNull = false;
             }
             Amazon.PaymentCryptography.Model.ImportTr31KeyBlock requestKeyMaterial_keyMaterial_Tr31KeyBlock = null;
             
@@ -1296,6 +1313,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_Tr31KeyBlock != null)
             {
                 request.KeyMaterial.Tr31KeyBlock = requestKeyMaterial_keyMaterial_Tr31KeyBlock;
+                requestKeyMaterialIsNull = false;
             }
             Amazon.PaymentCryptography.Model.TrustedCertificatePublicKey requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey = null;
             
@@ -1360,6 +1378,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             Amazon.PaymentCryptography.Model.KeyModesOfUse requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse = null;
             
              // populate KeyModesOfUse
+            var requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUseIsNull = true;
             requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse = new Amazon.PaymentCryptography.Model.KeyModesOfUse();
             System.Boolean? requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_Decrypt = null;
             if (cmdletContext.KeyModesOfUse_Decrypt != null)
@@ -1369,6 +1388,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_Decrypt != null)
             {
                 requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse.Decrypt = requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_Decrypt.Value;
+                requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_DeriveKey = null;
             if (cmdletContext.KeyModesOfUse_DeriveKey != null)
@@ -1378,6 +1398,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_DeriveKey != null)
             {
                 requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse.DeriveKey = requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_DeriveKey.Value;
+                requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_Encrypt = null;
             if (cmdletContext.KeyModesOfUse_Encrypt != null)
@@ -1387,6 +1408,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_Encrypt != null)
             {
                 requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse.Encrypt = requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_Encrypt.Value;
+                requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_Generate = null;
             if (cmdletContext.KeyModesOfUse_Generate != null)
@@ -1396,6 +1418,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_Generate != null)
             {
                 requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse.Generate = requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_Generate.Value;
+                requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_NoRestriction = null;
             if (cmdletContext.KeyModesOfUse_NoRestriction != null)
@@ -1405,6 +1428,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_NoRestriction != null)
             {
                 requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse.NoRestrictions = requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_NoRestriction.Value;
+                requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_Sign = null;
             if (cmdletContext.KeyModesOfUse_Sign != null)
@@ -1414,6 +1438,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_Sign != null)
             {
                 requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse.Sign = requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_Sign.Value;
+                requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_Unwrap = null;
             if (cmdletContext.KeyModesOfUse_Unwrap != null)
@@ -1423,6 +1448,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_Unwrap != null)
             {
                 requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse.Unwrap = requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_Unwrap.Value;
+                requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_Verify = null;
             if (cmdletContext.KeyModesOfUse_Verify != null)
@@ -1432,6 +1458,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_Verify != null)
             {
                 requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse.Verify = requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_Verify.Value;
+                requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_Wrap = null;
             if (cmdletContext.KeyModesOfUse_Wrap != null)
@@ -1441,6 +1468,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_Wrap != null)
             {
                 requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse.Wrap = requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_keyModesOfUse_Wrap.Value;
+                requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUseIsNull = false;
+            }
+             // determine if requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse should be set to null
+            if (requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUseIsNull)
+            {
+                requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse = null;
             }
             if (requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_keyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse != null)
             {
@@ -1465,6 +1498,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey != null)
             {
                 request.KeyMaterial.TrustedCertificatePublicKey = requestKeyMaterial_keyMaterial_TrustedCertificatePublicKey;
+                requestKeyMaterialIsNull = false;
             }
             Amazon.PaymentCryptography.Model.ImportKeyCryptogram requestKeyMaterial_keyMaterial_KeyCryptogram = null;
             
@@ -1549,6 +1583,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             Amazon.PaymentCryptography.Model.KeyModesOfUse requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse = null;
             
              // populate KeyModesOfUse
+            var requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUseIsNull = true;
             requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse = new Amazon.PaymentCryptography.Model.KeyModesOfUse();
             System.Boolean? requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Decrypt = null;
             if (cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Decrypt != null)
@@ -1558,6 +1593,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Decrypt != null)
             {
                 requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse.Decrypt = requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Decrypt.Value;
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_DeriveKey = null;
             if (cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_DeriveKey != null)
@@ -1567,6 +1603,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_DeriveKey != null)
             {
                 requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse.DeriveKey = requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_DeriveKey.Value;
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Encrypt = null;
             if (cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Encrypt != null)
@@ -1576,6 +1613,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Encrypt != null)
             {
                 requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse.Encrypt = requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Encrypt.Value;
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Generate = null;
             if (cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Generate != null)
@@ -1585,6 +1623,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Generate != null)
             {
                 requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse.Generate = requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Generate.Value;
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_NoRestrictions = null;
             if (cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_NoRestrictions != null)
@@ -1594,6 +1633,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_NoRestrictions != null)
             {
                 requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse.NoRestrictions = requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_NoRestrictions.Value;
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Sign = null;
             if (cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Sign != null)
@@ -1603,6 +1643,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Sign != null)
             {
                 requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse.Sign = requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Sign.Value;
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Unwrap = null;
             if (cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Unwrap != null)
@@ -1612,6 +1653,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Unwrap != null)
             {
                 requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse.Unwrap = requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Unwrap.Value;
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Verify = null;
             if (cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Verify != null)
@@ -1621,6 +1663,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Verify != null)
             {
                 requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse.Verify = requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Verify.Value;
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUseIsNull = false;
             }
             System.Boolean? requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Wrap = null;
             if (cmdletContext.KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Wrap != null)
@@ -1630,6 +1673,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Wrap != null)
             {
                 requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse.Wrap = requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Wrap.Value;
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUseIsNull = false;
+            }
+             // determine if requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse should be set to null
+            if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUseIsNull)
+            {
+                requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse = null;
             }
             if (requestKeyMaterial_keyMaterial_KeyCryptogram_keyMaterial_KeyCryptogram_KeyAttributes_keyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse != null)
             {
@@ -1654,6 +1703,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_KeyCryptogram != null)
             {
                 request.KeyMaterial.KeyCryptogram = requestKeyMaterial_keyMaterial_KeyCryptogram;
+                requestKeyMaterialIsNull = false;
             }
             Amazon.PaymentCryptography.Model.ImportDiffieHellmanTr31KeyBlock requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock = null;
             
@@ -1733,6 +1783,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             Amazon.PaymentCryptography.Model.DiffieHellmanDerivationData requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData = null;
             
              // populate DerivationData
+            var requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationDataIsNull = true;
             requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData = new Amazon.PaymentCryptography.Model.DiffieHellmanDerivationData();
             System.String requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData_derivationData_SharedInformation = null;
             if (cmdletContext.DerivationData_SharedInformation != null)
@@ -1742,6 +1793,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData_derivationData_SharedInformation != null)
             {
                 requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData.SharedInformation = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData_derivationData_SharedInformation;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationDataIsNull = false;
+            }
+             // determine if requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData should be set to null
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationDataIsNull)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData = null;
             }
             if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData != null)
             {
@@ -1756,6 +1813,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock != null)
             {
                 request.KeyMaterial.DiffieHellmanTr31KeyBlock = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock;
+                requestKeyMaterialIsNull = false;
             }
             Amazon.PaymentCryptography.Model.ImportTr34KeyBlock requestKeyMaterial_keyMaterial_Tr34KeyBlock = null;
             
@@ -1850,6 +1908,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             if (requestKeyMaterial_keyMaterial_Tr34KeyBlock != null)
             {
                 request.KeyMaterial.Tr34KeyBlock = requestKeyMaterial_keyMaterial_Tr34KeyBlock;
+                requestKeyMaterialIsNull = false;
+            }
+             // determine if request.KeyMaterial should be set to null
+            if (requestKeyMaterialIsNull)
+            {
+                request.KeyMaterial = null;
             }
             if (cmdletContext.ReplicationRegion != null)
             {

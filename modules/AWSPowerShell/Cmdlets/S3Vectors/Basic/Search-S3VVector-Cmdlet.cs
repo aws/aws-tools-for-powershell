@@ -233,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.S3V
             }
             
              // populate QueryVector
+            var requestQueryVectorIsNull = true;
             request.QueryVector = new Amazon.S3Vectors.Model.VectorData();
             List<System.Single> requestQueryVector_queryVector_Float32 = null;
             if (cmdletContext.QueryVector_Float32 != null)
@@ -242,6 +243,12 @@ namespace Amazon.PowerShell.Cmdlets.S3V
             if (requestQueryVector_queryVector_Float32 != null)
             {
                 request.QueryVector.Float32 = requestQueryVector_queryVector_Float32;
+                requestQueryVectorIsNull = false;
+            }
+             // determine if request.QueryVector should be set to null
+            if (requestQueryVectorIsNull)
+            {
+                request.QueryVector = null;
             }
             if (cmdletContext.ReturnDistance != null)
             {
