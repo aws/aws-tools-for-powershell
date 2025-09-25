@@ -204,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             
             
              // populate DestinationLicenseContext
+            var requestDestinationLicenseContextIsNull = true;
             request.DestinationLicenseContext = new Amazon.LicenseManager.Model.LicenseConversionContext();
             List<Amazon.LicenseManager.Model.ProductCodeListItem> requestDestinationLicenseContext_destinationLicenseContext_ProductCode = null;
             if (cmdletContext.DestinationLicenseContext_ProductCode != null)
@@ -213,6 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             if (requestDestinationLicenseContext_destinationLicenseContext_ProductCode != null)
             {
                 request.DestinationLicenseContext.ProductCodes = requestDestinationLicenseContext_destinationLicenseContext_ProductCode;
+                requestDestinationLicenseContextIsNull = false;
             }
             System.String requestDestinationLicenseContext_destinationLicenseContext_UsageOperation = null;
             if (cmdletContext.DestinationLicenseContext_UsageOperation != null)
@@ -222,6 +224,12 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             if (requestDestinationLicenseContext_destinationLicenseContext_UsageOperation != null)
             {
                 request.DestinationLicenseContext.UsageOperation = requestDestinationLicenseContext_destinationLicenseContext_UsageOperation;
+                requestDestinationLicenseContextIsNull = false;
+            }
+             // determine if request.DestinationLicenseContext should be set to null
+            if (requestDestinationLicenseContextIsNull)
+            {
+                request.DestinationLicenseContext = null;
             }
             if (cmdletContext.ResourceArn != null)
             {
@@ -229,6 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             }
             
              // populate SourceLicenseContext
+            var requestSourceLicenseContextIsNull = true;
             request.SourceLicenseContext = new Amazon.LicenseManager.Model.LicenseConversionContext();
             List<Amazon.LicenseManager.Model.ProductCodeListItem> requestSourceLicenseContext_sourceLicenseContext_ProductCode = null;
             if (cmdletContext.SourceLicenseContext_ProductCode != null)
@@ -238,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             if (requestSourceLicenseContext_sourceLicenseContext_ProductCode != null)
             {
                 request.SourceLicenseContext.ProductCodes = requestSourceLicenseContext_sourceLicenseContext_ProductCode;
+                requestSourceLicenseContextIsNull = false;
             }
             System.String requestSourceLicenseContext_sourceLicenseContext_UsageOperation = null;
             if (cmdletContext.SourceLicenseContext_UsageOperation != null)
@@ -247,6 +257,12 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             if (requestSourceLicenseContext_sourceLicenseContext_UsageOperation != null)
             {
                 request.SourceLicenseContext.UsageOperation = requestSourceLicenseContext_sourceLicenseContext_UsageOperation;
+                requestSourceLicenseContextIsNull = false;
+            }
+             // determine if request.SourceLicenseContext should be set to null
+            if (requestSourceLicenseContextIsNull)
+            {
+                request.SourceLicenseContext = null;
             }
             
             CmdletOutput output;

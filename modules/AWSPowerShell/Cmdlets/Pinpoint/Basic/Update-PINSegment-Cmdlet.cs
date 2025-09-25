@@ -592,6 +592,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             }
             
              // populate WriteSegmentRequest
+            var requestWriteSegmentRequestIsNull = true;
             request.WriteSegmentRequest = new Amazon.Pinpoint.Model.WriteSegmentRequest();
             System.String requestWriteSegmentRequest_writeSegmentRequest_Name = null;
             if (cmdletContext.WriteSegmentRequest_Name != null)
@@ -601,6 +602,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteSegmentRequest_writeSegmentRequest_Name != null)
             {
                 request.WriteSegmentRequest.Name = requestWriteSegmentRequest_writeSegmentRequest_Name;
+                requestWriteSegmentRequestIsNull = false;
             }
             Dictionary<System.String, System.String> requestWriteSegmentRequest_writeSegmentRequest_Tag = null;
             if (cmdletContext.WriteSegmentRequest_Tag != null)
@@ -610,6 +612,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteSegmentRequest_writeSegmentRequest_Tag != null)
             {
                 request.WriteSegmentRequest.Tags = requestWriteSegmentRequest_writeSegmentRequest_Tag;
+                requestWriteSegmentRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.SegmentGroupList requestWriteSegmentRequest_writeSegmentRequest_SegmentGroups = null;
             
@@ -644,6 +647,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteSegmentRequest_writeSegmentRequest_SegmentGroups != null)
             {
                 request.WriteSegmentRequest.SegmentGroups = requestWriteSegmentRequest_writeSegmentRequest_SegmentGroups;
+                requestWriteSegmentRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.SegmentDimensions requestWriteSegmentRequest_writeSegmentRequest_Dimensions = null;
             
@@ -1073,6 +1077,12 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteSegmentRequest_writeSegmentRequest_Dimensions != null)
             {
                 request.WriteSegmentRequest.Dimensions = requestWriteSegmentRequest_writeSegmentRequest_Dimensions;
+                requestWriteSegmentRequestIsNull = false;
+            }
+             // determine if request.WriteSegmentRequest should be set to null
+            if (requestWriteSegmentRequestIsNull)
+            {
+                request.WriteSegmentRequest = null;
             }
             
             CmdletOutput output;

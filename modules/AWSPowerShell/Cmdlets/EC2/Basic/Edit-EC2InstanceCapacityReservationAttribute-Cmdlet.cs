@@ -190,6 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             
              // populate CapacityReservationSpecification
+            var requestCapacityReservationSpecificationIsNull = true;
             request.CapacityReservationSpecification = new Amazon.EC2.Model.CapacityReservationSpecification();
             Amazon.EC2.CapacityReservationPreference requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationPreference = null;
             if (cmdletContext.CapacityReservationSpecification_CapacityReservationPreference != null)
@@ -199,6 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationPreference != null)
             {
                 request.CapacityReservationSpecification.CapacityReservationPreference = requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationPreference;
+                requestCapacityReservationSpecificationIsNull = false;
             }
             Amazon.EC2.Model.CapacityReservationTarget requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget = null;
             
@@ -233,6 +235,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget != null)
             {
                 request.CapacityReservationSpecification.CapacityReservationTarget = requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget;
+                requestCapacityReservationSpecificationIsNull = false;
+            }
+             // determine if request.CapacityReservationSpecification should be set to null
+            if (requestCapacityReservationSpecificationIsNull)
+            {
+                request.CapacityReservationSpecification = null;
             }
             if (cmdletContext.InstanceId != null)
             {

@@ -242,6 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             
             
              // populate Bandwidth
+            var requestBandwidthIsNull = true;
             request.Bandwidth = new Amazon.NetworkManager.Model.Bandwidth();
             System.Int32? requestBandwidth_bandwidth_DownloadSpeed = null;
             if (cmdletContext.Bandwidth_DownloadSpeed != null)
@@ -251,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             if (requestBandwidth_bandwidth_DownloadSpeed != null)
             {
                 request.Bandwidth.DownloadSpeed = requestBandwidth_bandwidth_DownloadSpeed.Value;
+                requestBandwidthIsNull = false;
             }
             System.Int32? requestBandwidth_bandwidth_UploadSpeed = null;
             if (cmdletContext.Bandwidth_UploadSpeed != null)
@@ -260,6 +262,12 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             if (requestBandwidth_bandwidth_UploadSpeed != null)
             {
                 request.Bandwidth.UploadSpeed = requestBandwidth_bandwidth_UploadSpeed.Value;
+                requestBandwidthIsNull = false;
+            }
+             // determine if request.Bandwidth should be set to null
+            if (requestBandwidthIsNull)
+            {
+                request.Bandwidth = null;
             }
             if (cmdletContext.Description != null)
             {

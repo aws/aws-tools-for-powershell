@@ -193,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
             
             
              // populate Action
+            var requestActionIsNull = true;
             request.Action = new Amazon.Shield.Model.ResponseAction();
             Amazon.Shield.Model.BlockAction requestAction_action_Block = null;
             if (cmdletContext.Action_Block != null)
@@ -202,6 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
             if (requestAction_action_Block != null)
             {
                 request.Action.Block = requestAction_action_Block;
+                requestActionIsNull = false;
             }
             Amazon.Shield.Model.CountAction requestAction_action_Count = null;
             if (cmdletContext.Action_Count != null)
@@ -211,6 +213,12 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
             if (requestAction_action_Count != null)
             {
                 request.Action.Count = requestAction_action_Count;
+                requestActionIsNull = false;
+            }
+             // determine if request.Action should be set to null
+            if (requestActionIsNull)
+            {
+                request.Action = null;
             }
             if (cmdletContext.ResourceArn != null)
             {

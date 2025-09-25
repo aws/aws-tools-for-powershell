@@ -193,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             
             
              // populate Configuration
+            var requestConfigurationIsNull = true;
             request.Configuration = new Amazon.Glue.Model.ProfileConfiguration();
             Dictionary<System.String, Amazon.Glue.Model.ConfigurationObject> requestConfiguration_configuration_JobConfiguration = null;
             if (cmdletContext.Configuration_JobConfiguration != null)
@@ -202,6 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestConfiguration_configuration_JobConfiguration != null)
             {
                 request.Configuration.JobConfiguration = requestConfiguration_configuration_JobConfiguration;
+                requestConfigurationIsNull = false;
             }
             Dictionary<System.String, Amazon.Glue.Model.ConfigurationObject> requestConfiguration_configuration_SessionConfiguration = null;
             if (cmdletContext.Configuration_SessionConfiguration != null)
@@ -211,6 +213,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestConfiguration_configuration_SessionConfiguration != null)
             {
                 request.Configuration.SessionConfiguration = requestConfiguration_configuration_SessionConfiguration;
+                requestConfigurationIsNull = false;
+            }
+             // determine if request.Configuration should be set to null
+            if (requestConfigurationIsNull)
+            {
+                request.Configuration = null;
             }
             if (cmdletContext.Description != null)
             {

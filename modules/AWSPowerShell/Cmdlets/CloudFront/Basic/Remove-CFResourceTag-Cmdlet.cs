@@ -164,6 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             }
             
              // populate TagKeys
+            var requestTagKeysIsNull = true;
             request.TagKeys = new Amazon.CloudFront.Model.TagKeys();
             List<System.String> requestTagKeys_tagKey = null;
             if (cmdletContext.TagKey != null)
@@ -173,6 +174,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (requestTagKeys_tagKey != null)
             {
                 request.TagKeys.Items = requestTagKeys_tagKey;
+                requestTagKeysIsNull = false;
+            }
+             // determine if request.TagKeys should be set to null
+            if (requestTagKeysIsNull)
+            {
+                request.TagKeys = null;
             }
             
             CmdletOutput output;

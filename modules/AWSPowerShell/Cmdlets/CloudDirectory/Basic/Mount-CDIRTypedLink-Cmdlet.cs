@@ -272,6 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             }
             
              // populate SourceObjectReference
+            var requestSourceObjectReferenceIsNull = true;
             request.SourceObjectReference = new Amazon.CloudDirectory.Model.ObjectReference();
             System.String requestSourceObjectReference_sourceObjectReference_Selector = null;
             if (cmdletContext.SourceObjectReference_Selector != null)
@@ -281,9 +282,16 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             if (requestSourceObjectReference_sourceObjectReference_Selector != null)
             {
                 request.SourceObjectReference.Selector = requestSourceObjectReference_sourceObjectReference_Selector;
+                requestSourceObjectReferenceIsNull = false;
+            }
+             // determine if request.SourceObjectReference should be set to null
+            if (requestSourceObjectReferenceIsNull)
+            {
+                request.SourceObjectReference = null;
             }
             
              // populate TargetObjectReference
+            var requestTargetObjectReferenceIsNull = true;
             request.TargetObjectReference = new Amazon.CloudDirectory.Model.ObjectReference();
             System.String requestTargetObjectReference_targetObjectReference_Selector = null;
             if (cmdletContext.TargetObjectReference_Selector != null)
@@ -293,6 +301,12 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             if (requestTargetObjectReference_targetObjectReference_Selector != null)
             {
                 request.TargetObjectReference.Selector = requestTargetObjectReference_targetObjectReference_Selector;
+                requestTargetObjectReferenceIsNull = false;
+            }
+             // determine if request.TargetObjectReference should be set to null
+            if (requestTargetObjectReferenceIsNull)
+            {
+                request.TargetObjectReference = null;
             }
             
              // populate TypedLinkFacet

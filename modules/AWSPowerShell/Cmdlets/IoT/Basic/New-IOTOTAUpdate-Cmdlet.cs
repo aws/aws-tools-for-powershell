@@ -482,6 +482,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             Amazon.IoT.Model.AwsJobRateIncreaseCriteria requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria = null;
             
              // populate RateIncreaseCriteria
+            var requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteriaIsNull = true;
             requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria = new Amazon.IoT.Model.AwsJobRateIncreaseCriteria();
             System.Int32? requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria_rateIncreaseCriteria_NumberOfNotifiedThing = null;
             if (cmdletContext.RateIncreaseCriteria_NumberOfNotifiedThing != null)
@@ -491,6 +492,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria_rateIncreaseCriteria_NumberOfNotifiedThing != null)
             {
                 requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria.NumberOfNotifiedThings = requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria_rateIncreaseCriteria_NumberOfNotifiedThing.Value;
+                requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteriaIsNull = false;
             }
             System.Int32? requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria_rateIncreaseCriteria_NumberOfSucceededThing = null;
             if (cmdletContext.RateIncreaseCriteria_NumberOfSucceededThing != null)
@@ -500,6 +502,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria_rateIncreaseCriteria_NumberOfSucceededThing != null)
             {
                 requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria.NumberOfSucceededThings = requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria_rateIncreaseCriteria_NumberOfSucceededThing.Value;
+                requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteriaIsNull = false;
+            }
+             // determine if requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria should be set to null
+            if (requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteriaIsNull)
+            {
+                requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria = null;
             }
             if (requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria != null)
             {

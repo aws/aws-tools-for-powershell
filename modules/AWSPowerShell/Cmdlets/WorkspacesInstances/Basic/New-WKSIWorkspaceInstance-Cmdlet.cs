@@ -819,6 +819,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             }
             
              // populate ManagedInstance
+            var requestManagedInstanceIsNull = true;
             request.ManagedInstance = new Amazon.WorkspacesInstances.Model.ManagedInstanceRequest();
             List<Amazon.WorkspacesInstances.Model.BlockDeviceMappingRequest> requestManagedInstance_managedInstance_BlockDeviceMapping = null;
             if (cmdletContext.ManagedInstance_BlockDeviceMapping != null)
@@ -828,6 +829,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_BlockDeviceMapping != null)
             {
                 request.ManagedInstance.BlockDeviceMappings = requestManagedInstance_managedInstance_BlockDeviceMapping;
+                requestManagedInstanceIsNull = false;
             }
             System.Boolean? requestManagedInstance_managedInstance_DisableApiStop = null;
             if (cmdletContext.ManagedInstance_DisableApiStop != null)
@@ -837,6 +839,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_DisableApiStop != null)
             {
                 request.ManagedInstance.DisableApiStop = requestManagedInstance_managedInstance_DisableApiStop.Value;
+                requestManagedInstanceIsNull = false;
             }
             System.Boolean? requestManagedInstance_managedInstance_EbsOptimized = null;
             if (cmdletContext.ManagedInstance_EbsOptimized != null)
@@ -846,6 +849,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_EbsOptimized != null)
             {
                 request.ManagedInstance.EbsOptimized = requestManagedInstance_managedInstance_EbsOptimized.Value;
+                requestManagedInstanceIsNull = false;
             }
             System.Boolean? requestManagedInstance_managedInstance_EnablePrimaryIpv6 = null;
             if (cmdletContext.ManagedInstance_EnablePrimaryIpv6 != null)
@@ -855,6 +859,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_EnablePrimaryIpv6 != null)
             {
                 request.ManagedInstance.EnablePrimaryIpv6 = requestManagedInstance_managedInstance_EnablePrimaryIpv6.Value;
+                requestManagedInstanceIsNull = false;
             }
             System.String requestManagedInstance_managedInstance_ImageId = null;
             if (cmdletContext.ManagedInstance_ImageId != null)
@@ -864,6 +869,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_ImageId != null)
             {
                 request.ManagedInstance.ImageId = requestManagedInstance_managedInstance_ImageId;
+                requestManagedInstanceIsNull = false;
             }
             System.String requestManagedInstance_managedInstance_InstanceType = null;
             if (cmdletContext.ManagedInstance_InstanceType != null)
@@ -873,6 +879,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_InstanceType != null)
             {
                 request.ManagedInstance.InstanceType = requestManagedInstance_managedInstance_InstanceType;
+                requestManagedInstanceIsNull = false;
             }
             System.Int32? requestManagedInstance_managedInstance_Ipv6AddressCount = null;
             if (cmdletContext.ManagedInstance_Ipv6AddressCount != null)
@@ -882,6 +889,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_Ipv6AddressCount != null)
             {
                 request.ManagedInstance.Ipv6AddressCount = requestManagedInstance_managedInstance_Ipv6AddressCount.Value;
+                requestManagedInstanceIsNull = false;
             }
             List<Amazon.WorkspacesInstances.Model.InstanceIpv6Address> requestManagedInstance_managedInstance_Ipv6Address = null;
             if (cmdletContext.ManagedInstance_Ipv6Address != null)
@@ -891,6 +899,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_Ipv6Address != null)
             {
                 request.ManagedInstance.Ipv6Addresses = requestManagedInstance_managedInstance_Ipv6Address;
+                requestManagedInstanceIsNull = false;
             }
             System.String requestManagedInstance_managedInstance_KernelId = null;
             if (cmdletContext.ManagedInstance_KernelId != null)
@@ -900,6 +909,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_KernelId != null)
             {
                 request.ManagedInstance.KernelId = requestManagedInstance_managedInstance_KernelId;
+                requestManagedInstanceIsNull = false;
             }
             System.String requestManagedInstance_managedInstance_KeyName = null;
             if (cmdletContext.ManagedInstance_KeyName != null)
@@ -909,6 +919,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_KeyName != null)
             {
                 request.ManagedInstance.KeyName = requestManagedInstance_managedInstance_KeyName;
+                requestManagedInstanceIsNull = false;
             }
             List<Amazon.WorkspacesInstances.Model.LicenseConfigurationRequest> requestManagedInstance_managedInstance_LicenseSpecification = null;
             if (cmdletContext.ManagedInstance_LicenseSpecification != null)
@@ -918,6 +929,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_LicenseSpecification != null)
             {
                 request.ManagedInstance.LicenseSpecifications = requestManagedInstance_managedInstance_LicenseSpecification;
+                requestManagedInstanceIsNull = false;
             }
             List<Amazon.WorkspacesInstances.Model.InstanceNetworkInterfaceSpecification> requestManagedInstance_managedInstance_NetworkInterface = null;
             if (cmdletContext.ManagedInstance_NetworkInterface != null)
@@ -927,6 +939,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_NetworkInterface != null)
             {
                 request.ManagedInstance.NetworkInterfaces = requestManagedInstance_managedInstance_NetworkInterface;
+                requestManagedInstanceIsNull = false;
             }
             System.String requestManagedInstance_managedInstance_PrivateIpAddress = null;
             if (cmdletContext.ManagedInstance_PrivateIpAddress != null)
@@ -936,6 +949,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_PrivateIpAddress != null)
             {
                 request.ManagedInstance.PrivateIpAddress = requestManagedInstance_managedInstance_PrivateIpAddress;
+                requestManagedInstanceIsNull = false;
             }
             System.String requestManagedInstance_managedInstance_RamdiskId = null;
             if (cmdletContext.ManagedInstance_RamdiskId != null)
@@ -945,6 +959,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_RamdiskId != null)
             {
                 request.ManagedInstance.RamdiskId = requestManagedInstance_managedInstance_RamdiskId;
+                requestManagedInstanceIsNull = false;
             }
             List<System.String> requestManagedInstance_managedInstance_SecurityGroupId = null;
             if (cmdletContext.ManagedInstance_SecurityGroupId != null)
@@ -954,6 +969,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_SecurityGroupId != null)
             {
                 request.ManagedInstance.SecurityGroupIds = requestManagedInstance_managedInstance_SecurityGroupId;
+                requestManagedInstanceIsNull = false;
             }
             List<System.String> requestManagedInstance_managedInstance_SecurityGroup = null;
             if (cmdletContext.ManagedInstance_SecurityGroup != null)
@@ -963,6 +979,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_SecurityGroup != null)
             {
                 request.ManagedInstance.SecurityGroups = requestManagedInstance_managedInstance_SecurityGroup;
+                requestManagedInstanceIsNull = false;
             }
             System.String requestManagedInstance_managedInstance_SubnetId = null;
             if (cmdletContext.ManagedInstance_SubnetId != null)
@@ -972,6 +989,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_SubnetId != null)
             {
                 request.ManagedInstance.SubnetId = requestManagedInstance_managedInstance_SubnetId;
+                requestManagedInstanceIsNull = false;
             }
             List<Amazon.WorkspacesInstances.Model.TagSpecification> requestManagedInstance_managedInstance_TagSpecification = null;
             if (cmdletContext.ManagedInstance_TagSpecification != null)
@@ -981,6 +999,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_TagSpecification != null)
             {
                 request.ManagedInstance.TagSpecifications = requestManagedInstance_managedInstance_TagSpecification;
+                requestManagedInstanceIsNull = false;
             }
             System.String requestManagedInstance_managedInstance_UserData = null;
             if (cmdletContext.ManagedInstance_UserData != null)
@@ -990,6 +1009,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_UserData != null)
             {
                 request.ManagedInstance.UserData = requestManagedInstance_managedInstance_UserData;
+                requestManagedInstanceIsNull = false;
             }
             Amazon.WorkspacesInstances.Model.CreditSpecificationRequest requestManagedInstance_managedInstance_CreditSpecification = null;
             
@@ -1014,6 +1034,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_CreditSpecification != null)
             {
                 request.ManagedInstance.CreditSpecification = requestManagedInstance_managedInstance_CreditSpecification;
+                requestManagedInstanceIsNull = false;
             }
             Amazon.WorkspacesInstances.Model.EnclaveOptionsRequest requestManagedInstance_managedInstance_EnclaveOptions = null;
             
@@ -1038,6 +1059,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_EnclaveOptions != null)
             {
                 request.ManagedInstance.EnclaveOptions = requestManagedInstance_managedInstance_EnclaveOptions;
+                requestManagedInstanceIsNull = false;
             }
             Amazon.WorkspacesInstances.Model.HibernationOptionsRequest requestManagedInstance_managedInstance_HibernationOptions = null;
             
@@ -1062,6 +1084,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_HibernationOptions != null)
             {
                 request.ManagedInstance.HibernationOptions = requestManagedInstance_managedInstance_HibernationOptions;
+                requestManagedInstanceIsNull = false;
             }
             Amazon.WorkspacesInstances.Model.InstanceMaintenanceOptionsRequest requestManagedInstance_managedInstance_MaintenanceOptions = null;
             
@@ -1086,6 +1109,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_MaintenanceOptions != null)
             {
                 request.ManagedInstance.MaintenanceOptions = requestManagedInstance_managedInstance_MaintenanceOptions;
+                requestManagedInstanceIsNull = false;
             }
             Amazon.WorkspacesInstances.Model.RunInstancesMonitoringEnabled requestManagedInstance_managedInstance_Monitoring = null;
             
@@ -1110,6 +1134,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_Monitoring != null)
             {
                 request.ManagedInstance.Monitoring = requestManagedInstance_managedInstance_Monitoring;
+                requestManagedInstanceIsNull = false;
             }
             Amazon.WorkspacesInstances.Model.InstanceNetworkPerformanceOptionsRequest requestManagedInstance_managedInstance_NetworkPerformanceOptions = null;
             
@@ -1134,6 +1159,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_NetworkPerformanceOptions != null)
             {
                 request.ManagedInstance.NetworkPerformanceOptions = requestManagedInstance_managedInstance_NetworkPerformanceOptions;
+                requestManagedInstanceIsNull = false;
             }
             Amazon.WorkspacesInstances.Model.CapacityReservationSpecification requestManagedInstance_managedInstance_CapacityReservationSpecification = null;
             
@@ -1193,6 +1219,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_CapacityReservationSpecification != null)
             {
                 request.ManagedInstance.CapacityReservationSpecification = requestManagedInstance_managedInstance_CapacityReservationSpecification;
+                requestManagedInstanceIsNull = false;
             }
             Amazon.WorkspacesInstances.Model.IamInstanceProfileSpecification requestManagedInstance_managedInstance_IamInstanceProfile = null;
             
@@ -1227,6 +1254,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_IamInstanceProfile != null)
             {
                 request.ManagedInstance.IamInstanceProfile = requestManagedInstance_managedInstance_IamInstanceProfile;
+                requestManagedInstanceIsNull = false;
             }
             Amazon.WorkspacesInstances.Model.InstanceMarketOptionsRequest requestManagedInstance_managedInstance_InstanceMarketOptions = null;
             
@@ -1316,6 +1344,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_InstanceMarketOptions != null)
             {
                 request.ManagedInstance.InstanceMarketOptions = requestManagedInstance_managedInstance_InstanceMarketOptions;
+                requestManagedInstanceIsNull = false;
             }
             Amazon.WorkspacesInstances.Model.CpuOptionsRequest requestManagedInstance_managedInstance_CpuOptions = null;
             
@@ -1360,6 +1389,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_CpuOptions != null)
             {
                 request.ManagedInstance.CpuOptions = requestManagedInstance_managedInstance_CpuOptions;
+                requestManagedInstanceIsNull = false;
             }
             Amazon.WorkspacesInstances.Model.PrivateDnsNameOptionsRequest requestManagedInstance_managedInstance_PrivateDnsNameOptions = null;
             
@@ -1404,6 +1434,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_PrivateDnsNameOptions != null)
             {
                 request.ManagedInstance.PrivateDnsNameOptions = requestManagedInstance_managedInstance_PrivateDnsNameOptions;
+                requestManagedInstanceIsNull = false;
             }
             Amazon.WorkspacesInstances.Model.InstanceMetadataOptionsRequest requestManagedInstance_managedInstance_MetadataOptions = null;
             
@@ -1468,6 +1499,7 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_MetadataOptions != null)
             {
                 request.ManagedInstance.MetadataOptions = requestManagedInstance_managedInstance_MetadataOptions;
+                requestManagedInstanceIsNull = false;
             }
             Amazon.WorkspacesInstances.Model.Placement requestManagedInstance_managedInstance_Placement = null;
             
@@ -1562,6 +1594,12 @@ namespace Amazon.PowerShell.Cmdlets.WKSI
             if (requestManagedInstance_managedInstance_Placement != null)
             {
                 request.ManagedInstance.Placement = requestManagedInstance_managedInstance_Placement;
+                requestManagedInstanceIsNull = false;
+            }
+             // determine if request.ManagedInstance should be set to null
+            if (requestManagedInstanceIsNull)
+            {
+                request.ManagedInstance = null;
             }
             if (cmdletContext.Tag != null)
             {

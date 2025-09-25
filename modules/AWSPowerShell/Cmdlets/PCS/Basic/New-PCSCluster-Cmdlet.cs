@@ -377,6 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             }
             
              // populate Networking
+            var requestNetworkingIsNull = true;
             request.Networking = new Amazon.PCS.Model.NetworkingRequest();
             Amazon.PCS.NetworkType requestNetworking_networking_NetworkType = null;
             if (cmdletContext.Networking_NetworkType != null)
@@ -386,6 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             if (requestNetworking_networking_NetworkType != null)
             {
                 request.Networking.NetworkType = requestNetworking_networking_NetworkType;
+                requestNetworkingIsNull = false;
             }
             List<System.String> requestNetworking_networking_SecurityGroupId = null;
             if (cmdletContext.Networking_SecurityGroupId != null)
@@ -395,6 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             if (requestNetworking_networking_SecurityGroupId != null)
             {
                 request.Networking.SecurityGroupIds = requestNetworking_networking_SecurityGroupId;
+                requestNetworkingIsNull = false;
             }
             List<System.String> requestNetworking_networking_SubnetId = null;
             if (cmdletContext.Networking_SubnetId != null)
@@ -404,6 +407,12 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             if (requestNetworking_networking_SubnetId != null)
             {
                 request.Networking.SubnetIds = requestNetworking_networking_SubnetId;
+                requestNetworkingIsNull = false;
+            }
+             // determine if request.Networking should be set to null
+            if (requestNetworkingIsNull)
+            {
+                request.Networking = null;
             }
             
              // populate Scheduler

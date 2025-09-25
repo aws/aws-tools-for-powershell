@@ -273,6 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
             }
             
              // populate DatasetConfig
+            var requestDatasetConfigIsNull = true;
             request.DatasetConfig = new Amazon.Textract.Model.AdapterVersionDatasetConfig();
             Amazon.Textract.Model.S3Object requestDatasetConfig_datasetConfig_ManifestS3Object = null;
             
@@ -317,6 +318,12 @@ namespace Amazon.PowerShell.Cmdlets.TXT
             if (requestDatasetConfig_datasetConfig_ManifestS3Object != null)
             {
                 request.DatasetConfig.ManifestS3Object = requestDatasetConfig_datasetConfig_ManifestS3Object;
+                requestDatasetConfigIsNull = false;
+            }
+             // determine if request.DatasetConfig should be set to null
+            if (requestDatasetConfigIsNull)
+            {
+                request.DatasetConfig = null;
             }
             if (cmdletContext.KMSKeyId != null)
             {

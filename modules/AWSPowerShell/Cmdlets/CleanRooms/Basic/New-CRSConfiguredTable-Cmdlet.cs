@@ -395,6 +395,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             }
             
              // populate TableReference
+            var requestTableReferenceIsNull = true;
             request.TableReference = new Amazon.CleanRooms.Model.TableReference();
             Amazon.CleanRooms.Model.GlueTableReference requestTableReference_tableReference_Glue = null;
             
@@ -429,6 +430,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestTableReference_tableReference_Glue != null)
             {
                 request.TableReference.Glue = requestTableReference_tableReference_Glue;
+                requestTableReferenceIsNull = false;
             }
             Amazon.CleanRooms.Model.AthenaTableReference requestTableReference_tableReference_Athena = null;
             
@@ -483,6 +485,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestTableReference_tableReference_Athena != null)
             {
                 request.TableReference.Athena = requestTableReference_tableReference_Athena;
+                requestTableReferenceIsNull = false;
             }
             Amazon.CleanRooms.Model.SnowflakeTableReference requestTableReference_tableReference_Snowflake = null;
             
@@ -542,6 +545,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             Amazon.CleanRooms.Model.SnowflakeTableSchema requestTableReference_tableReference_Snowflake_tableReference_Snowflake_TableSchema = null;
             
              // populate TableSchema
+            var requestTableReference_tableReference_Snowflake_tableReference_Snowflake_TableSchemaIsNull = true;
             requestTableReference_tableReference_Snowflake_tableReference_Snowflake_TableSchema = new Amazon.CleanRooms.Model.SnowflakeTableSchema();
             List<Amazon.CleanRooms.Model.SnowflakeTableSchemaV1> requestTableReference_tableReference_Snowflake_tableReference_Snowflake_TableSchema_tableSchema_V1 = null;
             if (cmdletContext.TableSchema_V1 != null)
@@ -551,6 +555,12 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestTableReference_tableReference_Snowflake_tableReference_Snowflake_TableSchema_tableSchema_V1 != null)
             {
                 requestTableReference_tableReference_Snowflake_tableReference_Snowflake_TableSchema.V1 = requestTableReference_tableReference_Snowflake_tableReference_Snowflake_TableSchema_tableSchema_V1;
+                requestTableReference_tableReference_Snowflake_tableReference_Snowflake_TableSchemaIsNull = false;
+            }
+             // determine if requestTableReference_tableReference_Snowflake_tableReference_Snowflake_TableSchema should be set to null
+            if (requestTableReference_tableReference_Snowflake_tableReference_Snowflake_TableSchemaIsNull)
+            {
+                requestTableReference_tableReference_Snowflake_tableReference_Snowflake_TableSchema = null;
             }
             if (requestTableReference_tableReference_Snowflake_tableReference_Snowflake_TableSchema != null)
             {
@@ -565,6 +575,12 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestTableReference_tableReference_Snowflake != null)
             {
                 request.TableReference.Snowflake = requestTableReference_tableReference_Snowflake;
+                requestTableReferenceIsNull = false;
+            }
+             // determine if request.TableReference should be set to null
+            if (requestTableReferenceIsNull)
+            {
+                request.TableReference = null;
             }
             if (cmdletContext.Tag != null)
             {

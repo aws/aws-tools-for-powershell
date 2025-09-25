@@ -430,6 +430,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             Amazon.Inspector2.Model.StopCisMessageProgress requestMessage_message_Progress = null;
             
              // populate Progress
+            var requestMessage_message_ProgressIsNull = true;
             requestMessage_message_Progress = new Amazon.Inspector2.Model.StopCisMessageProgress();
             System.Int32? requestMessage_message_Progress_progress_ErrorCheck = null;
             if (cmdletContext.Progress_ErrorCheck != null)
@@ -439,6 +440,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestMessage_message_Progress_progress_ErrorCheck != null)
             {
                 requestMessage_message_Progress.ErrorChecks = requestMessage_message_Progress_progress_ErrorCheck.Value;
+                requestMessage_message_ProgressIsNull = false;
             }
             System.Int32? requestMessage_message_Progress_progress_FailedCheck = null;
             if (cmdletContext.Progress_FailedCheck != null)
@@ -448,6 +450,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestMessage_message_Progress_progress_FailedCheck != null)
             {
                 requestMessage_message_Progress.FailedChecks = requestMessage_message_Progress_progress_FailedCheck.Value;
+                requestMessage_message_ProgressIsNull = false;
             }
             System.Int32? requestMessage_message_Progress_progress_InformationalCheck = null;
             if (cmdletContext.Progress_InformationalCheck != null)
@@ -457,6 +460,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestMessage_message_Progress_progress_InformationalCheck != null)
             {
                 requestMessage_message_Progress.InformationalChecks = requestMessage_message_Progress_progress_InformationalCheck.Value;
+                requestMessage_message_ProgressIsNull = false;
             }
             System.Int32? requestMessage_message_Progress_progress_NotApplicableCheck = null;
             if (cmdletContext.Progress_NotApplicableCheck != null)
@@ -466,6 +470,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestMessage_message_Progress_progress_NotApplicableCheck != null)
             {
                 requestMessage_message_Progress.NotApplicableChecks = requestMessage_message_Progress_progress_NotApplicableCheck.Value;
+                requestMessage_message_ProgressIsNull = false;
             }
             System.Int32? requestMessage_message_Progress_progress_NotEvaluatedCheck = null;
             if (cmdletContext.Progress_NotEvaluatedCheck != null)
@@ -475,6 +480,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestMessage_message_Progress_progress_NotEvaluatedCheck != null)
             {
                 requestMessage_message_Progress.NotEvaluatedChecks = requestMessage_message_Progress_progress_NotEvaluatedCheck.Value;
+                requestMessage_message_ProgressIsNull = false;
             }
             System.Int32? requestMessage_message_Progress_progress_SuccessfulCheck = null;
             if (cmdletContext.Progress_SuccessfulCheck != null)
@@ -484,6 +490,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestMessage_message_Progress_progress_SuccessfulCheck != null)
             {
                 requestMessage_message_Progress.SuccessfulChecks = requestMessage_message_Progress_progress_SuccessfulCheck.Value;
+                requestMessage_message_ProgressIsNull = false;
             }
             System.Int32? requestMessage_message_Progress_progress_TotalCheck = null;
             if (cmdletContext.Progress_TotalCheck != null)
@@ -493,6 +500,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestMessage_message_Progress_progress_TotalCheck != null)
             {
                 requestMessage_message_Progress.TotalChecks = requestMessage_message_Progress_progress_TotalCheck.Value;
+                requestMessage_message_ProgressIsNull = false;
             }
             System.Int32? requestMessage_message_Progress_progress_UnknownCheck = null;
             if (cmdletContext.Progress_UnknownCheck != null)
@@ -502,6 +510,12 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestMessage_message_Progress_progress_UnknownCheck != null)
             {
                 requestMessage_message_Progress.UnknownChecks = requestMessage_message_Progress_progress_UnknownCheck.Value;
+                requestMessage_message_ProgressIsNull = false;
+            }
+             // determine if requestMessage_message_Progress should be set to null
+            if (requestMessage_message_ProgressIsNull)
+            {
+                requestMessage_message_Progress = null;
             }
             if (requestMessage_message_Progress != null)
             {

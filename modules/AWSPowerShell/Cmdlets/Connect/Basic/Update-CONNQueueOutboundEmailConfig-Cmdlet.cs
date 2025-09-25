@@ -185,6 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             
              // populate OutboundEmailConfig
+            var requestOutboundEmailConfigIsNull = true;
             request.OutboundEmailConfig = new Amazon.Connect.Model.OutboundEmailConfig();
             System.String requestOutboundEmailConfig_outboundEmailConfig_OutboundEmailAddressId = null;
             if (cmdletContext.OutboundEmailConfig_OutboundEmailAddressId != null)
@@ -194,6 +195,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestOutboundEmailConfig_outboundEmailConfig_OutboundEmailAddressId != null)
             {
                 request.OutboundEmailConfig.OutboundEmailAddressId = requestOutboundEmailConfig_outboundEmailConfig_OutboundEmailAddressId;
+                requestOutboundEmailConfigIsNull = false;
+            }
+             // determine if request.OutboundEmailConfig should be set to null
+            if (requestOutboundEmailConfigIsNull)
+            {
+                request.OutboundEmailConfig = null;
             }
             if (cmdletContext.QueueId != null)
             {

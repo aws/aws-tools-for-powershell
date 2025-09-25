@@ -239,6 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             }
             
              // populate ThingGroupProperties
+            var requestThingGroupPropertiesIsNull = true;
             request.ThingGroupProperties = new Amazon.IoT.Model.ThingGroupProperties();
             Amazon.IoT.Model.AttributePayload requestThingGroupProperties_thingGroupProperties_AttributePayload = null;
             if (cmdletContext.ThingGroupProperties_AttributePayload != null)
@@ -248,6 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestThingGroupProperties_thingGroupProperties_AttributePayload != null)
             {
                 request.ThingGroupProperties.AttributePayload = requestThingGroupProperties_thingGroupProperties_AttributePayload;
+                requestThingGroupPropertiesIsNull = false;
             }
             System.String requestThingGroupProperties_thingGroupProperties_ThingGroupDescription = null;
             if (cmdletContext.ThingGroupProperties_ThingGroupDescription != null)
@@ -257,6 +259,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestThingGroupProperties_thingGroupProperties_ThingGroupDescription != null)
             {
                 request.ThingGroupProperties.ThingGroupDescription = requestThingGroupProperties_thingGroupProperties_ThingGroupDescription;
+                requestThingGroupPropertiesIsNull = false;
+            }
+             // determine if request.ThingGroupProperties should be set to null
+            if (requestThingGroupPropertiesIsNull)
+            {
+                request.ThingGroupProperties = null;
             }
             
             CmdletOutput output;

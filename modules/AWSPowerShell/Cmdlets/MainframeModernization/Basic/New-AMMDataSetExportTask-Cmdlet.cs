@@ -206,6 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             }
             
              // populate ExportConfig
+            var requestExportConfigIsNull = true;
             request.ExportConfig = new Amazon.MainframeModernization.Model.DataSetExportConfig();
             List<Amazon.MainframeModernization.Model.DataSetExportItem> requestExportConfig_exportConfig_DataSet = null;
             if (cmdletContext.ExportConfig_DataSet != null)
@@ -215,6 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             if (requestExportConfig_exportConfig_DataSet != null)
             {
                 request.ExportConfig.DataSets = requestExportConfig_exportConfig_DataSet;
+                requestExportConfigIsNull = false;
             }
             System.String requestExportConfig_exportConfig_S3Location = null;
             if (cmdletContext.ExportConfig_S3Location != null)
@@ -224,6 +226,12 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             if (requestExportConfig_exportConfig_S3Location != null)
             {
                 request.ExportConfig.S3Location = requestExportConfig_exportConfig_S3Location;
+                requestExportConfigIsNull = false;
+            }
+             // determine if request.ExportConfig should be set to null
+            if (requestExportConfigIsNull)
+            {
+                request.ExportConfig = null;
             }
             if (cmdletContext.KmsKeyId != null)
             {

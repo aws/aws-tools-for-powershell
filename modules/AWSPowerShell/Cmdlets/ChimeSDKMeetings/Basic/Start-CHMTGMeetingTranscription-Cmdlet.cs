@@ -489,6 +489,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             }
             
              // populate TranscriptionConfiguration
+            var requestTranscriptionConfigurationIsNull = true;
             request.TranscriptionConfiguration = new Amazon.ChimeSDKMeetings.Model.TranscriptionConfiguration();
             Amazon.ChimeSDKMeetings.Model.EngineTranscribeMedicalSettings requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeMedicalSettings = null;
             
@@ -563,6 +564,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             if (requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeMedicalSettings != null)
             {
                 request.TranscriptionConfiguration.EngineTranscribeMedicalSettings = requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeMedicalSettings;
+                requestTranscriptionConfigurationIsNull = false;
             }
             Amazon.ChimeSDKMeetings.Model.EngineTranscribeSettings requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings = null;
             
@@ -737,6 +739,12 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             if (requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings != null)
             {
                 request.TranscriptionConfiguration.EngineTranscribeSettings = requestTranscriptionConfiguration_transcriptionConfiguration_EngineTranscribeSettings;
+                requestTranscriptionConfigurationIsNull = false;
+            }
+             // determine if request.TranscriptionConfiguration should be set to null
+            if (requestTranscriptionConfigurationIsNull)
+            {
+                request.TranscriptionConfiguration = null;
             }
             
             CmdletOutput output;

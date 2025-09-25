@@ -2366,6 +2366,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
             Amazon.Pipes.Model.MQBrokerAccessCredentials requestSourceParameters_sourceParameters_ActiveMQBrokerParameters_sourceParameters_ActiveMQBrokerParameters_Credentials = null;
             
              // populate Credentials
+            var requestSourceParameters_sourceParameters_ActiveMQBrokerParameters_sourceParameters_ActiveMQBrokerParameters_CredentialsIsNull = true;
             requestSourceParameters_sourceParameters_ActiveMQBrokerParameters_sourceParameters_ActiveMQBrokerParameters_Credentials = new Amazon.Pipes.Model.MQBrokerAccessCredentials();
             System.String requestSourceParameters_sourceParameters_ActiveMQBrokerParameters_sourceParameters_ActiveMQBrokerParameters_Credentials_sourceParameters_ActiveMQBrokerParameters_Credentials_BasicAuth = null;
             if (cmdletContext.SourceParameters_ActiveMQBrokerParameters_Credentials_BasicAuth != null)
@@ -2375,6 +2376,12 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
             if (requestSourceParameters_sourceParameters_ActiveMQBrokerParameters_sourceParameters_ActiveMQBrokerParameters_Credentials_sourceParameters_ActiveMQBrokerParameters_Credentials_BasicAuth != null)
             {
                 requestSourceParameters_sourceParameters_ActiveMQBrokerParameters_sourceParameters_ActiveMQBrokerParameters_Credentials.BasicAuth = requestSourceParameters_sourceParameters_ActiveMQBrokerParameters_sourceParameters_ActiveMQBrokerParameters_Credentials_sourceParameters_ActiveMQBrokerParameters_Credentials_BasicAuth;
+                requestSourceParameters_sourceParameters_ActiveMQBrokerParameters_sourceParameters_ActiveMQBrokerParameters_CredentialsIsNull = false;
+            }
+             // determine if requestSourceParameters_sourceParameters_ActiveMQBrokerParameters_sourceParameters_ActiveMQBrokerParameters_Credentials should be set to null
+            if (requestSourceParameters_sourceParameters_ActiveMQBrokerParameters_sourceParameters_ActiveMQBrokerParameters_CredentialsIsNull)
+            {
+                requestSourceParameters_sourceParameters_ActiveMQBrokerParameters_sourceParameters_ActiveMQBrokerParameters_Credentials = null;
             }
             if (requestSourceParameters_sourceParameters_ActiveMQBrokerParameters_sourceParameters_ActiveMQBrokerParameters_Credentials != null)
             {
@@ -2439,6 +2446,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
             Amazon.Pipes.Model.MQBrokerAccessCredentials requestSourceParameters_sourceParameters_RabbitMQBrokerParameters_sourceParameters_RabbitMQBrokerParameters_Credentials = null;
             
              // populate Credentials
+            var requestSourceParameters_sourceParameters_RabbitMQBrokerParameters_sourceParameters_RabbitMQBrokerParameters_CredentialsIsNull = true;
             requestSourceParameters_sourceParameters_RabbitMQBrokerParameters_sourceParameters_RabbitMQBrokerParameters_Credentials = new Amazon.Pipes.Model.MQBrokerAccessCredentials();
             System.String requestSourceParameters_sourceParameters_RabbitMQBrokerParameters_sourceParameters_RabbitMQBrokerParameters_Credentials_sourceParameters_RabbitMQBrokerParameters_Credentials_BasicAuth = null;
             if (cmdletContext.SourceParameters_RabbitMQBrokerParameters_Credentials_BasicAuth != null)
@@ -2448,6 +2456,12 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
             if (requestSourceParameters_sourceParameters_RabbitMQBrokerParameters_sourceParameters_RabbitMQBrokerParameters_Credentials_sourceParameters_RabbitMQBrokerParameters_Credentials_BasicAuth != null)
             {
                 requestSourceParameters_sourceParameters_RabbitMQBrokerParameters_sourceParameters_RabbitMQBrokerParameters_Credentials.BasicAuth = requestSourceParameters_sourceParameters_RabbitMQBrokerParameters_sourceParameters_RabbitMQBrokerParameters_Credentials_sourceParameters_RabbitMQBrokerParameters_Credentials_BasicAuth;
+                requestSourceParameters_sourceParameters_RabbitMQBrokerParameters_sourceParameters_RabbitMQBrokerParameters_CredentialsIsNull = false;
+            }
+             // determine if requestSourceParameters_sourceParameters_RabbitMQBrokerParameters_sourceParameters_RabbitMQBrokerParameters_Credentials should be set to null
+            if (requestSourceParameters_sourceParameters_RabbitMQBrokerParameters_sourceParameters_RabbitMQBrokerParameters_CredentialsIsNull)
+            {
+                requestSourceParameters_sourceParameters_RabbitMQBrokerParameters_sourceParameters_RabbitMQBrokerParameters_Credentials = null;
             }
             if (requestSourceParameters_sourceParameters_RabbitMQBrokerParameters_sourceParameters_RabbitMQBrokerParameters_Credentials != null)
             {

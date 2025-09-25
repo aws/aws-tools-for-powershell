@@ -612,6 +612,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             }
             
              // populate DefaultAction
+            var requestDefaultActionIsNull = true;
             request.DefaultAction = new Amazon.WAFV2.Model.DefaultAction();
             Amazon.WAFV2.Model.AllowAction requestDefaultAction_defaultAction_Allow = null;
             if (cmdletContext.DefaultAction_Allow != null)
@@ -621,6 +622,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             if (requestDefaultAction_defaultAction_Allow != null)
             {
                 request.DefaultAction.Allow = requestDefaultAction_defaultAction_Allow;
+                requestDefaultActionIsNull = false;
             }
             Amazon.WAFV2.Model.BlockAction requestDefaultAction_defaultAction_Block = null;
             if (cmdletContext.DefaultAction_Block != null)
@@ -630,6 +632,12 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             if (requestDefaultAction_defaultAction_Block != null)
             {
                 request.DefaultAction.Block = requestDefaultAction_defaultAction_Block;
+                requestDefaultActionIsNull = false;
+            }
+             // determine if request.DefaultAction should be set to null
+            if (requestDefaultActionIsNull)
+            {
+                request.DefaultAction = null;
             }
             if (cmdletContext.Description != null)
             {

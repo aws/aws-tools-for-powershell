@@ -362,6 +362,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             }
             
              // populate InputDataConfig
+            var requestInputDataConfigIsNull = true;
             request.InputDataConfig = new Amazon.Comprehend.Model.DatasetInputDataConfig();
             List<Amazon.Comprehend.Model.DatasetAugmentedManifestsListItem> requestInputDataConfig_inputDataConfig_AugmentedManifest = null;
             if (cmdletContext.InputDataConfig_AugmentedManifest != null)
@@ -371,6 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (requestInputDataConfig_inputDataConfig_AugmentedManifest != null)
             {
                 request.InputDataConfig.AugmentedManifests = requestInputDataConfig_inputDataConfig_AugmentedManifest;
+                requestInputDataConfigIsNull = false;
             }
             Amazon.Comprehend.DatasetDataFormat requestInputDataConfig_inputDataConfig_DataFormat = null;
             if (cmdletContext.InputDataConfig_DataFormat != null)
@@ -380,6 +382,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (requestInputDataConfig_inputDataConfig_DataFormat != null)
             {
                 request.InputDataConfig.DataFormat = requestInputDataConfig_inputDataConfig_DataFormat;
+                requestInputDataConfigIsNull = false;
             }
             Amazon.Comprehend.Model.DatasetDocumentClassifierInputDataConfig requestInputDataConfig_inputDataConfig_DocumentClassifierInputDataConfig = null;
             
@@ -414,6 +417,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (requestInputDataConfig_inputDataConfig_DocumentClassifierInputDataConfig != null)
             {
                 request.InputDataConfig.DocumentClassifierInputDataConfig = requestInputDataConfig_inputDataConfig_DocumentClassifierInputDataConfig;
+                requestInputDataConfigIsNull = false;
             }
             Amazon.Comprehend.Model.DatasetEntityRecognizerInputDataConfig requestInputDataConfig_inputDataConfig_EntityRecognizerInputDataConfig = null;
             
@@ -513,6 +517,12 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (requestInputDataConfig_inputDataConfig_EntityRecognizerInputDataConfig != null)
             {
                 request.InputDataConfig.EntityRecognizerInputDataConfig = requestInputDataConfig_inputDataConfig_EntityRecognizerInputDataConfig;
+                requestInputDataConfigIsNull = false;
+            }
+             // determine if request.InputDataConfig should be set to null
+            if (requestInputDataConfigIsNull)
+            {
+                request.InputDataConfig = null;
             }
             if (cmdletContext.Tag != null)
             {

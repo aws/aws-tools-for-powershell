@@ -199,6 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             }
             
              // populate ParentReference
+            var requestParentReferenceIsNull = true;
             request.ParentReference = new Amazon.CloudDirectory.Model.ObjectReference();
             System.String requestParentReference_parentReference_Selector = null;
             if (cmdletContext.ParentReference_Selector != null)
@@ -208,6 +209,12 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             if (requestParentReference_parentReference_Selector != null)
             {
                 request.ParentReference.Selector = requestParentReference_parentReference_Selector;
+                requestParentReferenceIsNull = false;
+            }
+             // determine if request.ParentReference should be set to null
+            if (requestParentReferenceIsNull)
+            {
+                request.ParentReference = null;
             }
             
             CmdletOutput output;

@@ -448,6 +448,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
             
             
              // populate AlgorithmSpecification
+            var requestAlgorithmSpecificationIsNull = true;
             request.AlgorithmSpecification = new Amazon.Braket.Model.AlgorithmSpecification();
             Amazon.Braket.Model.ContainerImage requestAlgorithmSpecification_algorithmSpecification_ContainerImage = null;
             
@@ -472,6 +473,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
             if (requestAlgorithmSpecification_algorithmSpecification_ContainerImage != null)
             {
                 request.AlgorithmSpecification.ContainerImage = requestAlgorithmSpecification_algorithmSpecification_ContainerImage;
+                requestAlgorithmSpecificationIsNull = false;
             }
             Amazon.Braket.Model.ScriptModeConfig requestAlgorithmSpecification_algorithmSpecification_ScriptModeConfig = null;
             
@@ -516,6 +518,12 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
             if (requestAlgorithmSpecification_algorithmSpecification_ScriptModeConfig != null)
             {
                 request.AlgorithmSpecification.ScriptModeConfig = requestAlgorithmSpecification_algorithmSpecification_ScriptModeConfig;
+                requestAlgorithmSpecificationIsNull = false;
+            }
+             // determine if request.AlgorithmSpecification should be set to null
+            if (requestAlgorithmSpecificationIsNull)
+            {
+                request.AlgorithmSpecification = null;
             }
             if (cmdletContext.Association != null)
             {

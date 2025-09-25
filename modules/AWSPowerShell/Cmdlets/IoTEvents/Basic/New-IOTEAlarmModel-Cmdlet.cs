@@ -411,6 +411,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTE
             }
             
              // populate AlarmRule
+            var requestAlarmRuleIsNull = true;
             request.AlarmRule = new Amazon.IoTEvents.Model.AlarmRule();
             Amazon.IoTEvents.Model.SimpleRule requestAlarmRule_alarmRule_SimpleRule = null;
             
@@ -455,6 +456,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTE
             if (requestAlarmRule_alarmRule_SimpleRule != null)
             {
                 request.AlarmRule.SimpleRule = requestAlarmRule_alarmRule_SimpleRule;
+                requestAlarmRuleIsNull = false;
+            }
+             // determine if request.AlarmRule should be set to null
+            if (requestAlarmRuleIsNull)
+            {
+                request.AlarmRule = null;
             }
             if (cmdletContext.Key != null)
             {

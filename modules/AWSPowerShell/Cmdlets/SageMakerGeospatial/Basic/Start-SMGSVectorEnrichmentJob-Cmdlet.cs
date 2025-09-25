@@ -355,6 +355,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
             Amazon.SageMakerGeospatial.Model.VectorEnrichmentJobDataSourceConfigInput requestInputConfig_inputConfig_DataSourceConfig = null;
             
              // populate DataSourceConfig
+            var requestInputConfig_inputConfig_DataSourceConfigIsNull = true;
             requestInputConfig_inputConfig_DataSourceConfig = new Amazon.SageMakerGeospatial.Model.VectorEnrichmentJobDataSourceConfigInput();
             Amazon.SageMakerGeospatial.Model.VectorEnrichmentJobS3Data requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3Data = null;
             
@@ -389,6 +390,12 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
             if (requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3Data != null)
             {
                 requestInputConfig_inputConfig_DataSourceConfig.S3Data = requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3Data;
+                requestInputConfig_inputConfig_DataSourceConfigIsNull = false;
+            }
+             // determine if requestInputConfig_inputConfig_DataSourceConfig should be set to null
+            if (requestInputConfig_inputConfig_DataSourceConfigIsNull)
+            {
+                requestInputConfig_inputConfig_DataSourceConfig = null;
             }
             if (requestInputConfig_inputConfig_DataSourceConfig != null)
             {
@@ -402,6 +409,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
             }
             
              // populate JobConfig
+            var requestJobConfigIsNull = true;
             request.JobConfig = new Amazon.SageMakerGeospatial.Model.VectorEnrichmentJobConfig();
             Amazon.SageMakerGeospatial.Model.ReverseGeocodingConfig requestJobConfig_jobConfig_ReverseGeocodingConfig = null;
             
@@ -436,6 +444,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
             if (requestJobConfig_jobConfig_ReverseGeocodingConfig != null)
             {
                 request.JobConfig.ReverseGeocodingConfig = requestJobConfig_jobConfig_ReverseGeocodingConfig;
+                requestJobConfigIsNull = false;
             }
             Amazon.SageMakerGeospatial.Model.MapMatchingConfig requestJobConfig_jobConfig_MapMatchingConfig = null;
             
@@ -490,6 +499,12 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
             if (requestJobConfig_jobConfig_MapMatchingConfig != null)
             {
                 request.JobConfig.MapMatchingConfig = requestJobConfig_jobConfig_MapMatchingConfig;
+                requestJobConfigIsNull = false;
+            }
+             // determine if request.JobConfig should be set to null
+            if (requestJobConfigIsNull)
+            {
+                request.JobConfig = null;
             }
             if (cmdletContext.KmsKeyId != null)
             {

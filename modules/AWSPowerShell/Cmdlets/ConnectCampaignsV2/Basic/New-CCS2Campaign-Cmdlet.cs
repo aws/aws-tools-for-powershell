@@ -634,6 +634,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             
             
              // populate ChannelSubtypeConfig
+            var requestChannelSubtypeConfigIsNull = true;
             request.ChannelSubtypeConfig = new Amazon.ConnectCampaignsV2.Model.ChannelSubtypeConfig();
             Amazon.ConnectCampaignsV2.Model.EmailChannelSubtypeConfig requestChannelSubtypeConfig_channelSubtypeConfig_Email = null;
             
@@ -653,6 +654,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             Amazon.ConnectCampaignsV2.Model.EmailOutboundMode requestChannelSubtypeConfig_channelSubtypeConfig_Email_channelSubtypeConfig_Email_OutboundMode = null;
             
              // populate OutboundMode
+            var requestChannelSubtypeConfig_channelSubtypeConfig_Email_channelSubtypeConfig_Email_OutboundModeIsNull = true;
             requestChannelSubtypeConfig_channelSubtypeConfig_Email_channelSubtypeConfig_Email_OutboundMode = new Amazon.ConnectCampaignsV2.Model.EmailOutboundMode();
             Amazon.ConnectCampaignsV2.Model.AgentlessConfig requestChannelSubtypeConfig_channelSubtypeConfig_Email_channelSubtypeConfig_Email_OutboundMode_channelSubtypeConfig_Email_OutboundMode_Agentless = null;
             if (cmdletContext.ChannelSubtypeConfig_Email_OutboundMode_Agentless != null)
@@ -662,6 +664,12 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestChannelSubtypeConfig_channelSubtypeConfig_Email_channelSubtypeConfig_Email_OutboundMode_channelSubtypeConfig_Email_OutboundMode_Agentless != null)
             {
                 requestChannelSubtypeConfig_channelSubtypeConfig_Email_channelSubtypeConfig_Email_OutboundMode.Agentless = requestChannelSubtypeConfig_channelSubtypeConfig_Email_channelSubtypeConfig_Email_OutboundMode_channelSubtypeConfig_Email_OutboundMode_Agentless;
+                requestChannelSubtypeConfig_channelSubtypeConfig_Email_channelSubtypeConfig_Email_OutboundModeIsNull = false;
+            }
+             // determine if requestChannelSubtypeConfig_channelSubtypeConfig_Email_channelSubtypeConfig_Email_OutboundMode should be set to null
+            if (requestChannelSubtypeConfig_channelSubtypeConfig_Email_channelSubtypeConfig_Email_OutboundModeIsNull)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_Email_channelSubtypeConfig_Email_OutboundMode = null;
             }
             if (requestChannelSubtypeConfig_channelSubtypeConfig_Email_channelSubtypeConfig_Email_OutboundMode != null)
             {
@@ -721,6 +729,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestChannelSubtypeConfig_channelSubtypeConfig_Email != null)
             {
                 request.ChannelSubtypeConfig.Email = requestChannelSubtypeConfig_channelSubtypeConfig_Email;
+                requestChannelSubtypeConfigIsNull = false;
             }
             Amazon.ConnectCampaignsV2.Model.SmsChannelSubtypeConfig requestChannelSubtypeConfig_channelSubtypeConfig_Sms = null;
             
@@ -740,6 +749,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             Amazon.ConnectCampaignsV2.Model.SmsOutboundMode requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_OutboundMode = null;
             
              // populate OutboundMode
+            var requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_OutboundModeIsNull = true;
             requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_OutboundMode = new Amazon.ConnectCampaignsV2.Model.SmsOutboundMode();
             Amazon.ConnectCampaignsV2.Model.AgentlessConfig requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_OutboundMode_channelSubtypeConfig_Sms_OutboundMode_Agentless = null;
             if (cmdletContext.ChannelSubtypeConfig_Sms_OutboundMode_Agentless != null)
@@ -749,6 +759,12 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_OutboundMode_channelSubtypeConfig_Sms_OutboundMode_Agentless != null)
             {
                 requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_OutboundMode.Agentless = requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_OutboundMode_channelSubtypeConfig_Sms_OutboundMode_Agentless;
+                requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_OutboundModeIsNull = false;
+            }
+             // determine if requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_OutboundMode should be set to null
+            if (requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_OutboundModeIsNull)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_OutboundMode = null;
             }
             if (requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_OutboundMode != null)
             {
@@ -798,6 +814,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestChannelSubtypeConfig_channelSubtypeConfig_Sms != null)
             {
                 request.ChannelSubtypeConfig.Sms = requestChannelSubtypeConfig_channelSubtypeConfig_Sms;
+                requestChannelSubtypeConfigIsNull = false;
             }
             Amazon.ConnectCampaignsV2.Model.TelephonyChannelSubtypeConfig requestChannelSubtypeConfig_channelSubtypeConfig_Telephony = null;
             
@@ -897,6 +914,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             Amazon.ConnectCampaignsV2.Model.TelephonyOutboundMode requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode = null;
             
              // populate OutboundMode
+            var requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundModeIsNull = true;
             requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode = new Amazon.ConnectCampaignsV2.Model.TelephonyOutboundMode();
             Amazon.ConnectCampaignsV2.Model.AgentlessConfig requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Agentless = null;
             if (cmdletContext.ChannelSubtypeConfig_Telephony_OutboundMode_Agentless != null)
@@ -906,6 +924,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Agentless != null)
             {
                 requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode.Agentless = requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Agentless;
+                requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundModeIsNull = false;
             }
             Amazon.ConnectCampaignsV2.Model.PredictiveConfig requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Predictive = null;
             
@@ -930,6 +949,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Predictive != null)
             {
                 requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode.Predictive = requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Predictive;
+                requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundModeIsNull = false;
             }
             Amazon.ConnectCampaignsV2.Model.ProgressiveConfig requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Progressive = null;
             
@@ -954,6 +974,12 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Progressive != null)
             {
                 requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode.Progressive = requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Progressive;
+                requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundModeIsNull = false;
+            }
+             // determine if requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode should be set to null
+            if (requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundModeIsNull)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode = null;
             }
             if (requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode != null)
             {
@@ -968,6 +994,12 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestChannelSubtypeConfig_channelSubtypeConfig_Telephony != null)
             {
                 request.ChannelSubtypeConfig.Telephony = requestChannelSubtypeConfig_channelSubtypeConfig_Telephony;
+                requestChannelSubtypeConfigIsNull = false;
+            }
+             // determine if request.ChannelSubtypeConfig should be set to null
+            if (requestChannelSubtypeConfigIsNull)
+            {
+                request.ChannelSubtypeConfig = null;
             }
             
              // populate CommunicationLimitsOverride
@@ -1025,6 +1057,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             Amazon.ConnectCampaignsV2.Model.OpenHours requestCommunicationTimeConfig_communicationTimeConfig_Email_communicationTimeConfig_Email_OpenHours = null;
             
              // populate OpenHours
+            var requestCommunicationTimeConfig_communicationTimeConfig_Email_communicationTimeConfig_Email_OpenHoursIsNull = true;
             requestCommunicationTimeConfig_communicationTimeConfig_Email_communicationTimeConfig_Email_OpenHours = new Amazon.ConnectCampaignsV2.Model.OpenHours();
             Dictionary<System.String, List<Amazon.ConnectCampaignsV2.Model.TimeRange>> requestCommunicationTimeConfig_communicationTimeConfig_Email_communicationTimeConfig_Email_OpenHours_communicationTimeConfig_Email_OpenHours_DailyHours = null;
             if (cmdletContext.CommunicationTimeConfig_Email_OpenHours_DailyHours != null)
@@ -1034,6 +1067,12 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestCommunicationTimeConfig_communicationTimeConfig_Email_communicationTimeConfig_Email_OpenHours_communicationTimeConfig_Email_OpenHours_DailyHours != null)
             {
                 requestCommunicationTimeConfig_communicationTimeConfig_Email_communicationTimeConfig_Email_OpenHours.DailyHours = requestCommunicationTimeConfig_communicationTimeConfig_Email_communicationTimeConfig_Email_OpenHours_communicationTimeConfig_Email_OpenHours_DailyHours;
+                requestCommunicationTimeConfig_communicationTimeConfig_Email_communicationTimeConfig_Email_OpenHoursIsNull = false;
+            }
+             // determine if requestCommunicationTimeConfig_communicationTimeConfig_Email_communicationTimeConfig_Email_OpenHours should be set to null
+            if (requestCommunicationTimeConfig_communicationTimeConfig_Email_communicationTimeConfig_Email_OpenHoursIsNull)
+            {
+                requestCommunicationTimeConfig_communicationTimeConfig_Email_communicationTimeConfig_Email_OpenHours = null;
             }
             if (requestCommunicationTimeConfig_communicationTimeConfig_Email_communicationTimeConfig_Email_OpenHours != null)
             {
@@ -1078,6 +1117,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             Amazon.ConnectCampaignsV2.Model.LocalTimeZoneConfig requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig = null;
             
              // populate LocalTimeZoneConfig
+            var requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfigIsNull = true;
             requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig = new Amazon.ConnectCampaignsV2.Model.LocalTimeZoneConfig();
             System.String requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_DefaultTimeZone = null;
             if (cmdletContext.LocalTimeZoneConfig_DefaultTimeZone != null)
@@ -1087,6 +1127,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_DefaultTimeZone != null)
             {
                 requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig.DefaultTimeZone = requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_DefaultTimeZone;
+                requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfigIsNull = false;
             }
             List<System.String> requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_LocalTimeZoneDetection = null;
             if (cmdletContext.LocalTimeZoneConfig_LocalTimeZoneDetection != null)
@@ -1096,6 +1137,12 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_LocalTimeZoneDetection != null)
             {
                 requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig.LocalTimeZoneDetection = requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_LocalTimeZoneDetection;
+                requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfigIsNull = false;
+            }
+             // determine if requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig should be set to null
+            if (requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfigIsNull)
+            {
+                requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig = null;
             }
             if (requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig != null)
             {
@@ -1110,6 +1157,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             Amazon.ConnectCampaignsV2.Model.OpenHours requestCommunicationTimeConfig_communicationTimeConfig_Sms_communicationTimeConfig_Sms_OpenHours = null;
             
              // populate OpenHours
+            var requestCommunicationTimeConfig_communicationTimeConfig_Sms_communicationTimeConfig_Sms_OpenHoursIsNull = true;
             requestCommunicationTimeConfig_communicationTimeConfig_Sms_communicationTimeConfig_Sms_OpenHours = new Amazon.ConnectCampaignsV2.Model.OpenHours();
             Dictionary<System.String, List<Amazon.ConnectCampaignsV2.Model.TimeRange>> requestCommunicationTimeConfig_communicationTimeConfig_Sms_communicationTimeConfig_Sms_OpenHours_communicationTimeConfig_Sms_OpenHours_DailyHours = null;
             if (cmdletContext.CommunicationTimeConfig_Sms_OpenHours_DailyHours != null)
@@ -1119,6 +1167,12 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestCommunicationTimeConfig_communicationTimeConfig_Sms_communicationTimeConfig_Sms_OpenHours_communicationTimeConfig_Sms_OpenHours_DailyHours != null)
             {
                 requestCommunicationTimeConfig_communicationTimeConfig_Sms_communicationTimeConfig_Sms_OpenHours.DailyHours = requestCommunicationTimeConfig_communicationTimeConfig_Sms_communicationTimeConfig_Sms_OpenHours_communicationTimeConfig_Sms_OpenHours_DailyHours;
+                requestCommunicationTimeConfig_communicationTimeConfig_Sms_communicationTimeConfig_Sms_OpenHoursIsNull = false;
+            }
+             // determine if requestCommunicationTimeConfig_communicationTimeConfig_Sms_communicationTimeConfig_Sms_OpenHours should be set to null
+            if (requestCommunicationTimeConfig_communicationTimeConfig_Sms_communicationTimeConfig_Sms_OpenHoursIsNull)
+            {
+                requestCommunicationTimeConfig_communicationTimeConfig_Sms_communicationTimeConfig_Sms_OpenHours = null;
             }
             if (requestCommunicationTimeConfig_communicationTimeConfig_Sms_communicationTimeConfig_Sms_OpenHours != null)
             {
@@ -1168,6 +1222,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             Amazon.ConnectCampaignsV2.Model.OpenHours requestCommunicationTimeConfig_communicationTimeConfig_Telephony_communicationTimeConfig_Telephony_OpenHours = null;
             
              // populate OpenHours
+            var requestCommunicationTimeConfig_communicationTimeConfig_Telephony_communicationTimeConfig_Telephony_OpenHoursIsNull = true;
             requestCommunicationTimeConfig_communicationTimeConfig_Telephony_communicationTimeConfig_Telephony_OpenHours = new Amazon.ConnectCampaignsV2.Model.OpenHours();
             Dictionary<System.String, List<Amazon.ConnectCampaignsV2.Model.TimeRange>> requestCommunicationTimeConfig_communicationTimeConfig_Telephony_communicationTimeConfig_Telephony_OpenHours_communicationTimeConfig_Telephony_OpenHours_DailyHours = null;
             if (cmdletContext.CommunicationTimeConfig_Telephony_OpenHours_DailyHours != null)
@@ -1177,6 +1232,12 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestCommunicationTimeConfig_communicationTimeConfig_Telephony_communicationTimeConfig_Telephony_OpenHours_communicationTimeConfig_Telephony_OpenHours_DailyHours != null)
             {
                 requestCommunicationTimeConfig_communicationTimeConfig_Telephony_communicationTimeConfig_Telephony_OpenHours.DailyHours = requestCommunicationTimeConfig_communicationTimeConfig_Telephony_communicationTimeConfig_Telephony_OpenHours_communicationTimeConfig_Telephony_OpenHours_DailyHours;
+                requestCommunicationTimeConfig_communicationTimeConfig_Telephony_communicationTimeConfig_Telephony_OpenHoursIsNull = false;
+            }
+             // determine if requestCommunicationTimeConfig_communicationTimeConfig_Telephony_communicationTimeConfig_Telephony_OpenHours should be set to null
+            if (requestCommunicationTimeConfig_communicationTimeConfig_Telephony_communicationTimeConfig_Telephony_OpenHoursIsNull)
+            {
+                requestCommunicationTimeConfig_communicationTimeConfig_Telephony_communicationTimeConfig_Telephony_OpenHours = null;
             }
             if (requestCommunicationTimeConfig_communicationTimeConfig_Telephony_communicationTimeConfig_Telephony_OpenHours != null)
             {

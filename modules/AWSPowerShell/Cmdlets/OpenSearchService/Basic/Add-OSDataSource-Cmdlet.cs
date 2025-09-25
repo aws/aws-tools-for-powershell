@@ -175,6 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             
             
              // populate DataSourceType
+            var requestDataSourceTypeIsNull = true;
             request.DataSourceType = new Amazon.OpenSearchService.Model.DataSourceType();
             Amazon.OpenSearchService.Model.S3GlueDataCatalog requestDataSourceType_dataSourceType_S3GlueDataCatalog = null;
             
@@ -199,6 +200,12 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (requestDataSourceType_dataSourceType_S3GlueDataCatalog != null)
             {
                 request.DataSourceType.S3GlueDataCatalog = requestDataSourceType_dataSourceType_S3GlueDataCatalog;
+                requestDataSourceTypeIsNull = false;
+            }
+             // determine if request.DataSourceType should be set to null
+            if (requestDataSourceTypeIsNull)
+            {
+                request.DataSourceType = null;
             }
             if (cmdletContext.Description != null)
             {

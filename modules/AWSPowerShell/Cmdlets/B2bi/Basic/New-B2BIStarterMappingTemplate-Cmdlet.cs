@@ -245,6 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             }
             
              // populate TemplateDetails
+            var requestTemplateDetailsIsNull = true;
             request.TemplateDetails = new Amazon.B2bi.Model.TemplateDetails();
             Amazon.B2bi.Model.X12Details requestTemplateDetails_templateDetails_X12 = null;
             
@@ -279,6 +280,12 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             if (requestTemplateDetails_templateDetails_X12 != null)
             {
                 request.TemplateDetails.X12 = requestTemplateDetails_templateDetails_X12;
+                requestTemplateDetailsIsNull = false;
+            }
+             // determine if request.TemplateDetails should be set to null
+            if (requestTemplateDetailsIsNull)
+            {
+                request.TemplateDetails = null;
             }
             
             CmdletOutput output;

@@ -278,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
             }
             
              // populate ParallelDataConfig
+            var requestParallelDataConfigIsNull = true;
             request.ParallelDataConfig = new Amazon.Translate.Model.ParallelDataConfig();
             Amazon.Translate.ParallelDataFormat requestParallelDataConfig_parallelDataConfig_Format = null;
             if (cmdletContext.ParallelDataConfig_Format != null)
@@ -287,6 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
             if (requestParallelDataConfig_parallelDataConfig_Format != null)
             {
                 request.ParallelDataConfig.Format = requestParallelDataConfig_parallelDataConfig_Format;
+                requestParallelDataConfigIsNull = false;
             }
             System.String requestParallelDataConfig_parallelDataConfig_S3Uri = null;
             if (cmdletContext.ParallelDataConfig_S3Uri != null)
@@ -296,6 +298,12 @@ namespace Amazon.PowerShell.Cmdlets.TRN
             if (requestParallelDataConfig_parallelDataConfig_S3Uri != null)
             {
                 request.ParallelDataConfig.S3Uri = requestParallelDataConfig_parallelDataConfig_S3Uri;
+                requestParallelDataConfigIsNull = false;
+            }
+             // determine if request.ParallelDataConfig should be set to null
+            if (requestParallelDataConfigIsNull)
+            {
+                request.ParallelDataConfig = null;
             }
             if (cmdletContext.Tag != null)
             {

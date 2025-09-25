@@ -1523,6 +1523,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
             }
             
              // populate Thresholds
+            var requestThresholdsIsNull = true;
             request.Thresholds = new Amazon.GeoRoutes.Model.IsolineThresholds();
             List<System.Int64> requestThresholds_thresholds_Distance = null;
             if (cmdletContext.Thresholds_Distance != null)
@@ -1532,6 +1533,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
             if (requestThresholds_thresholds_Distance != null)
             {
                 request.Thresholds.Distance = requestThresholds_thresholds_Distance;
+                requestThresholdsIsNull = false;
             }
             List<System.Int64> requestThresholds_thresholds_Time = null;
             if (cmdletContext.Thresholds_Time != null)
@@ -1541,6 +1543,12 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
             if (requestThresholds_thresholds_Time != null)
             {
                 request.Thresholds.Time = requestThresholds_thresholds_Time;
+                requestThresholdsIsNull = false;
+            }
+             // determine if request.Thresholds should be set to null
+            if (requestThresholdsIsNull)
+            {
+                request.Thresholds = null;
             }
             
              // populate Traffic

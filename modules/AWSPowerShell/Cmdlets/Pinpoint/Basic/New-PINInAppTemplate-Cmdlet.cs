@@ -230,6 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             
             
              // populate InAppTemplateRequest
+            var requestInAppTemplateRequestIsNull = true;
             request.InAppTemplateRequest = new Amazon.Pinpoint.Model.InAppTemplateRequest();
             List<Amazon.Pinpoint.Model.InAppMessageContent> requestInAppTemplateRequest_inAppTemplateRequest_Content = null;
             if (cmdletContext.InAppTemplateRequest_Content != null)
@@ -239,6 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestInAppTemplateRequest_inAppTemplateRequest_Content != null)
             {
                 request.InAppTemplateRequest.Content = requestInAppTemplateRequest_inAppTemplateRequest_Content;
+                requestInAppTemplateRequestIsNull = false;
             }
             Dictionary<System.String, System.String> requestInAppTemplateRequest_inAppTemplateRequest_CustomConfig = null;
             if (cmdletContext.InAppTemplateRequest_CustomConfig != null)
@@ -248,6 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestInAppTemplateRequest_inAppTemplateRequest_CustomConfig != null)
             {
                 request.InAppTemplateRequest.CustomConfig = requestInAppTemplateRequest_inAppTemplateRequest_CustomConfig;
+                requestInAppTemplateRequestIsNull = false;
             }
             Amazon.Pinpoint.Layout requestInAppTemplateRequest_inAppTemplateRequest_Layout = null;
             if (cmdletContext.InAppTemplateRequest_Layout != null)
@@ -257,6 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestInAppTemplateRequest_inAppTemplateRequest_Layout != null)
             {
                 request.InAppTemplateRequest.Layout = requestInAppTemplateRequest_inAppTemplateRequest_Layout;
+                requestInAppTemplateRequestIsNull = false;
             }
             Dictionary<System.String, System.String> requestInAppTemplateRequest_inAppTemplateRequest_Tag = null;
             if (cmdletContext.InAppTemplateRequest_Tag != null)
@@ -266,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestInAppTemplateRequest_inAppTemplateRequest_Tag != null)
             {
                 request.InAppTemplateRequest.Tags = requestInAppTemplateRequest_inAppTemplateRequest_Tag;
+                requestInAppTemplateRequestIsNull = false;
             }
             System.String requestInAppTemplateRequest_inAppTemplateRequest_TemplateDescription = null;
             if (cmdletContext.InAppTemplateRequest_TemplateDescription != null)
@@ -275,6 +280,12 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestInAppTemplateRequest_inAppTemplateRequest_TemplateDescription != null)
             {
                 request.InAppTemplateRequest.TemplateDescription = requestInAppTemplateRequest_inAppTemplateRequest_TemplateDescription;
+                requestInAppTemplateRequestIsNull = false;
+            }
+             // determine if request.InAppTemplateRequest should be set to null
+            if (requestInAppTemplateRequestIsNull)
+            {
+                request.InAppTemplateRequest = null;
             }
             if (cmdletContext.TemplateName != null)
             {

@@ -250,6 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             
              // populate Model
+            var requestModelIsNull = true;
             request.Model = new Amazon.DataZone.Model.Model();
             System.String requestModel_model_Smithy = null;
             if (cmdletContext.Model_Smithy != null)
@@ -259,6 +260,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestModel_model_Smithy != null)
             {
                 request.Model.Smithy = requestModel_model_Smithy;
+                requestModelIsNull = false;
+            }
+             // determine if request.Model should be set to null
+            if (requestModelIsNull)
+            {
+                request.Model = null;
             }
             if (cmdletContext.Name != null)
             {

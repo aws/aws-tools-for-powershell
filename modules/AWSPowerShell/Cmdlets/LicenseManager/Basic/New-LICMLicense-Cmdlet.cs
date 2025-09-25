@@ -452,6 +452,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             }
             
              // populate ConsumptionConfiguration
+            var requestConsumptionConfigurationIsNull = true;
             request.ConsumptionConfiguration = new Amazon.LicenseManager.Model.ConsumptionConfiguration();
             Amazon.LicenseManager.RenewType requestConsumptionConfiguration_consumptionConfiguration_RenewType = null;
             if (cmdletContext.ConsumptionConfiguration_RenewType != null)
@@ -461,6 +462,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             if (requestConsumptionConfiguration_consumptionConfiguration_RenewType != null)
             {
                 request.ConsumptionConfiguration.RenewType = requestConsumptionConfiguration_consumptionConfiguration_RenewType;
+                requestConsumptionConfigurationIsNull = false;
             }
             Amazon.LicenseManager.Model.ProvisionalConfiguration requestConsumptionConfiguration_consumptionConfiguration_ProvisionalConfiguration = null;
             
@@ -485,6 +487,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             if (requestConsumptionConfiguration_consumptionConfiguration_ProvisionalConfiguration != null)
             {
                 request.ConsumptionConfiguration.ProvisionalConfiguration = requestConsumptionConfiguration_consumptionConfiguration_ProvisionalConfiguration;
+                requestConsumptionConfigurationIsNull = false;
             }
             Amazon.LicenseManager.Model.BorrowConfiguration requestConsumptionConfiguration_consumptionConfiguration_BorrowConfiguration = null;
             
@@ -519,6 +522,12 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             if (requestConsumptionConfiguration_consumptionConfiguration_BorrowConfiguration != null)
             {
                 request.ConsumptionConfiguration.BorrowConfiguration = requestConsumptionConfiguration_consumptionConfiguration_BorrowConfiguration;
+                requestConsumptionConfigurationIsNull = false;
+            }
+             // determine if request.ConsumptionConfiguration should be set to null
+            if (requestConsumptionConfigurationIsNull)
+            {
+                request.ConsumptionConfiguration = null;
             }
             if (cmdletContext.Entitlement != null)
             {

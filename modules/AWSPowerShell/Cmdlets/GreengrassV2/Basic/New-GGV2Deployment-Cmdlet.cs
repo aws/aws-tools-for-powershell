@@ -582,6 +582,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
             Amazon.GreengrassV2.Model.IoTJobRateIncreaseCriteria requestIotJobConfiguration_iotJobConfiguration_JobExecutionsRolloutConfig_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria = null;
             
              // populate RateIncreaseCriteria
+            var requestIotJobConfiguration_iotJobConfiguration_JobExecutionsRolloutConfig_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteriaIsNull = true;
             requestIotJobConfiguration_iotJobConfiguration_JobExecutionsRolloutConfig_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria = new Amazon.GreengrassV2.Model.IoTJobRateIncreaseCriteria();
             System.Int32? requestIotJobConfiguration_iotJobConfiguration_JobExecutionsRolloutConfig_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria_rateIncreaseCriteria_NumberOfNotifiedThing = null;
             if (cmdletContext.RateIncreaseCriteria_NumberOfNotifiedThing != null)
@@ -591,6 +592,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
             if (requestIotJobConfiguration_iotJobConfiguration_JobExecutionsRolloutConfig_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria_rateIncreaseCriteria_NumberOfNotifiedThing != null)
             {
                 requestIotJobConfiguration_iotJobConfiguration_JobExecutionsRolloutConfig_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria.NumberOfNotifiedThings = requestIotJobConfiguration_iotJobConfiguration_JobExecutionsRolloutConfig_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria_rateIncreaseCriteria_NumberOfNotifiedThing.Value;
+                requestIotJobConfiguration_iotJobConfiguration_JobExecutionsRolloutConfig_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteriaIsNull = false;
             }
             System.Int32? requestIotJobConfiguration_iotJobConfiguration_JobExecutionsRolloutConfig_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria_rateIncreaseCriteria_NumberOfSucceededThing = null;
             if (cmdletContext.RateIncreaseCriteria_NumberOfSucceededThing != null)
@@ -600,6 +602,12 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
             if (requestIotJobConfiguration_iotJobConfiguration_JobExecutionsRolloutConfig_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria_rateIncreaseCriteria_NumberOfSucceededThing != null)
             {
                 requestIotJobConfiguration_iotJobConfiguration_JobExecutionsRolloutConfig_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria.NumberOfSucceededThings = requestIotJobConfiguration_iotJobConfiguration_JobExecutionsRolloutConfig_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria_rateIncreaseCriteria_NumberOfSucceededThing.Value;
+                requestIotJobConfiguration_iotJobConfiguration_JobExecutionsRolloutConfig_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteriaIsNull = false;
+            }
+             // determine if requestIotJobConfiguration_iotJobConfiguration_JobExecutionsRolloutConfig_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria should be set to null
+            if (requestIotJobConfiguration_iotJobConfiguration_JobExecutionsRolloutConfig_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteriaIsNull)
+            {
+                requestIotJobConfiguration_iotJobConfiguration_JobExecutionsRolloutConfig_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria = null;
             }
             if (requestIotJobConfiguration_iotJobConfiguration_JobExecutionsRolloutConfig_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_iotJobConfiguration_JobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria != null)
             {

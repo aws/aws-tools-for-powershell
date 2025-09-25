@@ -261,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             
             
              // populate Actions
+            var requestActionsIsNull = true;
             request.Actions = new Amazon.ManagedBlockchain.Model.ProposalActions();
             List<Amazon.ManagedBlockchain.Model.InviteAction> requestActions_actions_Invitation = null;
             if (cmdletContext.Actions_Invitation != null)
@@ -270,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             if (requestActions_actions_Invitation != null)
             {
                 request.Actions.Invitations = requestActions_actions_Invitation;
+                requestActionsIsNull = false;
             }
             List<Amazon.ManagedBlockchain.Model.RemoveAction> requestActions_actions_Removal = null;
             if (cmdletContext.Actions_Removal != null)
@@ -279,6 +281,12 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             if (requestActions_actions_Removal != null)
             {
                 request.Actions.Removals = requestActions_actions_Removal;
+                requestActionsIsNull = false;
+            }
+             // determine if request.Actions should be set to null
+            if (requestActionsIsNull)
+            {
+                request.Actions = null;
             }
             if (cmdletContext.ClientRequestToken != null)
             {

@@ -176,6 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             
             
              // populate Origination
+            var requestOriginationIsNull = true;
             request.Origination = new Amazon.ChimeSDKVoice.Model.Origination();
             System.Boolean? requestOrigination_origination_Disabled = null;
             if (cmdletContext.Origination_Disabled != null)
@@ -185,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             if (requestOrigination_origination_Disabled != null)
             {
                 request.Origination.Disabled = requestOrigination_origination_Disabled.Value;
+                requestOriginationIsNull = false;
             }
             List<Amazon.ChimeSDKVoice.Model.OriginationRoute> requestOrigination_origination_Route = null;
             if (cmdletContext.Origination_Route != null)
@@ -194,6 +196,12 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             if (requestOrigination_origination_Route != null)
             {
                 request.Origination.Routes = requestOrigination_origination_Route;
+                requestOriginationIsNull = false;
+            }
+             // determine if request.Origination should be set to null
+            if (requestOriginationIsNull)
+            {
+                request.Origination = null;
             }
             if (cmdletContext.VoiceConnectorId != null)
             {

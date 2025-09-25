@@ -542,6 +542,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             }
             
              // populate EndpointRequest
+            var requestEndpointRequestIsNull = true;
             request.EndpointRequest = new Amazon.Pinpoint.Model.EndpointRequest();
             System.String requestEndpointRequest_endpointRequest_Address = null;
             if (cmdletContext.EndpointRequest_Address != null)
@@ -551,6 +552,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestEndpointRequest_endpointRequest_Address != null)
             {
                 request.EndpointRequest.Address = requestEndpointRequest_endpointRequest_Address;
+                requestEndpointRequestIsNull = false;
             }
             Dictionary<System.String, List<System.String>> requestEndpointRequest_endpointRequest_Attribute = null;
             if (cmdletContext.EndpointRequest_Attribute != null)
@@ -560,6 +562,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestEndpointRequest_endpointRequest_Attribute != null)
             {
                 request.EndpointRequest.Attributes = requestEndpointRequest_endpointRequest_Attribute;
+                requestEndpointRequestIsNull = false;
             }
             Amazon.Pinpoint.ChannelType requestEndpointRequest_endpointRequest_ChannelType = null;
             if (cmdletContext.EndpointRequest_ChannelType != null)
@@ -569,6 +572,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestEndpointRequest_endpointRequest_ChannelType != null)
             {
                 request.EndpointRequest.ChannelType = requestEndpointRequest_endpointRequest_ChannelType;
+                requestEndpointRequestIsNull = false;
             }
             System.String requestEndpointRequest_endpointRequest_EffectiveDate = null;
             if (cmdletContext.EndpointRequest_EffectiveDate != null)
@@ -578,6 +582,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestEndpointRequest_endpointRequest_EffectiveDate != null)
             {
                 request.EndpointRequest.EffectiveDate = requestEndpointRequest_endpointRequest_EffectiveDate;
+                requestEndpointRequestIsNull = false;
             }
             System.String requestEndpointRequest_endpointRequest_EndpointStatus = null;
             if (cmdletContext.EndpointRequest_EndpointStatus != null)
@@ -587,6 +592,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestEndpointRequest_endpointRequest_EndpointStatus != null)
             {
                 request.EndpointRequest.EndpointStatus = requestEndpointRequest_endpointRequest_EndpointStatus;
+                requestEndpointRequestIsNull = false;
             }
             Dictionary<System.String, System.Double> requestEndpointRequest_endpointRequest_Metric = null;
             if (cmdletContext.EndpointRequest_Metric != null)
@@ -596,6 +602,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestEndpointRequest_endpointRequest_Metric != null)
             {
                 request.EndpointRequest.Metrics = requestEndpointRequest_endpointRequest_Metric;
+                requestEndpointRequestIsNull = false;
             }
             System.String requestEndpointRequest_endpointRequest_OptOut = null;
             if (cmdletContext.EndpointRequest_OptOut != null)
@@ -605,6 +612,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestEndpointRequest_endpointRequest_OptOut != null)
             {
                 request.EndpointRequest.OptOut = requestEndpointRequest_endpointRequest_OptOut;
+                requestEndpointRequestIsNull = false;
             }
             System.String requestEndpointRequest_endpointRequest_RequestId = null;
             if (cmdletContext.EndpointRequest_RequestId != null)
@@ -614,6 +622,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestEndpointRequest_endpointRequest_RequestId != null)
             {
                 request.EndpointRequest.RequestId = requestEndpointRequest_endpointRequest_RequestId;
+                requestEndpointRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.EndpointUser requestEndpointRequest_endpointRequest_User = null;
             
@@ -648,6 +657,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestEndpointRequest_endpointRequest_User != null)
             {
                 request.EndpointRequest.User = requestEndpointRequest_endpointRequest_User;
+                requestEndpointRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.EndpointLocation requestEndpointRequest_endpointRequest_Location = null;
             
@@ -722,6 +732,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestEndpointRequest_endpointRequest_Location != null)
             {
                 request.EndpointRequest.Location = requestEndpointRequest_endpointRequest_Location;
+                requestEndpointRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.EndpointDemographic requestEndpointRequest_endpointRequest_Demographic = null;
             
@@ -816,6 +827,12 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestEndpointRequest_endpointRequest_Demographic != null)
             {
                 request.EndpointRequest.Demographic = requestEndpointRequest_endpointRequest_Demographic;
+                requestEndpointRequestIsNull = false;
+            }
+             // determine if request.EndpointRequest should be set to null
+            if (requestEndpointRequestIsNull)
+            {
+                request.EndpointRequest = null;
             }
             
             CmdletOutput output;

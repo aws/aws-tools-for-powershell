@@ -261,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.PAN
             }
             
              // populate InputConfig
+            var requestInputConfigIsNull = true;
             request.InputConfig = new Amazon.Panorama.Model.PackageImportJobInputConfig();
             Amazon.Panorama.Model.PackageVersionInputConfig requestInputConfig_inputConfig_PackageVersionInputConfig = null;
             
@@ -320,6 +321,12 @@ namespace Amazon.PowerShell.Cmdlets.PAN
             if (requestInputConfig_inputConfig_PackageVersionInputConfig != null)
             {
                 request.InputConfig.PackageVersionInputConfig = requestInputConfig_inputConfig_PackageVersionInputConfig;
+                requestInputConfigIsNull = false;
+            }
+             // determine if request.InputConfig should be set to null
+            if (requestInputConfigIsNull)
+            {
+                request.InputConfig = null;
             }
             if (cmdletContext.JobTag != null)
             {
@@ -331,6 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.PAN
             }
             
              // populate OutputConfig
+            var requestOutputConfigIsNull = true;
             request.OutputConfig = new Amazon.Panorama.Model.PackageImportJobOutputConfig();
             Amazon.Panorama.Model.PackageVersionOutputConfig requestOutputConfig_outputConfig_PackageVersionOutputConfig = null;
             
@@ -375,6 +383,12 @@ namespace Amazon.PowerShell.Cmdlets.PAN
             if (requestOutputConfig_outputConfig_PackageVersionOutputConfig != null)
             {
                 request.OutputConfig.PackageVersionOutputConfig = requestOutputConfig_outputConfig_PackageVersionOutputConfig;
+                requestOutputConfigIsNull = false;
+            }
+             // determine if request.OutputConfig should be set to null
+            if (requestOutputConfigIsNull)
+            {
+                request.OutputConfig = null;
             }
             
             CmdletOutput output;

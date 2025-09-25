@@ -232,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             }
             
              // populate Sbom
+            var requestSbomIsNull = true;
             request.Sbom = new Amazon.IoT.Model.Sbom();
             Amazon.IoT.Model.S3Location requestSbom_sbom_S3Location = null;
             
@@ -276,6 +277,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestSbom_sbom_S3Location != null)
             {
                 request.Sbom.S3Location = requestSbom_sbom_S3Location;
+                requestSbomIsNull = false;
+            }
+             // determine if request.Sbom should be set to null
+            if (requestSbomIsNull)
+            {
+                request.Sbom = null;
             }
             if (cmdletContext.VersionName != null)
             {

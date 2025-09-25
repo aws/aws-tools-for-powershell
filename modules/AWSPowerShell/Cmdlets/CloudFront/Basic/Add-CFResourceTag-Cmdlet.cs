@@ -164,6 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             }
             
              // populate Tags
+            var requestTagsIsNull = true;
             request.Tags = new Amazon.CloudFront.Model.Tags();
             List<Amazon.CloudFront.Model.Tag> requestTags_tag = null;
             if (cmdletContext.Tag != null)
@@ -173,6 +174,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (requestTags_tag != null)
             {
                 request.Tags.Items = requestTags_tag;
+                requestTagsIsNull = false;
+            }
+             // determine if request.Tags should be set to null
+            if (requestTagsIsNull)
+            {
+                request.Tags = null;
             }
             
             CmdletOutput output;

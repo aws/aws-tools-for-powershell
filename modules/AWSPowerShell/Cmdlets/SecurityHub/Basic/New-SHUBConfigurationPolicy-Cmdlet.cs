@@ -257,6 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             
             
              // populate ConfigurationPolicy
+            var requestConfigurationPolicyIsNull = true;
             request.ConfigurationPolicy = new Amazon.SecurityHub.Model.Policy();
             Amazon.SecurityHub.Model.SecurityHubPolicy requestConfigurationPolicy_configurationPolicy_SecurityHub = null;
             
@@ -336,6 +337,12 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestConfigurationPolicy_configurationPolicy_SecurityHub != null)
             {
                 request.ConfigurationPolicy.SecurityHub = requestConfigurationPolicy_configurationPolicy_SecurityHub;
+                requestConfigurationPolicyIsNull = false;
+            }
+             // determine if request.ConfigurationPolicy should be set to null
+            if (requestConfigurationPolicyIsNull)
+            {
+                request.ConfigurationPolicy = null;
             }
             if (cmdletContext.Description != null)
             {

@@ -292,6 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             }
             
              // populate SourceContent
+            var requestSourceContentIsNull = true;
             request.SourceContent = new Amazon.Bedrock.Model.AutomatedReasoningPolicyBuildWorkflowSource();
             Amazon.Bedrock.Model.AutomatedReasoningPolicyWorkflowTypeContent requestSourceContent_sourceContent_WorkflowContent = null;
             
@@ -341,6 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestSourceContent_sourceContent_WorkflowContent != null)
             {
                 request.SourceContent.WorkflowContent = requestSourceContent_sourceContent_WorkflowContent;
+                requestSourceContentIsNull = false;
             }
             Amazon.Bedrock.Model.AutomatedReasoningPolicyDefinition requestSourceContent_sourceContent_PolicyDefinition = null;
             
@@ -395,6 +397,12 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestSourceContent_sourceContent_PolicyDefinition != null)
             {
                 request.SourceContent.PolicyDefinition = requestSourceContent_sourceContent_PolicyDefinition;
+                requestSourceContentIsNull = false;
+            }
+             // determine if request.SourceContent should be set to null
+            if (requestSourceContentIsNull)
+            {
+                request.SourceContent = null;
             }
             
             CmdletOutput output;

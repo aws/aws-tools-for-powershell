@@ -116,7 +116,7 @@ $NWFW_Completers = {
             ($_ -eq "Update-NWFWRuleGroup/RulesSourceList_GeneratedRulesType")
         }
         {
-            $v = "ALLOWLIST","DENYLIST"
+            $v = "ALERTLIST","ALLOWLIST","DENYLIST","REJECTLIST"
             break
         }
 

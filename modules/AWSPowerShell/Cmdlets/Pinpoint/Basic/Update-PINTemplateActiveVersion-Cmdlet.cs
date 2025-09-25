@@ -189,6 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             
             
              // populate TemplateActiveVersionRequest
+            var requestTemplateActiveVersionRequestIsNull = true;
             request.TemplateActiveVersionRequest = new Amazon.Pinpoint.Model.TemplateActiveVersionRequest();
             System.String requestTemplateActiveVersionRequest_templateActiveVersionRequest_Version = null;
             if (cmdletContext.TemplateActiveVersionRequest_Version != null)
@@ -198,6 +199,12 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestTemplateActiveVersionRequest_templateActiveVersionRequest_Version != null)
             {
                 request.TemplateActiveVersionRequest.Version = requestTemplateActiveVersionRequest_templateActiveVersionRequest_Version;
+                requestTemplateActiveVersionRequestIsNull = false;
+            }
+             // determine if request.TemplateActiveVersionRequest should be set to null
+            if (requestTemplateActiveVersionRequestIsNull)
+            {
+                request.TemplateActiveVersionRequest = null;
             }
             if (cmdletContext.TemplateName != null)
             {

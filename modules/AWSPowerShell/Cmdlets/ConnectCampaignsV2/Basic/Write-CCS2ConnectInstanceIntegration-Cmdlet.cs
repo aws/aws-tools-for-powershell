@@ -192,6 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             }
             
              // populate IntegrationConfig
+            var requestIntegrationConfigIsNull = true;
             request.IntegrationConfig = new Amazon.ConnectCampaignsV2.Model.IntegrationConfig();
             Amazon.ConnectCampaignsV2.Model.QConnectIntegrationConfig requestIntegrationConfig_integrationConfig_QConnect = null;
             
@@ -216,6 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestIntegrationConfig_integrationConfig_QConnect != null)
             {
                 request.IntegrationConfig.QConnect = requestIntegrationConfig_integrationConfig_QConnect;
+                requestIntegrationConfigIsNull = false;
             }
             Amazon.ConnectCampaignsV2.Model.CustomerProfilesIntegrationConfig requestIntegrationConfig_integrationConfig_CustomerProfiles = null;
             
@@ -250,6 +252,12 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestIntegrationConfig_integrationConfig_CustomerProfiles != null)
             {
                 request.IntegrationConfig.CustomerProfiles = requestIntegrationConfig_integrationConfig_CustomerProfiles;
+                requestIntegrationConfigIsNull = false;
+            }
+             // determine if request.IntegrationConfig should be set to null
+            if (requestIntegrationConfigIsNull)
+            {
+                request.IntegrationConfig = null;
             }
             
             CmdletOutput output;

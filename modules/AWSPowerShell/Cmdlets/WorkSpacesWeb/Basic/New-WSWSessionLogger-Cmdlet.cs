@@ -299,6 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             }
             
              // populate EventFilter
+            var requestEventFilterIsNull = true;
             request.EventFilter = new Amazon.WorkSpacesWeb.Model.EventFilter();
             Amazon.WorkSpacesWeb.Model.Unit requestEventFilter_eventFilter_All = null;
             if (cmdletContext.EventFilter_All != null)
@@ -308,6 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             if (requestEventFilter_eventFilter_All != null)
             {
                 request.EventFilter.All = requestEventFilter_eventFilter_All;
+                requestEventFilterIsNull = false;
             }
             List<System.String> requestEventFilter_eventFilter_Include = null;
             if (cmdletContext.EventFilter_Include != null)
@@ -317,9 +319,16 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             if (requestEventFilter_eventFilter_Include != null)
             {
                 request.EventFilter.Include = requestEventFilter_eventFilter_Include;
+                requestEventFilterIsNull = false;
+            }
+             // determine if request.EventFilter should be set to null
+            if (requestEventFilterIsNull)
+            {
+                request.EventFilter = null;
             }
             
              // populate LogConfiguration
+            var requestLogConfigurationIsNull = true;
             request.LogConfiguration = new Amazon.WorkSpacesWeb.Model.LogConfiguration();
             Amazon.WorkSpacesWeb.Model.S3LogConfiguration requestLogConfiguration_logConfiguration_S3 = null;
             
@@ -384,6 +393,12 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             if (requestLogConfiguration_logConfiguration_S3 != null)
             {
                 request.LogConfiguration.S3 = requestLogConfiguration_logConfiguration_S3;
+                requestLogConfigurationIsNull = false;
+            }
+             // determine if request.LogConfiguration should be set to null
+            if (requestLogConfigurationIsNull)
+            {
+                request.LogConfiguration = null;
             }
             if (cmdletContext.Tag != null)
             {

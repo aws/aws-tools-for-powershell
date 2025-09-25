@@ -240,6 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             }
             
              // populate SearchExpression
+            var requestSearchExpressionIsNull = true;
             request.SearchExpression = new Amazon.QConnect.Model.MessageTemplateSearchExpression();
             List<Amazon.QConnect.Model.MessageTemplateFilterField> requestSearchExpression_searchExpression_Filter = null;
             if (cmdletContext.SearchExpression_Filter != null)
@@ -249,6 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestSearchExpression_searchExpression_Filter != null)
             {
                 request.SearchExpression.Filters = requestSearchExpression_searchExpression_Filter;
+                requestSearchExpressionIsNull = false;
             }
             List<Amazon.QConnect.Model.MessageTemplateQueryField> requestSearchExpression_searchExpression_Query = null;
             if (cmdletContext.SearchExpression_Query != null)
@@ -258,6 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestSearchExpression_searchExpression_Query != null)
             {
                 request.SearchExpression.Queries = requestSearchExpression_searchExpression_Query;
+                requestSearchExpressionIsNull = false;
             }
             Amazon.QConnect.Model.MessageTemplateOrderField requestSearchExpression_searchExpression_OrderOnField = null;
             
@@ -292,6 +295,12 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestSearchExpression_searchExpression_OrderOnField != null)
             {
                 request.SearchExpression.OrderOnField = requestSearchExpression_searchExpression_OrderOnField;
+                requestSearchExpressionIsNull = false;
+            }
+             // determine if request.SearchExpression should be set to null
+            if (requestSearchExpressionIsNull)
+            {
+                request.SearchExpression = null;
             }
             
             CmdletOutput output;

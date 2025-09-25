@@ -319,6 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             }
             
              // populate GenerationDataSource
+            var requestGenerationDataSourceIsNull = true;
             request.GenerationDataSource = new Amazon.LexModelsV2.Model.TestSetGenerationDataSource();
             Amazon.LexModelsV2.Model.ConversationLogsDataSource requestGenerationDataSource_generationDataSource_ConversationLogsDataSource = null;
             
@@ -408,6 +409,12 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestGenerationDataSource_generationDataSource_ConversationLogsDataSource != null)
             {
                 request.GenerationDataSource.ConversationLogsDataSource = requestGenerationDataSource_generationDataSource_ConversationLogsDataSource;
+                requestGenerationDataSourceIsNull = false;
+            }
+             // determine if request.GenerationDataSource should be set to null
+            if (requestGenerationDataSourceIsNull)
+            {
+                request.GenerationDataSource = null;
             }
             if (cmdletContext.RoleArn != null)
             {

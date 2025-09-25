@@ -181,6 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             
             
              // populate Target
+            var requestTargetIsNull = true;
             request.Target = new Amazon.LexModelsV2.Model.TestSetDiscrepancyReportResourceTarget();
             Amazon.LexModelsV2.Model.TestSetDiscrepancyReportBotAliasTarget requestTarget_target_BotAliasTarget = null;
             
@@ -225,6 +226,12 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestTarget_target_BotAliasTarget != null)
             {
                 request.Target.BotAliasTarget = requestTarget_target_BotAliasTarget;
+                requestTargetIsNull = false;
+            }
+             // determine if request.Target should be set to null
+            if (requestTargetIsNull)
+            {
+                request.Target = null;
             }
             if (cmdletContext.TestSetId != null)
             {

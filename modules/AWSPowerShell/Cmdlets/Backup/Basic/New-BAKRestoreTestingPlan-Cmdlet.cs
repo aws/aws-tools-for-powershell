@@ -364,6 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             Amazon.Backup.Model.RestoreTestingRecoveryPointSelection requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection = null;
             
              // populate RecoveryPointSelection
+            var requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelectionIsNull = true;
             requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection = new Amazon.Backup.Model.RestoreTestingRecoveryPointSelection();
             Amazon.Backup.RestoreTestingRecoveryPointSelectionAlgorithm requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection_recoveryPointSelection_Algorithm = null;
             if (cmdletContext.RecoveryPointSelection_Algorithm != null)
@@ -373,6 +374,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection_recoveryPointSelection_Algorithm != null)
             {
                 requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection.Algorithm = requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection_recoveryPointSelection_Algorithm;
+                requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelectionIsNull = false;
             }
             List<System.String> requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection_recoveryPointSelection_ExcludeVault = null;
             if (cmdletContext.RecoveryPointSelection_ExcludeVault != null)
@@ -382,6 +384,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection_recoveryPointSelection_ExcludeVault != null)
             {
                 requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection.ExcludeVaults = requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection_recoveryPointSelection_ExcludeVault;
+                requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelectionIsNull = false;
             }
             List<System.String> requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection_recoveryPointSelection_IncludeVault = null;
             if (cmdletContext.RecoveryPointSelection_IncludeVault != null)
@@ -391,6 +394,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection_recoveryPointSelection_IncludeVault != null)
             {
                 requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection.IncludeVaults = requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection_recoveryPointSelection_IncludeVault;
+                requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelectionIsNull = false;
             }
             List<System.String> requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection_recoveryPointSelection_RecoveryPointType = null;
             if (cmdletContext.RecoveryPointSelection_RecoveryPointType != null)
@@ -400,6 +404,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection_recoveryPointSelection_RecoveryPointType != null)
             {
                 requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection.RecoveryPointTypes = requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection_recoveryPointSelection_RecoveryPointType;
+                requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelectionIsNull = false;
             }
             System.Int32? requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection_recoveryPointSelection_SelectionWindowDay = null;
             if (cmdletContext.RecoveryPointSelection_SelectionWindowDay != null)
@@ -409,6 +414,12 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection_recoveryPointSelection_SelectionWindowDay != null)
             {
                 requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection.SelectionWindowDays = requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection_recoveryPointSelection_SelectionWindowDay.Value;
+                requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelectionIsNull = false;
+            }
+             // determine if requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection should be set to null
+            if (requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelectionIsNull)
+            {
+                requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection = null;
             }
             if (requestRestoreTestingPlan_restoreTestingPlan_RecoveryPointSelection != null)
             {

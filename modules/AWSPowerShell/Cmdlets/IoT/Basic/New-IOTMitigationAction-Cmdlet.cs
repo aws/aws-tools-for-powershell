@@ -306,6 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             }
             
              // populate ActionParams
+            var requestActionParamsIsNull = true;
             request.ActionParams = new Amazon.IoT.Model.MitigationActionParams();
             Amazon.IoT.Model.PublishFindingToSnsParams requestActionParams_actionParams_PublishFindingToSnsParams = null;
             
@@ -330,6 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestActionParams_actionParams_PublishFindingToSnsParams != null)
             {
                 request.ActionParams.PublishFindingToSnsParams = requestActionParams_actionParams_PublishFindingToSnsParams;
+                requestActionParamsIsNull = false;
             }
             Amazon.IoT.Model.ReplaceDefaultPolicyVersionParams requestActionParams_actionParams_ReplaceDefaultPolicyVersionParams = null;
             
@@ -354,6 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestActionParams_actionParams_ReplaceDefaultPolicyVersionParams != null)
             {
                 request.ActionParams.ReplaceDefaultPolicyVersionParams = requestActionParams_actionParams_ReplaceDefaultPolicyVersionParams;
+                requestActionParamsIsNull = false;
             }
             Amazon.IoT.Model.UpdateCACertificateParams requestActionParams_actionParams_UpdateCACertificateParams = null;
             
@@ -378,6 +381,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestActionParams_actionParams_UpdateCACertificateParams != null)
             {
                 request.ActionParams.UpdateCACertificateParams = requestActionParams_actionParams_UpdateCACertificateParams;
+                requestActionParamsIsNull = false;
             }
             Amazon.IoT.Model.UpdateDeviceCertificateParams requestActionParams_actionParams_UpdateDeviceCertificateParams = null;
             
@@ -402,6 +406,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestActionParams_actionParams_UpdateDeviceCertificateParams != null)
             {
                 request.ActionParams.UpdateDeviceCertificateParams = requestActionParams_actionParams_UpdateDeviceCertificateParams;
+                requestActionParamsIsNull = false;
             }
             Amazon.IoT.Model.AddThingsToThingGroupParams requestActionParams_actionParams_AddThingsToThingGroupParams = null;
             
@@ -436,6 +441,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestActionParams_actionParams_AddThingsToThingGroupParams != null)
             {
                 request.ActionParams.AddThingsToThingGroupParams = requestActionParams_actionParams_AddThingsToThingGroupParams;
+                requestActionParamsIsNull = false;
             }
             Amazon.IoT.Model.EnableIoTLoggingParams requestActionParams_actionParams_EnableIoTLoggingParams = null;
             
@@ -470,6 +476,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestActionParams_actionParams_EnableIoTLoggingParams != null)
             {
                 request.ActionParams.EnableIoTLoggingParams = requestActionParams_actionParams_EnableIoTLoggingParams;
+                requestActionParamsIsNull = false;
+            }
+             // determine if request.ActionParams should be set to null
+            if (requestActionParamsIsNull)
+            {
+                request.ActionParams = null;
             }
             if (cmdletContext.RoleArn != null)
             {

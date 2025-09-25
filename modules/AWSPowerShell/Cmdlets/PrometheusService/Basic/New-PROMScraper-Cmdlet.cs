@@ -294,6 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
                 }
                 
                  // populate Destination
+                var requestDestinationIsNull = true;
                 request.Destination = new Amazon.PrometheusService.Model.Destination();
                 Amazon.PrometheusService.Model.AmpConfiguration requestDestination_destination_AmpConfiguration = null;
                 
@@ -318,6 +319,12 @@ namespace Amazon.PowerShell.Cmdlets.PROM
                 if (requestDestination_destination_AmpConfiguration != null)
                 {
                     request.Destination.AmpConfiguration = requestDestination_destination_AmpConfiguration;
+                    requestDestinationIsNull = false;
+                }
+                 // determine if request.Destination should be set to null
+                if (requestDestinationIsNull)
+                {
+                    request.Destination = null;
                 }
                 
                  // populate RoleConfiguration
@@ -350,6 +357,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
                 }
                 
                  // populate ScrapeConfiguration
+                var requestScrapeConfigurationIsNull = true;
                 request.ScrapeConfiguration = new Amazon.PrometheusService.Model.ScrapeConfiguration();
                 System.IO.MemoryStream requestScrapeConfiguration_scrapeConfiguration_ConfigurationBlob = null;
                 if (cmdletContext.ScrapeConfiguration_ConfigurationBlob != null)
@@ -360,9 +368,16 @@ namespace Amazon.PowerShell.Cmdlets.PROM
                 if (requestScrapeConfiguration_scrapeConfiguration_ConfigurationBlob != null)
                 {
                     request.ScrapeConfiguration.ConfigurationBlob = requestScrapeConfiguration_scrapeConfiguration_ConfigurationBlob;
+                    requestScrapeConfigurationIsNull = false;
+                }
+                 // determine if request.ScrapeConfiguration should be set to null
+                if (requestScrapeConfigurationIsNull)
+                {
+                    request.ScrapeConfiguration = null;
                 }
                 
                  // populate Source
+                var requestSourceIsNull = true;
                 request.Source = new Amazon.PrometheusService.Model.Source();
                 Amazon.PrometheusService.Model.EksConfiguration requestSource_source_EksConfiguration = null;
                 
@@ -407,6 +422,12 @@ namespace Amazon.PowerShell.Cmdlets.PROM
                 if (requestSource_source_EksConfiguration != null)
                 {
                     request.Source.EksConfiguration = requestSource_source_EksConfiguration;
+                    requestSourceIsNull = false;
+                }
+                 // determine if request.Source should be set to null
+                if (requestSourceIsNull)
+                {
+                    request.Source = null;
                 }
                 if (cmdletContext.Tag != null)
                 {

@@ -465,6 +465,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             
              // populate DataSource
+            var requestDataSourceIsNull = true;
             request.DataSource = new Amazon.Glue.Model.DataSource();
             Amazon.Glue.Model.GlueTable requestDataSource_dataSource_GlueTable = null;
             
@@ -529,6 +530,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestDataSource_dataSource_GlueTable != null)
             {
                 request.DataSource.GlueTable = requestDataSource_dataSource_GlueTable;
+                requestDataSourceIsNull = false;
             }
             Amazon.Glue.Model.DataQualityGlueTable requestDataSource_dataSource_DataQualityGlueTable = null;
             
@@ -603,6 +605,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestDataSource_dataSource_DataQualityGlueTable != null)
             {
                 request.DataSource.DataQualityGlueTable = requestDataSource_dataSource_DataQualityGlueTable;
+                requestDataSourceIsNull = false;
+            }
+             // determine if request.DataSource should be set to null
+            if (requestDataSourceIsNull)
+            {
+                request.DataSource = null;
             }
             if (cmdletContext.NumberOfWorker != null)
             {

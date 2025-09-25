@@ -423,6 +423,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             
              // populate CatalogInput
+            var requestCatalogInputIsNull = true;
             request.CatalogInput = new Amazon.Glue.Model.CatalogInput();
             Amazon.Glue.AllowFullTableExternalDataAccessEnum requestCatalogInput_catalogInput_AllowFullTableExternalDataAccess = null;
             if (cmdletContext.CatalogInput_AllowFullTableExternalDataAccess != null)
@@ -432,6 +433,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestCatalogInput_catalogInput_AllowFullTableExternalDataAccess != null)
             {
                 request.CatalogInput.AllowFullTableExternalDataAccess = requestCatalogInput_catalogInput_AllowFullTableExternalDataAccess;
+                requestCatalogInputIsNull = false;
             }
             List<Amazon.Glue.Model.PrincipalPermissions> requestCatalogInput_catalogInput_CreateDatabaseDefaultPermission = null;
             if (cmdletContext.CatalogInput_CreateDatabaseDefaultPermission != null)
@@ -441,6 +443,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestCatalogInput_catalogInput_CreateDatabaseDefaultPermission != null)
             {
                 request.CatalogInput.CreateDatabaseDefaultPermissions = requestCatalogInput_catalogInput_CreateDatabaseDefaultPermission;
+                requestCatalogInputIsNull = false;
             }
             List<Amazon.Glue.Model.PrincipalPermissions> requestCatalogInput_catalogInput_CreateTableDefaultPermission = null;
             if (cmdletContext.CatalogInput_CreateTableDefaultPermission != null)
@@ -450,6 +453,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestCatalogInput_catalogInput_CreateTableDefaultPermission != null)
             {
                 request.CatalogInput.CreateTableDefaultPermissions = requestCatalogInput_catalogInput_CreateTableDefaultPermission;
+                requestCatalogInputIsNull = false;
             }
             System.String requestCatalogInput_catalogInput_Description = null;
             if (cmdletContext.CatalogInput_Description != null)
@@ -459,6 +463,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestCatalogInput_catalogInput_Description != null)
             {
                 request.CatalogInput.Description = requestCatalogInput_catalogInput_Description;
+                requestCatalogInputIsNull = false;
             }
             Dictionary<System.String, System.String> requestCatalogInput_catalogInput_Parameter = null;
             if (cmdletContext.CatalogInput_Parameter != null)
@@ -468,6 +473,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestCatalogInput_catalogInput_Parameter != null)
             {
                 request.CatalogInput.Parameters = requestCatalogInput_catalogInput_Parameter;
+                requestCatalogInputIsNull = false;
             }
             Amazon.Glue.Model.TargetRedshiftCatalog requestCatalogInput_catalogInput_TargetRedshiftCatalog = null;
             
@@ -492,6 +498,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestCatalogInput_catalogInput_TargetRedshiftCatalog != null)
             {
                 request.CatalogInput.TargetRedshiftCatalog = requestCatalogInput_catalogInput_TargetRedshiftCatalog;
+                requestCatalogInputIsNull = false;
             }
             Amazon.Glue.Model.CatalogProperties requestCatalogInput_catalogInput_CatalogProperties = null;
             
@@ -626,6 +633,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestCatalogInput_catalogInput_CatalogProperties != null)
             {
                 request.CatalogInput.CatalogProperties = requestCatalogInput_catalogInput_CatalogProperties;
+                requestCatalogInputIsNull = false;
             }
             Amazon.Glue.Model.FederatedCatalog requestCatalogInput_catalogInput_FederatedCatalog = null;
             
@@ -670,6 +678,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestCatalogInput_catalogInput_FederatedCatalog != null)
             {
                 request.CatalogInput.FederatedCatalog = requestCatalogInput_catalogInput_FederatedCatalog;
+                requestCatalogInputIsNull = false;
+            }
+             // determine if request.CatalogInput should be set to null
+            if (requestCatalogInputIsNull)
+            {
+                request.CatalogInput = null;
             }
             
             CmdletOutput output;

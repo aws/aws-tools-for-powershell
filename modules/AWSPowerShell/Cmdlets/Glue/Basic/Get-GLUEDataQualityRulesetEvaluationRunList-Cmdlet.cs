@@ -324,6 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             Amazon.Glue.Model.DataSource requestFilter_filter_DataSource = null;
             
              // populate DataSource
+            var requestFilter_filter_DataSourceIsNull = true;
             requestFilter_filter_DataSource = new Amazon.Glue.Model.DataSource();
             Amazon.Glue.Model.GlueTable requestFilter_filter_DataSource_filter_DataSource_GlueTable = null;
             
@@ -388,6 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestFilter_filter_DataSource_filter_DataSource_GlueTable != null)
             {
                 requestFilter_filter_DataSource.GlueTable = requestFilter_filter_DataSource_filter_DataSource_GlueTable;
+                requestFilter_filter_DataSourceIsNull = false;
             }
             Amazon.Glue.Model.DataQualityGlueTable requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable = null;
             
@@ -462,6 +464,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable != null)
             {
                 requestFilter_filter_DataSource.DataQualityGlueTable = requestFilter_filter_DataSource_filter_DataSource_DataQualityGlueTable;
+                requestFilter_filter_DataSourceIsNull = false;
+            }
+             // determine if requestFilter_filter_DataSource should be set to null
+            if (requestFilter_filter_DataSourceIsNull)
+            {
+                requestFilter_filter_DataSource = null;
             }
             if (requestFilter_filter_DataSource != null)
             {

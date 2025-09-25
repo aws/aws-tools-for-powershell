@@ -174,6 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             
             
              // populate LoggingDestination
+            var requestLoggingDestinationIsNull = true;
             request.LoggingDestination = new Amazon.PrometheusService.Model.ScraperLoggingDestination();
             Amazon.PrometheusService.Model.CloudWatchLogDestination requestLoggingDestination_loggingDestination_CloudWatchLogs = null;
             
@@ -198,6 +199,12 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             if (requestLoggingDestination_loggingDestination_CloudWatchLogs != null)
             {
                 request.LoggingDestination.CloudWatchLogs = requestLoggingDestination_loggingDestination_CloudWatchLogs;
+                requestLoggingDestinationIsNull = false;
+            }
+             // determine if request.LoggingDestination should be set to null
+            if (requestLoggingDestinationIsNull)
+            {
+                request.LoggingDestination = null;
             }
             if (cmdletContext.ScraperComponent != null)
             {

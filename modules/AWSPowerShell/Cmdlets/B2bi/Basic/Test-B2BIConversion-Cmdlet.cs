@@ -244,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             Amazon.B2bi.Model.InputFileSource requestSource_source_InputFile = null;
             
              // populate InputFile
+            var requestSource_source_InputFileIsNull = true;
             requestSource_source_InputFile = new Amazon.B2bi.Model.InputFileSource();
             System.String requestSource_source_InputFile_inputFile_FileContent = null;
             if (cmdletContext.InputFile_FileContent != null)
@@ -253,6 +254,12 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             if (requestSource_source_InputFile_inputFile_FileContent != null)
             {
                 requestSource_source_InputFile.FileContent = requestSource_source_InputFile_inputFile_FileContent;
+                requestSource_source_InputFileIsNull = false;
+            }
+             // determine if requestSource_source_InputFile should be set to null
+            if (requestSource_source_InputFileIsNull)
+            {
+                requestSource_source_InputFile = null;
             }
             if (requestSource_source_InputFile != null)
             {

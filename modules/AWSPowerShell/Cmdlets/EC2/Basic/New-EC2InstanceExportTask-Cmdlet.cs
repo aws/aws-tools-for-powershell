@@ -261,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             
              // populate ExportToS3Task
+            var requestExportToS3TaskIsNull = true;
             request.ExportToS3Task = new Amazon.EC2.Model.ExportToS3TaskSpecification();
             Amazon.EC2.ContainerFormat requestExportToS3Task_exportToS3Task_ContainerFormat = null;
             if (cmdletContext.ExportToS3Task_ContainerFormat != null)
@@ -270,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestExportToS3Task_exportToS3Task_ContainerFormat != null)
             {
                 request.ExportToS3Task.ContainerFormat = requestExportToS3Task_exportToS3Task_ContainerFormat;
+                requestExportToS3TaskIsNull = false;
             }
             Amazon.EC2.DiskImageFormat requestExportToS3Task_exportToS3Task_DiskImageFormat = null;
             if (cmdletContext.ExportToS3Task_DiskImageFormat != null)
@@ -279,6 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestExportToS3Task_exportToS3Task_DiskImageFormat != null)
             {
                 request.ExportToS3Task.DiskImageFormat = requestExportToS3Task_exportToS3Task_DiskImageFormat;
+                requestExportToS3TaskIsNull = false;
             }
             System.String requestExportToS3Task_exportToS3Task_S3Bucket = null;
             if (cmdletContext.ExportToS3Task_S3Bucket != null)
@@ -288,6 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestExportToS3Task_exportToS3Task_S3Bucket != null)
             {
                 request.ExportToS3Task.S3Bucket = requestExportToS3Task_exportToS3Task_S3Bucket;
+                requestExportToS3TaskIsNull = false;
             }
             System.String requestExportToS3Task_exportToS3Task_S3Prefix = null;
             if (cmdletContext.ExportToS3Task_S3Prefix != null)
@@ -297,6 +301,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestExportToS3Task_exportToS3Task_S3Prefix != null)
             {
                 request.ExportToS3Task.S3Prefix = requestExportToS3Task_exportToS3Task_S3Prefix;
+                requestExportToS3TaskIsNull = false;
+            }
+             // determine if request.ExportToS3Task should be set to null
+            if (requestExportToS3TaskIsNull)
+            {
+                request.ExportToS3Task = null;
             }
             if (cmdletContext.InstanceId != null)
             {

@@ -218,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.SDMS
             }
             
              // populate Command
+            var requestCommandIsNull = true;
             request.Command = new Amazon.SnowDeviceManagement.Model.Command();
             Amazon.SnowDeviceManagement.Model.Reboot requestCommand_command_Reboot = null;
             if (cmdletContext.Command_Reboot != null)
@@ -227,6 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.SDMS
             if (requestCommand_command_Reboot != null)
             {
                 request.Command.Reboot = requestCommand_command_Reboot;
+                requestCommandIsNull = false;
             }
             Amazon.SnowDeviceManagement.Model.Unlock requestCommand_command_Unlock = null;
             if (cmdletContext.Command_Unlock != null)
@@ -236,6 +238,12 @@ namespace Amazon.PowerShell.Cmdlets.SDMS
             if (requestCommand_command_Unlock != null)
             {
                 request.Command.Unlock = requestCommand_command_Unlock;
+                requestCommandIsNull = false;
+            }
+             // determine if request.Command should be set to null
+            if (requestCommandIsNull)
+            {
+                request.Command = null;
             }
             if (cmdletContext.Description != null)
             {

@@ -294,6 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             
             
              // populate DestinationConfiguration
+            var requestDestinationConfigurationIsNull = true;
             request.DestinationConfiguration = new Amazon.IVS.Model.DestinationConfiguration();
             Amazon.IVS.Model.S3DestinationConfiguration requestDestinationConfiguration_destinationConfiguration_S3 = null;
             
@@ -318,6 +319,12 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             if (requestDestinationConfiguration_destinationConfiguration_S3 != null)
             {
                 request.DestinationConfiguration.S3 = requestDestinationConfiguration_destinationConfiguration_S3;
+                requestDestinationConfigurationIsNull = false;
+            }
+             // determine if request.DestinationConfiguration should be set to null
+            if (requestDestinationConfigurationIsNull)
+            {
+                request.DestinationConfiguration = null;
             }
             if (cmdletContext.Name != null)
             {

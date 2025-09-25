@@ -281,6 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             }
             
              // populate ResourceIdentifier
+            var requestResourceIdentifierIsNull = true;
             request.ResourceIdentifier = new Amazon.IoT.Model.ResourceIdentifier();
             System.String requestResourceIdentifier_resourceIdentifier_Account = null;
             if (cmdletContext.ResourceIdentifier_Account != null)
@@ -290,6 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestResourceIdentifier_resourceIdentifier_Account != null)
             {
                 request.ResourceIdentifier.Account = requestResourceIdentifier_resourceIdentifier_Account;
+                requestResourceIdentifierIsNull = false;
             }
             System.String requestResourceIdentifier_resourceIdentifier_CaCertificateId = null;
             if (cmdletContext.ResourceIdentifier_CaCertificateId != null)
@@ -299,6 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestResourceIdentifier_resourceIdentifier_CaCertificateId != null)
             {
                 request.ResourceIdentifier.CaCertificateId = requestResourceIdentifier_resourceIdentifier_CaCertificateId;
+                requestResourceIdentifierIsNull = false;
             }
             System.String requestResourceIdentifier_resourceIdentifier_ClientId = null;
             if (cmdletContext.ResourceIdentifier_ClientId != null)
@@ -308,6 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestResourceIdentifier_resourceIdentifier_ClientId != null)
             {
                 request.ResourceIdentifier.ClientId = requestResourceIdentifier_resourceIdentifier_ClientId;
+                requestResourceIdentifierIsNull = false;
             }
             System.String requestResourceIdentifier_resourceIdentifier_CognitoIdentityPoolId = null;
             if (cmdletContext.ResourceIdentifier_CognitoIdentityPoolId != null)
@@ -317,6 +321,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestResourceIdentifier_resourceIdentifier_CognitoIdentityPoolId != null)
             {
                 request.ResourceIdentifier.CognitoIdentityPoolId = requestResourceIdentifier_resourceIdentifier_CognitoIdentityPoolId;
+                requestResourceIdentifierIsNull = false;
             }
             System.String requestResourceIdentifier_resourceIdentifier_DeviceCertificateArn = null;
             if (cmdletContext.ResourceIdentifier_DeviceCertificateArn != null)
@@ -326,6 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestResourceIdentifier_resourceIdentifier_DeviceCertificateArn != null)
             {
                 request.ResourceIdentifier.DeviceCertificateArn = requestResourceIdentifier_resourceIdentifier_DeviceCertificateArn;
+                requestResourceIdentifierIsNull = false;
             }
             System.String requestResourceIdentifier_resourceIdentifier_DeviceCertificateId = null;
             if (cmdletContext.ResourceIdentifier_DeviceCertificateId != null)
@@ -335,6 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestResourceIdentifier_resourceIdentifier_DeviceCertificateId != null)
             {
                 request.ResourceIdentifier.DeviceCertificateId = requestResourceIdentifier_resourceIdentifier_DeviceCertificateId;
+                requestResourceIdentifierIsNull = false;
             }
             System.String requestResourceIdentifier_resourceIdentifier_IamRoleArn = null;
             if (cmdletContext.ResourceIdentifier_IamRoleArn != null)
@@ -344,6 +351,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestResourceIdentifier_resourceIdentifier_IamRoleArn != null)
             {
                 request.ResourceIdentifier.IamRoleArn = requestResourceIdentifier_resourceIdentifier_IamRoleArn;
+                requestResourceIdentifierIsNull = false;
             }
             System.String requestResourceIdentifier_resourceIdentifier_RoleAliasArn = null;
             if (cmdletContext.ResourceIdentifier_RoleAliasArn != null)
@@ -353,6 +361,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestResourceIdentifier_resourceIdentifier_RoleAliasArn != null)
             {
                 request.ResourceIdentifier.RoleAliasArn = requestResourceIdentifier_resourceIdentifier_RoleAliasArn;
+                requestResourceIdentifierIsNull = false;
             }
             Amazon.IoT.Model.PolicyVersionIdentifier requestResourceIdentifier_resourceIdentifier_PolicyVersionIdentifier = null;
             
@@ -387,6 +396,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestResourceIdentifier_resourceIdentifier_PolicyVersionIdentifier != null)
             {
                 request.ResourceIdentifier.PolicyVersionIdentifier = requestResourceIdentifier_resourceIdentifier_PolicyVersionIdentifier;
+                requestResourceIdentifierIsNull = false;
             }
             Amazon.IoT.Model.IssuerCertificateIdentifier requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier = null;
             
@@ -431,6 +441,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier != null)
             {
                 request.ResourceIdentifier.IssuerCertificateIdentifier = requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier;
+                requestResourceIdentifierIsNull = false;
+            }
+             // determine if request.ResourceIdentifier should be set to null
+            if (requestResourceIdentifierIsNull)
+            {
+                request.ResourceIdentifier = null;
             }
             
             CmdletOutput output;

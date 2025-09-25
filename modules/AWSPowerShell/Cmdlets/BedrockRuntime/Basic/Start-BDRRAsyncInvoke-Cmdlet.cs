@@ -258,6 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             }
             
              // populate OutputDataConfig
+            var requestOutputDataConfigIsNull = true;
             request.OutputDataConfig = new Amazon.BedrockRuntime.Model.AsyncInvokeOutputDataConfig();
             Amazon.BedrockRuntime.Model.AsyncInvokeS3OutputDataConfig requestOutputDataConfig_outputDataConfig_S3OutputDataConfig = null;
             
@@ -302,6 +303,12 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             if (requestOutputDataConfig_outputDataConfig_S3OutputDataConfig != null)
             {
                 request.OutputDataConfig.S3OutputDataConfig = requestOutputDataConfig_outputDataConfig_S3OutputDataConfig;
+                requestOutputDataConfigIsNull = false;
+            }
+             // determine if request.OutputDataConfig should be set to null
+            if (requestOutputDataConfigIsNull)
+            {
+                request.OutputDataConfig = null;
             }
             if (cmdletContext.Tag != null)
             {

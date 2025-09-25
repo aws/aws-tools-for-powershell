@@ -172,6 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             
             
              // populate CommunicationLimitsOverride
+            var requestCommunicationLimitsOverrideIsNull = true;
             request.CommunicationLimitsOverride = new Amazon.ConnectCampaignsV2.Model.CommunicationLimitsConfig();
             Amazon.ConnectCampaignsV2.InstanceLimitsHandling requestCommunicationLimitsOverride_communicationLimitsOverride_InstanceLimitsHandling = null;
             if (cmdletContext.CommunicationLimitsOverride_InstanceLimitsHandling != null)
@@ -181,6 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestCommunicationLimitsOverride_communicationLimitsOverride_InstanceLimitsHandling != null)
             {
                 request.CommunicationLimitsOverride.InstanceLimitsHandling = requestCommunicationLimitsOverride_communicationLimitsOverride_InstanceLimitsHandling;
+                requestCommunicationLimitsOverrideIsNull = false;
             }
             Amazon.ConnectCampaignsV2.Model.CommunicationLimits requestCommunicationLimitsOverride_communicationLimitsOverride_AllChannelSubtypes = null;
             
@@ -205,6 +207,12 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestCommunicationLimitsOverride_communicationLimitsOverride_AllChannelSubtypes != null)
             {
                 request.CommunicationLimitsOverride.AllChannelSubtypes = requestCommunicationLimitsOverride_communicationLimitsOverride_AllChannelSubtypes;
+                requestCommunicationLimitsOverrideIsNull = false;
+            }
+             // determine if request.CommunicationLimitsOverride should be set to null
+            if (requestCommunicationLimitsOverrideIsNull)
+            {
+                request.CommunicationLimitsOverride = null;
             }
             if (cmdletContext.Id != null)
             {

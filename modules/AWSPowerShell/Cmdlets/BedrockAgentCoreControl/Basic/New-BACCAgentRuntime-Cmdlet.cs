@@ -350,6 +350,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             
             
              // populate AgentRuntimeArtifact
+            var requestAgentRuntimeArtifactIsNull = true;
             request.AgentRuntimeArtifact = new Amazon.BedrockAgentCoreControl.Model.AgentRuntimeArtifact();
             Amazon.BedrockAgentCoreControl.Model.ContainerConfiguration requestAgentRuntimeArtifact_agentRuntimeArtifact_ContainerConfiguration = null;
             
@@ -374,6 +375,12 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestAgentRuntimeArtifact_agentRuntimeArtifact_ContainerConfiguration != null)
             {
                 request.AgentRuntimeArtifact.ContainerConfiguration = requestAgentRuntimeArtifact_agentRuntimeArtifact_ContainerConfiguration;
+                requestAgentRuntimeArtifactIsNull = false;
+            }
+             // determine if request.AgentRuntimeArtifact should be set to null
+            if (requestAgentRuntimeArtifactIsNull)
+            {
+                request.AgentRuntimeArtifact = null;
             }
             if (cmdletContext.AgentRuntimeName != null)
             {

@@ -234,6 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
             }
             
              // populate S3DestinationConfig
+            var requestS3DestinationConfigIsNull = true;
             request.S3DestinationConfig = new Amazon.ComputeOptimizer.Model.S3DestinationConfig();
             System.String requestS3DestinationConfig_s3DestinationConfig_Bucket = null;
             if (cmdletContext.S3DestinationConfig_Bucket != null)
@@ -243,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
             if (requestS3DestinationConfig_s3DestinationConfig_Bucket != null)
             {
                 request.S3DestinationConfig.Bucket = requestS3DestinationConfig_s3DestinationConfig_Bucket;
+                requestS3DestinationConfigIsNull = false;
             }
             System.String requestS3DestinationConfig_s3DestinationConfig_KeyPrefix = null;
             if (cmdletContext.S3DestinationConfig_KeyPrefix != null)
@@ -252,6 +254,12 @@ namespace Amazon.PowerShell.Cmdlets.CO
             if (requestS3DestinationConfig_s3DestinationConfig_KeyPrefix != null)
             {
                 request.S3DestinationConfig.KeyPrefix = requestS3DestinationConfig_s3DestinationConfig_KeyPrefix;
+                requestS3DestinationConfigIsNull = false;
+            }
+             // determine if request.S3DestinationConfig should be set to null
+            if (requestS3DestinationConfigIsNull)
+            {
+                request.S3DestinationConfig = null;
             }
             
             CmdletOutput output;

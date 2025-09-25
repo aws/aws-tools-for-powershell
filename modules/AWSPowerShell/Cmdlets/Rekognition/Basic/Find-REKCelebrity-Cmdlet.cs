@@ -166,6 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 
                 
                  // populate Image
+                var requestImageIsNull = true;
                 request.Image = new Amazon.Rekognition.Model.Image();
                 System.IO.MemoryStream requestImage_imageContent = null;
                 if (cmdletContext.ImageContent != null)
@@ -176,6 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 if (requestImage_imageContent != null)
                 {
                     request.Image.Bytes = requestImage_imageContent;
+                    requestImageIsNull = false;
                 }
                 Amazon.Rekognition.Model.S3Object requestImage_image_S3Object = null;
                 
@@ -220,6 +222,12 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 if (requestImage_image_S3Object != null)
                 {
                     request.Image.S3Object = requestImage_image_S3Object;
+                    requestImageIsNull = false;
+                }
+                 // determine if request.Image should be set to null
+                if (requestImageIsNull)
+                {
+                    request.Image = null;
                 }
                 
                 CmdletOutput output;

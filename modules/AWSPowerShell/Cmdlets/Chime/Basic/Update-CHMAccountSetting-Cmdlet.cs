@@ -176,6 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             }
             
              // populate AccountSettings
+            var requestAccountSettingsIsNull = true;
             request.AccountSettings = new Amazon.Chime.Model.AccountSettings();
             System.Boolean? requestAccountSettings_accountSettings_DisableRemoteControl = null;
             if (cmdletContext.AccountSettings_DisableRemoteControl != null)
@@ -185,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             if (requestAccountSettings_accountSettings_DisableRemoteControl != null)
             {
                 request.AccountSettings.DisableRemoteControl = requestAccountSettings_accountSettings_DisableRemoteControl.Value;
+                requestAccountSettingsIsNull = false;
             }
             System.Boolean? requestAccountSettings_accountSettings_EnableDialOut = null;
             if (cmdletContext.AccountSettings_EnableDialOut != null)
@@ -194,6 +196,12 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             if (requestAccountSettings_accountSettings_EnableDialOut != null)
             {
                 request.AccountSettings.EnableDialOut = requestAccountSettings_accountSettings_EnableDialOut.Value;
+                requestAccountSettingsIsNull = false;
+            }
+             // determine if request.AccountSettings should be set to null
+            if (requestAccountSettingsIsNull)
+            {
+                request.AccountSettings = null;
             }
             
             CmdletOutput output;

@@ -415,6 +415,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             }
             
              // populate AuthConfiguration
+            var requestAuthConfigurationIsNull = true;
             request.AuthConfiguration = new Amazon.QBusiness.Model.PluginAuthConfiguration();
             Amazon.QBusiness.Model.NoAuthConfiguration requestAuthConfiguration_authConfiguration_NoAuthConfiguration = null;
             if (cmdletContext.AuthConfiguration_NoAuthConfiguration != null)
@@ -424,6 +425,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (requestAuthConfiguration_authConfiguration_NoAuthConfiguration != null)
             {
                 request.AuthConfiguration.NoAuthConfiguration = requestAuthConfiguration_authConfiguration_NoAuthConfiguration;
+                requestAuthConfigurationIsNull = false;
             }
             Amazon.QBusiness.Model.BasicAuthConfiguration requestAuthConfiguration_authConfiguration_BasicAuthConfiguration = null;
             
@@ -458,6 +460,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (requestAuthConfiguration_authConfiguration_BasicAuthConfiguration != null)
             {
                 request.AuthConfiguration.BasicAuthConfiguration = requestAuthConfiguration_authConfiguration_BasicAuthConfiguration;
+                requestAuthConfigurationIsNull = false;
             }
             Amazon.QBusiness.Model.IdcAuthConfiguration requestAuthConfiguration_authConfiguration_IdcAuthConfiguration = null;
             
@@ -492,6 +495,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (requestAuthConfiguration_authConfiguration_IdcAuthConfiguration != null)
             {
                 request.AuthConfiguration.IdcAuthConfiguration = requestAuthConfiguration_authConfiguration_IdcAuthConfiguration;
+                requestAuthConfigurationIsNull = false;
             }
             Amazon.QBusiness.Model.OAuth2ClientCredentialConfiguration requestAuthConfiguration_authConfiguration_OAuth2ClientCredentialConfiguration = null;
             
@@ -546,6 +550,12 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (requestAuthConfiguration_authConfiguration_OAuth2ClientCredentialConfiguration != null)
             {
                 request.AuthConfiguration.OAuth2ClientCredentialConfiguration = requestAuthConfiguration_authConfiguration_OAuth2ClientCredentialConfiguration;
+                requestAuthConfigurationIsNull = false;
+            }
+             // determine if request.AuthConfiguration should be set to null
+            if (requestAuthConfigurationIsNull)
+            {
+                request.AuthConfiguration = null;
             }
             if (cmdletContext.ClientToken != null)
             {

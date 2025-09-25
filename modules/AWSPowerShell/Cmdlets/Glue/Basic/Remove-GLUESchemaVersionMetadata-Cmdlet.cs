@@ -211,6 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             
             
              // populate MetadataKeyValue
+            var requestMetadataKeyValueIsNull = true;
             request.MetadataKeyValue = new Amazon.Glue.Model.MetadataKeyValuePair();
             System.String requestMetadataKeyValue_metadataKeyValue_MetadataKey = null;
             if (cmdletContext.MetadataKeyValue_MetadataKey != null)
@@ -220,6 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestMetadataKeyValue_metadataKeyValue_MetadataKey != null)
             {
                 request.MetadataKeyValue.MetadataKey = requestMetadataKeyValue_metadataKeyValue_MetadataKey;
+                requestMetadataKeyValueIsNull = false;
             }
             System.String requestMetadataKeyValue_metadataKeyValue_MetadataValue = null;
             if (cmdletContext.MetadataKeyValue_MetadataValue != null)
@@ -229,6 +231,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestMetadataKeyValue_metadataKeyValue_MetadataValue != null)
             {
                 request.MetadataKeyValue.MetadataValue = requestMetadataKeyValue_metadataKeyValue_MetadataValue;
+                requestMetadataKeyValueIsNull = false;
+            }
+             // determine if request.MetadataKeyValue should be set to null
+            if (requestMetadataKeyValueIsNull)
+            {
+                request.MetadataKeyValue = null;
             }
             
              // populate SchemaId

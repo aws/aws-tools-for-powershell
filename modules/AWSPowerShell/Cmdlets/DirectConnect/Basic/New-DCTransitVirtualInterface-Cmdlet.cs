@@ -316,6 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             }
             
              // populate NewTransitVirtualInterface
+            var requestNewTransitVirtualInterfaceIsNull = true;
             request.NewTransitVirtualInterface = new Amazon.DirectConnect.Model.NewTransitVirtualInterface();
             Amazon.DirectConnect.AddressFamily requestNewTransitVirtualInterface_newTransitVirtualInterface_AddressFamily = null;
             if (cmdletContext.NewTransitVirtualInterface_AddressFamily != null)
@@ -325,6 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (requestNewTransitVirtualInterface_newTransitVirtualInterface_AddressFamily != null)
             {
                 request.NewTransitVirtualInterface.AddressFamily = requestNewTransitVirtualInterface_newTransitVirtualInterface_AddressFamily;
+                requestNewTransitVirtualInterfaceIsNull = false;
             }
             System.String requestNewTransitVirtualInterface_newTransitVirtualInterface_AmazonAddress = null;
             if (cmdletContext.NewTransitVirtualInterface_AmazonAddress != null)
@@ -334,6 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (requestNewTransitVirtualInterface_newTransitVirtualInterface_AmazonAddress != null)
             {
                 request.NewTransitVirtualInterface.AmazonAddress = requestNewTransitVirtualInterface_newTransitVirtualInterface_AmazonAddress;
+                requestNewTransitVirtualInterfaceIsNull = false;
             }
             System.Int32? requestNewTransitVirtualInterface_newTransitVirtualInterface_Asn = null;
             if (cmdletContext.NewTransitVirtualInterface_Asn != null)
@@ -343,6 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (requestNewTransitVirtualInterface_newTransitVirtualInterface_Asn != null)
             {
                 request.NewTransitVirtualInterface.Asn = requestNewTransitVirtualInterface_newTransitVirtualInterface_Asn.Value;
+                requestNewTransitVirtualInterfaceIsNull = false;
             }
             System.Int64? requestNewTransitVirtualInterface_newTransitVirtualInterface_AsnLong = null;
             if (cmdletContext.NewTransitVirtualInterface_AsnLong != null)
@@ -352,6 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (requestNewTransitVirtualInterface_newTransitVirtualInterface_AsnLong != null)
             {
                 request.NewTransitVirtualInterface.AsnLong = requestNewTransitVirtualInterface_newTransitVirtualInterface_AsnLong.Value;
+                requestNewTransitVirtualInterfaceIsNull = false;
             }
             System.String requestNewTransitVirtualInterface_newTransitVirtualInterface_AuthKey = null;
             if (cmdletContext.NewTransitVirtualInterface_AuthKey != null)
@@ -361,6 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (requestNewTransitVirtualInterface_newTransitVirtualInterface_AuthKey != null)
             {
                 request.NewTransitVirtualInterface.AuthKey = requestNewTransitVirtualInterface_newTransitVirtualInterface_AuthKey;
+                requestNewTransitVirtualInterfaceIsNull = false;
             }
             System.String requestNewTransitVirtualInterface_newTransitVirtualInterface_CustomerAddress = null;
             if (cmdletContext.NewTransitVirtualInterface_CustomerAddress != null)
@@ -370,6 +376,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (requestNewTransitVirtualInterface_newTransitVirtualInterface_CustomerAddress != null)
             {
                 request.NewTransitVirtualInterface.CustomerAddress = requestNewTransitVirtualInterface_newTransitVirtualInterface_CustomerAddress;
+                requestNewTransitVirtualInterfaceIsNull = false;
             }
             System.String requestNewTransitVirtualInterface_newTransitVirtualInterface_DirectConnectGatewayId = null;
             if (cmdletContext.NewTransitVirtualInterface_DirectConnectGatewayId != null)
@@ -379,6 +386,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (requestNewTransitVirtualInterface_newTransitVirtualInterface_DirectConnectGatewayId != null)
             {
                 request.NewTransitVirtualInterface.DirectConnectGatewayId = requestNewTransitVirtualInterface_newTransitVirtualInterface_DirectConnectGatewayId;
+                requestNewTransitVirtualInterfaceIsNull = false;
             }
             System.Boolean? requestNewTransitVirtualInterface_newTransitVirtualInterface_EnableSiteLink = null;
             if (cmdletContext.NewTransitVirtualInterface_EnableSiteLink != null)
@@ -388,6 +396,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (requestNewTransitVirtualInterface_newTransitVirtualInterface_EnableSiteLink != null)
             {
                 request.NewTransitVirtualInterface.EnableSiteLink = requestNewTransitVirtualInterface_newTransitVirtualInterface_EnableSiteLink.Value;
+                requestNewTransitVirtualInterfaceIsNull = false;
             }
             System.Int32? requestNewTransitVirtualInterface_newTransitVirtualInterface_Mtu = null;
             if (cmdletContext.NewTransitVirtualInterface_Mtu != null)
@@ -397,6 +406,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (requestNewTransitVirtualInterface_newTransitVirtualInterface_Mtu != null)
             {
                 request.NewTransitVirtualInterface.Mtu = requestNewTransitVirtualInterface_newTransitVirtualInterface_Mtu.Value;
+                requestNewTransitVirtualInterfaceIsNull = false;
             }
             List<Amazon.DirectConnect.Model.Tag> requestNewTransitVirtualInterface_newTransitVirtualInterface_Tag = null;
             if (cmdletContext.NewTransitVirtualInterface_Tag != null)
@@ -406,6 +416,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (requestNewTransitVirtualInterface_newTransitVirtualInterface_Tag != null)
             {
                 request.NewTransitVirtualInterface.Tags = requestNewTransitVirtualInterface_newTransitVirtualInterface_Tag;
+                requestNewTransitVirtualInterfaceIsNull = false;
             }
             System.String requestNewTransitVirtualInterface_newTransitVirtualInterface_VirtualInterfaceName = null;
             if (cmdletContext.NewTransitVirtualInterface_VirtualInterfaceName != null)
@@ -415,6 +426,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (requestNewTransitVirtualInterface_newTransitVirtualInterface_VirtualInterfaceName != null)
             {
                 request.NewTransitVirtualInterface.VirtualInterfaceName = requestNewTransitVirtualInterface_newTransitVirtualInterface_VirtualInterfaceName;
+                requestNewTransitVirtualInterfaceIsNull = false;
             }
             System.Int32? requestNewTransitVirtualInterface_newTransitVirtualInterface_Vlan = null;
             if (cmdletContext.NewTransitVirtualInterface_Vlan != null)
@@ -424,6 +436,12 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (requestNewTransitVirtualInterface_newTransitVirtualInterface_Vlan != null)
             {
                 request.NewTransitVirtualInterface.Vlan = requestNewTransitVirtualInterface_newTransitVirtualInterface_Vlan.Value;
+                requestNewTransitVirtualInterfaceIsNull = false;
+            }
+             // determine if request.NewTransitVirtualInterface should be set to null
+            if (requestNewTransitVirtualInterfaceIsNull)
+            {
+                request.NewTransitVirtualInterface = null;
             }
             
             CmdletOutput output;

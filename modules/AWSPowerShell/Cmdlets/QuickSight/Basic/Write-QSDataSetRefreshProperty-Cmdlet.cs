@@ -228,6 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             
              // populate DataSetRefreshProperties
+            var requestDataSetRefreshPropertiesIsNull = true;
             request.DataSetRefreshProperties = new Amazon.QuickSight.Model.DataSetRefreshProperties();
             Amazon.QuickSight.Model.RefreshFailureConfiguration requestDataSetRefreshProperties_dataSetRefreshProperties_FailureConfiguration = null;
             
@@ -267,6 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDataSetRefreshProperties_dataSetRefreshProperties_FailureConfiguration != null)
             {
                 request.DataSetRefreshProperties.FailureConfiguration = requestDataSetRefreshProperties_dataSetRefreshProperties_FailureConfiguration;
+                requestDataSetRefreshPropertiesIsNull = false;
             }
             Amazon.QuickSight.Model.RefreshConfiguration requestDataSetRefreshProperties_dataSetRefreshProperties_RefreshConfiguration = null;
             
@@ -341,6 +343,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDataSetRefreshProperties_dataSetRefreshProperties_RefreshConfiguration != null)
             {
                 request.DataSetRefreshProperties.RefreshConfiguration = requestDataSetRefreshProperties_dataSetRefreshProperties_RefreshConfiguration;
+                requestDataSetRefreshPropertiesIsNull = false;
+            }
+             // determine if request.DataSetRefreshProperties should be set to null
+            if (requestDataSetRefreshPropertiesIsNull)
+            {
+                request.DataSetRefreshProperties = null;
             }
             
             CmdletOutput output;

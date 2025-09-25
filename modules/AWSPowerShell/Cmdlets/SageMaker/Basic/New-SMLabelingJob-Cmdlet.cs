@@ -1055,6 +1055,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             Amazon.SageMaker.Model.UiConfig requestHumanTaskConfig_humanTaskConfig_UiConfig = null;
             
              // populate UiConfig
+            var requestHumanTaskConfig_humanTaskConfig_UiConfigIsNull = true;
             requestHumanTaskConfig_humanTaskConfig_UiConfig = new Amazon.SageMaker.Model.UiConfig();
             System.String requestHumanTaskConfig_humanTaskConfig_UiConfig_uiConfig_HumanTaskUiArn = null;
             if (cmdletContext.UiConfig_HumanTaskUiArn != null)
@@ -1064,6 +1065,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestHumanTaskConfig_humanTaskConfig_UiConfig_uiConfig_HumanTaskUiArn != null)
             {
                 requestHumanTaskConfig_humanTaskConfig_UiConfig.HumanTaskUiArn = requestHumanTaskConfig_humanTaskConfig_UiConfig_uiConfig_HumanTaskUiArn;
+                requestHumanTaskConfig_humanTaskConfig_UiConfigIsNull = false;
             }
             System.String requestHumanTaskConfig_humanTaskConfig_UiConfig_uiConfig_UiTemplateS3Uri = null;
             if (cmdletContext.UiConfig_UiTemplateS3Uri != null)
@@ -1073,6 +1075,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestHumanTaskConfig_humanTaskConfig_UiConfig_uiConfig_UiTemplateS3Uri != null)
             {
                 requestHumanTaskConfig_humanTaskConfig_UiConfig.UiTemplateS3Uri = requestHumanTaskConfig_humanTaskConfig_UiConfig_uiConfig_UiTemplateS3Uri;
+                requestHumanTaskConfig_humanTaskConfig_UiConfigIsNull = false;
+            }
+             // determine if requestHumanTaskConfig_humanTaskConfig_UiConfig should be set to null
+            if (requestHumanTaskConfig_humanTaskConfig_UiConfigIsNull)
+            {
+                requestHumanTaskConfig_humanTaskConfig_UiConfig = null;
             }
             if (requestHumanTaskConfig_humanTaskConfig_UiConfig != null)
             {
@@ -1116,6 +1124,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             Amazon.SageMaker.Model.LabelingJobDataSource requestInputConfig_inputConfig_DataSource = null;
             
              // populate DataSource
+            var requestInputConfig_inputConfig_DataSourceIsNull = true;
             requestInputConfig_inputConfig_DataSource = new Amazon.SageMaker.Model.LabelingJobDataSource();
             Amazon.SageMaker.Model.LabelingJobS3DataSource requestInputConfig_inputConfig_DataSource_inputConfig_DataSource_S3DataSource = null;
             
@@ -1140,6 +1149,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestInputConfig_inputConfig_DataSource_inputConfig_DataSource_S3DataSource != null)
             {
                 requestInputConfig_inputConfig_DataSource.S3DataSource = requestInputConfig_inputConfig_DataSource_inputConfig_DataSource_S3DataSource;
+                requestInputConfig_inputConfig_DataSourceIsNull = false;
             }
             Amazon.SageMaker.Model.LabelingJobSnsDataSource requestInputConfig_inputConfig_DataSource_inputConfig_DataSource_SnsDataSource = null;
             
@@ -1164,6 +1174,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestInputConfig_inputConfig_DataSource_inputConfig_DataSource_SnsDataSource != null)
             {
                 requestInputConfig_inputConfig_DataSource.SnsDataSource = requestInputConfig_inputConfig_DataSource_inputConfig_DataSource_SnsDataSource;
+                requestInputConfig_inputConfig_DataSourceIsNull = false;
+            }
+             // determine if requestInputConfig_inputConfig_DataSource should be set to null
+            if (requestInputConfig_inputConfig_DataSourceIsNull)
+            {
+                requestInputConfig_inputConfig_DataSource = null;
             }
             if (requestInputConfig_inputConfig_DataSource != null)
             {

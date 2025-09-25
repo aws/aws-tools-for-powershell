@@ -169,6 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             }
             
              // populate SMBLocalGroups
+            var requestSMBLocalGroupsIsNull = true;
             request.SMBLocalGroups = new Amazon.StorageGateway.Model.SMBLocalGroups();
             List<System.String> requestSMBLocalGroups_sMBLocalGroups_GatewayAdmin = null;
             if (cmdletContext.SMBLocalGroups_GatewayAdmin != null)
@@ -178,6 +179,12 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (requestSMBLocalGroups_sMBLocalGroups_GatewayAdmin != null)
             {
                 request.SMBLocalGroups.GatewayAdmins = requestSMBLocalGroups_sMBLocalGroups_GatewayAdmin;
+                requestSMBLocalGroupsIsNull = false;
+            }
+             // determine if request.SMBLocalGroups should be set to null
+            if (requestSMBLocalGroupsIsNull)
+            {
+                request.SMBLocalGroups = null;
             }
             
             CmdletOutput output;

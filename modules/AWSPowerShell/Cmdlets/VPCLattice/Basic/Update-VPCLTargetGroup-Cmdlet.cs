@@ -270,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             
             
              // populate HealthCheck
+            var requestHealthCheckIsNull = true;
             request.HealthCheck = new Amazon.VPCLattice.Model.HealthCheckConfig();
             System.Boolean? requestHealthCheck_healthCheck_Enabled = null;
             if (cmdletContext.HealthCheck_Enabled != null)
@@ -279,6 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (requestHealthCheck_healthCheck_Enabled != null)
             {
                 request.HealthCheck.Enabled = requestHealthCheck_healthCheck_Enabled.Value;
+                requestHealthCheckIsNull = false;
             }
             System.Int32? requestHealthCheck_healthCheck_HealthCheckIntervalSecond = null;
             if (cmdletContext.HealthCheck_HealthCheckIntervalSecond != null)
@@ -288,6 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (requestHealthCheck_healthCheck_HealthCheckIntervalSecond != null)
             {
                 request.HealthCheck.HealthCheckIntervalSeconds = requestHealthCheck_healthCheck_HealthCheckIntervalSecond.Value;
+                requestHealthCheckIsNull = false;
             }
             System.Int32? requestHealthCheck_healthCheck_HealthCheckTimeoutSecond = null;
             if (cmdletContext.HealthCheck_HealthCheckTimeoutSecond != null)
@@ -297,6 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (requestHealthCheck_healthCheck_HealthCheckTimeoutSecond != null)
             {
                 request.HealthCheck.HealthCheckTimeoutSeconds = requestHealthCheck_healthCheck_HealthCheckTimeoutSecond.Value;
+                requestHealthCheckIsNull = false;
             }
             System.Int32? requestHealthCheck_healthCheck_HealthyThresholdCount = null;
             if (cmdletContext.HealthCheck_HealthyThresholdCount != null)
@@ -306,6 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (requestHealthCheck_healthCheck_HealthyThresholdCount != null)
             {
                 request.HealthCheck.HealthyThresholdCount = requestHealthCheck_healthCheck_HealthyThresholdCount.Value;
+                requestHealthCheckIsNull = false;
             }
             System.String requestHealthCheck_healthCheck_Path = null;
             if (cmdletContext.HealthCheck_Path != null)
@@ -315,6 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (requestHealthCheck_healthCheck_Path != null)
             {
                 request.HealthCheck.Path = requestHealthCheck_healthCheck_Path;
+                requestHealthCheckIsNull = false;
             }
             System.Int32? requestHealthCheck_healthCheck_Port = null;
             if (cmdletContext.HealthCheck_Port != null)
@@ -324,6 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (requestHealthCheck_healthCheck_Port != null)
             {
                 request.HealthCheck.Port = requestHealthCheck_healthCheck_Port.Value;
+                requestHealthCheckIsNull = false;
             }
             Amazon.VPCLattice.TargetGroupProtocol requestHealthCheck_healthCheck_Protocol = null;
             if (cmdletContext.HealthCheck_Protocol != null)
@@ -333,6 +340,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (requestHealthCheck_healthCheck_Protocol != null)
             {
                 request.HealthCheck.Protocol = requestHealthCheck_healthCheck_Protocol;
+                requestHealthCheckIsNull = false;
             }
             Amazon.VPCLattice.HealthCheckProtocolVersion requestHealthCheck_healthCheck_ProtocolVersion = null;
             if (cmdletContext.HealthCheck_ProtocolVersion != null)
@@ -342,6 +350,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (requestHealthCheck_healthCheck_ProtocolVersion != null)
             {
                 request.HealthCheck.ProtocolVersion = requestHealthCheck_healthCheck_ProtocolVersion;
+                requestHealthCheckIsNull = false;
             }
             System.Int32? requestHealthCheck_healthCheck_UnhealthyThresholdCount = null;
             if (cmdletContext.HealthCheck_UnhealthyThresholdCount != null)
@@ -351,6 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (requestHealthCheck_healthCheck_UnhealthyThresholdCount != null)
             {
                 request.HealthCheck.UnhealthyThresholdCount = requestHealthCheck_healthCheck_UnhealthyThresholdCount.Value;
+                requestHealthCheckIsNull = false;
             }
             Amazon.VPCLattice.Model.Matcher requestHealthCheck_healthCheck_Matcher = null;
             
@@ -375,6 +385,12 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (requestHealthCheck_healthCheck_Matcher != null)
             {
                 request.HealthCheck.Matcher = requestHealthCheck_healthCheck_Matcher;
+                requestHealthCheckIsNull = false;
+            }
+             // determine if request.HealthCheck should be set to null
+            if (requestHealthCheckIsNull)
+            {
+                request.HealthCheck = null;
             }
             if (cmdletContext.TargetGroupIdentifier != null)
             {

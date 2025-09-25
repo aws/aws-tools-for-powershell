@@ -278,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             
              // populate AccessLogs
+            var requestAccessLogsIsNull = true;
             request.AccessLogs = new Amazon.EC2.Model.VerifiedAccessLogOptions();
             System.Boolean? requestAccessLogs_accessLogs_IncludeTrustContext = null;
             if (cmdletContext.AccessLogs_IncludeTrustContext != null)
@@ -287,6 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestAccessLogs_accessLogs_IncludeTrustContext != null)
             {
                 request.AccessLogs.IncludeTrustContext = requestAccessLogs_accessLogs_IncludeTrustContext.Value;
+                requestAccessLogsIsNull = false;
             }
             System.String requestAccessLogs_accessLogs_LogVersion = null;
             if (cmdletContext.AccessLogs_LogVersion != null)
@@ -296,6 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestAccessLogs_accessLogs_LogVersion != null)
             {
                 request.AccessLogs.LogVersion = requestAccessLogs_accessLogs_LogVersion;
+                requestAccessLogsIsNull = false;
             }
             Amazon.EC2.Model.VerifiedAccessLogCloudWatchLogsDestinationOptions requestAccessLogs_accessLogs_CloudWatchLogs = null;
             
@@ -330,6 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestAccessLogs_accessLogs_CloudWatchLogs != null)
             {
                 request.AccessLogs.CloudWatchLogs = requestAccessLogs_accessLogs_CloudWatchLogs;
+                requestAccessLogsIsNull = false;
             }
             Amazon.EC2.Model.VerifiedAccessLogKinesisDataFirehoseDestinationOptions requestAccessLogs_accessLogs_KinesisDataFirehose = null;
             
@@ -364,6 +368,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestAccessLogs_accessLogs_KinesisDataFirehose != null)
             {
                 request.AccessLogs.KinesisDataFirehose = requestAccessLogs_accessLogs_KinesisDataFirehose;
+                requestAccessLogsIsNull = false;
             }
             Amazon.EC2.Model.VerifiedAccessLogS3DestinationOptions requestAccessLogs_accessLogs_S3 = null;
             
@@ -418,6 +423,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestAccessLogs_accessLogs_S3 != null)
             {
                 request.AccessLogs.S3 = requestAccessLogs_accessLogs_S3;
+                requestAccessLogsIsNull = false;
+            }
+             // determine if request.AccessLogs should be set to null
+            if (requestAccessLogsIsNull)
+            {
+                request.AccessLogs = null;
             }
             if (cmdletContext.ClientToken != null)
             {

@@ -603,6 +603,7 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
             
             
              // populate Capacity
+            var requestCapacityIsNull = true;
             request.Capacity = new Amazon.KafkaConnect.Model.Capacity();
             Amazon.KafkaConnect.Model.ProvisionedCapacity requestCapacity_capacity_ProvisionedCapacity = null;
             
@@ -637,6 +638,7 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
             if (requestCapacity_capacity_ProvisionedCapacity != null)
             {
                 request.Capacity.ProvisionedCapacity = requestCapacity_capacity_ProvisionedCapacity;
+                requestCapacityIsNull = false;
             }
             Amazon.KafkaConnect.Model.AutoScaling requestCapacity_capacity_AutoScaling = null;
             
@@ -731,6 +733,12 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
             if (requestCapacity_capacity_AutoScaling != null)
             {
                 request.Capacity.AutoScaling = requestCapacity_capacity_AutoScaling;
+                requestCapacityIsNull = false;
+            }
+             // determine if request.Capacity should be set to null
+            if (requestCapacityIsNull)
+            {
+                request.Capacity = null;
             }
             if (cmdletContext.ConnectorConfiguration != null)
             {
@@ -862,6 +870,7 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
             Amazon.KafkaConnect.Model.WorkerLogDelivery requestLogDelivery_logDelivery_WorkerLogDelivery = null;
             
              // populate WorkerLogDelivery
+            var requestLogDelivery_logDelivery_WorkerLogDeliveryIsNull = true;
             requestLogDelivery_logDelivery_WorkerLogDelivery = new Amazon.KafkaConnect.Model.WorkerLogDelivery();
             Amazon.KafkaConnect.Model.CloudWatchLogsLogDelivery requestLogDelivery_logDelivery_WorkerLogDelivery_logDelivery_WorkerLogDelivery_CloudWatchLogs = null;
             
@@ -896,6 +905,7 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
             if (requestLogDelivery_logDelivery_WorkerLogDelivery_logDelivery_WorkerLogDelivery_CloudWatchLogs != null)
             {
                 requestLogDelivery_logDelivery_WorkerLogDelivery.CloudWatchLogs = requestLogDelivery_logDelivery_WorkerLogDelivery_logDelivery_WorkerLogDelivery_CloudWatchLogs;
+                requestLogDelivery_logDelivery_WorkerLogDeliveryIsNull = false;
             }
             Amazon.KafkaConnect.Model.FirehoseLogDelivery requestLogDelivery_logDelivery_WorkerLogDelivery_logDelivery_WorkerLogDelivery_Firehose = null;
             
@@ -930,6 +940,7 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
             if (requestLogDelivery_logDelivery_WorkerLogDelivery_logDelivery_WorkerLogDelivery_Firehose != null)
             {
                 requestLogDelivery_logDelivery_WorkerLogDelivery.Firehose = requestLogDelivery_logDelivery_WorkerLogDelivery_logDelivery_WorkerLogDelivery_Firehose;
+                requestLogDelivery_logDelivery_WorkerLogDeliveryIsNull = false;
             }
             Amazon.KafkaConnect.Model.S3LogDelivery requestLogDelivery_logDelivery_WorkerLogDelivery_logDelivery_WorkerLogDelivery_S3 = null;
             
@@ -974,6 +985,12 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
             if (requestLogDelivery_logDelivery_WorkerLogDelivery_logDelivery_WorkerLogDelivery_S3 != null)
             {
                 requestLogDelivery_logDelivery_WorkerLogDelivery.S3 = requestLogDelivery_logDelivery_WorkerLogDelivery_logDelivery_WorkerLogDelivery_S3;
+                requestLogDelivery_logDelivery_WorkerLogDeliveryIsNull = false;
+            }
+             // determine if requestLogDelivery_logDelivery_WorkerLogDelivery should be set to null
+            if (requestLogDelivery_logDelivery_WorkerLogDeliveryIsNull)
+            {
+                requestLogDelivery_logDelivery_WorkerLogDelivery = null;
             }
             if (requestLogDelivery_logDelivery_WorkerLogDelivery != null)
             {

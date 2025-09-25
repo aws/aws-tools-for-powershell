@@ -326,6 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             }
             
              // populate GroupMembers
+            var requestGroupMembersIsNull = true;
             request.GroupMembers = new Amazon.QBusiness.Model.GroupMembers();
             List<Amazon.QBusiness.Model.MemberGroup> requestGroupMembers_groupMembers_MemberGroup = null;
             if (cmdletContext.GroupMembers_MemberGroup != null)
@@ -335,6 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (requestGroupMembers_groupMembers_MemberGroup != null)
             {
                 request.GroupMembers.MemberGroups = requestGroupMembers_groupMembers_MemberGroup;
+                requestGroupMembersIsNull = false;
             }
             List<Amazon.QBusiness.Model.MemberUser> requestGroupMembers_groupMembers_MemberUser = null;
             if (cmdletContext.GroupMembers_MemberUser != null)
@@ -344,6 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (requestGroupMembers_groupMembers_MemberUser != null)
             {
                 request.GroupMembers.MemberUsers = requestGroupMembers_groupMembers_MemberUser;
+                requestGroupMembersIsNull = false;
             }
             Amazon.QBusiness.Model.S3 requestGroupMembers_groupMembers_S3PathForGroupMembers = null;
             
@@ -378,6 +381,12 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (requestGroupMembers_groupMembers_S3PathForGroupMembers != null)
             {
                 request.GroupMembers.S3PathForGroupMembers = requestGroupMembers_groupMembers_S3PathForGroupMembers;
+                requestGroupMembersIsNull = false;
+            }
+             // determine if request.GroupMembers should be set to null
+            if (requestGroupMembersIsNull)
+            {
+                request.GroupMembers = null;
             }
             if (cmdletContext.GroupName != null)
             {

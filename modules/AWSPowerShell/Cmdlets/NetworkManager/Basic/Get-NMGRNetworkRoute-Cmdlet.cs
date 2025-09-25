@@ -371,6 +371,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             }
             
              // populate RouteTableIdentifier
+            var requestRouteTableIdentifierIsNull = true;
             request.RouteTableIdentifier = new Amazon.NetworkManager.Model.RouteTableIdentifier();
             System.String requestRouteTableIdentifier_routeTableIdentifier_TransitGatewayRouteTableArn = null;
             if (cmdletContext.RouteTableIdentifier_TransitGatewayRouteTableArn != null)
@@ -380,6 +381,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             if (requestRouteTableIdentifier_routeTableIdentifier_TransitGatewayRouteTableArn != null)
             {
                 request.RouteTableIdentifier.TransitGatewayRouteTableArn = requestRouteTableIdentifier_routeTableIdentifier_TransitGatewayRouteTableArn;
+                requestRouteTableIdentifierIsNull = false;
             }
             Amazon.NetworkManager.Model.CoreNetworkNetworkFunctionGroupIdentifier requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroup = null;
             
@@ -424,6 +426,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             if (requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroup != null)
             {
                 request.RouteTableIdentifier.CoreNetworkNetworkFunctionGroup = requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroup;
+                requestRouteTableIdentifierIsNull = false;
             }
             Amazon.NetworkManager.Model.CoreNetworkSegmentEdgeIdentifier requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkSegmentEdge = null;
             
@@ -468,6 +471,12 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             if (requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkSegmentEdge != null)
             {
                 request.RouteTableIdentifier.CoreNetworkSegmentEdge = requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkSegmentEdge;
+                requestRouteTableIdentifierIsNull = false;
+            }
+             // determine if request.RouteTableIdentifier should be set to null
+            if (requestRouteTableIdentifierIsNull)
+            {
+                request.RouteTableIdentifier = null;
             }
             if (cmdletContext.State != null)
             {

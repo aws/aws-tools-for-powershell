@@ -191,6 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
             }
             
              // populate PackageSource
+            var requestPackageSourceIsNull = true;
             request.PackageSource = new Amazon.Elasticsearch.Model.PackageSource();
             System.String requestPackageSource_packageSource_S3BucketName = null;
             if (cmdletContext.PackageSource_S3BucketName != null)
@@ -200,6 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
             if (requestPackageSource_packageSource_S3BucketName != null)
             {
                 request.PackageSource.S3BucketName = requestPackageSource_packageSource_S3BucketName;
+                requestPackageSourceIsNull = false;
             }
             System.String requestPackageSource_packageSource_S3Key = null;
             if (cmdletContext.PackageSource_S3Key != null)
@@ -209,6 +211,12 @@ namespace Amazon.PowerShell.Cmdlets.ES
             if (requestPackageSource_packageSource_S3Key != null)
             {
                 request.PackageSource.S3Key = requestPackageSource_packageSource_S3Key;
+                requestPackageSourceIsNull = false;
+            }
+             // determine if request.PackageSource should be set to null
+            if (requestPackageSourceIsNull)
+            {
+                request.PackageSource = null;
             }
             if (cmdletContext.PackageType != null)
             {

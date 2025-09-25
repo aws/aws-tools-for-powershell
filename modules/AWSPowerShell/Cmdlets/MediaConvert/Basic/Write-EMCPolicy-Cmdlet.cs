@@ -144,6 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             
             
              // populate Policy
+            var requestPolicyIsNull = true;
             request.Policy = new Amazon.MediaConvert.Model.Policy();
             Amazon.MediaConvert.InputPolicy requestPolicy_policy_HttpInput = null;
             if (cmdletContext.Policy_HttpInput != null)
@@ -153,6 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             if (requestPolicy_policy_HttpInput != null)
             {
                 request.Policy.HttpInputs = requestPolicy_policy_HttpInput;
+                requestPolicyIsNull = false;
             }
             Amazon.MediaConvert.InputPolicy requestPolicy_policy_HttpsInput = null;
             if (cmdletContext.Policy_HttpsInput != null)
@@ -162,6 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             if (requestPolicy_policy_HttpsInput != null)
             {
                 request.Policy.HttpsInputs = requestPolicy_policy_HttpsInput;
+                requestPolicyIsNull = false;
             }
             Amazon.MediaConvert.InputPolicy requestPolicy_policy_S3Input = null;
             if (cmdletContext.Policy_S3Input != null)
@@ -171,6 +174,12 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             if (requestPolicy_policy_S3Input != null)
             {
                 request.Policy.S3Inputs = requestPolicy_policy_S3Input;
+                requestPolicyIsNull = false;
+            }
+             // determine if request.Policy should be set to null
+            if (requestPolicyIsNull)
+            {
+                request.Policy = null;
             }
             
             CmdletOutput output;

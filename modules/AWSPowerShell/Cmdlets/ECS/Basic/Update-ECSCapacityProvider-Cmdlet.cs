@@ -251,6 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             
             
              // populate AutoScalingGroupProvider
+            var requestAutoScalingGroupProviderIsNull = true;
             request.AutoScalingGroupProvider = new Amazon.ECS.Model.AutoScalingGroupProviderUpdate();
             Amazon.ECS.ManagedDraining requestAutoScalingGroupProvider_autoScalingGroupProvider_ManagedDraining = null;
             if (cmdletContext.AutoScalingGroupProvider_ManagedDraining != null)
@@ -260,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (requestAutoScalingGroupProvider_autoScalingGroupProvider_ManagedDraining != null)
             {
                 request.AutoScalingGroupProvider.ManagedDraining = requestAutoScalingGroupProvider_autoScalingGroupProvider_ManagedDraining;
+                requestAutoScalingGroupProviderIsNull = false;
             }
             Amazon.ECS.ManagedTerminationProtection requestAutoScalingGroupProvider_autoScalingGroupProvider_ManagedTerminationProtection = null;
             if (cmdletContext.AutoScalingGroupProvider_ManagedTerminationProtection != null)
@@ -269,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (requestAutoScalingGroupProvider_autoScalingGroupProvider_ManagedTerminationProtection != null)
             {
                 request.AutoScalingGroupProvider.ManagedTerminationProtection = requestAutoScalingGroupProvider_autoScalingGroupProvider_ManagedTerminationProtection;
+                requestAutoScalingGroupProviderIsNull = false;
             }
             Amazon.ECS.Model.ManagedScaling requestAutoScalingGroupProvider_autoScalingGroupProvider_ManagedScaling = null;
             
@@ -333,6 +336,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (requestAutoScalingGroupProvider_autoScalingGroupProvider_ManagedScaling != null)
             {
                 request.AutoScalingGroupProvider.ManagedScaling = requestAutoScalingGroupProvider_autoScalingGroupProvider_ManagedScaling;
+                requestAutoScalingGroupProviderIsNull = false;
+            }
+             // determine if request.AutoScalingGroupProvider should be set to null
+            if (requestAutoScalingGroupProviderIsNull)
+            {
+                request.AutoScalingGroupProvider = null;
             }
             if (cmdletContext.Name != null)
             {

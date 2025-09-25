@@ -314,6 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             Amazon.ConnectCampaignsV2.Model.OpenHours requestCommunicationTimeConfig_communicationTimeConfig_Email_communicationTimeConfig_Email_OpenHours = null;
             
              // populate OpenHours
+            var requestCommunicationTimeConfig_communicationTimeConfig_Email_communicationTimeConfig_Email_OpenHoursIsNull = true;
             requestCommunicationTimeConfig_communicationTimeConfig_Email_communicationTimeConfig_Email_OpenHours = new Amazon.ConnectCampaignsV2.Model.OpenHours();
             Dictionary<System.String, List<Amazon.ConnectCampaignsV2.Model.TimeRange>> requestCommunicationTimeConfig_communicationTimeConfig_Email_communicationTimeConfig_Email_OpenHours_communicationTimeConfig_Email_OpenHours_DailyHours = null;
             if (cmdletContext.CommunicationTimeConfig_Email_OpenHours_DailyHours != null)
@@ -323,6 +324,12 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestCommunicationTimeConfig_communicationTimeConfig_Email_communicationTimeConfig_Email_OpenHours_communicationTimeConfig_Email_OpenHours_DailyHours != null)
             {
                 requestCommunicationTimeConfig_communicationTimeConfig_Email_communicationTimeConfig_Email_OpenHours.DailyHours = requestCommunicationTimeConfig_communicationTimeConfig_Email_communicationTimeConfig_Email_OpenHours_communicationTimeConfig_Email_OpenHours_DailyHours;
+                requestCommunicationTimeConfig_communicationTimeConfig_Email_communicationTimeConfig_Email_OpenHoursIsNull = false;
+            }
+             // determine if requestCommunicationTimeConfig_communicationTimeConfig_Email_communicationTimeConfig_Email_OpenHours should be set to null
+            if (requestCommunicationTimeConfig_communicationTimeConfig_Email_communicationTimeConfig_Email_OpenHoursIsNull)
+            {
+                requestCommunicationTimeConfig_communicationTimeConfig_Email_communicationTimeConfig_Email_OpenHours = null;
             }
             if (requestCommunicationTimeConfig_communicationTimeConfig_Email_communicationTimeConfig_Email_OpenHours != null)
             {
@@ -367,6 +374,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             Amazon.ConnectCampaignsV2.Model.LocalTimeZoneConfig requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig = null;
             
              // populate LocalTimeZoneConfig
+            var requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfigIsNull = true;
             requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig = new Amazon.ConnectCampaignsV2.Model.LocalTimeZoneConfig();
             System.String requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_DefaultTimeZone = null;
             if (cmdletContext.LocalTimeZoneConfig_DefaultTimeZone != null)
@@ -376,6 +384,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_DefaultTimeZone != null)
             {
                 requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig.DefaultTimeZone = requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_DefaultTimeZone;
+                requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfigIsNull = false;
             }
             List<System.String> requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_LocalTimeZoneDetection = null;
             if (cmdletContext.LocalTimeZoneConfig_LocalTimeZoneDetection != null)
@@ -385,6 +394,12 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_LocalTimeZoneDetection != null)
             {
                 requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig.LocalTimeZoneDetection = requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig_localTimeZoneConfig_LocalTimeZoneDetection;
+                requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfigIsNull = false;
+            }
+             // determine if requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig should be set to null
+            if (requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfigIsNull)
+            {
+                requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig = null;
             }
             if (requestCommunicationTimeConfig_communicationTimeConfig_LocalTimeZoneConfig != null)
             {
@@ -399,6 +414,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             Amazon.ConnectCampaignsV2.Model.OpenHours requestCommunicationTimeConfig_communicationTimeConfig_Sms_communicationTimeConfig_Sms_OpenHours = null;
             
              // populate OpenHours
+            var requestCommunicationTimeConfig_communicationTimeConfig_Sms_communicationTimeConfig_Sms_OpenHoursIsNull = true;
             requestCommunicationTimeConfig_communicationTimeConfig_Sms_communicationTimeConfig_Sms_OpenHours = new Amazon.ConnectCampaignsV2.Model.OpenHours();
             Dictionary<System.String, List<Amazon.ConnectCampaignsV2.Model.TimeRange>> requestCommunicationTimeConfig_communicationTimeConfig_Sms_communicationTimeConfig_Sms_OpenHours_communicationTimeConfig_Sms_OpenHours_DailyHours = null;
             if (cmdletContext.CommunicationTimeConfig_Sms_OpenHours_DailyHours != null)
@@ -408,6 +424,12 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestCommunicationTimeConfig_communicationTimeConfig_Sms_communicationTimeConfig_Sms_OpenHours_communicationTimeConfig_Sms_OpenHours_DailyHours != null)
             {
                 requestCommunicationTimeConfig_communicationTimeConfig_Sms_communicationTimeConfig_Sms_OpenHours.DailyHours = requestCommunicationTimeConfig_communicationTimeConfig_Sms_communicationTimeConfig_Sms_OpenHours_communicationTimeConfig_Sms_OpenHours_DailyHours;
+                requestCommunicationTimeConfig_communicationTimeConfig_Sms_communicationTimeConfig_Sms_OpenHoursIsNull = false;
+            }
+             // determine if requestCommunicationTimeConfig_communicationTimeConfig_Sms_communicationTimeConfig_Sms_OpenHours should be set to null
+            if (requestCommunicationTimeConfig_communicationTimeConfig_Sms_communicationTimeConfig_Sms_OpenHoursIsNull)
+            {
+                requestCommunicationTimeConfig_communicationTimeConfig_Sms_communicationTimeConfig_Sms_OpenHours = null;
             }
             if (requestCommunicationTimeConfig_communicationTimeConfig_Sms_communicationTimeConfig_Sms_OpenHours != null)
             {
@@ -457,6 +479,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             Amazon.ConnectCampaignsV2.Model.OpenHours requestCommunicationTimeConfig_communicationTimeConfig_Telephony_communicationTimeConfig_Telephony_OpenHours = null;
             
              // populate OpenHours
+            var requestCommunicationTimeConfig_communicationTimeConfig_Telephony_communicationTimeConfig_Telephony_OpenHoursIsNull = true;
             requestCommunicationTimeConfig_communicationTimeConfig_Telephony_communicationTimeConfig_Telephony_OpenHours = new Amazon.ConnectCampaignsV2.Model.OpenHours();
             Dictionary<System.String, List<Amazon.ConnectCampaignsV2.Model.TimeRange>> requestCommunicationTimeConfig_communicationTimeConfig_Telephony_communicationTimeConfig_Telephony_OpenHours_communicationTimeConfig_Telephony_OpenHours_DailyHours = null;
             if (cmdletContext.CommunicationTimeConfig_Telephony_OpenHours_DailyHours != null)
@@ -466,6 +489,12 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestCommunicationTimeConfig_communicationTimeConfig_Telephony_communicationTimeConfig_Telephony_OpenHours_communicationTimeConfig_Telephony_OpenHours_DailyHours != null)
             {
                 requestCommunicationTimeConfig_communicationTimeConfig_Telephony_communicationTimeConfig_Telephony_OpenHours.DailyHours = requestCommunicationTimeConfig_communicationTimeConfig_Telephony_communicationTimeConfig_Telephony_OpenHours_communicationTimeConfig_Telephony_OpenHours_DailyHours;
+                requestCommunicationTimeConfig_communicationTimeConfig_Telephony_communicationTimeConfig_Telephony_OpenHoursIsNull = false;
+            }
+             // determine if requestCommunicationTimeConfig_communicationTimeConfig_Telephony_communicationTimeConfig_Telephony_OpenHours should be set to null
+            if (requestCommunicationTimeConfig_communicationTimeConfig_Telephony_communicationTimeConfig_Telephony_OpenHoursIsNull)
+            {
+                requestCommunicationTimeConfig_communicationTimeConfig_Telephony_communicationTimeConfig_Telephony_OpenHours = null;
             }
             if (requestCommunicationTimeConfig_communicationTimeConfig_Telephony_communicationTimeConfig_Telephony_OpenHours != null)
             {

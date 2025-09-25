@@ -247,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             }
             
              // populate Preferences
+            var requestPreferencesIsNull = true;
             request.Preferences = new Amazon.ChimeSDKMessaging.Model.ChannelMembershipPreferences();
             Amazon.ChimeSDKMessaging.Model.PushNotificationPreferences requestPreferences_preferences_PushNotifications = null;
             
@@ -281,6 +282,12 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             if (requestPreferences_preferences_PushNotifications != null)
             {
                 request.Preferences.PushNotifications = requestPreferences_preferences_PushNotifications;
+                requestPreferencesIsNull = false;
+            }
+             // determine if request.Preferences should be set to null
+            if (requestPreferencesIsNull)
+            {
+                request.Preferences = null;
             }
             
             CmdletOutput output;

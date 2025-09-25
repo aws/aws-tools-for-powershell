@@ -274,6 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             }
             
              // populate PortInfo
+            var requestPortInfoIsNull = true;
             request.PortInfo = new Amazon.Lightsail.Model.PortInfo();
             List<System.String> requestPortInfo_portInfo_CidrListAlias = null;
             if (cmdletContext.PortInfo_CidrListAlias != null)
@@ -283,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (requestPortInfo_portInfo_CidrListAlias != null)
             {
                 request.PortInfo.CidrListAliases = requestPortInfo_portInfo_CidrListAlias;
+                requestPortInfoIsNull = false;
             }
             List<System.String> requestPortInfo_portInfo_Cidr = null;
             if (cmdletContext.PortInfo_Cidr != null)
@@ -292,6 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (requestPortInfo_portInfo_Cidr != null)
             {
                 request.PortInfo.Cidrs = requestPortInfo_portInfo_Cidr;
+                requestPortInfoIsNull = false;
             }
             System.Int32? requestPortInfo_portInfo_FromPort = null;
             if (cmdletContext.PortInfo_FromPort != null)
@@ -301,6 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (requestPortInfo_portInfo_FromPort != null)
             {
                 request.PortInfo.FromPort = requestPortInfo_portInfo_FromPort.Value;
+                requestPortInfoIsNull = false;
             }
             List<System.String> requestPortInfo_portInfo_Ipv6Cidr = null;
             if (cmdletContext.PortInfo_Ipv6Cidr != null)
@@ -310,6 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (requestPortInfo_portInfo_Ipv6Cidr != null)
             {
                 request.PortInfo.Ipv6Cidrs = requestPortInfo_portInfo_Ipv6Cidr;
+                requestPortInfoIsNull = false;
             }
             Amazon.Lightsail.NetworkProtocol requestPortInfo_portInfo_Protocol = null;
             if (cmdletContext.PortInfo_Protocol != null)
@@ -319,6 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (requestPortInfo_portInfo_Protocol != null)
             {
                 request.PortInfo.Protocol = requestPortInfo_portInfo_Protocol;
+                requestPortInfoIsNull = false;
             }
             System.Int32? requestPortInfo_portInfo_ToPort = null;
             if (cmdletContext.PortInfo_ToPort != null)
@@ -328,6 +334,12 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (requestPortInfo_portInfo_ToPort != null)
             {
                 request.PortInfo.ToPort = requestPortInfo_portInfo_ToPort.Value;
+                requestPortInfoIsNull = false;
+            }
+             // determine if request.PortInfo should be set to null
+            if (requestPortInfoIsNull)
+            {
+                request.PortInfo = null;
             }
             
             CmdletOutput output;

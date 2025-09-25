@@ -250,6 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             
              // populate VoiceRecordingConfiguration
+            var requestVoiceRecordingConfigurationIsNull = true;
             request.VoiceRecordingConfiguration = new Amazon.Connect.Model.VoiceRecordingConfiguration();
             Amazon.Connect.IvrRecordingTrack requestVoiceRecordingConfiguration_voiceRecordingConfiguration_IvrRecordingTrack = null;
             if (cmdletContext.VoiceRecordingConfiguration_IvrRecordingTrack != null)
@@ -259,6 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestVoiceRecordingConfiguration_voiceRecordingConfiguration_IvrRecordingTrack != null)
             {
                 request.VoiceRecordingConfiguration.IvrRecordingTrack = requestVoiceRecordingConfiguration_voiceRecordingConfiguration_IvrRecordingTrack;
+                requestVoiceRecordingConfigurationIsNull = false;
             }
             Amazon.Connect.VoiceRecordingTrack requestVoiceRecordingConfiguration_voiceRecordingConfiguration_VoiceRecordingTrack = null;
             if (cmdletContext.VoiceRecordingConfiguration_VoiceRecordingTrack != null)
@@ -268,6 +270,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestVoiceRecordingConfiguration_voiceRecordingConfiguration_VoiceRecordingTrack != null)
             {
                 request.VoiceRecordingConfiguration.VoiceRecordingTrack = requestVoiceRecordingConfiguration_voiceRecordingConfiguration_VoiceRecordingTrack;
+                requestVoiceRecordingConfigurationIsNull = false;
+            }
+             // determine if request.VoiceRecordingConfiguration should be set to null
+            if (requestVoiceRecordingConfigurationIsNull)
+            {
+                request.VoiceRecordingConfiguration = null;
             }
             
             CmdletOutput output;

@@ -178,6 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             }
             
              // populate Options
+            var requestOptionsIsNull = true;
             request.Options = new Amazon.CertificateManager.Model.CertificateOptions();
             Amazon.CertificateManager.CertificateTransparencyLoggingPreference requestOptions_options_CertificateTransparencyLoggingPreference = null;
             if (cmdletContext.Options_CertificateTransparencyLoggingPreference != null)
@@ -187,6 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             if (requestOptions_options_CertificateTransparencyLoggingPreference != null)
             {
                 request.Options.CertificateTransparencyLoggingPreference = requestOptions_options_CertificateTransparencyLoggingPreference;
+                requestOptionsIsNull = false;
             }
             Amazon.CertificateManager.CertificateExport requestOptions_options_Export = null;
             if (cmdletContext.Options_Export != null)
@@ -196,6 +198,12 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             if (requestOptions_options_Export != null)
             {
                 request.Options.Export = requestOptions_options_Export;
+                requestOptionsIsNull = false;
+            }
+             // determine if request.Options should be set to null
+            if (requestOptionsIsNull)
+            {
+                request.Options = null;
             }
             
             CmdletOutput output;

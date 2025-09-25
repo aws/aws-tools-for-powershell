@@ -212,6 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             }
             
              // populate SelfservicePermissions
+            var requestSelfservicePermissionsIsNull = true;
             request.SelfservicePermissions = new Amazon.WorkSpaces.Model.SelfservicePermissions();
             Amazon.WorkSpaces.ReconnectEnum requestSelfservicePermissions_selfservicePermissions_ChangeComputeType = null;
             if (cmdletContext.SelfservicePermissions_ChangeComputeType != null)
@@ -221,6 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestSelfservicePermissions_selfservicePermissions_ChangeComputeType != null)
             {
                 request.SelfservicePermissions.ChangeComputeType = requestSelfservicePermissions_selfservicePermissions_ChangeComputeType;
+                requestSelfservicePermissionsIsNull = false;
             }
             Amazon.WorkSpaces.ReconnectEnum requestSelfservicePermissions_selfservicePermissions_IncreaseVolumeSize = null;
             if (cmdletContext.SelfservicePermissions_IncreaseVolumeSize != null)
@@ -230,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestSelfservicePermissions_selfservicePermissions_IncreaseVolumeSize != null)
             {
                 request.SelfservicePermissions.IncreaseVolumeSize = requestSelfservicePermissions_selfservicePermissions_IncreaseVolumeSize;
+                requestSelfservicePermissionsIsNull = false;
             }
             Amazon.WorkSpaces.ReconnectEnum requestSelfservicePermissions_selfservicePermissions_RebuildWorkspace = null;
             if (cmdletContext.SelfservicePermissions_RebuildWorkspace != null)
@@ -239,6 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestSelfservicePermissions_selfservicePermissions_RebuildWorkspace != null)
             {
                 request.SelfservicePermissions.RebuildWorkspace = requestSelfservicePermissions_selfservicePermissions_RebuildWorkspace;
+                requestSelfservicePermissionsIsNull = false;
             }
             Amazon.WorkSpaces.ReconnectEnum requestSelfservicePermissions_selfservicePermissions_RestartWorkspace = null;
             if (cmdletContext.SelfservicePermissions_RestartWorkspace != null)
@@ -248,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestSelfservicePermissions_selfservicePermissions_RestartWorkspace != null)
             {
                 request.SelfservicePermissions.RestartWorkspace = requestSelfservicePermissions_selfservicePermissions_RestartWorkspace;
+                requestSelfservicePermissionsIsNull = false;
             }
             Amazon.WorkSpaces.ReconnectEnum requestSelfservicePermissions_selfservicePermissions_SwitchRunningMode = null;
             if (cmdletContext.SelfservicePermissions_SwitchRunningMode != null)
@@ -257,6 +262,12 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestSelfservicePermissions_selfservicePermissions_SwitchRunningMode != null)
             {
                 request.SelfservicePermissions.SwitchRunningMode = requestSelfservicePermissions_selfservicePermissions_SwitchRunningMode;
+                requestSelfservicePermissionsIsNull = false;
+            }
+             // determine if request.SelfservicePermissions should be set to null
+            if (requestSelfservicePermissionsIsNull)
+            {
+                request.SelfservicePermissions = null;
             }
             
             CmdletOutput output;

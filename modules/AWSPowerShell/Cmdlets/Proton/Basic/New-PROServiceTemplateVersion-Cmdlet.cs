@@ -291,6 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             }
             
              // populate Source
+            var requestSourceIsNull = true;
             request.Source = new Amazon.Proton.Model.TemplateVersionSourceInput();
             Amazon.Proton.Model.S3ObjectSource requestSource_source_S3 = null;
             
@@ -325,6 +326,12 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             if (requestSource_source_S3 != null)
             {
                 request.Source.S3 = requestSource_source_S3;
+                requestSourceIsNull = false;
+            }
+             // determine if request.Source should be set to null
+            if (requestSourceIsNull)
+            {
+                request.Source = null;
             }
             if (cmdletContext.SupportedComponentSource != null)
             {

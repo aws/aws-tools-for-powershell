@@ -966,6 +966,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             }
             
              // populate Spec
+            var requestSpecIsNull = true;
             request.Spec = new Amazon.AppMesh.Model.RouteSpec();
             System.Int32? requestSpec_spec_Priority = null;
             if (cmdletContext.Spec_Priority != null)
@@ -975,6 +976,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_Priority != null)
             {
                 request.Spec.Priority = requestSpec_spec_Priority.Value;
+                requestSpecIsNull = false;
             }
             Amazon.AppMesh.Model.TcpRoute requestSpec_spec_TcpRoute = null;
             
@@ -1089,6 +1091,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_TcpRoute != null)
             {
                 request.Spec.TcpRoute = requestSpec_spec_TcpRoute;
+                requestSpecIsNull = false;
             }
             Amazon.AppMesh.Model.GrpcRoute requestSpec_spec_GrpcRoute = null;
             
@@ -1208,6 +1211,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             Amazon.AppMesh.Model.GrpcRouteMatch requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match = null;
             
              // populate Match
+            var requestSpec_spec_GrpcRoute_spec_GrpcRoute_MatchIsNull = true;
             requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match = new Amazon.AppMesh.Model.GrpcRouteMatch();
             List<Amazon.AppMesh.Model.GrpcRouteMetadata> requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match_match_Metadata = null;
             if (cmdletContext.Match_Metadata != null)
@@ -1217,6 +1221,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match_match_Metadata != null)
             {
                 requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match.Metadata = requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match_match_Metadata;
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_MatchIsNull = false;
             }
             System.String requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match_spec_GrpcRoute_Match_MethodName = null;
             if (cmdletContext.Spec_GrpcRoute_Match_MethodName != null)
@@ -1226,6 +1231,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match_spec_GrpcRoute_Match_MethodName != null)
             {
                 requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match.MethodName = requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match_spec_GrpcRoute_Match_MethodName;
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_MatchIsNull = false;
             }
             System.Int32? requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match_spec_GrpcRoute_Match_Port = null;
             if (cmdletContext.Spec_GrpcRoute_Match_Port != null)
@@ -1235,6 +1241,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match_spec_GrpcRoute_Match_Port != null)
             {
                 requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match.Port = requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match_spec_GrpcRoute_Match_Port.Value;
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_MatchIsNull = false;
             }
             System.String requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match_match_ServiceName = null;
             if (cmdletContext.Match_ServiceName != null)
@@ -1244,6 +1251,12 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match_match_ServiceName != null)
             {
                 requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match.ServiceName = requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match_match_ServiceName;
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_MatchIsNull = false;
+            }
+             // determine if requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match should be set to null
+            if (requestSpec_spec_GrpcRoute_spec_GrpcRoute_MatchIsNull)
+            {
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match = null;
             }
             if (requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match != null)
             {
@@ -1298,6 +1311,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             Amazon.AppMesh.Model.Duration requestSpec_spec_GrpcRoute_spec_GrpcRoute_RetryPolicy_spec_GrpcRoute_RetryPolicy_PerRetryTimeout = null;
             
              // populate PerRetryTimeout
+            var requestSpec_spec_GrpcRoute_spec_GrpcRoute_RetryPolicy_spec_GrpcRoute_RetryPolicy_PerRetryTimeoutIsNull = true;
             requestSpec_spec_GrpcRoute_spec_GrpcRoute_RetryPolicy_spec_GrpcRoute_RetryPolicy_PerRetryTimeout = new Amazon.AppMesh.Model.Duration();
             Amazon.AppMesh.DurationUnit requestSpec_spec_GrpcRoute_spec_GrpcRoute_RetryPolicy_spec_GrpcRoute_RetryPolicy_PerRetryTimeout_spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Unit = null;
             if (cmdletContext.Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Unit != null)
@@ -1307,6 +1321,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_GrpcRoute_spec_GrpcRoute_RetryPolicy_spec_GrpcRoute_RetryPolicy_PerRetryTimeout_spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Unit != null)
             {
                 requestSpec_spec_GrpcRoute_spec_GrpcRoute_RetryPolicy_spec_GrpcRoute_RetryPolicy_PerRetryTimeout.Unit = requestSpec_spec_GrpcRoute_spec_GrpcRoute_RetryPolicy_spec_GrpcRoute_RetryPolicy_PerRetryTimeout_spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Unit;
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_RetryPolicy_spec_GrpcRoute_RetryPolicy_PerRetryTimeoutIsNull = false;
             }
             System.Int64? requestSpec_spec_GrpcRoute_spec_GrpcRoute_RetryPolicy_spec_GrpcRoute_RetryPolicy_PerRetryTimeout_spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Value = null;
             if (cmdletContext.Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Value != null)
@@ -1316,6 +1331,12 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_GrpcRoute_spec_GrpcRoute_RetryPolicy_spec_GrpcRoute_RetryPolicy_PerRetryTimeout_spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Value != null)
             {
                 requestSpec_spec_GrpcRoute_spec_GrpcRoute_RetryPolicy_spec_GrpcRoute_RetryPolicy_PerRetryTimeout.Value = requestSpec_spec_GrpcRoute_spec_GrpcRoute_RetryPolicy_spec_GrpcRoute_RetryPolicy_PerRetryTimeout_spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Value.Value;
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_RetryPolicy_spec_GrpcRoute_RetryPolicy_PerRetryTimeoutIsNull = false;
+            }
+             // determine if requestSpec_spec_GrpcRoute_spec_GrpcRoute_RetryPolicy_spec_GrpcRoute_RetryPolicy_PerRetryTimeout should be set to null
+            if (requestSpec_spec_GrpcRoute_spec_GrpcRoute_RetryPolicy_spec_GrpcRoute_RetryPolicy_PerRetryTimeoutIsNull)
+            {
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_RetryPolicy_spec_GrpcRoute_RetryPolicy_PerRetryTimeout = null;
             }
             if (requestSpec_spec_GrpcRoute_spec_GrpcRoute_RetryPolicy_spec_GrpcRoute_RetryPolicy_PerRetryTimeout != null)
             {
@@ -1340,6 +1361,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_GrpcRoute != null)
             {
                 request.Spec.GrpcRoute = requestSpec_spec_GrpcRoute;
+                requestSpecIsNull = false;
             }
             Amazon.AppMesh.Model.HttpRoute requestSpec_spec_Http2Route = null;
             
@@ -1494,6 +1516,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             Amazon.AppMesh.Model.Duration requestSpec_spec_Http2Route_spec_Http2Route_RetryPolicy_spec_Http2Route_RetryPolicy_PerRetryTimeout = null;
             
              // populate PerRetryTimeout
+            var requestSpec_spec_Http2Route_spec_Http2Route_RetryPolicy_spec_Http2Route_RetryPolicy_PerRetryTimeoutIsNull = true;
             requestSpec_spec_Http2Route_spec_Http2Route_RetryPolicy_spec_Http2Route_RetryPolicy_PerRetryTimeout = new Amazon.AppMesh.Model.Duration();
             Amazon.AppMesh.DurationUnit requestSpec_spec_Http2Route_spec_Http2Route_RetryPolicy_spec_Http2Route_RetryPolicy_PerRetryTimeout_spec_Http2Route_RetryPolicy_PerRetryTimeout_Unit = null;
             if (cmdletContext.Spec_Http2Route_RetryPolicy_PerRetryTimeout_Unit != null)
@@ -1503,6 +1526,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_Http2Route_spec_Http2Route_RetryPolicy_spec_Http2Route_RetryPolicy_PerRetryTimeout_spec_Http2Route_RetryPolicy_PerRetryTimeout_Unit != null)
             {
                 requestSpec_spec_Http2Route_spec_Http2Route_RetryPolicy_spec_Http2Route_RetryPolicy_PerRetryTimeout.Unit = requestSpec_spec_Http2Route_spec_Http2Route_RetryPolicy_spec_Http2Route_RetryPolicy_PerRetryTimeout_spec_Http2Route_RetryPolicy_PerRetryTimeout_Unit;
+                requestSpec_spec_Http2Route_spec_Http2Route_RetryPolicy_spec_Http2Route_RetryPolicy_PerRetryTimeoutIsNull = false;
             }
             System.Int64? requestSpec_spec_Http2Route_spec_Http2Route_RetryPolicy_spec_Http2Route_RetryPolicy_PerRetryTimeout_spec_Http2Route_RetryPolicy_PerRetryTimeout_Value = null;
             if (cmdletContext.Spec_Http2Route_RetryPolicy_PerRetryTimeout_Value != null)
@@ -1512,6 +1536,12 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_Http2Route_spec_Http2Route_RetryPolicy_spec_Http2Route_RetryPolicy_PerRetryTimeout_spec_Http2Route_RetryPolicy_PerRetryTimeout_Value != null)
             {
                 requestSpec_spec_Http2Route_spec_Http2Route_RetryPolicy_spec_Http2Route_RetryPolicy_PerRetryTimeout.Value = requestSpec_spec_Http2Route_spec_Http2Route_RetryPolicy_spec_Http2Route_RetryPolicy_PerRetryTimeout_spec_Http2Route_RetryPolicy_PerRetryTimeout_Value.Value;
+                requestSpec_spec_Http2Route_spec_Http2Route_RetryPolicy_spec_Http2Route_RetryPolicy_PerRetryTimeoutIsNull = false;
+            }
+             // determine if requestSpec_spec_Http2Route_spec_Http2Route_RetryPolicy_spec_Http2Route_RetryPolicy_PerRetryTimeout should be set to null
+            if (requestSpec_spec_Http2Route_spec_Http2Route_RetryPolicy_spec_Http2Route_RetryPolicy_PerRetryTimeoutIsNull)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_RetryPolicy_spec_Http2Route_RetryPolicy_PerRetryTimeout = null;
             }
             if (requestSpec_spec_Http2Route_spec_Http2Route_RetryPolicy_spec_Http2Route_RetryPolicy_PerRetryTimeout != null)
             {
@@ -1531,6 +1561,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             Amazon.AppMesh.Model.HttpRouteMatch requestSpec_spec_Http2Route_spec_Http2Route_Match = null;
             
              // populate Match
+            var requestSpec_spec_Http2Route_spec_Http2Route_MatchIsNull = true;
             requestSpec_spec_Http2Route_spec_Http2Route_Match = new Amazon.AppMesh.Model.HttpRouteMatch();
             List<Amazon.AppMesh.Model.HttpRouteHeader> requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Header = null;
             if (cmdletContext.Spec_Http2Route_Match_Header != null)
@@ -1540,6 +1571,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Header != null)
             {
                 requestSpec_spec_Http2Route_spec_Http2Route_Match.Headers = requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Header;
+                requestSpec_spec_Http2Route_spec_Http2Route_MatchIsNull = false;
             }
             Amazon.AppMesh.HttpMethod requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Method = null;
             if (cmdletContext.Spec_Http2Route_Match_Method != null)
@@ -1549,6 +1581,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Method != null)
             {
                 requestSpec_spec_Http2Route_spec_Http2Route_Match.Method = requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Method;
+                requestSpec_spec_Http2Route_spec_Http2Route_MatchIsNull = false;
             }
             System.Int32? requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Port = null;
             if (cmdletContext.Spec_Http2Route_Match_Port != null)
@@ -1558,6 +1591,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Port != null)
             {
                 requestSpec_spec_Http2Route_spec_Http2Route_Match.Port = requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Port.Value;
+                requestSpec_spec_Http2Route_spec_Http2Route_MatchIsNull = false;
             }
             System.String requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Prefix = null;
             if (cmdletContext.Spec_Http2Route_Match_Prefix != null)
@@ -1567,6 +1601,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Prefix != null)
             {
                 requestSpec_spec_Http2Route_spec_Http2Route_Match.Prefix = requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Prefix;
+                requestSpec_spec_Http2Route_spec_Http2Route_MatchIsNull = false;
             }
             List<Amazon.AppMesh.Model.HttpQueryParameter> requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_QueryParameters = null;
             if (cmdletContext.Spec_Http2Route_Match_QueryParameters != null)
@@ -1576,6 +1611,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_QueryParameters != null)
             {
                 requestSpec_spec_Http2Route_spec_Http2Route_Match.QueryParameters = requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_QueryParameters;
+                requestSpec_spec_Http2Route_spec_Http2Route_MatchIsNull = false;
             }
             Amazon.AppMesh.HttpScheme requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Scheme = null;
             if (cmdletContext.Spec_Http2Route_Match_Scheme != null)
@@ -1585,6 +1621,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Scheme != null)
             {
                 requestSpec_spec_Http2Route_spec_Http2Route_Match.Scheme = requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Scheme;
+                requestSpec_spec_Http2Route_spec_Http2Route_MatchIsNull = false;
             }
             Amazon.AppMesh.Model.HttpPathMatch requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Path = null;
             
@@ -1619,6 +1656,12 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Path != null)
             {
                 requestSpec_spec_Http2Route_spec_Http2Route_Match.Path = requestSpec_spec_Http2Route_spec_Http2Route_Match_spec_Http2Route_Match_Path;
+                requestSpec_spec_Http2Route_spec_Http2Route_MatchIsNull = false;
+            }
+             // determine if requestSpec_spec_Http2Route_spec_Http2Route_Match should be set to null
+            if (requestSpec_spec_Http2Route_spec_Http2Route_MatchIsNull)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Match = null;
             }
             if (requestSpec_spec_Http2Route_spec_Http2Route_Match != null)
             {
@@ -1633,6 +1676,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_Http2Route != null)
             {
                 request.Spec.Http2Route = requestSpec_spec_Http2Route;
+                requestSpecIsNull = false;
             }
             Amazon.AppMesh.Model.HttpRoute requestSpec_spec_HttpRoute = null;
             
@@ -1787,6 +1831,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             Amazon.AppMesh.Model.Duration requestSpec_spec_HttpRoute_spec_HttpRoute_RetryPolicy_spec_HttpRoute_RetryPolicy_PerRetryTimeout = null;
             
              // populate PerRetryTimeout
+            var requestSpec_spec_HttpRoute_spec_HttpRoute_RetryPolicy_spec_HttpRoute_RetryPolicy_PerRetryTimeoutIsNull = true;
             requestSpec_spec_HttpRoute_spec_HttpRoute_RetryPolicy_spec_HttpRoute_RetryPolicy_PerRetryTimeout = new Amazon.AppMesh.Model.Duration();
             Amazon.AppMesh.DurationUnit requestSpec_spec_HttpRoute_spec_HttpRoute_RetryPolicy_spec_HttpRoute_RetryPolicy_PerRetryTimeout_spec_HttpRoute_RetryPolicy_PerRetryTimeout_Unit = null;
             if (cmdletContext.Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Unit != null)
@@ -1796,6 +1841,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_HttpRoute_spec_HttpRoute_RetryPolicy_spec_HttpRoute_RetryPolicy_PerRetryTimeout_spec_HttpRoute_RetryPolicy_PerRetryTimeout_Unit != null)
             {
                 requestSpec_spec_HttpRoute_spec_HttpRoute_RetryPolicy_spec_HttpRoute_RetryPolicy_PerRetryTimeout.Unit = requestSpec_spec_HttpRoute_spec_HttpRoute_RetryPolicy_spec_HttpRoute_RetryPolicy_PerRetryTimeout_spec_HttpRoute_RetryPolicy_PerRetryTimeout_Unit;
+                requestSpec_spec_HttpRoute_spec_HttpRoute_RetryPolicy_spec_HttpRoute_RetryPolicy_PerRetryTimeoutIsNull = false;
             }
             System.Int64? requestSpec_spec_HttpRoute_spec_HttpRoute_RetryPolicy_spec_HttpRoute_RetryPolicy_PerRetryTimeout_spec_HttpRoute_RetryPolicy_PerRetryTimeout_Value = null;
             if (cmdletContext.Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Value != null)
@@ -1805,6 +1851,12 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_HttpRoute_spec_HttpRoute_RetryPolicy_spec_HttpRoute_RetryPolicy_PerRetryTimeout_spec_HttpRoute_RetryPolicy_PerRetryTimeout_Value != null)
             {
                 requestSpec_spec_HttpRoute_spec_HttpRoute_RetryPolicy_spec_HttpRoute_RetryPolicy_PerRetryTimeout.Value = requestSpec_spec_HttpRoute_spec_HttpRoute_RetryPolicy_spec_HttpRoute_RetryPolicy_PerRetryTimeout_spec_HttpRoute_RetryPolicy_PerRetryTimeout_Value.Value;
+                requestSpec_spec_HttpRoute_spec_HttpRoute_RetryPolicy_spec_HttpRoute_RetryPolicy_PerRetryTimeoutIsNull = false;
+            }
+             // determine if requestSpec_spec_HttpRoute_spec_HttpRoute_RetryPolicy_spec_HttpRoute_RetryPolicy_PerRetryTimeout should be set to null
+            if (requestSpec_spec_HttpRoute_spec_HttpRoute_RetryPolicy_spec_HttpRoute_RetryPolicy_PerRetryTimeoutIsNull)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_RetryPolicy_spec_HttpRoute_RetryPolicy_PerRetryTimeout = null;
             }
             if (requestSpec_spec_HttpRoute_spec_HttpRoute_RetryPolicy_spec_HttpRoute_RetryPolicy_PerRetryTimeout != null)
             {
@@ -1824,6 +1876,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             Amazon.AppMesh.Model.HttpRouteMatch requestSpec_spec_HttpRoute_spec_HttpRoute_Match = null;
             
              // populate Match
+            var requestSpec_spec_HttpRoute_spec_HttpRoute_MatchIsNull = true;
             requestSpec_spec_HttpRoute_spec_HttpRoute_Match = new Amazon.AppMesh.Model.HttpRouteMatch();
             List<Amazon.AppMesh.Model.HttpRouteHeader> requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Header = null;
             if (cmdletContext.Spec_HttpRoute_Match_Header != null)
@@ -1833,6 +1886,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Header != null)
             {
                 requestSpec_spec_HttpRoute_spec_HttpRoute_Match.Headers = requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Header;
+                requestSpec_spec_HttpRoute_spec_HttpRoute_MatchIsNull = false;
             }
             Amazon.AppMesh.HttpMethod requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Method = null;
             if (cmdletContext.Spec_HttpRoute_Match_Method != null)
@@ -1842,6 +1896,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Method != null)
             {
                 requestSpec_spec_HttpRoute_spec_HttpRoute_Match.Method = requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Method;
+                requestSpec_spec_HttpRoute_spec_HttpRoute_MatchIsNull = false;
             }
             System.Int32? requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Port = null;
             if (cmdletContext.Spec_HttpRoute_Match_Port != null)
@@ -1851,6 +1906,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Port != null)
             {
                 requestSpec_spec_HttpRoute_spec_HttpRoute_Match.Port = requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Port.Value;
+                requestSpec_spec_HttpRoute_spec_HttpRoute_MatchIsNull = false;
             }
             System.String requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Prefix = null;
             if (cmdletContext.Spec_HttpRoute_Match_Prefix != null)
@@ -1860,6 +1916,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Prefix != null)
             {
                 requestSpec_spec_HttpRoute_spec_HttpRoute_Match.Prefix = requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Prefix;
+                requestSpec_spec_HttpRoute_spec_HttpRoute_MatchIsNull = false;
             }
             List<Amazon.AppMesh.Model.HttpQueryParameter> requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_QueryParameters = null;
             if (cmdletContext.Spec_HttpRoute_Match_QueryParameters != null)
@@ -1869,6 +1926,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_QueryParameters != null)
             {
                 requestSpec_spec_HttpRoute_spec_HttpRoute_Match.QueryParameters = requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_QueryParameters;
+                requestSpec_spec_HttpRoute_spec_HttpRoute_MatchIsNull = false;
             }
             Amazon.AppMesh.HttpScheme requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Scheme = null;
             if (cmdletContext.Spec_HttpRoute_Match_Scheme != null)
@@ -1878,6 +1936,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Scheme != null)
             {
                 requestSpec_spec_HttpRoute_spec_HttpRoute_Match.Scheme = requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Scheme;
+                requestSpec_spec_HttpRoute_spec_HttpRoute_MatchIsNull = false;
             }
             Amazon.AppMesh.Model.HttpPathMatch requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Path = null;
             
@@ -1912,6 +1971,12 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Path != null)
             {
                 requestSpec_spec_HttpRoute_spec_HttpRoute_Match.Path = requestSpec_spec_HttpRoute_spec_HttpRoute_Match_spec_HttpRoute_Match_Path;
+                requestSpec_spec_HttpRoute_spec_HttpRoute_MatchIsNull = false;
+            }
+             // determine if requestSpec_spec_HttpRoute_spec_HttpRoute_Match should be set to null
+            if (requestSpec_spec_HttpRoute_spec_HttpRoute_MatchIsNull)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Match = null;
             }
             if (requestSpec_spec_HttpRoute_spec_HttpRoute_Match != null)
             {
@@ -1926,6 +1991,12 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_HttpRoute != null)
             {
                 request.Spec.HttpRoute = requestSpec_spec_HttpRoute;
+                requestSpecIsNull = false;
+            }
+             // determine if request.Spec should be set to null
+            if (requestSpecIsNull)
+            {
+                request.Spec = null;
             }
             if (cmdletContext.VirtualRouterName != null)
             {

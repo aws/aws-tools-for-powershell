@@ -233,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             
              // populate Parameters
+            var requestParametersIsNull = true;
             request.Parameters = new Amazon.DataZone.Model.ActionParameters();
             Amazon.DataZone.Model.AwsConsoleLinkParameters requestParameters_parameters_AwsConsoleLink = null;
             
@@ -257,6 +258,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestParameters_parameters_AwsConsoleLink != null)
             {
                 request.Parameters.AwsConsoleLink = requestParameters_parameters_AwsConsoleLink;
+                requestParametersIsNull = false;
+            }
+             // determine if request.Parameters should be set to null
+            if (requestParametersIsNull)
+            {
+                request.Parameters = null;
             }
             
             CmdletOutput output;

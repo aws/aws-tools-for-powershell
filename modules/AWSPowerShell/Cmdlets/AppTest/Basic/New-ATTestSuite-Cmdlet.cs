@@ -254,6 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.AT
             }
             
              // populate TestCases
+            var requestTestCasesIsNull = true;
             request.TestCases = new Amazon.AppTest.Model.TestCases();
             List<System.String> requestTestCases_testCases_Sequential = null;
             if (cmdletContext.TestCases_Sequential != null)
@@ -263,6 +264,12 @@ namespace Amazon.PowerShell.Cmdlets.AT
             if (requestTestCases_testCases_Sequential != null)
             {
                 request.TestCases.Sequential = requestTestCases_testCases_Sequential;
+                requestTestCasesIsNull = false;
+            }
+             // determine if request.TestCases should be set to null
+            if (requestTestCasesIsNull)
+            {
+                request.TestCases = null;
             }
             
             CmdletOutput output;

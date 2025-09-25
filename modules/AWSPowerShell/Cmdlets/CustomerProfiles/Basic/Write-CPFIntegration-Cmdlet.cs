@@ -765,6 +765,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             Amazon.CustomerProfiles.Model.SourceConnectorProperties requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorProperties = null;
             
              // populate SourceConnectorProperties
+            var requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorPropertiesIsNull = true;
             requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorProperties = new Amazon.CustomerProfiles.Model.SourceConnectorProperties();
             Amazon.CustomerProfiles.Model.MarketoSourceProperties requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorProperties_flowDefinition_SourceFlowConfig_SourceConnectorProperties_Marketo = null;
             
@@ -789,6 +790,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorProperties_flowDefinition_SourceFlowConfig_SourceConnectorProperties_Marketo != null)
             {
                 requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorProperties.Marketo = requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorProperties_flowDefinition_SourceFlowConfig_SourceConnectorProperties_Marketo;
+                requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.CustomerProfiles.Model.ServiceNowSourceProperties requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorProperties_flowDefinition_SourceFlowConfig_SourceConnectorProperties_ServiceNow = null;
             
@@ -813,6 +815,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorProperties_flowDefinition_SourceFlowConfig_SourceConnectorProperties_ServiceNow != null)
             {
                 requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorProperties.ServiceNow = requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorProperties_flowDefinition_SourceFlowConfig_SourceConnectorProperties_ServiceNow;
+                requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.CustomerProfiles.Model.ZendeskSourceProperties requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorProperties_flowDefinition_SourceFlowConfig_SourceConnectorProperties_Zendesk = null;
             
@@ -837,6 +840,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorProperties_flowDefinition_SourceFlowConfig_SourceConnectorProperties_Zendesk != null)
             {
                 requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorProperties.Zendesk = requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorProperties_flowDefinition_SourceFlowConfig_SourceConnectorProperties_Zendesk;
+                requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.CustomerProfiles.Model.S3SourceProperties requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorProperties_flowDefinition_SourceFlowConfig_SourceConnectorProperties_S3 = null;
             
@@ -871,6 +875,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorProperties_flowDefinition_SourceFlowConfig_SourceConnectorProperties_S3 != null)
             {
                 requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorProperties.S3 = requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorProperties_flowDefinition_SourceFlowConfig_SourceConnectorProperties_S3;
+                requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.CustomerProfiles.Model.SalesforceSourceProperties requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorProperties_flowDefinition_SourceFlowConfig_SourceConnectorProperties_Salesforce = null;
             
@@ -915,6 +920,12 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorProperties_flowDefinition_SourceFlowConfig_SourceConnectorProperties_Salesforce != null)
             {
                 requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorProperties.Salesforce = requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorProperties_flowDefinition_SourceFlowConfig_SourceConnectorProperties_Salesforce;
+                requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorPropertiesIsNull = false;
+            }
+             // determine if requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorProperties should be set to null
+            if (requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorPropertiesIsNull)
+            {
+                requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorProperties = null;
             }
             if (requestFlowDefinition_flowDefinition_SourceFlowConfig_flowDefinition_SourceFlowConfig_SourceConnectorProperties != null)
             {

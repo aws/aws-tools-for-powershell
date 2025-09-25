@@ -203,6 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             }
             
              // populate EndpointConfig
+            var requestEndpointConfigIsNull = true;
             request.EndpointConfig = new Amazon.IoTManagedIntegrations.Model.EndpointConfig();
             Amazon.IoTManagedIntegrations.Model.LambdaConfig requestEndpointConfig_endpointConfig_Lambda = null;
             
@@ -227,6 +228,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             if (requestEndpointConfig_endpointConfig_Lambda != null)
             {
                 request.EndpointConfig.Lambda = requestEndpointConfig_endpointConfig_Lambda;
+                requestEndpointConfigIsNull = false;
+            }
+             // determine if request.EndpointConfig should be set to null
+            if (requestEndpointConfigIsNull)
+            {
+                request.EndpointConfig = null;
             }
             if (cmdletContext.EndpointType != null)
             {

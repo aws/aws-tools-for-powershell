@@ -185,6 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             }
             
              // populate RetentionSettings
+            var requestRetentionSettingsIsNull = true;
             request.RetentionSettings = new Amazon.Chime.Model.RetentionSettings();
             Amazon.Chime.Model.ConversationRetentionSettings requestRetentionSettings_retentionSettings_ConversationRetentionSettings = null;
             
@@ -209,6 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             if (requestRetentionSettings_retentionSettings_ConversationRetentionSettings != null)
             {
                 request.RetentionSettings.ConversationRetentionSettings = requestRetentionSettings_retentionSettings_ConversationRetentionSettings;
+                requestRetentionSettingsIsNull = false;
             }
             Amazon.Chime.Model.RoomRetentionSettings requestRetentionSettings_retentionSettings_RoomRetentionSettings = null;
             
@@ -233,6 +235,12 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             if (requestRetentionSettings_retentionSettings_RoomRetentionSettings != null)
             {
                 request.RetentionSettings.RoomRetentionSettings = requestRetentionSettings_retentionSettings_RoomRetentionSettings;
+                requestRetentionSettingsIsNull = false;
+            }
+             // determine if request.RetentionSettings should be set to null
+            if (requestRetentionSettingsIsNull)
+            {
+                request.RetentionSettings = null;
             }
             
             CmdletOutput output;

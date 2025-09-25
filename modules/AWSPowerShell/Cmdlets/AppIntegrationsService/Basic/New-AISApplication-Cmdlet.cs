@@ -372,6 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.AIS
             }
             
              // populate ApplicationSourceConfig
+            var requestApplicationSourceConfigIsNull = true;
             request.ApplicationSourceConfig = new Amazon.AppIntegrationsService.Model.ApplicationSourceConfig();
             Amazon.AppIntegrationsService.Model.ExternalUrlConfig requestApplicationSourceConfig_applicationSourceConfig_ExternalUrlConfig = null;
             
@@ -406,6 +407,12 @@ namespace Amazon.PowerShell.Cmdlets.AIS
             if (requestApplicationSourceConfig_applicationSourceConfig_ExternalUrlConfig != null)
             {
                 request.ApplicationSourceConfig.ExternalUrlConfig = requestApplicationSourceConfig_applicationSourceConfig_ExternalUrlConfig;
+                requestApplicationSourceConfigIsNull = false;
+            }
+             // determine if request.ApplicationSourceConfig should be set to null
+            if (requestApplicationSourceConfigIsNull)
+            {
+                request.ApplicationSourceConfig = null;
             }
             if (cmdletContext.ClientToken != null)
             {

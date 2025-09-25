@@ -217,6 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             }
             
              // populate InputFile
+            var requestInputFileIsNull = true;
             request.InputFile = new Amazon.B2bi.Model.S3Location();
             System.String requestInputFile_inputFile_BucketName = null;
             if (cmdletContext.InputFile_BucketName != null)
@@ -226,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             if (requestInputFile_inputFile_BucketName != null)
             {
                 request.InputFile.BucketName = requestInputFile_inputFile_BucketName;
+                requestInputFileIsNull = false;
             }
             System.String requestInputFile_inputFile_Key = null;
             if (cmdletContext.InputFile_Key != null)
@@ -235,9 +237,16 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             if (requestInputFile_inputFile_Key != null)
             {
                 request.InputFile.Key = requestInputFile_inputFile_Key;
+                requestInputFileIsNull = false;
+            }
+             // determine if request.InputFile should be set to null
+            if (requestInputFileIsNull)
+            {
+                request.InputFile = null;
             }
             
              // populate OutputLocation
+            var requestOutputLocationIsNull = true;
             request.OutputLocation = new Amazon.B2bi.Model.S3Location();
             System.String requestOutputLocation_outputLocation_BucketName = null;
             if (cmdletContext.OutputLocation_BucketName != null)
@@ -247,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             if (requestOutputLocation_outputLocation_BucketName != null)
             {
                 request.OutputLocation.BucketName = requestOutputLocation_outputLocation_BucketName;
+                requestOutputLocationIsNull = false;
             }
             System.String requestOutputLocation_outputLocation_Key = null;
             if (cmdletContext.OutputLocation_Key != null)
@@ -256,6 +266,12 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             if (requestOutputLocation_outputLocation_Key != null)
             {
                 request.OutputLocation.Key = requestOutputLocation_outputLocation_Key;
+                requestOutputLocationIsNull = false;
+            }
+             // determine if request.OutputLocation should be set to null
+            if (requestOutputLocationIsNull)
+            {
+                request.OutputLocation = null;
             }
             if (cmdletContext.TransformerId != null)
             {

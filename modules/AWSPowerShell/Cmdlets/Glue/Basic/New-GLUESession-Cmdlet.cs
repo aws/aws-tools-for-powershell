@@ -372,6 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             
             
              // populate Command
+            var requestCommandIsNull = true;
             request.Command = new Amazon.Glue.Model.SessionCommand();
             System.String requestCommand_command_Name = null;
             if (cmdletContext.Command_Name != null)
@@ -381,6 +382,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestCommand_command_Name != null)
             {
                 request.Command.Name = requestCommand_command_Name;
+                requestCommandIsNull = false;
             }
             System.String requestCommand_command_PythonVersion = null;
             if (cmdletContext.Command_PythonVersion != null)
@@ -390,6 +392,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestCommand_command_PythonVersion != null)
             {
                 request.Command.PythonVersion = requestCommand_command_PythonVersion;
+                requestCommandIsNull = false;
+            }
+             // determine if request.Command should be set to null
+            if (requestCommandIsNull)
+            {
+                request.Command = null;
             }
             
              // populate Connections

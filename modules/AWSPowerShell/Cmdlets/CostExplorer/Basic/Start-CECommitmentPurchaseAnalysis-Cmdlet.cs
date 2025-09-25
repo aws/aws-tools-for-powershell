@@ -183,6 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
             
             
              // populate CommitmentPurchaseAnalysisConfiguration
+            var requestCommitmentPurchaseAnalysisConfigurationIsNull = true;
             request.CommitmentPurchaseAnalysisConfiguration = new Amazon.CostExplorer.Model.CommitmentPurchaseAnalysisConfiguration();
             Amazon.CostExplorer.Model.SavingsPlansPurchaseAnalysisConfiguration requestCommitmentPurchaseAnalysisConfiguration_commitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration = null;
             
@@ -257,6 +258,12 @@ namespace Amazon.PowerShell.Cmdlets.CE
             if (requestCommitmentPurchaseAnalysisConfiguration_commitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration != null)
             {
                 request.CommitmentPurchaseAnalysisConfiguration.SavingsPlansPurchaseAnalysisConfiguration = requestCommitmentPurchaseAnalysisConfiguration_commitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration;
+                requestCommitmentPurchaseAnalysisConfigurationIsNull = false;
+            }
+             // determine if request.CommitmentPurchaseAnalysisConfiguration should be set to null
+            if (requestCommitmentPurchaseAnalysisConfigurationIsNull)
+            {
+                request.CommitmentPurchaseAnalysisConfiguration = null;
             }
             
             CmdletOutput output;

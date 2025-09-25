@@ -394,6 +394,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             
              // populate TableOptimizerConfiguration
+            var requestTableOptimizerConfigurationIsNull = true;
             request.TableOptimizerConfiguration = new Amazon.Glue.Model.TableOptimizerConfiguration();
             System.Boolean? requestTableOptimizerConfiguration_tableOptimizerConfiguration_Enabled = null;
             if (cmdletContext.TableOptimizerConfiguration_Enabled != null)
@@ -403,6 +404,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_Enabled != null)
             {
                 request.TableOptimizerConfiguration.Enabled = requestTableOptimizerConfiguration_tableOptimizerConfiguration_Enabled.Value;
+                requestTableOptimizerConfigurationIsNull = false;
             }
             System.String requestTableOptimizerConfiguration_tableOptimizerConfiguration_RoleArn = null;
             if (cmdletContext.TableOptimizerConfiguration_RoleArn != null)
@@ -412,6 +414,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_RoleArn != null)
             {
                 request.TableOptimizerConfiguration.RoleArn = requestTableOptimizerConfiguration_tableOptimizerConfiguration_RoleArn;
+                requestTableOptimizerConfigurationIsNull = false;
             }
             Amazon.Glue.Model.CompactionConfiguration requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration = null;
             
@@ -471,6 +474,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration != null)
             {
                 request.TableOptimizerConfiguration.CompactionConfiguration = requestTableOptimizerConfiguration_tableOptimizerConfiguration_CompactionConfiguration;
+                requestTableOptimizerConfigurationIsNull = false;
             }
             Amazon.Glue.Model.OrphanFileDeletionConfiguration requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration = null;
             
@@ -530,6 +534,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration != null)
             {
                 request.TableOptimizerConfiguration.OrphanFileDeletionConfiguration = requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration;
+                requestTableOptimizerConfigurationIsNull = false;
             }
             Amazon.Glue.Model.RetentionConfiguration requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration = null;
             
@@ -599,6 +604,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration != null)
             {
                 request.TableOptimizerConfiguration.RetentionConfiguration = requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration;
+                requestTableOptimizerConfigurationIsNull = false;
             }
             Amazon.Glue.Model.TableOptimizerVpcConfiguration requestTableOptimizerConfiguration_tableOptimizerConfiguration_VpcConfiguration = null;
             
@@ -623,6 +629,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_VpcConfiguration != null)
             {
                 request.TableOptimizerConfiguration.VpcConfiguration = requestTableOptimizerConfiguration_tableOptimizerConfiguration_VpcConfiguration;
+                requestTableOptimizerConfigurationIsNull = false;
+            }
+             // determine if request.TableOptimizerConfiguration should be set to null
+            if (requestTableOptimizerConfigurationIsNull)
+            {
+                request.TableOptimizerConfiguration = null;
             }
             if (cmdletContext.Type != null)
             {

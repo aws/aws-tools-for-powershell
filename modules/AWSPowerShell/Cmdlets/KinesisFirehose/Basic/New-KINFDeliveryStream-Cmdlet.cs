@@ -3007,6 +3007,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             Amazon.KinesisFirehose.Model.DatabaseList requestDatabaseSourceConfiguration_databaseSourceConfiguration_Databases = null;
             
              // populate Databases
+            var requestDatabaseSourceConfiguration_databaseSourceConfiguration_DatabasesIsNull = true;
             requestDatabaseSourceConfiguration_databaseSourceConfiguration_Databases = new Amazon.KinesisFirehose.Model.DatabaseList();
             List<System.String> requestDatabaseSourceConfiguration_databaseSourceConfiguration_Databases_databases_Exclude = null;
             if (cmdletContext.Databases_Exclude != null)
@@ -3016,6 +3017,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             if (requestDatabaseSourceConfiguration_databaseSourceConfiguration_Databases_databases_Exclude != null)
             {
                 requestDatabaseSourceConfiguration_databaseSourceConfiguration_Databases.Exclude = requestDatabaseSourceConfiguration_databaseSourceConfiguration_Databases_databases_Exclude;
+                requestDatabaseSourceConfiguration_databaseSourceConfiguration_DatabasesIsNull = false;
             }
             List<System.String> requestDatabaseSourceConfiguration_databaseSourceConfiguration_Databases_databases_Include = null;
             if (cmdletContext.Databases_Include != null)
@@ -3025,6 +3027,12 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             if (requestDatabaseSourceConfiguration_databaseSourceConfiguration_Databases_databases_Include != null)
             {
                 requestDatabaseSourceConfiguration_databaseSourceConfiguration_Databases.Include = requestDatabaseSourceConfiguration_databaseSourceConfiguration_Databases_databases_Include;
+                requestDatabaseSourceConfiguration_databaseSourceConfiguration_DatabasesIsNull = false;
+            }
+             // determine if requestDatabaseSourceConfiguration_databaseSourceConfiguration_Databases should be set to null
+            if (requestDatabaseSourceConfiguration_databaseSourceConfiguration_DatabasesIsNull)
+            {
+                requestDatabaseSourceConfiguration_databaseSourceConfiguration_Databases = null;
             }
             if (requestDatabaseSourceConfiguration_databaseSourceConfiguration_Databases != null)
             {
@@ -3034,6 +3042,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             Amazon.KinesisFirehose.Model.DatabaseTableList requestDatabaseSourceConfiguration_databaseSourceConfiguration_Tables = null;
             
              // populate Tables
+            var requestDatabaseSourceConfiguration_databaseSourceConfiguration_TablesIsNull = true;
             requestDatabaseSourceConfiguration_databaseSourceConfiguration_Tables = new Amazon.KinesisFirehose.Model.DatabaseTableList();
             List<System.String> requestDatabaseSourceConfiguration_databaseSourceConfiguration_Tables_tables_Exclude = null;
             if (cmdletContext.Tables_Exclude != null)
@@ -3043,6 +3052,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             if (requestDatabaseSourceConfiguration_databaseSourceConfiguration_Tables_tables_Exclude != null)
             {
                 requestDatabaseSourceConfiguration_databaseSourceConfiguration_Tables.Exclude = requestDatabaseSourceConfiguration_databaseSourceConfiguration_Tables_tables_Exclude;
+                requestDatabaseSourceConfiguration_databaseSourceConfiguration_TablesIsNull = false;
             }
             List<System.String> requestDatabaseSourceConfiguration_databaseSourceConfiguration_Tables_tables_Include = null;
             if (cmdletContext.Tables_Include != null)
@@ -3052,6 +3062,12 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             if (requestDatabaseSourceConfiguration_databaseSourceConfiguration_Tables_tables_Include != null)
             {
                 requestDatabaseSourceConfiguration_databaseSourceConfiguration_Tables.Include = requestDatabaseSourceConfiguration_databaseSourceConfiguration_Tables_tables_Include;
+                requestDatabaseSourceConfiguration_databaseSourceConfiguration_TablesIsNull = false;
+            }
+             // determine if requestDatabaseSourceConfiguration_databaseSourceConfiguration_Tables should be set to null
+            if (requestDatabaseSourceConfiguration_databaseSourceConfiguration_TablesIsNull)
+            {
+                requestDatabaseSourceConfiguration_databaseSourceConfiguration_Tables = null;
             }
             if (requestDatabaseSourceConfiguration_databaseSourceConfiguration_Tables != null)
             {
@@ -3893,6 +3909,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             Amazon.KinesisFirehose.Model.CatalogConfiguration requestIcebergDestinationConfiguration_icebergDestinationConfiguration_CatalogConfiguration = null;
             
              // populate CatalogConfiguration
+            var requestIcebergDestinationConfiguration_icebergDestinationConfiguration_CatalogConfigurationIsNull = true;
             requestIcebergDestinationConfiguration_icebergDestinationConfiguration_CatalogConfiguration = new Amazon.KinesisFirehose.Model.CatalogConfiguration();
             System.String requestIcebergDestinationConfiguration_icebergDestinationConfiguration_CatalogConfiguration_catalogConfiguration_CatalogARN = null;
             if (cmdletContext.CatalogConfiguration_CatalogARN != null)
@@ -3902,6 +3919,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             if (requestIcebergDestinationConfiguration_icebergDestinationConfiguration_CatalogConfiguration_catalogConfiguration_CatalogARN != null)
             {
                 requestIcebergDestinationConfiguration_icebergDestinationConfiguration_CatalogConfiguration.CatalogARN = requestIcebergDestinationConfiguration_icebergDestinationConfiguration_CatalogConfiguration_catalogConfiguration_CatalogARN;
+                requestIcebergDestinationConfiguration_icebergDestinationConfiguration_CatalogConfigurationIsNull = false;
             }
             System.String requestIcebergDestinationConfiguration_icebergDestinationConfiguration_CatalogConfiguration_catalogConfiguration_WarehouseLocation = null;
             if (cmdletContext.CatalogConfiguration_WarehouseLocation != null)
@@ -3911,6 +3929,12 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             if (requestIcebergDestinationConfiguration_icebergDestinationConfiguration_CatalogConfiguration_catalogConfiguration_WarehouseLocation != null)
             {
                 requestIcebergDestinationConfiguration_icebergDestinationConfiguration_CatalogConfiguration.WarehouseLocation = requestIcebergDestinationConfiguration_icebergDestinationConfiguration_CatalogConfiguration_catalogConfiguration_WarehouseLocation;
+                requestIcebergDestinationConfiguration_icebergDestinationConfiguration_CatalogConfigurationIsNull = false;
+            }
+             // determine if requestIcebergDestinationConfiguration_icebergDestinationConfiguration_CatalogConfiguration should be set to null
+            if (requestIcebergDestinationConfiguration_icebergDestinationConfiguration_CatalogConfigurationIsNull)
+            {
+                requestIcebergDestinationConfiguration_icebergDestinationConfiguration_CatalogConfiguration = null;
             }
             if (requestIcebergDestinationConfiguration_icebergDestinationConfiguration_CatalogConfiguration != null)
             {

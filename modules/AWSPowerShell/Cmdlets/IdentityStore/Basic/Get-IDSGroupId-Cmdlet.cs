@@ -188,6 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             
             
              // populate AlternateIdentifier
+            var requestAlternateIdentifierIsNull = true;
             request.AlternateIdentifier = new Amazon.IdentityStore.Model.AlternateIdentifier();
             Amazon.IdentityStore.Model.ExternalId requestAlternateIdentifier_alternateIdentifier_ExternalId = null;
             
@@ -222,6 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             if (requestAlternateIdentifier_alternateIdentifier_ExternalId != null)
             {
                 request.AlternateIdentifier.ExternalId = requestAlternateIdentifier_alternateIdentifier_ExternalId;
+                requestAlternateIdentifierIsNull = false;
             }
             Amazon.IdentityStore.Model.UniqueAttribute requestAlternateIdentifier_alternateIdentifier_UniqueAttribute = null;
             
@@ -256,6 +258,12 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             if (requestAlternateIdentifier_alternateIdentifier_UniqueAttribute != null)
             {
                 request.AlternateIdentifier.UniqueAttribute = requestAlternateIdentifier_alternateIdentifier_UniqueAttribute;
+                requestAlternateIdentifierIsNull = false;
+            }
+             // determine if request.AlternateIdentifier should be set to null
+            if (requestAlternateIdentifierIsNull)
+            {
+                request.AlternateIdentifier = null;
             }
             if (cmdletContext.IdentityStoreId != null)
             {

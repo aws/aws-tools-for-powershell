@@ -727,6 +727,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             
             
              // populate Details
+            var requestDetailsIsNull = true;
             request.Details = new Amazon.DataExchange.Model.RequestDetails();
             Amazon.DataExchange.Model.CreateS3DataAccessFromS3BucketRequestDetails requestDetails_details_CreateS3DataAccessFromS3Bucket = null;
             
@@ -816,6 +817,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             if (requestDetails_details_CreateS3DataAccessFromS3Bucket != null)
             {
                 request.Details.CreateS3DataAccessFromS3Bucket = requestDetails_details_CreateS3DataAccessFromS3Bucket;
+                requestDetailsIsNull = false;
             }
             Amazon.DataExchange.Model.ExportAssetToSignedUrlRequestDetails requestDetails_details_ExportAssetToSignedUrl = null;
             
@@ -860,6 +862,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             if (requestDetails_details_ExportAssetToSignedUrl != null)
             {
                 request.Details.ExportAssetToSignedUrl = requestDetails_details_ExportAssetToSignedUrl;
+                requestDetailsIsNull = false;
             }
             Amazon.DataExchange.Model.ExportRevisionsToS3RequestDetails requestDetails_details_ExportRevisionsToS3 = null;
             
@@ -929,6 +932,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             if (requestDetails_details_ExportRevisionsToS3 != null)
             {
                 request.Details.ExportRevisionsToS3 = requestDetails_details_ExportRevisionsToS3;
+                requestDetailsIsNull = false;
             }
             Amazon.DataExchange.Model.ImportAssetsFromRedshiftDataSharesRequestDetails requestDetails_details_ImportAssetsFromRedshiftDataShares = null;
             
@@ -973,6 +977,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             if (requestDetails_details_ImportAssetsFromRedshiftDataShares != null)
             {
                 request.Details.ImportAssetsFromRedshiftDataShares = requestDetails_details_ImportAssetsFromRedshiftDataShares;
+                requestDetailsIsNull = false;
             }
             Amazon.DataExchange.Model.ImportAssetsFromS3RequestDetails requestDetails_details_ImportAssetsFromS3 = null;
             
@@ -1017,6 +1022,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             if (requestDetails_details_ImportAssetsFromS3 != null)
             {
                 request.Details.ImportAssetsFromS3 = requestDetails_details_ImportAssetsFromS3;
+                requestDetailsIsNull = false;
             }
             Amazon.DataExchange.Model.ExportAssetsToS3RequestDetails requestDetails_details_ExportAssetsToS3 = null;
             
@@ -1096,6 +1102,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             if (requestDetails_details_ExportAssetsToS3 != null)
             {
                 request.Details.ExportAssetsToS3 = requestDetails_details_ExportAssetsToS3;
+                requestDetailsIsNull = false;
             }
             Amazon.DataExchange.Model.ImportAssetFromSignedUrlRequestDetails requestDetails_details_ImportAssetFromSignedUrl = null;
             
@@ -1150,6 +1157,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             if (requestDetails_details_ImportAssetFromSignedUrl != null)
             {
                 request.Details.ImportAssetFromSignedUrl = requestDetails_details_ImportAssetFromSignedUrl;
+                requestDetailsIsNull = false;
             }
             Amazon.DataExchange.Model.ImportAssetsFromLakeFormationTagPolicyRequestDetails requestDetails_details_ImportAssetsFromLakeFormationTagPolicy = null;
             
@@ -1274,6 +1282,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             if (requestDetails_details_ImportAssetsFromLakeFormationTagPolicy != null)
             {
                 request.Details.ImportAssetsFromLakeFormationTagPolicy = requestDetails_details_ImportAssetsFromLakeFormationTagPolicy;
+                requestDetailsIsNull = false;
             }
             Amazon.DataExchange.Model.ImportAssetFromApiGatewayApiRequestDetails requestDetails_details_ImportAssetFromApiGatewayApi = null;
             
@@ -1378,6 +1387,12 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             if (requestDetails_details_ImportAssetFromApiGatewayApi != null)
             {
                 request.Details.ImportAssetFromApiGatewayApi = requestDetails_details_ImportAssetFromApiGatewayApi;
+                requestDetailsIsNull = false;
+            }
+             // determine if request.Details should be set to null
+            if (requestDetailsIsNull)
+            {
+                request.Details = null;
             }
             if (cmdletContext.Type != null)
             {

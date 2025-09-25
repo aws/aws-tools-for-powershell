@@ -229,6 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             }
             
              // populate Criteria
+            var requestCriteriaIsNull = true;
             request.Criteria = new Amazon.Macie2.Model.AllowListCriteria();
             System.String requestCriteria_criteria_Regex = null;
             if (cmdletContext.Criteria_Regex != null)
@@ -238,6 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             if (requestCriteria_criteria_Regex != null)
             {
                 request.Criteria.Regex = requestCriteria_criteria_Regex;
+                requestCriteriaIsNull = false;
             }
             Amazon.Macie2.Model.S3WordsList requestCriteria_criteria_S3WordsList = null;
             
@@ -272,6 +274,12 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             if (requestCriteria_criteria_S3WordsList != null)
             {
                 request.Criteria.S3WordsList = requestCriteria_criteria_S3WordsList;
+                requestCriteriaIsNull = false;
+            }
+             // determine if request.Criteria should be set to null
+            if (requestCriteriaIsNull)
+            {
+                request.Criteria = null;
             }
             if (cmdletContext.Description != null)
             {

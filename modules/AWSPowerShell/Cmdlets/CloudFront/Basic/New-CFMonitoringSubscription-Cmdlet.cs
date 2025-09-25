@@ -172,6 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             }
             
              // populate MonitoringSubscription
+            var requestMonitoringSubscriptionIsNull = true;
             request.MonitoringSubscription = new Amazon.CloudFront.Model.MonitoringSubscription();
             Amazon.CloudFront.Model.RealtimeMetricsSubscriptionConfig requestMonitoringSubscription_monitoringSubscription_RealtimeMetricsSubscriptionConfig = null;
             
@@ -196,6 +197,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (requestMonitoringSubscription_monitoringSubscription_RealtimeMetricsSubscriptionConfig != null)
             {
                 request.MonitoringSubscription.RealtimeMetricsSubscriptionConfig = requestMonitoringSubscription_monitoringSubscription_RealtimeMetricsSubscriptionConfig;
+                requestMonitoringSubscriptionIsNull = false;
+            }
+             // determine if request.MonitoringSubscription should be set to null
+            if (requestMonitoringSubscriptionIsNull)
+            {
+                request.MonitoringSubscription = null;
             }
             
             CmdletOutput output;

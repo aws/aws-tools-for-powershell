@@ -204,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             
              // populate ProvisioningProperties
+            var requestProvisioningPropertiesIsNull = true;
             request.ProvisioningProperties = new Amazon.DataZone.Model.ProvisioningProperties();
             Amazon.DataZone.Model.CloudFormationProperties requestProvisioningProperties_provisioningProperties_CloudFormation = null;
             
@@ -228,6 +229,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestProvisioningProperties_provisioningProperties_CloudFormation != null)
             {
                 request.ProvisioningProperties.CloudFormation = requestProvisioningProperties_provisioningProperties_CloudFormation;
+                requestProvisioningPropertiesIsNull = false;
+            }
+             // determine if request.ProvisioningProperties should be set to null
+            if (requestProvisioningPropertiesIsNull)
+            {
+                request.ProvisioningProperties = null;
             }
             if (cmdletContext.UserParameter != null)
             {

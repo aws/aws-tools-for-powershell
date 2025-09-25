@@ -296,6 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             Amazon.QConnect.Model.MessageData requestMessage_message_Value = null;
             
              // populate Value
+            var requestMessage_message_ValueIsNull = true;
             requestMessage_message_Value = new Amazon.QConnect.Model.MessageData();
             Amazon.QConnect.Model.TextMessage requestMessage_message_Value_message_Value_Text = null;
             
@@ -320,6 +321,12 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestMessage_message_Value_message_Value_Text != null)
             {
                 requestMessage_message_Value.Text = requestMessage_message_Value_message_Value_Text;
+                requestMessage_message_ValueIsNull = false;
+            }
+             // determine if requestMessage_message_Value should be set to null
+            if (requestMessage_message_ValueIsNull)
+            {
+                requestMessage_message_Value = null;
             }
             if (requestMessage_message_Value != null)
             {

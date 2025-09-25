@@ -744,6 +744,7 @@ namespace Amazon.PowerShell.Cmdlets.TSW
             }
             
              // populate ReportConfiguration
+            var requestReportConfigurationIsNull = true;
             request.ReportConfiguration = new Amazon.TimestreamWrite.Model.ReportConfiguration();
             Amazon.TimestreamWrite.Model.ReportS3Configuration requestReportConfiguration_reportConfiguration_ReportS3Configuration = null;
             
@@ -798,6 +799,12 @@ namespace Amazon.PowerShell.Cmdlets.TSW
             if (requestReportConfiguration_reportConfiguration_ReportS3Configuration != null)
             {
                 request.ReportConfiguration.ReportS3Configuration = requestReportConfiguration_reportConfiguration_ReportS3Configuration;
+                requestReportConfigurationIsNull = false;
+            }
+             // determine if request.ReportConfiguration should be set to null
+            if (requestReportConfigurationIsNull)
+            {
+                request.ReportConfiguration = null;
             }
             if (cmdletContext.TargetDatabaseName != null)
             {

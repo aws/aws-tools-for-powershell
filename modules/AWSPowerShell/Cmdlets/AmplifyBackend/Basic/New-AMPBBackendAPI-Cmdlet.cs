@@ -378,6 +378,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
             }
             
              // populate ResourceConfig
+            var requestResourceConfigIsNull = true;
             request.ResourceConfig = new Amazon.AmplifyBackend.Model.BackendAPIResourceConfig();
             List<Amazon.AmplifyBackend.Model.BackendAPIAuthType> requestResourceConfig_resourceConfig_AdditionalAuthType = null;
             if (cmdletContext.ResourceConfig_AdditionalAuthType != null)
@@ -387,6 +388,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
             if (requestResourceConfig_resourceConfig_AdditionalAuthType != null)
             {
                 request.ResourceConfig.AdditionalAuthTypes = requestResourceConfig_resourceConfig_AdditionalAuthType;
+                requestResourceConfigIsNull = false;
             }
             System.String requestResourceConfig_resourceConfig_ApiName = null;
             if (cmdletContext.ResourceConfig_ApiName != null)
@@ -396,6 +398,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
             if (requestResourceConfig_resourceConfig_ApiName != null)
             {
                 request.ResourceConfig.ApiName = requestResourceConfig_resourceConfig_ApiName;
+                requestResourceConfigIsNull = false;
             }
             System.String requestResourceConfig_resourceConfig_Service = null;
             if (cmdletContext.ResourceConfig_Service != null)
@@ -405,6 +408,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
             if (requestResourceConfig_resourceConfig_Service != null)
             {
                 request.ResourceConfig.Service = requestResourceConfig_resourceConfig_Service;
+                requestResourceConfigIsNull = false;
             }
             System.String requestResourceConfig_resourceConfig_TransformSchema = null;
             if (cmdletContext.ResourceConfig_TransformSchema != null)
@@ -414,6 +418,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
             if (requestResourceConfig_resourceConfig_TransformSchema != null)
             {
                 request.ResourceConfig.TransformSchema = requestResourceConfig_resourceConfig_TransformSchema;
+                requestResourceConfigIsNull = false;
             }
             Amazon.AmplifyBackend.Model.BackendAPIConflictResolution requestResourceConfig_resourceConfig_ConflictResolution = null;
             
@@ -438,6 +443,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
             if (requestResourceConfig_resourceConfig_ConflictResolution != null)
             {
                 request.ResourceConfig.ConflictResolution = requestResourceConfig_resourceConfig_ConflictResolution;
+                requestResourceConfigIsNull = false;
             }
             Amazon.AmplifyBackend.Model.BackendAPIAuthType requestResourceConfig_resourceConfig_DefaultAuthType = null;
             
@@ -557,6 +563,12 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
             if (requestResourceConfig_resourceConfig_DefaultAuthType != null)
             {
                 request.ResourceConfig.DefaultAuthType = requestResourceConfig_resourceConfig_DefaultAuthType;
+                requestResourceConfigIsNull = false;
+            }
+             // determine if request.ResourceConfig should be set to null
+            if (requestResourceConfigIsNull)
+            {
+                request.ResourceConfig = null;
             }
             if (cmdletContext.ResourceName != null)
             {

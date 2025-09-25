@@ -205,6 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             
             
              // populate DataBindingValueFilter
+            var requestDataBindingValueFilterIsNull = true;
             request.DataBindingValueFilter = new Amazon.IoTSiteWise.Model.DataBindingValueFilter();
             Amazon.IoTSiteWise.Model.AssetBindingValueFilter requestDataBindingValueFilter_dataBindingValueFilter_Asset = null;
             
@@ -229,6 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestDataBindingValueFilter_dataBindingValueFilter_Asset != null)
             {
                 request.DataBindingValueFilter.Asset = requestDataBindingValueFilter_dataBindingValueFilter_Asset;
+                requestDataBindingValueFilterIsNull = false;
             }
             Amazon.IoTSiteWise.Model.AssetModelBindingValueFilter requestDataBindingValueFilter_dataBindingValueFilter_AssetModel = null;
             
@@ -253,6 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestDataBindingValueFilter_dataBindingValueFilter_AssetModel != null)
             {
                 request.DataBindingValueFilter.AssetModel = requestDataBindingValueFilter_dataBindingValueFilter_AssetModel;
+                requestDataBindingValueFilterIsNull = false;
             }
             Amazon.IoTSiteWise.Model.AssetModelPropertyBindingValueFilter requestDataBindingValueFilter_dataBindingValueFilter_AssetModelProperty = null;
             
@@ -287,6 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestDataBindingValueFilter_dataBindingValueFilter_AssetModelProperty != null)
             {
                 request.DataBindingValueFilter.AssetModelProperty = requestDataBindingValueFilter_dataBindingValueFilter_AssetModelProperty;
+                requestDataBindingValueFilterIsNull = false;
             }
             Amazon.IoTSiteWise.Model.AssetPropertyBindingValueFilter requestDataBindingValueFilter_dataBindingValueFilter_AssetProperty = null;
             
@@ -321,6 +325,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestDataBindingValueFilter_dataBindingValueFilter_AssetProperty != null)
             {
                 request.DataBindingValueFilter.AssetProperty = requestDataBindingValueFilter_dataBindingValueFilter_AssetProperty;
+                requestDataBindingValueFilterIsNull = false;
+            }
+             // determine if request.DataBindingValueFilter should be set to null
+            if (requestDataBindingValueFilterIsNull)
+            {
+                request.DataBindingValueFilter = null;
             }
             if (cmdletContext.MaxResult != null)
             {

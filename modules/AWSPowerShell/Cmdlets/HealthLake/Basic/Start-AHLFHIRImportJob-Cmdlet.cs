@@ -234,6 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             }
             
              // populate InputDataConfig
+            var requestInputDataConfigIsNull = true;
             request.InputDataConfig = new Amazon.HealthLake.Model.InputDataConfig();
             System.String requestInputDataConfig_inputDataConfig_S3Uri = null;
             if (cmdletContext.InputDataConfig_S3Uri != null)
@@ -243,6 +244,12 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             if (requestInputDataConfig_inputDataConfig_S3Uri != null)
             {
                 request.InputDataConfig.S3Uri = requestInputDataConfig_inputDataConfig_S3Uri;
+                requestInputDataConfigIsNull = false;
+            }
+             // determine if request.InputDataConfig should be set to null
+            if (requestInputDataConfigIsNull)
+            {
+                request.InputDataConfig = null;
             }
             if (cmdletContext.JobName != null)
             {
@@ -250,6 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             }
             
              // populate JobOutputDataConfig
+            var requestJobOutputDataConfigIsNull = true;
             request.JobOutputDataConfig = new Amazon.HealthLake.Model.OutputDataConfig();
             Amazon.HealthLake.Model.S3Configuration requestJobOutputDataConfig_jobOutputDataConfig_S3Configuration = null;
             
@@ -284,6 +292,12 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             if (requestJobOutputDataConfig_jobOutputDataConfig_S3Configuration != null)
             {
                 request.JobOutputDataConfig.S3Configuration = requestJobOutputDataConfig_jobOutputDataConfig_S3Configuration;
+                requestJobOutputDataConfigIsNull = false;
+            }
+             // determine if request.JobOutputDataConfig should be set to null
+            if (requestJobOutputDataConfigIsNull)
+            {
+                request.JobOutputDataConfig = null;
             }
             if (cmdletContext.ValidationLevel != null)
             {

@@ -1086,6 +1086,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             }
             
              // populate Settings
+            var requestSettingsIsNull = true;
             request.Settings = new Amazon.DatabaseMigrationService.Model.DataProviderSettings();
             Amazon.DatabaseMigrationService.Model.DocDbDataProviderSettings requestSettings_settings_DocDbSettings = null;
             
@@ -1150,6 +1151,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestSettings_settings_DocDbSettings != null)
             {
                 request.Settings.DocDbSettings = requestSettings_settings_DocDbSettings;
+                requestSettingsIsNull = false;
             }
             Amazon.DatabaseMigrationService.Model.RedshiftDataProviderSettings requestSettings_settings_RedshiftSettings = null;
             
@@ -1214,6 +1216,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestSettings_settings_RedshiftSettings != null)
             {
                 request.Settings.RedshiftSettings = requestSettings_settings_RedshiftSettings;
+                requestSettingsIsNull = false;
             }
             Amazon.DatabaseMigrationService.Model.MariaDbDataProviderSettings requestSettings_settings_MariaDbSettings = null;
             
@@ -1288,6 +1291,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestSettings_settings_MariaDbSettings != null)
             {
                 request.Settings.MariaDbSettings = requestSettings_settings_MariaDbSettings;
+                requestSettingsIsNull = false;
             }
             Amazon.DatabaseMigrationService.Model.MySqlDataProviderSettings requestSettings_settings_MySqlSettings = null;
             
@@ -1362,6 +1366,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestSettings_settings_MySqlSettings != null)
             {
                 request.Settings.MySqlSettings = requestSettings_settings_MySqlSettings;
+                requestSettingsIsNull = false;
             }
             Amazon.DatabaseMigrationService.Model.IbmDb2LuwDataProviderSettings requestSettings_settings_IbmDb2LuwSettings = null;
             
@@ -1446,6 +1451,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestSettings_settings_IbmDb2LuwSettings != null)
             {
                 request.Settings.IbmDb2LuwSettings = requestSettings_settings_IbmDb2LuwSettings;
+                requestSettingsIsNull = false;
             }
             Amazon.DatabaseMigrationService.Model.IbmDb2zOsDataProviderSettings requestSettings_settings_IbmDb2zOsSettings = null;
             
@@ -1530,6 +1536,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestSettings_settings_IbmDb2zOsSettings != null)
             {
                 request.Settings.IbmDb2zOsSettings = requestSettings_settings_IbmDb2zOsSettings;
+                requestSettingsIsNull = false;
             }
             Amazon.DatabaseMigrationService.Model.MicrosoftSqlServerDataProviderSettings requestSettings_settings_MicrosoftSqlServerSettings = null;
             
@@ -1614,6 +1621,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestSettings_settings_MicrosoftSqlServerSettings != null)
             {
                 request.Settings.MicrosoftSqlServerSettings = requestSettings_settings_MicrosoftSqlServerSettings;
+                requestSettingsIsNull = false;
             }
             Amazon.DatabaseMigrationService.Model.PostgreSqlDataProviderSettings requestSettings_settings_PostgreSqlSettings = null;
             
@@ -1698,6 +1706,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestSettings_settings_PostgreSqlSettings != null)
             {
                 request.Settings.PostgreSqlSettings = requestSettings_settings_PostgreSqlSettings;
+                requestSettingsIsNull = false;
             }
             Amazon.DatabaseMigrationService.Model.MongoDbDataProviderSettings requestSettings_settings_MongoDbSettings = null;
             
@@ -1792,6 +1801,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestSettings_settings_MongoDbSettings != null)
             {
                 request.Settings.MongoDbSettings = requestSettings_settings_MongoDbSettings;
+                requestSettingsIsNull = false;
             }
             Amazon.DatabaseMigrationService.Model.OracleDataProviderSettings requestSettings_settings_OracleSettings = null;
             
@@ -1926,6 +1936,12 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestSettings_settings_OracleSettings != null)
             {
                 request.Settings.OracleSettings = requestSettings_settings_OracleSettings;
+                requestSettingsIsNull = false;
+            }
+             // determine if request.Settings should be set to null
+            if (requestSettingsIsNull)
+            {
+                request.Settings = null;
             }
             if (cmdletContext.Tag != null)
             {

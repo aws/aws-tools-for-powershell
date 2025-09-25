@@ -228,6 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             
              // populate OutboundCallerConfig
+            var requestOutboundCallerConfigIsNull = true;
             request.OutboundCallerConfig = new Amazon.Connect.Model.OutboundCallerConfig();
             System.String requestOutboundCallerConfig_outboundCallerConfig_OutboundCallerIdName = null;
             if (cmdletContext.OutboundCallerConfig_OutboundCallerIdName != null)
@@ -237,6 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestOutboundCallerConfig_outboundCallerConfig_OutboundCallerIdName != null)
             {
                 request.OutboundCallerConfig.OutboundCallerIdName = requestOutboundCallerConfig_outboundCallerConfig_OutboundCallerIdName;
+                requestOutboundCallerConfigIsNull = false;
             }
             System.String requestOutboundCallerConfig_outboundCallerConfig_OutboundCallerIdNumberId = null;
             if (cmdletContext.OutboundCallerConfig_OutboundCallerIdNumberId != null)
@@ -246,6 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestOutboundCallerConfig_outboundCallerConfig_OutboundCallerIdNumberId != null)
             {
                 request.OutboundCallerConfig.OutboundCallerIdNumberId = requestOutboundCallerConfig_outboundCallerConfig_OutboundCallerIdNumberId;
+                requestOutboundCallerConfigIsNull = false;
             }
             System.String requestOutboundCallerConfig_outboundCallerConfig_OutboundFlowId = null;
             if (cmdletContext.OutboundCallerConfig_OutboundFlowId != null)
@@ -255,6 +258,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestOutboundCallerConfig_outboundCallerConfig_OutboundFlowId != null)
             {
                 request.OutboundCallerConfig.OutboundFlowId = requestOutboundCallerConfig_outboundCallerConfig_OutboundFlowId;
+                requestOutboundCallerConfigIsNull = false;
+            }
+             // determine if request.OutboundCallerConfig should be set to null
+            if (requestOutboundCallerConfigIsNull)
+            {
+                request.OutboundCallerConfig = null;
             }
             if (cmdletContext.QueueId != null)
             {

@@ -200,6 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             }
             
              // populate JourneyStateRequest
+            var requestJourneyStateRequestIsNull = true;
             request.JourneyStateRequest = new Amazon.Pinpoint.Model.JourneyStateRequest();
             Amazon.Pinpoint.State requestJourneyStateRequest_journeyStateRequest_State = null;
             if (cmdletContext.JourneyStateRequest_State != null)
@@ -209,6 +210,12 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestJourneyStateRequest_journeyStateRequest_State != null)
             {
                 request.JourneyStateRequest.State = requestJourneyStateRequest_journeyStateRequest_State;
+                requestJourneyStateRequestIsNull = false;
+            }
+             // determine if request.JourneyStateRequest should be set to null
+            if (requestJourneyStateRequestIsNull)
+            {
+                request.JourneyStateRequest = null;
             }
             
             CmdletOutput output;

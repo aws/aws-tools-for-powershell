@@ -683,6 +683,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
             }
             
              // populate InputConfig
+            var requestInputConfigIsNull = true;
             request.InputConfig = new Amazon.SageMakerGeospatial.Model.InputConfigInput();
             System.String requestInputConfig_inputConfig_PreviousEarthObservationJobArn = null;
             if (cmdletContext.InputConfig_PreviousEarthObservationJobArn != null)
@@ -692,6 +693,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
             if (requestInputConfig_inputConfig_PreviousEarthObservationJobArn != null)
             {
                 request.InputConfig.PreviousEarthObservationJobArn = requestInputConfig_inputConfig_PreviousEarthObservationJobArn;
+                requestInputConfigIsNull = false;
             }
             Amazon.SageMakerGeospatial.Model.RasterDataCollectionQueryInput requestInputConfig_inputConfig_RasterDataCollectionQuery = null;
             
@@ -866,9 +868,16 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
             if (requestInputConfig_inputConfig_RasterDataCollectionQuery != null)
             {
                 request.InputConfig.RasterDataCollectionQuery = requestInputConfig_inputConfig_RasterDataCollectionQuery;
+                requestInputConfigIsNull = false;
+            }
+             // determine if request.InputConfig should be set to null
+            if (requestInputConfigIsNull)
+            {
+                request.InputConfig = null;
             }
             
              // populate JobConfig
+            var requestJobConfigIsNull = true;
             request.JobConfig = new Amazon.SageMakerGeospatial.Model.JobConfigInput();
             Amazon.SageMakerGeospatial.Model.CloudMaskingConfigInput requestJobConfig_jobConfig_CloudMaskingConfig = null;
             if (cmdletContext.JobConfig_CloudMaskingConfig != null)
@@ -878,6 +887,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
             if (requestJobConfig_jobConfig_CloudMaskingConfig != null)
             {
                 request.JobConfig.CloudMaskingConfig = requestJobConfig_jobConfig_CloudMaskingConfig;
+                requestJobConfigIsNull = false;
             }
             Amazon.SageMakerGeospatial.Model.LandCoverSegmentationConfigInput requestJobConfig_jobConfig_LandCoverSegmentationConfig = null;
             if (cmdletContext.JobConfig_LandCoverSegmentationConfig != null)
@@ -887,6 +897,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
             if (requestJobConfig_jobConfig_LandCoverSegmentationConfig != null)
             {
                 request.JobConfig.LandCoverSegmentationConfig = requestJobConfig_jobConfig_LandCoverSegmentationConfig;
+                requestJobConfigIsNull = false;
             }
             Amazon.SageMakerGeospatial.Model.BandMathConfigInput requestJobConfig_jobConfig_BandMathConfig = null;
             
@@ -936,6 +947,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
             if (requestJobConfig_jobConfig_BandMathConfig != null)
             {
                 request.JobConfig.BandMathConfig = requestJobConfig_jobConfig_BandMathConfig;
+                requestJobConfigIsNull = false;
             }
             Amazon.SageMakerGeospatial.Model.GeoMosaicConfigInput requestJobConfig_jobConfig_GeoMosaicConfig = null;
             
@@ -970,6 +982,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
             if (requestJobConfig_jobConfig_GeoMosaicConfig != null)
             {
                 request.JobConfig.GeoMosaicConfig = requestJobConfig_jobConfig_GeoMosaicConfig;
+                requestJobConfigIsNull = false;
             }
             Amazon.SageMakerGeospatial.Model.StackConfigInput requestJobConfig_jobConfig_StackConfig = null;
             
@@ -1054,6 +1067,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
             if (requestJobConfig_jobConfig_StackConfig != null)
             {
                 request.JobConfig.StackConfig = requestJobConfig_jobConfig_StackConfig;
+                requestJobConfigIsNull = false;
             }
             Amazon.SageMakerGeospatial.Model.CloudRemovalConfigInput requestJobConfig_jobConfig_CloudRemovalConfig = null;
             
@@ -1098,6 +1112,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
             if (requestJobConfig_jobConfig_CloudRemovalConfig != null)
             {
                 request.JobConfig.CloudRemovalConfig = requestJobConfig_jobConfig_CloudRemovalConfig;
+                requestJobConfigIsNull = false;
             }
             Amazon.SageMakerGeospatial.Model.ResamplingConfigInput requestJobConfig_jobConfig_ResamplingConfig = null;
             
@@ -1182,6 +1197,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
             if (requestJobConfig_jobConfig_ResamplingConfig != null)
             {
                 request.JobConfig.ResamplingConfig = requestJobConfig_jobConfig_ResamplingConfig;
+                requestJobConfigIsNull = false;
             }
             Amazon.SageMakerGeospatial.Model.TemporalStatisticsConfigInput requestJobConfig_jobConfig_TemporalStatisticsConfig = null;
             
@@ -1226,6 +1242,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
             if (requestJobConfig_jobConfig_TemporalStatisticsConfig != null)
             {
                 request.JobConfig.TemporalStatisticsConfig = requestJobConfig_jobConfig_TemporalStatisticsConfig;
+                requestJobConfigIsNull = false;
             }
             Amazon.SageMakerGeospatial.Model.ZonalStatisticsConfigInput requestJobConfig_jobConfig_ZonalStatisticsConfig = null;
             
@@ -1280,6 +1297,12 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
             if (requestJobConfig_jobConfig_ZonalStatisticsConfig != null)
             {
                 request.JobConfig.ZonalStatisticsConfig = requestJobConfig_jobConfig_ZonalStatisticsConfig;
+                requestJobConfigIsNull = false;
+            }
+             // determine if request.JobConfig should be set to null
+            if (requestJobConfigIsNull)
+            {
+                request.JobConfig = null;
             }
             if (cmdletContext.KmsKeyId != null)
             {

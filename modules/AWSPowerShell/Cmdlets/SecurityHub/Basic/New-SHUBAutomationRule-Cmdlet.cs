@@ -827,6 +827,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             }
             
              // populate Criteria
+            var requestCriteriaIsNull = true;
             request.Criteria = new Amazon.SecurityHub.Model.AutomationRulesFindingFilters();
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_AwsAccountId = null;
             if (cmdletContext.Criteria_AwsAccountId != null)
@@ -836,6 +837,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_AwsAccountId != null)
             {
                 request.Criteria.AwsAccountId = requestCriteria_criteria_AwsAccountId;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_AwsAccountName = null;
             if (cmdletContext.Criteria_AwsAccountName != null)
@@ -845,6 +847,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_AwsAccountName != null)
             {
                 request.Criteria.AwsAccountName = requestCriteria_criteria_AwsAccountName;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_CompanyName = null;
             if (cmdletContext.Criteria_CompanyName != null)
@@ -854,6 +857,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_CompanyName != null)
             {
                 request.Criteria.CompanyName = requestCriteria_criteria_CompanyName;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_ComplianceAssociatedStandardsId = null;
             if (cmdletContext.Criteria_ComplianceAssociatedStandardsId != null)
@@ -863,6 +867,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_ComplianceAssociatedStandardsId != null)
             {
                 request.Criteria.ComplianceAssociatedStandardsId = requestCriteria_criteria_ComplianceAssociatedStandardsId;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_ComplianceSecurityControlId = null;
             if (cmdletContext.Criteria_ComplianceSecurityControlId != null)
@@ -872,6 +877,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_ComplianceSecurityControlId != null)
             {
                 request.Criteria.ComplianceSecurityControlId = requestCriteria_criteria_ComplianceSecurityControlId;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_ComplianceStatus = null;
             if (cmdletContext.Criteria_ComplianceStatus != null)
@@ -881,6 +887,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_ComplianceStatus != null)
             {
                 request.Criteria.ComplianceStatus = requestCriteria_criteria_ComplianceStatus;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.NumberFilter> requestCriteria_criteria_Confidence = null;
             if (cmdletContext.Criteria_Confidence != null)
@@ -890,6 +897,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_Confidence != null)
             {
                 request.Criteria.Confidence = requestCriteria_criteria_Confidence;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.DateFilter> requestCriteria_criteria_CreatedAt = null;
             if (cmdletContext.Criteria_CreatedAt != null)
@@ -899,6 +907,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_CreatedAt != null)
             {
                 request.Criteria.CreatedAt = requestCriteria_criteria_CreatedAt;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.NumberFilter> requestCriteria_criteria_Criticality = null;
             if (cmdletContext.Criteria_Criticality != null)
@@ -908,6 +917,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_Criticality != null)
             {
                 request.Criteria.Criticality = requestCriteria_criteria_Criticality;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_Description = null;
             if (cmdletContext.Criteria_Description != null)
@@ -917,6 +927,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_Description != null)
             {
                 request.Criteria.Description = requestCriteria_criteria_Description;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.DateFilter> requestCriteria_criteria_FirstObservedAt = null;
             if (cmdletContext.Criteria_FirstObservedAt != null)
@@ -926,6 +937,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_FirstObservedAt != null)
             {
                 request.Criteria.FirstObservedAt = requestCriteria_criteria_FirstObservedAt;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_GeneratorId = null;
             if (cmdletContext.Criteria_GeneratorId != null)
@@ -935,6 +947,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_GeneratorId != null)
             {
                 request.Criteria.GeneratorId = requestCriteria_criteria_GeneratorId;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_Id = null;
             if (cmdletContext.Criteria_Id != null)
@@ -944,6 +957,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_Id != null)
             {
                 request.Criteria.Id = requestCriteria_criteria_Id;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.DateFilter> requestCriteria_criteria_LastObservedAt = null;
             if (cmdletContext.Criteria_LastObservedAt != null)
@@ -953,6 +967,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_LastObservedAt != null)
             {
                 request.Criteria.LastObservedAt = requestCriteria_criteria_LastObservedAt;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_NoteText = null;
             if (cmdletContext.Criteria_NoteText != null)
@@ -962,6 +977,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_NoteText != null)
             {
                 request.Criteria.NoteText = requestCriteria_criteria_NoteText;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.DateFilter> requestCriteria_criteria_NoteUpdatedAt = null;
             if (cmdletContext.Criteria_NoteUpdatedAt != null)
@@ -971,6 +987,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_NoteUpdatedAt != null)
             {
                 request.Criteria.NoteUpdatedAt = requestCriteria_criteria_NoteUpdatedAt;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_NoteUpdatedBy = null;
             if (cmdletContext.Criteria_NoteUpdatedBy != null)
@@ -980,6 +997,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_NoteUpdatedBy != null)
             {
                 request.Criteria.NoteUpdatedBy = requestCriteria_criteria_NoteUpdatedBy;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_ProductArn = null;
             if (cmdletContext.Criteria_ProductArn != null)
@@ -989,6 +1007,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_ProductArn != null)
             {
                 request.Criteria.ProductArn = requestCriteria_criteria_ProductArn;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_ProductName = null;
             if (cmdletContext.Criteria_ProductName != null)
@@ -998,6 +1017,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_ProductName != null)
             {
                 request.Criteria.ProductName = requestCriteria_criteria_ProductName;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_RecordState = null;
             if (cmdletContext.Criteria_RecordState != null)
@@ -1007,6 +1027,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_RecordState != null)
             {
                 request.Criteria.RecordState = requestCriteria_criteria_RecordState;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_RelatedFindingsId = null;
             if (cmdletContext.Criteria_RelatedFindingsId != null)
@@ -1016,6 +1037,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_RelatedFindingsId != null)
             {
                 request.Criteria.RelatedFindingsId = requestCriteria_criteria_RelatedFindingsId;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_RelatedFindingsProductArn = null;
             if (cmdletContext.Criteria_RelatedFindingsProductArn != null)
@@ -1025,6 +1047,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_RelatedFindingsProductArn != null)
             {
                 request.Criteria.RelatedFindingsProductArn = requestCriteria_criteria_RelatedFindingsProductArn;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_ResourceApplicationArn = null;
             if (cmdletContext.Criteria_ResourceApplicationArn != null)
@@ -1034,6 +1057,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_ResourceApplicationArn != null)
             {
                 request.Criteria.ResourceApplicationArn = requestCriteria_criteria_ResourceApplicationArn;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_ResourceApplicationName = null;
             if (cmdletContext.Criteria_ResourceApplicationName != null)
@@ -1043,6 +1067,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_ResourceApplicationName != null)
             {
                 request.Criteria.ResourceApplicationName = requestCriteria_criteria_ResourceApplicationName;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.MapFilter> requestCriteria_criteria_ResourceDetailsOther = null;
             if (cmdletContext.Criteria_ResourceDetailsOther != null)
@@ -1052,6 +1077,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_ResourceDetailsOther != null)
             {
                 request.Criteria.ResourceDetailsOther = requestCriteria_criteria_ResourceDetailsOther;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_ResourceId = null;
             if (cmdletContext.Criteria_ResourceId != null)
@@ -1061,6 +1087,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_ResourceId != null)
             {
                 request.Criteria.ResourceId = requestCriteria_criteria_ResourceId;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_ResourcePartition = null;
             if (cmdletContext.Criteria_ResourcePartition != null)
@@ -1070,6 +1097,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_ResourcePartition != null)
             {
                 request.Criteria.ResourcePartition = requestCriteria_criteria_ResourcePartition;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_ResourceRegion = null;
             if (cmdletContext.Criteria_ResourceRegion != null)
@@ -1079,6 +1107,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_ResourceRegion != null)
             {
                 request.Criteria.ResourceRegion = requestCriteria_criteria_ResourceRegion;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.MapFilter> requestCriteria_criteria_ResourceTag = null;
             if (cmdletContext.Criteria_ResourceTag != null)
@@ -1088,6 +1117,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_ResourceTag != null)
             {
                 request.Criteria.ResourceTags = requestCriteria_criteria_ResourceTag;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_ResourceType = null;
             if (cmdletContext.Criteria_ResourceType != null)
@@ -1097,6 +1127,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_ResourceType != null)
             {
                 request.Criteria.ResourceType = requestCriteria_criteria_ResourceType;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_SeverityLabel = null;
             if (cmdletContext.Criteria_SeverityLabel != null)
@@ -1106,6 +1137,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_SeverityLabel != null)
             {
                 request.Criteria.SeverityLabel = requestCriteria_criteria_SeverityLabel;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_SourceUrl = null;
             if (cmdletContext.Criteria_SourceUrl != null)
@@ -1115,6 +1147,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_SourceUrl != null)
             {
                 request.Criteria.SourceUrl = requestCriteria_criteria_SourceUrl;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_Title = null;
             if (cmdletContext.Criteria_Title != null)
@@ -1124,6 +1157,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_Title != null)
             {
                 request.Criteria.Title = requestCriteria_criteria_Title;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_Type = null;
             if (cmdletContext.Criteria_Type != null)
@@ -1133,6 +1167,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_Type != null)
             {
                 request.Criteria.Type = requestCriteria_criteria_Type;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.DateFilter> requestCriteria_criteria_UpdatedAt = null;
             if (cmdletContext.Criteria_UpdatedAt != null)
@@ -1142,6 +1177,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_UpdatedAt != null)
             {
                 request.Criteria.UpdatedAt = requestCriteria_criteria_UpdatedAt;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.MapFilter> requestCriteria_criteria_UserDefinedField = null;
             if (cmdletContext.Criteria_UserDefinedField != null)
@@ -1151,6 +1187,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_UserDefinedField != null)
             {
                 request.Criteria.UserDefinedFields = requestCriteria_criteria_UserDefinedField;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_VerificationState = null;
             if (cmdletContext.Criteria_VerificationState != null)
@@ -1160,6 +1197,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_VerificationState != null)
             {
                 request.Criteria.VerificationState = requestCriteria_criteria_VerificationState;
+                requestCriteriaIsNull = false;
             }
             List<Amazon.SecurityHub.Model.StringFilter> requestCriteria_criteria_WorkflowStatus = null;
             if (cmdletContext.Criteria_WorkflowStatus != null)
@@ -1169,6 +1207,12 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestCriteria_criteria_WorkflowStatus != null)
             {
                 request.Criteria.WorkflowStatus = requestCriteria_criteria_WorkflowStatus;
+                requestCriteriaIsNull = false;
+            }
+             // determine if request.Criteria should be set to null
+            if (requestCriteriaIsNull)
+            {
+                request.Criteria = null;
             }
             if (cmdletContext.Description != null)
             {

@@ -287,6 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             Amazon.CleanRooms.Model.MembershipProtectedJobOutputConfiguration requestDefaultJobResultConfiguration_defaultJobResultConfiguration_OutputConfiguration = null;
             
              // populate OutputConfiguration
+            var requestDefaultJobResultConfiguration_defaultJobResultConfiguration_OutputConfigurationIsNull = true;
             requestDefaultJobResultConfiguration_defaultJobResultConfiguration_OutputConfiguration = new Amazon.CleanRooms.Model.MembershipProtectedJobOutputConfiguration();
             Amazon.CleanRooms.Model.ProtectedJobS3OutputConfigurationInput requestDefaultJobResultConfiguration_defaultJobResultConfiguration_OutputConfiguration_defaultJobResultConfiguration_OutputConfiguration_S3 = null;
             
@@ -321,6 +322,12 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestDefaultJobResultConfiguration_defaultJobResultConfiguration_OutputConfiguration_defaultJobResultConfiguration_OutputConfiguration_S3 != null)
             {
                 requestDefaultJobResultConfiguration_defaultJobResultConfiguration_OutputConfiguration.S3 = requestDefaultJobResultConfiguration_defaultJobResultConfiguration_OutputConfiguration_defaultJobResultConfiguration_OutputConfiguration_S3;
+                requestDefaultJobResultConfiguration_defaultJobResultConfiguration_OutputConfigurationIsNull = false;
+            }
+             // determine if requestDefaultJobResultConfiguration_defaultJobResultConfiguration_OutputConfiguration should be set to null
+            if (requestDefaultJobResultConfiguration_defaultJobResultConfiguration_OutputConfigurationIsNull)
+            {
+                requestDefaultJobResultConfiguration_defaultJobResultConfiguration_OutputConfiguration = null;
             }
             if (requestDefaultJobResultConfiguration_defaultJobResultConfiguration_OutputConfiguration != null)
             {
@@ -349,6 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             Amazon.CleanRooms.Model.MembershipProtectedQueryOutputConfiguration requestDefaultResultConfiguration_defaultResultConfiguration_OutputConfiguration = null;
             
              // populate OutputConfiguration
+            var requestDefaultResultConfiguration_defaultResultConfiguration_OutputConfigurationIsNull = true;
             requestDefaultResultConfiguration_defaultResultConfiguration_OutputConfiguration = new Amazon.CleanRooms.Model.MembershipProtectedQueryOutputConfiguration();
             Amazon.CleanRooms.Model.ProtectedQueryS3OutputConfiguration requestDefaultResultConfiguration_defaultResultConfiguration_OutputConfiguration_defaultResultConfiguration_OutputConfiguration_S3 = null;
             
@@ -403,6 +411,12 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestDefaultResultConfiguration_defaultResultConfiguration_OutputConfiguration_defaultResultConfiguration_OutputConfiguration_S3 != null)
             {
                 requestDefaultResultConfiguration_defaultResultConfiguration_OutputConfiguration.S3 = requestDefaultResultConfiguration_defaultResultConfiguration_OutputConfiguration_defaultResultConfiguration_OutputConfiguration_S3;
+                requestDefaultResultConfiguration_defaultResultConfiguration_OutputConfigurationIsNull = false;
+            }
+             // determine if requestDefaultResultConfiguration_defaultResultConfiguration_OutputConfiguration should be set to null
+            if (requestDefaultResultConfiguration_defaultResultConfiguration_OutputConfigurationIsNull)
+            {
+                requestDefaultResultConfiguration_defaultResultConfiguration_OutputConfiguration = null;
             }
             if (requestDefaultResultConfiguration_defaultResultConfiguration_OutputConfiguration != null)
             {

@@ -232,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             }
             
              // populate OutputDataConfig
+            var requestOutputDataConfigIsNull = true;
             request.OutputDataConfig = new Amazon.HealthLake.Model.OutputDataConfig();
             Amazon.HealthLake.Model.S3Configuration requestOutputDataConfig_outputDataConfig_S3Configuration = null;
             
@@ -266,6 +267,12 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             if (requestOutputDataConfig_outputDataConfig_S3Configuration != null)
             {
                 request.OutputDataConfig.S3Configuration = requestOutputDataConfig_outputDataConfig_S3Configuration;
+                requestOutputDataConfigIsNull = false;
+            }
+             // determine if request.OutputDataConfig should be set to null
+            if (requestOutputDataConfigIsNull)
+            {
+                request.OutputDataConfig = null;
             }
             
             CmdletOutput output;

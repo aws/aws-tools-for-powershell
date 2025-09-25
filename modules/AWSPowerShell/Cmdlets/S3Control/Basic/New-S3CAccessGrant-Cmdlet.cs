@@ -344,6 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             }
             
              // populate Grantee
+            var requestGranteeIsNull = true;
             request.Grantee = new Amazon.S3Control.Model.Grantee();
             System.String requestGrantee_grantee_GranteeIdentifier = null;
             if (cmdletContext.Grantee_GranteeIdentifier != null)
@@ -353,6 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestGrantee_grantee_GranteeIdentifier != null)
             {
                 request.Grantee.GranteeIdentifier = requestGrantee_grantee_GranteeIdentifier;
+                requestGranteeIsNull = false;
             }
             Amazon.S3Control.GranteeType requestGrantee_grantee_GranteeType = null;
             if (cmdletContext.Grantee_GranteeType != null)
@@ -362,6 +364,12 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestGrantee_grantee_GranteeType != null)
             {
                 request.Grantee.GranteeType = requestGrantee_grantee_GranteeType;
+                requestGranteeIsNull = false;
+            }
+             // determine if request.Grantee should be set to null
+            if (requestGranteeIsNull)
+            {
+                request.Grantee = null;
             }
             if (cmdletContext.Permission != null)
             {

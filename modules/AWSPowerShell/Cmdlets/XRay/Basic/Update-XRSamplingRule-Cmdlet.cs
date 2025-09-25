@@ -270,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
             
             
              // populate SamplingRuleUpdate
+            var requestSamplingRuleUpdateIsNull = true;
             request.SamplingRuleUpdate = new Amazon.XRay.Model.SamplingRuleUpdate();
             Dictionary<System.String, System.String> requestSamplingRuleUpdate_samplingRuleUpdate_Attribute = null;
             if (cmdletContext.SamplingRuleUpdate_Attribute != null)
@@ -279,6 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
             if (requestSamplingRuleUpdate_samplingRuleUpdate_Attribute != null)
             {
                 request.SamplingRuleUpdate.Attributes = requestSamplingRuleUpdate_samplingRuleUpdate_Attribute;
+                requestSamplingRuleUpdateIsNull = false;
             }
             System.Double? requestSamplingRuleUpdate_samplingRuleUpdate_FixedRate = null;
             if (cmdletContext.SamplingRuleUpdate_FixedRate != null)
@@ -288,6 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
             if (requestSamplingRuleUpdate_samplingRuleUpdate_FixedRate != null)
             {
                 request.SamplingRuleUpdate.FixedRate = requestSamplingRuleUpdate_samplingRuleUpdate_FixedRate.Value;
+                requestSamplingRuleUpdateIsNull = false;
             }
             System.String requestSamplingRuleUpdate_samplingRuleUpdate_Host = null;
             if (cmdletContext.SamplingRuleUpdate_Host != null)
@@ -297,6 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
             if (requestSamplingRuleUpdate_samplingRuleUpdate_Host != null)
             {
                 request.SamplingRuleUpdate.Host = requestSamplingRuleUpdate_samplingRuleUpdate_Host;
+                requestSamplingRuleUpdateIsNull = false;
             }
             System.String requestSamplingRuleUpdate_samplingRuleUpdate_HTTPMethod = null;
             if (cmdletContext.SamplingRuleUpdate_HTTPMethod != null)
@@ -306,6 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
             if (requestSamplingRuleUpdate_samplingRuleUpdate_HTTPMethod != null)
             {
                 request.SamplingRuleUpdate.HTTPMethod = requestSamplingRuleUpdate_samplingRuleUpdate_HTTPMethod;
+                requestSamplingRuleUpdateIsNull = false;
             }
             System.Int32? requestSamplingRuleUpdate_samplingRuleUpdate_Priority = null;
             if (cmdletContext.SamplingRuleUpdate_Priority != null)
@@ -315,6 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
             if (requestSamplingRuleUpdate_samplingRuleUpdate_Priority != null)
             {
                 request.SamplingRuleUpdate.Priority = requestSamplingRuleUpdate_samplingRuleUpdate_Priority.Value;
+                requestSamplingRuleUpdateIsNull = false;
             }
             System.Int32? requestSamplingRuleUpdate_samplingRuleUpdate_ReservoirSize = null;
             if (cmdletContext.SamplingRuleUpdate_ReservoirSize != null)
@@ -324,6 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
             if (requestSamplingRuleUpdate_samplingRuleUpdate_ReservoirSize != null)
             {
                 request.SamplingRuleUpdate.ReservoirSize = requestSamplingRuleUpdate_samplingRuleUpdate_ReservoirSize.Value;
+                requestSamplingRuleUpdateIsNull = false;
             }
             System.String requestSamplingRuleUpdate_samplingRuleUpdate_ResourceARN = null;
             if (cmdletContext.SamplingRuleUpdate_ResourceARN != null)
@@ -333,6 +340,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
             if (requestSamplingRuleUpdate_samplingRuleUpdate_ResourceARN != null)
             {
                 request.SamplingRuleUpdate.ResourceARN = requestSamplingRuleUpdate_samplingRuleUpdate_ResourceARN;
+                requestSamplingRuleUpdateIsNull = false;
             }
             System.String requestSamplingRuleUpdate_samplingRuleUpdate_RuleARN = null;
             if (cmdletContext.SamplingRuleUpdate_RuleARN != null)
@@ -342,6 +350,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
             if (requestSamplingRuleUpdate_samplingRuleUpdate_RuleARN != null)
             {
                 request.SamplingRuleUpdate.RuleARN = requestSamplingRuleUpdate_samplingRuleUpdate_RuleARN;
+                requestSamplingRuleUpdateIsNull = false;
             }
             System.String requestSamplingRuleUpdate_samplingRuleUpdate_RuleName = null;
             if (cmdletContext.SamplingRuleUpdate_RuleName != null)
@@ -351,6 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
             if (requestSamplingRuleUpdate_samplingRuleUpdate_RuleName != null)
             {
                 request.SamplingRuleUpdate.RuleName = requestSamplingRuleUpdate_samplingRuleUpdate_RuleName;
+                requestSamplingRuleUpdateIsNull = false;
             }
             System.String requestSamplingRuleUpdate_samplingRuleUpdate_ServiceName = null;
             if (cmdletContext.SamplingRuleUpdate_ServiceName != null)
@@ -360,6 +370,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
             if (requestSamplingRuleUpdate_samplingRuleUpdate_ServiceName != null)
             {
                 request.SamplingRuleUpdate.ServiceName = requestSamplingRuleUpdate_samplingRuleUpdate_ServiceName;
+                requestSamplingRuleUpdateIsNull = false;
             }
             System.String requestSamplingRuleUpdate_samplingRuleUpdate_ServiceType = null;
             if (cmdletContext.SamplingRuleUpdate_ServiceType != null)
@@ -369,6 +380,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
             if (requestSamplingRuleUpdate_samplingRuleUpdate_ServiceType != null)
             {
                 request.SamplingRuleUpdate.ServiceType = requestSamplingRuleUpdate_samplingRuleUpdate_ServiceType;
+                requestSamplingRuleUpdateIsNull = false;
             }
             System.String requestSamplingRuleUpdate_samplingRuleUpdate_URLPath = null;
             if (cmdletContext.SamplingRuleUpdate_URLPath != null)
@@ -378,6 +390,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
             if (requestSamplingRuleUpdate_samplingRuleUpdate_URLPath != null)
             {
                 request.SamplingRuleUpdate.URLPath = requestSamplingRuleUpdate_samplingRuleUpdate_URLPath;
+                requestSamplingRuleUpdateIsNull = false;
             }
             Amazon.XRay.Model.SamplingRateBoost requestSamplingRuleUpdate_samplingRuleUpdate_SamplingRateBoost = null;
             
@@ -412,6 +425,12 @@ namespace Amazon.PowerShell.Cmdlets.XR
             if (requestSamplingRuleUpdate_samplingRuleUpdate_SamplingRateBoost != null)
             {
                 request.SamplingRuleUpdate.SamplingRateBoost = requestSamplingRuleUpdate_samplingRuleUpdate_SamplingRateBoost;
+                requestSamplingRuleUpdateIsNull = false;
+            }
+             // determine if request.SamplingRuleUpdate should be set to null
+            if (requestSamplingRuleUpdateIsNull)
+            {
+                request.SamplingRuleUpdate = null;
             }
             
             CmdletOutput output;

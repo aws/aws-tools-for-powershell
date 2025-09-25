@@ -292,6 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             
              // populate ComputeQuotaConfig
+            var requestComputeQuotaConfigIsNull = true;
             request.ComputeQuotaConfig = new Amazon.SageMaker.Model.ComputeQuotaConfig();
             List<Amazon.SageMaker.Model.ComputeQuotaResourceConfig> requestComputeQuotaConfig_computeQuotaConfig_ComputeQuotaResource = null;
             if (cmdletContext.ComputeQuotaConfig_ComputeQuotaResource != null)
@@ -301,6 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestComputeQuotaConfig_computeQuotaConfig_ComputeQuotaResource != null)
             {
                 request.ComputeQuotaConfig.ComputeQuotaResources = requestComputeQuotaConfig_computeQuotaConfig_ComputeQuotaResource;
+                requestComputeQuotaConfigIsNull = false;
             }
             Amazon.SageMaker.PreemptTeamTasks requestComputeQuotaConfig_computeQuotaConfig_PreemptTeamTask = null;
             if (cmdletContext.ComputeQuotaConfig_PreemptTeamTask != null)
@@ -310,6 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestComputeQuotaConfig_computeQuotaConfig_PreemptTeamTask != null)
             {
                 request.ComputeQuotaConfig.PreemptTeamTasks = requestComputeQuotaConfig_computeQuotaConfig_PreemptTeamTask;
+                requestComputeQuotaConfigIsNull = false;
             }
             Amazon.SageMaker.Model.ResourceSharingConfig requestComputeQuotaConfig_computeQuotaConfig_ResourceSharingConfig = null;
             
@@ -344,6 +347,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestComputeQuotaConfig_computeQuotaConfig_ResourceSharingConfig != null)
             {
                 request.ComputeQuotaConfig.ResourceSharingConfig = requestComputeQuotaConfig_computeQuotaConfig_ResourceSharingConfig;
+                requestComputeQuotaConfigIsNull = false;
+            }
+             // determine if request.ComputeQuotaConfig should be set to null
+            if (requestComputeQuotaConfigIsNull)
+            {
+                request.ComputeQuotaConfig = null;
             }
             
              // populate ComputeQuotaTarget

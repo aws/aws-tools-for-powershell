@@ -1630,6 +1630,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             Amazon.SageMaker.Model.StoppingCondition requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition = null;
             
              // populate StoppingCondition
+            var requestTrainingJobDefinition_trainingJobDefinition_StoppingConditionIsNull = true;
             requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition = new Amazon.SageMaker.Model.StoppingCondition();
             System.Int32? requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxPendingTimeInSecond = null;
             if (cmdletContext.StoppingCondition_MaxPendingTimeInSecond != null)
@@ -1639,6 +1640,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxPendingTimeInSecond != null)
             {
                 requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition.MaxPendingTimeInSeconds = requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxPendingTimeInSecond.Value;
+                requestTrainingJobDefinition_trainingJobDefinition_StoppingConditionIsNull = false;
             }
             System.Int32? requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxRuntimeInSecond = null;
             if (cmdletContext.StoppingCondition_MaxRuntimeInSecond != null)
@@ -1648,6 +1650,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxRuntimeInSecond != null)
             {
                 requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition.MaxRuntimeInSeconds = requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxRuntimeInSecond.Value;
+                requestTrainingJobDefinition_trainingJobDefinition_StoppingConditionIsNull = false;
             }
             System.Int32? requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxWaitTimeInSecond = null;
             if (cmdletContext.StoppingCondition_MaxWaitTimeInSecond != null)
@@ -1657,6 +1660,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxWaitTimeInSecond != null)
             {
                 requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition.MaxWaitTimeInSeconds = requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition_stoppingCondition_MaxWaitTimeInSecond.Value;
+                requestTrainingJobDefinition_trainingJobDefinition_StoppingConditionIsNull = false;
+            }
+             // determine if requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition should be set to null
+            if (requestTrainingJobDefinition_trainingJobDefinition_StoppingConditionIsNull)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition = null;
             }
             if (requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition != null)
             {

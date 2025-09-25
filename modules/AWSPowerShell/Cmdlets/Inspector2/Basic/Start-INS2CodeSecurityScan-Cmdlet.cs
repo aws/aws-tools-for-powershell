@@ -148,6 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             }
             
              // populate Resource
+            var requestResourceIsNull = true;
             request.Resource = new Amazon.Inspector2.Model.CodeSecurityResource();
             System.String requestResource_resource_ProjectId = null;
             if (cmdletContext.Resource_ProjectId != null)
@@ -157,6 +158,12 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestResource_resource_ProjectId != null)
             {
                 request.Resource.ProjectId = requestResource_resource_ProjectId;
+                requestResourceIsNull = false;
+            }
+             // determine if request.Resource should be set to null
+            if (requestResourceIsNull)
+            {
+                request.Resource = null;
             }
             
             CmdletOutput output;

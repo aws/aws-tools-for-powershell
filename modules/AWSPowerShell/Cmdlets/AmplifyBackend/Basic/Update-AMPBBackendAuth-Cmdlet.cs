@@ -679,6 +679,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
             Amazon.AmplifyBackend.Model.UpdateBackendAuthUserPoolConfig requestResourceConfig_resourceConfig_UserPoolConfigs = null;
             
              // populate UserPoolConfigs
+            var requestResourceConfig_resourceConfig_UserPoolConfigsIsNull = true;
             requestResourceConfig_resourceConfig_UserPoolConfigs = new Amazon.AmplifyBackend.Model.UpdateBackendAuthUserPoolConfig();
             Amazon.AmplifyBackend.Model.UpdateBackendAuthMFAConfig requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_Mfa = null;
             
@@ -738,6 +739,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
             if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_Mfa != null)
             {
                 requestResourceConfig_resourceConfig_UserPoolConfigs.Mfa = requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_Mfa;
+                requestResourceConfig_resourceConfig_UserPoolConfigsIsNull = false;
             }
             Amazon.AmplifyBackend.Model.UpdateBackendAuthPasswordPolicyConfig requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_PasswordPolicy = null;
             
@@ -772,6 +774,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
             if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_PasswordPolicy != null)
             {
                 requestResourceConfig_resourceConfig_UserPoolConfigs.PasswordPolicy = requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_PasswordPolicy;
+                requestResourceConfig_resourceConfig_UserPoolConfigsIsNull = false;
             }
             Amazon.AmplifyBackend.Model.UpdateBackendAuthForgotPasswordConfig requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword = null;
             
@@ -856,6 +859,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
             if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword != null)
             {
                 requestResourceConfig_resourceConfig_UserPoolConfigs.ForgotPassword = requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_ForgotPassword;
+                requestResourceConfig_resourceConfig_UserPoolConfigsIsNull = false;
             }
             Amazon.AmplifyBackend.Model.UpdateBackendAuthVerificationMessageConfig requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage = null;
             
@@ -940,6 +944,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
             if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage != null)
             {
                 requestResourceConfig_resourceConfig_UserPoolConfigs.VerificationMessage = requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_VerificationMessage;
+                requestResourceConfig_resourceConfig_UserPoolConfigsIsNull = false;
             }
             Amazon.AmplifyBackend.Model.UpdateBackendAuthOAuthConfig requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth = null;
             
@@ -1179,6 +1184,12 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
             if (requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth != null)
             {
                 requestResourceConfig_resourceConfig_UserPoolConfigs.OAuth = requestResourceConfig_resourceConfig_UserPoolConfigs_resourceConfig_UserPoolConfigs_OAuth;
+                requestResourceConfig_resourceConfig_UserPoolConfigsIsNull = false;
+            }
+             // determine if requestResourceConfig_resourceConfig_UserPoolConfigs should be set to null
+            if (requestResourceConfig_resourceConfig_UserPoolConfigsIsNull)
+            {
+                requestResourceConfig_resourceConfig_UserPoolConfigs = null;
             }
             if (requestResourceConfig_resourceConfig_UserPoolConfigs != null)
             {

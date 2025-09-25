@@ -284,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
             }
             
              // populate IdentityProvider
+            var requestIdentityProviderIsNull = true;
             request.IdentityProvider = new Amazon.LicenseManagerUserSubscriptions.Model.IdentityProvider();
             Amazon.LicenseManagerUserSubscriptions.Model.ActiveDirectoryIdentityProvider requestIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider = null;
             
@@ -428,6 +429,12 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
             if (requestIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider != null)
             {
                 request.IdentityProvider.ActiveDirectoryIdentityProvider = requestIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider;
+                requestIdentityProviderIsNull = false;
+            }
+             // determine if request.IdentityProvider should be set to null
+            if (requestIdentityProviderIsNull)
+            {
+                request.IdentityProvider = null;
             }
             if (cmdletContext.InstanceId != null)
             {

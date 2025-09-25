@@ -1,4 +1,7 @@
-﻿### 4.1.907 (2025-09-24 19:56Z)
+﻿### 4.1.908 (2025-09-25 20:07Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1131.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.907 (2025-09-24 19:56Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1130.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DynamoDB Accelerator (DAX)
     * Modified cmdlet New-DAXCluster: added parameter NetworkType.

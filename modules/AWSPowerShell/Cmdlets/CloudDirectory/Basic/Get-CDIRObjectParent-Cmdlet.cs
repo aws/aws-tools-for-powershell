@@ -235,6 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             }
             
              // populate ObjectReference
+            var requestObjectReferenceIsNull = true;
             request.ObjectReference = new Amazon.CloudDirectory.Model.ObjectReference();
             System.String requestObjectReference_objectReference_Selector = null;
             if (cmdletContext.ObjectReference_Selector != null)
@@ -244,6 +245,12 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             if (requestObjectReference_objectReference_Selector != null)
             {
                 request.ObjectReference.Selector = requestObjectReference_objectReference_Selector;
+                requestObjectReferenceIsNull = false;
+            }
+             // determine if request.ObjectReference should be set to null
+            if (requestObjectReferenceIsNull)
+            {
+                request.ObjectReference = null;
             }
             
             // Initialize loop variant and commence piping
@@ -321,6 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             }
             
              // populate ObjectReference
+            var requestObjectReferenceIsNull = true;
             request.ObjectReference = new Amazon.CloudDirectory.Model.ObjectReference();
             System.String requestObjectReference_objectReference_Selector = null;
             if (cmdletContext.ObjectReference_Selector != null)
@@ -330,6 +338,12 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             if (requestObjectReference_objectReference_Selector != null)
             {
                 request.ObjectReference.Selector = requestObjectReference_objectReference_Selector;
+                requestObjectReferenceIsNull = false;
+            }
+             // determine if request.ObjectReference should be set to null
+            if (requestObjectReferenceIsNull)
+            {
+                request.ObjectReference = null;
             }
             
             CmdletOutput output;

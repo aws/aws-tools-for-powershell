@@ -522,6 +522,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             Amazon.PaymentCryptographyData.Model.WrappedKeyMaterial requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterial = null;
             
              // populate WrappedKeyMaterial
+            var requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterialIsNull = true;
             requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterial = new Amazon.PaymentCryptographyData.Model.WrappedKeyMaterial();
             System.String requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterial_wrappedKeyMaterial_Tr31KeyBlock = null;
             if (cmdletContext.WrappedKeyMaterial_Tr31KeyBlock != null)
@@ -531,6 +532,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterial_wrappedKeyMaterial_Tr31KeyBlock != null)
             {
                 requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterial.Tr31KeyBlock = requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterial_wrappedKeyMaterial_Tr31KeyBlock;
+                requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterialIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.EcdhDerivationAttributes requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterial_encryptionWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey = null;
             
@@ -605,6 +607,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterial_encryptionWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey != null)
             {
                 requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterial.DiffieHellmanSymmetricKey = requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterial_encryptionWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey;
+                requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterialIsNull = false;
+            }
+             // determine if requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterial should be set to null
+            if (requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterialIsNull)
+            {
+                requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterial = null;
             }
             if (requestEncryptionWrappedKey_encryptionWrappedKey_WrappedKeyMaterial != null)
             {
@@ -630,6 +638,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             }
             
              // populate VerificationAttributes
+            var requestVerificationAttributesIsNull = true;
             request.VerificationAttributes = new Amazon.PaymentCryptographyData.Model.PinVerificationAttributes();
             Amazon.PaymentCryptographyData.Model.VisaPinVerification requestVerificationAttributes_verificationAttributes_VisaPin = null;
             
@@ -664,6 +673,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestVerificationAttributes_verificationAttributes_VisaPin != null)
             {
                 request.VerificationAttributes.VisaPin = requestVerificationAttributes_verificationAttributes_VisaPin;
+                requestVerificationAttributesIsNull = false;
             }
             Amazon.PaymentCryptographyData.Model.Ibm3624PinVerification requestVerificationAttributes_verificationAttributes_Ibm3624Pin = null;
             
@@ -718,6 +728,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             if (requestVerificationAttributes_verificationAttributes_Ibm3624Pin != null)
             {
                 request.VerificationAttributes.Ibm3624Pin = requestVerificationAttributes_verificationAttributes_Ibm3624Pin;
+                requestVerificationAttributesIsNull = false;
+            }
+             // determine if request.VerificationAttributes should be set to null
+            if (requestVerificationAttributesIsNull)
+            {
+                request.VerificationAttributes = null;
             }
             if (cmdletContext.VerificationKeyIdentifier != null)
             {

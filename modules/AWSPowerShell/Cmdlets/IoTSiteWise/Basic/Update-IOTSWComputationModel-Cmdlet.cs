@@ -255,6 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             }
             
              // populate ComputationModelConfiguration
+            var requestComputationModelConfigurationIsNull = true;
             request.ComputationModelConfiguration = new Amazon.IoTSiteWise.Model.ComputationModelConfiguration();
             Amazon.IoTSiteWise.Model.ComputationModelAnomalyDetectionConfiguration requestComputationModelConfiguration_computationModelConfiguration_AnomalyDetection = null;
             
@@ -289,6 +290,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestComputationModelConfiguration_computationModelConfiguration_AnomalyDetection != null)
             {
                 request.ComputationModelConfiguration.AnomalyDetection = requestComputationModelConfiguration_computationModelConfiguration_AnomalyDetection;
+                requestComputationModelConfigurationIsNull = false;
+            }
+             // determine if request.ComputationModelConfiguration should be set to null
+            if (requestComputationModelConfigurationIsNull)
+            {
+                request.ComputationModelConfiguration = null;
             }
             if (cmdletContext.ComputationModelDataBinding != null)
             {

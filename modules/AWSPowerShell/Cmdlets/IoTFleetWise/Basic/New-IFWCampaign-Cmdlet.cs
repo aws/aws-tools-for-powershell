@@ -486,6 +486,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             
             
              // populate CollectionScheme
+            var requestCollectionSchemeIsNull = true;
             request.CollectionScheme = new Amazon.IoTFleetWise.Model.CollectionScheme();
             Amazon.IoTFleetWise.Model.TimeBasedCollectionScheme requestCollectionScheme_collectionScheme_TimeBasedCollectionScheme = null;
             
@@ -510,6 +511,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             if (requestCollectionScheme_collectionScheme_TimeBasedCollectionScheme != null)
             {
                 request.CollectionScheme.TimeBasedCollectionScheme = requestCollectionScheme_collectionScheme_TimeBasedCollectionScheme;
+                requestCollectionSchemeIsNull = false;
             }
             Amazon.IoTFleetWise.Model.ConditionBasedCollectionScheme requestCollectionScheme_collectionScheme_ConditionBasedCollectionScheme = null;
             
@@ -564,6 +566,12 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             if (requestCollectionScheme_collectionScheme_ConditionBasedCollectionScheme != null)
             {
                 request.CollectionScheme.ConditionBasedCollectionScheme = requestCollectionScheme_collectionScheme_ConditionBasedCollectionScheme;
+                requestCollectionSchemeIsNull = false;
+            }
+             // determine if request.CollectionScheme should be set to null
+            if (requestCollectionSchemeIsNull)
+            {
+                request.CollectionScheme = null;
             }
             if (cmdletContext.Compression != null)
             {
