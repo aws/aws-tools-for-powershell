@@ -1765,19 +1765,10 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 if (MethodAnalysis.IsExcludedParameter(property.AnalyzedName + "_"))
                     return;
 
-                // Flag used to control if we should emit code that resets complex property value to null if none of the child properties are set. We should only emit such code only if property is NOT required, OR any of the child property (if any) is required.
-                bool emitComplexPropertyNullReset = !property.IsRequired || (property.Children != null && property.Children.Count > 0 && property.Children.Any(p => p.IsRequired));
-
                 writer.WriteLine();
                 writer.WriteLine($" // populate {property.Name}");
                 string usableVariableName = variableName.Replace(".", string.Empty);
-
-                // We do not need to emit variable if the property is not reset to null later (avoids compiler warning of unused variable).
-                if (emitComplexPropertyNullReset)
-                {
-                    writer.WriteLine($"var {usableVariableName}IsNull = true;");
-                }
-
+                writer.WriteLine($"var {usableVariableName}IsNull = true;");
                 writer.WriteLine($"{variableName} = new {MethodAnalysis.GetValidTypeName(property.PropertyType)}();");
 
                 foreach (var child in property.Children.OrderBy(c => c.Children.Count))
@@ -1799,13 +1790,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     writer.WriteLine($"if ({childVariableName} != null)");
                     writer.OpenRegion();
                     writer.WriteLine($"{variableName}.{child.Name} = {childVariableName}{(child.PropertyType.IsValueType ? ".Value" : "")};");
-
-                    // We do not need to use variable if the property is not reset to null later (avoids compiler warning of unused variable).
-                    if (emitComplexPropertyNullReset)
-                    {
-                        writer.WriteLine($"{usableVariableName}IsNull = false;");
-                    }
-
+                    writer.WriteLine($"{usableVariableName}IsNull = false;");
                     writer.CloseRegion();
 
                     if (child.IsDeprecated)
@@ -1814,8 +1799,8 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     }
                 }
 
-                // If property is Required and none of the child properties are required, then do not emit code that resets it's value to null if none of the child properties are set.
-                if (emitComplexPropertyNullReset)
+                // If property is Required, then do not emit code that resets it's value to null if none of the child properties are set (currently controlled by NoResetToNullForRequiredParameter build config parameter).
+                if (!Operation.NoResetToNullForRequiredParameter || !property.IsRequired)
                 {
                     writer.WriteLine($" // determine if {variableName} should be set to null");
                     writer.WriteLine($"if ({usableVariableName}IsNull)");

@@ -939,6 +939,14 @@ namespace AWSPowerShellGenerator.ServiceConfig
         [DefaultValue(false)]
         public bool CustomAutoIteration = false;
 
+        /// <summary>
+        /// When set to true, initialized required parameter object would not be reset to null if none of the child properties are set 
+        /// and would be sent as an empty object down the wire.
+        /// </summary>
+        [XmlAttribute]
+        [DefaultValue(false)]
+        public bool NoResetToNullForRequiredParameter = false;
+
         public enum LegacyPaginationType
         {
             Default,
