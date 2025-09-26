@@ -30,16 +30,17 @@ using Amazon.Billing.Model;
 namespace Amazon.PowerShell.Cmdlets.AWSB
 {
     /// <summary>
-    /// Deletes the specified billing view.
+    /// Associates one or more source billing views with an existing billing view. This allows
+    /// creating aggregate billing views that combine data from multiple sources.
     /// </summary>
-    [Cmdlet("Remove", "AWSBBillingView", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Add", "AWSBSourceView", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Billing DeleteBillingView API operation.", Operation = new[] {"DeleteBillingView"}, SelectReturnType = typeof(Amazon.Billing.Model.DeleteBillingViewResponse))]
-    [AWSCmdletOutput("System.String or Amazon.Billing.Model.DeleteBillingViewResponse",
+    [AWSCmdlet("Calls the AWS Billing AssociateSourceViews API operation.", Operation = new[] {"AssociateSourceViews"}, SelectReturnType = typeof(Amazon.Billing.Model.AssociateSourceViewsResponse))]
+    [AWSCmdletOutput("System.String or Amazon.Billing.Model.AssociateSourceViewsResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Billing.Model.DeleteBillingViewResponse) can be returned by specifying '-Select *'."
+        "The service call response (type Amazon.Billing.Model.AssociateSourceViewsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class RemoveAWSBBillingViewCmdlet : AmazonBillingClientCmdlet, IExecutor
+    public partial class AddAWSBSourceViewCmdlet : AmazonBillingClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -48,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) that can be used to uniquely identify the billing
-        /// view. </para>
+        /// <para> The Amazon Resource Name (ARN) of the billing view to associate source views with.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,23 +64,33 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         public System.String Arn { get; set; }
         #endregion
         
-        #region Parameter ForceDelete
+        #region Parameter SourceView
         /// <summary>
         /// <para>
-        /// <para> If set to true, forces deletion of the billing view even if it has derived resources
-        /// (e.g. other billing views or budgets). Use with caution as this may break dependent
-        /// resources. </para>
+        /// <para> A list of ARNs of the source billing views to associate. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? ForceDelete { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("SourceViews")]
+        public System.String[] SourceView { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Arn'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Billing.Model.DeleteBillingViewResponse).
-        /// Specifying the name of a property of type Amazon.Billing.Model.DeleteBillingViewResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Billing.Model.AssociateSourceViewsResponse).
+        /// Specifying the name of a property of type Amazon.Billing.Model.AssociateSourceViewsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Arn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-AWSBBillingView (DeleteBillingView)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SourceView), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-AWSBSourceView (AssociateSourceViews)"))
             {
                 return;
             }
@@ -118,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Billing.Model.DeleteBillingViewResponse, RemoveAWSBBillingViewCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Billing.Model.AssociateSourceViewsResponse, AddAWSBSourceViewCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Arn = this.Arn;
@@ -128,7 +139,16 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
                 WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ForceDelete = this.ForceDelete;
+            if (this.SourceView != null)
+            {
+                context.SourceView = new List<System.String>(this.SourceView);
+            }
+            #if MODULAR
+            if (this.SourceView == null && ParameterWasBound(nameof(this.SourceView)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SourceView which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -143,15 +163,15 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Billing.Model.DeleteBillingViewRequest();
+            var request = new Amazon.Billing.Model.AssociateSourceViewsRequest();
             
             if (cmdletContext.Arn != null)
             {
                 request.Arn = cmdletContext.Arn;
             }
-            if (cmdletContext.ForceDelete != null)
+            if (cmdletContext.SourceView != null)
             {
-                request.Force = cmdletContext.ForceDelete.Value;
+                request.SourceViews = cmdletContext.SourceView;
             }
             
             CmdletOutput output;
@@ -186,12 +206,12 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         
         #region AWS Service Operation Call
         
-        private Amazon.Billing.Model.DeleteBillingViewResponse CallAWSServiceOperation(IAmazonBilling client, Amazon.Billing.Model.DeleteBillingViewRequest request)
+        private Amazon.Billing.Model.AssociateSourceViewsResponse CallAWSServiceOperation(IAmazonBilling client, Amazon.Billing.Model.AssociateSourceViewsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing", "DeleteBillingView");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing", "AssociateSourceViews");
             try
             {
-                return client.DeleteBillingViewAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.AssociateSourceViewsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -209,8 +229,8 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Arn { get; set; }
-            public System.Boolean? ForceDelete { get; set; }
-            public System.Func<Amazon.Billing.Model.DeleteBillingViewResponse, RemoveAWSBBillingViewCmdlet, object> Select { get; set; } =
+            public List<System.String> SourceView { get; set; }
+            public System.Func<Amazon.Billing.Model.AssociateSourceViewsResponse, AddAWSBSourceViewCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Arn;
         }
         

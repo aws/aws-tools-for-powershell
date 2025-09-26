@@ -74,6 +74,21 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String[] SearchCriteria_Channel { get; set; }
         #endregion
         
+        #region Parameter AdditionalTimeRange_Criterion
+        /// <summary>
+        /// <para>
+        /// <para>List of criteria of the time range to additionally filter on.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchCriteria_AdditionalTimeRange_Criteria")]
+        public Amazon.Connect.Model.SearchContactsAdditionalTimeRangeCriteria[] AdditionalTimeRange_Criterion { get; set; }
+        #endregion
+        
         #region Parameter Transcript_Criterion
         /// <summary>
         /// <para>
@@ -255,6 +270,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String[] AgentHierarchyGroups_L5Id { get; set; }
         #endregion
         
+        #region Parameter AdditionalTimeRange_MatchType
+        /// <summary>
+        /// <para>
+        /// <para>The match type combining multiple time range filters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchCriteria_AdditionalTimeRange_MatchType")]
+        [AWSConstantClassSource("Amazon.Connect.SearchContactsMatchType")]
+        public Amazon.Connect.SearchContactsMatchType AdditionalTimeRange_MatchType { get; set; }
+        #endregion
+        
         #region Parameter Transcript_MatchType
         /// <summary>
         /// <para>
@@ -265,6 +292,19 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [Alias("SearchCriteria_ContactAnalysis_Transcript_MatchType")]
         [AWSConstantClassSource("Amazon.Connect.SearchContactsMatchType")]
         public Amazon.Connect.SearchContactsMatchType Transcript_MatchType { get; set; }
+        #endregion
+        
+        #region Parameter Name_MatchType
+        /// <summary>
+        /// <para>
+        /// <para>The match type combining name search criteria using multiple search texts in a name
+        /// criteria.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchCriteria_Name_MatchType")]
+        [AWSConstantClassSource("Amazon.Connect.SearchContactsMatchType")]
+        public Amazon.Connect.SearchContactsMatchType Name_MatchType { get; set; }
         #endregion
         
         #region Parameter SearchableContactAttributes_MatchType
@@ -317,6 +357,21 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String[] SearchCriteria_QueueId { get; set; }
         #endregion
         
+        #region Parameter Name_SearchText
+        /// <summary>
+        /// <para>
+        /// <para>The words or phrases used to match the contact name.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchCriteria_Name_SearchText")]
+        public System.String[] Name_SearchText { get; set; }
+        #endregion
+        
         #region Parameter TimeRange_StartTime
         /// <summary>
         /// <para>
@@ -331,6 +386,21 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.DateTime? TimeRange_StartTime { get; set; }
+        #endregion
+        
+        #region Parameter RoutingCriteria_Step
+        /// <summary>
+        /// <para>
+        /// <para>The list of Routing criteria steps of the contact routing.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchCriteria_RoutingCriteria_Steps")]
+        public Amazon.Connect.Model.SearchableRoutingCriteriaStep[] RoutingCriteria_Step { get; set; }
         #endregion
         
         #region Parameter TimeRange_Type
@@ -441,6 +511,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            if (this.AdditionalTimeRange_Criterion != null)
+            {
+                context.AdditionalTimeRange_Criterion = new List<Amazon.Connect.Model.SearchContactsAdditionalTimeRangeCriteria>(this.AdditionalTimeRange_Criterion);
+            }
+            context.AdditionalTimeRange_MatchType = this.AdditionalTimeRange_MatchType;
             if (this.AgentHierarchyGroups_L1Id != null)
             {
                 context.AgentHierarchyGroups_L1Id = new List<System.String>(this.AgentHierarchyGroups_L1Id);
@@ -478,9 +553,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 context.SearchCriteria_InitiationMethod = new List<System.String>(this.SearchCriteria_InitiationMethod);
             }
+            context.Name_MatchType = this.Name_MatchType;
+            if (this.Name_SearchText != null)
+            {
+                context.Name_SearchText = new List<System.String>(this.Name_SearchText);
+            }
             if (this.SearchCriteria_QueueId != null)
             {
                 context.SearchCriteria_QueueId = new List<System.String>(this.SearchCriteria_QueueId);
+            }
+            if (this.RoutingCriteria_Step != null)
+            {
+                context.RoutingCriteria_Step = new List<Amazon.Connect.Model.SearchableRoutingCriteriaStep>(this.RoutingCriteria_Step);
             }
             if (this.SearchableContactAttributes_Criterion != null)
             {
@@ -633,6 +717,101 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestSearchCriteria_searchCriteria_ContactAnalysis != null)
             {
                 request.SearchCriteria.ContactAnalysis = requestSearchCriteria_searchCriteria_ContactAnalysis;
+                requestSearchCriteriaIsNull = false;
+            }
+            Amazon.Connect.Model.SearchableRoutingCriteria requestSearchCriteria_searchCriteria_RoutingCriteria = null;
+            
+             // populate RoutingCriteria
+            var requestSearchCriteria_searchCriteria_RoutingCriteriaIsNull = true;
+            requestSearchCriteria_searchCriteria_RoutingCriteria = new Amazon.Connect.Model.SearchableRoutingCriteria();
+            List<Amazon.Connect.Model.SearchableRoutingCriteriaStep> requestSearchCriteria_searchCriteria_RoutingCriteria_routingCriteria_Step = null;
+            if (cmdletContext.RoutingCriteria_Step != null)
+            {
+                requestSearchCriteria_searchCriteria_RoutingCriteria_routingCriteria_Step = cmdletContext.RoutingCriteria_Step;
+            }
+            if (requestSearchCriteria_searchCriteria_RoutingCriteria_routingCriteria_Step != null)
+            {
+                requestSearchCriteria_searchCriteria_RoutingCriteria.Steps = requestSearchCriteria_searchCriteria_RoutingCriteria_routingCriteria_Step;
+                requestSearchCriteria_searchCriteria_RoutingCriteriaIsNull = false;
+            }
+             // determine if requestSearchCriteria_searchCriteria_RoutingCriteria should be set to null
+            if (requestSearchCriteria_searchCriteria_RoutingCriteriaIsNull)
+            {
+                requestSearchCriteria_searchCriteria_RoutingCriteria = null;
+            }
+            if (requestSearchCriteria_searchCriteria_RoutingCriteria != null)
+            {
+                request.SearchCriteria.RoutingCriteria = requestSearchCriteria_searchCriteria_RoutingCriteria;
+                requestSearchCriteriaIsNull = false;
+            }
+            Amazon.Connect.Model.SearchContactsAdditionalTimeRange requestSearchCriteria_searchCriteria_AdditionalTimeRange = null;
+            
+             // populate AdditionalTimeRange
+            var requestSearchCriteria_searchCriteria_AdditionalTimeRangeIsNull = true;
+            requestSearchCriteria_searchCriteria_AdditionalTimeRange = new Amazon.Connect.Model.SearchContactsAdditionalTimeRange();
+            List<Amazon.Connect.Model.SearchContactsAdditionalTimeRangeCriteria> requestSearchCriteria_searchCriteria_AdditionalTimeRange_additionalTimeRange_Criterion = null;
+            if (cmdletContext.AdditionalTimeRange_Criterion != null)
+            {
+                requestSearchCriteria_searchCriteria_AdditionalTimeRange_additionalTimeRange_Criterion = cmdletContext.AdditionalTimeRange_Criterion;
+            }
+            if (requestSearchCriteria_searchCriteria_AdditionalTimeRange_additionalTimeRange_Criterion != null)
+            {
+                requestSearchCriteria_searchCriteria_AdditionalTimeRange.Criteria = requestSearchCriteria_searchCriteria_AdditionalTimeRange_additionalTimeRange_Criterion;
+                requestSearchCriteria_searchCriteria_AdditionalTimeRangeIsNull = false;
+            }
+            Amazon.Connect.SearchContactsMatchType requestSearchCriteria_searchCriteria_AdditionalTimeRange_additionalTimeRange_MatchType = null;
+            if (cmdletContext.AdditionalTimeRange_MatchType != null)
+            {
+                requestSearchCriteria_searchCriteria_AdditionalTimeRange_additionalTimeRange_MatchType = cmdletContext.AdditionalTimeRange_MatchType;
+            }
+            if (requestSearchCriteria_searchCriteria_AdditionalTimeRange_additionalTimeRange_MatchType != null)
+            {
+                requestSearchCriteria_searchCriteria_AdditionalTimeRange.MatchType = requestSearchCriteria_searchCriteria_AdditionalTimeRange_additionalTimeRange_MatchType;
+                requestSearchCriteria_searchCriteria_AdditionalTimeRangeIsNull = false;
+            }
+             // determine if requestSearchCriteria_searchCriteria_AdditionalTimeRange should be set to null
+            if (requestSearchCriteria_searchCriteria_AdditionalTimeRangeIsNull)
+            {
+                requestSearchCriteria_searchCriteria_AdditionalTimeRange = null;
+            }
+            if (requestSearchCriteria_searchCriteria_AdditionalTimeRange != null)
+            {
+                request.SearchCriteria.AdditionalTimeRange = requestSearchCriteria_searchCriteria_AdditionalTimeRange;
+                requestSearchCriteriaIsNull = false;
+            }
+            Amazon.Connect.Model.NameCriteria requestSearchCriteria_searchCriteria_Name = null;
+            
+             // populate Name
+            var requestSearchCriteria_searchCriteria_NameIsNull = true;
+            requestSearchCriteria_searchCriteria_Name = new Amazon.Connect.Model.NameCriteria();
+            Amazon.Connect.SearchContactsMatchType requestSearchCriteria_searchCriteria_Name_name_MatchType = null;
+            if (cmdletContext.Name_MatchType != null)
+            {
+                requestSearchCriteria_searchCriteria_Name_name_MatchType = cmdletContext.Name_MatchType;
+            }
+            if (requestSearchCriteria_searchCriteria_Name_name_MatchType != null)
+            {
+                requestSearchCriteria_searchCriteria_Name.MatchType = requestSearchCriteria_searchCriteria_Name_name_MatchType;
+                requestSearchCriteria_searchCriteria_NameIsNull = false;
+            }
+            List<System.String> requestSearchCriteria_searchCriteria_Name_name_SearchText = null;
+            if (cmdletContext.Name_SearchText != null)
+            {
+                requestSearchCriteria_searchCriteria_Name_name_SearchText = cmdletContext.Name_SearchText;
+            }
+            if (requestSearchCriteria_searchCriteria_Name_name_SearchText != null)
+            {
+                requestSearchCriteria_searchCriteria_Name.SearchText = requestSearchCriteria_searchCriteria_Name_name_SearchText;
+                requestSearchCriteria_searchCriteria_NameIsNull = false;
+            }
+             // determine if requestSearchCriteria_searchCriteria_Name should be set to null
+            if (requestSearchCriteria_searchCriteria_NameIsNull)
+            {
+                requestSearchCriteria_searchCriteria_Name = null;
+            }
+            if (requestSearchCriteria_searchCriteria_Name != null)
+            {
+                request.SearchCriteria.Name = requestSearchCriteria_searchCriteria_Name;
                 requestSearchCriteriaIsNull = false;
             }
             Amazon.Connect.Model.SearchableContactAttributes requestSearchCriteria_searchCriteria_SearchableContactAttributes = null;
@@ -925,6 +1104,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String InstanceId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public List<Amazon.Connect.Model.SearchContactsAdditionalTimeRangeCriteria> AdditionalTimeRange_Criterion { get; set; }
+            public Amazon.Connect.SearchContactsMatchType AdditionalTimeRange_MatchType { get; set; }
             public List<System.String> AgentHierarchyGroups_L1Id { get; set; }
             public List<System.String> AgentHierarchyGroups_L2Id { get; set; }
             public List<System.String> AgentHierarchyGroups_L3Id { get; set; }
@@ -935,7 +1116,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public List<Amazon.Connect.Model.TranscriptCriteria> Transcript_Criterion { get; set; }
             public Amazon.Connect.SearchContactsMatchType Transcript_MatchType { get; set; }
             public List<System.String> SearchCriteria_InitiationMethod { get; set; }
+            public Amazon.Connect.SearchContactsMatchType Name_MatchType { get; set; }
+            public List<System.String> Name_SearchText { get; set; }
             public List<System.String> SearchCriteria_QueueId { get; set; }
+            public List<Amazon.Connect.Model.SearchableRoutingCriteriaStep> RoutingCriteria_Step { get; set; }
             public List<Amazon.Connect.Model.SearchableContactAttributesCriteria> SearchableContactAttributes_Criterion { get; set; }
             public Amazon.Connect.SearchContactsMatchType SearchableContactAttributes_MatchType { get; set; }
             public List<Amazon.Connect.Model.SearchableSegmentAttributesCriteria> SearchableSegmentAttributes_Criterion { get; set; }

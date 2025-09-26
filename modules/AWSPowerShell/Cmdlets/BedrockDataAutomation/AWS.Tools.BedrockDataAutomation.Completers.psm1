@@ -148,6 +148,8 @@ $BDA_Completers = {
         {
             ($_ -eq "New-BDADataAutomationProject/AdditionalFileFormat_State") -Or
             ($_ -eq "Update-BDADataAutomationProject/AdditionalFileFormat_State") -Or
+            ($_ -eq "New-BDADataAutomationProject/ChannelLabeling_State") -Or
+            ($_ -eq "Update-BDADataAutomationProject/ChannelLabeling_State") -Or
             ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Audio_ModalityProcessing_State") -Or
             ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Audio_ModalityProcessing_State") -Or
             ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Document_ModalityProcessing_State") -Or
@@ -156,6 +158,8 @@ $BDA_Completers = {
             ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Image_ModalityProcessing_State") -Or
             ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Video_ModalityProcessing_State") -Or
             ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Video_ModalityProcessing_State") -Or
+            ($_ -eq "New-BDADataAutomationProject/SpeakerLabeling_State") -Or
+            ($_ -eq "Update-BDADataAutomationProject/SpeakerLabeling_State") -Or
             ($_ -eq "New-BDADataAutomationProject/Splitter_State") -Or
             ($_ -eq "Update-BDADataAutomationProject/Splitter_State") -Or
             ($_ -eq "New-BDADataAutomationProject/StandardOutputConfiguration_Audio_Extraction_Category_State") -Or
@@ -204,6 +208,7 @@ $BDA_map = @{
     "BlueprintFilter_BlueprintStage"=@("Get-BDADataAutomationProjectList")
     "BlueprintStage"=@("Get-BDABlueprint","New-BDABlueprint","Update-BDABlueprint")
     "BlueprintStageFilter"=@("Get-BDABlueprintList")
+    "ChannelLabeling_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ModalityRouting_Jpeg"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ModalityRouting_Mov"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ModalityRouting_Mp4"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
@@ -216,6 +221,7 @@ $BDA_map = @{
     "ProjectStage"=@("Get-BDADataAutomationProject","New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ProjectStageFilter"=@("Get-BDADataAutomationProjectList")
     "ResourceOwner"=@("Get-BDABlueprintList","Get-BDADataAutomationProjectList")
+    "SpeakerLabeling_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "Splitter_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "StandardOutputConfiguration_Audio_Extraction_Category_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "StandardOutputConfiguration_Audio_GenerativeField_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")

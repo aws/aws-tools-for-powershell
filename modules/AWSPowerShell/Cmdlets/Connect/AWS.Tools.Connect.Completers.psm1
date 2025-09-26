@@ -461,26 +461,28 @@ $CONN_Completers = {
 
         # Amazon.Connect.SearchContactsMatchType
         {
+            ($_ -eq "Search-CONNContact/AdditionalTimeRange_MatchType") -Or
+            ($_ -eq "Search-CONNContact/Name_MatchType") -Or
             ($_ -eq "Search-CONNContact/SearchableContactAttributes_MatchType") -Or
             ($_ -eq "Search-CONNContact/SearchableSegmentAttributes_MatchType") -Or
             ($_ -eq "Search-CONNContact/Transcript_MatchType")
         }
         {
-            $v = "MATCH_ALL","MATCH_ANY"
+            $v = "MATCH_ALL","MATCH_ANY","MATCH_EXACT","MATCH_NONE"
             break
         }
 
         # Amazon.Connect.SearchContactsTimeRangeType
         "Search-CONNContact/TimeRange_Type"
         {
-            $v = "CONNECTED_TO_AGENT_TIMESTAMP","DISCONNECT_TIMESTAMP","INITIATION_TIMESTAMP","SCHEDULED_TIMESTAMP"
+            $v = "CONNECTED_TO_AGENT_TIMESTAMP","DISCONNECT_TIMESTAMP","ENQUEUE_TIMESTAMP","INITIATION_TIMESTAMP","SCHEDULED_TIMESTAMP"
             break
         }
 
         # Amazon.Connect.SortableFieldName
         "Search-CONNContact/Sort_FieldName"
         {
-            $v = "CHANNEL","CONNECTED_TO_AGENT_TIMESTAMP","DISCONNECT_TIMESTAMP","INITIATION_METHOD","INITIATION_TIMESTAMP","SCHEDULED_TIMESTAMP"
+            $v = "CHANNEL","CONNECTED_TO_AGENT_TIMESTAMP","DISCONNECT_TIMESTAMP","EXPIRY_TIMESTAMP","INITIATION_METHOD","INITIATION_TIMESTAMP","SCHEDULED_TIMESTAMP"
             break
         }
 
@@ -630,6 +632,7 @@ $CONN_Completers = {
 }
 
 $CONN_map = @{
+    "AdditionalTimeRange_MatchType"=@("Search-CONNContact")
     "Agent_ScreenShare"=@("Start-CONNWebRTCContact")
     "Agent_Video"=@("Start-CONNWebRTCContact")
     "AgentAvailabilityTimer"=@("New-CONNRoutingProfile","Update-CONNRoutingProfileAgentAvailabilityTimer")
@@ -658,6 +661,7 @@ $CONN_map = @{
     "LanguageCode"=@("Add-CONNDefaultVocabulary","Get-CONNDefaultVocabularyList","New-CONNVocabulary","Search-CONNVocabulary")
     "LexVersion"=@("Get-CONNBotList")
     "ListCondition_TargetListType"=@("Search-CONNUser")
+    "Name_MatchType"=@("Search-CONNContact")
     "OutputType"=@("Get-CONNRealtimeContactAnalysisSegmentsV2List")
     "ParticipantCapabilities_ScreenShare"=@("New-CONNParticipant")
     "ParticipantCapabilities_Video"=@("New-CONNParticipant")
@@ -756,6 +760,7 @@ $CONN_SelectMap = @{
                "Register-CONNAnalyticsDataSet",
                "Add-CONNApprovedOrigin",
                "Add-CONNBot",
+               "Join-CONNContactWithUser",
                "Add-CONNDefaultVocabulary",
                "Add-CONNFlow",
                "Add-CONNInstanceStorageConfig",
@@ -918,6 +923,7 @@ $CONN_SelectMap = @{
                "Get-CONNQueueList",
                "Get-CONNQuickConnectList",
                "Get-CONNRealtimeContactAnalysisSegmentsV2List",
+               "Get-CONNRoutingProfileManualAssignmentQueueList",
                "Get-CONNRoutingProfileQueueList",
                "Get-CONNRoutingProfileList",
                "Get-CONNRuleList",

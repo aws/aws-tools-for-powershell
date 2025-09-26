@@ -19,11 +19,21 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateSourceViews" OutputProperty="Arn" Verb="Add" Noun="SourceView" ShouldProcessTarget="SourceViews" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateBillingView" OutputProperty="*" Verb="New" Noun="BillingView" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteBillingView" OutputProperty="Arn" Verb="Remove" Noun="BillingView" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params>
+                <Param Name="Force" NewName="ForceDelete" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateSourceViews" OutputProperty="Arn" Verb="Remove" Noun="SourceView" ShouldProcessTarget="SourceViews" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

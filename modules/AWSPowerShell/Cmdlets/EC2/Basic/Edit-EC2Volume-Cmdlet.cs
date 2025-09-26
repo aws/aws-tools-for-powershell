@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The target IOPS rate of the volume. This parameter is valid only for <c>gp3</c>, <c>io1</c>,
-        /// and <c>io2</c> volumes.</para><para>The following are the supported values for each volume type:</para><ul><li><para><c>gp3</c>: 3,000 - 16,000 IOPS</para></li><li><para><c>io1</c>: 100 - 64,000 IOPS</para></li><li><para><c>io2</c>: 100 - 256,000 IOPS</para></li></ul><para>For <c>io2</c> volumes, you can achieve up to 256,000 IOPS on <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">instances
+        /// and <c>io2</c> volumes.</para><para>The following are the supported values for each volume type:</para><ul><li><para><c>gp3</c>: 3,000 - 80,000 IOPS</para></li><li><para><c>io1</c>: 100 - 64,000 IOPS</para></li><li><para><c>io2</c>: 100 - 256,000 IOPS</para></li></ul><para>For <c>io2</c> volumes, you can achieve up to 256,000 IOPS on <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">instances
         /// built on the Nitro System</a>. On other instances, you can achieve performance up
         /// to 32,000 IOPS.</para><para>Default: The existing value is retained if you keep the same volume type. If you change
         /// the volume type to <c>io1</c>, <c>io2</c>, or <c>gp3</c>, the default is 3,000.</para>
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The target size of the volume, in GiB. The target volume size must be greater than
-        /// or equal to the existing size of the volume.</para><para>The following are the supported volumes sizes for each volume type:</para><ul><li><para><c>gp2</c> and <c>gp3</c>: 1 - 16,384 GiB</para></li><li><para><c>io1</c>: 4 - 16,384 GiB</para></li><li><para><c>io2</c>: 4 - 65,536 GiB</para></li><li><para><c>st1</c> and <c>sc1</c>: 125 - 16,384 GiB</para></li><li><para><c>standard</c>: 1 - 1024 GiB</para></li></ul><para>Default: The existing size is retained.</para>
+        /// or equal to the existing size of the volume.</para><para>The following are the supported volumes sizes for each volume type:</para><ul><li><para><c>gp2</c>: 1 - 16,384 GiB</para></li><li><para><c>gp3</c>: 1 - 65,536 GiB</para></li><li><para><c>io1</c>: 4 - 16,384 GiB</para></li><li><para><c>io2</c>: 4 - 65,536 GiB</para></li><li><para><c>st1</c> and <c>sc1</c>: 125 - 16,384 GiB</para></li><li><para><c>standard</c>: 1 - 1024 GiB</para></li></ul><para>Default: The existing size is retained.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,8 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The target throughput of the volume, in MiB/s. This parameter is valid only for <c>gp3</c>
-        /// volumes. The maximum value is 1,000.</para><para>Default: The existing value is retained if the source and target volume type is <c>gp3</c>.
-        /// Otherwise, the default value is 125.</para><para>Valid Range: Minimum value of 125. Maximum value of 1000.</para>
+        /// volumes. The maximum value is 2,000.</para><para>Default: The existing value is retained if the source and target volume type is <c>gp3</c>.
+        /// Otherwise, the default value is 125.</para><para>Valid Range: Minimum value of 125. Maximum value of 2,000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

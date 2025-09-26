@@ -35,6 +35,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateContactWithUser" Verb="Join" Noun="ContactWithUser" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateDefaultVocabulary" Verb="Add" Noun="DefaultVocabulary" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -685,6 +689,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListRealtimeContactAnalysisSegmentsV2" OutputProperty="*" Verb="Get" Noun="RealtimeContactAnalysisSegmentsV2List" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRoutingProfileManualAssignmentQueues" OutputProperty="*" Verb="Get" Noun="RoutingProfileManualAssignmentQueueList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

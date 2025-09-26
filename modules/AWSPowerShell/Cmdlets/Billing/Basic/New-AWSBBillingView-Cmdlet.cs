@@ -44,6 +44,17 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter TimeRange_BeginDateInclusive
+        /// <summary>
+        /// <para>
+        /// <para> The inclusive start date of the time range. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataFilterExpression_TimeRange_BeginDateInclusive")]
+        public System.DateTime? TimeRange_BeginDateInclusive { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -52,6 +63,17 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter TimeRange_EndDateInclusive
+        /// <summary>
+        /// <para>
+        /// <para> The inclusive end date of the time range. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataFilterExpression_TimeRange_EndDateInclusive")]
+        public System.DateTime? TimeRange_EndDateInclusive { get; set; }
         #endregion
         
         #region Parameter Dimensions_Key
@@ -233,6 +255,8 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
             {
                 context.Tags_Value = new List<System.String>(this.Tags_Value);
             }
+            context.TimeRange_BeginDateInclusive = this.TimeRange_BeginDateInclusive;
+            context.TimeRange_EndDateInclusive = this.TimeRange_EndDateInclusive;
             context.Description = this.Description;
             context.Name = this.Name;
             #if MODULAR
@@ -349,6 +373,41 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
                 request.DataFilterExpression.Tags = requestDataFilterExpression_dataFilterExpression_Tags;
                 requestDataFilterExpressionIsNull = false;
             }
+            Amazon.Billing.Model.TimeRange requestDataFilterExpression_dataFilterExpression_TimeRange = null;
+            
+             // populate TimeRange
+            var requestDataFilterExpression_dataFilterExpression_TimeRangeIsNull = true;
+            requestDataFilterExpression_dataFilterExpression_TimeRange = new Amazon.Billing.Model.TimeRange();
+            System.DateTime? requestDataFilterExpression_dataFilterExpression_TimeRange_timeRange_BeginDateInclusive = null;
+            if (cmdletContext.TimeRange_BeginDateInclusive != null)
+            {
+                requestDataFilterExpression_dataFilterExpression_TimeRange_timeRange_BeginDateInclusive = cmdletContext.TimeRange_BeginDateInclusive.Value;
+            }
+            if (requestDataFilterExpression_dataFilterExpression_TimeRange_timeRange_BeginDateInclusive != null)
+            {
+                requestDataFilterExpression_dataFilterExpression_TimeRange.BeginDateInclusive = requestDataFilterExpression_dataFilterExpression_TimeRange_timeRange_BeginDateInclusive.Value;
+                requestDataFilterExpression_dataFilterExpression_TimeRangeIsNull = false;
+            }
+            System.DateTime? requestDataFilterExpression_dataFilterExpression_TimeRange_timeRange_EndDateInclusive = null;
+            if (cmdletContext.TimeRange_EndDateInclusive != null)
+            {
+                requestDataFilterExpression_dataFilterExpression_TimeRange_timeRange_EndDateInclusive = cmdletContext.TimeRange_EndDateInclusive.Value;
+            }
+            if (requestDataFilterExpression_dataFilterExpression_TimeRange_timeRange_EndDateInclusive != null)
+            {
+                requestDataFilterExpression_dataFilterExpression_TimeRange.EndDateInclusive = requestDataFilterExpression_dataFilterExpression_TimeRange_timeRange_EndDateInclusive.Value;
+                requestDataFilterExpression_dataFilterExpression_TimeRangeIsNull = false;
+            }
+             // determine if requestDataFilterExpression_dataFilterExpression_TimeRange should be set to null
+            if (requestDataFilterExpression_dataFilterExpression_TimeRangeIsNull)
+            {
+                requestDataFilterExpression_dataFilterExpression_TimeRange = null;
+            }
+            if (requestDataFilterExpression_dataFilterExpression_TimeRange != null)
+            {
+                request.DataFilterExpression.TimeRange = requestDataFilterExpression_dataFilterExpression_TimeRange;
+                requestDataFilterExpressionIsNull = false;
+            }
              // determine if request.DataFilterExpression should be set to null
             if (requestDataFilterExpressionIsNull)
             {
@@ -430,6 +489,8 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
             public List<System.String> Dimensions_Value { get; set; }
             public System.String Tags_Key { get; set; }
             public List<System.String> Tags_Value { get; set; }
+            public System.DateTime? TimeRange_BeginDateInclusive { get; set; }
+            public System.DateTime? TimeRange_EndDateInclusive { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.Billing.Model.ResourceTag> ResourceTag { get; set; }

@@ -63,6 +63,21 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String InstanceId { get; set; }
         #endregion
         
+        #region Parameter ManualAssignmentQueueConfig
+        /// <summary>
+        /// <para>
+        /// <para>The manual assignment queues to associate with this routing profile.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManualAssignmentQueueConfigs")]
+        public Amazon.Connect.Model.RoutingProfileManualAssignmentQueueConfig[] ManualAssignmentQueueConfig { get; set; }
+        #endregion
+        
         #region Parameter QueueConfig
         /// <summary>
         /// <para>
@@ -73,14 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("QueueConfigs")]
         public Amazon.Connect.Model.RoutingProfileQueueConfig[] QueueConfig { get; set; }
         #endregion
@@ -154,16 +162,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ManualAssignmentQueueConfig != null)
+            {
+                context.ManualAssignmentQueueConfig = new List<Amazon.Connect.Model.RoutingProfileManualAssignmentQueueConfig>(this.ManualAssignmentQueueConfig);
+            }
             if (this.QueueConfig != null)
             {
                 context.QueueConfig = new List<Amazon.Connect.Model.RoutingProfileQueueConfig>(this.QueueConfig);
             }
-            #if MODULAR
-            if (this.QueueConfig == null && ParameterWasBound(nameof(this.QueueConfig)))
-            {
-                WriteWarning("You are passing $null as a value for parameter QueueConfig which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.RoutingProfileId = this.RoutingProfileId;
             #if MODULAR
             if (this.RoutingProfileId == null && ParameterWasBound(nameof(this.RoutingProfileId)))
@@ -190,6 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.ManualAssignmentQueueConfig != null)
+            {
+                request.ManualAssignmentQueueConfigs = cmdletContext.ManualAssignmentQueueConfig;
             }
             if (cmdletContext.QueueConfig != null)
             {
@@ -255,6 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String InstanceId { get; set; }
+            public List<Amazon.Connect.Model.RoutingProfileManualAssignmentQueueConfig> ManualAssignmentQueueConfig { get; set; }
             public List<Amazon.Connect.Model.RoutingProfileQueueConfig> QueueConfig { get; set; }
             public System.String RoutingProfileId { get; set; }
             public System.Func<Amazon.Connect.Model.AssociateRoutingProfileQueuesResponse, JoinCONNRoutingProfileQueueCmdlet, object> Select { get; set; } =

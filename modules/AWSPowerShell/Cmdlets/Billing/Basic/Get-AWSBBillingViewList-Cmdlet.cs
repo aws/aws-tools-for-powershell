@@ -114,6 +114,17 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         public System.String OwnerAccountId { get; set; }
         #endregion
         
+        #region Parameter SourceAccountId
+        /// <summary>
+        /// <para>
+        /// <para> Filters the results to include only billing views that use the specified account
+        /// as a source. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceAccountId { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -192,6 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.OwnerAccountId = this.OwnerAccountId;
+            context.SourceAccountId = this.SourceAccountId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -254,6 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
             if (cmdletContext.OwnerAccountId != null)
             {
                 request.OwnerAccountId = cmdletContext.OwnerAccountId;
+            }
+            if (cmdletContext.SourceAccountId != null)
+            {
+                request.SourceAccountId = cmdletContext.SourceAccountId;
             }
             
             // Initialize loop variant and commence piping
@@ -341,6 +357,7 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String OwnerAccountId { get; set; }
+            public System.String SourceAccountId { get; set; }
             public System.Func<Amazon.Billing.Model.ListBillingViewsResponse, GetAWSBBillingViewListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.BillingViews;
         }

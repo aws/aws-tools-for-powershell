@@ -109,6 +109,26 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String InstanceId { get; set; }
         #endregion
         
+        #region Parameter ManualAssignmentQueueConfig
+        /// <summary>
+        /// <para>
+        /// <para>The manual assignment queues associated with the routing profile. If no queue is added,
+        /// agents and supervisors can't pick or assign any contacts from this routing profile.
+        /// The limit of 10 array members applies to the maximum number of RoutingProfileManualAssignmentQueueConfig
+        /// objects that can be passed during a CreateRoutingProfile API request. It is different
+        /// from the quota of 50 queues per routing profile per instance that is listed in Amazon
+        /// Connect service quotas.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManualAssignmentQueueConfigs")]
+        public Amazon.Connect.Model.RoutingProfileManualAssignmentQueueConfig[] ManualAssignmentQueueConfig { get; set; }
+        #endregion
+        
         #region Parameter MediaConcurrency
         /// <summary>
         /// <para>
@@ -252,6 +272,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ManualAssignmentQueueConfig != null)
+            {
+                context.ManualAssignmentQueueConfig = new List<Amazon.Connect.Model.RoutingProfileManualAssignmentQueueConfig>(this.ManualAssignmentQueueConfig);
+            }
             if (this.MediaConcurrency != null)
             {
                 context.MediaConcurrency = new List<Amazon.Connect.Model.MediaConcurrency>(this.MediaConcurrency);
@@ -312,6 +336,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.ManualAssignmentQueueConfig != null)
+            {
+                request.ManualAssignmentQueueConfigs = cmdletContext.ManualAssignmentQueueConfig;
             }
             if (cmdletContext.MediaConcurrency != null)
             {
@@ -388,6 +416,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String DefaultOutboundQueueId { get; set; }
             public System.String Description { get; set; }
             public System.String InstanceId { get; set; }
+            public List<Amazon.Connect.Model.RoutingProfileManualAssignmentQueueConfig> ManualAssignmentQueueConfig { get; set; }
             public List<Amazon.Connect.Model.MediaConcurrency> MediaConcurrency { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.Connect.Model.RoutingProfileQueueConfig> QueueConfig { get; set; }
