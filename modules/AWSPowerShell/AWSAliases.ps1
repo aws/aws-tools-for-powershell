@@ -3151,10 +3151,16 @@ Set-Alias -Name BDR-UpdateAutomatedReasoningPolicyTestCase -Value Update-BDRAuto
 Set-Alias -Name BDR-UpdateGuardrail -Value Update-BDRGuardrail
 Set-Alias -Name BDR-UpdateMarketplaceModelEndpoint -Value Update-BDRMarketplaceModelEndpoint
 Set-Alias -Name BDR-UpdateProvisionedModelThroughput -Value Update-BDRProvisionedModelThroughput
+Set-Alias -Name Associate-AWSBSourceViews -Value Add-AWSBSourceView
+Set-Alias -Name Associate-AWSBSourceView -Value Add-AWSBSourceView
+Set-Alias -Name AWSB-AssociateSourceViews -Value Add-AWSBSourceView
 Set-Alias -Name Create-AWSBBillingView -Value New-AWSBBillingView
 Set-Alias -Name AWSB-CreateBillingView -Value New-AWSBBillingView
 Set-Alias -Name Delete-AWSBBillingView -Value Remove-AWSBBillingView
 Set-Alias -Name AWSB-DeleteBillingView -Value Remove-AWSBBillingView
+Set-Alias -Name Disassociate-AWSBSourceViews -Value Remove-AWSBSourceView
+Set-Alias -Name Disassociate-AWSBSourceView -Value Remove-AWSBSourceView
+Set-Alias -Name AWSB-DisassociateSourceViews -Value Remove-AWSBSourceView
 Set-Alias -Name AWSB-GetBillingView -Value Get-AWSBBillingView
 Set-Alias -Name AWSB-GetResourcePolicy -Value Get-AWSBResourcePolicy
 Set-Alias -Name List-AWSBBillingViews -Value Get-AWSBBillingViewList
@@ -6818,6 +6824,8 @@ Set-Alias -Name Associate-CONNApprovedOrigin -Value Add-CONNApprovedOrigin
 Set-Alias -Name CONN-AssociateApprovedOrigin -Value Add-CONNApprovedOrigin
 Set-Alias -Name Associate-CONNBot -Value Add-CONNBot
 Set-Alias -Name CONN-AssociateBot -Value Add-CONNBot
+Set-Alias -Name Associate-CONNContactWithUser -Value Join-CONNContactWithUser
+Set-Alias -Name CONN-AssociateContactWithUser -Value Join-CONNContactWithUser
 Set-Alias -Name Associate-CONNDefaultVocabulary -Value Add-CONNDefaultVocabulary
 Set-Alias -Name CONN-AssociateDefaultVocabulary -Value Add-CONNDefaultVocabulary
 Set-Alias -Name Associate-CONNFlow -Value Add-CONNFlow
@@ -7173,6 +7181,9 @@ Set-Alias -Name CONN-ListQuickConnects -Value Get-CONNQuickConnectList
 Set-Alias -Name List-CONNRealtimeContactAnalysisSegmentsV2 -Value Get-CONNRealtimeContactAnalysisSegmentsV2List
 Set-Alias -Name List-CONNRealtimeContactAnalysisSegmentsV2List -Value Get-CONNRealtimeContactAnalysisSegmentsV2List
 Set-Alias -Name CONN-ListRealtimeContactAnalysisSegmentsV2 -Value Get-CONNRealtimeContactAnalysisSegmentsV2List
+Set-Alias -Name List-CONNRoutingProfileManualAssignmentQueues -Value Get-CONNRoutingProfileManualAssignmentQueueList
+Set-Alias -Name List-CONNRoutingProfileManualAssignmentQueueList -Value Get-CONNRoutingProfileManualAssignmentQueueList
+Set-Alias -Name CONN-ListRoutingProfileManualAssignmentQueues -Value Get-CONNRoutingProfileManualAssignmentQueueList
 Set-Alias -Name List-CONNRoutingProfileQueues -Value Get-CONNRoutingProfileQueueList
 Set-Alias -Name List-CONNRoutingProfileQueueList -Value Get-CONNRoutingProfileQueueList
 Set-Alias -Name CONN-ListRoutingProfileQueues -Value Get-CONNRoutingProfileQueueList

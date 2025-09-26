@@ -60,6 +60,18 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         public System.String Arn { get; set; }
         #endregion
         
+        #region Parameter ForceDelete
+        /// <summary>
+        /// <para>
+        /// <para> If set to true, forces deletion of the billing view even if it has derived resources
+        /// (e.g. other billing views or budgets). Use with caution as this may break dependent
+        /// resources. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ForceDelete { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Arn'.
@@ -129,6 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
                 WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ForceDelete = this.ForceDelete;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -148,6 +161,10 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
             if (cmdletContext.Arn != null)
             {
                 request.Arn = cmdletContext.Arn;
+            }
+            if (cmdletContext.ForceDelete != null)
+            {
+                request.Force = cmdletContext.ForceDelete.Value;
             }
             
             CmdletOutput output;
@@ -211,6 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Arn { get; set; }
+            public System.Boolean? ForceDelete { get; set; }
             public System.Func<Amazon.Billing.Model.DeleteBillingViewResponse, RemoveAWSBBillingViewCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Arn;
         }

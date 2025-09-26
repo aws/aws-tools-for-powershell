@@ -152,8 +152,10 @@ $AWSB_SelectCompleters = {
 }
 
 $AWSB_SelectMap = @{
-    "Select"=@("New-AWSBBillingView",
+    "Select"=@("Add-AWSBSourceView",
+               "New-AWSBBillingView",
                "Remove-AWSBBillingView",
+               "Remove-AWSBSourceView",
                "Get-AWSBBillingView",
                "Get-AWSBResourcePolicy",
                "Get-AWSBBillingViewList",

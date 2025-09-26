@@ -145,6 +145,29 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public Amazon.Redshift.Model.ServiceIntegrationsUnion[] ServiceIntegration { get; set; }
         #endregion
         
+        #region Parameter SsoTagKey
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags keys that Redshift Identity Center applications copy to IAM Identity
+        /// Center. For each input key, the tag corresponding to the key-value pair is propagated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SsoTagKeys")]
+        public System.String[] SsoTagKey { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Redshift.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'RedshiftIdcApplication'.
@@ -224,6 +247,14 @@ namespace Amazon.PowerShell.Cmdlets.RS
             {
                 context.ServiceIntegration = new List<Amazon.Redshift.Model.ServiceIntegrationsUnion>(this.ServiceIntegration);
             }
+            if (this.SsoTagKey != null)
+            {
+                context.SsoTagKey = new List<System.String>(this.SsoTagKey);
+            }
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Redshift.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -267,6 +298,14 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.ServiceIntegration != null)
             {
                 request.ServiceIntegrations = cmdletContext.ServiceIntegration;
+            }
+            if (cmdletContext.SsoTagKey != null)
+            {
+                request.SsoTagKeys = cmdletContext.SsoTagKey;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -336,6 +375,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.String IdentityNamespace { get; set; }
             public System.String RedshiftIdcApplicationName { get; set; }
             public List<Amazon.Redshift.Model.ServiceIntegrationsUnion> ServiceIntegration { get; set; }
+            public List<System.String> SsoTagKey { get; set; }
+            public List<Amazon.Redshift.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Redshift.Model.CreateRedshiftIdcApplicationResponse, NewRSRedshiftIdcApplicationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RedshiftIdcApplication;
         }

@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The number of I/O operations per second (IOPS). For <c>gp3</c>, <c>io1</c>, and <c>io2</c>
         /// volumes, this represents the number of IOPS that are provisioned for the volume. For
         /// <c>gp2</c> volumes, this represents the baseline performance of the volume and the
-        /// rate at which the volume accumulates I/O credits for bursting.</para><para>The following are the supported values for each volume type:</para><ul><li><para><c>gp3</c>: 3,000 - 16,000 IOPS</para></li><li><para><c>io1</c>: 100 - 64,000 IOPS</para></li><li><para><c>io2</c>: 100 - 256,000 IOPS</para></li></ul><para>For <c>io2</c> volumes, you can achieve up to 256,000 IOPS on <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">instances
+        /// rate at which the volume accumulates I/O credits for bursting.</para><para>The following are the supported values for each volume type:</para><ul><li><para><c>gp3</c>: 3,000 - 80,000 IOPS</para></li><li><para><c>io1</c>: 100 - 64,000 IOPS</para></li><li><para><c>io2</c>: 100 - 256,000 IOPS</para></li></ul><para>For <c>io2</c> volumes, you can achieve up to 256,000 IOPS on <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">instances
         /// built on the Nitro System</a>. On other instances, you can achieve performance up
         /// to 32,000 IOPS.</para><para>This parameter is required for <c>io1</c> and <c>io2</c> volumes. The default for
         /// <c>gp3</c> volumes is 3,000 IOPS. This parameter is not supported for <c>gp2</c>,
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The size of the volume, in GiBs. You must specify either a snapshot ID or a volume
         /// size. If you specify a snapshot, the default is the snapshot size. You can specify
-        /// a volume size that is equal to or larger than the snapshot size.</para><para>The following are the supported volumes sizes for each volume type:</para><ul><li><para><c>gp2</c> and <c>gp3</c>: 1 - 16,384 GiB</para></li><li><para><c>io1</c>: 4 - 16,384 GiB</para></li><li><para><c>io2</c>: 4 - 65,536 GiB</para></li><li><para><c>st1</c> and <c>sc1</c>: 125 - 16,384 GiB</para></li><li><para><c>standard</c>: 1 - 1024 GiB</para></li></ul>
+        /// a volume size that is equal to or larger than the snapshot size.</para><para>The following are the supported volumes sizes for each volume type:</para><ul><li><para><c>gp2</c>: 1 - 16,384 GiB</para></li><li><para><c>gp3</c>: 1 - 65,536 GiB</para></li><li><para><c>io1</c>: 4 - 16,384 GiB</para></li><li><para><c>io2</c>: 4 - 65,536 GiB</para></li><li><para><c>st1</c> and <c>sc1</c>: 125 - 16,384 GiB</para></li><li><para><c>standard</c>: 1 - 1024 GiB</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -203,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Throughput
         /// <summary>
         /// <para>
-        /// <para>The throughput to provision for a volume, with a maximum of 1,000 MiB/s.</para><para>This parameter is valid only for <c>gp3</c> volumes.</para><para>Valid Range: Minimum value of 125. Maximum value of 1000.</para>
+        /// <para>The throughput to provision for a volume, with a maximum of 2,000 MiB/s.</para><para>This parameter is valid only for <c>gp3</c> volumes.</para><para>Valid Range: Minimum value of 125. Maximum value of 2,000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

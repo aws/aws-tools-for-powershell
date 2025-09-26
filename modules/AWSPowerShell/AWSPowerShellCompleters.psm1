@@ -8599,6 +8599,8 @@ $BDA_Completers = {
         {
             ($_ -eq "New-BDADataAutomationProject/AdditionalFileFormat_State") -Or
             ($_ -eq "Update-BDADataAutomationProject/AdditionalFileFormat_State") -Or
+            ($_ -eq "New-BDADataAutomationProject/ChannelLabeling_State") -Or
+            ($_ -eq "Update-BDADataAutomationProject/ChannelLabeling_State") -Or
             ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Audio_ModalityProcessing_State") -Or
             ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Audio_ModalityProcessing_State") -Or
             ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Document_ModalityProcessing_State") -Or
@@ -8607,6 +8609,8 @@ $BDA_Completers = {
             ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Image_ModalityProcessing_State") -Or
             ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Video_ModalityProcessing_State") -Or
             ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Video_ModalityProcessing_State") -Or
+            ($_ -eq "New-BDADataAutomationProject/SpeakerLabeling_State") -Or
+            ($_ -eq "Update-BDADataAutomationProject/SpeakerLabeling_State") -Or
             ($_ -eq "New-BDADataAutomationProject/Splitter_State") -Or
             ($_ -eq "Update-BDADataAutomationProject/Splitter_State") -Or
             ($_ -eq "New-BDADataAutomationProject/StandardOutputConfiguration_Audio_Extraction_Category_State") -Or
@@ -8655,6 +8659,7 @@ $BDA_map = @{
     "BlueprintFilter_BlueprintStage"=@("Get-BDADataAutomationProjectList")
     "BlueprintStage"=@("Get-BDABlueprint","New-BDABlueprint","Update-BDABlueprint")
     "BlueprintStageFilter"=@("Get-BDABlueprintList")
+    "ChannelLabeling_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ModalityRouting_Jpeg"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ModalityRouting_Mov"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ModalityRouting_Mp4"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
@@ -8667,6 +8672,7 @@ $BDA_map = @{
     "ProjectStage"=@("Get-BDADataAutomationProject","New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ProjectStageFilter"=@("Get-BDADataAutomationProjectList")
     "ResourceOwner"=@("Get-BDABlueprintList","Get-BDADataAutomationProjectList")
+    "SpeakerLabeling_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "Splitter_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "StandardOutputConfiguration_Audio_Extraction_Category_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "StandardOutputConfiguration_Audio_GenerativeField_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
@@ -9400,8 +9406,10 @@ $AWSB_SelectCompleters = {
 }
 
 $AWSB_SelectMap = @{
-    "Select"=@("New-AWSBBillingView",
+    "Select"=@("Add-AWSBSourceView",
+               "New-AWSBBillingView",
                "Remove-AWSBBillingView",
+               "Remove-AWSBSourceView",
                "Get-AWSBBillingView",
                "Get-AWSBResourcePolicy",
                "Get-AWSBBillingViewList",
@@ -10045,7 +10053,7 @@ $CE_Completers = {
         # Amazon.CostExplorer.Dimension
         "Get-CEDimensionValue/Dimension"
         {
-            $v = "AGREEMENT_END_DATE_TIME_AFTER","AGREEMENT_END_DATE_TIME_BEFORE","ANOMALY_TOTAL_IMPACT_ABSOLUTE","ANOMALY_TOTAL_IMPACT_PERCENTAGE","AZ","BILLING_ENTITY","CACHE_ENGINE","DATABASE_ENGINE","DEPLOYMENT_OPTION","INSTANCE_TYPE","INSTANCE_TYPE_FAMILY","INVOICING_ENTITY","LEGAL_ENTITY_NAME","LINKED_ACCOUNT","LINKED_ACCOUNT_NAME","OPERATING_SYSTEM","OPERATION","PAYMENT_OPTION","PLATFORM","PURCHASE_TYPE","RECORD_TYPE","REGION","RESERVATION_ID","RESOURCE_ID","RIGHTSIZING_TYPE","SAVINGS_PLANS_TYPE","SAVINGS_PLAN_ARN","SCOPE","SERVICE","SERVICE_CODE","SUBSCRIPTION_ID","TENANCY","USAGE_TYPE","USAGE_TYPE_GROUP"
+            $v = "AGREEMENT_END_DATE_TIME_AFTER","AGREEMENT_END_DATE_TIME_BEFORE","ANOMALY_TOTAL_IMPACT_ABSOLUTE","ANOMALY_TOTAL_IMPACT_PERCENTAGE","AZ","BILLING_ENTITY","CACHE_ENGINE","DATABASE_ENGINE","DEPLOYMENT_OPTION","INSTANCE_TYPE","INSTANCE_TYPE_FAMILY","INVOICING_ENTITY","LEGAL_ENTITY_NAME","LINKED_ACCOUNT","LINKED_ACCOUNT_NAME","OPERATING_SYSTEM","OPERATION","PAYER_ACCOUNT","PAYMENT_OPTION","PLATFORM","PURCHASE_TYPE","RECORD_TYPE","REGION","RESERVATION_ID","RESOURCE_ID","RIGHTSIZING_TYPE","SAVINGS_PLANS_TYPE","SAVINGS_PLAN_ARN","SCOPE","SERVICE","SERVICE_CODE","SUBSCRIPTION_ID","TENANCY","USAGE_TYPE","USAGE_TYPE_GROUP"
             break
         }
 
@@ -19231,26 +19239,28 @@ $CONN_Completers = {
 
         # Amazon.Connect.SearchContactsMatchType
         {
+            ($_ -eq "Search-CONNContact/AdditionalTimeRange_MatchType") -Or
+            ($_ -eq "Search-CONNContact/Name_MatchType") -Or
             ($_ -eq "Search-CONNContact/SearchableContactAttributes_MatchType") -Or
             ($_ -eq "Search-CONNContact/SearchableSegmentAttributes_MatchType") -Or
             ($_ -eq "Search-CONNContact/Transcript_MatchType")
         }
         {
-            $v = "MATCH_ALL","MATCH_ANY"
+            $v = "MATCH_ALL","MATCH_ANY","MATCH_EXACT","MATCH_NONE"
             break
         }
 
         # Amazon.Connect.SearchContactsTimeRangeType
         "Search-CONNContact/TimeRange_Type"
         {
-            $v = "CONNECTED_TO_AGENT_TIMESTAMP","DISCONNECT_TIMESTAMP","INITIATION_TIMESTAMP","SCHEDULED_TIMESTAMP"
+            $v = "CONNECTED_TO_AGENT_TIMESTAMP","DISCONNECT_TIMESTAMP","ENQUEUE_TIMESTAMP","INITIATION_TIMESTAMP","SCHEDULED_TIMESTAMP"
             break
         }
 
         # Amazon.Connect.SortableFieldName
         "Search-CONNContact/Sort_FieldName"
         {
-            $v = "CHANNEL","CONNECTED_TO_AGENT_TIMESTAMP","DISCONNECT_TIMESTAMP","INITIATION_METHOD","INITIATION_TIMESTAMP","SCHEDULED_TIMESTAMP"
+            $v = "CHANNEL","CONNECTED_TO_AGENT_TIMESTAMP","DISCONNECT_TIMESTAMP","EXPIRY_TIMESTAMP","INITIATION_METHOD","INITIATION_TIMESTAMP","SCHEDULED_TIMESTAMP"
             break
         }
 
@@ -19400,6 +19410,7 @@ $CONN_Completers = {
 }
 
 $CONN_map = @{
+    "AdditionalTimeRange_MatchType"=@("Search-CONNContact")
     "Agent_ScreenShare"=@("Start-CONNWebRTCContact")
     "Agent_Video"=@("Start-CONNWebRTCContact")
     "AgentAvailabilityTimer"=@("New-CONNRoutingProfile","Update-CONNRoutingProfileAgentAvailabilityTimer")
@@ -19428,6 +19439,7 @@ $CONN_map = @{
     "LanguageCode"=@("Add-CONNDefaultVocabulary","Get-CONNDefaultVocabularyList","New-CONNVocabulary","Search-CONNVocabulary")
     "LexVersion"=@("Get-CONNBotList")
     "ListCondition_TargetListType"=@("Search-CONNUser")
+    "Name_MatchType"=@("Search-CONNContact")
     "OutputType"=@("Get-CONNRealtimeContactAnalysisSegmentsV2List")
     "ParticipantCapabilities_ScreenShare"=@("New-CONNParticipant")
     "ParticipantCapabilities_Video"=@("New-CONNParticipant")
@@ -19526,6 +19538,7 @@ $CONN_SelectMap = @{
                "Register-CONNAnalyticsDataSet",
                "Add-CONNApprovedOrigin",
                "Add-CONNBot",
+               "Join-CONNContactWithUser",
                "Add-CONNDefaultVocabulary",
                "Add-CONNFlow",
                "Add-CONNInstanceStorageConfig",
@@ -19688,6 +19701,7 @@ $CONN_SelectMap = @{
                "Get-CONNQueueList",
                "Get-CONNQuickConnectList",
                "Get-CONNRealtimeContactAnalysisSegmentsV2List",
+               "Get-CONNRoutingProfileManualAssignmentQueueList",
                "Get-CONNRoutingProfileQueueList",
                "Get-CONNRoutingProfileList",
                "Get-CONNRuleList",

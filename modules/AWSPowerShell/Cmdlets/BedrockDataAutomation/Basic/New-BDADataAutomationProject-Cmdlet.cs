@@ -227,6 +227,30 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         public Amazon.BedrockDataAutomation.State StandardOutputConfiguration_Audio_Extraction_Category_State { get; set; }
         #endregion
         
+        #region Parameter ChannelLabeling_State
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StandardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_ChannelLabeling_State")]
+        [AWSConstantClassSource("Amazon.BedrockDataAutomation.State")]
+        public Amazon.BedrockDataAutomation.State ChannelLabeling_State { get; set; }
+        #endregion
+        
+        #region Parameter SpeakerLabeling_State
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StandardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_SpeakerLabeling_State")]
+        [AWSConstantClassSource("Amazon.BedrockDataAutomation.State")]
+        public Amazon.BedrockDataAutomation.State SpeakerLabeling_State { get; set; }
+        #endregion
+        
         #region Parameter StandardOutputConfiguration_Audio_GenerativeField_State
         /// <summary>
         /// <para>
@@ -536,6 +560,8 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             #endif
             context.ProjectStage = this.ProjectStage;
             context.StandardOutputConfiguration_Audio_Extraction_Category_State = this.StandardOutputConfiguration_Audio_Extraction_Category_State;
+            context.ChannelLabeling_State = this.ChannelLabeling_State;
+            context.SpeakerLabeling_State = this.SpeakerLabeling_State;
             if (this.StandardOutputConfiguration_Audio_Extraction_Category_Types != null)
             {
                 context.StandardOutputConfiguration_Audio_Extraction_Category_Types = new List<System.String>(this.StandardOutputConfiguration_Audio_Extraction_Category_Types);
@@ -948,6 +974,86 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             if (requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_Types != null)
             {
                 requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category.Types = requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_Types;
+                requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_CategoryIsNull = false;
+            }
+            Amazon.BedrockDataAutomation.Model.AudioExtractionCategoryTypeConfiguration requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration = null;
+            
+             // populate TypeConfiguration
+            var requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfigurationIsNull = true;
+            requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration = new Amazon.BedrockDataAutomation.Model.AudioExtractionCategoryTypeConfiguration();
+            Amazon.BedrockDataAutomation.Model.TranscriptConfiguration requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript = null;
+            
+             // populate Transcript
+            var requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_TranscriptIsNull = true;
+            requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript = new Amazon.BedrockDataAutomation.Model.TranscriptConfiguration();
+            Amazon.BedrockDataAutomation.Model.ChannelLabelingConfiguration requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_ChannelLabeling = null;
+            
+             // populate ChannelLabeling
+            var requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_ChannelLabelingIsNull = true;
+            requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_ChannelLabeling = new Amazon.BedrockDataAutomation.Model.ChannelLabelingConfiguration();
+            Amazon.BedrockDataAutomation.State requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_ChannelLabeling_channelLabeling_State = null;
+            if (cmdletContext.ChannelLabeling_State != null)
+            {
+                requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_ChannelLabeling_channelLabeling_State = cmdletContext.ChannelLabeling_State;
+            }
+            if (requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_ChannelLabeling_channelLabeling_State != null)
+            {
+                requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_ChannelLabeling.State = requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_ChannelLabeling_channelLabeling_State;
+                requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_ChannelLabelingIsNull = false;
+            }
+             // determine if requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_ChannelLabeling should be set to null
+            if (requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_ChannelLabelingIsNull)
+            {
+                requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_ChannelLabeling = null;
+            }
+            if (requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_ChannelLabeling != null)
+            {
+                requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript.ChannelLabeling = requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_ChannelLabeling;
+                requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_TranscriptIsNull = false;
+            }
+            Amazon.BedrockDataAutomation.Model.SpeakerLabelingConfiguration requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_SpeakerLabeling = null;
+            
+             // populate SpeakerLabeling
+            var requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_SpeakerLabelingIsNull = true;
+            requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_SpeakerLabeling = new Amazon.BedrockDataAutomation.Model.SpeakerLabelingConfiguration();
+            Amazon.BedrockDataAutomation.State requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_SpeakerLabeling_speakerLabeling_State = null;
+            if (cmdletContext.SpeakerLabeling_State != null)
+            {
+                requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_SpeakerLabeling_speakerLabeling_State = cmdletContext.SpeakerLabeling_State;
+            }
+            if (requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_SpeakerLabeling_speakerLabeling_State != null)
+            {
+                requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_SpeakerLabeling.State = requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_SpeakerLabeling_speakerLabeling_State;
+                requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_SpeakerLabelingIsNull = false;
+            }
+             // determine if requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_SpeakerLabeling should be set to null
+            if (requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_SpeakerLabelingIsNull)
+            {
+                requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_SpeakerLabeling = null;
+            }
+            if (requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_SpeakerLabeling != null)
+            {
+                requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript.SpeakerLabeling = requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript_SpeakerLabeling;
+                requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_TranscriptIsNull = false;
+            }
+             // determine if requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript should be set to null
+            if (requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_TranscriptIsNull)
+            {
+                requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript = null;
+            }
+            if (requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript != null)
+            {
+                requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration.Transcript = requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration_Transcript;
+                requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfigurationIsNull = false;
+            }
+             // determine if requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration should be set to null
+            if (requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfigurationIsNull)
+            {
+                requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration = null;
+            }
+            if (requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration != null)
+            {
+                requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category.TypeConfiguration = requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category_standardOutputConfiguration_Audio_Extraction_Category_TypeConfiguration;
                 requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_CategoryIsNull = false;
             }
              // determine if requestStandardOutputConfiguration_standardOutputConfiguration_Audio_standardOutputConfiguration_Audio_Extraction_standardOutputConfiguration_Audio_Extraction_Category should be set to null
@@ -1522,6 +1628,8 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             public System.String ProjectName { get; set; }
             public Amazon.BedrockDataAutomation.DataAutomationProjectStage ProjectStage { get; set; }
             public Amazon.BedrockDataAutomation.State StandardOutputConfiguration_Audio_Extraction_Category_State { get; set; }
+            public Amazon.BedrockDataAutomation.State ChannelLabeling_State { get; set; }
+            public Amazon.BedrockDataAutomation.State SpeakerLabeling_State { get; set; }
             public List<System.String> StandardOutputConfiguration_Audio_Extraction_Category_Types { get; set; }
             public Amazon.BedrockDataAutomation.State StandardOutputConfiguration_Audio_GenerativeField_State { get; set; }
             public List<System.String> StandardOutputConfiguration_Audio_GenerativeField_Types { get; set; }

@@ -22,31 +22,32 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Connect;
-using Amazon.Connect.Model;
+using Amazon.Billing;
+using Amazon.Billing.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CONN
+namespace Amazon.PowerShell.Cmdlets.AWSB
 {
     /// <summary>
-    /// Associates a set of queues with a routing profile.
+    /// Removes the association between one or more source billing views and an existing
+    /// billing view. This allows modifying the composition of aggregate billing views.
     /// </summary>
-    [Cmdlet("Join", "CONNRoutingProfileQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Service AssociateRoutingProfileQueues API operation.", Operation = new[] {"AssociateRoutingProfileQueues"}, SelectReturnType = typeof(Amazon.Connect.Model.AssociateRoutingProfileQueuesResponse))]
-    [AWSCmdletOutput("None or Amazon.Connect.Model.AssociateRoutingProfileQueuesResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.AssociateRoutingProfileQueuesResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "AWSBSourceView", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Billing DisassociateSourceViews API operation.", Operation = new[] {"DisassociateSourceViews"}, SelectReturnType = typeof(Amazon.Billing.Model.DisassociateSourceViewsResponse))]
+    [AWSCmdletOutput("System.String or Amazon.Billing.Model.DisassociateSourceViewsResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.Billing.Model.DisassociateSourceViewsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class JoinCONNRoutingProfileQueueCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class RemoveAWSBSourceViewCmdlet : AmazonBillingClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter InstanceId
+        #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
-        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
+        /// <para> The Amazon Resource Name (ARN) of the billing view to disassociate source views from.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,64 +58,44 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
+        public System.String Arn { get; set; }
         #endregion
         
-        #region Parameter ManualAssignmentQueueConfig
+        #region Parameter SourceView
         /// <summary>
         /// <para>
-        /// <para>The manual assignment queues to associate with this routing profile.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ManualAssignmentQueueConfigs")]
-        public Amazon.Connect.Model.RoutingProfileManualAssignmentQueueConfig[] ManualAssignmentQueueConfig { get; set; }
-        #endregion
-        
-        #region Parameter QueueConfig
-        /// <summary>
-        /// <para>
-        /// <para>The queues to associate with this routing profile.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("QueueConfigs")]
-        public Amazon.Connect.Model.RoutingProfileQueueConfig[] QueueConfig { get; set; }
-        #endregion
-        
-        #region Parameter RoutingProfileId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the routing profile.</para>
+        /// <para> A list of ARNs of the source billing views to disassociate. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String RoutingProfileId { get; set; }
+        [Alias("SourceViews")]
+        public System.String[] SourceView { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.AssociateRoutingProfileQueuesResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Arn'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Billing.Model.DisassociateSourceViewsResponse).
+        /// Specifying the name of a property of type Amazon.Billing.Model.DisassociateSourceViewsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Arn";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Arn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Arn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Arn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -134,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Join-CONNRoutingProfileQueue (AssociateRoutingProfileQueues)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SourceView), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-AWSBSourceView (DisassociateSourceViews)"))
             {
                 return;
             }
@@ -148,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.AssociateRoutingProfileQueuesResponse, JoinCONNRoutingProfileQueueCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Billing.Model.DisassociateSourceViewsResponse, RemoveAWSBSourceViewCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -157,29 +138,24 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.InstanceId;
+                context.Select = (response, cmdlet) => this.Arn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.InstanceId = this.InstanceId;
+            context.Arn = this.Arn;
             #if MODULAR
-            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
+            if (this.Arn == null && ParameterWasBound(nameof(this.Arn)))
             {
-                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.ManualAssignmentQueueConfig != null)
+            if (this.SourceView != null)
             {
-                context.ManualAssignmentQueueConfig = new List<Amazon.Connect.Model.RoutingProfileManualAssignmentQueueConfig>(this.ManualAssignmentQueueConfig);
+                context.SourceView = new List<System.String>(this.SourceView);
             }
-            if (this.QueueConfig != null)
-            {
-                context.QueueConfig = new List<Amazon.Connect.Model.RoutingProfileQueueConfig>(this.QueueConfig);
-            }
-            context.RoutingProfileId = this.RoutingProfileId;
             #if MODULAR
-            if (this.RoutingProfileId == null && ParameterWasBound(nameof(this.RoutingProfileId)))
+            if (this.SourceView == null && ParameterWasBound(nameof(this.SourceView)))
             {
-                WriteWarning("You are passing $null as a value for parameter RoutingProfileId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter SourceView which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -196,23 +172,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.AssociateRoutingProfileQueuesRequest();
+            var request = new Amazon.Billing.Model.DisassociateSourceViewsRequest();
             
-            if (cmdletContext.InstanceId != null)
+            if (cmdletContext.Arn != null)
             {
-                request.InstanceId = cmdletContext.InstanceId;
+                request.Arn = cmdletContext.Arn;
             }
-            if (cmdletContext.ManualAssignmentQueueConfig != null)
+            if (cmdletContext.SourceView != null)
             {
-                request.ManualAssignmentQueueConfigs = cmdletContext.ManualAssignmentQueueConfig;
-            }
-            if (cmdletContext.QueueConfig != null)
-            {
-                request.QueueConfigs = cmdletContext.QueueConfig;
-            }
-            if (cmdletContext.RoutingProfileId != null)
-            {
-                request.RoutingProfileId = cmdletContext.RoutingProfileId;
+                request.SourceViews = cmdletContext.SourceView;
             }
             
             CmdletOutput output;
@@ -247,15 +215,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.AssociateRoutingProfileQueuesResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.AssociateRoutingProfileQueuesRequest request)
+        private Amazon.Billing.Model.DisassociateSourceViewsResponse CallAWSServiceOperation(IAmazonBilling client, Amazon.Billing.Model.DisassociateSourceViewsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "AssociateRoutingProfileQueues");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing", "DisassociateSourceViews");
             try
             {
                 #if DESKTOP
-                return client.AssociateRoutingProfileQueues(request);
+                return client.DisassociateSourceViews(request);
                 #elif CORECLR
-                return client.AssociateRoutingProfileQueuesAsync(request).GetAwaiter().GetResult();
+                return client.DisassociateSourceViewsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -275,12 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String InstanceId { get; set; }
-            public List<Amazon.Connect.Model.RoutingProfileManualAssignmentQueueConfig> ManualAssignmentQueueConfig { get; set; }
-            public List<Amazon.Connect.Model.RoutingProfileQueueConfig> QueueConfig { get; set; }
-            public System.String RoutingProfileId { get; set; }
-            public System.Func<Amazon.Connect.Model.AssociateRoutingProfileQueuesResponse, JoinCONNRoutingProfileQueueCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String Arn { get; set; }
+            public List<System.String> SourceView { get; set; }
+            public System.Func<Amazon.Billing.Model.DisassociateSourceViewsResponse, RemoveAWSBSourceViewCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Arn;
         }
         
     }

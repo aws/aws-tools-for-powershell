@@ -66,20 +66,24 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String InstanceId { get; set; }
         #endregion
         
+        #region Parameter ManualAssignmentQueueReference
+        /// <summary>
+        /// <para>
+        /// <para>The manual assignment queues to disassociate with this routing profile.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManualAssignmentQueueReferences")]
+        public Amazon.Connect.Model.RoutingProfileQueueReference[] ManualAssignmentQueueReference { get; set; }
+        #endregion
+        
         #region Parameter QueueReference
         /// <summary>
         /// <para>
         /// <para>The queues to disassociate from this routing profile.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("QueueReferences")]
         public Amazon.Connect.Model.RoutingProfileQueueReference[] QueueReference { get; set; }
         #endregion
@@ -169,16 +173,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ManualAssignmentQueueReference != null)
+            {
+                context.ManualAssignmentQueueReference = new List<Amazon.Connect.Model.RoutingProfileQueueReference>(this.ManualAssignmentQueueReference);
+            }
             if (this.QueueReference != null)
             {
                 context.QueueReference = new List<Amazon.Connect.Model.RoutingProfileQueueReference>(this.QueueReference);
             }
-            #if MODULAR
-            if (this.QueueReference == null && ParameterWasBound(nameof(this.QueueReference)))
-            {
-                WriteWarning("You are passing $null as a value for parameter QueueReference which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.RoutingProfileId = this.RoutingProfileId;
             #if MODULAR
             if (this.RoutingProfileId == null && ParameterWasBound(nameof(this.RoutingProfileId)))
@@ -205,6 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.ManualAssignmentQueueReference != null)
+            {
+                request.ManualAssignmentQueueReferences = cmdletContext.ManualAssignmentQueueReference;
             }
             if (cmdletContext.QueueReference != null)
             {
@@ -276,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String InstanceId { get; set; }
+            public List<Amazon.Connect.Model.RoutingProfileQueueReference> ManualAssignmentQueueReference { get; set; }
             public List<Amazon.Connect.Model.RoutingProfileQueueReference> QueueReference { get; set; }
             public System.String RoutingProfileId { get; set; }
             public System.Func<Amazon.Connect.Model.DisassociateRoutingProfileQueuesResponse, DisconnectCONNRoutingProfileQueueCmdlet, object> Select { get; set; } =

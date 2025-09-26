@@ -28,25 +28,57 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Associates a set of queues with a routing profile.
+    /// Associates a queued contact with an agent.
+    /// 
+    ///  
+    /// <para><b>Use cases</b></para><para>
+    /// Following are common uses cases for this API:
+    /// </para><ul><li><para>
+    /// Custom contact routing. You can build custom contact routing mechanisms beyond the
+    /// default system routing in Amazon Connect. You can create tailored contact distribution
+    /// logic that offers queued contacts directly to specific agents.
+    /// </para></li><li><para>
+    /// Manual contact assignment. You can programmatically assign queued contacts to available
+    /// users. This provides flexibility to contact centers that require manual oversight
+    /// or specialized routing workflows outside of standard queue management.
+    /// </para><para>
+    /// For information about how manual contact assignment works in the agent workspace,
+    /// see the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/worklist-app.html">Access
+    /// the Worklist app in the Amazon Connect agent workspace</a> in the <i>Amazon Connect
+    /// Administrator Guide</i>. 
+    /// </para></li></ul><para><b>Important things to know</b></para><ul><li><para>
+    /// Use this API chat/SMS, email, and task contacts. It does not support voice contacts.
+    /// </para></li><li><para>
+    /// Use it to associate contacts with users regardless of their current state, including
+    /// custom states. Ensure your application logic accounts for user availability before
+    /// making associations.
+    /// </para></li><li><para>
+    /// It honors the IAM context key <c>connect:PreferredUserArn</c> to prevent unauthorized
+    /// contact associations.
+    /// </para></li><li><para>
+    /// It respects the IAM context key <c>connect:PreferredUserArn</c> to enforce authorization
+    /// controls and prevent unauthorized contact associations. Verify that your IAM policies
+    /// are properly configured to support your intended use cases.
+    /// </para></li></ul><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon
+    /// Connect endpoints and quotas</a>.
+    /// </para>
     /// </summary>
-    [Cmdlet("Join", "CONNRoutingProfileQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Join", "CONNContactWithUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Service AssociateRoutingProfileQueues API operation.", Operation = new[] {"AssociateRoutingProfileQueues"}, SelectReturnType = typeof(Amazon.Connect.Model.AssociateRoutingProfileQueuesResponse))]
-    [AWSCmdletOutput("None or Amazon.Connect.Model.AssociateRoutingProfileQueuesResponse",
+    [AWSCmdlet("Calls the Amazon Connect Service AssociateContactWithUser API operation.", Operation = new[] {"AssociateContactWithUser"}, SelectReturnType = typeof(Amazon.Connect.Model.AssociateContactWithUserResponse))]
+    [AWSCmdletOutput("None or Amazon.Connect.Model.AssociateContactWithUserResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.AssociateRoutingProfileQueuesResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.Connect.Model.AssociateContactWithUserResponse) be returned by specifying '-Select *'."
     )]
-    public partial class JoinCONNRoutingProfileQueueCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class JoinCONNContactWithUserCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter InstanceId
+        #region Parameter ContactId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
-        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
+        /// <para>The identifier of the contact in this instance of Amazon Connect. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,35 +89,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
+        public System.String ContactId { get; set; }
         #endregion
         
-        #region Parameter ManualAssignmentQueueConfig
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The manual assignment queues to associate with this routing profile.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ManualAssignmentQueueConfigs")]
-        public Amazon.Connect.Model.RoutingProfileManualAssignmentQueueConfig[] ManualAssignmentQueueConfig { get; set; }
-        #endregion
-        
-        #region Parameter QueueConfig
-        /// <summary>
-        /// <para>
-        /// <para>The queues to associate with this routing profile.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("QueueConfigs")]
-        public Amazon.Connect.Model.RoutingProfileQueueConfig[] QueueConfig { get; set; }
-        #endregion
-        
-        #region Parameter RoutingProfileId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the routing profile.</para>
+        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,13 +107,30 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String RoutingProfileId { get; set; }
+        public System.String InstanceId { get; set; }
+        #endregion
+        
+        #region Parameter UserId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the user. This can be the ID or the ARN of the user.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String UserId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.AssociateRoutingProfileQueuesResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.AssociateContactWithUserResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,10 +139,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ContactId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ContactId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ContactId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -134,8 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Join-CONNRoutingProfileQueue (AssociateRoutingProfileQueues)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ContactId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Join-CONNContactWithUser (AssociateContactWithUser)"))
             {
                 return;
             }
@@ -148,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.AssociateRoutingProfileQueuesResponse, JoinCONNRoutingProfileQueueCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.AssociateContactWithUserResponse, JoinCONNContactWithUserCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -157,9 +185,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.InstanceId;
+                context.Select = (response, cmdlet) => this.ContactId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ContactId = this.ContactId;
+            #if MODULAR
+            if (this.ContactId == null && ParameterWasBound(nameof(this.ContactId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ContactId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
@@ -167,19 +202,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.ManualAssignmentQueueConfig != null)
-            {
-                context.ManualAssignmentQueueConfig = new List<Amazon.Connect.Model.RoutingProfileManualAssignmentQueueConfig>(this.ManualAssignmentQueueConfig);
-            }
-            if (this.QueueConfig != null)
-            {
-                context.QueueConfig = new List<Amazon.Connect.Model.RoutingProfileQueueConfig>(this.QueueConfig);
-            }
-            context.RoutingProfileId = this.RoutingProfileId;
+            context.UserId = this.UserId;
             #if MODULAR
-            if (this.RoutingProfileId == null && ParameterWasBound(nameof(this.RoutingProfileId)))
+            if (this.UserId == null && ParameterWasBound(nameof(this.UserId)))
             {
-                WriteWarning("You are passing $null as a value for parameter RoutingProfileId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter UserId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -196,23 +223,19 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.AssociateRoutingProfileQueuesRequest();
+            var request = new Amazon.Connect.Model.AssociateContactWithUserRequest();
             
+            if (cmdletContext.ContactId != null)
+            {
+                request.ContactId = cmdletContext.ContactId;
+            }
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
             }
-            if (cmdletContext.ManualAssignmentQueueConfig != null)
+            if (cmdletContext.UserId != null)
             {
-                request.ManualAssignmentQueueConfigs = cmdletContext.ManualAssignmentQueueConfig;
-            }
-            if (cmdletContext.QueueConfig != null)
-            {
-                request.QueueConfigs = cmdletContext.QueueConfig;
-            }
-            if (cmdletContext.RoutingProfileId != null)
-            {
-                request.RoutingProfileId = cmdletContext.RoutingProfileId;
+                request.UserId = cmdletContext.UserId;
             }
             
             CmdletOutput output;
@@ -247,15 +270,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.AssociateRoutingProfileQueuesResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.AssociateRoutingProfileQueuesRequest request)
+        private Amazon.Connect.Model.AssociateContactWithUserResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.AssociateContactWithUserRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "AssociateRoutingProfileQueues");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "AssociateContactWithUser");
             try
             {
                 #if DESKTOP
-                return client.AssociateRoutingProfileQueues(request);
+                return client.AssociateContactWithUser(request);
                 #elif CORECLR
-                return client.AssociateRoutingProfileQueuesAsync(request).GetAwaiter().GetResult();
+                return client.AssociateContactWithUserAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -275,11 +298,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ContactId { get; set; }
             public System.String InstanceId { get; set; }
-            public List<Amazon.Connect.Model.RoutingProfileManualAssignmentQueueConfig> ManualAssignmentQueueConfig { get; set; }
-            public List<Amazon.Connect.Model.RoutingProfileQueueConfig> QueueConfig { get; set; }
-            public System.String RoutingProfileId { get; set; }
-            public System.Func<Amazon.Connect.Model.AssociateRoutingProfileQueuesResponse, JoinCONNRoutingProfileQueueCmdlet, object> Select { get; set; } =
+            public System.String UserId { get; set; }
+            public System.Func<Amazon.Connect.Model.AssociateContactWithUserResponse, JoinCONNContactWithUserCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

@@ -1,4 +1,26 @@
-﻿### 4.1.908 (2025-09-25 20:07Z)
+﻿### 4.1.909 (2025-09-26 20:31Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1132.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Billing
+    * Added cmdlet Add-AWSBSourceView leveraging the AssociateSourceViews service API.
+    * Added cmdlet Remove-AWSBSourceView leveraging the DisassociateSourceViews service API.
+    * Modified cmdlet Get-AWSBBillingViewList: added parameter SourceAccountId.
+    * Modified cmdlet New-AWSBBillingView: added parameters TimeRange_BeginDateInclusive and TimeRange_EndDateInclusive.
+    * Modified cmdlet Remove-AWSBBillingView: added parameter ForceDelete.
+    * Modified cmdlet Update-AWSBBillingView: added parameters TimeRange_BeginDateInclusive and TimeRange_EndDateInclusive.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNRoutingProfileManualAssignmentQueueList leveraging the ListRoutingProfileManualAssignmentQueues service API.
+    * Added cmdlet Join-CONNContactWithUser leveraging the AssociateContactWithUser service API.
+    * Modified cmdlet Disconnect-CONNRoutingProfileQueue: added parameter ManualAssignmentQueueReference.
+    * Modified cmdlet Join-CONNRoutingProfileQueue: added parameter ManualAssignmentQueueConfig.
+    * Modified cmdlet New-CONNRoutingProfile: added parameter ManualAssignmentQueueConfig.
+    * Modified cmdlet Search-CONNContact: added parameters AdditionalTimeRange_Criterion, AdditionalTimeRange_MatchType, Name_MatchType, Name_SearchText and RoutingCriteria_Step.
+  * Amazon Data Automation for Amazon Bedrock
+    * Modified cmdlet New-BDADataAutomationProject: added parameters ChannelLabeling_State and SpeakerLabeling_State.
+    * Modified cmdlet Update-BDADataAutomationProject: added parameters ChannelLabeling_State and SpeakerLabeling_State.
+  * Amazon Redshift
+    * Modified cmdlet New-RSRedshiftIdcApplication: added parameters SsoTagKey and Tag.
+
+### 4.1.908 (2025-09-25 20:07Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1131.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.907 (2025-09-24 19:56Z)
