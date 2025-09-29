@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter DnsResource_IpAddressType
         /// <summary>
         /// <para>
-        /// <para>The type of IP address.</para>
+        /// <para>The type of IP address. Dualstack is currently not supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

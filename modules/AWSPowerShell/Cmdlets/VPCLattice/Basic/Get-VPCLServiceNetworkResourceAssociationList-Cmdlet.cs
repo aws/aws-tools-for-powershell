@@ -42,10 +42,22 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter IncludeChild
+        /// <summary>
+        /// <para>
+        /// <para>Include service network resource associations of the child resource configuration
+        /// with the grouped resource configuration.</para><para>The type is boolean and the default value is false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeChildren")]
+        public System.Boolean? IncludeChild { get; set; }
+        #endregion
+        
         #region Parameter ResourceConfigurationIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID of the resource configurationk.</para>
+        /// <para>The ID of the resource configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,6 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
                 context.Select = CreateSelectDelegate<Amazon.VPCLattice.Model.ListServiceNetworkResourceAssociationsResponse, GetVPCLServiceNetworkResourceAssociationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.IncludeChild = this.IncludeChild;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.ResourceConfigurationIdentifier = this.ResourceConfigurationIdentifier;
@@ -129,6 +142,10 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             // create request
             var request = new Amazon.VPCLattice.Model.ListServiceNetworkResourceAssociationsRequest();
             
+            if (cmdletContext.IncludeChild != null)
+            {
+                request.IncludeChildren = cmdletContext.IncludeChild.Value;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -206,6 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? IncludeChild { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String ResourceConfigurationIdentifier { get; set; }

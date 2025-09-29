@@ -59,6 +59,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter LoggingConfiguration_LogGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The log group name that Image Builder uses for image creation. If not specified, the
+        /// log group name defaults to <c>/aws/imagebuilder/image-name</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LoggingConfiguration_LogGroupName { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -232,6 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.LoggingConfiguration_LogGroupName = this.LoggingConfiguration_LogGroupName;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -292,6 +304,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate LoggingConfiguration
+            var requestLoggingConfigurationIsNull = true;
+            request.LoggingConfiguration = new Amazon.Imagebuilder.Model.ImageLoggingConfiguration();
+            System.String requestLoggingConfiguration_loggingConfiguration_LogGroupName = null;
+            if (cmdletContext.LoggingConfiguration_LogGroupName != null)
+            {
+                requestLoggingConfiguration_loggingConfiguration_LogGroupName = cmdletContext.LoggingConfiguration_LogGroupName;
+            }
+            if (requestLoggingConfiguration_loggingConfiguration_LogGroupName != null)
+            {
+                request.LoggingConfiguration.LogGroupName = requestLoggingConfiguration_loggingConfiguration_LogGroupName;
+                requestLoggingConfigurationIsNull = false;
+            }
+             // determine if request.LoggingConfiguration should be set to null
+            if (requestLoggingConfigurationIsNull)
+            {
+                request.LoggingConfiguration = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -380,6 +411,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         {
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public System.String LoggingConfiguration_LogGroupName { get; set; }
             public System.String Name { get; set; }
             public System.String OsVersion { get; set; }
             public Amazon.Imagebuilder.Platform Platform { get; set; }

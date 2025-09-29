@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter DnsResource_IpAddressType
         /// <summary>
         /// <para>
-        /// <para>The type of IP address.</para>
+        /// <para>The type of IP address. Dualstack is currently not supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter ResourceConfigurationGroupIdentifier
         /// <summary>
         /// <para>
-        /// <para>(CHILD) The ID or ARN of the parent resource configuration (type is <c>GROUP</c>).
-        /// This is used to associate a child resource configuration with a group resource configuration.</para>
+        /// <para>(CHILD) The ID or ARN of the parent resource configuration of type <c>GROUP</c>. This
+        /// is used to associate a child resource configuration with a group resource configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,8 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of resource configuration.</para><ul><li><para><c>SINGLE</c> - A single resource.</para></li><li><para><c>GROUP</c> - A group of resources. You must create a group resource configuration
-        /// before you create a child resource configuration.</para></li><li><para><c>CHILD</c> - A single resource that is part of a group resource configuration.</para></li><li><para><c>ARN</c> - An Amazon Web Services resource.</para></li></ul>
+        /// <para>The type of resource configuration. A resource configuration can be one of the following
+        /// types:</para><ul><li><para><b>SINGLE</b> - A single resource.</para></li><li><para><b>GROUP</b> - A group of resources. You must create a group resource configuration
+        /// before you create a child resource configuration.</para></li><li><para><b>CHILD</b> - A single resource that is part of a group resource configuration.</para></li><li><para><b>ARN</b> - An Amazon Web Services resource.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

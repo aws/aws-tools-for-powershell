@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter FixedResponse_StatusCode
         /// <summary>
         /// <para>
-        /// <para>The HTTP response code.</para>
+        /// <para>The HTTP response code. Only <c>404</c> and <c>500</c> status codes are supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

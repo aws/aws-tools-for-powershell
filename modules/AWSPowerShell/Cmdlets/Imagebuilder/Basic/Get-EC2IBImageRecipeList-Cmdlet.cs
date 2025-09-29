@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum items to return in a request.</para>
+        /// <para>Specify the maximum number of items to return in a request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,10 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Owner
         /// <summary>
         /// <para>
-        /// <para>The owner defines which image recipes you want to list. By default, this request will
-        /// only show image recipes owned by your account. You can use this field to specify if
-        /// you want to view image recipes owned by yourself, by Amazon, or those image recipes
-        /// that have been shared with you by other customers.</para>
+        /// <para>You can specify the recipe owner to filter results by that owner. By default, this
+        /// request will only show image recipes owned by your account. To filter by a different
+        /// owner, specify one of the <c>Valid Values</c> that are listed for this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags for the association.</para>
+        /// <para>A key-value pair to associate with a resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

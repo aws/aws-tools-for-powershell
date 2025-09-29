@@ -1,4 +1,18 @@
-﻿### 4.1.909 (2025-09-26 20:31Z)
+﻿### 4.1.910 (2025-09-29 20:14Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1133.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon EC2 Image Builder
+    * Modified cmdlet Import-EC2IBDiskImage: added parameter LoggingConfiguration_LogGroupName.
+    * Modified cmdlet Import-EC2IBVmImage: added parameter LoggingConfiguration_LogGroupName.
+    * Modified cmdlet New-EC2IBImage: added parameter LoggingConfiguration_LogGroupName.
+    * Modified cmdlet New-EC2IBImagePipeline: added parameters AutoDisablePolicy_FailureCount, LoggingConfiguration_ImageLogGroupName and LoggingConfiguration_PipelineLogGroupName.
+    * Modified cmdlet New-EC2IBImageRecipe: added parameter AmiTag.
+    * Modified cmdlet Start-EC2IBImagePipelineExecution: added parameter Tag.
+    * Modified cmdlet Update-EC2IBImagePipeline: added parameters AutoDisablePolicy_FailureCount, LoggingConfiguration_ImageLogGroupName and LoggingConfiguration_PipelineLogGroupName.
+  * Amazon VPC Lattice
+    * Modified cmdlet Get-VPCLServiceNetworkResourceAssociationList: added parameter IncludeChild.
+    * Modified cmdlet New-VPCLResourceGateway: added parameter Ipv4AddressesPerEni.
+
+### 4.1.909 (2025-09-26 20:31Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1132.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Billing
     * Added cmdlet Add-AWSBSourceView leveraging the AssociateSourceViews service API.

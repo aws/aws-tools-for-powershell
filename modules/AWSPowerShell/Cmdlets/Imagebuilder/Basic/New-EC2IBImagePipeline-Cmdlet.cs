@@ -110,6 +110,29 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.String ExecutionRole { get; set; }
         #endregion
         
+        #region Parameter AutoDisablePolicy_FailureCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of consecutive scheduled image pipeline executions that must fail before
+        /// Image Builder automatically disables the pipeline.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Schedule_AutoDisablePolicy_FailureCount")]
+        public System.Int32? AutoDisablePolicy_FailureCount { get; set; }
+        #endregion
+        
+        #region Parameter LoggingConfiguration_ImageLogGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The log group name that Image Builder uses for image creation. If not specified, the
+        /// log group name defaults to <c>/aws/imagebuilder/image-name</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LoggingConfiguration_ImageLogGroupName { get; set; }
+        #endregion
+        
         #region Parameter ImageRecipeArn
         /// <summary>
         /// <para>
@@ -193,6 +216,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Imagebuilder.PipelineExecutionStartCondition")]
         public Amazon.Imagebuilder.PipelineExecutionStartCondition Schedule_PipelineExecutionStartCondition { get; set; }
+        #endregion
+        
+        #region Parameter LoggingConfiguration_PipelineLogGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The log group name that Image Builder uses for the log output during creation of a
+        /// new pipeline. If not specified, the pipeline log group name defaults to <c>/aws/imagebuilder/pipeline/pipeline-name</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LoggingConfiguration_PipelineLogGroupName { get; set; }
         #endregion
         
         #region Parameter EcrConfiguration_RepositoryName
@@ -373,6 +407,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                 WriteWarning("You are passing $null as a value for parameter InfrastructureConfigurationArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.LoggingConfiguration_ImageLogGroupName = this.LoggingConfiguration_ImageLogGroupName;
+            context.LoggingConfiguration_PipelineLogGroupName = this.LoggingConfiguration_PipelineLogGroupName;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -380,6 +416,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AutoDisablePolicy_FailureCount = this.AutoDisablePolicy_FailureCount;
             context.Schedule_PipelineExecutionStartCondition = this.Schedule_PipelineExecutionStartCondition;
             context.Schedule_ScheduleExpression = this.Schedule_ScheduleExpression;
             context.Schedule_Timezone = this.Schedule_Timezone;
@@ -527,6 +564,35 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             {
                 request.InfrastructureConfigurationArn = cmdletContext.InfrastructureConfigurationArn;
             }
+            
+             // populate LoggingConfiguration
+            var requestLoggingConfigurationIsNull = true;
+            request.LoggingConfiguration = new Amazon.Imagebuilder.Model.PipelineLoggingConfiguration();
+            System.String requestLoggingConfiguration_loggingConfiguration_ImageLogGroupName = null;
+            if (cmdletContext.LoggingConfiguration_ImageLogGroupName != null)
+            {
+                requestLoggingConfiguration_loggingConfiguration_ImageLogGroupName = cmdletContext.LoggingConfiguration_ImageLogGroupName;
+            }
+            if (requestLoggingConfiguration_loggingConfiguration_ImageLogGroupName != null)
+            {
+                request.LoggingConfiguration.ImageLogGroupName = requestLoggingConfiguration_loggingConfiguration_ImageLogGroupName;
+                requestLoggingConfigurationIsNull = false;
+            }
+            System.String requestLoggingConfiguration_loggingConfiguration_PipelineLogGroupName = null;
+            if (cmdletContext.LoggingConfiguration_PipelineLogGroupName != null)
+            {
+                requestLoggingConfiguration_loggingConfiguration_PipelineLogGroupName = cmdletContext.LoggingConfiguration_PipelineLogGroupName;
+            }
+            if (requestLoggingConfiguration_loggingConfiguration_PipelineLogGroupName != null)
+            {
+                request.LoggingConfiguration.PipelineLogGroupName = requestLoggingConfiguration_loggingConfiguration_PipelineLogGroupName;
+                requestLoggingConfigurationIsNull = false;
+            }
+             // determine if request.LoggingConfiguration should be set to null
+            if (requestLoggingConfigurationIsNull)
+            {
+                request.LoggingConfiguration = null;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -563,6 +629,31 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             if (requestSchedule_schedule_Timezone != null)
             {
                 request.Schedule.Timezone = requestSchedule_schedule_Timezone;
+                requestScheduleIsNull = false;
+            }
+            Amazon.Imagebuilder.Model.AutoDisablePolicy requestSchedule_schedule_AutoDisablePolicy = null;
+            
+             // populate AutoDisablePolicy
+            var requestSchedule_schedule_AutoDisablePolicyIsNull = true;
+            requestSchedule_schedule_AutoDisablePolicy = new Amazon.Imagebuilder.Model.AutoDisablePolicy();
+            System.Int32? requestSchedule_schedule_AutoDisablePolicy_autoDisablePolicy_FailureCount = null;
+            if (cmdletContext.AutoDisablePolicy_FailureCount != null)
+            {
+                requestSchedule_schedule_AutoDisablePolicy_autoDisablePolicy_FailureCount = cmdletContext.AutoDisablePolicy_FailureCount.Value;
+            }
+            if (requestSchedule_schedule_AutoDisablePolicy_autoDisablePolicy_FailureCount != null)
+            {
+                requestSchedule_schedule_AutoDisablePolicy.FailureCount = requestSchedule_schedule_AutoDisablePolicy_autoDisablePolicy_FailureCount.Value;
+                requestSchedule_schedule_AutoDisablePolicyIsNull = false;
+            }
+             // determine if requestSchedule_schedule_AutoDisablePolicy should be set to null
+            if (requestSchedule_schedule_AutoDisablePolicyIsNull)
+            {
+                requestSchedule_schedule_AutoDisablePolicy = null;
+            }
+            if (requestSchedule_schedule_AutoDisablePolicy != null)
+            {
+                request.Schedule.AutoDisablePolicy = requestSchedule_schedule_AutoDisablePolicy;
                 requestScheduleIsNull = false;
             }
              // determine if request.Schedule should be set to null
@@ -656,7 +747,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             public System.Boolean? ImageTestsConfiguration_ImageTestsEnabled { get; set; }
             public System.Int32? ImageTestsConfiguration_TimeoutMinute { get; set; }
             public System.String InfrastructureConfigurationArn { get; set; }
+            public System.String LoggingConfiguration_ImageLogGroupName { get; set; }
+            public System.String LoggingConfiguration_PipelineLogGroupName { get; set; }
             public System.String Name { get; set; }
+            public System.Int32? AutoDisablePolicy_FailureCount { get; set; }
             public Amazon.Imagebuilder.PipelineExecutionStartCondition Schedule_PipelineExecutionStartCondition { get; set; }
             public System.String Schedule_ScheduleExpression { get; set; }
             public System.String Schedule_Timezone { get; set; }

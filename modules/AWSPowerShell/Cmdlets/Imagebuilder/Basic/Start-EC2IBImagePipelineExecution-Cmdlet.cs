@@ -59,6 +59,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.String ImagePipelineArn { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Specify tags for Image Builder to apply to the image resource that's created When
+        /// it starts pipeline execution.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -141,6 +153,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                 WriteWarning("You are passing $null as a value for parameter ImagePipelineArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -164,6 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             if (cmdletContext.ImagePipelineArn != null)
             {
                 request.ImagePipelineArn = cmdletContext.ImagePipelineArn;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -228,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         {
             public System.String ClientToken { get; set; }
             public System.String ImagePipelineArn { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Imagebuilder.Model.StartImagePipelineExecutionResponse, StartEC2IBImagePipelineExecutionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ImageBuildVersionArn;
         }
