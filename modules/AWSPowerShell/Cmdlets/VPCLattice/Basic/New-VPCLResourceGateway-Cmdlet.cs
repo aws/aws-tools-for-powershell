@@ -30,7 +30,10 @@ using Amazon.VPCLattice.Model;
 namespace Amazon.PowerShell.Cmdlets.VPCL
 {
     /// <summary>
-    /// Creates a resource gateway.
+    /// A resource gateway is a point of ingress into the VPC where a resource resides. It
+    /// spans multiple Availability Zones. For your resource to be accessible from all Availability
+    /// Zones, you should create your resource gateways to span as many Availability Zones
+    /// as possible. A VPC can have multiple resource gateways.
     /// </summary>
     [Cmdlet("New", "VPCLResourceGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.VPCLattice.Model.CreateResourceGatewayResponse")]
@@ -47,12 +50,31 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter IpAddressType
         /// <summary>
         /// <para>
-        /// <para>The type of IP address used by the resource gateway.</para>
+        /// <para>A resource gateway can have IPv4, IPv6 or dualstack addresses. The IP address type
+        /// of a resource gateway must be compatible with the subnets of the resource gateway
+        /// and the IP address type of the resource, as described here: </para><ul><li><para><b>IPv4</b>Assign IPv4 addresses to your resource gateway network interfaces. This
+        /// option is supported only if all selected subnets have IPv4 address ranges, and the
+        /// resource also has an IPv4 address.</para></li><li><para><b>IPv6</b>Assign IPv6 addresses to your resource gateway network interfaces. This
+        /// option is supported only if all selected subnets are IPv6 only subnets, and the resource
+        /// also has an IPv6 address.</para></li><li><para><b>Dualstack</b>Assign both IPv4 and IPv6 addresses to your resource gateway network
+        /// interfaces. This option is supported only if all selected subnets have both IPv4 and
+        /// IPv6 address ranges, and the resource either has an IPv4 or IPv6 address.</para></li></ul><para>The IP address type of the resource gateway is independent of the IP address type
+        /// of the client or the VPC endpoint through which the resource is accessed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.VPCLattice.ResourceGatewayIpAddressType")]
         public Amazon.VPCLattice.ResourceGatewayIpAddressType IpAddressType { get; set; }
+        #endregion
+        
+        #region Parameter Ipv4AddressesPerEni
+        /// <summary>
+        /// <para>
+        /// <para>The number of IPv4 addresses in each ENI for the resource gateway.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Ipv4AddressesPerEni { get; set; }
         #endregion
         
         #region Parameter Name
@@ -98,14 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("SubnetIds")]
         public System.String[] SubnetId { get; set; }
         #endregion
@@ -131,14 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         /// <para>The ID of the VPC for the resource gateway.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String VpcIdentifier { get; set; }
         #endregion
         
@@ -203,6 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             }
             context.ClientToken = this.ClientToken;
             context.IpAddressType = this.IpAddressType;
+            context.Ipv4AddressesPerEni = this.Ipv4AddressesPerEni;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -218,12 +227,6 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             {
                 context.SubnetId = new List<System.String>(this.SubnetId);
             }
-            #if MODULAR
-            if (this.SubnetId == null && ParameterWasBound(nameof(this.SubnetId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SubnetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -233,12 +236,6 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
                 }
             }
             context.VpcIdentifier = this.VpcIdentifier;
-            #if MODULAR
-            if (this.VpcIdentifier == null && ParameterWasBound(nameof(this.VpcIdentifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter VpcIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -262,6 +259,10 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (cmdletContext.IpAddressType != null)
             {
                 request.IpAddressType = cmdletContext.IpAddressType;
+            }
+            if (cmdletContext.Ipv4AddressesPerEni != null)
+            {
+                request.Ipv4AddressesPerEni = cmdletContext.Ipv4AddressesPerEni.Value;
             }
             if (cmdletContext.Name != null)
             {
@@ -340,6 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         {
             public System.String ClientToken { get; set; }
             public Amazon.VPCLattice.ResourceGatewayIpAddressType IpAddressType { get; set; }
+            public System.Int32? Ipv4AddressesPerEni { get; set; }
             public System.String Name { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public List<System.String> SubnetId { get; set; }

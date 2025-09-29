@@ -46,6 +46,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AmiTag
+        /// <summary>
+        /// <para>
+        /// <para>Tags that are applied to the AMI that Image Builder creates during the Build phase
+        /// prior to image distribution.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AmiTags")]
+        public System.Collections.Hashtable AmiTag { get; set; }
+        #endregion
+        
         #region Parameter BlockDeviceMapping
         /// <summary>
         /// <para>
@@ -174,7 +190,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <para>Controls whether the Systems Manager agent is removed from your final build image,
         /// prior to creating the new AMI. If this is set to true, then the agent is removed from
         /// the final image. If it's set to false, then the agent is left in, so that it is included
-        /// in the new AMI. The default value is false.</para>
+        /// in the new AMI. default value is false.</para><para>The default behavior of uninstallAfterBuild is to remove the SSM Agent if it was installed
+        /// by EC2 Image Builder</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -267,6 +284,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             }
             context.SystemsManagerAgent_UninstallAfterBuild = this.SystemsManagerAgent_UninstallAfterBuild;
             context.AdditionalInstanceConfiguration_UserDataOverride = this.AdditionalInstanceConfiguration_UserDataOverride;
+            if (this.AmiTag != null)
+            {
+                context.AmiTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.AmiTag.Keys)
+                {
+                    context.AmiTag.Add((String)hashKey, (System.String)(this.AmiTag[hashKey]));
+                }
+            }
             if (this.BlockDeviceMapping != null)
             {
                 context.BlockDeviceMapping = new List<Amazon.Imagebuilder.Model.InstanceBlockDeviceMapping>(this.BlockDeviceMapping);
@@ -373,6 +398,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             {
                 request.AdditionalInstanceConfiguration = null;
             }
+            if (cmdletContext.AmiTag != null)
+            {
+                request.AmiTags = cmdletContext.AmiTag;
+            }
             if (cmdletContext.BlockDeviceMapping != null)
             {
                 request.BlockDeviceMappings = cmdletContext.BlockDeviceMapping;
@@ -466,6 +495,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         {
             public System.Boolean? SystemsManagerAgent_UninstallAfterBuild { get; set; }
             public System.String AdditionalInstanceConfiguration_UserDataOverride { get; set; }
+            public Dictionary<System.String, System.String> AmiTag { get; set; }
             public List<Amazon.Imagebuilder.Model.InstanceBlockDeviceMapping> BlockDeviceMapping { get; set; }
             public System.String ClientToken { get; set; }
             public List<Amazon.Imagebuilder.Model.ComponentConfiguration> Component { get; set; }

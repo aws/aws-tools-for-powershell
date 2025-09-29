@@ -90,6 +90,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.String InfrastructureConfigurationArn { get; set; }
         #endregion
         
+        #region Parameter LoggingConfiguration_LogGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The log group name that Image Builder uses for image creation. If not specified, the
+        /// log group name defaults to <c>/aws/imagebuilder/image-name</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LoggingConfiguration_LogGroupName { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -261,6 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                 WriteWarning("You are passing $null as a value for parameter InfrastructureConfigurationArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.LoggingConfiguration_LogGroupName = this.LoggingConfiguration_LogGroupName;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -335,6 +347,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             if (cmdletContext.InfrastructureConfigurationArn != null)
             {
                 request.InfrastructureConfigurationArn = cmdletContext.InfrastructureConfigurationArn;
+            }
+            
+             // populate LoggingConfiguration
+            var requestLoggingConfigurationIsNull = true;
+            request.LoggingConfiguration = new Amazon.Imagebuilder.Model.ImageLoggingConfiguration();
+            System.String requestLoggingConfiguration_loggingConfiguration_LogGroupName = null;
+            if (cmdletContext.LoggingConfiguration_LogGroupName != null)
+            {
+                requestLoggingConfiguration_loggingConfiguration_LogGroupName = cmdletContext.LoggingConfiguration_LogGroupName;
+            }
+            if (requestLoggingConfiguration_loggingConfiguration_LogGroupName != null)
+            {
+                request.LoggingConfiguration.LogGroupName = requestLoggingConfiguration_loggingConfiguration_LogGroupName;
+                requestLoggingConfigurationIsNull = false;
+            }
+             // determine if request.LoggingConfiguration should be set to null
+            if (requestLoggingConfigurationIsNull)
+            {
+                request.LoggingConfiguration = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -419,6 +450,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             public System.String Description { get; set; }
             public System.String ExecutionRole { get; set; }
             public System.String InfrastructureConfigurationArn { get; set; }
+            public System.String LoggingConfiguration_LogGroupName { get; set; }
             public System.String Name { get; set; }
             public System.String OsVersion { get; set; }
             public System.String Platform { get; set; }

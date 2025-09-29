@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter ResourceConfigurationGroupIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID of the group resource configuration.</para>
+        /// <para>The ID of the resource configuration of type <c>Group</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
