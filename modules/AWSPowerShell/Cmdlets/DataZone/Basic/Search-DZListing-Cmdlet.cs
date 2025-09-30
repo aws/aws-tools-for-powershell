@@ -28,7 +28,41 @@ using Amazon.DataZone.Model;
 namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Searches listings (records of an asset at a given time) in Amazon DataZone.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Searches listings in Amazon DataZone.
+    /// 
+    ///  
+    /// <para>
+    /// SearchListings is a powerful capability that enables users to discover and explore
+    /// published assets and data products across their organization. It provides both basic
+    /// and advanced search functionality, allowing users to find resources based on names,
+    /// descriptions, metadata, and other attributes. SearchListings also supports filtering
+    /// using various criteria such as creation date, owner, or status. This API is essential
+    /// for making the wealth of data resources in an organization discoverable and usable,
+    /// helping users find the right data for their needs quickly and efficiently.
+    /// </para><para>
+    /// SearchListings returns results in a paginated format. When the result set is large,
+    /// the response will include a nextToken, which can be used to retrieve the next page
+    /// of results.
+    /// </para><para>
+    /// The SearchListings API gives users flexibility in specifying what kind of search is
+    /// run.
+    /// </para><para>
+    /// To run a free-text search, the <c>searchText</c> parameter must be supplied. By default,
+    /// all searchable fields are indexed for semantic search and will return semantic matches
+    /// for SearchListings queries. To prevent semantic search indexing for a custom form
+    /// attribute, see the <a href="https://docs.aws.amazon.com/datazone/latest/APIReference/API_CreateFormType.html">CreateFormType
+    /// API documentation</a>. To run a lexical search query, enclose the query with double
+    /// quotes (""). This will disable semantic search even for fields that have semantic
+    /// search enabled and will only return results that contain the keywords wrapped by double
+    /// quotes (order of tokens in the query is not enforced). Free-text search is supported
+    /// for all attributes annotated with @amazon.datazone#searchable.
+    /// </para><para>
+    /// To run a filtered search, provide filter clause using the filters parameter. To filter
+    /// on glossary terms, use the special attribute <c>__DataZoneGlossaryTerms</c>.
+    /// </para><para>
+    ///  To find out whether an attribute has been annotated and indexed for a given search
+    /// type, use the GetFormType API to retrieve the form containing the attribute.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Search", "DZListing", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DataZone.Model.SearchListingsResponse")]

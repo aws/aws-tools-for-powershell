@@ -38,8 +38,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     /// </para></li><li><para>
     /// The user must have delete permissions for the data product.
     /// </para></li><li><para>
-    /// Ensure there are no active dependencies (e.g., published links, assets using the product).
-    /// </para></li><li><para>
     /// Domain and project must be active.
     /// </para></li></ul>
     /// </summary>

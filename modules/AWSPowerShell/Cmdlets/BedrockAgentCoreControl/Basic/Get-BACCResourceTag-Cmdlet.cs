@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
     /// Lists the tags associated with the specified resource.
+    /// 
+    ///  <note><para>
+    /// This feature is currently available only for AgentCore Runtime, Browser, Code Interpreter
+    /// tool, and Gateway.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "BACCResourceTag")]
     [OutputType("System.String")]

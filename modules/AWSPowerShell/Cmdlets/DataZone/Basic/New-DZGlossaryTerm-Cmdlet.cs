@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     /// </para><ul><li><para>
     /// Domain must exist. 
     /// </para></li><li><para>
-    /// Glossary must exist and be in an ENABLED state.
+    /// Glossary must exist.
     /// </para></li><li><para>
     /// The term name must be unique within the glossary.
     /// </para></li><li><para>

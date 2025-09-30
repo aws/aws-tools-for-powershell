@@ -125,7 +125,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// as a lowercase string.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String GlobalClusterIdentifier { get; set; }
         #endregion
         
@@ -230,6 +237,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.EngineLifecycleSupport = this.EngineLifecycleSupport;
             context.EngineVersion = this.EngineVersion;
             context.GlobalClusterIdentifier = this.GlobalClusterIdentifier;
+            #if MODULAR
+            if (this.GlobalClusterIdentifier == null && ParameterWasBound(nameof(this.GlobalClusterIdentifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter GlobalClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.SourceDBClusterIdentifier = this.SourceDBClusterIdentifier;
             context.StorageEncrypted = this.StorageEncrypted;
             if (this.Tag != null)

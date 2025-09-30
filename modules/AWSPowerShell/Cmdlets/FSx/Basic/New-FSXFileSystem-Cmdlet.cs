@@ -251,8 +251,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_EndpointIpAddressRange
         /// <summary>
         /// <para>
-        /// <para>(Multi-AZ only) Specifies the IP address range in which the endpoints to access your
-        /// file system will be created. By default in the Amazon FSx API, Amazon FSx selects
+        /// <para>(Multi-AZ only) Specifies the IPv4 address range in which the endpoints to access
+        /// your file system will be created. By default in the Amazon FSx API, Amazon FSx selects
         /// an unused IP address range for you from the 198.19.* range. By default in the Amazon
         /// FSx console, Amazon FSx chooses the last 64 IP addresses from the VPC’s primary CIDR
         /// range to use as the endpoint IP address range for the file system. You can have overlapping
@@ -267,25 +267,39 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OpenZFSConfiguration_EndpointIpAddressRange
         /// <summary>
         /// <para>
-        /// <para>(Multi-AZ only) Specifies the IP address range in which the endpoints to access your
-        /// file system will be created. By default in the Amazon FSx API and Amazon FSx console,
-        /// Amazon FSx selects an available /28 IP address range for you from one of the VPC's
-        /// CIDR ranges. You can have overlapping endpoint IP addresses for file systems deployed
-        /// in the same VPC/route tables, as long as they don't overlap with any subnet.</para>
+        /// <para>(Multi-AZ only) Specifies the IPv4 address range in which the endpoints to access
+        /// your file system will be created. By default in the Amazon FSx API and Amazon FSx
+        /// console, Amazon FSx selects an available /28 IP address range for you from one of
+        /// the VPC's CIDR ranges. You can have overlapping endpoint IP addresses for file systems
+        /// deployed in the same VPC/route tables, as long as they don't overlap with any subnet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OpenZFSConfiguration_EndpointIpAddressRange { get; set; }
         #endregion
         
+        #region Parameter OntapConfiguration_EndpointIpv6AddressRange
+        /// <summary>
+        /// <para>
+        /// <para>(Multi-AZ only) Specifies the IPv6 address range in which the endpoints to access
+        /// your file system will be created. By default in the Amazon FSx API and Amazon FSx
+        /// console, Amazon FSx selects an available /118 IP address range for you from one of
+        /// the VPC's CIDR ranges. You can have overlapping endpoint IP addresses for file systems
+        /// deployed in the same VPC/route tables, as long as they don't overlap with any subnet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OntapConfiguration_EndpointIpv6AddressRange { get; set; }
+        #endregion
+        
         #region Parameter OpenZFSConfiguration_EndpointIpv6AddressRange
         /// <summary>
         /// <para>
-        /// <para>(Multi-AZ only) Specifies the IP address range in which the endpoints to access your
-        /// file system will be created. By default in the Amazon FSx API and Amazon FSx console,
-        /// Amazon FSx selects an available /118 IP address range for you from one of the VPC's
-        /// CIDR ranges. You can have overlapping endpoint IP addresses for file systems deployed
-        /// in the same VPC/route tables, as long as they don't overlap with any subnet.</para>
+        /// <para>(Multi-AZ only) Specifies the IPv6 address range in which the endpoints to access
+        /// your file system will be created. By default in the Amazon FSx API and Amazon FSx
+        /// console, Amazon FSx selects an available /118 IP address range for you from one of
+        /// the VPC's CIDR ranges. You can have overlapping endpoint IP addresses for file systems
+        /// deployed in the same VPC/route tables, as long as they don't overlap with any subnet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -434,8 +448,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>The network type of the Amazon FSx file system that you are creating. Valid values
         /// are <c>IPV4</c> (which supports IPv4 only) and <c>DUAL</c> (for dual-stack mode, which
-        /// supports both IPv4 and IPv6). The default is <c>IPV4</c>. Supported only for Amazon
-        /// FSx for OpenZFS file systems.</para>
+        /// supports both IPv4 and IPv6). The default is <c>IPV4</c>. Supported for FSx for OpenZFS,
+        /// FSx for ONTAP, and FSx for Windows File Server file systems.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -803,6 +817,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             context.OntapConfiguration_DiskIopsConfiguration_Iops = this.OntapConfiguration_DiskIopsConfiguration_Iops;
             context.OntapConfiguration_DiskIopsConfiguration_Mode = this.OntapConfiguration_DiskIopsConfiguration_Mode;
             context.OntapConfiguration_EndpointIpAddressRange = this.OntapConfiguration_EndpointIpAddressRange;
+            context.OntapConfiguration_EndpointIpv6AddressRange = this.OntapConfiguration_EndpointIpv6AddressRange;
             context.OntapConfiguration_FsxAdminPassword = this.OntapConfiguration_FsxAdminPassword;
             context.OntapConfiguration_HAPair = this.OntapConfiguration_HAPair;
             context.OntapConfiguration_PreferredSubnetId = this.OntapConfiguration_PreferredSubnetId;
@@ -946,6 +961,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (requestOntapConfiguration_ontapConfiguration_EndpointIpAddressRange != null)
             {
                 request.OntapConfiguration.EndpointIpAddressRange = requestOntapConfiguration_ontapConfiguration_EndpointIpAddressRange;
+                requestOntapConfigurationIsNull = false;
+            }
+            System.String requestOntapConfiguration_ontapConfiguration_EndpointIpv6AddressRange = null;
+            if (cmdletContext.OntapConfiguration_EndpointIpv6AddressRange != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_EndpointIpv6AddressRange = cmdletContext.OntapConfiguration_EndpointIpv6AddressRange;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_EndpointIpv6AddressRange != null)
+            {
+                request.OntapConfiguration.EndpointIpv6AddressRange = requestOntapConfiguration_ontapConfiguration_EndpointIpv6AddressRange;
                 requestOntapConfigurationIsNull = false;
             }
             System.String requestOntapConfiguration_ontapConfiguration_FsxAdminPassword = null;
@@ -1419,6 +1444,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public System.Int64? OntapConfiguration_DiskIopsConfiguration_Iops { get; set; }
             public Amazon.FSx.DiskIopsConfigurationMode OntapConfiguration_DiskIopsConfiguration_Mode { get; set; }
             public System.String OntapConfiguration_EndpointIpAddressRange { get; set; }
+            public System.String OntapConfiguration_EndpointIpv6AddressRange { get; set; }
             public System.String OntapConfiguration_FsxAdminPassword { get; set; }
             public System.Int32? OntapConfiguration_HAPair { get; set; }
             public System.String OntapConfiguration_PreferredSubnetId { get; set; }

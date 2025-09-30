@@ -104,7 +104,7 @@ $RDS_Completers = {
         # Amazon.RDS.ClusterScalabilityType
         "New-RDSDBCluster/ClusterScalabilityType"
         {
-            $v = "limitless","standard"
+            $v = "limitless","scaleout","standard"
             break
         }
 
@@ -198,7 +198,7 @@ $RDS_Completers = {
         # Amazon.RDS.SourceType
         "Get-RDSEvent/SourceType"
         {
-            $v = "blue-green-deployment","custom-engine-version","db-cluster","db-cluster-snapshot","db-instance","db-parameter-group","db-proxy","db-security-group","db-snapshot"
+            $v = "blue-green-deployment","custom-engine-version","db-cluster","db-cluster-snapshot","db-instance","db-parameter-group","db-proxy","db-security-group","db-shard-group","db-snapshot","zero-etl"
             break
         }
 

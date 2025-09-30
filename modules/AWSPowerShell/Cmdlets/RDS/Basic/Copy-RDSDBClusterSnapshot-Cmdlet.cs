@@ -75,6 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class CopyRDSDBClusterSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter CopyTag
@@ -150,10 +152,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceDBClusterSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the DB cluster snapshot to copy. This parameter isn't case-sensitive.</para><para>You can't copy an encrypted, shared DB cluster snapshot from one Amazon Web Services
-        /// Region to another.</para><para>Constraints:</para><ul><li><para>Must specify a valid system snapshot in the "available" state.</para></li><li><para>If the source snapshot is in the same Amazon Web Services Region as the copy, specify
+        /// <para>The identifier of the DB cluster snapshot to copy. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must specify a valid source snapshot in the "available" state.</para></li><li><para>If the source snapshot is in the same Amazon Web Services Region as the copy, specify
         /// a valid DB snapshot identifier.</para></li><li><para>If the source snapshot is in a different Amazon Web Services Region than the copy,
-        /// specify a valid DB cluster snapshot ARN. For more information, go to <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions">
+        /// specify a valid DB cluster snapshot ARN. You can also specify an ARN of a snapshot
+        /// that is in a different account and a different Amazon Web Services Region. For more
+        /// information, go to <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions">
         /// Copying Snapshots Across Amazon Web Services Regions</a> in the <i>Amazon Aurora User
         /// Guide</i>.</para></li></ul><para>Example: <c>my-cluster-snapshot1</c></para>
         /// </para>

@@ -102,6 +102,18 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The type of network for the Voice Connector. Either IPv4 only or dual-stack (IPv4
+        /// and IPv6).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ChimeSDKVoice.NetworkType")]
+        public Amazon.ChimeSDKVoice.NetworkType NetworkType { get; set; }
+        #endregion
+        
         #region Parameter RequireEncryption
         /// <summary>
         /// <para>
@@ -180,6 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NetworkType = this.NetworkType;
             context.RequireEncryption = this.RequireEncryption;
             #if MODULAR
             if (this.RequireEncryption == null && ParameterWasBound(nameof(this.RequireEncryption)))
@@ -218,6 +231,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
             }
             if (cmdletContext.RequireEncryption != null)
             {
@@ -291,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             public Amazon.ChimeSDKVoice.VoiceConnectorAwsRegion AwsRegion { get; set; }
             public Amazon.ChimeSDKVoice.VoiceConnectorIntegrationType IntegrationType { get; set; }
             public System.String Name { get; set; }
+            public Amazon.ChimeSDKVoice.NetworkType NetworkType { get; set; }
             public System.Boolean? RequireEncryption { get; set; }
             public List<Amazon.ChimeSDKVoice.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.ChimeSDKVoice.Model.CreateVoiceConnectorResponse, NewCHMVOVoiceConnectorCmdlet, object> Select { get; set; } =

@@ -49,8 +49,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     /// name).
     /// </para></li><li><para>
     /// User must have create permissions for data products in the project.
-    /// </para></li><li><para>
-    /// The domain must have Amazon DataZone publishing enabled.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "DZDataProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

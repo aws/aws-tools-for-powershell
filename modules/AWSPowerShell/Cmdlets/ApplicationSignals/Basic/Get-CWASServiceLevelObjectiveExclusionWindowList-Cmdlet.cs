@@ -62,7 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// The maximum number of records to emit.
+        /// <para>The maximum number of results to return in one operation. If you omit this parameter,
+        /// the default of 50 is used. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// Indicates where to start fetching the next page of results when paginating manually.
+        /// <para>Include this value, if it was returned by the previous operation, to get the next
+        /// set of service level objectives. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

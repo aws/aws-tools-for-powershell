@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     /// </para></li><li><para>
     /// Perform any operations that require the CaseID
     /// </para></li></ul><important><para>
-    /// This action is irreversible. Once you delete a case, you cannot recover its data.
+    /// This action is irreversible. After you delete a case, you cannot recover its data.
     /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "CCASCase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

@@ -28,7 +28,19 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
+    /// <important><para>
+    /// This API permanently deletes the specified QuickSight brand. When you delete a brand:
+    /// </para><ul><li><para>
+    /// The brand and all its associated branding elements are permanently removed
+    /// </para></li><li><para>
+    /// Any applications or dashboards using this brand will revert to default styling
+    /// </para></li><li><para>
+    /// This action cannot be undone through the API
+    /// </para></li></ul><para><b>Before proceeding:</b> Verify that the brand is no longer needed and consider
+    /// the impact on any applications currently using this brand.
+    /// </para></important><para>
     /// Deletes an QuickSight brand.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "QSBrand", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.QuickSight.Model.DeleteBrandResponse")]

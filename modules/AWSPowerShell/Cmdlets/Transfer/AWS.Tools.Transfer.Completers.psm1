@@ -174,7 +174,10 @@ $TFR_Completers = {
         }
 
         # Amazon.Transfer.IdentityProviderType
-        "New-TFRServer/IdentityProviderType"
+        {
+            ($_ -eq "New-TFRServer/IdentityProviderType") -Or
+            ($_ -eq "Update-TFRServer/IdentityProviderType")
+        }
         {
             $v = "API_GATEWAY","AWS_DIRECTORY_SERVICE","AWS_LAMBDA","SERVICE_MANAGED"
             break
@@ -314,7 +317,7 @@ $TFR_map = @{
     "EnforceMessageSigning"=@("New-TFRAgreement","Update-TFRAgreement")
     "HomeDirectoryType"=@("New-TFRAccess","New-TFRUser","Update-TFRAccess","Update-TFRUser")
     "IdentityProviderDetails_SftpAuthenticationMethod"=@("New-TFRServer","Update-TFRServer")
-    "IdentityProviderType"=@("New-TFRServer")
+    "IdentityProviderType"=@("New-TFRServer","Update-TFRServer")
     "IpAddressType"=@("New-TFRServer","Update-TFRServer")
     "PreserveFilename"=@("New-TFRAgreement","Update-TFRAgreement")
     "ProfileType"=@("Get-TFRProfileList","New-TFRProfile")

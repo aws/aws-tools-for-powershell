@@ -103,6 +103,26 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.BareMetal
+        {
+            ($_ -eq "New-ECSCapacityProvider/InstanceRequirements_BareMetal") -Or
+            ($_ -eq "Update-ECSCapacityProvider/InstanceRequirements_BareMetal")
+        }
+        {
+            $v = "excluded","included","required"
+            break
+        }
+
+        # Amazon.ECS.BurstablePerformance
+        {
+            ($_ -eq "New-ECSCapacityProvider/InstanceRequirements_BurstablePerformance") -Or
+            ($_ -eq "Update-ECSCapacityProvider/InstanceRequirements_BurstablePerformance")
+        }
+        {
+            $v = "excluded","included","required"
+            break
+        }
+
         # Amazon.ECS.ContainerInstanceStatus
         {
             ($_ -eq "Get-ECSContainerInstanceList/Status") -Or
@@ -173,7 +193,17 @@ $ECS_Completers = {
             ($_ -eq "New-ECSTaskSet/LaunchType")
         }
         {
-            $v = "EC2","EXTERNAL","FARGATE"
+            $v = "EC2","EXTERNAL","FARGATE","MANAGED_INSTANCES"
+            break
+        }
+
+        # Amazon.ECS.LocalStorage
+        {
+            ($_ -eq "New-ECSCapacityProvider/InstanceRequirements_LocalStorage") -Or
+            ($_ -eq "Update-ECSCapacityProvider/InstanceRequirements_LocalStorage")
+        }
+        {
+            $v = "excluded","included","required"
             break
         }
 
@@ -194,6 +224,16 @@ $ECS_Completers = {
         }
         {
             $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.ECS.ManagedInstancesMonitoringOptions
+        {
+            ($_ -eq "New-ECSCapacityProvider/InstanceLaunchTemplate_Monitoring") -Or
+            ($_ -eq "Update-ECSCapacityProvider/InstanceLaunchTemplate_Monitoring")
+        }
+        {
+            $v = "BASIC","DETAILED"
             break
         }
 
@@ -235,6 +275,16 @@ $ECS_Completers = {
         "Register-ECSTaskDefinition/PidMode"
         {
             $v = "host","task"
+            break
+        }
+
+        # Amazon.ECS.PropagateMITags
+        {
+            ($_ -eq "New-ECSCapacityProvider/ManagedInstancesProvider_PropagateTag") -Or
+            ($_ -eq "Update-ECSCapacityProvider/ManagedInstancesProvider_PropagateTag")
+        }
+        {
+            $v = "CAPACITY_PROVIDER","NONE"
             break
         }
 
@@ -341,9 +391,14 @@ $ECS_map = @{
     "DeploymentController_Type"=@("New-ECSService","Update-ECSService")
     "DesiredStatus"=@("Get-ECSTaskList")
     "ExecuteCommandConfiguration_Logging"=@("New-ECSCluster","Update-ECSCluster")
+    "InstanceLaunchTemplate_Monitoring"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
+    "InstanceRequirements_BareMetal"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
+    "InstanceRequirements_BurstablePerformance"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
+    "InstanceRequirements_LocalStorage"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "IpcMode"=@("Register-ECSTaskDefinition")
     "LaunchType"=@("Get-ECSClusterService","Get-ECSTaskList","New-ECSService","New-ECSTask","New-ECSTaskSet")
     "LogConfiguration_LogDriver"=@("New-ECSService","Update-ECSService")
+    "ManagedInstancesProvider_PropagateTag"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "ManagedScaling_Status"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "Name"=@("Get-ECSAccountSetting","Remove-ECSAccountSetting","Write-ECSAccountSetting","Write-ECSAccountSettingDefault")
     "NetworkMode"=@("Register-ECSTaskDefinition")

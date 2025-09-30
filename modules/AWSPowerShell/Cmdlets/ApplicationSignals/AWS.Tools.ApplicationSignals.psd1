@@ -89,7 +89,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-CWASResourceTag', 
+        'Get-CWASAuditFindingList', 
         'Get-CWASBatchServiceLevelObjectiveBudgetReport', 
+        'Get-CWASGroupingAttributeDefinitionList', 
         'Get-CWASResourceTag', 
         'Get-CWASService', 
         'Get-CWASServiceDependencyList', 
@@ -99,12 +101,15 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CWASServiceLevelObjectiveList', 
         'Get-CWASServiceList', 
         'Get-CWASServiceOperationList', 
+        'Get-CWASServiceStateList', 
         'New-CWASServiceLevelObjective', 
+        'Remove-CWASGroupingConfiguration', 
         'Remove-CWASResourceTag', 
         'Remove-CWASServiceLevelObjective', 
         'Start-CWASDiscovery', 
         'Update-CWASServiceLevelObjective', 
-        'Update-CWASUpdateExclusionWindow')
+        'Update-CWASUpdateExclusionWindow', 
+        'Write-CWASGroupingConfiguration')
 
     # Variables to export from this module
     VariablesToExport = '*'

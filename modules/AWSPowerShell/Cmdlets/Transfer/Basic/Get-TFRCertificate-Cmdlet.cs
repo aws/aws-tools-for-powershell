@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
     /// Describes the certificate that's identified by the <c>CertificateId</c>.
+    /// 
+    ///  <note><para>
+    /// Transfer Family automatically publishes a Amazon CloudWatch metric called <c>DaysUntilExpiry</c>
+    /// for imported certificates. This metric tracks the number of days until the certificate
+    /// expires based on the <c>InactiveDate</c>. The metric is available in the <c>AWS/Transfer</c>
+    /// namespace and includes the <c>CertificateId</c> as a dimension.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "TFRCertificate")]
     [OutputType("Amazon.Transfer.Model.DescribedCertificate")]

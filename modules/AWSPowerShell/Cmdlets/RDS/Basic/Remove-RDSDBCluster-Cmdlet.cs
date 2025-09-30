@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class RemoveRDSDBClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter DBClusterIdentifier

@@ -57,6 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class RestoreRDSDBClusterFromS3Cmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter AvailabilityZone

@@ -109,14 +109,23 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter RadiusSettings_RadiusServer
         /// <summary>
         /// <para>
-        /// <para>An array of strings that contains the fully qualified domain name (FQDN) or IP addresses
-        /// of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server
-        /// load balancer.</para>
+        /// <para>The fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints,
+        /// or the FQDN or IP addresses of your RADIUS server load balancer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RadiusSettings_RadiusServers")]
         public System.String[] RadiusSettings_RadiusServer { get; set; }
+        #endregion
+        
+        #region Parameter RadiusSettings_RadiusServersIpv6
+        /// <summary>
+        /// <para>
+        /// <para>The IPv6 addresses of the RADIUS server endpoints or RADIUS server load balancer.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] RadiusSettings_RadiusServersIpv6 { get; set; }
         #endregion
         
         #region Parameter RadiusSettings_RadiusTimeout
@@ -225,6 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
             {
                 context.RadiusSettings_RadiusServer = new List<System.String>(this.RadiusSettings_RadiusServer);
             }
+            if (this.RadiusSettings_RadiusServersIpv6 != null)
+            {
+                context.RadiusSettings_RadiusServersIpv6 = new List<System.String>(this.RadiusSettings_RadiusServersIpv6);
+            }
             context.RadiusSettings_RadiusTimeout = this.RadiusSettings_RadiusTimeout;
             context.RadiusSettings_SharedSecret = this.RadiusSettings_SharedSecret;
             context.RadiusSettings_UseSameUsername = this.RadiusSettings_UseSameUsername;
@@ -300,6 +313,16 @@ namespace Amazon.PowerShell.Cmdlets.DS
             if (requestRadiusSettings_radiusSettings_RadiusServer != null)
             {
                 request.RadiusSettings.RadiusServers = requestRadiusSettings_radiusSettings_RadiusServer;
+                requestRadiusSettingsIsNull = false;
+            }
+            List<System.String> requestRadiusSettings_radiusSettings_RadiusServersIpv6 = null;
+            if (cmdletContext.RadiusSettings_RadiusServersIpv6 != null)
+            {
+                requestRadiusSettings_radiusSettings_RadiusServersIpv6 = cmdletContext.RadiusSettings_RadiusServersIpv6;
+            }
+            if (requestRadiusSettings_radiusSettings_RadiusServersIpv6 != null)
+            {
+                request.RadiusSettings.RadiusServersIpv6 = requestRadiusSettings_radiusSettings_RadiusServersIpv6;
                 requestRadiusSettingsIsNull = false;
             }
             System.Int32? requestRadiusSettings_radiusSettings_RadiusTimeout = null;
@@ -404,6 +427,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
             public System.Int32? RadiusSettings_RadiusPort { get; set; }
             public System.Int32? RadiusSettings_RadiusRetry { get; set; }
             public List<System.String> RadiusSettings_RadiusServer { get; set; }
+            public List<System.String> RadiusSettings_RadiusServersIpv6 { get; set; }
             public System.Int32? RadiusSettings_RadiusTimeout { get; set; }
             public System.String RadiusSettings_SharedSecret { get; set; }
             public System.Boolean? RadiusSettings_UseSameUsername { get; set; }

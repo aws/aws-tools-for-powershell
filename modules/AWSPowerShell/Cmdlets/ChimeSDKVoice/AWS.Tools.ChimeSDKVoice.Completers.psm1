@@ -108,6 +108,13 @@ $CHMVO_Completers = {
             break
         }
 
+        # Amazon.ChimeSDKVoice.NetworkType
+        "New-CHMVOVoiceConnector/NetworkType"
+        {
+            $v = "DUAL_STACK","IPV4_ONLY"
+            break
+        }
+
         # Amazon.ChimeSDKVoice.NumberSelectionBehavior
         "New-CHMVOProxySession/NumberSelectionBehavior"
         {
@@ -184,6 +191,7 @@ $CHMVO_map = @{
     "GeoMatchLevel"=@("New-CHMVOProxySession")
     "IntegrationType"=@("New-CHMVOVoiceConnector")
     "LanguageCode"=@("Start-CHMVOVoiceToneAnalysisTask")
+    "NetworkType"=@("New-CHMVOVoiceConnector")
     "NumberSelectionBehavior"=@("New-CHMVOProxySession")
     "PhoneNumberType"=@("Search-CHMVOAvailablePhoneNumber")
     "ProductType"=@("Get-CHMVOPhoneNumberList","Get-CHMVOSupportedPhoneNumberCountryList","New-CHMVOPhoneNumberOrder","Update-CHMVOPhoneNumber")

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// For FSx for Lustre file systems, you can update the following properties:
     /// </para><ul><li><para><c>AutoImportPolicy</c></para></li><li><para><c>AutomaticBackupRetentionDays</c></para></li><li><para><c>DailyAutomaticBackupStartTime</c></para></li><li><para><c>DataCompressionType</c></para></li><li><para><c>FileSystemTypeVersion</c></para></li><li><para><c>LogConfiguration</c></para></li><li><para><c>LustreReadCacheConfiguration</c></para></li><li><para><c>LustreRootSquashConfiguration</c></para></li><li><para><c>MetadataConfiguration</c></para></li><li><para><c>PerUnitStorageThroughput</c></para></li><li><para><c>StorageCapacity</c></para></li><li><para><c>ThroughputCapacity</c></para></li><li><para><c>WeeklyMaintenanceStartTime</c></para></li></ul><para>
     /// For FSx for ONTAP file systems, you can update the following properties:
-    /// </para><ul><li><para><c>AddRouteTableIds</c></para></li><li><para><c>AutomaticBackupRetentionDays</c></para></li><li><para><c>DailyAutomaticBackupStartTime</c></para></li><li><para><c>DiskIopsConfiguration</c></para></li><li><para><c>FsxAdminPassword</c></para></li><li><para><c>HAPairs</c></para></li><li><para><c>RemoveRouteTableIds</c></para></li><li><para><c>StorageCapacity</c></para></li><li><para><c>ThroughputCapacity</c></para></li><li><para><c>ThroughputCapacityPerHAPair</c></para></li><li><para><c>WeeklyMaintenanceStartTime</c></para></li></ul><para>
+    /// </para><ul><li><para><c>AddRouteTableIds</c></para></li><li><para><c>AutomaticBackupRetentionDays</c></para></li><li><para><c>DailyAutomaticBackupStartTime</c></para></li><li><para><c>DiskIopsConfiguration</c></para></li><li><para><c>EndpointIpv6AddressRange</c></para></li><li><para><c>FsxAdminPassword</c></para></li><li><para><c>HAPairs</c></para></li><li><para><c>RemoveRouteTableIds</c></para></li><li><para><c>StorageCapacity</c></para></li><li><para><c>ThroughputCapacity</c></para></li><li><para><c>ThroughputCapacityPerHAPair</c></para></li><li><para><c>WeeklyMaintenanceStartTime</c></para></li></ul><para>
     /// For FSx for OpenZFS file systems, you can update the following properties:
     /// </para><ul><li><para><c>AddRouteTableIds</c></para></li><li><para><c>AutomaticBackupRetentionDays</c></para></li><li><para><c>CopyTagsToBackups</c></para></li><li><para><c>CopyTagsToVolumes</c></para></li><li><para><c>DailyAutomaticBackupStartTime</c></para></li><li><para><c>DiskIopsConfiguration</c></para></li><li><para><c>EndpointIpv6AddressRange</c></para></li><li><para><c>ReadCacheConfiguration</c></para></li><li><para><c>RemoveRouteTableIds</c></para></li><li><para><c>StorageCapacity</c></para></li><li><para><c>ThroughputCapacity</c></para></li><li><para><c>WeeklyMaintenanceStartTime</c></para></li></ul>
     /// </summary>
@@ -169,14 +169,28 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.String OpenZFSConfiguration_DailyAutomaticBackupStartTime { get; set; }
         #endregion
         
+        #region Parameter OntapConfiguration_EndpointIpv6AddressRange
+        /// <summary>
+        /// <para>
+        /// <para>(Multi-AZ only) Specifies the IPv6 address range in which the endpoints to access
+        /// your file system will be created. By default in the Amazon FSx API and Amazon FSx
+        /// console, Amazon FSx selects an available /118 IP address range for you from one of
+        /// the VPC's CIDR ranges. You can have overlapping endpoint IP addresses for file systems
+        /// deployed in the same VPC/route tables, as long as they don't overlap with any subnet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OntapConfiguration_EndpointIpv6AddressRange { get; set; }
+        #endregion
+        
         #region Parameter OpenZFSConfiguration_EndpointIpv6AddressRange
         /// <summary>
         /// <para>
-        /// <para>(Multi-AZ only) Specifies the IP address range in which the endpoints to access your
-        /// file system will be created. By default in the Amazon FSx API and Amazon FSx console,
-        /// Amazon FSx selects an available /118 IP address range for you from one of the VPC's
-        /// CIDR ranges. You can have overlapping endpoint IP addresses for file systems deployed
-        /// in the same VPC/route tables, as long as they don't overlap with any subnet.</para>
+        /// <para>(Multi-AZ only) Specifies the IPv6 address range in which the endpoints to access
+        /// your file system will be created. By default in the Amazon FSx API and Amazon FSx
+        /// console, Amazon FSx selects an available /118 IP address range for you from one of
+        /// the VPC's CIDR ranges. You can have overlapping endpoint IP addresses for file systems
+        /// deployed in the same VPC/route tables, as long as they don't overlap with any subnet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -565,6 +579,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             context.OntapConfiguration_DailyAutomaticBackupStartTime = this.OntapConfiguration_DailyAutomaticBackupStartTime;
             context.OntapConfiguration_DiskIopsConfiguration_Iops = this.OntapConfiguration_DiskIopsConfiguration_Iops;
             context.OntapConfiguration_DiskIopsConfiguration_Mode = this.OntapConfiguration_DiskIopsConfiguration_Mode;
+            context.OntapConfiguration_EndpointIpv6AddressRange = this.OntapConfiguration_EndpointIpv6AddressRange;
             context.OntapConfiguration_FsxAdminPassword = this.OntapConfiguration_FsxAdminPassword;
             context.OntapConfiguration_HAPair = this.OntapConfiguration_HAPair;
             if (this.OntapConfiguration_RemoveRouteTableId != null)
@@ -664,6 +679,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (requestOntapConfiguration_ontapConfiguration_DailyAutomaticBackupStartTime != null)
             {
                 request.OntapConfiguration.DailyAutomaticBackupStartTime = requestOntapConfiguration_ontapConfiguration_DailyAutomaticBackupStartTime;
+                requestOntapConfigurationIsNull = false;
+            }
+            System.String requestOntapConfiguration_ontapConfiguration_EndpointIpv6AddressRange = null;
+            if (cmdletContext.OntapConfiguration_EndpointIpv6AddressRange != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_EndpointIpv6AddressRange = cmdletContext.OntapConfiguration_EndpointIpv6AddressRange;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_EndpointIpv6AddressRange != null)
+            {
+                request.OntapConfiguration.EndpointIpv6AddressRange = requestOntapConfiguration_ontapConfiguration_EndpointIpv6AddressRange;
                 requestOntapConfigurationIsNull = false;
             }
             System.String requestOntapConfiguration_ontapConfiguration_FsxAdminPassword = null;
@@ -1018,6 +1043,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public System.String OntapConfiguration_DailyAutomaticBackupStartTime { get; set; }
             public System.Int64? OntapConfiguration_DiskIopsConfiguration_Iops { get; set; }
             public Amazon.FSx.DiskIopsConfigurationMode OntapConfiguration_DiskIopsConfiguration_Mode { get; set; }
+            public System.String OntapConfiguration_EndpointIpv6AddressRange { get; set; }
             public System.String OntapConfiguration_FsxAdminPassword { get; set; }
             public System.Int32? OntapConfiguration_HAPair { get; set; }
             public List<System.String> OntapConfiguration_RemoveRouteTableId { get; set; }

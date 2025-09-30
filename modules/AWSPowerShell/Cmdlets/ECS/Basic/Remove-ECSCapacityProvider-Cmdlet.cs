@@ -75,6 +75,18 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String CapacityProvider { get; set; }
         #endregion
         
+        #region Parameter Cluster
+        /// <summary>
+        /// <para>
+        /// <para>The name of the cluster that contains the capacity provider to delete. Managed instances
+        /// capacity providers are cluster-scoped and can only be deleted from their associated
+        /// cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Cluster { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'CapacityProvider'.
@@ -144,6 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 WriteWarning("You are passing $null as a value for parameter CapacityProvider which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Cluster = this.Cluster;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -163,6 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.CapacityProvider != null)
             {
                 request.CapacityProvider = cmdletContext.CapacityProvider;
+            }
+            if (cmdletContext.Cluster != null)
+            {
+                request.Cluster = cmdletContext.Cluster;
             }
             
             CmdletOutput output;
@@ -226,6 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CapacityProvider { get; set; }
+            public System.String Cluster { get; set; }
             public System.Func<Amazon.ECS.Model.DeleteCapacityProviderResponse, RemoveECSCapacityProviderCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CapacityProvider;
         }

@@ -159,6 +159,54 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter RecurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers
+        /// <summary>
+        /// <para>
+        /// <para>The expected peak number of concurrent viewers for your content. MediaTailor uses
+        /// this value along with peak TPS to determine how to distribute prefetch requests across
+        /// the available capacity without exceeding your ADS limits.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? RecurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers { get; set; }
+        #endregion
+        
+        #region Parameter Retrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers
+        /// <summary>
+        /// <para>
+        /// <para>The expected peak number of concurrent viewers for your content. MediaTailor uses
+        /// this value along with peak TPS to determine how to distribute prefetch requests across
+        /// the available capacity without exceeding your ADS limits.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Retrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers { get; set; }
+        #endregion
+        
+        #region Parameter RecurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakTps
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of transactions per second (TPS) that your ad decision server (ADS)
+        /// can handle. MediaTailor uses this value along with concurrent users and headroom multiplier
+        /// to calculate optimal traffic distribution and prevent ADS overload.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? RecurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakTps { get; set; }
+        #endregion
+        
+        #region Parameter Retrieval_TrafficShapingTpsConfiguration_PeakTps
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of transactions per second (TPS) that your ad decision server (ADS)
+        /// can handle. MediaTailor uses this value along with concurrent users and headroom multiplier
+        /// to calculate optimal traffic distribution and prevent ADS overload.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Retrieval_TrafficShapingTpsConfiguration_PeakTps { get; set; }
+        #endregion
+        
         #region Parameter PlaybackConfigurationName
         /// <summary>
         /// <para>
@@ -277,8 +325,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter RecurringRetrieval_TrafficShapingType
         /// <summary>
         /// <para>
-        /// <para>Indicates if this configuration uses a retrieval window for traffic shaping and limiting
-        /// the number of requests to the ADS at one time.</para>
+        /// <para>Indicates the type of traffic shaping used for traffic shaping and limiting the number
+        /// of requests to the ADS at one time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -290,7 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter Retrieval_TrafficShapingType
         /// <summary>
         /// <para>
-        /// <para>Indicates if this configuration uses a retrieval window for traffic shaping and limiting
+        /// <para>Indicates the type of traffic shaping used for prefetch traffic shaping and limiting
         /// the number of requests to the ADS at one time.</para>
         /// </para>
         /// </summary>
@@ -397,6 +445,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 }
             }
             context.RecurringTrafficShaping_WindowDurationSeconds = this.RecurringTrafficShaping_WindowDurationSeconds;
+            context.RecurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers = this.RecurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers;
+            context.RecurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakTps = this.RecurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakTps;
             context.RecurringRetrieval_TrafficShapingType = this.RecurringRetrieval_TrafficShapingType;
             context.RecurringPrefetchConfiguration_StartTime = this.RecurringPrefetchConfiguration_StartTime;
             if (this.Retrieval_DynamicVariable != null)
@@ -410,6 +460,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             context.Retrieval_EndTime = this.Retrieval_EndTime;
             context.Retrieval_StartTime = this.Retrieval_StartTime;
             context.TrafficShaping_WindowDurationSeconds = this.TrafficShaping_WindowDurationSeconds;
+            context.Retrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers = this.Retrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers;
+            context.Retrieval_TrafficShapingTpsConfiguration_PeakTps = this.Retrieval_TrafficShapingTpsConfiguration_PeakTps;
             context.Retrieval_TrafficShapingType = this.Retrieval_TrafficShapingType;
             context.ScheduleType = this.ScheduleType;
             context.StreamId = this.StreamId;
@@ -595,6 +647,41 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval.TrafficShapingRetrievalWindow = requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingRetrievalWindow;
                 requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrievalIsNull = false;
             }
+            Amazon.MediaTailor.Model.TrafficShapingTpsConfiguration requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration = null;
+            
+             // populate TrafficShapingTpsConfiguration
+            var requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfigurationIsNull = true;
+            requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration = new Amazon.MediaTailor.Model.TrafficShapingTpsConfiguration();
+            System.Int32? requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers = null;
+            if (cmdletContext.RecurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers != null)
+            {
+                requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers = cmdletContext.RecurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers.Value;
+            }
+            if (requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers != null)
+            {
+                requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration.PeakConcurrentUsers = requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers.Value;
+                requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfigurationIsNull = false;
+            }
+            System.Int32? requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakTps = null;
+            if (cmdletContext.RecurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakTps != null)
+            {
+                requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakTps = cmdletContext.RecurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakTps.Value;
+            }
+            if (requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakTps != null)
+            {
+                requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration.PeakTps = requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakTps.Value;
+                requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfigurationIsNull = false;
+            }
+             // determine if requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration should be set to null
+            if (requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfigurationIsNull)
+            {
+                requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration = null;
+            }
+            if (requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration != null)
+            {
+                requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval.TrafficShapingTpsConfiguration = requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval_recurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration;
+                requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrievalIsNull = false;
+            }
              // determine if requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrieval should be set to null
             if (requestRecurringPrefetchConfiguration_recurringPrefetchConfiguration_RecurringRetrievalIsNull)
             {
@@ -677,6 +764,41 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (requestRetrieval_retrieval_TrafficShapingRetrievalWindow != null)
             {
                 request.Retrieval.TrafficShapingRetrievalWindow = requestRetrieval_retrieval_TrafficShapingRetrievalWindow;
+                requestRetrievalIsNull = false;
+            }
+            Amazon.MediaTailor.Model.TrafficShapingTpsConfiguration requestRetrieval_retrieval_TrafficShapingTpsConfiguration = null;
+            
+             // populate TrafficShapingTpsConfiguration
+            var requestRetrieval_retrieval_TrafficShapingTpsConfigurationIsNull = true;
+            requestRetrieval_retrieval_TrafficShapingTpsConfiguration = new Amazon.MediaTailor.Model.TrafficShapingTpsConfiguration();
+            System.Int32? requestRetrieval_retrieval_TrafficShapingTpsConfiguration_retrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers = null;
+            if (cmdletContext.Retrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers != null)
+            {
+                requestRetrieval_retrieval_TrafficShapingTpsConfiguration_retrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers = cmdletContext.Retrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers.Value;
+            }
+            if (requestRetrieval_retrieval_TrafficShapingTpsConfiguration_retrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers != null)
+            {
+                requestRetrieval_retrieval_TrafficShapingTpsConfiguration.PeakConcurrentUsers = requestRetrieval_retrieval_TrafficShapingTpsConfiguration_retrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers.Value;
+                requestRetrieval_retrieval_TrafficShapingTpsConfigurationIsNull = false;
+            }
+            System.Int32? requestRetrieval_retrieval_TrafficShapingTpsConfiguration_retrieval_TrafficShapingTpsConfiguration_PeakTps = null;
+            if (cmdletContext.Retrieval_TrafficShapingTpsConfiguration_PeakTps != null)
+            {
+                requestRetrieval_retrieval_TrafficShapingTpsConfiguration_retrieval_TrafficShapingTpsConfiguration_PeakTps = cmdletContext.Retrieval_TrafficShapingTpsConfiguration_PeakTps.Value;
+            }
+            if (requestRetrieval_retrieval_TrafficShapingTpsConfiguration_retrieval_TrafficShapingTpsConfiguration_PeakTps != null)
+            {
+                requestRetrieval_retrieval_TrafficShapingTpsConfiguration.PeakTps = requestRetrieval_retrieval_TrafficShapingTpsConfiguration_retrieval_TrafficShapingTpsConfiguration_PeakTps.Value;
+                requestRetrieval_retrieval_TrafficShapingTpsConfigurationIsNull = false;
+            }
+             // determine if requestRetrieval_retrieval_TrafficShapingTpsConfiguration should be set to null
+            if (requestRetrieval_retrieval_TrafficShapingTpsConfigurationIsNull)
+            {
+                requestRetrieval_retrieval_TrafficShapingTpsConfiguration = null;
+            }
+            if (requestRetrieval_retrieval_TrafficShapingTpsConfiguration != null)
+            {
+                request.Retrieval.TrafficShapingTpsConfiguration = requestRetrieval_retrieval_TrafficShapingTpsConfiguration;
                 requestRetrievalIsNull = false;
             }
              // determine if request.Retrieval should be set to null
@@ -764,12 +886,16 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             public System.Int32? RecurringRetrieval_DelayAfterAvailEndSecond { get; set; }
             public Dictionary<System.String, System.String> RecurringRetrieval_DynamicVariable { get; set; }
             public System.Int32? RecurringTrafficShaping_WindowDurationSeconds { get; set; }
+            public System.Int32? RecurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers { get; set; }
+            public System.Int32? RecurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakTps { get; set; }
             public Amazon.MediaTailor.TrafficShapingType RecurringRetrieval_TrafficShapingType { get; set; }
             public System.DateTime? RecurringPrefetchConfiguration_StartTime { get; set; }
             public Dictionary<System.String, System.String> Retrieval_DynamicVariable { get; set; }
             public System.DateTime? Retrieval_EndTime { get; set; }
             public System.DateTime? Retrieval_StartTime { get; set; }
             public System.Int32? TrafficShaping_WindowDurationSeconds { get; set; }
+            public System.Int32? Retrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers { get; set; }
+            public System.Int32? Retrieval_TrafficShapingTpsConfiguration_PeakTps { get; set; }
             public Amazon.MediaTailor.TrafficShapingType Retrieval_TrafficShapingType { get; set; }
             public Amazon.MediaTailor.PrefetchScheduleType ScheduleType { get; set; }
             public System.String StreamId { get; set; }
