@@ -56,24 +56,30 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter ConnectSettings_CustomerDnsIp
         /// <summary>
         /// <para>
-        /// <para>A list of one or more IP addresses of DNS servers or domain controllers in your self-managed
-        /// directory.</para><para />
+        /// <para>The IP addresses of DNS servers or domain controllers in your self-managed directory.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("ConnectSettings_CustomerDnsIps")]
         public System.String[] ConnectSettings_CustomerDnsIp { get; set; }
+        #endregion
+        
+        #region Parameter ConnectSettings_CustomerDnsIpsV6
+        /// <summary>
+        /// <para>
+        /// <para>The IPv6 addresses of DNS servers or domain controllers in your self-managed directory.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] ConnectSettings_CustomerDnsIpsV6 { get; set; }
         #endregion
         
         #region Parameter ConnectSettings_CustomerUserName
@@ -119,6 +125,18 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The network type for your directory. The default value is <c>IPv4</c> or <c>IPv6</c>
+        /// based on the provided subnet capabilities.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DirectoryService.NetworkType")]
+        public Amazon.DirectoryService.NetworkType NetworkType { get; set; }
         #endregion
         
         #region Parameter Password
@@ -269,12 +287,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
             {
                 context.ConnectSettings_CustomerDnsIp = new List<System.String>(this.ConnectSettings_CustomerDnsIp);
             }
-            #if MODULAR
-            if (this.ConnectSettings_CustomerDnsIp == null && ParameterWasBound(nameof(this.ConnectSettings_CustomerDnsIp)))
+            if (this.ConnectSettings_CustomerDnsIpsV6 != null)
             {
-                WriteWarning("You are passing $null as a value for parameter ConnectSettings_CustomerDnsIp which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.ConnectSettings_CustomerDnsIpsV6 = new List<System.String>(this.ConnectSettings_CustomerDnsIpsV6);
             }
-            #endif
             context.ConnectSettings_CustomerUserName = this.ConnectSettings_CustomerUserName;
             #if MODULAR
             if (this.ConnectSettings_CustomerUserName == null && ParameterWasBound(nameof(this.ConnectSettings_CustomerUserName)))
@@ -307,6 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NetworkType = this.NetworkType;
             context.Password = this.Password;
             #if MODULAR
             if (this.Password == null && ParameterWasBound(nameof(this.Password)))
@@ -356,6 +373,16 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 request.ConnectSettings.CustomerDnsIps = requestConnectSettings_connectSettings_CustomerDnsIp;
                 requestConnectSettingsIsNull = false;
             }
+            List<System.String> requestConnectSettings_connectSettings_CustomerDnsIpsV6 = null;
+            if (cmdletContext.ConnectSettings_CustomerDnsIpsV6 != null)
+            {
+                requestConnectSettings_connectSettings_CustomerDnsIpsV6 = cmdletContext.ConnectSettings_CustomerDnsIpsV6;
+            }
+            if (requestConnectSettings_connectSettings_CustomerDnsIpsV6 != null)
+            {
+                request.ConnectSettings.CustomerDnsIpsV6 = requestConnectSettings_connectSettings_CustomerDnsIpsV6;
+                requestConnectSettingsIsNull = false;
+            }
             System.String requestConnectSettings_connectSettings_CustomerUserName = null;
             if (cmdletContext.ConnectSettings_CustomerUserName != null)
             {
@@ -398,6 +425,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
             }
             if (cmdletContext.Password != null)
             {
@@ -471,11 +502,13 @@ namespace Amazon.PowerShell.Cmdlets.DS
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> ConnectSettings_CustomerDnsIp { get; set; }
+            public List<System.String> ConnectSettings_CustomerDnsIpsV6 { get; set; }
             public System.String ConnectSettings_CustomerUserName { get; set; }
             public List<System.String> ConnectSettings_SubnetId { get; set; }
             public System.String ConnectSettings_VpcId { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
+            public Amazon.DirectoryService.NetworkType NetworkType { get; set; }
             public System.String Password { get; set; }
             public System.String ShortName { get; set; }
             public Amazon.DirectoryService.DirectorySize Size { get; set; }

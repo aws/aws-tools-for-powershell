@@ -81,6 +81,17 @@ namespace Amazon.PowerShell.Cmdlets.DS
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The network type for your directory. Simple AD supports IPv4 and Dual-stack only.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DirectoryService.NetworkType")]
+        public Amazon.DirectoryService.NetworkType NetworkType { get; set; }
+        #endregion
+        
         #region Parameter Password
         /// <summary>
         /// <para>
@@ -226,6 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NetworkType = this.NetworkType;
             context.Password = this.Password;
             #if MODULAR
             if (this.Password == null && ParameterWasBound(nameof(this.Password)))
@@ -273,6 +285,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
             }
             if (cmdletContext.Password != null)
             {
@@ -376,6 +392,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             public System.String Description { get; set; }
             public System.String Name { get; set; }
+            public Amazon.DirectoryService.NetworkType NetworkType { get; set; }
             public System.String Password { get; set; }
             public System.String ShortName { get; set; }
             public Amazon.DirectoryService.DirectorySize Size { get; set; }

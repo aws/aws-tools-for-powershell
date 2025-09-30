@@ -23,43 +23,31 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.DataZone;
-using Amazon.DataZone.Model;
+using Amazon.CustomerProfiles;
+using Amazon.CustomerProfiles.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.DZ
+namespace Amazon.PowerShell.Cmdlets.CPF
 {
     /// <summary>
-    /// Deletes a data product in Amazon DataZone.
-    /// 
-    ///  
-    /// <para>
-    /// Prerequisites:
-    /// </para><ul><li><para>
-    /// The data product must exist and not be deleted or archived. 
-    /// </para></li><li><para>
-    /// The user must have delete permissions for the data product.
-    /// </para></li><li><para>
-    /// Domain and project must be active.
-    /// </para></li></ul>
+    /// Returns a history record for a specific profile, for a specific domain.
     /// </summary>
-    [Cmdlet("Remove", "DZDataProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon DataZone DeleteDataProduct API operation.", Operation = new[] {"DeleteDataProduct"}, SelectReturnType = typeof(Amazon.DataZone.Model.DeleteDataProductResponse))]
-    [AWSCmdletOutput("None or Amazon.DataZone.Model.DeleteDataProductResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataZone.Model.DeleteDataProductResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Get", "CPFProfileHistoryRecord")]
+    [OutputType("Amazon.CustomerProfiles.Model.GetProfileHistoryRecordResponse")]
+    [AWSCmdlet("Calls the Amazon Connect Customer Profiles GetProfileHistoryRecord API operation.", Operation = new[] {"GetProfileHistoryRecord"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.GetProfileHistoryRecordResponse))]
+    [AWSCmdletOutput("Amazon.CustomerProfiles.Model.GetProfileHistoryRecordResponse",
+        "This cmdlet returns an Amazon.CustomerProfiles.Model.GetProfileHistoryRecordResponse object containing multiple properties."
     )]
-    public partial class RemoveDZDataProductCmdlet : AmazonDataZoneClientCmdlet, IExecutor
+    public partial class GetCPFProfileHistoryRecordCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter DomainIdentifier
+        #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon DataZone domain in which the data product is deleted.</para>
+        /// <para>The unique name of the domain for which to return a profile history record.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,44 +58,52 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainIdentifier { get; set; }
+        public System.String DomainName { get; set; }
         #endregion
         
-        #region Parameter Identifier
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier of the data product that is deleted.</para>
+        /// <para>The unique identifier of the profile history record to return.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Identifier { get; set; }
+        public System.String Id { get; set; }
+        #endregion
+        
+        #region Parameter ProfileId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the profile for which to return a history record.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ProfileId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.DeleteDataProductResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CustomerProfiles.Model.GetProfileHistoryRecordResponse).
+        /// Specifying the name of a property of type Amazon.CustomerProfiles.Model.GetProfileHistoryRecordResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -119,12 +115,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Identifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DZDataProduct (DeleteDataProduct)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -132,21 +122,28 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.DeleteDataProductResponse, RemoveDZDataProductCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CustomerProfiles.Model.GetProfileHistoryRecordResponse, GetCPFProfileHistoryRecordCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.DomainIdentifier = this.DomainIdentifier;
+            context.DomainName = this.DomainName;
             #if MODULAR
-            if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
+            if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
             {
-                WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Identifier = this.Identifier;
+            context.Id = this.Id;
             #if MODULAR
-            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
+            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
             {
-                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.ProfileId = this.ProfileId;
+            #if MODULAR
+            if (this.ProfileId == null && ParameterWasBound(nameof(this.ProfileId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ProfileId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -163,15 +160,19 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataZone.Model.DeleteDataProductRequest();
+            var request = new Amazon.CustomerProfiles.Model.GetProfileHistoryRecordRequest();
             
-            if (cmdletContext.DomainIdentifier != null)
+            if (cmdletContext.DomainName != null)
             {
-                request.DomainIdentifier = cmdletContext.DomainIdentifier;
+                request.DomainName = cmdletContext.DomainName;
             }
-            if (cmdletContext.Identifier != null)
+            if (cmdletContext.Id != null)
             {
-                request.Identifier = cmdletContext.Identifier;
+                request.Id = cmdletContext.Id;
+            }
+            if (cmdletContext.ProfileId != null)
+            {
+                request.ProfileId = cmdletContext.ProfileId;
             }
             
             CmdletOutput output;
@@ -206,12 +207,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region AWS Service Operation Call
         
-        private Amazon.DataZone.Model.DeleteDataProductResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.DeleteDataProductRequest request)
+        private Amazon.CustomerProfiles.Model.GetProfileHistoryRecordResponse CallAWSServiceOperation(IAmazonCustomerProfiles client, Amazon.CustomerProfiles.Model.GetProfileHistoryRecordRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "DeleteDataProduct");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Customer Profiles", "GetProfileHistoryRecord");
             try
             {
-                return client.DeleteDataProductAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetProfileHistoryRecordAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -228,10 +229,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DomainIdentifier { get; set; }
-            public System.String Identifier { get; set; }
-            public System.Func<Amazon.DataZone.Model.DeleteDataProductResponse, RemoveDZDataProductCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String DomainName { get; set; }
+            public System.String Id { get; set; }
+            public System.String ProfileId { get; set; }
+            public System.Func<Amazon.CustomerProfiles.Model.GetProfileHistoryRecordResponse, GetCPFProfileHistoryRecordCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

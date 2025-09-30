@@ -71,6 +71,21 @@ namespace Amazon.PowerShell.Cmdlets.DS
         public System.String[] ConditionalForwarderIpAddr { get; set; }
         #endregion
         
+        #region Parameter ConditionalForwarderIpv6Addr
+        /// <summary>
+        /// <para>
+        /// <para>The IPv6 addresses of the remote DNS server associated with RemoteDomainName.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConditionalForwarderIpv6Addrs")]
+        public System.String[] ConditionalForwarderIpv6Addr { get; set; }
+        #endregion
+        
         #region Parameter DirectoryId
         /// <summary>
         /// <para>
@@ -214,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
             {
                 context.ConditionalForwarderIpAddr = new List<System.String>(this.ConditionalForwarderIpAddr);
             }
+            if (this.ConditionalForwarderIpv6Addr != null)
+            {
+                context.ConditionalForwarderIpv6Addr = new List<System.String>(this.ConditionalForwarderIpv6Addr);
+            }
             context.DirectoryId = this.DirectoryId;
             #if MODULAR
             if (this.DirectoryId == null && ParameterWasBound(nameof(this.DirectoryId)))
@@ -263,6 +282,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
             if (cmdletContext.ConditionalForwarderIpAddr != null)
             {
                 request.ConditionalForwarderIpAddrs = cmdletContext.ConditionalForwarderIpAddr;
+            }
+            if (cmdletContext.ConditionalForwarderIpv6Addr != null)
+            {
+                request.ConditionalForwarderIpv6Addrs = cmdletContext.ConditionalForwarderIpv6Addr;
             }
             if (cmdletContext.DirectoryId != null)
             {
@@ -344,6 +367,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> ConditionalForwarderIpAddr { get; set; }
+            public List<System.String> ConditionalForwarderIpv6Addr { get; set; }
             public System.String DirectoryId { get; set; }
             public System.String RemoteDomainName { get; set; }
             public Amazon.DirectoryService.SelectiveAuth SelectiveAuth { get; set; }

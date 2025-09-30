@@ -84,6 +84,17 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         public System.String CaseId { get; set; }
         #endregion
         
+        #region Parameter ConnectCase_CaseId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the case to be related</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_ConnectCase_CaseId")]
+        public System.String ConnectCase_CaseId { get; set; }
+        #endregion
+        
         #region Parameter Contact_ContactArn
         /// <summary>
         /// <para>
@@ -143,6 +154,21 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Content_Sla_SlaInputConfiguration_FieldId")]
         public System.String SlaInputConfiguration_FieldId { get; set; }
+        #endregion
+        
+        #region Parameter Custom_Field
+        /// <summary>
+        /// <para>
+        /// <para>List of field values for the custom related item</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Custom_Fields")]
+        public Amazon.ConnectCases.Model.FieldValue[] Custom_Field { get; set; }
         #endregion
         
         #region Parameter File_FileArn
@@ -289,7 +315,12 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             #endif
             context.Comment_Body = this.Comment_Body;
             context.Comment_ContentType = this.Comment_ContentType;
+            context.ConnectCase_CaseId = this.ConnectCase_CaseId;
             context.Contact_ContactArn = this.Contact_ContactArn;
+            if (this.Custom_Field != null)
+            {
+                context.Custom_Field = new List<Amazon.ConnectCases.Model.FieldValue>(this.Custom_Field);
+            }
             context.File_FileArn = this.File_FileArn;
             context.SlaInputConfiguration_FieldId = this.SlaInputConfiguration_FieldId;
             context.SlaInputConfiguration_Name = this.SlaInputConfiguration_Name;
@@ -339,6 +370,31 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
              // populate Content
             var requestContentIsNull = true;
             request.Content = new Amazon.ConnectCases.Model.RelatedItemInputContent();
+            Amazon.ConnectCases.Model.ConnectCaseInputContent requestContent_content_ConnectCase = null;
+            
+             // populate ConnectCase
+            var requestContent_content_ConnectCaseIsNull = true;
+            requestContent_content_ConnectCase = new Amazon.ConnectCases.Model.ConnectCaseInputContent();
+            System.String requestContent_content_ConnectCase_connectCase_CaseId = null;
+            if (cmdletContext.ConnectCase_CaseId != null)
+            {
+                requestContent_content_ConnectCase_connectCase_CaseId = cmdletContext.ConnectCase_CaseId;
+            }
+            if (requestContent_content_ConnectCase_connectCase_CaseId != null)
+            {
+                requestContent_content_ConnectCase.CaseId = requestContent_content_ConnectCase_connectCase_CaseId;
+                requestContent_content_ConnectCaseIsNull = false;
+            }
+             // determine if requestContent_content_ConnectCase should be set to null
+            if (requestContent_content_ConnectCaseIsNull)
+            {
+                requestContent_content_ConnectCase = null;
+            }
+            if (requestContent_content_ConnectCase != null)
+            {
+                request.Content.ConnectCase = requestContent_content_ConnectCase;
+                requestContentIsNull = false;
+            }
             Amazon.ConnectCases.Model.Contact requestContent_content_Contact = null;
             
              // populate Contact
@@ -362,6 +418,31 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             if (requestContent_content_Contact != null)
             {
                 request.Content.Contact = requestContent_content_Contact;
+                requestContentIsNull = false;
+            }
+            Amazon.ConnectCases.Model.CustomInputContent requestContent_content_Custom = null;
+            
+             // populate Custom
+            var requestContent_content_CustomIsNull = true;
+            requestContent_content_Custom = new Amazon.ConnectCases.Model.CustomInputContent();
+            List<Amazon.ConnectCases.Model.FieldValue> requestContent_content_Custom_custom_Field = null;
+            if (cmdletContext.Custom_Field != null)
+            {
+                requestContent_content_Custom_custom_Field = cmdletContext.Custom_Field;
+            }
+            if (requestContent_content_Custom_custom_Field != null)
+            {
+                requestContent_content_Custom.Fields = requestContent_content_Custom_custom_Field;
+                requestContent_content_CustomIsNull = false;
+            }
+             // determine if requestContent_content_Custom should be set to null
+            if (requestContent_content_CustomIsNull)
+            {
+                requestContent_content_Custom = null;
+            }
+            if (requestContent_content_Custom != null)
+            {
+                request.Content.Custom = requestContent_content_Custom;
                 requestContentIsNull = false;
             }
             Amazon.ConnectCases.Model.FileContent requestContent_content_File = null;
@@ -604,7 +685,9 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             public System.String CaseId { get; set; }
             public System.String Comment_Body { get; set; }
             public Amazon.ConnectCases.CommentBodyTextType Comment_ContentType { get; set; }
+            public System.String ConnectCase_CaseId { get; set; }
             public System.String Contact_ContactArn { get; set; }
+            public List<Amazon.ConnectCases.Model.FieldValue> Custom_Field { get; set; }
             public System.String File_FileArn { get; set; }
             public System.String SlaInputConfiguration_FieldId { get; set; }
             public System.String SlaInputConfiguration_Name { get; set; }

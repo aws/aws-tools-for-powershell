@@ -48,6 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// used. We recommend that you define a default capacity provider strategy for your cluster.
     /// However, you must specify an empty array (<c>[]</c>) to bypass defining a default
     /// strategy.
+    /// </para><para>
+    /// Amazon ECS Managed Instances doesn't support this, because when you create a capacity
+    /// provider with Amazon ECS Managed Instances, it becomes available only within the specified
+    /// cluster.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "ECSClusterCapacityProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

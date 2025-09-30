@@ -123,8 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of cases to return. The current maximum supported value is 25.
-        /// This is also the default value when no other value is provided.</para>
+        /// <para>The maximum number of cases to return. When no value is provided, 25 is the default.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

@@ -81,7 +81,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCapacityProviders" OutputProperty="CapacityProviders" Verb="Get" Noun="CapacityProvider" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeCapacityProviders" OutputProperty="CapacityProviders" Verb="Get" Noun="CapacityProvider" PipelineParameter="Cluster" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -125,19 +125,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccountSettings" OutputProperty="Settings" Verb="Get" Noun="AccountSetting" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAccountSettings" OutputProperty="Settings" Verb="Get" Noun="AccountSetting" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAttributes" OutputProperty="Attributes" Verb="Get" Noun="AttributeList" PipelineParameter="Cluster" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAttributes" OutputProperty="Attributes" Verb="Get" Noun="AttributeList" PipelineParameter="Cluster" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClusters" OutputProperty="ClusterArns" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ECSClusters" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListClusters" OutputProperty="ClusterArns" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ECSClusters">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListContainerInstances" OutputProperty="ContainerInstanceArns" Verb="Get" Noun="ContainerInstanceList" PipelineParameter="Cluster" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ECSContainerInstances" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListContainerInstances" OutputProperty="ContainerInstanceArns" Verb="Get" Noun="ContainerInstanceList" PipelineParameter="Cluster" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ECSContainerInstances">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -145,7 +145,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServices" OutputProperty="ServiceArns" Verb="Get" Noun="ClusterService" PipelineParameter="Cluster" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListServices" OutputProperty="ServiceArns" Verb="Get" Noun="ClusterService" PipelineParameter="Cluster" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -157,15 +157,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTaskDefinitionFamilies" OutputProperty="Families" Verb="Get" Noun="TaskDefinitionFamilyList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ECSTaskDefinitionFamilies" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTaskDefinitionFamilies" OutputProperty="Families" Verb="Get" Noun="TaskDefinitionFamilyList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ECSTaskDefinitionFamilies">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTaskDefinitions" OutputProperty="TaskDefinitionArns" Verb="Get" Noun="TaskDefinitionList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ECSTaskDefinitions" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTaskDefinitions" OutputProperty="TaskDefinitionArns" Verb="Get" Noun="TaskDefinitionList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ECSTaskDefinitions">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTasks" OutputProperty="TaskArns" Verb="Get" Noun="TaskList" PipelineParameter="Cluster" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ECSTasks" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTasks" OutputProperty="TaskArns" Verb="Get" Noun="TaskList" PipelineParameter="Cluster" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ECSTasks">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

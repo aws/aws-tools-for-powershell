@@ -23,56 +23,38 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.BedrockAgentCoreControl;
-using Amazon.BedrockAgentCoreControl.Model;
+using Amazon.ApplicationSignals;
+using Amazon.ApplicationSignals.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.BACC
+namespace Amazon.PowerShell.Cmdlets.CWAS
 {
     /// <summary>
-    /// Associates the specified tags to a resource with the specified resourceArn. If existing
-    /// tags on a resource are not specified in the request parameters, they are not changed.
-    /// When a resource is deleted, the tags associated with that resource are also deleted.
-    /// 
-    ///  <note><para>
-    /// This feature is currently available only for AgentCore Runtime, Browser, Code Interpreter
-    /// tool, and Gateway.
-    /// </para></note>
+    /// Creates or updates the grouping configuration for this account. This operation allows
+    /// you to define custom grouping attributes that determine how services are logically
+    /// grouped based on telemetry attributes, Amazon Web Services tags, or predefined mappings.
+    /// These grouping attributes can then be used to organize and filter services in the
+    /// Application Signals console and APIs.
     /// </summary>
-    [Cmdlet("Add", "BACCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.TagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.BedrockAgentCoreControl.Model.TagResourceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.BedrockAgentCoreControl.Model.TagResourceResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Write", "CWASGroupingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ApplicationSignals.Model.GroupingConfiguration")]
+    [AWSCmdlet("Calls the Amazon CloudWatch Application Signals PutGroupingConfiguration API operation.", Operation = new[] {"PutGroupingConfiguration"}, SelectReturnType = typeof(Amazon.ApplicationSignals.Model.PutGroupingConfigurationResponse))]
+    [AWSCmdletOutput("Amazon.ApplicationSignals.Model.GroupingConfiguration or Amazon.ApplicationSignals.Model.PutGroupingConfigurationResponse",
+        "This cmdlet returns an Amazon.ApplicationSignals.Model.GroupingConfiguration object.",
+        "The service call response (type Amazon.ApplicationSignals.Model.PutGroupingConfigurationResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class AddBACCResourceTagCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
+    public partial class WriteCWASGroupingConfigurationCmdlet : AmazonApplicationSignalsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ResourceArn
+        #region Parameter GroupingAttributeDefinition
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource that you want to tag.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>The tags to add to the resource. A tag is a key-value pair.</para><para />
+        /// <para>An array of grouping attribute definitions that specify how services should be grouped.
+        /// Each definition includes a friendly name, source keys to derive the grouping value
+        /// from, and an optional default value.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -87,18 +69,19 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        [Alias("GroupingAttributeDefinitions")]
+        public Amazon.ApplicationSignals.Model.GroupingAttributeDefinition[] GroupingAttributeDefinition { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.TagResourceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'GroupingConfiguration'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ApplicationSignals.Model.PutGroupingConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.ApplicationSignals.Model.PutGroupingConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "GroupingConfiguration";
         #endregion
         
         #region Parameter Force
@@ -120,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-BACCResourceTag (TagResource)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-CWASGroupingConfiguration (PutGroupingConfiguration)"))
             {
                 return;
             }
@@ -133,28 +116,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.TagResourceResponse, AddBACCResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ApplicationSignals.Model.PutGroupingConfigurationResponse, WriteCWASGroupingConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ResourceArn = this.ResourceArn;
-            #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.GroupingAttributeDefinition != null)
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
-                }
+                context.GroupingAttributeDefinition = new List<Amazon.ApplicationSignals.Model.GroupingAttributeDefinition>(this.GroupingAttributeDefinition);
             }
             #if MODULAR
-            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
+            if (this.GroupingAttributeDefinition == null && ParameterWasBound(nameof(this.GroupingAttributeDefinition)))
             {
-                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter GroupingAttributeDefinition which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -171,15 +143,11 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.BedrockAgentCoreControl.Model.TagResourceRequest();
+            var request = new Amazon.ApplicationSignals.Model.PutGroupingConfigurationRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.GroupingAttributeDefinition != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
+                request.GroupingAttributeDefinitions = cmdletContext.GroupingAttributeDefinition;
             }
             
             CmdletOutput output;
@@ -214,12 +182,12 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         #region AWS Service Operation Call
         
-        private Amazon.BedrockAgentCoreControl.Model.TagResourceResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.TagResourceRequest request)
+        private Amazon.ApplicationSignals.Model.PutGroupingConfigurationResponse CallAWSServiceOperation(IAmazonApplicationSignals client, Amazon.ApplicationSignals.Model.PutGroupingConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Application Signals", "PutGroupingConfiguration");
             try
             {
-                return client.TagResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.PutGroupingConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -236,10 +204,9 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.BedrockAgentCoreControl.Model.TagResourceResponse, AddBACCResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public List<Amazon.ApplicationSignals.Model.GroupingAttributeDefinition> GroupingAttributeDefinition { get; set; }
+            public System.Func<Amazon.ApplicationSignals.Model.PutGroupingConfigurationResponse, WriteCWASGroupingConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.GroupingConfiguration;
         }
         
     }

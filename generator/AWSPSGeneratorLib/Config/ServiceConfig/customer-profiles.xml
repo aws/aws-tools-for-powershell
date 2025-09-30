@@ -171,6 +171,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetProfileHistoryRecord" OutputProperty="*" Verb="Get" Noun="ProfileHistoryRecord" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetProfileObjectType" OutputProperty="*" Verb="Get" Noun="ProfileObjectType" PipelineParameter="ObjectTypeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -256,6 +260,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListProfileAttributeValues" OutputProperty="*" Verb="Get" Noun="ProfileAttributeValueList" PipelineParameter="AttributeName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProfileHistoryRecords" OutputProperty="ProfileHistoryRecords" Verb="Get" Noun="ProfileHistoryRecordList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

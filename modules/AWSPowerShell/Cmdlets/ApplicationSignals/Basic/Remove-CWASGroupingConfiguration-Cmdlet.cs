@@ -23,59 +23,47 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.BedrockAgentCoreControl;
-using Amazon.BedrockAgentCoreControl.Model;
+using Amazon.ApplicationSignals;
+using Amazon.ApplicationSignals.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.BACC
+namespace Amazon.PowerShell.Cmdlets.CWAS
 {
     /// <summary>
-    /// Lists the tags associated with the specified resource.
-    /// 
-    ///  <note><para>
-    /// This feature is currently available only for AgentCore Runtime, Browser, Code Interpreter
-    /// tool, and Gateway.
-    /// </para></note>
+    /// Deletes the grouping configuration for this account. This removes all custom grouping
+    /// attribute definitions that were previously configured.
     /// </summary>
-    [Cmdlet("Get", "BACCResourceTag")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse))]
-    [AWSCmdletOutput("System.String or Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse",
-        "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "CWASGroupingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon CloudWatch Application Signals DeleteGroupingConfiguration API operation.", Operation = new[] {"DeleteGroupingConfiguration"}, SelectReturnType = typeof(Amazon.ApplicationSignals.Model.DeleteGroupingConfigurationResponse))]
+    [AWSCmdletOutput("None or Amazon.ApplicationSignals.Model.DeleteGroupingConfigurationResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.ApplicationSignals.Model.DeleteGroupingConfigurationResponse) be returned by specifying '-Select *'."
     )]
-    public partial class GetBACCResourceTagCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
+    public partial class RemoveCWASGroupingConfigurationCmdlet : AmazonApplicationSignalsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ResourceArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource for which you want to list tags.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tags'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse).
-        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ApplicationSignals.Model.DeleteGroupingConfigurationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Tags";
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -87,6 +75,12 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             base.ProcessRecord();
             
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CWASGroupingConfiguration (DeleteGroupingConfiguration)"))
+            {
+                return;
+            }
+            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -94,16 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse, GetBACCResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ApplicationSignals.Model.DeleteGroupingConfigurationResponse, RemoveCWASGroupingConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ResourceArn = this.ResourceArn;
-            #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -118,12 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceRequest();
+            var request = new Amazon.ApplicationSignals.Model.DeleteGroupingConfigurationRequest();
             
-            if (cmdletContext.ResourceArn != null)
-            {
-                request.ResourceArn = cmdletContext.ResourceArn;
-            }
             
             CmdletOutput output;
             
@@ -157,12 +140,12 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         #region AWS Service Operation Call
         
-        private Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceRequest request)
+        private Amazon.ApplicationSignals.Model.DeleteGroupingConfigurationResponse CallAWSServiceOperation(IAmazonApplicationSignals client, Amazon.ApplicationSignals.Model.DeleteGroupingConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Application Signals", "DeleteGroupingConfiguration");
             try
             {
-                return client.ListTagsForResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteGroupingConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -179,9 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public System.Func<Amazon.BedrockAgentCoreControl.Model.ListTagsForResourceResponse, GetBACCResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Tags;
+            public System.Func<Amazon.ApplicationSignals.Model.DeleteGroupingConfigurationResponse, RemoveCWASGroupingConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

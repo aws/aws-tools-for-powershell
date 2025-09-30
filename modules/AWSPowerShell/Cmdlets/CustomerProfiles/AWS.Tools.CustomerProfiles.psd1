@@ -113,6 +113,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CPFMatch', 
         'Get-CPFObjectTypeAttributeList', 
         'Get-CPFProfileAttributeValueList', 
+        'Get-CPFProfileHistoryRecord', 
+        'Get-CPFProfileHistoryRecordList', 
         'Get-CPFProfileObjectList', 
         'Get-CPFProfileObjectType', 
         'Get-CPFProfileObjectTypeList', 

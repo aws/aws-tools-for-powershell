@@ -159,7 +159,7 @@ $EMT_Completers = {
             ($_ -eq "New-EMTPrefetchSchedule/Retrieval_TrafficShapingType")
         }
         {
-            $v = "RETRIEVAL_WINDOW"
+            $v = "RETRIEVAL_WINDOW","TPS"
             break
         }
 

@@ -254,6 +254,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String SparkEmrProperties_LogUri { get; set; }
         #endregion
         
+        #region Parameter SparkEmrProperties_ManagedEndpointArn
+        /// <summary>
+        /// <para>
+        /// <para>The managed endpoint ARN of the EMR on EKS cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Props_SparkEmrProperties_ManagedEndpointArn")]
+        public System.String SparkEmrProperties_ManagedEndpointArn { get; set; }
+        #endregion
+        
         #region Parameter BasicAuthenticationCredentials_Password
         /// <summary>
         /// <para>
@@ -515,6 +526,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             context.SparkEmrProperties_InstanceProfileArn = this.SparkEmrProperties_InstanceProfileArn;
             context.SparkEmrProperties_JavaVirtualEnv = this.SparkEmrProperties_JavaVirtualEnv;
             context.SparkEmrProperties_LogUri = this.SparkEmrProperties_LogUri;
+            context.SparkEmrProperties_ManagedEndpointArn = this.SparkEmrProperties_ManagedEndpointArn;
             context.SparkEmrProperties_PythonVirtualEnv = this.SparkEmrProperties_PythonVirtualEnv;
             context.SparkEmrProperties_RuntimeRole = this.SparkEmrProperties_RuntimeRole;
             context.SparkEmrProperties_TrustedCertificatesS3Uri = this.SparkEmrProperties_TrustedCertificatesS3Uri;
@@ -1029,6 +1041,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 requestProps_props_SparkEmrProperties.LogUri = requestProps_props_SparkEmrProperties_sparkEmrProperties_LogUri;
                 requestProps_props_SparkEmrPropertiesIsNull = false;
             }
+            System.String requestProps_props_SparkEmrProperties_sparkEmrProperties_ManagedEndpointArn = null;
+            if (cmdletContext.SparkEmrProperties_ManagedEndpointArn != null)
+            {
+                requestProps_props_SparkEmrProperties_sparkEmrProperties_ManagedEndpointArn = cmdletContext.SparkEmrProperties_ManagedEndpointArn;
+            }
+            if (requestProps_props_SparkEmrProperties_sparkEmrProperties_ManagedEndpointArn != null)
+            {
+                requestProps_props_SparkEmrProperties.ManagedEndpointArn = requestProps_props_SparkEmrProperties_sparkEmrProperties_ManagedEndpointArn;
+                requestProps_props_SparkEmrPropertiesIsNull = false;
+            }
             System.String requestProps_props_SparkEmrProperties_sparkEmrProperties_PythonVirtualEnv = null;
             if (cmdletContext.SparkEmrProperties_PythonVirtualEnv != null)
             {
@@ -1159,6 +1181,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String SparkEmrProperties_InstanceProfileArn { get; set; }
             public System.String SparkEmrProperties_JavaVirtualEnv { get; set; }
             public System.String SparkEmrProperties_LogUri { get; set; }
+            public System.String SparkEmrProperties_ManagedEndpointArn { get; set; }
             public System.String SparkEmrProperties_PythonVirtualEnv { get; set; }
             public System.String SparkEmrProperties_RuntimeRole { get; set; }
             public System.String SparkEmrProperties_TrustedCertificatesS3Uri { get; set; }

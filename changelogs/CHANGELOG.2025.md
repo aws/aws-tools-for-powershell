@@ -1,4 +1,50 @@
-﻿### 5.0.65 (2025-09-29 20:08Z)
+﻿### 5.0.66 (2025-09-30 20:21Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.102.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCGateway: added parameter Tag.
+  * Amazon Chime SDK Voice
+    * Modified cmdlet New-CHMVOVoiceConnector: added parameter NetworkType.
+  * Amazon CloudWatch Application Signals
+    * Added cmdlet Get-CWASAuditFindingList leveraging the ListAuditFindings service API.
+    * Added cmdlet Get-CWASGroupingAttributeDefinitionList leveraging the ListGroupingAttributeDefinitions service API.
+    * Added cmdlet Get-CWASServiceStateList leveraging the ListServiceStates service API.
+    * Added cmdlet Remove-CWASGroupingConfiguration leveraging the DeleteGroupingConfiguration service API.
+    * Added cmdlet Write-CWASGroupingConfiguration leveraging the PutGroupingConfiguration service API.
+    * Modified cmdlet New-CWASServiceLevelObjective: added parameter SliMetricConfig_MetricName.
+    * Modified cmdlet Update-CWASServiceLevelObjective: added parameter SliMetricConfig_MetricName.
+  * Amazon Connect Cases
+    * Modified cmdlet New-CCASRelatedItem: added parameters ConnectCase_CaseId and Custom_Field.
+  * Amazon Connect Customer Profiles
+    * Added cmdlet Get-CPFProfileHistoryRecord leveraging the GetProfileHistoryRecord service API.
+    * Added cmdlet Get-CPFProfileHistoryRecordList leveraging the ListProfileHistoryRecords service API.
+  * Amazon DataZone
+    * Modified cmdlet New-DZConnection: added parameter SparkEmrProperties_ManagedEndpointArn.
+    * Modified cmdlet Update-DZConnection: added parameter SparkEmrProperties_ManagedEndpointArn.
+  * Amazon Directory Service
+    * Modified cmdlet Connect-DSDirectory: added parameters ConnectSettings_CustomerDnsIpsV6 and NetworkType.
+    * Modified cmdlet Enable-DSRadius: added parameter RadiusSettings_RadiusServersIpv6.
+    * Modified cmdlet New-DSConditionalForwarder: added parameter DnsIpv6Addr.
+    * Modified cmdlet New-DSDirectory: added parameter NetworkType.
+    * Modified cmdlet New-DSMicrosoftAD: added parameter NetworkType.
+    * Modified cmdlet New-DSTrust: added parameter ConditionalForwarderIpv6Addr.
+    * Modified cmdlet Remove-DSIpRoute: added parameter CidrIpv6.
+    * Modified cmdlet Update-DSConditionalForwarder: added parameter DnsIpv6Addr.
+    * Modified cmdlet Update-DSDirectorySetup: added parameters DirectorySizeUpdateSettings_DirectorySize, NetworkUpdateSettings_CustomerDnsIpsV6 and NetworkUpdateSettings_NetworkType.
+    * Modified cmdlet Update-DSRadius: added parameter RadiusSettings_RadiusServersIpv6.
+  * Amazon EC2 Container Service
+    * Modified cmdlet Get-ECSCapacityProvider: added parameter Cluster.
+    * Modified cmdlet New-ECSCapacityProvider: added parameters AcceleratorCount_Max, AcceleratorCount_Min, AcceleratorTotalMemoryMiB_Max, AcceleratorTotalMemoryMiB_Min, BaselineEbsBandwidthMbps_Max, BaselineEbsBandwidthMbps_Min, Cluster, InstanceLaunchTemplate_Ec2InstanceProfileArn, InstanceLaunchTemplate_Monitoring, InstanceRequirements_AcceleratorManufacturer, InstanceRequirements_AcceleratorName, InstanceRequirements_AcceleratorType, InstanceRequirements_AllowedInstanceType, InstanceRequirements_BareMetal, InstanceRequirements_BurstablePerformance, InstanceRequirements_CpuManufacturer, InstanceRequirements_ExcludedInstanceType, InstanceRequirements_InstanceGeneration, InstanceRequirements_LocalStorage, InstanceRequirements_LocalStorageType, InstanceRequirements_MaxSpotPriceAsPercentageOfOptimalOnDemandPrice, InstanceRequirements_OnDemandMaxPricePercentageOverLowestPrice, InstanceRequirements_RequireHibernateSupport, InstanceRequirements_SpotMaxPricePercentageOverLowestPrice, ManagedInstancesProvider_InfrastructureRoleArn, ManagedInstancesProvider_PropagateTag, MemoryGiBPerVCpu_Max, MemoryGiBPerVCpu_Min, MemoryMiB_Max, MemoryMiB_Min, NetworkBandwidthGbps_Max, NetworkBandwidthGbps_Min, NetworkConfiguration_SecurityGroup, NetworkConfiguration_Subnet, NetworkInterfaceCount_Max, NetworkInterfaceCount_Min, StorageConfiguration_StorageSizeGiB, TotalLocalStorageGB_Max, TotalLocalStorageGB_Min, VCpuCount_Max and VCpuCount_Min.
+    * Modified cmdlet Remove-ECSCapacityProvider: added parameter Cluster.
+    * Modified cmdlet Update-ECSCapacityProvider: added parameters AcceleratorCount_Max, AcceleratorCount_Min, AcceleratorTotalMemoryMiB_Max, AcceleratorTotalMemoryMiB_Min, BaselineEbsBandwidthMbps_Max, BaselineEbsBandwidthMbps_Min, Cluster, InstanceLaunchTemplate_Ec2InstanceProfileArn, InstanceLaunchTemplate_Monitoring, InstanceRequirements_AcceleratorManufacturer, InstanceRequirements_AcceleratorName, InstanceRequirements_AcceleratorType, InstanceRequirements_AllowedInstanceType, InstanceRequirements_BareMetal, InstanceRequirements_BurstablePerformance, InstanceRequirements_CpuManufacturer, InstanceRequirements_ExcludedInstanceType, InstanceRequirements_InstanceGeneration, InstanceRequirements_LocalStorage, InstanceRequirements_LocalStorageType, InstanceRequirements_MaxSpotPriceAsPercentageOfOptimalOnDemandPrice, InstanceRequirements_OnDemandMaxPricePercentageOverLowestPrice, InstanceRequirements_RequireHibernateSupport, InstanceRequirements_SpotMaxPricePercentageOverLowestPrice, ManagedInstancesProvider_InfrastructureRoleArn, ManagedInstancesProvider_PropagateTag, MemoryGiBPerVCpu_Max, MemoryGiBPerVCpu_Min, MemoryMiB_Max, MemoryMiB_Min, NetworkBandwidthGbps_Max, NetworkBandwidthGbps_Min, NetworkConfiguration_SecurityGroup, NetworkConfiguration_Subnet, NetworkInterfaceCount_Max, NetworkInterfaceCount_Min, StorageConfiguration_StorageSizeGiB, TotalLocalStorageGB_Max, TotalLocalStorageGB_Min, VCpuCount_Max and VCpuCount_Min.
+  * Amazon Elemental MediaTailor
+    * Modified cmdlet New-EMTPrefetchSchedule: added parameters RecurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers, RecurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakTps, Retrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers and Retrieval_TrafficShapingTpsConfiguration_PeakTps.
+  * Amazon FSx
+    * Modified cmdlet New-FSXFileSystem: added parameter OntapConfiguration_EndpointIpv6AddressRange.
+    * Modified cmdlet Update-FSXFileSystem: added parameter OntapConfiguration_EndpointIpv6AddressRange.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet Update-TFRServer: added parameter IdentityProviderType.
+
+### 5.0.65 (2025-09-29 20:08Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.101.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon EC2 Image Builder
     * Modified cmdlet Import-EC2IBDiskImage: added parameter LoggingConfiguration_LogGroupName.

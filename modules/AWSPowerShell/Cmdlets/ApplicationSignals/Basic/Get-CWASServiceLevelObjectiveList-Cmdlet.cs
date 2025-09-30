@@ -77,7 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter IncludeLinkedAccount
         /// <summary>
         /// <para>
-        /// Amazon.ApplicationSignals.Model.ListServiceLevelObjectivesRequest.IncludeLinkedAccounts
+        /// <para>If you are using this operation in a monitoring account, specify <c>true</c> to include
+        /// SLO from source accounts in the returned data. </para><para>When you are monitoring an account, you can use Amazon Web Services account ID in
+        /// <c>KeyAttribute</c> filter for service source account and <c>SloOwnerawsaccountID</c>
+        /// for SLO source account with <c>IncludeLinkedAccounts</c> to filter the returned data
+        /// to only a single source account. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

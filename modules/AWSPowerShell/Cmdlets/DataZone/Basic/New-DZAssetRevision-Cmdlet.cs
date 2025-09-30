@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     /// Prerequisites:
     /// </para><ul><li><para>
     /// Asset must already exist in the domain with identifier. 
-    /// </para></li><li><para>
-    /// The form type with correct revision must be registered in the same domain.
+    /// </para></li><li><para><c>formsInput</c> is required when asset has the form type. <c>typeRevision</c> should
+    /// be the latest version of form type. 
     /// </para></li><li><para>
     /// The form content must include all required fields (e.g., <c>bucketArn</c> for <c>S3ObjectCollectionForm</c>).
     /// </para></li><li><para>

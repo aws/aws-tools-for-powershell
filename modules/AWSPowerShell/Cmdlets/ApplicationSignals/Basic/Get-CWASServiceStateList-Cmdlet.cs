@@ -30,26 +30,43 @@ using Amazon.ApplicationSignals.Model;
 namespace Amazon.PowerShell.Cmdlets.CWAS
 {
     /// <summary>
-    /// Returns a list of services that have been discovered by Application Signals. A service
-    /// represents a minimum logical and transactional unit that completes a business function.
-    /// Services are discovered through Application Signals instrumentation.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns information about the last deployment and other change states of services.
+    /// This API provides visibility into recent changes that may have affected service performance,
+    /// helping with troubleshooting and change correlation.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CWASServiceList")]
-    [OutputType("Amazon.ApplicationSignals.Model.ListServicesResponse")]
-    [AWSCmdlet("Calls the Amazon CloudWatch Application Signals ListServices API operation.", Operation = new[] {"ListServices"}, SelectReturnType = typeof(Amazon.ApplicationSignals.Model.ListServicesResponse))]
-    [AWSCmdletOutput("Amazon.ApplicationSignals.Model.ListServicesResponse",
-        "This cmdlet returns an Amazon.ApplicationSignals.Model.ListServicesResponse object containing multiple properties."
+    [Cmdlet("Get", "CWASServiceStateList")]
+    [OutputType("Amazon.ApplicationSignals.Model.ListServiceStatesResponse")]
+    [AWSCmdlet("Calls the Amazon CloudWatch Application Signals ListServiceStates API operation.", Operation = new[] {"ListServiceStates"}, SelectReturnType = typeof(Amazon.ApplicationSignals.Model.ListServiceStatesResponse))]
+    [AWSCmdletOutput("Amazon.ApplicationSignals.Model.ListServiceStatesResponse",
+        "This cmdlet returns an Amazon.ApplicationSignals.Model.ListServiceStatesResponse object containing multiple properties."
     )]
-    public partial class GetCWASServiceListCmdlet : AmazonApplicationSignalsClientCmdlet, IExecutor
+    public partial class GetCWASServiceStateListCmdlet : AmazonApplicationSignalsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AttributeFilter
+        /// <summary>
+        /// <para>
+        /// <para>A list of attribute filters to narrow down the services. You can filter by platform,
+        /// environment, or other service attributes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AttributeFilters")]
+        public Amazon.ApplicationSignals.Model.AttributeFilter[] AttributeFilter { get; set; }
+        #endregion
+        
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>Amazon Web Services Account ID.</para>
+        /// <para>The Amazon Web Services account ID to filter service states by. Use this to limit
+        /// results to services from a specific account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The end of the time period to retrieve information about. When used in a raw HTTP
-        /// Query API, it is formatted as be epoch time in seconds. For example: <c>1698778057</c></para><para>Your requested start time will be rounded to the nearest hour.</para>
+        /// <para>The end of the time period to retrieve service state information for. When used in
+        /// a raw HTTP Query API, it is formatted as epoch time in seconds. For example, <c>1698778057</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         /// <summary>
         /// <para>
         /// <para>If you are using this operation in a monitoring account, specify <c>true</c> to include
-        /// services from source accounts in the returned data. </para>
+        /// service states from source accounts in the returned data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,14 +105,14 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>The start of the time period to retrieve information about. When used in a raw HTTP
-        /// Query API, it is formatted as be epoch time in seconds. For example: <c>1698778057</c></para><para>Your requested start time will be rounded to the nearest hour.</para>
+        /// <para>The start of the time period to retrieve service state information for. When used
+        /// in a raw HTTP Query API, it is formatted as epoch time in seconds. For example, <c>1698778057</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
@@ -105,20 +122,25 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum number of results to return in one operation. If you omit this parameter,
-        /// the default of 50 is used. </para>
+        /// <para>The maximum number of service states to return in one operation. If you omit this
+        /// parameter, the default of 20 is used.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
+        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
+        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
+        [Alias("MaxItems","MaxResults")]
+        public int? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>Include this value, if it was returned by the previous operation, to get the next
-        /// set of services.</para>
+        /// set of service states.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -132,8 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ApplicationSignals.Model.ListServicesResponse).
-        /// Specifying the name of a property of type Amazon.ApplicationSignals.Model.ListServicesResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ApplicationSignals.Model.ListServiceStatesResponse).
+        /// Specifying the name of a property of type Amazon.ApplicationSignals.Model.ListServiceStatesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,8 +188,12 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ApplicationSignals.Model.ListServicesResponse, GetCWASServiceListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ApplicationSignals.Model.ListServiceStatesResponse, GetCWASServiceStateListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            if (this.AttributeFilter != null)
+            {
+                context.AttributeFilter = new List<Amazon.ApplicationSignals.Model.AttributeFilter>(this.AttributeFilter);
             }
             context.AwsAccountId = this.AwsAccountId;
             context.EndTime = this.EndTime;
@@ -179,6 +205,15 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             #endif
             context.IncludeLinkedAccount = this.IncludeLinkedAccount;
             context.MaxResult = this.MaxResult;
+            #if !MODULAR
+            if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
+            {
+                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxResult parameter to limit the total number of items returned by the cmdlet." +
+                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
+                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxResult" +
+                    " to the service to specify how many items should be returned by each service call.");
+            }
+            #endif
             context.NextToken = this.NextToken;
             context.StartTime = this.StartTime;
             #if MODULAR
@@ -203,8 +238,12 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.ApplicationSignals.Model.ListServicesRequest();
+            var request = new Amazon.ApplicationSignals.Model.ListServiceStatesRequest();
             
+            if (cmdletContext.AttributeFilter != null)
+            {
+                request.AttributeFilters = cmdletContext.AttributeFilter;
+            }
             if (cmdletContext.AwsAccountId != null)
             {
                 request.AwsAccountId = cmdletContext.AwsAccountId;
@@ -219,7 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
+                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
             }
             if (cmdletContext.StartTime != null)
             {
@@ -282,12 +321,12 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         
         #region AWS Service Operation Call
         
-        private Amazon.ApplicationSignals.Model.ListServicesResponse CallAWSServiceOperation(IAmazonApplicationSignals client, Amazon.ApplicationSignals.Model.ListServicesRequest request)
+        private Amazon.ApplicationSignals.Model.ListServiceStatesResponse CallAWSServiceOperation(IAmazonApplicationSignals client, Amazon.ApplicationSignals.Model.ListServiceStatesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Application Signals", "ListServices");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Application Signals", "ListServiceStates");
             try
             {
-                return client.ListServicesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListServiceStatesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -304,13 +343,14 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.ApplicationSignals.Model.AttributeFilter> AttributeFilter { get; set; }
             public System.String AwsAccountId { get; set; }
             public System.DateTime? EndTime { get; set; }
             public System.Boolean? IncludeLinkedAccount { get; set; }
-            public System.Int32? MaxResult { get; set; }
+            public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.DateTime? StartTime { get; set; }
-            public System.Func<Amazon.ApplicationSignals.Model.ListServicesResponse, GetCWASServiceListCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.ApplicationSignals.Model.ListServiceStatesResponse, GetCWASServiceStateListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

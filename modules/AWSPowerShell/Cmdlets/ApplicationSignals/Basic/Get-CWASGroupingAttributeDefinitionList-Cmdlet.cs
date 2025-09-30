@@ -23,71 +23,35 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.MediaTailor;
-using Amazon.MediaTailor.Model;
+using Amazon.ApplicationSignals;
+using Amazon.ApplicationSignals.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.EMT
+namespace Amazon.PowerShell.Cmdlets.CWAS
 {
     /// <summary>
-    /// Lists the alerts that are associated with a MediaTailor channel assembly resource.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns the current grouping configuration for this account, including all custom
+    /// grouping attribute definitions that have been configured. These definitions determine
+    /// how services are logically grouped based on telemetry attributes, Amazon Web Services
+    /// tags, or predefined mappings.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "EMTAlertList")]
-    [OutputType("Amazon.MediaTailor.Model.Alert")]
-    [AWSCmdlet("Calls the AWS Elemental MediaTailor ListAlerts API operation.", Operation = new[] {"ListAlerts"}, SelectReturnType = typeof(Amazon.MediaTailor.Model.ListAlertsResponse))]
-    [AWSCmdletOutput("Amazon.MediaTailor.Model.Alert or Amazon.MediaTailor.Model.ListAlertsResponse",
-        "This cmdlet returns a collection of Amazon.MediaTailor.Model.Alert objects.",
-        "The service call response (type Amazon.MediaTailor.Model.ListAlertsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "CWASGroupingAttributeDefinitionList")]
+    [OutputType("Amazon.ApplicationSignals.Model.ListGroupingAttributeDefinitionsResponse")]
+    [AWSCmdlet("Calls the Amazon CloudWatch Application Signals ListGroupingAttributeDefinitions API operation.", Operation = new[] {"ListGroupingAttributeDefinitions"}, SelectReturnType = typeof(Amazon.ApplicationSignals.Model.ListGroupingAttributeDefinitionsResponse))]
+    [AWSCmdletOutput("Amazon.ApplicationSignals.Model.ListGroupingAttributeDefinitionsResponse",
+        "This cmdlet returns an Amazon.ApplicationSignals.Model.ListGroupingAttributeDefinitionsResponse object containing multiple properties."
     )]
-    public partial class GetEMTAlertListCmdlet : AmazonMediaTailorClientCmdlet, IExecutor
+    public partial class GetCWASGroupingAttributeDefinitionListCmdlet : AmazonApplicationSignalsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ResourceArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
-        #endregion
-        
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of alerts that you want MediaTailor to return in response to the
-        /// current request. If there are more than <c>MaxResults</c> alerts, use the value of
-        /// <c>NextToken</c> in the response to get the next page of results.</para><para>The default value is 100. MediaTailor uses DynamoDB-based pagination, which means
-        /// that a response might contain fewer than <c>MaxResults</c> items, including 0 items,
-        /// even when more results are available. To retrieve all results, you must continue making
-        /// requests using the <c>NextToken</c> value from each response until the response no
-        /// longer includes a <c>NextToken</c> value.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
-        #endregion
-        
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Pagination token returned by the list request when results exceed the maximum allowed.
-        /// Use the token to fetch the next page of results.</para><para>For the first <c>ListAlerts</c> request, omit this value. For subsequent requests,
-        /// get the value of <c>NextToken</c> from the previous response and specify that value
-        /// for <c>NextToken</c> in the request. Continue making requests until the response no
-        /// longer includes a <c>NextToken</c> value, which indicates that all results have been
-        /// retrieved.</para>
+        /// <para>Include this value, if it was returned by the previous operation, to get the next
+        /// set of grouping attribute definitions.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -100,13 +64,13 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MediaTailor.Model.ListAlertsResponse).
-        /// Specifying the name of a property of type Amazon.MediaTailor.Model.ListAlertsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ApplicationSignals.Model.ListGroupingAttributeDefinitionsResponse).
+        /// Specifying the name of a property of type Amazon.ApplicationSignals.Model.ListGroupingAttributeDefinitionsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Items";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -135,18 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.MediaTailor.Model.ListAlertsResponse, GetEMTAlertListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ApplicationSignals.Model.ListGroupingAttributeDefinitionsResponse, GetCWASGroupingAttributeDefinitionListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.ResourceArn = this.ResourceArn;
-            #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -163,16 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.MediaTailor.Model.ListAlertsRequest();
+            var request = new Amazon.ApplicationSignals.Model.ListGroupingAttributeDefinitionsRequest();
             
-            if (cmdletContext.MaxResult != null)
-            {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.ResourceArn != null)
-            {
-                request.ResourceArn = cmdletContext.ResourceArn;
-            }
             
             // Initialize loop variant and commence piping
             var _nextToken = cmdletContext.NextToken;
@@ -230,12 +178,12 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         
         #region AWS Service Operation Call
         
-        private Amazon.MediaTailor.Model.ListAlertsResponse CallAWSServiceOperation(IAmazonMediaTailor client, Amazon.MediaTailor.Model.ListAlertsRequest request)
+        private Amazon.ApplicationSignals.Model.ListGroupingAttributeDefinitionsResponse CallAWSServiceOperation(IAmazonApplicationSignals client, Amazon.ApplicationSignals.Model.ListGroupingAttributeDefinitionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaTailor", "ListAlerts");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Application Signals", "ListGroupingAttributeDefinitions");
             try
             {
-                return client.ListAlertsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListGroupingAttributeDefinitionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -252,11 +200,9 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String ResourceArn { get; set; }
-            public System.Func<Amazon.MediaTailor.Model.ListAlertsResponse, GetEMTAlertListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Items;
+            public System.Func<Amazon.ApplicationSignals.Model.ListGroupingAttributeDefinitionsResponse, GetCWASGroupingAttributeDefinitionListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

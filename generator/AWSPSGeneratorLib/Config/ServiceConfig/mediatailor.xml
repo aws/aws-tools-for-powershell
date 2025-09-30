@@ -39,6 +39,10 @@
             <Params>
                 <Param Name="RecurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingRetrievalWindow_RetrievalWindowDurationSeconds" NewName="RecurringTrafficShaping_WindowDurationSeconds" Alias="RecurringTrafficShaping_RetrievalWindowDurationSeconds" />
                 <Param Name="Retrieval_TrafficShapingRetrievalWindow_RetrievalWindowDurationSeconds" NewName="TrafficShaping_WindowDurationSeconds" Alias="TrafficShaping_RetrievalWindowDurationSeconds" />
+                <Param Name="RecurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakTps" NewName="RecurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakTps" />
+                <Param Name="Retrieval_TrafficShapingTpsConfiguration_PeakTps" NewName="Retrieval_TrafficShapingTpsConfiguration_PeakTps" />
+                <Param Name="RecurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers" NewName="RecurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers" />
+                <Param Name="Retrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers" NewName="Retrieval_TrafficShapingTpsConfiguration_PeakConcurrentUsers" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -134,7 +138,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPlaybackConfigurations" OutputProperty="Items" Verb="Get" Noun="PlaybackConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListPlaybackConfigurations" OutputProperty="Items" Verb="Get" Noun="PlaybackConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

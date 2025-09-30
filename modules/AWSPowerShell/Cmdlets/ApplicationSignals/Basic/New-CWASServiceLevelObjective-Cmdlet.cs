@@ -366,6 +366,18 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         public Amazon.ApplicationSignals.Model.MetricDataQuery[] SliMetricConfig_MetricDataQuery { get; set; }
         #endregion
         
+        #region Parameter SliMetricConfig_MetricName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the CloudWatch metric to use for the SLO, when using a custom metric rather
+        /// than Application Signals standard metrics.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SliConfig_SliMetricConfig_MetricName")]
+        public System.String SliMetricConfig_MetricName { get; set; }
+        #endregion
+        
         #region Parameter RequestBasedSliConfig_MetricThreshold
         /// <summary>
         /// <para>
@@ -667,6 +679,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             {
                 context.SliMetricConfig_MetricDataQuery = new List<Amazon.ApplicationSignals.Model.MetricDataQuery>(this.SliMetricConfig_MetricDataQuery);
             }
+            context.SliMetricConfig_MetricName = this.SliMetricConfig_MetricName;
             context.SliMetricConfig_MetricType = this.SliMetricConfig_MetricType;
             context.SliMetricConfig_OperationName = this.SliMetricConfig_OperationName;
             context.SliMetricConfig_PeriodSecond = this.SliMetricConfig_PeriodSecond;
@@ -1030,6 +1043,16 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
                 requestSliConfig_sliConfig_SliMetricConfig.MetricDataQueries = requestSliConfig_sliConfig_SliMetricConfig_sliMetricConfig_MetricDataQuery;
                 requestSliConfig_sliConfig_SliMetricConfigIsNull = false;
             }
+            System.String requestSliConfig_sliConfig_SliMetricConfig_sliMetricConfig_MetricName = null;
+            if (cmdletContext.SliMetricConfig_MetricName != null)
+            {
+                requestSliConfig_sliConfig_SliMetricConfig_sliMetricConfig_MetricName = cmdletContext.SliMetricConfig_MetricName;
+            }
+            if (requestSliConfig_sliConfig_SliMetricConfig_sliMetricConfig_MetricName != null)
+            {
+                requestSliConfig_sliConfig_SliMetricConfig.MetricName = requestSliConfig_sliConfig_SliMetricConfig_sliMetricConfig_MetricName;
+                requestSliConfig_sliConfig_SliMetricConfigIsNull = false;
+            }
             Amazon.ApplicationSignals.ServiceLevelIndicatorMetricType requestSliConfig_sliConfig_SliMetricConfig_sliMetricConfig_MetricType = null;
             if (cmdletContext.SliMetricConfig_MetricType != null)
             {
@@ -1205,6 +1228,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             public System.String SliConfig_SliMetricConfig_DependencyConfig_DependencyOperationName { get; set; }
             public Dictionary<System.String, System.String> SliMetricConfig_KeyAttribute { get; set; }
             public List<Amazon.ApplicationSignals.Model.MetricDataQuery> SliMetricConfig_MetricDataQuery { get; set; }
+            public System.String SliMetricConfig_MetricName { get; set; }
             public Amazon.ApplicationSignals.ServiceLevelIndicatorMetricType SliMetricConfig_MetricType { get; set; }
             public System.String SliMetricConfig_OperationName { get; set; }
             public System.Int32? SliMetricConfig_PeriodSecond { get; set; }

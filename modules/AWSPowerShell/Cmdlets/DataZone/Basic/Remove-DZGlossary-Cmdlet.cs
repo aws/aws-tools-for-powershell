@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     /// The caller must have the <c>datazone:DeleteGlossary</c> permission in the domain and
     /// glossary.
     /// </para></li><li><para>
-    /// There should be no active assets or metadata linked to the glossary.
+    /// Glossary should not be linked to any active metadata forms.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "DZGlossary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

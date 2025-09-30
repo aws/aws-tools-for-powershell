@@ -122,8 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter S3StorageOptions_DirectoryListingOptimization
         /// <summary>
         /// <para>
-        /// <para>Specifies whether or not performance for your Amazon S3 directories is optimized.
-        /// This is disabled by default.</para><para>By default, home directory mappings have a <c>TYPE</c> of <c>DIRECTORY</c>. If you
+        /// <para>Specifies whether or not performance for your Amazon S3 directories is optimized.</para><ul><li><para>If using the console, this is enabled by default.</para></li><li><para>If using the API or CLI, this is disabled by default.</para></li></ul><para>By default, home directory mappings have a <c>TYPE</c> of <c>DIRECTORY</c>. If you
         /// enable this option, you would then need to explicitly set the <c>HomeDirectoryMapEntry</c><c>Type</c> to <c>FILE</c> if you want a mapping to have a file target.</para>
         /// </para>
         /// </summary>
@@ -180,6 +179,25 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String HostKey { get; set; }
+        #endregion
+        
+        #region Parameter IdentityProviderType
+        /// <summary>
+        /// <para>
+        /// <para>The mode of authentication for a server. The default value is <c>SERVICE_MANAGED</c>,
+        /// which allows you to store and access user credentials within the Transfer Family service.</para><para>Use <c>AWS_DIRECTORY_SERVICE</c> to provide access to Active Directory groups in Directory
+        /// Service for Microsoft Active Directory or Microsoft Active Directory in your on-premises
+        /// environment or in Amazon Web Services using AD Connector. This option also requires
+        /// you to provide a Directory ID by using the <c>IdentityProviderDetails</c> parameter.</para><para>Use the <c>API_GATEWAY</c> value to integrate with an identity provider of your choosing.
+        /// The <c>API_GATEWAY</c> setting requires you to provide an Amazon API Gateway endpoint
+        /// URL to call for authentication by using the <c>IdentityProviderDetails</c> parameter.</para><para>Use the <c>AWS_LAMBDA</c> value to directly use an Lambda function as your identity
+        /// provider. If you choose this value, you must specify the ARN for the Lambda function
+        /// in the <c>Function</c> parameter for the <c>IdentityProviderDetails</c> data type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Transfer.IdentityProviderType")]
+        public Amazon.Transfer.IdentityProviderType IdentityProviderType { get; set; }
         #endregion
         
         #region Parameter IdentityProviderDetails_InvocationRole
@@ -332,7 +350,12 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter EndpointDetails_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of security groups IDs that are available to attach to your server's endpoint.</para><note><para>This property can only be set when <c>EndpointType</c> is set to <c>VPC</c>.</para><para>You can edit the <c>SecurityGroupIds</c> property in the <a href="https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateServer.html">UpdateServer</a>
+        /// <para>A list of security groups IDs that are available to attach to your server's endpoint.</para><note><para>While <c>SecurityGroupIds</c> appears in the response syntax for consistency with
+        /// <c>CreateServer</c> and <c>UpdateServer</c> operations, this field is not populated
+        /// in <c>DescribeServer</c> responses. Security groups are managed at the VPC endpoint
+        /// level and can be modified outside of the Transfer Family service. To retrieve current
+        /// security group information, use the EC2 <c>DescribeVpcEndpoints</c> API with the <c>VpcEndpointId</c>
+        /// returned in the response.</para><para>This property can only be set when <c>EndpointType</c> is set to <c>VPC</c>.</para><para>You can edit the <c>SecurityGroupIds</c> property in the <a href="https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateServer.html">UpdateServer</a>
         /// API only if you are changing the <c>EndpointType</c> from <c>PUBLIC</c> or <c>VPC_ENDPOINT</c>
         /// to <c>VPC</c>. To change security groups associated with your server's VPC endpoint
         /// after creation, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpoint.html">ModifyVpcEndpoint</a>
@@ -572,6 +595,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             context.IdentityProviderDetails_InvocationRole = this.IdentityProviderDetails_InvocationRole;
             context.IdentityProviderDetails_SftpAuthenticationMethod = this.IdentityProviderDetails_SftpAuthenticationMethod;
             context.IdentityProviderDetails_Url = this.IdentityProviderDetails_Url;
+            context.IdentityProviderType = this.IdentityProviderType;
             context.IpAddressType = this.IpAddressType;
             context.LoggingRole = this.LoggingRole;
             context.PostAuthenticationLoginBanner = this.PostAuthenticationLoginBanner;
@@ -753,6 +777,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             if (requestIdentityProviderDetailsIsNull)
             {
                 request.IdentityProviderDetails = null;
+            }
+            if (cmdletContext.IdentityProviderType != null)
+            {
+                request.IdentityProviderType = cmdletContext.IdentityProviderType;
             }
             if (cmdletContext.IpAddressType != null)
             {
@@ -951,6 +979,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public System.String IdentityProviderDetails_InvocationRole { get; set; }
             public Amazon.Transfer.SftpAuthenticationMethods IdentityProviderDetails_SftpAuthenticationMethod { get; set; }
             public System.String IdentityProviderDetails_Url { get; set; }
+            public Amazon.Transfer.IdentityProviderType IdentityProviderType { get; set; }
             public Amazon.Transfer.IpAddressType IpAddressType { get; set; }
             public System.String LoggingRole { get; set; }
             public System.String PostAuthenticationLoginBanner { get; set; }

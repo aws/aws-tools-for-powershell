@@ -53,7 +53,11 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <para>The maximum number of playback configurations that you want MediaTailor to return
         /// in response to the current request. If there are more than <c>MaxResults</c> playback
         /// configurations, use the value of <c>NextToken</c> in the response to get the next
-        /// page of results.</para>
+        /// page of results.</para><para>The default value is 100. MediaTailor uses DynamoDB-based pagination, which means
+        /// that a response might contain fewer than <c>MaxResults</c> items, including 0 items,
+        /// even when more results are available. To retrieve all results, you must continue making
+        /// requests using the <c>NextToken</c> value from each response until the response no
+        /// longer includes a <c>NextToken</c> value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -71,7 +75,11 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <summary>
         /// <para>
         /// <para>Pagination token returned by the list request when results exceed the maximum allowed.
-        /// Use the token to fetch the next page of results.</para>
+        /// Use the token to fetch the next page of results.</para><para>For the first <c>ListPlaybackConfigurations</c> request, omit this value. For subsequent
+        /// requests, get the value of <c>NextToken</c> from the previous response and specify
+        /// that value for <c>NextToken</c> in the request. Continue making requests until the
+        /// response no longer includes a <c>NextToken</c> value, which indicates that all results
+        /// have been retrieved.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

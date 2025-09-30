@@ -61,6 +61,18 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String[] CapacityProvider { get; set; }
         #endregion
         
+        #region Parameter Cluster
+        /// <summary>
+        /// <para>
+        /// <para>The name of the cluster to describe capacity providers for. When specified, only capacity
+        /// providers associated with this cluster are returned, including Amazon ECS Managed
+        /// Instances capacity providers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String Cluster { get; set; }
+        #endregion
+        
         #region Parameter Include
         /// <summary>
         /// <para>
@@ -161,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 context.CapacityProvider = new List<System.String>(this.CapacityProvider);
             }
+            context.Cluster = this.Cluster;
             if (this.Include != null)
             {
                 context.Include = new List<System.String>(this.Include);
@@ -198,6 +211,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.CapacityProvider != null)
             {
                 request.CapacityProviders = cmdletContext.CapacityProvider;
+            }
+            if (cmdletContext.Cluster != null)
+            {
+                request.Cluster = cmdletContext.Cluster;
             }
             if (cmdletContext.Include != null)
             {
@@ -265,6 +282,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.CapacityProvider != null)
             {
                 request.CapacityProviders = cmdletContext.CapacityProvider;
+            }
+            if (cmdletContext.Cluster != null)
+            {
+                request.Cluster = cmdletContext.Cluster;
             }
             if (cmdletContext.Include != null)
             {
@@ -377,6 +398,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> CapacityProvider { get; set; }
+            public System.String Cluster { get; set; }
             public List<System.String> Include { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }

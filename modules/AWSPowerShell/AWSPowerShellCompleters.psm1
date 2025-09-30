@@ -3220,16 +3220,21 @@ $CWAS_SelectMap = @{
     "Select"=@("Get-CWASBatchServiceLevelObjectiveBudgetReport",
                "Update-CWASUpdateExclusionWindow",
                "New-CWASServiceLevelObjective",
+               "Remove-CWASGroupingConfiguration",
                "Remove-CWASServiceLevelObjective",
                "Get-CWASService",
                "Get-CWASServiceLevelObjective",
+               "Get-CWASAuditFindingList",
+               "Get-CWASGroupingAttributeDefinitionList",
                "Get-CWASServiceDependencyList",
                "Get-CWASServiceDependentList",
                "Get-CWASServiceLevelObjectiveExclusionWindowList",
                "Get-CWASServiceLevelObjectiveList",
                "Get-CWASServiceOperationList",
                "Get-CWASServiceList",
+               "Get-CWASServiceStateList",
                "Get-CWASResourceTag",
+               "Write-CWASGroupingConfiguration",
                "Start-CWASDiscovery",
                "Add-CWASResourceTag",
                "Remove-CWASResourceTag",
@@ -11339,6 +11344,13 @@ $CHMVO_Completers = {
             break
         }
 
+        # Amazon.ChimeSDKVoice.NetworkType
+        "New-CHMVOVoiceConnector/NetworkType"
+        {
+            $v = "DUAL_STACK","IPV4_ONLY"
+            break
+        }
+
         # Amazon.ChimeSDKVoice.NumberSelectionBehavior
         "New-CHMVOProxySession/NumberSelectionBehavior"
         {
@@ -11415,6 +11427,7 @@ $CHMVO_map = @{
     "GeoMatchLevel"=@("New-CHMVOProxySession")
     "IntegrationType"=@("New-CHMVOVoiceConnector")
     "LanguageCode"=@("Start-CHMVOVoiceToneAnalysisTask")
+    "NetworkType"=@("New-CHMVOVoiceConnector")
     "NumberSelectionBehavior"=@("New-CHMVOProxySession")
     "PhoneNumberType"=@("Search-CHMVOAvailablePhoneNumber")
     "ProductType"=@("Get-CHMVOPhoneNumberList","Get-CHMVOSupportedPhoneNumberCountryList","New-CHMVOPhoneNumberOrder","Update-CHMVOPhoneNumber")
@@ -20122,7 +20135,7 @@ $CCAS_Completers = {
         # Amazon.ConnectCases.RelatedItemType
         "New-CCASRelatedItem/Type"
         {
-            $v = "Comment","Contact","File","Sla"
+            $v = "Comment","ConnectCase","Contact","Custom","File","Sla"
             break
         }
 
@@ -20773,6 +20786,13 @@ $CPF_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CustomerProfiles.ActionType
+        "Get-CPFProfileHistoryRecordList/ActionType"
+        {
+            $v = "ADDED_PROFILE_KEY","CREATED","DELETED_BY_CUSTOMER","DELETED_BY_MERGE","DELETED_PROFILE_KEY","EXPIRED","INGESTED","MERGED","UPDATED"
+            break
+        }
+
         # Amazon.CustomerProfiles.AttributeMatchingModel
         {
             ($_ -eq "New-CPFDomain/AttributeTypesSelector_AttributeMatchingModel") -Or
@@ -20974,6 +20994,7 @@ $CPF_Completers = {
 }
 
 $CPF_map = @{
+    "ActionType"=@("Get-CPFProfileHistoryRecordList")
     "AttributeTypesSelector_AttributeMatchingModel"=@("New-CPFDomain","Update-CPFDomain")
     "ConflictResolution_ConflictResolvingModel"=@("Get-CPFAutoMergingPreview","New-CPFDomain","Update-CPFDomain")
     "DataFormat"=@("New-CPFSegmentSnapshot")
@@ -21085,6 +21106,7 @@ $CPF_SelectMap = @{
                "Get-CPFIdentityResolutionJob",
                "Get-CPFIntegration",
                "Get-CPFMatch",
+               "Get-CPFProfileHistoryRecord",
                "Get-CPFProfileObjectType",
                "Get-CPFProfileObjectTypeTemplate",
                "Get-CPFSegmentDefinition",
@@ -21107,6 +21129,7 @@ $CPF_SelectMap = @{
                "Get-CPFIntegrationList",
                "Get-CPFObjectTypeAttributeList",
                "Get-CPFProfileAttributeValueList",
+               "Get-CPFProfileHistoryRecordList",
                "Get-CPFProfileObjectList",
                "Get-CPFProfileObjectTypeList",
                "Get-CPFProfileObjectTypeTemplateList",
@@ -25581,12 +25604,13 @@ $DS_Completers = {
         # Amazon.DirectoryService.DirectoryEdition
         "New-DSMicrosoftAD/Edition"
         {
-            $v = "Enterprise","Standard"
+            $v = "Enterprise","Hybrid","Standard"
             break
         }
 
         # Amazon.DirectoryService.DirectorySize
         {
+            ($_ -eq "Update-DSDirectorySetup/DirectorySizeUpdateSettings_DirectorySize") -Or
             ($_ -eq "Connect-DSDirectory/Size") -Or
             ($_ -eq "New-DSDirectory/Size")
         }
@@ -25610,6 +25634,18 @@ $DS_Completers = {
         }
         {
             $v = "Client"
+            break
+        }
+
+        # Amazon.DirectoryService.NetworkType
+        {
+            ($_ -eq "Connect-DSDirectory/NetworkType") -Or
+            ($_ -eq "New-DSDirectory/NetworkType") -Or
+            ($_ -eq "New-DSMicrosoftAD/NetworkType") -Or
+            ($_ -eq "Update-DSDirectorySetup/NetworkUpdateSettings_NetworkType")
+        }
+        {
+            $v = "Dual-stack","IPv4","IPv6"
             break
         }
 
@@ -25677,7 +25713,7 @@ $DS_Completers = {
             ($_ -eq "Update-DSDirectorySetup/UpdateType")
         }
         {
-            $v = "OS"
+            $v = "NETWORK","OS","SIZE"
             break
         }
 
@@ -25690,7 +25726,10 @@ $DS_Completers = {
 }
 
 $DS_map = @{
+    "DirectorySizeUpdateSettings_DirectorySize"=@("Update-DSDirectorySetup")
     "Edition"=@("New-DSMicrosoftAD")
+    "NetworkType"=@("Connect-DSDirectory","New-DSDirectory","New-DSMicrosoftAD")
+    "NetworkUpdateSettings_NetworkType"=@("Update-DSDirectorySetup")
     "OSUpdateSettings_OSVersion"=@("Update-DSDirectorySetup")
     "RadiusSettings_AuthenticationProtocol"=@("Enable-DSRadius","Update-DSRadius")
     "SelectiveAuth"=@("New-DSTrust","Update-DSTrust")
@@ -28977,6 +29016,26 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.BareMetal
+        {
+            ($_ -eq "New-ECSCapacityProvider/InstanceRequirements_BareMetal") -Or
+            ($_ -eq "Update-ECSCapacityProvider/InstanceRequirements_BareMetal")
+        }
+        {
+            $v = "excluded","included","required"
+            break
+        }
+
+        # Amazon.ECS.BurstablePerformance
+        {
+            ($_ -eq "New-ECSCapacityProvider/InstanceRequirements_BurstablePerformance") -Or
+            ($_ -eq "Update-ECSCapacityProvider/InstanceRequirements_BurstablePerformance")
+        }
+        {
+            $v = "excluded","included","required"
+            break
+        }
+
         # Amazon.ECS.ContainerInstanceStatus
         {
             ($_ -eq "Get-ECSContainerInstanceList/Status") -Or
@@ -29047,7 +29106,17 @@ $ECS_Completers = {
             ($_ -eq "New-ECSTaskSet/LaunchType")
         }
         {
-            $v = "EC2","EXTERNAL","FARGATE"
+            $v = "EC2","EXTERNAL","FARGATE","MANAGED_INSTANCES"
+            break
+        }
+
+        # Amazon.ECS.LocalStorage
+        {
+            ($_ -eq "New-ECSCapacityProvider/InstanceRequirements_LocalStorage") -Or
+            ($_ -eq "Update-ECSCapacityProvider/InstanceRequirements_LocalStorage")
+        }
+        {
+            $v = "excluded","included","required"
             break
         }
 
@@ -29068,6 +29137,16 @@ $ECS_Completers = {
         }
         {
             $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.ECS.ManagedInstancesMonitoringOptions
+        {
+            ($_ -eq "New-ECSCapacityProvider/InstanceLaunchTemplate_Monitoring") -Or
+            ($_ -eq "Update-ECSCapacityProvider/InstanceLaunchTemplate_Monitoring")
+        }
+        {
+            $v = "BASIC","DETAILED"
             break
         }
 
@@ -29109,6 +29188,16 @@ $ECS_Completers = {
         "Register-ECSTaskDefinition/PidMode"
         {
             $v = "host","task"
+            break
+        }
+
+        # Amazon.ECS.PropagateMITags
+        {
+            ($_ -eq "New-ECSCapacityProvider/ManagedInstancesProvider_PropagateTag") -Or
+            ($_ -eq "Update-ECSCapacityProvider/ManagedInstancesProvider_PropagateTag")
+        }
+        {
+            $v = "CAPACITY_PROVIDER","NONE"
             break
         }
 
@@ -29215,9 +29304,14 @@ $ECS_map = @{
     "DeploymentController_Type"=@("New-ECSService","Update-ECSService")
     "DesiredStatus"=@("Get-ECSTaskList")
     "ExecuteCommandConfiguration_Logging"=@("New-ECSCluster","Update-ECSCluster")
+    "InstanceLaunchTemplate_Monitoring"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
+    "InstanceRequirements_BareMetal"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
+    "InstanceRequirements_BurstablePerformance"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
+    "InstanceRequirements_LocalStorage"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "IpcMode"=@("Register-ECSTaskDefinition")
     "LaunchType"=@("Get-ECSClusterService","Get-ECSTaskList","New-ECSService","New-ECSTask","New-ECSTaskSet")
     "LogConfiguration_LogDriver"=@("New-ECSService","Update-ECSService")
+    "ManagedInstancesProvider_PropagateTag"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "ManagedScaling_Status"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "Name"=@("Get-ECSAccountSetting","Remove-ECSAccountSetting","Write-ECSAccountSetting","Write-ECSAccountSettingDefault")
     "NetworkMode"=@("Register-ECSTaskDefinition")
@@ -51554,7 +51648,7 @@ $EMT_Completers = {
             ($_ -eq "New-EMTPrefetchSchedule/Retrieval_TrafficShapingType")
         }
         {
-            $v = "RETRIEVAL_WINDOW"
+            $v = "RETRIEVAL_WINDOW","TPS"
             break
         }
 
@@ -63864,7 +63958,7 @@ $RDS_Completers = {
         # Amazon.RDS.ClusterScalabilityType
         "New-RDSDBCluster/ClusterScalabilityType"
         {
-            $v = "limitless","standard"
+            $v = "limitless","scaleout","standard"
             break
         }
 
@@ -63958,7 +64052,7 @@ $RDS_Completers = {
         # Amazon.RDS.SourceType
         "Get-RDSEvent/SourceType"
         {
-            $v = "blue-green-deployment","custom-engine-version","db-cluster","db-cluster-snapshot","db-instance","db-parameter-group","db-proxy","db-security-group","db-snapshot"
+            $v = "blue-green-deployment","custom-engine-version","db-cluster","db-cluster-snapshot","db-instance","db-parameter-group","db-proxy","db-security-group","db-shard-group","db-snapshot","zero-etl"
             break
         }
 
@@ -78369,7 +78463,10 @@ $TFR_Completers = {
         }
 
         # Amazon.Transfer.IdentityProviderType
-        "New-TFRServer/IdentityProviderType"
+        {
+            ($_ -eq "New-TFRServer/IdentityProviderType") -Or
+            ($_ -eq "Update-TFRServer/IdentityProviderType")
+        }
         {
             $v = "API_GATEWAY","AWS_DIRECTORY_SERVICE","AWS_LAMBDA","SERVICE_MANAGED"
             break
@@ -78509,7 +78606,7 @@ $TFR_map = @{
     "EnforceMessageSigning"=@("New-TFRAgreement","Update-TFRAgreement")
     "HomeDirectoryType"=@("New-TFRAccess","New-TFRUser","Update-TFRAccess","Update-TFRUser")
     "IdentityProviderDetails_SftpAuthenticationMethod"=@("New-TFRServer","Update-TFRServer")
-    "IdentityProviderType"=@("New-TFRServer")
+    "IdentityProviderType"=@("New-TFRServer","Update-TFRServer")
     "IpAddressType"=@("New-TFRServer","Update-TFRServer")
     "PreserveFilename"=@("New-TFRAgreement","Update-TFRAgreement")
     "ProfileType"=@("Get-TFRProfileList","New-TFRProfile")

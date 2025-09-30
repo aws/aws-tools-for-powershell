@@ -161,7 +161,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>Specify the number of concurrent connections that your connector creates to the remote
-        /// server. The default value is <c>5</c> (this is also the maximum value allowed).</para><para>This parameter specifies the number of active connections that your connector can
+        /// server. The default value is <c>1</c>. The maximum values is <c>5</c>.</para><note><para>If you are using the Amazon Web Services Management Console, the default value is
+        /// <c>5</c>.</para></note><para>This parameter specifies the number of active connections that your connector can
         /// establish with the remote server at the same time. Increasing this value can enhance
         /// connector performance when transferring large file batches by enabling parallel operations.</para>
         /// </para>

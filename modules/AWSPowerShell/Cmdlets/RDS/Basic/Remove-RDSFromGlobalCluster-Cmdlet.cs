@@ -58,7 +58,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// Aurora global database cluster.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DbClusterIdentifier { get; set; }
         #endregion
         
@@ -68,7 +75,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The cluster identifier to detach from the Aurora global database cluster.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String GlobalClusterIdentifier { get; set; }
         #endregion
         
@@ -119,7 +133,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.DbClusterIdentifier = this.DbClusterIdentifier;
+            #if MODULAR
+            if (this.DbClusterIdentifier == null && ParameterWasBound(nameof(this.DbClusterIdentifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter DbClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.GlobalClusterIdentifier = this.GlobalClusterIdentifier;
+            #if MODULAR
+            if (this.GlobalClusterIdentifier == null && ParameterWasBound(nameof(this.GlobalClusterIdentifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter GlobalClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

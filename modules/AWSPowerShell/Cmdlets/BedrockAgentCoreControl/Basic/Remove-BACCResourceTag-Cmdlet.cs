@@ -31,6 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.BACC
 {
     /// <summary>
     /// Removes the specified tags from the specified resource.
+    /// 
+    ///  <note><para>
+    /// This feature is currently available only for AgentCore Runtime, Browser, Code Interpreter
+    /// tool, and Gateway.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "BACCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

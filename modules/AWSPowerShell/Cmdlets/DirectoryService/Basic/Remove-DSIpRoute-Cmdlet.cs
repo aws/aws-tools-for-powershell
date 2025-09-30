@@ -55,16 +55,24 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("CidrIps")]
         public System.String[] CidrIp { get; set; }
+        #endregion
+        
+        #region Parameter CidrIpv6
+        /// <summary>
+        /// <para>
+        /// <para>IPv6 address blocks that you want to remove.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CidrIpv6s")]
+        public System.String[] CidrIpv6 { get; set; }
         #endregion
         
         #region Parameter DirectoryId
@@ -133,12 +141,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
             {
                 context.CidrIp = new List<System.String>(this.CidrIp);
             }
-            #if MODULAR
-            if (this.CidrIp == null && ParameterWasBound(nameof(this.CidrIp)))
+            if (this.CidrIpv6 != null)
             {
-                WriteWarning("You are passing $null as a value for parameter CidrIp which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.CidrIpv6 = new List<System.String>(this.CidrIpv6);
             }
-            #endif
             context.DirectoryId = this.DirectoryId;
             #if MODULAR
             if (this.DirectoryId == null && ParameterWasBound(nameof(this.DirectoryId)))
@@ -165,6 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
             if (cmdletContext.CidrIp != null)
             {
                 request.CidrIps = cmdletContext.CidrIp;
+            }
+            if (cmdletContext.CidrIpv6 != null)
+            {
+                request.CidrIpv6s = cmdletContext.CidrIpv6;
             }
             if (cmdletContext.DirectoryId != null)
             {
@@ -226,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> CidrIp { get; set; }
+            public List<System.String> CidrIpv6 { get; set; }
             public System.String DirectoryId { get; set; }
             public System.Func<Amazon.DirectoryService.Model.RemoveIpRoutesResponse, RemoveDSIpRouteCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

@@ -80,6 +80,13 @@ $CPF_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CustomerProfiles.ActionType
+        "Get-CPFProfileHistoryRecordList/ActionType"
+        {
+            $v = "ADDED_PROFILE_KEY","CREATED","DELETED_BY_CUSTOMER","DELETED_BY_MERGE","DELETED_PROFILE_KEY","EXPIRED","INGESTED","MERGED","UPDATED"
+            break
+        }
+
         # Amazon.CustomerProfiles.AttributeMatchingModel
         {
             ($_ -eq "New-CPFDomain/AttributeTypesSelector_AttributeMatchingModel") -Or
@@ -281,6 +288,7 @@ $CPF_Completers = {
 }
 
 $CPF_map = @{
+    "ActionType"=@("Get-CPFProfileHistoryRecordList")
     "AttributeTypesSelector_AttributeMatchingModel"=@("New-CPFDomain","Update-CPFDomain")
     "ConflictResolution_ConflictResolvingModel"=@("Get-CPFAutoMergingPreview","New-CPFDomain","Update-CPFDomain")
     "DataFormat"=@("New-CPFSegmentSnapshot")
@@ -392,6 +400,7 @@ $CPF_SelectMap = @{
                "Get-CPFIdentityResolutionJob",
                "Get-CPFIntegration",
                "Get-CPFMatch",
+               "Get-CPFProfileHistoryRecord",
                "Get-CPFProfileObjectType",
                "Get-CPFProfileObjectTypeTemplate",
                "Get-CPFSegmentDefinition",
@@ -414,6 +423,7 @@ $CPF_SelectMap = @{
                "Get-CPFIntegrationList",
                "Get-CPFObjectTypeAttributeList",
                "Get-CPFProfileAttributeValueList",
+               "Get-CPFProfileHistoryRecordList",
                "Get-CPFProfileObjectList",
                "Get-CPFProfileObjectTypeList",
                "Get-CPFProfileObjectTypeTemplateList",
