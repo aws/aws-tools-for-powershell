@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The name or ID of the cluster of the queue.</para>
+        /// <para>The name or ID of the cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

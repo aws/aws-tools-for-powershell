@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
     /// <summary>
     /// Deletes an attendee from the specified Amazon Chime SDK meeting and deletes their
     /// <c>JoinToken</c>. Attendees are automatically deleted when a Amazon Chime SDK meeting
-    /// is deleted. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
+    /// is deleted. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
     /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.
     /// </summary>
     [Cmdlet("Remove", "CHMTGAttendee", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

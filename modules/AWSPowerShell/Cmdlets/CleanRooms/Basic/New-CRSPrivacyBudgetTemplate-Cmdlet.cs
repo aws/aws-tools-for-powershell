@@ -54,15 +54,21 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// the same rows will be repeatedly queried between privacy budget refreshes.</para></important>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.CleanRooms.PrivacyBudgetTemplateAutoRefresh")]
         public Amazon.CleanRooms.PrivacyBudgetTemplateAutoRefresh AutoRefresh { get; set; }
+        #endregion
+        
+        #region Parameter AccessBudget_BudgetParameter
+        /// <summary>
+        /// <para>
+        /// <para>An array of budget parameters that define the access budget configuration for the
+        /// privacy template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Parameters_AccessBudget_BudgetParameters")]
+        public Amazon.CleanRooms.Model.BudgetParameter[] AccessBudget_BudgetParameter { get; set; }
         #endregion
         
         #region Parameter DifferentialPrivacy_Epsilon
@@ -110,6 +116,18 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.CleanRooms.PrivacyBudgetType")]
         public Amazon.CleanRooms.PrivacyBudgetType PrivacyBudgetType { get; set; }
+        #endregion
+        
+        #region Parameter AccessBudget_ResourceArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the resource associated with this privacy budget
+        /// template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Parameters_AccessBudget_ResourceArn")]
+        public System.String AccessBudget_ResourceArn { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -180,12 +198,6 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AutoRefresh = this.AutoRefresh;
-            #if MODULAR
-            if (this.AutoRefresh == null && ParameterWasBound(nameof(this.AutoRefresh)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AutoRefresh which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.MembershipIdentifier = this.MembershipIdentifier;
             #if MODULAR
             if (this.MembershipIdentifier == null && ParameterWasBound(nameof(this.MembershipIdentifier)))
@@ -193,6 +205,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 WriteWarning("You are passing $null as a value for parameter MembershipIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.AccessBudget_BudgetParameter != null)
+            {
+                context.AccessBudget_BudgetParameter = new List<Amazon.CleanRooms.Model.BudgetParameter>(this.AccessBudget_BudgetParameter);
+            }
+            context.AccessBudget_ResourceArn = this.AccessBudget_ResourceArn;
             context.DifferentialPrivacy_Epsilon = this.DifferentialPrivacy_Epsilon;
             context.DifferentialPrivacy_UsersNoisePerQuery = this.DifferentialPrivacy_UsersNoisePerQuery;
             context.PrivacyBudgetType = this.PrivacyBudgetType;
@@ -238,6 +255,41 @@ namespace Amazon.PowerShell.Cmdlets.CRS
              // populate Parameters
             var requestParametersIsNull = true;
             request.Parameters = new Amazon.CleanRooms.Model.PrivacyBudgetTemplateParametersInput();
+            Amazon.CleanRooms.Model.AccessBudgetsPrivacyTemplateParametersInput requestParameters_parameters_AccessBudget = null;
+            
+             // populate AccessBudget
+            var requestParameters_parameters_AccessBudgetIsNull = true;
+            requestParameters_parameters_AccessBudget = new Amazon.CleanRooms.Model.AccessBudgetsPrivacyTemplateParametersInput();
+            List<Amazon.CleanRooms.Model.BudgetParameter> requestParameters_parameters_AccessBudget_accessBudget_BudgetParameter = null;
+            if (cmdletContext.AccessBudget_BudgetParameter != null)
+            {
+                requestParameters_parameters_AccessBudget_accessBudget_BudgetParameter = cmdletContext.AccessBudget_BudgetParameter;
+            }
+            if (requestParameters_parameters_AccessBudget_accessBudget_BudgetParameter != null)
+            {
+                requestParameters_parameters_AccessBudget.BudgetParameters = requestParameters_parameters_AccessBudget_accessBudget_BudgetParameter;
+                requestParameters_parameters_AccessBudgetIsNull = false;
+            }
+            System.String requestParameters_parameters_AccessBudget_accessBudget_ResourceArn = null;
+            if (cmdletContext.AccessBudget_ResourceArn != null)
+            {
+                requestParameters_parameters_AccessBudget_accessBudget_ResourceArn = cmdletContext.AccessBudget_ResourceArn;
+            }
+            if (requestParameters_parameters_AccessBudget_accessBudget_ResourceArn != null)
+            {
+                requestParameters_parameters_AccessBudget.ResourceArn = requestParameters_parameters_AccessBudget_accessBudget_ResourceArn;
+                requestParameters_parameters_AccessBudgetIsNull = false;
+            }
+             // determine if requestParameters_parameters_AccessBudget should be set to null
+            if (requestParameters_parameters_AccessBudgetIsNull)
+            {
+                requestParameters_parameters_AccessBudget = null;
+            }
+            if (requestParameters_parameters_AccessBudget != null)
+            {
+                request.Parameters.AccessBudget = requestParameters_parameters_AccessBudget;
+                requestParametersIsNull = false;
+            }
             Amazon.CleanRooms.Model.DifferentialPrivacyTemplateParametersInput requestParameters_parameters_DifferentialPrivacy = null;
             
              // populate DifferentialPrivacy
@@ -349,6 +401,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         {
             public Amazon.CleanRooms.PrivacyBudgetTemplateAutoRefresh AutoRefresh { get; set; }
             public System.String MembershipIdentifier { get; set; }
+            public List<Amazon.CleanRooms.Model.BudgetParameter> AccessBudget_BudgetParameter { get; set; }
+            public System.String AccessBudget_ResourceArn { get; set; }
             public System.Int32? DifferentialPrivacy_Epsilon { get; set; }
             public System.Int32? DifferentialPrivacy_UsersNoisePerQuery { get; set; }
             public Amazon.CleanRooms.PrivacyBudgetType PrivacyBudgetType { get; set; }

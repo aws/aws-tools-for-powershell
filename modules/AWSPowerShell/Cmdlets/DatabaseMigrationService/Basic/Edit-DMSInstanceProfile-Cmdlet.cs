@@ -100,10 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the KMS key that is used to encrypt the connection
-        /// parameters for the instance profile.</para><para>If you don't specify a value for the <c>KmsKeyArn</c> parameter, then DMS uses your
-        /// default encryption key.</para><para>KMS creates the default encryption key for your Amazon Web Services account. Your
-        /// Amazon Web Services account has a different default encryption key for each Amazon
-        /// Web Services Region.</para>
+        /// parameters for the instance profile.</para><para>If you don't specify a value for the <c>KmsKeyArn</c> parameter, then DMS uses an
+        /// Amazon Web Services owned encryption key to encrypt your resources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

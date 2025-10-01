@@ -1,4 +1,19 @@
-﻿### 4.1.911 (2025-09-30 20:22Z)
+﻿### 4.1.912 (2025-10-01 20:09Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1135.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Chime SDK Meetings
+    * Modified cmdlet New-CHMTGMeeting: added parameter MediaPlacementNetworkType.
+    * Modified cmdlet New-CHMTGMeetingWithAttendee: added parameter MediaPlacementNetworkType.
+  * Amazon Clean Rooms Service
+    * Modified cmdlet Get-CRSCollaborationPrivacyBudgetList: added parameter AccessBudgetResourceArn.
+    * Modified cmdlet Get-CRSPrivacyBudgetList: added parameter AccessBudgetResourceArn.
+    * Modified cmdlet New-CRSPrivacyBudgetTemplate: added parameters AccessBudget_BudgetParameter and AccessBudget_ResourceArn.
+    * Modified cmdlet Update-CRSPrivacyBudgetTemplate: added parameter AccessBudget_BudgetParameter.
+  * Amazon Parallel Computing Service
+    * Added cmdlet Update-PCSCluster leveraging the UpdateCluster service API.
+    * Modified cmdlet New-PCSQueue: added parameter SlurmConfiguration_SlurmCustomSetting.
+    * Modified cmdlet Update-PCSQueue: added parameter SlurmConfiguration_SlurmCustomSetting.
+
+### 4.1.911 (2025-09-30 20:22Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1134.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet New-BACCGateway: added parameter Tag.

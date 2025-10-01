@@ -42,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AccessBudget_BudgetParameter
+        /// <summary>
+        /// <para>
+        /// <para>Updated array of budget parameters for the access budget configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Parameters_AccessBudget_BudgetParameters")]
+        public Amazon.CleanRooms.Model.BudgetParameter[] AccessBudget_BudgetParameter { get; set; }
+        #endregion
+        
         #region Parameter DifferentialPrivacy_Epsilon
         /// <summary>
         /// <para>
@@ -188,6 +199,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 WriteWarning("You are passing $null as a value for parameter MembershipIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.AccessBudget_BudgetParameter != null)
+            {
+                context.AccessBudget_BudgetParameter = new List<Amazon.CleanRooms.Model.BudgetParameter>(this.AccessBudget_BudgetParameter);
+            }
             context.DifferentialPrivacy_Epsilon = this.DifferentialPrivacy_Epsilon;
             context.DifferentialPrivacy_UsersNoisePerQuery = this.DifferentialPrivacy_UsersNoisePerQuery;
             context.PrivacyBudgetTemplateIdentifier = this.PrivacyBudgetTemplateIdentifier;
@@ -228,6 +243,31 @@ namespace Amazon.PowerShell.Cmdlets.CRS
              // populate Parameters
             var requestParametersIsNull = true;
             request.Parameters = new Amazon.CleanRooms.Model.PrivacyBudgetTemplateUpdateParameters();
+            Amazon.CleanRooms.Model.AccessBudgetsPrivacyTemplateUpdateParameters requestParameters_parameters_AccessBudget = null;
+            
+             // populate AccessBudget
+            var requestParameters_parameters_AccessBudgetIsNull = true;
+            requestParameters_parameters_AccessBudget = new Amazon.CleanRooms.Model.AccessBudgetsPrivacyTemplateUpdateParameters();
+            List<Amazon.CleanRooms.Model.BudgetParameter> requestParameters_parameters_AccessBudget_accessBudget_BudgetParameter = null;
+            if (cmdletContext.AccessBudget_BudgetParameter != null)
+            {
+                requestParameters_parameters_AccessBudget_accessBudget_BudgetParameter = cmdletContext.AccessBudget_BudgetParameter;
+            }
+            if (requestParameters_parameters_AccessBudget_accessBudget_BudgetParameter != null)
+            {
+                requestParameters_parameters_AccessBudget.BudgetParameters = requestParameters_parameters_AccessBudget_accessBudget_BudgetParameter;
+                requestParameters_parameters_AccessBudgetIsNull = false;
+            }
+             // determine if requestParameters_parameters_AccessBudget should be set to null
+            if (requestParameters_parameters_AccessBudgetIsNull)
+            {
+                requestParameters_parameters_AccessBudget = null;
+            }
+            if (requestParameters_parameters_AccessBudget != null)
+            {
+                request.Parameters.AccessBudget = requestParameters_parameters_AccessBudget;
+                requestParametersIsNull = false;
+            }
             Amazon.CleanRooms.Model.DifferentialPrivacyTemplateUpdateParameters requestParameters_parameters_DifferentialPrivacy = null;
             
              // populate DifferentialPrivacy
@@ -338,6 +378,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String MembershipIdentifier { get; set; }
+            public List<Amazon.CleanRooms.Model.BudgetParameter> AccessBudget_BudgetParameter { get; set; }
             public System.Int32? DifferentialPrivacy_Epsilon { get; set; }
             public System.Int32? DifferentialPrivacy_UsersNoisePerQuery { get; set; }
             public System.String PrivacyBudgetTemplateIdentifier { get; set; }

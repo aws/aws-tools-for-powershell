@@ -89,6 +89,17 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         public System.String QueueName { get; set; }
         #endregion
         
+        #region Parameter SlurmConfiguration_SlurmCustomSetting
+        /// <summary>
+        /// <para>
+        /// <para>Additional Slurm-specific configuration that directly maps to Slurm settings.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SlurmConfiguration_SlurmCustomSettings")]
+        public Amazon.PCS.Model.SlurmCustomSetting[] SlurmConfiguration_SlurmCustomSetting { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -197,6 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.PCS
                 WriteWarning("You are passing $null as a value for parameter QueueName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.SlurmConfiguration_SlurmCustomSetting != null)
+            {
+                context.SlurmConfiguration_SlurmCustomSetting = new List<Amazon.PCS.Model.SlurmCustomSetting>(this.SlurmConfiguration_SlurmCustomSetting);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -236,6 +251,25 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             if (cmdletContext.QueueName != null)
             {
                 request.QueueName = cmdletContext.QueueName;
+            }
+            
+             // populate SlurmConfiguration
+            var requestSlurmConfigurationIsNull = true;
+            request.SlurmConfiguration = new Amazon.PCS.Model.QueueSlurmConfigurationRequest();
+            List<Amazon.PCS.Model.SlurmCustomSetting> requestSlurmConfiguration_slurmConfiguration_SlurmCustomSetting = null;
+            if (cmdletContext.SlurmConfiguration_SlurmCustomSetting != null)
+            {
+                requestSlurmConfiguration_slurmConfiguration_SlurmCustomSetting = cmdletContext.SlurmConfiguration_SlurmCustomSetting;
+            }
+            if (requestSlurmConfiguration_slurmConfiguration_SlurmCustomSetting != null)
+            {
+                request.SlurmConfiguration.SlurmCustomSettings = requestSlurmConfiguration_slurmConfiguration_SlurmCustomSetting;
+                requestSlurmConfigurationIsNull = false;
+            }
+             // determine if request.SlurmConfiguration should be set to null
+            if (requestSlurmConfigurationIsNull)
+            {
+                request.SlurmConfiguration = null;
             }
             if (cmdletContext.Tag != null)
             {
@@ -306,6 +340,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             public System.String ClusterIdentifier { get; set; }
             public List<Amazon.PCS.Model.ComputeNodeGroupConfiguration> ComputeNodeGroupConfiguration { get; set; }
             public System.String QueueName { get; set; }
+            public List<Amazon.PCS.Model.SlurmCustomSetting> SlurmConfiguration_SlurmCustomSetting { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.PCS.Model.CreateQueueResponse, NewPCSQueueCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Queue;

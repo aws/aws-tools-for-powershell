@@ -42,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AccessBudgetResourceArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the access budget resource to filter privacy budgets
+        /// by.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccessBudgetResourceArn { get; set; }
+        #endregion
+        
         #region Parameter MembershipIdentifier
         /// <summary>
         /// <para>
@@ -147,6 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 context.Select = (response, cmdlet) => this.MembershipIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccessBudgetResourceArn = this.AccessBudgetResourceArn;
             context.MaxResult = this.MaxResult;
             context.MembershipIdentifier = this.MembershipIdentifier;
             #if MODULAR
@@ -179,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             // create request
             var request = new Amazon.CleanRooms.Model.ListPrivacyBudgetsRequest();
             
+            if (cmdletContext.AccessBudgetResourceArn != null)
+            {
+                request.AccessBudgetResourceArn = cmdletContext.AccessBudgetResourceArn;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -256,6 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccessBudgetResourceArn { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String MembershipIdentifier { get; set; }
             public System.String NextToken { get; set; }

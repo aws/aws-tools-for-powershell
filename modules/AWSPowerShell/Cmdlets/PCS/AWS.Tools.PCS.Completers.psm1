@@ -81,7 +81,10 @@ $PCS_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.PCS.AccountingMode
-        "New-PCSCluster/Accounting_Mode"
+        {
+            ($_ -eq "New-PCSCluster/Accounting_Mode") -Or
+            ($_ -eq "Update-PCSCluster/Accounting_Mode")
+        }
         {
             $v = "NONE","STANDARD"
             break
@@ -137,7 +140,7 @@ $PCS_Completers = {
 }
 
 $PCS_map = @{
-    "Accounting_Mode"=@("New-PCSCluster")
+    "Accounting_Mode"=@("New-PCSCluster","Update-PCSCluster")
     "Networking_NetworkType"=@("New-PCSCluster")
     "PurchaseOption"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")
     "Scheduler_Type"=@("New-PCSCluster")
@@ -211,6 +214,7 @@ $PCS_SelectMap = @{
                "Register-PCSComputeNodeGroupInstance",
                "Add-PCSResourceTag",
                "Remove-PCSResourceTag",
+               "Update-PCSCluster",
                "Update-PCSComputeNodeGroup",
                "Update-PCSQueue")
 }

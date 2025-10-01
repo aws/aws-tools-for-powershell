@@ -44,6 +44,17 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AccessBudgetResourceArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Configured Table Association (ConfiguredTableAssociation)
+        /// used to filter privacy budgets.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccessBudgetResourceArn { get; set; }
+        #endregion
+        
         #region Parameter CollaborationIdentifier
         /// <summary>
         /// <para>
@@ -147,6 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 context.Select = (response, cmdlet) => this.CollaborationIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccessBudgetResourceArn = this.AccessBudgetResourceArn;
             context.CollaborationIdentifier = this.CollaborationIdentifier;
             #if MODULAR
             if (this.CollaborationIdentifier == null && ParameterWasBound(nameof(this.CollaborationIdentifier)))
@@ -179,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             // create request
             var request = new Amazon.CleanRooms.Model.ListCollaborationPrivacyBudgetsRequest();
             
+            if (cmdletContext.AccessBudgetResourceArn != null)
+            {
+                request.AccessBudgetResourceArn = cmdletContext.AccessBudgetResourceArn;
+            }
             if (cmdletContext.CollaborationIdentifier != null)
             {
                 request.CollaborationIdentifier = cmdletContext.CollaborationIdentifier;
@@ -256,6 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccessBudgetResourceArn { get; set; }
             public System.String CollaborationIdentifier { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }

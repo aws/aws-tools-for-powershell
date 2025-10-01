@@ -104,6 +104,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-PCSComputeNodeGroup', 
         'Remove-PCSQueue', 
         'Remove-PCSResourceTag', 
+        'Update-PCSCluster', 
         'Update-PCSComputeNodeGroup', 
         'Update-PCSQueue')
 
