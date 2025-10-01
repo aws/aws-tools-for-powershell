@@ -107,6 +107,16 @@ $CHMTG_Completers = {
             break
         }
 
+        # Amazon.ChimeSDKMeetings.MediaPlacementNetworkType
+        {
+            ($_ -eq "New-CHMTGMeeting/MediaPlacementNetworkType") -Or
+            ($_ -eq "New-CHMTGMeetingWithAttendee/MediaPlacementNetworkType")
+        }
+        {
+            $v = "DualStack","Ipv4Only"
+            break
+        }
+
         # Amazon.ChimeSDKMeetings.MeetingFeatureStatus
         {
             ($_ -eq "New-CHMTGMeeting/Audio_EchoReduction") -Or
@@ -233,6 +243,7 @@ $CHMTG_map = @{
     "EngineTranscribeSettings_PreferredLanguage"=@("Start-CHMTGMeetingTranscription")
     "EngineTranscribeSettings_Region"=@("Start-CHMTGMeetingTranscription")
     "EngineTranscribeSettings_VocabularyFilterMethod"=@("Start-CHMTGMeetingTranscription")
+    "MediaPlacementNetworkType"=@("New-CHMTGMeeting","New-CHMTGMeetingWithAttendee")
     "Video_MaxResolution"=@("New-CHMTGMeeting","New-CHMTGMeetingWithAttendee")
 }
 

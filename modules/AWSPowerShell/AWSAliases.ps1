@@ -23523,6 +23523,7 @@ Set-Alias -Name PCS-ListTagsForResource -Value Get-PCSResourceTag
 Set-Alias -Name PCS-RegisterComputeNodeGroupInstance -Value Register-PCSComputeNodeGroupInstance
 Set-Alias -Name PCS-TagResource -Value Add-PCSResourceTag
 Set-Alias -Name PCS-UntagResource -Value Remove-PCSResourceTag
+Set-Alias -Name PCS-UpdateCluster -Value Update-PCSCluster
 Set-Alias -Name PCS-UpdateComputeNodeGroup -Value Update-PCSComputeNodeGroup
 Set-Alias -Name PCS-UpdateQueue -Value Update-PCSQueue
 Set-Alias -Name Put-PERSEActionInteractions -Value Write-PERSEActionInteraction

@@ -45,6 +45,17 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AccessBudgetResourceArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the access budget resource to filter privacy budgets
+        /// by.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccessBudgetResourceArn { get; set; }
+        #endregion
+        
         #region Parameter MembershipIdentifier
         /// <summary>
         /// <para>
@@ -154,6 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 context.Select = CreateSelectDelegate<Amazon.CleanRooms.Model.ListPrivacyBudgetsResponse, GetCRSPrivacyBudgetListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AccessBudgetResourceArn = this.AccessBudgetResourceArn;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -197,6 +209,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             // create request and set iteration invariants
             var request = new Amazon.CleanRooms.Model.ListPrivacyBudgetsRequest();
             
+            if (cmdletContext.AccessBudgetResourceArn != null)
+            {
+                request.AccessBudgetResourceArn = cmdletContext.AccessBudgetResourceArn;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -289,6 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccessBudgetResourceArn { get; set; }
             public int? MaxResult { get; set; }
             public System.String MembershipIdentifier { get; set; }
             public System.String NextToken { get; set; }

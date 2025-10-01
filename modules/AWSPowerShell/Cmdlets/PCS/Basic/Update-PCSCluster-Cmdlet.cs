@@ -30,17 +30,23 @@ using Amazon.PCS.Model;
 namespace Amazon.PowerShell.Cmdlets.PCS
 {
     /// <summary>
-    /// Creates a job queue. You must associate 1 or more compute node groups with the queue.
-    /// You can associate 1 compute node group with multiple queues.
+    /// Updates a cluster configuration. You can modify Slurm scheduler settings, accounting
+    /// configuration, and security groups for an existing cluster. 
+    /// 
+    ///  <note><para>
+    /// You can only update clusters that are in <c>ACTIVE</c>, <c>UPDATE_FAILED</c>, or <c>SUSPENDED</c>
+    /// state. All associated resources (queues and compute node groups) must be in <c>ACTIVE</c>
+    /// state before you can update the cluster.
+    /// </para></note>
     /// </summary>
-    [Cmdlet("New", "PCSQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.PCS.Model.Queue")]
-    [AWSCmdlet("Calls the AWS Parallel Computing Service CreateQueue API operation.", Operation = new[] {"CreateQueue"}, SelectReturnType = typeof(Amazon.PCS.Model.CreateQueueResponse))]
-    [AWSCmdletOutput("Amazon.PCS.Model.Queue or Amazon.PCS.Model.CreateQueueResponse",
-        "This cmdlet returns an Amazon.PCS.Model.Queue object.",
-        "The service call response (type Amazon.PCS.Model.CreateQueueResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Update", "PCSCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.PCS.Model.Cluster")]
+    [AWSCmdlet("Calls the AWS Parallel Computing Service UpdateCluster API operation.", Operation = new[] {"UpdateCluster"}, SelectReturnType = typeof(Amazon.PCS.Model.UpdateClusterResponse))]
+    [AWSCmdletOutput("Amazon.PCS.Model.Cluster or Amazon.PCS.Model.UpdateClusterResponse",
+        "This cmdlet returns an Amazon.PCS.Model.Cluster object.",
+        "The service call response (type Amazon.PCS.Model.UpdateClusterResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class NewPCSQueueCmdlet : AmazonPCSClientCmdlet, IExecutor
+    public partial class UpdatePCSClusterCmdlet : AmazonPCSClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -49,40 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The name or ID of the cluster for which to create a queue.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ClusterIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter ComputeNodeGroupConfiguration
-        /// <summary>
-        /// <para>
-        /// <para>The list of compute node group configurations to associate with the queue. Queues
-        /// assign jobs to associated compute node groups.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ComputeNodeGroupConfigurations")]
-        public Amazon.PCS.Model.ComputeNodeGroupConfiguration[] ComputeNodeGroupConfiguration { get; set; }
-        #endregion
-        
-        #region Parameter QueueName
-        /// <summary>
-        /// <para>
-        /// <para>A name to identify the queue.</para>
+        /// <para>The name or ID of the cluster to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,7 +66,45 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String QueueName { get; set; }
+        public System.String ClusterIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter Accounting_DefaultPurgeTimeInDay
+        /// <summary>
+        /// <para>
+        /// <para>The default value for all purge settings for <c>slurmdbd.conf</c>. For more information,
+        /// see the <a href="https://slurm.schedmd.com/slurmdbd.conf.html">slurmdbd.conf documentation
+        /// at SchedMD</a>.</para><para>The default value for <c>defaultPurgeTimeInDays</c> is <c>-1</c>.</para><para>A value of <c>-1</c> means there is no purge time and records persist as long as the
+        /// cluster exists.</para><important><para><c>0</c> isn't a valid value.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SlurmConfiguration_Accounting_DefaultPurgeTimeInDays")]
+        public System.Int32? Accounting_DefaultPurgeTimeInDay { get; set; }
+        #endregion
+        
+        #region Parameter Accounting_Mode
+        /// <summary>
+        /// <para>
+        /// <para>The default value for <c>mode</c> is <c>STANDARD</c>. A value of <c>STANDARD</c> means
+        /// Slurm accounting is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SlurmConfiguration_Accounting_Mode")]
+        [AWSConstantClassSource("Amazon.PCS.AccountingMode")]
+        public Amazon.PCS.AccountingMode Accounting_Mode { get; set; }
+        #endregion
+        
+        #region Parameter SlurmConfiguration_ScaleDownIdleTimeInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The time (in seconds) before an idle node is scaled down.</para><para>Default: <c>600</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SlurmConfiguration_ScaleDownIdleTimeInSeconds")]
+        public System.Int32? SlurmConfiguration_ScaleDownIdleTimeInSecond { get; set; }
         #endregion
         
         #region Parameter SlurmConfiguration_SlurmCustomSetting
@@ -109,22 +120,6 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SlurmConfiguration_SlurmCustomSettings")]
         public Amazon.PCS.Model.SlurmCustomSetting[] SlurmConfiguration_SlurmCustomSetting { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>1 or more tags added to the resource. Each tag consists of a tag key and tag value.
-        /// The tag value is optional and can be an empty string.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -144,13 +139,13 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Queue'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PCS.Model.CreateQueueResponse).
-        /// Specifying the name of a property of type Amazon.PCS.Model.CreateQueueResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Cluster'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PCS.Model.UpdateClusterResponse).
+        /// Specifying the name of a property of type Amazon.PCS.Model.UpdateClusterResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Queue";
+        public string Select { get; set; } = "Cluster";
         #endregion
         
         #region Parameter Force
@@ -172,8 +167,8 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.QueueName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-PCSQueue (CreateQueue)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ClusterIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-PCSCluster (UpdateCluster)"))
             {
                 return;
             }
@@ -185,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.PCS.Model.CreateQueueResponse, NewPCSQueueCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PCS.Model.UpdateClusterResponse, UpdatePCSClusterCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientToken = this.ClientToken;
@@ -196,28 +191,12 @@ namespace Amazon.PowerShell.Cmdlets.PCS
                 WriteWarning("You are passing $null as a value for parameter ClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.ComputeNodeGroupConfiguration != null)
-            {
-                context.ComputeNodeGroupConfiguration = new List<Amazon.PCS.Model.ComputeNodeGroupConfiguration>(this.ComputeNodeGroupConfiguration);
-            }
-            context.QueueName = this.QueueName;
-            #if MODULAR
-            if (this.QueueName == null && ParameterWasBound(nameof(this.QueueName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter QueueName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.Accounting_DefaultPurgeTimeInDay = this.Accounting_DefaultPurgeTimeInDay;
+            context.Accounting_Mode = this.Accounting_Mode;
+            context.SlurmConfiguration_ScaleDownIdleTimeInSecond = this.SlurmConfiguration_ScaleDownIdleTimeInSecond;
             if (this.SlurmConfiguration_SlurmCustomSetting != null)
             {
                 context.SlurmConfiguration_SlurmCustomSetting = new List<Amazon.PCS.Model.SlurmCustomSetting>(this.SlurmConfiguration_SlurmCustomSetting);
-            }
-            if (this.Tag != null)
-            {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
-                }
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -233,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.PCS.Model.CreateQueueRequest();
+            var request = new Amazon.PCS.Model.UpdateClusterRequest();
             
             if (cmdletContext.ClientToken != null)
             {
@@ -243,18 +222,20 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             {
                 request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
             }
-            if (cmdletContext.ComputeNodeGroupConfiguration != null)
-            {
-                request.ComputeNodeGroupConfigurations = cmdletContext.ComputeNodeGroupConfiguration;
-            }
-            if (cmdletContext.QueueName != null)
-            {
-                request.QueueName = cmdletContext.QueueName;
-            }
             
              // populate SlurmConfiguration
             var requestSlurmConfigurationIsNull = true;
-            request.SlurmConfiguration = new Amazon.PCS.Model.QueueSlurmConfigurationRequest();
+            request.SlurmConfiguration = new Amazon.PCS.Model.UpdateClusterSlurmConfigurationRequest();
+            System.Int32? requestSlurmConfiguration_slurmConfiguration_ScaleDownIdleTimeInSecond = null;
+            if (cmdletContext.SlurmConfiguration_ScaleDownIdleTimeInSecond != null)
+            {
+                requestSlurmConfiguration_slurmConfiguration_ScaleDownIdleTimeInSecond = cmdletContext.SlurmConfiguration_ScaleDownIdleTimeInSecond.Value;
+            }
+            if (requestSlurmConfiguration_slurmConfiguration_ScaleDownIdleTimeInSecond != null)
+            {
+                request.SlurmConfiguration.ScaleDownIdleTimeInSeconds = requestSlurmConfiguration_slurmConfiguration_ScaleDownIdleTimeInSecond.Value;
+                requestSlurmConfigurationIsNull = false;
+            }
             List<Amazon.PCS.Model.SlurmCustomSetting> requestSlurmConfiguration_slurmConfiguration_SlurmCustomSetting = null;
             if (cmdletContext.SlurmConfiguration_SlurmCustomSetting != null)
             {
@@ -265,14 +246,45 @@ namespace Amazon.PowerShell.Cmdlets.PCS
                 request.SlurmConfiguration.SlurmCustomSettings = requestSlurmConfiguration_slurmConfiguration_SlurmCustomSetting;
                 requestSlurmConfigurationIsNull = false;
             }
+            Amazon.PCS.Model.UpdateAccountingRequest requestSlurmConfiguration_slurmConfiguration_Accounting = null;
+            
+             // populate Accounting
+            var requestSlurmConfiguration_slurmConfiguration_AccountingIsNull = true;
+            requestSlurmConfiguration_slurmConfiguration_Accounting = new Amazon.PCS.Model.UpdateAccountingRequest();
+            System.Int32? requestSlurmConfiguration_slurmConfiguration_Accounting_accounting_DefaultPurgeTimeInDay = null;
+            if (cmdletContext.Accounting_DefaultPurgeTimeInDay != null)
+            {
+                requestSlurmConfiguration_slurmConfiguration_Accounting_accounting_DefaultPurgeTimeInDay = cmdletContext.Accounting_DefaultPurgeTimeInDay.Value;
+            }
+            if (requestSlurmConfiguration_slurmConfiguration_Accounting_accounting_DefaultPurgeTimeInDay != null)
+            {
+                requestSlurmConfiguration_slurmConfiguration_Accounting.DefaultPurgeTimeInDays = requestSlurmConfiguration_slurmConfiguration_Accounting_accounting_DefaultPurgeTimeInDay.Value;
+                requestSlurmConfiguration_slurmConfiguration_AccountingIsNull = false;
+            }
+            Amazon.PCS.AccountingMode requestSlurmConfiguration_slurmConfiguration_Accounting_accounting_Mode = null;
+            if (cmdletContext.Accounting_Mode != null)
+            {
+                requestSlurmConfiguration_slurmConfiguration_Accounting_accounting_Mode = cmdletContext.Accounting_Mode;
+            }
+            if (requestSlurmConfiguration_slurmConfiguration_Accounting_accounting_Mode != null)
+            {
+                requestSlurmConfiguration_slurmConfiguration_Accounting.Mode = requestSlurmConfiguration_slurmConfiguration_Accounting_accounting_Mode;
+                requestSlurmConfiguration_slurmConfiguration_AccountingIsNull = false;
+            }
+             // determine if requestSlurmConfiguration_slurmConfiguration_Accounting should be set to null
+            if (requestSlurmConfiguration_slurmConfiguration_AccountingIsNull)
+            {
+                requestSlurmConfiguration_slurmConfiguration_Accounting = null;
+            }
+            if (requestSlurmConfiguration_slurmConfiguration_Accounting != null)
+            {
+                request.SlurmConfiguration.Accounting = requestSlurmConfiguration_slurmConfiguration_Accounting;
+                requestSlurmConfigurationIsNull = false;
+            }
              // determine if request.SlurmConfiguration should be set to null
             if (requestSlurmConfigurationIsNull)
             {
                 request.SlurmConfiguration = null;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -307,12 +319,12 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         
         #region AWS Service Operation Call
         
-        private Amazon.PCS.Model.CreateQueueResponse CallAWSServiceOperation(IAmazonPCS client, Amazon.PCS.Model.CreateQueueRequest request)
+        private Amazon.PCS.Model.UpdateClusterResponse CallAWSServiceOperation(IAmazonPCS client, Amazon.PCS.Model.UpdateClusterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Parallel Computing Service", "CreateQueue");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Parallel Computing Service", "UpdateCluster");
             try
             {
-                return client.CreateQueueAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.UpdateClusterAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -331,12 +343,12 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         {
             public System.String ClientToken { get; set; }
             public System.String ClusterIdentifier { get; set; }
-            public List<Amazon.PCS.Model.ComputeNodeGroupConfiguration> ComputeNodeGroupConfiguration { get; set; }
-            public System.String QueueName { get; set; }
+            public System.Int32? Accounting_DefaultPurgeTimeInDay { get; set; }
+            public Amazon.PCS.AccountingMode Accounting_Mode { get; set; }
+            public System.Int32? SlurmConfiguration_ScaleDownIdleTimeInSecond { get; set; }
             public List<Amazon.PCS.Model.SlurmCustomSetting> SlurmConfiguration_SlurmCustomSetting { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.PCS.Model.CreateQueueResponse, NewPCSQueueCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Queue;
+            public System.Func<Amazon.PCS.Model.UpdateClusterResponse, UpdatePCSClusterCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Cluster;
         }
         
     }

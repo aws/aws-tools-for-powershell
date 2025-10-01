@@ -96,6 +96,21 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         public System.String QueueIdentifier { get; set; }
         #endregion
         
+        #region Parameter SlurmConfiguration_SlurmCustomSetting
+        /// <summary>
+        /// <para>
+        /// <para>Additional Slurm-specific configuration that directly maps to Slurm settings.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SlurmConfiguration_SlurmCustomSettings")]
+        public Amazon.PCS.Model.SlurmCustomSetting[] SlurmConfiguration_SlurmCustomSetting { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -176,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.PCS
                 WriteWarning("You are passing $null as a value for parameter QueueIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.SlurmConfiguration_SlurmCustomSetting != null)
+            {
+                context.SlurmConfiguration_SlurmCustomSetting = new List<Amazon.PCS.Model.SlurmCustomSetting>(this.SlurmConfiguration_SlurmCustomSetting);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -207,6 +226,25 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             if (cmdletContext.QueueIdentifier != null)
             {
                 request.QueueIdentifier = cmdletContext.QueueIdentifier;
+            }
+            
+             // populate SlurmConfiguration
+            var requestSlurmConfigurationIsNull = true;
+            request.SlurmConfiguration = new Amazon.PCS.Model.UpdateQueueSlurmConfigurationRequest();
+            List<Amazon.PCS.Model.SlurmCustomSetting> requestSlurmConfiguration_slurmConfiguration_SlurmCustomSetting = null;
+            if (cmdletContext.SlurmConfiguration_SlurmCustomSetting != null)
+            {
+                requestSlurmConfiguration_slurmConfiguration_SlurmCustomSetting = cmdletContext.SlurmConfiguration_SlurmCustomSetting;
+            }
+            if (requestSlurmConfiguration_slurmConfiguration_SlurmCustomSetting != null)
+            {
+                request.SlurmConfiguration.SlurmCustomSettings = requestSlurmConfiguration_slurmConfiguration_SlurmCustomSetting;
+                requestSlurmConfigurationIsNull = false;
+            }
+             // determine if request.SlurmConfiguration should be set to null
+            if (requestSlurmConfigurationIsNull)
+            {
+                request.SlurmConfiguration = null;
             }
             
             CmdletOutput output;
@@ -267,6 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             public System.String ClusterIdentifier { get; set; }
             public List<Amazon.PCS.Model.ComputeNodeGroupConfiguration> ComputeNodeGroupConfiguration { get; set; }
             public System.String QueueIdentifier { get; set; }
+            public List<Amazon.PCS.Model.SlurmCustomSetting> SlurmConfiguration_SlurmCustomSetting { get; set; }
             public System.Func<Amazon.PCS.Model.UpdateQueueResponse, UpdatePCSQueueCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Queue;
         }

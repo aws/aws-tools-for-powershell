@@ -246,7 +246,7 @@ $CRS_Completers = {
             ($_ -eq "Update-CRSPrivacyBudgetTemplate/PrivacyBudgetType")
         }
         {
-            $v = "DIFFERENTIAL_PRIVACY"
+            $v = "ACCESS_BUDGET","DIFFERENTIAL_PRIVACY"
             break
         }
 

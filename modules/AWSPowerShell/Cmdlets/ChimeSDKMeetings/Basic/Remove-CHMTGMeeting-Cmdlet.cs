@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
     /// <summary>
     /// Deletes the specified Amazon Chime SDK meeting. The operation deletes all attendees,
     /// disconnects all clients, and prevents new clients from joining the meeting. For more
-    /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
+    /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
     /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.
     /// </summary>
     [Cmdlet("Remove", "CHMTGMeeting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

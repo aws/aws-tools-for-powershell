@@ -31,10 +31,21 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
 {
     /// <summary>
     /// Creates a new Amazon Chime SDK meeting in the specified media Region, with attendees.
-    /// For more information about specifying media Regions, see <a href="https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html">Amazon
-    /// Chime SDK Media Regions</a> in the <i>Amazon Chime Developer Guide</i>. For more information
-    /// about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-    /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.
+    /// For more information about specifying media Regions, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/sdk-available-regions">Available
+    /// Regions</a> and <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html">Using
+    /// meeting Regions</a>, both in the <i>Amazon Chime SDK Developer Guide</i>. For more
+    /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
+    /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i>. 
+    /// 
+    ///  <note><para>
+    /// If you use this API in conjuction with the and APIs, and you don't specify the <c>MeetingFeatures.Content.MaxResolution</c>
+    /// or <c>MeetingFeatures.Video.MaxResolution</c> parameters, the following defaults are
+    /// used:
+    /// </para><ul><li><para>
+    /// Content.MaxResolution: FHD
+    /// </para></li><li><para>
+    /// Video.MaxResolution: HD
+    /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("New", "CHMTGMeetingWithAttendee", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKMeetings.Model.CreateMeetingWithAttendeesResponse")]
@@ -156,6 +167,18 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         [Alias("MeetingFeatures_Video_MaxResolution")]
         [AWSConstantClassSource("Amazon.ChimeSDKMeetings.VideoResolution")]
         public Amazon.ChimeSDKMeetings.VideoResolution Video_MaxResolution { get; set; }
+        #endregion
+        
+        #region Parameter MediaPlacementNetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The type of network for the media placement. Either IPv4 only or dual-stack (IPv4
+        /// and IPv6).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ChimeSDKMeetings.MediaPlacementNetworkType")]
+        public Amazon.ChimeSDKMeetings.MediaPlacementNetworkType MediaPlacementNetworkType { get; set; }
         #endregion
         
         #region Parameter MediaRegion
@@ -315,6 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
                 WriteWarning("You are passing $null as a value for parameter ExternalMeetingId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MediaPlacementNetworkType = this.MediaPlacementNetworkType;
             context.MediaRegion = this.MediaRegion;
             #if MODULAR
             if (this.MediaRegion == null && ParameterWasBound(nameof(this.MediaRegion)))
@@ -366,6 +390,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             if (cmdletContext.ExternalMeetingId != null)
             {
                 request.ExternalMeetingId = cmdletContext.ExternalMeetingId;
+            }
+            if (cmdletContext.MediaPlacementNetworkType != null)
+            {
+                request.MediaPlacementNetworkType = cmdletContext.MediaPlacementNetworkType;
             }
             if (cmdletContext.MediaRegion != null)
             {
@@ -593,6 +621,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             public List<Amazon.ChimeSDKMeetings.Model.CreateAttendeeRequestItem> Attendee { get; set; }
             public System.String ClientRequestToken { get; set; }
             public System.String ExternalMeetingId { get; set; }
+            public Amazon.ChimeSDKMeetings.MediaPlacementNetworkType MediaPlacementNetworkType { get; set; }
             public System.String MediaRegion { get; set; }
             public System.Int32? Attendee_MaxCount { get; set; }
             public Amazon.ChimeSDKMeetings.MeetingFeatureStatus Audio_EchoReduction { get; set; }

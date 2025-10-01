@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
 {
     /// <summary>
     /// Gets the Amazon Chime SDK attendee details for a specified meeting ID and attendee
-    /// ID. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
+    /// ID. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
     /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.
     /// </summary>
     [Cmdlet("Get", "CHMTGAttendee")]
