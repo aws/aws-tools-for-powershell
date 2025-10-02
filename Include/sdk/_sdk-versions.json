@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1135.0",
+    "ProductVersion"    : "3.7.1136.0",
     "CoreVersion"       : "3.7.500.27",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -32,7 +32,7 @@
             "InPreview"               : false
         },
         "CloudFormation" : {
-            "Version" : "3.7.501.13",
+            "Version" : "3.7.502.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.27"
@@ -146,7 +146,7 @@
             "InPreview"               : false
         },
         "DynamoDBv2"        : {
-            "Version" : "3.7.505.2",
+            "Version" : "3.7.506.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.27"
@@ -876,7 +876,7 @@
             "InPreview"               : false
         },
         "GuardDuty"                       : {
-            "Version" : "3.7.504.9",
+            "Version" : "3.7.504.10",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.27"
@@ -1676,7 +1676,7 @@
             "InPreview"               : false
         },
         "Synthetics"                      : {
-            "Version" : "3.7.501.18",
+            "Version" : "3.7.502.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.27"
@@ -2420,7 +2420,7 @@
             "InPreview"               : false
         },
         "ConnectCases"                        : {
-            "Version" : "3.7.502.0",
+            "Version" : "3.7.503.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.27"

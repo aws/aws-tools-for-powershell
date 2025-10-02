@@ -57,9 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> If the number of available results exceeds this maximum, the response includes a
-        /// <c>NextToken</c> value that you can use for the <c>NextToken</c> parameter to get
-        /// the next set of results. The default value is 10. The maximum value is 100.</para>
+        /// <para>If the number of available results exceeds this maximum, the response includes a <c>NextToken</c>
+        /// value that you can use for the <c>NextToken</c> parameter to get the next set of results.
+        /// The default value is 10. The maximum value is 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

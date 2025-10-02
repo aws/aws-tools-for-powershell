@@ -1,4 +1,13 @@
-﻿### 4.1.912 (2025-10-01 20:09Z)
+﻿### 4.1.913 (2025-10-02 21:04Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1136.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Synthetics
+    * Modified cmdlet New-CWSYNCanary: added parameter Code_BlueprintType.
+    * Modified cmdlet Start-CWSYNCanaryDryRun: added parameter Code_BlueprintType.
+    * Modified cmdlet Update-CWSYNCanary: added parameter Code_BlueprintType.
+  * Amazon Connect Cases
+    * Added cmdlet Search-CCASAllRelatedItem leveraging the SearchAllRelatedItems service API.
+
+### 4.1.912 (2025-10-01 20:09Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1135.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Chime SDK Meetings
     * Modified cmdlet New-CHMTGMeeting: added parameter MediaPlacementNetworkType.

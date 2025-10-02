@@ -123,8 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>The scope at which the extensions are visible and usable in CloudFormation operations.</para><para>Valid values include:</para><ul><li><para><c>PRIVATE</c>: Extensions that are visible and usable within this account and Region.
         /// This includes:</para><ul><li><para>Private extensions you have registered in this account and Region.</para></li><li><para>Public extensions that you have activated in this account and Region.</para></li></ul></li><li><para><c>PUBLIC</c>: Extensions that are publicly visible and available to be activated
-        /// within any Amazon Web Services account. This includes extensions from Amazon Web Services,
-        /// in addition to third-party publishers.</para></li></ul><para>The default is <c>PRIVATE</c>.</para>
+        /// within any Amazon Web Services account. This includes extensions from Amazon Web Services
+        /// and third-party publishers.</para></li></ul><para>The default is <c>PRIVATE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

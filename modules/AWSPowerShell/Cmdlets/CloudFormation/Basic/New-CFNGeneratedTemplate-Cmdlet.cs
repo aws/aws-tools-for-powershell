@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>An optional list of resources to be included in the generated template.</para><para> If no resources are specified,the template will be created without any resources.
+        /// <para>An optional list of resources to be included in the generated template.</para><para>If no resources are specified,the template will be created without any resources.
         /// Resources can be added to the template using the <c>UpdateGeneratedTemplate</c> API
         /// action.</para>
         /// </para>

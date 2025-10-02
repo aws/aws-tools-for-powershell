@@ -22,44 +22,60 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CloudFormation;
-using Amazon.CloudFormation.Model;
+using Amazon.ConnectCases;
+using Amazon.ConnectCases.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CFN
+namespace Amazon.PowerShell.Cmdlets.CCAS
 {
     /// <summary>
-    /// Lists the resources from a resource scan. The results can be filtered by resource
-    /// identifier, resource type prefix, tag key, and tag value. Only resources that match
-    /// all specified filters are returned. The response indicates whether each returned resource
-    /// is already managed by CloudFormation.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Searches for related items across all cases within a domain. This is a global search
+    /// operation that returns related items from multiple cases, unlike the case-specific
+    /// <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_SearchRelatedItems.html">SearchRelatedItems</a>
+    /// API.
+    /// 
+    ///  
+    /// <para><b>Use cases</b></para><para>
+    /// Following are common uses cases for this API:
+    /// </para><ul><li><para>
+    /// Find cases with similar issues across the domain. For example, search for all cases
+    /// containing comments about "product defect" to identify patterns and existing solutions.
+    /// </para></li><li><para>
+    /// Locate all cases associated with specific contacts or orders. For example, find all
+    /// cases linked to a contactArn to understand the complete customer journey. 
+    /// </para></li><li><para>
+    /// Monitor SLA compliance across cases. For example, search for all cases with "Active"
+    /// SLA status to prioritize remediation efforts.
+    /// </para></li></ul><para><b>Important things to know</b></para><ul><li><para>
+    /// This API returns case IDs, not complete case objects. To retrieve full case details,
+    /// you must make additional calls to the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_GetCase.html">GetCase</a>
+    /// API for each returned case ID. 
+    /// </para></li><li><para>
+    /// This API searches across related items content, not case fields. Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_SearchCases.html">SearchCases</a>
+    /// API to search within case field values.
+    /// </para></li></ul><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon
+    /// Connect endpoints and quotas</a>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CFNResourceScanResource")]
-    [OutputType("Amazon.CloudFormation.Model.ScannedResource")]
-    [AWSCmdlet("Calls the AWS CloudFormation ListResourceScanResources API operation.", Operation = new[] {"ListResourceScanResources"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.ListResourceScanResourcesResponse))]
-    [AWSCmdletOutput("Amazon.CloudFormation.Model.ScannedResource or Amazon.CloudFormation.Model.ListResourceScanResourcesResponse",
-        "This cmdlet returns a collection of Amazon.CloudFormation.Model.ScannedResource objects.",
-        "The service call response (type Amazon.CloudFormation.Model.ListResourceScanResourcesResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Search", "CCASAllRelatedItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ConnectCases.Model.SearchAllRelatedItemsResponseItem")]
+    [AWSCmdlet("Calls the Amazon Connect Cases SearchAllRelatedItems API operation.", Operation = new[] {"SearchAllRelatedItems"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.SearchAllRelatedItemsResponse))]
+    [AWSCmdletOutput("Amazon.ConnectCases.Model.SearchAllRelatedItemsResponseItem or Amazon.ConnectCases.Model.SearchAllRelatedItemsResponse",
+        "This cmdlet returns a collection of Amazon.ConnectCases.Model.SearchAllRelatedItemsResponseItem objects.",
+        "The service call response (type Amazon.ConnectCases.Model.SearchAllRelatedItemsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetCFNResourceScanResourceCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
+    public partial class SearchCCASAllRelatedItemCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResourceIdentifier
+        #region Parameter DomainId
         /// <summary>
         /// <para>
-        /// <para>If specified, the returned resources will have the specified resource identifier (or
-        /// one of them in the case where the resource has multiple identifiers).</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ResourceIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter ResourceScanId
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource scan.</para>
+        /// <para>The unique identifier of the Cases domain. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,47 +86,39 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceScanId { get; set; }
+        public System.String DomainId { get; set; }
         #endregion
         
-        #region Parameter ResourceTypePrefix
+        #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>If specified, the returned resources will be of any of the resource types with the
-        /// specified prefix.</para>
+        /// <para>The list of types of related items and their parameters to use for filtering. The
+        /// filters work as an OR condition: caller gets back related items that match any of
+        /// the specified filter types.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ResourceTypePrefix { get; set; }
+        [Alias("Filters")]
+        public Amazon.ConnectCases.Model.RelatedItemTypeFilter[] Filter { get; set; }
         #endregion
         
-        #region Parameter TagKey
+        #region Parameter Sort
         /// <summary>
         /// <para>
-        /// <para>If specified, the returned resources will have a matching tag key.</para>
+        /// <para>A structured set of sort terms to specify the order in which related items should
+        /// be returned. Supports sorting by association time or case ID. The sorts work in the
+        /// order specified: first sort term takes precedence over subsequent terms.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String TagKey { get; set; }
-        #endregion
-        
-        #region Parameter TagValue
-        /// <summary>
-        /// <para>
-        /// <para>If specified, the returned resources will have a matching tag value.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String TagValue { get; set; }
+        [Alias("Sorts")]
+        public Amazon.ConnectCases.Model.SearchAllRelatedItemsSort[] Sort { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>If the number of available results exceeds this maximum, the response includes a <c>NextToken</c>
-        /// value that you can use for the <c>NextToken</c> parameter to get the next set of results.
-        /// By default the <c>ListResourceScanResources</c> API action will return at most 100
-        /// results in each response. The maximum value is 100.</para>
+        /// <para>The maximum number of results to return per page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A string that identifies the next page of resource scan results.</para>
+        /// <para>The token for the next set of results. Use the value returned in the previous response
+        /// in the next request to retrieve the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -134,23 +143,33 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Resources'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudFormation.Model.ListResourceScanResourcesResponse).
-        /// Specifying the name of a property of type Amazon.CloudFormation.Model.ListResourceScanResourcesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'RelatedItems'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectCases.Model.SearchAllRelatedItemsResponse).
+        /// Specifying the name of a property of type Amazon.ConnectCases.Model.SearchAllRelatedItemsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Resources";
+        public string Select { get; set; } = "RelatedItems";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceScanId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceScanId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DomainId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DomainId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceScanId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DomainId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         #region Parameter NoAutoIteration
@@ -168,6 +187,12 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DomainId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Search-CCASAllRelatedItem (SearchAllRelatedItems)"))
+            {
+                return;
+            }
+            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -176,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudFormation.Model.ListResourceScanResourcesResponse, GetCFNResourceScanResourceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ConnectCases.Model.SearchAllRelatedItemsResponse, SearchCCASAllRelatedItemCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -185,22 +210,26 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceScanId;
+                context.Select = (response, cmdlet) => this.DomainId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
-            context.ResourceIdentifier = this.ResourceIdentifier;
-            context.ResourceScanId = this.ResourceScanId;
+            context.DomainId = this.DomainId;
             #if MODULAR
-            if (this.ResourceScanId == null && ParameterWasBound(nameof(this.ResourceScanId)))
+            if (this.DomainId == null && ParameterWasBound(nameof(this.DomainId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceScanId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DomainId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ResourceTypePrefix = this.ResourceTypePrefix;
-            context.TagKey = this.TagKey;
-            context.TagValue = this.TagValue;
+            if (this.Filter != null)
+            {
+                context.Filter = new List<Amazon.ConnectCases.Model.RelatedItemTypeFilter>(this.Filter);
+            }
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
+            if (this.Sort != null)
+            {
+                context.Sort = new List<Amazon.ConnectCases.Model.SearchAllRelatedItemsSort>(this.Sort);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -219,31 +248,23 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.CloudFormation.Model.ListResourceScanResourcesRequest();
+            var request = new Amazon.ConnectCases.Model.SearchAllRelatedItemsRequest();
             
+            if (cmdletContext.DomainId != null)
+            {
+                request.DomainId = cmdletContext.DomainId;
+            }
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.ResourceIdentifier != null)
+            if (cmdletContext.Sort != null)
             {
-                request.ResourceIdentifier = cmdletContext.ResourceIdentifier;
-            }
-            if (cmdletContext.ResourceScanId != null)
-            {
-                request.ResourceScanId = cmdletContext.ResourceScanId;
-            }
-            if (cmdletContext.ResourceTypePrefix != null)
-            {
-                request.ResourceTypePrefix = cmdletContext.ResourceTypePrefix;
-            }
-            if (cmdletContext.TagKey != null)
-            {
-                request.TagKey = cmdletContext.TagKey;
-            }
-            if (cmdletContext.TagValue != null)
-            {
-                request.TagValue = cmdletContext.TagValue;
+                request.Sorts = cmdletContext.Sort;
             }
             
             // Initialize loop variant and commence piping
@@ -302,15 +323,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudFormation.Model.ListResourceScanResourcesResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.ListResourceScanResourcesRequest request)
+        private Amazon.ConnectCases.Model.SearchAllRelatedItemsResponse CallAWSServiceOperation(IAmazonConnectCases client, Amazon.ConnectCases.Model.SearchAllRelatedItemsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudFormation", "ListResourceScanResources");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Cases", "SearchAllRelatedItems");
             try
             {
                 #if DESKTOP
-                return client.ListResourceScanResources(request);
+                return client.SearchAllRelatedItems(request);
                 #elif CORECLR
-                return client.ListResourceScanResourcesAsync(request).GetAwaiter().GetResult();
+                return client.SearchAllRelatedItemsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -330,15 +351,13 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String DomainId { get; set; }
+            public List<Amazon.ConnectCases.Model.RelatedItemTypeFilter> Filter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String ResourceIdentifier { get; set; }
-            public System.String ResourceScanId { get; set; }
-            public System.String ResourceTypePrefix { get; set; }
-            public System.String TagKey { get; set; }
-            public System.String TagValue { get; set; }
-            public System.Func<Amazon.CloudFormation.Model.ListResourceScanResourcesResponse, GetCFNResourceScanResourceCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Resources;
+            public List<Amazon.ConnectCases.Model.SearchAllRelatedItemsSort> Sort { get; set; }
+            public System.Func<Amazon.ConnectCases.Model.SearchAllRelatedItemsResponse, SearchCCASAllRelatedItemCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.RelatedItems;
         }
         
     }

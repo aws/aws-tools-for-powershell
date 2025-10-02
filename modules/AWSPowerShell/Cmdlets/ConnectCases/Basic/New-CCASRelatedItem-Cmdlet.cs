@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter ConnectCase_CaseId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the case to be related</para>
+        /// <para>A unique identifier of the case.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter Custom_Field
         /// <summary>
         /// <para>
-        /// <para>List of field values for the custom related item</para>
+        /// <para>List of field values for the <c>Custom</c> related item.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
