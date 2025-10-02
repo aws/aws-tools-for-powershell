@@ -120,6 +120,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CCASRelatedItem', 
         'Remove-CCASResourceTag', 
         'Remove-CCASTemplate', 
+        'Search-CCASAllRelatedItem', 
         'Search-CCASCase', 
         'Search-CCASRelatedItem', 
         'Update-CCASCase', 

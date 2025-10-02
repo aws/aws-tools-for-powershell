@@ -123,6 +123,27 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         public Amazon.Synthetics.Model.BaseScreenshot[] VisualReference_BaseScreenshot { get; set; }
         #endregion
         
+        #region Parameter Code_BlueprintType
+        /// <summary>
+        /// <para>
+        /// <para><c>BlueprintTypes</c> is a list of templates that enable simplified canary creation.
+        /// You can create canaries for common monitoring scenarios by providing only a JSON configuration
+        /// file instead of writing custom scripts. The only supported value is <c>multi-checks</c>.</para><para>Multi-checks monitors HTTP/DNS/SSL/TCP endpoints with built-in authentication schemes
+        /// (Basic, API Key, OAuth, SigV4) and assertion capabilities. When you specify <c>BlueprintTypes</c>,
+        /// the Handler field cannot be specified since the blueprint provides a pre-defined entry
+        /// point.</para><para><c>BlueprintTypes</c> is supported only on canaries for syn-nodejs-3.0 runtime or
+        /// later.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Code_BlueprintTypes")]
+        public System.String[] Code_BlueprintType { get; set; }
+        #endregion
+        
         #region Parameter BrowserConfig
         /// <summary>
         /// <para>
@@ -290,7 +311,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <para>The entry point to use for the source code when running the canary. For canaries that
         /// use the <c>syn-python-selenium-1.0</c> runtime or a <c>syn-nodejs.puppeteer</c> runtime
         /// earlier than <c>syn-nodejs.puppeteer-3.4</c>, the handler must be specified as <c><i>fileName</i>.handler</c>. For <c>syn-python-selenium-1.1</c>, <c>syn-nodejs.puppeteer-3.4</c>,
-        /// and later runtimes, the handler can be specified as <c><i>fileName</i>.<i>functionName</i></c>, or you can specify a folder where canary scripts reside as <c><i>folder</i>/<i>fileName</i>.<i>functionName</i></c>.</para>
+        /// and later runtimes, the handler can be specified as <c><i>fileName</i>.<i>functionName</i></c>, or you can specify a folder where canary scripts reside as <c><i>folder</i>/<i>fileName</i>.<i>functionName</i></c>.</para><para>This field is required when you don't specify <c>BlueprintTypes</c> and is not allowed
+        /// when you specify <c>BlueprintTypes</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -566,6 +588,10 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             {
                 context.BrowserConfig = new List<Amazon.Synthetics.Model.BrowserConfig>(this.BrowserConfig);
             }
+            if (this.Code_BlueprintType != null)
+            {
+                context.Code_BlueprintType = new List<System.String>(this.Code_BlueprintType);
+            }
             if (this.Code_Dependency != null)
             {
                 context.Code_Dependency = new List<Amazon.Synthetics.Model.Dependency>(this.Code_Dependency);
@@ -698,6 +724,16 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                  // populate Code
                 var requestCodeIsNull = true;
                 request.Code = new Amazon.Synthetics.Model.CanaryCodeInput();
+                List<System.String> requestCode_code_BlueprintType = null;
+                if (cmdletContext.Code_BlueprintType != null)
+                {
+                    requestCode_code_BlueprintType = cmdletContext.Code_BlueprintType;
+                }
+                if (requestCode_code_BlueprintType != null)
+                {
+                    request.Code.BlueprintTypes = requestCode_code_BlueprintType;
+                    requestCodeIsNull = false;
+                }
                 List<Amazon.Synthetics.Model.Dependency> requestCode_code_Dependency = null;
                 if (cmdletContext.Code_Dependency != null)
                 {
@@ -1054,6 +1090,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             public System.String S3Encryption_KmsKeyArn { get; set; }
             public System.String ArtifactS3Location { get; set; }
             public List<Amazon.Synthetics.Model.BrowserConfig> BrowserConfig { get; set; }
+            public List<System.String> Code_BlueprintType { get; set; }
             public List<Amazon.Synthetics.Model.Dependency> Code_Dependency { get; set; }
             public System.String Code_Handler { get; set; }
             public System.String Code_S3Bucket { get; set; }

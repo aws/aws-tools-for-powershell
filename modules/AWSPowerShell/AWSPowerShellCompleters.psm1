@@ -20264,6 +20264,7 @@ $CCAS_SelectMap = @{
                "Get-CCASResourceTag",
                "Get-CCASTemplateList",
                "Write-CCASCaseEventConfiguration",
+               "Search-CCASAllRelatedItem",
                "Search-CCASCase",
                "Search-CCASRelatedItem",
                "Add-CCASResourceTag",

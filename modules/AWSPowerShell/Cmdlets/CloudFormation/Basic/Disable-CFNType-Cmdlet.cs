@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     ///  
     /// <para>
     /// Deactivating an extension deletes the configuration details that are associated with
-    /// it. To temporary disable a CloudFormation Hook instead, you can use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">SetTypeConfiguration</a>.
+    /// it. To temporarily disable a CloudFormation Hook instead, you can use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">SetTypeConfiguration</a>.
     /// </para><para>
     /// Once deactivated, an extension can't be used in any CloudFormation operation. This
     /// includes stack update operations where the stack template includes the extension,
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for the extension, in this account and Region.</para><para>Conditional: You must specify either <c>Arn</c>, or <c>TypeName</c> and <c>Type</c>.</para>
+        /// <para>The Amazon Resource Name (ARN) for the extension in this account and Region.</para><para>Conditional: You must specify either <c>Arn</c>, or <c>TypeName</c> and <c>Type</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter TypeName
         /// <summary>
         /// <para>
-        /// <para>The type name of the extension, in this account and Region. If you specified a type
+        /// <para>The type name of the extension in this account and Region. If you specified a type
         /// name alias when enabling the extension, use the type name alias.</para><para>Conditional: You must specify either <c>Arn</c>, or <c>TypeName</c> and <c>Type</c>.</para>
         /// </para>
         /// </summary>

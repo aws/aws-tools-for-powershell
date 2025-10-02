@@ -38,6 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// If you specify a <c>VersionId</c>, <c>DescribeType</c> returns information about that
     /// specific extension version. Otherwise, it returns information about the default extension
     /// version.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-set-configuration.html">Edit
+    /// configuration data for extensions in your account</a> in the <i>CloudFormation User
+    /// Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CFNType")]

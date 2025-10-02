@@ -7537,6 +7537,8 @@ Set-Alias -Name List-CCASTemplateList -Value Get-CCASTemplateList
 Set-Alias -Name CCAS-ListTemplates -Value Get-CCASTemplateList
 Set-Alias -Name Put-CCASCaseEventConfiguration -Value Write-CCASCaseEventConfiguration
 Set-Alias -Name CCAS-PutCaseEventConfiguration -Value Write-CCASCaseEventConfiguration
+Set-Alias -Name Search-CCASAllRelatedItems -Value Search-CCASAllRelatedItem
+Set-Alias -Name CCAS-SearchAllRelatedItems -Value Search-CCASAllRelatedItem
 Set-Alias -Name Search-CCASCases -Value Search-CCASCase
 Set-Alias -Name CCAS-SearchCases -Value Search-CCASCase
 Set-Alias -Name Search-CCASRelatedItems -Value Search-CCASRelatedItem

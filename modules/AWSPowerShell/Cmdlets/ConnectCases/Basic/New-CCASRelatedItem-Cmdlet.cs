@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter ConnectCase_CaseId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the case to be related</para>
+        /// <para>A unique identifier of the case.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter Custom_Field
         /// <summary>
         /// <para>
-        /// <para>List of field values for the custom related item</para><para />
+        /// <para>List of field values for the <c>Custom</c> related item.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

@@ -31,7 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
     /// Returns summaries of invoked Hooks. For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/hooks-view-invocations.html">View
-    /// CloudFormation Hooks invocations</a> in the <i>CloudFormation Hooks User Guide</i>.
+    /// invocation summaries for CloudFormation Hooks</a> in the <i>CloudFormation Hooks User
+    /// Guide</i>.
     /// 
     ///  
     /// <para>
