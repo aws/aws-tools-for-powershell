@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.104.0",
+    "ProductVersion"    : "4.0.105.0",
     "CoreVersion"       : "4.0.0.32",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -836,7 +836,7 @@
             "InPreview"               : false
         },
         "MediaLive"                       : {
-            "Version" : "4.0.6.4",
+            "Version" : "4.0.7.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.32"
@@ -2580,7 +2580,7 @@
             "InPreview"               : false
         },
         "CleanRooms"                          : {
-            "Version" : "4.0.8.0",
+            "Version" : "4.0.9.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.32"
@@ -2644,7 +2644,7 @@
             "InPreview"               : false
         },
         "PaymentCryptographyData"             : {
-            "Version" : "4.0.3.6",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.32"
@@ -2852,7 +2852,7 @@
             "InPreview"               : false
         },
         "QConnect"                            : {
-            "Version" : "4.0.2.6",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.32"

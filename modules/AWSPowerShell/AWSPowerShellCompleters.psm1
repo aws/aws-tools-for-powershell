@@ -11880,6 +11880,18 @@ $CRS_Completers = {
             break
         }
 
+        # Amazon.CleanRooms.CommercialRegion
+        {
+            ($_ -eq "New-CRSConfiguredTable/Athena_Region") -Or
+            ($_ -eq "Update-CRSConfiguredTable/Athena_Region") -Or
+            ($_ -eq "New-CRSConfiguredTable/Glue_Region") -Or
+            ($_ -eq "Update-CRSConfiguredTable/Glue_Region")
+        }
+        {
+            $v = "af-south-1","ap-east-1","ap-east-2","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ap-southeast-5","ap-southeast-7","ca-central-1","ca-west-1","eu-central-1","eu-central-2","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","il-central-1","me-central-1","me-south-1","mx-central-1","sa-east-1","us-east-1","us-east-2","us-west-1","us-west-2"
+            break
+        }
+
         # Amazon.CleanRooms.ConfiguredTableAnalysisRuleType
         {
             ($_ -eq "Get-CRSConfiguredTableAnalysisRule/AnalysisRuleType") -Or
@@ -12069,10 +12081,12 @@ $CRS_map = @{
     "AnalysisMethod"=@("New-CRSConfiguredTable","Update-CRSConfiguredTable")
     "AnalysisRuleType"=@("Get-CRSConfiguredTableAnalysisRule","Get-CRSConfiguredTableAssociationAnalysisRule","New-CRSConfiguredTableAnalysisRule","New-CRSConfiguredTableAssociationAnalysisRule","Remove-CRSConfiguredTableAnalysisRule","Remove-CRSConfiguredTableAssociationAnalysisRule","Update-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAssociationAnalysisRule")
     "AnalyticsEngine"=@("New-CRSCollaboration","Update-CRSCollaboration")
+    "Athena_Region"=@("New-CRSConfiguredTable","Update-CRSConfiguredTable")
     "AutoRefresh"=@("New-CRSPrivacyBudgetTemplate")
     "Custom_AdditionalAnalysis"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "ErrorMessageConfiguration_Type"=@("New-CRSAnalysisTemplate")
     "Format"=@("New-CRSAnalysisTemplate")
+    "Glue_Region"=@("New-CRSConfiguredTable","Update-CRSConfiguredTable")
     "JobLogStatus"=@("New-CRSCollaboration","New-CRSMembership","Update-CRSMembership")
     "JobType"=@("Invoke-CRSIdMappingTable")
     "List_AdditionalAnalysis"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
@@ -58504,6 +58518,7 @@ $PAYCD_Completers = {
             ($_ -eq "Test-PAYCDPinData/EncryptionWrappedKey_KeyCheckValueAlgorithm") -Or
             ($_ -eq "Convert-PAYCDPinData/IncomingWrappedKey_KeyCheckValueAlgorithm") -Or
             ($_ -eq "Update-PAYCDEncryptData/IncomingWrappedKey_KeyCheckValueAlgorithm") -Or
+            ($_ -eq "Convert-PAYCDKeyMaterial/KeyCheckValueAlgorithm") -Or
             ($_ -eq "Convert-PAYCDPinData/OutgoingWrappedKey_KeyCheckValueAlgorithm") -Or
             ($_ -eq "Update-PAYCDEncryptData/OutgoingWrappedKey_KeyCheckValueAlgorithm") -Or
             ($_ -eq "Protect-PAYCDData/WrappedKey_KeyCheckValueAlgorithm") -Or
@@ -58520,6 +58535,7 @@ $PAYCD_Completers = {
             ($_ -eq "Protect-PAYCDData/DiffieHellmanSymmetricKey_KeyDerivationFunction") -Or
             ($_ -eq "Test-PAYCDPinData/DiffieHellmanSymmetricKey_KeyDerivationFunction") -Or
             ($_ -eq "Unprotect-PAYCDData/DiffieHellmanSymmetricKey_KeyDerivationFunction") -Or
+            ($_ -eq "Convert-PAYCDKeyMaterial/DiffieHellmanTr31KeyBlock_KeyDerivationFunction") -Or
             ($_ -eq "Convert-PAYCDPinData/IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction") -Or
             ($_ -eq "Update-PAYCDEncryptData/IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction") -Or
             ($_ -eq "Convert-PAYCDPinData/OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction") -Or
@@ -58536,6 +58552,7 @@ $PAYCD_Completers = {
             ($_ -eq "Protect-PAYCDData/DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm") -Or
             ($_ -eq "Test-PAYCDPinData/DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm") -Or
             ($_ -eq "Unprotect-PAYCDData/DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm") -Or
+            ($_ -eq "Convert-PAYCDKeyMaterial/DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm") -Or
             ($_ -eq "Convert-PAYCDPinData/IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm") -Or
             ($_ -eq "Update-PAYCDEncryptData/IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm") -Or
             ($_ -eq "Convert-PAYCDPinData/OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm") -Or
@@ -58599,7 +58616,7 @@ $PAYCD_Completers = {
             ($_ -eq "Test-PAYCDPinData/PinBlockFormat")
         }
         {
-            $v = "ISO_FORMAT_0","ISO_FORMAT_3","ISO_FORMAT_4"
+            $v = "ISO_FORMAT_0","ISO_FORMAT_1","ISO_FORMAT_3","ISO_FORMAT_4"
             break
         }
 
@@ -58633,6 +58650,7 @@ $PAYCD_Completers = {
             ($_ -eq "Protect-PAYCDData/DiffieHellmanSymmetricKey_KeyAlgorithm") -Or
             ($_ -eq "Test-PAYCDPinData/DiffieHellmanSymmetricKey_KeyAlgorithm") -Or
             ($_ -eq "Unprotect-PAYCDData/DiffieHellmanSymmetricKey_KeyAlgorithm") -Or
+            ($_ -eq "Convert-PAYCDKeyMaterial/DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm") -Or
             ($_ -eq "Convert-PAYCDPinData/IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm") -Or
             ($_ -eq "Update-PAYCDEncryptData/IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm") -Or
             ($_ -eq "Convert-PAYCDPinData/OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm") -Or
@@ -58657,6 +58675,9 @@ $PAYCD_map = @{
     "DiffieHellmanSymmetricKey_KeyAlgorithm"=@("New-PAYCDPinData","Protect-PAYCDData","Test-PAYCDPinData","Unprotect-PAYCDData")
     "DiffieHellmanSymmetricKey_KeyDerivationFunction"=@("New-PAYCDPinData","Protect-PAYCDData","Test-PAYCDPinData","Unprotect-PAYCDData")
     "DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm"=@("New-PAYCDPinData","Protect-PAYCDData","Test-PAYCDPinData","Unprotect-PAYCDData")
+    "DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm"=@("Convert-PAYCDKeyMaterial")
+    "DiffieHellmanTr31KeyBlock_KeyDerivationFunction"=@("Convert-PAYCDKeyMaterial")
+    "DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm"=@("Convert-PAYCDKeyMaterial")
     "Dukpt_DukptKeyDerivationType"=@("Protect-PAYCDData","Unprotect-PAYCDData")
     "Dukpt_DukptKeyVariant"=@("Protect-PAYCDData","Unprotect-PAYCDData")
     "Dukpt_Mode"=@("Protect-PAYCDData","Unprotect-PAYCDData")
@@ -58689,6 +58710,7 @@ $PAYCD_map = @{
     "IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
     "IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
     "IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
+    "KeyCheckValueAlgorithm"=@("Convert-PAYCDKeyMaterial")
     "MajorKeyDerivationMode"=@("Test-PAYCDAuthRequestCryptogram")
     "Mastercard_MajorKeyDerivationMode"=@("New-PAYCDMacEmvPinChange")
     "OutgoingDukptAttributes_DukptKeyDerivationType"=@("Convert-PAYCDPinData")
@@ -58767,6 +58789,7 @@ $PAYCD_SelectMap = @{
                "New-PAYCDMacEmvPinChange",
                "New-PAYCDPinData",
                "Update-PAYCDEncryptData",
+               "Convert-PAYCDKeyMaterial",
                "Convert-PAYCDPinData",
                "Test-PAYCDAuthRequestCryptogram",
                "Test-PAYCDCardValidationData",
@@ -62100,7 +62123,7 @@ $QC_Completers = {
             ($_ -eq "New-QCAIAgent/Type")
         }
         {
-            $v = "ANSWER_RECOMMENDATION","MANUAL_SEARCH","SELF_SERVICE"
+            $v = "ANSWER_RECOMMENDATION","EMAIL_GENERATIVE_ANSWER","EMAIL_OVERVIEW","EMAIL_RESPONSE","MANUAL_SEARCH","SELF_SERVICE"
             break
         }
 
@@ -62121,7 +62144,7 @@ $QC_Completers = {
         # Amazon.QConnect.AIPromptType
         "New-QCAIPrompt/Type"
         {
-            $v = "ANSWER_GENERATION","INTENT_LABELING_GENERATION","QUERY_REFORMULATION","SELF_SERVICE_ANSWER_GENERATION","SELF_SERVICE_PRE_PROCESSING"
+            $v = "ANSWER_GENERATION","EMAIL_GENERATIVE_ANSWER","EMAIL_OVERVIEW","EMAIL_QUERY_REFORMULATION","EMAIL_RESPONSE","INTENT_LABELING_GENERATION","QUERY_REFORMULATION","SELF_SERVICE_ANSWER_GENERATION","SELF_SERVICE_PRE_PROCESSING"
             break
         }
 

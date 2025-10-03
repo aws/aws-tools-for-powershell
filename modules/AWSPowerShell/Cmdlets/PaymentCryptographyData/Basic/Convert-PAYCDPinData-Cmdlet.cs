@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
     /// which is translated to a PEK encrypted PIN block for use within the service. You can
     /// also use ECDH for reveal PIN, wherein the service translates the PIN block from PEK
     /// to a ECDH derived encryption key. For more information on establishing ECDH derived
-    /// keys, see the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/create-keys.html">Generating
+    /// keys, see the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/create-keys.html">Creating
     /// keys</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>.
     /// </para><para>
     /// The allowed combinations of PIN block format translations are guided by PCI. It is

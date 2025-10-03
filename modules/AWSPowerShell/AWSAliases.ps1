@@ -23382,6 +23382,8 @@ Set-Alias -Name Generate-PAYCDPinData -Value New-PAYCDPinData
 Set-Alias -Name PAYCD-GeneratePinData -Value New-PAYCDPinData
 Set-Alias -Name Re-PAYCDEncryptData -Value Update-PAYCDEncryptData
 Set-Alias -Name PAYCD-ReEncryptData -Value Update-PAYCDEncryptData
+Set-Alias -Name Translate-PAYCDKeyMaterial -Value Convert-PAYCDKeyMaterial
+Set-Alias -Name PAYCD-TranslateKeyMaterial -Value Convert-PAYCDKeyMaterial
 Set-Alias -Name Translate-PAYCDPinData -Value Convert-PAYCDPinData
 Set-Alias -Name PAYCD-TranslatePinData -Value Convert-PAYCDPinData
 Set-Alias -Name Verify-PAYCDAuthRequestCryptogram -Value Test-PAYCDAuthRequestCryptogram
