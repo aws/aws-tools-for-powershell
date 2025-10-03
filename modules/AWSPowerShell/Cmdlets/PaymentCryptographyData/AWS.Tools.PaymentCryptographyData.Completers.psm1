@@ -172,6 +172,7 @@ $PAYCD_Completers = {
             ($_ -eq "Test-PAYCDPinData/EncryptionWrappedKey_KeyCheckValueAlgorithm") -Or
             ($_ -eq "Convert-PAYCDPinData/IncomingWrappedKey_KeyCheckValueAlgorithm") -Or
             ($_ -eq "Update-PAYCDEncryptData/IncomingWrappedKey_KeyCheckValueAlgorithm") -Or
+            ($_ -eq "Convert-PAYCDKeyMaterial/KeyCheckValueAlgorithm") -Or
             ($_ -eq "Convert-PAYCDPinData/OutgoingWrappedKey_KeyCheckValueAlgorithm") -Or
             ($_ -eq "Update-PAYCDEncryptData/OutgoingWrappedKey_KeyCheckValueAlgorithm") -Or
             ($_ -eq "Protect-PAYCDData/WrappedKey_KeyCheckValueAlgorithm") -Or
@@ -188,6 +189,7 @@ $PAYCD_Completers = {
             ($_ -eq "Protect-PAYCDData/DiffieHellmanSymmetricKey_KeyDerivationFunction") -Or
             ($_ -eq "Test-PAYCDPinData/DiffieHellmanSymmetricKey_KeyDerivationFunction") -Or
             ($_ -eq "Unprotect-PAYCDData/DiffieHellmanSymmetricKey_KeyDerivationFunction") -Or
+            ($_ -eq "Convert-PAYCDKeyMaterial/DiffieHellmanTr31KeyBlock_KeyDerivationFunction") -Or
             ($_ -eq "Convert-PAYCDPinData/IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction") -Or
             ($_ -eq "Update-PAYCDEncryptData/IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction") -Or
             ($_ -eq "Convert-PAYCDPinData/OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction") -Or
@@ -204,6 +206,7 @@ $PAYCD_Completers = {
             ($_ -eq "Protect-PAYCDData/DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm") -Or
             ($_ -eq "Test-PAYCDPinData/DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm") -Or
             ($_ -eq "Unprotect-PAYCDData/DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm") -Or
+            ($_ -eq "Convert-PAYCDKeyMaterial/DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm") -Or
             ($_ -eq "Convert-PAYCDPinData/IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm") -Or
             ($_ -eq "Update-PAYCDEncryptData/IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm") -Or
             ($_ -eq "Convert-PAYCDPinData/OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm") -Or
@@ -267,7 +270,7 @@ $PAYCD_Completers = {
             ($_ -eq "Test-PAYCDPinData/PinBlockFormat")
         }
         {
-            $v = "ISO_FORMAT_0","ISO_FORMAT_3","ISO_FORMAT_4"
+            $v = "ISO_FORMAT_0","ISO_FORMAT_1","ISO_FORMAT_3","ISO_FORMAT_4"
             break
         }
 
@@ -301,6 +304,7 @@ $PAYCD_Completers = {
             ($_ -eq "Protect-PAYCDData/DiffieHellmanSymmetricKey_KeyAlgorithm") -Or
             ($_ -eq "Test-PAYCDPinData/DiffieHellmanSymmetricKey_KeyAlgorithm") -Or
             ($_ -eq "Unprotect-PAYCDData/DiffieHellmanSymmetricKey_KeyAlgorithm") -Or
+            ($_ -eq "Convert-PAYCDKeyMaterial/DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm") -Or
             ($_ -eq "Convert-PAYCDPinData/IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm") -Or
             ($_ -eq "Update-PAYCDEncryptData/IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm") -Or
             ($_ -eq "Convert-PAYCDPinData/OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm") -Or
@@ -325,6 +329,9 @@ $PAYCD_map = @{
     "DiffieHellmanSymmetricKey_KeyAlgorithm"=@("New-PAYCDPinData","Protect-PAYCDData","Test-PAYCDPinData","Unprotect-PAYCDData")
     "DiffieHellmanSymmetricKey_KeyDerivationFunction"=@("New-PAYCDPinData","Protect-PAYCDData","Test-PAYCDPinData","Unprotect-PAYCDData")
     "DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm"=@("New-PAYCDPinData","Protect-PAYCDData","Test-PAYCDPinData","Unprotect-PAYCDData")
+    "DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm"=@("Convert-PAYCDKeyMaterial")
+    "DiffieHellmanTr31KeyBlock_KeyDerivationFunction"=@("Convert-PAYCDKeyMaterial")
+    "DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm"=@("Convert-PAYCDKeyMaterial")
     "Dukpt_DukptKeyDerivationType"=@("Protect-PAYCDData","Unprotect-PAYCDData")
     "Dukpt_DukptKeyVariant"=@("Protect-PAYCDData","Unprotect-PAYCDData")
     "Dukpt_Mode"=@("Protect-PAYCDData","Unprotect-PAYCDData")
@@ -357,6 +364,7 @@ $PAYCD_map = @{
     "IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
     "IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
     "IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
+    "KeyCheckValueAlgorithm"=@("Convert-PAYCDKeyMaterial")
     "MajorKeyDerivationMode"=@("Test-PAYCDAuthRequestCryptogram")
     "Mastercard_MajorKeyDerivationMode"=@("New-PAYCDMacEmvPinChange")
     "OutgoingDukptAttributes_DukptKeyDerivationType"=@("Convert-PAYCDPinData")
@@ -435,6 +443,7 @@ $PAYCD_SelectMap = @{
                "New-PAYCDMacEmvPinChange",
                "New-PAYCDPinData",
                "Update-PAYCDEncryptData",
+               "Convert-PAYCDKeyMaterial",
                "Convert-PAYCDPinData",
                "Test-PAYCDAuthRequestCryptogram",
                "Test-PAYCDCardValidationData",

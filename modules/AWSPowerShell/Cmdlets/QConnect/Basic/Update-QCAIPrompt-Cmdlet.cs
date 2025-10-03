@@ -94,8 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter ModelId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the model used for this AI Prompt.</para><note><para>For more information on supported models, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-ai-prompts.html#cli-create-aiprompt">Supported
-        /// models for system and custom prompts</a>.</para></note>
+        /// <para>The identifier of the model used for this AI Prompt.</para><note><para>For information about which models are supported in each Amazon Web Services Region,
+        /// see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-ai-prompts.html#cli-create-aiprompt">Supported
+        /// models for system/custom prompts</a>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

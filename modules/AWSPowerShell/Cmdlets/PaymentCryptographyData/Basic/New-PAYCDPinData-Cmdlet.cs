@@ -244,10 +244,13 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         /// <summary>
         /// <para>
         /// <para>The PIN encoding format for pin data generation as specified in ISO 9564. Amazon Web
-        /// Services Payment Cryptography supports <c>ISO_Format_0</c> and <c>ISO_Format_3</c>.</para><para>The <c>ISO_Format_0</c> PIN block format is equivalent to the ANSI X9.8, VISA-1, and
+        /// Services Payment Cryptography supports <c>ISO_Format_0</c>, <c>ISO_Format_3</c> and
+        /// <c>ISO_Format_4</c>.</para><para>The <c>ISO_Format_0</c> PIN block format is equivalent to the ANSI X9.8, VISA-1, and
         /// ECI-1 PIN block formats. It is similar to a VISA-4 PIN block format. It supports a
         /// PIN from 4 to 12 digits in length.</para><para>The <c>ISO_Format_3</c> PIN block format is the same as <c>ISO_Format_0</c> except
-        /// that the fill digits are random values from 10 to 15.</para>
+        /// that the fill digits are random values from 10 to 15.</para><para>The <c>ISO_Format_4</c> PIN block format is the only one supporting AES encryption.
+        /// It is similar to <c>ISO_Format_3</c> but doubles the pin block length by padding with
+        /// fill digit A and random values from 10 to 15.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -401,14 +404,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         /// card that associates the card with a specific account holder.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PrimaryAccountNumber { get; set; }
         #endregion
         
@@ -559,12 +555,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             #endif
             context.PinDataLength = this.PinDataLength;
             context.PrimaryAccountNumber = this.PrimaryAccountNumber;
-            #if MODULAR
-            if (this.PrimaryAccountNumber == null && ParameterWasBound(nameof(this.PrimaryAccountNumber)))
-            {
-                WriteWarning("You are passing $null as a value for parameter PrimaryAccountNumber which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

@@ -1,4 +1,17 @@
-﻿### 4.1.913 (2025-10-02 21:04Z)
+﻿### 4.1.914 (2025-10-03 20:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1137.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Clean Rooms Service
+    * Modified cmdlet New-CRSCollaboration: added parameter AllowedResultRegion.
+    * Modified cmdlet New-CRSConfiguredTable: added parameters Athena_Region and Glue_Region.
+    * Modified cmdlet Update-CRSConfiguredTable: added parameters Athena_Region and Glue_Region.
+  * Amazon Payment Cryptography Data
+    * Added cmdlet Convert-PAYCDKeyMaterial leveraging the TranslateKeyMaterial service API.
+  * Amazon Q Connect
+    * Modified cmdlet New-QCAIAgent: added parameters EmailGenerativeAnswerAIAgentConfiguration_AssociationConfiguration, EmailGenerativeAnswerAIAgentConfiguration_EmailGenerativeAnswerAIPromptId, EmailGenerativeAnswerAIAgentConfiguration_EmailQueryReformulationAIPromptId, EmailGenerativeAnswerAIAgentConfiguration_Locale, EmailOverviewAIAgentConfiguration_EmailOverviewAIPromptId, EmailOverviewAIAgentConfiguration_Locale, EmailResponseAIAgentConfiguration_AssociationConfiguration, EmailResponseAIAgentConfiguration_EmailQueryReformulationAIPromptId, EmailResponseAIAgentConfiguration_EmailResponseAIPromptId and EmailResponseAIAgentConfiguration_Locale.
+    * Modified cmdlet New-QCSession: added parameter ContactArn.
+    * Modified cmdlet Update-QCAIAgent: added parameters EmailGenerativeAnswerAIAgentConfiguration_AssociationConfiguration, EmailGenerativeAnswerAIAgentConfiguration_EmailGenerativeAnswerAIPromptId, EmailGenerativeAnswerAIAgentConfiguration_EmailQueryReformulationAIPromptId, EmailGenerativeAnswerAIAgentConfiguration_Locale, EmailOverviewAIAgentConfiguration_EmailOverviewAIPromptId, EmailOverviewAIAgentConfiguration_Locale, EmailResponseAIAgentConfiguration_AssociationConfiguration, EmailResponseAIAgentConfiguration_EmailQueryReformulationAIPromptId, EmailResponseAIAgentConfiguration_EmailResponseAIPromptId and EmailResponseAIAgentConfiguration_Locale.
+
+### 4.1.913 (2025-10-02 21:04Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1136.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Synthetics
     * Modified cmdlet New-CWSYNCanary: added parameter Code_BlueprintType.

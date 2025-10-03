@@ -278,14 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         /// card that associates the card with a specific account holder.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PrimaryAccountNumber { get; set; }
         #endregion
         
@@ -433,12 +426,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             #endif
             context.PinDataLength = this.PinDataLength;
             context.PrimaryAccountNumber = this.PrimaryAccountNumber;
-            #if MODULAR
-            if (this.PrimaryAccountNumber == null && ParameterWasBound(nameof(this.PrimaryAccountNumber)))
-            {
-                WriteWarning("You are passing $null as a value for parameter PrimaryAccountNumber which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Ibm3624Pin_DecimalizationTable = this.Ibm3624Pin_DecimalizationTable;
             context.Ibm3624Pin_PinOffset = this.Ibm3624Pin_PinOffset;
             context.Ibm3624Pin_PinValidationData = this.Ibm3624Pin_PinValidationData;

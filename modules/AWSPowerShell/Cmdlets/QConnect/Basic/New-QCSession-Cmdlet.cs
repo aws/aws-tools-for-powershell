@@ -84,6 +84,17 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String AssistantId { get; set; }
         #endregion
         
+        #region Parameter ContactArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the email contact in Amazon Connect. Used to retrieve
+        /// email content and establish session context for AI-powered email assistance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ContactArn { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -246,6 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             }
             #endif
             context.ClientToken = this.ClientToken;
+            context.ContactArn = this.ContactArn;
             context.Description = this.Description;
             context.Name = this.Name;
             #if MODULAR
@@ -299,6 +311,10 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.ContactArn != null)
+            {
+                request.ContactArn = cmdletContext.ContactArn;
             }
             if (cmdletContext.Description != null)
             {
@@ -440,6 +456,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             public Dictionary<System.String, Amazon.QConnect.Model.AIAgentConfigurationData> AiAgentConfiguration { get; set; }
             public System.String AssistantId { get; set; }
             public System.String ClientToken { get; set; }
+            public System.String ContactArn { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.QConnect.Model.TagCondition> TagFilter_AndCondition { get; set; }

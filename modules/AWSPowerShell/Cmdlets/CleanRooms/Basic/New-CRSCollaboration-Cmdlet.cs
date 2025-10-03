@@ -65,6 +65,20 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.Boolean? DataEncryptionMetadata_AllowDuplicate { get; set; }
         #endregion
         
+        #region Parameter AllowedResultRegion
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services Regions where collaboration query results can be stored. When
+        /// specified, results can only be written to these Regions. This parameter enables you
+        /// to meet your compliance and data governance requirements, and implement regional data
+        /// governance policies.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AllowedResultRegions")]
+        public System.String[] AllowedResultRegion { get; set; }
+        #endregion
+        
         #region Parameter DataEncryptionMetadata_AllowJoinsOnColumnsWithDifferentName
         /// <summary>
         /// <para>
@@ -363,6 +377,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 context.Select = CreateSelectDelegate<Amazon.CleanRooms.Model.CreateCollaborationResponse, NewCRSCollaborationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AllowedResultRegion != null)
+            {
+                context.AllowedResultRegion = new List<System.String>(this.AllowedResultRegion);
+            }
             context.AnalyticsEngine = this.AnalyticsEngine;
             if (this.AutoApprovedChangeRequestType != null)
             {
@@ -453,6 +471,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             // create request
             var request = new Amazon.CleanRooms.Model.CreateCollaborationRequest();
             
+            if (cmdletContext.AllowedResultRegion != null)
+            {
+                request.AllowedResultRegions = cmdletContext.AllowedResultRegion;
+            }
             if (cmdletContext.AnalyticsEngine != null)
             {
                 request.AnalyticsEngine = cmdletContext.AnalyticsEngine;
@@ -746,6 +768,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AllowedResultRegion { get; set; }
             public Amazon.CleanRooms.AnalyticsEngine AnalyticsEngine { get; set; }
             public List<System.String> AutoApprovedChangeRequestType { get; set; }
             public System.String CreatorDisplayName { get; set; }

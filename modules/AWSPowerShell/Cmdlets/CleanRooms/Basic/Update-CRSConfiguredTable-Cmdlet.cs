@@ -159,6 +159,32 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.String Athena_OutputLocation { get; set; }
         #endregion
         
+        #region Parameter Athena_Region
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services Region where the Athena table is located. This parameter is
+        /// required to uniquely identify and access tables across different Regions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TableReference_Athena_Region")]
+        [AWSConstantClassSource("Amazon.CleanRooms.CommercialRegion")]
+        public Amazon.CleanRooms.CommercialRegion Athena_Region { get; set; }
+        #endregion
+        
+        #region Parameter Glue_Region
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services Region where the Glue table is located. This parameter is
+        /// required to uniquely identify and access tables across different Regions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TableReference_Glue_Region")]
+        [AWSConstantClassSource("Amazon.CleanRooms.CommercialRegion")]
+        public Amazon.CleanRooms.CommercialRegion Glue_Region { get; set; }
+        #endregion
+        
         #region Parameter Snowflake_SchemaName
         /// <summary>
         /// <para>
@@ -329,9 +355,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             }
             context.Athena_DatabaseName = this.Athena_DatabaseName;
             context.Athena_OutputLocation = this.Athena_OutputLocation;
+            context.Athena_Region = this.Athena_Region;
             context.Athena_TableName = this.Athena_TableName;
             context.Athena_WorkGroup = this.Athena_WorkGroup;
             context.Glue_DatabaseName = this.Glue_DatabaseName;
+            context.Glue_Region = this.Glue_Region;
             context.Glue_TableName = this.Glue_TableName;
             context.Snowflake_AccountIdentifier = this.Snowflake_AccountIdentifier;
             context.Snowflake_DatabaseName = this.Snowflake_DatabaseName;
@@ -401,6 +429,16 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 requestTableReference_tableReference_Glue.DatabaseName = requestTableReference_tableReference_Glue_glue_DatabaseName;
                 requestTableReference_tableReference_GlueIsNull = false;
             }
+            Amazon.CleanRooms.CommercialRegion requestTableReference_tableReference_Glue_glue_Region = null;
+            if (cmdletContext.Glue_Region != null)
+            {
+                requestTableReference_tableReference_Glue_glue_Region = cmdletContext.Glue_Region;
+            }
+            if (requestTableReference_tableReference_Glue_glue_Region != null)
+            {
+                requestTableReference_tableReference_Glue.Region = requestTableReference_tableReference_Glue_glue_Region;
+                requestTableReference_tableReference_GlueIsNull = false;
+            }
             System.String requestTableReference_tableReference_Glue_glue_TableName = null;
             if (cmdletContext.Glue_TableName != null)
             {
@@ -444,6 +482,16 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestTableReference_tableReference_Athena_athena_OutputLocation != null)
             {
                 requestTableReference_tableReference_Athena.OutputLocation = requestTableReference_tableReference_Athena_athena_OutputLocation;
+                requestTableReference_tableReference_AthenaIsNull = false;
+            }
+            Amazon.CleanRooms.CommercialRegion requestTableReference_tableReference_Athena_athena_Region = null;
+            if (cmdletContext.Athena_Region != null)
+            {
+                requestTableReference_tableReference_Athena_athena_Region = cmdletContext.Athena_Region;
+            }
+            if (requestTableReference_tableReference_Athena_athena_Region != null)
+            {
+                requestTableReference_tableReference_Athena.Region = requestTableReference_tableReference_Athena_athena_Region;
                 requestTableReference_tableReference_AthenaIsNull = false;
             }
             System.String requestTableReference_tableReference_Athena_athena_TableName = null;
@@ -640,9 +688,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public List<System.String> SelectedAnalysisMethod { get; set; }
             public System.String Athena_DatabaseName { get; set; }
             public System.String Athena_OutputLocation { get; set; }
+            public Amazon.CleanRooms.CommercialRegion Athena_Region { get; set; }
             public System.String Athena_TableName { get; set; }
             public System.String Athena_WorkGroup { get; set; }
             public System.String Glue_DatabaseName { get; set; }
+            public Amazon.CleanRooms.CommercialRegion Glue_Region { get; set; }
             public System.String Glue_TableName { get; set; }
             public System.String Snowflake_AccountIdentifier { get; set; }
             public System.String Snowflake_DatabaseName { get; set; }

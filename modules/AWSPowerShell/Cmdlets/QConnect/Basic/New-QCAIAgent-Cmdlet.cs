@@ -119,6 +119,30 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public Amazon.QConnect.Model.AssociationConfiguration[] AnswerRecommendationAIAgentConfiguration_AssociationConfiguration { get; set; }
         #endregion
         
+        #region Parameter EmailGenerativeAnswerAIAgentConfiguration_AssociationConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Configuration settings for knowledge base associations used by the email generative
+        /// answer agent.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_EmailGenerativeAnswerAIAgentConfiguration_AssociationConfigurations")]
+        public Amazon.QConnect.Model.AssociationConfiguration[] EmailGenerativeAnswerAIAgentConfiguration_AssociationConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter EmailResponseAIAgentConfiguration_AssociationConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Configuration settings for knowledge base associations used by the email response
+        /// agent.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_EmailResponseAIAgentConfiguration_AssociationConfigurations")]
+        public Amazon.QConnect.Model.AssociationConfiguration[] EmailResponseAIAgentConfiguration_AssociationConfiguration { get; set; }
+        #endregion
+        
         #region Parameter ManualSearchAIAgentConfiguration_AssociationConfiguration
         /// <summary>
         /// <para>
@@ -151,6 +175,65 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter EmailGenerativeAnswerAIAgentConfiguration_EmailGenerativeAnswerAIPromptId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the System AI prompt used for generating comprehensive knowledge-based answers
+        /// from email queries.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_EmailGenerativeAnswerAIAgentConfiguration_EmailGenerativeAnswerAIPromptId")]
+        public System.String EmailGenerativeAnswerAIAgentConfiguration_EmailGenerativeAnswerAIPromptId { get; set; }
+        #endregion
+        
+        #region Parameter EmailOverviewAIAgentConfiguration_EmailOverviewAIPromptId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the System AI prompt used for generating structured email conversation summaries.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_EmailOverviewAIAgentConfiguration_EmailOverviewAIPromptId")]
+        public System.String EmailOverviewAIAgentConfiguration_EmailOverviewAIPromptId { get; set; }
+        #endregion
+        
+        #region Parameter EmailGenerativeAnswerAIAgentConfiguration_EmailQueryReformulationAIPromptId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the System AI prompt used for reformulating email queries to optimize knowledge
+        /// base search results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_EmailGenerativeAnswerAIAgentConfiguration_EmailQueryReformulationAIPromptId")]
+        public System.String EmailGenerativeAnswerAIAgentConfiguration_EmailQueryReformulationAIPromptId { get; set; }
+        #endregion
+        
+        #region Parameter EmailResponseAIAgentConfiguration_EmailQueryReformulationAIPromptId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the System AI prompt used for reformulating email queries to optimize knowledge
+        /// base search for response generation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_EmailResponseAIAgentConfiguration_EmailQueryReformulationAIPromptId")]
+        public System.String EmailResponseAIAgentConfiguration_EmailQueryReformulationAIPromptId { get; set; }
+        #endregion
+        
+        #region Parameter EmailResponseAIAgentConfiguration_EmailResponseAIPromptId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the System AI prompt used for generating professional email responses based
+        /// on knowledge base content.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_EmailResponseAIAgentConfiguration_EmailResponseAIPromptId")]
+        public System.String EmailResponseAIAgentConfiguration_EmailResponseAIPromptId { get; set; }
+        #endregion
+        
         #region Parameter AnswerRecommendationAIAgentConfiguration_IntentLabelingGenerationAIPromptId
         /// <summary>
         /// <para>
@@ -174,6 +257,42 @@ namespace Amazon.PowerShell.Cmdlets.QC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Configuration_AnswerRecommendationAIAgentConfiguration_Locale")]
         public System.String AnswerRecommendationAIAgentConfiguration_Locale { get; set; }
+        #endregion
+        
+        #region Parameter EmailGenerativeAnswerAIAgentConfiguration_Locale
+        /// <summary>
+        /// <para>
+        /// <para>The locale setting for language-specific email processing and response generation
+        /// (for example, en_US, es_ES).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_EmailGenerativeAnswerAIAgentConfiguration_Locale")]
+        public System.String EmailGenerativeAnswerAIAgentConfiguration_Locale { get; set; }
+        #endregion
+        
+        #region Parameter EmailOverviewAIAgentConfiguration_Locale
+        /// <summary>
+        /// <para>
+        /// <para>The locale setting for language-specific email overview processing (for example, en_US,
+        /// es_ES).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_EmailOverviewAIAgentConfiguration_Locale")]
+        public System.String EmailOverviewAIAgentConfiguration_Locale { get; set; }
+        #endregion
+        
+        #region Parameter EmailResponseAIAgentConfiguration_Locale
+        /// <summary>
+        /// <para>
+        /// <para>The locale setting for language-specific email response generation (for example, en_US,
+        /// es_ES).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_EmailResponseAIAgentConfiguration_Locale")]
+        public System.String EmailResponseAIAgentConfiguration_Locale { get; set; }
         #endregion
         
         #region Parameter ManualSearchAIAgentConfiguration_Locale
@@ -390,6 +509,22 @@ namespace Amazon.PowerShell.Cmdlets.QC
             context.AnswerRecommendationAIAgentConfiguration_IntentLabelingGenerationAIPromptId = this.AnswerRecommendationAIAgentConfiguration_IntentLabelingGenerationAIPromptId;
             context.AnswerRecommendationAIAgentConfiguration_Locale = this.AnswerRecommendationAIAgentConfiguration_Locale;
             context.AnswerRecommendationAIAgentConfiguration_QueryReformulationAIPromptId = this.AnswerRecommendationAIAgentConfiguration_QueryReformulationAIPromptId;
+            if (this.EmailGenerativeAnswerAIAgentConfiguration_AssociationConfiguration != null)
+            {
+                context.EmailGenerativeAnswerAIAgentConfiguration_AssociationConfiguration = new List<Amazon.QConnect.Model.AssociationConfiguration>(this.EmailGenerativeAnswerAIAgentConfiguration_AssociationConfiguration);
+            }
+            context.EmailGenerativeAnswerAIAgentConfiguration_EmailGenerativeAnswerAIPromptId = this.EmailGenerativeAnswerAIAgentConfiguration_EmailGenerativeAnswerAIPromptId;
+            context.EmailGenerativeAnswerAIAgentConfiguration_EmailQueryReformulationAIPromptId = this.EmailGenerativeAnswerAIAgentConfiguration_EmailQueryReformulationAIPromptId;
+            context.EmailGenerativeAnswerAIAgentConfiguration_Locale = this.EmailGenerativeAnswerAIAgentConfiguration_Locale;
+            context.EmailOverviewAIAgentConfiguration_EmailOverviewAIPromptId = this.EmailOverviewAIAgentConfiguration_EmailOverviewAIPromptId;
+            context.EmailOverviewAIAgentConfiguration_Locale = this.EmailOverviewAIAgentConfiguration_Locale;
+            if (this.EmailResponseAIAgentConfiguration_AssociationConfiguration != null)
+            {
+                context.EmailResponseAIAgentConfiguration_AssociationConfiguration = new List<Amazon.QConnect.Model.AssociationConfiguration>(this.EmailResponseAIAgentConfiguration_AssociationConfiguration);
+            }
+            context.EmailResponseAIAgentConfiguration_EmailQueryReformulationAIPromptId = this.EmailResponseAIAgentConfiguration_EmailQueryReformulationAIPromptId;
+            context.EmailResponseAIAgentConfiguration_EmailResponseAIPromptId = this.EmailResponseAIAgentConfiguration_EmailResponseAIPromptId;
+            context.EmailResponseAIAgentConfiguration_Locale = this.EmailResponseAIAgentConfiguration_Locale;
             context.ManualSearchAIAgentConfiguration_AnswerGenerationAIGuardrailId = this.ManualSearchAIAgentConfiguration_AnswerGenerationAIGuardrailId;
             context.ManualSearchAIAgentConfiguration_AnswerGenerationAIPromptId = this.ManualSearchAIAgentConfiguration_AnswerGenerationAIPromptId;
             if (this.ManualSearchAIAgentConfiguration_AssociationConfiguration != null)
@@ -462,6 +597,151 @@ namespace Amazon.PowerShell.Cmdlets.QC
              // populate Configuration
             var requestConfigurationIsNull = true;
             request.Configuration = new Amazon.QConnect.Model.AIAgentConfiguration();
+            Amazon.QConnect.Model.EmailOverviewAIAgentConfiguration requestConfiguration_configuration_EmailOverviewAIAgentConfiguration = null;
+            
+             // populate EmailOverviewAIAgentConfiguration
+            var requestConfiguration_configuration_EmailOverviewAIAgentConfigurationIsNull = true;
+            requestConfiguration_configuration_EmailOverviewAIAgentConfiguration = new Amazon.QConnect.Model.EmailOverviewAIAgentConfiguration();
+            System.String requestConfiguration_configuration_EmailOverviewAIAgentConfiguration_emailOverviewAIAgentConfiguration_EmailOverviewAIPromptId = null;
+            if (cmdletContext.EmailOverviewAIAgentConfiguration_EmailOverviewAIPromptId != null)
+            {
+                requestConfiguration_configuration_EmailOverviewAIAgentConfiguration_emailOverviewAIAgentConfiguration_EmailOverviewAIPromptId = cmdletContext.EmailOverviewAIAgentConfiguration_EmailOverviewAIPromptId;
+            }
+            if (requestConfiguration_configuration_EmailOverviewAIAgentConfiguration_emailOverviewAIAgentConfiguration_EmailOverviewAIPromptId != null)
+            {
+                requestConfiguration_configuration_EmailOverviewAIAgentConfiguration.EmailOverviewAIPromptId = requestConfiguration_configuration_EmailOverviewAIAgentConfiguration_emailOverviewAIAgentConfiguration_EmailOverviewAIPromptId;
+                requestConfiguration_configuration_EmailOverviewAIAgentConfigurationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_EmailOverviewAIAgentConfiguration_emailOverviewAIAgentConfiguration_Locale = null;
+            if (cmdletContext.EmailOverviewAIAgentConfiguration_Locale != null)
+            {
+                requestConfiguration_configuration_EmailOverviewAIAgentConfiguration_emailOverviewAIAgentConfiguration_Locale = cmdletContext.EmailOverviewAIAgentConfiguration_Locale;
+            }
+            if (requestConfiguration_configuration_EmailOverviewAIAgentConfiguration_emailOverviewAIAgentConfiguration_Locale != null)
+            {
+                requestConfiguration_configuration_EmailOverviewAIAgentConfiguration.Locale = requestConfiguration_configuration_EmailOverviewAIAgentConfiguration_emailOverviewAIAgentConfiguration_Locale;
+                requestConfiguration_configuration_EmailOverviewAIAgentConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_EmailOverviewAIAgentConfiguration should be set to null
+            if (requestConfiguration_configuration_EmailOverviewAIAgentConfigurationIsNull)
+            {
+                requestConfiguration_configuration_EmailOverviewAIAgentConfiguration = null;
+            }
+            if (requestConfiguration_configuration_EmailOverviewAIAgentConfiguration != null)
+            {
+                request.Configuration.EmailOverviewAIAgentConfiguration = requestConfiguration_configuration_EmailOverviewAIAgentConfiguration;
+                requestConfigurationIsNull = false;
+            }
+            Amazon.QConnect.Model.EmailGenerativeAnswerAIAgentConfiguration requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfiguration = null;
+            
+             // populate EmailGenerativeAnswerAIAgentConfiguration
+            var requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfigurationIsNull = true;
+            requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfiguration = new Amazon.QConnect.Model.EmailGenerativeAnswerAIAgentConfiguration();
+            List<Amazon.QConnect.Model.AssociationConfiguration> requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfiguration_emailGenerativeAnswerAIAgentConfiguration_AssociationConfiguration = null;
+            if (cmdletContext.EmailGenerativeAnswerAIAgentConfiguration_AssociationConfiguration != null)
+            {
+                requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfiguration_emailGenerativeAnswerAIAgentConfiguration_AssociationConfiguration = cmdletContext.EmailGenerativeAnswerAIAgentConfiguration_AssociationConfiguration;
+            }
+            if (requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfiguration_emailGenerativeAnswerAIAgentConfiguration_AssociationConfiguration != null)
+            {
+                requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfiguration.AssociationConfigurations = requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfiguration_emailGenerativeAnswerAIAgentConfiguration_AssociationConfiguration;
+                requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfigurationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfiguration_emailGenerativeAnswerAIAgentConfiguration_EmailGenerativeAnswerAIPromptId = null;
+            if (cmdletContext.EmailGenerativeAnswerAIAgentConfiguration_EmailGenerativeAnswerAIPromptId != null)
+            {
+                requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfiguration_emailGenerativeAnswerAIAgentConfiguration_EmailGenerativeAnswerAIPromptId = cmdletContext.EmailGenerativeAnswerAIAgentConfiguration_EmailGenerativeAnswerAIPromptId;
+            }
+            if (requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfiguration_emailGenerativeAnswerAIAgentConfiguration_EmailGenerativeAnswerAIPromptId != null)
+            {
+                requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfiguration.EmailGenerativeAnswerAIPromptId = requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfiguration_emailGenerativeAnswerAIAgentConfiguration_EmailGenerativeAnswerAIPromptId;
+                requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfigurationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfiguration_emailGenerativeAnswerAIAgentConfiguration_EmailQueryReformulationAIPromptId = null;
+            if (cmdletContext.EmailGenerativeAnswerAIAgentConfiguration_EmailQueryReformulationAIPromptId != null)
+            {
+                requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfiguration_emailGenerativeAnswerAIAgentConfiguration_EmailQueryReformulationAIPromptId = cmdletContext.EmailGenerativeAnswerAIAgentConfiguration_EmailQueryReformulationAIPromptId;
+            }
+            if (requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfiguration_emailGenerativeAnswerAIAgentConfiguration_EmailQueryReformulationAIPromptId != null)
+            {
+                requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfiguration.EmailQueryReformulationAIPromptId = requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfiguration_emailGenerativeAnswerAIAgentConfiguration_EmailQueryReformulationAIPromptId;
+                requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfigurationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfiguration_emailGenerativeAnswerAIAgentConfiguration_Locale = null;
+            if (cmdletContext.EmailGenerativeAnswerAIAgentConfiguration_Locale != null)
+            {
+                requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfiguration_emailGenerativeAnswerAIAgentConfiguration_Locale = cmdletContext.EmailGenerativeAnswerAIAgentConfiguration_Locale;
+            }
+            if (requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfiguration_emailGenerativeAnswerAIAgentConfiguration_Locale != null)
+            {
+                requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfiguration.Locale = requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfiguration_emailGenerativeAnswerAIAgentConfiguration_Locale;
+                requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfiguration should be set to null
+            if (requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfigurationIsNull)
+            {
+                requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfiguration = null;
+            }
+            if (requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfiguration != null)
+            {
+                request.Configuration.EmailGenerativeAnswerAIAgentConfiguration = requestConfiguration_configuration_EmailGenerativeAnswerAIAgentConfiguration;
+                requestConfigurationIsNull = false;
+            }
+            Amazon.QConnect.Model.EmailResponseAIAgentConfiguration requestConfiguration_configuration_EmailResponseAIAgentConfiguration = null;
+            
+             // populate EmailResponseAIAgentConfiguration
+            var requestConfiguration_configuration_EmailResponseAIAgentConfigurationIsNull = true;
+            requestConfiguration_configuration_EmailResponseAIAgentConfiguration = new Amazon.QConnect.Model.EmailResponseAIAgentConfiguration();
+            List<Amazon.QConnect.Model.AssociationConfiguration> requestConfiguration_configuration_EmailResponseAIAgentConfiguration_emailResponseAIAgentConfiguration_AssociationConfiguration = null;
+            if (cmdletContext.EmailResponseAIAgentConfiguration_AssociationConfiguration != null)
+            {
+                requestConfiguration_configuration_EmailResponseAIAgentConfiguration_emailResponseAIAgentConfiguration_AssociationConfiguration = cmdletContext.EmailResponseAIAgentConfiguration_AssociationConfiguration;
+            }
+            if (requestConfiguration_configuration_EmailResponseAIAgentConfiguration_emailResponseAIAgentConfiguration_AssociationConfiguration != null)
+            {
+                requestConfiguration_configuration_EmailResponseAIAgentConfiguration.AssociationConfigurations = requestConfiguration_configuration_EmailResponseAIAgentConfiguration_emailResponseAIAgentConfiguration_AssociationConfiguration;
+                requestConfiguration_configuration_EmailResponseAIAgentConfigurationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_EmailResponseAIAgentConfiguration_emailResponseAIAgentConfiguration_EmailQueryReformulationAIPromptId = null;
+            if (cmdletContext.EmailResponseAIAgentConfiguration_EmailQueryReformulationAIPromptId != null)
+            {
+                requestConfiguration_configuration_EmailResponseAIAgentConfiguration_emailResponseAIAgentConfiguration_EmailQueryReformulationAIPromptId = cmdletContext.EmailResponseAIAgentConfiguration_EmailQueryReformulationAIPromptId;
+            }
+            if (requestConfiguration_configuration_EmailResponseAIAgentConfiguration_emailResponseAIAgentConfiguration_EmailQueryReformulationAIPromptId != null)
+            {
+                requestConfiguration_configuration_EmailResponseAIAgentConfiguration.EmailQueryReformulationAIPromptId = requestConfiguration_configuration_EmailResponseAIAgentConfiguration_emailResponseAIAgentConfiguration_EmailQueryReformulationAIPromptId;
+                requestConfiguration_configuration_EmailResponseAIAgentConfigurationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_EmailResponseAIAgentConfiguration_emailResponseAIAgentConfiguration_EmailResponseAIPromptId = null;
+            if (cmdletContext.EmailResponseAIAgentConfiguration_EmailResponseAIPromptId != null)
+            {
+                requestConfiguration_configuration_EmailResponseAIAgentConfiguration_emailResponseAIAgentConfiguration_EmailResponseAIPromptId = cmdletContext.EmailResponseAIAgentConfiguration_EmailResponseAIPromptId;
+            }
+            if (requestConfiguration_configuration_EmailResponseAIAgentConfiguration_emailResponseAIAgentConfiguration_EmailResponseAIPromptId != null)
+            {
+                requestConfiguration_configuration_EmailResponseAIAgentConfiguration.EmailResponseAIPromptId = requestConfiguration_configuration_EmailResponseAIAgentConfiguration_emailResponseAIAgentConfiguration_EmailResponseAIPromptId;
+                requestConfiguration_configuration_EmailResponseAIAgentConfigurationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_EmailResponseAIAgentConfiguration_emailResponseAIAgentConfiguration_Locale = null;
+            if (cmdletContext.EmailResponseAIAgentConfiguration_Locale != null)
+            {
+                requestConfiguration_configuration_EmailResponseAIAgentConfiguration_emailResponseAIAgentConfiguration_Locale = cmdletContext.EmailResponseAIAgentConfiguration_Locale;
+            }
+            if (requestConfiguration_configuration_EmailResponseAIAgentConfiguration_emailResponseAIAgentConfiguration_Locale != null)
+            {
+                requestConfiguration_configuration_EmailResponseAIAgentConfiguration.Locale = requestConfiguration_configuration_EmailResponseAIAgentConfiguration_emailResponseAIAgentConfiguration_Locale;
+                requestConfiguration_configuration_EmailResponseAIAgentConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_EmailResponseAIAgentConfiguration should be set to null
+            if (requestConfiguration_configuration_EmailResponseAIAgentConfigurationIsNull)
+            {
+                requestConfiguration_configuration_EmailResponseAIAgentConfiguration = null;
+            }
+            if (requestConfiguration_configuration_EmailResponseAIAgentConfiguration != null)
+            {
+                request.Configuration.EmailResponseAIAgentConfiguration = requestConfiguration_configuration_EmailResponseAIAgentConfiguration;
+                requestConfigurationIsNull = false;
+            }
             Amazon.QConnect.Model.ManualSearchAIAgentConfiguration requestConfiguration_configuration_ManualSearchAIAgentConfiguration = null;
             
              // populate ManualSearchAIAgentConfiguration
@@ -741,6 +1021,16 @@ namespace Amazon.PowerShell.Cmdlets.QC
             public System.String AnswerRecommendationAIAgentConfiguration_IntentLabelingGenerationAIPromptId { get; set; }
             public System.String AnswerRecommendationAIAgentConfiguration_Locale { get; set; }
             public System.String AnswerRecommendationAIAgentConfiguration_QueryReformulationAIPromptId { get; set; }
+            public List<Amazon.QConnect.Model.AssociationConfiguration> EmailGenerativeAnswerAIAgentConfiguration_AssociationConfiguration { get; set; }
+            public System.String EmailGenerativeAnswerAIAgentConfiguration_EmailGenerativeAnswerAIPromptId { get; set; }
+            public System.String EmailGenerativeAnswerAIAgentConfiguration_EmailQueryReformulationAIPromptId { get; set; }
+            public System.String EmailGenerativeAnswerAIAgentConfiguration_Locale { get; set; }
+            public System.String EmailOverviewAIAgentConfiguration_EmailOverviewAIPromptId { get; set; }
+            public System.String EmailOverviewAIAgentConfiguration_Locale { get; set; }
+            public List<Amazon.QConnect.Model.AssociationConfiguration> EmailResponseAIAgentConfiguration_AssociationConfiguration { get; set; }
+            public System.String EmailResponseAIAgentConfiguration_EmailQueryReformulationAIPromptId { get; set; }
+            public System.String EmailResponseAIAgentConfiguration_EmailResponseAIPromptId { get; set; }
+            public System.String EmailResponseAIAgentConfiguration_Locale { get; set; }
             public System.String ManualSearchAIAgentConfiguration_AnswerGenerationAIGuardrailId { get; set; }
             public System.String ManualSearchAIAgentConfiguration_AnswerGenerationAIPromptId { get; set; }
             public List<Amazon.QConnect.Model.AssociationConfiguration> ManualSearchAIAgentConfiguration_AssociationConfiguration { get; set; }
