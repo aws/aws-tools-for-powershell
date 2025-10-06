@@ -123,6 +123,21 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public Amazon.MediaConnect.FlowSize FlowSize { get; set; }
         #endregion
         
+        #region Parameter FlowTag
+        /// <summary>
+        /// <para>
+        /// <para> The key-value pairs that can be used to tag and organize the flow. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FlowTags")]
+        public System.Collections.Hashtable FlowTag { get; set; }
+        #endregion
+        
         #region Parameter NdiConfig_MachineName
         /// <summary>
         /// <para>
@@ -372,6 +387,14 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 context.Entitlement = new List<Amazon.MediaConnect.Model.GrantEntitlementRequest>(this.Entitlement);
             }
             context.FlowSize = this.FlowSize;
+            if (this.FlowTag != null)
+            {
+                context.FlowTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.FlowTag.Keys)
+                {
+                    context.FlowTag.Add((String)hashKey, (System.String)(this.FlowTag[hashKey]));
+                }
+            }
             context.Maintenance_MaintenanceDay = this.Maintenance_MaintenanceDay;
             context.Maintenance_MaintenanceStartHour = this.Maintenance_MaintenanceStartHour;
             if (this.MediaStream != null)
@@ -444,6 +467,10 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             if (cmdletContext.FlowSize != null)
             {
                 request.FlowSize = cmdletContext.FlowSize;
+            }
+            if (cmdletContext.FlowTag != null)
+            {
+                request.FlowTags = cmdletContext.FlowTag;
             }
             
              // populate Maintenance
@@ -704,6 +731,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public System.String AvailabilityZone { get; set; }
             public List<Amazon.MediaConnect.Model.GrantEntitlementRequest> Entitlement { get; set; }
             public Amazon.MediaConnect.FlowSize FlowSize { get; set; }
+            public Dictionary<System.String, System.String> FlowTag { get; set; }
             public Amazon.MediaConnect.MaintenanceDay Maintenance_MaintenanceDay { get; set; }
             public System.String Maintenance_MaintenanceStartHour { get; set; }
             public List<Amazon.MediaConnect.Model.AddMediaStreamRequest> MediaStream { get; set; }

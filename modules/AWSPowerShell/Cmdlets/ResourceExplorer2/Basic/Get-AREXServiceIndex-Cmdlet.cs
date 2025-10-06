@@ -23,54 +23,37 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.BedrockAgentCore;
-using Amazon.BedrockAgentCore.Model;
+using Amazon.ResourceExplorer2;
+using Amazon.ResourceExplorer2.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.BAC
+namespace Amazon.PowerShell.Cmdlets.AREX
 {
     /// <summary>
-    /// Obtains a workload access token for agentic workloads not acting on behalf of a user.
+    /// Retrieves information about the Resource Explorer index in the current Amazon Web
+    /// Services Region. This operation returns the ARN and type of the index if one exists.
     /// </summary>
-    [Cmdlet("Get", "BACWorkloadAccessToken")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer GetWorkloadAccessToken API operation.", Operation = new[] {"GetWorkloadAccessToken"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.GetWorkloadAccessTokenResponse))]
-    [AWSCmdletOutput("System.String or Amazon.BedrockAgentCore.Model.GetWorkloadAccessTokenResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.BedrockAgentCore.Model.GetWorkloadAccessTokenResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "AREXServiceIndex")]
+    [OutputType("Amazon.ResourceExplorer2.Model.GetServiceIndexResponse")]
+    [AWSCmdlet("Calls the AWS Resource Explorer GetServiceIndex API operation.", Operation = new[] {"GetServiceIndex"}, SelectReturnType = typeof(Amazon.ResourceExplorer2.Model.GetServiceIndexResponse))]
+    [AWSCmdletOutput("Amazon.ResourceExplorer2.Model.GetServiceIndexResponse",
+        "This cmdlet returns an Amazon.ResourceExplorer2.Model.GetServiceIndexResponse object containing multiple properties."
     )]
-    public partial class GetBACWorkloadAccessTokenCmdlet : AmazonBedrockAgentCoreClientCmdlet, IExecutor
+    public partial class GetAREXServiceIndexCmdlet : AmazonResourceExplorer2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter WorkloadName
-        /// <summary>
-        /// <para>
-        /// <para>The unique identifier for the registered workload.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String WorkloadName { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'WorkloadAccessToken'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCore.Model.GetWorkloadAccessTokenResponse).
-        /// Specifying the name of a property of type Amazon.BedrockAgentCore.Model.GetWorkloadAccessTokenResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResourceExplorer2.Model.GetServiceIndexResponse).
+        /// Specifying the name of a property of type Amazon.ResourceExplorer2.Model.GetServiceIndexResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "WorkloadAccessToken";
+        public string Select { get; set; } = "*";
         #endregion
         
         protected override void StopProcessing()
@@ -89,16 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCore.Model.GetWorkloadAccessTokenResponse, GetBACWorkloadAccessTokenCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ResourceExplorer2.Model.GetServiceIndexResponse, GetAREXServiceIndexCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.WorkloadName = this.WorkloadName;
-            #if MODULAR
-            if (this.WorkloadName == null && ParameterWasBound(nameof(this.WorkloadName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter WorkloadName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -113,12 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.BedrockAgentCore.Model.GetWorkloadAccessTokenRequest();
+            var request = new Amazon.ResourceExplorer2.Model.GetServiceIndexRequest();
             
-            if (cmdletContext.WorkloadName != null)
-            {
-                request.WorkloadName = cmdletContext.WorkloadName;
-            }
             
             CmdletOutput output;
             
@@ -152,12 +124,12 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         #region AWS Service Operation Call
         
-        private Amazon.BedrockAgentCore.Model.GetWorkloadAccessTokenResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.GetWorkloadAccessTokenRequest request)
+        private Amazon.ResourceExplorer2.Model.GetServiceIndexResponse CallAWSServiceOperation(IAmazonResourceExplorer2 client, Amazon.ResourceExplorer2.Model.GetServiceIndexRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "GetWorkloadAccessToken");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Explorer", "GetServiceIndex");
             try
             {
-                return client.GetWorkloadAccessTokenAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetServiceIndexAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -174,9 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String WorkloadName { get; set; }
-            public System.Func<Amazon.BedrockAgentCore.Model.GetWorkloadAccessTokenResponse, GetBACWorkloadAccessTokenCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.WorkloadAccessToken;
+            public System.Func<Amazon.ResourceExplorer2.Model.GetServiceIndexResponse, GetAREXServiceIndexCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

@@ -23,46 +23,32 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.QuickSight;
-using Amazon.QuickSight.Model;
+using Amazon.BedrockAgentCore;
+using Amazon.BedrockAgentCore.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.QS
+namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// <important><para>
-    /// This API permanently deletes all QuickSight customizations for the specified Amazon
-    /// Web Services account and namespace. When you delete account customizations:
-    /// </para><ul><li><para>
-    /// All customizations are removed including themes, branding, and visual settings
-    /// </para></li><li><para>
-    /// This action cannot be undone through the API
-    /// </para></li><li><para>
-    /// Users will see default QuickSight styling after customizations are deleted
-    /// </para></li></ul><para><b>Before proceeding:</b> Ensure you have backups of any custom themes or branding
-    /// elements you may want to recreate.
-    /// </para></important><para>
-    /// Deletes all Amazon QuickSight customizations for the specified Amazon Web Services
-    /// account and QuickSight namespace.
-    /// </para>
+    /// Creates multiple memory records in a single batch operation for the specified memory
+    /// with custom content.
     /// </summary>
-    [Cmdlet("Remove", "QSAccountCustomization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.QuickSight.Model.DeleteAccountCustomizationResponse")]
-    [AWSCmdlet("Calls the Amazon QuickSight DeleteAccountCustomization API operation.", Operation = new[] {"DeleteAccountCustomization"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DeleteAccountCustomizationResponse))]
-    [AWSCmdletOutput("Amazon.QuickSight.Model.DeleteAccountCustomizationResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.DeleteAccountCustomizationResponse object containing multiple properties."
+    [Cmdlet("New", "BACBatchMemoryRecord", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.BedrockAgentCore.Model.BatchCreateMemoryRecordsResponse")]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer BatchCreateMemoryRecords API operation.", Operation = new[] {"BatchCreateMemoryRecords"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.BatchCreateMemoryRecordsResponse))]
+    [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.BatchCreateMemoryRecordsResponse",
+        "This cmdlet returns an Amazon.BedrockAgentCore.Model.BatchCreateMemoryRecordsResponse object containing multiple properties."
     )]
-    public partial class RemoveQSAccountCustomizationCmdlet : AmazonQuickSightClientCmdlet, IExecutor
+    public partial class NewBACBatchMemoryRecordCmdlet : AmazonBedrockAgentCoreClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter AwsAccountId
+        #region Parameter MemoryId
         /// <summary>
         /// <para>
-        /// <para>The ID for the Amazon Web Services account that you want to delete QuickSight customizations
-        /// from.</para>
+        /// <para>The unique ID of the memory resource where records will be created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,24 +59,46 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AwsAccountId { get; set; }
+        public System.String MemoryId { get; set; }
         #endregion
         
-        #region Parameter Namespace
+        #region Parameter Record
         /// <summary>
         /// <para>
-        /// <para>The QuickSight namespace that you're deleting the customizations from.</para>
+        /// <para>A list of memory record creation inputs to be processed in the batch operation.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("Records")]
+        public Amazon.BedrockAgentCore.Model.MemoryRecordCreateInput[] Record { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier to ensure idempotent processing of the batch request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Namespace { get; set; }
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.DeleteAccountCustomizationResponse).
-        /// Specifying the name of a property of type Amazon.QuickSight.Model.DeleteAccountCustomizationResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCore.Model.BatchCreateMemoryRecordsResponse).
+        /// Specifying the name of a property of type Amazon.BedrockAgentCore.Model.BatchCreateMemoryRecordsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,8 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AwsAccountId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-QSAccountCustomization (DeleteAccountCustomization)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MemoryId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-BACBatchMemoryRecord (BatchCreateMemoryRecords)"))
             {
                 return;
             }
@@ -129,17 +137,27 @@ namespace Amazon.PowerShell.Cmdlets.QS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.DeleteAccountCustomizationResponse, RemoveQSAccountCustomizationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCore.Model.BatchCreateMemoryRecordsResponse, NewBACBatchMemoryRecordCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.AwsAccountId = this.AwsAccountId;
+            context.ClientToken = this.ClientToken;
+            context.MemoryId = this.MemoryId;
             #if MODULAR
-            if (this.AwsAccountId == null && ParameterWasBound(nameof(this.AwsAccountId)))
+            if (this.MemoryId == null && ParameterWasBound(nameof(this.MemoryId)))
             {
-                WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter MemoryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Namespace = this.Namespace;
+            if (this.Record != null)
+            {
+                context.Record = new List<Amazon.BedrockAgentCore.Model.MemoryRecordCreateInput>(this.Record);
+            }
+            #if MODULAR
+            if (this.Record == null && ParameterWasBound(nameof(this.Record)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Record which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -154,15 +172,19 @@ namespace Amazon.PowerShell.Cmdlets.QS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.QuickSight.Model.DeleteAccountCustomizationRequest();
+            var request = new Amazon.BedrockAgentCore.Model.BatchCreateMemoryRecordsRequest();
             
-            if (cmdletContext.AwsAccountId != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.AwsAccountId = cmdletContext.AwsAccountId;
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.Namespace != null)
+            if (cmdletContext.MemoryId != null)
             {
-                request.Namespace = cmdletContext.Namespace;
+                request.MemoryId = cmdletContext.MemoryId;
+            }
+            if (cmdletContext.Record != null)
+            {
+                request.Records = cmdletContext.Record;
             }
             
             CmdletOutput output;
@@ -197,12 +219,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         #region AWS Service Operation Call
         
-        private Amazon.QuickSight.Model.DeleteAccountCustomizationResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.DeleteAccountCustomizationRequest request)
+        private Amazon.BedrockAgentCore.Model.BatchCreateMemoryRecordsResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.BatchCreateMemoryRecordsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "DeleteAccountCustomization");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "BatchCreateMemoryRecords");
             try
             {
-                return client.DeleteAccountCustomizationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.BatchCreateMemoryRecordsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -219,9 +241,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AwsAccountId { get; set; }
-            public System.String Namespace { get; set; }
-            public System.Func<Amazon.QuickSight.Model.DeleteAccountCustomizationResponse, RemoveQSAccountCustomizationCmdlet, object> Select { get; set; } =
+            public System.String ClientToken { get; set; }
+            public System.String MemoryId { get; set; }
+            public List<Amazon.BedrockAgentCore.Model.MemoryRecordCreateInput> Record { get; set; }
+            public System.Func<Amazon.BedrockAgentCore.Model.BatchCreateMemoryRecordsResponse, NewBACBatchMemoryRecordCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

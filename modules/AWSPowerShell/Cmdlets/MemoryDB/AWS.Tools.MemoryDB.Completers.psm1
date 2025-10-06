@@ -208,6 +208,8 @@ $MDB_SelectMap = @{
                "Get-MDBEngineVersion",
                "Get-MDBEvent",
                "Get-MDBMultiRegionCluster",
+               "Get-MDBMultiRegionParameterGroup",
+               "Get-MDBMultiRegionParameter",
                "Get-MDBParameterGroup",
                "Get-MDBParameter",
                "Get-MDBReservedNode",

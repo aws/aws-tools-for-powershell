@@ -23,52 +23,72 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Backup;
-using Amazon.Backup.Model;
+using Amazon.BedrockAgentCore;
+using Amazon.BedrockAgentCore.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.BAK
+namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Updates whether the Amazon Web Services account is opted in to cross-account backup.
-    /// Returns an error if the account is not an Organizations management account. Use the
-    /// <c>DescribeGlobalSettings</c> API to determine the current settings.
+    /// Updates multiple memory records with custom content in a single batch operation within
+    /// the specified memory.
     /// </summary>
-    [Cmdlet("Update", "BAKGlobalSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Backup UpdateGlobalSettings API operation.", Operation = new[] {"UpdateGlobalSettings"}, SelectReturnType = typeof(Amazon.Backup.Model.UpdateGlobalSettingsResponse))]
-    [AWSCmdletOutput("None or Amazon.Backup.Model.UpdateGlobalSettingsResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Backup.Model.UpdateGlobalSettingsResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Update", "BACBatchMemoryRecord", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.BedrockAgentCore.Model.BatchUpdateMemoryRecordsResponse")]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer BatchUpdateMemoryRecords API operation.", Operation = new[] {"BatchUpdateMemoryRecords"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.BatchUpdateMemoryRecordsResponse))]
+    [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.BatchUpdateMemoryRecordsResponse",
+        "This cmdlet returns an Amazon.BedrockAgentCore.Model.BatchUpdateMemoryRecordsResponse object containing multiple properties."
     )]
-    public partial class UpdateBAKGlobalSettingCmdlet : AmazonBackupClientCmdlet, IExecutor
+    public partial class UpdateBACBatchMemoryRecordCmdlet : AmazonBedrockAgentCoreClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter GlobalSetting
+        #region Parameter MemoryId
         /// <summary>
         /// <para>
-        /// <para>Inputs can include:</para><para>A value for <c>isCrossAccountBackupEnabled</c> and a Region. Example: <c>update-global-settings
-        /// --global-settings isCrossAccountBackupEnabled=false --region us-west-2</c>.</para><para>A value for Multi-party approval, styled as "Mpa": <c>isMpaEnabled</c>. Values can
-        /// be true or false. Example: <c>update-global-settings --global-settings isMpaEnabled=false
-        /// --region us-west-2</c>.</para><para />
+        /// <para>The unique ID of the memory resource where records will be updated.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String MemoryId { get; set; }
+        #endregion
+        
+        #region Parameter Record
+        /// <summary>
+        /// <para>
+        /// <para>A list of memory record update inputs to be processed in the batch operation.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("GlobalSettings")]
-        public System.Collections.Hashtable GlobalSetting { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("Records")]
+        public Amazon.BedrockAgentCore.Model.MemoryRecordUpdateInput[] Record { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Backup.Model.UpdateGlobalSettingsResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCore.Model.BatchUpdateMemoryRecordsResponse).
+        /// Specifying the name of a property of type Amazon.BedrockAgentCore.Model.BatchUpdateMemoryRecordsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.GlobalSetting), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-BAKGlobalSetting (UpdateGlobalSettings)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MemoryId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-BACBatchMemoryRecord (BatchUpdateMemoryRecords)"))
             {
                 return;
             }
@@ -107,17 +127,26 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Backup.Model.UpdateGlobalSettingsResponse, UpdateBAKGlobalSettingCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCore.Model.BatchUpdateMemoryRecordsResponse, UpdateBACBatchMemoryRecordCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.GlobalSetting != null)
+            context.MemoryId = this.MemoryId;
+            #if MODULAR
+            if (this.MemoryId == null && ParameterWasBound(nameof(this.MemoryId)))
             {
-                context.GlobalSetting = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.GlobalSetting.Keys)
-                {
-                    context.GlobalSetting.Add((String)hashKey, (System.String)(this.GlobalSetting[hashKey]));
-                }
+                WriteWarning("You are passing $null as a value for parameter MemoryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
+            if (this.Record != null)
+            {
+                context.Record = new List<Amazon.BedrockAgentCore.Model.MemoryRecordUpdateInput>(this.Record);
+            }
+            #if MODULAR
+            if (this.Record == null && ParameterWasBound(nameof(this.Record)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Record which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -132,11 +161,15 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Backup.Model.UpdateGlobalSettingsRequest();
+            var request = new Amazon.BedrockAgentCore.Model.BatchUpdateMemoryRecordsRequest();
             
-            if (cmdletContext.GlobalSetting != null)
+            if (cmdletContext.MemoryId != null)
             {
-                request.GlobalSettings = cmdletContext.GlobalSetting;
+                request.MemoryId = cmdletContext.MemoryId;
+            }
+            if (cmdletContext.Record != null)
+            {
+                request.Records = cmdletContext.Record;
             }
             
             CmdletOutput output;
@@ -171,12 +204,12 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         #region AWS Service Operation Call
         
-        private Amazon.Backup.Model.UpdateGlobalSettingsResponse CallAWSServiceOperation(IAmazonBackup client, Amazon.Backup.Model.UpdateGlobalSettingsRequest request)
+        private Amazon.BedrockAgentCore.Model.BatchUpdateMemoryRecordsResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.BatchUpdateMemoryRecordsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Backup", "UpdateGlobalSettings");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "BatchUpdateMemoryRecords");
             try
             {
-                return client.UpdateGlobalSettingsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.BatchUpdateMemoryRecordsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -193,9 +226,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Dictionary<System.String, System.String> GlobalSetting { get; set; }
-            public System.Func<Amazon.Backup.Model.UpdateGlobalSettingsResponse, UpdateBAKGlobalSettingCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String MemoryId { get; set; }
+            public List<Amazon.BedrockAgentCore.Model.MemoryRecordUpdateInput> Record { get; set; }
+            public System.Func<Amazon.BedrockAgentCore.Model.BatchUpdateMemoryRecordsResponse, UpdateBACBatchMemoryRecordCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

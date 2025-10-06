@@ -188,9 +188,13 @@ $BAC_SelectCompleters = {
 }
 
 $BAC_SelectMap = @{
-    "Select"=@("New-BACEvent",
+    "Select"=@("New-BACBatchMemoryRecord",
+               "Remove-BACBatchMemoryRecord",
+               "Update-BACBatchMemoryRecord",
+               "New-BACEvent",
                "Remove-BACEvent",
                "Remove-BACMemoryRecord",
+               "Get-BACAgentCard",
                "Get-BACBrowserSession",
                "Get-BACCodeInterpreterSession",
                "Get-BACEvent",
@@ -213,6 +217,7 @@ $BAC_SelectMap = @{
                "Start-BACCodeInterpreterSession",
                "Stop-BACBrowserSession",
                "Stop-BACCodeInterpreterSession",
+               "Stop-BACRuntimeSession",
                "Update-BACBrowserStream")
 }
 

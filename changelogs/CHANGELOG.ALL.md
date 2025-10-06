@@ -1,4 +1,36 @@
-﻿### 5.0.69 (2025-10-03 20:09Z)
+﻿### 5.0.70 (2025-10-06 20:57Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.106.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Backup
+    * Modified cmdlet Get-BAKBackupPlan: added parameter MaxScheduledRunsPreview.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCAgentRuntime: added parameters LifecycleConfiguration_IdleRuntimeSessionTimeout and LifecycleConfiguration_MaxLifetime.
+    * Modified cmdlet New-BACCMemory: added parameter Tag.
+    * Modified cmdlet Update-BACCAgentRuntime: added parameters LifecycleConfiguration_IdleRuntimeSessionTimeout and LifecycleConfiguration_MaxLifetime.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Added cmdlet Get-BACAgentCard leveraging the GetAgentCard service API.
+    * Added cmdlet New-BACBatchMemoryRecord leveraging the BatchCreateMemoryRecords service API.
+    * Added cmdlet Remove-BACBatchMemoryRecord leveraging the BatchDeleteMemoryRecords service API.
+    * Added cmdlet Stop-BACRuntimeSession leveraging the StopRuntimeSession service API.
+    * Added cmdlet Update-BACBatchMemoryRecord leveraging the BatchUpdateMemoryRecords service API.
+    * Modified cmdlet Get-BACEventList: added parameter Filter_EventMetadata.
+    * Modified cmdlet New-BACEvent: added parameter Metadata.
+  * Amazon Elemental MediaConnect
+    * Modified cmdlet New-EMCNFlow: added parameter FlowTag.
+    * Modified cmdlet Update-EMCNFlow: added parameter FlowSize.
+  * Amazon MemoryDB
+    * Added cmdlet Get-MDBMultiRegionParameter leveraging the DescribeMultiRegionParameters service API.
+    * Added cmdlet Get-MDBMultiRegionParameterGroup leveraging the DescribeMultiRegionParameterGroups service API.
+  * Amazon Resource Explorer
+    * Added cmdlet Get-AREXResourceExplorerSetup leveraging the GetResourceExplorerSetup service API.
+    * Added cmdlet Get-AREXServiceIndex leveraging the GetServiceIndex service API.
+    * Added cmdlet Get-AREXServiceIndexList leveraging the ListServiceIndexes service API.
+    * Added cmdlet Get-AREXServiceView leveraging the GetServiceView service API.
+    * Added cmdlet Get-AREXServiceViewList leveraging the ListServiceViews service API.
+    * Added cmdlet Get-AREXStreamingAccessForServiceList leveraging the ListStreamingAccessForServices service API.
+    * Added cmdlet New-AREXResourceExplorerSetup leveraging the CreateResourceExplorerSetup service API.
+    * Added cmdlet Remove-AREXResourceExplorerSetup leveraging the DeleteResourceExplorerSetup service API.
+
+### 5.0.69 (2025-10-03 20:09Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.105.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Clean Rooms Service
     * Modified cmdlet New-CRSCollaboration: added parameter AllowedResultRegion.

@@ -18,6 +18,18 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="BatchCreateMemoryRecords" OutputProperty="*" Verb="New" Noun="BatchMemoryRecord" ShouldProcessTarget="MemoryId" PipelineParameter="MemoryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeleteMemoryRecords" OutputProperty="*" Verb="Remove" Noun="BatchMemoryRecord" ShouldProcessTarget="MemoryId" PipelineParameter="MemoryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchUpdateMemoryRecords" OutputProperty="*" Verb="Update" Noun="BatchMemoryRecord" ShouldProcessTarget="MemoryId" PipelineParameter="MemoryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateEvent" OutputProperty="Event" Verb="New" Noun="Event" ShouldProcessTarget="MemoryId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -27,6 +39,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteMemoryRecord" OutputProperty="MemoryRecordId" Verb="Remove" Noun="MemoryRecord" ShouldProcessTarget="MemoryRecordId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAgentCard" OutputProperty="*" Verb="Get" Noun="AgentCard" PipelineParameter="AgentRuntimeArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -118,6 +134,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopCodeInterpreterSession" OutputProperty="*" Verb="Stop" Noun="CodeInterpreterSession" ShouldProcessTarget="SessionId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopRuntimeSession" OutputProperty="*" Verb="Stop" Noun="RuntimeSession" ShouldProcessTarget="RuntimeSessionId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

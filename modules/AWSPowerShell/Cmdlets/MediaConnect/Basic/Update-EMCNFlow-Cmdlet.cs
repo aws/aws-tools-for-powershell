@@ -101,6 +101,17 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public System.String FlowArn { get; set; }
         #endregion
         
+        #region Parameter FlowSize
+        /// <summary>
+        /// <para>
+        /// <para> Determines the processing capacity and feature set of the flow. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.FlowSize")]
+        public Amazon.MediaConnect.FlowSize FlowSize { get; set; }
+        #endregion
+        
         #region Parameter NdiConfig_MachineName
         /// <summary>
         /// <para>
@@ -285,6 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 WriteWarning("You are passing $null as a value for parameter FlowArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.FlowSize = this.FlowSize;
             context.Maintenance_MaintenanceDay = this.Maintenance_MaintenanceDay;
             context.Maintenance_MaintenanceScheduledDate = this.Maintenance_MaintenanceScheduledDate;
             context.Maintenance_MaintenanceStartHour = this.Maintenance_MaintenanceStartHour;
@@ -327,6 +339,10 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             if (cmdletContext.FlowArn != null)
             {
                 request.FlowArn = cmdletContext.FlowArn;
+            }
+            if (cmdletContext.FlowSize != null)
+            {
+                request.FlowSize = cmdletContext.FlowSize;
             }
             
              // populate Maintenance
@@ -575,6 +591,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String FlowArn { get; set; }
+            public Amazon.MediaConnect.FlowSize FlowSize { get; set; }
             public Amazon.MediaConnect.MaintenanceDay Maintenance_MaintenanceDay { get; set; }
             public System.String Maintenance_MaintenanceScheduledDate { get; set; }
             public System.String Maintenance_MaintenanceStartHour { get; set; }

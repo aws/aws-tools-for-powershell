@@ -30,11 +30,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateResourceExplorerSetup" OutputProperty="TaskId" Verb="New" Noun="ResourceExplorerSetup" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateView" OutputProperty="View" Verb="New" Noun="View" ShouldProcessTarget="ViewName" PipelineParameter="ViewName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteIndex" OutputProperty="*" Verb="Remove" Noun="Index" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourceExplorerSetup" OutputProperty="TaskId" Verb="Remove" Noun="ResourceExplorerSetup" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -62,6 +70,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetResourceExplorerSetup" OutputProperty="Regions" Verb="Get" Noun="ResourceExplorerSetup" PipelineParameter="TaskId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetServiceIndex" OutputProperty="*" Verb="Get" Noun="ServiceIndex" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetServiceView" OutputProperty="View" Verb="Get" Noun="ServiceView" PipelineParameter="ServiceViewArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetView" OutputProperty="*" Verb="Get" Noun="View" PipelineParameter="ViewArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -81,6 +101,20 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListResources" OutputProperty="*" Verb="Get" Noun="ResourceList" PipelineParameter="ViewArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServiceIndexes" OutputProperty="Indexes" Verb="Get" Noun="ServiceIndexList" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="Regions" NewName="ServiceIndexRegion" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServiceViews" OutputProperty="ServiceViews" Verb="Get" Noun="ServiceViewList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStreamingAccessForServices" OutputProperty="StreamingAccessForServices" Verb="Get" Noun="StreamingAccessForServiceList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
