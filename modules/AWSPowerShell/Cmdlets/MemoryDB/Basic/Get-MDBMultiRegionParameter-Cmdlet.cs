@@ -22,32 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Backup;
-using Amazon.Backup.Model;
+using Amazon.MemoryDB;
+using Amazon.MemoryDB.Model;
 
-namespace Amazon.PowerShell.Cmdlets.BAK
+namespace Amazon.PowerShell.Cmdlets.MDB
 {
     /// <summary>
-    /// Returns <c>BackupPlan</c> details for the specified <c>BackupPlanId</c>. The details
-    /// are the body of a backup plan in JSON format, in addition to plan metadata.
+    /// Returns the detailed parameter list for a particular multi-region parameter group.
     /// </summary>
-    [Cmdlet("Get", "BAKBackupPlan")]
-    [OutputType("Amazon.Backup.Model.GetBackupPlanResponse")]
-    [AWSCmdlet("Calls the AWS Backup GetBackupPlan API operation.", Operation = new[] {"GetBackupPlan"}, SelectReturnType = typeof(Amazon.Backup.Model.GetBackupPlanResponse))]
-    [AWSCmdletOutput("Amazon.Backup.Model.GetBackupPlanResponse",
-        "This cmdlet returns an Amazon.Backup.Model.GetBackupPlanResponse object containing multiple properties."
+    [Cmdlet("Get", "MDBMultiRegionParameter")]
+    [OutputType("Amazon.MemoryDB.Model.MultiRegionParameter")]
+    [AWSCmdlet("Calls the Amazon MemoryDB DescribeMultiRegionParameters API operation.", Operation = new[] {"DescribeMultiRegionParameters"}, SelectReturnType = typeof(Amazon.MemoryDB.Model.DescribeMultiRegionParametersResponse))]
+    [AWSCmdletOutput("Amazon.MemoryDB.Model.MultiRegionParameter or Amazon.MemoryDB.Model.DescribeMultiRegionParametersResponse",
+        "This cmdlet returns a collection of Amazon.MemoryDB.Model.MultiRegionParameter objects.",
+        "The service call response (type Amazon.MemoryDB.Model.DescribeMultiRegionParametersResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetBAKBackupPlanCmdlet : AmazonBackupClientCmdlet, IExecutor
+    public partial class GetMDBMultiRegionParameterCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter BackupPlanId
+        #region Parameter MultiRegionParameterGroupName
         /// <summary>
         /// <para>
-        /// <para>Uniquely identifies a backup plan.</para>
+        /// <para>The name of the multi-region parameter group to return details for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,48 +56,61 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String BackupPlanId { get; set; }
+        public System.String MultiRegionParameterGroupName { get; set; }
         #endregion
         
-        #region Parameter MaxScheduledRunsPreview
+        #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para>Number of future scheduled backup runs to preview. When set to 0 (default), no scheduled
-        /// runs preview is included in the response. Valid range is 0-10.</para>
+        /// <para>The parameter types to return. Valid values: user | system | engine-default</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? MaxScheduledRunsPreview { get; set; }
+        public System.String Source { get; set; }
         #endregion
         
-        #region Parameter VersionId
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024
-        /// bytes long. Version IDs cannot be edited.</para>
+        /// <para>The maximum number of records to include in the response. If more records exist than
+        /// the specified MaxResults value, a token is included in the response so that the remaining
+        /// results can be retrieved.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String VersionId { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>An optional token returned from a prior request. Use this token for pagination of
+        /// results from this action. If this parameter is specified, the response includes only
+        /// results beyond the token, up to the value specified by MaxResults.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Backup.Model.GetBackupPlanResponse).
-        /// Specifying the name of a property of type Amazon.Backup.Model.GetBackupPlanResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'MultiRegionParameters'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MemoryDB.Model.DescribeMultiRegionParametersResponse).
+        /// Specifying the name of a property of type Amazon.MemoryDB.Model.DescribeMultiRegionParametersResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "MultiRegionParameters";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the BackupPlanId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^BackupPlanId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the MultiRegionParameterGroupName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^MultiRegionParameterGroupName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^BackupPlanId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^MultiRegionParameterGroupName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -117,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Backup.Model.GetBackupPlanResponse, GetBAKBackupPlanCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MemoryDB.Model.DescribeMultiRegionParametersResponse, GetMDBMultiRegionParameterCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -126,18 +137,19 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.BackupPlanId;
+                context.Select = (response, cmdlet) => this.MultiRegionParameterGroupName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.BackupPlanId = this.BackupPlanId;
+            context.MaxResult = this.MaxResult;
+            context.MultiRegionParameterGroupName = this.MultiRegionParameterGroupName;
             #if MODULAR
-            if (this.BackupPlanId == null && ParameterWasBound(nameof(this.BackupPlanId)))
+            if (this.MultiRegionParameterGroupName == null && ParameterWasBound(nameof(this.MultiRegionParameterGroupName)))
             {
-                WriteWarning("You are passing $null as a value for parameter BackupPlanId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter MultiRegionParameterGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MaxScheduledRunsPreview = this.MaxScheduledRunsPreview;
-            context.VersionId = this.VersionId;
+            context.NextToken = this.NextToken;
+            context.Source = this.Source;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -152,19 +164,23 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Backup.Model.GetBackupPlanRequest();
+            var request = new Amazon.MemoryDB.Model.DescribeMultiRegionParametersRequest();
             
-            if (cmdletContext.BackupPlanId != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.BackupPlanId = cmdletContext.BackupPlanId;
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.MaxScheduledRunsPreview != null)
+            if (cmdletContext.MultiRegionParameterGroupName != null)
             {
-                request.MaxScheduledRunsPreview = cmdletContext.MaxScheduledRunsPreview.Value;
+                request.MultiRegionParameterGroupName = cmdletContext.MultiRegionParameterGroupName;
             }
-            if (cmdletContext.VersionId != null)
+            if (cmdletContext.NextToken != null)
             {
-                request.VersionId = cmdletContext.VersionId;
+                request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.Source != null)
+            {
+                request.Source = cmdletContext.Source;
             }
             
             CmdletOutput output;
@@ -199,15 +215,15 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         #region AWS Service Operation Call
         
-        private Amazon.Backup.Model.GetBackupPlanResponse CallAWSServiceOperation(IAmazonBackup client, Amazon.Backup.Model.GetBackupPlanRequest request)
+        private Amazon.MemoryDB.Model.DescribeMultiRegionParametersResponse CallAWSServiceOperation(IAmazonMemoryDB client, Amazon.MemoryDB.Model.DescribeMultiRegionParametersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Backup", "GetBackupPlan");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MemoryDB", "DescribeMultiRegionParameters");
             try
             {
                 #if DESKTOP
-                return client.GetBackupPlan(request);
+                return client.DescribeMultiRegionParameters(request);
                 #elif CORECLR
-                return client.GetBackupPlanAsync(request).GetAwaiter().GetResult();
+                return client.DescribeMultiRegionParametersAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -227,11 +243,12 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String BackupPlanId { get; set; }
-            public System.Int32? MaxScheduledRunsPreview { get; set; }
-            public System.String VersionId { get; set; }
-            public System.Func<Amazon.Backup.Model.GetBackupPlanResponse, GetBAKBackupPlanCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Int32? MaxResult { get; set; }
+            public System.String MultiRegionParameterGroupName { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String Source { get; set; }
+            public System.Func<Amazon.MemoryDB.Model.DescribeMultiRegionParametersResponse, GetMDBMultiRegionParameterCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.MultiRegionParameters;
         }
         
     }

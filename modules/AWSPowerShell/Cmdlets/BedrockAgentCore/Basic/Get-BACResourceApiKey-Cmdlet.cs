@@ -28,7 +28,7 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Retrieves an API Key associated with an API Key Credential Provider
+    /// Retrieves the API key associated with an API key credential provider.
     /// </summary>
     [Cmdlet("Get", "BACResourceApiKey")]
     [OutputType("System.String")]
@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter ResourceCredentialProviderName
         /// <summary>
         /// <para>
-        /// <para>The credential provider name of the resource you are retrieving the API Key of.</para>
+        /// <para>The credential provider name for the resource from which you are retrieving the API
+        /// key.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter WorkloadIdentityToken
         /// <summary>
         /// <para>
-        /// <para>The identity token of the workload you want to get the API Key of.</para>
+        /// <para>The identity token of the workload from which you want to retrieve the API key.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

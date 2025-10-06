@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1137.0",
+    "ProductVersion"    : "3.7.1138.0",
     "CoreVersion"       : "3.7.500.27",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -276,7 +276,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "3.7.506.0",
+            "Version" : "3.7.506.1",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.27"
@@ -796,7 +796,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "3.7.506.3",
+            "Version" : "3.7.507.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.27"
@@ -1156,7 +1156,7 @@
             "InPreview"               : false
         },
         "QuickSight"                      : {
-            "Version" : "3.7.503.9",
+            "Version" : "3.7.503.10",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.27"
@@ -1220,7 +1220,7 @@
             "InPreview"               : false
         },
         "MediaConnect"                    : {
-            "Version" : "3.7.501.18",
+            "Version" : "3.7.502.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.27"
@@ -1292,7 +1292,7 @@
             "InPreview"               : false
         },
         "Backup"                          : {
-            "Version" : "3.7.501.18",
+            "Version" : "3.7.502.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.27"
@@ -2116,7 +2116,7 @@
             "InPreview"               : false
         },
         "MemoryDB"                        : {
-            "Version" : "3.7.501.18",
+            "Version" : "3.7.502.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.27"
@@ -2428,7 +2428,7 @@
             "InPreview"               : false
         },
         "ResourceExplorer2"                   : {
-            "Version" : "3.7.501.16",
+            "Version" : "3.7.502.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.27"
@@ -3276,7 +3276,7 @@
             "InPreview"               : false
         },
         "BedrockAgentCore"                    : {
-            "Version" : "3.7.502.16",
+            "Version" : "3.7.503.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.27"
@@ -3284,7 +3284,7 @@
             "InPreview"               : false
         },
         "BedrockAgentCoreControl"             : {
-            "Version" : "3.7.503.0",
+            "Version" : "3.7.504.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.27"

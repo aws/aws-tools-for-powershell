@@ -22,32 +22,33 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Backup;
-using Amazon.Backup.Model;
+using Amazon.ResourceExplorer2;
+using Amazon.ResourceExplorer2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.BAK
+namespace Amazon.PowerShell.Cmdlets.AREX
 {
     /// <summary>
-    /// Returns <c>BackupPlan</c> details for the specified <c>BackupPlanId</c>. The details
-    /// are the body of a backup plan in JSON format, in addition to plan metadata.
+    /// Retrieves details about a specific Resource Explorer service view. This operation
+    /// returns the configuration and properties of the specified view.
     /// </summary>
-    [Cmdlet("Get", "BAKBackupPlan")]
-    [OutputType("Amazon.Backup.Model.GetBackupPlanResponse")]
-    [AWSCmdlet("Calls the AWS Backup GetBackupPlan API operation.", Operation = new[] {"GetBackupPlan"}, SelectReturnType = typeof(Amazon.Backup.Model.GetBackupPlanResponse))]
-    [AWSCmdletOutput("Amazon.Backup.Model.GetBackupPlanResponse",
-        "This cmdlet returns an Amazon.Backup.Model.GetBackupPlanResponse object containing multiple properties."
+    [Cmdlet("Get", "AREXServiceView")]
+    [OutputType("Amazon.ResourceExplorer2.Model.ServiceView")]
+    [AWSCmdlet("Calls the AWS Resource Explorer GetServiceView API operation.", Operation = new[] {"GetServiceView"}, SelectReturnType = typeof(Amazon.ResourceExplorer2.Model.GetServiceViewResponse))]
+    [AWSCmdletOutput("Amazon.ResourceExplorer2.Model.ServiceView or Amazon.ResourceExplorer2.Model.GetServiceViewResponse",
+        "This cmdlet returns an Amazon.ResourceExplorer2.Model.ServiceView object.",
+        "The service call response (type Amazon.ResourceExplorer2.Model.GetServiceViewResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetBAKBackupPlanCmdlet : AmazonBackupClientCmdlet, IExecutor
+    public partial class GetAREXServiceViewCmdlet : AmazonResourceExplorer2ClientCmdlet, IExecutor
     {
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter BackupPlanId
+        #region Parameter ServiceViewArn
         /// <summary>
         /// <para>
-        /// <para>Uniquely identifies a backup plan.</para>
+        /// <para>The Amazon Resource Name (ARN) of the service view to retrieve details for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,48 +59,26 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String BackupPlanId { get; set; }
-        #endregion
-        
-        #region Parameter MaxScheduledRunsPreview
-        /// <summary>
-        /// <para>
-        /// <para>Number of future scheduled backup runs to preview. When set to 0 (default), no scheduled
-        /// runs preview is included in the response. Valid range is 0-10.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? MaxScheduledRunsPreview { get; set; }
-        #endregion
-        
-        #region Parameter VersionId
-        /// <summary>
-        /// <para>
-        /// <para>Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024
-        /// bytes long. Version IDs cannot be edited.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String VersionId { get; set; }
+        public System.String ServiceViewArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Backup.Model.GetBackupPlanResponse).
-        /// Specifying the name of a property of type Amazon.Backup.Model.GetBackupPlanResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'View'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResourceExplorer2.Model.GetServiceViewResponse).
+        /// Specifying the name of a property of type Amazon.ResourceExplorer2.Model.GetServiceViewResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "View";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the BackupPlanId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^BackupPlanId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ServiceViewArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ServiceViewArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^BackupPlanId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ServiceViewArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -117,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Backup.Model.GetBackupPlanResponse, GetBAKBackupPlanCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ResourceExplorer2.Model.GetServiceViewResponse, GetAREXServiceViewCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -126,18 +105,16 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.BackupPlanId;
+                context.Select = (response, cmdlet) => this.ServiceViewArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.BackupPlanId = this.BackupPlanId;
+            context.ServiceViewArn = this.ServiceViewArn;
             #if MODULAR
-            if (this.BackupPlanId == null && ParameterWasBound(nameof(this.BackupPlanId)))
+            if (this.ServiceViewArn == null && ParameterWasBound(nameof(this.ServiceViewArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter BackupPlanId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ServiceViewArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MaxScheduledRunsPreview = this.MaxScheduledRunsPreview;
-            context.VersionId = this.VersionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -152,19 +129,11 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Backup.Model.GetBackupPlanRequest();
+            var request = new Amazon.ResourceExplorer2.Model.GetServiceViewRequest();
             
-            if (cmdletContext.BackupPlanId != null)
+            if (cmdletContext.ServiceViewArn != null)
             {
-                request.BackupPlanId = cmdletContext.BackupPlanId;
-            }
-            if (cmdletContext.MaxScheduledRunsPreview != null)
-            {
-                request.MaxScheduledRunsPreview = cmdletContext.MaxScheduledRunsPreview.Value;
-            }
-            if (cmdletContext.VersionId != null)
-            {
-                request.VersionId = cmdletContext.VersionId;
+                request.ServiceViewArn = cmdletContext.ServiceViewArn;
             }
             
             CmdletOutput output;
@@ -199,15 +168,15 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         #region AWS Service Operation Call
         
-        private Amazon.Backup.Model.GetBackupPlanResponse CallAWSServiceOperation(IAmazonBackup client, Amazon.Backup.Model.GetBackupPlanRequest request)
+        private Amazon.ResourceExplorer2.Model.GetServiceViewResponse CallAWSServiceOperation(IAmazonResourceExplorer2 client, Amazon.ResourceExplorer2.Model.GetServiceViewRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Backup", "GetBackupPlan");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Explorer", "GetServiceView");
             try
             {
                 #if DESKTOP
-                return client.GetBackupPlan(request);
+                return client.GetServiceView(request);
                 #elif CORECLR
-                return client.GetBackupPlanAsync(request).GetAwaiter().GetResult();
+                return client.GetServiceViewAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -227,11 +196,9 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String BackupPlanId { get; set; }
-            public System.Int32? MaxScheduledRunsPreview { get; set; }
-            public System.String VersionId { get; set; }
-            public System.Func<Amazon.Backup.Model.GetBackupPlanResponse, GetBAKBackupPlanCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ServiceViewArn { get; set; }
+            public System.Func<Amazon.ResourceExplorer2.Model.GetServiceViewResponse, GetAREXServiceViewCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.View;
         }
         
     }

@@ -28,10 +28,10 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Creates Amazon QuickSight customizations for the current Amazon Web Services Region.
-    /// Currently, you can add a custom default theme by using the <c>CreateAccountCustomization</c>
-    /// or <c>UpdateAccountCustomization</c> API operation. To further customize QuickSight
-    /// by removing QuickSight sample assets and videos for all new users, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-quicksight.html">Customizing
+    /// Creates Amazon QuickSight customizations. Currently, you can add a custom default
+    /// theme by using the <c>CreateAccountCustomization</c> or <c>UpdateAccountCustomization</c>
+    /// API operation. To further customize QuickSight by removing QuickSight sample assets
+    /// and videos for all new users, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-quicksight.html">Customizing
     /// QuickSight</a> in the <i>Amazon QuickSight User Guide.</i><para>
     /// You can create customizations for your Amazon Web Services account or, if you specify
     /// a namespace, for a QuickSight namespace instead. Customizations that apply to a namespace

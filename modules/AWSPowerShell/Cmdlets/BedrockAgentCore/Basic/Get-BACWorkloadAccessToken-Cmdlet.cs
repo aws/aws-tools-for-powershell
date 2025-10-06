@@ -28,7 +28,7 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Obtains an Workload access token for agentic workloads not acting on behalf of user.
+    /// Obtains a workload access token for agentic workloads not acting on behalf of a user.
     /// </summary>
     [Cmdlet("Get", "BACWorkloadAccessToken")]
     [OutputType("System.String")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter WorkloadName
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the registered agent</para>
+        /// <para>The unique identifier for the registered workload.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

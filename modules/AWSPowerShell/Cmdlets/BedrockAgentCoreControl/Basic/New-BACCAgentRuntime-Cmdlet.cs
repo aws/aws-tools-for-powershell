@@ -128,6 +128,28 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.Collections.Hashtable EnvironmentVariable { get; set; }
         #endregion
         
+        #region Parameter LifecycleConfiguration_IdleRuntimeSessionTimeout
+        /// <summary>
+        /// <para>
+        /// <para>Timeout in seconds for idle runtime sessions. When a session remains idle for this
+        /// duration, it will be automatically terminated. Default: 900 seconds (15 minutes).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? LifecycleConfiguration_IdleRuntimeSessionTimeout { get; set; }
+        #endregion
+        
+        #region Parameter LifecycleConfiguration_MaxLifetime
+        /// <summary>
+        /// <para>
+        /// <para>Maximum lifetime for the instance in seconds. Once reached, instances will be automatically
+        /// terminated and replaced. Default: 28800 seconds (8 hours).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? LifecycleConfiguration_MaxLifetime { get; set; }
+        #endregion
+        
         #region Parameter NetworkConfiguration_NetworkMode
         /// <summary>
         /// <para>
@@ -297,6 +319,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                     context.EnvironmentVariable.Add((String)hashKey, (System.String)(this.EnvironmentVariable[hashKey]));
                 }
             }
+            context.LifecycleConfiguration_IdleRuntimeSessionTimeout = this.LifecycleConfiguration_IdleRuntimeSessionTimeout;
+            context.LifecycleConfiguration_MaxLifetime = this.LifecycleConfiguration_MaxLifetime;
             context.NetworkConfiguration_NetworkMode = this.NetworkConfiguration_NetworkMode;
             #if MODULAR
             if (this.NetworkConfiguration_NetworkMode == null && ParameterWasBound(nameof(this.NetworkConfiguration_NetworkMode)))
@@ -451,6 +475,35 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (cmdletContext.EnvironmentVariable != null)
             {
                 request.EnvironmentVariables = cmdletContext.EnvironmentVariable;
+            }
+            
+             // populate LifecycleConfiguration
+            var requestLifecycleConfigurationIsNull = true;
+            request.LifecycleConfiguration = new Amazon.BedrockAgentCoreControl.Model.LifecycleConfiguration();
+            System.Int32? requestLifecycleConfiguration_lifecycleConfiguration_IdleRuntimeSessionTimeout = null;
+            if (cmdletContext.LifecycleConfiguration_IdleRuntimeSessionTimeout != null)
+            {
+                requestLifecycleConfiguration_lifecycleConfiguration_IdleRuntimeSessionTimeout = cmdletContext.LifecycleConfiguration_IdleRuntimeSessionTimeout.Value;
+            }
+            if (requestLifecycleConfiguration_lifecycleConfiguration_IdleRuntimeSessionTimeout != null)
+            {
+                request.LifecycleConfiguration.IdleRuntimeSessionTimeout = requestLifecycleConfiguration_lifecycleConfiguration_IdleRuntimeSessionTimeout.Value;
+                requestLifecycleConfigurationIsNull = false;
+            }
+            System.Int32? requestLifecycleConfiguration_lifecycleConfiguration_MaxLifetime = null;
+            if (cmdletContext.LifecycleConfiguration_MaxLifetime != null)
+            {
+                requestLifecycleConfiguration_lifecycleConfiguration_MaxLifetime = cmdletContext.LifecycleConfiguration_MaxLifetime.Value;
+            }
+            if (requestLifecycleConfiguration_lifecycleConfiguration_MaxLifetime != null)
+            {
+                request.LifecycleConfiguration.MaxLifetime = requestLifecycleConfiguration_lifecycleConfiguration_MaxLifetime.Value;
+                requestLifecycleConfigurationIsNull = false;
+            }
+             // determine if request.LifecycleConfiguration should be set to null
+            if (requestLifecycleConfigurationIsNull)
+            {
+                request.LifecycleConfiguration = null;
             }
             
              // populate NetworkConfiguration
@@ -621,6 +674,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public Dictionary<System.String, System.String> EnvironmentVariable { get; set; }
+            public System.Int32? LifecycleConfiguration_IdleRuntimeSessionTimeout { get; set; }
+            public System.Int32? LifecycleConfiguration_MaxLifetime { get; set; }
             public Amazon.BedrockAgentCoreControl.NetworkMode NetworkConfiguration_NetworkMode { get; set; }
             public List<System.String> NetworkModeConfig_SecurityGroup { get; set; }
             public List<System.String> NetworkModeConfig_Subnet { get; set; }

@@ -105,6 +105,16 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.String MemoryId { get; set; }
         #endregion
         
+        #region Parameter Metadata
+        /// <summary>
+        /// <para>
+        /// <para>The key-value metadata to attach to the event.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable Metadata { get; set; }
+        #endregion
+        
         #region Parameter Branch_Name
         /// <summary>
         /// <para>
@@ -231,6 +241,14 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 WriteWarning("You are passing $null as a value for parameter MemoryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Metadata != null)
+            {
+                context.Metadata = new Dictionary<System.String, Amazon.BedrockAgentCore.Model.MetadataValue>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Metadata.Keys)
+                {
+                    context.Metadata.Add((String)hashKey, (Amazon.BedrockAgentCore.Model.MetadataValue)(this.Metadata[hashKey]));
+                }
+            }
             if (this.Payload != null)
             {
                 context.Payload = new List<Amazon.BedrockAgentCore.Model.PayloadType>(this.Payload);
@@ -302,6 +320,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (cmdletContext.MemoryId != null)
             {
                 request.MemoryId = cmdletContext.MemoryId;
+            }
+            if (cmdletContext.Metadata != null)
+            {
+                request.Metadata = cmdletContext.Metadata;
             }
             if (cmdletContext.Payload != null)
             {
@@ -378,6 +400,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public System.String ClientToken { get; set; }
             public System.DateTime? EventTimestamp { get; set; }
             public System.String MemoryId { get; set; }
+            public Dictionary<System.String, Amazon.BedrockAgentCore.Model.MetadataValue> Metadata { get; set; }
             public List<Amazon.BedrockAgentCore.Model.PayloadType> Payload { get; set; }
             public System.String SessionId { get; set; }
             public System.Func<Amazon.BedrockAgentCore.Model.CreateEventResponse, NewBACEventCmdlet, object> Select { get; set; } =

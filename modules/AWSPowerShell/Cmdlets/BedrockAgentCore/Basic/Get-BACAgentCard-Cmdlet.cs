@@ -22,32 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Backup;
-using Amazon.Backup.Model;
+using Amazon.BedrockAgentCore;
+using Amazon.BedrockAgentCore.Model;
 
-namespace Amazon.PowerShell.Cmdlets.BAK
+namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Returns <c>BackupPlan</c> details for the specified <c>BackupPlanId</c>. The details
-    /// are the body of a backup plan in JSON format, in addition to plan metadata.
+    /// Retrieves the A2A agent card associated with an AgentCore Runtime agent.
     /// </summary>
-    [Cmdlet("Get", "BAKBackupPlan")]
-    [OutputType("Amazon.Backup.Model.GetBackupPlanResponse")]
-    [AWSCmdlet("Calls the AWS Backup GetBackupPlan API operation.", Operation = new[] {"GetBackupPlan"}, SelectReturnType = typeof(Amazon.Backup.Model.GetBackupPlanResponse))]
-    [AWSCmdletOutput("Amazon.Backup.Model.GetBackupPlanResponse",
-        "This cmdlet returns an Amazon.Backup.Model.GetBackupPlanResponse object containing multiple properties."
+    [Cmdlet("Get", "BACAgentCard")]
+    [OutputType("Amazon.BedrockAgentCore.Model.GetAgentCardResponse")]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer GetAgentCard API operation.", Operation = new[] {"GetAgentCard"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.GetAgentCardResponse))]
+    [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.GetAgentCardResponse",
+        "This cmdlet returns an Amazon.BedrockAgentCore.Model.GetAgentCardResponse object containing multiple properties."
     )]
-    public partial class GetBAKBackupPlanCmdlet : AmazonBackupClientCmdlet, IExecutor
+    public partial class GetBACAgentCardCmdlet : AmazonBedrockAgentCoreClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter BackupPlanId
+        #region Parameter AgentRuntimeArn
         /// <summary>
         /// <para>
-        /// <para>Uniquely identifies a backup plan.</para>
+        /// <para>The ARN of the AgentCore Runtime agent for which you want to get the A2A agent card.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,36 +55,35 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String BackupPlanId { get; set; }
+        public System.String AgentRuntimeArn { get; set; }
         #endregion
         
-        #region Parameter MaxScheduledRunsPreview
+        #region Parameter Qualifier
         /// <summary>
         /// <para>
-        /// <para>Number of future scheduled backup runs to preview. When set to 0 (default), no scheduled
-        /// runs preview is included in the response. Valid range is 0-10.</para>
+        /// <para>Optional qualifier to specify an agent alias, such as <c>prod</c>code&gt; or <c>dev</c>.
+        /// If you don't provide a value, the DEFAULT alias is used. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? MaxScheduledRunsPreview { get; set; }
+        public System.String Qualifier { get; set; }
         #endregion
         
-        #region Parameter VersionId
+        #region Parameter RuntimeSessionId
         /// <summary>
         /// <para>
-        /// <para>Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024
-        /// bytes long. Version IDs cannot be edited.</para>
+        /// <para>The session ID that the AgentCore Runtime agent is using. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String VersionId { get; set; }
+        public System.String RuntimeSessionId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Backup.Model.GetBackupPlanResponse).
-        /// Specifying the name of a property of type Amazon.Backup.Model.GetBackupPlanResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCore.Model.GetAgentCardResponse).
+        /// Specifying the name of a property of type Amazon.BedrockAgentCore.Model.GetAgentCardResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,10 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the BackupPlanId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^BackupPlanId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AgentRuntimeArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AgentRuntimeArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^BackupPlanId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AgentRuntimeArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -117,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Backup.Model.GetBackupPlanResponse, GetBAKBackupPlanCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCore.Model.GetAgentCardResponse, GetBACAgentCardCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -126,18 +122,18 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.BackupPlanId;
+                context.Select = (response, cmdlet) => this.AgentRuntimeArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.BackupPlanId = this.BackupPlanId;
+            context.AgentRuntimeArn = this.AgentRuntimeArn;
             #if MODULAR
-            if (this.BackupPlanId == null && ParameterWasBound(nameof(this.BackupPlanId)))
+            if (this.AgentRuntimeArn == null && ParameterWasBound(nameof(this.AgentRuntimeArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter BackupPlanId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AgentRuntimeArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MaxScheduledRunsPreview = this.MaxScheduledRunsPreview;
-            context.VersionId = this.VersionId;
+            context.Qualifier = this.Qualifier;
+            context.RuntimeSessionId = this.RuntimeSessionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -152,19 +148,19 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Backup.Model.GetBackupPlanRequest();
+            var request = new Amazon.BedrockAgentCore.Model.GetAgentCardRequest();
             
-            if (cmdletContext.BackupPlanId != null)
+            if (cmdletContext.AgentRuntimeArn != null)
             {
-                request.BackupPlanId = cmdletContext.BackupPlanId;
+                request.AgentRuntimeArn = cmdletContext.AgentRuntimeArn;
             }
-            if (cmdletContext.MaxScheduledRunsPreview != null)
+            if (cmdletContext.Qualifier != null)
             {
-                request.MaxScheduledRunsPreview = cmdletContext.MaxScheduledRunsPreview.Value;
+                request.Qualifier = cmdletContext.Qualifier;
             }
-            if (cmdletContext.VersionId != null)
+            if (cmdletContext.RuntimeSessionId != null)
             {
-                request.VersionId = cmdletContext.VersionId;
+                request.RuntimeSessionId = cmdletContext.RuntimeSessionId;
             }
             
             CmdletOutput output;
@@ -199,15 +195,15 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         #region AWS Service Operation Call
         
-        private Amazon.Backup.Model.GetBackupPlanResponse CallAWSServiceOperation(IAmazonBackup client, Amazon.Backup.Model.GetBackupPlanRequest request)
+        private Amazon.BedrockAgentCore.Model.GetAgentCardResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.GetAgentCardRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Backup", "GetBackupPlan");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "GetAgentCard");
             try
             {
                 #if DESKTOP
-                return client.GetBackupPlan(request);
+                return client.GetAgentCard(request);
                 #elif CORECLR
-                return client.GetBackupPlanAsync(request).GetAwaiter().GetResult();
+                return client.GetAgentCardAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -227,10 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String BackupPlanId { get; set; }
-            public System.Int32? MaxScheduledRunsPreview { get; set; }
-            public System.String VersionId { get; set; }
-            public System.Func<Amazon.Backup.Model.GetBackupPlanResponse, GetBAKBackupPlanCmdlet, object> Select { get; set; } =
+            public System.String AgentRuntimeArn { get; set; }
+            public System.String Qualifier { get; set; }
+            public System.String RuntimeSessionId { get; set; }
+            public System.Func<Amazon.BedrockAgentCore.Model.GetAgentCardResponse, GetBACAgentCardCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

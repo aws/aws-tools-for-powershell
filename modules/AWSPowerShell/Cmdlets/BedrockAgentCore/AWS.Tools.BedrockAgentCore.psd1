@@ -89,6 +89,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Get-BACActorList', 
+        'Get-BACAgentCard', 
         'Get-BACBrowserSession', 
         'Get-BACBrowserSessionList', 
         'Get-BACCodeInterpreterSession', 
@@ -106,13 +107,17 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Invoke-BACAgentRuntime', 
         'Invoke-BACCodeInterpreter', 
         'Invoke-BACMemoryRecord', 
+        'New-BACBatchMemoryRecord', 
         'New-BACEvent', 
+        'Remove-BACBatchMemoryRecord', 
         'Remove-BACEvent', 
         'Remove-BACMemoryRecord', 
         'Start-BACBrowserSession', 
         'Start-BACCodeInterpreterSession', 
         'Stop-BACBrowserSession', 
         'Stop-BACCodeInterpreterSession', 
+        'Stop-BACRuntimeSession', 
+        'Update-BACBatchMemoryRecord', 
         'Update-BACBrowserStream')
 
     # Variables to export from this module

@@ -102,6 +102,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMultiRegionParameterGroups" OutputProperty="MultiRegionParameterGroups" Verb="Get" Noun="MultiRegionParameterGroup" PipelineParameter="MultiRegionParameterGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMultiRegionParameters" OutputProperty="MultiRegionParameters" Verb="Get" Noun="MultiRegionParameter" PipelineParameter="MultiRegionParameterGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeParameterGroups" OutputProperty="ParameterGroups" Verb="Get" Noun="ParameterGroup" PipelineParameter="ParameterGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

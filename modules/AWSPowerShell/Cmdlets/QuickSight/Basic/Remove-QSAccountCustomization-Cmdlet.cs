@@ -30,13 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// <summary>
     /// <important><para>
     /// This API permanently deletes all QuickSight customizations for the specified Amazon
-    /// Web Services account and namespace in this Amazon Web Services Region. When you delete
-    /// account customizations:
+    /// Web Services account and namespace. When you delete account customizations:
     /// </para><ul><li><para>
     /// All customizations are removed including themes, branding, and visual settings
-    /// </para></li><li><para>
-    /// The deletion affects only the specified Amazon Web Services Region - customizations
-    /// in other regions remain unchanged
     /// </para></li><li><para>
     /// This action cannot be undone through the API
     /// </para></li><li><para>
@@ -44,8 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// </para></li></ul><para><b>Before proceeding:</b> Ensure you have backups of any custom themes or branding
     /// elements you may want to recreate.
     /// </para></important><para>
-    /// Deletes all Amazon QuickSight customizations in this Amazon Web Services Region for
-    /// the specified Amazon Web Services account and QuickSight namespace.
+    /// Deletes all Amazon QuickSight customizations for the specified Amazon Web Services
+    /// account and QuickSight namespace.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "QSAccountCustomization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -63,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The ID for the Amazon Web Services account that you want to delete QuickSight customizations
-        /// from in this Amazon Web Services Region.</para>
+        /// from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

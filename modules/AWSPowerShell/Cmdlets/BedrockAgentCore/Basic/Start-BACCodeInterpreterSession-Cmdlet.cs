@@ -85,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         /// <summary>
         /// <para>
         /// <para>The time in seconds after which the session automatically terminates if there is no
-        /// activity. The default value is 3600 seconds (1 hour). The minimum allowed value is
-        /// 60 seconds, and the maximum allowed value is 28800 seconds (8 hours).</para>
+        /// activity. The default value is 900 seconds (15 minutes). The minimum allowed value
+        /// is 60 seconds, and the maximum allowed value is 28800 seconds (8 hours).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

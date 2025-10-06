@@ -8167,7 +8167,7 @@ $BACC_Completers = {
             ($_ -eq "Update-BACCAgentRuntime/ProtocolConfiguration_ServerProtocol")
         }
         {
-            $v = "HTTP","MCP"
+            $v = "A2A","HTTP","MCP"
             break
         }
 
@@ -8414,9 +8414,13 @@ $BAC_SelectCompleters = {
 }
 
 $BAC_SelectMap = @{
-    "Select"=@("New-BACEvent",
+    "Select"=@("New-BACBatchMemoryRecord",
+               "Remove-BACBatchMemoryRecord",
+               "Update-BACBatchMemoryRecord",
+               "New-BACEvent",
                "Remove-BACEvent",
                "Remove-BACMemoryRecord",
+               "Get-BACAgentCard",
                "Get-BACBrowserSession",
                "Get-BACCodeInterpreterSession",
                "Get-BACEvent",
@@ -8439,6 +8443,7 @@ $BAC_SelectMap = @{
                "Start-BACCodeInterpreterSession",
                "Stop-BACBrowserSession",
                "Stop-BACCodeInterpreterSession",
+               "Stop-BACRuntimeSession",
                "Update-BACBrowserStream")
 }
 
@@ -50104,7 +50109,10 @@ $EMCN_Completers = {
         }
 
         # Amazon.MediaConnect.FlowSize
-        "New-EMCNFlow/FlowSize"
+        {
+            ($_ -eq "New-EMCNFlow/FlowSize") -Or
+            ($_ -eq "Update-EMCNFlow/FlowSize")
+        }
         {
             $v = "LARGE","MEDIUM"
             break
@@ -50211,7 +50219,7 @@ $EMCN_map = @{
     "BridgePlacement"=@("Update-EMCNGatewayInstance")
     "DesiredState"=@("Update-EMCNBridgeState")
     "EntitlementStatus"=@("Update-EMCNFlowEntitlement")
-    "FlowSize"=@("New-EMCNFlow")
+    "FlowSize"=@("New-EMCNFlow","Update-EMCNFlow")
     "Fmtp_Colorimetry"=@("Update-EMCNFlowMediaStream")
     "Fmtp_Range"=@("Update-EMCNFlowMediaStream")
     "Fmtp_ScanMode"=@("Update-EMCNFlowMediaStream")
@@ -52101,6 +52109,8 @@ $MDB_SelectMap = @{
                "Get-MDBEngineVersion",
                "Get-MDBEvent",
                "Get-MDBMultiRegionCluster",
+               "Get-MDBMultiRegionParameterGroup",
+               "Get-MDBMultiRegionParameter",
                "Get-MDBParameterGroup",
                "Get-MDBParameter",
                "Get-MDBReservedNode",
@@ -65662,19 +65672,27 @@ $AREX_SelectMap = @{
     "Select"=@("Register-AREXDefaultView",
                "Get-AREXViewBatch",
                "New-AREXIndex",
+               "New-AREXResourceExplorerSetup",
                "New-AREXView",
                "Remove-AREXIndex",
+               "Remove-AREXResourceExplorerSetup",
                "Remove-AREXView",
                "Unregister-AREXDefaultView",
                "Get-AREXAccountLevelServiceConfiguration",
                "Get-AREXDefaultView",
                "Get-AREXIndex",
                "Get-AREXManagedView",
+               "Get-AREXResourceExplorerSetup",
+               "Get-AREXServiceIndex",
+               "Get-AREXServiceView",
                "Get-AREXView",
                "Get-AREXIndexList",
                "Get-AREXIndexesForMemberList",
                "Get-AREXManagedViewList",
                "Get-AREXResourceList",
+               "Get-AREXServiceIndexList",
+               "Get-AREXServiceViewList",
+               "Get-AREXStreamingAccessForServiceList",
                "Get-AREXSupportedResourceTypeList",
                "Get-AREXResourceTag",
                "Get-AREXViewArnList",

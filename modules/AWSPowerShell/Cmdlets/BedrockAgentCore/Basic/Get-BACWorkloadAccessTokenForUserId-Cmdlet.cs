@@ -28,8 +28,8 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Obtains an Workload access token for agentic workloads acting on behalf of user with
-    /// User Id.
+    /// Obtains a workload access token for agentic workloads acting on behalf of a user,
+    /// using the user's ID.
     /// </summary>
     [Cmdlet("Get", "BACWorkloadAccessTokenForUserId")]
     [OutputType("System.String")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>The user id of the user you are retrieving the access token for.</para>
+        /// <para>The ID of the user for whom you are retrieving the access token.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter WorkloadName
         /// <summary>
         /// <para>
-        /// <para>The name of the worklaod you want to get the access token of.</para>
+        /// <para>The name of the workload from which you want to retrieve the access token.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

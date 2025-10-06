@@ -22,50 +22,62 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Backup;
-using Amazon.Backup.Model;
+using Amazon.ResourceExplorer2;
+using Amazon.ResourceExplorer2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.BAK
+namespace Amazon.PowerShell.Cmdlets.AREX
 {
     /// <summary>
-    /// Updates whether the Amazon Web Services account is opted in to cross-account backup.
-    /// Returns an error if the account is not an Organizations management account. Use the
-    /// <c>DescribeGlobalSettings</c> API to determine the current settings.
+    /// Deletes a Resource Explorer setup configuration. This operation removes indexes and
+    /// views from the specified Regions or all Regions where Resource Explorer is configured.
     /// </summary>
-    [Cmdlet("Update", "BAKGlobalSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Backup UpdateGlobalSettings API operation.", Operation = new[] {"UpdateGlobalSettings"}, SelectReturnType = typeof(Amazon.Backup.Model.UpdateGlobalSettingsResponse))]
-    [AWSCmdletOutput("None or Amazon.Backup.Model.UpdateGlobalSettingsResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Backup.Model.UpdateGlobalSettingsResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "AREXResourceExplorerSetup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Resource Explorer DeleteResourceExplorerSetup API operation.", Operation = new[] {"DeleteResourceExplorerSetup"}, SelectReturnType = typeof(Amazon.ResourceExplorer2.Model.DeleteResourceExplorerSetupResponse))]
+    [AWSCmdletOutput("System.String or Amazon.ResourceExplorer2.Model.DeleteResourceExplorerSetupResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.ResourceExplorer2.Model.DeleteResourceExplorerSetupResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class UpdateBAKGlobalSettingCmdlet : AmazonBackupClientCmdlet, IExecutor
+    public partial class RemoveAREXResourceExplorerSetupCmdlet : AmazonResourceExplorer2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter GlobalSetting
+        #region Parameter DeleteInAllRegion
         /// <summary>
         /// <para>
-        /// <para>Inputs can include:</para><para>A value for <c>isCrossAccountBackupEnabled</c> and a Region. Example: <c>update-global-settings
-        /// --global-settings isCrossAccountBackupEnabled=false --region us-west-2</c>.</para><para>A value for Multi-party approval, styled as "Mpa": <c>isMpaEnabled</c>. Values can
-        /// be true or false. Example: <c>update-global-settings --global-settings isMpaEnabled=false
-        /// --region us-west-2</c>.</para>
+        /// <para>Specifies whether to delete Resource Explorer configuration from all Regions where
+        /// it is currently enabled. If this parameter is set to <c>true</c>, a value for <c>RegionList</c>
+        /// must not be provided. Otherwise, the operation fails with a <c>ValidationException</c>
+        /// error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("GlobalSettings")]
-        public System.Collections.Hashtable GlobalSetting { get; set; }
+        [Alias("DeleteInAllRegions")]
+        public System.Boolean? DeleteInAllRegion { get; set; }
+        #endregion
+        
+        #region Parameter RegionList
+        /// <summary>
+        /// <para>
+        /// <para>A list of Amazon Web Services Regions from which to delete the Resource Explorer configuration.
+        /// If not specified, the operation uses the <c>DeleteInAllRegions</c> parameter to determine
+        /// scope.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] RegionList { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Backup.Model.UpdateGlobalSettingsResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'TaskId'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResourceExplorer2.Model.DeleteResourceExplorerSetupResponse).
+        /// Specifying the name of a property of type Amazon.ResourceExplorer2.Model.DeleteResourceExplorerSetupResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "TaskId";
         #endregion
         
         #region Parameter Force
@@ -83,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.GlobalSetting), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-BAKGlobalSetting (UpdateGlobalSettings)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-AREXResourceExplorerSetup (DeleteResourceExplorerSetup)"))
             {
                 return;
             }
@@ -96,16 +108,13 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Backup.Model.UpdateGlobalSettingsResponse, UpdateBAKGlobalSettingCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ResourceExplorer2.Model.DeleteResourceExplorerSetupResponse, RemoveAREXResourceExplorerSetupCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.GlobalSetting != null)
+            context.DeleteInAllRegion = this.DeleteInAllRegion;
+            if (this.RegionList != null)
             {
-                context.GlobalSetting = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.GlobalSetting.Keys)
-                {
-                    context.GlobalSetting.Add((String)hashKey, (System.String)(this.GlobalSetting[hashKey]));
-                }
+                context.RegionList = new List<System.String>(this.RegionList);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -121,11 +130,15 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Backup.Model.UpdateGlobalSettingsRequest();
+            var request = new Amazon.ResourceExplorer2.Model.DeleteResourceExplorerSetupRequest();
             
-            if (cmdletContext.GlobalSetting != null)
+            if (cmdletContext.DeleteInAllRegion != null)
             {
-                request.GlobalSettings = cmdletContext.GlobalSetting;
+                request.DeleteInAllRegions = cmdletContext.DeleteInAllRegion.Value;
+            }
+            if (cmdletContext.RegionList != null)
+            {
+                request.RegionList = cmdletContext.RegionList;
             }
             
             CmdletOutput output;
@@ -160,15 +173,15 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         #region AWS Service Operation Call
         
-        private Amazon.Backup.Model.UpdateGlobalSettingsResponse CallAWSServiceOperation(IAmazonBackup client, Amazon.Backup.Model.UpdateGlobalSettingsRequest request)
+        private Amazon.ResourceExplorer2.Model.DeleteResourceExplorerSetupResponse CallAWSServiceOperation(IAmazonResourceExplorer2 client, Amazon.ResourceExplorer2.Model.DeleteResourceExplorerSetupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Backup", "UpdateGlobalSettings");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Explorer", "DeleteResourceExplorerSetup");
             try
             {
                 #if DESKTOP
-                return client.UpdateGlobalSettings(request);
+                return client.DeleteResourceExplorerSetup(request);
                 #elif CORECLR
-                return client.UpdateGlobalSettingsAsync(request).GetAwaiter().GetResult();
+                return client.DeleteResourceExplorerSetupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -188,9 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Dictionary<System.String, System.String> GlobalSetting { get; set; }
-            public System.Func<Amazon.Backup.Model.UpdateGlobalSettingsResponse, UpdateBAKGlobalSettingCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.Boolean? DeleteInAllRegion { get; set; }
+            public List<System.String> RegionList { get; set; }
+            public System.Func<Amazon.ResourceExplorer2.Model.DeleteResourceExplorerSetupResponse, RemoveAREXResourceExplorerSetupCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.TaskId;
         }
         
     }

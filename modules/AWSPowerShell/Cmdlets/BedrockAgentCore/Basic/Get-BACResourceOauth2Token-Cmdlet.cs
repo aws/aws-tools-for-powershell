@@ -28,7 +28,7 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Returns the OAuth 2.0 token of the provided resource
+    /// Returns the OAuth 2.0 token of the provided resource.
     /// </summary>
     [Cmdlet("Get", "BACResourceOauth2Token")]
     [OutputType("Amazon.BedrockAgentCore.Model.GetResourceOauth2TokenResponse")]
@@ -48,8 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter CustomParameter
         /// <summary>
         /// <para>
-        /// <para>Gives the ability to send extra/custom parameters to the resource credentials provider
-        /// during the authorization process. Standard OAuth2 flow parameters will not be overriden.</para>
+        /// <para>A map of custom parameters to include in the authorization request to the resource
+        /// credential provider. These parameters are in addition to the standard OAuth 2.0 flow
+        /// parameters, and will not override them.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter ForceAuthentication
         /// <summary>
         /// <para>
-        /// <para>If true, always initiate a new 3LO flow</para>
+        /// <para>Indicates whether to always initiate a new three-legged OAuth (3LO) flow, regardless
+        /// of any existing session.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter Oauth2Flow
         /// <summary>
         /// <para>
-        /// <para>The type of flow to be performed</para>
+        /// <para>The type of flow to be performed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter ResourceCredentialProviderName
         /// <summary>
         /// <para>
-        /// <para>Reference to the credential provider</para>
+        /// <para>The name of the resource's credential provider.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -104,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter ResourceOauth2ReturnUrl
         /// <summary>
         /// <para>
-        /// <para>Callback url to redirect after token retrieval completes. Should be one of the provideded
-        /// urls during WorkloadIdentity creation</para>
+        /// <para>The callback URL to redirect to after the OAuth 2.0 token retrieval is complete. This
+        /// URL must be one of the provided URLs configured for the workload identity.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter Scope
         /// <summary>
         /// <para>
-        /// <para>The OAuth scopes requested</para>
+        /// <para>The OAuth scopes being requested.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -133,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter WorkloadIdentityToken
         /// <summary>
         /// <para>
-        /// <para>The identity token of the workload you want to retrive the Oauth2 Token of.</para>
+        /// <para>The identity token of the workload from which you want to retrieve the OAuth2 token.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,8 +28,8 @@ using Amazon.BedrockAgentCore.Model;
 namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Obtains an Workload access token for agentic workloads acting on behalf of user with
-    /// JWT token
+    /// Obtains a workload access token for agentic workloads acting on behalf of a user,
+    /// using a JWT token.
     /// </summary>
     [Cmdlet("Get", "BACWorkloadAccessTokenForJWT")]
     [OutputType("System.String")]
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter UserToken
         /// <summary>
         /// <para>
-        /// <para>OAuth2 token issued by the user's identity provider</para>
+        /// <para>The OAuth 2.0 token issued by the user's identity provider.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter WorkloadName
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the registered agent</para>
+        /// <para>The unique identifier for the registered workload.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

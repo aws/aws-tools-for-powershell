@@ -22,32 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Backup;
-using Amazon.Backup.Model;
+using Amazon.BedrockAgentCore;
+using Amazon.BedrockAgentCore.Model;
 
-namespace Amazon.PowerShell.Cmdlets.BAK
+namespace Amazon.PowerShell.Cmdlets.BAC
 {
     /// <summary>
-    /// Returns <c>BackupPlan</c> details for the specified <c>BackupPlanId</c>. The details
-    /// are the body of a backup plan in JSON format, in addition to plan metadata.
+    /// Deletes multiple memory records in a single batch operation from the specified memory.
     /// </summary>
-    [Cmdlet("Get", "BAKBackupPlan")]
-    [OutputType("Amazon.Backup.Model.GetBackupPlanResponse")]
-    [AWSCmdlet("Calls the AWS Backup GetBackupPlan API operation.", Operation = new[] {"GetBackupPlan"}, SelectReturnType = typeof(Amazon.Backup.Model.GetBackupPlanResponse))]
-    [AWSCmdletOutput("Amazon.Backup.Model.GetBackupPlanResponse",
-        "This cmdlet returns an Amazon.Backup.Model.GetBackupPlanResponse object containing multiple properties."
+    [Cmdlet("Remove", "BACBatchMemoryRecord", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.BedrockAgentCore.Model.BatchDeleteMemoryRecordsResponse")]
+    [AWSCmdlet("Calls the Amazon Bedrock AgentCore Data Plane Fronting Layer BatchDeleteMemoryRecords API operation.", Operation = new[] {"BatchDeleteMemoryRecords"}, SelectReturnType = typeof(Amazon.BedrockAgentCore.Model.BatchDeleteMemoryRecordsResponse))]
+    [AWSCmdletOutput("Amazon.BedrockAgentCore.Model.BatchDeleteMemoryRecordsResponse",
+        "This cmdlet returns an Amazon.BedrockAgentCore.Model.BatchDeleteMemoryRecordsResponse object containing multiple properties."
     )]
-    public partial class GetBAKBackupPlanCmdlet : AmazonBackupClientCmdlet, IExecutor
+    public partial class RemoveBACBatchMemoryRecordCmdlet : AmazonBedrockAgentCoreClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter BackupPlanId
+        #region Parameter MemoryId
         /// <summary>
         /// <para>
-        /// <para>Uniquely identifies a backup plan.</para>
+        /// <para>The unique ID of the memory resource where records will be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,36 +55,32 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String BackupPlanId { get; set; }
+        public System.String MemoryId { get; set; }
         #endregion
         
-        #region Parameter MaxScheduledRunsPreview
+        #region Parameter Record
         /// <summary>
         /// <para>
-        /// <para>Number of future scheduled backup runs to preview. When set to 0 (default), no scheduled
-        /// runs preview is included in the response. Valid range is 0-10.</para>
+        /// <para>A list of memory record deletion inputs to be processed in the batch operation.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? MaxScheduledRunsPreview { get; set; }
-        #endregion
-        
-        #region Parameter VersionId
-        /// <summary>
-        /// <para>
-        /// <para>Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024
-        /// bytes long. Version IDs cannot be edited.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String VersionId { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("Records")]
+        public Amazon.BedrockAgentCore.Model.MemoryRecordDeleteInput[] Record { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Backup.Model.GetBackupPlanResponse).
-        /// Specifying the name of a property of type Amazon.Backup.Model.GetBackupPlanResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCore.Model.BatchDeleteMemoryRecordsResponse).
+        /// Specifying the name of a property of type Amazon.BedrockAgentCore.Model.BatchDeleteMemoryRecordsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,18 +89,34 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the BackupPlanId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^BackupPlanId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the MemoryId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^MemoryId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^BackupPlanId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^MemoryId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MemoryId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BACBatchMemoryRecord (BatchDeleteMemoryRecords)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -117,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Backup.Model.GetBackupPlanResponse, GetBAKBackupPlanCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCore.Model.BatchDeleteMemoryRecordsResponse, RemoveBACBatchMemoryRecordCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -126,18 +135,26 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.BackupPlanId;
+                context.Select = (response, cmdlet) => this.MemoryId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.BackupPlanId = this.BackupPlanId;
+            context.MemoryId = this.MemoryId;
             #if MODULAR
-            if (this.BackupPlanId == null && ParameterWasBound(nameof(this.BackupPlanId)))
+            if (this.MemoryId == null && ParameterWasBound(nameof(this.MemoryId)))
             {
-                WriteWarning("You are passing $null as a value for parameter BackupPlanId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter MemoryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MaxScheduledRunsPreview = this.MaxScheduledRunsPreview;
-            context.VersionId = this.VersionId;
+            if (this.Record != null)
+            {
+                context.Record = new List<Amazon.BedrockAgentCore.Model.MemoryRecordDeleteInput>(this.Record);
+            }
+            #if MODULAR
+            if (this.Record == null && ParameterWasBound(nameof(this.Record)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Record which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -152,19 +169,15 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Backup.Model.GetBackupPlanRequest();
+            var request = new Amazon.BedrockAgentCore.Model.BatchDeleteMemoryRecordsRequest();
             
-            if (cmdletContext.BackupPlanId != null)
+            if (cmdletContext.MemoryId != null)
             {
-                request.BackupPlanId = cmdletContext.BackupPlanId;
+                request.MemoryId = cmdletContext.MemoryId;
             }
-            if (cmdletContext.MaxScheduledRunsPreview != null)
+            if (cmdletContext.Record != null)
             {
-                request.MaxScheduledRunsPreview = cmdletContext.MaxScheduledRunsPreview.Value;
-            }
-            if (cmdletContext.VersionId != null)
-            {
-                request.VersionId = cmdletContext.VersionId;
+                request.Records = cmdletContext.Record;
             }
             
             CmdletOutput output;
@@ -199,15 +212,15 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         #region AWS Service Operation Call
         
-        private Amazon.Backup.Model.GetBackupPlanResponse CallAWSServiceOperation(IAmazonBackup client, Amazon.Backup.Model.GetBackupPlanRequest request)
+        private Amazon.BedrockAgentCore.Model.BatchDeleteMemoryRecordsResponse CallAWSServiceOperation(IAmazonBedrockAgentCore client, Amazon.BedrockAgentCore.Model.BatchDeleteMemoryRecordsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Backup", "GetBackupPlan");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock AgentCore Data Plane Fronting Layer", "BatchDeleteMemoryRecords");
             try
             {
                 #if DESKTOP
-                return client.GetBackupPlan(request);
+                return client.BatchDeleteMemoryRecords(request);
                 #elif CORECLR
-                return client.GetBackupPlanAsync(request).GetAwaiter().GetResult();
+                return client.BatchDeleteMemoryRecordsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -227,10 +240,9 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String BackupPlanId { get; set; }
-            public System.Int32? MaxScheduledRunsPreview { get; set; }
-            public System.String VersionId { get; set; }
-            public System.Func<Amazon.Backup.Model.GetBackupPlanResponse, GetBAKBackupPlanCmdlet, object> Select { get; set; } =
+            public System.String MemoryId { get; set; }
+            public List<Amazon.BedrockAgentCore.Model.MemoryRecordDeleteInput> Record { get; set; }
+            public System.Func<Amazon.BedrockAgentCore.Model.BatchDeleteMemoryRecordsResponse, RemoveBACBatchMemoryRecordCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

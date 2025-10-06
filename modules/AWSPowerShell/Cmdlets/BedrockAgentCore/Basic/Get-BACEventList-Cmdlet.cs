@@ -68,6 +68,16 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.String ActorId { get; set; }
         #endregion
         
+        #region Parameter Filter_EventMetadata
+        /// <summary>
+        /// <para>
+        /// <para>Event metadata filter criteria to apply when retrieving events.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.BedrockAgentCore.Model.EventMetadataFilterExpression[] Filter_EventMetadata { get; set; }
+        #endregion
+        
         #region Parameter Branch_IncludeParentBranch
         /// <summary>
         /// <para>
@@ -210,6 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             #endif
             context.Branch_IncludeParentBranch = this.Branch_IncludeParentBranch;
             context.Branch_Name = this.Branch_Name;
+            if (this.Filter_EventMetadata != null)
+            {
+                context.Filter_EventMetadata = new List<Amazon.BedrockAgentCore.Model.EventMetadataFilterExpression>(this.Filter_EventMetadata);
+            }
             context.IncludePayload = this.IncludePayload;
             context.MaxResult = this.MaxResult;
             context.MemoryId = this.MemoryId;
@@ -253,6 +267,16 @@ namespace Amazon.PowerShell.Cmdlets.BAC
              // populate Filter
             var requestFilterIsNull = true;
             request.Filter = new Amazon.BedrockAgentCore.Model.FilterInput();
+            List<Amazon.BedrockAgentCore.Model.EventMetadataFilterExpression> requestFilter_filter_EventMetadata = null;
+            if (cmdletContext.Filter_EventMetadata != null)
+            {
+                requestFilter_filter_EventMetadata = cmdletContext.Filter_EventMetadata;
+            }
+            if (requestFilter_filter_EventMetadata != null)
+            {
+                request.Filter.EventMetadata = requestFilter_filter_EventMetadata;
+                requestFilterIsNull = false;
+            }
             Amazon.BedrockAgentCore.Model.BranchFilter requestFilter_filter_Branch = null;
             
              // populate Branch
@@ -397,6 +421,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public System.String ActorId { get; set; }
             public System.Boolean? Branch_IncludeParentBranch { get; set; }
             public System.String Branch_Name { get; set; }
+            public List<Amazon.BedrockAgentCore.Model.EventMetadataFilterExpression> Filter_EventMetadata { get; set; }
             public System.Boolean? IncludePayload { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String MemoryId { get; set; }

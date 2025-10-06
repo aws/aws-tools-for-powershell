@@ -131,7 +131,10 @@ $EMCN_Completers = {
         }
 
         # Amazon.MediaConnect.FlowSize
-        "New-EMCNFlow/FlowSize"
+        {
+            ($_ -eq "New-EMCNFlow/FlowSize") -Or
+            ($_ -eq "Update-EMCNFlow/FlowSize")
+        }
         {
             $v = "LARGE","MEDIUM"
             break
@@ -238,7 +241,7 @@ $EMCN_map = @{
     "BridgePlacement"=@("Update-EMCNGatewayInstance")
     "DesiredState"=@("Update-EMCNBridgeState")
     "EntitlementStatus"=@("Update-EMCNFlowEntitlement")
-    "FlowSize"=@("New-EMCNFlow")
+    "FlowSize"=@("New-EMCNFlow","Update-EMCNFlow")
     "Fmtp_Colorimetry"=@("Update-EMCNFlowMediaStream")
     "Fmtp_Range"=@("Update-EMCNFlowMediaStream")
     "Fmtp_ScanMode"=@("Update-EMCNFlowMediaStream")

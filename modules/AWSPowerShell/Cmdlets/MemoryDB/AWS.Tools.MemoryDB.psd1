@@ -97,6 +97,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-MDBEngineVersion', 
         'Get-MDBEvent', 
         'Get-MDBMultiRegionCluster', 
+        'Get-MDBMultiRegionParameter', 
+        'Get-MDBMultiRegionParameterGroup', 
         'Get-MDBParameter', 
         'Get-MDBParameterGroup', 
         'Get-MDBReservedNode', 
