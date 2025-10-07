@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed
     /// provisioning</a> in the <i>Proton User Guide</i>.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Edit", "PROResourceDeploymentStatusChange", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -46,6 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Proton.Model.NotifyResourceDeploymentStatusChangeResponse) be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class EditPROResourceDeploymentStatusChangeCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// (latest) major and minor version of the current template, by default. You can also
     /// specify a different major version that's higher than the major version in use and
     /// a minor version.
-    /// </para></dd></dl>
+    /// </para></dd></dl><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Update", "PROEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Proton.Model.Environment")]
@@ -88,6 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.Environment object.",
         "The service call response (type Amazon.Proton.Model.UpdateEnvironmentResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class UpdatePROEnvironmentCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

@@ -30,7 +30,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Get detailed data for the service sync blocker summary.
+    /// Get detailed data for the service sync blocker summary.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "PROServiceSyncBlockerSummary")]
     [OutputType("Amazon.Proton.Model.ServiceSyncBlockerSummary")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.ServiceSyncBlockerSummary object.",
         "The service call response (type Amazon.Proton.Model.GetServiceSyncBlockerSummaryResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class GetPROServiceSyncBlockerSummaryCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

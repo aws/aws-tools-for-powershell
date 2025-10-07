@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// parameter and set the value to <c>CUSTOMER_MANAGED</c>. For more information, see
     /// <a href="https://docs.aws.amazon.com/proton/latest/userguide/template-create.html">Register
     /// and publish an environment template</a> in the <i>Proton User Guide</i>.
-    /// </para></li></ul>
+    /// </para></li></ul><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "PROEnvironmentTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Proton.Model.EnvironmentTemplate")]
@@ -56,6 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.EnvironmentTemplate object.",
         "The service call response (type Amazon.Proton.Model.CreateEnvironmentTemplateResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class NewPROEnvironmentTemplateCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

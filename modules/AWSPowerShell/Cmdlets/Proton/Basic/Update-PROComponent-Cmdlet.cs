@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// </para></note><para>
     /// For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton
     /// components</a> in the <i>Proton User Guide</i>.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Update", "PROComponent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Proton.Model.Component")]
@@ -51,6 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.Component object.",
         "The service call response (type Amazon.Proton.Model.UpdateComponentResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class UpdatePROComponentCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

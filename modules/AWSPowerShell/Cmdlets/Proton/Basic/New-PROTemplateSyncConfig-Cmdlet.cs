@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// minor version of its template is created, if the version doesn’t already exist. For
     /// more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-template-sync-configs.html">Template
     /// sync configurations</a> in the <i>Proton User Guide</i>.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "PROTemplateSyncConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Proton.Model.TemplateSyncConfig")]
@@ -50,6 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.TemplateSyncConfig object.",
         "The service call response (type Amazon.Proton.Model.CreateTemplateSyncConfigResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class NewPROTemplateSyncConfigCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

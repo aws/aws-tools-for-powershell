@@ -1,4 +1,7 @@
-﻿### 5.0.70 (2025-10-06 20:57Z)
+﻿### 5.0.71 (2025-10-07 19:46Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.107.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 5.0.70 (2025-10-06 20:57Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.106.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Backup
     * Modified cmdlet Get-BAKBackupPlan: added parameter MaxScheduledRunsPreview.

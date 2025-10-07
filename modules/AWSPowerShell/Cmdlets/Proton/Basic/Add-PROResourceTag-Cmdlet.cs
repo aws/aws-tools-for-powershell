@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
     /// resources and tagging</a> in the <i>Proton User Guide</i>.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Add", "PROResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -46,6 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.Proton.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class AddPROResourceTagCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

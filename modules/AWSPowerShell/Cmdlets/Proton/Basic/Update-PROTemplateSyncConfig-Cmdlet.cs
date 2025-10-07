@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// Update template sync configuration parameters, except for the <c>templateName</c>
     /// and <c>templateType</c>. Repository details (branch, name, and provider) should be
     /// of a linked repository. A linked repository is a repository that has been registered
-    /// with Proton. For more information, see <a>CreateRepository</a>.
+    /// with Proton. For more information, see <a>CreateRepository</a>.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Update", "PROTemplateSyncConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Proton.Model.TemplateSyncConfig")]
@@ -42,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.TemplateSyncConfig object.",
         "The service call response (type Amazon.Proton.Model.UpdateTemplateSyncConfigResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class UpdatePROTemplateSyncConfigCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

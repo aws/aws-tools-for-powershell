@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
     /// List service instances with summary data. This action lists service instances of all
-    /// services in the Amazon Web Services account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// services in the Amazon Web Services account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "PROServiceInstanceList")]
     [OutputType("Amazon.Proton.Model.ServiceInstanceSummary")]
@@ -40,6 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns a collection of Amazon.Proton.Model.ServiceInstanceSummary objects.",
         "The service call response (type Amazon.Proton.Model.ListServiceInstancesResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class GetPROServiceInstanceListCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

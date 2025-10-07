@@ -30,7 +30,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Get detail data for a linked repository.
+    /// Get detail data for a linked repository.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "PRORepository")]
     [OutputType("Amazon.Proton.Model.Repository")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.Repository object.",
         "The service call response (type Amazon.Proton.Model.GetRepositoryResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class GetPRORepositoryCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

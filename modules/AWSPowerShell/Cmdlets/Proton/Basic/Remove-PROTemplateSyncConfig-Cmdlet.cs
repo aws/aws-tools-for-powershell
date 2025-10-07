@@ -30,7 +30,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Delete a template sync configuration.
+    /// Delete a template sync configuration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "PROTemplateSyncConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Proton.Model.TemplateSyncConfig")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.TemplateSyncConfig object.",
         "The service call response (type Amazon.Proton.Model.DeleteTemplateSyncConfigResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class RemovePROTemplateSyncConfigCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

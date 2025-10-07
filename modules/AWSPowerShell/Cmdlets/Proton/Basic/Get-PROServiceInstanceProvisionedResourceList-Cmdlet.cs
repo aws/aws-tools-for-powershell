@@ -30,7 +30,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// List provisioned resources for a service instance with details.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// List provisioned resources for a service instance with details.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "PROServiceInstanceProvisionedResourceList")]
     [OutputType("Amazon.Proton.Model.ProvisionedResource")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns a collection of Amazon.Proton.Model.ProvisionedResource objects.",
         "The service call response (type Amazon.Proton.Model.ListServiceInstanceProvisionedResourcesResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class GetPROServiceInstanceProvisionedResourceListCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

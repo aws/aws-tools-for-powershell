@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/monitoring-dashboard.html">Proton
     /// dashboard</a> in the <i>Proton User Guide</i>.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "PROResourcesSummary")]
     [OutputType("Amazon.Proton.Model.CountsSummary")]
@@ -59,6 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.CountsSummary object.",
         "The service call response (type Amazon.Proton.Model.GetResourcesSummaryResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class GetPROResourcesSummaryCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

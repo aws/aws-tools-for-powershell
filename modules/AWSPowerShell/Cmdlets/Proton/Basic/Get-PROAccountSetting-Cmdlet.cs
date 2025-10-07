@@ -30,7 +30,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Get detail data for Proton account-wide settings.
+    /// Get detail data for Proton account-wide settings.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "PROAccountSetting")]
     [OutputType("Amazon.Proton.Model.AccountSettings")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.AccountSettings object.",
         "The service call response (type Amazon.Proton.Model.GetAccountSettingsResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class GetPROAccountSettingCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

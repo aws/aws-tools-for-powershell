@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment
     /// account connections</a> in the <i>Proton User guide</i>.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Deny", "PROEnvironmentAccountConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Proton.Model.EnvironmentAccountConnection")]
@@ -51,6 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.EnvironmentAccountConnection object.",
         "The service call response (type Amazon.Proton.Model.RejectEnvironmentAccountConnectionResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class DenyPROEnvironmentAccountConnectionCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// a service pipeline definition, they provide a link to their source code repository.
     /// Proton then deploys and manages the infrastructure defined by the selected service
     /// template. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html">Proton
-    /// templates</a> in the <i>Proton User Guide</i>.
+    /// templates</a> in the <i>Proton User Guide</i>.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "PROServiceTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Proton.Model.ServiceTemplate")]
@@ -45,6 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.ServiceTemplate object.",
         "The service call response (type Amazon.Proton.Model.CreateServiceTemplateResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class NewPROServiceTemplateCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

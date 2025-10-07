@@ -30,7 +30,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Get detail data for a template sync configuration.
+    /// Get detail data for a template sync configuration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "PROTemplateSyncConfig")]
     [OutputType("Amazon.Proton.Model.TemplateSyncConfig")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.TemplateSyncConfig object.",
         "The service call response (type Amazon.Proton.Model.GetTemplateSyncConfigResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class GetPROTemplateSyncConfigCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

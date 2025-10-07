@@ -30,7 +30,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Delete an environment.
+    /// Delete an environment.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "PROEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Proton.Model.Environment")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.Environment object.",
         "The service call response (type Amazon.Proton.Model.DeleteEnvironmentResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class RemovePROEnvironmentCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

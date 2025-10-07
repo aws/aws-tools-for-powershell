@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
     /// List tags for a resource. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
-    /// resources and tagging</a> in the <i>Proton User Guide</i>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// resources and tagging</a> in the <i>Proton User Guide</i>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "PROResourceTag")]
     [OutputType("Amazon.Proton.Model.Tag")]
@@ -40,6 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns a collection of Amazon.Proton.Model.Tag objects.",
         "The service call response (type Amazon.Proton.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class GetPROResourceTagCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

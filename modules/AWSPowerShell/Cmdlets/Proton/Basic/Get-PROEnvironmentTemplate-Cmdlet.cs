@@ -30,7 +30,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Get detailed data for an environment template.
+    /// Get detailed data for an environment template.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "PROEnvironmentTemplate")]
     [OutputType("Amazon.Proton.Model.EnvironmentTemplate")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.EnvironmentTemplate object.",
         "The service call response (type Amazon.Proton.Model.GetEnvironmentTemplateResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class GetPROEnvironmentTemplateCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

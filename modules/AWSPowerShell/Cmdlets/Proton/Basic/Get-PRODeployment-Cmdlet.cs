@@ -30,7 +30,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Get detailed data for a deployment.
+    /// Get detailed data for a deployment.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "PRODeployment")]
     [OutputType("Amazon.Proton.Model.Deployment")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.Deployment object.",
         "The service call response (type Amazon.Proton.Model.GetDeploymentResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class GetPRODeploymentCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

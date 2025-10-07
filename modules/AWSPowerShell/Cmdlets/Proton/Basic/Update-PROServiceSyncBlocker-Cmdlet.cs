@@ -30,7 +30,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Update the service sync blocker by resolving it.
+    /// Update the service sync blocker by resolving it.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Update", "PROServiceSyncBlocker", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Proton.Model.UpdateServiceSyncBlockerResponse")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdletOutput("Amazon.Proton.Model.UpdateServiceSyncBlockerResponse",
         "This cmdlet returns an Amazon.Proton.Model.UpdateServiceSyncBlockerResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class UpdatePROServiceSyncBlockerCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
