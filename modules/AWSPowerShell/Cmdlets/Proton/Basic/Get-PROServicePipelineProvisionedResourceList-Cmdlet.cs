@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// List provisioned resources for a service and pipeline with details.
+    /// List provisioned resources for a service and pipeline with details.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "PROServicePipelineProvisionedResourceList")]
     [OutputType("Amazon.Proton.Model.ProvisionedResource")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns a collection of Amazon.Proton.Model.ProvisionedResource objects.",
         "The service call response (type Amazon.Proton.Model.ListServicePipelineProvisionedResourcesResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class GetPROServicePipelineProvisionedResourceListCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

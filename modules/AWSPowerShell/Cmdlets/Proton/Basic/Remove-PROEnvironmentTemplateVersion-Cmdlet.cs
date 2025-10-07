@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// version. Delete a <c>Recommended</c> minor version of the environment template if
     /// no other minor versions of the environment template exist. A minor version of an environment
     /// template is a version that's backward compatible.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "PROEnvironmentTemplateVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Proton.Model.EnvironmentTemplateVersion")]
@@ -49,6 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.EnvironmentTemplateVersion object.",
         "The service call response (type Amazon.Proton.Model.DeleteEnvironmentTemplateVersionResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class RemovePROEnvironmentTemplateVersionCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

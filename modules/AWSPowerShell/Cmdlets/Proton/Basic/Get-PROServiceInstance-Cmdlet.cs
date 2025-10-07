@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
     /// Get detailed data for a service instance. A service instance is an instantiation of
-    /// service template and it runs in a specific environment.
+    /// service template and it runs in a specific environment.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "PROServiceInstance")]
     [OutputType("Amazon.Proton.Model.ServiceInstance")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.ServiceInstance object.",
         "The service call response (type Amazon.Proton.Model.GetServiceInstanceResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class GetPROServiceInstanceCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

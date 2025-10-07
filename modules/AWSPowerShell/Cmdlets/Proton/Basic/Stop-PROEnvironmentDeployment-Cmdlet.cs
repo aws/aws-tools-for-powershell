@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// If the current <a>UpdateEnvironment</a> action succeeds before the cancellation attempt
     /// starts, the resulting deployment state is <c>SUCCEEDED</c> and the cancellation attempt
     /// has no effect.
-    /// </para></li></ul>
+    /// </para></li></ul><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Stop", "PROEnvironmentDeployment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Proton.Model.Environment")]
@@ -52,6 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.Environment object.",
         "The service call response (type Amazon.Proton.Model.CancelEnvironmentDeploymentResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class StopPROEnvironmentDeploymentCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

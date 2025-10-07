@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
     /// List tags for a resource. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
-    /// resources and tagging</a> in the <i>Proton User Guide</i>.
+    /// resources and tagging</a> in the <i>Proton User Guide</i>.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "PROResourceTag")]
     [OutputType("Amazon.Proton.Model.Tag")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns a collection of Amazon.Proton.Model.Tag objects.",
         "The service call response (type Amazon.Proton.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class GetPROResourceTagCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

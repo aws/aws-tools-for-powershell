@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// List major or minor versions of an environment template with detail data.
+    /// List major or minor versions of an environment template with detail data.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "PROEnvironmentTemplateVersionList")]
     [OutputType("Amazon.Proton.Model.EnvironmentTemplateVersionSummary")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns a collection of Amazon.Proton.Model.EnvironmentTemplateVersionSummary objects.",
         "The service call response (type Amazon.Proton.Model.ListEnvironmentTemplateVersionsResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class GetPROEnvironmentTemplateVersionListCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

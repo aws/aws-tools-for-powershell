@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
     /// If no other major or minor versions of an environment template exist, delete the environment
-    /// template.
+    /// template.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "PROEnvironmentTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Proton.Model.EnvironmentTemplate")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.EnvironmentTemplate object.",
         "The service call response (type Amazon.Proton.Model.DeleteEnvironmentTemplateResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class RemovePROEnvironmentTemplateCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

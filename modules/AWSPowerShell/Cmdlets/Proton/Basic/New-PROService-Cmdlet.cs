@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// Create an Proton service. An Proton service is an instantiation of a service template
     /// and often includes several service instances and pipeline. For more information, see
     /// <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-services.html">Services</a>
-    /// in the <i>Proton User Guide</i>.
+    /// in the <i>Proton User Guide</i>.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "PROService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Proton.Model.Service")]
@@ -40,6 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.Service object.",
         "The service call response (type Amazon.Proton.Model.CreateServiceResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class NewPROServiceCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

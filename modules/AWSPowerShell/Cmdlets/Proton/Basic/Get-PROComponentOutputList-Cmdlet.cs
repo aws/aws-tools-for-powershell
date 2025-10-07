@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// <para>
     /// For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton
     /// components</a> in the <i>Proton User Guide</i>.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "PROComponentOutputList")]
     [OutputType("Amazon.Proton.Model.Output")]
@@ -43,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns a collection of Amazon.Proton.Model.Output objects.",
         "The service call response (type Amazon.Proton.Model.ListComponentOutputsResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class GetPROComponentOutputListCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

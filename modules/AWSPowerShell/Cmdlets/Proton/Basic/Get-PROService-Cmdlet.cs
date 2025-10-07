@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Get detailed data for a service.
+    /// Get detailed data for a service.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "PROService")]
     [OutputType("Amazon.Proton.Model.Service")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.Service object.",
         "The service call response (type Amazon.Proton.Model.GetServiceResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class GetPROServiceCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// <summary>
     /// Create a new major or minor version of a service template. A major version of a service
     /// template is a version that <i>isn't</i> backward compatible. A minor version of a
-    /// service template is a version that's backward compatible within its major version.
+    /// service template is a version that's backward compatible within its major version.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "PROServiceTemplateVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Proton.Model.ServiceTemplateVersion")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.ServiceTemplateVersion object.",
         "The service call response (type Amazon.Proton.Model.CreateServiceTemplateVersionResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class NewPROServiceTemplateVersionCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

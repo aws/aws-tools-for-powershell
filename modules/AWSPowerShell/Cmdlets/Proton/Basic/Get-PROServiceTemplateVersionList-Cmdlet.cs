@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// List major or minor versions of a service template with detail data.
+    /// List major or minor versions of a service template with detail data.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "PROServiceTemplateVersionList")]
     [OutputType("Amazon.Proton.Model.ServiceTemplateVersionSummary")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns a collection of Amazon.Proton.Model.ServiceTemplateVersionSummary objects.",
         "The service call response (type Amazon.Proton.Model.ListServiceTemplateVersionsResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class GetPROServiceTemplateVersionListCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

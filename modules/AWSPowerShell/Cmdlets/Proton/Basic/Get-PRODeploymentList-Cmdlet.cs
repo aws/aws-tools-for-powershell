@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
     /// List deployments. You can filter the result list by environment, service, or a single
-    /// service instance.
+    /// service instance.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "PRODeploymentList")]
     [OutputType("Amazon.Proton.Model.DeploymentSummary")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns a collection of Amazon.Proton.Model.DeploymentSummary objects.",
         "The service call response (type Amazon.Proton.Model.ListDeploymentsResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class GetPRODeploymentListCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

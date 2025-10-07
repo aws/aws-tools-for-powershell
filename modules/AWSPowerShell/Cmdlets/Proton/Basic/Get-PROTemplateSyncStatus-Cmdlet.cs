@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Get the status of a template sync.
+    /// Get the status of a template sync.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "PROTemplateSyncStatus")]
     [OutputType("Amazon.Proton.Model.GetTemplateSyncStatusResponse")]
@@ -36,6 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdletOutput("Amazon.Proton.Model.GetTemplateSyncStatusResponse",
         "This cmdlet returns an Amazon.Proton.Model.GetTemplateSyncStatusResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class GetPROTemplateSyncStatusCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// Delete a <c>Recommended</c> minor version of the service template if no other minor
     /// versions of the service template exist. A minor version of a service template is a
     /// version that's backwards compatible.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "PROServiceTemplateVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Proton.Model.ServiceTemplateVersion")]
@@ -49,6 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.ServiceTemplateVersion object.",
         "The service call response (type Amazon.Proton.Model.DeleteServiceTemplateVersionResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class RemovePROServiceTemplateVersionCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

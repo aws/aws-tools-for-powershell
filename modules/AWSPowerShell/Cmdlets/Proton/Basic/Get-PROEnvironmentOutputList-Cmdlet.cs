@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// List the infrastructure as code outputs for your environment.
+    /// List the infrastructure as code outputs for your environment.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "PROEnvironmentOutputList")]
     [OutputType("Amazon.Proton.Model.Output")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns a collection of Amazon.Proton.Model.Output objects.",
         "The service call response (type Amazon.Proton.Model.ListEnvironmentOutputsResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class GetPROEnvironmentOutputListCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

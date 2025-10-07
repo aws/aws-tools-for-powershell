@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Delete the Proton Ops file.
+    /// Delete the Proton Ops file.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "PROServiceSyncConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Proton.Model.ServiceSyncConfig")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.ServiceSyncConfig object.",
         "The service call response (type Amazon.Proton.Model.DeleteServiceSyncConfigResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class RemovePROServiceSyncConfigCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

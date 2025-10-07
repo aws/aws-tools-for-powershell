@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Create the Proton Ops configuration file.
+    /// Create the Proton Ops configuration file.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "PROServiceSyncConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Proton.Model.ServiceSyncConfig")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.ServiceSyncConfig object.",
         "The service call response (type Amazon.Proton.Model.CreateServiceSyncConfigResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class NewPROServiceSyncConfigCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// De-register and unlink your repository.
+    /// De-register and unlink your repository.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "PRORepository", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Proton.Model.Repository")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.Repository object.",
         "The service call response (type Amazon.Proton.Model.DeleteRepositoryResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class RemovePRORepositoryCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

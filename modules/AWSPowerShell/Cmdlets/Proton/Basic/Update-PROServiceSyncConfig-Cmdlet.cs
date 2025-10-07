@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Update the Proton Ops config file.
+    /// Update the Proton Ops config file.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Update", "PROServiceSyncConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Proton.Model.ServiceSyncConfig")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.ServiceSyncConfig object.",
         "The service call response (type Amazon.Proton.Model.UpdateServiceSyncConfigResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class UpdatePROServiceSyncConfigCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

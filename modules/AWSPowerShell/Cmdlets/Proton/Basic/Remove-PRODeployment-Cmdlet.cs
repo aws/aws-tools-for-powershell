@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Delete the deployment.
+    /// Delete the deployment.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "PRODeployment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Proton.Model.Deployment")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.Deployment object.",
         "The service call response (type Amazon.Proton.Model.DeleteDeploymentResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class RemovePRODeploymentCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// </para><para>
     /// For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton
     /// components</a> in the <i>Proton User Guide</i>.
-    /// </para></note>
+    /// </para></note><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "PROService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Proton.Model.Service")]
@@ -45,6 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.Service object.",
         "The service call response (type Amazon.Proton.Model.DeleteServiceResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class RemovePROServiceCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

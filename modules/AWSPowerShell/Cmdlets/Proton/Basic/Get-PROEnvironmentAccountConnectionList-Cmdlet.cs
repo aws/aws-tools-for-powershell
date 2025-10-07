@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment
     /// account connections</a> in the <i>Proton User guide</i>.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "PROEnvironmentAccountConnectionList")]
     [OutputType("Amazon.Proton.Model.EnvironmentAccountConnectionSummary")]
@@ -43,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns a collection of Amazon.Proton.Model.EnvironmentAccountConnectionSummary objects.",
         "The service call response (type Amazon.Proton.Model.ListEnvironmentAccountConnectionsResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class GetPROEnvironmentAccountConnectionListCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

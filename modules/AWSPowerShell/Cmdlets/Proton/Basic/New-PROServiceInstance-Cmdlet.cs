@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Create a service instance.
+    /// Create a service instance.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "PROServiceInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Proton.Model.ServiceInstance")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.ServiceInstance object.",
         "The service call response (type Amazon.Proton.Model.CreateServiceInstanceResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class NewPROServiceInstanceCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

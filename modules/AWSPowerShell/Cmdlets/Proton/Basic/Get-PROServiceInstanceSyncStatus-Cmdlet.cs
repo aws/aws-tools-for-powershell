@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Get the status of the synced service instance.
+    /// Get the status of the synced service instance.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "PROServiceInstanceSyncStatus")]
     [OutputType("Amazon.Proton.Model.GetServiceInstanceSyncStatusResponse")]
@@ -36,6 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdletOutput("Amazon.Proton.Model.GetServiceInstanceSyncStatusResponse",
         "This cmdlet returns an Amazon.Proton.Model.GetServiceInstanceSyncStatusResponse object containing multiple properties."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class GetPROServiceInstanceSyncStatusCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

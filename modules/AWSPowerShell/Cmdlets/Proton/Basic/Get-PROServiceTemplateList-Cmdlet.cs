@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// List service templates with detail data.
+    /// List service templates with detail data.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "PROServiceTemplateList")]
     [OutputType("Amazon.Proton.Model.ServiceTemplateSummary")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns a collection of Amazon.Proton.Model.ServiceTemplateSummary objects.",
         "The service call response (type Amazon.Proton.Model.ListServiceTemplatesResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class GetPROServiceTemplateListCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

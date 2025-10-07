@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// List environments with detail data summaries.
+    /// List environments with detail data summaries.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "PROEnvironmentList")]
     [OutputType("Amazon.Proton.Model.EnvironmentSummary")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns a collection of Amazon.Proton.Model.EnvironmentSummary objects.",
         "The service call response (type Amazon.Proton.Model.ListEnvironmentsResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class GetPROEnvironmentListCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

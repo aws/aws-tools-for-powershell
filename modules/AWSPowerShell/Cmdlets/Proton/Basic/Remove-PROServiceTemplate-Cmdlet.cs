@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
     /// If no other major or minor versions of the service template exist, delete the service
-    /// template.
+    /// template.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "PROServiceTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Proton.Model.ServiceTemplate")]
@@ -38,6 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.ServiceTemplate object.",
         "The service call response (type Amazon.Proton.Model.DeleteServiceTemplateResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class RemovePROServiceTemplateCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

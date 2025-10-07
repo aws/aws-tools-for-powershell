@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// List repository sync definitions with detail data.
+    /// List repository sync definitions with detail data.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "PRORepositorySyncDefinitionList")]
     [OutputType("Amazon.Proton.Model.RepositorySyncDefinition")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns a collection of Amazon.Proton.Model.RepositorySyncDefinition objects.",
         "The service call response (type Amazon.Proton.Model.ListRepositorySyncDefinitionsResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class GetPRORepositorySyncDefinitionListCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         

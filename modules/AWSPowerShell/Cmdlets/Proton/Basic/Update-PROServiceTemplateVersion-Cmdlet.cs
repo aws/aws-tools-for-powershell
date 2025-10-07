@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Update a major or minor version of a service template.
+    /// Update a major or minor version of a service template.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Update", "PROServiceTemplateVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Proton.Model.ServiceTemplateVersion")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         "This cmdlet returns an Amazon.Proton.Model.ServiceTemplateVersion object.",
         "The service call response (type Amazon.Proton.Model.UpdateServiceTemplateVersionResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("AWS Proton is not accepting new customers.")]
     public partial class UpdatePROServiceTemplateVersionCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
