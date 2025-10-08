@@ -323,6 +323,7 @@ $OUTP_SelectMap = @{
                "Get-OUTPResourceTag",
                "Start-OUTPCapacityTask",
                "Start-OUTPConnection",
+               "Start-OUTPOutpostDecommission",
                "Add-OUTPResourceTag",
                "Remove-OUTPResourceTag",
                "Update-OUTPOutpost",

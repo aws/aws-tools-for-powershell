@@ -30,40 +30,24 @@ using Amazon.Outposts.Model;
 namespace Amazon.PowerShell.Cmdlets.OUTP
 {
     /// <summary>
-    /// Creates an order for an Outpost.
+    /// Starts the decommission process to return the Outposts racks or servers.
     /// </summary>
-    [Cmdlet("New", "OUTPOrder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Outposts.Model.Order")]
-    [AWSCmdlet("Calls the AWS Outposts CreateOrder API operation.", Operation = new[] {"CreateOrder"}, SelectReturnType = typeof(Amazon.Outposts.Model.CreateOrderResponse))]
-    [AWSCmdletOutput("Amazon.Outposts.Model.Order or Amazon.Outposts.Model.CreateOrderResponse",
-        "This cmdlet returns an Amazon.Outposts.Model.Order object.",
-        "The service call response (type Amazon.Outposts.Model.CreateOrderResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Start", "OUTPOutpostDecommission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Outposts.Model.StartOutpostDecommissionResponse")]
+    [AWSCmdlet("Calls the AWS Outposts StartOutpostDecommission API operation.", Operation = new[] {"StartOutpostDecommission"}, SelectReturnType = typeof(Amazon.Outposts.Model.StartOutpostDecommissionResponse))]
+    [AWSCmdletOutput("Amazon.Outposts.Model.StartOutpostDecommissionResponse",
+        "This cmdlet returns an Amazon.Outposts.Model.StartOutpostDecommissionResponse object containing multiple properties."
     )]
-    public partial class NewOUTPOrderCmdlet : AmazonOutpostsClientCmdlet, IExecutor
+    public partial class StartOUTPOutpostDecommissionCmdlet : AmazonOutpostsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter LineItem
-        /// <summary>
-        /// <para>
-        /// <para>The line items that make up the order.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("LineItems")]
-        public Amazon.Outposts.Model.LineItemRequest[] LineItem { get; set; }
-        #endregion
-        
         #region Parameter OutpostIdentifier
         /// <summary>
         /// <para>
-        /// <para> The ID or the Amazon Resource Name (ARN) of the Outpost. </para>
+        /// <para>The ID or ARN of the Outpost that you want to decommission.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,43 +61,25 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         public System.String OutpostIdentifier { get; set; }
         #endregion
         
-        #region Parameter PaymentOption
+        #region Parameter ValidateOnly
         /// <summary>
         /// <para>
-        /// <para>The payment option.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.Outposts.PaymentOption")]
-        public Amazon.Outposts.PaymentOption PaymentOption { get; set; }
-        #endregion
-        
-        #region Parameter PaymentTerm
-        /// <summary>
-        /// <para>
-        /// <para>The payment terms.</para>
+        /// <para>Validates the request without starting the decommission process.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Outposts.PaymentTerm")]
-        public Amazon.Outposts.PaymentTerm PaymentTerm { get; set; }
+        public System.Boolean? ValidateOnly { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Order'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Outposts.Model.CreateOrderResponse).
-        /// Specifying the name of a property of type Amazon.Outposts.Model.CreateOrderResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Outposts.Model.StartOutpostDecommissionResponse).
+        /// Specifying the name of a property of type Amazon.Outposts.Model.StartOutpostDecommissionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Order";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -136,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.OutpostIdentifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-OUTPOrder (CreateOrder)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-OUTPOutpostDecommission (StartOutpostDecommission)"))
             {
                 return;
             }
@@ -148,12 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Outposts.Model.CreateOrderResponse, NewOUTPOrderCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Outposts.Model.StartOutpostDecommissionResponse, StartOUTPOutpostDecommissionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-            }
-            if (this.LineItem != null)
-            {
-                context.LineItem = new List<Amazon.Outposts.Model.LineItemRequest>(this.LineItem);
             }
             context.OutpostIdentifier = this.OutpostIdentifier;
             #if MODULAR
@@ -162,14 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
                 WriteWarning("You are passing $null as a value for parameter OutpostIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.PaymentOption = this.PaymentOption;
-            #if MODULAR
-            if (this.PaymentOption == null && ParameterWasBound(nameof(this.PaymentOption)))
-            {
-                WriteWarning("You are passing $null as a value for parameter PaymentOption which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.PaymentTerm = this.PaymentTerm;
+            context.ValidateOnly = this.ValidateOnly;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -184,23 +139,15 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Outposts.Model.CreateOrderRequest();
+            var request = new Amazon.Outposts.Model.StartOutpostDecommissionRequest();
             
-            if (cmdletContext.LineItem != null)
-            {
-                request.LineItems = cmdletContext.LineItem;
-            }
             if (cmdletContext.OutpostIdentifier != null)
             {
                 request.OutpostIdentifier = cmdletContext.OutpostIdentifier;
             }
-            if (cmdletContext.PaymentOption != null)
+            if (cmdletContext.ValidateOnly != null)
             {
-                request.PaymentOption = cmdletContext.PaymentOption;
-            }
-            if (cmdletContext.PaymentTerm != null)
-            {
-                request.PaymentTerm = cmdletContext.PaymentTerm;
+                request.ValidateOnly = cmdletContext.ValidateOnly.Value;
             }
             
             CmdletOutput output;
@@ -235,12 +182,12 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         
         #region AWS Service Operation Call
         
-        private Amazon.Outposts.Model.CreateOrderResponse CallAWSServiceOperation(IAmazonOutposts client, Amazon.Outposts.Model.CreateOrderRequest request)
+        private Amazon.Outposts.Model.StartOutpostDecommissionResponse CallAWSServiceOperation(IAmazonOutposts client, Amazon.Outposts.Model.StartOutpostDecommissionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Outposts", "CreateOrder");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Outposts", "StartOutpostDecommission");
             try
             {
-                return client.CreateOrderAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.StartOutpostDecommissionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -257,12 +204,10 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.Outposts.Model.LineItemRequest> LineItem { get; set; }
             public System.String OutpostIdentifier { get; set; }
-            public Amazon.Outposts.PaymentOption PaymentOption { get; set; }
-            public Amazon.Outposts.PaymentTerm PaymentTerm { get; set; }
-            public System.Func<Amazon.Outposts.Model.CreateOrderResponse, NewOUTPOrderCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Order;
+            public System.Boolean? ValidateOnly { get; set; }
+            public System.Func<Amazon.Outposts.Model.StartOutpostDecommissionResponse, StartOUTPOutpostDecommissionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

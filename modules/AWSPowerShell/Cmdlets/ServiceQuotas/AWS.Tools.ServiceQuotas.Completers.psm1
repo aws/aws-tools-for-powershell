@@ -91,6 +91,23 @@ $SQ_Completers = {
             break
         }
 
+        # Amazon.ServiceQuotas.OptInLevel
+        "Start-SQAutoManagement/OptInLevel"
+        {
+            $v = "ACCOUNT"
+            break
+        }
+
+        # Amazon.ServiceQuotas.OptInType
+        {
+            ($_ -eq "Start-SQAutoManagement/OptInType") -Or
+            ($_ -eq "Update-SQAutoManagement/OptInType")
+        }
+        {
+            $v = "NotifyAndAdjust","NotifyOnly"
+            break
+        }
+
         # Amazon.ServiceQuotas.RequestStatus
         {
             ($_ -eq "Get-SQRequestedServiceQuotaChangeHistoryByQuotaList/Status") -Or
@@ -110,6 +127,8 @@ $SQ_Completers = {
 }
 
 $SQ_map = @{
+    "OptInLevel"=@("Start-SQAutoManagement")
+    "OptInType"=@("Start-SQAutoManagement","Update-SQAutoManagement")
     "QuotaAppliedAtLevel"=@("Get-SQServiceQuotaList")
     "QuotaRequestedAtLevel"=@("Get-SQRequestedServiceQuotaChangeHistoryByQuotaList","Get-SQRequestedServiceQuotaChangeHistoryList")
     "Status"=@("Get-SQRequestedServiceQuotaChangeHistoryByQuotaList","Get-SQRequestedServiceQuotaChangeHistoryList")
@@ -170,6 +189,7 @@ $SQ_SelectMap = @{
                "Remove-SQServiceQuotaIncreaseRequestFromTemplate",
                "Unregister-SQServiceQuotaTemplate",
                "Get-SQAssociationForServiceQuotaTemplate",
+               "Get-SQAutoManagementConfiguration",
                "Get-SQAWSDefaultServiceQuota",
                "Get-SQRequestedServiceQuotaChange",
                "Get-SQServiceQuota",
@@ -183,8 +203,11 @@ $SQ_SelectMap = @{
                "Get-SQResourceTag",
                "Write-SQServiceQuotaIncreaseRequestIntoTemplate",
                "Request-SQServiceQuotaIncrease",
+               "Start-SQAutoManagement",
+               "Stop-SQAutoManagement",
                "Add-SQResourceTag",
-               "Remove-SQResourceTag")
+               "Remove-SQResourceTag",
+               "Update-SQAutoManagement")
 }
 
 _awsArgumentCompleterRegistration $SQ_SelectCompleters $SQ_SelectMap

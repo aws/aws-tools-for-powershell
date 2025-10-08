@@ -115,6 +115,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-OUTPSite', 
         'Start-OUTPCapacityTask', 
         'Start-OUTPConnection', 
+        'Start-OUTPOutpostDecommission', 
         'Stop-OUTPCapacityTask', 
         'Stop-OUTPOrder', 
         'Update-OUTPOutpost', 

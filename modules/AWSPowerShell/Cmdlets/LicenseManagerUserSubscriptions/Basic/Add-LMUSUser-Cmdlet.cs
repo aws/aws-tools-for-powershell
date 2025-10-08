@@ -102,6 +102,21 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
         public System.String[] ActiveDirectorySettings_DomainIpv4List { get; set; }
         #endregion
         
+        #region Parameter ActiveDirectorySettings_DomainIpv6List
+        /// <summary>
+        /// <para>
+        /// <para>A list of domain IPv6 addresses that are used for the Active Directory.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IdentityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_DomainIpv6List")]
+        public System.String[] ActiveDirectorySettings_DomainIpv6List { get; set; }
+        #endregion
+        
         #region Parameter ActiveDirectorySettings_DomainName
         /// <summary>
         /// <para>
@@ -252,6 +267,10 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
             {
                 context.ActiveDirectorySettings_DomainIpv4List = new List<System.String>(this.ActiveDirectorySettings_DomainIpv4List);
             }
+            if (this.ActiveDirectorySettings_DomainIpv6List != null)
+            {
+                context.ActiveDirectorySettings_DomainIpv6List = new List<System.String>(this.ActiveDirectorySettings_DomainIpv6List);
+            }
             context.ActiveDirectorySettings_DomainName = this.ActiveDirectorySettings_DomainName;
             if (this.DomainNetworkSettings_Subnet != null)
             {
@@ -354,6 +373,16 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
             if (requestIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_activeDirectorySettings_DomainIpv4List != null)
             {
                 requestIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings.DomainIpv4List = requestIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_activeDirectorySettings_DomainIpv4List;
+                requestIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettingsIsNull = false;
+            }
+            List<System.String> requestIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_activeDirectorySettings_DomainIpv6List = null;
+            if (cmdletContext.ActiveDirectorySettings_DomainIpv6List != null)
+            {
+                requestIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_activeDirectorySettings_DomainIpv6List = cmdletContext.ActiveDirectorySettings_DomainIpv6List;
+            }
+            if (requestIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_activeDirectorySettings_DomainIpv6List != null)
+            {
+                requestIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings.DomainIpv6List = requestIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_activeDirectorySettings_DomainIpv6List;
                 requestIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettingsIsNull = false;
             }
             System.String requestIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_identityProvider_ActiveDirectoryIdentityProvider_ActiveDirectorySettings_activeDirectorySettings_DomainName = null;
@@ -526,6 +555,7 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
             public System.String Domain { get; set; }
             public System.String SecretsManagerCredentialsProvider_SecretId { get; set; }
             public List<System.String> ActiveDirectorySettings_DomainIpv4List { get; set; }
+            public List<System.String> ActiveDirectorySettings_DomainIpv6List { get; set; }
             public System.String ActiveDirectorySettings_DomainName { get; set; }
             public List<System.String> DomainNetworkSettings_Subnet { get; set; }
             public Amazon.LicenseManagerUserSubscriptions.ActiveDirectoryType ActiveDirectoryIdentityProvider_ActiveDirectoryType { get; set; }
