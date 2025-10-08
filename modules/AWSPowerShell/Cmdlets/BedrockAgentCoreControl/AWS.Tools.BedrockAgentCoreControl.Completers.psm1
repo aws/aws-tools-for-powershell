@@ -86,7 +86,7 @@ $BACC_Completers = {
             ($_ -eq "Update-BACCGateway/AuthorizerType")
         }
         {
-            $v = "CUSTOM_JWT"
+            $v = "AWS_IAM","CUSTOM_JWT"
             break
         }
 

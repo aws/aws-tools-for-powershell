@@ -90,6 +90,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-SQResourceTag', 
         'Get-SQAssociationForServiceQuotaTemplate', 
+        'Get-SQAutoManagementConfiguration', 
         'Get-SQAWSDefaultServiceQuota', 
         'Get-SQAWSDefaultServiceQuotaList', 
         'Get-SQRequestedServiceQuotaChange', 
@@ -106,7 +107,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-SQResourceTag', 
         'Remove-SQServiceQuotaIncreaseRequestFromTemplate', 
         'Request-SQServiceQuotaIncrease', 
+        'Start-SQAutoManagement', 
+        'Stop-SQAutoManagement', 
         'Unregister-SQServiceQuotaTemplate', 
+        'Update-SQAutoManagement', 
         'Write-SQServiceQuotaIncreaseRequestIntoTemplate')
 
     # Variables to export from this module

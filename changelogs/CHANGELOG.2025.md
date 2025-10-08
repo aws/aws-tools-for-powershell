@@ -1,4 +1,24 @@
-﻿### 4.1.916 (2025-10-07 20:27Z)
+﻿### 4.1.917 (2025-10-08 20:34Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1140.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon License Manager User Subscription
+    * Modified cmdlet Add-LMUSUser: added parameter ActiveDirectorySettings_DomainIpv6List.
+    * Modified cmdlet Get-LMUSProductSubscriptionList: added parameter ActiveDirectorySettings_DomainIpv6List.
+    * Modified cmdlet Get-LMUSUserAssociationList: added parameter ActiveDirectorySettings_DomainIpv6List.
+    * Modified cmdlet Register-LMUSIdentityProvider: added parameter ActiveDirectorySettings_DomainIpv6List.
+    * Modified cmdlet Remove-LMUSUser: added parameter ActiveDirectorySettings_DomainIpv6List.
+    * Modified cmdlet Start-LMUSProductSubscription: added parameter ActiveDirectorySettings_DomainIpv6List.
+    * Modified cmdlet Stop-LMUSProductSubscription: added parameter ActiveDirectorySettings_DomainIpv6List.
+    * Modified cmdlet Unregister-LMUSIdentityProvider: added parameter ActiveDirectorySettings_DomainIpv6List.
+    * Modified cmdlet Update-LMUSIdentityProviderSetting: added parameter ActiveDirectorySettings_DomainIpv6List.
+  * Amazon Outposts
+    * Added cmdlet Start-OUTPOutpostDecommission leveraging the StartOutpostDecommission service API.
+  * Amazon Service Quotas
+    * Added cmdlet Get-SQAutoManagementConfiguration leveraging the GetAutoManagementConfiguration service API.
+    * Added cmdlet Start-SQAutoManagement leveraging the StartAutoManagement service API.
+    * Added cmdlet Stop-SQAutoManagement leveraging the StopAutoManagement service API.
+    * Added cmdlet Update-SQAutoManagement leveraging the UpdateAutoManagement service API.
+
+### 4.1.916 (2025-10-07 20:27Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1139.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.915 (2025-10-06 21:00Z)

@@ -23222,6 +23222,7 @@ Set-Alias -Name OUTP-ListSites -Value Get-OUTPSiteList
 Set-Alias -Name OUTP-ListTagsForResource -Value Get-OUTPResourceTag
 Set-Alias -Name OUTP-StartCapacityTask -Value Start-OUTPCapacityTask
 Set-Alias -Name OUTP-StartConnection -Value Start-OUTPConnection
+Set-Alias -Name OUTP-StartOutpostDecommission -Value Start-OUTPOutpostDecommission
 Set-Alias -Name OUTP-TagResource -Value Add-OUTPResourceTag
 Set-Alias -Name OUTP-UntagResource -Value Remove-OUTPResourceTag
 Set-Alias -Name OUTP-UpdateOutpost -Value Update-OUTPOutpost
@@ -28975,6 +28976,7 @@ Set-Alias -Name SQ-DeleteServiceQuotaIncreaseRequestFromTemplate -Value Remove-S
 Set-Alias -Name Disassociate-SQServiceQuotaTemplate -Value Unregister-SQServiceQuotaTemplate
 Set-Alias -Name SQ-DisassociateServiceQuotaTemplate -Value Unregister-SQServiceQuotaTemplate
 Set-Alias -Name SQ-GetAssociationForServiceQuotaTemplate -Value Get-SQAssociationForServiceQuotaTemplate
+Set-Alias -Name SQ-GetAutoManagementConfiguration -Value Get-SQAutoManagementConfiguration
 Set-Alias -Name SQ-GetAWSDefaultServiceQuota -Value Get-SQAWSDefaultServiceQuota
 Set-Alias -Name SQ-GetRequestedServiceQuotaChange -Value Get-SQRequestedServiceQuotaChange
 Set-Alias -Name SQ-GetServiceQuota -Value Get-SQServiceQuota
@@ -29001,8 +29003,11 @@ Set-Alias -Name SQ-ListTagsForResource -Value Get-SQResourceTag
 Set-Alias -Name Put-SQServiceQuotaIncreaseRequestIntoTemplate -Value Write-SQServiceQuotaIncreaseRequestIntoTemplate
 Set-Alias -Name SQ-PutServiceQuotaIncreaseRequestIntoTemplate -Value Write-SQServiceQuotaIncreaseRequestIntoTemplate
 Set-Alias -Name SQ-RequestServiceQuotaIncrease -Value Request-SQServiceQuotaIncrease
+Set-Alias -Name SQ-StartAutoManagement -Value Start-SQAutoManagement
+Set-Alias -Name SQ-StopAutoManagement -Value Stop-SQAutoManagement
 Set-Alias -Name SQ-TagResource -Value Add-SQResourceTag
 Set-Alias -Name SQ-UntagResource -Value Remove-SQResourceTag
+Set-Alias -Name SQ-UpdateAutoManagement -Value Update-SQAutoManagement
 Set-Alias -Name Associate-SCARAttributeGroup -Value Register-SCARAttributeGroup
 Set-Alias -Name SCAR-AssociateAttributeGroup -Value Register-SCARAttributeGroup
 Set-Alias -Name Associate-SCARResource -Value Register-SCARResource
