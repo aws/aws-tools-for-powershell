@@ -30,7 +30,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Describes the state of a QuickSight Q Search configuration.
+    /// Describes the state of a Quick Sight Q Search configuration.
     /// </summary>
     [Cmdlet("Get", "QSQuickSightQSearchConfiguration")]
     [OutputType("Amazon.QuickSight.QSearchStatus")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services account that contains the QuickSight Q Search configuration
+        /// <para>The ID of the Amazon Web Services account that contains the Quick Sight Q Search configuration
         /// that the user wants described.</para>
         /// </para>
         /// </summary>

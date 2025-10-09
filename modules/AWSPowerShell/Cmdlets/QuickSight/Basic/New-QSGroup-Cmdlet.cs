@@ -30,7 +30,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Use the <c>CreateGroup</c> operation to create a group in QuickSight. You can create
+    /// Use the <c>CreateGroup</c> operation to create a group in Quick Sight. You can create
     /// up to 10,000 groups in a namespace. If you want to create more than 10,000 groups
     /// in a namespace, contact Amazon Web Services Support.
     /// 
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The ID for the Amazon Web Services account that the group is in. Currently, you use
-        /// the ID for the Amazon Web Services account that contains your Amazon QuickSight account.</para>
+        /// the ID for the Amazon Web Services account that contains your Amazon Quick Sight account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

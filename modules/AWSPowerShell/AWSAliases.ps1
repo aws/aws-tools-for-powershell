@@ -24888,6 +24888,8 @@ Set-Alias -Name Create-QSAccountCustomization -Value New-QSAccountCustomization
 Set-Alias -Name QS-CreateAccountCustomization -Value New-QSAccountCustomization
 Set-Alias -Name Create-QSAccountSubscription -Value New-QSAccountSubscription
 Set-Alias -Name QS-CreateAccountSubscription -Value New-QSAccountSubscription
+Set-Alias -Name Create-QSActionConnector -Value New-QSActionConnector
+Set-Alias -Name QS-CreateActionConnector -Value New-QSActionConnector
 Set-Alias -Name Create-QSAnalysis -Value New-QSAnalysis
 Set-Alias -Name QS-CreateAnalysis -Value New-QSAnalysis
 Set-Alias -Name Create-QSBrand -Value New-QSBrand
@@ -24939,6 +24941,8 @@ Set-Alias -Name Delete-QSAccountCustomPermission -Value Remove-QSAccountCustomPe
 Set-Alias -Name QS-DeleteAccountCustomPermission -Value Remove-QSAccountCustomPermission
 Set-Alias -Name Delete-QSAccountSubscription -Value Remove-QSAccountSubscription
 Set-Alias -Name QS-DeleteAccountSubscription -Value Remove-QSAccountSubscription
+Set-Alias -Name Delete-QSActionConnector -Value Remove-QSActionConnector
+Set-Alias -Name QS-DeleteActionConnector -Value Remove-QSActionConnector
 Set-Alias -Name Delete-QSAnalysis -Value Remove-QSAnalysis
 Set-Alias -Name QS-DeleteAnalysis -Value Remove-QSAnalysis
 Set-Alias -Name Delete-QSBrandAssignment -Value Remove-QSBrandAssignment
@@ -25008,6 +25012,11 @@ Set-Alias -Name Describe-QSAccountSetting -Value Get-QSAccountSetting
 Set-Alias -Name QS-DescribeAccountSettings -Value Get-QSAccountSetting
 Set-Alias -Name Describe-QSAccountSubscription -Value Get-QSAccountSubscription
 Set-Alias -Name QS-DescribeAccountSubscription -Value Get-QSAccountSubscription
+Set-Alias -Name Describe-QSActionConnector -Value Get-QSActionConnector
+Set-Alias -Name QS-DescribeActionConnector -Value Get-QSActionConnector
+Set-Alias -Name Describe-QSActionConnectorPermissions -Value Get-QSActionConnectorPermission
+Set-Alias -Name Describe-QSActionConnectorPermission -Value Get-QSActionConnectorPermission
+Set-Alias -Name QS-DescribeActionConnectorPermissions -Value Get-QSActionConnectorPermission
 Set-Alias -Name Describe-QSAnalysis -Value Get-QSAnalysis
 Set-Alias -Name QS-DescribeAnalysis -Value Get-QSAnalysis
 Set-Alias -Name Describe-QSAnalysisDefinition -Value Get-QSAnalysisDefinition
@@ -25122,7 +25131,13 @@ Set-Alias -Name QS-GenerateEmbedUrlForRegisteredUser -Value New-QSEmbedUrlForReg
 Set-Alias -Name Generate-QSEmbedUrlForRegisteredUserWithIdentity -Value Initialize-QSEmbedUrlForRegisteredUserWithIdentity
 Set-Alias -Name QS-GenerateEmbedUrlForRegisteredUserWithIdentity -Value Initialize-QSEmbedUrlForRegisteredUserWithIdentity
 Set-Alias -Name QS-GetDashboardEmbedUrl -Value Get-QSDashboardEmbedUrl
+Set-Alias -Name QS-GetFlowMetadata -Value Get-QSFlowMetadata
+Set-Alias -Name Get-QSFlowPermissions -Value Get-QSFlowPermission
+Set-Alias -Name QS-GetFlowPermissions -Value Get-QSFlowPermission
 Set-Alias -Name QS-GetSessionEmbedUrl -Value Get-QSSessionEmbedUrl
+Set-Alias -Name List-QSActionConnectors -Value Get-QSActionConnectorList
+Set-Alias -Name List-QSActionConnectorList -Value Get-QSActionConnectorList
+Set-Alias -Name QS-ListActionConnectors -Value Get-QSActionConnectorList
 Set-Alias -Name List-QSAnalyses -Value Get-QSAnalysisList
 Set-Alias -Name List-QSAnalysisList -Value Get-QSAnalysisList
 Set-Alias -Name QS-ListAnalyses -Value Get-QSAnalysisList
@@ -25150,6 +25165,9 @@ Set-Alias -Name QS-ListDataSets -Value Get-QSDataSetList
 Set-Alias -Name List-QSDataSources -Value Get-QSDataSourceList
 Set-Alias -Name List-QSDataSourceList -Value Get-QSDataSourceList
 Set-Alias -Name QS-ListDataSources -Value Get-QSDataSourceList
+Set-Alias -Name List-QSFlows -Value Get-QSFlowList
+Set-Alias -Name List-QSFlowList -Value Get-QSFlowList
+Set-Alias -Name QS-ListFlows -Value Get-QSFlowList
 Set-Alias -Name List-QSFolderMembers -Value Get-QSFolderMemberList
 Set-Alias -Name List-QSFolderMemberList -Value Get-QSFolderMemberList
 Set-Alias -Name QS-ListFolderMembers -Value Get-QSFolderMemberList
@@ -25231,6 +25249,8 @@ Set-Alias -Name Put-QSDataSetRefreshProperty -Value Write-QSDataSetRefreshProper
 Set-Alias -Name QS-PutDataSetRefreshProperties -Value Write-QSDataSetRefreshProperty
 Set-Alias -Name QS-RegisterUser -Value Register-QSUser
 Set-Alias -Name QS-RestoreAnalysis -Value Restore-QSAnalysis
+Set-Alias -Name Search-QSActionConnectors -Value Search-QSActionConnector
+Set-Alias -Name QS-SearchActionConnectors -Value Search-QSActionConnector
 Set-Alias -Name Search-QSAnalyses -Value Search-QSAnalysis
 Set-Alias -Name QS-SearchAnalyses -Value Search-QSAnalysis
 Set-Alias -Name Search-QSDashboards -Value Search-QSDashboard
@@ -25239,6 +25259,8 @@ Set-Alias -Name Search-QSDataSets -Value Search-QSDataSet
 Set-Alias -Name QS-SearchDataSets -Value Search-QSDataSet
 Set-Alias -Name Search-QSDataSources -Value Search-QSDataSource
 Set-Alias -Name QS-SearchDataSources -Value Search-QSDataSource
+Set-Alias -Name Search-QSFlows -Value Search-QSFlow
+Set-Alias -Name QS-SearchFlows -Value Search-QSFlow
 Set-Alias -Name Search-QSFolders -Value Search-QSFolder
 Set-Alias -Name QS-SearchFolders -Value Search-QSFolder
 Set-Alias -Name Search-QSGroups -Value Find-QSGroup
@@ -25256,6 +25278,9 @@ Set-Alias -Name QS-UpdateAccountCustomization -Value Update-QSAccountCustomizati
 Set-Alias -Name QS-UpdateAccountCustomPermission -Value Update-QSAccountCustomPermission
 Set-Alias -Name Update-QSAccountSettings -Value Update-QSAccountSetting
 Set-Alias -Name QS-UpdateAccountSettings -Value Update-QSAccountSetting
+Set-Alias -Name QS-UpdateActionConnector -Value Update-QSActionConnector
+Set-Alias -Name Update-QSActionConnectorPermissions -Value Update-QSActionConnectorPermission
+Set-Alias -Name QS-UpdateActionConnectorPermissions -Value Update-QSActionConnectorPermission
 Set-Alias -Name QS-UpdateAnalysis -Value Update-QSAnalysis
 Set-Alias -Name Update-QSAnalysisPermissions -Value Update-QSAnalysisPermission
 Set-Alias -Name QS-UpdateAnalysisPermissions -Value Update-QSAnalysisPermission
@@ -25279,6 +25304,8 @@ Set-Alias -Name QS-UpdateDataSource -Value Update-QSDataSource
 Set-Alias -Name Update-QSDataSourcePermissions -Value Update-QSDataSourcePermission
 Set-Alias -Name QS-UpdateDataSourcePermissions -Value Update-QSDataSourcePermission
 Set-Alias -Name QS-UpdateDefaultQBusinessApplication -Value Update-QSDefaultQBusinessApplication
+Set-Alias -Name Update-QSFlowPermissions -Value Update-QSFlowPermission
+Set-Alias -Name QS-UpdateFlowPermissions -Value Update-QSFlowPermission
 Set-Alias -Name QS-UpdateFolder -Value Update-QSFolder
 Set-Alias -Name Update-QSFolderPermissions -Value Update-QSFolderPermission
 Set-Alias -Name QS-UpdateFolderPermissions -Value Update-QSFolderPermission

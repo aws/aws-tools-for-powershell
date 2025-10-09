@@ -31,9 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Generates a temporary session URL and authorization code(bearer token) that you can
-    /// use to embed an QuickSight read-only dashboard in your website or application. Before
-    /// you use this command, make sure that you have configured the dashboards and permissions.
-    /// 
+    /// use to embed an Amazon Quick Sight read-only dashboard in your website or application.
+    /// Before you use this command, make sure that you have configured the dashboards and
+    /// permissions. 
     /// 
     ///  
     /// <para>
@@ -147,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The QuickSight namespace that contains the dashboard IDs in this request. If you're
-        /// not using a custom namespace, set <c>Namespace = default</c>.</para>
+        /// <para>The Amazon Quick Sight namespace that contains the dashboard IDs in this request.
+        /// If you're not using a custom namespace, set <c>Namespace = default</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,10 +182,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>Adds persistence of state for the user session in an embedded dashboard. Persistence
         /// applies to the sheet and the parameter settings. These are control settings that the
-        /// dashboard subscriber (QuickSight reader) chooses while viewing the dashboard. If this
-        /// is set to <c>TRUE</c>, the settings are the same when the subscriber reopens the same
-        /// dashboard URL. The state is stored in QuickSight, not in a browser cookie. If this
-        /// is set to FALSE, the state of the user session is not persisted. The default is <c>FALSE</c>.</para>
+        /// dashboard subscriber (Amazon Quick Sight reader) chooses while viewing the dashboard.
+        /// If this is set to <c>TRUE</c>, the settings are the same when the subscriber reopens
+        /// the same dashboard URL. The state is stored in Amazon Quick Sight, not in a browser
+        /// cookie. If this is set to FALSE, the state of the user session is not persisted. The
+        /// default is <c>FALSE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

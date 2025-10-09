@@ -31,11 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Deletes all access scopes and authorized targets that are associated with a service
-    /// from the QuickSight IAM Identity Center application.
+    /// from the Quick Sight IAM Identity Center application.
     /// 
     ///  
     /// <para>
-    /// This operation is only supported for QuickSight accounts that use IAM Identity Center.
+    /// This operation is only supported for Quick Sight accounts that use IAM Identity Center.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "QSIdentityPropagationConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

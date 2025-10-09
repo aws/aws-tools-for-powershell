@@ -30,7 +30,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Describes a Amazon Q Business application that is linked to an QuickSight account.
+    /// Describes a Amazon Q Business application that is linked to an Quick Sight account.
     /// </summary>
     [Cmdlet("Get", "QSDefaultQBusinessApplication")]
     [OutputType("System.String")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the QuickSight account that is linked to the Amazon Q Business application
+        /// <para>The ID of the Quick Sight account that is linked to the Amazon Q Business application
         /// that you want described.</para>
         /// </para>
         /// </summary>
@@ -66,9 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The QuickSight namespace that contains the linked Amazon Q Business application. If
-        /// this field is left blank, the default namespace is used. Currently, the default namespace
-        /// is the only valid value for this parameter.</para>
+        /// <para>The Quick Sight namespace that contains the linked Amazon Q Business application.
+        /// If this field is left blank, the default namespace is used. Currently, the default
+        /// namespace is the only valid value for this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// <para>
     /// A <i>theme</i> is set of configuration options for color and layout. Themes apply
     /// to analyses and dashboards. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using
-    /// Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>.
+    /// Themes in Amazon Quick Sight</a> in the <i>Amazon Quick Sight User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "QSTheme", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The ID of the theme that a custom theme will inherit from. All themes inherit from
-        /// one of the starting themes defined by Amazon QuickSight. For a list of the starting
+        /// one of the starting themes defined by Amazon Quick Sight. For a list of the starting
         /// themes, use <c>ListThemes</c> or choose <b>Themes</b> from within an analysis. </para>
         /// </para>
         /// </summary>

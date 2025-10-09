@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The type of refresh that a datset undergoes. Valid values are as follows:</para><ul><li><para><c>FULL_REFRESH</c>: A complete refresh of a dataset.</para></li><li><para><c>INCREMENTAL_REFRESH</c>: A partial refresh of some rows of a dataset, based on
         /// the time window specified.</para></li></ul><para>For more information on full and incremental refreshes, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/refreshing-imported-data.html">Refreshing
-        /// SPICE data</a> in the <i>Amazon QuickSight User Guide</i>.</para>
+        /// SPICE data</a> in the <i>Amazon Quick Suite User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

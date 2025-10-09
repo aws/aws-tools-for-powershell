@@ -35,11 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// 
     ///  
     /// <para>
-    /// A dashboard is an entity in QuickSight that identifies QuickSight reports, created
-    /// from analyses. You can share QuickSight dashboards. With the right permissions, you
-    /// can create scheduled email reports from them. If you have the correct permissions,
-    /// you can create a dashboard from a template that exists in a different Amazon Web Services
-    /// account.
+    /// A dashboard is an entity in Amazon Quick Sight that identifies Amazon Quick Sight
+    /// reports, created from analyses. You can share Amazon Quick Sight dashboards. With
+    /// the right permissions, you can create scheduled email reports from them. If you have
+    /// the correct permissions, you can create a dashboard from a template that exists in
+    /// a different Amazon Web Services account.
     /// </para>
     /// </summary>
     [Cmdlet("New", "QSDashboard", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -171,6 +171,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [Alias("DashboardPublishOptions_ExportWithHiddenFieldsOption_AvailabilityStatus")]
         [AWSConstantClassSource("Amazon.QuickSight.DashboardBehavior")]
         public Amazon.QuickSight.DashboardBehavior ExportWithHiddenFieldsOption_AvailabilityStatus { get; set; }
+        #endregion
+        
+        #region Parameter QuickSuiteActionsOption_AvailabilityStatus
+        /// <summary>
+        /// <para>
+        /// <para>Availability status.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DashboardPublishOptions_QuickSuiteActionsOption_AvailabilityStatus")]
+        [AWSConstantClassSource("Amazon.QuickSight.DashboardBehavior")]
+        public Amazon.QuickSight.DashboardBehavior QuickSuiteActionsOption_AvailabilityStatus { get; set; }
         #endregion
         
         #region Parameter SheetLayoutElementMaximizationOption_AvailabilityStatus
@@ -378,7 +390,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The filter definitions for a dashboard.</para><para>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html">Filtering
-        /// Data in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>.</para><para />
+        /// Data in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -393,7 +405,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter FolderArn
         /// <summary>
         /// <para>
-        /// <para>When you create the dashboard, QuickSight adds the dashboard to these folders.</para><para />
+        /// <para>When you create the dashboard, Amazon Quick Sight adds the dashboard to these folders.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -527,7 +539,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The parameter declarations for a dashboard. Parameters are named variables that can
         /// transfer a value for use by an action or an object.</para><para>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html">Parameters
-        /// in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>.</para><para />
+        /// in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -587,9 +599,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ScreenCanvasSizeOptions_ResizeOption
         /// <summary>
         /// <para>
-        /// <para>This value determines the layout behavior when the viewport is resized.</para><ul><li><para><c>FIXED</c>: A fixed width will be used when optimizing the layout. In the QuickSight
-        /// console, this option is called <c>Classic</c>.</para></li><li><para><c>RESPONSIVE</c>: The width of the canvas will be responsive and optimized to the
-        /// view port. In the QuickSight console, this option is called <c>Tiled</c>.</para></li></ul>
+        /// <para>This value determines the layout behavior when the viewport is resized.</para><ul><li><para><c>FIXED</c>: A fixed width will be used when optimizing the layout. In the Quick
+        /// Sight console, this option is called <c>Classic</c>.</para></li><li><para><c>RESPONSIVE</c>: The width of the canvas will be responsive and optimized to the
+        /// view port. In the Quick Sight console, this option is called <c>Tiled</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -833,6 +845,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.ExecutiveSummaryOption_AvailabilityStatus = this.ExecutiveSummaryOption_AvailabilityStatus;
             context.ExportToCSVOption_AvailabilityStatus = this.ExportToCSVOption_AvailabilityStatus;
             context.ExportWithHiddenFieldsOption_AvailabilityStatus = this.ExportWithHiddenFieldsOption_AvailabilityStatus;
+            context.QuickSuiteActionsOption_AvailabilityStatus = this.QuickSuiteActionsOption_AvailabilityStatus;
             context.SheetControlsOption_VisibilityState = this.SheetControlsOption_VisibilityState;
             context.SheetLayoutElementMaximizationOption_AvailabilityStatus = this.SheetLayoutElementMaximizationOption_AvailabilityStatus;
             context.VisualAxisSortOption_AvailabilityStatus = this.VisualAxisSortOption_AvailabilityStatus;
@@ -1186,6 +1199,31 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDashboardPublishOptions_dashboardPublishOptions_ExportWithHiddenFieldsOption != null)
             {
                 request.DashboardPublishOptions.ExportWithHiddenFieldsOption = requestDashboardPublishOptions_dashboardPublishOptions_ExportWithHiddenFieldsOption;
+                requestDashboardPublishOptionsIsNull = false;
+            }
+            Amazon.QuickSight.Model.QuickSuiteActionsOption requestDashboardPublishOptions_dashboardPublishOptions_QuickSuiteActionsOption = null;
+            
+             // populate QuickSuiteActionsOption
+            var requestDashboardPublishOptions_dashboardPublishOptions_QuickSuiteActionsOptionIsNull = true;
+            requestDashboardPublishOptions_dashboardPublishOptions_QuickSuiteActionsOption = new Amazon.QuickSight.Model.QuickSuiteActionsOption();
+            Amazon.QuickSight.DashboardBehavior requestDashboardPublishOptions_dashboardPublishOptions_QuickSuiteActionsOption_quickSuiteActionsOption_AvailabilityStatus = null;
+            if (cmdletContext.QuickSuiteActionsOption_AvailabilityStatus != null)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_QuickSuiteActionsOption_quickSuiteActionsOption_AvailabilityStatus = cmdletContext.QuickSuiteActionsOption_AvailabilityStatus;
+            }
+            if (requestDashboardPublishOptions_dashboardPublishOptions_QuickSuiteActionsOption_quickSuiteActionsOption_AvailabilityStatus != null)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_QuickSuiteActionsOption.AvailabilityStatus = requestDashboardPublishOptions_dashboardPublishOptions_QuickSuiteActionsOption_quickSuiteActionsOption_AvailabilityStatus;
+                requestDashboardPublishOptions_dashboardPublishOptions_QuickSuiteActionsOptionIsNull = false;
+            }
+             // determine if requestDashboardPublishOptions_dashboardPublishOptions_QuickSuiteActionsOption should be set to null
+            if (requestDashboardPublishOptions_dashboardPublishOptions_QuickSuiteActionsOptionIsNull)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_QuickSuiteActionsOption = null;
+            }
+            if (requestDashboardPublishOptions_dashboardPublishOptions_QuickSuiteActionsOption != null)
+            {
+                request.DashboardPublishOptions.QuickSuiteActionsOption = requestDashboardPublishOptions_dashboardPublishOptions_QuickSuiteActionsOption;
                 requestDashboardPublishOptionsIsNull = false;
             }
             Amazon.QuickSight.Model.SheetControlsOption requestDashboardPublishOptions_dashboardPublishOptions_SheetControlsOption = null;
@@ -2044,6 +2082,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.DashboardBehavior ExecutiveSummaryOption_AvailabilityStatus { get; set; }
             public Amazon.QuickSight.DashboardBehavior ExportToCSVOption_AvailabilityStatus { get; set; }
             public Amazon.QuickSight.DashboardBehavior ExportWithHiddenFieldsOption_AvailabilityStatus { get; set; }
+            public Amazon.QuickSight.DashboardBehavior QuickSuiteActionsOption_AvailabilityStatus { get; set; }
             public Amazon.QuickSight.DashboardUIState SheetControlsOption_VisibilityState { get; set; }
             public Amazon.QuickSight.DashboardBehavior SheetLayoutElementMaximizationOption_AvailabilityStatus { get; set; }
             public Amazon.QuickSight.DashboardBehavior VisualAxisSortOption_AvailabilityStatus { get; set; }

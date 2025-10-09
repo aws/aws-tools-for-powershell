@@ -30,12 +30,12 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Lists all services and authorized targets that the QuickSight IAM Identity Center
+    /// Lists all services and authorized targets that the Quick Sight IAM Identity Center
     /// application can access.
     /// 
     ///  
     /// <para>
-    /// This operation is only supported for QuickSight accounts that use IAM Identity Center.
+    /// This operation is only supported for Quick Sight accounts that use IAM Identity Center.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "QSIdentityPropagationConfigList")]

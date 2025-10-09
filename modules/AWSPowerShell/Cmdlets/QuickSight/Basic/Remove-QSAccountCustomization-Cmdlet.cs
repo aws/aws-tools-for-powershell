@@ -31,19 +31,19 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// <important><para>
-    /// This API permanently deletes all QuickSight customizations for the specified Amazon
+    /// This API permanently deletes all Quick Sight customizations for the specified Amazon
     /// Web Services account and namespace. When you delete account customizations:
     /// </para><ul><li><para>
     /// All customizations are removed including themes, branding, and visual settings
     /// </para></li><li><para>
     /// This action cannot be undone through the API
     /// </para></li><li><para>
-    /// Users will see default QuickSight styling after customizations are deleted
+    /// Users will see default Quick Sight styling after customizations are deleted
     /// </para></li></ul><para><b>Before proceeding:</b> Ensure you have backups of any custom themes or branding
     /// elements you may want to recreate.
     /// </para></important><para>
-    /// Deletes all Amazon QuickSight customizations for the specified Amazon Web Services
-    /// account and QuickSight namespace.
+    /// Deletes all Amazon Quick Sight customizations for the specified Amazon Web Services
+    /// account and Quick Sight namespace.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "QSAccountCustomization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID for the Amazon Web Services account that you want to delete QuickSight customizations
+        /// <para>The ID for the Amazon Web Services account that you want to delete Quick Sight customizations
         /// from.</para>
         /// </para>
         /// </summary>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The QuickSight namespace that you're deleting the customizations from.</para>
+        /// <para>The Quick Sight namespace that you're deleting the customizations from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

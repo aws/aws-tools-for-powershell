@@ -30,7 +30,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Updates the Amazon QuickSight settings in your Amazon Web Services account.
+    /// Updates the Amazon Quick Sight settings in your Amazon Web Services account.
     /// </summary>
     [Cmdlet("Update", "QSAccountSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.UpdateAccountSettingsResponse")]
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID for the Amazon Web Services account that contains the QuickSight settings that
-        /// you want to list.</para>
+        /// <para>The ID for the Amazon Web Services account that contains the Quick Sight settings
+        /// that you want to list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The default namespace for this Amazon Web Services account. Currently, the default
-        /// is <c>default</c>. IAM users that register for the first time with QuickSight provide
-        /// an email address that becomes associated with the default namespace. </para>
+        /// is <c>default</c>. IAM users that register for the first time with Amazon Quick Sight
+        /// provide an email address that becomes associated with the default namespace. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter NotificationEmail
         /// <summary>
         /// <para>
-        /// <para>The email address that you want QuickSight to send notifications to regarding your
-        /// Amazon Web Services account or QuickSight subscription.</para>
+        /// <para>The email address that you want Quick Sight to send notifications to regarding your
+        /// Amazon Web Services account or Quick Sight subscription.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter TerminationProtectionEnabled
         /// <summary>
         /// <para>
-        /// <para>A boolean value that determines whether or not an QuickSight account can be deleted.
+        /// <para>A boolean value that determines whether or not an Quick Sight account can be deleted.
         /// A <c>True</c> value doesn't allow the account to be deleted and results in an error
         /// message if a user tries to make a <c>DeleteAccountSubscription</c> request. A <c>False</c>
         /// value will allow the account to be deleted.</para>

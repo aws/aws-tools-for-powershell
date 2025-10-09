@@ -30,7 +30,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Describes the settings that were used when your QuickSight subscription was first
+    /// Describes the settings that were used when your Quick Sight subscription was first
     /// created in this Amazon Web Services account.
     /// </summary>
     [Cmdlet("Get", "QSAccountSetting")]

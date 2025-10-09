@@ -31,12 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// <important><para>
-    /// Deleting your QuickSight account subscription has permanent, irreversible consequences
+    /// Deleting your Quick Sight account subscription has permanent, irreversible consequences
     /// across all Amazon Web Services regions:
     /// </para><ul><li><para>
-    /// Global deletion – Running this operation from any single region will delete your QuickSight
-    /// account and all data in every Amazon Web Services region where you have QuickSight
-    /// resources.
+    /// Global deletion – Running this operation from any single region will delete your Quick
+    /// Sight account and all data in every Amazon Web Services region where you have Quick
+    /// Sight resources.
     /// </para></li><li><para>
     /// Complete data loss – All dashboards, analyses, datasets, data sources, and custom
     /// visuals will be permanently deleted across all regions.
@@ -47,14 +47,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// Shared resources removed – All shared dashboards, folders, and resources will become
     /// inaccessible to other users and external recipients.
     /// </para></li><li><para>
-    /// User access terminated – All QuickSight users in your account will lose access immediately,
+    /// User access terminated – All Quick Sight users in your account will lose access immediately,
     /// including authors, readers, and administrators.
-    /// </para></li><li><para><b>No recovery possible</b> – Once deleted, your QuickSight account and all associated
+    /// </para></li><li><para><b>No recovery possible</b> – Once deleted, your Quick Sight account and all associated
     /// data cannot be restored.
     /// </para></li></ul><para>
     /// Consider exporting critical dashboards and data before proceeding with account deletion.
     /// </para></important><para>
-    /// Use the <c>DeleteAccountSubscription</c> operation to delete an QuickSight account.
+    /// Use the <c>DeleteAccountSubscription</c> operation to delete an Quick Sight account.
     /// This operation will result in an error message if you have configured your account
     /// termination protection settings to <c>True</c>. To change this setting and delete
     /// your account, call the <c>UpdateAccountSettings</c> API and set the value of the <c>TerminationProtectionEnabled</c>

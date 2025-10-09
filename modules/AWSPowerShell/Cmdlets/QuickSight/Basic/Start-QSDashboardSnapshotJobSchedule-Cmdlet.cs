@@ -39,9 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// with a <c>202</c> HTTP status code.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sending-reports.html">Scheduling
-    /// and sending QuickSight reports by email</a> and <a href="https://docs.aws.amazon.com/quicksight/latest/user/email-reports-from-dashboard.html">Configuring
-    /// email report settings for a QuickSight dashboard</a> in the <i>Amazon QuickSight User
-    /// Guide</i>.
+    /// and sending Amazon Quick Sight reports by email</a> and <a href="https://docs.aws.amazon.com/quicksight/latest/user/email-reports-from-dashboard.html">Configuring
+    /// email report settings for a Amazon Quick Sight dashboard</a> in the <i>Amazon Quick
+    /// Sight User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "QSDashboardSnapshotJobSchedule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -95,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The ID of the schedule that you want to start a snapshot job schedule for. The schedule
-        /// ID can be found in the QuickSight console in the <b>Schedules</b> pane of the dashboard
-        /// that the schedule is configured for.</para>
+        /// ID can be found in the Amazon Quick Sight console in the <b>Schedules</b> pane of
+        /// the dashboard that the schedule is configured for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -66,6 +66,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.Model.DataSourceParameters[] CredentialPair_AlternateDataSourceParameter { get; set; }
         #endregion
         
+        #region Parameter QBusinessParameters_ApplicationArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Q Business application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_QBusinessParameters_ApplicationArn")]
+        public System.String QBusinessParameters_ApplicationArn { get; set; }
+        #endregion
+        
         #region Parameter SnowflakeParameters_AuthenticationType
         /// <summary>
         /// <para>
@@ -96,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>Automatically creates a database user. If your database doesn't have a <c>DatabaseUser</c>,
-        /// set this parameter to <c>True</c>. If there is no <c>DatabaseUser</c>, Amazon QuickSight
+        /// set this parameter to <c>True</c>. If there is no <c>DatabaseUser</c>, Quick Sight
         /// can't connect to your cluster. The <c>RoleArn</c> that you use for this operation
         /// must grant access to <c>redshift:CreateClusterUser</c> to successfully create the
         /// user.</para>
@@ -133,6 +144,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DataSourceParameters_S3Parameters_ManifestFileLocation_Bucket")]
         public System.String ManifestFileLocation_Bucket { get; set; }
+        #endregion
+        
+        #region Parameter S3KnowledgeBaseParameters_BucketUrl
+        /// <summary>
+        /// <para>
+        /// <para>The URL of the S3 bucket that contains the knowledge base data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_S3KnowledgeBaseParameters_BucketUrl")]
+        public System.String S3KnowledgeBaseParameters_BucketUrl { get; set; }
         #endregion
         
         #region Parameter PrestoParameters_Catalog
@@ -177,6 +199,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DataSourceParameters_RedshiftParameters_ClusterId")]
         public System.String RedshiftParameters_ClusterId { get; set; }
+        #endregion
+        
+        #region Parameter ConfluenceParameters_ConfluenceUrl
+        /// <summary>
+        /// <para>
+        /// <para>The URL of the Confluence site to connect to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_ConfluenceParameters_ConfluenceUrl")]
+        public System.String ConfluenceParameters_ConfluenceUrl { get; set; }
         #endregion
         
         #region Parameter CustomConnectionParameters_ConnectionType
@@ -360,9 +393,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter IAMParameters_DatabaseGroup
         /// <summary>
         /// <para>
-        /// <para>A list of groups whose permissions will be granted to QuickSight to access the cluster.
-        /// These permissions are combined with the permissions granted to QuickSight by the <c>DatabaseUser</c>.
-        /// If you choose to include this parameter, the <c>RoleArn</c> must grant access to <c>redshift:JoinGroup</c>.</para><para />
+        /// <para>A list of groups whose permissions will be granted to Quick Sight to access the cluster.
+        /// These permissions are combined with the permissions granted to Quick Sight by the
+        /// <c>DatabaseUser</c>. If you choose to include this parameter, the <c>RoleArn</c> must
+        /// grant access to <c>redshift:JoinGroup</c>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -377,10 +411,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter IAMParameters_DatabaseUser
         /// <summary>
         /// <para>
-        /// <para>The user whose permissions and group memberships will be used by QuickSight to access
-        /// the cluster. If this user already exists in your database, QuickSight is granted the
-        /// same permissions that the user has. If the user doesn't exist, set the value of <c>AutoCreateDatabaseUser</c>
-        /// to <c>True</c> to create a new user with PUBLIC permissions.</para>
+        /// <para>The user whose permissions and group memberships will be used by Quick Sight to access
+        /// the cluster. If this user already exists in your database, Amazon Quick Sight is granted
+        /// the same permissions that the user has. If the user doesn't exist, set the value of
+        /// <c>AutoCreateDatabaseUser</c> to <c>True</c> to create a new user with PUBLIC permissions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -484,7 +518,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter FolderArn
         /// <summary>
         /// <para>
-        /// <para>When you create the data source, QuickSight adds the data source to these folders.</para><para />
+        /// <para>When you create the data source, Amazon Quick Sight adds the data source to these
+        /// folders.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -725,6 +760,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String ManifestFileLocation_Key { get; set; }
         #endregion
         
+        #region Parameter WebCrawlerParameters_LoginPageUrl
+        /// <summary>
+        /// <para>
+        /// <para>The URL of the login page for the web crawler to authenticate.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_WebCrawlerParameters_LoginPageUrl")]
+        public System.String WebCrawlerParameters_LoginPageUrl { get; set; }
+        #endregion
+        
         #region Parameter TwitterParameters_MaxRow
         /// <summary>
         /// <para>
@@ -734,6 +780,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DataSourceParameters_TwitterParameters_MaxRows")]
         public System.Int32? TwitterParameters_MaxRow { get; set; }
+        #endregion
+        
+        #region Parameter S3KnowledgeBaseParameters_MetadataFilesLocation
+        /// <summary>
+        /// <para>
+        /// <para>The location of metadata files within the S3 bucket that describe the structure and
+        /// content of the knowledge base.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_S3KnowledgeBaseParameters_MetadataFilesLocation")]
+        public System.String S3KnowledgeBaseParameters_MetadataFilesLocation { get; set; }
         #endregion
         
         #region Parameter Name
@@ -782,6 +840,28 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Credentials_CredentialPair_Password")]
         public System.String CredentialPair_Password { get; set; }
+        #endregion
+        
+        #region Parameter WebCrawlerParameters_PasswordButtonXpath
+        /// <summary>
+        /// <para>
+        /// <para>The XPath expression for locating the password submit button on the login page.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_WebCrawlerParameters_PasswordButtonXpath")]
+        public System.String WebCrawlerParameters_PasswordButtonXpath { get; set; }
+        #endregion
+        
+        #region Parameter WebCrawlerParameters_PasswordFieldXpath
+        /// <summary>
+        /// <para>
+        /// <para>The XPath expression for locating the password field on the login page.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_WebCrawlerParameters_PasswordFieldXpath")]
+        public System.String WebCrawlerParameters_PasswordFieldXpath { get; set; }
         #endregion
         
         #region Parameter Permission
@@ -1028,15 +1108,31 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter IAMParameters_RoleArn
         /// <summary>
         /// <para>
-        /// <para>Use the <c>RoleArn</c> structure to allow QuickSight to call <c>redshift:GetClusterCredentials</c>
+        /// <para>Use the <c>RoleArn</c> structure to allow Quick Sight to call <c>redshift:GetClusterCredentials</c>
         /// on your cluster. The calling principal must have <c>iam:PassRole</c> access to pass
-        /// the role to QuickSight. The role's trust policy must allow the QuickSight service
+        /// the role to Quick Sight. The role's trust policy must allow the Quick Sight service
         /// principal to assume the role.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DataSourceParameters_RedshiftParameters_IAMParameters_RoleArn")]
         public System.String IAMParameters_RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter S3KnowledgeBaseParameters_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>Use the <c>RoleArn</c> structure to override an account-wide role for a specific S3
+        /// Knowledge Base data source. For example, say an account administrator has turned off
+        /// all S3 access with an account-wide role. The administrator can then use <c>RoleArn</c>
+        /// to bypass the account-wide role and allow S3 access for the single S3 Knowledge Base
+        /// data source that is specified in the structure, even if the account-wide role forbidding
+        /// S3 access is still active.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_S3KnowledgeBaseParameters_RoleArn")]
+        public System.String S3KnowledgeBaseParameters_RoleArn { get; set; }
         #endregion
         
         #region Parameter S3Parameters_RoleArn
@@ -1173,6 +1269,28 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String CredentialPair_Username { get; set; }
         #endregion
         
+        #region Parameter WebCrawlerParameters_UsernameButtonXpath
+        /// <summary>
+        /// <para>
+        /// <para>The XPath expression for locating the username submit button on the login page.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_WebCrawlerParameters_UsernameButtonXpath")]
+        public System.String WebCrawlerParameters_UsernameButtonXpath { get; set; }
+        #endregion
+        
+        #region Parameter WebCrawlerParameters_UsernameFieldXpath
+        /// <summary>
+        /// <para>
+        /// <para>The XPath expression for locating the username field on the login page.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_WebCrawlerParameters_UsernameFieldXpath")]
+        public System.String WebCrawlerParameters_UsernameFieldXpath { get; set; }
+        #endregion
+        
         #region Parameter OracleParameters_UseServiceName
         /// <summary>
         /// <para>
@@ -1225,6 +1343,62 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DataSourceParameters_SnowflakeParameters_Warehouse")]
         public System.String SnowflakeParameters_Warehouse { get; set; }
+        #endregion
+        
+        #region Parameter WebCrawlerParameters_WebCrawlerAuthType
+        /// <summary>
+        /// <para>
+        /// <para>The authentication type for the web crawler. The type can be one of the following:</para><ul><li><para><c>NO_AUTH</c>: No authentication required.</para></li><li><para><c>BASIC_AUTH</c>: Basic authentication using username and password.</para></li><li><para><c>SAML</c>: SAML-based authentication.</para></li><li><para><c>FORM</c>: Form-based authentication.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_WebCrawlerParameters_WebCrawlerAuthType")]
+        [AWSConstantClassSource("Amazon.QuickSight.WebCrawlerAuthType")]
+        public Amazon.QuickSight.WebCrawlerAuthType WebCrawlerParameters_WebCrawlerAuthType { get; set; }
+        #endregion
+        
+        #region Parameter WebCrawlerParameters_WebProxyHostName
+        /// <summary>
+        /// <para>
+        /// <para>The hostname of the web proxy server for the web crawler.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_WebCrawlerParameters_WebProxyHostName")]
+        public System.String WebCrawlerParameters_WebProxyHostName { get; set; }
+        #endregion
+        
+        #region Parameter WebProxyCredentials_WebProxyPassword
+        /// <summary>
+        /// <para>
+        /// <para>The password for authenticating with the web proxy server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Credentials_WebProxyCredentials_WebProxyPassword")]
+        public System.String WebProxyCredentials_WebProxyPassword { get; set; }
+        #endregion
+        
+        #region Parameter WebCrawlerParameters_WebProxyPortNumber
+        /// <summary>
+        /// <para>
+        /// <para>The port number of the web proxy server for the web crawler.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_WebCrawlerParameters_WebProxyPortNumber")]
+        public System.Int32? WebCrawlerParameters_WebProxyPortNumber { get; set; }
+        #endregion
+        
+        #region Parameter WebProxyCredentials_WebProxyUsername
+        /// <summary>
+        /// <para>
+        /// <para>The username for authenticating with the web proxy server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Credentials_WebProxyCredentials_WebProxyUsername")]
+        public System.String WebProxyCredentials_WebProxyUsername { get; set; }
         #endregion
         
         #region Parameter AthenaParameters_WorkGroup
@@ -1299,6 +1473,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.CredentialPair_Password = this.CredentialPair_Password;
             context.CredentialPair_Username = this.CredentialPair_Username;
             context.Credentials_SecretArn = this.Credentials_SecretArn;
+            context.WebProxyCredentials_WebProxyPassword = this.WebProxyCredentials_WebProxyPassword;
+            context.WebProxyCredentials_WebProxyUsername = this.WebProxyCredentials_WebProxyUsername;
             context.DataSourceId = this.DataSourceId;
             #if MODULAR
             if (this.DataSourceId == null && ParameterWasBound(nameof(this.DataSourceId)))
@@ -1320,6 +1496,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.AwsIotAnalyticsParameters_DataSetName = this.AwsIotAnalyticsParameters_DataSetName;
             context.BigQueryParameters_DataSetRegion = this.BigQueryParameters_DataSetRegion;
             context.BigQueryParameters_ProjectId = this.BigQueryParameters_ProjectId;
+            context.ConfluenceParameters_ConfluenceUrl = this.ConfluenceParameters_ConfluenceUrl;
             context.CustomConnectionParameters_ConnectionType = this.CustomConnectionParameters_ConnectionType;
             context.DatabricksParameters_Host = this.DatabricksParameters_Host;
             context.DatabricksParameters_Port = this.DatabricksParameters_Port;
@@ -1347,6 +1524,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.PrestoParameters_Catalog = this.PrestoParameters_Catalog;
             context.PrestoParameters_Host = this.PrestoParameters_Host;
             context.PrestoParameters_Port = this.PrestoParameters_Port;
+            context.QBusinessParameters_ApplicationArn = this.QBusinessParameters_ApplicationArn;
             context.RdsParameters_Database = this.RdsParameters_Database;
             context.RdsParameters_InstanceId = this.RdsParameters_InstanceId;
             context.RedshiftParameters_ClusterId = this.RedshiftParameters_ClusterId;
@@ -1361,6 +1539,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.IAMParameters_RoleArn = this.IAMParameters_RoleArn;
             context.DataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation = this.DataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation;
             context.RedshiftParameters_Port = this.RedshiftParameters_Port;
+            context.S3KnowledgeBaseParameters_BucketUrl = this.S3KnowledgeBaseParameters_BucketUrl;
+            context.S3KnowledgeBaseParameters_MetadataFilesLocation = this.S3KnowledgeBaseParameters_MetadataFilesLocation;
+            context.S3KnowledgeBaseParameters_RoleArn = this.S3KnowledgeBaseParameters_RoleArn;
             context.ManifestFileLocation_Bucket = this.ManifestFileLocation_Bucket;
             context.ManifestFileLocation_Key = this.ManifestFileLocation_Key;
             context.S3Parameters_RoleArn = this.S3Parameters_RoleArn;
@@ -1397,6 +1578,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.TrinoParameters_Port = this.TrinoParameters_Port;
             context.TwitterParameters_MaxRow = this.TwitterParameters_MaxRow;
             context.TwitterParameters_Query = this.TwitterParameters_Query;
+            context.WebCrawlerParameters_LoginPageUrl = this.WebCrawlerParameters_LoginPageUrl;
+            context.WebCrawlerParameters_PasswordButtonXpath = this.WebCrawlerParameters_PasswordButtonXpath;
+            context.WebCrawlerParameters_PasswordFieldXpath = this.WebCrawlerParameters_PasswordFieldXpath;
+            context.WebCrawlerParameters_UsernameButtonXpath = this.WebCrawlerParameters_UsernameButtonXpath;
+            context.WebCrawlerParameters_UsernameFieldXpath = this.WebCrawlerParameters_UsernameFieldXpath;
+            context.WebCrawlerParameters_WebCrawlerAuthType = this.WebCrawlerParameters_WebCrawlerAuthType;
+            context.WebCrawlerParameters_WebProxyHostName = this.WebCrawlerParameters_WebProxyHostName;
+            context.WebCrawlerParameters_WebProxyPortNumber = this.WebCrawlerParameters_WebProxyPortNumber;
             if (this.FolderArn != null)
             {
                 context.FolderArn = new List<System.String>(this.FolderArn);
@@ -1467,6 +1656,41 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCredentials_credentials_SecretArn != null)
             {
                 request.Credentials.SecretArn = requestCredentials_credentials_SecretArn;
+                requestCredentialsIsNull = false;
+            }
+            Amazon.QuickSight.Model.WebProxyCredentials requestCredentials_credentials_WebProxyCredentials = null;
+            
+             // populate WebProxyCredentials
+            var requestCredentials_credentials_WebProxyCredentialsIsNull = true;
+            requestCredentials_credentials_WebProxyCredentials = new Amazon.QuickSight.Model.WebProxyCredentials();
+            System.String requestCredentials_credentials_WebProxyCredentials_webProxyCredentials_WebProxyPassword = null;
+            if (cmdletContext.WebProxyCredentials_WebProxyPassword != null)
+            {
+                requestCredentials_credentials_WebProxyCredentials_webProxyCredentials_WebProxyPassword = cmdletContext.WebProxyCredentials_WebProxyPassword;
+            }
+            if (requestCredentials_credentials_WebProxyCredentials_webProxyCredentials_WebProxyPassword != null)
+            {
+                requestCredentials_credentials_WebProxyCredentials.WebProxyPassword = requestCredentials_credentials_WebProxyCredentials_webProxyCredentials_WebProxyPassword;
+                requestCredentials_credentials_WebProxyCredentialsIsNull = false;
+            }
+            System.String requestCredentials_credentials_WebProxyCredentials_webProxyCredentials_WebProxyUsername = null;
+            if (cmdletContext.WebProxyCredentials_WebProxyUsername != null)
+            {
+                requestCredentials_credentials_WebProxyCredentials_webProxyCredentials_WebProxyUsername = cmdletContext.WebProxyCredentials_WebProxyUsername;
+            }
+            if (requestCredentials_credentials_WebProxyCredentials_webProxyCredentials_WebProxyUsername != null)
+            {
+                requestCredentials_credentials_WebProxyCredentials.WebProxyUsername = requestCredentials_credentials_WebProxyCredentials_webProxyCredentials_WebProxyUsername;
+                requestCredentials_credentials_WebProxyCredentialsIsNull = false;
+            }
+             // determine if requestCredentials_credentials_WebProxyCredentials should be set to null
+            if (requestCredentials_credentials_WebProxyCredentialsIsNull)
+            {
+                requestCredentials_credentials_WebProxyCredentials = null;
+            }
+            if (requestCredentials_credentials_WebProxyCredentials != null)
+            {
+                request.Credentials.WebProxyCredentials = requestCredentials_credentials_WebProxyCredentials;
                 requestCredentialsIsNull = false;
             }
             Amazon.QuickSight.Model.CredentialPair requestCredentials_credentials_CredentialPair = null;
@@ -1602,6 +1826,31 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.DataSourceParameters.AwsIotAnalyticsParameters = requestDataSourceParameters_dataSourceParameters_AwsIotAnalyticsParameters;
                 requestDataSourceParametersIsNull = false;
             }
+            Amazon.QuickSight.Model.ConfluenceParameters requestDataSourceParameters_dataSourceParameters_ConfluenceParameters = null;
+            
+             // populate ConfluenceParameters
+            var requestDataSourceParameters_dataSourceParameters_ConfluenceParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_ConfluenceParameters = new Amazon.QuickSight.Model.ConfluenceParameters();
+            System.String requestDataSourceParameters_dataSourceParameters_ConfluenceParameters_confluenceParameters_ConfluenceUrl = null;
+            if (cmdletContext.ConfluenceParameters_ConfluenceUrl != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_ConfluenceParameters_confluenceParameters_ConfluenceUrl = cmdletContext.ConfluenceParameters_ConfluenceUrl;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_ConfluenceParameters_confluenceParameters_ConfluenceUrl != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_ConfluenceParameters.ConfluenceUrl = requestDataSourceParameters_dataSourceParameters_ConfluenceParameters_confluenceParameters_ConfluenceUrl;
+                requestDataSourceParameters_dataSourceParameters_ConfluenceParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_ConfluenceParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_ConfluenceParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_ConfluenceParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_ConfluenceParameters != null)
+            {
+                request.DataSourceParameters.ConfluenceParameters = requestDataSourceParameters_dataSourceParameters_ConfluenceParameters;
+                requestDataSourceParametersIsNull = false;
+            }
             Amazon.QuickSight.Model.CustomConnectionParameters requestDataSourceParameters_dataSourceParameters_CustomConnectionParameters = null;
             
              // populate CustomConnectionParameters
@@ -1650,6 +1899,31 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDataSourceParameters_dataSourceParameters_JiraParameters != null)
             {
                 request.DataSourceParameters.JiraParameters = requestDataSourceParameters_dataSourceParameters_JiraParameters;
+                requestDataSourceParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.QBusinessParameters requestDataSourceParameters_dataSourceParameters_QBusinessParameters = null;
+            
+             // populate QBusinessParameters
+            var requestDataSourceParameters_dataSourceParameters_QBusinessParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_QBusinessParameters = new Amazon.QuickSight.Model.QBusinessParameters();
+            System.String requestDataSourceParameters_dataSourceParameters_QBusinessParameters_qBusinessParameters_ApplicationArn = null;
+            if (cmdletContext.QBusinessParameters_ApplicationArn != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_QBusinessParameters_qBusinessParameters_ApplicationArn = cmdletContext.QBusinessParameters_ApplicationArn;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_QBusinessParameters_qBusinessParameters_ApplicationArn != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_QBusinessParameters.ApplicationArn = requestDataSourceParameters_dataSourceParameters_QBusinessParameters_qBusinessParameters_ApplicationArn;
+                requestDataSourceParameters_dataSourceParameters_QBusinessParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_QBusinessParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_QBusinessParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_QBusinessParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_QBusinessParameters != null)
+            {
+                request.DataSourceParameters.QBusinessParameters = requestDataSourceParameters_dataSourceParameters_QBusinessParameters;
                 requestDataSourceParametersIsNull = false;
             }
             Amazon.QuickSight.Model.ServiceNowParameters requestDataSourceParameters_dataSourceParameters_ServiceNowParameters = null;
@@ -2285,6 +2559,51 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDataSourceParameters_dataSourceParameters_PrestoParameters != null)
             {
                 request.DataSourceParameters.PrestoParameters = requestDataSourceParameters_dataSourceParameters_PrestoParameters;
+                requestDataSourceParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.S3KnowledgeBaseParameters requestDataSourceParameters_dataSourceParameters_S3KnowledgeBaseParameters = null;
+            
+             // populate S3KnowledgeBaseParameters
+            var requestDataSourceParameters_dataSourceParameters_S3KnowledgeBaseParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_S3KnowledgeBaseParameters = new Amazon.QuickSight.Model.S3KnowledgeBaseParameters();
+            System.String requestDataSourceParameters_dataSourceParameters_S3KnowledgeBaseParameters_s3KnowledgeBaseParameters_BucketUrl = null;
+            if (cmdletContext.S3KnowledgeBaseParameters_BucketUrl != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_S3KnowledgeBaseParameters_s3KnowledgeBaseParameters_BucketUrl = cmdletContext.S3KnowledgeBaseParameters_BucketUrl;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_S3KnowledgeBaseParameters_s3KnowledgeBaseParameters_BucketUrl != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_S3KnowledgeBaseParameters.BucketUrl = requestDataSourceParameters_dataSourceParameters_S3KnowledgeBaseParameters_s3KnowledgeBaseParameters_BucketUrl;
+                requestDataSourceParameters_dataSourceParameters_S3KnowledgeBaseParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_S3KnowledgeBaseParameters_s3KnowledgeBaseParameters_MetadataFilesLocation = null;
+            if (cmdletContext.S3KnowledgeBaseParameters_MetadataFilesLocation != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_S3KnowledgeBaseParameters_s3KnowledgeBaseParameters_MetadataFilesLocation = cmdletContext.S3KnowledgeBaseParameters_MetadataFilesLocation;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_S3KnowledgeBaseParameters_s3KnowledgeBaseParameters_MetadataFilesLocation != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_S3KnowledgeBaseParameters.MetadataFilesLocation = requestDataSourceParameters_dataSourceParameters_S3KnowledgeBaseParameters_s3KnowledgeBaseParameters_MetadataFilesLocation;
+                requestDataSourceParameters_dataSourceParameters_S3KnowledgeBaseParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_S3KnowledgeBaseParameters_s3KnowledgeBaseParameters_RoleArn = null;
+            if (cmdletContext.S3KnowledgeBaseParameters_RoleArn != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_S3KnowledgeBaseParameters_s3KnowledgeBaseParameters_RoleArn = cmdletContext.S3KnowledgeBaseParameters_RoleArn;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_S3KnowledgeBaseParameters_s3KnowledgeBaseParameters_RoleArn != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_S3KnowledgeBaseParameters.RoleArn = requestDataSourceParameters_dataSourceParameters_S3KnowledgeBaseParameters_s3KnowledgeBaseParameters_RoleArn;
+                requestDataSourceParameters_dataSourceParameters_S3KnowledgeBaseParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_S3KnowledgeBaseParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_S3KnowledgeBaseParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_S3KnowledgeBaseParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_S3KnowledgeBaseParameters != null)
+            {
+                request.DataSourceParameters.S3KnowledgeBaseParameters = requestDataSourceParameters_dataSourceParameters_S3KnowledgeBaseParameters;
                 requestDataSourceParametersIsNull = false;
             }
             Amazon.QuickSight.Model.SqlServerParameters requestDataSourceParameters_dataSourceParameters_SqlServerParameters = null;
@@ -2947,6 +3266,101 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.DataSourceParameters.StarburstParameters = requestDataSourceParameters_dataSourceParameters_StarburstParameters;
                 requestDataSourceParametersIsNull = false;
             }
+            Amazon.QuickSight.Model.WebCrawlerParameters requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters = null;
+            
+             // populate WebCrawlerParameters
+            var requestDataSourceParameters_dataSourceParameters_WebCrawlerParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters = new Amazon.QuickSight.Model.WebCrawlerParameters();
+            System.String requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_LoginPageUrl = null;
+            if (cmdletContext.WebCrawlerParameters_LoginPageUrl != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_LoginPageUrl = cmdletContext.WebCrawlerParameters_LoginPageUrl;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_LoginPageUrl != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters.LoginPageUrl = requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_LoginPageUrl;
+                requestDataSourceParameters_dataSourceParameters_WebCrawlerParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_PasswordButtonXpath = null;
+            if (cmdletContext.WebCrawlerParameters_PasswordButtonXpath != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_PasswordButtonXpath = cmdletContext.WebCrawlerParameters_PasswordButtonXpath;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_PasswordButtonXpath != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters.PasswordButtonXpath = requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_PasswordButtonXpath;
+                requestDataSourceParameters_dataSourceParameters_WebCrawlerParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_PasswordFieldXpath = null;
+            if (cmdletContext.WebCrawlerParameters_PasswordFieldXpath != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_PasswordFieldXpath = cmdletContext.WebCrawlerParameters_PasswordFieldXpath;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_PasswordFieldXpath != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters.PasswordFieldXpath = requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_PasswordFieldXpath;
+                requestDataSourceParameters_dataSourceParameters_WebCrawlerParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_UsernameButtonXpath = null;
+            if (cmdletContext.WebCrawlerParameters_UsernameButtonXpath != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_UsernameButtonXpath = cmdletContext.WebCrawlerParameters_UsernameButtonXpath;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_UsernameButtonXpath != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters.UsernameButtonXpath = requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_UsernameButtonXpath;
+                requestDataSourceParameters_dataSourceParameters_WebCrawlerParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_UsernameFieldXpath = null;
+            if (cmdletContext.WebCrawlerParameters_UsernameFieldXpath != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_UsernameFieldXpath = cmdletContext.WebCrawlerParameters_UsernameFieldXpath;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_UsernameFieldXpath != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters.UsernameFieldXpath = requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_UsernameFieldXpath;
+                requestDataSourceParameters_dataSourceParameters_WebCrawlerParametersIsNull = false;
+            }
+            Amazon.QuickSight.WebCrawlerAuthType requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_WebCrawlerAuthType = null;
+            if (cmdletContext.WebCrawlerParameters_WebCrawlerAuthType != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_WebCrawlerAuthType = cmdletContext.WebCrawlerParameters_WebCrawlerAuthType;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_WebCrawlerAuthType != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters.WebCrawlerAuthType = requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_WebCrawlerAuthType;
+                requestDataSourceParameters_dataSourceParameters_WebCrawlerParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_WebProxyHostName = null;
+            if (cmdletContext.WebCrawlerParameters_WebProxyHostName != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_WebProxyHostName = cmdletContext.WebCrawlerParameters_WebProxyHostName;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_WebProxyHostName != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters.WebProxyHostName = requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_WebProxyHostName;
+                requestDataSourceParameters_dataSourceParameters_WebCrawlerParametersIsNull = false;
+            }
+            System.Int32? requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_WebProxyPortNumber = null;
+            if (cmdletContext.WebCrawlerParameters_WebProxyPortNumber != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_WebProxyPortNumber = cmdletContext.WebCrawlerParameters_WebProxyPortNumber.Value;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_WebProxyPortNumber != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters.WebProxyPortNumber = requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters_webCrawlerParameters_WebProxyPortNumber.Value;
+                requestDataSourceParameters_dataSourceParameters_WebCrawlerParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_WebCrawlerParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters != null)
+            {
+                request.DataSourceParameters.WebCrawlerParameters = requestDataSourceParameters_dataSourceParameters_WebCrawlerParameters;
+                requestDataSourceParametersIsNull = false;
+            }
              // determine if request.DataSourceParameters should be set to null
             if (requestDataSourceParametersIsNull)
             {
@@ -3071,6 +3485,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String CredentialPair_Password { get; set; }
             public System.String CredentialPair_Username { get; set; }
             public System.String Credentials_SecretArn { get; set; }
+            public System.String WebProxyCredentials_WebProxyPassword { get; set; }
+            public System.String WebProxyCredentials_WebProxyUsername { get; set; }
             public System.String DataSourceId { get; set; }
             public System.String AmazonElasticsearchParameters_Domain { get; set; }
             public System.String AmazonOpenSearchParameters_Domain { get; set; }
@@ -3086,6 +3502,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String AwsIotAnalyticsParameters_DataSetName { get; set; }
             public System.String BigQueryParameters_DataSetRegion { get; set; }
             public System.String BigQueryParameters_ProjectId { get; set; }
+            public System.String ConfluenceParameters_ConfluenceUrl { get; set; }
             public System.String CustomConnectionParameters_ConnectionType { get; set; }
             public System.String DatabricksParameters_Host { get; set; }
             public System.Int32? DatabricksParameters_Port { get; set; }
@@ -3113,6 +3530,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String PrestoParameters_Catalog { get; set; }
             public System.String PrestoParameters_Host { get; set; }
             public System.Int32? PrestoParameters_Port { get; set; }
+            public System.String QBusinessParameters_ApplicationArn { get; set; }
             public System.String RdsParameters_Database { get; set; }
             public System.String RdsParameters_InstanceId { get; set; }
             public System.String RedshiftParameters_ClusterId { get; set; }
@@ -3124,6 +3542,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String IAMParameters_RoleArn { get; set; }
             public System.Boolean? DataSourceParameters_RedshiftParameters_IdentityCenterConfiguration_EnableIdentityPropagation { get; set; }
             public System.Int32? RedshiftParameters_Port { get; set; }
+            public System.String S3KnowledgeBaseParameters_BucketUrl { get; set; }
+            public System.String S3KnowledgeBaseParameters_MetadataFilesLocation { get; set; }
+            public System.String S3KnowledgeBaseParameters_RoleArn { get; set; }
             public System.String ManifestFileLocation_Bucket { get; set; }
             public System.String ManifestFileLocation_Key { get; set; }
             public System.String S3Parameters_RoleArn { get; set; }
@@ -3160,6 +3581,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.Int32? TrinoParameters_Port { get; set; }
             public System.Int32? TwitterParameters_MaxRow { get; set; }
             public System.String TwitterParameters_Query { get; set; }
+            public System.String WebCrawlerParameters_LoginPageUrl { get; set; }
+            public System.String WebCrawlerParameters_PasswordButtonXpath { get; set; }
+            public System.String WebCrawlerParameters_PasswordFieldXpath { get; set; }
+            public System.String WebCrawlerParameters_UsernameButtonXpath { get; set; }
+            public System.String WebCrawlerParameters_UsernameFieldXpath { get; set; }
+            public Amazon.QuickSight.WebCrawlerAuthType WebCrawlerParameters_WebCrawlerAuthType { get; set; }
+            public System.String WebCrawlerParameters_WebProxyHostName { get; set; }
+            public System.Int32? WebCrawlerParameters_WebProxyPortNumber { get; set; }
             public List<System.String> FolderArn { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.QuickSight.Model.ResourcePermission> Permission { get; set; }

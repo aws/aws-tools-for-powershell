@@ -30,7 +30,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Lists the Amazon QuickSight groups that an Amazon QuickSight user is a member of.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the Amazon Quick Sight groups that an Amazon Quick Sight user is a member of.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "QSUserGroupList")]
     [OutputType("Amazon.QuickSight.Model.Group")]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The Amazon Web Services account ID that the user is in. Currently, you use the ID
-        /// for the Amazon Web Services account that contains your Amazon QuickSight account.</para>
+        /// for the Amazon Web Services account that contains your Amazon Quick Sight account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The Amazon QuickSight user name that you want to list group memberships for.</para>
+        /// <para>The Amazon Quick Sight user name that you want to list group memberships for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

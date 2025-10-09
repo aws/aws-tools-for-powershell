@@ -30,7 +30,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Deletes a linked Amazon Q Business application from an QuickSight account
+    /// Deletes a linked Amazon Q Business application from an Quick Sight account
     /// </summary>
     [Cmdlet("Remove", "QSDefaultQBusinessApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.QuickSight.Model.DeleteDefaultQBusinessApplicationResponse")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the QuickSight account that you want to disconnect from a Amazon Q Business
+        /// <para>The ID of the Quick Sight account that you want to disconnect from a Amazon Q Business
         /// application.</para>
         /// </para>
         /// </summary>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The QuickSight namespace that you want to delete a linked Amazon Q Business application
+        /// <para>The Quick Sight namespace that you want to delete a linked Amazon Q Business application
         /// from. If this field is left blank, the Amazon Q Business application is deleted from
         /// the default namespace. Currently, the default namespace is the only valid value for
         /// this parameter.</para>

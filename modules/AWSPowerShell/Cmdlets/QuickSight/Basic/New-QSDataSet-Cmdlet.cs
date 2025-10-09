@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ColumnGroup
         /// <summary>
         /// <para>
-        /// <para>Groupings of columns that work together in certain QuickSight features. Currently,
+        /// <para>Groupings of columns that work together in certain Amazon Quick Sight features. Currently,
         /// only geospatial hierarchy is supported.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DataSetUsageConfiguration_DisableUseAsImportedSource
         /// <summary>
         /// <para>
-        /// <para>An option that controls whether a child dataset that's stored in QuickSight can use
+        /// <para>An option that controls whether a child dataset that's stored in Quick Sight can use
         /// this dataset as a source.</para>
         /// </para>
         /// </summary>
@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter FolderArn
         /// <summary>
         /// <para>
-        /// <para>When you create the dataset, QuickSight adds the dataset to these folders.</para><para />
+        /// <para>When you create the dataset, Amazon Quick Sight adds the dataset to these folders.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
