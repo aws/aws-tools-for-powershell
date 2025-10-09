@@ -1,4 +1,29 @@
-﻿### 4.1.917 (2025-10-08 20:34Z)
+﻿### 4.1.918 (2025-10-09 20:09Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1141.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSActionConnector leveraging the DescribeActionConnector service API.
+    * Added cmdlet Get-QSActionConnectorList leveraging the ListActionConnectors service API.
+    * Added cmdlet Get-QSActionConnectorPermission leveraging the DescribeActionConnectorPermissions service API.
+    * Added cmdlet Get-QSFlowList leveraging the ListFlows service API.
+    * Added cmdlet Get-QSFlowMetadata leveraging the GetFlowMetadata service API.
+    * Added cmdlet Get-QSFlowPermission leveraging the GetFlowPermissions service API.
+    * Added cmdlet New-QSActionConnector leveraging the CreateActionConnector service API.
+    * Added cmdlet Remove-QSActionConnector leveraging the DeleteActionConnector service API.
+    * Added cmdlet Search-QSActionConnector leveraging the SearchActionConnectors service API.
+    * Added cmdlet Search-QSFlow leveraging the SearchFlows service API.
+    * Added cmdlet Update-QSActionConnector leveraging the UpdateActionConnector service API.
+    * Added cmdlet Update-QSActionConnectorPermission leveraging the UpdateActionConnectorPermissions service API.
+    * Added cmdlet Update-QSFlowPermission leveraging the UpdateFlowPermissions service API.
+    * Modified cmdlet New-QSBrand: added parameters Automation_Background, Automation_Foreground, Connection_Background, Connection_Foreground, Insight_Background, Insight_Foreground, Visualization_Background and Visualization_Foreground.
+    * Modified cmdlet New-QSCustomPermission: added parameters Capabilities_Action, Capabilities_Automate, Capabilities_ChatAgent, Capabilities_CreateChatAgent, Capabilities_Flow, Capabilities_KnowledgeBase, Capabilities_PerformFlowUiTask, Capabilities_PublishWithoutApproval, Capabilities_Research, Capabilities_Space, Capabilities_UseAgentWebSearch and Capabilities_UseBedrockModel.
+    * Modified cmdlet New-QSDashboard: added parameter QuickSuiteActionsOption_AvailabilityStatus.
+    * Modified cmdlet New-QSDataSource: added parameters ConfluenceParameters_ConfluenceUrl, QBusinessParameters_ApplicationArn, S3KnowledgeBaseParameters_BucketUrl, S3KnowledgeBaseParameters_MetadataFilesLocation, S3KnowledgeBaseParameters_RoleArn, WebCrawlerParameters_LoginPageUrl, WebCrawlerParameters_PasswordButtonXpath, WebCrawlerParameters_PasswordFieldXpath, WebCrawlerParameters_UsernameButtonXpath, WebCrawlerParameters_UsernameFieldXpath, WebCrawlerParameters_WebCrawlerAuthType, WebCrawlerParameters_WebProxyHostName, WebCrawlerParameters_WebProxyPortNumber, WebProxyCredentials_WebProxyPassword and WebProxyCredentials_WebProxyUsername.
+    * Modified cmdlet Update-QSBrand: added parameters Automation_Background, Automation_Foreground, Connection_Background, Connection_Foreground, Insight_Background, Insight_Foreground, Visualization_Background and Visualization_Foreground.
+    * Modified cmdlet Update-QSCustomPermission: added parameters Capabilities_Action, Capabilities_Automate, Capabilities_ChatAgent, Capabilities_CreateChatAgent, Capabilities_Flow, Capabilities_KnowledgeBase, Capabilities_PerformFlowUiTask, Capabilities_PublishWithoutApproval, Capabilities_Research, Capabilities_Space, Capabilities_UseAgentWebSearch and Capabilities_UseBedrockModel.
+    * Modified cmdlet Update-QSDashboard: added parameter QuickSuiteActionsOption_AvailabilityStatus.
+    * Modified cmdlet Update-QSDataSource: added parameters ConfluenceParameters_ConfluenceUrl, QBusinessParameters_ApplicationArn, S3KnowledgeBaseParameters_BucketUrl, S3KnowledgeBaseParameters_MetadataFilesLocation, S3KnowledgeBaseParameters_RoleArn, WebCrawlerParameters_LoginPageUrl, WebCrawlerParameters_PasswordButtonXpath, WebCrawlerParameters_PasswordFieldXpath, WebCrawlerParameters_UsernameButtonXpath, WebCrawlerParameters_UsernameFieldXpath, WebCrawlerParameters_WebCrawlerAuthType, WebCrawlerParameters_WebProxyHostName, WebCrawlerParameters_WebProxyPortNumber, WebProxyCredentials_WebProxyPassword and WebProxyCredentials_WebProxyUsername.
+
+### 4.1.917 (2025-10-08 20:34Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1140.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon License Manager User Subscription
     * Modified cmdlet Add-LMUSUser: added parameter ActiveDirectorySettings_DomainIpv6List.

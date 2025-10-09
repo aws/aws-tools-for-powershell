@@ -28,7 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Updates a customer managed key in a QuickSight account.
+    /// Updates a customer managed key in a Quick Sight account.
     /// </summary>
     [Cmdlet("Update", "QSKeyRegistration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.UpdateKeyRegistrationResponse")]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter KeyRegistration
         /// <summary>
         /// <para>
-        /// <para>A list of <c>RegisteredCustomerManagedKey</c> objects to be updated to the QuickSight
+        /// <para>A list of <c>RegisteredCustomerManagedKey</c> objects to be updated to the Quick Sight
         /// account.</para>
         /// </para>
         /// </summary>

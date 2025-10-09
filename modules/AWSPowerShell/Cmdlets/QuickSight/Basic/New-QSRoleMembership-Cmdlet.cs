@@ -28,7 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Use <c>CreateRoleMembership</c> to add an existing QuickSight group to an existing
+    /// Use <c>CreateRoleMembership</c> to add an existing Quick Sight group to an existing
     /// role.
     /// </summary>
     [Cmdlet("New", "QSRoleMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The ID for the Amazon Web Services account that you want to create a group in. The
         /// Amazon Web Services account ID that you provide must be the same Amazon Web Services
-        /// account that contains your Amazon QuickSight account.</para>
+        /// account that contains your Amazon Quick Sight account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

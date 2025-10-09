@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ColumnGroup
         /// <summary>
         /// <para>
-        /// <para>Groupings of columns that work together in certain QuickSight features. Currently,
+        /// <para>Groupings of columns that work together in certain Amazon Quick Sight features. Currently,
         /// only geospatial hierarchy is supported.</para>
         /// </para>
         /// </summary>
@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DataSetUsageConfiguration_DisableUseAsImportedSource
         /// <summary>
         /// <para>
-        /// <para>An option that controls whether a child dataset that's stored in QuickSight can use
+        /// <para>An option that controls whether a child dataset that's stored in Quick Sight can use
         /// this dataset as a source.</para>
         /// </para>
         /// </summary>

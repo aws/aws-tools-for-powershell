@@ -28,7 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Creates an QuickSight account, or subscribes to QuickSight Q.
+    /// Creates an Amazon Quick Sight account, or subscribes to Amazon Quick Sight Q.
     /// 
     ///  
     /// <para>
@@ -37,24 +37,25 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// </para><para>
     /// Before you use this operation, make sure that you can connect to an existing Amazon
     /// Web Services account. If you don't have an Amazon Web Services account, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/setting-up-aws-sign-up.html">Sign
-    /// up for Amazon Web Services</a> in the <i>Amazon QuickSight User Guide</i>. The person
-    /// who signs up for QuickSight needs to have the correct Identity and Access Management
-    /// (IAM) permissions. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/iam-policy-examples.html">IAM
-    /// Policy Examples for QuickSight</a> in the <i>QuickSight User Guide</i>.
+    /// up for Amazon Web Services</a> in the <i>Amazon Quick Sight User Guide</i>. The person
+    /// who signs up for Amazon Quick Sight needs to have the correct Identity and Access
+    /// Management (IAM) permissions. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/iam-policy-examples.html">IAM
+    /// Policy Examples for Amazon Quick Sight</a> in the <i>Amazon Quick Sight User Guide</i>.
     /// </para><para>
     /// If your IAM policy includes both the <c>Subscribe</c> and <c>CreateAccountSubscription</c>
     /// actions, make sure that both actions are set to <c>Allow</c>. If either action is
     /// set to <c>Deny</c>, the <c>Deny</c> action prevails and your API call fails.
     /// </para><para>
     /// You can't pass an existing IAM role to access other Amazon Web Services services using
-    /// this API operation. To pass your existing IAM role to QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html#security-create-iam-role">Passing
-    /// IAM roles to QuickSight</a> in the <i>QuickSight User Guide</i>.
+    /// this API operation. To pass your existing IAM role to Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html#security-create-iam-role">Passing
+    /// IAM roles to Amazon Quick Sight</a> in the <i>Amazon Quick Sight User Guide</i>.
     /// </para><para>
-    /// You can't set default resource access on the new account from the QuickSight API.
-    /// Instead, add default resource access from the QuickSight console. For more information
-    /// about setting default resource access to Amazon Web Services services, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/scoping-policies-defaults.html">Setting
-    /// default resource access to Amazon Web Services services</a> in the <i>QuickSight User
-    /// Guide</i>.
+    /// You can't set default resource access on the new account from the Amazon Quick Sight
+    /// API. Instead, add default resource access from the Amazon Quick Sight console. For
+    /// more information about setting default resource access to Amazon Web Services services,
+    /// see <a href="https://docs.aws.amazon.com/quicksight/latest/user/scoping-policies-defaults.html">Setting
+    /// default resource access to Amazon Web Services services</a> in the <i>Amazon Quick
+    /// Sight User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "QSAccountSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -71,9 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AccountName
         /// <summary>
         /// <para>
-        /// <para>The name of your QuickSight account. This name is unique over all of Amazon Web Services,
-        /// and it appears only when users sign in. You can't change <c>AccountName</c> value
-        /// after the QuickSight account is created.</para>
+        /// <para>The name of your Amazon Quick Sight account. This name is unique over all of Amazon
+        /// Web Services, and it appears only when users sign in. You can't change <c>AccountName</c>
+        /// value after the Amazon Quick Sight account is created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The name of your Active Directory. This field is required if <c>ACTIVE_DIRECTORY</c>
-        /// is the selected authentication method of the new QuickSight account.</para>
+        /// is the selected authentication method of the new Quick Sight account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,11 +104,13 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The admin group associated with your Active Directory or IAM Identity Center account.
         /// Either this field or the <c>AdminProGroup</c> field is required if <c>ACTIVE_DIRECTORY</c>
-        /// or <c>IAM_IDENTITY_CENTER</c> is the selected authentication method of the new QuickSight
-        /// account.</para><para>For more information about using IAM Identity Center in QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using
-        /// IAM Identity Center with QuickSight Enterprise Edition</a> in the QuickSight User
-        /// Guide. For more information about using Active Directory in QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using
-        /// Active Directory with QuickSight Enterprise Edition</a> in the QuickSight User Guide.</para>
+        /// or <c>IAM_IDENTITY_CENTER</c> is the selected authentication method of the new Quick
+        /// Sight account.</para><para>For more information about using IAM Identity Center in Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using
+        /// IAM Identity Center with Amazon Quick Sight Enterprise Edition</a> in the Amazon Quick
+        /// Sight User Guide. For more information about using Active Directory in Amazon Quick
+        /// Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using
+        /// Active Directory with Amazon Quick Sight Enterprise Edition</a> in the Amazon Quick
+        /// Sight User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,11 +122,13 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The admin pro group associated with your Active Directory or IAM Identity Center account.
         /// Either this field or the <c>AdminGroup</c> field is required if <c>ACTIVE_DIRECTORY</c>
-        /// or <c>IAM_IDENTITY_CENTER</c> is the selected authentication method of the new QuickSight
-        /// account.</para><para>For more information about using IAM Identity Center in QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using
-        /// IAM Identity Center with QuickSight Enterprise Edition</a> in the QuickSight User
-        /// Guide. For more information about using Active Directory in QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using
-        /// Active Directory with QuickSight Enterprise Edition</a> in the QuickSight User Guide.</para>
+        /// or <c>IAM_IDENTITY_CENTER</c> is the selected authentication method of the new Quick
+        /// Sight account.</para><para>For more information about using IAM Identity Center in Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using
+        /// IAM Identity Center with Amazon Quick Sight Enterprise Edition</a> in the Amazon Quick
+        /// Sight User Guide. For more information about using Active Directory in Amazon Quick
+        /// Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using
+        /// Active Directory with Amazon Quick Sight Enterprise Edition</a> in the Amazon Quick
+        /// Sight User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AuthenticationMethod
         /// <summary>
         /// <para>
-        /// <para>The method that you want to use to authenticate your QuickSight account.</para><para>If you choose <c>ACTIVE_DIRECTORY</c>, provide an <c>ActiveDirectoryName</c> and an
+        /// <para>The method that you want to use to authenticate your Quick Sight account.</para><para>If you choose <c>ACTIVE_DIRECTORY</c>, provide an <c>ActiveDirectoryName</c> and an
         /// <c>AdminGroup</c> associated with your Active Directory.</para><para>If you choose <c>IAM_IDENTITY_CENTER</c>, provide an <c>AdminGroup</c> associated
         /// with your IAM Identity Center account.</para>
         /// </para>
@@ -152,10 +157,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AuthorGroup
         /// <summary>
         /// <para>
-        /// <para>The author group associated with your Active Directory or IAM Identity Center account.</para><para>For more information about using IAM Identity Center in QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using
-        /// IAM Identity Center with QuickSight Enterprise Edition</a> in the QuickSight User
-        /// Guide. For more information about using Active Directory in QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using
-        /// Active Directory with QuickSight Enterprise Edition</a> in the QuickSight User Guide.</para>
+        /// <para>The author group associated with your Active Directory or IAM Identity Center account.</para><para>For more information about using IAM Identity Center in Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using
+        /// IAM Identity Center with Amazon Quick Sight Enterprise Edition</a> in the Amazon Quick
+        /// Sight User Guide. For more information about using Active Directory in Amazon Quick
+        /// Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using
+        /// Active Directory with Amazon Quick Sight Enterprise Edition</a> in the Amazon Quick
+        /// Sight User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,10 +173,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The author pro group associated with your Active Directory or IAM Identity Center
-        /// account.</para><para>For more information about using IAM Identity Center in QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using
-        /// IAM Identity Center with QuickSight Enterprise Edition</a> in the QuickSight User
-        /// Guide. For more information about using Active Directory in QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using
-        /// Active Directory with QuickSight Enterprise Edition</a> in the QuickSight User Guide.</para>
+        /// account.</para><para>For more information about using IAM Identity Center in Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using
+        /// IAM Identity Center with Amazon Quick Sight Enterprise Edition</a> in the Amazon Quick
+        /// Sight User Guide. For more information about using Active Directory in Amazon Quick
+        /// Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using
+        /// Active Directory with Amazon Quick Sight Enterprise Edition</a> in the Amazon Quick
+        /// Sight User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -180,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The Amazon Web Services account ID of the account that you're using to create your
-        /// QuickSight account.</para>
+        /// Quick Sight account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -197,9 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ContactNumber
         /// <summary>
         /// <para>
-        /// <para>A 10-digit phone number for the author of the QuickSight account to use for future
-        /// communications. This field is required if <c>ENTERPPRISE_AND_Q</c> is the selected
-        /// edition of the new QuickSight account.</para>
+        /// <para>A 10-digit phone number for the author of the Amazon Quick Sight account to use for
+        /// future communications. This field is required if <c>ENTERPPRISE_AND_Q</c> is the selected
+        /// edition of the new Amazon Quick Sight account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -209,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Active Directory that is associated with your QuickSight account.</para>
+        /// <para>The ID of the Active Directory that is associated with your Quick Sight account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -219,8 +228,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Edition
         /// <summary>
         /// <para>
-        /// <para>The edition of QuickSight that you want your account to have. Currently, you can choose
-        /// from <c>ENTERPRISE</c> or <c>ENTERPRISE_AND_Q</c>.</para><para>If you choose <c>ENTERPRISE_AND_Q</c>, the following parameters are required:</para><ul><li><para><c>FirstName</c></para></li><li><para><c>LastName</c></para></li><li><para><c>EmailAddress</c></para></li><li><para><c>ContactNumber</c></para></li></ul>
+        /// <para>The edition of Amazon Quick Sight that you want your account to have. Currently, you
+        /// can choose from <c>ENTERPRISE</c> or <c>ENTERPRISE_AND_Q</c>.</para><para>If you choose <c>ENTERPRISE_AND_Q</c>, the following parameters are required:</para><ul><li><para><c>FirstName</c></para></li><li><para><c>LastName</c></para></li><li><para><c>EmailAddress</c></para></li><li><para><c>ContactNumber</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -231,9 +240,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter EmailAddress
         /// <summary>
         /// <para>
-        /// <para>The email address of the author of the QuickSight account to use for future communications.
-        /// This field is required if <c>ENTERPPRISE_AND_Q</c> is the selected edition of the
-        /// new QuickSight account.</para>
+        /// <para>The email address of the author of the Amazon Quick Sight account to use for future
+        /// communications. This field is required if <c>ENTERPPRISE_AND_Q</c> is the selected
+        /// edition of the new Amazon Quick Sight account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -243,9 +252,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter FirstName
         /// <summary>
         /// <para>
-        /// <para>The first name of the author of the QuickSight account to use for future communications.
+        /// <para>The first name of the author of the Amazon Quick Sight account to use for future communications.
         /// This field is required if <c>ENTERPPRISE_AND_Q</c> is the selected edition of the
-        /// new QuickSight account.</para>
+        /// new Amazon Quick Sight account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -265,9 +274,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter LastName
         /// <summary>
         /// <para>
-        /// <para>The last name of the author of the QuickSight account to use for future communications.
+        /// <para>The last name of the author of the Amazon Quick Sight account to use for future communications.
         /// This field is required if <c>ENTERPPRISE_AND_Q</c> is the selected edition of the
-        /// new QuickSight account.</para>
+        /// new Amazon Quick Sight account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -277,8 +286,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter NotificationEmail
         /// <summary>
         /// <para>
-        /// <para>The email address that you want QuickSight to send notifications to regarding your
-        /// QuickSight account or QuickSight subscription.</para>
+        /// <para>The email address that you want Quick Sight to send notifications to regarding your
+        /// Quick Sight account or Quick Sight subscription.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -295,10 +304,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ReaderGroup
         /// <summary>
         /// <para>
-        /// <para>The reader group associated with your Active Directory or IAM Identity Center account.</para><para>For more information about using IAM Identity Center in QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using
-        /// IAM Identity Center with QuickSight Enterprise Edition</a> in the QuickSight User
-        /// Guide. For more information about using Active Directory in QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using
-        /// Active Directory with QuickSight Enterprise Edition</a> in the QuickSight User Guide.</para>
+        /// <para>The reader group associated with your Active Directory or IAM Identity Center account.</para><para>For more information about using IAM Identity Center in Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using
+        /// IAM Identity Center with Amazon Quick Sight Enterprise Edition</a> in the Amazon Quick
+        /// Sight User Guide. For more information about using Active Directory in Amazon Quick
+        /// Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using
+        /// Active Directory with Amazon Quick Sight Enterprise Edition</a> in the Amazon Quick
+        /// Sight User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -309,10 +320,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The reader pro group associated with your Active Directory or IAM Identity Center
-        /// account.</para><para>For more information about using IAM Identity Center in QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using
-        /// IAM Identity Center with QuickSight Enterprise Edition</a> in the QuickSight User
-        /// Guide. For more information about using Active Directory in QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using
-        /// Active Directory with QuickSight Enterprise Edition</a> in the QuickSight User Guide.</para>
+        /// account.</para><para>For more information about using IAM Identity Center in Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using
+        /// IAM Identity Center with Amazon Quick Sight Enterprise Edition</a> in the Amazon Quick
+        /// Sight User Guide. For more information about using Active Directory in Amazon Quick
+        /// Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using
+        /// Active Directory with Amazon Quick Sight Enterprise Edition</a> in the Amazon Quick
+        /// Sight User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -322,9 +335,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Realm
         /// <summary>
         /// <para>
-        /// <para>The realm of the Active Directory that is associated with your QuickSight account.
+        /// <para>The realm of the Active Directory that is associated with your Quick Sight account.
         /// This field is required if <c>ACTIVE_DIRECTORY</c> is the selected authentication method
-        /// of the new QuickSight account.</para>
+        /// of the new Quick Sight account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

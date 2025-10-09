@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The name that you want to give to the theme alias that you are creating. The alias
         /// name can't begin with a <c>$</c>. Alias names that start with <c>$</c> are reserved
-        /// by Amazon QuickSight. </para>
+        /// by Amazon Quick Sight. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Identity
         /// <summary>
         /// <para>
-        /// <para>The QuickSight users, groups, or both that you want to assign the policy to.</para>
+        /// <para>The Amazon Quick Sight users, groups, or both that you want to assign the policy to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,8 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter PolicyArn
         /// <summary>
         /// <para>
-        /// <para>The ARN for the IAM policy to apply to the QuickSight users and groups specified in
-        /// this assignment.</para>
+        /// <para>The ARN for the IAM policy to apply to the Amazon Quick Sight users and groups specified
+        /// in this assignment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

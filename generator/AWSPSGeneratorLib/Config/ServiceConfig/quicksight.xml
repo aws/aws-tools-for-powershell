@@ -45,6 +45,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateActionConnector" OutputProperty="*" Verb="New" Noun="ActionConnector" ShouldProcessTarget="ActionConnectorId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAnalysis" OutputProperty="*" Verb="New" Noun="Analysis" ShouldProcessTarget="AnalysisId" PipelineParameter="AnalysisId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" Alias="ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
@@ -167,6 +171,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAccountSubscription" OutputProperty="*" Verb="Remove" Noun="AccountSubscription" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteActionConnector" OutputProperty="*" Verb="Remove" Noun="ActionConnector" ShouldProcessTarget="ActionConnectorId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -299,6 +307,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAccountSubscription" OutputProperty="AccountInfo" Verb="Get" Noun="AccountSubscription" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeActionConnector" OutputProperty="ActionConnector" Verb="Get" Noun="ActionConnector" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeActionConnectorPermissions" OutputProperty="*" Verb="Get" Noun="ActionConnectorPermission" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -538,7 +554,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetFlowMetadata" OutputProperty="*" Verb="Get" Noun="FlowMetadata" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFlowPermissions" OutputProperty="*" Verb="Get" Noun="FlowPermission" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetSessionEmbedUrl" OutputProperty="EmbedUrl" Verb="Get" Noun="SessionEmbedUrl" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListActionConnectors" OutputProperty="ActionConnectorSummaries" Verb="Get" Noun="ActionConnectorList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -575,6 +603,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDataSources" OutputProperty="DataSources" Verb="Get" Noun="DataSourceList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFlows" OutputProperty="FlowSummaryList" Verb="Get" Noun="FlowList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -694,6 +726,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SearchActionConnectors" OutputProperty="ActionConnectorSummaries" Verb="Search" Noun="ActionConnector" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SearchAnalyses" OutputProperty="AnalysisSummaryList" Verb="Search" Noun="Analysis" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -707,6 +743,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchDataSources" OutputProperty="DataSourceSummaries" Verb="Search" Noun="DataSource" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchFlows" OutputProperty="FlowSummaryList" Verb="Search" Noun="Flow" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -755,6 +795,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAccountSettings" OutputProperty="*" Verb="Update" Noun="AccountSetting" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateActionConnector" OutputProperty="*" Verb="Update" Noun="ActionConnector" ShouldProcessTarget="ActionConnectorId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateActionConnectorPermissions" OutputProperty="*" Verb="Update" Noun="ActionConnectorPermission" ShouldProcessTarget="ActionConnectorId,AwsAccountId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -845,6 +893,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDefaultQBusinessApplication" OutputProperty="*" Verb="Update" Noun="DefaultQBusinessApplication" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFlowPermissions" OutputProperty="*" Verb="Update" Noun="FlowPermission" ShouldProcessTarget="AwsAccountId,FlowId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

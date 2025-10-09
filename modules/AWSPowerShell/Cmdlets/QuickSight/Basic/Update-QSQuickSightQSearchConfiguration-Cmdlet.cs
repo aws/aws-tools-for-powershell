@@ -28,7 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Updates the state of a QuickSight Q Search configuration.
+    /// Updates the state of a Quick Sight Q Search configuration.
     /// </summary>
     [Cmdlet("Update", "QSQuickSightQSearchConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.QSearchStatus")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services account that contains the QuickSight Q Search configuration
+        /// <para>The ID of the Amazon Web Services account that contains the Quick Sight Q Search configuration
         /// that you want to update.</para>
         /// </para>
         /// </summary>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter QSearchStatus
         /// <summary>
         /// <para>
-        /// <para>The status of the QuickSight Q Search configuration that the user wants to update.</para>
+        /// <para>The status of the Quick Sight Q Search configuration that the user wants to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

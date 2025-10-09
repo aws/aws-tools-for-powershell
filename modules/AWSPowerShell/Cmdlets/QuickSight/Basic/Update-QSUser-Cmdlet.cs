@@ -28,7 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Updates an Amazon QuickSight user.
+    /// Updates an Amazon Quick Sight user.
     /// </summary>
     [Cmdlet("Update", "QSUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.User")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The ID for the Amazon Web Services account that the user is in. Currently, you use
-        /// the ID for the Amazon Web Services account that contains your Amazon QuickSight account.</para>
+        /// the ID for the Amazon Web Services account that contains your Amazon Quick Sight account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The URL of the custom OpenID Connect (OIDC) provider that provides identity to let
-        /// a user federate into QuickSight with an associated Identity and Access Management(IAM)
+        /// a user federate into Quick Sight with an associated Identity and Access Management(IAM)
         /// role. This parameter should only be used when <c>ExternalLoginFederationProviderType</c>
         /// parameter is set to <c>CUSTOM_OIDC</c>.</para>
         /// </para>
@@ -79,11 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>(Enterprise edition only) The name of the custom permissions profile that you want
         /// to assign to this user. Customized permissions allows you to control a user's access
         /// by restricting access the following operations:</para><ul><li><para>Create and update data sources</para></li><li><para>Create and update datasets</para></li><li><para>Create and update email reports</para></li><li><para>Subscribe to email reports</para></li></ul><para>A set of custom permissions includes any combination of these restrictions. Currently,
-        /// you need to create the profile names for custom permission sets by using the QuickSight
-        /// console. Then, you use the <c>RegisterUser</c> API operation to assign the named set
-        /// of permissions to a QuickSight user. </para><para>QuickSight custom permissions are applied through IAM policies. Therefore, they override
-        /// the permissions typically granted by assigning QuickSight users to one of the default
-        /// security cohorts in QuickSight (admin, author, reader).</para><para>This feature is available only to QuickSight Enterprise edition subscriptions.</para>
+        /// you need to create the profile names for custom permission sets by using the Quick
+        /// Sight console. Then, you use the <c>RegisterUser</c> API operation to assign the named
+        /// set of permissions to a Quick Sight user. </para><para>Quick Sight custom permissions are applied through IAM policies. Therefore, they override
+        /// the permissions typically granted by assigning Quick Sight users to one of the default
+        /// security cohorts in Quick Sight (admin, author, reader).</para><para>This feature is available only to Quick Sight Enterprise edition subscriptions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The type of supported external login provider that provides identity to let a user
-        /// federate into QuickSight with an associated Identity and Access Management(IAM) role.
+        /// federate into Quick Sight with an associated Identity and Access Management(IAM) role.
         /// The type of supported external login provider can be one of the following.</para><ul><li><para><c>COGNITO</c>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com.
         /// When choosing the <c>COGNITO</c> provider type, don’t use the "CustomFederationProviderUrl"
         /// parameter which is only needed when the external provider is custom.</para></li><li><para><c>CUSTOM_OIDC</c>: Custom OpenID Connect (OIDC) provider. When choosing <c>CUSTOM_OIDC</c>
@@ -154,13 +154,13 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Role
         /// <summary>
         /// <para>
-        /// <para>The Amazon QuickSight role of the user. The role can be one of the following default
-        /// security cohorts:</para><ul><li><para><c>READER</c>: A user who has read-only access to dashboards.</para></li><li><para><c>AUTHOR</c>: A user who can create data sources, datasets, analyses, and dashboards.</para></li><li><para><c>ADMIN</c>: A user who is an author, who can also manage Amazon QuickSight settings.</para></li><li><para><c>READER_PRO</c>: Reader Pro adds Generative BI capabilities to the Reader role.
-        /// Reader Pros have access to Amazon Q in QuickSight, can build stories with Amazon Q,
-        /// and can generate executive summaries from dashboards.</para></li><li><para><c>AUTHOR_PRO</c>: Author Pro adds Generative BI capabilities to the Author role.
+        /// <para>The Amazon Quick Sight role of the user. The role can be one of the following default
+        /// security cohorts:</para><ul><li><para><c>READER</c>: A user who has read-only access to dashboards.</para></li><li><para><c>AUTHOR</c>: A user who can create data sources, datasets, analyses, and dashboards.</para></li><li><para><c>ADMIN</c>: A user who is an author, who can also manage Amazon Quick Sight settings.</para></li><li><para><c>READER_PRO</c>: Reader Pro adds Generative BI capabilities to the Reader role.
+        /// Reader Pros have access to Amazon Q in Quick Sight, can build stories with Amazon
+        /// Q, and can generate executive summaries from dashboards.</para></li><li><para><c>AUTHOR_PRO</c>: Author Pro adds Generative BI capabilities to the Author role.
         /// Author Pros can author dashboards with natural language with Amazon Q, build stories
-        /// with Amazon Q, create Topics for Q&amp;A, and generate executive summaries from dashboards.</para></li><li><para><c>ADMIN_PRO</c>: Admin Pros are Author Pros who can also manage Amazon QuickSight
-        /// administrative settings. Admin Pro users are billed at Author Pro pricing.</para></li></ul><para>The name of the QuickSight role is invisible to the user except for the console screens
+        /// with Amazon Q, create Topics for Q&amp;A, and generate executive summaries from dashboards.</para></li><li><para><c>ADMIN_PRO</c>: Admin Pros are Author Pros who can also manage Amazon Quick Sight
+        /// administrative settings. Admin Pro users are billed at Author Pro pricing.</para></li></ul><para>The name of the Quick Sight role is invisible to the user except for the console screens
         /// dealing with permissions.</para>
         /// </para>
         /// </summary>
@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The Amazon QuickSight user name that you want to update.</para>
+        /// <para>The Amazon Quick Sight user name that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

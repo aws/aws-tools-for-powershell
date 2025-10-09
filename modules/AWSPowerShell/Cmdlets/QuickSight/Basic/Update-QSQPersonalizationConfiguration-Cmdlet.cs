@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter PersonalizationMode
         /// <summary>
         /// <para>
-        /// <para>An option to allow QuickSight to customize data stories with user specific metadata,
-        /// specifically location and job information, in your IAM Identity Center instance.</para>
+        /// <para>An option to allow Amazon Quick Sight to customize data stories with user specific
+        /// metadata, specifically location and job information, in your IAM Identity Center instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Creates an QuickSight brand.
+    /// Creates an Quick Sight brand.
     /// </summary>
     [Cmdlet("New", "QSBrand", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.CreateBrandResponse")]
@@ -190,6 +190,50 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String GlobalNavbar_Background { get; set; }
         #endregion
         
+        #region Parameter Automation_Background
+        /// <summary>
+        /// <para>
+        /// <para>The background color.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BrandDefinition_ApplicationTheme_ContextualAccentPalette_Automation_Background")]
+        public System.String Automation_Background { get; set; }
+        #endregion
+        
+        #region Parameter Connection_Background
+        /// <summary>
+        /// <para>
+        /// <para>The background color.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BrandDefinition_ApplicationTheme_ContextualAccentPalette_Connection_Background")]
+        public System.String Connection_Background { get; set; }
+        #endregion
+        
+        #region Parameter Insight_Background
+        /// <summary>
+        /// <para>
+        /// <para>The background color.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BrandDefinition_ApplicationTheme_ContextualAccentPalette_Insight_Background")]
+        public System.String Insight_Background { get; set; }
+        #endregion
+        
+        #region Parameter Visualization_Background
+        /// <summary>
+        /// <para>
+        /// <para>The background color.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BrandDefinition_ApplicationTheme_ContextualAccentPalette_Visualization_Background")]
+        public System.String Visualization_Background { get; set; }
+        #endregion
+        
         #region Parameter BrandId
         /// <summary>
         /// <para>
@@ -348,6 +392,50 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String GlobalNavbar_Foreground { get; set; }
         #endregion
         
+        #region Parameter Automation_Foreground
+        /// <summary>
+        /// <para>
+        /// <para>The foreground color.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BrandDefinition_ApplicationTheme_ContextualAccentPalette_Automation_Foreground")]
+        public System.String Automation_Foreground { get; set; }
+        #endregion
+        
+        #region Parameter Connection_Foreground
+        /// <summary>
+        /// <para>
+        /// <para>The foreground color.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BrandDefinition_ApplicationTheme_ContextualAccentPalette_Connection_Foreground")]
+        public System.String Connection_Foreground { get; set; }
+        #endregion
+        
+        #region Parameter Insight_Foreground
+        /// <summary>
+        /// <para>
+        /// <para>The foreground color.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BrandDefinition_ApplicationTheme_ContextualAccentPalette_Insight_Foreground")]
+        public System.String Insight_Foreground { get; set; }
+        #endregion
+        
+        #region Parameter Visualization_Foreground
+        /// <summary>
+        /// <para>
+        /// <para>The foreground color.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BrandDefinition_ApplicationTheme_ContextualAccentPalette_Visualization_Foreground")]
+        public System.String Visualization_Foreground { get; set; }
+        #endregion
+        
         #region Parameter Favicon_PublicUrl
         /// <summary>
         /// <para>
@@ -494,6 +582,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.ContextualNavbar_Foreground = this.ContextualNavbar_Foreground;
             context.GlobalNavbar_Background = this.GlobalNavbar_Background;
             context.GlobalNavbar_Foreground = this.GlobalNavbar_Foreground;
+            context.Automation_Background = this.Automation_Background;
+            context.Automation_Foreground = this.Automation_Foreground;
+            context.Connection_Background = this.Connection_Background;
+            context.Connection_Foreground = this.Connection_Foreground;
+            context.Insight_Background = this.Insight_Background;
+            context.Insight_Foreground = this.Insight_Foreground;
+            context.Visualization_Background = this.Visualization_Background;
+            context.Visualization_Foreground = this.Visualization_Foreground;
             context.BrandDefinition_BrandName = this.BrandDefinition_BrandName;
             context.BrandDefinition_Description = this.BrandDefinition_Description;
             context.LogoConfiguration_AltText = this.LogoConfiguration_AltText;
@@ -554,6 +650,176 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestBrandDefinition_brandDefinition_Description != null)
             {
                 request.BrandDefinition.Description = requestBrandDefinition_brandDefinition_Description;
+                requestBrandDefinitionIsNull = false;
+            }
+            Amazon.QuickSight.Model.LogoConfiguration requestBrandDefinition_brandDefinition_LogoConfiguration = null;
+            
+             // populate LogoConfiguration
+            var requestBrandDefinition_brandDefinition_LogoConfigurationIsNull = true;
+            requestBrandDefinition_brandDefinition_LogoConfiguration = new Amazon.QuickSight.Model.LogoConfiguration();
+            System.String requestBrandDefinition_brandDefinition_LogoConfiguration_logoConfiguration_AltText = null;
+            if (cmdletContext.LogoConfiguration_AltText != null)
+            {
+                requestBrandDefinition_brandDefinition_LogoConfiguration_logoConfiguration_AltText = cmdletContext.LogoConfiguration_AltText;
+            }
+            if (requestBrandDefinition_brandDefinition_LogoConfiguration_logoConfiguration_AltText != null)
+            {
+                requestBrandDefinition_brandDefinition_LogoConfiguration.AltText = requestBrandDefinition_brandDefinition_LogoConfiguration_logoConfiguration_AltText;
+                requestBrandDefinition_brandDefinition_LogoConfigurationIsNull = false;
+            }
+            Amazon.QuickSight.Model.LogoSetConfiguration requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet = null;
+            
+             // populate LogoSet
+            var requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSetIsNull = true;
+            requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet = new Amazon.QuickSight.Model.LogoSetConfiguration();
+            Amazon.QuickSight.Model.ImageSetConfiguration requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon = null;
+            
+             // populate Favicon
+            var requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_FaviconIsNull = true;
+            requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon = new Amazon.QuickSight.Model.ImageSetConfiguration();
+            Amazon.QuickSight.Model.ImageConfiguration requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original = null;
+            
+             // populate Original
+            var requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_OriginalIsNull = true;
+            requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original = new Amazon.QuickSight.Model.ImageConfiguration();
+            Amazon.QuickSight.Model.ImageSource requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source = null;
+            
+             // populate Source
+            var requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_SourceIsNull = true;
+            requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source = new Amazon.QuickSight.Model.ImageSource();
+            System.String requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_favicon_PublicUrl = null;
+            if (cmdletContext.Favicon_PublicUrl != null)
+            {
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_favicon_PublicUrl = cmdletContext.Favicon_PublicUrl;
+            }
+            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_favicon_PublicUrl != null)
+            {
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source.PublicUrl = requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_favicon_PublicUrl;
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_SourceIsNull = false;
+            }
+            System.String requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_favicon_S3Uri = null;
+            if (cmdletContext.Favicon_S3Uri != null)
+            {
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_favicon_S3Uri = cmdletContext.Favicon_S3Uri;
+            }
+            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_favicon_S3Uri != null)
+            {
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source.S3Uri = requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_favicon_S3Uri;
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_SourceIsNull = false;
+            }
+             // determine if requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source should be set to null
+            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_SourceIsNull)
+            {
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source = null;
+            }
+            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source != null)
+            {
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original.Source = requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source;
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_OriginalIsNull = false;
+            }
+             // determine if requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original should be set to null
+            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_OriginalIsNull)
+            {
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original = null;
+            }
+            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original != null)
+            {
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon.Original = requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original;
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_FaviconIsNull = false;
+            }
+             // determine if requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon should be set to null
+            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_FaviconIsNull)
+            {
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon = null;
+            }
+            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon != null)
+            {
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet.Favicon = requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon;
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSetIsNull = false;
+            }
+            Amazon.QuickSight.Model.ImageSetConfiguration requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary = null;
+            
+             // populate Primary
+            var requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_PrimaryIsNull = true;
+            requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary = new Amazon.QuickSight.Model.ImageSetConfiguration();
+            Amazon.QuickSight.Model.ImageConfiguration requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original = null;
+            
+             // populate Original
+            var requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_OriginalIsNull = true;
+            requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original = new Amazon.QuickSight.Model.ImageConfiguration();
+            Amazon.QuickSight.Model.ImageSource requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source = null;
+            
+             // populate Source
+            var requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_SourceIsNull = true;
+            requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source = new Amazon.QuickSight.Model.ImageSource();
+            System.String requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source_primary_PublicUrl = null;
+            if (cmdletContext.Primary_PublicUrl != null)
+            {
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source_primary_PublicUrl = cmdletContext.Primary_PublicUrl;
+            }
+            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source_primary_PublicUrl != null)
+            {
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source.PublicUrl = requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source_primary_PublicUrl;
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_SourceIsNull = false;
+            }
+            System.String requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source_primary_S3Uri = null;
+            if (cmdletContext.Primary_S3Uri != null)
+            {
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source_primary_S3Uri = cmdletContext.Primary_S3Uri;
+            }
+            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source_primary_S3Uri != null)
+            {
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source.S3Uri = requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source_primary_S3Uri;
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_SourceIsNull = false;
+            }
+             // determine if requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source should be set to null
+            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_SourceIsNull)
+            {
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source = null;
+            }
+            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source != null)
+            {
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original.Source = requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source;
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_OriginalIsNull = false;
+            }
+             // determine if requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original should be set to null
+            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_OriginalIsNull)
+            {
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original = null;
+            }
+            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original != null)
+            {
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary.Original = requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original;
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_PrimaryIsNull = false;
+            }
+             // determine if requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary should be set to null
+            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_PrimaryIsNull)
+            {
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary = null;
+            }
+            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary != null)
+            {
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet.Primary = requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary;
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSetIsNull = false;
+            }
+             // determine if requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet should be set to null
+            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSetIsNull)
+            {
+                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet = null;
+            }
+            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet != null)
+            {
+                requestBrandDefinition_brandDefinition_LogoConfiguration.LogoSet = requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet;
+                requestBrandDefinition_brandDefinition_LogoConfigurationIsNull = false;
+            }
+             // determine if requestBrandDefinition_brandDefinition_LogoConfiguration should be set to null
+            if (requestBrandDefinition_brandDefinition_LogoConfigurationIsNull)
+            {
+                requestBrandDefinition_brandDefinition_LogoConfiguration = null;
+            }
+            if (requestBrandDefinition_brandDefinition_LogoConfiguration != null)
+            {
+                request.BrandDefinition.LogoConfiguration = requestBrandDefinition_brandDefinition_LogoConfiguration;
                 requestBrandDefinitionIsNull = false;
             }
             Amazon.QuickSight.Model.ApplicationTheme requestBrandDefinition_brandDefinition_ApplicationTheme = null;
@@ -659,6 +925,161 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_BrandElementStyle != null)
             {
                 requestBrandDefinition_brandDefinition_ApplicationTheme.BrandElementStyle = requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_BrandElementStyle;
+                requestBrandDefinition_brandDefinition_ApplicationThemeIsNull = false;
+            }
+            Amazon.QuickSight.Model.ContextualAccentPalette requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette = null;
+            
+             // populate ContextualAccentPalette
+            var requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPaletteIsNull = true;
+            requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette = new Amazon.QuickSight.Model.ContextualAccentPalette();
+            Amazon.QuickSight.Model.Palette requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Automation = null;
+            
+             // populate Automation
+            var requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_AutomationIsNull = true;
+            requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Automation = new Amazon.QuickSight.Model.Palette();
+            System.String requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Automation_automation_Background = null;
+            if (cmdletContext.Automation_Background != null)
+            {
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Automation_automation_Background = cmdletContext.Automation_Background;
+            }
+            if (requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Automation_automation_Background != null)
+            {
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Automation.Background = requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Automation_automation_Background;
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_AutomationIsNull = false;
+            }
+            System.String requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Automation_automation_Foreground = null;
+            if (cmdletContext.Automation_Foreground != null)
+            {
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Automation_automation_Foreground = cmdletContext.Automation_Foreground;
+            }
+            if (requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Automation_automation_Foreground != null)
+            {
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Automation.Foreground = requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Automation_automation_Foreground;
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_AutomationIsNull = false;
+            }
+             // determine if requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Automation should be set to null
+            if (requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_AutomationIsNull)
+            {
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Automation = null;
+            }
+            if (requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Automation != null)
+            {
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette.Automation = requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Automation;
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPaletteIsNull = false;
+            }
+            Amazon.QuickSight.Model.Palette requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Connection = null;
+            
+             // populate Connection
+            var requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_ConnectionIsNull = true;
+            requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Connection = new Amazon.QuickSight.Model.Palette();
+            System.String requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Connection_connection_Background = null;
+            if (cmdletContext.Connection_Background != null)
+            {
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Connection_connection_Background = cmdletContext.Connection_Background;
+            }
+            if (requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Connection_connection_Background != null)
+            {
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Connection.Background = requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Connection_connection_Background;
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_ConnectionIsNull = false;
+            }
+            System.String requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Connection_connection_Foreground = null;
+            if (cmdletContext.Connection_Foreground != null)
+            {
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Connection_connection_Foreground = cmdletContext.Connection_Foreground;
+            }
+            if (requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Connection_connection_Foreground != null)
+            {
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Connection.Foreground = requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Connection_connection_Foreground;
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_ConnectionIsNull = false;
+            }
+             // determine if requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Connection should be set to null
+            if (requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_ConnectionIsNull)
+            {
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Connection = null;
+            }
+            if (requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Connection != null)
+            {
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette.Connection = requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Connection;
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPaletteIsNull = false;
+            }
+            Amazon.QuickSight.Model.Palette requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Insight = null;
+            
+             // populate Insight
+            var requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_InsightIsNull = true;
+            requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Insight = new Amazon.QuickSight.Model.Palette();
+            System.String requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Insight_insight_Background = null;
+            if (cmdletContext.Insight_Background != null)
+            {
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Insight_insight_Background = cmdletContext.Insight_Background;
+            }
+            if (requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Insight_insight_Background != null)
+            {
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Insight.Background = requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Insight_insight_Background;
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_InsightIsNull = false;
+            }
+            System.String requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Insight_insight_Foreground = null;
+            if (cmdletContext.Insight_Foreground != null)
+            {
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Insight_insight_Foreground = cmdletContext.Insight_Foreground;
+            }
+            if (requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Insight_insight_Foreground != null)
+            {
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Insight.Foreground = requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Insight_insight_Foreground;
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_InsightIsNull = false;
+            }
+             // determine if requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Insight should be set to null
+            if (requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_InsightIsNull)
+            {
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Insight = null;
+            }
+            if (requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Insight != null)
+            {
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette.Insight = requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Insight;
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPaletteIsNull = false;
+            }
+            Amazon.QuickSight.Model.Palette requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Visualization = null;
+            
+             // populate Visualization
+            var requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_VisualizationIsNull = true;
+            requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Visualization = new Amazon.QuickSight.Model.Palette();
+            System.String requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Visualization_visualization_Background = null;
+            if (cmdletContext.Visualization_Background != null)
+            {
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Visualization_visualization_Background = cmdletContext.Visualization_Background;
+            }
+            if (requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Visualization_visualization_Background != null)
+            {
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Visualization.Background = requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Visualization_visualization_Background;
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_VisualizationIsNull = false;
+            }
+            System.String requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Visualization_visualization_Foreground = null;
+            if (cmdletContext.Visualization_Foreground != null)
+            {
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Visualization_visualization_Foreground = cmdletContext.Visualization_Foreground;
+            }
+            if (requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Visualization_visualization_Foreground != null)
+            {
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Visualization.Foreground = requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Visualization_visualization_Foreground;
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_VisualizationIsNull = false;
+            }
+             // determine if requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Visualization should be set to null
+            if (requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_VisualizationIsNull)
+            {
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Visualization = null;
+            }
+            if (requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Visualization != null)
+            {
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette.Visualization = requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette_brandDefinition_ApplicationTheme_ContextualAccentPalette_Visualization;
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPaletteIsNull = false;
+            }
+             // determine if requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette should be set to null
+            if (requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPaletteIsNull)
+            {
+                requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette = null;
+            }
+            if (requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette != null)
+            {
+                requestBrandDefinition_brandDefinition_ApplicationTheme.ContextualAccentPalette = requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_ContextualAccentPalette;
                 requestBrandDefinition_brandDefinition_ApplicationThemeIsNull = false;
             }
             Amazon.QuickSight.Model.BrandColorPalette requestBrandDefinition_brandDefinition_ApplicationTheme_brandDefinition_ApplicationTheme_BrandColorPalette = null;
@@ -1001,176 +1422,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.BrandDefinition.ApplicationTheme = requestBrandDefinition_brandDefinition_ApplicationTheme;
                 requestBrandDefinitionIsNull = false;
             }
-            Amazon.QuickSight.Model.LogoConfiguration requestBrandDefinition_brandDefinition_LogoConfiguration = null;
-            
-             // populate LogoConfiguration
-            var requestBrandDefinition_brandDefinition_LogoConfigurationIsNull = true;
-            requestBrandDefinition_brandDefinition_LogoConfiguration = new Amazon.QuickSight.Model.LogoConfiguration();
-            System.String requestBrandDefinition_brandDefinition_LogoConfiguration_logoConfiguration_AltText = null;
-            if (cmdletContext.LogoConfiguration_AltText != null)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration_logoConfiguration_AltText = cmdletContext.LogoConfiguration_AltText;
-            }
-            if (requestBrandDefinition_brandDefinition_LogoConfiguration_logoConfiguration_AltText != null)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration.AltText = requestBrandDefinition_brandDefinition_LogoConfiguration_logoConfiguration_AltText;
-                requestBrandDefinition_brandDefinition_LogoConfigurationIsNull = false;
-            }
-            Amazon.QuickSight.Model.LogoSetConfiguration requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet = null;
-            
-             // populate LogoSet
-            var requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSetIsNull = true;
-            requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet = new Amazon.QuickSight.Model.LogoSetConfiguration();
-            Amazon.QuickSight.Model.ImageSetConfiguration requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon = null;
-            
-             // populate Favicon
-            var requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_FaviconIsNull = true;
-            requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon = new Amazon.QuickSight.Model.ImageSetConfiguration();
-            Amazon.QuickSight.Model.ImageConfiguration requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original = null;
-            
-             // populate Original
-            var requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_OriginalIsNull = true;
-            requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original = new Amazon.QuickSight.Model.ImageConfiguration();
-            Amazon.QuickSight.Model.ImageSource requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source = null;
-            
-             // populate Source
-            var requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_SourceIsNull = true;
-            requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source = new Amazon.QuickSight.Model.ImageSource();
-            System.String requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_favicon_PublicUrl = null;
-            if (cmdletContext.Favicon_PublicUrl != null)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_favicon_PublicUrl = cmdletContext.Favicon_PublicUrl;
-            }
-            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_favicon_PublicUrl != null)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source.PublicUrl = requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_favicon_PublicUrl;
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_SourceIsNull = false;
-            }
-            System.String requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_favicon_S3Uri = null;
-            if (cmdletContext.Favicon_S3Uri != null)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_favicon_S3Uri = cmdletContext.Favicon_S3Uri;
-            }
-            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_favicon_S3Uri != null)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source.S3Uri = requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_favicon_S3Uri;
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_SourceIsNull = false;
-            }
-             // determine if requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source should be set to null
-            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_SourceIsNull)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source = null;
-            }
-            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source != null)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original.Source = requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source;
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_OriginalIsNull = false;
-            }
-             // determine if requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original should be set to null
-            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_OriginalIsNull)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original = null;
-            }
-            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original != null)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon.Original = requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon_brandDefinition_LogoConfiguration_LogoSet_Favicon_Original;
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_FaviconIsNull = false;
-            }
-             // determine if requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon should be set to null
-            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_FaviconIsNull)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon = null;
-            }
-            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon != null)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet.Favicon = requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Favicon;
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSetIsNull = false;
-            }
-            Amazon.QuickSight.Model.ImageSetConfiguration requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary = null;
-            
-             // populate Primary
-            var requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_PrimaryIsNull = true;
-            requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary = new Amazon.QuickSight.Model.ImageSetConfiguration();
-            Amazon.QuickSight.Model.ImageConfiguration requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original = null;
-            
-             // populate Original
-            var requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_OriginalIsNull = true;
-            requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original = new Amazon.QuickSight.Model.ImageConfiguration();
-            Amazon.QuickSight.Model.ImageSource requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source = null;
-            
-             // populate Source
-            var requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_SourceIsNull = true;
-            requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source = new Amazon.QuickSight.Model.ImageSource();
-            System.String requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source_primary_PublicUrl = null;
-            if (cmdletContext.Primary_PublicUrl != null)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source_primary_PublicUrl = cmdletContext.Primary_PublicUrl;
-            }
-            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source_primary_PublicUrl != null)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source.PublicUrl = requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source_primary_PublicUrl;
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_SourceIsNull = false;
-            }
-            System.String requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source_primary_S3Uri = null;
-            if (cmdletContext.Primary_S3Uri != null)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source_primary_S3Uri = cmdletContext.Primary_S3Uri;
-            }
-            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source_primary_S3Uri != null)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source.S3Uri = requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source_primary_S3Uri;
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_SourceIsNull = false;
-            }
-             // determine if requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source should be set to null
-            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_SourceIsNull)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source = null;
-            }
-            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source != null)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original.Source = requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_brandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source;
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_OriginalIsNull = false;
-            }
-             // determine if requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original should be set to null
-            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_OriginalIsNull)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original = null;
-            }
-            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original != null)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary.Original = requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary_brandDefinition_LogoConfiguration_LogoSet_Primary_Original;
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_PrimaryIsNull = false;
-            }
-             // determine if requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary should be set to null
-            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_PrimaryIsNull)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary = null;
-            }
-            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary != null)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet.Primary = requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet_brandDefinition_LogoConfiguration_LogoSet_Primary;
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSetIsNull = false;
-            }
-             // determine if requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet should be set to null
-            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSetIsNull)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet = null;
-            }
-            if (requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet != null)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration.LogoSet = requestBrandDefinition_brandDefinition_LogoConfiguration_brandDefinition_LogoConfiguration_LogoSet;
-                requestBrandDefinition_brandDefinition_LogoConfigurationIsNull = false;
-            }
-             // determine if requestBrandDefinition_brandDefinition_LogoConfiguration should be set to null
-            if (requestBrandDefinition_brandDefinition_LogoConfigurationIsNull)
-            {
-                requestBrandDefinition_brandDefinition_LogoConfiguration = null;
-            }
-            if (requestBrandDefinition_brandDefinition_LogoConfiguration != null)
-            {
-                request.BrandDefinition.LogoConfiguration = requestBrandDefinition_brandDefinition_LogoConfiguration;
-                requestBrandDefinitionIsNull = false;
-            }
              // determine if request.BrandDefinition should be set to null
             if (requestBrandDefinitionIsNull)
             {
@@ -1268,6 +1519,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String ContextualNavbar_Foreground { get; set; }
             public System.String GlobalNavbar_Background { get; set; }
             public System.String GlobalNavbar_Foreground { get; set; }
+            public System.String Automation_Background { get; set; }
+            public System.String Automation_Foreground { get; set; }
+            public System.String Connection_Background { get; set; }
+            public System.String Connection_Foreground { get; set; }
+            public System.String Insight_Background { get; set; }
+            public System.String Insight_Foreground { get; set; }
+            public System.String Visualization_Background { get; set; }
+            public System.String Visualization_Foreground { get; set; }
             public System.String BrandDefinition_BrandName { get; set; }
             public System.String BrandDefinition_Description { get; set; }
             public System.String LogoConfiguration_AltText { get; set; }
