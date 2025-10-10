@@ -97,6 +97,26 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.Int32? SessionTimeoutSecond { get; set; }
         #endregion
         
+        #region Parameter TraceId
+        /// <summary>
+        /// <para>
+        /// <para>The trace identifier for request tracking.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TraceId { get; set; }
+        #endregion
+        
+        #region Parameter TraceParent
+        /// <summary>
+        /// <para>
+        /// <para>The parent trace information for distributed tracing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TraceParent { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -166,6 +186,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             #endif
             context.Name = this.Name;
             context.SessionTimeoutSecond = this.SessionTimeoutSecond;
+            context.TraceId = this.TraceId;
+            context.TraceParent = this.TraceParent;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -197,6 +219,14 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (cmdletContext.SessionTimeoutSecond != null)
             {
                 request.SessionTimeoutSeconds = cmdletContext.SessionTimeoutSecond.Value;
+            }
+            if (cmdletContext.TraceId != null)
+            {
+                request.TraceId = cmdletContext.TraceId;
+            }
+            if (cmdletContext.TraceParent != null)
+            {
+                request.TraceParent = cmdletContext.TraceParent;
             }
             
             CmdletOutput output;
@@ -257,6 +287,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public System.String CodeInterpreterIdentifier { get; set; }
             public System.String Name { get; set; }
             public System.Int32? SessionTimeoutSecond { get; set; }
+            public System.String TraceId { get; set; }
+            public System.String TraceParent { get; set; }
             public System.Func<Amazon.BedrockAgentCore.Model.StartCodeInterpreterSessionResponse, StartBACCodeInterpreterSessionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

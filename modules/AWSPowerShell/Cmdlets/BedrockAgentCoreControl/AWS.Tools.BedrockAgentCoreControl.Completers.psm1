@@ -295,6 +295,7 @@ $BACC_SelectMap = @{
                "Get-BACCResourceTag",
                "Get-BACCWorkloadIdentityList",
                "Set-BACCTokenVaultCMK",
+               "Sync-BACCGatewayTarget",
                "Add-BACCResourceTag",
                "Remove-BACCResourceTag",
                "Update-BACCAgentRuntime",

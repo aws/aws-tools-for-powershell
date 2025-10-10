@@ -101,7 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <para>Code signing configuration policy for deployment validation failure. If you set the
         /// policy to <c>Enforce</c>, Lambda blocks the deployment request if signature validation
         /// checks fail. If you set the policy to <c>Warn</c>, Lambda allows the deployment and
-        /// creates a CloudWatch log. </para><para>Default value: <c>Warn</c></para>
+        /// issues a new Amazon CloudWatch metric (<c>SignatureValidationErrors</c>) and also
+        /// stores the warning in the CloudTrail log.</para><para>Default value: <c>Warn</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

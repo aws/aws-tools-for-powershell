@@ -126,7 +126,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-ODBDbNode', 
         'Stop-ODBDbNode', 
         'Update-ODBCloudExadataInfrastructure', 
-        'Update-ODBOdbNetwork')
+        'Update-ODBOdbNetwork', 
+        'Update-ODBOdbPeeringConnection')
 
     # Variables to export from this module
     VariablesToExport = '*'

@@ -178,6 +178,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateOdbPeeringConnection" OutputProperty="*" Verb="Update" Noun="OdbPeeringConnection" ShouldProcessTarget="OdbPeeringConnectionId" PipelineParameter="OdbPeeringConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
     <TypesNotToFlatten />
 </ConfigModel>

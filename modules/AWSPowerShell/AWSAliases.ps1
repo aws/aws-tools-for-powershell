@@ -2894,6 +2894,9 @@ Set-Alias -Name List-BACCWorkloadIdentities -Value Get-BACCWorkloadIdentityList
 Set-Alias -Name List-BACCWorkloadIdentityList -Value Get-BACCWorkloadIdentityList
 Set-Alias -Name BACC-ListWorkloadIdentities -Value Get-BACCWorkloadIdentityList
 Set-Alias -Name BACC-SetTokenVaultCMK -Value Set-BACCTokenVaultCMK
+Set-Alias -Name Synchronize-BACCGatewayTargets -Value Sync-BACCGatewayTarget
+Set-Alias -Name Synchronize-BACCGatewayTarget -Value Sync-BACCGatewayTarget
+Set-Alias -Name BACC-SynchronizeGatewayTargets -Value Sync-BACCGatewayTarget
 Set-Alias -Name BACC-TagResource -Value Add-BACCResourceTag
 Set-Alias -Name BACC-UntagResource -Value Remove-BACCResourceTag
 Set-Alias -Name BACC-UpdateAgentRuntime -Value Update-BACCAgentRuntime
@@ -22601,6 +22604,7 @@ Set-Alias -Name ODB-TagResource -Value Add-ODBResourceTag
 Set-Alias -Name ODB-UntagResource -Value Remove-ODBResourceTag
 Set-Alias -Name ODB-UpdateCloudExadataInfrastructure -Value Update-ODBCloudExadataInfrastructure
 Set-Alias -Name ODB-UpdateOdbNetwork -Value Update-ODBOdbNetwork
+Set-Alias -Name ODB-UpdateOdbPeeringConnection -Value Update-ODBOdbPeeringConnection
 Set-Alias -Name Abort-OMICSMultipartReadSetUpload -Value Remove-OMICSMultipartReadSetUpload
 Set-Alias -Name OMICS-AbortMultipartReadSetUpload -Value Remove-OMICSMultipartReadSetUpload
 Set-Alias -Name Accept-OMICSShare -Value Receive-OMICSShare

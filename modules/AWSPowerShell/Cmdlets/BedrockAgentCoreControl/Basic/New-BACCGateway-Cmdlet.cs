@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// 
     ///  
     /// <para>
-    /// To create a gateway, you must specify a name, protocol type, and IAM role. The role
-    /// grants the gateway permission to access Amazon Web Services services and resources.
+    /// If you specify <c>CUSTOM_JWT</c> as the <c>authorizerType</c>, you must provide an
+    /// <c>authorizerConfiguration</c>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "BACCGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter AuthorizerType
         /// <summary>
         /// <para>
-        /// <para>The type of authorizer to use for the gateway.</para>
+        /// <para>The type of authorizer to use for the gateway.</para><ul><li><para><c>CUSTOM_JWT</c> - Authorize with a bearer token.</para></li><li><para><c>AWS_IAM</c> - Authorize with your Amazon Web Services IAM credentials.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -257,8 +257,9 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <summary>
         /// <para>
         /// <para>A unique, case-sensitive identifier to ensure that the API request completes no more
-        /// than one time. If this token matches a previous request, the service ignores the request,
-        /// but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// than one time. If you don't specify this field, a value is randomly generated for
+        /// you. If this token matches a previous request, the service ignores the request, but
+        /// doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
         /// idempotency</a>.</para>
         /// </para>
         /// </summary>
