@@ -87,14 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// <para>The updated credential provider configurations for the gateway target.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("CredentialProviderConfigurations")]
         public Amazon.BedrockAgentCoreControl.Model.CredentialProviderConfiguration[] CredentialProviderConfiguration { get; set; }
         #endregion
@@ -107,6 +100,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter McpServer_Endpoint
+        /// <summary>
+        /// <para>
+        /// <para>The endpoint for the MCP server target configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetConfiguration_Mcp_McpServer_Endpoint")]
+        public System.String McpServer_Endpoint { get; set; }
         #endregion
         
         #region Parameter GatewayIdentifier
@@ -288,12 +292,6 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             {
                 context.CredentialProviderConfiguration = new List<Amazon.BedrockAgentCoreControl.Model.CredentialProviderConfiguration>(this.CredentialProviderConfiguration);
             }
-            #if MODULAR
-            if (this.CredentialProviderConfiguration == null && ParameterWasBound(nameof(this.CredentialProviderConfiguration)))
-            {
-                WriteWarning("You are passing $null as a value for parameter CredentialProviderConfiguration which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Description = this.Description;
             context.GatewayIdentifier = this.GatewayIdentifier;
             #if MODULAR
@@ -316,6 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             }
             context.Lambda_ToolSchema_S3_BucketOwnerAccountId = this.Lambda_ToolSchema_S3_BucketOwnerAccountId;
             context.Lambda_ToolSchema_S3_Uri = this.Lambda_ToolSchema_S3_Uri;
+            context.McpServer_Endpoint = this.McpServer_Endpoint;
             context.OpenApiSchema_InlinePayload = this.OpenApiSchema_InlinePayload;
             context.OpenApiSchema_S3_BucketOwnerAccountId = this.OpenApiSchema_S3_BucketOwnerAccountId;
             context.OpenApiSchema_S3_Uri = this.OpenApiSchema_S3_Uri;
@@ -370,6 +369,31 @@ namespace Amazon.PowerShell.Cmdlets.BACC
              // populate Mcp
             var requestTargetConfiguration_targetConfiguration_McpIsNull = true;
             requestTargetConfiguration_targetConfiguration_Mcp = new Amazon.BedrockAgentCoreControl.Model.McpTargetConfiguration();
+            Amazon.BedrockAgentCoreControl.Model.McpServerTargetConfiguration requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer = null;
+            
+             // populate McpServer
+            var requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServerIsNull = true;
+            requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer = new Amazon.BedrockAgentCoreControl.Model.McpServerTargetConfiguration();
+            System.String requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_mcpServer_Endpoint = null;
+            if (cmdletContext.McpServer_Endpoint != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_mcpServer_Endpoint = cmdletContext.McpServer_Endpoint;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_mcpServer_Endpoint != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer.Endpoint = requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer_mcpServer_Endpoint;
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServerIsNull = false;
+            }
+             // determine if requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer should be set to null
+            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServerIsNull)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer = null;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp.McpServer = requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_McpServer;
+                requestTargetConfiguration_targetConfiguration_McpIsNull = false;
+            }
             Amazon.BedrockAgentCoreControl.Model.McpLambdaTargetConfiguration requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_Lambda = null;
             
              // populate Lambda
@@ -663,6 +687,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public List<Amazon.BedrockAgentCoreControl.Model.ToolDefinition> ToolSchema_InlinePayload { get; set; }
             public System.String Lambda_ToolSchema_S3_BucketOwnerAccountId { get; set; }
             public System.String Lambda_ToolSchema_S3_Uri { get; set; }
+            public System.String McpServer_Endpoint { get; set; }
             public System.String OpenApiSchema_InlinePayload { get; set; }
             public System.String OpenApiSchema_S3_BucketOwnerAccountId { get; set; }
             public System.String OpenApiSchema_S3_Uri { get; set; }

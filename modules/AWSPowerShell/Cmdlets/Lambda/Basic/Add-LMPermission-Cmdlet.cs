@@ -125,6 +125,19 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public Amazon.Lambda.FunctionUrlAuthType FunctionUrlAuthType { get; set; }
         #endregion
         
+        #region Parameter InvokedViaFunctionUrl
+        /// <summary>
+        /// <para>
+        /// <para>Restricts the <c>lambda:InvokeFunction</c> action to calls coming from a function
+        /// URL. When set to <c>true</c>, this prevents the principal from invoking the function
+        /// by any means other than the function URL. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security
+        /// and auth model for Lambda function URLs</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? InvokedViaFunctionUrl { get; set; }
+        #endregion
+        
         #region Parameter Principal
         /// <summary>
         /// <para>
@@ -295,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             }
             #endif
             context.FunctionUrlAuthType = this.FunctionUrlAuthType;
+            context.InvokedViaFunctionUrl = this.InvokedViaFunctionUrl;
             context.Principal = this.Principal;
             #if MODULAR
             if (this.Principal == null && ParameterWasBound(nameof(this.Principal)))
@@ -345,6 +359,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.FunctionUrlAuthType != null)
             {
                 request.FunctionUrlAuthType = cmdletContext.FunctionUrlAuthType;
+            }
+            if (cmdletContext.InvokedViaFunctionUrl != null)
+            {
+                request.InvokedViaFunctionUrl = cmdletContext.InvokedViaFunctionUrl.Value;
             }
             if (cmdletContext.Principal != null)
             {
@@ -439,6 +457,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String EventSourceToken { get; set; }
             public System.String FunctionName { get; set; }
             public Amazon.Lambda.FunctionUrlAuthType FunctionUrlAuthType { get; set; }
+            public System.Boolean? InvokedViaFunctionUrl { get; set; }
             public System.String Principal { get; set; }
             public System.String PrincipalOrgID { get; set; }
             public System.String Qualifier { get; set; }

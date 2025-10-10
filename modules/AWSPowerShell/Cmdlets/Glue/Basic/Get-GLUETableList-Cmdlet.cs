@@ -42,6 +42,26 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AuditContext_AdditionalAuditContext
+        /// <summary>
+        /// <para>
+        /// <para>A string containing the additional audit context information.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AuditContext_AdditionalAuditContext { get; set; }
+        #endregion
+        
+        #region Parameter AuditContext_AllColumnsRequested
+        /// <summary>
+        /// <para>
+        /// <para>All columns request for audit.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AuditContext_AllColumnsRequested { get; set; }
+        #endregion
+        
         #region Parameter AttributesToGet
         /// <summary>
         /// <para>
@@ -114,6 +134,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.DateTime? QueryAsOfTime { get; set; }
+        #endregion
+        
+        #region Parameter AuditContext_RequestedColumn
+        /// <summary>
+        /// <para>
+        /// <para>The requested columns for audit.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AuditContext_RequestedColumns")]
+        public System.String[] AuditContext_RequestedColumn { get; set; }
         #endregion
         
         #region Parameter TransactionId
@@ -216,6 +247,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             {
                 context.AttributesToGet = new List<System.String>(this.AttributesToGet);
             }
+            context.AuditContext_AdditionalAuditContext = this.AuditContext_AdditionalAuditContext;
+            context.AuditContext_AllColumnsRequested = this.AuditContext_AllColumnsRequested;
+            if (this.AuditContext_RequestedColumn != null)
+            {
+                context.AuditContext_RequestedColumn = new List<System.String>(this.AuditContext_RequestedColumn);
+            }
             context.CatalogId = this.CatalogId;
             context.DatabaseName = this.DatabaseName;
             #if MODULAR
@@ -263,6 +300,45 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.AttributesToGet != null)
             {
                 request.AttributesToGet = cmdletContext.AttributesToGet;
+            }
+            
+             // populate AuditContext
+            var requestAuditContextIsNull = true;
+            request.AuditContext = new Amazon.Glue.Model.AuditContext();
+            System.String requestAuditContext_auditContext_AdditionalAuditContext = null;
+            if (cmdletContext.AuditContext_AdditionalAuditContext != null)
+            {
+                requestAuditContext_auditContext_AdditionalAuditContext = cmdletContext.AuditContext_AdditionalAuditContext;
+            }
+            if (requestAuditContext_auditContext_AdditionalAuditContext != null)
+            {
+                request.AuditContext.AdditionalAuditContext = requestAuditContext_auditContext_AdditionalAuditContext;
+                requestAuditContextIsNull = false;
+            }
+            System.Boolean? requestAuditContext_auditContext_AllColumnsRequested = null;
+            if (cmdletContext.AuditContext_AllColumnsRequested != null)
+            {
+                requestAuditContext_auditContext_AllColumnsRequested = cmdletContext.AuditContext_AllColumnsRequested.Value;
+            }
+            if (requestAuditContext_auditContext_AllColumnsRequested != null)
+            {
+                request.AuditContext.AllColumnsRequested = requestAuditContext_auditContext_AllColumnsRequested.Value;
+                requestAuditContextIsNull = false;
+            }
+            List<System.String> requestAuditContext_auditContext_RequestedColumn = null;
+            if (cmdletContext.AuditContext_RequestedColumn != null)
+            {
+                requestAuditContext_auditContext_RequestedColumn = cmdletContext.AuditContext_RequestedColumn;
+            }
+            if (requestAuditContext_auditContext_RequestedColumn != null)
+            {
+                request.AuditContext.RequestedColumns = requestAuditContext_auditContext_RequestedColumn;
+                requestAuditContextIsNull = false;
+            }
+             // determine if request.AuditContext should be set to null
+            if (requestAuditContextIsNull)
+            {
+                request.AuditContext = null;
             }
             if (cmdletContext.CatalogId != null)
             {
@@ -350,6 +426,45 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.AttributesToGet != null)
             {
                 request.AttributesToGet = cmdletContext.AttributesToGet;
+            }
+            
+             // populate AuditContext
+            var requestAuditContextIsNull = true;
+            request.AuditContext = new Amazon.Glue.Model.AuditContext();
+            System.String requestAuditContext_auditContext_AdditionalAuditContext = null;
+            if (cmdletContext.AuditContext_AdditionalAuditContext != null)
+            {
+                requestAuditContext_auditContext_AdditionalAuditContext = cmdletContext.AuditContext_AdditionalAuditContext;
+            }
+            if (requestAuditContext_auditContext_AdditionalAuditContext != null)
+            {
+                request.AuditContext.AdditionalAuditContext = requestAuditContext_auditContext_AdditionalAuditContext;
+                requestAuditContextIsNull = false;
+            }
+            System.Boolean? requestAuditContext_auditContext_AllColumnsRequested = null;
+            if (cmdletContext.AuditContext_AllColumnsRequested != null)
+            {
+                requestAuditContext_auditContext_AllColumnsRequested = cmdletContext.AuditContext_AllColumnsRequested.Value;
+            }
+            if (requestAuditContext_auditContext_AllColumnsRequested != null)
+            {
+                request.AuditContext.AllColumnsRequested = requestAuditContext_auditContext_AllColumnsRequested.Value;
+                requestAuditContextIsNull = false;
+            }
+            List<System.String> requestAuditContext_auditContext_RequestedColumn = null;
+            if (cmdletContext.AuditContext_RequestedColumn != null)
+            {
+                requestAuditContext_auditContext_RequestedColumn = cmdletContext.AuditContext_RequestedColumn;
+            }
+            if (requestAuditContext_auditContext_RequestedColumn != null)
+            {
+                request.AuditContext.RequestedColumns = requestAuditContext_auditContext_RequestedColumn;
+                requestAuditContextIsNull = false;
+            }
+             // determine if request.AuditContext should be set to null
+            if (requestAuditContextIsNull)
+            {
+                request.AuditContext = null;
             }
             if (cmdletContext.CatalogId != null)
             {
@@ -495,6 +610,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AttributesToGet { get; set; }
+            public System.String AuditContext_AdditionalAuditContext { get; set; }
+            public System.Boolean? AuditContext_AllColumnsRequested { get; set; }
+            public List<System.String> AuditContext_RequestedColumn { get; set; }
             public System.String CatalogId { get; set; }
             public System.String DatabaseName { get; set; }
             public System.String Expression { get; set; }

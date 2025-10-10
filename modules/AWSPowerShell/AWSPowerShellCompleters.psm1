@@ -8285,6 +8285,7 @@ $BACC_SelectMap = @{
                "Get-BACCResourceTag",
                "Get-BACCWorkloadIdentityList",
                "Set-BACCTokenVaultCMK",
+               "Sync-BACCGatewayTarget",
                "Add-BACCResourceTag",
                "Remove-BACCResourceTag",
                "Update-BACCAgentRuntime",
@@ -13521,7 +13522,7 @@ $CF_Completers = {
             ($_ -eq "Update-CFDistribution/ViewerCertificate_MinimumProtocolVersion")
         }
         {
-            $v = "SSLv3","TLSv1","TLSv1.1_2016","TLSv1.2_2018","TLSv1.2_2019","TLSv1.2_2021","TLSv1.3_2025","TLSv1_2016"
+            $v = "SSLv3","TLSv1","TLSv1.1_2016","TLSv1.2_2018","TLSv1.2_2019","TLSv1.2_2021","TLSv1.2_2025","TLSv1.3_2025","TLSv1_2016"
             break
         }
 
@@ -56315,7 +56316,8 @@ $ODB_SelectMap = @{
                "Add-ODBResourceTag",
                "Remove-ODBResourceTag",
                "Update-ODBCloudExadataInfrastructure",
-               "Update-ODBOdbNetwork")
+               "Update-ODBOdbNetwork",
+               "Update-ODBOdbPeeringConnection")
 }
 
 _awsArgumentCompleterRegistration $ODB_SelectCompleters $ODB_SelectMap

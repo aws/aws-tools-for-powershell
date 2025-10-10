@@ -229,7 +229,8 @@ $ODB_SelectMap = @{
                "Add-ODBResourceTag",
                "Remove-ODBResourceTag",
                "Update-ODBCloudExadataInfrastructure",
-               "Update-ODBOdbNetwork")
+               "Update-ODBOdbNetwork",
+               "Update-ODBOdbPeeringConnection")
 }
 
 _awsArgumentCompleterRegistration $ODB_SelectCompleters $ODB_SelectMap

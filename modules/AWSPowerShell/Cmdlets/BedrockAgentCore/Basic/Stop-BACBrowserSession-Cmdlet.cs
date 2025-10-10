@@ -85,6 +85,26 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.String SessionId { get; set; }
         #endregion
         
+        #region Parameter TraceId
+        /// <summary>
+        /// <para>
+        /// <para>The trace identifier for request tracking.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TraceId { get; set; }
+        #endregion
+        
+        #region Parameter TraceParent
+        /// <summary>
+        /// <para>
+        /// <para>The parent trace information for distributed tracing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TraceParent { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -154,6 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 WriteWarning("You are passing $null as a value for parameter SessionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TraceId = this.TraceId;
+            context.TraceParent = this.TraceParent;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -181,6 +203,14 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (cmdletContext.SessionId != null)
             {
                 request.SessionId = cmdletContext.SessionId;
+            }
+            if (cmdletContext.TraceId != null)
+            {
+                request.TraceId = cmdletContext.TraceId;
+            }
+            if (cmdletContext.TraceParent != null)
+            {
+                request.TraceParent = cmdletContext.TraceParent;
             }
             
             CmdletOutput output;
@@ -246,6 +276,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public System.String BrowserIdentifier { get; set; }
             public System.String ClientToken { get; set; }
             public System.String SessionId { get; set; }
+            public System.String TraceId { get; set; }
+            public System.String TraceParent { get; set; }
             public System.Func<Amazon.BedrockAgentCore.Model.StopBrowserSessionResponse, StopBACBrowserSessionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

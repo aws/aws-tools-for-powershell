@@ -28,21 +28,16 @@ using Amazon.Odb.Model;
 namespace Amazon.PowerShell.Cmdlets.ODB
 {
     /// <summary>
-    /// Creates a peering connection between an ODB network and a VPC.
-    /// 
-    ///  
-    /// <para>
-    /// A peering connection enables private connectivity between the networks for application-tier
-    /// communication.
-    /// </para>
+    /// Modifies the settings of an Oracle Database@Amazon Web Services peering connection.
+    /// You can update the display name and add or remove CIDR blocks from the peering connection.
     /// </summary>
-    [Cmdlet("New", "ODBOdbPeeringConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Odb.Model.CreateOdbPeeringConnectionResponse")]
-    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services CreateOdbPeeringConnection API operation.", Operation = new[] {"CreateOdbPeeringConnection"}, SelectReturnType = typeof(Amazon.Odb.Model.CreateOdbPeeringConnectionResponse))]
-    [AWSCmdletOutput("Amazon.Odb.Model.CreateOdbPeeringConnectionResponse",
-        "This cmdlet returns an Amazon.Odb.Model.CreateOdbPeeringConnectionResponse object containing multiple properties."
+    [Cmdlet("Update", "ODBOdbPeeringConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Odb.Model.UpdateOdbPeeringConnectionResponse")]
+    [AWSCmdlet("Calls the Oracle Database@Amazon Web Services UpdateOdbPeeringConnection API operation.", Operation = new[] {"UpdateOdbPeeringConnection"}, SelectReturnType = typeof(Amazon.Odb.Model.UpdateOdbPeeringConnectionResponse))]
+    [AWSCmdletOutput("Amazon.Odb.Model.UpdateOdbPeeringConnectionResponse",
+        "This cmdlet returns an Amazon.Odb.Model.UpdateOdbPeeringConnectionResponse object containing multiple properties."
     )]
-    public partial class NewODBOdbPeeringConnectionCmdlet : AmazonOdbClientCmdlet, IExecutor
+    public partial class UpdateODBOdbPeeringConnectionCmdlet : AmazonOdbClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -50,17 +45,17 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para>The display name for the ODB peering connection.</para>
+        /// <para>A new display name for the peering connection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DisplayName { get; set; }
         #endregion
         
-        #region Parameter OdbNetworkId
+        #region Parameter OdbPeeringConnectionId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the ODB network that initiates the peering connection.</para>
+        /// <para>The identifier of the Oracle Database@Amazon Web Services peering connection to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,64 +66,38 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String OdbNetworkId { get; set; }
+        public System.String OdbPeeringConnectionId { get; set; }
         #endregion
         
         #region Parameter PeerNetworkCidrsToBeAdded
         /// <summary>
         /// <para>
         /// <para>A list of CIDR blocks to add to the peering connection. These CIDR blocks define the
-        /// IP address ranges that can communicate through the peering connection.</para>
+        /// IP address ranges that can communicate through the peering connection. The CIDR blocks
+        /// must not overlap with existing CIDR blocks in the Oracle Database@Amazon Web Services
+        /// network.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String[] PeerNetworkCidrsToBeAdded { get; set; }
         #endregion
         
-        #region Parameter PeerNetworkId
+        #region Parameter PeerNetworkCidrsToBeRemoved
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the peer network. This can be either a VPC ID or another
-        /// ODB network ID.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PeerNetworkId { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>The tags to assign to the ODB peering connection.</para>
+        /// <para>A list of CIDR blocks to remove from the peering connection. The CIDR blocks must
+        /// currently exist in the peering connection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
-        #endregion
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>The client token for the ODB peering connection request.</para><para>Constraints:</para><ul><li><para>Must be unique for each request.</para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        public System.String[] PeerNetworkCidrsToBeRemoved { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Odb.Model.CreateOdbPeeringConnectionResponse).
-        /// Specifying the name of a property of type Amazon.Odb.Model.CreateOdbPeeringConnectionResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Odb.Model.UpdateOdbPeeringConnectionResponse).
+        /// Specifying the name of a property of type Amazon.Odb.Model.UpdateOdbPeeringConnectionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,10 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the OdbNetworkId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^OdbNetworkId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the OdbPeeringConnectionId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^OdbPeeringConnectionId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^OdbNetworkId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^OdbPeeringConnectionId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -160,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.OdbNetworkId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-ODBOdbPeeringConnection (CreateOdbPeeringConnection)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.OdbPeeringConnectionId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-ODBOdbPeeringConnection (UpdateOdbPeeringConnection)"))
             {
                 return;
             }
@@ -174,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Odb.Model.CreateOdbPeeringConnectionResponse, NewODBOdbPeeringConnectionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Odb.Model.UpdateOdbPeeringConnectionResponse, UpdateODBOdbPeeringConnectionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -183,36 +152,24 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.OdbNetworkId;
+                context.Select = (response, cmdlet) => this.OdbPeeringConnectionId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClientToken = this.ClientToken;
             context.DisplayName = this.DisplayName;
-            context.OdbNetworkId = this.OdbNetworkId;
+            context.OdbPeeringConnectionId = this.OdbPeeringConnectionId;
             #if MODULAR
-            if (this.OdbNetworkId == null && ParameterWasBound(nameof(this.OdbNetworkId)))
+            if (this.OdbPeeringConnectionId == null && ParameterWasBound(nameof(this.OdbPeeringConnectionId)))
             {
-                WriteWarning("You are passing $null as a value for parameter OdbNetworkId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter OdbPeeringConnectionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             if (this.PeerNetworkCidrsToBeAdded != null)
             {
                 context.PeerNetworkCidrsToBeAdded = new List<System.String>(this.PeerNetworkCidrsToBeAdded);
             }
-            context.PeerNetworkId = this.PeerNetworkId;
-            #if MODULAR
-            if (this.PeerNetworkId == null && ParameterWasBound(nameof(this.PeerNetworkId)))
+            if (this.PeerNetworkCidrsToBeRemoved != null)
             {
-                WriteWarning("You are passing $null as a value for parameter PeerNetworkId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
-                }
+                context.PeerNetworkCidrsToBeRemoved = new List<System.String>(this.PeerNetworkCidrsToBeRemoved);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -228,31 +185,23 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Odb.Model.CreateOdbPeeringConnectionRequest();
+            var request = new Amazon.Odb.Model.UpdateOdbPeeringConnectionRequest();
             
-            if (cmdletContext.ClientToken != null)
-            {
-                request.ClientToken = cmdletContext.ClientToken;
-            }
             if (cmdletContext.DisplayName != null)
             {
                 request.DisplayName = cmdletContext.DisplayName;
             }
-            if (cmdletContext.OdbNetworkId != null)
+            if (cmdletContext.OdbPeeringConnectionId != null)
             {
-                request.OdbNetworkId = cmdletContext.OdbNetworkId;
+                request.OdbPeeringConnectionId = cmdletContext.OdbPeeringConnectionId;
             }
             if (cmdletContext.PeerNetworkCidrsToBeAdded != null)
             {
                 request.PeerNetworkCidrsToBeAdded = cmdletContext.PeerNetworkCidrsToBeAdded;
             }
-            if (cmdletContext.PeerNetworkId != null)
+            if (cmdletContext.PeerNetworkCidrsToBeRemoved != null)
             {
-                request.PeerNetworkId = cmdletContext.PeerNetworkId;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
+                request.PeerNetworkCidrsToBeRemoved = cmdletContext.PeerNetworkCidrsToBeRemoved;
             }
             
             CmdletOutput output;
@@ -287,15 +236,15 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         #region AWS Service Operation Call
         
-        private Amazon.Odb.Model.CreateOdbPeeringConnectionResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.CreateOdbPeeringConnectionRequest request)
+        private Amazon.Odb.Model.UpdateOdbPeeringConnectionResponse CallAWSServiceOperation(IAmazonOdb client, Amazon.Odb.Model.UpdateOdbPeeringConnectionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "CreateOdbPeeringConnection");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Oracle Database@Amazon Web Services", "UpdateOdbPeeringConnection");
             try
             {
                 #if DESKTOP
-                return client.CreateOdbPeeringConnection(request);
+                return client.UpdateOdbPeeringConnection(request);
                 #elif CORECLR
-                return client.CreateOdbPeeringConnectionAsync(request).GetAwaiter().GetResult();
+                return client.UpdateOdbPeeringConnectionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -315,13 +264,11 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
             public System.String DisplayName { get; set; }
-            public System.String OdbNetworkId { get; set; }
+            public System.String OdbPeeringConnectionId { get; set; }
             public List<System.String> PeerNetworkCidrsToBeAdded { get; set; }
-            public System.String PeerNetworkId { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.Odb.Model.CreateOdbPeeringConnectionResponse, NewODBOdbPeeringConnectionCmdlet, object> Select { get; set; } =
+            public List<System.String> PeerNetworkCidrsToBeRemoved { get; set; }
+            public System.Func<Amazon.Odb.Model.UpdateOdbPeeringConnectionResponse, UpdateODBOdbPeeringConnectionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

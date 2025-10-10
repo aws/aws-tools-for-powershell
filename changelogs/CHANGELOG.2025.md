@@ -1,4 +1,25 @@
-﻿### 4.1.918 (2025-10-09 20:09Z)
+﻿### 4.1.919 (2025-10-10 21:04Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1142.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Added cmdlet Sync-BACCGatewayTarget leveraging the SynchronizeGatewayTargets service API.
+    * Modified cmdlet New-BACCGatewayTarget: added parameter McpServer_Endpoint.
+    * Modified cmdlet Update-BACCGatewayTarget: added parameter McpServer_Endpoint.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Modified cmdlet Invoke-BACCodeInterpreter: added parameters TraceId and TraceParent.
+    * Modified cmdlet Start-BACBrowserSession: added parameters TraceId and TraceParent.
+    * Modified cmdlet Start-BACCodeInterpreterSession: added parameters TraceId and TraceParent.
+    * Modified cmdlet Stop-BACBrowserSession: added parameters TraceId and TraceParent.
+    * Modified cmdlet Stop-BACCodeInterpreterSession: added parameters TraceId and TraceParent.
+  * Amazon Glue
+    * Modified cmdlet Get-GLUETable: added parameters AuditContext_AdditionalAuditContext, AuditContext_AllColumnsRequested and AuditContext_RequestedColumn.
+    * Modified cmdlet Get-GLUETableList: added parameters AuditContext_AdditionalAuditContext, AuditContext_AllColumnsRequested and AuditContext_RequestedColumn.
+  * Amazon Lambda
+    * Modified cmdlet Add-LMPermission: added parameter InvokedViaFunctionUrl.
+  * Amazon Oracle Database@Amazon Web Services
+    * Added cmdlet Update-ODBOdbPeeringConnection leveraging the UpdateOdbPeeringConnection service API.
+    * Modified cmdlet New-ODBOdbPeeringConnection: added parameter PeerNetworkCidrsToBeAdded.
+
+### 4.1.918 (2025-10-09 20:09Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1141.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon QuickSight
     * Added cmdlet Get-QSActionConnector leveraging the DescribeActionConnector service API.

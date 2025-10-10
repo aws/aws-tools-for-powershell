@@ -198,6 +198,26 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.String Arguments_TaskId { get; set; }
         #endregion
         
+        #region Parameter TraceId
+        /// <summary>
+        /// <para>
+        /// <para>The trace identifier for request tracking.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TraceId { get; set; }
+        #endregion
+        
+        #region Parameter TraceParent
+        /// <summary>
+        /// <para>
+        /// <para>The parent trace information for distributed tracing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TraceParent { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -270,6 +290,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             }
             #endif
             context.SessionId = this.SessionId;
+            context.TraceId = this.TraceId;
+            context.TraceParent = this.TraceParent;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -397,6 +419,14 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             {
                 request.SessionId = cmdletContext.SessionId;
             }
+            if (cmdletContext.TraceId != null)
+            {
+                request.TraceId = cmdletContext.TraceId;
+            }
+            if (cmdletContext.TraceParent != null)
+            {
+                request.TraceParent = cmdletContext.TraceParent;
+            }
             
             CmdletOutput output;
             
@@ -470,6 +500,8 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public System.String CodeInterpreterIdentifier { get; set; }
             public Amazon.BedrockAgentCore.ToolName Name { get; set; }
             public System.String SessionId { get; set; }
+            public System.String TraceId { get; set; }
+            public System.String TraceParent { get; set; }
             public System.Func<Amazon.BedrockAgentCore.Model.InvokeCodeInterpreterResponse, InvokeBACCodeInterpreterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
