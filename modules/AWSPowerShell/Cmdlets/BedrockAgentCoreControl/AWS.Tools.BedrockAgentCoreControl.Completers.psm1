@@ -110,7 +110,7 @@ $BACC_Completers = {
             ($_ -eq "Update-BACCOauth2CredentialProvider/CredentialProviderVendor")
         }
         {
-            $v = "CustomOauth2","GithubOauth2","GoogleOauth2","MicrosoftOauth2","SalesforceOauth2","SlackOauth2"
+            $v = "AtlassianOauth2","Auth0Oauth2","CognitoOauth2","CustomOauth2","CyberArkOauth2","DropboxOauth2","FacebookOauth2","FusionAuthOauth2","GithubOauth2","GoogleOauth2","HubspotOauth2","LinkedinOauth2","MicrosoftOauth2","NotionOauth2","OktaOauth2","OneLoginOauth2","PingOneOauth2","RedditOauth2","SalesforceOauth2","SlackOauth2","SpotifyOauth2","TwitchOauth2","XOauth2","YandexOauth2","ZoomOauth2"
             break
         }
 

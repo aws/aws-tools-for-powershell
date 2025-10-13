@@ -30,6 +30,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CompleteResourceTokenAuth" Verb="Complete" Noun="ResourceTokenAuth" ShouldProcessTarget="SessionUri" PipelineParameter="SessionUri" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateEvent" OutputProperty="Event" Verb="New" Noun="Event" ShouldProcessTarget="MemoryId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

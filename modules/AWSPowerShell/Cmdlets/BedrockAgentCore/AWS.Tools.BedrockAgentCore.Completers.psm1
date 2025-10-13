@@ -191,6 +191,7 @@ $BAC_SelectMap = @{
     "Select"=@("New-BACBatchMemoryRecord",
                "Remove-BACBatchMemoryRecord",
                "Update-BACBatchMemoryRecord",
+               "Complete-BACResourceTokenAuth",
                "New-BACEvent",
                "Remove-BACEvent",
                "Remove-BACMemoryRecord",
