@@ -1,4 +1,20 @@
-﻿### 5.0.74 (2025-10-10 21:33Z)
+﻿### 5.0.75 (2025-10-13 20:10Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.111.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCApiKeyCredentialProvider: added parameter Tag.
+    * Modified cmdlet New-BACCOauth2CredentialProvider: added parameters AtlassianOauth2ProviderConfig_ClientId, AtlassianOauth2ProviderConfig_ClientSecret, AuthorizationServerMetadata_TokenEndpointAuthMethod, IncludedOauth2ProviderConfig_AuthorizationEndpoint, IncludedOauth2ProviderConfig_ClientId, IncludedOauth2ProviderConfig_ClientSecret, IncludedOauth2ProviderConfig_Issuer, IncludedOauth2ProviderConfig_TokenEndpoint, LinkedinOauth2ProviderConfig_ClientId, LinkedinOauth2ProviderConfig_ClientSecret, MicrosoftOauth2ProviderConfig_TenantId and Tag.
+    * Modified cmdlet New-BACCWorkloadIdentity: added parameter Tag.
+    * Modified cmdlet Update-BACCOauth2CredentialProvider: added parameters AtlassianOauth2ProviderConfig_ClientId, AtlassianOauth2ProviderConfig_ClientSecret, AuthorizationServerMetadata_TokenEndpointAuthMethod, IncludedOauth2ProviderConfig_AuthorizationEndpoint, IncludedOauth2ProviderConfig_ClientId, IncludedOauth2ProviderConfig_ClientSecret, IncludedOauth2ProviderConfig_Issuer, IncludedOauth2ProviderConfig_TokenEndpoint, LinkedinOauth2ProviderConfig_ClientId, LinkedinOauth2ProviderConfig_ClientSecret and MicrosoftOauth2ProviderConfig_TenantId.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Added cmdlet Complete-BACResourceTokenAuth leveraging the CompleteResourceTokenAuth service API.
+    * Modified cmdlet Get-BACResourceOauth2Token: added parameters CustomState and SessionUri.
+    * Modified cmdlet Invoke-BACAgentRuntime: added parameter AccountId.
+  * Amazon CloudWatch Observability Admin Service
+    * Added cmdlet Get-CWOADMNTelemetryEnrichmentStatus leveraging the GetTelemetryEnrichmentStatus service API.
+    * Added cmdlet Start-CWOADMNTelemetryEnrichment leveraging the StartTelemetryEnrichment service API.
+    * Added cmdlet Stop-CWOADMNTelemetryEnrichment leveraging the StopTelemetryEnrichment service API.
+
+### 5.0.74 (2025-10-10 21:33Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.110.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Added cmdlet Sync-BACCGatewayTarget leveraging the SynchronizeGatewayTargets service API.

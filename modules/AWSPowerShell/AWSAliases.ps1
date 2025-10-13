@@ -2916,6 +2916,7 @@ Set-Alias -Name BAC-BatchDeleteMemoryRecords -Value Remove-BACBatchMemoryRecord
 Set-Alias -Name Batch-BACUpdateMemoryRecords -Value Update-BACBatchMemoryRecord
 Set-Alias -Name Batch-BACBatchMemoryRecord -Value Update-BACBatchMemoryRecord
 Set-Alias -Name BAC-BatchUpdateMemoryRecords -Value Update-BACBatchMemoryRecord
+Set-Alias -Name BAC-CompleteResourceTokenAuth -Value Complete-BACResourceTokenAuth
 Set-Alias -Name Create-BACEvent -Value New-BACEvent
 Set-Alias -Name BAC-CreateEvent -Value New-BACEvent
 Set-Alias -Name Delete-BACEvent -Value Remove-BACEvent
@@ -22500,6 +22501,7 @@ Set-Alias -Name CWOADMN-DeleteTelemetryRule -Value Remove-CWOADMNTelemetryRule
 Set-Alias -Name Delete-CWOADMNTelemetryRuleForOrganization -Value Remove-CWOADMNTelemetryRuleForOrganization
 Set-Alias -Name CWOADMN-DeleteTelemetryRuleForOrganization -Value Remove-CWOADMNTelemetryRuleForOrganization
 Set-Alias -Name CWOADMN-GetCentralizationRuleForOrganization -Value Get-CWOADMNCentralizationRuleForOrganization
+Set-Alias -Name CWOADMN-GetTelemetryEnrichmentStatus -Value Get-CWOADMNTelemetryEnrichmentStatus
 Set-Alias -Name CWOADMN-GetTelemetryEvaluationStatus -Value Get-CWOADMNTelemetryEvaluationStatus
 Set-Alias -Name CWOADMN-GetTelemetryEvaluationStatusForOrganization -Value Get-CWOADMNTelemetryEvaluationStatusForOrganization
 Set-Alias -Name CWOADMN-GetTelemetryRule -Value Get-CWOADMNTelemetryRule
@@ -22520,8 +22522,10 @@ Set-Alias -Name CWOADMN-ListTelemetryRules -Value Get-CWOADMNTelemetryRuleList
 Set-Alias -Name List-CWOADMNTelemetryRulesForOrganization -Value Get-CWOADMNTelemetryRulesForOrganizationList
 Set-Alias -Name List-CWOADMNTelemetryRulesForOrganizationList -Value Get-CWOADMNTelemetryRulesForOrganizationList
 Set-Alias -Name CWOADMN-ListTelemetryRulesForOrganization -Value Get-CWOADMNTelemetryRulesForOrganizationList
+Set-Alias -Name CWOADMN-StartTelemetryEnrichment -Value Start-CWOADMNTelemetryEnrichment
 Set-Alias -Name CWOADMN-StartTelemetryEvaluation -Value Start-CWOADMNTelemetryEvaluation
 Set-Alias -Name CWOADMN-StartTelemetryEvaluationForOrganization -Value Start-CWOADMNTelemetryEvaluationForOrganization
+Set-Alias -Name CWOADMN-StopTelemetryEnrichment -Value Stop-CWOADMNTelemetryEnrichment
 Set-Alias -Name CWOADMN-StopTelemetryEvaluation -Value Stop-CWOADMNTelemetryEvaluation
 Set-Alias -Name CWOADMN-StopTelemetryEvaluationForOrganization -Value Stop-CWOADMNTelemetryEvaluationForOrganization
 Set-Alias -Name CWOADMN-TagResource -Value Add-CWOADMNResourceTag

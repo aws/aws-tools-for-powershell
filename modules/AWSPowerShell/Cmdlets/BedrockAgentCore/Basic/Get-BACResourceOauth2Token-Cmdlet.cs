@@ -61,6 +61,18 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.Collections.Hashtable CustomParameter { get; set; }
         #endregion
         
+        #region Parameter CustomState
+        /// <summary>
+        /// <para>
+        /// <para>An opaque string that will be sent back to the callback URL provided in resourceOauth2ReturnUrl.
+        /// This state should be used to protect the callback URL of your application against
+        /// CSRF attacks by ensuring the response corresponds to the original request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomState { get; set; }
+        #endregion
+        
         #region Parameter ForceAuthentication
         /// <summary>
         /// <para>
@@ -139,6 +151,18 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.String[] Scope { get; set; }
         #endregion
         
+        #region Parameter SessionUri
+        /// <summary>
+        /// <para>
+        /// <para>Unique identifier for the user's authentication session for retrieving OAuth2 tokens.
+        /// This ID tracks the authorization flow state across multiple requests and responses
+        /// during the OAuth2 authentication process.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SessionUri { get; set; }
+        #endregion
+        
         #region Parameter WorkloadIdentityToken
         /// <summary>
         /// <para>
@@ -194,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                     context.CustomParameter.Add((String)hashKey, (System.String)(this.CustomParameter[hashKey]));
                 }
             }
+            context.CustomState = this.CustomState;
             context.ForceAuthentication = this.ForceAuthentication;
             context.Oauth2Flow = this.Oauth2Flow;
             #if MODULAR
@@ -220,6 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 WriteWarning("You are passing $null as a value for parameter Scope which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SessionUri = this.SessionUri;
             context.WorkloadIdentityToken = this.WorkloadIdentityToken;
             #if MODULAR
             if (this.WorkloadIdentityToken == null && ParameterWasBound(nameof(this.WorkloadIdentityToken)))
@@ -247,6 +273,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             {
                 request.CustomParameters = cmdletContext.CustomParameter;
             }
+            if (cmdletContext.CustomState != null)
+            {
+                request.CustomState = cmdletContext.CustomState;
+            }
             if (cmdletContext.ForceAuthentication != null)
             {
                 request.ForceAuthentication = cmdletContext.ForceAuthentication.Value;
@@ -266,6 +296,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (cmdletContext.Scope != null)
             {
                 request.Scopes = cmdletContext.Scope;
+            }
+            if (cmdletContext.SessionUri != null)
+            {
+                request.SessionUri = cmdletContext.SessionUri;
             }
             if (cmdletContext.WorkloadIdentityToken != null)
             {
@@ -327,11 +361,13 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         internal partial class CmdletContext : ExecutorContext
         {
             public Dictionary<System.String, System.String> CustomParameter { get; set; }
+            public System.String CustomState { get; set; }
             public System.Boolean? ForceAuthentication { get; set; }
             public Amazon.BedrockAgentCore.Oauth2FlowType Oauth2Flow { get; set; }
             public System.String ResourceCredentialProviderName { get; set; }
             public System.String ResourceOauth2ReturnUrl { get; set; }
             public List<System.String> Scope { get; set; }
+            public System.String SessionUri { get; set; }
             public System.String WorkloadIdentityToken { get; set; }
             public System.Func<Amazon.BedrockAgentCore.Model.GetResourceOauth2TokenResponse, GetBACResourceOauth2TokenCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

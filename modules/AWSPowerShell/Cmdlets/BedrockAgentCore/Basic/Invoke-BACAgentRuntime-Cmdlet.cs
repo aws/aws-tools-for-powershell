@@ -82,6 +82,16 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.String Accept { get; set; }
         #endregion
         
+        #region Parameter AccountId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the Amazon Web Services account for the agent runtime resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountId { get; set; }
+        #endregion
+        
         #region Parameter AgentRuntimeArn
         /// <summary>
         /// <para>
@@ -270,6 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Accept = this.Accept;
+            context.AccountId = this.AccountId;
             context.AgentRuntimeArn = this.AgentRuntimeArn;
             #if MODULAR
             if (this.AgentRuntimeArn == null && ParameterWasBound(nameof(this.AgentRuntimeArn)))
@@ -317,6 +328,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
                 if (cmdletContext.Accept != null)
                 {
                     request.Accept = cmdletContext.Accept;
+                }
+                if (cmdletContext.AccountId != null)
+                {
+                    request.AccountId = cmdletContext.AccountId;
                 }
                 if (cmdletContext.AgentRuntimeArn != null)
                 {
@@ -431,6 +446,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Accept { get; set; }
+            public System.String AccountId { get; set; }
             public System.String AgentRuntimeArn { get; set; }
             public System.String Baggage { get; set; }
             public System.String ContentType { get; set; }
