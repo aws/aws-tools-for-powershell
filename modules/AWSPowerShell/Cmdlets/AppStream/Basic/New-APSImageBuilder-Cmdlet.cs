@@ -215,6 +215,35 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.String[] VpcConfig_SecurityGroupId { get; set; }
         #endregion
         
+        #region Parameter SoftwaresToInstall
+        /// <summary>
+        /// <para>
+        /// <para>The list of license included applications to install on the image builder during creation.</para><para>Possible values include the following:</para><ul><li><para>Microsoft_Office_2021_LTSC_Professional_Plus_32Bit</para></li><li><para>Microsoft_Office_2021_LTSC_Professional_Plus_64Bit</para></li><li><para>Microsoft_Office_2024_LTSC_Professional_Plus_32Bit</para></li><li><para>Microsoft_Office_2024_LTSC_Professional_Plus_64Bit</para></li><li><para>Microsoft_Visio_2021_LTSC_Professional_32Bit</para></li><li><para>Microsoft_Visio_2021_LTSC_Professional_64Bit</para></li><li><para>Microsoft_Visio_2024_LTSC_Professional_32Bit</para></li><li><para>Microsoft_Visio_2024_LTSC_Professional_64Bit</para></li><li><para>Microsoft_Project_2021_Professional_32Bit</para></li><li><para>Microsoft_Project_2021_Professional_64Bit</para></li><li><para>Microsoft_Project_2024_Professional_32Bit</para></li><li><para>Microsoft_Project_2024_Professional_64Bit</para></li><li><para>Microsoft_Office_2021_LTSC_Standard_32Bit</para></li><li><para>Microsoft_Office_2021_LTSC_Standard_64Bit</para></li><li><para>Microsoft_Office_2024_LTSC_Standard_32Bit</para></li><li><para>Microsoft_Office_2024_LTSC_Standard_64Bit</para></li><li><para>Microsoft_Visio_2021_LTSC_Standard_32Bit</para></li><li><para>Microsoft_Visio_2021_LTSC_Standard_64Bit</para></li><li><para>Microsoft_Visio_2024_LTSC_Standard_32Bit</para></li><li><para>Microsoft_Visio_2024_LTSC_Standard_64Bit</para></li><li><para>Microsoft_Project_2021_Standard_32Bit</para></li><li><para>Microsoft_Project_2021_Standard_64Bit</para></li><li><para>Microsoft_Project_2024_Standard_32Bit</para></li><li><para>Microsoft_Project_2024_Standard_64Bit</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] SoftwaresToInstall { get; set; }
+        #endregion
+        
+        #region Parameter SoftwaresToUninstall
+        /// <summary>
+        /// <para>
+        /// <para>The list of license included applications to uninstall from the image builder during
+        /// creation.</para><para>Possible values include the following:</para><ul><li><para>Microsoft_Office_2021_LTSC_Professional_Plus_32Bit</para></li><li><para>Microsoft_Office_2021_LTSC_Professional_Plus_64Bit</para></li><li><para>Microsoft_Office_2024_LTSC_Professional_Plus_32Bit</para></li><li><para>Microsoft_Office_2024_LTSC_Professional_Plus_64Bit</para></li><li><para>Microsoft_Visio_2021_LTSC_Professional_32Bit</para></li><li><para>Microsoft_Visio_2021_LTSC_Professional_64Bit</para></li><li><para>Microsoft_Visio_2024_LTSC_Professional_32Bit</para></li><li><para>Microsoft_Visio_2024_LTSC_Professional_64Bit</para></li><li><para>Microsoft_Project_2021_Professional_32Bit</para></li><li><para>Microsoft_Project_2021_Professional_64Bit</para></li><li><para>Microsoft_Project_2024_Professional_32Bit</para></li><li><para>Microsoft_Project_2024_Professional_64Bit</para></li><li><para>Microsoft_Office_2021_LTSC_Standard_32Bit</para></li><li><para>Microsoft_Office_2021_LTSC_Standard_64Bit</para></li><li><para>Microsoft_Office_2024_LTSC_Standard_32Bit</para></li><li><para>Microsoft_Office_2024_LTSC_Standard_64Bit</para></li><li><para>Microsoft_Visio_2021_LTSC_Standard_32Bit</para></li><li><para>Microsoft_Visio_2021_LTSC_Standard_64Bit</para></li><li><para>Microsoft_Visio_2024_LTSC_Standard_32Bit</para></li><li><para>Microsoft_Visio_2024_LTSC_Standard_64Bit</para></li><li><para>Microsoft_Project_2021_Standard_32Bit</para></li><li><para>Microsoft_Project_2021_Standard_64Bit</para></li><li><para>Microsoft_Project_2024_Standard_32Bit</para></li><li><para>Microsoft_Project_2024_Standard_64Bit</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] SoftwaresToUninstall { get; set; }
+        #endregion
+        
         #region Parameter VpcConfig_SubnetId
         /// <summary>
         /// <para>
@@ -324,6 +353,14 @@ namespace Amazon.PowerShell.Cmdlets.APS
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.SoftwaresToInstall != null)
+            {
+                context.SoftwaresToInstall = new List<System.String>(this.SoftwaresToInstall);
+            }
+            if (this.SoftwaresToUninstall != null)
+            {
+                context.SoftwaresToUninstall = new List<System.String>(this.SoftwaresToUninstall);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -425,6 +462,14 @@ namespace Amazon.PowerShell.Cmdlets.APS
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.SoftwaresToInstall != null)
+            {
+                request.SoftwaresToInstall = cmdletContext.SoftwaresToInstall;
+            }
+            if (cmdletContext.SoftwaresToUninstall != null)
+            {
+                request.SoftwaresToUninstall = cmdletContext.SoftwaresToUninstall;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -525,6 +570,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public System.String ImageName { get; set; }
             public System.String InstanceType { get; set; }
             public System.String Name { get; set; }
+            public List<System.String> SoftwaresToInstall { get; set; }
+            public List<System.String> SoftwaresToUninstall { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }
             public List<System.String> VpcConfig_SubnetId { get; set; }

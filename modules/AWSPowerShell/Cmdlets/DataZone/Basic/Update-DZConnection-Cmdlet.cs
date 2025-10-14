@@ -55,6 +55,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String AwsLocation_AccessRole { get; set; }
         #endregion
         
+        #region Parameter AmazonQProperties_AuthMode
+        /// <summary>
+        /// <para>
+        /// <para>The authentication mode of the connection's Amazon Q properties.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Props_AmazonQProperties_AuthMode")]
+        public System.String AmazonQProperties_AuthMode { get; set; }
+        #endregion
+        
         #region Parameter AwsLocation_AwsAccountId
         /// <summary>
         /// <para>
@@ -232,6 +243,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String SparkEmrProperties_InstanceProfileArn { get; set; }
         #endregion
         
+        #region Parameter AmazonQProperties_IsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether Amazon Q is enabled for the connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Props_AmazonQProperties_IsEnabled")]
+        public System.Boolean? AmazonQProperties_IsEnabled { get; set; }
+        #endregion
+        
         #region Parameter SparkEmrProperties_JavaVirtualEnv
         /// <summary>
         /// <para>
@@ -296,6 +318,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Props_RedshiftProperties_Port")]
         public System.Int32? RedshiftProperties_Port { get; set; }
+        #endregion
+        
+        #region Parameter AmazonQProperties_ProfileArn
+        /// <summary>
+        /// <para>
+        /// <para>The profile ARN of the connection's Amazon Q properties.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Props_AmazonQProperties_ProfileArn")]
+        public System.String AmazonQProperties_ProfileArn { get; set; }
         #endregion
         
         #region Parameter SparkEmrProperties_PythonVirtualEnv
@@ -496,6 +529,9 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AmazonQProperties_AuthMode = this.AmazonQProperties_AuthMode;
+            context.AmazonQProperties_IsEnabled = this.AmazonQProperties_IsEnabled;
+            context.AmazonQProperties_ProfileArn = this.AmazonQProperties_ProfileArn;
             context.AthenaProperties_WorkgroupName = this.AthenaProperties_WorkgroupName;
             context.BasicAuthenticationCredentials_Password = this.BasicAuthenticationCredentials_Password;
             context.BasicAuthenticationCredentials_UserName = this.BasicAuthenticationCredentials_UserName;
@@ -804,6 +840,51 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestProps_props_S3Properties != null)
             {
                 request.Props.S3Properties = requestProps_props_S3Properties;
+                requestPropsIsNull = false;
+            }
+            Amazon.DataZone.Model.AmazonQPropertiesPatch requestProps_props_AmazonQProperties = null;
+            
+             // populate AmazonQProperties
+            var requestProps_props_AmazonQPropertiesIsNull = true;
+            requestProps_props_AmazonQProperties = new Amazon.DataZone.Model.AmazonQPropertiesPatch();
+            System.String requestProps_props_AmazonQProperties_amazonQProperties_AuthMode = null;
+            if (cmdletContext.AmazonQProperties_AuthMode != null)
+            {
+                requestProps_props_AmazonQProperties_amazonQProperties_AuthMode = cmdletContext.AmazonQProperties_AuthMode;
+            }
+            if (requestProps_props_AmazonQProperties_amazonQProperties_AuthMode != null)
+            {
+                requestProps_props_AmazonQProperties.AuthMode = requestProps_props_AmazonQProperties_amazonQProperties_AuthMode;
+                requestProps_props_AmazonQPropertiesIsNull = false;
+            }
+            System.Boolean? requestProps_props_AmazonQProperties_amazonQProperties_IsEnabled = null;
+            if (cmdletContext.AmazonQProperties_IsEnabled != null)
+            {
+                requestProps_props_AmazonQProperties_amazonQProperties_IsEnabled = cmdletContext.AmazonQProperties_IsEnabled.Value;
+            }
+            if (requestProps_props_AmazonQProperties_amazonQProperties_IsEnabled != null)
+            {
+                requestProps_props_AmazonQProperties.IsEnabled = requestProps_props_AmazonQProperties_amazonQProperties_IsEnabled.Value;
+                requestProps_props_AmazonQPropertiesIsNull = false;
+            }
+            System.String requestProps_props_AmazonQProperties_amazonQProperties_ProfileArn = null;
+            if (cmdletContext.AmazonQProperties_ProfileArn != null)
+            {
+                requestProps_props_AmazonQProperties_amazonQProperties_ProfileArn = cmdletContext.AmazonQProperties_ProfileArn;
+            }
+            if (requestProps_props_AmazonQProperties_amazonQProperties_ProfileArn != null)
+            {
+                requestProps_props_AmazonQProperties.ProfileArn = requestProps_props_AmazonQProperties_amazonQProperties_ProfileArn;
+                requestProps_props_AmazonQPropertiesIsNull = false;
+            }
+             // determine if requestProps_props_AmazonQProperties should be set to null
+            if (requestProps_props_AmazonQPropertiesIsNull)
+            {
+                requestProps_props_AmazonQProperties = null;
+            }
+            if (requestProps_props_AmazonQProperties != null)
+            {
+                request.Props.AmazonQProperties = requestProps_props_AmazonQProperties;
                 requestPropsIsNull = false;
             }
             Amazon.DataZone.Model.RedshiftPropertiesPatch requestProps_props_RedshiftProperties = null;
@@ -1158,6 +1239,9 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String Description { get; set; }
             public System.String DomainIdentifier { get; set; }
             public System.String Identifier { get; set; }
+            public System.String AmazonQProperties_AuthMode { get; set; }
+            public System.Boolean? AmazonQProperties_IsEnabled { get; set; }
+            public System.String AmazonQProperties_ProfileArn { get; set; }
             public System.String AthenaProperties_WorkgroupName { get; set; }
             public System.String BasicAuthenticationCredentials_Password { get; set; }
             public System.String BasicAuthenticationCredentials_UserName { get; set; }

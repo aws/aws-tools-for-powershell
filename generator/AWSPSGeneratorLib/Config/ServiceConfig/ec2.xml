@@ -307,6 +307,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CopyVolumes" OutputProperty="Volumes" Verb="Copy" Noun="Volume" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCapacityReservation" OutputProperty="CapacityReservation" Verb="Add" Noun="CapacityReservation" ShouldProcessTarget="InstanceType" PipelineParameter="InstanceType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

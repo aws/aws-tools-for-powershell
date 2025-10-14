@@ -108,6 +108,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Copy-EC2FpgaImage', 
         'Copy-EC2Image', 
         'Copy-EC2Snapshot', 
+        'Copy-EC2Volume', 
         'Deny-EC2CapacityReservationBillingOwnership', 
         'Deny-EC2EndpointConnection', 
         'Deny-EC2TransitGatewayMulticastDomainAssociation', 

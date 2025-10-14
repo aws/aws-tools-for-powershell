@@ -218,6 +218,18 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String As2Config_PartnerProfileId { get; set; }
         #endregion
         
+        #region Parameter VpcLattice_PortNumber
+        /// <summary>
+        /// <para>
+        /// <para>Updated port number for SFTP connections through VPC_LATTICE. Change this if the target
+        /// SFTP server port has been modified or if connecting to a different server endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EgressConfig_VpcLattice_PortNumber")]
+        public System.Int32? VpcLattice_PortNumber { get; set; }
+        #endregion
+        
         #region Parameter As2Config_PreserveContentType
         /// <summary>
         /// <para>
@@ -230,6 +242,18 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Transfer.PreserveContentType")]
         public Amazon.Transfer.PreserveContentType As2Config_PreserveContentType { get; set; }
+        #endregion
+        
+        #region Parameter VpcLattice_ResourceConfigurationArn
+        /// <summary>
+        /// <para>
+        /// <para>Updated ARN of the VPC_LATTICE Resource Configuration. Use this to change the target
+        /// SFTP server location or modify the network path through the customer's VPC infrastructure.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EgressConfig_VpcLattice_ResourceConfigurationArn")]
+        public System.String VpcLattice_ResourceConfigurationArn { get; set; }
         #endregion
         
         #region Parameter SecurityPolicyName
@@ -260,14 +284,18 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// server to which you are connecting. You can use the <c>ssh-keyscan</c> command against
         /// the SFTP server to retrieve the necessary key.</para><note><para><c>TrustedHostKeys</c> is optional for <c>CreateConnector</c>. If not provided, you
         /// can use <c>TestConnection</c> to retrieve the server host key during the initial connection
-        /// attempt, and subsequently update the connector with the observed host key.</para></note><para>The three standard SSH public key format elements are <c>&lt;key type&gt;</c>, <c>&lt;body
+        /// attempt, and subsequently update the connector with the observed host key.</para></note><para>When creating connectors with egress config (VPC_LATTICE type connectors), since host
+        /// name is not something we can verify, the only accepted trusted host key format is
+        /// <c>key-type key-body</c> without the host name. For example: <c>ssh-rsa AAAAB3Nza...&lt;long-string-for-public-key&gt;</c></para><para>The three standard SSH public key format elements are <c>&lt;key type&gt;</c>, <c>&lt;body
         /// base64&gt;</c>, and an optional <c>&lt;comment&gt;</c>, with spaces between each element.
         /// Specify only the <c>&lt;key type&gt;</c> and <c>&lt;body base64&gt;</c>: do not enter
         /// the <c>&lt;comment&gt;</c> portion of the key.</para><para>For the trusted host key, Transfer Family accepts RSA and ECDSA keys.</para><ul><li><para>For RSA keys, the <c>&lt;key type&gt;</c> string is <c>ssh-rsa</c>.</para></li><li><para>For ECDSA keys, the <c>&lt;key type&gt;</c> string is either <c>ecdsa-sha2-nistp256</c>,
         /// <c>ecdsa-sha2-nistp384</c>, or <c>ecdsa-sha2-nistp521</c>, depending on the size of
         /// the key you generated.</para></li></ul><para>Run this command to retrieve the SFTP server host key, where your SFTP server name
-        /// is <c>ftp.host.com</c>.</para><para><c>ssh-keyscan ftp.host.com</c></para><para>This prints the public host key to standard output.</para><para><c>ftp.host.com ssh-rsa AAAAB3Nza...&lt;long-string-for-public-key</c></para><para>Copy and paste this string into the <c>TrustedHostKeys</c> field for the <c>create-connector</c>
-        /// command or into the <b>Trusted host keys</b> field in the console.</para><para />
+        /// is <c>ftp.host.com</c>.</para><para><c>ssh-keyscan ftp.host.com</c></para><para>This prints the public host key to standard output.</para><para><c>ftp.host.com ssh-rsa AAAAB3Nza...&lt;long-string-for-public-key&gt;</c></para><para>Copy and paste this string into the <c>TrustedHostKeys</c> field for the <c>create-connector</c>
+        /// command or into the <b>Trusted host keys</b> field in the console.</para><para>For VPC Lattice type connectors (VPC_LATTICE), remove the hostname from the key and
+        /// use only the <c>key-type key-body</c> format. In this example, it should be: <c>ssh-rsa
+        /// AAAAB3Nza...&lt;long-string-for-public-key&gt;</c></para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -282,7 +310,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter Url
         /// <summary>
         /// <para>
-        /// <para>The URL of the partner's AS2 or SFTP endpoint.</para>
+        /// <para>The URL of the partner's AS2 or SFTP endpoint.</para><para>When creating AS2 connectors or service-managed SFTP connectors (connectors without
+        /// egress configuration), you must provide a URL to specify the remote server endpoint.
+        /// For VPC Lattice type connectors, the URL must be null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -365,6 +395,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 WriteWarning("You are passing $null as a value for parameter ConnectorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.VpcLattice_PortNumber = this.VpcLattice_PortNumber;
+            context.VpcLattice_ResourceConfigurationArn = this.VpcLattice_ResourceConfigurationArn;
             context.LoggingRole = this.LoggingRole;
             context.SecurityPolicyName = this.SecurityPolicyName;
             context.SftpConfig_MaxConcurrentConnection = this.SftpConfig_MaxConcurrentConnection;
@@ -507,6 +539,50 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             {
                 request.ConnectorId = cmdletContext.ConnectorId;
             }
+            
+             // populate EgressConfig
+            var requestEgressConfigIsNull = true;
+            request.EgressConfig = new Amazon.Transfer.Model.UpdateConnectorEgressConfig();
+            Amazon.Transfer.Model.UpdateConnectorVpcLatticeEgressConfig requestEgressConfig_egressConfig_VpcLattice = null;
+            
+             // populate VpcLattice
+            var requestEgressConfig_egressConfig_VpcLatticeIsNull = true;
+            requestEgressConfig_egressConfig_VpcLattice = new Amazon.Transfer.Model.UpdateConnectorVpcLatticeEgressConfig();
+            System.Int32? requestEgressConfig_egressConfig_VpcLattice_vpcLattice_PortNumber = null;
+            if (cmdletContext.VpcLattice_PortNumber != null)
+            {
+                requestEgressConfig_egressConfig_VpcLattice_vpcLattice_PortNumber = cmdletContext.VpcLattice_PortNumber.Value;
+            }
+            if (requestEgressConfig_egressConfig_VpcLattice_vpcLattice_PortNumber != null)
+            {
+                requestEgressConfig_egressConfig_VpcLattice.PortNumber = requestEgressConfig_egressConfig_VpcLattice_vpcLattice_PortNumber.Value;
+                requestEgressConfig_egressConfig_VpcLatticeIsNull = false;
+            }
+            System.String requestEgressConfig_egressConfig_VpcLattice_vpcLattice_ResourceConfigurationArn = null;
+            if (cmdletContext.VpcLattice_ResourceConfigurationArn != null)
+            {
+                requestEgressConfig_egressConfig_VpcLattice_vpcLattice_ResourceConfigurationArn = cmdletContext.VpcLattice_ResourceConfigurationArn;
+            }
+            if (requestEgressConfig_egressConfig_VpcLattice_vpcLattice_ResourceConfigurationArn != null)
+            {
+                requestEgressConfig_egressConfig_VpcLattice.ResourceConfigurationArn = requestEgressConfig_egressConfig_VpcLattice_vpcLattice_ResourceConfigurationArn;
+                requestEgressConfig_egressConfig_VpcLatticeIsNull = false;
+            }
+             // determine if requestEgressConfig_egressConfig_VpcLattice should be set to null
+            if (requestEgressConfig_egressConfig_VpcLatticeIsNull)
+            {
+                requestEgressConfig_egressConfig_VpcLattice = null;
+            }
+            if (requestEgressConfig_egressConfig_VpcLattice != null)
+            {
+                request.EgressConfig.VpcLattice = requestEgressConfig_egressConfig_VpcLattice;
+                requestEgressConfigIsNull = false;
+            }
+             // determine if request.EgressConfig should be set to null
+            if (requestEgressConfigIsNull)
+            {
+                request.EgressConfig = null;
+            }
             if (cmdletContext.LoggingRole != null)
             {
                 request.LoggingRole = cmdletContext.LoggingRole;
@@ -625,6 +701,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public Amazon.Transfer.PreserveContentType As2Config_PreserveContentType { get; set; }
             public Amazon.Transfer.SigningAlg As2Config_SigningAlgorithm { get; set; }
             public System.String ConnectorId { get; set; }
+            public System.Int32? VpcLattice_PortNumber { get; set; }
+            public System.String VpcLattice_ResourceConfigurationArn { get; set; }
             public System.String LoggingRole { get; set; }
             public System.String SecurityPolicyName { get; set; }
             public System.Int32? SftpConfig_MaxConcurrentConnection { get; set; }

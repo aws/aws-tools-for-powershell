@@ -23,34 +23,32 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Connect;
-using Amazon.Connect.Model;
+using Amazon.AppStream;
+using Amazon.AppStream.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.CONN
+namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Provides information about the quick connects for the specified Amazon Connect instance.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves license included application associations for a specified resource.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CONNQuickConnectList")]
-    [OutputType("Amazon.Connect.Model.QuickConnectSummary")]
-    [AWSCmdlet("Calls the Amazon Connect Service ListQuickConnects API operation.", Operation = new[] {"ListQuickConnects"}, SelectReturnType = typeof(Amazon.Connect.Model.ListQuickConnectsResponse))]
-    [AWSCmdletOutput("Amazon.Connect.Model.QuickConnectSummary or Amazon.Connect.Model.ListQuickConnectsResponse",
-        "This cmdlet returns a collection of Amazon.Connect.Model.QuickConnectSummary objects.",
-        "The service call response (type Amazon.Connect.Model.ListQuickConnectsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "APSSoftwareAssociation")]
+    [OutputType("Amazon.AppStream.Model.DescribeSoftwareAssociationsResponse")]
+    [AWSCmdlet("Calls the Amazon AppStream DescribeSoftwareAssociations API operation.", Operation = new[] {"DescribeSoftwareAssociations"}, SelectReturnType = typeof(Amazon.AppStream.Model.DescribeSoftwareAssociationsResponse))]
+    [AWSCmdletOutput("Amazon.AppStream.Model.DescribeSoftwareAssociationsResponse",
+        "This cmdlet returns an Amazon.AppStream.Model.DescribeSoftwareAssociationsResponse object containing multiple properties."
     )]
-    public partial class GetCONNQuickConnectListCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class GetAPSSoftwareAssociationCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter InstanceId
+        #region Parameter AssociatedResource
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
-        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance. Both Instance
-        /// ID and Instance ARN are supported input formats. </para>
+        /// <para>The ARN of the resource to describe software associations. Possible resources are
+        /// Image and ImageBuilder.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,30 +59,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
-        #endregion
-        
-        #region Parameter QuickConnectType
-        /// <summary>
-        /// <para>
-        /// <para>The type of quick connect. In the Amazon Connect admin website, when you create a
-        /// quick connect, you are prompted to assign one of the following types: Agent (USER),
-        /// External (PHONE_NUMBER), or Queue (QUEUE).</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("QuickConnectTypes")]
-        public System.String[] QuickConnectType { get; set; }
+        public System.String AssociatedResource { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return per page. The default MaxResult size is 100.</para>
+        /// <para>The maximum number of results to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,8 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of results. Use the value returned in the previous response
-        /// in the next request to retrieve the next set of results.</para>
+        /// <para>The pagination token to use to retrieve the next page of results for this operation.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -109,13 +89,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'QuickConnectSummaryList'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.ListQuickConnectsResponse).
-        /// Specifying the name of a property of type Amazon.Connect.Model.ListQuickConnectsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AppStream.Model.DescribeSoftwareAssociationsResponse).
+        /// Specifying the name of a property of type Amazon.AppStream.Model.DescribeSoftwareAssociationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "QuickConnectSummaryList";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -144,22 +124,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.ListQuickConnectsResponse, GetCONNQuickConnectListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.AppStream.Model.DescribeSoftwareAssociationsResponse, GetAPSSoftwareAssociationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.InstanceId = this.InstanceId;
+            context.AssociatedResource = this.AssociatedResource;
             #if MODULAR
-            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
+            if (this.AssociatedResource == null && ParameterWasBound(nameof(this.AssociatedResource)))
             {
-                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AssociatedResource which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            if (this.QuickConnectType != null)
-            {
-                context.QuickConnectType = new List<System.String>(this.QuickConnectType);
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -176,19 +152,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.Connect.Model.ListQuickConnectsRequest();
+            var request = new Amazon.AppStream.Model.DescribeSoftwareAssociationsRequest();
             
-            if (cmdletContext.InstanceId != null)
+            if (cmdletContext.AssociatedResource != null)
             {
-                request.InstanceId = cmdletContext.InstanceId;
+                request.AssociatedResource = cmdletContext.AssociatedResource;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.QuickConnectType != null)
-            {
-                request.QuickConnectTypes = cmdletContext.QuickConnectType;
             }
             
             // Initialize loop variant and commence piping
@@ -247,12 +219,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.ListQuickConnectsResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.ListQuickConnectsRequest request)
+        private Amazon.AppStream.Model.DescribeSoftwareAssociationsResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.DescribeSoftwareAssociationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "ListQuickConnects");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon AppStream", "DescribeSoftwareAssociations");
             try
             {
-                return client.ListQuickConnectsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DescribeSoftwareAssociationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -269,12 +241,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String InstanceId { get; set; }
+            public System.String AssociatedResource { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public List<System.String> QuickConnectType { get; set; }
-            public System.Func<Amazon.Connect.Model.ListQuickConnectsResponse, GetCONNQuickConnectListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.QuickConnectSummaryList;
+            public System.Func<Amazon.AppStream.Model.DescribeSoftwareAssociationsResponse, GetAPSSoftwareAssociationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

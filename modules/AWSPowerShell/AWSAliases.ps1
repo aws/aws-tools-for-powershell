@@ -1231,6 +1231,8 @@ Set-Alias -Name Associate-APSApplicationToEntitlement -Value Add-APSApplicationT
 Set-Alias -Name APS-AssociateApplicationToEntitlement -Value Add-APSApplicationToEntitlement
 Set-Alias -Name Associate-APSFleet -Value Register-APSFleet
 Set-Alias -Name APS-AssociateFleet -Value Register-APSFleet
+Set-Alias -Name Associate-APSSoftwareToImageBuilder -Value Add-APSSoftwareToImageBuilder
+Set-Alias -Name APS-AssociateSoftwareToImageBuilder -Value Add-APSSoftwareToImageBuilder
 Set-Alias -Name Batch-APSAssociateUserStack -Value Register-APSUserStackBatch
 Set-Alias -Name Batch-APSUserStackBatch -Value Register-APSUserStackBatch
 Set-Alias -Name APS-BatchAssociateUserStack -Value Register-APSUserStackBatch
@@ -1310,6 +1312,8 @@ Set-Alias -Name APS-DescribeApplicationFleetAssociations -Value Get-APSApplicati
 Set-Alias -Name Describe-APSApplications -Value Get-APSApplication
 Set-Alias -Name Describe-APSApplication -Value Get-APSApplication
 Set-Alias -Name APS-DescribeApplications -Value Get-APSApplication
+Set-Alias -Name Describe-APSAppLicenseUsage -Value Get-APSAppLicenseUsage
+Set-Alias -Name APS-DescribeAppLicenseUsage -Value Get-APSAppLicenseUsage
 Set-Alias -Name Describe-APSDirectoryConfigs -Value Get-APSDirectoryConfigList
 Set-Alias -Name Describe-APSDirectoryConfigList -Value Get-APSDirectoryConfigList
 Set-Alias -Name APS-DescribeDirectoryConfigs -Value Get-APSDirectoryConfigList
@@ -1331,6 +1335,9 @@ Set-Alias -Name APS-DescribeImages -Value Get-APSImageList
 Set-Alias -Name Describe-APSSessions -Value Get-APSSessionList
 Set-Alias -Name Describe-APSSessionList -Value Get-APSSessionList
 Set-Alias -Name APS-DescribeSessions -Value Get-APSSessionList
+Set-Alias -Name Describe-APSSoftwareAssociations -Value Get-APSSoftwareAssociation
+Set-Alias -Name Describe-APSSoftwareAssociation -Value Get-APSSoftwareAssociation
+Set-Alias -Name APS-DescribeSoftwareAssociations -Value Get-APSSoftwareAssociation
 Set-Alias -Name Describe-APSStacks -Value Get-APSStackList
 Set-Alias -Name Describe-APSStackList -Value Get-APSStackList
 Set-Alias -Name APS-DescribeStacks -Value Get-APSStackList
@@ -1354,6 +1361,8 @@ Set-Alias -Name Disassociate-APSApplicationFromEntitlement -Value Remove-APSAppl
 Set-Alias -Name APS-DisassociateApplicationFromEntitlement -Value Remove-APSApplicationFromEntitlement
 Set-Alias -Name Disassociate-APSFleet -Value Unregister-APSFleet
 Set-Alias -Name APS-DisassociateFleet -Value Unregister-APSFleet
+Set-Alias -Name Disassociate-APSSoftwareFromImageBuilder -Value Remove-APSSoftwareFromImageBuilder
+Set-Alias -Name APS-DisassociateSoftwareFromImageBuilder -Value Remove-APSSoftwareFromImageBuilder
 Set-Alias -Name APS-EnableUser -Value Enable-APSUser
 Set-Alias -Name Expire-APSSession -Value Revoke-APSSession
 Set-Alias -Name APS-ExpireSession -Value Revoke-APSSession
@@ -1371,6 +1380,7 @@ Set-Alias -Name APS-ListTagsForResource -Value Get-APSTagsForResourceList
 Set-Alias -Name APS-StartAppBlockBuilder -Value Start-APSAppBlockBuilder
 Set-Alias -Name APS-StartFleet -Value Start-APSFleet
 Set-Alias -Name APS-StartImageBuilder -Value Start-APSImageBuilder
+Set-Alias -Name APS-StartSoftwareDeploymentToImageBuilder -Value Start-APSSoftwareDeploymentToImageBuilder
 Set-Alias -Name APS-StopAppBlockBuilder -Value Stop-APSAppBlockBuilder
 Set-Alias -Name APS-StopFleet -Value Stop-APSFleet
 Set-Alias -Name APS-StopImageBuilder -Value Stop-APSImageBuilder
@@ -10098,6 +10108,8 @@ Set-Alias -Name EC2-ConfirmProductInstance -Value Confirm-EC2ProductInstance
 Set-Alias -Name EC2-CopyFpgaImage -Value Copy-EC2FpgaImage
 Set-Alias -Name EC2-CopyImage -Value Copy-EC2Image
 Set-Alias -Name EC2-CopySnapshot -Value Copy-EC2Snapshot
+Set-Alias -Name Copy-EC2Volumes -Value Copy-EC2Volume
+Set-Alias -Name EC2-CopyVolumes -Value Copy-EC2Volume
 Set-Alias -Name Create-EC2CapacityReservation -Value Add-EC2CapacityReservation
 Set-Alias -Name EC2-CreateCapacityReservation -Value Add-EC2CapacityReservation
 Set-Alias -Name Create-EC2CapacityReservationBySplitting -Value New-EC2CapacityReservationBySplitting

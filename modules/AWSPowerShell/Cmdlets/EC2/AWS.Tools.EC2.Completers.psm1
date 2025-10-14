@@ -1293,6 +1293,7 @@ $EC2_Completers = {
 
         # Amazon.EC2.VolumeType
         {
+            ($_ -eq "Copy-EC2Volume/VolumeType") -Or
             ($_ -eq "Edit-EC2Volume/VolumeType") -Or
             ($_ -eq "New-EC2Volume/VolumeType")
         }
@@ -1491,7 +1492,7 @@ $EC2_map = @{
     "Type"=@("New-EC2CustomerGateway","New-EC2Fleet","New-EC2VpnGateway","Request-EC2SpotInstance")
     "UserTrustProviderType"=@("New-EC2VerifiedAccessTrustProvider")
     "VerificationMethod"=@("Register-EC2IpamPoolCidr")
-    "VolumeType"=@("Edit-EC2Volume","New-EC2Volume")
+    "VolumeType"=@("Copy-EC2Volume","Edit-EC2Volume","New-EC2Volume")
     "VpcEndpointType"=@("New-EC2VpcEndpoint")
 }
 
@@ -1604,6 +1605,7 @@ $EC2_SelectMap = @{
                "Copy-EC2FpgaImage",
                "Copy-EC2Image",
                "Copy-EC2Snapshot",
+               "Copy-EC2Volume",
                "Add-EC2CapacityReservation",
                "New-EC2CapacityReservationBySplitting",
                "New-EC2CapacityReservationFleet",

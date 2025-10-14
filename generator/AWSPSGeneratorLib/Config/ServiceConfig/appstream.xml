@@ -35,6 +35,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateSoftwareToImageBuilder" Verb="Add" Noun="SoftwareToImageBuilder" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="ImageBuilderName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchAssociateUserStack" OutputProperty="Errors" Verb="Register" Noun="UserStackBatch" ShouldProcessTarget="UserStackAssociations" PipelineParameter="UserStackAssociations" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -182,7 +186,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDirectoryConfigs" OutputProperty="DirectoryConfigs" Verb="Get" Noun="DirectoryConfigList" PipelineParameter="DirectoryNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAppLicenseUsage" OutputProperty="AppLicenseUsages" Verb="Get" Noun="AppLicenseUsage" PipelineParameter="BillingPeriod" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDirectoryConfigs" OutputProperty="DirectoryConfigs" Verb="Get" Noun="DirectoryConfigList" PipelineParameter="DirectoryNames" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />
@@ -199,7 +207,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeImagePermissions" OutputProperty="SharedImagePermissionsList" Verb="Get" Noun="ImagePermission" PipelineParameter="Name" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeImagePermissions" OutputProperty="SharedImagePermissionsList" Verb="Get" Noun="ImagePermission" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />
@@ -209,6 +217,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeSessions" OutputProperty="Sessions" Verb="Get" Noun="SessionList" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSoftwareAssociations" OutputProperty="*" Verb="Get" Noun="SoftwareAssociation" PipelineParameter="AssociatedResource" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -252,6 +264,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateSoftwareFromImageBuilder" Verb="Remove" Noun="SoftwareFromImageBuilder" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="ImageBuilderName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="EnableUser" Verb="Enable" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -285,6 +301,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartImageBuilder" OutputProperty="ImageBuilder" Verb="Start" Noun="ImageBuilder" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartSoftwareDeploymentToImageBuilder" Verb="Start" Noun="SoftwareDeploymentToImageBuilder" ShouldProcessTarget="ImageBuilderName" PipelineParameter="ImageBuilderName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

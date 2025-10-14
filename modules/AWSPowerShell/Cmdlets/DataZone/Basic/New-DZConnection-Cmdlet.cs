@@ -93,6 +93,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public Amazon.DataZone.AuthenticationType AuthenticationConfiguration_AuthenticationType { get; set; }
         #endregion
         
+        #region Parameter AmazonQProperties_AuthMode
+        /// <summary>
+        /// <para>
+        /// <para>The authentication mode of the connection's Amazon Q properties.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Props_AmazonQProperties_AuthMode")]
+        public System.String AmazonQProperties_AuthMode { get; set; }
+        #endregion
+        
         #region Parameter AuthorizationCodeProperties_AuthorizationCode
         /// <summary>
         /// <para>
@@ -292,20 +303,23 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.Boolean? LineageSync_Enabled { get; set; }
         #endregion
         
+        #region Parameter EnableTrustedIdentityPropagation
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the trusted identity propagation is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableTrustedIdentityPropagation { get; set; }
+        #endregion
+        
         #region Parameter EnvironmentIdentifier
         /// <summary>
         /// <para>
         /// <para>The ID of the environment where the connection is created.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String EnvironmentIdentifier { get; set; }
         #endregion
         
@@ -384,6 +398,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Props_SparkEmrProperties_InstanceProfileArn")]
         public System.String SparkEmrProperties_InstanceProfileArn { get; set; }
+        #endregion
+        
+        #region Parameter AmazonQProperties_IsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether Amazon Q is enabled for the connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Props_AmazonQProperties_IsEnabled")]
+        public System.Boolean? AmazonQProperties_IsEnabled { get; set; }
         #endregion
         
         #region Parameter SparkEmrProperties_JavaVirtualEnv
@@ -547,6 +572,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.Int32? RedshiftProperties_Port { get; set; }
         #endregion
         
+        #region Parameter AmazonQProperties_ProfileArn
+        /// <summary>
+        /// <para>
+        /// <para>The profile ARN of the connection's Amazon Q properties.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Props_AmazonQProperties_ProfileArn")]
+        public System.String AmazonQProperties_ProfileArn { get; set; }
+        #endregion
+        
         #region Parameter GlueConnectionInput_PythonProperty
         /// <summary>
         /// <para>
@@ -649,6 +685,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Props_RedshiftProperties_LineageSync_Schedule_Schedule")]
         public System.String Schedule_Schedule { get; set; }
+        #endregion
+        
+        #region Parameter Scope
+        /// <summary>
+        /// <para>
+        /// <para>The scope of the connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DataZone.ConnectionScope")]
+        public Amazon.DataZone.ConnectionScope Scope { get; set; }
         #endregion
         
         #region Parameter AuthenticationConfiguration_SecretArn
@@ -940,13 +987,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EnableTrustedIdentityPropagation = this.EnableTrustedIdentityPropagation;
             context.EnvironmentIdentifier = this.EnvironmentIdentifier;
-            #if MODULAR
-            if (this.EnvironmentIdentifier == null && ParameterWasBound(nameof(this.EnvironmentIdentifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter EnvironmentIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -954,6 +996,9 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AmazonQProperties_AuthMode = this.AmazonQProperties_AuthMode;
+            context.AmazonQProperties_IsEnabled = this.AmazonQProperties_IsEnabled;
+            context.AmazonQProperties_ProfileArn = this.AmazonQProperties_ProfileArn;
             context.AthenaProperties_WorkgroupName = this.AthenaProperties_WorkgroupName;
             if (this.GlueConnectionInput_AthenaProperty != null)
             {
@@ -1067,6 +1112,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             context.SparkGlueProperties_NumberOfWorker = this.SparkGlueProperties_NumberOfWorker;
             context.SparkGlueProperties_PythonVirtualEnv = this.SparkGlueProperties_PythonVirtualEnv;
             context.SparkGlueProperties_WorkerType = this.SparkGlueProperties_WorkerType;
+            context.Scope = this.Scope;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -1143,6 +1189,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.DomainIdentifier != null)
             {
                 request.DomainIdentifier = cmdletContext.DomainIdentifier;
+            }
+            if (cmdletContext.EnableTrustedIdentityPropagation != null)
+            {
+                request.EnableTrustedIdentityPropagation = cmdletContext.EnableTrustedIdentityPropagation.Value;
             }
             if (cmdletContext.EnvironmentIdentifier != null)
             {
@@ -1711,6 +1761,51 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 request.Props.S3Properties = requestProps_props_S3Properties;
                 requestPropsIsNull = false;
             }
+            Amazon.DataZone.Model.AmazonQPropertiesInput requestProps_props_AmazonQProperties = null;
+            
+             // populate AmazonQProperties
+            var requestProps_props_AmazonQPropertiesIsNull = true;
+            requestProps_props_AmazonQProperties = new Amazon.DataZone.Model.AmazonQPropertiesInput();
+            System.String requestProps_props_AmazonQProperties_amazonQProperties_AuthMode = null;
+            if (cmdletContext.AmazonQProperties_AuthMode != null)
+            {
+                requestProps_props_AmazonQProperties_amazonQProperties_AuthMode = cmdletContext.AmazonQProperties_AuthMode;
+            }
+            if (requestProps_props_AmazonQProperties_amazonQProperties_AuthMode != null)
+            {
+                requestProps_props_AmazonQProperties.AuthMode = requestProps_props_AmazonQProperties_amazonQProperties_AuthMode;
+                requestProps_props_AmazonQPropertiesIsNull = false;
+            }
+            System.Boolean? requestProps_props_AmazonQProperties_amazonQProperties_IsEnabled = null;
+            if (cmdletContext.AmazonQProperties_IsEnabled != null)
+            {
+                requestProps_props_AmazonQProperties_amazonQProperties_IsEnabled = cmdletContext.AmazonQProperties_IsEnabled.Value;
+            }
+            if (requestProps_props_AmazonQProperties_amazonQProperties_IsEnabled != null)
+            {
+                requestProps_props_AmazonQProperties.IsEnabled = requestProps_props_AmazonQProperties_amazonQProperties_IsEnabled.Value;
+                requestProps_props_AmazonQPropertiesIsNull = false;
+            }
+            System.String requestProps_props_AmazonQProperties_amazonQProperties_ProfileArn = null;
+            if (cmdletContext.AmazonQProperties_ProfileArn != null)
+            {
+                requestProps_props_AmazonQProperties_amazonQProperties_ProfileArn = cmdletContext.AmazonQProperties_ProfileArn;
+            }
+            if (requestProps_props_AmazonQProperties_amazonQProperties_ProfileArn != null)
+            {
+                requestProps_props_AmazonQProperties.ProfileArn = requestProps_props_AmazonQProperties_amazonQProperties_ProfileArn;
+                requestProps_props_AmazonQPropertiesIsNull = false;
+            }
+             // determine if requestProps_props_AmazonQProperties should be set to null
+            if (requestProps_props_AmazonQPropertiesIsNull)
+            {
+                requestProps_props_AmazonQProperties = null;
+            }
+            if (requestProps_props_AmazonQProperties != null)
+            {
+                request.Props.AmazonQProperties = requestProps_props_AmazonQProperties;
+                requestPropsIsNull = false;
+            }
             Amazon.DataZone.Model.RedshiftPropertiesInput requestProps_props_RedshiftProperties = null;
             
              // populate RedshiftProperties
@@ -2111,6 +2206,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             {
                 request.Props = null;
             }
+            if (cmdletContext.Scope != null)
+            {
+                request.Scope = cmdletContext.Scope;
+            }
             
             CmdletOutput output;
             
@@ -2173,8 +2272,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public System.String DomainIdentifier { get; set; }
+            public System.Boolean? EnableTrustedIdentityPropagation { get; set; }
             public System.String EnvironmentIdentifier { get; set; }
             public System.String Name { get; set; }
+            public System.String AmazonQProperties_AuthMode { get; set; }
+            public System.Boolean? AmazonQProperties_IsEnabled { get; set; }
+            public System.String AmazonQProperties_ProfileArn { get; set; }
             public System.String AthenaProperties_WorkgroupName { get; set; }
             public Dictionary<System.String, System.String> GlueConnectionInput_AthenaProperty { get; set; }
             public Amazon.DataZone.AuthenticationType AuthenticationConfiguration_AuthenticationType { get; set; }
@@ -2237,6 +2340,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.Int32? SparkGlueProperties_NumberOfWorker { get; set; }
             public System.String SparkGlueProperties_PythonVirtualEnv { get; set; }
             public System.String SparkGlueProperties_WorkerType { get; set; }
+            public Amazon.DataZone.ConnectionScope Scope { get; set; }
             public System.Func<Amazon.DataZone.Model.CreateConnectionResponse, NewDZConnectionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

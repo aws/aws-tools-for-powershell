@@ -36,9 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// <para><b>Use cases</b></para><para>
     /// Following are common uses cases for this API:
     /// </para><ul><li><para>
-    /// This API returns list of queues where contacts can be manually assigned or picked.
-    /// The user can additionally filter on queues, if they have access to those queues (otherwise
-    /// a invalid request exception will be thrown).
+    /// This API returns list of queues where contacts can be manually assigned or picked
+    /// by an agent who has access to the Worklist app. The user can additionally filter on
+    /// queues, if they have access to those queues (otherwise a invalid request exception
+    /// will be thrown).
     /// </para><para>
     /// For information about how manual contact assignment works in the agent workspace,
     /// see the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/worklist-app.html">Access

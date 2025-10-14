@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.111.0",
+    "ProductVersion"    : "4.0.112.0",
     "CoreVersion"       : "4.0.1.0",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -146,7 +146,7 @@
             "InPreview"               : false
         },
         "DynamoDBv2"        : {
-            "Version" : "4.0.7.2",
+            "Version" : "4.0.8.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.1.0"
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "4.0.41.0",
+            "Version" : "4.0.42.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.1.0"
@@ -308,7 +308,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "4.0.7.9",
+            "Version" : "4.0.7.10",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.1.0"
@@ -628,7 +628,7 @@
             "InPreview"               : false
         },
         "AppStream"                       : {
-            "Version" : "4.0.1.9",
+            "Version" : "4.0.2.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.1.0"
@@ -1004,7 +1004,7 @@
             "InPreview"               : false
         },
         "TranscribeService"               : {
-            "Version" : "4.0.3.11",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.1.0"
@@ -1020,7 +1020,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "4.0.12.5",
+            "Version" : "4.0.13.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.1.0"
@@ -1196,7 +1196,7 @@
             "InPreview"               : false
         },
         "Transfer"                        : {
-            "Version" : "4.0.3.3",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.1.0"
@@ -1300,7 +1300,7 @@
             "InPreview"               : false
         },
         "Backup"                          : {
-            "Version" : "4.0.4.2",
+            "Version" : "4.0.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.1.0"
@@ -2740,7 +2740,7 @@
             "InPreview"               : false
         },
         "DataZone"                            : {
-            "Version" : "4.0.10.3",
+            "Version" : "4.0.11.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.1.0"
@@ -3334,7 +3334,7 @@
     },
     "ExtensionVersions"   : {
         "Extensions.Bedrock.MEAI" : {
-            "Version" : "4.0.3.8",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.1.0",
