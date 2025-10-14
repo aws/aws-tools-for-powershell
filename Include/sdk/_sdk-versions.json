@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1143.0",
+    "ProductVersion"    : "3.7.1144.0",
     "CoreVersion"       : "3.7.500.31",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.515.0",
+            "Version" : "3.7.516.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.31"
@@ -628,7 +628,7 @@
             "InPreview"               : false
         },
         "AppStream"                       : {
-            "Version" : "3.7.501.23",
+            "Version" : "3.7.502.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.31"
@@ -1004,7 +1004,7 @@
             "InPreview"               : false
         },
         "TranscribeService"               : {
-            "Version" : "3.7.501.24",
+            "Version" : "3.7.502.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.31"
@@ -1012,7 +1012,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "3.7.508.6",
+            "Version" : "3.7.509.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.31"
@@ -1188,7 +1188,7 @@
             "InPreview"               : false
         },
         "Transfer"                        : {
-            "Version" : "3.7.502.4",
+            "Version" : "3.7.503.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.31"
@@ -1292,7 +1292,7 @@
             "InPreview"               : false
         },
         "Backup"                          : {
-            "Version" : "3.7.502.4",
+            "Version" : "3.7.503.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.31"
@@ -2732,7 +2732,7 @@
             "InPreview"               : false
         },
         "DataZone"                            : {
-            "Version" : "3.7.506.4",
+            "Version" : "3.7.507.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.31"

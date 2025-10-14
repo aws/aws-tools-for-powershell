@@ -345,12 +345,13 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter OutputEncryptionKMSKeyId
         /// <summary>
         /// <para>
-        /// <para>The KMS key you want to use to encrypt your transcription output.</para><para>If using a key located in the <b>current</b> Amazon Web Services account, you can
-        /// specify your KMS key in one of four ways:</para><ol><li><para>Use the KMS key ID itself. For example, <c>1234abcd-12ab-34cd-56ef-1234567890ab</c>.</para></li><li><para>Use an alias for the KMS key ID. For example, <c>alias/ExampleAlias</c>.</para></li><li><para>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <c>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</c>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <c>arn:aws:kms:region:account-ID:alias/ExampleAlias</c>.</para></li></ol><para>If using a key located in a <b>different</b> Amazon Web Services account than the
-        /// current Amazon Web Services account, you can specify your KMS key in one of two ways:</para><ol><li><para>Use the ARN for the KMS key ID. For example, <c>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</c>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <c>arn:aws:kms:region:account-ID:alias/ExampleAlias</c>.</para></li></ol><para>If you do not specify an encryption key, your output is encrypted with the default
-        /// Amazon S3 key (SSE-S3).</para><para>If you specify a KMS key to encrypt your output, you must also specify an output location
-        /// using the <c>OutputLocation</c> parameter.</para><para>Note that the role making the request must have permission to use the specified KMS
-        /// key.</para>
+        /// <para>The Amazon Resource Name (ARN) of a KMS key that you want to use to encrypt your transcription
+        /// output.</para><para>KMS key ARNs have the format <c>arn:partition:kms:region:account:key/key-id</c>. For
+        /// example: <c>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">
+        /// KMS key ARNs</a>.</para><para>If you do not specify an encryption key, your output is encrypted with the default
+        /// Amazon S3 key (SSE-S3).</para><para>Note that the role making the request and the role specified in the <c>DataAccessRoleArn</c>
+        /// request parameter (if present) must have permission to use the specified KMS key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

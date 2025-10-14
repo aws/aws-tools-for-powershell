@@ -33,13 +33,28 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     ///  
     /// <para>
     /// Describes the specified contact. 
-    /// </para><important><ul><li><para><c>SystemEndpoint</c> is not populated for contacts with initiation method of MONITOR,
+    /// </para><para><b>Use cases</b></para><para>
+    /// Following are common uses cases for this API:
+    /// </para><ul><li><para>
+    /// Retrieve contact information such as the caller's phone number and the specific number
+    /// the caller dialed to integrate into custom monitoring or custom agent experience solutions.
+    /// </para></li><li><para>
+    /// Detect when a customer chat session disconnects due to a network issue on the agent's
+    /// end. Use the DisconnectReason field in the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord">ContactTraceRecord</a>
+    /// to detect this event and then re-queue the chat for followup.
+    /// </para></li><li><para>
+    /// Identify after contact work (ACW) duration and call recordings information when a
+    /// COMPLETED event is received by using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-events.html">contact
+    /// event stream</a>. 
+    /// </para></li></ul><para><b>Important things to know</b></para><ul><li><para><c>SystemEndpoint</c> is not populated for contacts with initiation method of MONITOR,
     /// QUEUE_TRANSFER, or CALLBACK
     /// </para></li><li><para>
     /// Contact information remains available in Amazon Connect for 24 months from the <c>InitiationTimestamp</c>,
     /// and then it is deleted. Only contact information that is available in Amazon Connect
     /// is returned by this API.
-    /// </para></li></ul></important>
+    /// </para></li></ul><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon
+    /// Connect endpoints and quotas</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "CONNContact")]
     [OutputType("Amazon.Connect.Model.Contact")]

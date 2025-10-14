@@ -28,39 +28,19 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// You can modify several parameters of an existing EBS volume, including volume size,
-    /// volume type, and IOPS capacity. If your EBS volume is attached to a current-generation
-    /// EC2 instance type, you might be able to apply these changes without stopping the instance
-    /// or detaching the volume from it. For more information about modifying EBS volumes,
-    /// see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modify-volume.html">Amazon
-    /// EBS Elastic Volumes</a> in the <i>Amazon EBS User Guide</i>.
-    /// 
-    ///  
-    /// <para>
-    /// When you complete a resize operation on your volume, you need to extend the volume's
-    /// file-system size to take advantage of the new storage capacity. For more information,
-    /// see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/recognize-expanded-volume-linux.html">Extend
-    /// the file system</a>.
-    /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html">Monitor
-    /// the progress of volume modifications</a> in the <i>Amazon EBS User Guide</i>.
-    /// </para><para>
-    /// With previous-generation instance types, resizing an EBS volume might require detaching
-    /// and reattaching the volume or stopping and restarting the instance.
-    /// </para><para>
-    /// After modifying a volume, you must wait at least six hours and ensure that the volume
-    /// is in the <c>in-use</c> or <c>available</c> state before you can modify the same volume.
-    /// This is sometimes referred to as a cooldown period.
-    /// </para>
+    /// Creates a crash-consistent, point-in-time copy of an existing Amazon EBS volume within
+    /// the same Availability Zone. The volume copy can be attached to an Amazon EC2 instance
+    /// once it reaches the <c>available</c> state. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-copying-volume.html">Copy
+    /// an Amazon EBS volume</a>.
     /// </summary>
-    [Cmdlet("Edit", "EC2Volume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.VolumeModification")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyVolume API operation.", Operation = new[] {"ModifyVolume"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVolumeResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.VolumeModification or Amazon.EC2.Model.ModifyVolumeResponse",
-        "This cmdlet returns an Amazon.EC2.Model.VolumeModification object.",
-        "The service call response (type Amazon.EC2.Model.ModifyVolumeResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Copy", "EC2Volume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.Model.Volume")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CopyVolumes API operation.", Operation = new[] {"CopyVolumes"}, SelectReturnType = typeof(Amazon.EC2.Model.CopyVolumesResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.Volume or Amazon.EC2.Model.CopyVolumesResponse",
+        "This cmdlet returns a collection of Amazon.EC2.Model.Volume objects.",
+        "The service call response (type Amazon.EC2.Model.CopyVolumesResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class EditEC2VolumeCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class CopyEC2VolumeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -68,11 +48,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Iops
         /// <summary>
         /// <para>
-        /// <para>The target IOPS rate of the volume. This parameter is valid only for <c>gp3</c>, <c>io1</c>,
-        /// and <c>io2</c> volumes.</para><para>The following are the supported values for each volume type:</para><ul><li><para><c>gp3</c>: 3,000 - 80,000 IOPS</para></li><li><para><c>io1</c>: 100 - 64,000 IOPS</para></li><li><para><c>io2</c>: 100 - 256,000 IOPS</para></li></ul><note><para><a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">
+        /// <para>The number of I/O operations per second (IOPS) to provision for the volume copy. Required
+        /// for <c>io1</c> and <c>io2</c> volumes. Optional for <c>gp3</c> volumes. Omit for all
+        /// other volume types. Full provisioned IOPS performance can be achieved only once the
+        /// volume copy is fully initialized. </para><para>Valid ranges:</para><ul><li><para>gp3: <c>3,000 </c>(<i>default</i>)<c> - 80,000</c> IOPS</para></li><li><para>io1: <c>100 - 64,000</c> IOPS</para></li><li><para>io2: <c>100 - 256,000</c> IOPS</para></li></ul><note><para><a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">
         /// Instances built on the Nitro System</a> can support up to 256,000 IOPS. Other instances
-        /// can support up to 32,000 IOPS.</para></note><para>Default: The existing value is retained if you keep the same volume type. If you change
-        /// the volume type to <c>io1</c>, <c>io2</c>, or <c>gp3</c>, the default is 3,000.</para>
+        /// can support up to 32,000 IOPS.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,11 +63,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter MultiAttachEnabled
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you
-        /// can attach the volume to up to 16 <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">
-        /// Nitro-based instances</a> in the same Availability Zone. This parameter is supported
-        /// with <c>io1</c> and <c>io2</c> volumes only. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html">
-        /// Amazon EBS Multi-Attach</a> in the <i>Amazon EBS User Guide</i>.</para>
+        /// <para>Indicates whether to enable Amazon EBS Multi-Attach for the volume copy. If you enable
+        /// Multi-Attach, you can attach the volume to up to 16 Nitro instances in the same Availability
+        /// Zone simultaneously. Supported with <c>io1</c> and <c>io2</c> volumes only. For more
+        /// information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html">
+        /// Amazon EBS Multi-Attach</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,30 +77,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Size
         /// <summary>
         /// <para>
-        /// <para>The target size of the volume, in GiB. The target volume size must be greater than
-        /// or equal to the existing size of the volume.</para><para>The following are the supported volumes sizes for each volume type:</para><ul><li><para><c>gp2</c>: 1 - 16,384 GiB</para></li><li><para><c>gp3</c>: 1 - 65,536 GiB</para></li><li><para><c>io1</c>: 4 - 16,384 GiB</para></li><li><para><c>io2</c>: 4 - 65,536 GiB</para></li><li><para><c>st1</c> and <c>sc1</c>: 125 - 16,384 GiB</para></li><li><para><c>standard</c>: 1 - 1024 GiB</para></li></ul><para>Default: The existing size is retained.</para>
+        /// <para>The size of the volume copy, in GiBs. The size must be equal to or greater than the
+        /// size of the source volume. If not specified, the size defaults to the size of the
+        /// source volume.</para><para>Maximum supported sizes:</para><ul><li><para>gp2: <c>16,384</c> GiB</para></li><li><para>gp3: <c>65,536</c> GiB</para></li><li><para>io1: <c>16,384</c> GiB</para></li><li><para>io2: <c>65,536</c> GiB</para></li><li><para>st1 and sc1: <c>16,384</c> GiB</para></li><li><para>standard: <c>1024</c> GiB</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? Size { get; set; }
         #endregion
         
-        #region Parameter Throughput
+        #region Parameter SourceVolumeId
         /// <summary>
         /// <para>
-        /// <para>The target throughput of the volume, in MiB/s. This parameter is valid only for <c>gp3</c>
-        /// volumes. The maximum value is 2,000.</para><para>Default: The existing value is retained if the source and target volume type is <c>gp3</c>.
-        /// Otherwise, the default value is 125.</para><para>Valid Range: Minimum value of 125. Maximum value of 2,000.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? Throughput { get; set; }
-        #endregion
-        
-        #region Parameter VolumeId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the volume.</para>
+        /// <para>The ID of the source EBS volume to copy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -130,14 +100,37 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String VolumeId { get; set; }
+        public System.String SourceVolumeId { get; set; }
+        #endregion
+        
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to apply to the volume copy during creation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
+        #region Parameter Throughput
+        /// <summary>
+        /// <para>
+        /// <para>The throughput to provision for the volume copy, in MiB/s. Supported for <c>gp3</c>
+        /// volumes only. Omit for all other volume types. Full provisioned throughput performance
+        /// can be achieved only once the volume copy is fully initialized.</para><para>Valid Range: <c>125 - 2000</c> MiB/s</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Throughput { get; set; }
         #endregion
         
         #region Parameter VolumeType
         /// <summary>
         /// <para>
-        /// <para>The target EBS volume type of the volume. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html">Amazon
-        /// EBS volume types</a> in the <i>Amazon EBS User Guide</i>.</para><para>Default: The existing type is retained.</para>
+        /// <para>The volume type for the volume copy. If not specified, the volume type defaults to
+        /// <c>gp2</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,23 +138,35 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.VolumeType VolumeType { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">
+        /// Ensure Idempotency</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'VolumeModification'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.ModifyVolumeResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.ModifyVolumeResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Volumes'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.CopyVolumesResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.CopyVolumesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "VolumeModification";
+        public string Select { get; set; } = "Volumes";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the VolumeId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^VolumeId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the SourceVolumeId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^SourceVolumeId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^VolumeId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SourceVolumeId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -181,8 +186,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.VolumeId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-EC2Volume (ModifyVolume)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SourceVolumeId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Copy-EC2Volume (CopyVolumes)"))
             {
                 return;
             }
@@ -195,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.ModifyVolumeResponse, EditEC2VolumeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.CopyVolumesResponse, CopyEC2VolumeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -204,20 +209,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.VolumeId;
+                context.Select = (response, cmdlet) => this.SourceVolumeId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ClientToken = this.ClientToken;
             context.Iops = this.Iops;
             context.MultiAttachEnabled = this.MultiAttachEnabled;
             context.Size = this.Size;
-            context.Throughput = this.Throughput;
-            context.VolumeId = this.VolumeId;
+            context.SourceVolumeId = this.SourceVolumeId;
             #if MODULAR
-            if (this.VolumeId == null && ParameterWasBound(nameof(this.VolumeId)))
+            if (this.SourceVolumeId == null && ParameterWasBound(nameof(this.SourceVolumeId)))
             {
-                WriteWarning("You are passing $null as a value for parameter VolumeId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter SourceVolumeId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
+            context.Throughput = this.Throughput;
             context.VolumeType = this.VolumeType;
             
             // allow further manipulation of loaded context prior to processing
@@ -233,8 +243,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.ModifyVolumeRequest();
+            var request = new Amazon.EC2.Model.CopyVolumesRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.Iops != null)
             {
                 request.Iops = cmdletContext.Iops.Value;
@@ -247,13 +261,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.Size = cmdletContext.Size.Value;
             }
+            if (cmdletContext.SourceVolumeId != null)
+            {
+                request.SourceVolumeId = cmdletContext.SourceVolumeId;
+            }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
+            }
             if (cmdletContext.Throughput != null)
             {
                 request.Throughput = cmdletContext.Throughput.Value;
-            }
-            if (cmdletContext.VolumeId != null)
-            {
-                request.VolumeId = cmdletContext.VolumeId;
             }
             if (cmdletContext.VolumeType != null)
             {
@@ -292,15 +310,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.ModifyVolumeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyVolumeRequest request)
+        private Amazon.EC2.Model.CopyVolumesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CopyVolumesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyVolume");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CopyVolumes");
             try
             {
                 #if DESKTOP
-                return client.ModifyVolume(request);
+                return client.CopyVolumes(request);
                 #elif CORECLR
-                return client.ModifyVolumeAsync(request).GetAwaiter().GetResult();
+                return client.CopyVolumesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -320,14 +338,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public System.Int32? Iops { get; set; }
             public System.Boolean? MultiAttachEnabled { get; set; }
             public System.Int32? Size { get; set; }
+            public System.String SourceVolumeId { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Int32? Throughput { get; set; }
-            public System.String VolumeId { get; set; }
             public Amazon.EC2.VolumeType VolumeType { get; set; }
-            public System.Func<Amazon.EC2.Model.ModifyVolumeResponse, EditEC2VolumeCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.VolumeModification;
+            public System.Func<Amazon.EC2.Model.CopyVolumesResponse, CopyEC2VolumeCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Volumes;
         }
         
     }

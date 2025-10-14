@@ -46,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
-        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance. Both Instance
+        /// ID and Instance ARN are supported input formats. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

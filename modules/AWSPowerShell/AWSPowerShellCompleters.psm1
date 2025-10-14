@@ -3997,6 +3997,7 @@ $APS_SelectMap = @{
                "Register-APSApplicationFleet",
                "Add-APSApplicationToEntitlement",
                "Register-APSFleet",
+               "Add-APSSoftwareToImageBuilder",
                "Register-APSUserStackBatch",
                "Unregister-APSUserStackBatch",
                "Copy-APSImage",
@@ -4033,6 +4034,7 @@ $APS_SelectMap = @{
                "Get-APSAppBlock",
                "Get-APSApplicationFleetAssociation",
                "Get-APSApplication",
+               "Get-APSAppLicenseUsage",
                "Get-APSDirectoryConfigList",
                "Get-APSEntitlement",
                "Get-APSFleetList",
@@ -4040,6 +4042,7 @@ $APS_SelectMap = @{
                "Get-APSImagePermission",
                "Get-APSImageList",
                "Get-APSSessionList",
+               "Get-APSSoftwareAssociation",
                "Get-APSStackList",
                "Get-APSThemeForStack",
                "Get-APSUsageReportSubscription",
@@ -4050,6 +4053,7 @@ $APS_SelectMap = @{
                "Unregister-APSApplicationFleet",
                "Remove-APSApplicationFromEntitlement",
                "Unregister-APSFleet",
+               "Remove-APSSoftwareFromImageBuilder",
                "Enable-APSUser",
                "Revoke-APSSession",
                "Get-APSAssociatedFleetList",
@@ -4059,6 +4063,7 @@ $APS_SelectMap = @{
                "Start-APSAppBlockBuilder",
                "Start-APSFleet",
                "Start-APSImageBuilder",
+               "Start-APSSoftwareDeploymentToImageBuilder",
                "Stop-APSAppBlockBuilder",
                "Stop-APSFleet",
                "Stop-APSImageBuilder",
@@ -22052,10 +22057,20 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.ConnectionScope
+        {
+            ($_ -eq "Get-DZConnectionList/Scope") -Or
+            ($_ -eq "New-DZConnection/Scope")
+        }
+        {
+            $v = "DOMAIN","PROJECT"
+            break
+        }
+
         # Amazon.DataZone.ConnectionType
         "Get-DZConnectionList/Type"
         {
-            $v = "ATHENA","BIGQUERY","DATABRICKS","DOCUMENTDB","DYNAMODB","HYPERPOD","IAM","MYSQL","OPENSEARCH","ORACLE","POSTGRESQL","REDSHIFT","S3","SAPHANA","SNOWFLAKE","SPARK","SQLSERVER","TERADATA","VERTICA","WORKFLOWS_MWAA"
+            $v = "AMAZON_Q","ATHENA","BIGQUERY","DATABRICKS","DOCUMENTDB","DYNAMODB","HYPERPOD","IAM","MYSQL","OPENSEARCH","ORACLE","POSTGRESQL","REDSHIFT","S3","SAPHANA","SNOWFLAKE","SPARK","SQLSERVER","TERADATA","VERTICA","WORKFLOWS_MWAA"
             break
         }
 
@@ -22552,6 +22567,7 @@ $DZ_map = @{
     "ResolutionStrategy"=@("New-DZAccountPool","Update-DZAccountPool")
     "RuleType"=@("Get-DZRuleList")
     "Schedule_Timezone"=@("New-DZDataSource","Update-DZDataSource")
+    "Scope"=@("Get-DZConnectionList","New-DZConnection")
     "SearchScope"=@("Search-DZResource","Search-DZType")
     "SingleSignOn_Type"=@("New-DZDomain","Update-DZDomain")
     "SingleSignOn_UserAssignment"=@("New-DZDomain","Update-DZDomain")
@@ -27864,6 +27880,7 @@ $EC2_Completers = {
 
         # Amazon.EC2.VolumeType
         {
+            ($_ -eq "Copy-EC2Volume/VolumeType") -Or
             ($_ -eq "Edit-EC2Volume/VolumeType") -Or
             ($_ -eq "New-EC2Volume/VolumeType")
         }
@@ -28062,7 +28079,7 @@ $EC2_map = @{
     "Type"=@("New-EC2CustomerGateway","New-EC2Fleet","New-EC2VpnGateway","Request-EC2SpotInstance")
     "UserTrustProviderType"=@("New-EC2VerifiedAccessTrustProvider")
     "VerificationMethod"=@("Register-EC2IpamPoolCidr")
-    "VolumeType"=@("Edit-EC2Volume","New-EC2Volume")
+    "VolumeType"=@("Copy-EC2Volume","Edit-EC2Volume","New-EC2Volume")
     "VpcEndpointType"=@("New-EC2VpcEndpoint")
 }
 
@@ -28175,6 +28192,7 @@ $EC2_SelectMap = @{
                "Copy-EC2FpgaImage",
                "Copy-EC2Image",
                "Copy-EC2Snapshot",
+               "Copy-EC2Volume",
                "Add-EC2CapacityReservation",
                "New-EC2CapacityReservationBySplitting",
                "New-EC2CapacityReservationFleet",

@@ -262,7 +262,15 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// use.</para><note><para> If you change the <c>PassiveIp</c> value, you must stop and then restart your Transfer
         /// Family server for the change to take effect. For details on using passive mode (PASV)
         /// in a NAT environment, see <a href="http://aws.amazon.com/blogs/storage/configuring-your-ftps-server-behind-a-firewall-or-nat-with-aws-transfer-family/">Configuring
-        /// your FTPS server behind a firewall or NAT with Transfer Family</a>. </para></note><para><i>Special values</i></para><para>The <c>AUTO</c> and <c>0.0.0.0</c> are special values for the <c>PassiveIp</c> parameter.
+        /// your FTPS server behind a firewall or NAT with Transfer Family</a>. </para><para>Additionally, avoid placing Network Load Balancers (NLBs) or NAT gateways in front
+        /// of Transfer Family servers. This configuration increases costs and can cause performance
+        /// issues. When NLBs or NATs are in the communication path, Transfer Family cannot accurately
+        /// recognize client IP addresses, which impacts connection sharding and limits FTPS servers
+        /// to only 300 simultaneous connections instead of 10,000. If you must use an NLB, use
+        /// port 21 for health checks and enable TLS session resumption by setting <c>TlsSessionResumptionMode
+        /// = ENFORCED</c>. For optimal performance, migrate to VPC endpoints with Elastic IP
+        /// addresses instead of using NLBs. For more details, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/infrastructure-security.html#nlb-considerations">
+        /// Avoid placing NLBs and NATs in front of Transfer Family</a>. </para></note><para><i>Special values</i></para><para>The <c>AUTO</c> and <c>0.0.0.0</c> are special values for the <c>PassiveIp</c> parameter.
         /// The value <c>PassiveIp=AUTO</c> is assigned by default to FTP and FTPS type servers.
         /// In this case, the server automatically responds with one of the endpoint IPs within
         /// the PASV response. <c>PassiveIp=0.0.0.0</c> has a more unique application for its

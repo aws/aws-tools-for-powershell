@@ -34,20 +34,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// <para><b>Use cases</b></para><para>
     /// Following are common uses cases for this API:
     /// </para><ul><li><para>
-    /// Custom contact routing. You can build custom contact routing mechanisms beyond the
-    /// default system routing in Amazon Connect. You can create tailored contact distribution
-    /// logic that offers queued contacts directly to specific agents.
+    /// Programmatically assign queued contacts to available users.
     /// </para></li><li><para>
-    /// Manual contact assignment. You can programmatically assign queued contacts to available
-    /// users. This provides flexibility to contact centers that require manual oversight
-    /// or specialized routing workflows outside of standard queue management.
-    /// </para><para>
-    /// For information about how manual contact assignment works in the agent workspace,
-    /// see the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/worklist-app.html">Access
-    /// the Worklist app in the Amazon Connect agent workspace</a> in the <i>Amazon Connect
-    /// Administrator Guide</i>. 
+    /// Leverage the IAM context key <c>connect:PreferredUserArn</c> to restrict contact association
+    /// to specific preferred user.
     /// </para></li></ul><para><b>Important things to know</b></para><ul><li><para>
-    /// Use this API chat/SMS, email, and task contacts. It does not support voice contacts.
+    /// Use this API with chat, email, and task contacts. It does not support voice contacts.
     /// </para></li><li><para>
     /// Use it to associate contacts with users regardless of their current state, including
     /// custom states. Ensure your application logic accounts for user availability before
@@ -59,6 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// It respects the IAM context key <c>connect:PreferredUserArn</c> to enforce authorization
     /// controls and prevent unauthorized contact associations. Verify that your IAM policies
     /// are properly configured to support your intended use cases.
+    /// </para></li><li><para>
+    /// The service quota <i>Queues per routing profile per instance</i> applies to manually
+    /// assigned queues, too. For more information about this quota, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#connect-quotas">Amazon
+    /// Connect quotas</a> in the <i>Amazon Connect Administrator Guide</i>.
     /// </para></li></ul><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon
     /// Connect endpoints and quotas</a>.
     /// </para>

@@ -1,4 +1,23 @@
-﻿### 4.1.920 (2025-10-13 21:06Z)
+﻿### 4.1.921 (2025-10-14 20:07Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1144.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppStream
+    * Added cmdlet Add-APSSoftwareToImageBuilder leveraging the AssociateSoftwareToImageBuilder service API.
+    * Added cmdlet Get-APSAppLicenseUsage leveraging the DescribeAppLicenseUsage service API.
+    * Added cmdlet Get-APSSoftwareAssociation leveraging the DescribeSoftwareAssociations service API.
+    * Added cmdlet Remove-APSSoftwareFromImageBuilder leveraging the DisassociateSoftwareFromImageBuilder service API.
+    * Added cmdlet Start-APSSoftwareDeploymentToImageBuilder leveraging the StartSoftwareDeploymentToImageBuilder service API.
+    * Modified cmdlet New-APSImageBuilder: added parameters SoftwaresToInstall and SoftwaresToUninstall.
+  * Amazon DataZone
+    * Modified cmdlet Get-DZConnectionList: added parameter Scope.
+    * Modified cmdlet New-DZConnection: added parameters AmazonQProperties_AuthMode, AmazonQProperties_IsEnabled, AmazonQProperties_ProfileArn, EnableTrustedIdentityPropagation and Scope.
+    * Modified cmdlet Update-DZConnection: added parameters AmazonQProperties_AuthMode, AmazonQProperties_IsEnabled and AmazonQProperties_ProfileArn.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Copy-EC2Volume leveraging the CopyVolumes service API.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet New-TFRConnector: added parameters VpcLattice_PortNumber and VpcLattice_ResourceConfigurationArn.
+    * Modified cmdlet Update-TFRConnector: added parameters VpcLattice_PortNumber and VpcLattice_ResourceConfigurationArn.
+
+### 4.1.920 (2025-10-13 21:06Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1143.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet New-BACCApiKeyCredentialProvider: added parameter Tag.

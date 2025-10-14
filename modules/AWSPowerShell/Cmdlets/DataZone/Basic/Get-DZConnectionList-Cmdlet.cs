@@ -88,15 +88,19 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <para>The ID of the project where you want to list connections.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ProjectIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter Scope
+        /// <summary>
+        /// <para>
+        /// <para>The scope of the connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DataZone.ConnectionScope")]
+        public Amazon.DataZone.ConnectionScope Scope { get; set; }
         #endregion
         
         #region Parameter SortBy
@@ -232,12 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             context.Name = this.Name;
             context.NextToken = this.NextToken;
             context.ProjectIdentifier = this.ProjectIdentifier;
-            #if MODULAR
-            if (this.ProjectIdentifier == null && ParameterWasBound(nameof(this.ProjectIdentifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ProjectIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.Scope = this.Scope;
             context.SortBy = this.SortBy;
             context.SortOrder = this.SortOrder;
             context.Type = this.Type;
@@ -280,6 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.ProjectIdentifier != null)
             {
                 request.ProjectIdentifier = cmdletContext.ProjectIdentifier;
+            }
+            if (cmdletContext.Scope != null)
+            {
+                request.Scope = cmdletContext.Scope;
             }
             if (cmdletContext.SortBy != null)
             {
@@ -384,6 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String Name { get; set; }
             public System.String NextToken { get; set; }
             public System.String ProjectIdentifier { get; set; }
+            public Amazon.DataZone.ConnectionScope Scope { get; set; }
             public Amazon.DataZone.SortFieldConnection SortBy { get; set; }
             public Amazon.DataZone.SortOrder SortOrder { get; set; }
             public Amazon.DataZone.ConnectionType Type { get; set; }

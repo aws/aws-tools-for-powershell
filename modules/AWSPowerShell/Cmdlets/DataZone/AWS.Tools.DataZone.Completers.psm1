@@ -111,10 +111,20 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.ConnectionScope
+        {
+            ($_ -eq "Get-DZConnectionList/Scope") -Or
+            ($_ -eq "New-DZConnection/Scope")
+        }
+        {
+            $v = "DOMAIN","PROJECT"
+            break
+        }
+
         # Amazon.DataZone.ConnectionType
         "Get-DZConnectionList/Type"
         {
-            $v = "ATHENA","BIGQUERY","DATABRICKS","DOCUMENTDB","DYNAMODB","HYPERPOD","IAM","MYSQL","OPENSEARCH","ORACLE","POSTGRESQL","REDSHIFT","S3","SAPHANA","SNOWFLAKE","SPARK","SQLSERVER","TERADATA","VERTICA","WORKFLOWS_MWAA"
+            $v = "AMAZON_Q","ATHENA","BIGQUERY","DATABRICKS","DOCUMENTDB","DYNAMODB","HYPERPOD","IAM","MYSQL","OPENSEARCH","ORACLE","POSTGRESQL","REDSHIFT","S3","SAPHANA","SNOWFLAKE","SPARK","SQLSERVER","TERADATA","VERTICA","WORKFLOWS_MWAA"
             break
         }
 
@@ -611,6 +621,7 @@ $DZ_map = @{
     "ResolutionStrategy"=@("New-DZAccountPool","Update-DZAccountPool")
     "RuleType"=@("Get-DZRuleList")
     "Schedule_Timezone"=@("New-DZDataSource","Update-DZDataSource")
+    "Scope"=@("Get-DZConnectionList","New-DZConnection")
     "SearchScope"=@("Search-DZResource","Search-DZType")
     "SingleSignOn_Type"=@("New-DZDomain","Update-DZDomain")
     "SingleSignOn_UserAssignment"=@("New-DZDomain","Update-DZDomain")
