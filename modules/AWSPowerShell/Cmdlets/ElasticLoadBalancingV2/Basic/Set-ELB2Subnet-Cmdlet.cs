@@ -33,13 +33,6 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// Enables the Availability Zones for the specified public subnets for the specified
     /// Application Load Balancer, Network Load Balancer or Gateway Load Balancer. The specified
     /// subnets replace the previously enabled subnets.
-    /// 
-    ///  
-    /// <para>
-    /// When you specify subnets for a Network Load Balancer, or Gateway Load Balancer you
-    /// must include all subnets that were enabled previously, with their existing configurations,
-    /// plus any additional subnets.
-    /// </para>
     /// </summary>
     [Cmdlet("Set", "ELB2Subnet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.AvailabilityZone")]
@@ -126,8 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>The IDs of the public subnets. You can specify only one subnet per Availability Zone.
         /// You must specify either subnets or subnet mappings.</para><para>[Application Load Balancers] You must specify subnets from at least two Availability
         /// Zones.</para><para>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</para><para>[Application Load Balancers on Local Zones] You can specify subnets from one or more
-        /// Local Zones.</para><para>[Network Load Balancers and Gateway Load Balancers] You can specify subnets from one
-        /// or more Availability Zones.</para><para />
+        /// Local Zones.</para><para>[Network Load Balancers] You can specify subnets from one or more Availability Zones.</para><para>[Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
+        /// You must include all subnets that were enabled previously, with their existing configurations,
+        /// plus any additional subnets.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

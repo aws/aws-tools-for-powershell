@@ -23,65 +23,58 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Bedrock;
-using Amazon.Bedrock.Model;
+using Amazon.EC2;
+using Amazon.EC2.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.BDR
+namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Deletes an Automated Reasoning policy or policy version. This operation is idempotent.
-    /// If you delete a policy more than once, each call succeeds. Deleting a policy removes
-    /// it permanently and cannot be undone.
+    /// Disables EC2 Capacity Manager for your account. This stops data ingestion and removes
+    /// access to capacity analytics and optimization recommendations. Previously collected
+    /// data is retained but no new data will be processed.
     /// </summary>
-    [Cmdlet("Remove", "BDRAutomatedReasoningPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Bedrock DeleteAutomatedReasoningPolicy API operation.", Operation = new[] {"DeleteAutomatedReasoningPolicy"}, SelectReturnType = typeof(Amazon.Bedrock.Model.DeleteAutomatedReasoningPolicyResponse))]
-    [AWSCmdletOutput("None or Amazon.Bedrock.Model.DeleteAutomatedReasoningPolicyResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Bedrock.Model.DeleteAutomatedReasoningPolicyResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Disable", "EC2CapacityManager", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.Model.DisableCapacityManagerResponse")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisableCapacityManager API operation.", Operation = new[] {"DisableCapacityManager"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableCapacityManagerResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.DisableCapacityManagerResponse",
+        "This cmdlet returns an Amazon.EC2.Model.DisableCapacityManagerResponse object containing multiple properties."
     )]
-    public partial class RemoveBDRAutomatedReasoningPolicyCmdlet : AmazonBedrockClientCmdlet, IExecutor
+    public partial class DisableEC2CapacityManagerCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter ForceDelete
+        #region Parameter DryRun
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to force delete the automated reasoning policy even if it has active
-        /// resources. When <c>false</c>, Amazon Bedrock validates if all artifacts have been
-        /// deleted (e.g. policy version, test case, test result) for a policy before deletion.
-        /// When <c>true</c>, Amazon Bedrock will delete the policy and all its artifacts without
-        /// validation. Default is <c>false</c>. </para>
+        /// <para> Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? ForceDelete { get; set; }
+        public System.Boolean? DryRun { get; set; }
         #endregion
         
-        #region Parameter PolicyArn
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Automated Reasoning policy to delete.</para>
+        /// <para> Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PolicyArn { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Bedrock.Model.DeleteAutomatedReasoningPolicyResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DisableCapacityManagerResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.DisableCapacityManagerResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PolicyArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BDRAutomatedReasoningPolicy (DeleteAutomatedReasoningPolicy)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disable-EC2CapacityManager (DisableCapacityManager)"))
             {
                 return;
             }
@@ -120,17 +113,11 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.DeleteAutomatedReasoningPolicyResponse, RemoveBDRAutomatedReasoningPolicyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DisableCapacityManagerResponse, DisableEC2CapacityManagerCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ForceDelete = this.ForceDelete;
-            context.PolicyArn = this.PolicyArn;
-            #if MODULAR
-            if (this.PolicyArn == null && ParameterWasBound(nameof(this.PolicyArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter PolicyArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.ClientToken = this.ClientToken;
+            context.DryRun = this.DryRun;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -145,15 +132,15 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Bedrock.Model.DeleteAutomatedReasoningPolicyRequest();
+            var request = new Amazon.EC2.Model.DisableCapacityManagerRequest();
             
-            if (cmdletContext.ForceDelete != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.Force = cmdletContext.ForceDelete.Value;
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.PolicyArn != null)
+            if (cmdletContext.DryRun != null)
             {
-                request.PolicyArn = cmdletContext.PolicyArn;
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             
             CmdletOutput output;
@@ -188,12 +175,12 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         
         #region AWS Service Operation Call
         
-        private Amazon.Bedrock.Model.DeleteAutomatedReasoningPolicyResponse CallAWSServiceOperation(IAmazonBedrock client, Amazon.Bedrock.Model.DeleteAutomatedReasoningPolicyRequest request)
+        private Amazon.EC2.Model.DisableCapacityManagerResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisableCapacityManagerRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock", "DeleteAutomatedReasoningPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisableCapacityManager");
             try
             {
-                return client.DeleteAutomatedReasoningPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DisableCapacityManagerAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -210,10 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Boolean? ForceDelete { get; set; }
-            public System.String PolicyArn { get; set; }
-            public System.Func<Amazon.Bedrock.Model.DeleteAutomatedReasoningPolicyResponse, RemoveBDRAutomatedReasoningPolicyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String ClientToken { get; set; }
+            public System.Boolean? DryRun { get; set; }
+            public System.Func<Amazon.EC2.Model.DisableCapacityManagerResponse, DisableEC2CapacityManagerCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

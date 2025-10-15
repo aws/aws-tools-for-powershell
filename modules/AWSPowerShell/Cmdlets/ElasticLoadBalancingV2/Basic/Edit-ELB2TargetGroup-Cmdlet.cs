@@ -60,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter HealthCheckEnabled
         /// <summary>
         /// <para>
-        /// <para>Indicates whether health checks are enabled.</para>
+        /// <para>Indicates whether health checks are enabled. If the target type is <c>lambda</c>,
+        /// health checks are disabled by default but can be enabled. If the target type is <c>instance</c>,
+        /// <c>ip</c>, or <c>alb</c>, health checks are always enabled and can't be disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

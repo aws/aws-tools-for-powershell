@@ -76,6 +76,19 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the KMS key to use for encrypting the automated reasoning policy
+        /// and its associated artifacts. If you don't specify a KMS key, Amazon Bedrock uses
+        /// an KMS managed key for encryption. For enhanced security and control, you can specify
+        /// a customer managed KMS key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -217,6 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             }
             context.ClientRequestToken = this.ClientRequestToken;
             context.Description = this.Description;
+            context.KmsKeyId = this.KmsKeyId;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -264,6 +278,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
             }
             if (cmdletContext.Name != null)
             {
@@ -379,6 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         {
             public System.String ClientRequestToken { get; set; }
             public System.String Description { get; set; }
+            public System.String KmsKeyId { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.Bedrock.Model.AutomatedReasoningPolicyDefinitionRule> PolicyDefinition_Rule { get; set; }
             public List<Amazon.Bedrock.Model.AutomatedReasoningPolicyDefinitionType> PolicyDefinition_Type { get; set; }

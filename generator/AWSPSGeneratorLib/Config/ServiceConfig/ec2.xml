@@ -311,6 +311,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCapacityManagerDataExport" OutputProperty="CapacityManagerDataExportId" Verb="New" Noun="CapacityManagerDataExport" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCapacityReservation" OutputProperty="CapacityReservation" Verb="Add" Noun="CapacityReservation" ShouldProcessTarget="InstanceType" PipelineParameter="InstanceType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -700,6 +704,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateVpnGateway" OutputProperty="VpnGateway" Verb="New" Noun="VpnGateway" ShouldProcessTarget="Type" PositionalParameters="AvailabilityZone" PipelineParameter="Type" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCapacityManagerDataExport" OutputProperty="CapacityManagerDataExportId" Verb="Remove" Noun="CapacityManagerDataExport" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1122,6 +1130,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeCapacityBlockStatus" OutputProperty="CapacityBlockStatuses" Verb="Get" Noun="CapacityBlockStatus" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCapacityManagerDataExports" OutputProperty="CapacityManagerDataExports" Verb="Get" Noun="CapacityManagerDataExport" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1815,6 +1827,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisableCapacityManager" OutputProperty="*" Verb="Disable" Noun="CapacityManager" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisableEbsEncryptionByDefault" OutputProperty="EbsEncryptionByDefault" Verb="Disable" Noun="EbsEncryptionByDefault" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1961,6 +1977,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="EnableCapacityManager" OutputProperty="*" Verb="Enable" Noun="CapacityManager" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="EnableEbsEncryptionByDefault" OutputProperty="EbsEncryptionByDefault" Verb="Enable" Noun="EbsEncryptionByDefault" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -2066,6 +2086,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAwsNetworkPerformanceData" OutputProperty="DataResponses" Verb="Get" Noun="AwsNetworkPerformanceData" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCapacityManagerAttributes" OutputProperty="*" Verb="Get" Noun="CapacityManagerAttribute" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCapacityManagerMetricData" OutputProperty="MetricDataResults" Verb="Get" Noun="CapacityManagerMetricData" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCapacityManagerMetricDimensions" OutputProperty="MetricDimensionResults" Verb="Get" Noun="CapacityManagerMetricDimension" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2927,6 +2959,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UnmonitorInstances" OutputProperty="InstanceMonitorings" Verb="Stop" Noun="InstanceMonitoring" ShouldProcessTarget="InstanceIds" PipelineParameter="InstanceIds" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCapacityManagerOrganizationsAccess" OutputProperty="*" Verb="Update" Noun="CapacityManagerOrganizationsAccess" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

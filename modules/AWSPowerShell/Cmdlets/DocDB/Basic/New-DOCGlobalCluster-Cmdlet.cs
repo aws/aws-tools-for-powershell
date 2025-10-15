@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// <summary>
     /// Creates an Amazon DocumentDB global cluster that can span multiple multiple Amazon
     /// Web Services Regions. The global cluster contains one primary cluster with read-write
-    /// capability, and up-to give read-only secondary clusters. Global clusters uses storage-based
+    /// capability, and up-to 10 read-only secondary clusters. Global clusters uses storage-based
     /// fast replication across regions with latencies less than one second, using dedicated
     /// infrastructure with no impact to your workload’s performance.
     /// 

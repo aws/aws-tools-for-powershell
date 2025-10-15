@@ -35,11 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// 
     ///  
     /// <para>
-    /// Each rule consists of a priority, one or more actions, and one or more conditions.
-    /// Rules are evaluated in priority order, from the lowest value to the highest value.
-    /// When the conditions for a rule are met, its actions are performed. If the conditions
-    /// for no rules are met, the actions for the default rule are performed. For more information,
-    /// see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules">Listener
+    /// Each rule consists of a priority, one or more actions, one or more conditions, and
+    /// up to two optional transforms. Rules are evaluated in priority order, from the lowest
+    /// value to the highest value. When the conditions for a rule are met, its actions are
+    /// performed. If the conditions for no rules are met, the actions for the default rule
+    /// are performed. For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules">Listener
     /// rules</a> in the <i>Application Load Balancers Guide</i>.
     /// </para>
     /// </summary>
@@ -148,6 +148,22 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         public Amazon.ElasticLoadBalancingV2.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter Transform
+        /// <summary>
+        /// <para>
+        /// <para>The transforms to apply to requests that match this rule. You can add one host header
+        /// rewrite transform and one URL rewrite transform.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Transforms")]
+        public Amazon.ElasticLoadBalancingV2.Model.RuleTransform[] Transform { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Rules'.
@@ -232,6 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             {
                 context.Tag = new List<Amazon.ElasticLoadBalancingV2.Model.Tag>(this.Tag);
             }
+            if (this.Transform != null)
+            {
+                context.Transform = new List<Amazon.ElasticLoadBalancingV2.Model.RuleTransform>(this.Transform);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -267,6 +287,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.Transform != null)
+            {
+                request.Transforms = cmdletContext.Transform;
             }
             
             CmdletOutput output;
@@ -328,6 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             public System.String ListenerArn { get; set; }
             public System.Int32? Priority { get; set; }
             public List<Amazon.ElasticLoadBalancingV2.Model.Tag> Tag { get; set; }
+            public List<Amazon.ElasticLoadBalancingV2.Model.RuleTransform> Transform { get; set; }
             public System.Func<Amazon.ElasticLoadBalancingV2.Model.CreateRuleResponse, NewELB2RuleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Rules;
         }

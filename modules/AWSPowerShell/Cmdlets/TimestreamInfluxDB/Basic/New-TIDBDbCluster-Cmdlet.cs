@@ -50,13 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         /// <para>The amount of storage to allocate for your DB storage type in GiB (gibibytes).</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Int32? AllocatedStorage { get; set; }
         #endregion
         
@@ -130,13 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         /// <para>Specifies the type of cluster to create.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.TimestreamInfluxDB.ClusterDeploymentType")]
         public Amazon.TimestreamInfluxDB.ClusterDeploymentType DeploymentType { get; set; }
         #endregion
@@ -215,21 +203,14 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         /// secret created in Secrets Manager in your account.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Password { get; set; }
         #endregion
         
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which InfluxDB accepts connections.</para><para>Valid Values: 1024-65535</para><para>Default: 8086</para><para>Constraints: The value can't be 2375-2376, 7788-7799, 8090, or 51678-51680</para>
+        /// <para>The port number on which InfluxDB accepts connections.</para><para>Valid Values: 1024-65535</para><para>Default: 8086 for InfluxDB v2, 8181 for InfluxDB v3</para><para>Constraints: The value can't be 2375-2376, 7788-7799, 8090, or 51678-51680</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -368,12 +349,6 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AllocatedStorage = this.AllocatedStorage;
-            #if MODULAR
-            if (this.AllocatedStorage == null && ParameterWasBound(nameof(this.AllocatedStorage)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AllocatedStorage which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Bucket = this.Bucket;
             context.DbInstanceType = this.DbInstanceType;
             #if MODULAR
@@ -385,12 +360,6 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             context.DbParameterGroupIdentifier = this.DbParameterGroupIdentifier;
             context.DbStorageType = this.DbStorageType;
             context.DeploymentType = this.DeploymentType;
-            #if MODULAR
-            if (this.DeploymentType == null && ParameterWasBound(nameof(this.DeploymentType)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DeploymentType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.FailoverMode = this.FailoverMode;
             context.S3Configuration_BucketName = this.S3Configuration_BucketName;
             context.S3Configuration_Enabled = this.S3Configuration_Enabled;
@@ -404,12 +373,6 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             context.NetworkType = this.NetworkType;
             context.Organization = this.Organization;
             context.Password = this.Password;
-            #if MODULAR
-            if (this.Password == null && ParameterWasBound(nameof(this.Password)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Password which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Port = this.Port;
             context.PubliclyAccessible = this.PubliclyAccessible;
             if (this.Tag != null)
