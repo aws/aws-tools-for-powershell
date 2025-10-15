@@ -46,8 +46,12 @@
     <Compile Remove="../AWSPowerShell/*" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Remove="..\AWSPowerShell\Common\Internal\AWSLoginPKCEResponse.html" />
+  </ItemGroup>
+  <ItemGroup>
     <None Remove="CmdletsList.dat" />
     <EmbeddedResource Include="CmdletsList.dat" />
+    <EmbeddedResource Include="..\AWSPowerShell\Common\Internal\AWSLoginPKCEResponse.html" />
     <None Include="../AWSPowerShell/aws-powershell.snk" />
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +76,9 @@
     </Reference>
     <Reference Include="AWSSDK.SSO">
       <HintPath>..\..\Include\sdk\assemblies\netstandard2.0\AWSSDK.SSO.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Signin">
+      <HintPath>..\..\Include\sdk\assemblies\netstandard2.0\AWSSDK.Signin.dll</HintPath>
     </Reference>
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

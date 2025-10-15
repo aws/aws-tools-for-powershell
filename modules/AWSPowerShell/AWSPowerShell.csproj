@@ -1126,6 +1126,9 @@
     <Reference Include="AWSSDK.Shield">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Shield.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Signin">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Signin.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.SimpleEmail">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.SimpleEmail.dll</HintPath>
     </Reference>
@@ -2344,6 +2347,9 @@
     <Reference Include="AWSSDK.Shield">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Shield.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Signin">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Signin.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.SimpleEmail">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SimpleEmail.dll</HintPath>
     </Reference>
@@ -2497,7 +2503,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="CmdletsList.dat" />
+    <None Remove="Common\Internal\AWSLoginPKCEResponse.html" />
     <EmbeddedResource Include="CmdletsList.dat" />
+    <EmbeddedResource Include="Common\Internal\AWSLoginPKCEResponse.html" />
     <None Include="aws-powershell.snk" />
     <None Include="AWSPowerShell.TypeExtensions.ps1xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

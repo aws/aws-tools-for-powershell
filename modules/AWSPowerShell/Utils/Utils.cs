@@ -24,6 +24,9 @@ using System.Reflection;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using Amazon.Util.Internal;
+using System.Linq;
+using Amazon.Util;
+
 #if CORECLR
 using System.Runtime.InteropServices;
 #endif
@@ -195,6 +198,39 @@ namespace Amazon.PowerShell.Utils
         public static string ConvertToBase64(byte[] source)
         {
             return System.Convert.ToBase64String(source);
+        }
+
+        /// <summary>
+        /// Base64URL encoding without padding per RFC 7636 Appendix A.
+        /// </summary>
+        public static string Base64UrlEncode(byte[] input)
+        {
+            return ConvertToBase64(input)
+                .TrimEnd('=')
+                .Replace('+', '-')
+                .Replace('/', '_');
+        }
+
+        public static string ConstructUri(string baseUri, string path, Dictionary<string, string> queryStringParameters = null)
+        {
+            if (string.IsNullOrWhiteSpace(baseUri))
+            {
+                throw new ArgumentNullException(nameof(baseUri));
+            }
+
+            UriBuilder uriBuilder = new UriBuilder(baseUri);
+            uriBuilder.Path = path; // Path can be null
+
+            if (queryStringParameters != null && queryStringParameters.Count > 0)
+            {
+                // Ensure proper URL encoding for parameter values
+                string queryString = string.Join("&", queryStringParameters.Select(p =>
+                    $"{AWSSDKUtils.UrlEncode(p.Key, false)}={AWSSDKUtils.UrlEncode(p.Value, false)}"));
+
+                uriBuilder.Query = queryString;
+            }
+
+            return uriBuilder.Uri.ToString();
         }
     }
 }

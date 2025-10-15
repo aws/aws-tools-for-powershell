@@ -124,7 +124,9 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
         'Invoke-AWSSSOLogin', 
         'Initialize-AWSSSOConfiguration', 
         'Set-AWSSSOSessionConfiguration', 
-        'Invoke-AWSSSOLogout')
+        'Invoke-AWSSSOLogout', 
+        'Invoke-AWSLogin', 
+        'Invoke-AWSLogout')
 
     # Variables to export from this module
     VariablesToExport = '*'
