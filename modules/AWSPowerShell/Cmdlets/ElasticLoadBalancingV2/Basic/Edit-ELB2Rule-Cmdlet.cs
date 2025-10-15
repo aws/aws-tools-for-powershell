@@ -72,6 +72,18 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         public Amazon.ElasticLoadBalancingV2.Model.RuleCondition[] Condition { get; set; }
         #endregion
         
+        #region Parameter ResetTransform
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to remove all transforms from the rule. If you specify <c>ResetTransforms</c>,
+        /// you can't specify <c>Transforms</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResetTransforms")]
+        public System.Boolean? ResetTransform { get; set; }
+        #endregion
+        
         #region Parameter RuleArn
         /// <summary>
         /// <para>
@@ -87,6 +99,19 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RuleArn { get; set; }
+        #endregion
+        
+        #region Parameter Transform
+        /// <summary>
+        /// <para>
+        /// <para>The transforms to apply to requests that match this rule. You can add one host header
+        /// rewrite transform and one URL rewrite transform. If you specify <c>Transforms</c>,
+        /// you can't specify <c>ResetTransforms</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Transforms")]
+        public Amazon.ElasticLoadBalancingV2.Model.RuleTransform[] Transform { get; set; }
         #endregion
         
         #region Parameter Select
@@ -159,6 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             {
                 context.Condition = new List<Amazon.ElasticLoadBalancingV2.Model.RuleCondition>(this.Condition);
             }
+            context.ResetTransform = this.ResetTransform;
             context.RuleArn = this.RuleArn;
             #if MODULAR
             if (this.RuleArn == null && ParameterWasBound(nameof(this.RuleArn)))
@@ -166,6 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
                 WriteWarning("You are passing $null as a value for parameter RuleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Transform != null)
+            {
+                context.Transform = new List<Amazon.ElasticLoadBalancingV2.Model.RuleTransform>(this.Transform);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -190,9 +220,17 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             {
                 request.Conditions = cmdletContext.Condition;
             }
+            if (cmdletContext.ResetTransform != null)
+            {
+                request.ResetTransforms = cmdletContext.ResetTransform.Value;
+            }
             if (cmdletContext.RuleArn != null)
             {
                 request.RuleArn = cmdletContext.RuleArn;
+            }
+            if (cmdletContext.Transform != null)
+            {
+                request.Transforms = cmdletContext.Transform;
             }
             
             CmdletOutput output;
@@ -257,7 +295,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         {
             public List<Amazon.ElasticLoadBalancingV2.Model.Action> Action { get; set; }
             public List<Amazon.ElasticLoadBalancingV2.Model.RuleCondition> Condition { get; set; }
+            public System.Boolean? ResetTransform { get; set; }
             public System.String RuleArn { get; set; }
+            public List<Amazon.ElasticLoadBalancingV2.Model.RuleTransform> Transform { get; set; }
             public System.Func<Amazon.ElasticLoadBalancingV2.Model.ModifyRuleResponse, EditELB2RuleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Rules;
         }

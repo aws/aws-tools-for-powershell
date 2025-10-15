@@ -139,6 +139,19 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         public System.Double? ServerlessV2ScalingConfiguration_MinCapacity { get; set; }
         #endregion
         
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The network type of the cluster.</para><para>The network type is determined by the <c>DBSubnetGroup</c> specified for the cluster.
+        /// A <c>DBSubnetGroup</c> can support only the IPv4 protocol or the IPv4 and the IPv6
+        /// protocols (<c>DUAL</c>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/vpc-clusters.html">DocumentDB
+        /// clusters in a VPC</a> in the Amazon DocumentDB Developer Guide.</para><para>Valid Values: <c>IPV4</c> | <c>DUAL</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NetworkType { get; set; }
+        #endregion
+        
         #region Parameter Port
         /// <summary>
         /// <para>
@@ -310,6 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
                 context.EnableCloudwatchLogsExport = new List<System.String>(this.EnableCloudwatchLogsExport);
             }
             context.KmsKeyId = this.KmsKeyId;
+            context.NetworkType = this.NetworkType;
             context.Port = this.Port;
             context.RestoreToTime = this.RestoreToTime;
             context.RestoreType = this.RestoreType;
@@ -367,6 +381,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
+            }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
             }
             if (cmdletContext.Port != null)
             {
@@ -495,6 +513,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             public System.Boolean? DeletionProtection { get; set; }
             public List<System.String> EnableCloudwatchLogsExport { get; set; }
             public System.String KmsKeyId { get; set; }
+            public System.String NetworkType { get; set; }
             public System.Int32? Port { get; set; }
             public System.DateTime? RestoreToTime { get; set; }
             public System.String RestoreType { get; set; }

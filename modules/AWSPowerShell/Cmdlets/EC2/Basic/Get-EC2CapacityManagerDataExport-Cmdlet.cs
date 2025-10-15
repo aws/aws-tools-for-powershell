@@ -22,34 +22,68 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GuardDuty;
-using Amazon.GuardDuty.Model;
+using Amazon.EC2;
+using Amazon.EC2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GD
+namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Lists the Malware Protection plan IDs associated with the protected resources in your
-    /// Amazon Web Services account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes one or more Capacity Manager data export configurations. Returns information
+    /// about export settings, delivery status, and recent export activity.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "GDMalwareProtectionPlanList")]
-    [OutputType("Amazon.GuardDuty.Model.MalwareProtectionPlanSummary")]
-    [AWSCmdlet("Calls the Amazon GuardDuty ListMalwareProtectionPlans API operation.", Operation = new[] {"ListMalwareProtectionPlans"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.ListMalwareProtectionPlansResponse))]
-    [AWSCmdletOutput("Amazon.GuardDuty.Model.MalwareProtectionPlanSummary or Amazon.GuardDuty.Model.ListMalwareProtectionPlansResponse",
-        "This cmdlet returns a collection of Amazon.GuardDuty.Model.MalwareProtectionPlanSummary objects.",
-        "The service call response (type Amazon.GuardDuty.Model.ListMalwareProtectionPlansResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "EC2CapacityManagerDataExport")]
+    [OutputType("Amazon.EC2.Model.CapacityManagerDataExportResponse")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeCapacityManagerDataExports API operation.", Operation = new[] {"DescribeCapacityManagerDataExports"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeCapacityManagerDataExportsResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.CapacityManagerDataExportResponse or Amazon.EC2.Model.DescribeCapacityManagerDataExportsResponse",
+        "This cmdlet returns a collection of Amazon.EC2.Model.CapacityManagerDataExportResponse objects.",
+        "The service call response (type Amazon.EC2.Model.DescribeCapacityManagerDataExportsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetGDMalwareProtectionPlanListCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
+    public partial class GetEC2CapacityManagerDataExportCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter CapacityManagerDataExportId
+        /// <summary>
+        /// <para>
+        /// <para> The IDs of the data export configurations to describe. If not specified, all export
+        /// configurations are returned. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CapacityManagerDataExportIds")]
+        public System.String[] CapacityManagerDataExportId { get; set; }
+        #endregion
+        
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para> One or more filters to narrow the results. Supported filters include export status,
+        /// creation date, and S3 bucket name. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters")]
+        public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para> The maximum number of results to return in a single call. If not specified, up to
+        /// 1000 results are returned. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>You can use this parameter when paginating results. Set the value of this parameter
-        /// to null on your first call to the list action. For subsequent calls to the action,
-        /// fill nextToken in the request with the value of <c>NextToken</c> from the previous
-        /// response to continue listing data. The default page size is 100 plans.</para>
+        /// <para> The token for the next page of results. Use this value in a subsequent call to retrieve
+        /// additional results. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -62,13 +96,13 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'MalwareProtectionPlans'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GuardDuty.Model.ListMalwareProtectionPlansResponse).
-        /// Specifying the name of a property of type Amazon.GuardDuty.Model.ListMalwareProtectionPlansResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'CapacityManagerDataExports'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DescribeCapacityManagerDataExportsResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.DescribeCapacityManagerDataExportsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "MalwareProtectionPlans";
+        public string Select { get; set; } = "CapacityManagerDataExports";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -93,9 +127,18 @@ namespace Amazon.PowerShell.Cmdlets.GD
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GuardDuty.Model.ListMalwareProtectionPlansResponse, GetGDMalwareProtectionPlanListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DescribeCapacityManagerDataExportsResponse, GetEC2CapacityManagerDataExportCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.CapacityManagerDataExportId != null)
+            {
+                context.CapacityManagerDataExportId = new List<System.String>(this.CapacityManagerDataExportId);
+            }
+            if (this.Filter != null)
+            {
+                context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
+            }
+            context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -113,8 +156,20 @@ namespace Amazon.PowerShell.Cmdlets.GD
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.GuardDuty.Model.ListMalwareProtectionPlansRequest();
+            var request = new Amazon.EC2.Model.DescribeCapacityManagerDataExportsRequest();
             
+            if (cmdletContext.CapacityManagerDataExportId != null)
+            {
+                request.CapacityManagerDataExportIds = cmdletContext.CapacityManagerDataExportId;
+            }
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
             
             // Initialize loop variant and commence piping
             var _nextToken = cmdletContext.NextToken;
@@ -172,15 +227,15 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         #region AWS Service Operation Call
         
-        private Amazon.GuardDuty.Model.ListMalwareProtectionPlansResponse CallAWSServiceOperation(IAmazonGuardDuty client, Amazon.GuardDuty.Model.ListMalwareProtectionPlansRequest request)
+        private Amazon.EC2.Model.DescribeCapacityManagerDataExportsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeCapacityManagerDataExportsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GuardDuty", "ListMalwareProtectionPlans");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeCapacityManagerDataExports");
             try
             {
                 #if DESKTOP
-                return client.ListMalwareProtectionPlans(request);
+                return client.DescribeCapacityManagerDataExports(request);
                 #elif CORECLR
-                return client.ListMalwareProtectionPlansAsync(request).GetAwaiter().GetResult();
+                return client.DescribeCapacityManagerDataExportsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -200,9 +255,12 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> CapacityManagerDataExportId { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filter { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.GuardDuty.Model.ListMalwareProtectionPlansResponse, GetGDMalwareProtectionPlanListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.MalwareProtectionPlans;
+            public System.Func<Amazon.EC2.Model.DescribeCapacityManagerDataExportsResponse, GetEC2CapacityManagerDataExportCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.CapacityManagerDataExports;
         }
         
     }

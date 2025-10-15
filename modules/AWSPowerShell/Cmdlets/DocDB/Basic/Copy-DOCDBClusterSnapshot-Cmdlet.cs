@@ -114,9 +114,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter SourceDBClusterSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the cluster snapshot to copy. This parameter is not case sensitive.</para><para>Constraints:</para><ul><li><para>Must specify a valid system snapshot in the <i>available</i> state.</para></li><li><para>If the source snapshot is in the same Amazon Web Services Region as the copy, specify
-        /// a valid snapshot identifier.</para></li><li><para>If the source snapshot is in a different Amazon Web Services Region than the copy,
-        /// specify a valid cluster snapshot ARN.</para></li></ul><para>Example: <c>my-cluster-snapshot1</c></para>
+        /// <para>The identifier of the cluster snapshot to copy. This parameter is not case sensitive.</para><para>Constraints:</para><ul><li><para>Must specify a valid cluster snapshot in the <i>available</i> state.</para></li><li><para>If the source cluster snapshot is in the same Amazon Web Services Region as the copy,
+        /// specify a valid snapshot identifier.</para></li><li><para>If the source cluster snapshot is in a different Amazon Web Services Region or owned
+        /// by another Amazon Web Services account, specify the snapshot ARN.</para></li></ul><para>Example: <c>my-cluster-snapshot1</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

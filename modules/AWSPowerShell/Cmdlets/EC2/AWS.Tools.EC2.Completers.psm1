@@ -932,6 +932,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.OutputFormat
+        "New-EC2CapacityManagerDataExport/OutputFormat"
+        {
+            $v = "csv","parquet"
+            break
+        }
+
         # Amazon.EC2.PayerResponsibility
         "Edit-EC2VpcEndpointServicePayerResponsibility/PayerResponsibility"
         {
@@ -1026,6 +1033,13 @@ $EC2_Completers = {
         }
         {
             $v = "allow","deny"
+            break
+        }
+
+        # Amazon.EC2.Schedule
+        "New-EC2CapacityManagerDataExport/Schedule"
+        {
+            $v = "hourly"
             break
         }
 
@@ -1444,6 +1458,7 @@ $EC2_map = @{
     "Options_StaticSourcesSupport"=@("New-EC2TransitGatewayMulticastDomain")
     "Options_TunnelInsideIpVersion"=@("New-EC2VpnConnection")
     "Options_VpnEcmpSupport"=@("Edit-EC2TransitGateway","New-EC2TransitGateway")
+    "OutputFormat"=@("New-EC2CapacityManagerDataExport")
     "PayerResponsibility"=@("Edit-EC2VpcEndpointServicePayerResponsibility")
     "Permission"=@("New-EC2NetworkInterfacePermission")
     "PersistRoute"=@("Edit-EC2RouteServer","New-EC2RouteServer")
@@ -1460,6 +1475,7 @@ $EC2_map = @{
     "ResourceType"=@("Get-EC2IpamResourceCidr","New-EC2FlowLog")
     "Role"=@("Get-EC2CapacityReservationBillingRequest")
     "RuleAction"=@("Edit-EC2TrafficMirrorFilterRule","New-EC2NetworkAclEntry","New-EC2TrafficMirrorFilterRule","Set-EC2NetworkAclEntry")
+    "Schedule"=@("New-EC2CapacityManagerDataExport")
     "SelfServicePortal"=@("Edit-EC2ClientVpnEndpoint","New-EC2ClientVpnEndpoint")
     "SnapshotLocation"=@("New-EC2Image")
     "SourceResource_ResourceType"=@("New-EC2IpamPool")
@@ -1606,6 +1622,7 @@ $EC2_SelectMap = @{
                "Copy-EC2Image",
                "Copy-EC2Snapshot",
                "Copy-EC2Volume",
+               "New-EC2CapacityManagerDataExport",
                "Add-EC2CapacityReservation",
                "New-EC2CapacityReservationBySplitting",
                "New-EC2CapacityReservationFleet",
@@ -1699,6 +1716,7 @@ $EC2_SelectMap = @{
                "New-EC2VpnConnection",
                "New-EC2VpnConnectionRoute",
                "New-EC2VpnGateway",
+               "Remove-EC2CapacityManagerDataExport",
                "Remove-EC2CarrierGateway",
                "Remove-EC2ClientVpnEndpoint",
                "Remove-EC2ClientVpnRoute",
@@ -1803,6 +1821,7 @@ $EC2_SelectMap = @{
                "Get-EC2CapacityBlockOffering",
                "Get-EC2CapacityBlock",
                "Get-EC2CapacityBlockStatus",
+               "Get-EC2CapacityManagerDataExport",
                "Get-EC2CapacityReservationBillingRequest",
                "Get-EC2CapacityReservationFleet",
                "Get-EC2CapacityReservation",
@@ -1969,6 +1988,7 @@ $EC2_SelectMap = @{
                "Disable-EC2AddressTransfer",
                "Disable-EC2AllowedImagesSetting",
                "Disable-EC2AwsNetworkPerformanceMetricSubscription",
+               "Disable-EC2CapacityManager",
                "Disable-EC2EbsEncryptionByDefault",
                "Disable-EC2FastLaunch",
                "Disable-EC2FastSnapshotRestore",
@@ -2005,6 +2025,7 @@ $EC2_SelectMap = @{
                "Enable-EC2AddressTransfer",
                "Enable-EC2AllowedImagesSetting",
                "Enable-EC2AwsNetworkPerformanceMetricSubscription",
+               "Enable-EC2CapacityManager",
                "Enable-EC2EbsEncryptionByDefault",
                "Enable-EC2FastLaunch",
                "Enable-EC2FastSnapshotRestore",
@@ -2032,6 +2053,9 @@ $EC2_SelectMap = @{
                "Get-EC2AssociatedEnclaveCertificateIamRole",
                "Get-EC2AssociatedIpv6PoolCidr",
                "Get-EC2AwsNetworkPerformanceData",
+               "Get-EC2CapacityManagerAttribute",
+               "Get-EC2CapacityManagerMetricData",
+               "Get-EC2CapacityManagerMetricDimension",
                "Get-EC2CapacityReservationUsage",
                "Get-EC2CoipPoolUsage",
                "Get-EC2ConsoleOutput",
@@ -2233,6 +2257,7 @@ $EC2_SelectMap = @{
                "Unregister-EC2PrivateNatGatewayAddress",
                "Unlock-EC2Snapshot",
                "Stop-EC2InstanceMonitoring",
+               "Update-EC2CapacityManagerOrganizationsAccess",
                "Update-EC2SecurityGroupRuleEgressDescription",
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Stop-EC2ByoipCidrAdvertisement",

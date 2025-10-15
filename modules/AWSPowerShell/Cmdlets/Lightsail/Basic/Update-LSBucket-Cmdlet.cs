@@ -145,6 +145,18 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public System.String[] ReadonlyAccessAccount { get; set; }
         #endregion
         
+        #region Parameter Cors_Rule
+        /// <summary>
+        /// <para>
+        /// <para>A set of origins and methods (cross-origin access that you want to allow). You can
+        /// add up to 20 rules to the configuration. The total size is limited to 64 KB.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Cors_Rules")]
+        public Amazon.Lightsail.Model.BucketCorsRule[] Cors_Rule { get; set; }
+        #endregion
+        
         #region Parameter Versioning
         /// <summary>
         /// <para>
@@ -230,6 +242,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 WriteWarning("You are passing $null as a value for parameter BucketName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Cors_Rule != null)
+            {
+                context.Cors_Rule = new List<Amazon.Lightsail.Model.BucketCorsRule>(this.Cors_Rule);
+            }
             if (this.ReadonlyAccessAccount != null)
             {
                 context.ReadonlyAccessAccount = new List<System.String>(this.ReadonlyAccessAccount);
@@ -323,6 +339,25 @@ namespace Amazon.PowerShell.Cmdlets.LS
             {
                 request.BucketName = cmdletContext.BucketName;
             }
+            
+             // populate Cors
+            var requestCorsIsNull = true;
+            request.Cors = new Amazon.Lightsail.Model.BucketCorsConfig();
+            List<Amazon.Lightsail.Model.BucketCorsRule> requestCors_cors_Rule = null;
+            if (cmdletContext.Cors_Rule != null)
+            {
+                requestCors_cors_Rule = cmdletContext.Cors_Rule;
+            }
+            if (requestCors_cors_Rule != null)
+            {
+                request.Cors.Rules = requestCors_cors_Rule;
+                requestCorsIsNull = false;
+            }
+             // determine if request.Cors should be set to null
+            if (requestCorsIsNull)
+            {
+                request.Cors = null;
+            }
             if (cmdletContext.ReadonlyAccessAccount != null)
             {
                 request.ReadonlyAccessAccounts = cmdletContext.ReadonlyAccessAccount;
@@ -398,6 +433,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             public System.Boolean? AccessRules_AllowPublicOverride { get; set; }
             public Amazon.Lightsail.AccessType AccessRules_GetObject { get; set; }
             public System.String BucketName { get; set; }
+            public List<Amazon.Lightsail.Model.BucketCorsRule> Cors_Rule { get; set; }
             public List<System.String> ReadonlyAccessAccount { get; set; }
             public System.String Versioning { get; set; }
             public System.Func<Amazon.Lightsail.Model.UpdateBucketResponse, UpdateLSBucketCmdlet, object> Select { get; set; } =

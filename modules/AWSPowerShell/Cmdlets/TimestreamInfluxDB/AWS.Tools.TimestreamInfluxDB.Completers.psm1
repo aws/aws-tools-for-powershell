@@ -87,6 +87,16 @@ $TIDB_Completers = {
             break
         }
 
+        # Amazon.TimestreamInfluxDB.DataFusionRuntimeType
+        {
+            ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Core_DataFusionRuntimeType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Enterprise_DataFusionRuntimeType")
+        }
+        {
+            $v = "multi-thread","multi-thread-alt"
+            break
+        }
+
         # Amazon.TimestreamInfluxDB.DbInstanceType
         {
             ($_ -eq "New-TIDBDbCluster/DbInstanceType") -Or
@@ -122,17 +132,44 @@ $TIDB_Completers = {
 
         # Amazon.TimestreamInfluxDB.DurationType
         {
+            ($_ -eq "New-TIDBDbParameterGroup/CatalogSyncInterval_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/CompactionCheckInterval_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/CompactionCleanupWait_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/CompactionGen2Duration_DurationType") -Or
             ($_ -eq "New-TIDBDbParameterGroup/HttpIdleTimeout_DurationType") -Or
             ($_ -eq "New-TIDBDbParameterGroup/HttpReadHeaderTimeout_DurationType") -Or
             ($_ -eq "New-TIDBDbParameterGroup/HttpReadTimeout_DurationType") -Or
             ($_ -eq "New-TIDBDbParameterGroup/HttpWriteTimeout_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Core_DataFusionRuntimeThreadKeepAlive_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Core_DeleteGracePeriod_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Core_DistinctCacheEvictionInterval_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Core_Gen1Duration_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Core_Gen1LookbackDuration_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Core_HardDeleteDefaultDuration_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Core_LastCacheEvictionInterval_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Core_ParquetMemCachePruneInterval_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Core_ParquetMemCacheQueryPathDuration_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Core_PreemptiveCacheAge_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Core_RetentionCheckInterval_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Enterprise_DataFusionRuntimeThreadKeepAlive_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Enterprise_DeleteGracePeriod_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Enterprise_DistinctCacheEvictionInterval_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Enterprise_Gen1Duration_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Enterprise_Gen1LookbackDuration_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Enterprise_HardDeleteDefaultDuration_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Enterprise_LastCacheEvictionInterval_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Enterprise_ParquetMemCachePruneInterval_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Enterprise_ParquetMemCacheQueryPathDuration_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Enterprise_PreemptiveCacheAge_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Enterprise_RetentionCheckInterval_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/ReplicationInterval_DurationType") -Or
             ($_ -eq "New-TIDBDbParameterGroup/StorageCacheSnapshotWriteColdDuration_DurationType") -Or
             ($_ -eq "New-TIDBDbParameterGroup/StorageCompactFullWriteColdDuration_DurationType") -Or
             ($_ -eq "New-TIDBDbParameterGroup/StorageRetentionCheckInterval_DurationType") -Or
             ($_ -eq "New-TIDBDbParameterGroup/StorageWalMaxWriteDelay_DurationType")
         }
         {
-            $v = "hours","milliseconds","minutes","seconds"
+            $v = "days","hours","milliseconds","minutes","seconds"
             break
         }
 
@@ -143,6 +180,16 @@ $TIDB_Completers = {
         }
         {
             $v = "AUTOMATIC","NO_FAILOVER"
+            break
+        }
+
+        # Amazon.TimestreamInfluxDB.LogFormats
+        {
+            ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Core_LogFormat") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/InfluxDBv3Enterprise_LogFormat")
+        }
+        {
+            $v = "full"
             break
         }
 
@@ -166,7 +213,7 @@ $TIDB_Completers = {
         # Amazon.TimestreamInfluxDB.TracingType
         "New-TIDBDbParameterGroup/InfluxDBv2_TracingType"
         {
-            $v = "jaeger","log"
+            $v = "disabled","jaeger","log"
             break
         }
 
@@ -179,6 +226,10 @@ $TIDB_Completers = {
 }
 
 $TIDB_map = @{
+    "CatalogSyncInterval_DurationType"=@("New-TIDBDbParameterGroup")
+    "CompactionCheckInterval_DurationType"=@("New-TIDBDbParameterGroup")
+    "CompactionCleanupWait_DurationType"=@("New-TIDBDbParameterGroup")
+    "CompactionGen2Duration_DurationType"=@("New-TIDBDbParameterGroup")
     "DbInstanceType"=@("New-TIDBDbCluster","New-TIDBDbInstance","Update-TIDBDbCluster","Update-TIDBDbInstance")
     "DbStorageType"=@("New-TIDBDbCluster","New-TIDBDbInstance","Update-TIDBDbInstance")
     "DeploymentType"=@("New-TIDBDbCluster","New-TIDBDbInstance","Update-TIDBDbInstance")
@@ -189,7 +240,34 @@ $TIDB_map = @{
     "HttpWriteTimeout_DurationType"=@("New-TIDBDbParameterGroup")
     "InfluxDBv2_LogLevel"=@("New-TIDBDbParameterGroup")
     "InfluxDBv2_TracingType"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv3Core_DataFusionRuntimeThreadKeepAlive_DurationType"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv3Core_DataFusionRuntimeType"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv3Core_DeleteGracePeriod_DurationType"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv3Core_DistinctCacheEvictionInterval_DurationType"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv3Core_Gen1Duration_DurationType"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv3Core_Gen1LookbackDuration_DurationType"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv3Core_HardDeleteDefaultDuration_DurationType"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv3Core_LastCacheEvictionInterval_DurationType"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv3Core_LogFormat"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv3Core_ParquetMemCachePruneInterval_DurationType"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv3Core_ParquetMemCacheQueryPathDuration_DurationType"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv3Core_PreemptiveCacheAge_DurationType"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv3Core_RetentionCheckInterval_DurationType"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv3Enterprise_DataFusionRuntimeThreadKeepAlive_DurationType"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv3Enterprise_DataFusionRuntimeType"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv3Enterprise_DeleteGracePeriod_DurationType"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv3Enterprise_DistinctCacheEvictionInterval_DurationType"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv3Enterprise_Gen1Duration_DurationType"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv3Enterprise_Gen1LookbackDuration_DurationType"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv3Enterprise_HardDeleteDefaultDuration_DurationType"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv3Enterprise_LastCacheEvictionInterval_DurationType"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv3Enterprise_LogFormat"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv3Enterprise_ParquetMemCachePruneInterval_DurationType"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv3Enterprise_ParquetMemCacheQueryPathDuration_DurationType"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv3Enterprise_PreemptiveCacheAge_DurationType"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv3Enterprise_RetentionCheckInterval_DurationType"=@("New-TIDBDbParameterGroup")
     "NetworkType"=@("New-TIDBDbCluster","New-TIDBDbInstance")
+    "ReplicationInterval_DurationType"=@("New-TIDBDbParameterGroup")
     "StorageCacheSnapshotWriteColdDuration_DurationType"=@("New-TIDBDbParameterGroup")
     "StorageCompactFullWriteColdDuration_DurationType"=@("New-TIDBDbParameterGroup")
     "StorageRetentionCheckInterval_DurationType"=@("New-TIDBDbParameterGroup")

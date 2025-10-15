@@ -10110,6 +10110,8 @@ Set-Alias -Name EC2-CopyImage -Value Copy-EC2Image
 Set-Alias -Name EC2-CopySnapshot -Value Copy-EC2Snapshot
 Set-Alias -Name Copy-EC2Volumes -Value Copy-EC2Volume
 Set-Alias -Name EC2-CopyVolumes -Value Copy-EC2Volume
+Set-Alias -Name Create-EC2CapacityManagerDataExport -Value New-EC2CapacityManagerDataExport
+Set-Alias -Name EC2-CreateCapacityManagerDataExport -Value New-EC2CapacityManagerDataExport
 Set-Alias -Name Create-EC2CapacityReservation -Value Add-EC2CapacityReservation
 Set-Alias -Name EC2-CreateCapacityReservation -Value Add-EC2CapacityReservation
 Set-Alias -Name Create-EC2CapacityReservationBySplitting -Value New-EC2CapacityReservationBySplitting
@@ -10300,6 +10302,8 @@ Set-Alias -Name Create-EC2VpnConnectionRoute -Value New-EC2VpnConnectionRoute
 Set-Alias -Name EC2-CreateVpnConnectionRoute -Value New-EC2VpnConnectionRoute
 Set-Alias -Name Create-EC2VpnGateway -Value New-EC2VpnGateway
 Set-Alias -Name EC2-CreateVpnGateway -Value New-EC2VpnGateway
+Set-Alias -Name Delete-EC2CapacityManagerDataExport -Value Remove-EC2CapacityManagerDataExport
+Set-Alias -Name EC2-DeleteCapacityManagerDataExport -Value Remove-EC2CapacityManagerDataExport
 Set-Alias -Name Delete-EC2CarrierGateway -Value Remove-EC2CarrierGateway
 Set-Alias -Name EC2-DeleteCarrierGateway -Value Remove-EC2CarrierGateway
 Set-Alias -Name Delete-EC2ClientVpnEndpoint -Value Remove-EC2ClientVpnEndpoint
@@ -10530,6 +10534,9 @@ Set-Alias -Name Describe-EC2CapacityBlock -Value Get-EC2CapacityBlock
 Set-Alias -Name EC2-DescribeCapacityBlocks -Value Get-EC2CapacityBlock
 Set-Alias -Name Describe-EC2CapacityBlockStatus -Value Get-EC2CapacityBlockStatus
 Set-Alias -Name EC2-DescribeCapacityBlockStatus -Value Get-EC2CapacityBlockStatus
+Set-Alias -Name Describe-EC2CapacityManagerDataExports -Value Get-EC2CapacityManagerDataExport
+Set-Alias -Name Describe-EC2CapacityManagerDataExport -Value Get-EC2CapacityManagerDataExport
+Set-Alias -Name EC2-DescribeCapacityManagerDataExports -Value Get-EC2CapacityManagerDataExport
 Set-Alias -Name Describe-EC2CapacityReservationBillingRequests -Value Get-EC2CapacityReservationBillingRequest
 Set-Alias -Name Describe-EC2CapacityReservationBillingRequest -Value Get-EC2CapacityReservationBillingRequest
 Set-Alias -Name EC2-DescribeCapacityReservationBillingRequests -Value Get-EC2CapacityReservationBillingRequest
@@ -10994,6 +11001,7 @@ Set-Alias -Name EC2-DisableAddressTransfer -Value Disable-EC2AddressTransfer
 Set-Alias -Name Disable-EC2AllowedImagesSettings -Value Disable-EC2AllowedImagesSetting
 Set-Alias -Name EC2-DisableAllowedImagesSettings -Value Disable-EC2AllowedImagesSetting
 Set-Alias -Name EC2-DisableAwsNetworkPerformanceMetricSubscription -Value Disable-EC2AwsNetworkPerformanceMetricSubscription
+Set-Alias -Name EC2-DisableCapacityManager -Value Disable-EC2CapacityManager
 Set-Alias -Name EC2-DisableEbsEncryptionByDefault -Value Disable-EC2EbsEncryptionByDefault
 Set-Alias -Name EC2-DisableFastLaunch -Value Disable-EC2FastLaunch
 Set-Alias -Name Disable-EC2FastSnapshotRestores -Value Disable-EC2FastSnapshotRestore
@@ -11050,6 +11058,7 @@ Set-Alias -Name EC2-EnableAddressTransfer -Value Enable-EC2AddressTransfer
 Set-Alias -Name Enable-EC2AllowedImagesSettings -Value Enable-EC2AllowedImagesSetting
 Set-Alias -Name EC2-EnableAllowedImagesSettings -Value Enable-EC2AllowedImagesSetting
 Set-Alias -Name EC2-EnableAwsNetworkPerformanceMetricSubscription -Value Enable-EC2AwsNetworkPerformanceMetricSubscription
+Set-Alias -Name EC2-EnableCapacityManager -Value Enable-EC2CapacityManager
 Set-Alias -Name EC2-EnableEbsEncryptionByDefault -Value Enable-EC2EbsEncryptionByDefault
 Set-Alias -Name EC2-EnableFastLaunch -Value Enable-EC2FastLaunch
 Set-Alias -Name Enable-EC2FastSnapshotRestores -Value Enable-EC2FastSnapshotRestore
@@ -11082,6 +11091,11 @@ Set-Alias -Name EC2-GetAssociatedEnclaveCertificateIamRoles -Value Get-EC2Associ
 Set-Alias -Name Get-EC2AssociatedIpv6PoolCidrs -Value Get-EC2AssociatedIpv6PoolCidr
 Set-Alias -Name EC2-GetAssociatedIpv6PoolCidrs -Value Get-EC2AssociatedIpv6PoolCidr
 Set-Alias -Name EC2-GetAwsNetworkPerformanceData -Value Get-EC2AwsNetworkPerformanceData
+Set-Alias -Name Get-EC2CapacityManagerAttributes -Value Get-EC2CapacityManagerAttribute
+Set-Alias -Name EC2-GetCapacityManagerAttributes -Value Get-EC2CapacityManagerAttribute
+Set-Alias -Name EC2-GetCapacityManagerMetricData -Value Get-EC2CapacityManagerMetricData
+Set-Alias -Name Get-EC2CapacityManagerMetricDimensions -Value Get-EC2CapacityManagerMetricDimension
+Set-Alias -Name EC2-GetCapacityManagerMetricDimensions -Value Get-EC2CapacityManagerMetricDimension
 Set-Alias -Name EC2-GetCapacityReservationUsage -Value Get-EC2CapacityReservationUsage
 Set-Alias -Name EC2-GetCoipPoolUsage -Value Get-EC2CoipPoolUsage
 Set-Alias -Name EC2-GetConsoleOutput -Value Get-EC2ConsoleOutput
@@ -11464,6 +11478,7 @@ Set-Alias -Name EC2-UnlockSnapshot -Value Unlock-EC2Snapshot
 Set-Alias -Name Unmonitor-EC2Instances -Value Stop-EC2InstanceMonitoring
 Set-Alias -Name Unmonitor-EC2InstanceMonitoring -Value Stop-EC2InstanceMonitoring
 Set-Alias -Name EC2-UnmonitorInstances -Value Stop-EC2InstanceMonitoring
+Set-Alias -Name EC2-UpdateCapacityManagerOrganizationsAccess -Value Update-EC2CapacityManagerOrganizationsAccess
 Set-Alias -Name Update-EC2SecurityGroupRuleDescriptionsEgress -Value Update-EC2SecurityGroupRuleEgressDescription
 Set-Alias -Name EC2-UpdateSecurityGroupRuleDescriptionsEgress -Value Update-EC2SecurityGroupRuleEgressDescription
 Set-Alias -Name Update-EC2SecurityGroupRuleDescriptionsIngress -Value Update-EC2SecurityGroupRuleIngressDescription

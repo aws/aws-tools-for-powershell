@@ -74,6 +74,20 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public System.Boolean? IncludeConnectedResource { get; set; }
         #endregion
         
+        #region Parameter IncludeCor
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean value that indicates whether to include Lightsail bucket CORS configuration
+        /// in the response. For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/configure-cors.html">Configuring
+        /// cross-origin resource sharing (CORS)</a>.</para><note><para>This parameter is only supported when getting a single bucket with <c>bucketName</c>
+        /// specified. The default value for this parameter is <c>False</c>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeCors")]
+        public System.Boolean? IncludeCor { get; set; }
+        #endregion
+        
         #region Parameter PageToken
         /// <summary>
         /// <para>
@@ -149,6 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BucketName = this.BucketName;
             context.IncludeConnectedResource = this.IncludeConnectedResource;
+            context.IncludeCor = this.IncludeCor;
             context.PageToken = this.PageToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -177,6 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (cmdletContext.IncludeConnectedResource != null)
             {
                 request.IncludeConnectedResources = cmdletContext.IncludeConnectedResource.Value;
+            }
+            if (cmdletContext.IncludeCor != null)
+            {
+                request.IncludeCors = cmdletContext.IncludeCor.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -265,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         {
             public System.String BucketName { get; set; }
             public System.Boolean? IncludeConnectedResource { get; set; }
+            public System.Boolean? IncludeCor { get; set; }
             public System.String PageToken { get; set; }
             public System.Func<Amazon.Lightsail.Model.GetBucketsResponse, GetLSBucketCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Buckets;

@@ -101,7 +101,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAutomatedReasoningPolicy" Verb="Remove" Noun="AutomatedReasoningPolicy" ShouldProcessTarget="PolicyArn" PipelineParameter="PolicyArn" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Force" NewName="ForceDelete" AutoApplyAlias="false" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAutomatedReasoningPolicyBuildWorkflow" Verb="Remove" Noun="AutomatedReasoningPolicyBuildWorkflow" ShouldProcessTarget="BuildWorkflowId" PipelineParameter="PolicyArn" NoPipelineParameter="false">

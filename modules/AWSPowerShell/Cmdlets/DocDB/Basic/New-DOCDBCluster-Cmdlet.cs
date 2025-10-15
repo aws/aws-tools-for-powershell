@@ -260,6 +260,19 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         public System.Double? ServerlessV2ScalingConfiguration_MinCapacity { get; set; }
         #endregion
         
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The network type of the cluster.</para><para>The network type is determined by the <c>DBSubnetGroup</c> specified for the cluster.
+        /// A <c>DBSubnetGroup</c> can support only the IPv4 protocol or the IPv4 and the IPv6
+        /// protocols (<c>DUAL</c>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/vpc-clusters.html">DocumentDB
+        /// clusters in a VPC</a> in the Amazon DocumentDB Developer Guide.</para><para>Valid Values: <c>IPV4</c> | <c>DUAL</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NetworkType { get; set; }
+        #endregion
+        
         #region Parameter Port
         /// <summary>
         /// <para>
@@ -330,7 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The storage type to associate with the DB cluster.</para><para>For information on storage types for Amazon DocumentDB clusters, see Cluster storage
-        /// configurations in the <i>Amazon DocumentDB Developer Guide</i>.</para><para>Valid values for storage type - <c>standard | iopt1</c></para><para>Default value is <c>standard </c></para><note><para>When you create a DocumentDB DB cluster with the storage type set to <c>iopt1</c>,
+        /// configurations in the <i>Amazon DocumentDB Developer Guide</i>.</para><para>Valid values for storage type - <c>standard | iopt1</c></para><para>Default value is <c>standard </c></para><note><para>When you create an Amazon DocumentDB cluster with the storage type set to <c>iopt1</c>,
         /// the storage type is returned in the response. The storage type isn't returned when
         /// you set it to <c>standard</c>.</para></note>
         /// </para>
@@ -457,6 +470,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             context.MasterUsername = this.MasterUsername;
             context.MasterUserPassword = this.MasterUserPassword;
             context.MasterUserSecretKmsKeyId = this.MasterUserSecretKmsKeyId;
+            context.NetworkType = this.NetworkType;
             context.Port = this.Port;
             context.PreferredBackupWindow = this.PreferredBackupWindow;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
@@ -552,6 +566,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             if (cmdletContext.MasterUserSecretKmsKeyId != null)
             {
                 request.MasterUserSecretKmsKeyId = cmdletContext.MasterUserSecretKmsKeyId;
+            }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
             }
             if (cmdletContext.Port != null)
             {
@@ -691,6 +709,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             public System.String MasterUsername { get; set; }
             public System.String MasterUserPassword { get; set; }
             public System.String MasterUserSecretKmsKeyId { get; set; }
+            public System.String NetworkType { get; set; }
             public System.Int32? Port { get; set; }
             public System.String PreferredBackupWindow { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }

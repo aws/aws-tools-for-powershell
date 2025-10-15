@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
     public partial class UpdateGDFindingFeedbackCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Comment

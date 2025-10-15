@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// <summary>
     /// Creates a Lightsail load balancer. To learn more about deciding whether to load balance
     /// your application, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/configure-lightsail-instances-for-load-balancing">Configure
-    /// your Lightsail instances for load balancing</a>. You can create up to 5 load balancers
+    /// your Lightsail instances for load balancing</a>. You can create up to 10 load balancers
     /// per AWS Region in your account.
     /// 
     ///  

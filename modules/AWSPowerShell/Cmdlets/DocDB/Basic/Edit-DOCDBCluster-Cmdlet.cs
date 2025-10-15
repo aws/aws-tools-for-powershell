@@ -47,9 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter AllowMajorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether major version upgrades are allowed.</para><para>Constraints: You must allow major version upgrades when specifying a value for the
-        /// <c>EngineVersion</c> parameter that is a different major version than the DB cluster's
-        /// current version.</para>
+        /// <para>A value that indicates whether major version upgrades are allowed.</para><para>Constraints:</para><ul><li><para>You must allow major version upgrades when specifying a value for the <c>EngineVersion</c>
+        /// parameter that is a different major version than the cluster's current version.</para></li><li><para>Since some parameters are version specific, changing them requires executing a new
+        /// <c>ModifyDBCluster</c> API call after the in-place MVU completes.</para></li></ul><note><para>Performing an MVU directly impacts the following parameters:</para><ul><li><para><c>MasterUserPassword</c></para></li><li><para><c>NewDBClusterIdentifier</c></para></li><li><para><c>VpcSecurityGroupIds</c></para></li><li><para><c>Port</c></para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -232,6 +232,19 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         public System.Double? ServerlessV2ScalingConfiguration_MinCapacity { get; set; }
         #endregion
         
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The network type of the cluster.</para><para>The network type is determined by the <c>DBSubnetGroup</c> specified for the cluster.
+        /// A <c>DBSubnetGroup</c> can support only the IPv4 protocol or the IPv4 and the IPv6
+        /// protocols (<c>DUAL</c>).</para><para>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/vpc-clusters.html">DocumentDB
+        /// clusters in a VPC</a> in the Amazon DocumentDB Developer Guide.</para><para>Valid Values: <c>IPV4</c> | <c>DUAL</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NetworkType { get; set; }
+        #endregion
+        
         #region Parameter NewDBClusterIdentifier
         /// <summary>
         /// <para>
@@ -399,6 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             context.ManageMasterUserPassword = this.ManageMasterUserPassword;
             context.MasterUserPassword = this.MasterUserPassword;
             context.MasterUserSecretKmsKeyId = this.MasterUserSecretKmsKeyId;
+            context.NetworkType = this.NetworkType;
             context.NewDBClusterIdentifier = this.NewDBClusterIdentifier;
             context.Port = this.Port;
             context.PreferredBackupWindow = this.PreferredBackupWindow;
@@ -495,6 +509,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             if (cmdletContext.MasterUserSecretKmsKeyId != null)
             {
                 request.MasterUserSecretKmsKeyId = cmdletContext.MasterUserSecretKmsKeyId;
+            }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
             }
             if (cmdletContext.NewDBClusterIdentifier != null)
             {
@@ -626,6 +644,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             public System.Boolean? ManageMasterUserPassword { get; set; }
             public System.String MasterUserPassword { get; set; }
             public System.String MasterUserSecretKmsKeyId { get; set; }
+            public System.String NetworkType { get; set; }
             public System.String NewDBClusterIdentifier { get; set; }
             public System.Int32? Port { get; set; }
             public System.String PreferredBackupWindow { get; set; }
