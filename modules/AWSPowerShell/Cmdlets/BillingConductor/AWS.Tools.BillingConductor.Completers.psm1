@@ -87,6 +87,13 @@ $ABC_Completers = {
             break
         }
 
+        # Amazon.BillingConductor.ComputationRuleEnum
+        "New-ABCCustomLineItem/ComputationRule"
+        {
+            $v = "CONSOLIDATED"
+            break
+        }
+
         # Amazon.BillingConductor.CustomLineItemRelationship
         "Get-ABCResourcesAssociatedToCustomLineItemList/Filters_Relationship"
         {
@@ -128,6 +135,7 @@ $ABC_Completers = {
 
 $ABC_map = @{
     "ChargeDetails_Type"=@("New-ABCCustomLineItem")
+    "ComputationRule"=@("New-ABCCustomLineItem")
     "Filters_Relationship"=@("Get-ABCResourcesAssociatedToCustomLineItemList")
     "Scope"=@("New-ABCPricingRule")
     "Status"=@("Update-ABCBillingGroup")

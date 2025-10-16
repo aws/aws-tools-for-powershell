@@ -31,7 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.ABC
 {
     /// <summary>
     /// Retrieves the margin summary report, which includes the Amazon Web Services cost and
-    /// charged amount (pro forma cost) by Amazon Web Service for a specific billing group.
+    /// charged amount (pro forma cost) by Amazon Web Services service for a specific billing
+    /// group.
     /// </summary>
     [Cmdlet("Get", "ABCBillingGroupCostReport")]
     [OutputType("Amazon.BillingConductor.Model.BillingGroupCostReportResultElement")]
@@ -81,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         /// <para>
         /// <para>A list of strings that specify the attributes that are used to break down costs in
         /// the margin summary reports for the billing group. For example, you can view your costs
-        /// by the Amazon Web Service name or the billing period.</para><para />
+        /// by the Amazon Web Services service name or the billing period.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

@@ -1,4 +1,172 @@
-﻿### 5.0.77 (2025-10-15 20:09Z)
+﻿### 5.0.78 (2025-10-16 21:26Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.114.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppStream
+    * Added cmdlet Add-APSSoftwareToImageBuilder leveraging the AssociateSoftwareToImageBuilder service API.
+    * Added cmdlet Get-APSAppLicenseUsage leveraging the DescribeAppLicenseUsage service API.
+    * Added cmdlet Get-APSSoftwareAssociation leveraging the DescribeSoftwareAssociations service API.
+    * Added cmdlet Remove-APSSoftwareFromImageBuilder leveraging the DisassociateSoftwareFromImageBuilder service API.
+    * Added cmdlet Start-APSSoftwareDeploymentToImageBuilder leveraging the StartSoftwareDeploymentToImageBuilder service API.
+    * Modified cmdlet New-APSImageBuilder: added parameters SoftwaresToInstall and SoftwaresToUninstall.
+  * Amazon AWSBillingConductor
+    * Modified cmdlet New-ABCCustomLineItem: added parameters ComputationRule and PresentationDetails_Service.
+  * Amazon Backup
+    * Modified cmdlet Get-BAKBackupPlan: added parameter MaxScheduledRunsPreview.
+  * Amazon Bedrock
+    * Modified cmdlet New-BDRAutomatedReasoningPolicy: added parameter KmsKeyId.
+    * Modified cmdlet Remove-BDRAutomatedReasoningPolicy: added parameter ForceDelete.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Added cmdlet Sync-BACCGatewayTarget leveraging the SynchronizeGatewayTargets service API.
+    * Modified cmdlet New-BACCAgentRuntime: added parameters LifecycleConfiguration_IdleRuntimeSessionTimeout and LifecycleConfiguration_MaxLifetime.
+    * Modified cmdlet New-BACCApiKeyCredentialProvider: added parameter Tag.
+    * Modified cmdlet New-BACCGatewayTarget: added parameter McpServer_Endpoint.
+    * Modified cmdlet New-BACCMemory: added parameter Tag.
+    * Modified cmdlet New-BACCOauth2CredentialProvider: added parameters AtlassianOauth2ProviderConfig_ClientId, AtlassianOauth2ProviderConfig_ClientSecret, AuthorizationServerMetadata_TokenEndpointAuthMethod, IncludedOauth2ProviderConfig_AuthorizationEndpoint, IncludedOauth2ProviderConfig_ClientId, IncludedOauth2ProviderConfig_ClientSecret, IncludedOauth2ProviderConfig_Issuer, IncludedOauth2ProviderConfig_TokenEndpoint, LinkedinOauth2ProviderConfig_ClientId, LinkedinOauth2ProviderConfig_ClientSecret, MicrosoftOauth2ProviderConfig_TenantId and Tag.
+    * Modified cmdlet New-BACCWorkloadIdentity: added parameter Tag.
+    * Modified cmdlet Update-BACCAgentRuntime: added parameters LifecycleConfiguration_IdleRuntimeSessionTimeout and LifecycleConfiguration_MaxLifetime.
+    * Modified cmdlet Update-BACCGatewayTarget: added parameter McpServer_Endpoint.
+    * Modified cmdlet Update-BACCOauth2CredentialProvider: added parameters AtlassianOauth2ProviderConfig_ClientId, AtlassianOauth2ProviderConfig_ClientSecret, AuthorizationServerMetadata_TokenEndpointAuthMethod, IncludedOauth2ProviderConfig_AuthorizationEndpoint, IncludedOauth2ProviderConfig_ClientId, IncludedOauth2ProviderConfig_ClientSecret, IncludedOauth2ProviderConfig_Issuer, IncludedOauth2ProviderConfig_TokenEndpoint, LinkedinOauth2ProviderConfig_ClientId, LinkedinOauth2ProviderConfig_ClientSecret and MicrosoftOauth2ProviderConfig_TenantId.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Added cmdlet Complete-BACResourceTokenAuth leveraging the CompleteResourceTokenAuth service API.
+    * Added cmdlet Get-BACAgentCard leveraging the GetAgentCard service API.
+    * Added cmdlet New-BACBatchMemoryRecord leveraging the BatchCreateMemoryRecords service API.
+    * Added cmdlet Remove-BACBatchMemoryRecord leveraging the BatchDeleteMemoryRecords service API.
+    * Added cmdlet Stop-BACRuntimeSession leveraging the StopRuntimeSession service API.
+    * Added cmdlet Update-BACBatchMemoryRecord leveraging the BatchUpdateMemoryRecords service API.
+    * Modified cmdlet Get-BACEventList: added parameter Filter_EventMetadata.
+    * Modified cmdlet Get-BACResourceOauth2Token: added parameters CustomState and SessionUri.
+    * Modified cmdlet Invoke-BACAgentRuntime: added parameter AccountId.
+    * Modified cmdlet Invoke-BACCodeInterpreter: added parameters TraceId and TraceParent.
+    * Modified cmdlet New-BACEvent: added parameter Metadata.
+    * Modified cmdlet Start-BACBrowserSession: added parameters TraceId and TraceParent.
+    * Modified cmdlet Start-BACCodeInterpreterSession: added parameters TraceId and TraceParent.
+    * Modified cmdlet Stop-BACBrowserSession: added parameters TraceId and TraceParent.
+    * Modified cmdlet Stop-BACCodeInterpreterSession: added parameters TraceId and TraceParent.
+  * Amazon Chime SDK Meetings
+    * Modified cmdlet New-CHMTGMeeting: added parameter MediaPlacementNetworkType.
+    * Modified cmdlet New-CHMTGMeetingWithAttendee: added parameter MediaPlacementNetworkType.
+  * Amazon Clean Rooms Service
+    * Modified cmdlet Get-CRSCollaborationPrivacyBudgetList: added parameter AccessBudgetResourceArn.
+    * Modified cmdlet Get-CRSPrivacyBudgetList: added parameter AccessBudgetResourceArn.
+    * Modified cmdlet New-CRSCollaboration: added parameter AllowedResultRegion.
+    * Modified cmdlet New-CRSConfiguredTable: added parameters Athena_Region and Glue_Region.
+    * Modified cmdlet New-CRSPrivacyBudgetTemplate: added parameters AccessBudget_BudgetParameter and AccessBudget_ResourceArn.
+    * Modified cmdlet Update-CRSConfiguredTable: added parameters Athena_Region and Glue_Region.
+    * Modified cmdlet Update-CRSPrivacyBudgetTemplate: added parameter AccessBudget_BudgetParameter.
+  * Amazon CloudWatch Observability Admin Service
+    * Added cmdlet Get-CWOADMNTelemetryEnrichmentStatus leveraging the GetTelemetryEnrichmentStatus service API.
+    * Added cmdlet Start-CWOADMNTelemetryEnrichment leveraging the StartTelemetryEnrichment service API.
+    * Added cmdlet Stop-CWOADMNTelemetryEnrichment leveraging the StopTelemetryEnrichment service API.
+  * Amazon CloudWatch Synthetics
+    * Modified cmdlet New-CWSYNCanary: added parameter Code_BlueprintType.
+    * Modified cmdlet Start-CWSYNCanaryDryRun: added parameter Code_BlueprintType.
+    * Modified cmdlet Update-CWSYNCanary: added parameter Code_BlueprintType.
+  * Amazon Connect Cases
+    * Added cmdlet Search-CCASAllRelatedItem leveraging the SearchAllRelatedItems service API.
+  * Amazon DataZone
+    * Modified cmdlet Get-DZConnectionList: added parameter Scope.
+    * Modified cmdlet New-DZConnection: added parameters AmazonQProperties_AuthMode, AmazonQProperties_IsEnabled, AmazonQProperties_ProfileArn, EnableTrustedIdentityPropagation and Scope.
+    * Modified cmdlet Update-DZConnection: added parameters AmazonQProperties_AuthMode, AmazonQProperties_IsEnabled and AmazonQProperties_ProfileArn.
+  * Amazon DocumentDB (with MongoDB compatibility)
+    * Modified cmdlet Edit-DOCDBCluster: added parameter NetworkType.
+    * Modified cmdlet New-DOCDBCluster: added parameter NetworkType.
+    * Modified cmdlet Restore-DOCDBClusterFromSnapshot: added parameter NetworkType.
+    * Modified cmdlet Restore-DOCDBClusterToPointInTime: added parameter NetworkType.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Copy-EC2Volume leveraging the CopyVolumes service API.
+    * Added cmdlet Disable-EC2CapacityManager leveraging the DisableCapacityManager service API.
+    * Added cmdlet Enable-EC2CapacityManager leveraging the EnableCapacityManager service API.
+    * Added cmdlet Get-EC2CapacityManagerAttribute leveraging the GetCapacityManagerAttributes service API.
+    * Added cmdlet Get-EC2CapacityManagerDataExport leveraging the DescribeCapacityManagerDataExports service API.
+    * Added cmdlet Get-EC2CapacityManagerMetricData leveraging the GetCapacityManagerMetricData service API.
+    * Added cmdlet Get-EC2CapacityManagerMetricDimension leveraging the GetCapacityManagerMetricDimensions service API.
+    * Added cmdlet New-EC2CapacityManagerDataExport leveraging the CreateCapacityManagerDataExport service API.
+    * Added cmdlet Remove-EC2CapacityManagerDataExport leveraging the DeleteCapacityManagerDataExport service API.
+    * Added cmdlet Update-EC2CapacityManagerOrganizationsAccess leveraging the UpdateCapacityManagerOrganizationsAccess service API.
+  * Amazon Elastic Load Balancing V2
+    * Modified cmdlet Edit-ELB2Rule: added parameters ResetTransform and Transform.
+    * Modified cmdlet New-ELB2Rule: added parameter Transform.
+  * Amazon Elemental MediaConnect
+    * Modified cmdlet New-EMCNFlow: added parameter FlowTag.
+    * Modified cmdlet Update-EMCNFlow: added parameter FlowSize.
+  * Amazon Glue
+    * Modified cmdlet Get-GLUETable: added parameters AuditContext_AdditionalAuditContext, AuditContext_AllColumnsRequested and AuditContext_RequestedColumn.
+    * Modified cmdlet Get-GLUETableList: added parameters AuditContext_AdditionalAuditContext, AuditContext_AllColumnsRequested and AuditContext_RequestedColumn.
+  * Amazon Lambda
+    * Modified cmdlet Add-LMPermission: added parameter InvokedViaFunctionUrl.
+  * Amazon License Manager User Subscription
+    * Modified cmdlet Add-LMUSUser: added parameter ActiveDirectorySettings_DomainIpv6List.
+    * Modified cmdlet Get-LMUSProductSubscriptionList: added parameter ActiveDirectorySettings_DomainIpv6List.
+    * Modified cmdlet Get-LMUSUserAssociationList: added parameter ActiveDirectorySettings_DomainIpv6List.
+    * Modified cmdlet Register-LMUSIdentityProvider: added parameter ActiveDirectorySettings_DomainIpv6List.
+    * Modified cmdlet Remove-LMUSUser: added parameter ActiveDirectorySettings_DomainIpv6List.
+    * Modified cmdlet Start-LMUSProductSubscription: added parameter ActiveDirectorySettings_DomainIpv6List.
+    * Modified cmdlet Stop-LMUSProductSubscription: added parameter ActiveDirectorySettings_DomainIpv6List.
+    * Modified cmdlet Unregister-LMUSIdentityProvider: added parameter ActiveDirectorySettings_DomainIpv6List.
+    * Modified cmdlet Update-LMUSIdentityProviderSetting: added parameter ActiveDirectorySettings_DomainIpv6List.
+  * Amazon Lightsail
+    * Modified cmdlet Get-LSBucket: added parameter IncludeCor.
+    * Modified cmdlet Update-LSBucket: added parameter Cors_Rule.
+  * Amazon MemoryDB
+    * Added cmdlet Get-MDBMultiRegionParameter leveraging the DescribeMultiRegionParameters service API.
+    * Added cmdlet Get-MDBMultiRegionParameterGroup leveraging the DescribeMultiRegionParameterGroups service API.
+  * Amazon Oracle Database@Amazon Web Services
+    * Added cmdlet Update-ODBOdbPeeringConnection leveraging the UpdateOdbPeeringConnection service API.
+    * Modified cmdlet New-ODBOdbPeeringConnection: added parameter PeerNetworkCidrsToBeAdded.
+  * Amazon Outposts
+    * Added cmdlet Start-OUTPOutpostDecommission leveraging the StartOutpostDecommission service API.
+  * Amazon Parallel Computing Service
+    * Added cmdlet Update-PCSCluster leveraging the UpdateCluster service API.
+    * Modified cmdlet New-PCSQueue: added parameter SlurmConfiguration_SlurmCustomSetting.
+    * Modified cmdlet Update-PCSQueue: added parameter SlurmConfiguration_SlurmCustomSetting.
+  * Amazon Payment Cryptography Data
+    * Added cmdlet Convert-PAYCDKeyMaterial leveraging the TranslateKeyMaterial service API.
+  * Amazon Q Connect
+    * Modified cmdlet New-QCAIAgent: added parameters EmailGenerativeAnswerAIAgentConfiguration_AssociationConfiguration, EmailGenerativeAnswerAIAgentConfiguration_EmailGenerativeAnswerAIPromptId, EmailGenerativeAnswerAIAgentConfiguration_EmailQueryReformulationAIPromptId, EmailGenerativeAnswerAIAgentConfiguration_Locale, EmailOverviewAIAgentConfiguration_EmailOverviewAIPromptId, EmailOverviewAIAgentConfiguration_Locale, EmailResponseAIAgentConfiguration_AssociationConfiguration, EmailResponseAIAgentConfiguration_EmailQueryReformulationAIPromptId, EmailResponseAIAgentConfiguration_EmailResponseAIPromptId and EmailResponseAIAgentConfiguration_Locale.
+    * Modified cmdlet New-QCSession: added parameter ContactArn.
+    * Modified cmdlet Update-QCAIAgent: added parameters EmailGenerativeAnswerAIAgentConfiguration_AssociationConfiguration, EmailGenerativeAnswerAIAgentConfiguration_EmailGenerativeAnswerAIPromptId, EmailGenerativeAnswerAIAgentConfiguration_EmailQueryReformulationAIPromptId, EmailGenerativeAnswerAIAgentConfiguration_Locale, EmailOverviewAIAgentConfiguration_EmailOverviewAIPromptId, EmailOverviewAIAgentConfiguration_Locale, EmailResponseAIAgentConfiguration_AssociationConfiguration, EmailResponseAIAgentConfiguration_EmailQueryReformulationAIPromptId, EmailResponseAIAgentConfiguration_EmailResponseAIPromptId and EmailResponseAIAgentConfiguration_Locale.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSActionConnector leveraging the DescribeActionConnector service API.
+    * Added cmdlet Get-QSActionConnectorList leveraging the ListActionConnectors service API.
+    * Added cmdlet Get-QSActionConnectorPermission leveraging the DescribeActionConnectorPermissions service API.
+    * Added cmdlet Get-QSFlowList leveraging the ListFlows service API.
+    * Added cmdlet Get-QSFlowMetadata leveraging the GetFlowMetadata service API.
+    * Added cmdlet Get-QSFlowPermission leveraging the GetFlowPermissions service API.
+    * Added cmdlet New-QSActionConnector leveraging the CreateActionConnector service API.
+    * Added cmdlet Remove-QSActionConnector leveraging the DeleteActionConnector service API.
+    * Added cmdlet Search-QSActionConnector leveraging the SearchActionConnectors service API.
+    * Added cmdlet Search-QSFlow leveraging the SearchFlows service API.
+    * Added cmdlet Update-QSActionConnector leveraging the UpdateActionConnector service API.
+    * Added cmdlet Update-QSActionConnectorPermission leveraging the UpdateActionConnectorPermissions service API.
+    * Added cmdlet Update-QSFlowPermission leveraging the UpdateFlowPermissions service API.
+    * Modified cmdlet New-QSBrand: added parameters Automation_Background, Automation_Foreground, Connection_Background, Connection_Foreground, Insight_Background, Insight_Foreground, Visualization_Background and Visualization_Foreground.
+    * Modified cmdlet New-QSCustomPermission: added parameters Capabilities_Action, Capabilities_Automate, Capabilities_ChatAgent, Capabilities_CreateChatAgent, Capabilities_Flow, Capabilities_KnowledgeBase, Capabilities_PerformFlowUiTask, Capabilities_PublishWithoutApproval, Capabilities_Research, Capabilities_Space, Capabilities_UseAgentWebSearch and Capabilities_UseBedrockModel.
+    * Modified cmdlet New-QSDashboard: added parameter QuickSuiteActionsOption_AvailabilityStatus.
+    * Modified cmdlet New-QSDataSource: added parameters ConfluenceParameters_ConfluenceUrl, QBusinessParameters_ApplicationArn, S3KnowledgeBaseParameters_BucketUrl, S3KnowledgeBaseParameters_MetadataFilesLocation, S3KnowledgeBaseParameters_RoleArn, WebCrawlerParameters_LoginPageUrl, WebCrawlerParameters_PasswordButtonXpath, WebCrawlerParameters_PasswordFieldXpath, WebCrawlerParameters_UsernameButtonXpath, WebCrawlerParameters_UsernameFieldXpath, WebCrawlerParameters_WebCrawlerAuthType, WebCrawlerParameters_WebProxyHostName, WebCrawlerParameters_WebProxyPortNumber, WebProxyCredentials_WebProxyPassword and WebProxyCredentials_WebProxyUsername.
+    * Modified cmdlet Update-QSBrand: added parameters Automation_Background, Automation_Foreground, Connection_Background, Connection_Foreground, Insight_Background, Insight_Foreground, Visualization_Background and Visualization_Foreground.
+    * Modified cmdlet Update-QSCustomPermission: added parameters Capabilities_Action, Capabilities_Automate, Capabilities_ChatAgent, Capabilities_CreateChatAgent, Capabilities_Flow, Capabilities_KnowledgeBase, Capabilities_PerformFlowUiTask, Capabilities_PublishWithoutApproval, Capabilities_Research, Capabilities_Space, Capabilities_UseAgentWebSearch and Capabilities_UseBedrockModel.
+    * Modified cmdlet Update-QSDashboard: added parameter QuickSuiteActionsOption_AvailabilityStatus.
+    * Modified cmdlet Update-QSDataSource: added parameters ConfluenceParameters_ConfluenceUrl, QBusinessParameters_ApplicationArn, S3KnowledgeBaseParameters_BucketUrl, S3KnowledgeBaseParameters_MetadataFilesLocation, S3KnowledgeBaseParameters_RoleArn, WebCrawlerParameters_LoginPageUrl, WebCrawlerParameters_PasswordButtonXpath, WebCrawlerParameters_PasswordFieldXpath, WebCrawlerParameters_UsernameButtonXpath, WebCrawlerParameters_UsernameFieldXpath, WebCrawlerParameters_WebCrawlerAuthType, WebCrawlerParameters_WebProxyHostName, WebCrawlerParameters_WebProxyPortNumber, WebProxyCredentials_WebProxyPassword and WebProxyCredentials_WebProxyUsername.
+  * Amazon Resource Explorer
+    * Added cmdlet Get-AREXResourceExplorerSetup leveraging the GetResourceExplorerSetup service API.
+    * Added cmdlet Get-AREXServiceIndex leveraging the GetServiceIndex service API.
+    * Added cmdlet Get-AREXServiceIndexList leveraging the ListServiceIndexes service API.
+    * Added cmdlet Get-AREXServiceView leveraging the GetServiceView service API.
+    * Added cmdlet Get-AREXServiceViewList leveraging the ListServiceViews service API.
+    * Added cmdlet Get-AREXStreamingAccessForServiceList leveraging the ListStreamingAccessForServices service API.
+    * Added cmdlet New-AREXResourceExplorerSetup leveraging the CreateResourceExplorerSetup service API.
+    * Added cmdlet Remove-AREXResourceExplorerSetup leveraging the DeleteResourceExplorerSetup service API.
+  * Amazon Service Quotas
+    * Added cmdlet Get-SQAutoManagementConfiguration leveraging the GetAutoManagementConfiguration service API.
+    * Added cmdlet Start-SQAutoManagement leveraging the StartAutoManagement service API.
+    * Added cmdlet Stop-SQAutoManagement leveraging the StopAutoManagement service API.
+    * Added cmdlet Update-SQAutoManagement leveraging the UpdateAutoManagement service API.
+  * Amazon Timestream InfluxDB
+    * Modified cmdlet New-TIDBDbParameterGroup: added parameters CatalogSyncInterval_DurationType, CatalogSyncInterval_Value, CompactionCheckInterval_DurationType, CompactionCheckInterval_Value, CompactionCleanupWait_DurationType, CompactionCleanupWait_Value, CompactionGen2Duration_DurationType, CompactionGen2Duration_Value, InfluxDBv3Core_DataFusionConfig, InfluxDBv3Core_DataFusionMaxParquetFanout, InfluxDBv3Core_DataFusionNumThread, InfluxDBv3Core_DataFusionRuntimeDisableLifoSlot, InfluxDBv3Core_DataFusionRuntimeEventInterval, InfluxDBv3Core_DataFusionRuntimeGlobalQueueInterval, InfluxDBv3Core_DataFusionRuntimeMaxBlockingThread, InfluxDBv3Core_DataFusionRuntimeMaxIoEventsPerTick, InfluxDBv3Core_DataFusionRuntimeThreadKeepAlive_DurationType, InfluxDBv3Core_DataFusionRuntimeThreadKeepAlive_Value, InfluxDBv3Core_DataFusionRuntimeThreadPriority, InfluxDBv3Core_DataFusionRuntimeType, InfluxDBv3Core_DataFusionUseCachedParquetLoader, InfluxDBv3Core_DeleteGracePeriod_DurationType, InfluxDBv3Core_DeleteGracePeriod_Value, InfluxDBv3Core_DisableParquetMemCache, InfluxDBv3Core_DistinctCacheEvictionInterval_DurationType, InfluxDBv3Core_DistinctCacheEvictionInterval_Value, InfluxDBv3Core_ExecMemPoolBytes_Absolute, InfluxDBv3Core_ExecMemPoolBytes_Percent, InfluxDBv3Core_ForceSnapshotMemThreshold_Absolute, InfluxDBv3Core_ForceSnapshotMemThreshold_Percent, InfluxDBv3Core_Gen1Duration_DurationType, InfluxDBv3Core_Gen1Duration_Value, InfluxDBv3Core_Gen1LookbackDuration_DurationType, InfluxDBv3Core_Gen1LookbackDuration_Value, InfluxDBv3Core_HardDeleteDefaultDuration_DurationType, InfluxDBv3Core_HardDeleteDefaultDuration_Value, InfluxDBv3Core_LastCacheEvictionInterval_DurationType, InfluxDBv3Core_LastCacheEvictionInterval_Value, InfluxDBv3Core_LogFilter, InfluxDBv3Core_LogFormat, InfluxDBv3Core_MaxHttpRequestSize, InfluxDBv3Core_ParquetMemCachePruneInterval_DurationType, InfluxDBv3Core_ParquetMemCachePruneInterval_Value, InfluxDBv3Core_ParquetMemCachePrunePercentage, InfluxDBv3Core_ParquetMemCacheQueryPathDuration_DurationType, InfluxDBv3Core_ParquetMemCacheQueryPathDuration_Value, InfluxDBv3Core_ParquetMemCacheSize_Absolute, InfluxDBv3Core_ParquetMemCacheSize_Percent, InfluxDBv3Core_PreemptiveCacheAge_DurationType, InfluxDBv3Core_PreemptiveCacheAge_Value, InfluxDBv3Core_QueryFileLimit, InfluxDBv3Core_QueryLogSize, InfluxDBv3Core_RetentionCheckInterval_DurationType, InfluxDBv3Core_RetentionCheckInterval_Value, InfluxDBv3Core_SnapshottedWalFilesToKeep, InfluxDBv3Core_TableIndexCacheConcurrencyLimit, InfluxDBv3Core_TableIndexCacheMaxEntry, InfluxDBv3Core_WalMaxWriteBufferSize, InfluxDBv3Core_WalReplayConcurrencyLimit, InfluxDBv3Core_WalReplayFailOnError, InfluxDBv3Core_WalSnapshotSize, InfluxDBv3Enterprise_CompactionMaxNumFilesPerPlan, InfluxDBv3Enterprise_CompactionMultiplier, InfluxDBv3Enterprise_CompactionRowLimit, InfluxDBv3Enterprise_DataFusionConfig, InfluxDBv3Enterprise_DataFusionMaxParquetFanout, InfluxDBv3Enterprise_DataFusionNumThread, InfluxDBv3Enterprise_DataFusionRuntimeDisableLifoSlot, InfluxDBv3Enterprise_DataFusionRuntimeEventInterval, InfluxDBv3Enterprise_DataFusionRuntimeGlobalQueueInterval, InfluxDBv3Enterprise_DataFusionRuntimeMaxBlockingThread, InfluxDBv3Enterprise_DataFusionRuntimeMaxIoEventsPerTick, InfluxDBv3Enterprise_DataFusionRuntimeThreadKeepAlive_DurationType, InfluxDBv3Enterprise_DataFusionRuntimeThreadKeepAlive_Value, InfluxDBv3Enterprise_DataFusionRuntimeThreadPriority, InfluxDBv3Enterprise_DataFusionRuntimeType, InfluxDBv3Enterprise_DataFusionUseCachedParquetLoader, InfluxDBv3Enterprise_DedicatedCompactor, InfluxDBv3Enterprise_DeleteGracePeriod_DurationType, InfluxDBv3Enterprise_DeleteGracePeriod_Value, InfluxDBv3Enterprise_DisableParquetMemCache, InfluxDBv3Enterprise_DistinctCacheEvictionInterval_DurationType, InfluxDBv3Enterprise_DistinctCacheEvictionInterval_Value, InfluxDBv3Enterprise_DistinctValueCacheDisableFromHistory, InfluxDBv3Enterprise_ExecMemPoolBytes_Absolute, InfluxDBv3Enterprise_ExecMemPoolBytes_Percent, InfluxDBv3Enterprise_ForceSnapshotMemThreshold_Absolute, InfluxDBv3Enterprise_ForceSnapshotMemThreshold_Percent, InfluxDBv3Enterprise_Gen1Duration_DurationType, InfluxDBv3Enterprise_Gen1Duration_Value, InfluxDBv3Enterprise_Gen1LookbackDuration_DurationType, InfluxDBv3Enterprise_Gen1LookbackDuration_Value, InfluxDBv3Enterprise_HardDeleteDefaultDuration_DurationType, InfluxDBv3Enterprise_HardDeleteDefaultDuration_Value, InfluxDBv3Enterprise_IngestQueryInstance, InfluxDBv3Enterprise_LastCacheEvictionInterval_DurationType, InfluxDBv3Enterprise_LastCacheEvictionInterval_Value, InfluxDBv3Enterprise_LastValueCacheDisableFromHistory, InfluxDBv3Enterprise_LogFilter, InfluxDBv3Enterprise_LogFormat, InfluxDBv3Enterprise_MaxHttpRequestSize, InfluxDBv3Enterprise_ParquetMemCachePruneInterval_DurationType, InfluxDBv3Enterprise_ParquetMemCachePruneInterval_Value, InfluxDBv3Enterprise_ParquetMemCachePrunePercentage, InfluxDBv3Enterprise_ParquetMemCacheQueryPathDuration_DurationType, InfluxDBv3Enterprise_ParquetMemCacheQueryPathDuration_Value, InfluxDBv3Enterprise_ParquetMemCacheSize_Absolute, InfluxDBv3Enterprise_ParquetMemCacheSize_Percent, InfluxDBv3Enterprise_PreemptiveCacheAge_DurationType, InfluxDBv3Enterprise_PreemptiveCacheAge_Value, InfluxDBv3Enterprise_QueryFileLimit, InfluxDBv3Enterprise_QueryLogSize, InfluxDBv3Enterprise_QueryOnlyInstance, InfluxDBv3Enterprise_RetentionCheckInterval_DurationType, InfluxDBv3Enterprise_RetentionCheckInterval_Value, InfluxDBv3Enterprise_SnapshottedWalFilesToKeep, InfluxDBv3Enterprise_TableIndexCacheConcurrencyLimit, InfluxDBv3Enterprise_TableIndexCacheMaxEntry, InfluxDBv3Enterprise_WalMaxWriteBufferSize, InfluxDBv3Enterprise_WalReplayConcurrencyLimit, InfluxDBv3Enterprise_WalReplayFailOnError, InfluxDBv3Enterprise_WalSnapshotSize, ReplicationInterval_DurationType and ReplicationInterval_Value.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet New-TFRConnector: added parameters VpcLattice_PortNumber and VpcLattice_ResourceConfigurationArn.
+    * Modified cmdlet Update-TFRConnector: added parameters VpcLattice_PortNumber and VpcLattice_ResourceConfigurationArn.
+
+### 5.0.77 (2025-10-15 20:09Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.113.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock
     * Modified cmdlet New-BDRAutomatedReasoningPolicy: added parameter KmsKeyId.
