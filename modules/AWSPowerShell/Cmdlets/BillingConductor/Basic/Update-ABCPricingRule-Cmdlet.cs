@@ -86,7 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter ModifierPercentage
         /// <summary>
         /// <para>
-        /// <para> The new modifier to show pricing plan rates as a percentage. </para>
+        /// <para> The new modifier to show pricing plan rates as a percentage. Your entry will be rounded
+        /// to the nearest 2 decimal places. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

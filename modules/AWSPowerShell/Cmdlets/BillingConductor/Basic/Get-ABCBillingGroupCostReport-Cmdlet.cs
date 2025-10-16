@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.ABC
 {
     /// <summary>
     /// Retrieves the margin summary report, which includes the Amazon Web Services cost and
-    /// charged amount (pro forma cost) by Amazon Web Service for a specific billing group.
+    /// charged amount (pro forma cost) by Amazon Web Services service for a specific billing
+    /// group.
     /// </summary>
     [Cmdlet("Get", "ABCBillingGroupCostReport")]
     [OutputType("Amazon.BillingConductor.Model.BillingGroupCostReportResultElement")]
@@ -78,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         /// <para>
         /// <para>A list of strings that specify the attributes that are used to break down costs in
         /// the margin summary reports for the billing group. For example, you can view your costs
-        /// by the Amazon Web Service name or the billing period.</para>
+        /// by the Amazon Web Services service name or the billing period.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

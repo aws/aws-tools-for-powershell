@@ -96,6 +96,17 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         public System.Double? Flat_ChargeValue { get; set; }
         #endregion
         
+        #region Parameter ComputationRule
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BillingConductor.ComputationRuleEnum")]
+        public Amazon.BillingConductor.ComputationRuleEnum ComputationRule { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -176,6 +187,16 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         public System.Double? Percentage_PercentageValue { get; set; }
         #endregion
         
+        #region Parameter PresentationDetails_Service
+        /// <summary>
+        /// <para>
+        /// <para>This defines the service of where the custom line item is presented</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PresentationDetails_Service { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -208,8 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para> The token that is needed to support idempotency. Idempotency isn't currently supported,
-        /// but will be implemented in a future update. </para>
+        /// <para>A unique, case-sensitive identifier that you specify to ensure idempotency of the
+        /// request. Idempotency ensures that an API request completes no more than one time.
+        /// With an idempotent request, if the original request completes successfully, any subsequent
+        /// retries complete successfully without performing any further actions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -306,6 +329,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             }
             #endif
             context.ClientToken = this.ClientToken;
+            context.ComputationRule = this.ComputationRule;
             context.Description = this.Description;
             #if MODULAR
             if (this.Description == null && ParameterWasBound(nameof(this.Description)))
@@ -320,6 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PresentationDetails_Service = this.PresentationDetails_Service;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -474,6 +499,10 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
+            if (cmdletContext.ComputationRule != null)
+            {
+                request.ComputationRule = cmdletContext.ComputationRule;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -481,6 +510,25 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate PresentationDetails
+            var requestPresentationDetailsIsNull = true;
+            request.PresentationDetails = new Amazon.BillingConductor.Model.PresentationObject();
+            System.String requestPresentationDetails_presentationDetails_Service = null;
+            if (cmdletContext.PresentationDetails_Service != null)
+            {
+                requestPresentationDetails_presentationDetails_Service = cmdletContext.PresentationDetails_Service;
+            }
+            if (requestPresentationDetails_presentationDetails_Service != null)
+            {
+                request.PresentationDetails.Service = requestPresentationDetails_presentationDetails_Service;
+                requestPresentationDetailsIsNull = false;
+            }
+             // determine if request.PresentationDetails should be set to null
+            if (requestPresentationDetailsIsNull)
+            {
+                request.PresentationDetails = null;
             }
             if (cmdletContext.Tag != null)
             {
@@ -557,8 +605,10 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             public System.Double? Percentage_PercentageValue { get; set; }
             public Amazon.BillingConductor.CustomLineItemType ChargeDetails_Type { get; set; }
             public System.String ClientToken { get; set; }
+            public Amazon.BillingConductor.ComputationRuleEnum ComputationRule { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
+            public System.String PresentationDetails_Service { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.BillingConductor.Model.CreateCustomLineItemResponse, NewABCCustomLineItemCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Arn;

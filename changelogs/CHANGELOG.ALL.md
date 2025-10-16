@@ -1,4 +1,9 @@
-﻿### 4.1.922 (2025-10-15 20:47Z)
+﻿### 4.1.923 (2025-10-16 21:28Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1146.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSBillingConductor
+    * Modified cmdlet New-ABCCustomLineItem: added parameters ComputationRule and PresentationDetails_Service.
+
+### 4.1.922 (2025-10-15 20:47Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1145.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock
     * Modified cmdlet New-BDRAutomatedReasoningPolicy: added parameter KmsKeyId.

@@ -79,7 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter ModifierPercentage
         /// <summary>
         /// <para>
-        /// <para> A percentage modifier that's applied on the public pricing rates. </para>
+        /// <para>A percentage modifier that's applied on the public pricing rates. Your entry will
+        /// be rounded to the nearest 2 decimal places.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,7 +178,11 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter UsageType
         /// <summary>
         /// <para>
-        /// Amazon.BillingConductor.Model.CreatePricingRuleRequest.UsageType
+        /// <para> Usage type is the unit that each service uses to measure the usage of a specific
+        /// type of resource.</para><para>If the <c>Scope</c> attribute is set to <c>SKU</c>, this attribute indicates which
+        /// usage type the <c>PricingRule</c> is modifying. For example, <c>USW2-BoxUsage:m2.2xlarge</c>
+        /// describes an<c> M2 High Memory Double Extra Large</c> instance in the US West (Oregon)
+        /// Region. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,8 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para> The token that's needed to support idempotency. Idempotency isn't currently supported,
-        /// but will be implemented in a future update. </para>
+        /// <para>A unique, case-sensitive identifier that you specify to ensure idempotency of the
+        /// request. Idempotency ensures that an API request completes no more than one time.
+        /// With an idempotent request, if the original request completes successfully, any subsequent
+        /// retries complete successfully without performing any further actions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
