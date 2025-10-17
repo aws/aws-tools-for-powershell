@@ -1,4 +1,7 @@
 <ConfigModelCollection>
+   <!-- Below are the global transformations for the operation names
+    Adding a MethodName here will transform the method name across all services.
+   -->
   <OperationNameMappings>
     <Map From="Tag" To="AddTag" />
     <Map From="NewTags" To="AddTag" />
@@ -8,21 +11,841 @@
     <Map From="TagResource" To="AddResourceTag" />
     <Map From="UntagResource" To="RemoveResourceTag" />
     <Map From="ListTagsForResource" To="GetResourceTag" />
+    <Map From="GetAccessPolicies" To="GetAccessPolicyCollection" />
   </OperationNameMappings>
+  <!-- Verb transformation patterns for special operation naming patterns -->
+  <VerbNounTransformationPatterns>
+    <Pattern Verb="Advertise" TargetVerb="Start" NounTransformation="{Noun}Advertisement" />
+    <Pattern Verb="Analyze" TargetVerb="Invoke" NounTransformation="{Noun}Analysis" />
+    <Pattern Verb="Archive" TargetVerb="Set" NounTransformation="{Noun}AsArchived" />
+    <Pattern Verb="Build" TargetVerb="Invoke" NounTransformation="{Noun}Build" />
+    <Pattern Verb="Bundle" TargetVerb="New" NounTransformation="{Noun}Bundle" />
+    <Pattern Verb="Checkout" TargetVerb="Invoke" NounTransformation="{Noun}Checkout" />
+    <Pattern Verb="Classify" TargetVerb="Invoke" NounTransformation="{Noun}Classification" />
+    <Pattern Verb="Count" TargetVerb="Get" NounTransformation="{Noun}Count" />
+    <Pattern Verb="Decrease" TargetVerb="Set" NounTransformation="{Noun}Decrease" />
+    <Pattern Verb="Define" TargetVerb="Set" NounTransformation="{Noun}Definition" />
+    <Pattern Verb="Describe" TargetVerb="Get" NounTransformation="{Noun}Detail" />
+    <Pattern Verb="Evaluate" TargetVerb="Get" NounTransformation="{Noun}Evaluation" />
+    <Pattern Verb="Extend" TargetVerb="Set" NounTransformation="{Noun}Extension" />
+    <Pattern Verb="Elect" TargetVerb="Invoke" NounTransformation="{Noun}Election" />
+    <Pattern Verb="Filter" TargetVerb="Get" NounTransformation="Filtered{Noun}" />
+    <Pattern Verb="Forecast" TargetVerb="Get" NounTransformation="{Noun}Forecast" />
+    <Pattern Verb="Increase" TargetVerb="Set" NounTransformation="{Noun}Increase" />
+    <Pattern Verb="Index" TargetVerb="Start" NounTransformation="{Noun}Index" />
+    <Pattern Verb="Invite" TargetVerb="Send" NounTransformation="{Noun}Invitation" />
+    <Pattern Verb="Label" TargetVerb="Set" NounTransformation="{Noun}Label" />
+    <Pattern Verb="List" TargetVerb="Get" NounTransformation="{Noun}List" />
+    <Pattern Verb="Logout" TargetVerb="Invoke" NounTransformation="{Noun}Logout" />
+    <Pattern Verb="Migrate" TargetVerb="Start" NounTransformation="{Noun}Migration" />
+    <Pattern Verb="Monitor" TargetVerb="Start" NounTransformation="{Noun}Monitoring" />
+    <Pattern Verb="Notify" TargetVerb="Send" NounTransformation="{Noun}Notification" />
+    <Pattern Verb="Optimize" TargetVerb="Get" NounTransformation="Optimized{Noun}" />
+    <Pattern Verb="Predict" TargetVerb="Get" NounTransformation="{Noun}Prediction" />
+    <Pattern Verb="Preview" TargetVerb="Get" NounTransformation="{Noun}Preview" />
+    <Pattern Verb="Purchase" TargetVerb="New" NounTransformation="{Noun}Purchase" />
+    <Pattern Verb="Rebalance" TargetVerb="Invoke" NounTransformation="{Noun}Rebalance" />
+    <Pattern Verb="Rebuild" TargetVerb="Start" NounTransformation="{Noun}Rebuild" />
+    <Pattern Verb="Recognize" TargetVerb="Start" NounTransformation="{Noun}Recognition" />
+    <Pattern Verb="Refresh" TargetVerb="Invoke" NounTransformation="{Noun}Refresh" />
+    <Pattern Verb="Reimport" TargetVerb="Invoke" NounTransformation="{Noun}Reimport" />
+    <Pattern Verb="Render" TargetVerb="Get" NounTransformation="{Noun}Rendering" />
+    <Pattern Verb="Renew" TargetVerb="Invoke" NounTransformation="{Noun}Renewal" />
+    <Pattern Verb="Reserve" TargetVerb="New" NounTransformation="{Noun}Reservation" />
+    <Pattern Verb="Respond" TargetVerb="Send" NounTransformation="{Noun}Response" />
+    <Pattern Verb="Return" TargetVerb="Invoke" NounTransformation="{Noun}Return" />
+    <Pattern Verb="Reverse" TargetVerb="Invoke" NounTransformation="Reverse{Noun}" />
+    <Pattern Verb="Reorder" TargetVerb="Set" NounTransformation="{Noun}Order" />
+    <Pattern Verb="Replicate" TargetVerb="New" NounTransformation="{Noun}Replica" />
+    <Pattern Verb="Resize" TargetVerb="Set" NounTransformation="{Noun}Size" />
+    <Pattern Verb="Rotate" TargetVerb="Invoke" NounTransformation="{Noun}Rotation" />
+    <Pattern Verb="Run" TargetVerb="Invoke" NounTransformation="{Noun}Run" />
+    <Pattern Verb="Signal" TargetVerb="Send" NounTransformation="{Noun}Signal" />
+    <Pattern Verb="Share" TargetVerb="Enable" NounTransformation="{Noun}Share" />
+    <Pattern Verb="Scan" TargetVerb="Invoke" NounTransformation="{Noun}Scan" />
+    <Pattern Verb="Stream" TargetVerb="Start" NounTransformation="{Noun}Stream" />
+    <Pattern Verb="Synthesize" TargetVerb="Invoke" NounTransformation="{Noun}Synthesis" />
+    <Pattern Verb="Tag" TargetVerb="Add" NounTransformation="{Noun}Tag" />
+    <Pattern Verb="Transfer" TargetVerb="Invoke" NounTransformation="{Noun}Transfer" />
+    <Pattern Verb="Unarchive" TargetVerb="Set" NounTransformation="{Noun}AsUnarchived" />
+    <Pattern Verb="Unmonitor" TargetVerb="Stop" NounTransformation="{Noun}Monitoring" />
+    <Pattern Verb="Unshare" TargetVerb="Disable" NounTransformation="{Noun}Share" />
+    <Pattern Verb="Untag" TargetVerb="Remove" NounTransformation="{Noun}Tag" />
+    <Pattern Verb="View" TargetVerb="Get" NounTransformation="{Noun}Information" />
 
+  </VerbNounTransformationPatterns>
+  <!-- Combined verb mappings with explicit defaults and weight-based alternatives -->
+  <!-- Higher Weight values are preferred. If mappings have the same Weight, they are processed in order of definition. -->
   <VerbMappings>
-    <Map From="Create" To="New" />
-    <Map From="Allocate" To="New" />
-    <Map From="Describe" To="Get" />
-    <Map From="Cancel" To="Stop" />
-    <Map From="Activate" To="Enable" />
-    <Map From="Deactivate" To="Disable" />
-    <Map From="Delete" To="Remove" />
-    <!-- in vNext generator, Attach changed to map to Mount, to match up with Dismount -->
-    <Map From="Attach" To="Mount" />
-    <Map From="Detach" To="Dismount" />
-    <Map From="Modify" To="Edit" />
-    <Map From="Put" To="Write" />
+    <!-- Explicit default mappings (highest priority) -->
+    <ServiceOperationVerb Name="Create">
+      <Mappings>
+        <Mapping Verb="New" Weight="1910" Default="true" />
+        <Mapping Verb="Add" Weight="2" />
+        <Mapping Verb="Publish" Weight="1" />
+        <Mapping Verb="Set" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Allocate">
+      <Mappings>
+        <Mapping Verb="New" Weight="5" Default="true" />
+        <Mapping Verb="Enable" Weight="4" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Cancel">
+      <Mappings>
+        <Mapping Verb="Stop" Weight="122" Default="true" />
+        <Mapping Verb="Remove" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Activate">
+      <Mappings>
+        <Mapping Verb="Enable" Weight="13" Default="true" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Deactivate">
+      <Mappings>
+        <Mapping Verb="Disable" Weight="12" Default="true" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Delete">
+      <Mappings>
+        <Mapping Verb="Remove" Weight="2098" Default="true" />
+        <Mapping Verb="Uninstall" Weight="2" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Attach">
+      <Mappings>
+        <Mapping Verb="Mount" Weight="100" Default="true" />
+        <Mapping Verb="Add" Weight="17" />
+        <Mapping Verb="Register" Weight="3" />
+        <Mapping Verb="Connect" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Detach">
+      <Mappings>
+        <Mapping Verb="Dismount" Weight="27" Default="true" />
+        <Mapping Verb="Disconnect" Weight="1" />
+        <Mapping Verb="Unregister" Weight="3" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Modify">
+      <Mappings>
+        <Mapping Verb="Edit" Weight="182" Default="true" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Put">
+      <Mappings>
+        <Mapping Verb="Write" Weight="411" Default="true" />
+        <Mapping Verb="Set" Weight="25" />
+        <Mapping Verb="Add" Weight="4" />
+        <Mapping Verb="Edit" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+
+    <!-- Priority-based mappings from historical usage data -->
+    <ServiceOperationVerb Name="Abort">
+      <Mappings>
+        <Mapping Verb="Stop" Weight="3" />
+        <Mapping Verb="Remove" Weight="2" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Link">
+      <Mappings>
+        <Mapping Verb="Register" Weight="3" />
+        <Mapping Verb="Connect" Weight="2" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Accept">
+      <Mappings>
+        <Mapping Verb="Approve" Weight="21" />
+        <Mapping Verb="Confirm" Weight="11" />
+        <Mapping Verb="Receive" Weight="6" />
+        <Mapping Verb="Grant" Weight="1" />
+        <Mapping Verb="Switch" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Acknowledge">
+      <Mappings>
+        <Mapping Verb="Confirm" Weight="2" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Allow">
+      <Mappings>
+        <Mapping Verb="Enable" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Apply">
+      <Mappings>
+        <Mapping Verb="Submit" Weight="3" />
+        <Mapping Verb="Complete" Weight="2" />
+        <Mapping Verb="Add" Weight="2" />
+        <Mapping Verb="Join" Weight="1" />
+        <Mapping Verb="Set" Weight="1" />
+        <Mapping Verb="Start" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Assign">
+      <Mappings>
+        <Mapping Verb="Register" Weight="4" />
+        <Mapping Verb="Add" Weight="2" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Associate">
+      <Mappings>
+        <Mapping Verb="Add" Weight="78" />
+        <Mapping Verb="Register" Weight="73" />
+        <Mapping Verb="Join" Weight="9" />
+        <Mapping Verb="Connect" Weight="6" />
+        <Mapping Verb="Start" Weight="6" />
+        <Mapping Verb="New" Weight="5" />
+        <Mapping Verb="Grant" Weight="2" />
+        <Mapping Verb="Mount" Weight="1" />
+        <Mapping Verb="Move" Weight="1" />
+        <Mapping Verb="Set" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Assume">
+      <Mappings>
+        <Mapping Verb="Use" Weight="5" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Authorize">
+      <Mappings>
+        <Mapping Verb="Approve" Weight="8" />
+        <Mapping Verb="Grant" Weight="3" />
+        <Mapping Verb="Enable" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Backtrack">
+      <Mappings>
+        <Mapping Verb="Reset" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Begin">
+      <Mappings>
+        <Mapping Verb="Start" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Calculate">
+      <Mappings>
+        <Mapping Verb="Measure" Weight="5" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Change">
+      <Mappings>
+        <Mapping Verb="Edit" Weight="6" />
+        <Mapping Verb="Set" Weight="1" />
+        <Mapping Verb="Update" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Channel">
+      <Mappings>
+        <Mapping Verb="Send" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Check">
+      <Mappings>
+        <Mapping Verb="Test" Weight="7" />
+        <Mapping Verb="Get" Weight="3" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Claim">
+      <Mappings>
+        <Mapping Verb="Request" Weight="3" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Clone">
+      <Mappings>
+        <Mapping Verb="Copy" Weight="3" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Commit">
+      <Mappings>
+        <Mapping Verb="Write" Weight="1" />
+        <Mapping Verb="Confirm" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Compose">
+      <Mappings>
+        <Mapping Verb="Group" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Configure">
+      <Mappings>
+        <Mapping Verb="Update" Weight="2" />
+        <Mapping Verb="Add" Weight="2" />
+        <Mapping Verb="Set" Weight="2" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Contains">
+      <Mappings>
+        <Mapping Verb="Find" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Continue">
+      <Mappings>
+        <Mapping Verb="Resume" Weight="2" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Deauthorize">
+      <Mappings>
+        <Mapping Verb="Clear" Weight="2" />
+        <Mapping Verb="Revoke" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Decline">
+      <Mappings>
+        <Mapping Verb="Deny" Weight="4" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Decode">
+      <Mappings>
+        <Mapping Verb="Convert" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Decrypt">
+      <Mappings>
+        <Mapping Verb="Unprotect" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Deliver">
+      <Mappings>
+        <Mapping Verb="Submit" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Deploy">
+      <Mappings>
+        <Mapping Verb="Publish" Weight="2" />
+        <Mapping Verb="Add" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Deprecate">
+      <Mappings>
+        <Mapping Verb="Disable" Weight="0" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Deprovision">
+      <Mappings>
+        <Mapping Verb="Unregister" Weight="3" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Deregister">
+      <Mappings>
+        <Mapping Verb="Unregister" Weight="46" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Derive">
+      <Mappings>
+        <Mapping Verb="Get" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Detect">
+      <Mappings>
+        <Mapping Verb="Find" Weight="20" />
+        <Mapping Verb="Start" Weight="2" />
+        <Mapping Verb="Get" Weight="2" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Disassociate">
+      <Mappings>
+        <Mapping Verb="Remove" Weight="84" />
+        <Mapping Verb="Unregister" Weight="74" />
+        <Mapping Verb="Split" Weight="7" />
+        <Mapping Verb="Disconnect" Weight="6" />
+        <Mapping Verb="Stop" Weight="3" />
+        <Mapping Verb="Revoke" Weight="2" />
+        <Mapping Verb="Dismount" Weight="1" />
+        <Mapping Verb="Move" Weight="1" />
+        <Mapping Verb="Reset" Weight="1" />
+        <Mapping Verb="Unlock" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Discard">
+      <Mappings>
+        <Mapping Verb="Close" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Discover">
+      <Mappings>
+        <Mapping Verb="Find" Weight="3" />
+        <Mapping Verb="Get" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Dismiss">
+      <Mappings>
+        <Mapping Verb="Write" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Dispose">
+      <Mappings>
+        <Mapping Verb="Unpublish" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Dissociate">
+      <Mappings>
+        <Mapping Verb="Remove" Weight="84" />
+        <Mapping Verb="Unregister" Weight="74" />
+        <Mapping Verb="Split" Weight="7" />
+        <Mapping Verb="Disconnect" Weight="6" />
+        <Mapping Verb="Stop" Weight="3" />
+        <Mapping Verb="Revoke" Weight="2" />
+        <Mapping Verb="Dismount" Weight="1" />
+        <Mapping Verb="Move" Weight="1" />
+        <Mapping Verb="Reset" Weight="1" />
+        <Mapping Verb="Unlock" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Distribute">
+      <Mappings>
+        <Mapping Verb="Split" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Download">
+      <Mappings>
+        <Mapping Verb="Read" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Encrypt">
+      <Mappings>
+        <Mapping Verb="Protect" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="End">
+      <Mappings>
+        <Mapping Verb="Close" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Estimate">
+      <Mappings>
+        <Mapping Verb="Measure" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Evaluate">
+      <Mappings>
+        <Mapping Verb="Test" Weight="2" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Evict">
+      <Mappings>
+        <Mapping Verb="Clear" Weight="2" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Exchange">
+      <Mappings>
+        <Mapping Verb="Convert" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Execute">
+      <Mappings>
+        <Mapping Verb="Invoke" Weight="13" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Expire">
+      <Mappings>
+        <Mapping Verb="Revoke" Weight="2" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Failover">
+      <Mappings>
+        <Mapping Verb="Switch" Weight="7" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Finalize">
+      <Mappings>
+        <Mapping Verb="Complete" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Snooze">
+      <Mappings>
+        <Mapping Verb="Suspend" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Flush">
+      <Mappings>
+        <Mapping Verb="Clear" Weight="3" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Forget">
+      <Mappings>
+        <Mapping Verb="Unregister" Weight="3" />
+        <Mapping Verb="Remove" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Forgot">
+      <Mappings>
+        <Mapping Verb="Reset" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Generate">
+      <Mappings>
+        <Mapping Verb="New" Weight="20" />
+        <Mapping Verb="Initialize" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Head">
+      <Mappings>
+        <Mapping Verb="Test" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Retrieve">
+      <Mappings>
+        <Mapping Verb="Get" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Infer">
+      <Mappings>
+        <Mapping Verb="Find" Weight="3" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Ingest">
+      <Mappings>
+        <Mapping Verb="Add" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Initiate">
+      <Mappings>
+        <Mapping Verb="Start" Weight="6" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Instantiate">
+      <Mappings>
+        <Mapping Verb="Start" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Invalidate">
+      <Mappings>
+        <Mapping Verb="Reset" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Is">
+      <Mappings>
+        <Mapping Verb="Test" Weight="3" />
+        <Mapping Verb="Assert" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Issue">
+      <Mappings>
+        <Mapping Verb="New" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Launch">
+      <Mappings>
+        <Mapping Verb="Start" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Leave">
+      <Mappings>
+        <Mapping Verb="Unregister" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Lookup">
+      <Mappings>
+        <Mapping Verb="Find" Weight="2" />
+        <Mapping Verb="Get" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Manage">
+      <Mappings>
+        <Mapping Verb="Update" Weight="2" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Mark">
+      <Mappings>
+        <Mapping Verb="Set" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Override">
+      <Mappings>
+        <Mapping Verb="Skip" Weight="2" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Pause">
+      <Mappings>
+        <Mapping Verb="Suspend" Weight="4" />
+        <Mapping Verb="Stop" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Peer">
+      <Mappings>
+        <Mapping Verb="Add" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Populate">
+      <Mappings>
+        <Mapping Verb="Import" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Post">
+      <Mappings>
+        <Mapping Verb="Send" Weight="8" />
+        <Mapping Verb="New" Weight="1" />
+        <Mapping Verb="Submit" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Predict">
+      <Mappings>
+        <Mapping Verb="ConvertFrom" Weight="1" />
+        <Mapping Verb="Search" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Prepare">
+      <Mappings>
+        <Mapping Verb="Initialize" Weight="3" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Promote">
+      <Mappings>
+        <Mapping Verb="Convert" Weight="5" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Provide">
+      <Mappings>
+        <Mapping Verb="Set" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Provision">
+      <Mappings>
+        <Mapping Verb="Register" Weight="4" />
+        <Mapping Verb="Add" Weight="3" />
+        <Mapping Verb="New" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Purge">
+      <Mappings>
+        <Mapping Verb="Clear" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Query">
+      <Mappings>
+        <Mapping Verb="Find" Weight="3" />
+        <Mapping Verb="Search" Weight="3" />
+        <Mapping Verb="Select" Weight="2" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Reboot">
+      <Mappings>
+        <Mapping Verb="Restart" Weight="18" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Record">
+      <Mappings>
+        <Mapping Verb="Write" Weight="2" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Redact">
+      <Mappings>
+        <Mapping Verb="Hide" Weight="3" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Redrive">
+      <Mappings>
+        <Mapping Verb="Restart" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Regenerate">
+      <Mappings>
+        <Mapping Verb="Update" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Reject">
+      <Mappings>
+        <Mapping Verb="Deny" Weight="28" />
+        <Mapping Verb="Disable" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Release">
+      <Mappings>
+        <Mapping Verb="Remove" Weight="7" />
+        <Mapping Verb="Clear" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Reload">
+      <Mappings>
+        <Mapping Verb="Restore" Weight="2" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Replace">
+      <Mappings>
+        <Mapping Verb="Set" Weight="9" />
+        <Mapping Verb="Edit" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Report">
+      <Mappings>
+        <Mapping Verb="Write" Weight="100" />
+        <Mapping Verb="Update" Weight="2" />
+        <Mapping Verb="Send" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Resend">
+      <Mappings>
+        <Mapping Verb="Send" Weight="4" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Resync">
+      <Mappings>
+        <Mapping Verb="Sync" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Retire">
+      <Mappings>
+        <Mapping Verb="Disable" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Retry">
+      <Mappings>
+        <Mapping Verb="Redo" Weight="3" />
+        <Mapping Verb="Restart" Weight="2" />
+        <Mapping Verb="Resume" Weight="1" />
+        <Mapping Verb="Start" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Rollback">
+      <Mappings>
+        <Mapping Verb="Undo" Weight="4" />
+        <Mapping Verb="Reset" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Schedule">
+      <Mappings>
+        <Mapping Verb="Request" Weight="1" />
+        <Mapping Verb="Submit" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Setup">
+      <Mappings>
+        <Mapping Verb="Set" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Shutdown">
+      <Mappings>
+        <Mapping Verb="Stop" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Simulate">
+      <Mappings>
+        <Mapping Verb="Test" Weight="2" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Synchronize">
+      <Mappings>
+        <Mapping Verb="Sync" Weight="2" Default="true" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Unsuspend">
+      <Mappings>
+        <Mapping Verb="Resume" Weight="3" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Swap">
+      <Mappings>
+        <Mapping Verb="Switch" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Switchover">
+      <Mappings>
+        <Mapping Verb="Switch" Weight="3" />
+        <Mapping Verb="Request" Weight="1" />
+
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Tag">
+      <Mappings>
+        <Mapping Verb="Add" Weight="288" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Terminate">
+      <Mappings>
+        <Mapping Verb="Stop" Weight="12" />
+        <Mapping Verb="Remove" Weight="8" />
+      </Mappings>
+    </ServiceOperationVerb>
+        <ServiceOperationVerb Name="Toggle">
+      <Mappings>
+        <Mapping Verb="Switch" Weight="12" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Translate">
+      <Mappings>
+        <Mapping Verb="ConvertTo" Weight="2" />
+        <Mapping Verb="Convert" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Unassign">
+      <Mappings>
+        <Mapping Verb="Unregister" Weight="4" />
+        <Mapping Verb="Remove" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Undeploy">
+      <Mappings>
+        <Mapping Verb="Unpublish" Weight="2" />
+        <Mapping Verb="Remove" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Undeprecate">
+      <Mappings>
+        <Mapping Verb="Restore" Weight="3" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Ungroup">
+      <Mappings>
+        <Mapping Verb="Remove" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Unlabel">
+      <Mappings>
+        <Mapping Verb="Reset" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Unlink">
+      <Mappings>
+        <Mapping Verb="Dismount" Weight="2" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Unpeer">
+      <Mappings>
+        <Mapping Verb="Remove" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Untag">
+      <Mappings>
+        <Mapping Verb="Remove" Weight="288" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Upgrade">
+      <Mappings>
+        <Mapping Verb="Update" Weight="5" />
+        <Mapping Verb="Convert" Weight="2" />
+        <Mapping Verb="Set" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Upload">
+      <Mappings>
+        <Mapping Verb="Publish" Weight="3" />
+        <Mapping Verb="Send" Weight="2" />
+        <Mapping Verb="Set" Weight="2" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Validate">
+      <Mappings>
+        <Mapping Verb="Test" Weight="11" />
+        <Mapping Verb="Confirm" Weight="3" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Verify">
+      <Mappings>
+        <Mapping Verb="Confirm" Weight="8" />
+        <Mapping Verb="Test" Weight="8" />
+        <Mapping Verb="Approve" Weight="1" />
+      </Mappings>
+    </ServiceOperationVerb>
+    <ServiceOperationVerb Name="Withdraw">
+      <Mappings>
+        <Mapping Verb="Stop" Weight="2" />
+      </Mappings>
+    </ServiceOperationVerb>
   </VerbMappings>
 
   <TypesNotToFlatten>
@@ -70,6 +893,32 @@
     <Property>RequestId</Property>
   </MetadataProperties>
 
+  <!-- Plural noun rules configuration - applies Collection suffix only when singular/plural conflicts are detected -->
+  <PluralNounRules DefaultSuffix="Collection">
+    <Rules>
+      <!-- Rules are applied only when singular/plural conflict is detected -->
+      <Rule Verb="Get" />
+      <Rule Verb="Describe" />
+      <Rule Verb="Create" />
+      <Rule Verb="Put" />
+      <Rule Verb="Associate" />
+      <Rule Verb="Disassociate" />
+      <Rule Verb="Update" />
+      <Rule Verb="Delete" />
+    </Rules>
+  </PluralNounRules>
+
+  <!-- Method prefix modifiers configuration -->
+  <MethodPrefixModifiers>
+    <Modifier StartsWith="Admin" NounTransformation="Admin{Noun}" />
+    <Modifier StartsWith="Batch" NounTransformation="{Noun}Batch" />
+    <Modifier StartsWith="Carrier" NounTransformation="Carrier{Noun}" />
+    <Modifier StartsWith="Chat" NounTransformation="Chat{Noun}" />
+    <Modifier StartsWith="Orchestrated" NounTransformation="Orchestrated{Noun}" />
+    <Modifier StartsWith="Transact" NounTransformation="Transactional{Noun}" />
+
+  </MethodPrefixModifiers>
+
   <CommonModuleAliases>
     <AliasSet Cmdlet="Set-AWSCredential">Set-AWSCredentials</AliasSet>
     <AliasSet Cmdlet="New-AWSCredential">New-AWSCredentials</AliasSet>
@@ -83,13 +932,14 @@
     <!-- This service is excluded from generation but we have hand written cmdlets for it -->
     <Library Name="AWSSDK.CloudSearchDomain" AddAsReference="true" />
 
-    <!-- Not used. These libraries were previously included in the AWSPowerShell distribution, so we need to keep them for backward compatibility -->
+    <!-- Not used. These libraries were previously included in the AWSPowerShell distribution, so we
+    need to keep them for backward compatibility -->
     <Library Name="AWSSDK.IoTAnalytics" />
     <Library Name="AWSSDK.IotData" />
     <Library Name="AWSSDK.KinesisVideoArchivedMedia" />
     <Library Name="AWSSDK.MobileAnalytics" />
     <Library Name="AWSSDK.PinpointSMSVoice" />
     <Library Name="AWSSDK.Signer" />
-    <Library Name="AWSSDK.SimpleDB" />    
+    <Library Name="AWSSDK.SimpleDB" />
   </IncludeLibraries>
 </ConfigModelCollection>

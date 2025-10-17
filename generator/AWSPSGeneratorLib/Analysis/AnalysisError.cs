@@ -289,6 +289,12 @@ namespace AWSPowerShellGenerator.Analysis
         {
             new AnalysisError(service, $"Error while loading paginator attributes: {exception}");
         }
+
+        public static void NoPriorityVerbAvailable(ConfigModel service, ServiceOperation operation, string serviceOperationVerb, IEnumerable<string> availableVerbs)
+        {
+            var verbList = string.Join(", ", availableVerbs);
+            new AnalysisError(service, operation, $"No suitable PowerShell verb available for service operation verb '{serviceOperationVerb}'. Available priority mappings: {verbList}. All mapped verbs are already in use by other operations in this service.");
+        }
     }
 
     public struct InfoMessage
@@ -385,6 +391,76 @@ namespace AWSPowerShellGenerator.Analysis
         public static void ShouldProcessTargetSetToAnonymous(ConfigModel service, ServiceOperation operation)
         {
             new InfoMessage(service, operation, $"ShouldProcessTarget set to anonymous");
+        }
+
+        public static void PriorityVerbConflictDetected(ConfigModel service, ServiceOperation operation, string conflictingVerb, string predictedNoun)
+        {
+            new InfoMessage(service, operation, $"verb assignment: Priority verb '{conflictingVerb}' conflicts with existing Verb-Noun combination '{conflictingVerb}-{predictedNoun}'. Trying alternative priority verbs.");
+        }
+
+        public static void AlternativePriorityVerbSelected(ConfigModel service, ServiceOperation operation, string originalVerb, string selectedVerb, string predictedNoun)
+        {
+            new InfoMessage(service, operation, $"verb assignment: Selected alternative priority verb '{selectedVerb}' for operation verb '{originalVerb}' to avoid Verb-Noun conflict with '{selectedVerb}-{predictedNoun}'.");
+        }
+
+        public static void VerbAssignmentSingleWordOperation(ConfigModel service, ServiceOperation operation, string originalVerb)
+        {
+            new InfoMessage(service, operation, $"verb assignment: Single word operation '{originalVerb}' transformed to use 'Invoke' verb.");
+        }
+
+        public static void VerbAssignmentApprovedVerbUsed(ConfigModel service, ServiceOperation operation, string verb)
+        {
+            new InfoMessage(service, operation, $"verb assignment: Approved PowerShell verb '{verb}' used directly.");
+        }
+
+        public static void VerbAssignmentTransformationPatternApplied(ConfigModel service, ServiceOperation operation, string originalVerb, string transformedVerb)
+        {
+            new InfoMessage(service, operation, $"verb assignment: Transformation pattern applied - '{originalVerb}' transformed to '{transformedVerb}'.");
+        }
+
+        public static void VerbAssignmentPriorityVerbConflictDetected(ConfigModel service, ServiceOperation operation, string conflictingVerb, string predictedNoun)
+        {
+            new InfoMessage(service, operation, $"verb assignment: Priority verb '{conflictingVerb}' conflicts with existing Verb-Noun combination '{conflictingVerb}-{predictedNoun}'. Trying alternative priority verbs.");
+        }
+
+        public static void VerbAssignmentAlternativePriorityVerbSelected(ConfigModel service, ServiceOperation operation, string originalVerb, string selectedVerb, string predictedNoun)
+        {
+            new InfoMessage(service, operation, $"verb assignment: Selected alternative priority verb '{selectedVerb}' for operation verb '{originalVerb}' to avoid Verb-Noun conflict with '{selectedVerb}-{predictedNoun}'.");
+        }
+
+        public static void NounAssignmentSingleWordOperation(ConfigModel service, ServiceOperation operation, string methodName)
+        {
+            new InfoMessage(service, operation, $"noun assignment: Single word operation using method name '{methodName}' as noun.");
+        }
+
+        public static void NounAssignmentTransformationPatternApplied(ConfigModel service, ServiceOperation operation, string originalNoun, string transformedNoun, string patternName)
+        {
+            new InfoMessage(service, operation, $"noun assignment: Transformation pattern '{patternName}' applied - '{originalNoun}' transformed to '{transformedNoun}'.");
+        }
+
+        public static void NounAssignmentMappingApplied(ConfigModel service, ServiceOperation operation, string originalNoun, string mappedNoun, string mappingSource)
+        {
+            new InfoMessage(service, operation, $"noun assignment: {mappingSource} mapping applied - '{originalNoun}' mapped to '{mappedNoun}'.");
+        }
+
+        public static void NounAssignmentSingularizedWithCollection(ConfigModel service, ServiceOperation operation, string originalNoun, string finalNoun)
+        {
+            new InfoMessage(service, operation, $"noun assignment: Noun singularized and 'Collection' suffix added - '{originalNoun}' became '{finalNoun}'.");
+        }
+
+        public static void NounAssignmentPluralNounRuleApplied(ConfigModel service, ServiceOperation operation, string originalNoun, string finalNoun, string verb)
+        {
+            new InfoMessage(service, operation, $"noun assignment: Plural noun rule applied for verb '{verb}' - '{originalNoun}' became '{finalNoun}' due to singular/plural operation conflict detection.");
+        }
+
+        public static void NounAssignmentSingularizedWithoutCollection(ConfigModel service, ServiceOperation operation, string originalNoun, string finalNoun)
+        {
+            new InfoMessage(service, operation, $"noun assignment: Noun singularized without Collection suffix - '{originalNoun}' became '{finalNoun}' (no singular/plural operation conflict detected).");
+        }
+
+        public static void NounAssignmentMethodPrefixTransformationApplied(ConfigModel service, ServiceOperation operation, string originalNoun, string transformedNoun, string methodPrefix)
+        {
+            new InfoMessage(service, operation, $"noun assignment: Method prefix transformation applied - '{originalNoun}' transformed to '{transformedNoun}' using '{methodPrefix}' prefix pattern.");
         }
     }
 }
