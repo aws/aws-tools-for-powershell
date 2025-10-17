@@ -31,6 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
 {
     /// <summary>
     /// <c>GetSprites</c> returns the map's sprites.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/styling-iconography-with-sprites.html">Style
+    /// iconography with sprites</a> in the <i>Amazon Location Service Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "GEOMSprite")]
     [OutputType("Amazon.GeoMaps.Model.GetSpritesResponse")]

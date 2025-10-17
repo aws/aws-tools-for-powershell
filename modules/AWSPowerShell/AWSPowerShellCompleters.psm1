@@ -35632,6 +35632,13 @@ $GEOM_Completers = {
             break
         }
 
+        # Amazon.GeoMaps.ContourDensity
+        "Get-GEOMStyleDescriptor/ContourDensity"
+        {
+            $v = "Medium"
+            break
+        }
+
         # Amazon.GeoMaps.LabelSize
         "Get-GEOMStaticMap/LabelSize"
         {
@@ -35670,6 +35677,20 @@ $GEOM_Completers = {
             break
         }
 
+        # Amazon.GeoMaps.Terrain
+        "Get-GEOMStyleDescriptor/Terrain"
+        {
+            $v = "Hillshade"
+            break
+        }
+
+        # Amazon.GeoMaps.Traffic
+        "Get-GEOMStyleDescriptor/Traffic"
+        {
+            $v = "All"
+            break
+        }
+
         # Amazon.GeoMaps.Variant
         "Get-GEOMSprite/Variant"
         {
@@ -35687,10 +35708,13 @@ $GEOM_Completers = {
 
 $GEOM_map = @{
     "ColorScheme"=@("Get-GEOMSprite","Get-GEOMStaticMap","Get-GEOMStyleDescriptor")
+    "ContourDensity"=@("Get-GEOMStyleDescriptor")
     "LabelSize"=@("Get-GEOMStaticMap")
     "PointsOfInterest"=@("Get-GEOMStaticMap")
     "ScaleBarUnit"=@("Get-GEOMStaticMap")
     "Style"=@("Get-GEOMSprite","Get-GEOMStaticMap","Get-GEOMStyleDescriptor")
+    "Terrain"=@("Get-GEOMStyleDescriptor")
+    "Traffic"=@("Get-GEOMStyleDescriptor")
     "Variant"=@("Get-GEOMSprite")
 }
 
@@ -49691,7 +49715,7 @@ $MCAT_Completers = {
         # Amazon.MarketplaceCatalog.ContainerProductSortBy
         "Get-MCATEntityList/ContainerProductSort_SortBy"
         {
-            $v = "EntityId","LastModifiedDate","ProductTitle","Visibility"
+            $v = "CompatibleAWSServices","EntityId","LastModifiedDate","ProductTitle","Visibility"
             break
         }
 
@@ -49740,7 +49764,7 @@ $MCAT_Completers = {
         # Amazon.MarketplaceCatalog.SaaSProductSortBy
         "Get-MCATEntityList/SaaSProductSort_SortBy"
         {
-            $v = "EntityId","LastModifiedDate","ProductTitle","Visibility"
+            $v = "DeliveryOptionTypes","EntityId","LastModifiedDate","ProductTitle","Visibility"
             break
         }
 

@@ -1,4 +1,9 @@
-﻿### 5.0.78 (2025-10-16 21:26Z)
+﻿### 5.0.79 (2025-10-17 22:03Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.115.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Location Service Maps V2
+    * Modified cmdlet Get-GEOMStyleDescriptor: added parameters ContourDensity, Terrain, Traffic and TravelMode.
+
+### 5.0.78 (2025-10-16 21:26Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.114.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppStream
     * Added cmdlet Add-APSSoftwareToImageBuilder leveraging the AssociateSoftwareToImageBuilder service API.
