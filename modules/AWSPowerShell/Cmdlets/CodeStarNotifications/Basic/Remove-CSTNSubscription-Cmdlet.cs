@@ -28,9 +28,9 @@ using Amazon.CodeStarNotifications.Model;
 namespace Amazon.PowerShell.Cmdlets.CSTN
 {
     /// <summary>
-    /// Removes an association between a notification rule and an Chatbot topic so that subscribers
-    /// to that topic stop receiving notifications when the events described in the rule are
-    /// triggered.
+    /// Removes an association between a notification rule and an Amazon Q Developer in chat
+    /// applications topic so that subscribers to that topic stop receiving notifications
+    /// when the events described in the rule are triggered.
     /// </summary>
     [Cmdlet("Remove", "CSTNSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
@@ -66,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
         #region Parameter TargetAddress
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Chatbot topic to unsubscribe from the notification rule.</para>
+        /// <para>The ARN of the Amazon Q Developer in chat applications topic to unsubscribe from the
+        /// notification rule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

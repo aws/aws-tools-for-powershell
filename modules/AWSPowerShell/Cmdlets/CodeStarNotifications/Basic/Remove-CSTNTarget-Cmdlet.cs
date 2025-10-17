@@ -47,9 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
         #region Parameter ForceUnsubscribeAll
         /// <summary>
         /// <para>
-        /// <para>A Boolean value that can be used to delete all associations with this Chatbot topic.
-        /// The default value is FALSE. If set to TRUE, all associations between that target and
-        /// every notification rule in your Amazon Web Services account are deleted.</para>
+        /// <para>A Boolean value that can be used to delete all associations with this Amazon Q Developer
+        /// in chat applications topic. The default value is FALSE. If set to TRUE, all associations
+        /// between that target and every notification rule in your Amazon Web Services account
+        /// are deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
         #region Parameter TargetAddress
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client to delete.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Q Developer in chat applications topic
+        /// or Amazon Q Developer in chat applications client to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

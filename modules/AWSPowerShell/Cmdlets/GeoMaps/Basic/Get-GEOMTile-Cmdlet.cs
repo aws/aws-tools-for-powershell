@@ -31,6 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
     /// <c>GetTile</c> returns a tile. Map tiles are used by clients to render a map. they're
     /// addressed using a grid arrangement with an X coordinate, Y coordinate, and Z (zoom)
     /// level.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/tiles.html">Tiles</a>
+    /// in the <i>Amazon Location Service Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "GEOMTile")]
     [OutputType("Amazon.GeoMaps.Model.GetTileResponse")]

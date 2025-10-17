@@ -90,7 +90,7 @@ $MCAT_Completers = {
         # Amazon.MarketplaceCatalog.ContainerProductSortBy
         "Get-MCATEntityList/ContainerProductSort_SortBy"
         {
-            $v = "EntityId","LastModifiedDate","ProductTitle","Visibility"
+            $v = "CompatibleAWSServices","EntityId","LastModifiedDate","ProductTitle","Visibility"
             break
         }
 
@@ -139,7 +139,7 @@ $MCAT_Completers = {
         # Amazon.MarketplaceCatalog.SaaSProductSortBy
         "Get-MCATEntityList/SaaSProductSort_SortBy"
         {
-            $v = "EntityId","LastModifiedDate","ProductTitle","Visibility"
+            $v = "DeliveryOptionTypes","EntityId","LastModifiedDate","ProductTitle","Visibility"
             break
         }
 

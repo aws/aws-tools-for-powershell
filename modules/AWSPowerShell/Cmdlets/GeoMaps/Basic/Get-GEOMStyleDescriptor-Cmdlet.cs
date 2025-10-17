@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
 {
     /// <summary>
     /// <c>GetStyleDescriptor</c> returns information about the style.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/styling-dynamic-maps.html">Style
+    /// dynamic maps</a> in the <i>Amazon Location Service Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "GEOMStyleDescriptor")]
     [OutputType("Amazon.GeoMaps.Model.GetStyleDescriptorResponse")]
@@ -53,6 +59,19 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.GeoMaps.ColorScheme")]
         public Amazon.GeoMaps.ColorScheme ColorScheme { get; set; }
+        #endregion
+        
+        #region Parameter ContourDensity
+        /// <summary>
+        /// <para>
+        /// <para>Displays the shape and steepness of terrain features using elevation lines. The density
+        /// value controls how densely the available contour line information is rendered on the
+        /// map.</para><para>This parameter is valid only for the <c>Standard</c> map style.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.GeoMaps.ContourDensity")]
+        public Amazon.GeoMaps.ContourDensity ContourDensity { get; set; }
         #endregion
         
         #region Parameter Key
@@ -92,6 +111,43 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.GeoMaps.MapStyle")]
         public Amazon.GeoMaps.MapStyle Style { get; set; }
+        #endregion
+        
+        #region Parameter Terrain
+        /// <summary>
+        /// <para>
+        /// <para>Adjusts how physical terrain details are rendered on the map.</para><para>The following terrain styles are currently supported:</para><ul><li><para><c>Hillshade</c>: Displays the physical terrain details through shading and highlighting
+        /// of elevation change and geographic features.</para></li></ul><para>This parameter is valid only for the <c>Standard</c> map style.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.GeoMaps.Terrain")]
+        public Amazon.GeoMaps.Terrain Terrain { get; set; }
+        #endregion
+        
+        #region Parameter Traffic
+        /// <summary>
+        /// <para>
+        /// <para>Displays real-time traffic information overlay on map, such as incident events and
+        /// flow events.</para><para>This parameter is valid only for the <c>Standard</c> map style.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.GeoMaps.Traffic")]
+        public Amazon.GeoMaps.Traffic Traffic { get; set; }
+        #endregion
+        
+        #region Parameter TravelMode
+        /// <summary>
+        /// <para>
+        /// <para>Renders additional map information relevant to selected travel modes. Information
+        /// for multiple travel modes can be displayed simultaneously, although this increases
+        /// the overall information density rendered on the map.</para><para>This parameter is valid only for the <c>Standard</c> map style.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TravelModes")]
+        public System.String[] TravelMode { get; set; }
         #endregion
         
         #region Parameter Select
@@ -141,6 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ColorScheme = this.ColorScheme;
+            context.ContourDensity = this.ContourDensity;
             context.Key = this.Key;
             context.PoliticalView = this.PoliticalView;
             context.Style = this.Style;
@@ -150,6 +207,12 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
                 WriteWarning("You are passing $null as a value for parameter Style which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Terrain = this.Terrain;
+            context.Traffic = this.Traffic;
+            if (this.TravelMode != null)
+            {
+                context.TravelMode = new List<System.String>(this.TravelMode);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -170,6 +233,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
             {
                 request.ColorScheme = cmdletContext.ColorScheme;
             }
+            if (cmdletContext.ContourDensity != null)
+            {
+                request.ContourDensity = cmdletContext.ContourDensity;
+            }
             if (cmdletContext.Key != null)
             {
                 request.Key = cmdletContext.Key;
@@ -181,6 +248,18 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
             if (cmdletContext.Style != null)
             {
                 request.Style = cmdletContext.Style;
+            }
+            if (cmdletContext.Terrain != null)
+            {
+                request.Terrain = cmdletContext.Terrain;
+            }
+            if (cmdletContext.Traffic != null)
+            {
+                request.Traffic = cmdletContext.Traffic;
+            }
+            if (cmdletContext.TravelMode != null)
+            {
+                request.TravelModes = cmdletContext.TravelMode;
             }
             
             CmdletOutput output;
@@ -244,9 +323,13 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.GeoMaps.ColorScheme ColorScheme { get; set; }
+            public Amazon.GeoMaps.ContourDensity ContourDensity { get; set; }
             public System.String Key { get; set; }
             public System.String PoliticalView { get; set; }
             public Amazon.GeoMaps.MapStyle Style { get; set; }
+            public Amazon.GeoMaps.Terrain Terrain { get; set; }
+            public Amazon.GeoMaps.Traffic Traffic { get; set; }
+            public List<System.String> TravelMode { get; set; }
             public System.Func<Amazon.GeoMaps.Model.GetStyleDescriptorResponse, GetGEOMStyleDescriptorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

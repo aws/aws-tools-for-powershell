@@ -28,9 +28,9 @@ using Amazon.CodeStarNotifications.Model;
 namespace Amazon.PowerShell.Cmdlets.CSTN
 {
     /// <summary>
-    /// Creates an association between a notification rule and an Chatbot topic or Chatbot
-    /// client so that the associated target can receive notifications when the events described
-    /// in the rule are triggered.
+    /// Creates an association between a notification rule and an Amazon Q Developer in chat
+    /// applications topic or Amazon Q Developer in chat applications client so that the associated
+    /// target can receive notifications when the events described in the rule are triggered.
     /// </summary>
     [Cmdlet("Add", "CSTNSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -78,7 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
         #region Parameter Target_TargetAddress
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Q Developer in chat applications topic
+        /// or Amazon Q Developer in chat applications client.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
         #region Parameter Target_TargetType
         /// <summary>
         /// <para>
-        /// <para>The target type. Can be an Chatbot topic or Chatbot client.</para><ul><li><para>Chatbot topics are specified as <c>SNS</c>.</para></li><li><para>Chatbot clients are specified as <c>AWSChatbotSlack</c>.</para></li></ul>
+        /// <para>The target type. Can be an Amazon Q Developer in chat applications topic or Amazon
+        /// Q Developer in chat applications client.</para><ul><li><para>Amazon Q Developer in chat applications topics are specified as <c>SNS</c>.</para></li><li><para>Amazon Q Developer in chat applications clients are specified as <c>AWSChatbotSlack</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

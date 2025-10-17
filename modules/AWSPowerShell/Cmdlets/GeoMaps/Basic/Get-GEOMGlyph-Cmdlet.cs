@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
 {
     /// <summary>
     /// <c>GetGlyphs</c> returns the map's glyphs.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/styling-labels-with-glyphs.html">Style
+    /// labels with glyphs</a> in the <i>Amazon Location Service Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "GEOMGlyph")]
     [OutputType("Amazon.GeoMaps.Model.GetGlyphsResponse")]
@@ -62,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         /// <summary>
         /// <para>
         /// <para>A Unicode range of characters to download glyphs for. This must be aligned to multiples
-        /// of 256. </para><para>Example: <c>0-255.pdf</c></para>
+        /// of 256. </para><para>Example: <c>0-255.pbf</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
