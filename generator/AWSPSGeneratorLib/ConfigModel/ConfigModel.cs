@@ -20,21 +20,119 @@ namespace AWSPowerShellGenerator.ServiceConfig
     {
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         [XmlArray("VerbMappings")]
-        public List<Map> VerbMappingsList = new List<Map>();
+        public List<ServiceOperationVerb> VerbMappingsList = new List<ServiceOperationVerb>();
 
-        Dictionary<string, string> _verbMappings;
+        Dictionary<string, List<VerbMapping>> _verbMappings;
         /// <summary>
-        /// Cross-service verb remaps
+        /// Unified verb mappings with priority-based conflict resolution using historical usage data
         /// </summary>
         [XmlIgnore]
-        public Dictionary<string, string> VerbMappings
+        public Dictionary<string, List<VerbMapping>> VerbMappings
         {
             get
             {
                 if (_verbMappings == null)
-                    _verbMappings = VerbMappingsList.ToDictionary(m => m.From, m => m.To);
-
+                {
+                    _verbMappings = new Dictionary<string, List<VerbMapping>>(StringComparer.OrdinalIgnoreCase);
+                    
+                    foreach (var serviceVerb in VerbMappingsList)
+                    {
+                        var mappings = new List<VerbMapping>();
+                        
+                        // Add mappings with Default="true" first (highest priority), then by weight
+                        var defaultMappings = serviceVerb.Mappings.Where(m => m.Default).OrderByDescending(m => m.Weight);
+                        var nonDefaultMappings = serviceVerb.Mappings.Where(m => !m.Default).OrderByDescending(m => m.Weight);
+                        
+                        foreach (var mapping in defaultMappings.Concat(nonDefaultMappings))
+                        {
+                            // Skip duplicates
+                            if (!mappings.Any(m => string.Equals(m.Verb, mapping.Verb, StringComparison.OrdinalIgnoreCase)))
+                            {
+                                mappings.Add(new VerbMapping { Verb = mapping.Verb, Weight = mapping.Weight, IsDefault = mapping.Default });
+                            }
+                        }
+                        
+                        if (mappings.Any())
+                        {
+                            _verbMappings[serviceVerb.Name] = mappings;
+                        }
+                    }
+                }
                 return _verbMappings;
+            }
+        }
+
+        /// <summary>
+        /// Gets the highest priority verb for the given service operation verb.
+        /// Returns the default verb if available, otherwise the verb with the highest usage count.
+        /// </summary>
+        /// <param name="serviceOperationVerb">The original service operation verb</param>
+        /// <returns>The highest priority verb, or null if no mapping found</returns>
+        public string GetPriorityVerb(string serviceOperationVerb)
+        {
+            if (string.IsNullOrEmpty(serviceOperationVerb))
+                return null;
+
+            if (VerbMappings.TryGetValue(serviceOperationVerb, out var mappings) && mappings.Any())
+            {
+                return mappings.First().Verb; // Already sorted by priority
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Gets all available verb mappings for a service operation verb, ordered by priority.
+        /// Used for conflict resolution when the preferred verb is already in use.
+        /// </summary>
+        /// <param name="serviceOperationVerb">The service operation verb to get mappings for</param>
+        /// <returns>List of verb mappings ordered by priority (default first, then by usage count)</returns>
+        public List<VerbMapping> GetAllVerbMappings(string serviceOperationVerb)
+        {
+            if (string.IsNullOrEmpty(serviceOperationVerb))
+                return new List<VerbMapping>();
+
+            if (VerbMappings.TryGetValue(serviceOperationVerb, out var mappings))
+                return new List<VerbMapping>(mappings); // Return copy to prevent modification
+
+            return new List<VerbMapping>();
+        }
+
+        /// <summary>
+        /// Gets verb mappings in priority order as an enumerator.
+        /// First checks service-level explicit mappings, then yields priority-based mappings.
+        /// This provides a clean way to iterate through verb options for conflict resolution.
+        /// </summary>
+        /// <param name="serviceOperationVerb">The service operation verb to get mappings for</param>
+        /// <param name="currentModel">The current service model to check for service-level mappings</param>
+        /// <returns>Enumerator that yields verb mappings in priority order</returns>
+        public IEnumerable<VerbMapping> GetVerbMappingsInPriorityOrder(string serviceOperationVerb, ConfigModel currentModel = null)
+        {
+            // First priority: Check explicit service-level mappings
+            if (currentModel?.VerbMappings.ContainsKey(serviceOperationVerb) == true)
+            {
+                yield return new VerbMapping 
+                { 
+                    Verb = currentModel.VerbMappings[serviceOperationVerb], 
+                    Weight = int.MaxValue, // Highest priority
+                    IsDefault = true 
+                };
+            }
+
+            // Second priority: Check global priority-based mappings
+            if (VerbMappings.TryGetValue(serviceOperationVerb, out var mappings))
+            {
+                foreach (var mapping in mappings)
+                {
+                    // Skip if we already yielded this verb from service-level mappings
+                    if (currentModel?.VerbMappings.ContainsKey(serviceOperationVerb) == true &&
+                        string.Equals(mapping.Verb, currentModel.VerbMappings[serviceOperationVerb], StringComparison.OrdinalIgnoreCase))
+                    {
+                        continue;
+                    }
+
+                    yield return mapping;
+                }
             }
         }
 
@@ -105,12 +203,64 @@ namespace AWSPowerShellGenerator.ServiceConfig
         [XmlArrayItem("Parameter")]
         public List<string> MetadataParameterNames { get; set; }
 
+    /// <summary>
+    /// Collection of xml config files that the generator should operate on
+    /// </summary>
+    [XmlArray]
+    [XmlArrayItem("Path")]
+    public List<string> Configs { get; set; } = new List<string>();
+
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        [XmlArray("MethodPrefixModifiers")]
+        [XmlArrayItem("Modifier")]
+        public List<MethodPrefixModifier> MethodPrefixModifiersList = new List<MethodPrefixModifier>();
+
+        Dictionary<string, MethodPrefixModifier> _methodPrefixModifiers;
         /// <summary>
-        /// Collection of xml config files that the generator should operate on
+        /// Method prefix modifiers configuration for handling prefixes and noun transformations
         /// </summary>
-        [XmlArray]
-        [XmlArrayItem("Path")]
-        public List<string> Configs { get; set; } = new List<string>();
+        [XmlIgnore]
+        public Dictionary<string, MethodPrefixModifier> MethodPrefixModifiers
+        {
+            get
+            {
+                if (_methodPrefixModifiers == null)
+                    _methodPrefixModifiers = MethodPrefixModifiersList.ToDictionary(m => m.StartsWith, m => m, StringComparer.OrdinalIgnoreCase);
+
+                return _methodPrefixModifiers;
+            }
+        }
+
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        [XmlArray("VerbNounTransformationPatterns")]
+        [XmlArrayItem("Pattern")]
+        public List<VerbTransformationPattern> VerbNounTransformationPatternsList = new List<VerbTransformationPattern>();
+
+        Dictionary<string, VerbTransformationPattern> _verbNounTransformationPatterns;
+        /// <summary>
+        /// Verb transformation patterns for special operation naming patterns
+        /// </summary>
+        [XmlIgnore]
+        public Dictionary<string, VerbTransformationPattern> VerbNounTransformationPatterns
+        {
+            get
+            {
+                if (_verbNounTransformationPatterns == null)
+                    _verbNounTransformationPatterns = VerbNounTransformationPatternsList.ToDictionary(p => p.Verb, p => p, StringComparer.OrdinalIgnoreCase);
+
+                return _verbNounTransformationPatterns;
+            }
+        }
+
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        [XmlElement("PluralNounRules")]
+        public PluralNounRules PluralNounRulesList = new PluralNounRules();
+
+        /// <summary>
+        /// Plural noun rules configuration - applies Collection suffix only when singular/plural conflicts are detected
+        /// </summary>
+        [XmlIgnore]
+        public PluralNounRules PluralNounRules => PluralNounRulesList;
 
         /// <summary>
         /// Collection of deserialized service configuration models indexed by C2jFilename
@@ -1036,6 +1186,28 @@ namespace AWSPowerShellGenerator.ServiceConfig
         [XmlIgnore]
         public string OriginalNoun;
 
+
+        /// <summary>
+        /// The noun from the split-apart service method name; for use as 
+        /// the noun in confirmation messages if the cmdlet needs to implement
+        /// the ShouldSupportProcess pattern
+        /// </summary>
+        [XmlIgnore]
+        public string OriginalVerb;
+
+        /// <summary>
+        /// The method prefix parsed from the method name (e.g., "Admin", "Batch")
+        /// extracted during ParseVerbAndNoun processing
+        /// </summary>
+        [XmlIgnore]
+        public string ParsedMethodPrefix;
+
+        /// <summary>
+        /// Returns true if the method name is a single word (no noun and no method prefix)
+        /// </summary>
+        [XmlIgnore]
+        public bool IsMethodNameNounLess => string.IsNullOrEmpty(OriginalNoun);
+
         /// <summary>
         /// Set true once we've encountered the operation config and matched it
         /// with a method on the service client. If any operations are still false
@@ -1054,11 +1226,18 @@ namespace AWSPowerShellGenerator.ServiceConfig
         public bool IsAutoConfiguring;
 
         /// <summary>
-        /// Set when auto-configuring if we detect an SDK 'List' verb. We'll
-        /// auto-remap to 'Get' and then append 'List' to the noun.
+        /// Stores the VerbNounTransformationPattern that was applied during verb processing.
+        /// Used to defer noun transformation to the AssignNoun method.
         /// </summary>
         [XmlIgnore]
-        public bool IsRemappedListOperation;
+        public VerbTransformationPattern AppliedVerbNounTransformationPattern;
+
+        /// <summary>
+        /// Stores the MethodPrefixModifier that was applied during parsing.
+        /// Used to defer noun transformation to the AssignNoun method.
+        /// </summary>
+        [XmlIgnore]
+        public MethodPrefixModifier AppliedMethodPrefixModifier;
 
         [XmlIgnore]
         public readonly List<AnalysisError> AnalysisErrors = new List<AnalysisError>();
@@ -1386,6 +1565,172 @@ namespace AWSPowerShellGenerator.ServiceConfig
             From = from;
             To = to;
         }
+    }
+
+    /// <summary>
+    /// Represents a service operation verb with its priority-based verb mappings
+    /// </summary>
+    public class ServiceOperationVerb
+    {
+        [XmlAttribute]
+        public string Name { get; set; }
+
+        [XmlArray("Mappings")]
+        [XmlArrayItem("Mapping")]
+        public List<VerbMappingData> Mappings { get; set; } = new List<VerbMappingData>();
+    }
+
+    /// <summary>
+    /// Represents a verb mapping with weight for XML serialization
+    /// </summary>
+    public class VerbMappingData
+    {
+        [XmlAttribute]
+        public string Verb { get; set; }
+
+        [XmlAttribute]
+        public int Weight { get; set; }
+
+        [XmlAttribute]
+        public bool Default { get; set; }
+    }
+
+    /// <summary>
+    /// Represents a verb mapping with priority information for runtime use
+    /// </summary>
+    public class VerbMapping
+    {
+        public string Verb { get; set; }
+        public int Weight { get; set; }
+        public bool IsDefault { get; set; }
+    }
+
+    /// <summary>
+    /// Represents a method prefix modifier configuration for handling prefixes and noun transformations
+    /// </summary>
+    public class MethodPrefixModifier
+    {
+        /// <summary>
+        /// The prefix that the operation name starts with (e.g., "Admin", "Batch")
+        /// </summary>
+        [XmlAttribute]
+        public string StartsWith { get; set; }
+
+        /// <summary>
+        /// The noun transformation pattern using {Noun} placeholder (e.g., "Admin{Noun}", "{Noun}Batch")
+        /// </summary>
+        [XmlAttribute]
+        public string NounTransformation { get; set; }
+
+        /// <summary>
+        /// Applies the noun transformation pattern to the given noun
+        /// </summary>
+        /// <param name="noun">The original noun to transform</param>
+        /// <returns>The transformed noun</returns>
+        public string TransformNoun(string noun)
+        {
+            if (string.IsNullOrEmpty(NounTransformation) || string.IsNullOrEmpty(noun))
+                return noun;
+
+            return NounTransformation.Replace("{Noun}", noun);
+        }
+    }
+
+    /// <summary>
+    /// Represents a verb transformation pattern for special operation naming patterns
+    /// </summary>
+    public class VerbTransformationPattern
+    {
+        /// <summary>
+        /// The verb to match (e.g., "Filter", "Monitor", "Unmonitor")
+        /// </summary>
+        [XmlAttribute]
+        public string Verb { get; set; }
+
+        /// <summary>
+        /// The target verb to transform to (e.g., "Get", "Start", "Stop")
+        /// </summary>
+        [XmlAttribute]
+        public string TargetVerb { get; set; }
+
+        /// <summary>
+        /// The noun transformation pattern using {Noun} placeholder (e.g., "Filtered{Noun}", "{Noun}Monitoring")
+        /// </summary>
+        [XmlAttribute]
+        public string NounTransformation { get; set; }
+
+        /// <summary>
+        /// Applies the noun transformation pattern to the given noun
+        /// </summary>
+        /// <param name="noun">The original noun to transform</param>
+        /// <returns>The transformed noun</returns>
+        public string TransformNoun(string noun)
+        {
+            if (string.IsNullOrEmpty(NounTransformation) || string.IsNullOrEmpty(noun))
+                return noun;
+
+            return NounTransformation.Replace("{Noun}", noun);
+        }
+    }
+
+    /// <summary>
+    /// Configuration for plural noun rules - applies Collection suffix only when singular/plural conflicts are detected
+    /// </summary>
+    public class PluralNounRules
+    {
+        /// <summary>
+        /// The default suffix to apply when plural noun conflicts are detected (default: "Collection")
+        /// </summary>
+        [XmlAttribute]
+        public string DefaultSuffix { get; set; } = "Collection";
+
+        /// <summary>
+        /// List of verbs for which plural noun rules should be applied
+        /// </summary>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        [XmlArray("Rules")]
+        [XmlArrayItem("Rule")]
+        public List<PluralNounRule> RulesList { get; set; } = new List<PluralNounRule>();
+
+        private HashSet<string> _verbs;
+
+        /// <summary>
+        /// Set of verbs for which plural noun rules should be applied
+        /// </summary>
+        [XmlIgnore]
+        public HashSet<string> Verbs
+        {
+            get
+            {
+                if (_verbs == null)
+                {
+                    _verbs = new HashSet<string>(RulesList.Select(r => r.Verb), StringComparer.OrdinalIgnoreCase);
+                }
+                return _verbs;
+            }
+        }
+
+        /// <summary>
+        /// Checks if a verb has a plural noun rule configured
+        /// </summary>
+        /// <param name="verb">The verb to check</param>
+        /// <returns>True if the verb has a plural noun rule, false otherwise</returns>
+        public bool HasPluralNounRule(string verb)
+        {
+            return !string.IsNullOrEmpty(verb) && Verbs.Contains(verb);
+        }
+    }
+
+    /// <summary>
+    /// Represents a single plural noun rule for a specific verb
+    /// </summary>
+    public class PluralNounRule
+    {
+        /// <summary>
+        /// The verb for which this rule applies
+        /// </summary>
+        [XmlAttribute]
+        public string Verb { get; set; }
     }
 
     public class Library

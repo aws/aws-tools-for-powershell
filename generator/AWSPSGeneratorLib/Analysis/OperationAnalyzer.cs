@@ -768,27 +768,18 @@ namespace AWSPowerShellGenerator.Analysis
         {
             var methodName = CurrentOperation.MethodName;
 
-            string noun = null;
+            // Check for OperationNameMappings first - allows complete method name remapping
+            AllModels.OperationNameMappings.TryGetValue(methodName, out var mappedMethodName);
 
-            string verb;
-            if (!AllModels.OperationNameMappings.TryGetValue(methodName, out verb))
-            {
-                verb = methodName;
-            }
-
-            for (var i = 1; i < verb.Length; i++)
-            {
-                if (Char.IsUpper(verb[i]))
-                {
-                    noun = verb.Substring(i);
-                    verb = verb.Substring(0, i);
-                    break;
-                }
-            }
+            // Parse verb and noun using enhanced logic
+            var (verb, noun, methodPrefix) = ParseVerbAndNoun(mappedMethodName ?? methodName);
 
             // save the noun part of the split method name so we can potentially use it for the 'operation'
             // message if the cmdlet requires confirmation
             CurrentOperation.OriginalNoun = noun;
+            CurrentOperation.OriginalVerb = verb;
+            // save the method prefix parsed from the method name
+            CurrentOperation.ParsedMethodPrefix = methodPrefix;
 
             var originalVerb = verb;
             var originalNoun = noun;
@@ -860,6 +851,106 @@ namespace AWSPowerShellGenerator.Analysis
                 CurrentOperation.RequestedNoun = noun;
             }
             return true;
+        }
+
+        /// <summary>
+        /// Parses the method name to extract verb, noun, and methodPrefix by taking into account MethodPrefixModifiers.
+        /// This method only performs parsing and does not apply any transformations.
+        /// </summary>
+        /// <param name="methodName">The method name to parse</param>
+        /// <returns>A tuple containing the extracted verb, noun, and methodPrefix</returns>
+        protected virtual (string verb, string noun, string methodPrefix) ParseVerbAndNoun(string methodName)
+        {
+            var currentMethodName = methodName;
+            string methodPrefix = null;
+
+            // Handle modifier patterns (Admin, Batch, etc.) - extract prefix but don't transform
+            var modifierResult = TryParseModifierPattern(currentMethodName);
+            if (modifierResult.HasValue)
+            {
+                methodPrefix = modifierResult.Value.prefix;
+                currentMethodName = modifierResult.Value.remainingName;
+            }
+
+            // Standard verb/noun parsing
+            var extractedVerb = currentMethodName;
+            string extractedNoun = null;
+
+            for (var i = 1; i < extractedVerb.Length; i++)
+            {
+                if (Char.IsUpper(extractedVerb[i]))
+                {
+                    extractedNoun = extractedVerb.Substring(i);
+                    extractedVerb = extractedVerb.Substring(0, i);
+                    break;
+                }
+            }
+
+            // For single-word operations, return the word as verb with null noun
+            // The transformation to "Invoke" will be handled in AssignVerb
+            if (string.IsNullOrEmpty(extractedNoun) && string.IsNullOrEmpty(methodPrefix))
+            {
+                return (currentMethodName, null, null);
+            }
+
+            return (extractedVerb, extractedNoun, methodPrefix);
+        }
+
+        /// <summary>
+        /// Attempts to parse modifier patterns like AdminVerbNoun or BatchVerbNoun.
+        /// Returns the modifier prefix and remaining method name for further processing.
+        /// Sets the AppliedMethodPrefixModifier flag when a modifier is found.
+        /// </summary>
+        /// <param name="methodName">The method name to parse</param>
+        /// <returns>A tuple containing the modifier prefix and remaining name if a modifier pattern was found, null otherwise</returns>
+        protected virtual (string prefix, string remainingName)? TryParseModifierPattern(string methodName)
+        {
+            foreach (var modifier in AllModels.MethodPrefixModifiers.Values)
+            {
+                if (methodName.StartsWith(modifier.StartsWith, StringComparison.OrdinalIgnoreCase) &&
+                    methodName.Length > modifier.StartsWith.Length)
+                {
+                    var remainingName = methodName.Substring(modifier.StartsWith.Length);
+
+                    // Set the flag to indicate which modifier was applied
+                    CurrentOperation.AppliedMethodPrefixModifier = modifier;
+
+                    return (modifier.StartsWith, remainingName);
+                }
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Attempts to parse verb transformation patterns using XML-driven configuration.
+        /// </summary>
+        /// <param name="methodName">The method name to parse</param>
+        /// <returns>A tuple containing the extracted verb and noun if a transformation pattern was found, null otherwise</returns>
+        protected virtual (string verb, string noun)? TryParseVerbTransformationPattern(string methodName)
+        {
+            foreach (var pattern in AllModels.VerbNounTransformationPatterns.Values)
+            {
+                if (methodName.StartsWith(pattern.Verb, StringComparison.OrdinalIgnoreCase) &&
+                    methodName.Length > pattern.Verb.Length)
+                {
+                    var nounPart = methodName.Substring(pattern.Verb.Length);
+
+                    if (!string.IsNullOrEmpty(nounPart))
+                    {
+                        // For patterns that need singularization (like Monitor/Unmonitor), singularize the noun
+                        // This assumes that the noun is always singular as per the task requirements
+                        var processedNoun = SingularizeNoun(nounPart);
+
+                        // Apply the noun transformation pattern
+                        var transformedNoun = pattern.TransformNoun(processedNoun);
+
+                        return (pattern.TargetVerb, transformedNoun);
+                    }
+                }
+            }
+
+            return null;
         }
 
         // Called when auto-assigning a noun an operation. Returns the singularized noun
@@ -1137,7 +1228,7 @@ namespace AWSPowerShellGenerator.Analysis
                 CurrentOperation.ShouldProcessTarget = existingPipelineParameter?.AnalyzedName;
 
             }
-            else if(CurrentOperation.IsAutoConfiguring)
+            else if (CurrentOperation.IsAutoConfiguring)
             {
                 // new operations
                 DetermineSupportsShouldProcessParameter();
@@ -1147,8 +1238,8 @@ namespace AWSPowerShellGenerator.Analysis
                 // if this is reached, this would be an error and the existing config was changed and is invalid.
                 var suggestedParameters = SelectShouldProcessTargetCandidateParameters(NonIterationParameters, isRequiredParameter: false, isRootLevelParameter: false, excludeCollections: false);
 
-                var targetParameterName = suggestedParameters.Count == 1 
-                    ? suggestedParameters.First().AnalyzedName 
+                var targetParameterName = suggestedParameters.Count == 1
+                    ? suggestedParameters.First().AnalyzedName
                     : string.Join(",", suggestedParameters.Select(p => p.AnalyzedName));
                 AnalysisError.OutdatedShouldProcessTargetConfiguration(CurrentModel, CurrentOperation, targetParameterName);
             }
@@ -1158,27 +1249,27 @@ namespace AWSPowerShellGenerator.Analysis
         {
             // Apply enhanced parameter selection hierarchy to all parameters
             var targetParameters = SelectShouldProcessTarget();
-                
-                switch (targetParameters.Count)
-                {
-                    case 0:
-                    case > 3:
-                        // When no suitable target is found or too many candidates, set AnonymousShouldProcessTarget=true
-                        CurrentOperation.AnonymousShouldProcessTarget = true;
-                        CurrentOperation.ShouldProcessTarget = string.Empty;
-                        InfoMessage.ShouldProcessTargetSetToAnonymous(CurrentModel, CurrentOperation);
-                        break;
-                        
-                    case 1:
-                        CurrentOperation.ShouldProcessTarget = targetParameters.First().AnalyzedName;
-                        break;
-                        
-                    case >= 2 and <= 3:
-                        // Multiple parameters - create comma-separated string
-                        var parameterNames = string.Join(",", targetParameters.Select(param => param.AnalyzedName));
-                        CurrentOperation.ShouldProcessTarget = parameterNames;
-                        break;
-                }
+
+            switch (targetParameters.Count)
+            {
+                case 0:
+                case > 3:
+                    // When no suitable target is found or too many candidates, set AnonymousShouldProcessTarget=true
+                    CurrentOperation.AnonymousShouldProcessTarget = true;
+                    CurrentOperation.ShouldProcessTarget = string.Empty;
+                    InfoMessage.ShouldProcessTargetSetToAnonymous(CurrentModel, CurrentOperation);
+                    break;
+
+                case 1:
+                    CurrentOperation.ShouldProcessTarget = targetParameters.First().AnalyzedName;
+                    break;
+
+                case >= 2 and <= 3:
+                    // Multiple parameters - create comma-separated string
+                    var parameterNames = string.Join(",", targetParameters.Select(param => param.AnalyzedName));
+                    CurrentOperation.ShouldProcessTarget = parameterNames;
+                    break;
+            }
         }
 
         /// <summary>
@@ -1310,9 +1401,14 @@ namespace AWSPowerShellGenerator.Analysis
         {
             var methodNoun = CurrentOperation.OriginalNoun;
 
+            if (methodNoun is null)
+            {
+                // OriginalNoun can be null when the OperationName is single word only
+                return [];
+            }
             // Look for exact match with method noun name. e.g. CreateResources method matches Resources parameter
             // AnalyzedName has the original parameter name
-            var exactNounMatch = allParameters.FirstOrDefault(p => 
+            var exactNounMatch = allParameters.FirstOrDefault(p =>
                 string.Equals(p.AnalyzedName, methodNoun, StringComparison.OrdinalIgnoreCase));
             if (exactNounMatch != null)
             {
@@ -1324,11 +1420,11 @@ namespace AWSPowerShellGenerator.Analysis
             // e.g. CreateResources method matches Resource parameter
             // e.g. CreateResource method matches Resources parameter
             // CmdletParameterName has singular parameter name.
-            
+
             var singularizedMethodNoun = SingularizeTerm(methodNoun);
             if (!string.Equals(methodNoun, singularizedMethodNoun, StringComparison.OrdinalIgnoreCase))
             {
-                var singularizedNounMatch = allParameters.FirstOrDefault(p => 
+                var singularizedNounMatch = allParameters.FirstOrDefault(p =>
                     string.Equals(p.CmdletParameterName, singularizedMethodNoun, StringComparison.OrdinalIgnoreCase));
                 if (singularizedNounMatch != null)
                 {
@@ -1437,7 +1533,7 @@ namespace AWSPowerShellGenerator.Analysis
         private List<SimplePropertyInfo> GetParametersWithSuffixExcludingCollections(List<SimplePropertyInfo> parameters)
         {
             return _supportsShouldProcessParameterSuffixes.SelectMany(suffix =>
-                parameters.Where(parameter => 
+                parameters.Where(parameter =>
                     parameter.CmdletParameterName.EndsWith(suffix, StringComparison.OrdinalIgnoreCase) &&
                     (parameter.PropertyType == typeof(string) || !typeof(System.Collections.IEnumerable).IsAssignableFrom(parameter.PropertyType))))
                 .ToList();
@@ -1495,16 +1591,17 @@ namespace AWSPowerShellGenerator.Analysis
             var autoIterateSettings = AutoIterateSettings;
             var result = parameters
                 //Excluding collections based on excludeCollections parameter
-                .Where(param => {
+                .Where(param =>
+                {
                     if (param.PropertyType == typeof(string))
                         return true; // Always include strings
-                    
+
                     if (!typeof(System.Collections.IEnumerable).IsAssignableFrom(param.PropertyType))
                         return true; // Include non-collections
-                    
+
                     if (excludeCollections)
                         return false; // Exclude all collections when excludeCollections is true
-                    
+
                     // When excludeCollections is false, include collections of primitive types
                     return IsCollectionOfPrimitiveType(param.PropertyType);
                 })
@@ -1545,17 +1642,17 @@ namespace AWSPowerShellGenerator.Analysis
         {
             if (type == typeof(string))
                 return false; // String is not considered a collection here
-            
+
             if (!typeof(System.Collections.IEnumerable).IsAssignableFrom(type))
                 return false; // Not a collection
-            
+
             // Handle arrays
             if (type.IsArray)
             {
                 var elementType = type.GetElementType();
                 return IsPrimitiveOrFormattableType(elementType);
             }
-            
+
             // Handle generic collections (List<T>, IEnumerable<T>, etc.)
             if (type.IsGenericType)
             {
@@ -1565,7 +1662,7 @@ namespace AWSPowerShellGenerator.Analysis
                     return IsPrimitiveOrFormattableType(genericArguments[0]);
                 }
             }
-            
+
             return false; // Unknown collection type, exclude to be safe
         }
 
@@ -1581,24 +1678,24 @@ namespace AWSPowerShellGenerator.Analysis
             {
                 type = Nullable.GetUnderlyingType(type);
             }
-            
+
             // Primitive types
             if (type.IsPrimitive)
                 return true;
-            
+
             // Common value types that format well
-            if (type == typeof(string) || 
-                type == typeof(decimal) || 
-                type == typeof(DateTime) || 
+            if (type == typeof(string) ||
+                type == typeof(decimal) ||
+                type == typeof(DateTime) ||
                 type == typeof(DateTimeOffset) ||
                 type == typeof(TimeSpan) ||
                 type == typeof(Guid))
                 return true;
-            
+
             // Enums format well (show enum name)
             if (type.IsEnum)
                 return true;
-            
+
             return false; // Complex types don't format well
         }
 
@@ -1658,7 +1755,7 @@ namespace AWSPowerShellGenerator.Analysis
                     AnalysisError.OutputTypeError(CurrentModel, CurrentOperation, 0);
                 }
             }
-            else  if (CurrentOperation.OutputProperty == null)
+            else if (CurrentOperation.OutputProperty == null)
             {
                 AnalysisError.OutputTypeError(CurrentModel, CurrentOperation, allOutputProperties.Count);
             }
@@ -1711,7 +1808,7 @@ namespace AWSPowerShellGenerator.Analysis
                 if (property.PropertyType.GetGenericTypeDefinition().Name.StartsWith("List`", StringComparison.Ordinal))
                 {
                     var innerCollectionType = property.PropertyType.GetGenericArguments();
-                    
+
                     // evaluate List<List<T>>
                     if (innerCollectionType[0].Name.StartsWith("List`", StringComparison.Ordinal))
                     {
@@ -1760,29 +1857,150 @@ namespace AWSPowerShellGenerator.Analysis
             return singleResultProperty;
         }
 
-        private string AssignVerb(string verb)
+        /// <summary>
+        /// Checks if a verb is already in use by other operations in the current service model.
+        /// </summary>
+        /// <param name="verb">The verb to check</param>
+        /// <returns>True if the verb is already in use, false otherwise</returns>
+        private bool IsVerbAlreadyInUse(string verb)
+        {
+            if (string.IsNullOrEmpty(verb))
+                return false;
+
+            foreach (var operationKvp in CurrentModel.ServiceOperations)
+            {
+                var operation = operationKvp.Value;
+
+                // Skip the current operation we're processing
+                if (operation == CurrentOperation)
+                    continue;
+
+                // Check if this verb is already selected/requested by another operation
+                if (string.Equals(operation.SelectedVerb, verb, StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(operation.RequestedVerb, verb, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        protected virtual string AssignVerb(string verb)
         {
             string newVerb = null;
-            if (AllModels.VerbMappings.ContainsKey(verb))
+
+            // Handle single-word operations first - transform to "Invoke"
+            if (CurrentOperation.IsMethodNameNounLess)
             {
-                newVerb = AllModels.VerbMappings[verb];
+                InfoMessage.VerbAssignmentSingleWordOperation(CurrentModel, CurrentOperation, verb);
+                return "Invoke";
             }
 
-            if (newVerb == null && CurrentModel.VerbMappings.ContainsKey(verb))
+            // When verb is PowerShell-approved → use Verb-Noun
+            if (ApprovedVerbs.Contains(verb))
             {
-                newVerb = CurrentModel.VerbMappings[verb];
+                InfoMessage.VerbAssignmentApprovedVerbUsed(CurrentModel, CurrentOperation, verb);
+                return verb;
             }
 
+            // First, check for VerbNounTransformationPatterns as per design document
+            var transformedVerb = TryApplyVerbTransformationPattern(verb);
+            if (!string.IsNullOrEmpty(transformedVerb))
+            {
+                // Return the transformed verb; noun transformation will be handled in AssignNoun
+                InfoMessage.VerbAssignmentTransformationPatternApplied(CurrentModel, CurrentOperation, verb, transformedVerb);
+                return transformedVerb;
+            }
+
+            // Use CurrentOperation.OriginalNoun for verb-noun uniqueness checking
+            var originalNoun = CurrentOperation.OriginalNoun;
+
+            // Use the enhanced enumerator to iterate through verb mappings in priority order
+            // This now includes service-level mappings as the highest priority
+            bool foundDefault = false;
+            foreach (var mapping in AllModels.GetVerbMappingsInPriorityOrder(verb, CurrentModel))
+            {
+                // Check if this verb with original noun creates a unique combination
+                if (!IsVerbNounCombinationInUse(mapping.Verb, originalNoun))
+                {
+                    newVerb = mapping.Verb;
+
+                    // Log appropriate message if this is not the first (default) mapping
+                    if (!foundDefault && !mapping.IsDefault)
+                    {
+                        // This is an alternative verb due to conflict with default
+                        InfoMessage.VerbAssignmentAlternativePriorityVerbSelected(CurrentModel, CurrentOperation, verb, mapping.Verb, originalNoun);
+                    }
+
+                    break; // Found an available verb, exit the loop
+                }
+
+                // This verb-noun combination is already in use
+                if (mapping.IsDefault)
+                {
+                    // The default priority verb conflicts, log this for visibility
+                    InfoMessage.VerbAssignmentPriorityVerbConflictDetected(CurrentModel, CurrentOperation, mapping.Verb, originalNoun);
+                    foundDefault = true;
+                }
+            }
+
+            // If no suitable verb was found from mappings, generate an error
             if (string.IsNullOrEmpty(newVerb))
             {
-                if (verb.Equals("list", StringComparison.OrdinalIgnoreCase))
+                var allMappings = AllModels.GetAllVerbMappings(verb);
+                if (allMappings.Any())
                 {
-                    newVerb = "Get";
-                    CurrentOperation.IsRemappedListOperation = true;
-                }                
+                    var availableVerbs = allMappings.Select(m => m.Verb);
+                    AnalysisError.NoPriorityVerbAvailable(CurrentModel, CurrentOperation, verb, availableVerbs);
+                }
             }
 
             return newVerb ?? verb;
+        }
+
+
+        /// <summary>
+        /// Checks if a verb-noun combination is already in use by other operations in the current service model.
+        /// Since this is within the same service, ServiceNounPrefix is the same for all operations,
+        /// so we need to check SelectedVerb, OriginalNoun, and ParsedMethodPrefix.
+        /// </summary>
+        /// <param name="verb">The verb to check</param>
+        /// <param name="noun">The noun to check (without service prefix)</param>
+        /// <returns>True if the verb-noun combination is already in use, false otherwise</returns>
+        protected virtual bool IsVerbNounCombinationInUse(string verb, string noun)
+        {
+            if (string.IsNullOrEmpty(verb) || string.IsNullOrEmpty(noun))
+                return false;
+            var singularNoun = SingularizeNoun(noun);
+            // In the AssignNoun, since the Noun transformations have not been applied, this is not perfect
+            // the worst case is that there will be ERROR written in the buildconfig that same verb/noun is in use.
+            if (ShouldApplyPluralNounRule(verb, noun, singularNoun))
+            {
+                return false;
+            }
+
+            foreach (var operationKvp in CurrentModel.ServiceOperations)
+            {
+                var operation = operationKvp.Value;
+
+                // Skip the current operation we're processing
+                if (operation == CurrentOperation)
+                    continue;
+
+                // Check if this verb-noun combination is already in use by another operation
+                // Also check that the ParsedMethodPrefix matches for a true collision
+                if (string.Equals(operation.SelectedVerb, verb, StringComparison.OrdinalIgnoreCase) &&
+                    (string.Equals(operation.OriginalNoun, noun, StringComparison.OrdinalIgnoreCase) ||
+                     string.Equals(operation.OriginalNoun, singularNoun, StringComparison.OrdinalIgnoreCase)
+                    ) &&
+                    string.Equals(operation.ParsedMethodPrefix, CurrentOperation.ParsedMethodPrefix, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         private bool CheckNounIsSingular(string noun)
@@ -1797,21 +2015,239 @@ namespace AWSPowerShellGenerator.Analysis
             return SingularizeNoun(noun) == noun;
         }
 
-        private string AssignNoun(string noun)
+        /// <summary>
+        /// Attempts to apply verb transformation patterns from the XML configuration.
+        /// This method only assigns the verb and sets a flag indicating which pattern was matched.
+        /// The actual noun transformation is handled later by AssignNoun.
+        /// </summary>
+        /// <param name="verb">The verb to check for transformation patterns</param>
+        /// <returns>The target verb if a pattern matches, null otherwise</returns>
+        protected virtual string TryApplyVerbTransformationPattern(string verb)
         {
-            string newNoun;
-            if (!CurrentModel.NounMappings.TryGetValue(noun, out newNoun) &&
-                !AllModels.NounMappings.TryGetValue(noun, out newNoun))
+            if (!AllModels.VerbNounTransformationPatterns.TryGetValue(verb, out var pattern)) return null;
+
+            // Set the flag to indicate which transformation pattern was matched
+            CurrentOperation.AppliedVerbNounTransformationPattern = pattern;
+
+            // Return only the target verb
+            return pattern.TargetVerb;
+
+        }
+
+        /// <summary>
+        /// Transforms a noun using the applied MethodPrefixModifier's NounTransformation pattern.
+        /// This method applies the transformation when method names start with certain prefixes (e.g., "Admin", "Batch").
+        /// The transformation pattern is stored in CurrentOperation.AppliedMethodPrefixModifier.
+        /// </summary>
+        /// <param name="noun">The original noun to transform</param>
+        /// <returns>The transformed noun, or the original noun if no modifier is applied</returns>
+        protected virtual string TransformNounForMethodPrefix(string noun)
+        {
+            // Apply the noun transformation pattern from the applied modifier
+            return CurrentOperation.AppliedMethodPrefixModifier.TransformNoun(noun);
+        }
+
+        protected virtual string AssignNoun(string noun)
+        {
+            string singularNoun = null;
+            if (noun != null)
             {
-                newNoun = SingularizeNoun(noun);
+                singularNoun = SingularizeNoun(noun);
             }
 
-            if (CurrentOperation.IsRemappedListOperation)
+            // Create transformation context with original and singular nouns
+            var context = new NounTransformationContext(noun, singularNoun);
+
+            // Execute transformation pipeline
+            var pipeline = new NounTransformationPipeline()
+                .AddTransformation(ApplyBaseNounTransformation)
+                .AddTransformation(ApplyPluralNounConflictResolution)
+                .AddTransformation(ApplyMethodPrefixTransformation);
+
+            return pipeline.Execute(context);
+        }
+
+        /// <summary>
+        /// Context object that carries transformation state through the pipeline
+        /// </summary>
+        private class NounTransformationContext
+        {
+            public string OriginalNoun { get; }
+            public string SingularNoun { get; }
+            public string CurrentNoun { get; set; }
+
+            public NounTransformationContext(string originalNoun, string singularNoun)
             {
-                newNoun = newNoun + "List";
+                OriginalNoun = originalNoun;
+                SingularNoun = singularNoun;
+                CurrentNoun = singularNoun; // Start with singular noun as default
+            }
+        }
+
+        /// <summary>
+        /// Simple pipeline for noun transformations
+        /// </summary>
+        private class NounTransformationPipeline
+        {
+            private readonly List<Func<NounTransformationContext, string>> _transformations = new List<Func<NounTransformationContext, string>>();
+
+            public NounTransformationPipeline AddTransformation(Func<NounTransformationContext, string> transformation)
+            {
+                _transformations.Add(transformation);
+                return this;
             }
 
-            return newNoun;
+            public string Execute(NounTransformationContext context)
+            {
+                foreach (var transformation in _transformations)
+                {
+                    context.CurrentNoun = transformation(context);
+                }
+                return context.CurrentNoun;
+            }
+        }
+
+        /// <summary>
+        /// Applies the base noun transformation. Only one of these transformations will be applied,
+        /// following a priority order: single-word operations, mappings, or transformation patterns.
+        /// These transformations determine the fundamental noun form.
+        /// </summary>
+        private string ApplyBaseNounTransformation(NounTransformationContext context)
+        {
+            // Handle single-word operations first (highest priority). 
+            if (CurrentOperation.IsMethodNameNounLess)
+            {
+                InfoMessage.NounAssignmentSingleWordOperation(CurrentModel, CurrentOperation, CurrentOperation.MethodName);
+                return CurrentOperation.MethodName;
+            }
+
+            // Apply verb-noun transformation patterns
+            if (CurrentOperation.AppliedVerbNounTransformationPattern != null)
+            {
+                var pattern = CurrentOperation.AppliedVerbNounTransformationPattern;
+                var patternTransformedNoun = pattern.TransformNoun(context.SingularNoun);
+                InfoMessage.NounAssignmentTransformationPatternApplied(CurrentModel, CurrentOperation, context.OriginalNoun, patternTransformedNoun, pattern.Verb);
+                return patternTransformedNoun;
+            }
+
+            // Service Level and Global mappings are older mappings.
+            if (CurrentModel.NounMappings.TryGetValue(context.OriginalNoun, out var serviceLevelMapping))
+            {
+                InfoMessage.NounAssignmentMappingApplied(CurrentModel, CurrentOperation, context.OriginalNoun, serviceLevelMapping, "Service-level");
+                return serviceLevelMapping;
+            }
+
+            // Check global noun mappings (third priority)
+            if (AllModels.NounMappings.TryGetValue(context.OriginalNoun, out var globalMapping))
+            {
+                InfoMessage.NounAssignmentMappingApplied(CurrentModel, CurrentOperation, context.OriginalNoun, globalMapping, "Global");
+                return globalMapping;
+            }
+
+            // Default: return singularized noun if no other transformation applies
+            return context.SingularNoun;
+        }
+
+        /// <summary>
+        /// Applies plural noun conflict resolution rules when there are naming conflicts
+        /// between singular and plural forms of the same noun with the same verb.
+        /// </summary>
+        private string ApplyPluralNounConflictResolution(NounTransformationContext context)
+        {
+            if (context.OriginalNoun is null)
+            {
+                return context.CurrentNoun;
+            }
+
+            // Apply plural noun rules if needed (for conflict detection)
+            if (ShouldApplyPluralNounRule(CurrentOperation.OriginalVerb, context.OriginalNoun, context.SingularNoun))
+            {
+                var suffix = AllModels.PluralNounRules.DefaultSuffix;
+                var conflictResolvedNoun = context.SingularNoun + suffix;
+                InfoMessage.NounAssignmentPluralNounRuleApplied(CurrentModel, CurrentOperation, context.OriginalNoun, conflictResolvedNoun, CurrentOperation.OriginalVerb);
+                return conflictResolvedNoun;
+            }
+
+            return context.CurrentNoun;
+        }
+
+        /// <summary>
+        /// Applies method prefix transformation for operations that have special prefixes
+        /// like "Admin", "Batch", etc.
+        /// </summary>
+        private string ApplyMethodPrefixTransformation(NounTransformationContext context)
+        {
+            if (context.OriginalNoun is null)
+            {
+                return context.CurrentNoun;
+            }
+            // Apply method prefix transformation if applicable
+            if (CurrentOperation.AppliedMethodPrefixModifier is not null)
+            {
+                var prefixTransformedNoun = TransformNounForMethodPrefix(context.CurrentNoun);
+                InfoMessage.NounAssignmentMethodPrefixTransformationApplied(CurrentModel, CurrentOperation, context.CurrentNoun, prefixTransformedNoun, CurrentOperation.AppliedMethodPrefixModifier.StartsWith);
+                return prefixTransformedNoun;
+            }
+
+            return context.CurrentNoun;
+        }
+
+        /// <summary>
+        /// Determines whether to apply plural noun rules (Collection suffix) based on conflict detection.
+        /// Returns true when there are method names that have the same verb but with singular and plural nouns.
+        /// e.g. DescribeStack and DescribeStacks
+        /// </summary>
+        /// <param name="verb">The selected verb for the current operation</param>
+        /// <param name="originalNoun">The original plural noun</param>
+        /// <param name="singularNoun">The singularized version of the noun</param>
+        /// <returns>True if Collection suffix should be applied, false otherwise</returns>
+        protected virtual bool ShouldApplyPluralNounRule(string verb, string originalNoun, string singularNoun)
+        {
+            if (singularNoun == originalNoun)
+            {
+                // Noun is singular
+                return false;
+            }
+
+            // Check if the verb has a plural noun rule configured
+            if (!AllModels.PluralNounRules.HasPluralNounRule(verb))
+            {
+                return false;
+            }
+
+            // Check if there are method names with the same verb but different noun forms (singular/plural)
+            foreach (var operationKvp in CurrentModel.ServiceOperations)
+            {
+                var operation = operationKvp.Value;
+
+                // Skip the current operation we're processing
+                if (operation == CurrentOperation)
+                    continue;
+
+                // Check if this operation has the same verb
+                if (!string.Equals(operation.OriginalVerb, verb, StringComparison.OrdinalIgnoreCase))
+                    continue;
+
+                var operationNoun = operation.OriginalNoun;
+                if (string.IsNullOrEmpty(operationNoun))
+                    continue;
+
+                // Check if this operation uses the singular form of our noun
+                if (string.Equals(operationNoun, singularNoun, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true; // Found same verb with singular noun
+                }
+
+                // Check if the singularized version of this operation's noun matches our singular noun
+                var otherSingularized = SingularizeNoun(operationNoun);
+                if (string.Equals(otherSingularized, singularNoun, StringComparison.OrdinalIgnoreCase) &&
+                    otherSingularized != operationNoun)
+                {
+                    return true; // Found same verb with different plural form of the same noun
+                }
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -1866,7 +2302,7 @@ namespace AWSPowerShellGenerator.Analysis
             // remove "Resize" and "Optimize", as these are 3.0 verbs
             allVerbs.Remove("Resize");
             allVerbs.Remove("Optimize");
-            
+
             // remove "Resize" and "Optimize", as these are 6.0 verbs and we are still supporting 5.1
             allVerbs.Remove("Build");
             allVerbs.Remove("Deploy");
