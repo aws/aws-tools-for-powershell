@@ -298,11 +298,29 @@ namespace Amazon.PowerShell.Common.Internal
 
         internal static async Task<List<string>> GetAccountIdsAsync(string accessToken, string ssoRegion, CancellationToken cancellationToken = default)
         {
+            List<string> lstAccounts = new List<string>();
             var ssoClient = new AmazonSSOClient(new AnonymousAWSCredentials(), RegionEndpoint.GetBySystemName(ssoRegion));
             var listAccountsRequest = new ListAccountsRequest { AccessToken = accessToken };
             var accounts = await ssoClient.ListAccountsAsync(listAccountsRequest, cancellationToken).ConfigureAwait(false);
 
-            return accounts.AccountList.Select(account => account.AccountId).OrderBy(a => a).ToList();
+            if (accounts.NextToken == null)
+            {
+                return accounts.AccountList.Select(account => account.AccountId).OrderBy(a => a).ToList();
+            }
+            accounts.AccountList.Select(account => account.AccountId).OrderBy(a => a).ToList().ForEach(delegate (string name) { lstAccounts.Add(name); });
+
+            do
+            {
+                accounts = await ssoClient.ListAccountsAsync(new ListAccountsRequest
+                {
+                    AccessToken = accessToken,
+                    NextToken = accounts.NextToken
+                }, cancellationToken).ConfigureAwait(false);
+                accounts.AccountList.Select(account => account.AccountId).OrderBy(a => a).ToList().ForEach(delegate (string name) { lstAccounts.Add(name); });
+            } while (accounts.NextToken != null);
+
+            //return accounts.AccountList.Select(account => account.AccountId).OrderBy(a => a).ToList();
+            return lstAccounts;
         }
 
         internal static async Task<List<string>> GetAccountRolesAsync(string accountId, string accessToken, string ssoRegion, CancellationToken cancellationToken = default)
