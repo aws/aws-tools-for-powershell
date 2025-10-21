@@ -75,6 +75,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetJobsQueryResults" OutputProperty="*" Verb="Get" Noun="JobsQueryResult" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetJobTemplate" OutputProperty="JobTemplate" Verb="Get" Noun="JobTemplate" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Name" Alias="JobTemplate" />
@@ -128,6 +132,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchJobs" OutputProperty="Jobs" Verb="Search" Noun="Job" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartJobsQuery" OutputProperty="Id" Verb="Start" Noun="JobsQuery" ShouldProcessTarget="Order" PipelineParameter="Order" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -41,8 +41,14 @@ namespace Amazon.PowerShell.Cmdlets.MM
     /// with usage data split into buckets by tags that you define (or allow the customer
     /// to define).
     /// </para><para>
-    /// Usage records are expected to be submitted as quickly as possible after the event
-    /// that is being recorded, and are not accepted more than 6 hours after the event.
+    /// Submit usage records to report events from the previous hour. If you submit records
+    /// that are greater than six hours after events occur, the records won’t be accepted.
+    /// The timestamp in your request determines when an event is recorded. You can only report
+    /// usage once per hour for each dimension. For AMI-based products, this is per dimension
+    /// and per EC2 instance. For container products, this is per dimension and per ECS task
+    /// or EKS pod. You can’t modify values after they’re recorded. If you report usage before
+    /// the current hour ends, you will be unable to report additional usage until the next
+    /// hour begins.
     /// </para><para>
     /// For Amazon Web Services Regions that support <c>MeterUsage</c>, see <a href="https://docs.aws.amazon.com/marketplace/latest/APIReference/metering-regions.html#meterusage-region-support-ec2">MeterUsage
     /// Region support for Amazon EC2</a> and <a href="https://docs.aws.amazon.com/marketplace/latest/APIReference/metering-regions.html#meterusage-region-support-ecs-eks">MeterUsage
@@ -156,6 +162,23 @@ namespace Amazon.PowerShell.Cmdlets.MM
         public System.Int32? UsageQuantity { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency
+        /// of the request. This lets you safely retry the request without accidentally performing
+        /// the same operation a second time. Passing the same value to a later call to an operation
+        /// requires that you also pass the same value for all other parameters. We recommend
+        /// that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID
+        /// type of value</a>.</para><para>If you don't provide this value, then Amazon Web Services generates a random one for
+        /// you.</para><para>If you retry the operation with the same <c>ClientToken</c>, but with different parameters,
+        /// the retry fails with an <c>IdempotencyConflictException</c> error.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'MeteringRecordId'.
@@ -202,6 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.MM
                 context.Select = CreateSelectDelegate<Amazon.AWSMarketplaceMetering.Model.MeterUsageResponse, SendMMMeteringDataCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ClientToken = this.ClientToken;
             context.DryRun = this.DryRun;
             context.ProductCode = this.ProductCode;
             #if MODULAR
@@ -245,6 +269,10 @@ namespace Amazon.PowerShell.Cmdlets.MM
             // create request
             var request = new Amazon.AWSMarketplaceMetering.Model.MeterUsageRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.DryRun != null)
             {
                 request.DryRun = cmdletContext.DryRun.Value;
@@ -324,6 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.MM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public System.Boolean? DryRun { get; set; }
             public System.String ProductCode { get; set; }
             public System.DateTime? Timestamp { get; set; }

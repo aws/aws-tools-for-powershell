@@ -50450,7 +50450,8 @@ $EMC_Completers = {
             ($_ -eq "Get-EMCJobTemplateList/Order") -Or
             ($_ -eq "Get-EMCPresetList/Order") -Or
             ($_ -eq "Get-EMCQueueList/Order") -Or
-            ($_ -eq "Search-EMCJob/Order")
+            ($_ -eq "Search-EMCJob/Order") -Or
+            ($_ -eq "Start-EMCJobsQuery/Order")
         }
         {
             $v = "ASCENDING","DESCENDING"
@@ -50529,7 +50530,7 @@ $EMC_map = @{
     "BillingTagsSource"=@("New-EMCJob")
     "ListBy"=@("Get-EMCJobTemplateList","Get-EMCPresetList","Get-EMCQueueList")
     "Mode"=@("Get-EMCEndpoint")
-    "Order"=@("Get-EMCJobList","Get-EMCJobTemplateList","Get-EMCPresetList","Get-EMCQueueList","Search-EMCJob")
+    "Order"=@("Get-EMCJobList","Get-EMCJobTemplateList","Get-EMCPresetList","Get-EMCQueueList","Search-EMCJob","Start-EMCJobsQuery")
     "Policy_HttpInput"=@("Write-EMCPolicy")
     "Policy_HttpsInput"=@("Write-EMCPolicy")
     "Policy_S3Input"=@("Write-EMCPolicy")
@@ -50605,6 +50606,7 @@ $EMC_SelectMap = @{
                "Get-EMCEndpoint",
                "Unregister-EMCCertificate",
                "Get-EMCJob",
+               "Get-EMCJobsQueryResult",
                "Get-EMCJobTemplate",
                "Get-EMCPolicy",
                "Get-EMCPreset",
@@ -50618,6 +50620,7 @@ $EMC_SelectMap = @{
                "Invoke-EMCProbe",
                "Write-EMCPolicy",
                "Search-EMCJob",
+               "Start-EMCJobsQuery",
                "Add-EMCResourceTag",
                "Remove-EMCResourceTag",
                "Update-EMCJobTemplate",

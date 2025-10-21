@@ -20366,6 +20366,8 @@ Set-Alias -Name EMC-DescribeEndpoints -Value Get-EMCEndpoint
 Set-Alias -Name Disassociate-EMCCertificate -Value Unregister-EMCCertificate
 Set-Alias -Name EMC-DisassociateCertificate -Value Unregister-EMCCertificate
 Set-Alias -Name EMC-GetJob -Value Get-EMCJob
+Set-Alias -Name Get-EMCJobsQueryResults -Value Get-EMCJobsQueryResult
+Set-Alias -Name EMC-GetJobsQueryResults -Value Get-EMCJobsQueryResult
 Set-Alias -Name EMC-GetJobTemplate -Value Get-EMCJobTemplate
 Set-Alias -Name EMC-GetPolicy -Value Get-EMCPolicy
 Set-Alias -Name EMC-GetPreset -Value Get-EMCPreset
@@ -20393,6 +20395,7 @@ Set-Alias -Name Put-EMCPolicy -Value Write-EMCPolicy
 Set-Alias -Name EMC-PutPolicy -Value Write-EMCPolicy
 Set-Alias -Name Search-EMCJobs -Value Search-EMCJob
 Set-Alias -Name EMC-SearchJobs -Value Search-EMCJob
+Set-Alias -Name EMC-StartJobsQuery -Value Start-EMCJobsQuery
 Set-Alias -Name EMC-TagResource -Value Add-EMCResourceTag
 Set-Alias -Name EMC-UntagResource -Value Remove-EMCResourceTag
 Set-Alias -Name EMC-UpdateJobTemplate -Value Update-EMCJobTemplate
