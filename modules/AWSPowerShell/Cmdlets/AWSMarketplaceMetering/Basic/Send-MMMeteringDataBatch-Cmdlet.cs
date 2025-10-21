@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.MM
 {
     /// <summary>
     /// <important><para>
-    ///  The <c>CustomerIdentifier</c> parameter is scheduled for deprecation. Use <c>CustomerAWSAccountID</c>
-    /// instead.
+    ///  The <c>CustomerIdentifier</c> parameter is scheduled for deprecation on March 31,
+    /// 2026. Use <c>CustomerAWSAccountID</c> instead.
     /// </para><para>
     /// These parameters are mutually exclusive. You can't specify both <c>CustomerIdentifier</c>
     /// and <c>CustomerAWSAccountID</c> in the same request. 

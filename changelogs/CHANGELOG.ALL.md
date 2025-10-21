@@ -1,4 +1,12 @@
-﻿### 4.1.924 (2025-10-17 21:46Z)
+﻿### 4.1.925 (2025-10-21 21:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1148.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elemental MediaConvert
+    * Added cmdlet Get-EMCJobsQueryResult leveraging the GetJobsQueryResults service API.
+    * Added cmdlet Start-EMCJobsQuery leveraging the StartJobsQuery service API.
+  * Amazon Marketplace Metering
+    * Modified cmdlet Send-MMMeteringData: added parameter ClientToken.
+
+### 4.1.924 (2025-10-17 21:46Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1147.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Location Service Maps V2
     * Modified cmdlet Get-GEOMStyleDescriptor: added parameters ContourDensity, Terrain, Traffic and TravelMode.
