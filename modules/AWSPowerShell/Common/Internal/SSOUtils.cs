@@ -297,20 +297,40 @@ namespace Amazon.PowerShell.Common.Internal
 
         internal static async Task<List<string>> GetAccountIdsAsync(string accessToken, string ssoRegion, CancellationToken cancellationToken = default)
         {
-            var ssoClient = new AmazonSSOClient(new AnonymousAWSCredentials(), RegionEndpoint.GetBySystemName(ssoRegion));
-            var listAccountsRequest = new ListAccountsRequest { AccessToken = accessToken };
-            var accounts = await ssoClient.ListAccountsAsync(listAccountsRequest, cancellationToken).ConfigureAwait(false);
+            using (var ssoClient = new AmazonSSOClient(new AnonymousAWSCredentials(), RegionEndpoint.GetBySystemName(ssoRegion)))
+            {
+                var listAccountsRequest = new ListAccountsRequest { AccessToken = accessToken };
+                var accountIds = new List<string>();
 
-            return accounts.AccountList.Select(account => account.AccountId).OrderBy(a => a).ToList();
+                do
+                {
+                    var accounts = await ssoClient.ListAccountsAsync(listAccountsRequest, cancellationToken).ConfigureAwait(false);
+                    accountIds.AddRange(accounts.AccountList.Select(account => account.AccountId));
+                    listAccountsRequest.NextToken = accounts.NextToken;
+                }
+                while (listAccountsRequest.NextToken != null);
+
+                return accountIds.OrderBy(a => a).ToList();
+            }
         }
 
         internal static async Task<List<string>> GetAccountRolesAsync(string accountId, string accessToken, string ssoRegion, CancellationToken cancellationToken = default)
         {
-            var ssoClient = new AmazonSSOClient(new AnonymousAWSCredentials(), region: RegionEndpoint.GetBySystemName(ssoRegion));
-            var listAccountRolesRequest = new ListAccountRolesRequest { AccountId = accountId, AccessToken = accessToken };
-            var accountRoles = await ssoClient.ListAccountRolesAsync(listAccountRolesRequest, cancellationToken).ConfigureAwait(false);
+            using (var ssoClient = new AmazonSSOClient(new AnonymousAWSCredentials(), RegionEndpoint.GetBySystemName(ssoRegion)))
+            {
+                var listAccountRolesRequest = new ListAccountRolesRequest { AccountId = accountId, AccessToken = accessToken };
+                var roleNames = new List<string>();
 
-            return accountRoles.RoleList.Select(accountRole => accountRole.RoleName).OrderBy(r => r).ToList();
+                do
+                {
+                    var accountRoles = await ssoClient.ListAccountRolesAsync(listAccountRolesRequest, cancellationToken).ConfigureAwait(false);
+                    roleNames.AddRange(accountRoles.RoleList.Select(accountRole => accountRole.RoleName));
+                    listAccountRolesRequest.NextToken = accountRoles.NextToken;
+                }
+                while (listAccountRolesRequest.NextToken != null);
+
+                return roleNames.OrderBy(r => r).ToList();
+            }
         }
     }
 
