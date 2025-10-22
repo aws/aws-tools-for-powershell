@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>rtbfabric</C2jFilename>
+    <AssemblyName>RTBFabric</AssemblyName>
+    <ServiceNounPrefix>RTB</ServiceNounPrefix>
+    <ServiceName>Amazon RTBFabric</ServiceName>
+    <ServiceClientInterface>IAmazonRTBFabric</ServiceClientInterface>
+    <ServiceClient>AmazonRTBFabricClient</ServiceClient>
+    <ServiceModuleGuid>D830BD3A-E1C3-4985-8D40-A93C55C00947</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AcceptLink" OutputProperty="*" Verb="Approve" Noun="Link" ShouldProcessTarget="LinkId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateInboundExternalLink" OutputProperty="*" Verb="New" Noun="InboundExternalLink" ShouldProcessTarget="GatewayId" PipelineParameter="GatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLink" OutputProperty="*" Verb="New" Noun="Link" ShouldProcessTarget="GatewayId,PeerGatewayId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateOutboundExternalLink" OutputProperty="*" Verb="New" Noun="OutboundExternalLink" ShouldProcessTarget="GatewayId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRequesterGateway" OutputProperty="*" Verb="New" Noun="RequesterGateway" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateResponderGateway" OutputProperty="*" Verb="New" Noun="ResponderGateway" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInboundExternalLink" OutputProperty="*" Verb="Remove" Noun="InboundExternalLink" ShouldProcessTarget="GatewayId,LinkId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLink" OutputProperty="*" Verb="Remove" Noun="Link" ShouldProcessTarget="LinkId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOutboundExternalLink" OutputProperty="*" Verb="Remove" Noun="OutboundExternalLink" ShouldProcessTarget="GatewayId,LinkId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRequesterGateway" OutputProperty="*" Verb="Remove" Noun="RequesterGateway" ShouldProcessTarget="GatewayId" PipelineParameter="GatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResponderGateway" OutputProperty="*" Verb="Remove" Noun="ResponderGateway" ShouldProcessTarget="GatewayId" PipelineParameter="GatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInboundExternalLink" OutputProperty="*" Verb="Get" Noun="InboundExternalLink" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLink" OutputProperty="*" Verb="Get" Noun="Link" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOutboundExternalLink" OutputProperty="*" Verb="Get" Noun="OutboundExternalLink" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRequesterGateway" OutputProperty="*" Verb="Get" Noun="RequesterGateway" PipelineParameter="GatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResponderGateway" OutputProperty="*" Verb="Get" Noun="ResponderGateway" PipelineParameter="GatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLinks" OutputProperty="Links" Verb="Get" Noun="LinkList" PipelineParameter="GatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRequesterGateways" OutputProperty="GatewayIds" Verb="Get" Noun="RequesterGatewayList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResponderGateways" OutputProperty="GatewayIds" Verb="Get" Noun="ResponderGatewayList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RejectLink" OutputProperty="*" Verb="Deny" Noun="Link" ShouldProcessTarget="LinkId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLink" OutputProperty="*" Verb="Update" Noun="Link" ShouldProcessTarget="LinkId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLinkModuleFlow" OutputProperty="*" Verb="Update" Noun="LinkModuleFlow" ShouldProcessTarget="GatewayId,LinkId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRequesterGateway" OutputProperty="*" Verb="Update" Noun="RequesterGateway" ShouldProcessTarget="GatewayId" PipelineParameter="GatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResponderGateway" OutputProperty="*" Verb="Update" Noun="ResponderGateway" ShouldProcessTarget="GatewayId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

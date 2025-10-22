@@ -64,6 +64,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Preview_AllowedUserAction
+        /// <summary>
+        /// <para>
+        /// <para>The actions the agent can perform after accepting the preview outbound contact.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OutboundStrategy_Config_AgentFirst_Preview_AllowedUserActions")]
+        public System.String[] Preview_AllowedUserAction { get; set; }
+        #endregion
+        
         #region Parameter Attribute
         /// <summary>
         /// <para>
@@ -145,6 +156,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DestinationPhoneNumber { get; set; }
+        #endregion
+        
+        #region Parameter PostAcceptTimeoutConfig_DurationInSecond
+        /// <summary>
+        /// <para>
+        /// <para>Duration in seconds for the countdown timer after the agent accepted the contact.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OutboundStrategy_Config_AgentFirst_Preview_PostAcceptTimeoutConfig_DurationInSeconds")]
+        public System.Int32? PostAcceptTimeoutConfig_DurationInSecond { get; set; }
         #endregion
         
         #region Parameter AnswerMachineDetectionConfig_EnableAnswerMachineDetection
@@ -251,6 +273,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Connect.TrafficType")]
         public Amazon.Connect.TrafficType TrafficType { get; set; }
+        #endregion
+        
+        #region Parameter OutboundStrategy_Type
+        /// <summary>
+        /// <para>
+        /// <para>Type of the outbound strategy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Connect.OutboundStrategyType")]
+        public Amazon.Connect.OutboundStrategyType OutboundStrategy_Type { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -364,6 +397,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             #endif
             context.Name = this.Name;
+            if (this.Preview_AllowedUserAction != null)
+            {
+                context.Preview_AllowedUserAction = new List<System.String>(this.Preview_AllowedUserAction);
+            }
+            context.PostAcceptTimeoutConfig_DurationInSecond = this.PostAcceptTimeoutConfig_DurationInSecond;
+            context.OutboundStrategy_Type = this.OutboundStrategy_Type;
             context.QueueId = this.QueueId;
             if (this.Reference != null)
             {
@@ -452,6 +491,105 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate OutboundStrategy
+            var requestOutboundStrategyIsNull = true;
+            request.OutboundStrategy = new Amazon.Connect.Model.OutboundStrategy();
+            Amazon.Connect.OutboundStrategyType requestOutboundStrategy_outboundStrategy_Type = null;
+            if (cmdletContext.OutboundStrategy_Type != null)
+            {
+                requestOutboundStrategy_outboundStrategy_Type = cmdletContext.OutboundStrategy_Type;
+            }
+            if (requestOutboundStrategy_outboundStrategy_Type != null)
+            {
+                request.OutboundStrategy.Type = requestOutboundStrategy_outboundStrategy_Type;
+                requestOutboundStrategyIsNull = false;
+            }
+            Amazon.Connect.Model.OutboundStrategyConfig requestOutboundStrategy_outboundStrategy_Config = null;
+            
+             // populate Config
+            var requestOutboundStrategy_outboundStrategy_ConfigIsNull = true;
+            requestOutboundStrategy_outboundStrategy_Config = new Amazon.Connect.Model.OutboundStrategyConfig();
+            Amazon.Connect.Model.AgentFirst requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst = null;
+            
+             // populate AgentFirst
+            var requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirstIsNull = true;
+            requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst = new Amazon.Connect.Model.AgentFirst();
+            Amazon.Connect.Model.Preview requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_Preview = null;
+            
+             // populate Preview
+            var requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_PreviewIsNull = true;
+            requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_Preview = new Amazon.Connect.Model.Preview();
+            List<System.String> requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_Preview_preview_AllowedUserAction = null;
+            if (cmdletContext.Preview_AllowedUserAction != null)
+            {
+                requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_Preview_preview_AllowedUserAction = cmdletContext.Preview_AllowedUserAction;
+            }
+            if (requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_Preview_preview_AllowedUserAction != null)
+            {
+                requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_Preview.AllowedUserActions = requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_Preview_preview_AllowedUserAction;
+                requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_PreviewIsNull = false;
+            }
+            Amazon.Connect.Model.PostAcceptTimeoutConfig requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_Preview_outboundStrategy_Config_AgentFirst_Preview_PostAcceptTimeoutConfig = null;
+            
+             // populate PostAcceptTimeoutConfig
+            var requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_Preview_outboundStrategy_Config_AgentFirst_Preview_PostAcceptTimeoutConfigIsNull = true;
+            requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_Preview_outboundStrategy_Config_AgentFirst_Preview_PostAcceptTimeoutConfig = new Amazon.Connect.Model.PostAcceptTimeoutConfig();
+            System.Int32? requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_Preview_outboundStrategy_Config_AgentFirst_Preview_PostAcceptTimeoutConfig_postAcceptTimeoutConfig_DurationInSecond = null;
+            if (cmdletContext.PostAcceptTimeoutConfig_DurationInSecond != null)
+            {
+                requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_Preview_outboundStrategy_Config_AgentFirst_Preview_PostAcceptTimeoutConfig_postAcceptTimeoutConfig_DurationInSecond = cmdletContext.PostAcceptTimeoutConfig_DurationInSecond.Value;
+            }
+            if (requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_Preview_outboundStrategy_Config_AgentFirst_Preview_PostAcceptTimeoutConfig_postAcceptTimeoutConfig_DurationInSecond != null)
+            {
+                requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_Preview_outboundStrategy_Config_AgentFirst_Preview_PostAcceptTimeoutConfig.DurationInSeconds = requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_Preview_outboundStrategy_Config_AgentFirst_Preview_PostAcceptTimeoutConfig_postAcceptTimeoutConfig_DurationInSecond.Value;
+                requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_Preview_outboundStrategy_Config_AgentFirst_Preview_PostAcceptTimeoutConfigIsNull = false;
+            }
+             // determine if requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_Preview_outboundStrategy_Config_AgentFirst_Preview_PostAcceptTimeoutConfig should be set to null
+            if (requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_Preview_outboundStrategy_Config_AgentFirst_Preview_PostAcceptTimeoutConfigIsNull)
+            {
+                requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_Preview_outboundStrategy_Config_AgentFirst_Preview_PostAcceptTimeoutConfig = null;
+            }
+            if (requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_Preview_outboundStrategy_Config_AgentFirst_Preview_PostAcceptTimeoutConfig != null)
+            {
+                requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_Preview.PostAcceptTimeoutConfig = requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_Preview_outboundStrategy_Config_AgentFirst_Preview_PostAcceptTimeoutConfig;
+                requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_PreviewIsNull = false;
+            }
+             // determine if requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_Preview should be set to null
+            if (requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_PreviewIsNull)
+            {
+                requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_Preview = null;
+            }
+            if (requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_Preview != null)
+            {
+                requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst.Preview = requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst_outboundStrategy_Config_AgentFirst_Preview;
+                requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirstIsNull = false;
+            }
+             // determine if requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst should be set to null
+            if (requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirstIsNull)
+            {
+                requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst = null;
+            }
+            if (requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst != null)
+            {
+                requestOutboundStrategy_outboundStrategy_Config.AgentFirst = requestOutboundStrategy_outboundStrategy_Config_outboundStrategy_Config_AgentFirst;
+                requestOutboundStrategy_outboundStrategy_ConfigIsNull = false;
+            }
+             // determine if requestOutboundStrategy_outboundStrategy_Config should be set to null
+            if (requestOutboundStrategy_outboundStrategy_ConfigIsNull)
+            {
+                requestOutboundStrategy_outboundStrategy_Config = null;
+            }
+            if (requestOutboundStrategy_outboundStrategy_Config != null)
+            {
+                request.OutboundStrategy.Config = requestOutboundStrategy_outboundStrategy_Config;
+                requestOutboundStrategyIsNull = false;
+            }
+             // determine if request.OutboundStrategy should be set to null
+            if (requestOutboundStrategyIsNull)
+            {
+                request.OutboundStrategy = null;
             }
             if (cmdletContext.QueueId != null)
             {
@@ -544,6 +682,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String DestinationPhoneNumber { get; set; }
             public System.String InstanceId { get; set; }
             public System.String Name { get; set; }
+            public List<System.String> Preview_AllowedUserAction { get; set; }
+            public System.Int32? PostAcceptTimeoutConfig_DurationInSecond { get; set; }
+            public Amazon.Connect.OutboundStrategyType OutboundStrategy_Type { get; set; }
             public System.String QueueId { get; set; }
             public Dictionary<System.String, Amazon.Connect.Model.Reference> Reference { get; set; }
             public System.String RelatedContactId { get; set; }

@@ -372,6 +372,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.OutboundStrategyType
+        "Start-CONNOutboundVoiceContact/OutboundStrategy_Type"
+        {
+            $v = "AGENT_FIRST"
+            break
+        }
+
         # Amazon.Connect.ParticipantRole
         {
             ($_ -eq "New-CONNPushNotificationRegistration/ContactConfiguration_ParticipantRole") -Or
@@ -662,6 +669,7 @@ $CONN_map = @{
     "LexVersion"=@("Get-CONNBotList")
     "ListCondition_TargetListType"=@("Search-CONNUser")
     "Name_MatchType"=@("Search-CONNContact")
+    "OutboundStrategy_Type"=@("Start-CONNOutboundVoiceContact")
     "OutputType"=@("Get-CONNRealtimeContactAnalysisSegmentsV2List")
     "ParticipantCapabilities_ScreenShare"=@("New-CONNParticipant")
     "ParticipantCapabilities_Video"=@("New-CONNParticipant")
@@ -762,6 +770,7 @@ $CONN_SelectMap = @{
                "Add-CONNBot",
                "Join-CONNContactWithUser",
                "Add-CONNDefaultVocabulary",
+               "Add-CONNEmailAddressAlias",
                "Add-CONNFlow",
                "Add-CONNInstanceStorageConfig",
                "Add-CONNLambdaFunction",
@@ -866,6 +875,7 @@ $CONN_SelectMap = @{
                "Unregister-CONNAnalyticsDataSet",
                "Remove-CONNApprovedOrigin",
                "Remove-CONNBot",
+               "Remove-CONNEmailAddressAlias",
                "Remove-CONNFlow",
                "Remove-CONNInstanceStorageConfig",
                "Remove-CONNLambdaFunction",
