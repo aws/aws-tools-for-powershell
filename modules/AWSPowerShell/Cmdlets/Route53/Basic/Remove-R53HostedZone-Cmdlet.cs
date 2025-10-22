@@ -59,12 +59,12 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// provided by the registrar to update name servers for the domain registration. For
     /// more information, perform an internet search on "free DNS service."
     /// </para><para>
-    /// You can delete a hosted zone only if it contains only the default SOA record and NS
-    /// resource record sets. If the hosted zone contains other resource record sets, you
-    /// must delete them before you can delete the hosted zone. If you try to delete a hosted
-    /// zone that contains other resource record sets, the request fails, and Route 53 returns
-    /// a <c>HostedZoneNotEmpty</c> error. For information about deleting records from your
-    /// hosted zone, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html">ChangeResourceRecordSets</a>.
+    /// You can delete a hosted zone only if it contains only the default SOA and NS records
+    /// and has DNSSEC signing disabled. If the hosted zone contains other records or has
+    /// DNSSEC enabled, you must delete the records and disable DNSSEC before deletion. Attempting
+    /// to delete a hosted zone with additional records or DNSSEC enabled returns a <c>HostedZoneNotEmpty</c>
+    /// error. For information about deleting records, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html">ChangeResourceRecordSets</a>.
+    /// 
     /// </para><para>
     /// To verify that the hosted zone has been deleted, do one of the following:
     /// </para><ul><li><para>

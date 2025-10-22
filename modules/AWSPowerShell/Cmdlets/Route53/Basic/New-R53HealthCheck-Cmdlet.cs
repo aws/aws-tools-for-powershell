@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// checks:</para><ul><li><para>If you send a <c>CreateHealthCheck</c> request with the same <c>CallerReference</c>
         /// and settings as a previous request, and if the health check doesn't exist, Amazon
         /// Route 53 creates the health check. If the health check does exist, Route 53 returns
-        /// the settings for the existing health check.</para></li><li><para>If you send a <c>CreateHealthCheck</c> request with the same <c>CallerReference</c>
+        /// the health check configuration in the response. </para></li><li><para>If you send a <c>CreateHealthCheck</c> request with the same <c>CallerReference</c>
         /// as a deleted health check, regardless of the settings, Route 53 returns a <c>HealthCheckAlreadyExists</c>
         /// error.</para></li><li><para>If you send a <c>CreateHealthCheck</c> request with the same <c>CallerReference</c>
         /// as an existing health check but with different settings, Route 53 returns a <c>HealthCheckAlreadyExists</c>

@@ -1072,6 +1072,9 @@
     <Reference Include="AWSSDK.Route53Resolver">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Route53Resolver.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.RTBFabric">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.RTBFabric.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.S3">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.S3.dll</HintPath>
     </Reference>
@@ -2307,6 +2310,9 @@
     </Reference>
     <Reference Include="AWSSDK.Route53Resolver">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Route53Resolver.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.RTBFabric">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.RTBFabric.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.S3">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.S3.dll</HintPath>

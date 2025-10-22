@@ -19208,6 +19208,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.OutboundStrategyType
+        "Start-CONNOutboundVoiceContact/OutboundStrategy_Type"
+        {
+            $v = "AGENT_FIRST"
+            break
+        }
+
         # Amazon.Connect.ParticipantRole
         {
             ($_ -eq "New-CONNPushNotificationRegistration/ContactConfiguration_ParticipantRole") -Or
@@ -19498,6 +19505,7 @@ $CONN_map = @{
     "LexVersion"=@("Get-CONNBotList")
     "ListCondition_TargetListType"=@("Search-CONNUser")
     "Name_MatchType"=@("Search-CONNContact")
+    "OutboundStrategy_Type"=@("Start-CONNOutboundVoiceContact")
     "OutputType"=@("Get-CONNRealtimeContactAnalysisSegmentsV2List")
     "ParticipantCapabilities_ScreenShare"=@("New-CONNParticipant")
     "ParticipantCapabilities_Video"=@("New-CONNParticipant")
@@ -19598,6 +19606,7 @@ $CONN_SelectMap = @{
                "Add-CONNBot",
                "Join-CONNContactWithUser",
                "Add-CONNDefaultVocabulary",
+               "Add-CONNEmailAddressAlias",
                "Add-CONNFlow",
                "Add-CONNInstanceStorageConfig",
                "Add-CONNLambdaFunction",
@@ -19702,6 +19711,7 @@ $CONN_SelectMap = @{
                "Unregister-CONNAnalyticsDataSet",
                "Remove-CONNApprovedOrigin",
                "Remove-CONNBot",
+               "Remove-CONNEmailAddressAlias",
                "Remove-CONNFlow",
                "Remove-CONNInstanceStorageConfig",
                "Remove-CONNLambdaFunction",
@@ -51022,10 +51032,12 @@ $EML_SelectMap = @{
                "Get-EMLEventBridgeRuleTemplate",
                "Get-EMLEventBridgeRuleTemplateGroup",
                "Get-EMLSignalMap",
+               "Get-EMLAlertList",
                "Get-EMLChannelPlacementGroupList",
                "Get-EMLChannelList",
                "Get-EMLCloudWatchAlarmTemplateGroupList",
                "Get-EMLCloudWatchAlarmTemplateList",
+               "Get-EMLClusterAlertList",
                "Get-EMLClusterList",
                "Get-EMLEventBridgeRuleTemplateGroupList",
                "Get-EMLEventBridgeRuleTemplateList",
@@ -51033,6 +51045,7 @@ $EML_SelectMap = @{
                "Get-EMLInputDeviceTransferList",
                "Get-EMLInputList",
                "Get-EMLInputSecurityGroupList",
+               "Get-EMLMultiplexAlertList",
                "Get-EMLMultiplexList",
                "Get-EMLMultiplexProgramList",
                "Get-EMLNetworkList",
@@ -66827,7 +66840,7 @@ $R53_Completers = {
             ($_ -eq "Update-R53HealthCheck/AlarmIdentifier_Region")
         }
         {
-            $v = "af-south-1","ap-east-1","ap-east-2","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ap-southeast-5","ap-southeast-6","ap-southeast-7","ca-central-1","ca-west-1","cn-north-1","cn-northwest-1","eu-central-1","eu-central-2","eu-isoe-west-1","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","il-central-1","me-central-1","me-south-1","mx-central-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-isof-east-1","us-isof-south-1","us-west-1","us-west-2"
+            $v = "af-south-1","ap-east-1","ap-east-2","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ap-southeast-5","ap-southeast-6","ap-southeast-7","ca-central-1","ca-west-1","cn-north-1","cn-northwest-1","eu-central-1","eu-central-2","eu-isoe-west-1","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","il-central-1","me-central-1","me-south-1","mx-central-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-isob-west-1","us-isof-east-1","us-isof-south-1","us-west-1","us-west-2"
             break
         }
 
@@ -66903,7 +66916,7 @@ $R53_Completers = {
             ($_ -eq "Get-R53HostedZonesByVPC/VPCRegion")
         }
         {
-            $v = "af-south-1","ap-east-1","ap-east-2","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ap-southeast-5","ap-southeast-6","ap-southeast-7","ca-central-1","ca-west-1","cn-north-1","cn-northwest-1","eu-central-1","eu-central-2","eu-isoe-west-1","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","il-central-1","me-central-1","me-south-1","mx-central-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-isof-east-1","us-isof-south-1","us-west-1","us-west-2"
+            $v = "af-south-1","ap-east-1","ap-east-2","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ap-southeast-5","ap-southeast-6","ap-southeast-7","ca-central-1","ca-west-1","cn-north-1","cn-northwest-1","eu-central-1","eu-central-2","eu-isoe-west-1","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","il-central-1","me-central-1","me-south-1","mx-central-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-isob-west-1","us-isof-east-1","us-isof-south-1","us-west-1","us-west-2"
             break
         }
 
@@ -67305,6 +67318,116 @@ $R53P_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $R53P_SelectCompleters $R53P_SelectMap
+# Argument completions for service Amazon RTBFabric
+
+
+$RTB_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.RTBFabric.Protocol
+        {
+            ($_ -eq "New-RTBResponderGateway/Protocol") -Or
+            ($_ -eq "Update-RTBResponderGateway/Protocol")
+        }
+        {
+            $v = "HTTP","HTTPS"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$RTB_map = @{
+    "Protocol"=@("New-RTBResponderGateway","Update-RTBResponderGateway")
+}
+
+_awsArgumentCompleterRegistration $RTB_Completers $RTB_map
+
+$RTB_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.RTB.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$RTB_SelectMap = @{
+    "Select"=@("Approve-RTBLink",
+               "New-RTBInboundExternalLink",
+               "New-RTBLink",
+               "New-RTBOutboundExternalLink",
+               "New-RTBRequesterGateway",
+               "New-RTBResponderGateway",
+               "Remove-RTBInboundExternalLink",
+               "Remove-RTBLink",
+               "Remove-RTBOutboundExternalLink",
+               "Remove-RTBRequesterGateway",
+               "Remove-RTBResponderGateway",
+               "Get-RTBInboundExternalLink",
+               "Get-RTBLink",
+               "Get-RTBOutboundExternalLink",
+               "Get-RTBRequesterGateway",
+               "Get-RTBResponderGateway",
+               "Get-RTBLinkList",
+               "Get-RTBRequesterGatewayList",
+               "Get-RTBResponderGatewayList",
+               "Get-RTBResourceTag",
+               "Deny-RTBLink",
+               "Add-RTBResourceTag",
+               "Remove-RTBResourceTag",
+               "Update-RTBLink",
+               "Update-RTBLinkModuleFlow",
+               "Update-RTBRequesterGateway",
+               "Update-RTBResponderGateway")
+}
+
+_awsArgumentCompleterRegistration $RTB_SelectCompleters $RTB_SelectMap
 # Argument completions for service CloudWatch RUM
 
 

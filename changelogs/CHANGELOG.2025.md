@@ -1,4 +1,21 @@
-﻿### 5.0.80 (2025-10-21 21:03Z)
+﻿### 5.0.81 (2025-10-22 22:08Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.117.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AmazonConnectCampaignServiceV2
+    * Modified cmdlet New-CCS2Campaign: added parameters Preview_AgentAction, Preview_BandwidthAllocation and TimeoutConfig_DurationInSecond.
+    * Modified cmdlet Update-CCS2CampaignChannelSubtypeConfig: added parameters Preview_AgentAction, Preview_BandwidthAllocation and TimeoutConfig_DurationInSecond.
+  * Amazon Connect Service
+    * Added cmdlet Add-CONNEmailAddressAlias leveraging the AssociateEmailAddressAlias service API.
+    * Added cmdlet Remove-CONNEmailAddressAlias leveraging the DisassociateEmailAddressAlias service API.
+    * Modified cmdlet Start-CONNOutboundVoiceContact: added parameters OutboundStrategy_Type, PostAcceptTimeoutConfig_DurationInSecond and Preview_AllowedUserAction.
+  * Amazon Device Farm
+    * Modified cmdlet New-DFRemoteAccessSession: added parameters AppArn and Configuration_AuxiliaryApp.
+  * Amazon Elemental MediaLive
+    * Added cmdlet Get-EMLAlertList leveraging the ListAlerts service API.
+    * Added cmdlet Get-EMLClusterAlertList leveraging the ListClusterAlerts service API.
+    * Added cmdlet Get-EMLMultiplexAlertList leveraging the ListMultiplexAlerts service API.
+  * Amazon RTBFabric. Added cmdlets to support the service. Cmdlets for the service have the noun prefix RTB and can be listed using the command 'Get-AWSCmdletName -Service RTB'.
+
+### 5.0.80 (2025-10-21 21:03Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.116.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elemental MediaConvert
     * Added cmdlet Get-EMCJobsQueryResult leveraging the GetJobsQueryResults service API.

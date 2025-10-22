@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// is attached.</para></li><li><para><c>attachment.instance-id</c> - The ID of the instance to which the network interface
         /// is attached.</para></li><li><para><c>attachment.instance-owner-id</c> - The owner ID of the instance to which the network
         /// interface is attached.</para></li><li><para><c>attachment.status</c> - The status of the attachment (<c>attaching</c> | <c>attached</c>
-        /// | <c>detaching</c> | <c>detached</c>).</para></li><li><para><c>availability-zone</c> - The Availability Zone of the network interface.</para></li><li><para><c>description</c> - The description of the network interface.</para></li><li><para><c>group-id</c> - The ID of a security group associated with the network interface.</para></li><li><para><c>ipv6-addresses.ipv6-address</c> - An IPv6 address associated with the network
+        /// | <c>detaching</c> | <c>detached</c>).</para></li><li><para><c>availability-zone</c> - The Availability Zone of the network interface.</para></li><li><para><c>availability-zone-id</c> - The ID of the Availability Zone of the network interface.</para></li><li><para><c>description</c> - The description of the network interface.</para></li><li><para><c>group-id</c> - The ID of a security group associated with the network interface.</para></li><li><para><c>ipv6-addresses.ipv6-address</c> - An IPv6 address associated with the network
         /// interface.</para></li><li><para><c>interface-type</c> - The type of network interface (<c>api_gateway_managed</c>
         /// | <c>aws_codestar_connections_managed</c> | <c>branch</c> | <c>ec2_instance_connect_endpoint</c>
         /// | <c>efa</c> | <c>efa-only</c> | <c>efs</c> | <c>evs</c> | <c>gateway_load_balancer</c>

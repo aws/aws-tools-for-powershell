@@ -45,6 +45,32 @@ namespace Amazon.PowerShell.Cmdlets.DF
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AppArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the app to create the remote access session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AppArn { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_AuxiliaryApp
+        /// <summary>
+        /// <para>
+        /// <para>A list of upload ARNs for app packages to be installed onto your device. (Maximum
+        /// 3)</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_AuxiliaryApps")]
+        public System.String[] Configuration_AuxiliaryApp { get; set; }
+        #endregion
+        
         #region Parameter Configuration_BillingMethod
         /// <summary>
         /// <para>
@@ -279,7 +305,12 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 context.Select = CreateSelectDelegate<Amazon.DeviceFarm.Model.CreateRemoteAccessSessionResponse, NewDFRemoteAccessSessionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AppArn = this.AppArn;
             context.ClientId = this.ClientId;
+            if (this.Configuration_AuxiliaryApp != null)
+            {
+                context.Configuration_AuxiliaryApp = new List<System.String>(this.Configuration_AuxiliaryApp);
+            }
             context.Configuration_BillingMethod = this.Configuration_BillingMethod;
             context.DeviceProxy_Host = this.DeviceProxy_Host;
             context.DeviceProxy_Port = this.DeviceProxy_Port;
@@ -325,6 +356,10 @@ namespace Amazon.PowerShell.Cmdlets.DF
             // create request
             var request = new Amazon.DeviceFarm.Model.CreateRemoteAccessSessionRequest();
             
+            if (cmdletContext.AppArn != null)
+            {
+                request.AppArn = cmdletContext.AppArn;
+            }
             if (cmdletContext.ClientId != null)
             {
                 request.ClientId = cmdletContext.ClientId;
@@ -333,6 +368,16 @@ namespace Amazon.PowerShell.Cmdlets.DF
              // populate Configuration
             var requestConfigurationIsNull = true;
             request.Configuration = new Amazon.DeviceFarm.Model.CreateRemoteAccessSessionConfiguration();
+            List<System.String> requestConfiguration_configuration_AuxiliaryApp = null;
+            if (cmdletContext.Configuration_AuxiliaryApp != null)
+            {
+                requestConfiguration_configuration_AuxiliaryApp = cmdletContext.Configuration_AuxiliaryApp;
+            }
+            if (requestConfiguration_configuration_AuxiliaryApp != null)
+            {
+                request.Configuration.AuxiliaryApps = requestConfiguration_configuration_AuxiliaryApp;
+                requestConfigurationIsNull = false;
+            }
             Amazon.DeviceFarm.BillingMethod requestConfiguration_configuration_BillingMethod = null;
             if (cmdletContext.Configuration_BillingMethod != null)
             {
@@ -488,7 +533,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AppArn { get; set; }
             public System.String ClientId { get; set; }
+            public List<System.String> Configuration_AuxiliaryApp { get; set; }
             public Amazon.DeviceFarm.BillingMethod Configuration_BillingMethod { get; set; }
             public System.String DeviceProxy_Host { get; set; }
             public System.Int32? DeviceProxy_Port { get; set; }

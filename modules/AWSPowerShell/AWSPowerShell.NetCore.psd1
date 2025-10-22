@@ -391,6 +391,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.Route53RecoveryControlConfig.dll',
         'AWSSDK.Route53RecoveryReadiness.dll',
         'AWSSDK.Route53Resolver.dll',
+        'AWSSDK.RTBFabric.dll',
         'AWSSDK.S3.dll',
         'AWSSDK.S3Control.dll',
         'AWSSDK.S3Outposts.dll',

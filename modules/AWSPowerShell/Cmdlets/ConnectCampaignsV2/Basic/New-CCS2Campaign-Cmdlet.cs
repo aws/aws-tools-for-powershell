@@ -44,6 +44,21 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Preview_AgentAction
+        /// <summary>
+        /// <para>
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChannelSubtypeConfig_Telephony_OutboundMode_Preview_AgentActions")]
+        public System.String[] Preview_AgentAction { get; set; }
+        #endregion
+        
         #region Parameter ChannelSubtypeConfig_Email_OutboundMode_Agentless
         /// <summary>
         /// <para>
@@ -94,6 +109,17 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ChannelSubtypeConfig_Telephony_OutboundMode_Predictive_BandwidthAllocation")]
         public System.Double? Predictive_BandwidthAllocation { get; set; }
+        #endregion
+        
+        #region Parameter Preview_BandwidthAllocation
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChannelSubtypeConfig_Telephony_OutboundMode_Preview_BandwidthAllocation")]
+        public System.Double? Preview_BandwidthAllocation { get; set; }
         #endregion
         
         #region Parameter Progressive_BandwidthAllocation
@@ -309,6 +335,17 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("CommunicationTimeConfig_LocalTimeZoneConfig_DefaultTimeZone")]
         public System.String LocalTimeZoneConfig_DefaultTimeZone { get; set; }
+        #endregion
+        
+        #region Parameter TimeoutConfig_DurationInSecond
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChannelSubtypeConfig_Telephony_OutboundMode_Preview_TimeoutConfig_DurationInSeconds")]
+        public System.Int32? TimeoutConfig_DurationInSecond { get; set; }
         #endregion
         
         #region Parameter AnswerMachineDetectionConfig_EnableAnswerMachineDetection
@@ -546,6 +583,12 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             context.DefaultOutboundConfig_ConnectSourcePhoneNumber = this.DefaultOutboundConfig_ConnectSourcePhoneNumber;
             context.ChannelSubtypeConfig_Telephony_OutboundMode_Agentless = this.ChannelSubtypeConfig_Telephony_OutboundMode_Agentless;
             context.Predictive_BandwidthAllocation = this.Predictive_BandwidthAllocation;
+            if (this.Preview_AgentAction != null)
+            {
+                context.Preview_AgentAction = new List<System.String>(this.Preview_AgentAction);
+            }
+            context.Preview_BandwidthAllocation = this.Preview_BandwidthAllocation;
+            context.TimeoutConfig_DurationInSecond = this.TimeoutConfig_DurationInSecond;
             context.Progressive_BandwidthAllocation = this.Progressive_BandwidthAllocation;
             if (this.AllChannelSubtypes_CommunicationLimitsList != null)
             {
@@ -1015,6 +1058,66 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Progressive != null)
             {
                 requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode.Progressive = requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Progressive;
+                requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundModeIsNull = false;
+            }
+            Amazon.ConnectCampaignsV2.Model.PreviewConfig requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview = null;
+            
+             // populate Preview
+            var requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_PreviewIsNull = true;
+            requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview = new Amazon.ConnectCampaignsV2.Model.PreviewConfig();
+            List<System.String> requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview_preview_AgentAction = null;
+            if (cmdletContext.Preview_AgentAction != null)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview_preview_AgentAction = cmdletContext.Preview_AgentAction;
+            }
+            if (requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview_preview_AgentAction != null)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview.AgentActions = requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview_preview_AgentAction;
+                requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_PreviewIsNull = false;
+            }
+            System.Double? requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview_preview_BandwidthAllocation = null;
+            if (cmdletContext.Preview_BandwidthAllocation != null)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview_preview_BandwidthAllocation = cmdletContext.Preview_BandwidthAllocation.Value;
+            }
+            if (requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview_preview_BandwidthAllocation != null)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview.BandwidthAllocation = requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview_preview_BandwidthAllocation.Value;
+                requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_PreviewIsNull = false;
+            }
+            Amazon.ConnectCampaignsV2.Model.TimeoutConfig requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview_channelSubtypeConfig_Telephony_OutboundMode_Preview_TimeoutConfig = null;
+            
+             // populate TimeoutConfig
+            var requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview_channelSubtypeConfig_Telephony_OutboundMode_Preview_TimeoutConfigIsNull = true;
+            requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview_channelSubtypeConfig_Telephony_OutboundMode_Preview_TimeoutConfig = new Amazon.ConnectCampaignsV2.Model.TimeoutConfig();
+            System.Int32? requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview_channelSubtypeConfig_Telephony_OutboundMode_Preview_TimeoutConfig_timeoutConfig_DurationInSecond = null;
+            if (cmdletContext.TimeoutConfig_DurationInSecond != null)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview_channelSubtypeConfig_Telephony_OutboundMode_Preview_TimeoutConfig_timeoutConfig_DurationInSecond = cmdletContext.TimeoutConfig_DurationInSecond.Value;
+            }
+            if (requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview_channelSubtypeConfig_Telephony_OutboundMode_Preview_TimeoutConfig_timeoutConfig_DurationInSecond != null)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview_channelSubtypeConfig_Telephony_OutboundMode_Preview_TimeoutConfig.DurationInSeconds = requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview_channelSubtypeConfig_Telephony_OutboundMode_Preview_TimeoutConfig_timeoutConfig_DurationInSecond.Value;
+                requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview_channelSubtypeConfig_Telephony_OutboundMode_Preview_TimeoutConfigIsNull = false;
+            }
+             // determine if requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview_channelSubtypeConfig_Telephony_OutboundMode_Preview_TimeoutConfig should be set to null
+            if (requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview_channelSubtypeConfig_Telephony_OutboundMode_Preview_TimeoutConfigIsNull)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview_channelSubtypeConfig_Telephony_OutboundMode_Preview_TimeoutConfig = null;
+            }
+            if (requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview_channelSubtypeConfig_Telephony_OutboundMode_Preview_TimeoutConfig != null)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview.TimeoutConfig = requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview_channelSubtypeConfig_Telephony_OutboundMode_Preview_TimeoutConfig;
+                requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_PreviewIsNull = false;
+            }
+             // determine if requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview should be set to null
+            if (requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_PreviewIsNull)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview = null;
+            }
+            if (requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview != null)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode.Preview = requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode_channelSubtypeConfig_Telephony_OutboundMode_Preview;
                 requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundModeIsNull = false;
             }
              // determine if requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_OutboundMode should be set to null
@@ -1496,6 +1599,9 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             public System.String DefaultOutboundConfig_ConnectSourcePhoneNumber { get; set; }
             public Amazon.ConnectCampaignsV2.Model.AgentlessConfig ChannelSubtypeConfig_Telephony_OutboundMode_Agentless { get; set; }
             public System.Double? Predictive_BandwidthAllocation { get; set; }
+            public List<System.String> Preview_AgentAction { get; set; }
+            public System.Double? Preview_BandwidthAllocation { get; set; }
+            public System.Int32? TimeoutConfig_DurationInSecond { get; set; }
             public System.Double? Progressive_BandwidthAllocation { get; set; }
             public List<Amazon.ConnectCampaignsV2.Model.CommunicationLimit> AllChannelSubtypes_CommunicationLimitsList { get; set; }
             public Amazon.ConnectCampaignsV2.InstanceLimitsHandling CommunicationLimitsOverride_InstanceLimitsHandling { get; set; }
