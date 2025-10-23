@@ -9842,12 +9842,17 @@ Set-Alias -Name Create-DSQLCluster -Value New-DSQLCluster
 Set-Alias -Name DSQL-CreateCluster -Value New-DSQLCluster
 Set-Alias -Name Delete-DSQLCluster -Value Remove-DSQLCluster
 Set-Alias -Name DSQL-DeleteCluster -Value Remove-DSQLCluster
+Set-Alias -Name Delete-DSQLClusterPolicy -Value Remove-DSQLClusterPolicy
+Set-Alias -Name DSQL-DeleteClusterPolicy -Value Remove-DSQLClusterPolicy
 Set-Alias -Name DSQL-GetCluster -Value Get-DSQLCluster
+Set-Alias -Name DSQL-GetClusterPolicy -Value Get-DSQLClusterPolicy
 Set-Alias -Name DSQL-GetVpcEndpointServiceName -Value Get-DSQLVpcEndpointServiceName
 Set-Alias -Name List-DSQLClusters -Value Get-DSQLClusterList
 Set-Alias -Name List-DSQLClusterList -Value Get-DSQLClusterList
 Set-Alias -Name DSQL-ListClusters -Value Get-DSQLClusterList
 Set-Alias -Name DSQL-ListTagsForResource -Value Get-DSQLResourceTag
+Set-Alias -Name Put-DSQLClusterPolicy -Value Set-DSQLClusterPolicy
+Set-Alias -Name DSQL-PutClusterPolicy -Value Set-DSQLClusterPolicy
 Set-Alias -Name DSQL-TagResource -Value Add-DSQLResourceTag
 Set-Alias -Name DSQL-UntagResource -Value Remove-DSQLResourceTag
 Set-Alias -Name DSQL-UpdateCluster -Value Update-DSQLCluster

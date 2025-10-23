@@ -26,7 +26,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteClusterPolicy" OutputProperty="PolicyVersion" Verb="Remove" Noun="ClusterPolicy" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetCluster" OutputProperty="*" Verb="Get" Noun="Cluster" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetClusterPolicy" OutputProperty="*" Verb="Get" Noun="ClusterPolicy" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -39,6 +47,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutClusterPolicy" OutputProperty="PolicyVersion" Verb="Set" Noun="ClusterPolicy" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

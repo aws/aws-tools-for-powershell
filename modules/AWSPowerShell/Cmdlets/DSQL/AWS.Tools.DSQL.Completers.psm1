@@ -125,10 +125,13 @@ $DSQL_SelectCompleters = {
 $DSQL_SelectMap = @{
     "Select"=@("New-DSQLCluster",
                "Remove-DSQLCluster",
+               "Remove-DSQLClusterPolicy",
                "Get-DSQLCluster",
+               "Get-DSQLClusterPolicy",
                "Get-DSQLVpcEndpointServiceName",
                "Get-DSQLClusterList",
                "Get-DSQLResourceTag",
+               "Set-DSQLClusterPolicy",
                "Add-DSQLResourceTag",
                "Remove-DSQLResourceTag",
                "Update-DSQLCluster")

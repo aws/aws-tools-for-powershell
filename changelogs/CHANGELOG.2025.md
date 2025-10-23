@@ -1,4 +1,12 @@
-﻿### 5.0.81 (2025-10-22 22:08Z)
+﻿### 5.0.82 (2025-10-23 21:15Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.118.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Aurora DSQL
+    * Added cmdlet Get-DSQLClusterPolicy leveraging the GetClusterPolicy service API.
+    * Added cmdlet Remove-DSQLClusterPolicy leveraging the DeleteClusterPolicy service API.
+    * Added cmdlet Set-DSQLClusterPolicy leveraging the PutClusterPolicy service API.
+    * Modified cmdlet New-DSQLCluster: added parameters BypassPolicyLockoutSafetyCheck and Policy.
+
+### 5.0.81 (2025-10-22 22:08Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.117.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AmazonConnectCampaignServiceV2
     * Modified cmdlet New-CCS2Campaign: added parameters Preview_AgentAction, Preview_BandwidthAllocation and TimeoutConfig_DurationInSecond.

@@ -30,7 +30,7 @@ using Amazon.DSQL.Model;
 namespace Amazon.PowerShell.Cmdlets.DSQL
 {
     /// <summary>
-    /// The CreateCluster API allows you to create both single-region clusters and multi-Region
+    /// The CreateCluster API allows you to create both single-Region clusters and multi-Region
     /// clusters. With the addition of the <i>multiRegionProperties</i> parameter, you can
     /// create a cluster with witness Region support and establish peer relationships with
     /// clusters in other Regions during creation.
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
     /// Permission to add tags to a resource.
     /// </para><para>
     /// Resources: <c>arn:aws:dsql:region:account-id:cluster/*</c></para></dd><dt>dsql:PutMultiRegionProperties</dt><dd><para>
-    /// Permission to configure multi-region properties for a cluster.
+    /// Permission to configure multi-Region properties for a cluster.
     /// </para><para>
     /// Resources: <c>arn:aws:dsql:region:account-id:cluster/*</c></para></dd><dt>dsql:AddPeerCluster</dt><dd><para>
     /// When specifying <c>multiRegionProperties.clusters</c>, permission to add peer clusters.
@@ -78,11 +78,23 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter BypassPolicyLockoutSafetyCheck
+        /// <summary>
+        /// <para>
+        /// <para>An optional field that controls whether to bypass the lockout prevention check. When
+        /// set to true, this parameter allows you to apply a policy that might lock you out of
+        /// the cluster. Use with caution.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? BypassPolicyLockoutSafetyCheck { get; set; }
+        #endregion
+        
         #region Parameter MultiRegionProperties_Cluster
         /// <summary>
         /// <para>
-        /// <para>The set of linked clusters that form the multi-Region cluster configuration. Each
-        /// linked cluster represents a database instance in a different Region.</para><para />
+        /// <para>The set of peered clusters that form the multi-Region cluster configuration. Each
+        /// peered cluster represents a database instance in a different Region.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -117,6 +129,17 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
         public System.String KmsEncryptionKey { get; set; }
         #endregion
         
+        #region Parameter Policy
+        /// <summary>
+        /// <para>
+        /// <para>An optional resource-based policy document in JSON format that defines access permissions
+        /// for the cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Policy { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -135,8 +158,8 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
         #region Parameter MultiRegionProperties_WitnessRegion
         /// <summary>
         /// <para>
-        /// <para>The that serves as the witness region for a multi-Region cluster. The witness region
-        /// helps maintain cluster consistency and quorum.</para>
+        /// <para>The Region that serves as the witness region for a multi-Region cluster. The witness
+        /// Region helps maintain cluster consistency and quorum.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -204,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
                 context.Select = CreateSelectDelegate<Amazon.DSQL.Model.CreateClusterResponse, NewDSQLClusterCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.BypassPolicyLockoutSafetyCheck = this.BypassPolicyLockoutSafetyCheck;
             context.ClientToken = this.ClientToken;
             context.DeletionProtectionEnabled = this.DeletionProtectionEnabled;
             context.KmsEncryptionKey = this.KmsEncryptionKey;
@@ -212,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
                 context.MultiRegionProperties_Cluster = new List<System.String>(this.MultiRegionProperties_Cluster);
             }
             context.MultiRegionProperties_WitnessRegion = this.MultiRegionProperties_WitnessRegion;
+            context.Policy = this.Policy;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -236,6 +261,10 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
             // create request
             var request = new Amazon.DSQL.Model.CreateClusterRequest();
             
+            if (cmdletContext.BypassPolicyLockoutSafetyCheck != null)
+            {
+                request.BypassPolicyLockoutSafetyCheck = cmdletContext.BypassPolicyLockoutSafetyCheck.Value;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -276,6 +305,10 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
             if (requestMultiRegionPropertiesIsNull)
             {
                 request.MultiRegionProperties = null;
+            }
+            if (cmdletContext.Policy != null)
+            {
+                request.Policy = cmdletContext.Policy;
             }
             if (cmdletContext.Tag != null)
             {
@@ -336,11 +369,13 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? BypassPolicyLockoutSafetyCheck { get; set; }
             public System.String ClientToken { get; set; }
             public System.Boolean? DeletionProtectionEnabled { get; set; }
             public System.String KmsEncryptionKey { get; set; }
             public List<System.String> MultiRegionProperties_Cluster { get; set; }
             public System.String MultiRegionProperties_WitnessRegion { get; set; }
+            public System.String Policy { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.DSQL.Model.CreateClusterResponse, NewDSQLClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
