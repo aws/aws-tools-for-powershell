@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
     /// Regions.
     /// 
     ///  <note><para>
-    /// Note that updating multi-region clusters requires additional IAM permissions beyond
+    /// Note that updating multi-Region clusters requires additional IAM permissions beyond
     /// those needed for standard cluster updates, as detailed in the Permissions section.
     /// </para></note><para><b>Required permissions</b></para><dl><dt>dsql:UpdateCluster</dt><dd><para>
     /// Permission to update a DSQL cluster.
@@ -86,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
         #region Parameter MultiRegionProperties_Cluster
         /// <summary>
         /// <para>
-        /// <para>The set of linked clusters that form the multi-Region cluster configuration. Each
-        /// linked cluster represents a database instance in a different Region.</para>
+        /// <para>The set of peered clusters that form the multi-Region cluster configuration. Each
+        /// peered cluster represents a database instance in a different Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
         #region Parameter MultiRegionProperties_WitnessRegion
         /// <summary>
         /// <para>
-        /// <para>The that serves as the witness region for a multi-Region cluster. The witness region
-        /// helps maintain cluster consistency and quorum.</para>
+        /// <para>The Region that serves as the witness region for a multi-Region cluster. The witness
+        /// Region helps maintain cluster consistency and quorum.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

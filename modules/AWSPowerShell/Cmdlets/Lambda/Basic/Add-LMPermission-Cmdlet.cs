@@ -116,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <para>The type of authentication that your function URL uses. Set to <c>AWS_IAM</c> if you
         /// want to restrict access to authenticated users only. Set to <c>NONE</c> if you want
         /// to bypass IAM authentication to create a public endpoint. For more information, see
-        /// <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and
-        /// auth model for Lambda function URLs</a>.</para>
+        /// <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access
+        /// to Lambda function URLs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <para>
         /// <para>Restricts the <c>lambda:InvokeFunction</c> action to calls coming from a function
         /// URL. When set to <c>true</c>, this prevents the principal from invoking the function
-        /// by any means other than the function URL. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security
-        /// and auth model for Lambda function URLs</a>.</para>
+        /// by any means other than the function URL. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control
+        /// access to Lambda function URLs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
