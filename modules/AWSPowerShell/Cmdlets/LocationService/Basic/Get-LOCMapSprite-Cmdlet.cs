@@ -28,9 +28,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Retrieves the sprite sheet corresponding to a map resource. The sprite sheet is a
-    /// PNG image paired with a JSON document describing the offsets of individual icons that
-    /// will be displayed on a rendered map.
+    /// Amazon.LocationService.IAmazonLocationService.GetMapSprites
     /// </summary>
     [Cmdlet("Get", "LOCMapSprite")]
     [OutputType("Amazon.LocationService.Model.GetMapSpritesResponse")]

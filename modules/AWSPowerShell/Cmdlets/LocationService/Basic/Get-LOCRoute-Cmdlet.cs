@@ -28,31 +28,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// <a href="https://docs.aws.amazon.com/location/previous/developerguide/calculate-route.html">Calculates
-    /// a route</a> given the following required parameters: <c>DeparturePosition</c> and
-    /// <c>DestinationPosition</c>. Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create
-    /// a route calculator resource</a>.
-    /// 
-    ///  
-    /// <para>
-    /// By default, a request that doesn't specify a departure time uses the best time of
-    /// day to travel with the best traffic conditions when calculating the route.
-    /// </para><para>
-    /// Additional options include:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/location/previous/developerguide/departure-time.html">Specifying
-    /// a departure time</a> using either <c>DepartureTime</c> or <c>DepartNow</c>. This calculates
-    /// a route based on predictive traffic data at the given time. 
-    /// </para><note><para>
-    /// You can't specify both <c>DepartureTime</c> and <c>DepartNow</c> in a single request.
-    /// Specifying both parameters returns a validation error.
-    /// </para></note></li><li><para><a href="https://docs.aws.amazon.com/location/previous/developerguide/travel-mode.html">Specifying
-    /// a travel mode</a> using TravelMode sets the transportation mode used to calculate
-    /// the routes. This also lets you specify additional route preferences in <c>CarModeOptions</c>
-    /// if traveling by <c>Car</c>, or <c>TruckModeOptions</c> if traveling by <c>Truck</c>.
-    /// </para><note><para>
-    /// If you specify <c>walking</c> for the travel mode and your data provider is Esri,
-    /// the start and destination must be within 40km.
-    /// </para></note></li></ul>
+    /// Amazon.LocationService.IAmazonLocationService.CalculateRoute
     /// </summary>
     [Cmdlet("Get", "LOCRoute")]
     [OutputType("Amazon.LocationService.Model.CalculateRouteResponse")]

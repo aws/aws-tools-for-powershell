@@ -28,7 +28,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Retrieves glyphs used to display labels on a map.
+    /// Amazon.LocationService.IAmazonLocationService.GetMapGlyphs
     /// </summary>
     [Cmdlet("Get", "LOCMapGlyph")]
     [OutputType("Amazon.LocationService.Model.GetMapGlyphsResponse")]

@@ -28,7 +28,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Retrieves the map resource details.
+    /// Amazon.LocationService.IAmazonLocationService.DescribeMap
     /// </summary>
     [Cmdlet("Get", "LOCMap")]
     [OutputType("Amazon.LocationService.Model.DescribeMapResponse")]

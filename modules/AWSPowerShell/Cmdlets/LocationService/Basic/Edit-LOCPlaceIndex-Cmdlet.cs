@@ -28,7 +28,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Updates the specified properties of a given place index resource.
+    /// Amazon.LocationService.IAmazonLocationService.UpdatePlaceIndex
     /// </summary>
     [Cmdlet("Edit", "LOCPlaceIndex", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LocationService.Model.UpdatePlaceIndexResponse")]

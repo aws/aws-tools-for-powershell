@@ -28,8 +28,8 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Returns an automation rule for the V2 service. This API is in private preview and
-    /// subject to change.
+    /// Returns an automation rule for the V2 service. This API is in public preview and subject
+    /// to change.
     /// </summary>
     [Cmdlet("Get", "SHUBAutomationRuleV2")]
     [OutputType("Amazon.SecurityHub.Model.GetAutomationRuleV2Response")]

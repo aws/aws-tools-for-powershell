@@ -406,6 +406,28 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String Credentials_SecretArn { get; set; }
         #endregion
         
+        #region Parameter MlflowProperties_TrackingServerArn
+        /// <summary>
+        /// <para>
+        /// <para>The tracking server ARN as part of the MLflow properties of a connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Props_MlflowProperties_TrackingServerArn")]
+        public System.String MlflowProperties_TrackingServerArn { get; set; }
+        #endregion
+        
+        #region Parameter MlflowProperties_TrackingServerName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the tracking server as part of the MLflow properties of a connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Props_MlflowProperties_TrackingServerName")]
+        public System.String MlflowProperties_TrackingServerName { get; set; }
+        #endregion
+        
         #region Parameter SparkEmrProperties_TrustedCertificatesS3Uri
         /// <summary>
         /// <para>
@@ -559,6 +581,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             context.GlueConnectionInput_Description = this.GlueConnectionInput_Description;
             context.IamProperties_GlueLineageSyncEnabled = this.IamProperties_GlueLineageSyncEnabled;
+            context.MlflowProperties_TrackingServerArn = this.MlflowProperties_TrackingServerArn;
+            context.MlflowProperties_TrackingServerName = this.MlflowProperties_TrackingServerName;
             context.Credentials_SecretArn = this.Credentials_SecretArn;
             context.UsernamePassword_Password = this.UsernamePassword_Password;
             context.UsernamePassword_Username = this.UsernamePassword_Username;
@@ -818,6 +842,41 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestProps_props_IamProperties != null)
             {
                 request.Props.IamProperties = requestProps_props_IamProperties;
+                requestPropsIsNull = false;
+            }
+            Amazon.DataZone.Model.MlflowPropertiesPatch requestProps_props_MlflowProperties = null;
+            
+             // populate MlflowProperties
+            var requestProps_props_MlflowPropertiesIsNull = true;
+            requestProps_props_MlflowProperties = new Amazon.DataZone.Model.MlflowPropertiesPatch();
+            System.String requestProps_props_MlflowProperties_mlflowProperties_TrackingServerArn = null;
+            if (cmdletContext.MlflowProperties_TrackingServerArn != null)
+            {
+                requestProps_props_MlflowProperties_mlflowProperties_TrackingServerArn = cmdletContext.MlflowProperties_TrackingServerArn;
+            }
+            if (requestProps_props_MlflowProperties_mlflowProperties_TrackingServerArn != null)
+            {
+                requestProps_props_MlflowProperties.TrackingServerArn = requestProps_props_MlflowProperties_mlflowProperties_TrackingServerArn;
+                requestProps_props_MlflowPropertiesIsNull = false;
+            }
+            System.String requestProps_props_MlflowProperties_mlflowProperties_TrackingServerName = null;
+            if (cmdletContext.MlflowProperties_TrackingServerName != null)
+            {
+                requestProps_props_MlflowProperties_mlflowProperties_TrackingServerName = cmdletContext.MlflowProperties_TrackingServerName;
+            }
+            if (requestProps_props_MlflowProperties_mlflowProperties_TrackingServerName != null)
+            {
+                requestProps_props_MlflowProperties.TrackingServerName = requestProps_props_MlflowProperties_mlflowProperties_TrackingServerName;
+                requestProps_props_MlflowPropertiesIsNull = false;
+            }
+             // determine if requestProps_props_MlflowProperties should be set to null
+            if (requestProps_props_MlflowPropertiesIsNull)
+            {
+                requestProps_props_MlflowProperties = null;
+            }
+            if (requestProps_props_MlflowProperties != null)
+            {
+                request.Props.MlflowProperties = requestProps_props_MlflowProperties;
                 requestPropsIsNull = false;
             }
             Amazon.DataZone.Model.S3PropertiesPatch requestProps_props_S3Properties = null;
@@ -1268,6 +1327,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public Dictionary<System.String, System.String> GlueConnectionInput_ConnectionProperty { get; set; }
             public System.String GlueConnectionInput_Description { get; set; }
             public System.Boolean? IamProperties_GlueLineageSyncEnabled { get; set; }
+            public System.String MlflowProperties_TrackingServerArn { get; set; }
+            public System.String MlflowProperties_TrackingServerName { get; set; }
             public System.String Credentials_SecretArn { get; set; }
             public System.String UsernamePassword_Password { get; set; }
             public System.String UsernamePassword_Username { get; set; }

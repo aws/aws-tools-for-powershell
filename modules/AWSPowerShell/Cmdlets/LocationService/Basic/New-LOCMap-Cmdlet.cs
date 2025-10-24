@@ -28,15 +28,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Creates a map resource in your Amazon Web Services account, which provides map tiles
-    /// of different styles sourced from global location data providers.
-    /// 
-    ///  <note><para>
-    /// If your application is tracking or routing assets you use in your business, such as
-    /// delivery vehicles or employees, you must not use Esri as your geolocation provider.
-    /// See section 82 of the <a href="http://aws.amazon.com/service-terms">Amazon Web Services
-    /// service terms</a> for more details.
-    /// </para></note>
+    /// Amazon.LocationService.IAmazonLocationService.CreateMap
     /// </summary>
     [Cmdlet("New", "LOCMap", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LocationService.Model.CreateMapResponse")]

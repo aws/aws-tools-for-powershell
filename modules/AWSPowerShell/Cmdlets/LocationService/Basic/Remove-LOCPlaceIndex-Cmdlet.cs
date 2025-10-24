@@ -28,11 +28,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Deletes a place index resource from your Amazon Web Services account.
-    /// 
-    ///  <note><para>
-    /// This operation deletes the resource permanently.
-    /// </para></note>
+    /// Amazon.LocationService.IAmazonLocationService.DeletePlaceIndex
     /// </summary>
     [Cmdlet("Remove", "LOCPlaceIndex", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

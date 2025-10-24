@@ -28,37 +28,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// <a href="https://docs.aws.amazon.com/location/previous/developerguide/calculate-route-matrix.html">
-    /// Calculates a route matrix</a> given the following required parameters: <c>DeparturePositions</c>
-    /// and <c>DestinationPositions</c>. <c>CalculateRouteMatrix</c> calculates routes and
-    /// returns the travel time and travel distance from each departure position to each destination
-    /// position in the request. For example, given departure positions A and B, and destination
-    /// positions X and Y, <c>CalculateRouteMatrix</c> will return time and distance for routes
-    /// from A to X, A to Y, B to X, and B to Y (in that order). The number of results returned
-    /// (and routes calculated) will be the number of <c>DeparturePositions</c> times the
-    /// number of <c>DestinationPositions</c>.
-    /// 
-    ///  <note><para>
-    /// Your account is charged for each route calculated, not the number of requests.
-    /// </para></note><para>
-    /// Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create
-    /// a route calculator resource</a>.
-    /// </para><para>
-    /// By default, a request that doesn't specify a departure time uses the best time of
-    /// day to travel with the best traffic conditions when calculating routes.
-    /// </para><para>
-    /// Additional options include:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/location/previous/developerguide/departure-time.html">
-    /// Specifying a departure time</a> using either <c>DepartureTime</c> or <c>DepartNow</c>.
-    /// This calculates routes based on predictive traffic data at the given time. 
-    /// </para><note><para>
-    /// You can't specify both <c>DepartureTime</c> and <c>DepartNow</c> in a single request.
-    /// Specifying both parameters returns a validation error.
-    /// </para></note></li><li><para><a href="https://docs.aws.amazon.com/location/previous/developerguide/travel-mode.html">Specifying
-    /// a travel mode</a> using TravelMode sets the transportation mode used to calculate
-    /// the routes. This also lets you specify additional route preferences in <c>CarModeOptions</c>
-    /// if traveling by <c>Car</c>, or <c>TruckModeOptions</c> if traveling by <c>Truck</c>.
-    /// </para></li></ul>
+    /// Amazon.LocationService.IAmazonLocationService.CalculateRouteMatrix
     /// </summary>
     [Cmdlet("Get", "LOCRouteMatrix")]
     [OutputType("Amazon.LocationService.Model.CalculateRouteMatrixResponse")]
@@ -70,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     {
         
         protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         

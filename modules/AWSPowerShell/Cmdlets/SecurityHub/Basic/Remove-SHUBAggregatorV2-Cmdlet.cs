@@ -28,7 +28,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Deletes the Aggregator V2. This API is in private preview and subject to change.
+    /// Deletes the Aggregator V2. This API is in public preview and subject to change.
     /// </summary>
     [Cmdlet("Remove", "SHUBAggregatorV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

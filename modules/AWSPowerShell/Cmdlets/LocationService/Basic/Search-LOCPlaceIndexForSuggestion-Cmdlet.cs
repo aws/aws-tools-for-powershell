@@ -28,20 +28,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Generates suggestions for addresses and points of interest based on partial or misspelled
-    /// free-form text. This operation is also known as autocomplete, autosuggest, or fuzzy
-    /// matching.
-    /// 
-    ///  
-    /// <para>
-    /// Optional parameters let you narrow your search results by bounding box or country,
-    /// or bias your search toward a specific position on the globe.
-    /// </para><note><para>
-    /// You can search for suggested place names near a specified position by using <c>BiasPosition</c>,
-    /// or filter results within a bounding box by using <c>FilterBBox</c>. These parameters
-    /// are mutually exclusive; using both <c>BiasPosition</c> and <c>FilterBBox</c> in the
-    /// same command returns an error.
-    /// </para></note>
+    /// Amazon.LocationService.IAmazonLocationService.SearchPlaceIndexForSuggestions
     /// </summary>
     [Cmdlet("Search", "LOCPlaceIndexForSuggestion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LocationService.Model.SearchPlaceIndexForSuggestionsResponse")]

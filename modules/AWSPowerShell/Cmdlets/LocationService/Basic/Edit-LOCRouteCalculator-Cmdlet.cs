@@ -28,7 +28,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Updates the specified properties for a given route calculator resource.
+    /// Amazon.LocationService.IAmazonLocationService.UpdateRouteCalculator
     /// </summary>
     [Cmdlet("Edit", "LOCRouteCalculator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LocationService.Model.UpdateRouteCalculatorResponse")]

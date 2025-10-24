@@ -28,19 +28,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Creates a route calculator resource in your Amazon Web Services account.
-    /// 
-    ///  
-    /// <para>
-    /// You can send requests to a route calculator resource to estimate travel time, distance,
-    /// and get directions. A route calculator sources traffic and road network data from
-    /// your chosen data provider.
-    /// </para><note><para>
-    /// If your application is tracking or routing assets you use in your business, such as
-    /// delivery vehicles or employees, you must not use Esri as your geolocation provider.
-    /// See section 82 of the <a href="http://aws.amazon.com/service-terms">Amazon Web Services
-    /// service terms</a> for more details.
-    /// </para></note>
+    /// Amazon.LocationService.IAmazonLocationService.CreateRouteCalculator
     /// </summary>
     [Cmdlet("New", "LOCRouteCalculator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LocationService.Model.CreateRouteCalculatorResponse")]

@@ -28,14 +28,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Retrieves the map style descriptor from a map resource. 
-    /// 
-    ///  
-    /// <para>
-    /// The style descriptor contains speciﬁcations on how features render on a map. For example,
-    /// what data to display, what order to display the data in, and the style for the data.
-    /// Style descriptors follow the Mapbox Style Specification.
-    /// </para>
+    /// Amazon.LocationService.IAmazonLocationService.GetMapStyleDescriptor
     /// </summary>
     [Cmdlet("Get", "LOCMapStyleDescriptor")]
     [OutputType("Amazon.LocationService.Model.GetMapStyleDescriptorResponse")]

@@ -28,7 +28,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Lists route calculator resources in your Amazon Web Services account.
+    /// Amazon.LocationService.IAmazonLocationService.ListRouteCalculators
     /// </summary>
     [Cmdlet("Get", "LOCRouteCalculatorList")]
     [OutputType("Amazon.LocationService.Model.ListRouteCalculatorsResponseEntry")]

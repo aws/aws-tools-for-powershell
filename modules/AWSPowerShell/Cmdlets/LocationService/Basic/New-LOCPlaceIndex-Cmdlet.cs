@@ -28,18 +28,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Creates a place index resource in your Amazon Web Services account. Use a place index
-    /// resource to geocode addresses and other text queries by using the <c>SearchPlaceIndexForText</c>
-    /// operation, and reverse geocode coordinates by using the <c>SearchPlaceIndexForPosition</c>
-    /// operation, and enable autosuggestions by using the <c>SearchPlaceIndexForSuggestions</c>
-    /// operation.
-    /// 
-    ///  <note><para>
-    /// If your application is tracking or routing assets you use in your business, such as
-    /// delivery vehicles or employees, you must not use Esri as your geolocation provider.
-    /// See section 82 of the <a href="http://aws.amazon.com/service-terms">Amazon Web Services
-    /// service terms</a> for more details.
-    /// </para></note>
+    /// Amazon.LocationService.IAmazonLocationService.CreatePlaceIndex
     /// </summary>
     [Cmdlet("New", "LOCPlaceIndex", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LocationService.Model.CreatePlaceIndexResponse")]

@@ -104,6 +104,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Int32? RuntimeConfig_CopyCount { get; set; }
         #endregion
         
+        #region Parameter DataCacheConfig_EnableCaching
+        /// <summary>
+        /// <para>
+        /// <para>Sets whether the endpoint that hosts the inference component caches the model artifacts
+        /// and container image.</para><para>With caching enabled, the endpoint caches this data in each instance that it provisions
+        /// for the inference component. That way, the inference component deploys faster during
+        /// the auto scaling process. If caching isn't enabled, the inference component takes
+        /// longer to deploy because of the time it spends downloading the data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Specification_DataCacheConfig_EnableCaching")]
+        public System.Boolean? DataCacheConfig_EnableCaching { get; set; }
+        #endregion
+        
         #region Parameter EndpointName
         /// <summary>
         /// <para>
@@ -329,6 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 }
             }
             context.Container_Image = this.Container_Image;
+            context.DataCacheConfig_EnableCaching = this.DataCacheConfig_EnableCaching;
             context.Specification_ModelName = this.Specification_ModelName;
             context.StartupParameters_ContainerStartupHealthCheckTimeoutInSecond = this.StartupParameters_ContainerStartupHealthCheckTimeoutInSecond;
             context.StartupParameters_ModelDataDownloadTimeoutInSecond = this.StartupParameters_ModelDataDownloadTimeoutInSecond;
@@ -402,6 +418,31 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestSpecification_specification_ModelName != null)
             {
                 request.Specification.ModelName = requestSpecification_specification_ModelName;
+                requestSpecificationIsNull = false;
+            }
+            Amazon.SageMaker.Model.InferenceComponentDataCacheConfig requestSpecification_specification_DataCacheConfig = null;
+            
+             // populate DataCacheConfig
+            var requestSpecification_specification_DataCacheConfigIsNull = true;
+            requestSpecification_specification_DataCacheConfig = new Amazon.SageMaker.Model.InferenceComponentDataCacheConfig();
+            System.Boolean? requestSpecification_specification_DataCacheConfig_dataCacheConfig_EnableCaching = null;
+            if (cmdletContext.DataCacheConfig_EnableCaching != null)
+            {
+                requestSpecification_specification_DataCacheConfig_dataCacheConfig_EnableCaching = cmdletContext.DataCacheConfig_EnableCaching.Value;
+            }
+            if (requestSpecification_specification_DataCacheConfig_dataCacheConfig_EnableCaching != null)
+            {
+                requestSpecification_specification_DataCacheConfig.EnableCaching = requestSpecification_specification_DataCacheConfig_dataCacheConfig_EnableCaching.Value;
+                requestSpecification_specification_DataCacheConfigIsNull = false;
+            }
+             // determine if requestSpecification_specification_DataCacheConfig should be set to null
+            if (requestSpecification_specification_DataCacheConfigIsNull)
+            {
+                requestSpecification_specification_DataCacheConfig = null;
+            }
+            if (requestSpecification_specification_DataCacheConfig != null)
+            {
+                request.Specification.DataCacheConfig = requestSpecification_specification_DataCacheConfig;
                 requestSpecificationIsNull = false;
             }
             Amazon.SageMaker.Model.InferenceComponentStartupParameters requestSpecification_specification_StartupParameters = null;
@@ -624,6 +665,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String Container_ArtifactUrl { get; set; }
             public Dictionary<System.String, System.String> Container_Environment { get; set; }
             public System.String Container_Image { get; set; }
+            public System.Boolean? DataCacheConfig_EnableCaching { get; set; }
             public System.String Specification_ModelName { get; set; }
             public System.Int32? StartupParameters_ContainerStartupHealthCheckTimeoutInSecond { get; set; }
             public System.Int32? StartupParameters_ModelDataDownloadTimeoutInSecond { get; set; }

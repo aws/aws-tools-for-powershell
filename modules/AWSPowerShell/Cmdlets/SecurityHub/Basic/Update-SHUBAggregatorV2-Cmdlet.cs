@@ -28,7 +28,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Udpates the configuration for the Aggregator V2. This API is in private preview and
+    /// Udpates the configuration for the Aggregator V2. This API is in public preview and
     /// subject to change.
     /// </summary>
     [Cmdlet("Update", "SHUBAggregatorV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

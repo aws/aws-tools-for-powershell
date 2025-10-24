@@ -51,6 +51,18 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AdditionalFeature
+        /// <summary>
+        /// <para>
+        /// <para>A list of optional additional parameters such as map styles that can be requested
+        /// for each result.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdditionalFeatures")]
+        public System.String[] AdditionalFeature { get; set; }
+        #endregion
+        
         #region Parameter Key
         /// <summary>
         /// <para>
@@ -176,6 +188,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
                 context.Select = (response, cmdlet) => this.Tileset;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AdditionalFeature != null)
+            {
+                context.AdditionalFeature = new List<System.String>(this.AdditionalFeature);
+            }
             context.Key = this.Key;
             context.Tileset = this.Tileset;
             #if MODULAR
@@ -221,6 +237,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
             // create request
             var request = new Amazon.GeoMaps.Model.GetTileRequest();
             
+            if (cmdletContext.AdditionalFeature != null)
+            {
+                request.AdditionalFeatures = cmdletContext.AdditionalFeature;
+            }
             if (cmdletContext.Key != null)
             {
                 request.Key = cmdletContext.Key;
@@ -302,6 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AdditionalFeature { get; set; }
             public System.String Key { get; set; }
             public System.String Tileset { get; set; }
             public System.String X { get; set; }

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Retrieves statistical information about Amazon Web Services resources and their associated
-    /// security findings. This API is in private preview and subject to change.
+    /// security findings. This API is in public preview and subject to change.
     /// </summary>
     [Cmdlet("Get", "SHUBResourcesStatisticsV2")]
     [OutputType("Amazon.SecurityHub.Model.GroupByResult")]
