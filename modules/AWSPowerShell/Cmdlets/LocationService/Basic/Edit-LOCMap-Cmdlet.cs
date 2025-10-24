@@ -30,7 +30,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Updates the specified properties of a given map resource.
+    /// Amazon.LocationService.IAmazonLocationService.UpdateMap
     /// </summary>
     [Cmdlet("Edit", "LOCMap", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LocationService.Model.UpdateMapResponse")]

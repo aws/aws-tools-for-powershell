@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// IAM policy statement. You must have permission to perform the <c>securityhub:BatchUpdateFindings</c>
     /// action. Updates from <c>BatchUpdateFindingsV2</c> don't affect the value of f<c>inding_info.modified_time</c>,
     /// <c>finding_info.modified_time_dt</c>, <c>time</c>, <c>time_dt for a finding</c>. This
-    /// API is in private preview and subject to change.
+    /// API is in public preview and subject to change.
     /// </summary>
     [Cmdlet("Set", "SHUBBatchFindingsV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.BatchUpdateFindingsV2Response")]

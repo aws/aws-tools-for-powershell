@@ -68,6 +68,38 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         public System.String[] Restrictions_AllowAction { get; set; }
         #endregion
         
+        #region Parameter Restrictions_AllowAndroidApp
+        /// <summary>
+        /// <para>
+        /// <para>An optional list of allowed Android applications for which requests must originate
+        /// from. Requests using this API key from other sources will not be allowed.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Restrictions_AllowAndroidApps")]
+        public Amazon.LocationService.Model.AndroidApp[] Restrictions_AllowAndroidApp { get; set; }
+        #endregion
+        
+        #region Parameter Restrictions_AllowAppleApp
+        /// <summary>
+        /// <para>
+        /// <para>An optional list of allowed Apple applications for which requests must originate from.
+        /// Requests using this API key from other sources will not be allowed.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Restrictions_AllowAppleApps")]
+        public Amazon.LocationService.Model.AppleApp[] Restrictions_AllowAppleApp { get; set; }
+        #endregion
+        
         #region Parameter Restrictions_AllowReferer
         /// <summary>
         /// <para>
@@ -228,6 +260,14 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             {
                 context.Restrictions_AllowAction = new List<System.String>(this.Restrictions_AllowAction);
             }
+            if (this.Restrictions_AllowAndroidApp != null)
+            {
+                context.Restrictions_AllowAndroidApp = new List<Amazon.LocationService.Model.AndroidApp>(this.Restrictions_AllowAndroidApp);
+            }
+            if (this.Restrictions_AllowAppleApp != null)
+            {
+                context.Restrictions_AllowAppleApp = new List<Amazon.LocationService.Model.AppleApp>(this.Restrictions_AllowAppleApp);
+            }
             if (this.Restrictions_AllowReferer != null)
             {
                 context.Restrictions_AllowReferer = new List<System.String>(this.Restrictions_AllowReferer);
@@ -284,6 +324,26 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             if (requestRestrictions_restrictions_AllowAction != null)
             {
                 request.Restrictions.AllowActions = requestRestrictions_restrictions_AllowAction;
+                requestRestrictionsIsNull = false;
+            }
+            List<Amazon.LocationService.Model.AndroidApp> requestRestrictions_restrictions_AllowAndroidApp = null;
+            if (cmdletContext.Restrictions_AllowAndroidApp != null)
+            {
+                requestRestrictions_restrictions_AllowAndroidApp = cmdletContext.Restrictions_AllowAndroidApp;
+            }
+            if (requestRestrictions_restrictions_AllowAndroidApp != null)
+            {
+                request.Restrictions.AllowAndroidApps = requestRestrictions_restrictions_AllowAndroidApp;
+                requestRestrictionsIsNull = false;
+            }
+            List<Amazon.LocationService.Model.AppleApp> requestRestrictions_restrictions_AllowAppleApp = null;
+            if (cmdletContext.Restrictions_AllowAppleApp != null)
+            {
+                requestRestrictions_restrictions_AllowAppleApp = cmdletContext.Restrictions_AllowAppleApp;
+            }
+            if (requestRestrictions_restrictions_AllowAppleApp != null)
+            {
+                request.Restrictions.AllowAppleApps = requestRestrictions_restrictions_AllowAppleApp;
                 requestRestrictionsIsNull = false;
             }
             List<System.String> requestRestrictions_restrictions_AllowReferer = null;
@@ -372,6 +432,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             public System.String KeyName { get; set; }
             public System.Boolean? NoExpiry { get; set; }
             public List<System.String> Restrictions_AllowAction { get; set; }
+            public List<Amazon.LocationService.Model.AndroidApp> Restrictions_AllowAndroidApp { get; set; }
+            public List<Amazon.LocationService.Model.AppleApp> Restrictions_AllowAppleApp { get; set; }
             public List<System.String> Restrictions_AllowReferer { get; set; }
             public List<System.String> Restrictions_AllowResource { get; set; }
             public System.Func<Amazon.LocationService.Model.UpdateKeyResponse, UpdateLOCKeyCmdlet, object> Select { get; set; } =

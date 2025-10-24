@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// Return a list of findings that match the specified criteria. <c>GetFindings</c> and
     /// <c>GetFindingsV2</c> both use <c>securityhub:GetFindings</c> in the <c>Action</c>
     /// element of an IAM policy statement. You must have permission to perform the <c>securityhub:GetFindings</c>
-    /// action. This API is in private preview and subject to change.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// action. This API is in public preview and subject to change.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SHUBFindingsV2")]
     [OutputType("Amazon.Runtime.Documents.Document")]

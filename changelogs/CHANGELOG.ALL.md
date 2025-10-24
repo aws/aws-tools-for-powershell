@@ -1,4 +1,18 @@
-﻿### 5.0.82 (2025-10-23 21:15Z)
+﻿### 5.0.83 (2025-10-24 21:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.119.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DataZone
+    * Modified cmdlet New-DZConnection: added parameters MlflowProperties_TrackingServerArn and MlflowProperties_TrackingServerName.
+    * Modified cmdlet Update-DZConnection: added parameters MlflowProperties_TrackingServerArn and MlflowProperties_TrackingServerName.
+  * Amazon Location Service
+    * Modified cmdlet New-LOCKey: added parameters Restrictions_AllowAndroidApp and Restrictions_AllowAppleApp.
+    * Modified cmdlet Update-LOCKey: added parameters Restrictions_AllowAndroidApp and Restrictions_AllowAppleApp.
+  * Amazon Location Service Maps V2
+    * Modified cmdlet Get-GEOMTile: added parameter AdditionalFeature.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMInferenceComponent: added parameter DataCacheConfig_EnableCaching.
+    * Modified cmdlet Update-SMInferenceComponent: added parameter DataCacheConfig_EnableCaching.
+
+### 5.0.82 (2025-10-23 21:15Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.118.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Aurora DSQL
     * Added cmdlet Get-DSQLClusterPolicy leveraging the GetClusterPolicy service API.

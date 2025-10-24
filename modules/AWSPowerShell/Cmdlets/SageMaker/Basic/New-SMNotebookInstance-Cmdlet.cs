@@ -241,7 +241,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter PlatformIdentifier
         /// <summary>
         /// <para>
-        /// <para>The platform identifier of the notebook instance runtime environment.</para>
+        /// <para>The platform identifier of the notebook instance runtime environment. The default
+        /// value is <c>notebook-al2-v2</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

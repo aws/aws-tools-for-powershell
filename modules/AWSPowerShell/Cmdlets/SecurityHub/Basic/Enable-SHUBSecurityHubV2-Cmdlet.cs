@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Enables the service in account for the current Amazon Web Services Region or specified
-    /// Amazon Web Services Region. This API is in private preview and subject to change.
+    /// Amazon Web Services Region. This API is in public preview and subject to change.
     /// </summary>
     [Cmdlet("Enable", "SHUBSecurityHubV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

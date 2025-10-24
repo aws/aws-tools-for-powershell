@@ -30,12 +30,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Deletes a map resource from your Amazon Web Services account.
-    /// 
-    ///  <note><para>
-    /// This operation deletes the resource permanently. If the map is being used in an application,
-    /// the map may not render.
-    /// </para></note>
+    /// Amazon.LocationService.IAmazonLocationService.DeleteMap
     /// </summary>
     [Cmdlet("Remove", "LOCMap", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

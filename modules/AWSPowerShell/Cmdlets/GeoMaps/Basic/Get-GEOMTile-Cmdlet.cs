@@ -52,6 +52,22 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AdditionalFeature
+        /// <summary>
+        /// <para>
+        /// <para>A list of optional additional parameters such as map styles that can be requested
+        /// for each result.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdditionalFeatures")]
+        public System.String[] AdditionalFeature { get; set; }
+        #endregion
+        
         #region Parameter Key
         /// <summary>
         /// <para>
@@ -161,6 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
                 context.Select = CreateSelectDelegate<Amazon.GeoMaps.Model.GetTileResponse, GetGEOMTileCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AdditionalFeature != null)
+            {
+                context.AdditionalFeature = new List<System.String>(this.AdditionalFeature);
+            }
             context.Key = this.Key;
             context.Tileset = this.Tileset;
             #if MODULAR
@@ -206,6 +226,10 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
             // create request
             var request = new Amazon.GeoMaps.Model.GetTileRequest();
             
+            if (cmdletContext.AdditionalFeature != null)
+            {
+                request.AdditionalFeatures = cmdletContext.AdditionalFeature;
+            }
             if (cmdletContext.Key != null)
             {
                 request.Key = cmdletContext.Key;
@@ -281,6 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AdditionalFeature { get; set; }
             public System.String Key { get; set; }
             public System.String Tileset { get; set; }
             public System.String X { get; set; }

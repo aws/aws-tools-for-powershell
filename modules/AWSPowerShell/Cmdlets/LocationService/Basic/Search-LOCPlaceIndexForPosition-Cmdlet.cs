@@ -30,8 +30,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Reverse geocodes a given coordinate and returns a legible address. Allows you to search
-    /// for Places or points of interest near a given position.
+    /// Amazon.LocationService.IAmazonLocationService.SearchPlaceIndexForPosition
     /// </summary>
     [Cmdlet("Search", "LOCPlaceIndexForPosition")]
     [OutputType("Amazon.LocationService.Model.SearchPlaceIndexForPositionResponse")]

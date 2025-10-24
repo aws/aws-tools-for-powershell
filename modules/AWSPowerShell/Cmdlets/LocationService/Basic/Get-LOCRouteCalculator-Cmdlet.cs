@@ -30,7 +30,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Retrieves the route calculator resource details.
+    /// Amazon.LocationService.IAmazonLocationService.DescribeRouteCalculator
     /// </summary>
     [Cmdlet("Get", "LOCRouteCalculator")]
     [OutputType("Amazon.LocationService.Model.DescribeRouteCalculatorResponse")]

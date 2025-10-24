@@ -30,22 +30,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Finds a place by its unique ID. A <c>PlaceId</c> is returned by other search operations.
-    /// 
-    ///  <note><para>
-    /// A PlaceId is valid only if all of the following are the same in the original search
-    /// request and the call to <c>GetPlace</c>.
-    /// </para><ul><li><para>
-    /// Customer Amazon Web Services account
-    /// </para></li><li><para>
-    /// Amazon Web Services Region
-    /// </para></li><li><para>
-    /// Data provider specified in the place index resource
-    /// </para></li></ul></note><note><para>
-    /// If your Place index resource is configured with Grab as your geolocation provider
-    /// and Storage as Intended use, the GetPlace operation is unavailable. For more information,
-    /// see <a href="http://aws.amazon.com/service-terms">AWS service terms</a>.
-    /// </para></note>
+    /// Amazon.LocationService.IAmazonLocationService.GetPlace
     /// </summary>
     [Cmdlet("Get", "LOCPlace")]
     [OutputType("Amazon.LocationService.Model.Place")]

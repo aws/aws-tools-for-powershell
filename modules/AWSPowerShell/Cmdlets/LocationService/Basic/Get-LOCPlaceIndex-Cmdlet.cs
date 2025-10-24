@@ -30,7 +30,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Retrieves the place index resource details.
+    /// Amazon.LocationService.IAmazonLocationService.DescribePlaceIndex
     /// </summary>
     [Cmdlet("Get", "LOCPlaceIndex")]
     [OutputType("Amazon.LocationService.Model.DescribePlaceIndexResponse")]

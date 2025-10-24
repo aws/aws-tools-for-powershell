@@ -30,7 +30,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Creates a V2 automation rule. This API is in private preview and subject to change.
+    /// Creates a V2 automation rule. This API is in public preview and subject to change.
     /// </summary>
     [Cmdlet("New", "SHUBAutomationRuleV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.CreateAutomationRuleV2Response")]

@@ -30,7 +30,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Returns the configuration of the specified Aggregator V2. This API is in private preview
+    /// Returns the configuration of the specified Aggregator V2. This API is in public preview
     /// and subject to change.
     /// </summary>
     [Cmdlet("Get", "SHUBAggregatorV2")]

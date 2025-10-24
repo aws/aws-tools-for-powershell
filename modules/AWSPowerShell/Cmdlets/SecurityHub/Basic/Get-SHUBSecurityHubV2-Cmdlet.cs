@@ -30,7 +30,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Returns details about the service resource in your account. This API is in private
+    /// Returns details about the service resource in your account. This API is in public
     /// preview and subject to change.
     /// </summary>
     [Cmdlet("Get", "SHUBSecurityHubV2")]
