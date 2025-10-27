@@ -89,15 +89,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListShards" OutputProperty="Shards" Verb="Get" Noun="ShardList" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListShards" OutputProperty="Shards" Verb="Get" Noun="ShardList" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStreamConsumers" OutputProperty="Consumers" Verb="Get" Noun="StreamConsumerList" PipelineParameter="StreamARN" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListStreamConsumers" OutputProperty="Consumers" Verb="Get" Noun="StreamConsumerList" PipelineParameter="StreamARN" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStreams" OutputProperty="*" Verb="Get" Noun="StreamList" PositionalParameters="Limit" PipelineParameter="ExclusiveStartStreamName" NoPipelineParameter="false" LegacyAlias="Get-KINStreams" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListStreams" OutputProperty="*" Verb="Get" Noun="StreamList" PositionalParameters="Limit" PipelineParameter="ExclusiveStartStreamName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-KINStreams">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -113,7 +113,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRecord" OutputProperty="*" Verb="Write" Noun="Record" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false" DefaultParameterSet="FromBlob" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutRecord" OutputProperty="*" Verb="Write" Noun="Record" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true" DefaultParameterSet="FromBlob">
             <Params>
                 <Param Name="StreamName" Mandatory="true" />
                 <Param Name="Data" Alias="Blob;Record_Data" ParameterSetName="FromBlob" Mandatory="true" />
@@ -153,6 +153,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMaxRecordSize" Verb="Update" Noun="MaxRecordSize" ShouldProcessTarget="MaxRecordSizeInKiB" PipelineParameter="MaxRecordSizeInKiB" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

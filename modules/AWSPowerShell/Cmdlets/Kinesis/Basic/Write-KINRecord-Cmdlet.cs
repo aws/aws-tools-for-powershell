@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// Writes a single data record into an Amazon Kinesis data stream. Call <c>PutRecord</c>
     /// to send data into the stream for real-time ingestion and subsequent processing, one
     /// record at a time. Each shard can support writes up to 1,000 records per second, up
-    /// to a maximum data write total of 1 MiB per second.
+    /// to a maximum data write total of 10 MiB per second.
     /// 
     ///  <note><para>
     /// When invoking this API, you must use either the <c>StreamARN</c> or the <c>StreamName</c>

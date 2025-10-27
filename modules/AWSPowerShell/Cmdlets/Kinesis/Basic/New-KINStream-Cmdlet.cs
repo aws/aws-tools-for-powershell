@@ -95,6 +95,17 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter MaxRecordSizeInKiB
+        /// <summary>
+        /// <para>
+        /// <para>The maximum record size of a single record in kibibyte (KiB) that you can write to,
+        /// and read from a stream.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MaxRecordSizeInKiB { get; set; }
+        #endregion
+        
         #region Parameter ShardCount
         /// <summary>
         /// <para>
@@ -201,6 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 context.Select = CreateSelectDelegate<Amazon.Kinesis.Model.CreateStreamResponse, NewKINStreamCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.MaxRecordSizeInKiB = this.MaxRecordSizeInKiB;
             context.ShardCount = this.ShardCount;
             context.StreamModeDetails_StreamMode = this.StreamModeDetails_StreamMode;
             context.StreamName = this.StreamName;
@@ -234,6 +246,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             // create request
             var request = new Amazon.Kinesis.Model.CreateStreamRequest();
             
+            if (cmdletContext.MaxRecordSizeInKiB != null)
+            {
+                request.MaxRecordSizeInKiB = cmdletContext.MaxRecordSizeInKiB.Value;
+            }
             if (cmdletContext.ShardCount != null)
             {
                 request.ShardCount = cmdletContext.ShardCount.Value;
@@ -320,6 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? MaxRecordSizeInKiB { get; set; }
             public System.Int32? ShardCount { get; set; }
             public Amazon.Kinesis.StreamMode StreamModeDetails_StreamMode { get; set; }
             public System.String StreamName { get; set; }

@@ -18257,6 +18257,7 @@ Set-Alias -Name KIN-StartStreamEncryption -Value Start-KINStreamEncryption
 Set-Alias -Name KIN-StopStreamEncryption -Value Stop-KINStreamEncryption
 Set-Alias -Name KIN-TagResource -Value Add-KINResourceTag
 Set-Alias -Name KIN-UntagResource -Value Remove-KINResourceTag
+Set-Alias -Name KIN-UpdateMaxRecordSize -Value Update-KINMaxRecordSize
 Set-Alias -Name KIN-UpdateShardCount -Value Update-KINShardCount
 Set-Alias -Name KIN-UpdateStreamMode -Value Update-KINStreamMode
 Set-Alias -Name KINA-AddApplicationCloudWatchLoggingOption -Value Add-KINAApplicationCloudWatchLoggingOption
