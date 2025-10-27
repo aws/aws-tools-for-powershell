@@ -1,4 +1,10 @@
-﻿### 4.1.928 (2025-10-24 21:14Z)
+﻿### 4.1.929 (2025-10-27 21:28Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1152.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Kinesis
+    * Added cmdlet Update-KINMaxRecordSize leveraging the UpdateMaxRecordSize service API.
+    * Modified cmdlet New-KINStream: added parameter MaxRecordSizeInKiB.
+
+### 4.1.928 (2025-10-24 21:14Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1151.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DataZone
     * Modified cmdlet New-DZConnection: added parameters MlflowProperties_TrackingServerArn and MlflowProperties_TrackingServerName.

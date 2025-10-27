@@ -219,6 +219,7 @@ $KIN_SelectMap = @{
                "Stop-KINStreamEncryption",
                "Add-KINResourceTag",
                "Remove-KINResourceTag",
+               "Update-KINMaxRecordSize",
                "Update-KINShardCount",
                "Update-KINStreamMode")
 }

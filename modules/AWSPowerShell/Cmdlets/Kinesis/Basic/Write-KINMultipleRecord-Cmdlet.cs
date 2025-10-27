@@ -38,9 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// when you invoke this API.
     /// </para></note><para>
     /// Each <c>PutRecords</c> request can support up to 500 records. Each record in the request
-    /// can be as large as 1 MiB, up to a limit of 5 MiB for the entire request, including
+    /// can be as large as 10 MiB, up to a limit of 10 MiB for the entire request, including
     /// partition keys. Each shard can support writes up to 1,000 records per second, up to
-    /// a maximum data write total of 1 MiB per second.
+    /// a maximum data write total of 1 MB per second.
     /// </para><para>
     /// You must specify the name of the stream that captures, stores, and transports the
     /// data; and an array of request <c>Records</c>, with each record in the array requiring
