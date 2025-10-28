@@ -28355,6 +28355,7 @@ $EC2_SelectMap = @{
                "Get-EC2CapacityReservationBillingRequest",
                "Get-EC2CapacityReservationFleet",
                "Get-EC2CapacityReservation",
+               "Get-EC2CapacityReservationTopology",
                "Get-EC2CarrierGateway",
                "Get-EC2ClassicLinkInstance",
                "Get-EC2ClientVpnAuthorizationRule",
@@ -29133,7 +29134,7 @@ $ECS_Completers = {
             ($_ -eq "Update-ECSService/DeploymentConfiguration_Strategy")
         }
         {
-            $v = "BLUE_GREEN","ROLLING"
+            $v = "BLUE_GREEN","CANARY","LINEAR","ROLLING"
             break
         }
 
@@ -37468,6 +37469,13 @@ $GS_Completers = {
             break
         }
 
+        # Amazon.GroundStation.AngleUnits
+        "New-GSEphemeris/AzElData_AngleUnit"
+        {
+            $v = "DEGREE_ANGLE","RADIAN"
+            break
+        }
+
         # Amazon.GroundStation.ConfigCapabilityType
         {
             ($_ -eq "Get-GSConfig/ConfigType") -Or
@@ -37476,6 +37484,13 @@ $GS_Completers = {
         }
         {
             $v = "antenna-downlink","antenna-downlink-demod-decode","antenna-uplink","dataflow-endpoint","s3-recording","tracking","uplink-echo"
+            break
+        }
+
+        # Amazon.GroundStation.EphemerisType
+        "Get-GSEphemerideList/EphemerisType"
+        {
+            $v = "AZ_EL","OEM","SERVICE_MANAGED","TLE"
             break
         }
 
@@ -37489,7 +37504,9 @@ $GS_Completers = {
 
 $GS_map = @{
     "AggregateStatus_Status"=@("Update-GSAgentStatus")
+    "AzElData_AngleUnit"=@("New-GSEphemeris")
     "ConfigType"=@("Get-GSConfig","Remove-GSConfig","Update-GSConfig")
+    "EphemerisType"=@("Get-GSEphemerideList")
 }
 
 _awsArgumentCompleterRegistration $GS_Completers $GS_map
@@ -70527,7 +70544,7 @@ $SM_Completers = {
             ($_ -eq "Get-SMTrainingJobsForHyperParameterTuningJobList/StatusEqual")
         }
         {
-            $v = "Completed","Failed","InProgress","Stopped","Stopping"
+            $v = "Completed","Deleting","Failed","InProgress","Stopped","Stopping"
             break
         }
 
@@ -70923,10 +70940,12 @@ $SM_SelectMap = @{
                "Remove-SMOptimizationJob",
                "Remove-SMPartnerApp",
                "Remove-SMPipeline",
+               "Remove-SMProcessingJob",
                "Remove-SMProject",
                "Remove-SMSpace",
                "Remove-SMStudioLifecycleConfig",
                "Remove-SMResourceTag",
+               "Remove-SMTrainingJob",
                "Remove-SMTrial",
                "Remove-SMTrialComponent",
                "Remove-SMUserProfile",

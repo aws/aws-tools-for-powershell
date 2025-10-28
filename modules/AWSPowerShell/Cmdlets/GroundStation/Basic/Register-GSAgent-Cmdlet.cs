@@ -28,11 +28,7 @@ using Amazon.GroundStation.Model;
 namespace Amazon.PowerShell.Cmdlets.GS
 {
     /// <summary>
-    /// <note><para>
-    ///  For use by AWS Ground Station Agent and shouldn't be called directly.
-    /// </para></note><para>
-    ///  Registers a new agent with AWS Ground Station. 
-    /// </para>
+    /// Amazon.GroundStation.IAmazonGroundStation.RegisterAgent
     /// </summary>
     [Cmdlet("Register", "GSAgent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -183,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter AgentDetails_ReservedCpuCore
         /// <summary>
         /// <para>
-        /// <note><para>This field should not be used. Use agentCpuCores instead.</para></note><para>List of CPU cores reserved for processes other than the agent running on the EC2 instance.</para>
+        /// <para><note><para>This field should not be used. Use agentCpuCores instead.</para></note><para>List of CPU cores reserved for processes other than the agent running on the EC2 instance.</para></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

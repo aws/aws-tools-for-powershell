@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// You can use an event bus in the US East (N. Virginia) us-east-1, US West (Oregon)
     /// us-west-2, or Europe (Ireland) eu-west-1 Regions as a target for a rule.
     /// </para></li><li><para>
-    /// Firehose delivery stream (Kinesis Data Firehose)
+    /// Firehose delivery stream (Firehose)
     /// </para></li><li><para>
     /// Inspector assessment template (Amazon Inspector)
     /// </para></li><li><para>

@@ -28,8 +28,15 @@ using Amazon.ApplicationSignals.Model;
 namespace Amazon.PowerShell.Cmdlets.CWAS
 {
     /// <summary>
-    /// Deletes the grouping configuration for this account. This removes all custom grouping
-    /// attribute definitions that were previously configured.
+    /// Deletes a grouping configuration that defines how services are grouped and organized
+    /// in Application Signals. Once deleted, services will no longer be grouped according
+    /// to the specified configuration rules.
+    /// 
+    ///  
+    /// <para>
+    /// This operation is irreversible. After deletion, you must recreate the grouping configuration
+    /// if you want to restore the same grouping behavior.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "CWASGroupingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

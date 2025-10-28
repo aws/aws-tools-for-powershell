@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
 {
     /// <summary>
     /// Updates the configuration settings for an Amazon GameLift Streams stream group resource.
-    /// You can change the description, the set of locations, and the requested capacity of
-    /// a stream group per location. If you want to change the stream class, create a new
-    /// stream group. 
+    /// To update a stream group, it must be in <c>ACTIVE</c> status. You can change the description,
+    /// the set of locations, and the requested capacity of a stream group per location. If
+    /// you want to change the stream class, create a new stream group. 
     /// 
     ///  
     /// <para>
@@ -53,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
     /// </para><para>
     /// To update a stream group, specify the stream group's Amazon Resource Name (ARN) and
     /// provide the new values. If the request is successful, Amazon GameLift Streams returns
-    /// the complete updated metadata for the stream group.
+    /// the complete updated metadata for the stream group. Expired stream groups cannot be
+    /// updated.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "GMLSStreamGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

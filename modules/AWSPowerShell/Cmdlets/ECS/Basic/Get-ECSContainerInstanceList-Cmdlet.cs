@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>Filters the container instances by status. For example, if you specify the <c>DRAINING</c>
         /// status, the results include only container instances that have been set to <c>DRAINING</c>
         /// using <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateContainerInstancesState.html">UpdateContainerInstancesState</a>.
-        /// If you don't specify this parameter, the default is to include container instances
+        /// If you don't specify this parameter, the The default is to include container instances
         /// set to all states other than <c>INACTIVE</c>.</para>
         /// </para>
         /// </summary>

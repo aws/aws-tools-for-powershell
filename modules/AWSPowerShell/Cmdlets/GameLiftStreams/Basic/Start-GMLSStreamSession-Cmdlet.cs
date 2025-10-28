@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
     ///  <ol><li><para>
     /// Prerequisites:
     /// </para><ul><li><para>
-    /// You must have a stream group in <c>ACTIVE</c> state
+    /// You must have a stream group in <c>ACTIVE</c> status
     /// </para></li><li><para>
     /// You must have idle or on-demand capacity in a stream group in the location you want
     /// to stream from

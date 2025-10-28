@@ -71,7 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para><para>
     /// For information on how to view and use these functions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-examples.html">Using
     /// Amazon Web Services built Lambda functions</a> in the <i>Amazon S3 User Guide</i>.
-    /// </para>
+    /// </para><important><para>
+    /// You must URL encode any signed header values that contain spaces. For example, if
+    /// your header value is <c>my file.txt</c>, containing two spaces after <c>my</c>, you
+    /// must URL encode this value to <c>my%20%20file.txt</c>.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Write", "S3GetObjectResponse", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

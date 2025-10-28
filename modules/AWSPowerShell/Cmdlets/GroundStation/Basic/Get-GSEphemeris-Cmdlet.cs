@@ -28,7 +28,7 @@ using Amazon.GroundStation.Model;
 namespace Amazon.PowerShell.Cmdlets.GS
 {
     /// <summary>
-    /// Describes an existing ephemeris.
+    /// Retrieve information about an existing ephemeris.
     /// </summary>
     [Cmdlet("Get", "GSEphemeris")]
     [OutputType("Amazon.GroundStation.Model.DescribeEphemerisResponse")]

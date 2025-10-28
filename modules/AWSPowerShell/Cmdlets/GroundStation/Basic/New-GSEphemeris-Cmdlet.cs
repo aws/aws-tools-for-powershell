@@ -28,7 +28,7 @@ using Amazon.GroundStation.Model;
 namespace Amazon.PowerShell.Cmdlets.GS
 {
     /// <summary>
-    /// Creates an Ephemeris with the specified <c>EphemerisData</c>.
+    /// Create an ephemeris with your specified <a>EphemerisData</a>.
     /// </summary>
     [Cmdlet("New", "GSEphemeris", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -41,6 +41,42 @@ namespace Amazon.PowerShell.Cmdlets.GS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter AzElData_AngleUnit
+        /// <summary>
+        /// <para>
+        /// <para>The unit of measure for azimuth and elevation angles. All angles in all segments must
+        /// use the same unit.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Ephemeris_AzEl_Data_AzElData_AngleUnit")]
+        [AWSConstantClassSource("Amazon.GroundStation.AngleUnits")]
+        public Amazon.GroundStation.AngleUnits AzElData_AngleUnit { get; set; }
+        #endregion
+        
+        #region Parameter AzElData_AzElSegmentList
+        /// <summary>
+        /// <para>
+        /// <para>List of azimuth elevation segments.</para><para>Must contain between 1 and 100 segments. Segments must be in chronological order with
+        /// no overlaps.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Ephemeris_AzEl_Data_AzElData_AzElSegmentList")]
+        public Amazon.GroundStation.Model.AzElSegment[] AzElData_AzElSegmentList { get; set; }
+        #endregion
+        
+        #region Parameter S3Object_Bucket
+        /// <summary>
+        /// <para>
+        /// <para>An Amazon S3 Bucket name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Ephemeris_AzEl_Data_S3Object_Bucket")]
+        public System.String S3Object_Bucket { get; set; }
+        #endregion
         
         #region Parameter Ephemeris_Oem_S3Object_Bucket
         /// <summary>
@@ -65,7 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter Enabled
         /// <summary>
         /// <para>
-        /// <para>Whether to set the ephemeris status to <c>ENABLED</c> after validation.</para><para>Setting this to false will set the ephemeris status to <c>DISABLED</c> after validation.</para>
+        /// <para>Set to <c>true</c> to enable the ephemeris after validation. Set to <c>false</c> to
+        /// keep it disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,6 +117,28 @@ namespace Amazon.PowerShell.Cmdlets.GS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.DateTime? ExpirationTime { get; set; }
+        #endregion
+        
+        #region Parameter AzEl_GroundStation
+        /// <summary>
+        /// <para>
+        /// <para>The ground station name for which you're providing azimuth elevation data.</para><para>This ephemeris is specific to this ground station and can't be used at other locations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Ephemeris_AzEl_GroundStation")]
+        public System.String AzEl_GroundStation { get; set; }
+        #endregion
+        
+        #region Parameter S3Object_Key
+        /// <summary>
+        /// <para>
+        /// <para>An Amazon S3 key for the ephemeris.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Ephemeris_AzEl_Data_S3Object_Key")]
+        public System.String S3Object_Key { get; set; }
         #endregion
         
         #region Parameter Ephemeris_Oem_S3Object_Key
@@ -105,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of a KMS key used to encrypt the ephemeris in Ground Station.</para>
+        /// <para>The ARN of the KMS key to use for encrypting the ephemeris.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,8 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A name string associated with the ephemeris. Used as a human-readable identifier for
-        /// the ephemeris.</para>
+        /// <para>A name that you can use to identify the ephemeris.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -133,8 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter Oem_OemData
         /// <summary>
         /// <para>
-        /// <para>The data for an OEM ephemeris, supplied directly in the request rather than through
-        /// an S3 object.</para>
+        /// <para>OEM data that you provide directly instead of using an Amazon S3 object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,9 +202,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter Priority
         /// <summary>
         /// <para>
-        /// <para>Customer-provided priority score to establish the order in which overlapping ephemerides
-        /// should be used.</para><para>The default for customer-provided ephemeris priority is 1, and higher numbers take
-        /// precedence.</para><para>Priority must be 1 or greater</para>
+        /// <para>A priority score that determines which ephemeris to use when multiple ephemerides
+        /// overlap.</para><para>Higher numbers take precedence. The default is 1. Must be 1 or greater.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,17 +213,10 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter SatelliteId
         /// <summary>
         /// <para>
-        /// <para>AWS Ground Station satellite ID for this ephemeris.</para>
+        /// <para>The satellite ID that associates this ephemeris with a satellite in AWS Ground Station.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SatelliteId { get; set; }
         #endregion
         
@@ -185,8 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter Tle_TleData
         /// <summary>
         /// <para>
-        /// <para>The data for a TLE ephemeris, supplied directly in the request rather than through
-        /// an S3 object.</para>
+        /// <para>TLE data that you provide directly instead of using an Amazon S3 object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,10 +242,21 @@ namespace Amazon.PowerShell.Cmdlets.GS
         public Amazon.GroundStation.Model.TLEData[] Tle_TleData { get; set; }
         #endregion
         
+        #region Parameter S3Object_Version
+        /// <summary>
+        /// <para>
+        /// <para>For versioned Amazon S3 objects, the version to use for the ephemeris.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Ephemeris_AzEl_Data_S3Object_Version")]
+        public System.String S3Object_Version { get; set; }
+        #endregion
+        
         #region Parameter Ephemeris_Oem_S3Object_Version
         /// <summary>
         /// <para>
-        /// <para>For versioned S3 objects, the version to use for the ephemeris.</para>
+        /// <para>For versioned Amazon S3 objects, the version to use for the ephemeris.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter Ephemeris_Tle_S3Object_Version
         /// <summary>
         /// <para>
-        /// <para>For versioned S3 objects, the version to use for the ephemeris.</para>
+        /// <para>For versioned Amazon S3 objects, the version to use for the ephemeris.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -257,6 +316,15 @@ namespace Amazon.PowerShell.Cmdlets.GS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Enabled = this.Enabled;
+            context.AzElData_AngleUnit = this.AzElData_AngleUnit;
+            if (this.AzElData_AzElSegmentList != null)
+            {
+                context.AzElData_AzElSegmentList = new List<Amazon.GroundStation.Model.AzElSegment>(this.AzElData_AzElSegmentList);
+            }
+            context.S3Object_Bucket = this.S3Object_Bucket;
+            context.S3Object_Key = this.S3Object_Key;
+            context.S3Object_Version = this.S3Object_Version;
+            context.AzEl_GroundStation = this.AzEl_GroundStation;
             context.Oem_OemData = this.Oem_OemData;
             context.Ephemeris_Oem_S3Object_Bucket = this.Ephemeris_Oem_S3Object_Bucket;
             context.Ephemeris_Oem_S3Object_Key = this.Ephemeris_Oem_S3Object_Key;
@@ -279,12 +347,6 @@ namespace Amazon.PowerShell.Cmdlets.GS
             #endif
             context.Priority = this.Priority;
             context.SatelliteId = this.SatelliteId;
-            #if MODULAR
-            if (this.SatelliteId == null && ParameterWasBound(nameof(this.SatelliteId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SatelliteId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -317,6 +379,126 @@ namespace Amazon.PowerShell.Cmdlets.GS
              // populate Ephemeris
             var requestEphemerisIsNull = true;
             request.Ephemeris = new Amazon.GroundStation.Model.EphemerisData();
+            Amazon.GroundStation.Model.AzElEphemeris requestEphemeris_ephemeris_AzEl = null;
+            
+             // populate AzEl
+            var requestEphemeris_ephemeris_AzElIsNull = true;
+            requestEphemeris_ephemeris_AzEl = new Amazon.GroundStation.Model.AzElEphemeris();
+            System.String requestEphemeris_ephemeris_AzEl_azEl_GroundStation = null;
+            if (cmdletContext.AzEl_GroundStation != null)
+            {
+                requestEphemeris_ephemeris_AzEl_azEl_GroundStation = cmdletContext.AzEl_GroundStation;
+            }
+            if (requestEphemeris_ephemeris_AzEl_azEl_GroundStation != null)
+            {
+                requestEphemeris_ephemeris_AzEl.GroundStation = requestEphemeris_ephemeris_AzEl_azEl_GroundStation;
+                requestEphemeris_ephemeris_AzElIsNull = false;
+            }
+            Amazon.GroundStation.Model.AzElSegmentsData requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data = null;
+            
+             // populate Data
+            var requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_DataIsNull = true;
+            requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data = new Amazon.GroundStation.Model.AzElSegmentsData();
+            Amazon.GroundStation.Model.AzElSegments requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_AzElData = null;
+            
+             // populate AzElData
+            var requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_AzElDataIsNull = true;
+            requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_AzElData = new Amazon.GroundStation.Model.AzElSegments();
+            Amazon.GroundStation.AngleUnits requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_AzElData_azElData_AngleUnit = null;
+            if (cmdletContext.AzElData_AngleUnit != null)
+            {
+                requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_AzElData_azElData_AngleUnit = cmdletContext.AzElData_AngleUnit;
+            }
+            if (requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_AzElData_azElData_AngleUnit != null)
+            {
+                requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_AzElData.AngleUnit = requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_AzElData_azElData_AngleUnit;
+                requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_AzElDataIsNull = false;
+            }
+            List<Amazon.GroundStation.Model.AzElSegment> requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_AzElData_azElData_AzElSegmentList = null;
+            if (cmdletContext.AzElData_AzElSegmentList != null)
+            {
+                requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_AzElData_azElData_AzElSegmentList = cmdletContext.AzElData_AzElSegmentList;
+            }
+            if (requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_AzElData_azElData_AzElSegmentList != null)
+            {
+                requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_AzElData.AzElSegmentList = requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_AzElData_azElData_AzElSegmentList;
+                requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_AzElDataIsNull = false;
+            }
+             // determine if requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_AzElData should be set to null
+            if (requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_AzElDataIsNull)
+            {
+                requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_AzElData = null;
+            }
+            if (requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_AzElData != null)
+            {
+                requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data.AzElData = requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_AzElData;
+                requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_DataIsNull = false;
+            }
+            Amazon.GroundStation.Model.S3Object requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_S3Object = null;
+            
+             // populate S3Object
+            var requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_S3ObjectIsNull = true;
+            requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_S3Object = new Amazon.GroundStation.Model.S3Object();
+            System.String requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_S3Object_s3Object_Bucket = null;
+            if (cmdletContext.S3Object_Bucket != null)
+            {
+                requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_S3Object_s3Object_Bucket = cmdletContext.S3Object_Bucket;
+            }
+            if (requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_S3Object_s3Object_Bucket != null)
+            {
+                requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_S3Object.Bucket = requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_S3Object_s3Object_Bucket;
+                requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_S3ObjectIsNull = false;
+            }
+            System.String requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_S3Object_s3Object_Key = null;
+            if (cmdletContext.S3Object_Key != null)
+            {
+                requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_S3Object_s3Object_Key = cmdletContext.S3Object_Key;
+            }
+            if (requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_S3Object_s3Object_Key != null)
+            {
+                requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_S3Object.Key = requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_S3Object_s3Object_Key;
+                requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_S3ObjectIsNull = false;
+            }
+            System.String requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_S3Object_s3Object_Version = null;
+            if (cmdletContext.S3Object_Version != null)
+            {
+                requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_S3Object_s3Object_Version = cmdletContext.S3Object_Version;
+            }
+            if (requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_S3Object_s3Object_Version != null)
+            {
+                requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_S3Object.Version = requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_S3Object_s3Object_Version;
+                requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_S3ObjectIsNull = false;
+            }
+             // determine if requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_S3Object should be set to null
+            if (requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_S3ObjectIsNull)
+            {
+                requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_S3Object = null;
+            }
+            if (requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_S3Object != null)
+            {
+                requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data.S3Object = requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data_ephemeris_AzEl_Data_S3Object;
+                requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_DataIsNull = false;
+            }
+             // determine if requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data should be set to null
+            if (requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_DataIsNull)
+            {
+                requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data = null;
+            }
+            if (requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data != null)
+            {
+                requestEphemeris_ephemeris_AzEl.Data = requestEphemeris_ephemeris_AzEl_ephemeris_AzEl_Data;
+                requestEphemeris_ephemeris_AzElIsNull = false;
+            }
+             // determine if requestEphemeris_ephemeris_AzEl should be set to null
+            if (requestEphemeris_ephemeris_AzElIsNull)
+            {
+                requestEphemeris_ephemeris_AzEl = null;
+            }
+            if (requestEphemeris_ephemeris_AzEl != null)
+            {
+                request.Ephemeris.AzEl = requestEphemeris_ephemeris_AzEl;
+                requestEphemerisIsNull = false;
+            }
             Amazon.GroundStation.Model.OEMEphemeris requestEphemeris_ephemeris_Oem = null;
             
              // populate Oem
@@ -548,6 +730,12 @@ namespace Amazon.PowerShell.Cmdlets.GS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? Enabled { get; set; }
+            public Amazon.GroundStation.AngleUnits AzElData_AngleUnit { get; set; }
+            public List<Amazon.GroundStation.Model.AzElSegment> AzElData_AzElSegmentList { get; set; }
+            public System.String S3Object_Bucket { get; set; }
+            public System.String S3Object_Key { get; set; }
+            public System.String S3Object_Version { get; set; }
+            public System.String AzEl_GroundStation { get; set; }
             public System.String Oem_OemData { get; set; }
             public System.String Ephemeris_Oem_S3Object_Bucket { get; set; }
             public System.String Ephemeris_Oem_S3Object_Key { get; set; }

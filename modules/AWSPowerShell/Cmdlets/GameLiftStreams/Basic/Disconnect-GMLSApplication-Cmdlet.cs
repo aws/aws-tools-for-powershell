@@ -33,7 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
     /// Any streams in process will continue until they terminate, which helps avoid interrupting
     /// an end-user's stream. Amazon GameLift Streams will not initiate new streams in the
     /// stream group using the disassociated application. The disassociate action does not
-    /// affect the stream capacity of a stream group. 
+    /// affect the stream capacity of a stream group. To disassociate an application, the
+    /// stream group must be in <c>ACTIVE</c> status. 
     /// 
     ///  
     /// <para>

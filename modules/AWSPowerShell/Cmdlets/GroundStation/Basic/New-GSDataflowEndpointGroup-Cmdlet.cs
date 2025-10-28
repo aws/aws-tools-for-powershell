@@ -83,7 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter EndpointDetail
         /// <summary>
         /// <para>
-        /// Amazon.GroundStation.Model.CreateDataflowEndpointGroupRequest.EndpointDetails
+        /// <para>Endpoint details of each endpoint in the dataflow endpoint group. All dataflow endpoints
+        /// within a single dataflow endpoint group must be of the same type. You cannot mix <a href="https://docs.aws.amazon.com/ground-station/latest/APIReference/API_AwsGroundStationAgentEndpoint.html">
+        /// AWS Ground Station Agent endpoints</a> with <a href="https://docs.aws.amazon.com/ground-station/latest/APIReference/API_DataflowEndpoint.html">Dataflow
+        /// endpoints</a> in the same group. If your use case requires both types of endpoints,
+        /// you must create separate dataflow endpoint groups for each type. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

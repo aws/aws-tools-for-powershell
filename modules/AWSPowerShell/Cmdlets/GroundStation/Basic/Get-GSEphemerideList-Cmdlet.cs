@@ -28,7 +28,7 @@ using Amazon.GroundStation.Model;
 namespace Amazon.PowerShell.Cmdlets.GS
 {
     /// <summary>
-    /// List existing ephemerides.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// List your existing ephemerides.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GSEphemerideList")]
     [OutputType("Amazon.GroundStation.Model.EphemerisItem")]
@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The end time to list in UTC. The operation will return an ephemeris if its expiration
-        /// time is within the time range defined by the <c>startTime</c> and <c>endTime</c>.</para>
+        /// <para>The end time for the list operation in UTC. Returns ephemerides with expiration times
+        /// within your specified time range.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,28 +59,32 @@ namespace Amazon.PowerShell.Cmdlets.GS
         public System.DateTime? EndTime { get; set; }
         #endregion
         
+        #region Parameter EphemerisType
+        /// <summary>
+        /// <para>
+        /// <para>Filter ephemerides by type. If not specified, all ephemeris types will be returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.GroundStation.EphemerisType")]
+        public Amazon.GroundStation.EphemerisType EphemerisType { get; set; }
+        #endregion
+        
         #region Parameter SatelliteId
         /// <summary>
         /// <para>
         /// <para>The AWS Ground Station satellite ID to list ephemeris for.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SatelliteId { get; set; }
         #endregion
         
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>The start time to list in UTC. The operation will return an ephemeris if its expiration
-        /// time is within the time range defined by the <c>startTime</c> and <c>endTime</c>.</para>
+        /// <para>The start time for the list operation in UTC. Returns ephemerides with expiration
+        /// times within your specified time range.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -171,15 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.GS
                 WriteWarning("You are passing $null as a value for parameter EndTime which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EphemerisType = this.EphemerisType;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.SatelliteId = this.SatelliteId;
-            #if MODULAR
-            if (this.SatelliteId == null && ParameterWasBound(nameof(this.SatelliteId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SatelliteId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.StartTime = this.StartTime;
             #if MODULAR
             if (this.StartTime == null && ParameterWasBound(nameof(this.StartTime)))
@@ -212,6 +211,10 @@ namespace Amazon.PowerShell.Cmdlets.GS
             if (cmdletContext.EndTime != null)
             {
                 request.EndTime = cmdletContext.EndTime.Value;
+            }
+            if (cmdletContext.EphemerisType != null)
+            {
+                request.EphemerisType = cmdletContext.EphemerisType;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -315,6 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.DateTime? EndTime { get; set; }
+            public Amazon.GroundStation.EphemerisType EphemerisType { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String SatelliteId { get; set; }

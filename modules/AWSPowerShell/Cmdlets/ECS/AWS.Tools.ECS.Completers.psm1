@@ -156,7 +156,7 @@ $ECS_Completers = {
             ($_ -eq "Update-ECSService/DeploymentConfiguration_Strategy")
         }
         {
-            $v = "BLUE_GREEN","ROLLING"
+            $v = "BLUE_GREEN","CANARY","LINEAR","ROLLING"
             break
         }
 

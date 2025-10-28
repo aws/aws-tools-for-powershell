@@ -58,6 +58,17 @@ namespace Amazon.PowerShell.Cmdlets.GS
         public System.DateTime? EndTime { get; set; }
         #endregion
         
+        #region Parameter AzEl_EphemerisId
+        /// <summary>
+        /// <para>
+        /// <para>Unique identifier of the azimuth elevation ephemeris.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrackingOverrides_ProgramTrackSettings_AzEl_EphemerisId")]
+        public System.String AzEl_EphemerisId { get; set; }
+        #endregion
+        
         #region Parameter GroundStation
         /// <summary>
         /// <para>
@@ -98,14 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         /// <para>ARN of a satellite</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SatelliteArn { get; set; }
         #endregion
         
@@ -200,12 +204,6 @@ namespace Amazon.PowerShell.Cmdlets.GS
             }
             #endif
             context.SatelliteArn = this.SatelliteArn;
-            #if MODULAR
-            if (this.SatelliteArn == null && ParameterWasBound(nameof(this.SatelliteArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SatelliteArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.StartTime = this.StartTime;
             #if MODULAR
             if (this.StartTime == null && ParameterWasBound(nameof(this.StartTime)))
@@ -221,6 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
+            context.AzEl_EphemerisId = this.AzEl_EphemerisId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -260,6 +259,55 @@ namespace Amazon.PowerShell.Cmdlets.GS
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            
+             // populate TrackingOverrides
+            var requestTrackingOverridesIsNull = true;
+            request.TrackingOverrides = new Amazon.GroundStation.Model.TrackingOverrides();
+            Amazon.GroundStation.Model.ProgramTrackSettings requestTrackingOverrides_trackingOverrides_ProgramTrackSettings = null;
+            
+             // populate ProgramTrackSettings
+            var requestTrackingOverrides_trackingOverrides_ProgramTrackSettingsIsNull = true;
+            requestTrackingOverrides_trackingOverrides_ProgramTrackSettings = new Amazon.GroundStation.Model.ProgramTrackSettings();
+            Amazon.GroundStation.Model.AzElProgramTrackSettings requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzEl = null;
+            
+             // populate AzEl
+            var requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzElIsNull = true;
+            requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzEl = new Amazon.GroundStation.Model.AzElProgramTrackSettings();
+            System.String requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzEl_azEl_EphemerisId = null;
+            if (cmdletContext.AzEl_EphemerisId != null)
+            {
+                requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzEl_azEl_EphemerisId = cmdletContext.AzEl_EphemerisId;
+            }
+            if (requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzEl_azEl_EphemerisId != null)
+            {
+                requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzEl.EphemerisId = requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzEl_azEl_EphemerisId;
+                requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzElIsNull = false;
+            }
+             // determine if requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzEl should be set to null
+            if (requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzElIsNull)
+            {
+                requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzEl = null;
+            }
+            if (requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzEl != null)
+            {
+                requestTrackingOverrides_trackingOverrides_ProgramTrackSettings.AzEl = requestTrackingOverrides_trackingOverrides_ProgramTrackSettings_trackingOverrides_ProgramTrackSettings_AzEl;
+                requestTrackingOverrides_trackingOverrides_ProgramTrackSettingsIsNull = false;
+            }
+             // determine if requestTrackingOverrides_trackingOverrides_ProgramTrackSettings should be set to null
+            if (requestTrackingOverrides_trackingOverrides_ProgramTrackSettingsIsNull)
+            {
+                requestTrackingOverrides_trackingOverrides_ProgramTrackSettings = null;
+            }
+            if (requestTrackingOverrides_trackingOverrides_ProgramTrackSettings != null)
+            {
+                request.TrackingOverrides.ProgramTrackSettings = requestTrackingOverrides_trackingOverrides_ProgramTrackSettings;
+                requestTrackingOverridesIsNull = false;
+            }
+             // determine if request.TrackingOverrides should be set to null
+            if (requestTrackingOverridesIsNull)
+            {
+                request.TrackingOverrides = null;
             }
             
             CmdletOutput output;
@@ -328,6 +376,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
             public System.String SatelliteArn { get; set; }
             public System.DateTime? StartTime { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.String AzEl_EphemerisId { get; set; }
             public System.Func<Amazon.GroundStation.Model.ReserveContactResponse, AddGSReservedContactCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ContactId;
         }

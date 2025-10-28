@@ -28,12 +28,23 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// <note><para>
-    /// This operation is not supported for directory buckets.
-    /// </para></note><para>
+    /// <important><para>
+    /// Using the <c>GetBucketLocation</c> operation is no longer a best practice. To return
+    /// the Region that a bucket resides in, we recommend that you use the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadBucket.html">HeadBucket</a>
+    /// operation instead. For backward compatibility, Amazon S3 continues to support the
+    /// <c>GetBucketLocation</c> operation.
+    /// </para></important><para>
     /// Returns the Region the bucket resides in. You set the bucket's Region using the <c>LocationConstraint</c>
     /// request parameter in a <c>CreateBucket</c> request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a>.
-    /// </para><para>
+    /// </para><note><para>
+    /// In a bucket's home Region, calls to the <c>GetBucketLocation</c> operation are governed
+    /// by the bucket's policy. In other Regions, the bucket policy doesn't apply, which means
+    /// that cross-account access won't be authorized. However, calls to the <c>HeadBucket</c>
+    /// operation always return the bucket’s location through an HTTP response header, whether
+    /// access to the bucket is authorized or not. Therefore, we recommend using the <c>HeadBucket</c>
+    /// operation for bucket Region discovery and to avoid using the <c>GetBucketLocation</c>
+    /// operation.
+    /// </para></note><para>
     /// When you use this API operation with an access point, provide the alias of the access
     /// point in place of the bucket name.
     /// </para><para>
@@ -43,12 +54,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// is returned. For more information about <c>InvalidAccessPointAliasError</c>, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List
     /// of Error Codes</a>.
     /// </para><note><para>
-    /// We recommend that you use <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadBucket.html">HeadBucket</a>
-    /// to return the Region that a bucket resides in. For backward compatibility, Amazon
-    /// S3 continues to support GetBucketLocation.
+    /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// The following operations are related to <c>GetBucketLocation</c>:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li></ul><important><para>
+    /// You must URL encode any signed header values that contain spaces. For example, if
+    /// your header value is <c>my file.txt</c>, containing two spaces after <c>my</c>, you
+    /// must URL encode this value to <c>my%20%20file.txt</c>.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Get", "S3BucketLocation")]
     [OutputType("Amazon.S3.S3Region")]

@@ -28,6 +28,18 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
+    /// <important><para>
+    /// End of support notice: Beginning November 21, 2025, Amazon S3 will stop returning
+    /// <c>DisplayName</c>. Update your applications to use canonical IDs (unique identifier
+    /// for Amazon Web Services accounts), Amazon Web Services account ID (12 digit identifier)
+    /// or IAM ARNs (full resource naming) as a direct replacement of <c>DisplayName</c>.
+    /// 
+    /// </para><para>
+    /// This change affects the following Amazon Web Services Regions: US East (N. Virginia)
+    /// Region, US West (N. California) Region, US West (Oregon) Region, Asia Pacific (Singapore)
+    /// Region, Asia Pacific (Sydney) Region, Asia Pacific (Tokyo) Region, Europe (Ireland)
+    /// Region, and South America (São Paulo) Region.
+    /// </para></important><para>
     /// Returns some or all (up to 1,000) of the objects in a bucket with each request. You
     /// can use the request parameters as selection criteria to return a subset of the objects
     /// in a bucket. A <c>200 OK</c> response can contain valid or invalid XML. Make sure
@@ -35,8 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// For more information about listing objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ListingKeysUsingAPIs.html">Listing
     /// object keys programmatically</a> in the <i>Amazon S3 User Guide</i>. To get a list
     /// of your buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html">ListBuckets</a>.
-    /// 
-    ///  <note><ul><li><para><b>General purpose bucket</b> - For general purpose buckets, <c>ListObjectsV2</c>
+    /// </para><note><ul><li><para><b>General purpose bucket</b> - For general purpose buckets, <c>ListObjectsV2</c>
     /// doesn't return prefixes that are related only to in-progress multipart uploads.
     /// </para></li><li><para><b>Directory buckets</b> - For directory buckets, <c>ListObjectsV2</c> response includes
     /// the prefixes that are related only to in-progress multipart uploads. 
@@ -74,7 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Amazon S3 continues to support the prior version of this API operation, <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html">ListObjects</a>.
     /// </para></important><para>
     /// The following operations are related to <c>ListObjectsV2</c>:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li></ul><important><para>
+    /// You must URL encode any signed header values that contain spaces. For example, if
+    /// your header value is <c>my file.txt</c>, containing two spaces after <c>my</c>, you
+    /// must URL encode this value to <c>my%20%20file.txt</c>.
+    /// </para></important><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "S3ObjectV2", DefaultParameterSetName="GetMultipleObjects")]
     [OutputType("Amazon.S3.Model.S3Object")]

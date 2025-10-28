@@ -22,30 +22,34 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GroundStation;
-using Amazon.GroundStation.Model;
+using Amazon.SageMaker;
+using Amazon.SageMaker.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GS
+namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Delete an ephemeris.
+    /// Deletes a processing job. After Amazon SageMaker deletes a processing job, all of
+    /// the metadata for the processing job is lost. You can delete only processing jobs that
+    /// are in a terminal state (<c>Stopped</c>, <c>Failed</c>, or <c>Completed</c>). You
+    /// cannot delete a job that is in the <c>InProgress</c> or <c>Stopping</c> state. After
+    /// deleting the job, you can reuse its name to create another processing job.
     /// </summary>
-    [Cmdlet("Remove", "GSEphemeris", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Ground Station DeleteEphemeris API operation.", Operation = new[] {"DeleteEphemeris"}, SelectReturnType = typeof(Amazon.GroundStation.Model.DeleteEphemerisResponse))]
-    [AWSCmdletOutput("System.String or Amazon.GroundStation.Model.DeleteEphemerisResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GroundStation.Model.DeleteEphemerisResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "SMProcessingJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon SageMaker Service DeleteProcessingJob API operation.", Operation = new[] {"DeleteProcessingJob"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DeleteProcessingJobResponse))]
+    [AWSCmdletOutput("None or Amazon.SageMaker.Model.DeleteProcessingJobResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.SageMaker.Model.DeleteProcessingJobResponse) be returned by specifying '-Select *'."
     )]
-    public partial class RemoveGSEphemerisCmdlet : AmazonGroundStationClientCmdlet, IExecutor
+    public partial class RemoveSMProcessingJobCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter EphemerisId
+        #region Parameter ProcessingJobName
         /// <summary>
         /// <para>
-        /// <para>The AWS Ground Station ephemeris ID.</para>
+        /// <para>The name of the processing job to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,26 +60,25 @@ namespace Amazon.PowerShell.Cmdlets.GS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String EphemerisId { get; set; }
+        public System.String ProcessingJobName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'EphemerisId'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GroundStation.Model.DeleteEphemerisResponse).
-        /// Specifying the name of a property of type Amazon.GroundStation.Model.DeleteEphemerisResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.DeleteProcessingJobResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "EphemerisId";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the EphemerisId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^EphemerisId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ProcessingJobName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ProcessingJobName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^EphemerisId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ProcessingJobName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -95,8 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.EphemerisId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-GSEphemeris (DeleteEphemeris)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ProcessingJobName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SMProcessingJob (DeleteProcessingJob)"))
             {
                 return;
             }
@@ -109,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GroundStation.Model.DeleteEphemerisResponse, RemoveGSEphemerisCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.DeleteProcessingJobResponse, RemoveSMProcessingJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -118,14 +121,14 @@ namespace Amazon.PowerShell.Cmdlets.GS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.EphemerisId;
+                context.Select = (response, cmdlet) => this.ProcessingJobName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.EphemerisId = this.EphemerisId;
+            context.ProcessingJobName = this.ProcessingJobName;
             #if MODULAR
-            if (this.EphemerisId == null && ParameterWasBound(nameof(this.EphemerisId)))
+            if (this.ProcessingJobName == null && ParameterWasBound(nameof(this.ProcessingJobName)))
             {
-                WriteWarning("You are passing $null as a value for parameter EphemerisId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ProcessingJobName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -142,11 +145,11 @@ namespace Amazon.PowerShell.Cmdlets.GS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GroundStation.Model.DeleteEphemerisRequest();
+            var request = new Amazon.SageMaker.Model.DeleteProcessingJobRequest();
             
-            if (cmdletContext.EphemerisId != null)
+            if (cmdletContext.ProcessingJobName != null)
             {
-                request.EphemerisId = cmdletContext.EphemerisId;
+                request.ProcessingJobName = cmdletContext.ProcessingJobName;
             }
             
             CmdletOutput output;
@@ -181,15 +184,15 @@ namespace Amazon.PowerShell.Cmdlets.GS
         
         #region AWS Service Operation Call
         
-        private Amazon.GroundStation.Model.DeleteEphemerisResponse CallAWSServiceOperation(IAmazonGroundStation client, Amazon.GroundStation.Model.DeleteEphemerisRequest request)
+        private Amazon.SageMaker.Model.DeleteProcessingJobResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.DeleteProcessingJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Ground Station", "DeleteEphemeris");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "DeleteProcessingJob");
             try
             {
                 #if DESKTOP
-                return client.DeleteEphemeris(request);
+                return client.DeleteProcessingJob(request);
                 #elif CORECLR
-                return client.DeleteEphemerisAsync(request).GetAwaiter().GetResult();
+                return client.DeleteProcessingJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -209,9 +212,9 @@ namespace Amazon.PowerShell.Cmdlets.GS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String EphemerisId { get; set; }
-            public System.Func<Amazon.GroundStation.Model.DeleteEphemerisResponse, RemoveGSEphemerisCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.EphemerisId;
+            public System.String ProcessingJobName { get; set; }
+            public System.Func<Amazon.SageMaker.Model.DeleteProcessingJobResponse, RemoveSMProcessingJobCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

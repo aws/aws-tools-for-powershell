@@ -28,11 +28,7 @@ using Amazon.GroundStation.Model;
 namespace Amazon.PowerShell.Cmdlets.GS
 {
     /// <summary>
-    /// <note><para>
-    ///  For use by AWS Ground Station Agent and shouldn't be called directly.
-    /// </para></note><para>
-    /// Update the status of the agent.
-    /// </para>
+    /// Amazon.GroundStation.IAmazonGroundStation.UpdateAgentStatus
     /// </summary>
     [Cmdlet("Update", "GSAgentStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

@@ -28,16 +28,19 @@ using Amazon.GameLiftStreams.Model;
 namespace Amazon.PowerShell.Cmdlets.GMLS
 {
     /// <summary>
-    /// Removes a set of remote locations from this stream group. Amazon GameLift Streams
-    /// works to release allocated compute resources in these location. Thus, stream sessions
-    /// can no longer start from these locations by using this stream group. Amazon GameLift
-    /// Streams also deletes the content files of all associated applications that were in
-    /// Amazon GameLift Streams's internal S3 bucket at this location. 
+    /// Removes a set of remote locations from this stream group. To remove a location, the
+    /// stream group must be in <c>ACTIVE</c> status. When you remove a location, Amazon GameLift
+    /// Streams releases allocated compute resources in that location. Stream sessions can
+    /// no longer start from removed locations in a stream group. Amazon GameLift Streams
+    /// also deletes the content files of all associated applications that were in Amazon
+    /// GameLift Streams's internal Amazon S3 bucket at this location. 
     /// 
     ///  
     /// <para>
-    ///  You cannot remove the region where you initially created this stream group, known
-    /// as the primary location. However, you can set the stream capacity to zero. 
+    ///  You cannot remove the Amazon Web Services Region location where you initially created
+    /// this stream group, known as the primary location. However, you can set the stream
+    /// capacity to zero to avoid incurring costs for allocated compute resources in that
+    /// location. 
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "GMLSStreamGroupLocation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

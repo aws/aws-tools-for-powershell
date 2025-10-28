@@ -28,10 +28,15 @@ using Amazon.ApplicationSignals.Model;
 namespace Amazon.PowerShell.Cmdlets.CWAS
 {
     /// <summary>
-    /// Returns the current grouping configuration for this account, including all custom
-    /// grouping attribute definitions that have been configured. These definitions determine
-    /// how services are logically grouped based on telemetry attributes, Amazon Web Services
-    /// tags, or predefined mappings.
+    /// Retrieves the available grouping attribute definitions that can be used to create
+    /// grouping configurations. These definitions specify the attributes and rules available
+    /// for organizing services.
+    /// 
+    ///  
+    /// <para>
+    /// Use this operation to discover what grouping options are available before creating
+    /// or updating grouping configurations.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "CWASGroupingAttributeDefinitionList")]
     [OutputType("Amazon.ApplicationSignals.Model.ListGroupingAttributeDefinitionsResponse")]
@@ -47,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Include this value, if it was returned by the previous operation, to get the next
-        /// set of grouping attribute definitions.</para>
+        /// <para>The token for the next set of results. Use this token to retrieve additional pages
+        /// of grouping attribute definitions when the result set is large.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

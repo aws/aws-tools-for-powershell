@@ -36,7 +36,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Objects</a>.
     /// </para><para>
     /// This functionality is not supported for Amazon S3 on Outposts.
-    /// </para>
+    /// </para><important><para>
+    /// You must URL encode any signed header values that contain spaces. For example, if
+    /// your header value is <c>my file.txt</c>, containing two spaces after <c>my</c>, you
+    /// must URL encode this value to <c>my%20%20file.txt</c>.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Write", "S3ObjectLegalHold", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3.RequestCharged")]
