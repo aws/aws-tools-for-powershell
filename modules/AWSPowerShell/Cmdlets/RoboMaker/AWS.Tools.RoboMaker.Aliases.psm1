@@ -1,3 +1,0 @@
-﻿# RoboMaker
-
-Export-ModuleMember -Alias *

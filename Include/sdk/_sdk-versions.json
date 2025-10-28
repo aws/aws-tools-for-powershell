@@ -1179,14 +1179,6 @@
             },
             "InPreview"               : false
         },
-        "RoboMaker"                       : {
-            "Version" : "4.0.2.1",
-            "AssemblyVersionOverride" : "4.0",
-            "Dependencies"            : {
-                "Core" : "4.0.1.3"
-            },
-            "InPreview"               : false
-        },
         "DataSync"                        : {
             "Version" : "4.0.6.2",
             "AssemblyVersionOverride" : "4.0",
@@ -1436,22 +1428,6 @@
             "InPreview"               : false
         },
         "ForecastQueryService"            : {
-            "Version" : "4.0.2.2",
-            "AssemblyVersionOverride" : "4.0",
-            "Dependencies"            : {
-                "Core" : "4.0.1.3"
-            },
-            "InPreview"               : false
-        },
-        "QLDB"                            : {
-            "Version" : "4.0.2.2",
-            "AssemblyVersionOverride" : "4.0",
-            "Dependencies"            : {
-                "Core" : "4.0.1.3"
-            },
-            "InPreview"               : false
-        },
-        "QLDBSession"                     : {
             "Version" : "4.0.2.2",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
@@ -1867,14 +1843,6 @@
             },
             "InPreview"               : false
         },
-        "LookoutforVision"                : {
-            "Version" : "4.0.2.1",
-            "AssemblyVersionOverride" : "4.0",
-            "Dependencies"            : {
-                "Core" : "4.0.1.3"
-            },
-            "InPreview"               : false
-        },
         "CustomerProfiles"                : {
             "Version" : "4.0.6.2",
             "AssemblyVersionOverride" : "4.0",
@@ -1939,14 +1907,6 @@
             },
             "InPreview"               : false
         },
-        "IoTFleetHub"                     : {
-            "Version" : "4.0.0.31",
-            "AssemblyVersionOverride" : "4.0",
-            "Dependencies"            : {
-                "Core" : "4.0.1.3"
-            },
-            "InPreview"               : false
-        },
         "IoTDeviceAdvisor"                : {
             "Version" : "4.0.2.2",
             "AssemblyVersionOverride" : "4.0",
@@ -1989,14 +1949,6 @@
         },
         "FIS"                             : {
             "Version" : "4.0.2.1",
-            "AssemblyVersionOverride" : "4.0",
-            "Dependencies"            : {
-                "Core" : "4.0.1.3"
-            },
-            "InPreview"               : false
-        },
-        "LookoutMetrics"                  : {
-            "Version" : "4.0.1.11",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.1.3"
@@ -2997,14 +2949,6 @@
         },
         "PcaConnectorScep"                    : {
             "Version" : "4.0.2.1",
-            "AssemblyVersionOverride" : "4.0",
-            "Dependencies"            : {
-                "Core" : "4.0.1.3"
-            },
-            "InPreview"               : false
-        },
-        "AppTest"                             : {
-            "Version" : "4.0.2.2",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.1.3"

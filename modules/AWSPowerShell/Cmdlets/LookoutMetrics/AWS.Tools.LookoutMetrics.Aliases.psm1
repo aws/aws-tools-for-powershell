@@ -1,3 +1,0 @@
-﻿# LookoutMetrics
-
-Export-ModuleMember -Alias *

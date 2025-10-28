@@ -1,3 +1,0 @@
-﻿# LookoutforVision
-
-Export-ModuleMember -Alias *
