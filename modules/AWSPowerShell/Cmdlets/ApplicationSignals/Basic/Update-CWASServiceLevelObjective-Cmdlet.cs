@@ -332,8 +332,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter SliMetricConfig_MetricName
         /// <summary>
         /// <para>
-        /// <para>The name of the CloudWatch metric to use for the SLO, when using a custom metric rather
-        /// than Application Signals standard metrics.</para>
+        /// <para>The name of the CloudWatch metric used as a service level indicator (SLI) for measuring
+        /// service performance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

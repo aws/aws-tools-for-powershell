@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// Returns a list of S3 Inventory configurations for the bucket. You can have up to 1,000
-    /// analytics configurations per bucket.
+    /// inventory configurations per bucket.
     /// </para><para>
     /// This action supports list pagination and does not return more than 100 configurations
     /// at a time. Always check the <c>IsTruncated</c> element in the response. If there are
@@ -53,7 +53,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// For information about the Amazon S3 inventory feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html">Amazon
     /// S3 Inventory</a></para><para>
     /// The following operations are related to <c>ListBucketInventoryConfigurations</c>:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketInventoryConfiguration.html">GetBucketInventoryConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketInventoryConfiguration.html">DeleteBucketInventoryConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketInventoryConfiguration.html">PutBucketInventoryConfiguration</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketInventoryConfiguration.html">GetBucketInventoryConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketInventoryConfiguration.html">DeleteBucketInventoryConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketInventoryConfiguration.html">PutBucketInventoryConfiguration</a></para></li></ul><important><para>
+    /// You must URL encode any signed header values that contain spaces. For example, if
+    /// your header value is <c>my file.txt</c>, containing two spaces after <c>my</c>, you
+    /// must URL encode this value to <c>my%20%20file.txt</c>.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Get", "S3BucketInventoryConfigurationList")]
     [OutputType("Amazon.S3.Model.ListBucketInventoryConfigurationsResponse")]

@@ -38,6 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// 
     ///  
     /// <para>
+    /// For synchronous invocations, the maximum payload size is 6 MB. For asynchronous invocations,
+    /// the maximum payload size is 1 MB.
+    /// </para><para>
     /// For <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-sync.html">synchronous
     /// invocation</a>, details about the function response, including errors, are included
     /// in the response body and headers. For either invocation type, you can find more information
@@ -184,7 +187,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter PayloadStream
         /// <summary>
         /// <para>
-        /// <para>The JSON that you want to provide to your Lambda function as input.</para><para>You can enter the JSON directly. For example, <c>--payload '{ "key": "value" }'</c>.
+        /// <para>The JSON that you want to provide to your Lambda function as input. The maximum payload
+        /// size is 6 MB for synchronous invocations and 1 MB for asynchronous invocations.</para><para>You can enter the JSON directly. For example, <c>--payload '{ "key": "value" }'</c>.
         /// You can also specify a file path. For example, <c>--payload file://payload.json</c>.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>

@@ -56,7 +56,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Acceleration</a> in the Amazon S3 User Guide.
     /// </para><para>
     /// The following operations are related to <c>GetBucketAccelerateConfiguration</c>:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAccelerateConfiguration.html">PutBucketAccelerateConfiguration</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAccelerateConfiguration.html">PutBucketAccelerateConfiguration</a></para></li></ul><important><para>
+    /// You must URL encode any signed header values that contain spaces. For example, if
+    /// your header value is <c>my file.txt</c>, containing two spaces after <c>my</c>, you
+    /// must URL encode this value to <c>my%20%20file.txt</c>.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Get", "S3BucketAccelerateConfiguration")]
     [OutputType("Amazon.S3.BucketAccelerateStatus")]

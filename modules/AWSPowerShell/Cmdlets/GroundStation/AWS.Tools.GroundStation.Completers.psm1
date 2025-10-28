@@ -87,6 +87,13 @@ $GS_Completers = {
             break
         }
 
+        # Amazon.GroundStation.AngleUnits
+        "New-GSEphemeris/AzElData_AngleUnit"
+        {
+            $v = "DEGREE_ANGLE","RADIAN"
+            break
+        }
+
         # Amazon.GroundStation.ConfigCapabilityType
         {
             ($_ -eq "Get-GSConfig/ConfigType") -Or
@@ -95,6 +102,13 @@ $GS_Completers = {
         }
         {
             $v = "antenna-downlink","antenna-downlink-demod-decode","antenna-uplink","dataflow-endpoint","s3-recording","tracking","uplink-echo"
+            break
+        }
+
+        # Amazon.GroundStation.EphemerisType
+        "Get-GSEphemerideList/EphemerisType"
+        {
+            $v = "AZ_EL","OEM","SERVICE_MANAGED","TLE"
             break
         }
 
@@ -108,7 +122,9 @@ $GS_Completers = {
 
 $GS_map = @{
     "AggregateStatus_Status"=@("Update-GSAgentStatus")
+    "AzElData_AngleUnit"=@("New-GSEphemeris")
     "ConfigType"=@("Get-GSConfig","Remove-GSConfig","Update-GSConfig")
+    "EphemerisType"=@("Get-GSEphemerideList")
 }
 
 _awsArgumentCompleterRegistration $GS_Completers $GS_map

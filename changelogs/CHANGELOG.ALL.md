@@ -1,4 +1,29 @@
-﻿### 5.0.84 (2025-10-27 21:51Z)
+﻿### 5.0.85 (2025-10-28 21:23Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.121.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * [Breaking Change] Removed support for Amazon IoT Fleet Hub
+  * [Breaking Change] Removed support for Amazon Lookout for Metrics
+  * [Breaking Change] Removed support for Amazon Lookout for Vision
+  * [Breaking Change] Removed support for Amazon Mainframe Modernization Application Testing
+  * [Breaking Change] Removed support for Amazon QLDB
+  * [Breaking Change] Removed support for Amazon QLDB Session
+  * [Breaking Change] Removed support for Amazon RoboMaker
+  * Amazon EC2 Container Service
+    * Modified cmdlet New-ECSService: added parameters CanaryConfiguration_CanaryBakeTimeInMinute, CanaryConfiguration_CanaryPercent, LinearConfiguration_StepBakeTimeInMinute and LinearConfiguration_StepPercent.
+    * Modified cmdlet Update-ECSService: added parameters CanaryConfiguration_CanaryBakeTimeInMinute, CanaryConfiguration_CanaryPercent, LinearConfiguration_StepBakeTimeInMinute and LinearConfiguration_StepPercent.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Get-EC2CapacityReservationTopology leveraging the DescribeCapacityReservationTopology service API.
+  * Amazon Ground Station
+    * Modified cmdlet Add-GSReservedContact: added parameter AzEl_EphemerisId.
+    * Modified cmdlet Get-GSContactList: added parameter AzEl_Id.
+    * Modified cmdlet Get-GSEphemerideList: added parameter EphemerisType.
+    * Modified cmdlet New-GSEphemeris: added parameters AzEl_GroundStation, AzElData_AngleUnit, AzElData_AzElSegmentList, S3Object_Bucket, S3Object_Key and S3Object_Version.
+  * Amazon SageMaker Service
+    * Added cmdlet Remove-SMProcessingJob leveraging the DeleteProcessingJob service API.
+    * Added cmdlet Remove-SMTrainingJob leveraging the DeleteTrainingJob service API.
+  * Amazon Simple Storage Service (S3)
+    * Modified cmdlet Copy-S3Object: added parameter IfMatch.
+
+### 5.0.84 (2025-10-27 21:51Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.120.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Kinesis
     * Added cmdlet Update-KINMaxRecordSize leveraging the UpdateMaxRecordSize service API.

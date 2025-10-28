@@ -1695,7 +1695,7 @@ $SM_Completers = {
             ($_ -eq "Get-SMTrainingJobsForHyperParameterTuningJobList/StatusEqual")
         }
         {
-            $v = "Completed","Failed","InProgress","Stopped","Stopping"
+            $v = "Completed","Deleting","Failed","InProgress","Stopped","Stopping"
             break
         }
 
@@ -2091,10 +2091,12 @@ $SM_SelectMap = @{
                "Remove-SMOptimizationJob",
                "Remove-SMPartnerApp",
                "Remove-SMPipeline",
+               "Remove-SMProcessingJob",
                "Remove-SMProject",
                "Remove-SMSpace",
                "Remove-SMStudioLifecycleConfig",
                "Remove-SMResourceTag",
+               "Remove-SMTrainingJob",
                "Remove-SMTrial",
                "Remove-SMTrialComponent",
                "Remove-SMUserProfile",

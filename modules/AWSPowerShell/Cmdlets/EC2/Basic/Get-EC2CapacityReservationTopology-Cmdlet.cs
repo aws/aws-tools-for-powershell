@@ -23,87 +23,53 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.GroundStation;
-using Amazon.GroundStation.Model;
+using Amazon.EC2;
+using Amazon.EC2.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.GS
+namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// List your existing ephemerides.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes a tree-based hierarchy that represents the physical host placement of your
+    /// pending or active Capacity Reservations within an Availability Zone or Local Zone.
+    /// You can use this information to determine the relative proximity of your capacity
+    /// within the Amazon Web Services network before it is launched and use this information
+    /// to allocate capacity together to support your tightly coupled workloads.
+    /// 
+    ///  
+    /// <para>
+    /// Capacity Reservation topology is supported for specific instance types only. For more
+    /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology-prerequisites.html">Prerequisites
+    /// for Amazon EC2 instance topology</a> in the <i>Amazon EC2 User Guide</i>.
+    /// </para><note><para>
+    /// The Amazon EC2 API follows an eventual consistency model due to the distributed nature
+    /// of the system supporting it. As a result, when you call the DescribeCapacityReservationTopology
+    /// API command immediately after launching instances, the response might return a <c>null</c>
+    /// value for <c>capacityBlockId</c> because the data might not have fully propagated
+    /// across all subsystems. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html">Eventual
+    /// consistency in the Amazon EC2 API</a> in the <i>Amazon EC2 Developer Guide</i>.
+    /// </para></note><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology.html">Amazon
+    /// EC2 topology</a> in the <i>Amazon EC2 User Guide</i>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "GSEphemerideList")]
-    [OutputType("Amazon.GroundStation.Model.EphemerisItem")]
-    [AWSCmdlet("Calls the AWS Ground Station ListEphemerides API operation.", Operation = new[] {"ListEphemerides"}, SelectReturnType = typeof(Amazon.GroundStation.Model.ListEphemeridesResponse))]
-    [AWSCmdletOutput("Amazon.GroundStation.Model.EphemerisItem or Amazon.GroundStation.Model.ListEphemeridesResponse",
-        "This cmdlet returns a collection of Amazon.GroundStation.Model.EphemerisItem objects.",
-        "The service call response (type Amazon.GroundStation.Model.ListEphemeridesResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "EC2CapacityReservationTopology")]
+    [OutputType("Amazon.EC2.Model.CapacityReservationTopology")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeCapacityReservationTopology API operation.", Operation = new[] {"DescribeCapacityReservationTopology"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeCapacityReservationTopologyResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.CapacityReservationTopology or Amazon.EC2.Model.DescribeCapacityReservationTopologyResponse",
+        "This cmdlet returns a collection of Amazon.EC2.Model.CapacityReservationTopology objects.",
+        "The service call response (type Amazon.EC2.Model.DescribeCapacityReservationTopologyResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetGSEphemerideListCmdlet : AmazonGroundStationClientCmdlet, IExecutor
+    public partial class GetEC2CapacityReservationTopologyCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter EndTime
+        #region Parameter CapacityReservationId
         /// <summary>
         /// <para>
-        /// <para>The end time for the list operation in UTC. Returns ephemerides with expiration times
-        /// within your specified time range.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.DateTime? EndTime { get; set; }
-        #endregion
-        
-        #region Parameter EphemerisType
-        /// <summary>
-        /// <para>
-        /// <para>Filter ephemerides by type. If not specified, all ephemeris types will be returned.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.GroundStation.EphemerisType")]
-        public Amazon.GroundStation.EphemerisType EphemerisType { get; set; }
-        #endregion
-        
-        #region Parameter SatelliteId
-        /// <summary>
-        /// <para>
-        /// <para>The AWS Ground Station satellite ID to list ephemeris for.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String SatelliteId { get; set; }
-        #endregion
-        
-        #region Parameter StartTime
-        /// <summary>
-        /// <para>
-        /// <para>The start time for the list operation in UTC. Returns ephemerides with expiration
-        /// times within your specified time range.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.DateTime? StartTime { get; set; }
-        #endregion
-        
-        #region Parameter StatusList
-        /// <summary>
-        /// <para>
-        /// <para>The list of ephemeris status to return.</para><para />
+        /// <para>The Capacity Reservation IDs.</para><para>Default: Describes all your Capacity Reservations.</para><para>Constraints: Maximum 100 explicitly specified Capacity Reservation IDs.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -111,13 +77,48 @@ namespace Amazon.PowerShell.Cmdlets.GS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String[] StatusList { get; set; }
+        [Alias("CapacityReservationIds")]
+        public System.String[] CapacityReservationId { get; set; }
+        #endregion
+        
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the operation, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>The filters.</para><ul><li><para><c>availability-zone</c> - The name of the Availability Zone (for example, <c>us-west-2a</c>)
+        /// or Local Zone (for example, <c>us-west-2-lax-1b</c>) that the Capacity Reservation
+        /// is in.</para></li><li><para><c>instance-type</c> - The instance type (for example, <c>p4d.24xlarge</c>) or instance
+        /// family (for example, <c>p4d*</c>). You can use the <c>*</c> wildcard to match zero
+        /// or more characters, or the <c>?</c> wildcard to match zero or one character.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters")]
+        public Amazon.EC2.Model.Filter[] Filter { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of ephemerides to return.</para>
+        /// <para>The maximum number of items to return for this request. To get the next page of items,
+        /// make another request with the token returned in the output. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</para><para>You can't specify this parameter and the Capacity Reservation IDs parameter in the
+        /// same request.</para><para>Default: <c>10</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,7 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Pagination token.</para>
+        /// <para>The token returned from a previous paginated request. Pagination continues from the
+        /// end of the items returned by the previous request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -141,13 +143,13 @@ namespace Amazon.PowerShell.Cmdlets.GS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Ephemerides'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GroundStation.Model.ListEphemeridesResponse).
-        /// Specifying the name of a property of type Amazon.GroundStation.Model.ListEphemeridesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'CapacityReservations'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DescribeCapacityReservationTopologyResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.DescribeCapacityReservationTopologyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Ephemerides";
+        public string Select { get; set; } = "CapacityReservations";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -176,31 +178,20 @@ namespace Amazon.PowerShell.Cmdlets.GS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GroundStation.Model.ListEphemeridesResponse, GetGSEphemerideListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DescribeCapacityReservationTopologyResponse, GetEC2CapacityReservationTopologyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.EndTime = this.EndTime;
-            #if MODULAR
-            if (this.EndTime == null && ParameterWasBound(nameof(this.EndTime)))
+            if (this.CapacityReservationId != null)
             {
-                WriteWarning("You are passing $null as a value for parameter EndTime which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.CapacityReservationId = new List<System.String>(this.CapacityReservationId);
             }
-            #endif
-            context.EphemerisType = this.EphemerisType;
+            context.DryRun = this.DryRun;
+            if (this.Filter != null)
+            {
+                context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
+            }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.SatelliteId = this.SatelliteId;
-            context.StartTime = this.StartTime;
-            #if MODULAR
-            if (this.StartTime == null && ParameterWasBound(nameof(this.StartTime)))
-            {
-                WriteWarning("You are passing $null as a value for parameter StartTime which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.StatusList != null)
-            {
-                context.StatusList = new List<System.String>(this.StatusList);
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -217,31 +208,23 @@ namespace Amazon.PowerShell.Cmdlets.GS
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.GroundStation.Model.ListEphemeridesRequest();
+            var request = new Amazon.EC2.Model.DescribeCapacityReservationTopologyRequest();
             
-            if (cmdletContext.EndTime != null)
+            if (cmdletContext.CapacityReservationId != null)
             {
-                request.EndTime = cmdletContext.EndTime.Value;
+                request.CapacityReservationIds = cmdletContext.CapacityReservationId;
             }
-            if (cmdletContext.EphemerisType != null)
+            if (cmdletContext.DryRun != null)
             {
-                request.EphemerisType = cmdletContext.EphemerisType;
+                request.DryRun = cmdletContext.DryRun.Value;
+            }
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.SatelliteId != null)
-            {
-                request.SatelliteId = cmdletContext.SatelliteId;
-            }
-            if (cmdletContext.StartTime != null)
-            {
-                request.StartTime = cmdletContext.StartTime.Value;
-            }
-            if (cmdletContext.StatusList != null)
-            {
-                request.StatusList = cmdletContext.StatusList;
             }
             
             // Initialize loop variant and commence piping
@@ -300,12 +283,12 @@ namespace Amazon.PowerShell.Cmdlets.GS
         
         #region AWS Service Operation Call
         
-        private Amazon.GroundStation.Model.ListEphemeridesResponse CallAWSServiceOperation(IAmazonGroundStation client, Amazon.GroundStation.Model.ListEphemeridesRequest request)
+        private Amazon.EC2.Model.DescribeCapacityReservationTopologyResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeCapacityReservationTopologyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Ground Station", "ListEphemerides");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeCapacityReservationTopology");
             try
             {
-                return client.ListEphemeridesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DescribeCapacityReservationTopologyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -322,15 +305,13 @@ namespace Amazon.PowerShell.Cmdlets.GS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.DateTime? EndTime { get; set; }
-            public Amazon.GroundStation.EphemerisType EphemerisType { get; set; }
+            public List<System.String> CapacityReservationId { get; set; }
+            public System.Boolean? DryRun { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String SatelliteId { get; set; }
-            public System.DateTime? StartTime { get; set; }
-            public List<System.String> StatusList { get; set; }
-            public System.Func<Amazon.GroundStation.Model.ListEphemeridesResponse, GetGSEphemerideListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Ephemerides;
+            public System.Func<Amazon.EC2.Model.DescribeCapacityReservationTopologyResponse, GetEC2CapacityReservationTopologyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.CapacityReservations;
         }
         
     }

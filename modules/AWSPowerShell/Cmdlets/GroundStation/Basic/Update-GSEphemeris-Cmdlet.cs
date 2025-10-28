@@ -30,7 +30,7 @@ using Amazon.GroundStation.Model;
 namespace Amazon.PowerShell.Cmdlets.GS
 {
     /// <summary>
-    /// Updates an existing ephemeris
+    /// Update an existing ephemeris.
     /// </summary>
     [Cmdlet("Update", "GSEphemeris", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -48,8 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter Enabled
         /// <summary>
         /// <para>
-        /// <para>Whether the ephemeris is enabled or not. Changing this value will not require the
-        /// ephemeris to be re-validated.</para>
+        /// <para>Enable or disable the ephemeris. Changing this value doesn't require re-validation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,8 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A name string associated with the ephemeris. Used as a human-readable identifier for
-        /// the ephemeris.</para>
+        /// <para>A name that you can use to identify the ephemeris.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,9 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter Priority
         /// <summary>
         /// <para>
-        /// <para>Customer-provided priority score to establish the order in which overlapping ephemerides
-        /// should be used.</para><para>The default for customer-provided ephemeris priority is 1, and higher numbers take
-        /// precedence.</para><para>Priority must be 1 or greater</para>
+        /// <para>A priority score that determines which ephemeris to use when multiple ephemerides
+        /// overlap.</para><para>Higher numbers take precedence. The default is 1. Must be 1 or greater.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -30,7 +30,16 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// <note><para>
+    /// <important><para>
+    /// End of support notice: As of October 1, 2025, Amazon S3 has discontinued support for
+    /// Email Grantee Access Control Lists (ACLs). If you attempt to use an Email Grantee
+    /// ACL in a request after October 1, 2025, the request will receive an <c>HTTP 405</c>
+    /// (Method Not Allowed) error.
+    /// </para><para>
+    /// This change affects the following Amazon Web Services Regions: US East (N. Virginia),
+    /// US West (N. California), US West (Oregon), Asia Pacific (Singapore), Asia Pacific
+    /// (Sydney), Asia Pacific (Tokyo), Europe (Ireland), and South America (São Paulo).
+    /// </para></important><note><para>
     /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// Uses the <c>acl</c> subresource to set the access control list (ACL) permissions for
@@ -151,7 +160,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// the <c>versionId</c> subresource.
     /// </para></dd></dl><para>
     /// The following operations are related to <c>PutObjectAcl</c>:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li></ul><important><para>
+    /// You must URL encode any signed header values that contain spaces. For example, if
+    /// your header value is <c>my file.txt</c>, containing two spaces after <c>my</c>, you
+    /// must URL encode this value to <c>my%20%20file.txt</c>.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Set", "S3ObjectACL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3.RequestCharged")]

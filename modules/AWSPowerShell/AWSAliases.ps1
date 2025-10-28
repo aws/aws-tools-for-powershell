@@ -10512,6 +10512,8 @@ Set-Alias -Name EC2-DescribeCapacityReservationFleets -Value Get-EC2CapacityRese
 Set-Alias -Name Describe-EC2CapacityReservations -Value Get-EC2CapacityReservation
 Set-Alias -Name Describe-EC2CapacityReservation -Value Get-EC2CapacityReservation
 Set-Alias -Name EC2-DescribeCapacityReservations -Value Get-EC2CapacityReservation
+Set-Alias -Name Describe-EC2CapacityReservationTopology -Value Get-EC2CapacityReservationTopology
+Set-Alias -Name EC2-DescribeCapacityReservationTopology -Value Get-EC2CapacityReservationTopology
 Set-Alias -Name Describe-EC2CarrierGateways -Value Get-EC2CarrierGateway
 Set-Alias -Name Describe-EC2CarrierGateway -Value Get-EC2CarrierGateway
 Set-Alias -Name EC2-DescribeCarrierGateways -Value Get-EC2CarrierGateway
@@ -27818,6 +27820,8 @@ Set-Alias -Name Delete-SMPartnerApp -Value Remove-SMPartnerApp
 Set-Alias -Name SM-DeletePartnerApp -Value Remove-SMPartnerApp
 Set-Alias -Name Delete-SMPipeline -Value Remove-SMPipeline
 Set-Alias -Name SM-DeletePipeline -Value Remove-SMPipeline
+Set-Alias -Name Delete-SMProcessingJob -Value Remove-SMProcessingJob
+Set-Alias -Name SM-DeleteProcessingJob -Value Remove-SMProcessingJob
 Set-Alias -Name Delete-SMProject -Value Remove-SMProject
 Set-Alias -Name SM-DeleteProject -Value Remove-SMProject
 Set-Alias -Name Delete-SMSpace -Value Remove-SMSpace
@@ -27827,6 +27831,8 @@ Set-Alias -Name SM-DeleteStudioLifecycleConfig -Value Remove-SMStudioLifecycleCo
 Set-Alias -Name Delete-SMTags -Value Remove-SMResourceTag
 Set-Alias -Name Delete-SMResourceTag -Value Remove-SMResourceTag
 Set-Alias -Name SM-DeleteTags -Value Remove-SMResourceTag
+Set-Alias -Name Delete-SMTrainingJob -Value Remove-SMTrainingJob
+Set-Alias -Name SM-DeleteTrainingJob -Value Remove-SMTrainingJob
 Set-Alias -Name Delete-SMTrial -Value Remove-SMTrial
 Set-Alias -Name SM-DeleteTrial -Value Remove-SMTrial
 Set-Alias -Name Delete-SMTrialComponent -Value Remove-SMTrialComponent

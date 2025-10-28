@@ -30,7 +30,7 @@ using Amazon.GroundStation.Model;
 namespace Amazon.PowerShell.Cmdlets.GS
 {
     /// <summary>
-    /// Deletes an ephemeris
+    /// Delete an ephemeris.
     /// </summary>
     [Cmdlet("Remove", "GSEphemeris", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]

@@ -30,11 +30,7 @@ using Amazon.GroundStation.Model;
 namespace Amazon.PowerShell.Cmdlets.GS
 {
     /// <summary>
-    /// <note><para>
-    ///  For use by AWS Ground Station Agent and shouldn't be called directly.
-    /// </para></note><para>
-    ///  Registers a new agent with AWS Ground Station. 
-    /// </para>
+    /// Amazon.GroundStation.IAmazonGroundStation.RegisterAgent
     /// </summary>
     [Cmdlet("Register", "GSAgent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -206,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter AgentDetails_ReservedCpuCore
         /// <summary>
         /// <para>
-        /// <note><para>This field should not be used. Use agentCpuCores instead.</para></note><para>List of CPU cores reserved for processes other than the agent running on the EC2 instance.</para><para />
+        /// <para><note><para>This field should not be used. Use agentCpuCores instead.</para></note><para>List of CPU cores reserved for processes other than the agent running on the EC2 instance.</para></para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

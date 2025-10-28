@@ -282,7 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// information about other containers running in the same task.</para><para>If <c>host</c> is specified, all containers within the tasks that specified the <c>host</c>
         /// PID mode on the same container instance share the same process namespace with the
         /// host Amazon EC2 instance.</para><para>If <c>task</c> is specified, all containers within the specified task share the same
-        /// process namespace.</para><para>If no value is specified, the default is a private namespace for each container.</para><para>If the <c>host</c> PID mode is used, there's a heightened risk of undesired process
+        /// process namespace.</para><para>If no value is specified, the The default is a private namespace for each container.</para><para>If the <c>host</c> PID mode is used, there's a heightened risk of undesired process
         /// namespace exposure.</para><note><para>This parameter is not supported for Windows containers.</para></note><note><para>This parameter is only supported for tasks that are hosted on Fargate if the tasks
         /// are using platform version <c>1.4.0</c> or later (Linux). This isn't supported for
         /// Windows containers on Fargate.</para></note>

@@ -264,6 +264,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EC2CapacityReservation', 
         'Get-EC2CapacityReservationBillingRequest', 
         'Get-EC2CapacityReservationFleet', 
+        'Get-EC2CapacityReservationTopology', 
         'Get-EC2CapacityReservationUsage', 
         'Get-EC2CarrierGateway', 
         'Get-EC2ClassicLinkInstance', 

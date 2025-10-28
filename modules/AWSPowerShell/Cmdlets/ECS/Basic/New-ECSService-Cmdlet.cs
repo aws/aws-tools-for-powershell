@@ -138,6 +138,43 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </para></li><li><para>
     /// Load balancer requirement: When your service uses Application Load Balancer, Network
     /// Load Balancer, or Service Connect
+    /// </para></li></ul></li><li><para><c>LINEAR</c>: A <i>linear</i> deployment strategy (<c>LINEAR</c>) gradually shifts
+    /// traffic from the current production environment to a new environment in equal percentage
+    /// increments over a specified time period. With Amazon ECS linear deployments, you can
+    /// control the pace of traffic shifting and validate new service revisions with increasing
+    /// amounts of production traffic.
+    /// </para><para>
+    /// Linear deployments are best suited for the following scenarios:
+    /// </para><ul><li><para>
+    /// Gradual validation: When you want to gradually validate your new service version with
+    /// increasing traffic
+    /// </para></li><li><para>
+    /// Performance monitoring: When you need time to monitor metrics and performance during
+    /// the deployment
+    /// </para></li><li><para>
+    /// Risk minimization: When you want to minimize risk by exposing the new version to production
+    /// traffic incrementally
+    /// </para></li><li><para>
+    /// Load balancer requirement: When your service uses Application Load Balancer, Network
+    /// Load Balancer, or Service Connect
+    /// </para></li></ul></li><li><para><c>CANARY</c>: A <i>canary</i> deployment strategy (<c>CANARY</c>) shifts a small
+    /// percentage of traffic to the new service revision first, then shifts the remaining
+    /// traffic all at once after a specified time period. This allows you to test the new
+    /// version with a subset of users before full deployment.
+    /// </para><para>
+    /// Canary deployments are best suited for the following scenarios:
+    /// </para><ul><li><para>
+    /// Feature testing: When you want to test new features with a small subset of users before
+    /// full rollout
+    /// </para></li><li><para>
+    /// Production validation: When you need to validate performance and functionality with
+    /// real production traffic
+    /// </para></li><li><para>
+    /// Blast radius control: When you want to minimize blast radius if issues are discovered
+    /// in the new version
+    /// </para></li><li><para>
+    /// Load balancer requirement: When your service uses Application Load Balancer, Network
+    /// Load Balancer, or Service Connect
     /// </para></li></ul></li></ul></li><li><para>
     /// External
     /// </para><para>
@@ -192,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter AwsvpcConfiguration_AssignPublicIp
         /// <summary>
         /// <para>
-        /// <para>Whether the task's elastic network interface receives a public IP address. </para><para>Consider the following when you set this value:</para><ul><li><para>When you use <c>create-service</c> or <c>update-service</c>, the default is <c>DISABLED</c>.
+        /// <para>Whether the task's elastic network interface receives a public IP address. </para><para>Consider the following when you set this value:</para><ul><li><para>When you use <c>create-service</c> or <c>update-service</c>, the The default is <c>DISABLED</c>.
         /// </para></li><li><para>When the service <c>deploymentController</c> is <c>ECS</c>, the value must be <c>DISABLED</c>.
         /// </para></li></ul>
         /// </para>
@@ -233,10 +270,36 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.Int32? DeploymentConfiguration_BakeTimeInMinute { get; set; }
         #endregion
         
+        #region Parameter CanaryConfiguration_CanaryBakeTimeInMinute
+        /// <summary>
+        /// <para>
+        /// <para>The amount of time in minutes to wait during the canary phase before shifting the
+        /// remaining production traffic to the new service revision. Valid values are 0 to 1440
+        /// minutes (24 hours). The default value is 10.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfiguration_CanaryConfiguration_CanaryBakeTimeInMinutes")]
+        public System.Int32? CanaryConfiguration_CanaryBakeTimeInMinute { get; set; }
+        #endregion
+        
+        #region Parameter CanaryConfiguration_CanaryPercent
+        /// <summary>
+        /// <para>
+        /// <para>The percentage of production traffic to shift to the new service revision during the
+        /// canary phase. Valid values are 0.1 to 100.0. The default value is 5.0.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfiguration_CanaryConfiguration_CanaryPercent")]
+        public System.Double? CanaryConfiguration_CanaryPercent { get; set; }
+        #endregion
+        
         #region Parameter CapacityProviderStrategy
         /// <summary>
         /// <para>
-        /// <para>The capacity provider strategy to use for the service.</para><para>If a <c>capacityProviderStrategy</c> is specified, the <c>launchType</c> parameter
+        /// <para>The capacity provider strategy to use for the service.</para><note><para>If you want to use Amazon ECS Managed Instances, you must use the <c>capacityProviderStrategy</c>
+        /// request parameter and omit the <c>launchType</c> request parameter.</para></note><para>If a <c>capacityProviderStrategy</c> is specified, the <c>launchType</c> parameter
         /// must be omitted. If no <c>capacityProviderStrategy</c> or <c>launchType</c> is specified,
         /// the <c>defaultCapacityProviderStrategy</c> for the cluster is used.</para><para>A capacity provider strategy can contain a maximum of 20 capacity providers.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
@@ -351,7 +414,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The infrastructure that you run your service on. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
-        /// ECS launch types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>The <c>FARGATE</c> launch type runs your tasks on Fargate On-Demand infrastructure.</para><note><para>Fargate Spot infrastructure is available for use but a capacity provider strategy
+        /// ECS launch types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><note><para>If you want to use Amazon ECS Managed Instances, you must use the <c>capacityProviderStrategy</c>
+        /// request parameter and omit the <c>launchType</c> request parameter.</para></note><para>The <c>FARGATE</c> launch type runs your tasks on Fargate On-Demand infrastructure.</para><note><para>Fargate Spot infrastructure is available for use but a capacity provider strategy
         /// must be used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fargate-capacity-providers.html">Fargate
         /// capacity providers</a> in the <i>Amazon ECS Developer Guide</i>.</para></note><para>The <c>EC2</c> launch type runs your tasks on Amazon EC2 instances registered to your
         /// cluster.</para><para>The <c>EXTERNAL</c> launch type runs your tasks on your on-premises server or virtual
@@ -853,6 +917,31 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.Model.ServiceConnectService[] ServiceConnectConfiguration_Service { get; set; }
         #endregion
         
+        #region Parameter LinearConfiguration_StepBakeTimeInMinute
+        /// <summary>
+        /// <para>
+        /// <para>The amount of time in minutes to wait between each traffic shifting step during a
+        /// linear deployment. Valid values are 0 to 1440 minutes (24 hours). The default value
+        /// is 6. This bake time is not applied after reaching 100% traffic.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfiguration_LinearConfiguration_StepBakeTimeInMinutes")]
+        public System.Int32? LinearConfiguration_StepBakeTimeInMinute { get; set; }
+        #endregion
+        
+        #region Parameter LinearConfiguration_StepPercent
+        /// <summary>
+        /// <para>
+        /// <para>The percentage of production traffic to shift in each step during a linear deployment.
+        /// Valid values are 3.0 to 100.0. The default value is 10.0.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfiguration_LinearConfiguration_StepPercent")]
+        public System.Double? LinearConfiguration_StepPercent { get; set; }
+        #endregion
+        
         #region Parameter DeploymentConfiguration_Strategy
         /// <summary>
         /// <para>
@@ -1066,12 +1155,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.Alarms_Enable = this.Alarms_Enable;
             context.Alarms_Rollback = this.Alarms_Rollback;
             context.DeploymentConfiguration_BakeTimeInMinute = this.DeploymentConfiguration_BakeTimeInMinute;
+            context.CanaryConfiguration_CanaryBakeTimeInMinute = this.CanaryConfiguration_CanaryBakeTimeInMinute;
+            context.CanaryConfiguration_CanaryPercent = this.CanaryConfiguration_CanaryPercent;
             context.DeploymentCircuitBreaker_Enable = this.DeploymentCircuitBreaker_Enable;
             context.DeploymentCircuitBreaker_Rollback = this.DeploymentCircuitBreaker_Rollback;
             if (this.DeploymentConfiguration_LifecycleHook != null)
             {
                 context.DeploymentConfiguration_LifecycleHook = new List<Amazon.ECS.Model.DeploymentLifecycleHook>(this.DeploymentConfiguration_LifecycleHook);
             }
+            context.LinearConfiguration_StepBakeTimeInMinute = this.LinearConfiguration_StepBakeTimeInMinute;
+            context.LinearConfiguration_StepPercent = this.LinearConfiguration_StepPercent;
             context.DeploymentConfiguration_MaximumPercent = this.DeploymentConfiguration_MaximumPercent;
             context.DeploymentConfiguration_MinimumHealthyPercent = this.DeploymentConfiguration_MinimumHealthyPercent;
             context.DeploymentConfiguration_Strategy = this.DeploymentConfiguration_Strategy;
@@ -1235,6 +1328,41 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 request.DeploymentConfiguration.Strategy = requestDeploymentConfiguration_deploymentConfiguration_Strategy;
                 requestDeploymentConfigurationIsNull = false;
             }
+            Amazon.ECS.Model.CanaryConfiguration requestDeploymentConfiguration_deploymentConfiguration_CanaryConfiguration = null;
+            
+             // populate CanaryConfiguration
+            var requestDeploymentConfiguration_deploymentConfiguration_CanaryConfigurationIsNull = true;
+            requestDeploymentConfiguration_deploymentConfiguration_CanaryConfiguration = new Amazon.ECS.Model.CanaryConfiguration();
+            System.Int32? requestDeploymentConfiguration_deploymentConfiguration_CanaryConfiguration_canaryConfiguration_CanaryBakeTimeInMinute = null;
+            if (cmdletContext.CanaryConfiguration_CanaryBakeTimeInMinute != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_CanaryConfiguration_canaryConfiguration_CanaryBakeTimeInMinute = cmdletContext.CanaryConfiguration_CanaryBakeTimeInMinute.Value;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_CanaryConfiguration_canaryConfiguration_CanaryBakeTimeInMinute != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_CanaryConfiguration.CanaryBakeTimeInMinutes = requestDeploymentConfiguration_deploymentConfiguration_CanaryConfiguration_canaryConfiguration_CanaryBakeTimeInMinute.Value;
+                requestDeploymentConfiguration_deploymentConfiguration_CanaryConfigurationIsNull = false;
+            }
+            System.Double? requestDeploymentConfiguration_deploymentConfiguration_CanaryConfiguration_canaryConfiguration_CanaryPercent = null;
+            if (cmdletContext.CanaryConfiguration_CanaryPercent != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_CanaryConfiguration_canaryConfiguration_CanaryPercent = cmdletContext.CanaryConfiguration_CanaryPercent.Value;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_CanaryConfiguration_canaryConfiguration_CanaryPercent != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_CanaryConfiguration.CanaryPercent = requestDeploymentConfiguration_deploymentConfiguration_CanaryConfiguration_canaryConfiguration_CanaryPercent.Value;
+                requestDeploymentConfiguration_deploymentConfiguration_CanaryConfigurationIsNull = false;
+            }
+             // determine if requestDeploymentConfiguration_deploymentConfiguration_CanaryConfiguration should be set to null
+            if (requestDeploymentConfiguration_deploymentConfiguration_CanaryConfigurationIsNull)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_CanaryConfiguration = null;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_CanaryConfiguration != null)
+            {
+                request.DeploymentConfiguration.CanaryConfiguration = requestDeploymentConfiguration_deploymentConfiguration_CanaryConfiguration;
+                requestDeploymentConfigurationIsNull = false;
+            }
             Amazon.ECS.Model.DeploymentCircuitBreaker requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker = null;
             
              // populate DeploymentCircuitBreaker
@@ -1268,6 +1396,41 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker != null)
             {
                 request.DeploymentConfiguration.DeploymentCircuitBreaker = requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker;
+                requestDeploymentConfigurationIsNull = false;
+            }
+            Amazon.ECS.Model.LinearConfiguration requestDeploymentConfiguration_deploymentConfiguration_LinearConfiguration = null;
+            
+             // populate LinearConfiguration
+            var requestDeploymentConfiguration_deploymentConfiguration_LinearConfigurationIsNull = true;
+            requestDeploymentConfiguration_deploymentConfiguration_LinearConfiguration = new Amazon.ECS.Model.LinearConfiguration();
+            System.Int32? requestDeploymentConfiguration_deploymentConfiguration_LinearConfiguration_linearConfiguration_StepBakeTimeInMinute = null;
+            if (cmdletContext.LinearConfiguration_StepBakeTimeInMinute != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_LinearConfiguration_linearConfiguration_StepBakeTimeInMinute = cmdletContext.LinearConfiguration_StepBakeTimeInMinute.Value;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_LinearConfiguration_linearConfiguration_StepBakeTimeInMinute != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_LinearConfiguration.StepBakeTimeInMinutes = requestDeploymentConfiguration_deploymentConfiguration_LinearConfiguration_linearConfiguration_StepBakeTimeInMinute.Value;
+                requestDeploymentConfiguration_deploymentConfiguration_LinearConfigurationIsNull = false;
+            }
+            System.Double? requestDeploymentConfiguration_deploymentConfiguration_LinearConfiguration_linearConfiguration_StepPercent = null;
+            if (cmdletContext.LinearConfiguration_StepPercent != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_LinearConfiguration_linearConfiguration_StepPercent = cmdletContext.LinearConfiguration_StepPercent.Value;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_LinearConfiguration_linearConfiguration_StepPercent != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_LinearConfiguration.StepPercent = requestDeploymentConfiguration_deploymentConfiguration_LinearConfiguration_linearConfiguration_StepPercent.Value;
+                requestDeploymentConfiguration_deploymentConfiguration_LinearConfigurationIsNull = false;
+            }
+             // determine if requestDeploymentConfiguration_deploymentConfiguration_LinearConfiguration should be set to null
+            if (requestDeploymentConfiguration_deploymentConfiguration_LinearConfigurationIsNull)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_LinearConfiguration = null;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_LinearConfiguration != null)
+            {
+                request.DeploymentConfiguration.LinearConfiguration = requestDeploymentConfiguration_deploymentConfiguration_LinearConfiguration;
                 requestDeploymentConfigurationIsNull = false;
             }
             Amazon.ECS.Model.DeploymentAlarms requestDeploymentConfiguration_deploymentConfiguration_Alarms = null;
@@ -1612,9 +1775,13 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.Boolean? Alarms_Enable { get; set; }
             public System.Boolean? Alarms_Rollback { get; set; }
             public System.Int32? DeploymentConfiguration_BakeTimeInMinute { get; set; }
+            public System.Int32? CanaryConfiguration_CanaryBakeTimeInMinute { get; set; }
+            public System.Double? CanaryConfiguration_CanaryPercent { get; set; }
             public System.Boolean? DeploymentCircuitBreaker_Enable { get; set; }
             public System.Boolean? DeploymentCircuitBreaker_Rollback { get; set; }
             public List<Amazon.ECS.Model.DeploymentLifecycleHook> DeploymentConfiguration_LifecycleHook { get; set; }
+            public System.Int32? LinearConfiguration_StepBakeTimeInMinute { get; set; }
+            public System.Double? LinearConfiguration_StepPercent { get; set; }
             public System.Int32? DeploymentConfiguration_MaximumPercent { get; set; }
             public System.Int32? DeploymentConfiguration_MinimumHealthyPercent { get; set; }
             public Amazon.ECS.DeploymentStrategy DeploymentConfiguration_Strategy { get; set; }

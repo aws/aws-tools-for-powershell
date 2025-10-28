@@ -1149,6 +1149,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCapacityReservationTopology" OutputProperty="CapacityReservations" Verb="Get" Noun="CapacityReservationTopology" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeCarrierGateways" OutputProperty="CarrierGateways" Verb="Get" Noun="CarrierGateway" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

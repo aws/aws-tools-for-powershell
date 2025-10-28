@@ -31,16 +31,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <important><para>
-    /// End of support notice: Beginning October 1, 2025, Amazon S3 will discontinue support
-    /// for creating new Email Grantee Access Control Lists (ACL). Email Grantee ACLs created
-    /// prior to this date will continue to work and remain accessible through the Amazon
-    /// Web Services Management Console, Command Line Interface (CLI), SDKs, and REST API.
-    /// However, you will no longer be able to create new Email Grantee ACLs. 
+    /// End of support notice: As of October 1, 2025, Amazon S3 has discontinued support for
+    /// Email Grantee Access Control Lists (ACLs). If you attempt to use an Email Grantee
+    /// ACL in a request after October 1, 2025, the request will receive an <c>HTTP 405</c>
+    /// (Method Not Allowed) error.
     /// </para><para>
-    /// This change affects the following Amazon Web Services Regions: US East (N. Virginia)
-    /// Region, US West (N. California) Region, US West (Oregon) Region, Asia Pacific (Singapore)
-    /// Region, Asia Pacific (Sydney) Region, Asia Pacific (Tokyo) Region, Europe (Ireland)
-    /// Region, and South America (São Paulo) Region.
+    /// This change affects the following Amazon Web Services Regions: US East (N. Virginia),
+    /// US West (N. California), US West (Oregon), Asia Pacific (Singapore), Asia Pacific
+    /// (Sydney), Asia Pacific (Tokyo), Europe (Ireland), and South America (São Paulo).
     /// </para></important><note><para>
     /// This operation is not supported for directory buckets.
     /// </para></note><para>
@@ -163,7 +161,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// and Endpoints</a> in the Amazon Web Services General Reference.
     /// </para></note></li></ul></dd></dl><para>
     /// The following operations are related to <c>PutBucketAcl</c>:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html">DeleteBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html">DeleteBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a></para></li></ul><important><para>
+    /// You must URL encode any signed header values that contain spaces. For example, if
+    /// your header value is <c>my file.txt</c>, containing two spaces after <c>my</c>, you
+    /// must URL encode this value to <c>my%20%20file.txt</c>.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Set", "S3BucketACL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

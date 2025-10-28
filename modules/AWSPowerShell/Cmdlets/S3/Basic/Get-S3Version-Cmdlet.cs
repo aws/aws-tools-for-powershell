@@ -31,10 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <important><para>
-    /// End of support notice: Beginning October 1, 2025, Amazon S3 will stop returning <c>DisplayName</c>.
-    /// Update your applications to use canonical IDs (unique identifier for Amazon Web Services
-    /// accounts), Amazon Web Services account ID (12 digit identifier) or IAM ARNs (full
-    /// resource naming) as a direct replacement of <c>DisplayName</c>. 
+    /// End of support notice: Beginning November 21, 2025, Amazon S3 will stop returning
+    /// <c>DisplayName</c>. Update your applications to use canonical IDs (unique identifier
+    /// for Amazon Web Services accounts), Amazon Web Services account ID (12 digit identifier)
+    /// or IAM ARNs (full resource naming) as a direct replacement of <c>DisplayName</c>.
+    /// 
     /// </para><para>
     /// This change affects the following Amazon Web Services Regions: US East (N. Virginia)
     /// Region, US West (N. California) Region, US West (Oregon) Region, Asia Pacific (Singapore)
@@ -56,7 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// To use this operation, you must have READ access to the bucket.
     /// </para><para>
     /// The following operations are related to <c>ListObjectVersions</c>:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html">ListObjectsV2</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html">DeleteObject</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html">ListObjectsV2</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html">DeleteObject</a></para></li></ul><important><para>
+    /// You must URL encode any signed header values that contain spaces. For example, if
+    /// your header value is <c>my file.txt</c>, containing two spaces after <c>my</c>, you
+    /// must URL encode this value to <c>my%20%20file.txt</c>.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Get", "S3Version")]
     [OutputType("Amazon.S3.Model.ListVersionsResponse")]

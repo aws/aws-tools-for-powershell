@@ -30,7 +30,18 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// <note><para>
+    /// <important><para>
+    /// End of support notice: Beginning November 21, 2025, Amazon S3 will stop returning
+    /// <c>DisplayName</c>. Update your applications to use canonical IDs (unique identifier
+    /// for Amazon Web Services accounts), Amazon Web Services account ID (12 digit identifier)
+    /// or IAM ARNs (full resource naming) as a direct replacement of <c>DisplayName</c>.
+    /// 
+    /// </para><para>
+    /// This change affects the following Amazon Web Services Regions: US East (N. Virginia)
+    /// Region, US West (N. California) Region, US West (Oregon) Region, Asia Pacific (Singapore)
+    /// Region, Asia Pacific (Sydney) Region, Asia Pacific (Tokyo) Region, Europe (Ireland)
+    /// Region, and South America (São Paulo) Region.
+    /// </para></important><note><para>
     /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// Returns the access control list (ACL) of an object. To use this operation, you must
@@ -49,7 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Controlling object ownership and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></note><para>
     /// The following operations are related to <c>GetObjectAcl</c>:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html">DeleteObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html">DeleteObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a></para></li></ul><important><para>
+    /// You must URL encode any signed header values that contain spaces. For example, if
+    /// your header value is <c>my file.txt</c>, containing two spaces after <c>my</c>, you
+    /// must URL encode this value to <c>my%20%20file.txt</c>.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Get", "S3ObjectACL")]
     [OutputType("Amazon.S3.Model.S3Grant")]

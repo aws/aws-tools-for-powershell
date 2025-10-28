@@ -77,6 +77,17 @@ namespace Amazon.PowerShell.Cmdlets.GS
         public System.String GroundStation { get; set; }
         #endregion
         
+        #region Parameter AzEl_Id
+        /// <summary>
+        /// <para>
+        /// <para>Unique identifier of the azimuth elevation ephemeris.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Ephemeris_AzEl_Id")]
+        public System.String AzEl_Id { get; set; }
+        #endregion
+        
         #region Parameter MissionProfileArn
         /// <summary>
         /// <para>
@@ -212,6 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
                 WriteWarning("You are passing $null as a value for parameter EndTime which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AzEl_Id = this.AzEl_Id;
             context.GroundStation = this.GroundStation;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
@@ -265,6 +277,40 @@ namespace Amazon.PowerShell.Cmdlets.GS
             if (cmdletContext.EndTime != null)
             {
                 request.EndTime = cmdletContext.EndTime.Value;
+            }
+            
+             // populate Ephemeris
+            var requestEphemerisIsNull = true;
+            request.Ephemeris = new Amazon.GroundStation.Model.EphemerisFilter();
+            Amazon.GroundStation.Model.AzElEphemerisFilter requestEphemeris_ephemeris_AzEl = null;
+            
+             // populate AzEl
+            var requestEphemeris_ephemeris_AzElIsNull = true;
+            requestEphemeris_ephemeris_AzEl = new Amazon.GroundStation.Model.AzElEphemerisFilter();
+            System.String requestEphemeris_ephemeris_AzEl_azEl_Id = null;
+            if (cmdletContext.AzEl_Id != null)
+            {
+                requestEphemeris_ephemeris_AzEl_azEl_Id = cmdletContext.AzEl_Id;
+            }
+            if (requestEphemeris_ephemeris_AzEl_azEl_Id != null)
+            {
+                requestEphemeris_ephemeris_AzEl.Id = requestEphemeris_ephemeris_AzEl_azEl_Id;
+                requestEphemeris_ephemeris_AzElIsNull = false;
+            }
+             // determine if requestEphemeris_ephemeris_AzEl should be set to null
+            if (requestEphemeris_ephemeris_AzElIsNull)
+            {
+                requestEphemeris_ephemeris_AzEl = null;
+            }
+            if (requestEphemeris_ephemeris_AzEl != null)
+            {
+                request.Ephemeris.AzEl = requestEphemeris_ephemeris_AzEl;
+                requestEphemerisIsNull = false;
+            }
+             // determine if request.Ephemeris should be set to null
+            if (requestEphemerisIsNull)
+            {
+                request.Ephemeris = null;
             }
             if (cmdletContext.GroundStation != null)
             {
@@ -348,6 +394,40 @@ namespace Amazon.PowerShell.Cmdlets.GS
             if (cmdletContext.EndTime != null)
             {
                 request.EndTime = cmdletContext.EndTime.Value;
+            }
+            
+             // populate Ephemeris
+            var requestEphemerisIsNull = true;
+            request.Ephemeris = new Amazon.GroundStation.Model.EphemerisFilter();
+            Amazon.GroundStation.Model.AzElEphemerisFilter requestEphemeris_ephemeris_AzEl = null;
+            
+             // populate AzEl
+            var requestEphemeris_ephemeris_AzElIsNull = true;
+            requestEphemeris_ephemeris_AzEl = new Amazon.GroundStation.Model.AzElEphemerisFilter();
+            System.String requestEphemeris_ephemeris_AzEl_azEl_Id = null;
+            if (cmdletContext.AzEl_Id != null)
+            {
+                requestEphemeris_ephemeris_AzEl_azEl_Id = cmdletContext.AzEl_Id;
+            }
+            if (requestEphemeris_ephemeris_AzEl_azEl_Id != null)
+            {
+                requestEphemeris_ephemeris_AzEl.Id = requestEphemeris_ephemeris_AzEl_azEl_Id;
+                requestEphemeris_ephemeris_AzElIsNull = false;
+            }
+             // determine if requestEphemeris_ephemeris_AzEl should be set to null
+            if (requestEphemeris_ephemeris_AzElIsNull)
+            {
+                requestEphemeris_ephemeris_AzEl = null;
+            }
+            if (requestEphemeris_ephemeris_AzEl != null)
+            {
+                request.Ephemeris.AzEl = requestEphemeris_ephemeris_AzEl;
+                requestEphemerisIsNull = false;
+            }
+             // determine if request.Ephemeris should be set to null
+            if (requestEphemerisIsNull)
+            {
+                request.Ephemeris = null;
             }
             if (cmdletContext.GroundStation != null)
             {
@@ -483,6 +563,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.DateTime? EndTime { get; set; }
+            public System.String AzEl_Id { get; set; }
             public System.String GroundStation { get; set; }
             public int? MaxResult { get; set; }
             public System.String MissionProfileArn { get; set; }

@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// Instance topology is supported for specific instance types only. For more information,
-    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology-prerequisites.html">
-    /// Prerequisites for Amazon EC2 instance topology</a> in the <i>Amazon EC2 User Guide</i>.
+    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology-prerequisites.html">Prerequisites
+    /// for Amazon EC2 instance topology</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><note><para>
     /// The Amazon EC2 API follows an eventual consistency model due to the distributed nature
     /// of the system supporting it. As a result, when you call the DescribeInstanceTopology
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// consistency in the Amazon EC2 API</a> in the <i>Amazon EC2 Developer Guide</i>.
     /// </para></note><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology.html">Amazon
-    /// EC2 instance topology</a> in the <i>Amazon EC2 User Guide</i>.
+    /// EC2 topology</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2InstanceTopology")]

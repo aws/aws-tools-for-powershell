@@ -31,14 +31,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// You can use this operation to determine if a bucket exists and if you have permission
-    /// to access it. The action returns a <c>200 OK</c> if the bucket exists and you have
-    /// permission to access it.
+    /// to access it. The action returns a <c>200 OK</c> HTTP status code if the bucket exists
+    /// and you have permission to access it. You can make a <c>HeadBucket</c> call on any
+    /// bucket name to any Region in the partition, and regardless of the permissions on the
+    /// bucket, you will receive a response header with the correct bucket location so that
+    /// you can then make a proper, signed request to the appropriate Regional endpoint.
     /// 
     ///  <note><para>
-    /// If the bucket does not exist or you do not have permission to access it, the <c>HEAD</c>
-    /// request returns a generic <c>400 Bad Request</c>, <c>403 Forbidden</c> or <c>404 Not
-    /// Found</c> code. A message body is not included, so you cannot determine the exception
-    /// beyond these HTTP response codes.
+    /// If the bucket doesn't exist or you don't have permission to access it, the <c>HEAD</c>
+    /// request returns a generic <c>400 Bad Request</c>, <c>403 Forbidden</c>, or <c>404
+    /// Not Found</c> HTTP status code. A message body isn't included, so you can't determine
+    /// the exception beyond these HTTP response codes.
     /// </para></note><dl><dt>Authentication and authorization</dt><dd><para><b>General purpose buckets</b> - Request to public buckets that grant the s3:ListBucket
     /// permission publicly do not need to be signed. All other <c>HeadBucket</c> requests
     /// must be authenticated and signed by using IAM credentials (access key ID and secret
@@ -72,7 +75,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// and Zonal endpoints for directory buckets in Availability Zones</a> in the <i>Amazon
     /// S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts
     /// for directory buckets in Local Zones</a> in the <i>Amazon S3 User Guide</i>.
-    /// </para></note></dd></dl>
+    /// </para></note></dd></dl><important><para>
+    /// You must URL encode any signed header values that contain spaces. For example, if
+    /// your header value is <c>my file.txt</c>, containing two spaces after <c>my</c>, you
+    /// must URL encode this value to <c>my%20%20file.txt</c>.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Get", "S3HeadBucket")]
     [OutputType("Amazon.S3.Model.HeadBucketResponse")]

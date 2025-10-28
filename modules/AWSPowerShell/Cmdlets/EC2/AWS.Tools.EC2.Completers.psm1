@@ -1825,6 +1825,7 @@ $EC2_SelectMap = @{
                "Get-EC2CapacityReservationBillingRequest",
                "Get-EC2CapacityReservationFleet",
                "Get-EC2CapacityReservation",
+               "Get-EC2CapacityReservationTopology",
                "Get-EC2CarrierGateway",
                "Get-EC2ClassicLinkInstance",
                "Get-EC2ClientVpnAuthorizationRule",
