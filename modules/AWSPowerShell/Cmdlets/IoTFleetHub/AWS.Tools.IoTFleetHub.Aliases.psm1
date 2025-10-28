@@ -1,3 +1,0 @@
-﻿# IoTFleetHub
-
-Export-ModuleMember -Alias *

@@ -1,3 +1,0 @@
-﻿# QLDBSession
-
-Export-ModuleMember -Alias *

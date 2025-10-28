@@ -1,3 +1,0 @@
-﻿# AppTest
-
-Export-ModuleMember -Alias *

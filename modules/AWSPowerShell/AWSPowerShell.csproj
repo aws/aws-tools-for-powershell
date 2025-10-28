@@ -133,9 +133,6 @@
     <Reference Include="AWSSDK.AppSync">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AppSync.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.AppTest">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AppTest.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.ARCRegionswitch">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ARCRegionswitch.dll</HintPath>
     </Reference>
@@ -646,9 +643,6 @@
     <Reference Include="AWSSDK.IoTEventsData">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTEventsData.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.IoTFleetHub">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTFleetHub.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.IoTFleetWise">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTFleetWise.dll</HintPath>
     </Reference>
@@ -765,12 +759,6 @@
     </Reference>
     <Reference Include="AWSSDK.LookoutEquipment">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LookoutEquipment.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.LookoutforVision">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LookoutforVision.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.LookoutMetrics">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LookoutMetrics.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MachineLearning">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MachineLearning.dll</HintPath>
@@ -991,12 +979,6 @@
     <Reference Include="AWSSDK.QConnect">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.QConnect.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.QLDB">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.QLDB.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.QLDBSession">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.QLDBSession.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.QuickSight">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.QuickSight.dll</HintPath>
     </Reference>
@@ -1038,9 +1020,6 @@
     </Reference>
     <Reference Include="AWSSDK.ResourceGroupsTaggingAPI">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ResourceGroupsTaggingAPI.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.RoboMaker">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.RoboMaker.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Route53.dll</HintPath>
@@ -1361,9 +1340,6 @@
     </Reference>
     <Reference Include="AWSSDK.AppSync">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AppSync.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.AppTest">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AppTest.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ARCRegionswitch">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ARCRegionswitch.dll</HintPath>
@@ -1875,9 +1851,6 @@
     <Reference Include="AWSSDK.IoTEventsData">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTEventsData.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.IoTFleetHub">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTFleetHub.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.IoTFleetWise">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTFleetWise.dll</HintPath>
     </Reference>
@@ -1994,12 +1967,6 @@
     </Reference>
     <Reference Include="AWSSDK.LookoutEquipment">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.LookoutEquipment.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.LookoutforVision">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.LookoutforVision.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.LookoutMetrics">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.LookoutMetrics.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MachineLearning">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MachineLearning.dll</HintPath>
@@ -2220,12 +2187,6 @@
     <Reference Include="AWSSDK.QConnect">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.QConnect.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.QLDB">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.QLDB.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.QLDBSession">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.QLDBSession.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.QuickSight">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.QuickSight.dll</HintPath>
     </Reference>
@@ -2267,9 +2228,6 @@
     </Reference>
     <Reference Include="AWSSDK.ResourceGroupsTaggingAPI">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ResourceGroupsTaggingAPI.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.RoboMaker">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.RoboMaker.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Route53.dll</HintPath>
