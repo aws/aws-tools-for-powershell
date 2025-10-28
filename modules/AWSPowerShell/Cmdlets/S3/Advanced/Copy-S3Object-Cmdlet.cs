@@ -519,17 +519,28 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public ChecksumMode ChecksumMode { get; set; }
         #endregion
 
+        #region Parameter IfMatch
+        /// <summary>
+        /// <para>Copies the object if the entity tag (ETag) of the destination object matches the specified tag. If the 
+        /// ETag values do not match, the operation returns a <code>412 Precondition Failed</code> error. If a concurrent 
+        /// operation occurs during the upload S3 returns a <code>409 ConditionalRequestConflict</code> response. On a 409 
+        /// failure you should fetch the object's ETag and retry the upload.</para> 
+        /// <para>Expects the ETag value as a string.</para> 
+        /// <para>For more information about conditional requests, see <a href=\"https://tools.ietf.org/html/rfc7232\">RFC 7232</a>.</para>
+        /// </summary>
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object, ValueFromPipelineByPropertyName = true)]
+        public System.String IfMatch { get; set; }
+        #endregion
+
         #region Parameter IfNoneMatch
         /// <summary>
-        /// <para>Uploads the object only if the object key name does not already exist in the bucket specified. Otherwise, 
-        /// Amazon S3 returns a <code>412 Precondition Failed</code> error.</para> <para>If a conflicting operation occurs 
-        /// during the upload S3 returns a <code>409 ConditionalRequestConflict</code> response. On a 409 failure you should 
-        /// re-initiate the multipart upload with <code>CreateMultipartUpload</code> and re-upload each part.</para> <para>Expects 
-        /// the '*' (asterisk) character.</para> <para>For more information about conditional requests, 
-        /// see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>, or <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/conditional-requests.html">Conditional requests</a> 
-        /// in the <i>Amazon S3 User Guide</i>.</para>
+        /// <para>Copies the object only if the object key name at the destination does not already exist in the bucket specified. 
+        /// Otherwise, Amazon S3 returns a <code>412 Precondition Failed</code> error. If a concurrent operation occurs during the 
+        /// upload S3 returns a <code>409 ConditionalRequestConflict</code> response. On a 409 failure you should retry the upload.</para> 
+        /// <para>Expects the '*' (asterisk) character.</para> <para>For more information about conditional requests, 
+        /// see <a href=\"https://tools.ietf.org/html/rfc7232\">RFC 7232</a>.</para>
         /// </summary>
-        [Parameter(ValueFromPipelineByPropertyName = true)]
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object, ValueFromPipelineByPropertyName = true)]
         public System.String IfNoneMatch { get; set; }
         #endregion
 
@@ -608,7 +619,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 Metadata = this.Metadata,
                 Headers = this.HeaderCollection,
 
-                IfNoneMatch = this.IfNoneMatch,
                 RequestPayer = this.RequestPayer
             };
 
@@ -683,6 +693,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 context.ServerSideEncryptionMethod = AmazonS3Helper.Convert(this.ServerSideEncryption);
             }
+
+            if (!string.IsNullOrEmpty(this.IfMatch))
+                context.IfMatch = this.IfMatch;
 
             if (!string.IsNullOrEmpty(this.IfNoneMatch))
                 context.IfNoneMatch = this.IfNoneMatch;
@@ -855,6 +868,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.ExpectedBucketOwner !=  null)
                 request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
 
+            if (!string.IsNullOrEmpty(cmdletContext.IfMatch))
+                request.IfMatch = cmdletContext.IfMatch;
+
+            if (!string.IsNullOrEmpty(cmdletContext.IfNoneMatch))
+                request.IfNoneMatch = cmdletContext.IfNoneMatch;
+
             AmazonS3Helper.SetMetadataAndHeaders(request, cmdletContext.Metadata, cmdletContext.Headers);
 
             // issue call
@@ -944,6 +963,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     Key = cmdletContext.DestinationKey,
                     PartETags = copyController.ETags
                 };
+
+                if (!string.IsNullOrEmpty(cmdletContext.IfMatch))
+                    completeRequest.IfMatch = cmdletContext.IfMatch;
 
                 if (!string.IsNullOrEmpty(cmdletContext.IfNoneMatch))
                     completeRequest.IfNoneMatch = cmdletContext.IfNoneMatch;
@@ -1276,6 +1298,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public ChecksumAlgorithm ChecksumAlgorithm { get; set; }
             public ChecksumMode ChecksumMode { get; set; }
 
+            public String IfMatch { get; set; }
             public String IfNoneMatch { get; set; }
 
             public RequestPayer RequestPayer { get; set; }
