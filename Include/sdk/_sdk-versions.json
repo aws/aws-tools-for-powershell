@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1153.0",
+    "ProductVersion"    : "3.7.1154.0",
     "CoreVersion"       : "3.7.500.39",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -316,7 +316,7 @@
             "InPreview"               : false
         },
         "SecurityToken"        : {
-            "Version" : "3.7.501.30",
+            "Version" : "3.7.501.31",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.39"
@@ -2668,7 +2668,7 @@
             "InPreview"               : false
         },
         "BedrockRuntime"                      : {
-            "Version" : "3.7.506.0",
+            "Version" : "3.7.507.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.39"

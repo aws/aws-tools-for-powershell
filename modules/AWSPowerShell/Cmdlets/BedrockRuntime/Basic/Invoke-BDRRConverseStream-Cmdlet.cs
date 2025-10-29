@@ -319,7 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         #region Parameter ToolConfig_Tool
         /// <summary>
         /// <para>
-        /// <para>An array of tools that you want to pass to a model.</para>
+        /// <para>An array of tools that you want to pass to a model. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
