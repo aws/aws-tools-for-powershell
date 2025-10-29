@@ -1,4 +1,7 @@
-﻿### 5.0.85 (2025-10-28 21:23Z)
+﻿### 5.0.86 (2025-10-29 22:08Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.122.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 5.0.85 (2025-10-28 21:23Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.121.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * [Breaking Change] Removed support for Amazon IoT Fleet Hub
   * [Breaking Change] Removed support for Amazon Lookout for Metrics
