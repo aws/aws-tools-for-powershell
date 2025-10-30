@@ -23,32 +23,60 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.IoTManagedIntegrations;
-using Amazon.IoTManagedIntegrations.Model;
+using Amazon.PrometheusService;
+using Amazon.PrometheusService.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.IOTMI
+namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// List all notification destinations.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// Returns a paginated list of anomaly detectors for a workspace with optional filtering
+    /// by alias.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "IOTMIDestinationList")]
-    [OutputType("Amazon.IoTManagedIntegrations.Model.DestinationSummary")]
-    [AWSCmdlet("Calls the Managed integrations for AWS IoT Device Management ListDestinations API operation.", Operation = new[] {"ListDestinations"}, SelectReturnType = typeof(Amazon.IoTManagedIntegrations.Model.ListDestinationsResponse))]
-    [AWSCmdletOutput("Amazon.IoTManagedIntegrations.Model.DestinationSummary or Amazon.IoTManagedIntegrations.Model.ListDestinationsResponse",
-        "This cmdlet returns a collection of Amazon.IoTManagedIntegrations.Model.DestinationSummary objects.",
-        "The service call response (type Amazon.IoTManagedIntegrations.Model.ListDestinationsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "PROMAnomalyDetectorList")]
+    [OutputType("Amazon.PrometheusService.Model.AnomalyDetectorSummary")]
+    [AWSCmdlet("Calls the Amazon Prometheus Service ListAnomalyDetectors API operation.", Operation = new[] {"ListAnomalyDetectors"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.ListAnomalyDetectorsResponse))]
+    [AWSCmdletOutput("Amazon.PrometheusService.Model.AnomalyDetectorSummary or Amazon.PrometheusService.Model.ListAnomalyDetectorsResponse",
+        "This cmdlet returns a collection of Amazon.PrometheusService.Model.AnomalyDetectorSummary objects.",
+        "The service call response (type Amazon.PrometheusService.Model.ListAnomalyDetectorsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetIOTMIDestinationListCmdlet : AmazonIoTManagedIntegrationsClientCmdlet, IExecutor
+    public partial class GetPROMAnomalyDetectorListCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Alias
+        /// <summary>
+        /// <para>
+        /// <para>Filters the results to anomaly detectors with the specified alias.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Alias { get; set; }
+        #endregion
+        
+        #region Parameter WorkspaceId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the workspace containing the anomaly detectors to list.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String WorkspaceId { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return at one time.</para>
+        /// <para>The maximum number of results to return in a single call. Valid range is 1 to 1000.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -64,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token that can be used to retrieve the next set of results.</para>
+        /// <para>The pagination token to continue retrieving results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -77,13 +105,13 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'DestinationList'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTManagedIntegrations.Model.ListDestinationsResponse).
-        /// Specifying the name of a property of type Amazon.IoTManagedIntegrations.Model.ListDestinationsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AnomalyDetectors'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PrometheusService.Model.ListAnomalyDetectorsResponse).
+        /// Specifying the name of a property of type Amazon.PrometheusService.Model.ListAnomalyDetectorsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "DestinationList";
+        public string Select { get; set; } = "AnomalyDetectors";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -91,7 +119,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
         /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
         /// as the start point.
-        /// This cmdlet didn't autopaginate in V4. To preserve the V4 autopagination behavior for all cmdlets, run Set-AWSAutoIterationMode -IterationMode v4.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter NoAutoIteration { get; set; }
@@ -113,9 +140,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoTManagedIntegrations.Model.ListDestinationsResponse, GetIOTMIDestinationListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PrometheusService.Model.ListAnomalyDetectorsResponse, GetPROMAnomalyDetectorListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Alias = this.Alias;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -127,6 +155,13 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             }
             #endif
             context.NextToken = this.NextToken;
+            context.WorkspaceId = this.WorkspaceId;
+            #if MODULAR
+            if (this.WorkspaceId == null && ParameterWasBound(nameof(this.WorkspaceId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter WorkspaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -143,17 +178,24 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.IoTManagedIntegrations.Model.ListDestinationsRequest();
+            var request = new Amazon.PrometheusService.Model.ListAnomalyDetectorsRequest();
             
+            if (cmdletContext.Alias != null)
+            {
+                request.Alias = cmdletContext.Alias;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.WorkspaceId != null)
+            {
+                request.WorkspaceId = cmdletContext.WorkspaceId;
             }
             
             // Initialize loop variant and commence piping
             var _nextToken = cmdletContext.NextToken;
             var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
-            var _shouldAutoIterate = !(SessionState.PSVariable.GetValue("AWSPowerShell_AutoIteration_Mode")?.ToString() == "v4");
             
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             do
@@ -187,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
                 
                 ProcessOutput(output);
                 
-            } while (!_userControllingPaging && _shouldAutoIterate && AutoIterationHelpers.HasValue(_nextToken));
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
             
             if (useParameterSelect)
             {
@@ -207,12 +249,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         
         #region AWS Service Operation Call
         
-        private Amazon.IoTManagedIntegrations.Model.ListDestinationsResponse CallAWSServiceOperation(IAmazonIoTManagedIntegrations client, Amazon.IoTManagedIntegrations.Model.ListDestinationsRequest request)
+        private Amazon.PrometheusService.Model.ListAnomalyDetectorsResponse CallAWSServiceOperation(IAmazonPrometheusService client, Amazon.PrometheusService.Model.ListAnomalyDetectorsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed integrations for AWS IoT Device Management", "ListDestinations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Prometheus Service", "ListAnomalyDetectors");
             try
             {
-                return client.ListDestinationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListAnomalyDetectorsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -229,10 +271,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Alias { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.IoTManagedIntegrations.Model.ListDestinationsResponse, GetIOTMIDestinationListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.DestinationList;
+            public System.String WorkspaceId { get; set; }
+            public System.Func<Amazon.PrometheusService.Model.ListAnomalyDetectorsResponse, GetPROMAnomalyDetectorListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AnomalyDetectors;
         }
         
     }

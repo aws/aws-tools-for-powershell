@@ -62,6 +62,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String[] Scope { get; set; }
         #endregion
         
+        #region Parameter UserBackgroundSessionsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether users can run background sessions when using Identity Center authentication
+        /// with Glue services.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.Boolean? UserBackgroundSessionsEnabled { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -111,6 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             {
                 context.Scope = new List<System.String>(this.Scope);
             }
+            context.UserBackgroundSessionsEnabled = this.UserBackgroundSessionsEnabled;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -130,6 +142,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Scope != null)
             {
                 request.Scopes = cmdletContext.Scope;
+            }
+            if (cmdletContext.UserBackgroundSessionsEnabled != null)
+            {
+                request.UserBackgroundSessionsEnabled = cmdletContext.UserBackgroundSessionsEnabled.Value;
             }
             
             CmdletOutput output;
@@ -187,6 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> Scope { get; set; }
+            public System.Boolean? UserBackgroundSessionsEnabled { get; set; }
             public System.Func<Amazon.Glue.Model.UpdateGlueIdentityCenterConfigurationResponse, UpdateGLUEGlueIdentityCenterConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

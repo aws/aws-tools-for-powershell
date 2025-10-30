@@ -30,8 +30,9 @@ using Amazon.IoTManagedIntegrations.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
-    /// Create a destination. IoT managed integrations uses the destination to determine
-    /// where to deliver notifications for a device.
+    /// Create a notification destination such as Kinesis Data Streams that receive events
+    /// and notifications from Managed integrations. Managed integrations uses the destination
+    /// to determine where to deliver notifications.
     /// </summary>
     [Cmdlet("New", "IOTMIDestination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

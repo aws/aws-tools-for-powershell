@@ -30,7 +30,8 @@ using Amazon.IoTManagedIntegrations.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
-    /// Returns a list of connectors based on permissions.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of connectors filtered by its Lambda Amazon Resource Name (ARN) and
+    /// <c>type</c>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IOTMICloudConnectorList")]
     [OutputType("Amazon.IoTManagedIntegrations.Model.ConnectorItem")]

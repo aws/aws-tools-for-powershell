@@ -30,12 +30,11 @@ using Amazon.RTBFabric.Model;
 namespace Amazon.PowerShell.Cmdlets.RTB
 {
     /// <summary>
-    /// Deletes a link between RTB applications.
+    /// Deletes a link between gateways.
     /// 
     ///  
     /// <para>
-    /// Permanently removes the connection between RTB applications. This action cannot be
-    /// undone.
+    /// Permanently removes the connection between gateways. This action cannot be undone.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "RTBLink", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

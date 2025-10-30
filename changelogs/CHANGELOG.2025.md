@@ -1,4 +1,31 @@
-﻿### 5.0.86 (2025-10-29 22:08Z)
+﻿### 5.0.87 (2025-10-30 21:27Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.123.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCBrowser: added parameter BrowserSigning_Enabled.
+  * Amazon Clean Rooms Service
+    * Modified cmdlet Start-CRSProtectedQuery: added parameter Properties_Spark.
+  * Amazon EC2 Container Service
+    * Modified cmdlet New-ECSService: added parameters AccessLogConfiguration_Format and AccessLogConfiguration_IncludeQueryParameter.
+    * Modified cmdlet Update-ECSService: added parameters AccessLogConfiguration_Format and AccessLogConfiguration_IncludeQueryParameter.
+  * Amazon EMR Serverless
+    * Modified cmdlet New-EMRServerlessApplication: added parameter IdentityCenterConfiguration_UserBackgroundSessionsEnabled.
+    * Modified cmdlet Update-EMRServerlessApplication: added parameter IdentityCenterConfiguration_UserBackgroundSessionsEnabled.
+  * Amazon Glue
+    * Modified cmdlet New-GLUEGlueIdentityCenterConfiguration: added parameter UserBackgroundSessionsEnabled.
+    * Modified cmdlet Update-GLUEGlueIdentityCenterConfiguration: added parameter UserBackgroundSessionsEnabled.
+  * Amazon Key Management Service
+    * Modified cmdlet New-KMSCustomKeyStore: added parameter XksProxyVpcEndpointServiceOwner.
+    * Modified cmdlet Update-KMSCustomKeyStore: added parameter XksProxyVpcEndpointServiceOwner.
+  * Amazon Managed integrations for AWS IoT Device Management
+    * Added cmdlet Get-IOTMIManagedThingCertificate leveraging the GetManagedThingCertificate service API.
+  * Amazon Prometheus Service
+    * Added cmdlet Get-PROMAnomalyDetector leveraging the DescribeAnomalyDetector service API.
+    * Added cmdlet Get-PROMAnomalyDetectorList leveraging the ListAnomalyDetectors service API.
+    * Added cmdlet New-PROMAnomalyDetector leveraging the CreateAnomalyDetector service API.
+    * Added cmdlet Remove-PROMAnomalyDetector leveraging the DeleteAnomalyDetector service API.
+    * Added cmdlet Write-PROMAnomalyDetector leveraging the PutAnomalyDetector service API.
+
+### 5.0.86 (2025-10-29 22:08Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.122.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 5.0.85 (2025-10-28 21:23Z)

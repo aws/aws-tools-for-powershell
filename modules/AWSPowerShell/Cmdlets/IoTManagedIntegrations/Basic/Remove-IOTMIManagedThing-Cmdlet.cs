@@ -30,9 +30,10 @@ using Amazon.IoTManagedIntegrations.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
-    /// Delete a managed thing. If a controller is deleted, all of the devices connected to
-    /// it will have their status changed to <c>PENDING</c>. It is not possible to remove
-    /// a cloud device.
+    /// Delete a managed thing. For direct-connected and hub-connected devices connecting
+    /// with Managed integrations via a controller, all of the devices connected to it will
+    /// have their status changed to <c>PENDING</c>. It is not possible to remove a cloud-to-cloud
+    /// device.
     /// </summary>
     [Cmdlet("Remove", "IOTMIManagedThing", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

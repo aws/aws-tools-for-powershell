@@ -30,7 +30,7 @@ using Amazon.IoTManagedIntegrations.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
-    /// Get the over-the-air (OTA) task.
+    /// Get details of the over-the-air (OTA) task by its task id.
     /// </summary>
     [Cmdlet("Get", "IOTMIOtaTask")]
     [OutputType("Amazon.IoTManagedIntegrations.Model.GetOtaTaskResponse")]

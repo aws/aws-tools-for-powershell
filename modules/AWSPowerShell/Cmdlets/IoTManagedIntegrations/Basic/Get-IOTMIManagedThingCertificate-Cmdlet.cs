@@ -30,15 +30,15 @@ using Amazon.IoTManagedIntegrations.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
-    /// Get details of a managed thing including its attributes and capabilities.
+    /// Retrieves the certificate PEM for a managed IoT thing.
     /// </summary>
-    [Cmdlet("Get", "IOTMIManagedThing")]
-    [OutputType("Amazon.IoTManagedIntegrations.Model.GetManagedThingResponse")]
-    [AWSCmdlet("Calls the Managed integrations for AWS IoT Device Management GetManagedThing API operation.", Operation = new[] {"GetManagedThing"}, SelectReturnType = typeof(Amazon.IoTManagedIntegrations.Model.GetManagedThingResponse))]
-    [AWSCmdletOutput("Amazon.IoTManagedIntegrations.Model.GetManagedThingResponse",
-        "This cmdlet returns an Amazon.IoTManagedIntegrations.Model.GetManagedThingResponse object containing multiple properties."
+    [Cmdlet("Get", "IOTMIManagedThingCertificate")]
+    [OutputType("Amazon.IoTManagedIntegrations.Model.GetManagedThingCertificateResponse")]
+    [AWSCmdlet("Calls the Managed integrations for AWS IoT Device Management GetManagedThingCertificate API operation.", Operation = new[] {"GetManagedThingCertificate"}, SelectReturnType = typeof(Amazon.IoTManagedIntegrations.Model.GetManagedThingCertificateResponse))]
+    [AWSCmdletOutput("Amazon.IoTManagedIntegrations.Model.GetManagedThingCertificateResponse",
+        "This cmdlet returns an Amazon.IoTManagedIntegrations.Model.GetManagedThingCertificateResponse object containing multiple properties."
     )]
-    public partial class GetIOTMIManagedThingCmdlet : AmazonIoTManagedIntegrationsClientCmdlet, IExecutor
+    public partial class GetIOTMIManagedThingCertificateCmdlet : AmazonIoTManagedIntegrationsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The id of the managed thing.</para>
+        /// <para>The identifier of the managed thing.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTManagedIntegrations.Model.GetManagedThingResponse).
-        /// Specifying the name of a property of type Amazon.IoTManagedIntegrations.Model.GetManagedThingResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTManagedIntegrations.Model.GetManagedThingCertificateResponse).
+        /// Specifying the name of a property of type Amazon.IoTManagedIntegrations.Model.GetManagedThingCertificateResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoTManagedIntegrations.Model.GetManagedThingResponse, GetIOTMIManagedThingCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IoTManagedIntegrations.Model.GetManagedThingCertificateResponse, GetIOTMIManagedThingCertificateCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Identifier = this.Identifier;
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoTManagedIntegrations.Model.GetManagedThingRequest();
+            var request = new Amazon.IoTManagedIntegrations.Model.GetManagedThingCertificateRequest();
             
             if (cmdletContext.Identifier != null)
             {
@@ -151,12 +151,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         
         #region AWS Service Operation Call
         
-        private Amazon.IoTManagedIntegrations.Model.GetManagedThingResponse CallAWSServiceOperation(IAmazonIoTManagedIntegrations client, Amazon.IoTManagedIntegrations.Model.GetManagedThingRequest request)
+        private Amazon.IoTManagedIntegrations.Model.GetManagedThingCertificateResponse CallAWSServiceOperation(IAmazonIoTManagedIntegrations client, Amazon.IoTManagedIntegrations.Model.GetManagedThingCertificateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed integrations for AWS IoT Device Management", "GetManagedThing");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed integrations for AWS IoT Device Management", "GetManagedThingCertificate");
             try
             {
-                return client.GetManagedThingAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetManagedThingCertificateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -174,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Identifier { get; set; }
-            public System.Func<Amazon.IoTManagedIntegrations.Model.GetManagedThingResponse, GetIOTMIManagedThingCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.IoTManagedIntegrations.Model.GetManagedThingCertificateResponse, GetIOTMIManagedThingCertificateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

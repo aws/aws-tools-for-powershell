@@ -23,83 +23,81 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Glue;
-using Amazon.Glue.Model;
+using Amazon.PrometheusService;
+using Amazon.PrometheusService.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.GLUE
+namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Creates a new Glue Identity Center configuration to enable integration between Glue
-    /// and Amazon Web Services IAM Identity Center for authentication and authorization.
+    /// Removes an anomaly detector from a workspace. This operation is idempotent.
     /// </summary>
-    [Cmdlet("New", "GLUEGlueIdentityCenterConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Glue CreateGlueIdentityCenterConfiguration API operation.", Operation = new[] {"CreateGlueIdentityCenterConfiguration"}, SelectReturnType = typeof(Amazon.Glue.Model.CreateGlueIdentityCenterConfigurationResponse))]
-    [AWSCmdletOutput("System.String or Amazon.Glue.Model.CreateGlueIdentityCenterConfigurationResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Glue.Model.CreateGlueIdentityCenterConfigurationResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "PROMAnomalyDetector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Prometheus Service DeleteAnomalyDetector API operation.", Operation = new[] {"DeleteAnomalyDetector"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.DeleteAnomalyDetectorResponse))]
+    [AWSCmdletOutput("None or Amazon.PrometheusService.Model.DeleteAnomalyDetectorResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.PrometheusService.Model.DeleteAnomalyDetectorResponse) be returned by specifying '-Select *'."
     )]
-    public partial class NewGLUEGlueIdentityCenterConfigurationCmdlet : AmazonGlueClientCmdlet, IExecutor
+    public partial class RemovePROMAnomalyDetectorCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter InstanceArn
+        #region Parameter AnomalyDetectorId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Identity Center instance to be associated with
-        /// the Glue configuration.</para>
+        /// <para>The identifier of the anomaly detector to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceArn { get; set; }
+        public System.String AnomalyDetectorId { get; set; }
         #endregion
         
-        #region Parameter Scope
+        #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>A list of Identity Center scopes that define the permissions and access levels for
-        /// the Glue configuration.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// <para>The identifier of the workspace containing the anomaly detector to delete.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String WorkspaceId { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Scopes")]
-        public System.String[] Scope { get; set; }
-        #endregion
-        
-        #region Parameter UserBackgroundSessionsEnabled
-        /// <summary>
-        /// <para>
-        /// <para>Specifies whether users can run background sessions when using Identity Center authentication
-        /// with Glue services.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? UserBackgroundSessionsEnabled { get; set; }
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ApplicationArn'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.CreateGlueIdentityCenterConfigurationResponse).
-        /// Specifying the name of a property of type Amazon.Glue.Model.CreateGlueIdentityCenterConfigurationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PrometheusService.Model.DeleteAnomalyDetectorResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ApplicationArn";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -121,8 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-GLUEGlueIdentityCenterConfiguration (CreateGlueIdentityCenterConfiguration)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AnomalyDetectorId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-PROMAnomalyDetector (DeleteAnomalyDetector)"))
             {
                 return;
             }
@@ -134,21 +132,24 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Glue.Model.CreateGlueIdentityCenterConfigurationResponse, NewGLUEGlueIdentityCenterConfigurationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PrometheusService.Model.DeleteAnomalyDetectorResponse, RemovePROMAnomalyDetectorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.InstanceArn = this.InstanceArn;
+            context.AnomalyDetectorId = this.AnomalyDetectorId;
             #if MODULAR
-            if (this.InstanceArn == null && ParameterWasBound(nameof(this.InstanceArn)))
+            if (this.AnomalyDetectorId == null && ParameterWasBound(nameof(this.AnomalyDetectorId)))
             {
-                WriteWarning("You are passing $null as a value for parameter InstanceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AnomalyDetectorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Scope != null)
+            context.ClientToken = this.ClientToken;
+            context.WorkspaceId = this.WorkspaceId;
+            #if MODULAR
+            if (this.WorkspaceId == null && ParameterWasBound(nameof(this.WorkspaceId)))
             {
-                context.Scope = new List<System.String>(this.Scope);
+                WriteWarning("You are passing $null as a value for parameter WorkspaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
-            context.UserBackgroundSessionsEnabled = this.UserBackgroundSessionsEnabled;
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -163,19 +164,19 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Glue.Model.CreateGlueIdentityCenterConfigurationRequest();
+            var request = new Amazon.PrometheusService.Model.DeleteAnomalyDetectorRequest();
             
-            if (cmdletContext.InstanceArn != null)
+            if (cmdletContext.AnomalyDetectorId != null)
             {
-                request.InstanceArn = cmdletContext.InstanceArn;
+                request.AnomalyDetectorId = cmdletContext.AnomalyDetectorId;
             }
-            if (cmdletContext.Scope != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.Scopes = cmdletContext.Scope;
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.UserBackgroundSessionsEnabled != null)
+            if (cmdletContext.WorkspaceId != null)
             {
-                request.UserBackgroundSessionsEnabled = cmdletContext.UserBackgroundSessionsEnabled.Value;
+                request.WorkspaceId = cmdletContext.WorkspaceId;
             }
             
             CmdletOutput output;
@@ -210,12 +211,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region AWS Service Operation Call
         
-        private Amazon.Glue.Model.CreateGlueIdentityCenterConfigurationResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.CreateGlueIdentityCenterConfigurationRequest request)
+        private Amazon.PrometheusService.Model.DeleteAnomalyDetectorResponse CallAWSServiceOperation(IAmazonPrometheusService client, Amazon.PrometheusService.Model.DeleteAnomalyDetectorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "CreateGlueIdentityCenterConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Prometheus Service", "DeleteAnomalyDetector");
             try
             {
-                return client.CreateGlueIdentityCenterConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteAnomalyDetectorAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -232,11 +233,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String InstanceArn { get; set; }
-            public List<System.String> Scope { get; set; }
-            public System.Boolean? UserBackgroundSessionsEnabled { get; set; }
-            public System.Func<Amazon.Glue.Model.CreateGlueIdentityCenterConfigurationResponse, NewGLUEGlueIdentityCenterConfigurationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ApplicationArn;
+            public System.String AnomalyDetectorId { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String WorkspaceId { get; set; }
+            public System.Func<Amazon.PrometheusService.Model.DeleteAnomalyDetectorResponse, RemovePROMAnomalyDetectorCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

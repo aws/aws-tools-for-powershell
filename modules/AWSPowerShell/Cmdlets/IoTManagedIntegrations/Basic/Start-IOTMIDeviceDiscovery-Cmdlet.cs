@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
     /// This API is used to start device discovery for hub-connected and third-party-connected
-    /// devices. The authentication material (install code) is passed as a message to the
-    /// controller telling it to start the discovery.
+    /// devices. The authentication material (install code) is delivered as a message to the
+    /// controller instructing it to start the discovery.
     /// </summary>
     [Cmdlet("Start", "IOTMIDeviceDiscovery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTManagedIntegrations.Model.StartDeviceDiscoveryResponse")]

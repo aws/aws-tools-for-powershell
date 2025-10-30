@@ -30,8 +30,7 @@ using Amazon.IoTManagedIntegrations.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
-    /// Reset a runtime log configuration for a specific managed thing or for all managed
-    /// things as a group.
+    /// Reset a runtime log configuration for a specific managed thing.
     /// </summary>
     [Cmdlet("Reset", "IOTMIRuntimeLogConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

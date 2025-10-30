@@ -30,7 +30,13 @@ using Amazon.IoTManagedIntegrations.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
-    /// Remove a third party account and related devices from an end user.
+    /// Remove a third-party account association for an end user.
+    /// 
+    ///  <note><para>
+    /// You must first call the <c>DeregisterAccountAssociation</c> to remove the connection
+    /// between the managed thing and the third-party account before calling the <c>DeleteAccountAssociation</c>
+    /// API.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "IOTMIAccountAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

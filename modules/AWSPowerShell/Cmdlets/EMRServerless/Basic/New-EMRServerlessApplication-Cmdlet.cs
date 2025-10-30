@@ -430,6 +430,18 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         public System.String Type { get; set; }
         #endregion
         
+        #region Parameter IdentityCenterConfiguration_UserBackgroundSessionsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables user background sessions for this application so Livy sessions can continue
+        /// running after users log out of their interactive notebook or their Identity Center
+        /// sessions expire.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IdentityCenterConfiguration_UserBackgroundSessionsEnabled { get; set; }
+        #endregion
+        
         #region Parameter WorkerTypeSpecification
         /// <summary>
         /// <para>
@@ -513,6 +525,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             context.AutoStopConfiguration_IdleTimeoutMinute = this.AutoStopConfiguration_IdleTimeoutMinute;
             context.ClientToken = this.ClientToken;
             context.IdentityCenterConfiguration_IdentityCenterInstanceArn = this.IdentityCenterConfiguration_IdentityCenterInstanceArn;
+            context.IdentityCenterConfiguration_UserBackgroundSessionsEnabled = this.IdentityCenterConfiguration_UserBackgroundSessionsEnabled;
             context.ImageConfiguration_ImageUri = this.ImageConfiguration_ImageUri;
             if (this.InitialCapacity != null)
             {
@@ -685,6 +698,16 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             if (requestIdentityCenterConfiguration_identityCenterConfiguration_IdentityCenterInstanceArn != null)
             {
                 request.IdentityCenterConfiguration.IdentityCenterInstanceArn = requestIdentityCenterConfiguration_identityCenterConfiguration_IdentityCenterInstanceArn;
+                requestIdentityCenterConfigurationIsNull = false;
+            }
+            System.Boolean? requestIdentityCenterConfiguration_identityCenterConfiguration_UserBackgroundSessionsEnabled = null;
+            if (cmdletContext.IdentityCenterConfiguration_UserBackgroundSessionsEnabled != null)
+            {
+                requestIdentityCenterConfiguration_identityCenterConfiguration_UserBackgroundSessionsEnabled = cmdletContext.IdentityCenterConfiguration_UserBackgroundSessionsEnabled.Value;
+            }
+            if (requestIdentityCenterConfiguration_identityCenterConfiguration_UserBackgroundSessionsEnabled != null)
+            {
+                request.IdentityCenterConfiguration.UserBackgroundSessionsEnabled = requestIdentityCenterConfiguration_identityCenterConfiguration_UserBackgroundSessionsEnabled.Value;
                 requestIdentityCenterConfigurationIsNull = false;
             }
              // determine if request.IdentityCenterConfiguration should be set to null
@@ -1095,6 +1118,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             public System.Int32? AutoStopConfiguration_IdleTimeoutMinute { get; set; }
             public System.String ClientToken { get; set; }
             public System.String IdentityCenterConfiguration_IdentityCenterInstanceArn { get; set; }
+            public System.Boolean? IdentityCenterConfiguration_UserBackgroundSessionsEnabled { get; set; }
             public System.String ImageConfiguration_ImageUri { get; set; }
             public Dictionary<System.String, Amazon.EMRServerless.Model.InitialCapacityConfig> InitialCapacity { get; set; }
             public System.Boolean? InteractiveConfiguration_LivyEndpointEnabled { get; set; }

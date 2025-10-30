@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateAnomalyDetector" OutputProperty="*" Verb="New" Noun="AnomalyDetector" ShouldProcessTarget="WorkspaceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateLoggingConfiguration" OutputProperty="Status" Verb="New" Noun="LoggingConfiguration" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -44,6 +48,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAlertManagerDefinition" Verb="Remove" Noun="AlertManagerDefinition" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAnomalyDetector" Verb="Remove" Noun="AnomalyDetector" ShouldProcessTarget="AnomalyDetectorId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -76,6 +84,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAlertManagerDefinition" OutputProperty="AlertManagerDefinition" Verb="Get" Noun="AlertManagerDefinition" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAnomalyDetector" OutputProperty="AnomalyDetector" Verb="Get" Noun="AnomalyDetector" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -115,6 +127,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAnomalyDetectors" OutputProperty="AnomalyDetectors" Verb="Get" Noun="AnomalyDetectorList" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListRuleGroupsNamespaces" OutputProperty="RuleGroupsNamespaces" Verb="Get" Noun="RuleGroupsNamespaceList" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -132,6 +148,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutAlertManagerDefinition" OutputProperty="Status" Verb="Write" Noun="AlertManagerDefinition" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAnomalyDetector" OutputProperty="*" Verb="Write" Noun="AnomalyDetector" ShouldProcessTarget="AnomalyDetectorId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

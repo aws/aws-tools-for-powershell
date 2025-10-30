@@ -395,6 +395,7 @@ $IOTMI_SelectMap = @{
                "Get-IOTMIHubConfiguration",
                "Get-IOTMIManagedThing",
                "Get-IOTMIManagedThingCapability",
+               "Get-IOTMIManagedThingCertificate",
                "Get-IOTMIManagedThingConnectivityData",
                "Get-IOTMIManagedThingMetaData",
                "Get-IOTMIManagedThingState",

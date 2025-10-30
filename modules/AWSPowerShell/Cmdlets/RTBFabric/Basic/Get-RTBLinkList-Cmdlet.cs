@@ -30,12 +30,12 @@ using Amazon.RTBFabric.Model;
 namespace Amazon.PowerShell.Cmdlets.RTB
 {
     /// <summary>
-    /// Lists links associated with an RTB application.
+    /// Lists links associated with gateways.
     /// 
     ///  
     /// <para>
-    /// Returns a list of all links for the specified RTB application, including their status
-    /// and configuration details.
+    /// Returns a list of all links for the specified gateways, including their status and
+    /// configuration details.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RTBLinkList")]

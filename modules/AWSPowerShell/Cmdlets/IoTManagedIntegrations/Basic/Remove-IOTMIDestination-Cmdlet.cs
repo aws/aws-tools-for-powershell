@@ -30,7 +30,7 @@ using Amazon.IoTManagedIntegrations.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
-    /// Deletes a customer-managed destination specified by id.
+    /// Deletes a notification destination specified by name.
     /// </summary>
     [Cmdlet("Remove", "IOTMIDestination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

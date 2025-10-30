@@ -30,8 +30,7 @@ using Amazon.IoTManagedIntegrations.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
-    /// Get the runtime log configuration for a specific managed thing or for all managed
-    /// things as a group.
+    /// Get the runtime log configuration for a specific managed thing.
     /// </summary>
     [Cmdlet("Get", "IOTMIRuntimeLogConfiguration")]
     [OutputType("Amazon.IoTManagedIntegrations.Model.GetRuntimeLogConfigurationResponse")]

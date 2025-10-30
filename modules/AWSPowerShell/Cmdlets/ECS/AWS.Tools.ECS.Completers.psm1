@@ -327,6 +327,26 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.ServiceConnectAccessLoggingFormat
+        {
+            ($_ -eq "New-ECSService/AccessLogConfiguration_Format") -Or
+            ($_ -eq "Update-ECSService/AccessLogConfiguration_Format")
+        }
+        {
+            $v = "JSON","TEXT"
+            break
+        }
+
+        # Amazon.ECS.ServiceConnectIncludeQueryParameters
+        {
+            ($_ -eq "New-ECSService/AccessLogConfiguration_IncludeQueryParameter") -Or
+            ($_ -eq "Update-ECSService/AccessLogConfiguration_IncludeQueryParameter")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.ECS.SettingName
         {
             ($_ -eq "Get-ECSAccountSetting/Name") -Or
@@ -383,6 +403,8 @@ $ECS_Completers = {
 }
 
 $ECS_map = @{
+    "AccessLogConfiguration_Format"=@("New-ECSService","Update-ECSService")
+    "AccessLogConfiguration_IncludeQueryParameter"=@("New-ECSService","Update-ECSService")
     "AutoScalingGroupProvider_ManagedDraining"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "AutoScalingGroupProvider_ManagedTerminationProtection"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "AvailabilityZoneRebalancing"=@("New-ECSService","Update-ECSService")

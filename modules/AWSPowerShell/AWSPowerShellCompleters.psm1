@@ -4491,12 +4491,14 @@ $PROM_SelectCompleters = {
 
 $PROM_SelectMap = @{
     "Select"=@("New-PROMAlertManagerDefinition",
+               "New-PROMAnomalyDetector",
                "New-PROMLoggingConfiguration",
                "New-PROMQueryLoggingConfiguration",
                "New-PROMRuleGroupsNamespace",
                "New-PROMScraper",
                "New-PROMWorkspace",
                "Remove-PROMAlertManagerDefinition",
+               "Remove-PROMAnomalyDetector",
                "Remove-PROMLoggingConfiguration",
                "Remove-PROMQueryLoggingConfiguration",
                "Remove-PROMResourcePolicy",
@@ -4505,6 +4507,7 @@ $PROM_SelectMap = @{
                "Remove-PROMScraperLoggingConfiguration",
                "Remove-PROMWorkspace",
                "Get-PROMAlertManagerDefinition",
+               "Get-PROMAnomalyDetector",
                "Get-PROMLoggingConfiguration",
                "Get-PROMQueryLoggingConfiguration",
                "Get-PROMResourcePolicy",
@@ -4514,11 +4517,13 @@ $PROM_SelectMap = @{
                "Get-PROMWorkspace",
                "Get-PROMWorkspaceConfiguration",
                "Get-PROMDefaultScraperConfiguration",
+               "Get-PROMAnomalyDetectorList",
                "Get-PROMRuleGroupsNamespaceList",
                "Get-PROMScraperList",
                "Get-PROMResourceTag",
                "Get-PROMWorkspaceList",
                "Write-PROMAlertManagerDefinition",
+               "Write-PROMAnomalyDetector",
                "Write-PROMResourcePolicy",
                "Write-PROMRuleGroupsNamespace",
                "Add-PROMResourceTag",
@@ -29260,6 +29265,26 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.ServiceConnectAccessLoggingFormat
+        {
+            ($_ -eq "New-ECSService/AccessLogConfiguration_Format") -Or
+            ($_ -eq "Update-ECSService/AccessLogConfiguration_Format")
+        }
+        {
+            $v = "JSON","TEXT"
+            break
+        }
+
+        # Amazon.ECS.ServiceConnectIncludeQueryParameters
+        {
+            ($_ -eq "New-ECSService/AccessLogConfiguration_IncludeQueryParameter") -Or
+            ($_ -eq "Update-ECSService/AccessLogConfiguration_IncludeQueryParameter")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.ECS.SettingName
         {
             ($_ -eq "Get-ECSAccountSetting/Name") -Or
@@ -29316,6 +29341,8 @@ $ECS_Completers = {
 }
 
 $ECS_map = @{
+    "AccessLogConfiguration_Format"=@("New-ECSService","Update-ECSService")
+    "AccessLogConfiguration_IncludeQueryParameter"=@("New-ECSService","Update-ECSService")
     "AutoScalingGroupProvider_ManagedDraining"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "AutoScalingGroupProvider_ManagedTerminationProtection"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "AvailabilityZoneRebalancing"=@("New-ECSService","Update-ECSService")
@@ -40285,6 +40312,7 @@ $IOTMI_SelectMap = @{
                "Get-IOTMIHubConfiguration",
                "Get-IOTMIManagedThing",
                "Get-IOTMIManagedThingCapability",
+               "Get-IOTMIManagedThingCertificate",
                "Get-IOTMIManagedThingConnectivityData",
                "Get-IOTMIManagedThingMetaData",
                "Get-IOTMIManagedThingState",

@@ -352,6 +352,19 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.Boolean? ForceNewDeployment { get; set; }
         #endregion
         
+        #region Parameter AccessLogConfiguration_Format
+        /// <summary>
+        /// <para>
+        /// <para>The format for Service Connect access log output. Choose TEXT for human-readable logs
+        /// or JSON for structured data that integrates well with log analysis tools.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ServiceConnectConfiguration_AccessLogConfiguration_Format")]
+        [AWSConstantClassSource("Amazon.ECS.ServiceConnectAccessLoggingFormat")]
+        public Amazon.ECS.ServiceConnectAccessLoggingFormat AccessLogConfiguration_Format { get; set; }
+        #endregion
+        
         #region Parameter HealthCheckGracePeriodSecond
         /// <summary>
         /// <para>
@@ -370,6 +383,21 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("HealthCheckGracePeriodSeconds")]
         public System.Int32? HealthCheckGracePeriodSecond { get; set; }
+        #endregion
+        
+        #region Parameter AccessLogConfiguration_IncludeQueryParameter
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to include query parameters in Service Connect access logs.</para><para>When enabled, query parameters from HTTP requests are included in the access logs.
+        /// Consider security and privacy implications when enabling this feature, as query parameters
+        /// may contain sensitive information such as request IDs and tokens. By default, this
+        /// parameter is <c>DISABLED</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ServiceConnectConfiguration_AccessLogConfiguration_IncludeQueryParameters")]
+        [AWSConstantClassSource("Amazon.ECS.ServiceConnectIncludeQueryParameters")]
+        public Amazon.ECS.ServiceConnectIncludeQueryParameters AccessLogConfiguration_IncludeQueryParameter { get; set; }
         #endregion
         
         #region Parameter DeploymentConfiguration_LifecycleHook
@@ -1054,6 +1082,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 WriteWarning("You are passing $null as a value for parameter Service which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AccessLogConfiguration_Format = this.AccessLogConfiguration_Format;
+            context.AccessLogConfiguration_IncludeQueryParameter = this.AccessLogConfiguration_IncludeQueryParameter;
             context.ServiceConnectConfiguration_Enabled = this.ServiceConnectConfiguration_Enabled;
             context.LogConfiguration_LogDriver = this.LogConfiguration_LogDriver;
             if (this.LogConfiguration_Option != null)
@@ -1474,6 +1504,41 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 request.ServiceConnectConfiguration.Services = requestServiceConnectConfiguration_serviceConnectConfiguration_Service;
                 requestServiceConnectConfigurationIsNull = false;
             }
+            Amazon.ECS.Model.ServiceConnectAccessLogConfiguration requestServiceConnectConfiguration_serviceConnectConfiguration_AccessLogConfiguration = null;
+            
+             // populate AccessLogConfiguration
+            var requestServiceConnectConfiguration_serviceConnectConfiguration_AccessLogConfigurationIsNull = true;
+            requestServiceConnectConfiguration_serviceConnectConfiguration_AccessLogConfiguration = new Amazon.ECS.Model.ServiceConnectAccessLogConfiguration();
+            Amazon.ECS.ServiceConnectAccessLoggingFormat requestServiceConnectConfiguration_serviceConnectConfiguration_AccessLogConfiguration_accessLogConfiguration_Format = null;
+            if (cmdletContext.AccessLogConfiguration_Format != null)
+            {
+                requestServiceConnectConfiguration_serviceConnectConfiguration_AccessLogConfiguration_accessLogConfiguration_Format = cmdletContext.AccessLogConfiguration_Format;
+            }
+            if (requestServiceConnectConfiguration_serviceConnectConfiguration_AccessLogConfiguration_accessLogConfiguration_Format != null)
+            {
+                requestServiceConnectConfiguration_serviceConnectConfiguration_AccessLogConfiguration.Format = requestServiceConnectConfiguration_serviceConnectConfiguration_AccessLogConfiguration_accessLogConfiguration_Format;
+                requestServiceConnectConfiguration_serviceConnectConfiguration_AccessLogConfigurationIsNull = false;
+            }
+            Amazon.ECS.ServiceConnectIncludeQueryParameters requestServiceConnectConfiguration_serviceConnectConfiguration_AccessLogConfiguration_accessLogConfiguration_IncludeQueryParameter = null;
+            if (cmdletContext.AccessLogConfiguration_IncludeQueryParameter != null)
+            {
+                requestServiceConnectConfiguration_serviceConnectConfiguration_AccessLogConfiguration_accessLogConfiguration_IncludeQueryParameter = cmdletContext.AccessLogConfiguration_IncludeQueryParameter;
+            }
+            if (requestServiceConnectConfiguration_serviceConnectConfiguration_AccessLogConfiguration_accessLogConfiguration_IncludeQueryParameter != null)
+            {
+                requestServiceConnectConfiguration_serviceConnectConfiguration_AccessLogConfiguration.IncludeQueryParameters = requestServiceConnectConfiguration_serviceConnectConfiguration_AccessLogConfiguration_accessLogConfiguration_IncludeQueryParameter;
+                requestServiceConnectConfiguration_serviceConnectConfiguration_AccessLogConfigurationIsNull = false;
+            }
+             // determine if requestServiceConnectConfiguration_serviceConnectConfiguration_AccessLogConfiguration should be set to null
+            if (requestServiceConnectConfiguration_serviceConnectConfiguration_AccessLogConfigurationIsNull)
+            {
+                requestServiceConnectConfiguration_serviceConnectConfiguration_AccessLogConfiguration = null;
+            }
+            if (requestServiceConnectConfiguration_serviceConnectConfiguration_AccessLogConfiguration != null)
+            {
+                request.ServiceConnectConfiguration.AccessLogConfiguration = requestServiceConnectConfiguration_serviceConnectConfiguration_AccessLogConfiguration;
+                requestServiceConnectConfigurationIsNull = false;
+            }
             Amazon.ECS.Model.LogConfiguration requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfiguration = null;
             
              // populate LogConfiguration
@@ -1627,6 +1692,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.String PlatformVersion { get; set; }
             public Amazon.ECS.PropagateTags PropagateTag { get; set; }
             public System.String Service { get; set; }
+            public Amazon.ECS.ServiceConnectAccessLoggingFormat AccessLogConfiguration_Format { get; set; }
+            public Amazon.ECS.ServiceConnectIncludeQueryParameters AccessLogConfiguration_IncludeQueryParameter { get; set; }
             public System.Boolean? ServiceConnectConfiguration_Enabled { get; set; }
             public Amazon.ECS.LogDriver LogConfiguration_LogDriver { get; set; }
             public Dictionary<System.String, System.String> LogConfiguration_Option { get; set; }

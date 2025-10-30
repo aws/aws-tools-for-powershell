@@ -30,7 +30,7 @@ using Amazon.IoTManagedIntegrations.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
-    /// Get a notification configuration.
+    /// Get a notification configuration for a specified event type.
     /// </summary>
     [Cmdlet("Get", "IOTMINotificationConfiguration")]
     [OutputType("Amazon.IoTManagedIntegrations.Model.GetNotificationConfigurationResponse")]

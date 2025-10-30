@@ -30,7 +30,7 @@ using Amazon.IoTManagedIntegrations.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
-    /// Gets all the information about a connector for a connector developer.
+    /// Get configuration details for a cloud connector.
     /// </summary>
     [Cmdlet("Get", "IOTMICloudConnector")]
     [OutputType("Amazon.IoTManagedIntegrations.Model.GetCloudConnectorResponse")]
