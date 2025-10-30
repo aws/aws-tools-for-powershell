@@ -160,6 +160,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetManagedThingCertificate" OutputProperty="*" Verb="Get" Noun="ManagedThingCertificate" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetManagedThingConnectivityData" OutputProperty="*" Verb="Get" Noun="ManagedThingConnectivityData" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

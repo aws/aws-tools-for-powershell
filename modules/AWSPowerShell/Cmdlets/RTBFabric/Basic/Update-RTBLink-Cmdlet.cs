@@ -28,7 +28,7 @@ using Amazon.RTBFabric.Model;
 namespace Amazon.PowerShell.Cmdlets.RTB
 {
     /// <summary>
-    /// Updates the configuration of a link between RTB applications.
+    /// Updates the configuration of a link between gateways.
     /// 
     ///  
     /// <para>

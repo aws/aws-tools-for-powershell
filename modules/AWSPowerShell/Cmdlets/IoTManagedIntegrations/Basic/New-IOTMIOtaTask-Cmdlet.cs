@@ -28,7 +28,7 @@ using Amazon.IoTManagedIntegrations.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
-    /// Create an over-the-air (OTA) task to update a device.
+    /// Create an over-the-air (OTA) task to target a device.
     /// </summary>
     [Cmdlet("New", "IOTMIOtaTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTManagedIntegrations.Model.CreateOtaTaskResponse")]

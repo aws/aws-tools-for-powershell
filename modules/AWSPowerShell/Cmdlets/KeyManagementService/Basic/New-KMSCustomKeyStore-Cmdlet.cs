@@ -282,6 +282,19 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         public System.String XksProxyVpcEndpointServiceName { get; set; }
         #endregion
         
+        #region Parameter XksProxyVpcEndpointServiceOwner
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the Amazon Web Services account ID that owns the Amazon VPC service endpoint
+        /// for the interface that is used to communicate with your external key store proxy (XKS
+        /// proxy). This parameter is optional. If not provided, the Amazon Web Services account
+        /// ID calling the action will be used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String XksProxyVpcEndpointServiceOwner { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'CustomKeyStoreId'.
@@ -361,6 +374,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             context.XksProxyUriEndpoint = this.XksProxyUriEndpoint;
             context.XksProxyUriPath = this.XksProxyUriPath;
             context.XksProxyVpcEndpointServiceName = this.XksProxyVpcEndpointServiceName;
+            context.XksProxyVpcEndpointServiceOwner = this.XksProxyVpcEndpointServiceOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -442,6 +456,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             {
                 request.XksProxyVpcEndpointServiceName = cmdletContext.XksProxyVpcEndpointServiceName;
             }
+            if (cmdletContext.XksProxyVpcEndpointServiceOwner != null)
+            {
+                request.XksProxyVpcEndpointServiceOwner = cmdletContext.XksProxyVpcEndpointServiceOwner;
+            }
             
             CmdletOutput output;
             
@@ -514,6 +532,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             public System.String XksProxyUriEndpoint { get; set; }
             public System.String XksProxyUriPath { get; set; }
             public System.String XksProxyVpcEndpointServiceName { get; set; }
+            public System.String XksProxyVpcEndpointServiceOwner { get; set; }
             public System.Func<Amazon.KeyManagementService.Model.CreateCustomKeyStoreResponse, NewKMSCustomKeyStoreCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CustomKeyStoreId;
         }

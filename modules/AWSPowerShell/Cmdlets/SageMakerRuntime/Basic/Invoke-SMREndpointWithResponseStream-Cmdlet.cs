@@ -31,13 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.SMR
     /// Invokes a model at the specified endpoint to return the inference response as a stream.
     /// The inference stream provides the response payload incrementally as a series of parts.
     /// Before you can get an inference stream, you must have access to a model that's deployed
-    /// using Amazon SageMaker hosting services, and the container for that model must support
-    /// inference streaming.
+    /// using Amazon SageMaker AI hosting services, and the container for that model must
+    /// support inference streaming.
     /// 
     ///  
     /// <para>
     /// For more information that can help you use this API, see the following sections in
-    /// the <i>Amazon SageMaker Developer Guide</i>:
+    /// the <i>Amazon SageMaker AI Developer Guide</i>:
     /// </para><ul><li><para>
     /// For information about how to add streaming support to a model, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-code-how-containe-serves-requests">How
     /// Containers Serve Requests</a>.
@@ -46,14 +46,14 @@ namespace Amazon.PowerShell.Cmdlets.SMR
     /// real-time endpoints</a>.
     /// </para></li></ul><para>
     /// Before you can use this operation, your IAM permissions must allow the <c>sagemaker:InvokeEndpoint</c>
-    /// action. For more information about Amazon SageMaker actions for IAM policies, see
+    /// action. For more information about Amazon SageMaker AI actions for IAM policies, see
     /// <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonsagemaker.html">Actions,
-    /// resources, and condition keys for Amazon SageMaker</a> in the <i>IAM Service Authorization
+    /// resources, and condition keys for Amazon SageMaker AI</a> in the <i>IAM Service Authorization
     /// Reference</i>.
     /// </para><para>
-    /// Amazon SageMaker strips all POST headers except those supported by the API. Amazon
-    /// SageMaker might add additional headers. You should not rely on the behavior of headers
-    /// outside those enumerated in the request syntax. 
+    /// Amazon SageMaker AI strips all POST headers except those supported by the API. Amazon
+    /// SageMaker AI might add additional headers. You should not rely on the behavior of
+    /// headers outside those enumerated in the request syntax. 
     /// </para><para>
     /// Calls to <c>InvokeEndpointWithResponseStream</c> are authenticated by using Amazon
     /// Web Services Signature Version 4. For information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         /// <summary>
         /// <para>
         /// <para>Provides input data, in the format specified in the <c>ContentType</c> request header.
-        /// Amazon SageMaker passes all of the data in the body to the model. </para><para>For information about the format of the request body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common
+        /// Amazon SageMaker AI passes all of the data in the body to the model. </para><para>For information about the format of the request body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common
         /// Data Formats-Inference</a>.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
@@ -119,17 +119,17 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         /// <summary>
         /// <para>
         /// <para>Provides additional information about a request for an inference submitted to a model
-        /// hosted at an Amazon SageMaker endpoint. The information is an opaque value that is
-        /// forwarded verbatim. You could use this value, for example, to provide an ID that you
-        /// can use to track a request or to provide other metadata that a service endpoint was
-        /// programmed to process. The value must consist of no more than 1024 visible US-ASCII
+        /// hosted at an Amazon SageMaker AI endpoint. The information is an opaque value that
+        /// is forwarded verbatim. You could use this value, for example, to provide an ID that
+        /// you can use to track a request or to provide other metadata that a service endpoint
+        /// was programmed to process. The value must consist of no more than 1024 visible US-ASCII
         /// characters as specified in <a href="https://datatracker.ietf.org/doc/html/rfc7230#section-3.2.6">Section
         /// 3.3.6. Field Value Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). </para><para>The code in your model is responsible for setting or updating any custom attributes
         /// in the response. If your code does not set this value in the response, an empty value
         /// is returned. For example, if a custom attribute represents the trace ID, your model
         /// can prepend the custom attribute with <c>Trace ID:</c> in your post-processing function.
         /// </para><para>This feature is currently supported in the Amazon Web Services SDKs but not in the
-        /// Amazon SageMaker Python SDK. </para>
+        /// Amazon SageMaker AI Python SDK. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

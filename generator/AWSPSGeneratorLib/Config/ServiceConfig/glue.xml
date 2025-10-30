@@ -996,7 +996,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGlueIdentityCenterConfiguration" Verb="Update" Noun="GlueIdentityCenterConfiguration" ShouldProcessTarget="Scopes" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateGlueIdentityCenterConfiguration" Verb="Update" Noun="GlueIdentityCenterConfiguration" ShouldProcessTarget="Scopes" PipelineParameter="UserBackgroundSessionsEnabled" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

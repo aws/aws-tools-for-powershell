@@ -28,8 +28,7 @@ using Amazon.IoTManagedIntegrations.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
-    /// Deregisters an account association, removing the connection between a managed thing
-    /// and a third-party account.
+    /// Deregister an account association from a managed thing.
     /// </summary>
     [Cmdlet("Unregister", "IOTMIAccountAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

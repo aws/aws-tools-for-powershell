@@ -55,6 +55,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String[] Scope { get; set; }
         #endregion
         
+        #region Parameter UserBackgroundSessionsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether users can run background sessions when using Identity Center authentication
+        /// with Glue services.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.Boolean? UserBackgroundSessionsEnabled { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -63,6 +74,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the UserBackgroundSessionsEnabled parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^UserBackgroundSessionsEnabled' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^UserBackgroundSessionsEnabled' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -91,15 +112,26 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.Glue.Model.UpdateGlueIdentityCenterConfigurationResponse, UpdateGLUEGlueIdentityCenterConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.UserBackgroundSessionsEnabled;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Scope != null)
             {
                 context.Scope = new List<System.String>(this.Scope);
             }
+            context.UserBackgroundSessionsEnabled = this.UserBackgroundSessionsEnabled;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -119,6 +151,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Scope != null)
             {
                 request.Scopes = cmdletContext.Scope;
+            }
+            if (cmdletContext.UserBackgroundSessionsEnabled != null)
+            {
+                request.UserBackgroundSessionsEnabled = cmdletContext.UserBackgroundSessionsEnabled.Value;
             }
             
             CmdletOutput output;
@@ -182,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> Scope { get; set; }
+            public System.Boolean? UserBackgroundSessionsEnabled { get; set; }
             public System.Func<Amazon.Glue.Model.UpdateGlueIdentityCenterConfigurationResponse, UpdateGLUEGlueIdentityCenterConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

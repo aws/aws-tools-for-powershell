@@ -28,7 +28,7 @@ using Amazon.IoTManagedIntegrations.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
-    /// List all destination names under one Amazon Web Services account.
+    /// List all notification destinations.
     /// </summary>
     [Cmdlet("Get", "IOTMIDestinationList")]
     [OutputType("Amazon.IoTManagedIntegrations.Model.DestinationSummary")]

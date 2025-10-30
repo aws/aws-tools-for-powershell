@@ -29,6 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.RTB
 {
     /// <summary>
     /// Creates a responder gateway.
+    /// 
+    ///  <important><para>
+    /// A domain name or managed endpoint is required.
+    /// </para></important>
     /// </summary>
     [Cmdlet("New", "RTBResponderGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RTBFabric.Model.CreateResponderGatewayResponse")]

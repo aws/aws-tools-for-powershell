@@ -28,8 +28,11 @@ using Amazon.IoTManagedIntegrations.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
-    /// Create a product credential locker. This operation will trigger the creation of all
-    /// the manufacturing resources including the Wi-Fi setup key pair and device certificate.
+    /// Create a credential locker.
+    /// 
+    ///  <note><para>
+    /// This operation will not trigger the creation of all the manufacturing resources.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "IOTMICredentialLocker", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTManagedIntegrations.Model.CreateCredentialLockerResponse")]

@@ -22,52 +22,58 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IoTManagedIntegrations;
-using Amazon.IoTManagedIntegrations.Model;
+using Amazon.PrometheusService;
+using Amazon.PrometheusService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IOTMI
+namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Returns a list of connectors filtered by its Lambda Amazon Resource Name (ARN) and
-    /// <c>type</c>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a paginated list of anomaly detectors for a workspace with optional filtering
+    /// by alias.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "IOTMICloudConnectorList")]
-    [OutputType("Amazon.IoTManagedIntegrations.Model.ConnectorItem")]
-    [AWSCmdlet("Calls the Managed integrations for AWS IoT Device Management ListCloudConnectors API operation.", Operation = new[] {"ListCloudConnectors"}, SelectReturnType = typeof(Amazon.IoTManagedIntegrations.Model.ListCloudConnectorsResponse))]
-    [AWSCmdletOutput("Amazon.IoTManagedIntegrations.Model.ConnectorItem or Amazon.IoTManagedIntegrations.Model.ListCloudConnectorsResponse",
-        "This cmdlet returns a collection of Amazon.IoTManagedIntegrations.Model.ConnectorItem objects.",
-        "The service call response (type Amazon.IoTManagedIntegrations.Model.ListCloudConnectorsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "PROMAnomalyDetectorList")]
+    [OutputType("Amazon.PrometheusService.Model.AnomalyDetectorSummary")]
+    [AWSCmdlet("Calls the Amazon Prometheus Service ListAnomalyDetectors API operation.", Operation = new[] {"ListAnomalyDetectors"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.ListAnomalyDetectorsResponse))]
+    [AWSCmdletOutput("Amazon.PrometheusService.Model.AnomalyDetectorSummary or Amazon.PrometheusService.Model.ListAnomalyDetectorsResponse",
+        "This cmdlet returns a collection of Amazon.PrometheusService.Model.AnomalyDetectorSummary objects.",
+        "The service call response (type Amazon.PrometheusService.Model.ListAnomalyDetectorsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetIOTMICloudConnectorListCmdlet : AmazonIoTManagedIntegrationsClientCmdlet, IExecutor
+    public partial class GetPROMAnomalyDetectorListCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter LambdaArn
+        #region Parameter Alias
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Lambda function to filter cloud connectors by.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String LambdaArn { get; set; }
-        #endregion
-        
-        #region Parameter Type
-        /// <summary>
-        /// <para>
-        /// <para>The type of cloud connectors to filter by when listing available connectors.</para>
+        /// <para>Filters the results to anomaly detectors with the specified alias.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.IoTManagedIntegrations.CloudConnectorType")]
-        public Amazon.IoTManagedIntegrations.CloudConnectorType Type { get; set; }
+        public System.String Alias { get; set; }
+        #endregion
+        
+        #region Parameter WorkspaceId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the workspace containing the anomaly detectors to list.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String WorkspaceId { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return at one time.</para>
+        /// <para>The maximum number of results to return in a single call. Valid range is 1 to 1000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token that can be used to retrieve the next set of results.</para>
+        /// <para>The pagination token to continue retrieving results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -91,21 +97,21 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTManagedIntegrations.Model.ListCloudConnectorsResponse).
-        /// Specifying the name of a property of type Amazon.IoTManagedIntegrations.Model.ListCloudConnectorsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AnomalyDetectors'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PrometheusService.Model.ListAnomalyDetectorsResponse).
+        /// Specifying the name of a property of type Amazon.PrometheusService.Model.ListAnomalyDetectorsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Items";
+        public string Select { get; set; } = "AnomalyDetectors";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the LambdaArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^LambdaArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the WorkspaceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^WorkspaceId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^LambdaArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^WorkspaceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -133,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoTManagedIntegrations.Model.ListCloudConnectorsResponse, GetIOTMICloudConnectorListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PrometheusService.Model.ListAnomalyDetectorsResponse, GetPROMAnomalyDetectorListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -142,13 +148,19 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.LambdaArn;
+                context.Select = (response, cmdlet) => this.WorkspaceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.LambdaArn = this.LambdaArn;
+            context.Alias = this.Alias;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.Type = this.Type;
+            context.WorkspaceId = this.WorkspaceId;
+            #if MODULAR
+            if (this.WorkspaceId == null && ParameterWasBound(nameof(this.WorkspaceId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter WorkspaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -167,19 +179,19 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.IoTManagedIntegrations.Model.ListCloudConnectorsRequest();
+            var request = new Amazon.PrometheusService.Model.ListAnomalyDetectorsRequest();
             
-            if (cmdletContext.LambdaArn != null)
+            if (cmdletContext.Alias != null)
             {
-                request.LambdaArn = cmdletContext.LambdaArn;
+                request.Alias = cmdletContext.Alias;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.Type != null)
+            if (cmdletContext.WorkspaceId != null)
             {
-                request.Type = cmdletContext.Type;
+                request.WorkspaceId = cmdletContext.WorkspaceId;
             }
             
             // Initialize loop variant and commence piping
@@ -238,15 +250,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         
         #region AWS Service Operation Call
         
-        private Amazon.IoTManagedIntegrations.Model.ListCloudConnectorsResponse CallAWSServiceOperation(IAmazonIoTManagedIntegrations client, Amazon.IoTManagedIntegrations.Model.ListCloudConnectorsRequest request)
+        private Amazon.PrometheusService.Model.ListAnomalyDetectorsResponse CallAWSServiceOperation(IAmazonPrometheusService client, Amazon.PrometheusService.Model.ListAnomalyDetectorsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed integrations for AWS IoT Device Management", "ListCloudConnectors");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Prometheus Service", "ListAnomalyDetectors");
             try
             {
                 #if DESKTOP
-                return client.ListCloudConnectors(request);
+                return client.ListAnomalyDetectors(request);
                 #elif CORECLR
-                return client.ListCloudConnectorsAsync(request).GetAwaiter().GetResult();
+                return client.ListAnomalyDetectorsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -266,12 +278,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String LambdaArn { get; set; }
+            public System.String Alias { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public Amazon.IoTManagedIntegrations.CloudConnectorType Type { get; set; }
-            public System.Func<Amazon.IoTManagedIntegrations.Model.ListCloudConnectorsResponse, GetIOTMICloudConnectorListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Items;
+            public System.String WorkspaceId { get; set; }
+            public System.Func<Amazon.PrometheusService.Model.ListAnomalyDetectorsResponse, GetPROMAnomalyDetectorListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AnomalyDetectors;
         }
         
     }

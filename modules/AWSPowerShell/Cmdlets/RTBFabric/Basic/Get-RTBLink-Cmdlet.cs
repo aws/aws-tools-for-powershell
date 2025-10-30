@@ -28,12 +28,12 @@ using Amazon.RTBFabric.Model;
 namespace Amazon.PowerShell.Cmdlets.RTB
 {
     /// <summary>
-    /// Retrieves information about a link between RTB applications.
+    /// Retrieves information about a link between gateways.
     /// 
     ///  
     /// <para>
     /// Returns detailed information about the link configuration, status, and associated
-    /// RTB applications.
+    /// gateways.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "RTBLink")]

@@ -90,6 +90,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-PROMResourceTag', 
         'Get-PROMAlertManagerDefinition', 
+        'Get-PROMAnomalyDetector', 
+        'Get-PROMAnomalyDetectorList', 
         'Get-PROMDefaultScraperConfiguration', 
         'Get-PROMLoggingConfiguration', 
         'Get-PROMQueryLoggingConfiguration', 
@@ -104,12 +106,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-PROMWorkspaceConfiguration', 
         'Get-PROMWorkspaceList', 
         'New-PROMAlertManagerDefinition', 
+        'New-PROMAnomalyDetector', 
         'New-PROMLoggingConfiguration', 
         'New-PROMQueryLoggingConfiguration', 
         'New-PROMRuleGroupsNamespace', 
         'New-PROMScraper', 
         'New-PROMWorkspace', 
         'Remove-PROMAlertManagerDefinition', 
+        'Remove-PROMAnomalyDetector', 
         'Remove-PROMLoggingConfiguration', 
         'Remove-PROMQueryLoggingConfiguration', 
         'Remove-PROMResourcePolicy', 
@@ -125,6 +129,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-PROMWorkspaceAlias', 
         'Update-PROMWorkspaceConfiguration', 
         'Write-PROMAlertManagerDefinition', 
+        'Write-PROMAnomalyDetector', 
         'Write-PROMResourcePolicy', 
         'Write-PROMRuleGroupsNamespace')
 

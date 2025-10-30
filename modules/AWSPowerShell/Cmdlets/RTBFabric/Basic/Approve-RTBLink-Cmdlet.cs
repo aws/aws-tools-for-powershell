@@ -28,13 +28,12 @@ using Amazon.RTBFabric.Model;
 namespace Amazon.PowerShell.Cmdlets.RTB
 {
     /// <summary>
-    /// Accepts a link request between RTB applications.
+    /// Accepts a link request between gateways.
     /// 
     ///  
     /// <para>
-    /// When a requester RTB application requests to link with a responder RTB application,
-    /// the responder can use this operation to accept the link request and establish the
-    /// connection.
+    /// When a requester gateway requests to link with a responder gateway, the responder
+    /// can use this operation to accept the link request and establish the connection.
     /// </para>
     /// </summary>
     [Cmdlet("Approve", "RTBLink", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -22,35 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.RTBFabric;
-using Amazon.RTBFabric.Model;
+using Amazon.PrometheusService;
+using Amazon.PrometheusService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.RTB
+namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Rejects a link request between gateways.
-    /// 
-    ///  
-    /// <para>
-    /// When a requester gateway requests to link with a responder gateway, the responder
-    /// can use this operation to decline the link request.
-    /// </para>
+    /// Retrieves detailed information about a specific anomaly detector, including its status
+    /// and configuration.
     /// </summary>
-    [Cmdlet("Deny", "RTBLink", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.RTBFabric.Model.RejectLinkResponse")]
-    [AWSCmdlet("Calls the Amazon RTBFabric RejectLink API operation.", Operation = new[] {"RejectLink"}, SelectReturnType = typeof(Amazon.RTBFabric.Model.RejectLinkResponse))]
-    [AWSCmdletOutput("Amazon.RTBFabric.Model.RejectLinkResponse",
-        "This cmdlet returns an Amazon.RTBFabric.Model.RejectLinkResponse object containing multiple properties."
+    [Cmdlet("Get", "PROMAnomalyDetector")]
+    [OutputType("Amazon.PrometheusService.Model.AnomalyDetectorDescription")]
+    [AWSCmdlet("Calls the Amazon Prometheus Service DescribeAnomalyDetector API operation.", Operation = new[] {"DescribeAnomalyDetector"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.DescribeAnomalyDetectorResponse))]
+    [AWSCmdletOutput("Amazon.PrometheusService.Model.AnomalyDetectorDescription or Amazon.PrometheusService.Model.DescribeAnomalyDetectorResponse",
+        "This cmdlet returns an Amazon.PrometheusService.Model.AnomalyDetectorDescription object.",
+        "The service call response (type Amazon.PrometheusService.Model.DescribeAnomalyDetectorResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class DenyRTBLinkCmdlet : AmazonRTBFabricClientCmdlet, IExecutor
+    public partial class GetPROMAnomalyDetectorCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter GatewayId
+        #region Parameter AnomalyDetectorId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the gateway.</para>
+        /// <para>The identifier of the anomaly detector to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,13 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String GatewayId { get; set; }
+        public System.String AnomalyDetectorId { get; set; }
         #endregion
         
-        #region Parameter LinkId
+        #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the link.</para>
+        /// <para>The identifier of the workspace containing the anomaly detector.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,40 +74,24 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String LinkId { get; set; }
+        public System.String WorkspaceId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RTBFabric.Model.RejectLinkResponse).
-        /// Specifying the name of a property of type Amazon.RTBFabric.Model.RejectLinkResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AnomalyDetector'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PrometheusService.Model.DescribeAnomalyDetectorResponse).
+        /// Specifying the name of a property of type Amazon.PrometheusService.Model.DescribeAnomalyDetectorResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
+        public string Select { get; set; } = "AnomalyDetector";
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LinkId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Deny-RTBLink (RejectLink)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -120,21 +100,21 @@ namespace Amazon.PowerShell.Cmdlets.RTB
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.RTBFabric.Model.RejectLinkResponse, DenyRTBLinkCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PrometheusService.Model.DescribeAnomalyDetectorResponse, GetPROMAnomalyDetectorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.GatewayId = this.GatewayId;
+            context.AnomalyDetectorId = this.AnomalyDetectorId;
             #if MODULAR
-            if (this.GatewayId == null && ParameterWasBound(nameof(this.GatewayId)))
+            if (this.AnomalyDetectorId == null && ParameterWasBound(nameof(this.AnomalyDetectorId)))
             {
-                WriteWarning("You are passing $null as a value for parameter GatewayId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AnomalyDetectorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.LinkId = this.LinkId;
+            context.WorkspaceId = this.WorkspaceId;
             #if MODULAR
-            if (this.LinkId == null && ParameterWasBound(nameof(this.LinkId)))
+            if (this.WorkspaceId == null && ParameterWasBound(nameof(this.WorkspaceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter LinkId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter WorkspaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -151,15 +131,15 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.RTBFabric.Model.RejectLinkRequest();
+            var request = new Amazon.PrometheusService.Model.DescribeAnomalyDetectorRequest();
             
-            if (cmdletContext.GatewayId != null)
+            if (cmdletContext.AnomalyDetectorId != null)
             {
-                request.GatewayId = cmdletContext.GatewayId;
+                request.AnomalyDetectorId = cmdletContext.AnomalyDetectorId;
             }
-            if (cmdletContext.LinkId != null)
+            if (cmdletContext.WorkspaceId != null)
             {
-                request.LinkId = cmdletContext.LinkId;
+                request.WorkspaceId = cmdletContext.WorkspaceId;
             }
             
             CmdletOutput output;
@@ -194,15 +174,15 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         #region AWS Service Operation Call
         
-        private Amazon.RTBFabric.Model.RejectLinkResponse CallAWSServiceOperation(IAmazonRTBFabric client, Amazon.RTBFabric.Model.RejectLinkRequest request)
+        private Amazon.PrometheusService.Model.DescribeAnomalyDetectorResponse CallAWSServiceOperation(IAmazonPrometheusService client, Amazon.PrometheusService.Model.DescribeAnomalyDetectorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon RTBFabric", "RejectLink");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Prometheus Service", "DescribeAnomalyDetector");
             try
             {
                 #if DESKTOP
-                return client.RejectLink(request);
+                return client.DescribeAnomalyDetector(request);
                 #elif CORECLR
-                return client.RejectLinkAsync(request).GetAwaiter().GetResult();
+                return client.DescribeAnomalyDetectorAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -222,10 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String GatewayId { get; set; }
-            public System.String LinkId { get; set; }
-            public System.Func<Amazon.RTBFabric.Model.RejectLinkResponse, DenyRTBLinkCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String AnomalyDetectorId { get; set; }
+            public System.String WorkspaceId { get; set; }
+            public System.Func<Amazon.PrometheusService.Model.DescribeAnomalyDetectorResponse, GetPROMAnomalyDetectorCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AnomalyDetector;
         }
         
     }

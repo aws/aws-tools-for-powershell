@@ -28,7 +28,7 @@ using Amazon.IoTManagedIntegrations.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
-    /// Gets a destination by ID.
+    /// Gets a destination by name.
     /// </summary>
     [Cmdlet("Get", "IOTMIDestination")]
     [OutputType("Amazon.IoTManagedIntegrations.Model.GetDestinationResponse")]

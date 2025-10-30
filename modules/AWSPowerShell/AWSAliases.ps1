@@ -1486,6 +1486,8 @@ Set-Alias -Name ASYN-UpdateSourceApiAssociation -Value Update-ASYNSourceApiAssoc
 Set-Alias -Name ASYN-UpdateType -Value Update-ASYNType
 Set-Alias -Name Create-PROMAlertManagerDefinition -Value New-PROMAlertManagerDefinition
 Set-Alias -Name PROM-CreateAlertManagerDefinition -Value New-PROMAlertManagerDefinition
+Set-Alias -Name Create-PROMAnomalyDetector -Value New-PROMAnomalyDetector
+Set-Alias -Name PROM-CreateAnomalyDetector -Value New-PROMAnomalyDetector
 Set-Alias -Name Create-PROMLoggingConfiguration -Value New-PROMLoggingConfiguration
 Set-Alias -Name PROM-CreateLoggingConfiguration -Value New-PROMLoggingConfiguration
 Set-Alias -Name Create-PROMQueryLoggingConfiguration -Value New-PROMQueryLoggingConfiguration
@@ -1498,6 +1500,8 @@ Set-Alias -Name Create-PROMWorkspace -Value New-PROMWorkspace
 Set-Alias -Name PROM-CreateWorkspace -Value New-PROMWorkspace
 Set-Alias -Name Delete-PROMAlertManagerDefinition -Value Remove-PROMAlertManagerDefinition
 Set-Alias -Name PROM-DeleteAlertManagerDefinition -Value Remove-PROMAlertManagerDefinition
+Set-Alias -Name Delete-PROMAnomalyDetector -Value Remove-PROMAnomalyDetector
+Set-Alias -Name PROM-DeleteAnomalyDetector -Value Remove-PROMAnomalyDetector
 Set-Alias -Name Delete-PROMLoggingConfiguration -Value Remove-PROMLoggingConfiguration
 Set-Alias -Name PROM-DeleteLoggingConfiguration -Value Remove-PROMLoggingConfiguration
 Set-Alias -Name Delete-PROMQueryLoggingConfiguration -Value Remove-PROMQueryLoggingConfiguration
@@ -1514,6 +1518,8 @@ Set-Alias -Name Delete-PROMWorkspace -Value Remove-PROMWorkspace
 Set-Alias -Name PROM-DeleteWorkspace -Value Remove-PROMWorkspace
 Set-Alias -Name Describe-PROMAlertManagerDefinition -Value Get-PROMAlertManagerDefinition
 Set-Alias -Name PROM-DescribeAlertManagerDefinition -Value Get-PROMAlertManagerDefinition
+Set-Alias -Name Describe-PROMAnomalyDetector -Value Get-PROMAnomalyDetector
+Set-Alias -Name PROM-DescribeAnomalyDetector -Value Get-PROMAnomalyDetector
 Set-Alias -Name Describe-PROMLoggingConfiguration -Value Get-PROMLoggingConfiguration
 Set-Alias -Name PROM-DescribeLoggingConfiguration -Value Get-PROMLoggingConfiguration
 Set-Alias -Name Describe-PROMQueryLoggingConfiguration -Value Get-PROMQueryLoggingConfiguration
@@ -1531,6 +1537,9 @@ Set-Alias -Name PROM-DescribeWorkspace -Value Get-PROMWorkspace
 Set-Alias -Name Describe-PROMWorkspaceConfiguration -Value Get-PROMWorkspaceConfiguration
 Set-Alias -Name PROM-DescribeWorkspaceConfiguration -Value Get-PROMWorkspaceConfiguration
 Set-Alias -Name PROM-GetDefaultScraperConfiguration -Value Get-PROMDefaultScraperConfiguration
+Set-Alias -Name List-PROMAnomalyDetectors -Value Get-PROMAnomalyDetectorList
+Set-Alias -Name List-PROMAnomalyDetectorList -Value Get-PROMAnomalyDetectorList
+Set-Alias -Name PROM-ListAnomalyDetectors -Value Get-PROMAnomalyDetectorList
 Set-Alias -Name List-PROMRuleGroupsNamespaces -Value Get-PROMRuleGroupsNamespaceList
 Set-Alias -Name List-PROMRuleGroupsNamespaceList -Value Get-PROMRuleGroupsNamespaceList
 Set-Alias -Name PROM-ListRuleGroupsNamespaces -Value Get-PROMRuleGroupsNamespaceList
@@ -1543,6 +1552,8 @@ Set-Alias -Name List-PROMWorkspaceList -Value Get-PROMWorkspaceList
 Set-Alias -Name PROM-ListWorkspaces -Value Get-PROMWorkspaceList
 Set-Alias -Name Put-PROMAlertManagerDefinition -Value Write-PROMAlertManagerDefinition
 Set-Alias -Name PROM-PutAlertManagerDefinition -Value Write-PROMAlertManagerDefinition
+Set-Alias -Name Put-PROMAnomalyDetector -Value Write-PROMAnomalyDetector
+Set-Alias -Name PROM-PutAnomalyDetector -Value Write-PROMAnomalyDetector
 Set-Alias -Name Put-PROMResourcePolicy -Value Write-PROMResourcePolicy
 Set-Alias -Name PROM-PutResourcePolicy -Value Write-PROMResourcePolicy
 Set-Alias -Name Put-PROMRuleGroupsNamespace -Value Write-PROMRuleGroupsNamespace
@@ -16251,6 +16262,7 @@ Set-Alias -Name IOTMI-GetHubConfiguration -Value Get-IOTMIHubConfiguration
 Set-Alias -Name IOTMI-GetManagedThing -Value Get-IOTMIManagedThing
 Set-Alias -Name Get-IOTMIManagedThingCapabilities -Value Get-IOTMIManagedThingCapability
 Set-Alias -Name IOTMI-GetManagedThingCapabilities -Value Get-IOTMIManagedThingCapability
+Set-Alias -Name IOTMI-GetManagedThingCertificate -Value Get-IOTMIManagedThingCertificate
 Set-Alias -Name IOTMI-GetManagedThingConnectivityData -Value Get-IOTMIManagedThingConnectivityData
 Set-Alias -Name IOTMI-GetManagedThingMetaData -Value Get-IOTMIManagedThingMetaData
 Set-Alias -Name IOTMI-GetManagedThingState -Value Get-IOTMIManagedThingState

@@ -64,6 +64,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter BrowserSigning_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether browser signing is enabled. When enabled, the browser will cryptographically
+        /// sign HTTP requests to identify itself as an AI agent to bot control vendors.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? BrowserSigning_Enabled { get; set; }
+        #endregion
+        
         #region Parameter Recording_Enabled
         /// <summary>
         /// <para>
@@ -241,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.BrowserSigning_Enabled = this.BrowserSigning_Enabled;
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             context.ExecutionRoleArn = this.ExecutionRoleArn;
@@ -293,6 +305,25 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             // create request
             var request = new Amazon.BedrockAgentCoreControl.Model.CreateBrowserRequest();
             
+            
+             // populate BrowserSigning
+            var requestBrowserSigningIsNull = true;
+            request.BrowserSigning = new Amazon.BedrockAgentCoreControl.Model.BrowserSigningConfigInput();
+            System.Boolean? requestBrowserSigning_browserSigning_Enabled = null;
+            if (cmdletContext.BrowserSigning_Enabled != null)
+            {
+                requestBrowserSigning_browserSigning_Enabled = cmdletContext.BrowserSigning_Enabled.Value;
+            }
+            if (requestBrowserSigning_browserSigning_Enabled != null)
+            {
+                request.BrowserSigning.Enabled = requestBrowserSigning_browserSigning_Enabled.Value;
+                requestBrowserSigningIsNull = false;
+            }
+             // determine if request.BrowserSigning should be set to null
+            if (requestBrowserSigningIsNull)
+            {
+                request.BrowserSigning = null;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -482,6 +513,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? BrowserSigning_Enabled { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public System.String ExecutionRoleArn { get; set; }

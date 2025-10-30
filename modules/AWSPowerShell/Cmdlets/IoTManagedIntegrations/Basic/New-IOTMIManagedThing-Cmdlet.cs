@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
     /// Creates a managed thing. A managed thing contains the device identifier, protocol
-    /// supported, and capabilities of the device in a protocol-specific format.
+    /// supported, and capabilities of the device in a data model format defined by Managed
+    /// integrations.
     /// </summary>
     [Cmdlet("New", "IOTMIManagedThing", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTManagedIntegrations.Model.CreateManagedThingResponse")]
