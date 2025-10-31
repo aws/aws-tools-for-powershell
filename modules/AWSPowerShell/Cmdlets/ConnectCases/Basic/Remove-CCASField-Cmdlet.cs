@@ -43,10 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     /// Deleted fields are not included in the <c>ListFields</c> response.
     /// </para></li><li><para>
     /// Calling <c>CreateCase</c> with a deleted field throws a <c>ValidationException</c>
-    /// denoting which field IDs in the request have been deleted.
+    /// denoting which field identifiers in the request have been deleted.
     /// </para></li><li><para>
-    /// Calling <c>GetCase</c> with a deleted field ID returns the deleted field's value if
-    /// one exists.
+    /// Calling <c>GetCase</c> with a deleted field identifier returns the deleted field's
+    /// value if one exists.
     /// </para></li><li><para>
     /// Calling <c>UpdateCase</c> with a deleted field ID throws a <c>ValidationException</c>
     /// if the case does not already contain a value for the deleted field. Otherwise it succeeds,

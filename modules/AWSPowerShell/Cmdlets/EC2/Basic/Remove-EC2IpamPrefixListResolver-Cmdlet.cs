@@ -23,63 +23,67 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Omics;
-using Amazon.Omics.Model;
+using Amazon.EC2;
+using Amazon.EC2.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.OMICS
+namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Amazon.Omics.IAmazonOmics.UpdateVariantStore
+    /// Deletes an IPAM prefix list resolver. Before deleting a resolver, you must first delete
+    /// all resolver targets associated with it.
     /// </summary>
-    [Cmdlet("Update", "OMICSVariantStore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Omics.Model.UpdateVariantStoreResponse")]
-    [AWSCmdlet("Calls the Amazon Omics UpdateVariantStore API operation.", Operation = new[] {"UpdateVariantStore"}, SelectReturnType = typeof(Amazon.Omics.Model.UpdateVariantStoreResponse))]
-    [AWSCmdletOutput("Amazon.Omics.Model.UpdateVariantStoreResponse",
-        "This cmdlet returns an Amazon.Omics.Model.UpdateVariantStoreResponse object containing multiple properties."
+    [Cmdlet("Remove", "EC2IpamPrefixListResolver", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.EC2.Model.IpamPrefixListResolver")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteIpamPrefixListResolver API operation.", Operation = new[] {"DeleteIpamPrefixListResolver"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteIpamPrefixListResolverResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.IpamPrefixListResolver or Amazon.EC2.Model.DeleteIpamPrefixListResolverResponse",
+        "This cmdlet returns an Amazon.EC2.Model.IpamPrefixListResolver object.",
+        "The service call response (type Amazon.EC2.Model.DeleteIpamPrefixListResolverResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class UpdateOMICSVariantStoreCmdlet : AmazonOmicsClientCmdlet, IExecutor
+    public partial class RemoveEC2IpamPrefixListResolverCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Description
+        #region Parameter DryRun
         /// <summary>
         /// <para>
-        /// <para>A description for the store.</para>
+        /// <para>A check for whether you have the required permissions for the action without actually
+        /// making the request and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
+        public System.Boolean? DryRun { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter IpamPrefixListResolverId
         /// <summary>
         /// <para>
-        /// <para>A name for the store.</para>
+        /// <para>The ID of the IPAM prefix list resolver to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
+        public System.String IpamPrefixListResolverId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Omics.Model.UpdateVariantStoreResponse).
-        /// Specifying the name of a property of type Amazon.Omics.Model.UpdateVariantStoreResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'IpamPrefixListResolver'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DeleteIpamPrefixListResolverResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.DeleteIpamPrefixListResolverResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "IpamPrefixListResolver";
         #endregion
         
         #region Parameter Force
@@ -101,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-OMICSVariantStore (UpdateVariantStore)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EC2IpamPrefixListResolver (DeleteIpamPrefixListResolver)"))
             {
                 return;
             }
@@ -114,15 +118,15 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Omics.Model.UpdateVariantStoreResponse, UpdateOMICSVariantStoreCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DeleteIpamPrefixListResolverResponse, RemoveEC2IpamPrefixListResolverCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Description = this.Description;
-            context.Name = this.Name;
+            context.DryRun = this.DryRun;
+            context.IpamPrefixListResolverId = this.IpamPrefixListResolverId;
             #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            if (this.IpamPrefixListResolverId == null && ParameterWasBound(nameof(this.IpamPrefixListResolverId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter IpamPrefixListResolverId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -139,15 +143,15 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Omics.Model.UpdateVariantStoreRequest();
+            var request = new Amazon.EC2.Model.DeleteIpamPrefixListResolverRequest();
             
-            if (cmdletContext.Description != null)
+            if (cmdletContext.DryRun != null)
             {
-                request.Description = cmdletContext.Description;
+                request.DryRun = cmdletContext.DryRun.Value;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.IpamPrefixListResolverId != null)
             {
-                request.Name = cmdletContext.Name;
+                request.IpamPrefixListResolverId = cmdletContext.IpamPrefixListResolverId;
             }
             
             CmdletOutput output;
@@ -182,12 +186,12 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         
         #region AWS Service Operation Call
         
-        private Amazon.Omics.Model.UpdateVariantStoreResponse CallAWSServiceOperation(IAmazonOmics client, Amazon.Omics.Model.UpdateVariantStoreRequest request)
+        private Amazon.EC2.Model.DeleteIpamPrefixListResolverResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteIpamPrefixListResolverRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Omics", "UpdateVariantStore");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteIpamPrefixListResolver");
             try
             {
-                return client.UpdateVariantStoreAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteIpamPrefixListResolverAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -204,10 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Description { get; set; }
-            public System.String Name { get; set; }
-            public System.Func<Amazon.Omics.Model.UpdateVariantStoreResponse, UpdateOMICSVariantStoreCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Boolean? DryRun { get; set; }
+            public System.String IpamPrefixListResolverId { get; set; }
+            public System.Func<Amazon.EC2.Model.DeleteIpamPrefixListResolverResponse, RemoveEC2IpamPrefixListResolverCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.IpamPrefixListResolver;
         }
         
     }

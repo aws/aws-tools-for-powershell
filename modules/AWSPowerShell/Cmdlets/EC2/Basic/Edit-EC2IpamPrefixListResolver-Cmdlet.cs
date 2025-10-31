@@ -30,28 +30,32 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Create a verification token.
-    /// 
-    ///  
-    /// <para>
-    /// A verification token is an Amazon Web Services-generated random value that you can
-    /// use to prove ownership of an external resource. For example, you can use a verification
-    /// token to validate that you control a public IP address range when you bring an IP
-    /// address range to Amazon Web Services (BYOIP). 
-    /// </para>
+    /// Modifies an IPAM prefix list resolver. You can update the description and CIDR selection
+    /// rules. Changes to rules will trigger re-evaluation and potential updates to associated
+    /// prefix lists.
     /// </summary>
-    [Cmdlet("New", "EC2IpamExternalResourceVerificationToken", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.IpamExternalResourceVerificationToken")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateIpamExternalResourceVerificationToken API operation.", Operation = new[] {"CreateIpamExternalResourceVerificationToken"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateIpamExternalResourceVerificationTokenResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.IpamExternalResourceVerificationToken or Amazon.EC2.Model.CreateIpamExternalResourceVerificationTokenResponse",
-        "This cmdlet returns an Amazon.EC2.Model.IpamExternalResourceVerificationToken object.",
-        "The service call response (type Amazon.EC2.Model.CreateIpamExternalResourceVerificationTokenResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Edit", "EC2IpamPrefixListResolver", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.Model.IpamPrefixListResolver")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyIpamPrefixListResolver API operation.", Operation = new[] {"ModifyIpamPrefixListResolver"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyIpamPrefixListResolverResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.IpamPrefixListResolver or Amazon.EC2.Model.ModifyIpamPrefixListResolverResponse",
+        "This cmdlet returns an Amazon.EC2.Model.IpamPrefixListResolver object.",
+        "The service call response (type Amazon.EC2.Model.ModifyIpamPrefixListResolverResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class NewEC2IpamExternalResourceVerificationTokenCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class EditEC2IpamPrefixListResolverCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>A new description for the IPAM prefix list resolver.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
         
         #region Parameter DryRun
         /// <summary>
@@ -65,27 +69,28 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? DryRun { get; set; }
         #endregion
         
-        #region Parameter IpamId
+        #region Parameter IpamPrefixListResolverId
         /// <summary>
         /// <para>
-        /// <para>The ID of the IPAM that will create the token.</para>
+        /// <para>The ID of the IPAM prefix list resolver to modify.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String IpamId { get; set; }
+        public System.String IpamPrefixListResolverId { get; set; }
         #endregion
         
-        #region Parameter TagSpecification
+        #region Parameter Rule
         /// <summary>
         /// <para>
-        /// <para>Token tags.</para><para />
+        /// <para>The updated CIDR selection rules for the resolver. These rules replace the existing
+        /// rules entirely.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -93,31 +98,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("TagSpecifications")]
-        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
-        #endregion
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring
-        /// idempotency</a>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        [Alias("Rules")]
+        public Amazon.EC2.Model.IpamPrefixListResolverRuleRequest[] Rule { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'IpamExternalResourceVerificationToken'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.CreateIpamExternalResourceVerificationTokenResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.CreateIpamExternalResourceVerificationTokenResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'IpamPrefixListResolver'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.ModifyIpamPrefixListResolverResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.ModifyIpamPrefixListResolverResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "IpamExternalResourceVerificationToken";
+        public string Select { get; set; } = "IpamPrefixListResolver";
         #endregion
         
         #region Parameter Force
@@ -139,8 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.IpamId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EC2IpamExternalResourceVerificationToken (CreateIpamExternalResourceVerificationToken)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-EC2IpamPrefixListResolver (ModifyIpamPrefixListResolver)"))
             {
                 return;
             }
@@ -152,21 +145,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.CreateIpamExternalResourceVerificationTokenResponse, NewEC2IpamExternalResourceVerificationTokenCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.ModifyIpamPrefixListResolverResponse, EditEC2IpamPrefixListResolverCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ClientToken = this.ClientToken;
+            context.Description = this.Description;
             context.DryRun = this.DryRun;
-            context.IpamId = this.IpamId;
+            context.IpamPrefixListResolverId = this.IpamPrefixListResolverId;
             #if MODULAR
-            if (this.IpamId == null && ParameterWasBound(nameof(this.IpamId)))
+            if (this.IpamPrefixListResolverId == null && ParameterWasBound(nameof(this.IpamPrefixListResolverId)))
             {
-                WriteWarning("You are passing $null as a value for parameter IpamId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter IpamPrefixListResolverId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.TagSpecification != null)
+            if (this.Rule != null)
             {
-                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+                context.Rule = new List<Amazon.EC2.Model.IpamPrefixListResolverRuleRequest>(this.Rule);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -182,23 +175,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.CreateIpamExternalResourceVerificationTokenRequest();
+            var request = new Amazon.EC2.Model.ModifyIpamPrefixListResolverRequest();
             
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.Description != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
+                request.Description = cmdletContext.Description;
             }
             if (cmdletContext.DryRun != null)
             {
                 request.DryRun = cmdletContext.DryRun.Value;
             }
-            if (cmdletContext.IpamId != null)
+            if (cmdletContext.IpamPrefixListResolverId != null)
             {
-                request.IpamId = cmdletContext.IpamId;
+                request.IpamPrefixListResolverId = cmdletContext.IpamPrefixListResolverId;
             }
-            if (cmdletContext.TagSpecification != null)
+            if (cmdletContext.Rule != null)
             {
-                request.TagSpecifications = cmdletContext.TagSpecification;
+                request.Rules = cmdletContext.Rule;
             }
             
             CmdletOutput output;
@@ -233,12 +226,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.CreateIpamExternalResourceVerificationTokenResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateIpamExternalResourceVerificationTokenRequest request)
+        private Amazon.EC2.Model.ModifyIpamPrefixListResolverResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyIpamPrefixListResolverRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateIpamExternalResourceVerificationToken");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyIpamPrefixListResolver");
             try
             {
-                return client.CreateIpamExternalResourceVerificationTokenAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ModifyIpamPrefixListResolverAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -255,12 +248,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
+            public System.String Description { get; set; }
             public System.Boolean? DryRun { get; set; }
-            public System.String IpamId { get; set; }
-            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
-            public System.Func<Amazon.EC2.Model.CreateIpamExternalResourceVerificationTokenResponse, NewEC2IpamExternalResourceVerificationTokenCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.IpamExternalResourceVerificationToken;
+            public System.String IpamPrefixListResolverId { get; set; }
+            public List<Amazon.EC2.Model.IpamPrefixListResolverRuleRequest> Rule { get; set; }
+            public System.Func<Amazon.EC2.Model.ModifyIpamPrefixListResolverResponse, EditEC2IpamPrefixListResolverCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.IpamPrefixListResolver;
         }
         
     }

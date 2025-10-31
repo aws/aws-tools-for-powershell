@@ -35,11 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// Amazon Web Services Regions.
     /// 
     ///  
-    /// <para>
-    /// Multi-region keys allow you to use the same key material across multiple Amazon Web
-    /// Services Regions, providing lower latency for applications distributed across regions.
-    /// When you add Replication Regions, Amazon Web Services Payment Cryptography securely
-    /// replicates the key material to the specified Amazon Web Services Regions.
+    /// <para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-multi-region-replication.html">Multi-Region
+    /// key replication</a> allow you to use the same key material across multiple Amazon
+    /// Web Services Regions, providing lower latency for applications distributed across
+    /// regions. When you add Replication Regions, Amazon Web Services Payment Cryptography
+    /// securely replicates the key material to the specified Amazon Web Services Regions.
     /// </para><para>
     /// The key must be in an active state to add Replication Regions. You can add multiple
     /// regions in a single operation, and the key will be available for use in those regions

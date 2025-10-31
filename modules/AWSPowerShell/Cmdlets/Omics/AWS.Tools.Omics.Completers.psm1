@@ -308,7 +308,7 @@ $OMICS_Completers = {
             ($_ -eq "New-OMICSWorkflowVersion/Engine")
         }
         {
-            $v = "CWL","NEXTFLOW","WDL"
+            $v = "CWL","NEXTFLOW","WDL","WDL_LENIENT"
             break
         }
 

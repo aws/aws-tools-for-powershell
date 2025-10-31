@@ -1,4 +1,25 @@
-﻿### 5.0.87 (2025-10-30 21:27Z)
+﻿### 5.0.88 (2025-10-31 20:26Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.124.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Cases
+    * Modified cmdlet New-CCASCaseRule: added parameters FieldOptions_ChildFieldId, FieldOptions_ParentChildFieldOptionsMapping, FieldOptions_ParentFieldId, Hidden_Condition and Hidden_DefaultValue.
+    * Modified cmdlet Update-CCASCaseRule: added parameters FieldOptions_ChildFieldId, FieldOptions_ParentChildFieldOptionsMapping, FieldOptions_ParentFieldId, Hidden_Condition and Hidden_DefaultValue.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Edit-EC2IpamPrefixListResolver leveraging the ModifyIpamPrefixListResolver service API.
+    * Added cmdlet Edit-EC2IpamPrefixListResolverTarget leveraging the ModifyIpamPrefixListResolverTarget service API.
+    * Added cmdlet Get-EC2IpamPrefixListResolver leveraging the DescribeIpamPrefixListResolvers service API.
+    * Added cmdlet Get-EC2IpamPrefixListResolverRule leveraging the GetIpamPrefixListResolverRules service API.
+    * Added cmdlet Get-EC2IpamPrefixListResolverTarget leveraging the DescribeIpamPrefixListResolverTargets service API.
+    * Added cmdlet Get-EC2IpamPrefixListResolverVersion leveraging the GetIpamPrefixListResolverVersions service API.
+    * Added cmdlet Get-EC2IpamPrefixListResolverVersionEntry leveraging the GetIpamPrefixListResolverVersionEntries service API.
+    * Added cmdlet New-EC2IpamPrefixListResolver leveraging the CreateIpamPrefixListResolver service API.
+    * Added cmdlet New-EC2IpamPrefixListResolverTarget leveraging the CreateIpamPrefixListResolverTarget service API.
+    * Added cmdlet Remove-EC2IpamPrefixListResolver leveraging the DeleteIpamPrefixListResolver service API.
+    * Added cmdlet Remove-EC2IpamPrefixListResolverTarget leveraging the DeleteIpamPrefixListResolverTarget service API.
+    * Modified cmdlet Edit-EC2ManagedPrefixList: added parameter IpamPrefixListResolverSyncEnabled.
+  * Amazon SageMaker Service
+    * Modified cmdlet Update-SMNotebookInstance: added parameter PlatformIdentifier.
+
+### 5.0.87 (2025-10-30 21:27Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.123.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet New-BACCBrowser: added parameter BrowserSigning_Enabled.

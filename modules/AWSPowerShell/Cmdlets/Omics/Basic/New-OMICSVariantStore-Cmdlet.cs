@@ -30,7 +30,7 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Creates a variant store.
+    /// Amazon.Omics.IAmazonOmics.CreateVariantStore
     /// </summary>
     [Cmdlet("New", "OMICSVariantStore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Omics.Model.CreateVariantStoreResponse")]

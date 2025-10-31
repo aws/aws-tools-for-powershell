@@ -917,7 +917,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter Tr34KeyBlock_WrappingKeyCertificate
         /// <summary>
         /// <para>
-        /// <para>Key Identifier used for unwrapping the import key</para>
+        /// <para>The certificate used to wrap the TR-34 key block.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

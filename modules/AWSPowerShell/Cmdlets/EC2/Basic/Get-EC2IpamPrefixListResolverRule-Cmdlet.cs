@@ -23,77 +23,46 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.ConnectCases;
-using Amazon.ConnectCases.Model;
+using Amazon.EC2;
+using Amazon.EC2.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.CCAS
+namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Searches for related items across all cases within a domain. This is a global search
-    /// operation that returns related items from multiple cases, unlike the case-specific
-    /// <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_SearchRelatedItems.html">SearchRelatedItems</a>
-    /// API.
-    /// 
-    ///  
-    /// <para><b>Use cases</b></para><para>
-    /// Following are common uses cases for this API:
-    /// </para><ul><li><para>
-    /// Find cases with similar issues across the domain. For example, search for all cases
-    /// containing comments about "product defect" to identify patterns and existing solutions.
-    /// </para></li><li><para>
-    /// Locate all cases associated with specific contacts or orders. For example, find all
-    /// cases linked to a contactArn to understand the complete customer journey. 
-    /// </para></li><li><para>
-    /// Monitor SLA compliance across cases. For example, search for all cases with "Active"
-    /// SLA status to prioritize remediation efforts.
-    /// </para></li></ul><para><b>Important things to know</b></para><ul><li><para>
-    /// This API returns case identifiers, not complete case objects. To retrieve full case
-    /// details, you must make additional calls to the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_GetCase.html">GetCase</a>
-    /// API for each returned case ID. 
-    /// </para></li><li><para>
-    /// This API searches across related items content, not case fields. Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_SearchCases.html">SearchCases</a>
-    /// API to search within case field values.
-    /// </para></li></ul><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon
-    /// Connect endpoints and quotas</a>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves the CIDR selection rules for an IPAM prefix list resolver. Use this operation
+    /// to view the business logic that determines which CIDRs are selected for synchronization
+    /// with prefix lists.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Search", "CCASAllRelatedItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ConnectCases.Model.SearchAllRelatedItemsResponseItem")]
-    [AWSCmdlet("Calls the Amazon Connect Cases SearchAllRelatedItems API operation.", Operation = new[] {"SearchAllRelatedItems"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.SearchAllRelatedItemsResponse))]
-    [AWSCmdletOutput("Amazon.ConnectCases.Model.SearchAllRelatedItemsResponseItem or Amazon.ConnectCases.Model.SearchAllRelatedItemsResponse",
-        "This cmdlet returns a collection of Amazon.ConnectCases.Model.SearchAllRelatedItemsResponseItem objects.",
-        "The service call response (type Amazon.ConnectCases.Model.SearchAllRelatedItemsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "EC2IpamPrefixListResolverRule")]
+    [OutputType("Amazon.EC2.Model.IpamPrefixListResolverRule")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetIpamPrefixListResolverRules API operation.", Operation = new[] {"GetIpamPrefixListResolverRules"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamPrefixListResolverRulesResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.IpamPrefixListResolverRule or Amazon.EC2.Model.GetIpamPrefixListResolverRulesResponse",
+        "This cmdlet returns a collection of Amazon.EC2.Model.IpamPrefixListResolverRule objects.",
+        "The service call response (type Amazon.EC2.Model.GetIpamPrefixListResolverRulesResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class SearchCCASAllRelatedItemCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
+    public partial class GetEC2IpamPrefixListResolverRuleCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter DomainId
+        #region Parameter DryRun
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the Cases domain. </para>
+        /// <para>A check for whether you have the required permissions for the action without actually
+        /// making the request and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainId { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
         #endregion
         
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The list of types of related items and their parameters to use for filtering. The
-        /// filters work as an OR condition: caller gets back related items that match any of
-        /// the specified filter types.</para><para />
+        /// <para>One or more filters to limit the results.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -102,30 +71,32 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Filters")]
-        public Amazon.ConnectCases.Model.RelatedItemTypeFilter[] Filter { get; set; }
+        public Amazon.EC2.Model.Filter[] Filter { get; set; }
         #endregion
         
-        #region Parameter Sort
+        #region Parameter IpamPrefixListResolverId
         /// <summary>
         /// <para>
-        /// <para>A structured set of sort terms to specify the order in which related items should
-        /// be returned. Supports sorting by association time or case ID. The sorts work in the
-        /// order specified: first sort term takes precedence over subsequent terms.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// <para>The ID of the IPAM prefix list resolver whose rules you want to retrieve.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Sorts")]
-        public Amazon.ConnectCases.Model.SearchAllRelatedItemsSort[] Sort { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String IpamPrefixListResolverId { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return per page.</para>
+        /// <para>The maximum number of items to return for this request. To get the next page of items,
+        /// make another request with the token returned in the output. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -141,8 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of results. Use the value returned in the previous response
-        /// in the next request to retrieve the next set of results.</para>
+        /// <para>The token for the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -155,23 +125,13 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'RelatedItems'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectCases.Model.SearchAllRelatedItemsResponse).
-        /// Specifying the name of a property of type Amazon.ConnectCases.Model.SearchAllRelatedItemsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Rules'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.GetIpamPrefixListResolverRulesResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.GetIpamPrefixListResolverRulesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "RelatedItems";
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
+        public string Select { get; set; } = "Rules";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -193,12 +153,6 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DomainId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Search-CCASAllRelatedItem (SearchAllRelatedItems)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -206,20 +160,21 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ConnectCases.Model.SearchAllRelatedItemsResponse, SearchCCASAllRelatedItemCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.GetIpamPrefixListResolverRulesResponse, GetEC2IpamPrefixListResolverRuleCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.DomainId = this.DomainId;
-            #if MODULAR
-            if (this.DomainId == null && ParameterWasBound(nameof(this.DomainId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DomainId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.DryRun = this.DryRun;
             if (this.Filter != null)
             {
-                context.Filter = new List<Amazon.ConnectCases.Model.RelatedItemTypeFilter>(this.Filter);
+                context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
+            context.IpamPrefixListResolverId = this.IpamPrefixListResolverId;
+            #if MODULAR
+            if (this.IpamPrefixListResolverId == null && ParameterWasBound(nameof(this.IpamPrefixListResolverId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter IpamPrefixListResolverId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -231,10 +186,6 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             }
             #endif
             context.NextToken = this.NextToken;
-            if (this.Sort != null)
-            {
-                context.Sort = new List<Amazon.ConnectCases.Model.SearchAllRelatedItemsSort>(this.Sort);
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -251,23 +202,23 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.ConnectCases.Model.SearchAllRelatedItemsRequest();
+            var request = new Amazon.EC2.Model.GetIpamPrefixListResolverRulesRequest();
             
-            if (cmdletContext.DomainId != null)
+            if (cmdletContext.DryRun != null)
             {
-                request.DomainId = cmdletContext.DomainId;
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
             }
+            if (cmdletContext.IpamPrefixListResolverId != null)
+            {
+                request.IpamPrefixListResolverId = cmdletContext.IpamPrefixListResolverId;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
-            }
-            if (cmdletContext.Sort != null)
-            {
-                request.Sorts = cmdletContext.Sort;
             }
             
             // Initialize loop variant and commence piping
@@ -326,12 +277,12 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         #region AWS Service Operation Call
         
-        private Amazon.ConnectCases.Model.SearchAllRelatedItemsResponse CallAWSServiceOperation(IAmazonConnectCases client, Amazon.ConnectCases.Model.SearchAllRelatedItemsRequest request)
+        private Amazon.EC2.Model.GetIpamPrefixListResolverRulesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetIpamPrefixListResolverRulesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Cases", "SearchAllRelatedItems");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetIpamPrefixListResolverRules");
             try
             {
-                return client.SearchAllRelatedItemsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetIpamPrefixListResolverRulesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -348,13 +299,13 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DomainId { get; set; }
-            public List<Amazon.ConnectCases.Model.RelatedItemTypeFilter> Filter { get; set; }
+            public System.Boolean? DryRun { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filter { get; set; }
+            public System.String IpamPrefixListResolverId { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public List<Amazon.ConnectCases.Model.SearchAllRelatedItemsSort> Sort { get; set; }
-            public System.Func<Amazon.ConnectCases.Model.SearchAllRelatedItemsResponse, SearchCCASAllRelatedItemCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.RelatedItems;
+            public System.Func<Amazon.EC2.Model.GetIpamPrefixListResolverRulesResponse, GetEC2IpamPrefixListResolverRuleCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Rules;
         }
         
     }

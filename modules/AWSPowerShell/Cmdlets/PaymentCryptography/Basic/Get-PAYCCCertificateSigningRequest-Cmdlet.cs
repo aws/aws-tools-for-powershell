@@ -30,7 +30,7 @@ using Amazon.PaymentCryptography.Model;
 namespace Amazon.PowerShell.Cmdlets.PAYCC
 {
     /// <summary>
-    /// Used to retrieve the public key for a keypair.
+    /// Creates a certificate signing request (CSR) from a key pair.
     /// </summary>
     [Cmdlet("Get", "PAYCCCertificateSigningRequest")]
     [OutputType("System.String")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter CertificateSubject_City
         /// <summary>
         /// <para>
-        /// <para>City to be used in the certificate signing request</para>
+        /// <para>The city you provide to create the certificate signing request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter CertificateSubject_CommonName
         /// <summary>
         /// <para>
-        /// <para>Common Name to be used in the certificate signing request</para>
+        /// <para>The name you provide to create the certificate signing request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter CertificateSubject_Country
         /// <summary>
         /// <para>
-        /// <para>Country to be used in the certificate signing request</para>
+        /// <para>The city you provide to create the certificate signing request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter CertificateSubject_EmailAddress
         /// <summary>
         /// <para>
-        /// <para>Email to be used in the certificate signing request</para>
+        /// <para>The email address you provide to create the certificate signing request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter CertificateSubject_Organization
         /// <summary>
         /// <para>
-        /// <para>Organization to be used in the certificate signing request</para>
+        /// <para>The organization you provide to create the certificate signing request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter CertificateSubject_OrganizationUnit
         /// <summary>
         /// <para>
-        /// <para>Organization Unit to be used in the certificate signing request</para>
+        /// <para>The organization unit you provide to create the certificate signing request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter SigningAlgorithm
         /// <summary>
         /// <para>
-        /// <para>Algorithm used to generate the certificate signing request</para>
+        /// <para>The cryptographic algorithm used to sign your CSR.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter CertificateSubject_StateOrProvince
         /// <summary>
         /// <para>
-        /// <para>State Or Province to be used in the certificate signing request</para>
+        /// <para>The state or province you provide to create the certificate signing request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

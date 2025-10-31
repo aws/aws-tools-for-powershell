@@ -91,7 +91,10 @@ $EC2_Completers = {
         }
 
         # Amazon.EC2.AddressFamily
-        "New-EC2IpamPool/AddressFamily"
+        {
+            ($_ -eq "New-EC2IpamPool/AddressFamily") -Or
+            ($_ -eq "New-EC2IpamPrefixListResolver/AddressFamily")
+        }
         {
             $v = "ipv4","ipv6"
             break
@@ -1356,7 +1359,7 @@ $EC2_Completers = {
 }
 
 $EC2_map = @{
-    "AddressFamily"=@("New-EC2IpamPool")
+    "AddressFamily"=@("New-EC2IpamPool","New-EC2IpamPrefixListResolver")
     "Affinity"=@("Edit-EC2InstancePlacement")
     "AllowedImagesSettingsState"=@("Enable-EC2AllowedImagesSetting")
     "Architecture"=@("Register-EC2Image")
@@ -1649,6 +1652,8 @@ $EC2_SelectMap = @{
                "New-EC2Ipam",
                "New-EC2IpamExternalResourceVerificationToken",
                "New-EC2IpamPool",
+               "New-EC2IpamPrefixListResolver",
+               "New-EC2IpamPrefixListResolverTarget",
                "New-EC2IpamResourceDiscovery",
                "New-EC2IpamScope",
                "New-EC2KeyPair",
@@ -1735,6 +1740,8 @@ $EC2_SelectMap = @{
                "Remove-EC2Ipam",
                "Remove-EC2IpamExternalResourceVerificationToken",
                "Remove-EC2IpamPool",
+               "Remove-EC2IpamPrefixListResolver",
+               "Remove-EC2IpamPrefixListResolverTarget",
                "Remove-EC2IpamResourceDiscovery",
                "Remove-EC2IpamScope",
                "Remove-EC2KeyPair",
@@ -1877,6 +1884,8 @@ $EC2_SelectMap = @{
                "Get-EC2IpamByoasn",
                "Get-EC2IpamExternalResourceVerificationToken",
                "Get-EC2IpamPool",
+               "Get-EC2IpamPrefixListResolver",
+               "Get-EC2IpamPrefixListResolverTarget",
                "Get-EC2IpamResourceDiscovery",
                "Get-EC2IpamResourceDiscoveryAssociation",
                "Get-EC2Ipam",
@@ -2079,6 +2088,9 @@ $EC2_SelectMap = @{
                "Get-EC2IpamDiscoveredResourceCidr",
                "Get-EC2IpamPoolAllocation",
                "Get-EC2IpamPoolCidr",
+               "Get-EC2IpamPrefixListResolverRule",
+               "Get-EC2IpamPrefixListResolverVersionEntry",
+               "Get-EC2IpamPrefixListResolverVersion",
                "Get-EC2IpamResourceCidr",
                "Get-EC2LaunchTemplateData",
                "Get-EC2ManagedPrefixListAssociation",
@@ -2141,6 +2153,8 @@ $EC2_SelectMap = @{
                "Edit-EC2InstancePlacement",
                "Edit-EC2Ipam",
                "Edit-EC2IpamPool",
+               "Edit-EC2IpamPrefixListResolver",
+               "Edit-EC2IpamPrefixListResolverTarget",
                "Edit-EC2IpamResourceCidr",
                "Edit-EC2IpamResourceDiscovery",
                "Edit-EC2IpamScope",

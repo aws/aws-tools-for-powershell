@@ -70,7 +70,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The filters.</para><ul><li><para><c>creation-time</c> - The time when the report was created, in the ISO 8601 format
         /// in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <c>2025-11-29T11:04:43.305Z</c>.
         /// You can use a wildcard (<c>*</c>), for example, <c>2025-11-29T*</c>, which matches
-        /// an entire day.</para></li><li><para><c>state</c> - The state of the report (<c>available</c> | <c>pending</c> | <c>error</c>).</para></li></ul><para />
+        /// an entire day.</para></li><li><para><c>state</c> - The state of the report (<c>available</c> | <c>pending</c> | <c>error</c>).</para></li><li><para><c>tag:&lt;key&gt;</c> - The key/value combination of a tag assigned to the resource.
+        /// Use the tag key in the filter name and the tag value as the filter value. For example,
+        /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
+        /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
+        /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

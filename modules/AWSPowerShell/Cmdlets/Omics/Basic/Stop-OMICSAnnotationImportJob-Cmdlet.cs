@@ -30,7 +30,7 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Cancels an annotation import job.
+    /// Amazon.Omics.IAmazonOmics.CancelAnnotationImportJob
     /// </summary>
     [Cmdlet("Stop", "OMICSAnnotationImportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

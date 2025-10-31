@@ -30,7 +30,7 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Starts an annotation import job.
+    /// Amazon.Omics.IAmazonOmics.StartAnnotationImportJob
     /// </summary>
     [Cmdlet("Start", "OMICSAnnotationImportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

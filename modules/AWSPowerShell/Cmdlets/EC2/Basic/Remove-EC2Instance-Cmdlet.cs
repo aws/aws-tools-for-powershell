@@ -30,11 +30,19 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Shuts down the specified instances. This operation is <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">idempotent</a>;
+    /// Terminates (deletes) the specified instances. This operation is <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">idempotent</a>;
     /// if you terminate an instance more than once, each call succeeds.
     /// 
-    ///  
-    /// <para>
+    ///  <important><para><b>Terminating an instance is permanent and irreversible.</b></para><para>
+    /// After you terminate an instance, you can no longer connect to it, and it can't be
+    /// recovered. All attached Amazon EBS volumes that are configured to be deleted on termination
+    /// are also permanently deleted and can't be recovered. All data stored on instance store
+    /// volumes is permanently lost. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-ec2-instance-termination-works.html">
+    /// How instance termination works</a>.
+    /// </para><para>
+    /// Before you terminate an instance, ensure that you have backed up all data that you
+    /// need to retain after the termination to persistent storage.
+    /// </para></important><para>
     /// If you specify multiple instances and the request fails (for example, because of a
     /// single incorrect instance ID), none of the instances are terminated.
     /// </para><para>

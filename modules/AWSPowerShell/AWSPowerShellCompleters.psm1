@@ -26582,7 +26582,10 @@ $EC2_Completers = {
         }
 
         # Amazon.EC2.AddressFamily
-        "New-EC2IpamPool/AddressFamily"
+        {
+            ($_ -eq "New-EC2IpamPool/AddressFamily") -Or
+            ($_ -eq "New-EC2IpamPrefixListResolver/AddressFamily")
+        }
         {
             $v = "ipv4","ipv6"
             break
@@ -27847,7 +27850,7 @@ $EC2_Completers = {
 }
 
 $EC2_map = @{
-    "AddressFamily"=@("New-EC2IpamPool")
+    "AddressFamily"=@("New-EC2IpamPool","New-EC2IpamPrefixListResolver")
     "Affinity"=@("Edit-EC2InstancePlacement")
     "AllowedImagesSettingsState"=@("Enable-EC2AllowedImagesSetting")
     "Architecture"=@("Register-EC2Image")
@@ -28140,6 +28143,8 @@ $EC2_SelectMap = @{
                "New-EC2Ipam",
                "New-EC2IpamExternalResourceVerificationToken",
                "New-EC2IpamPool",
+               "New-EC2IpamPrefixListResolver",
+               "New-EC2IpamPrefixListResolverTarget",
                "New-EC2IpamResourceDiscovery",
                "New-EC2IpamScope",
                "New-EC2KeyPair",
@@ -28226,6 +28231,8 @@ $EC2_SelectMap = @{
                "Remove-EC2Ipam",
                "Remove-EC2IpamExternalResourceVerificationToken",
                "Remove-EC2IpamPool",
+               "Remove-EC2IpamPrefixListResolver",
+               "Remove-EC2IpamPrefixListResolverTarget",
                "Remove-EC2IpamResourceDiscovery",
                "Remove-EC2IpamScope",
                "Remove-EC2KeyPair",
@@ -28368,6 +28375,8 @@ $EC2_SelectMap = @{
                "Get-EC2IpamByoasn",
                "Get-EC2IpamExternalResourceVerificationToken",
                "Get-EC2IpamPool",
+               "Get-EC2IpamPrefixListResolver",
+               "Get-EC2IpamPrefixListResolverTarget",
                "Get-EC2IpamResourceDiscovery",
                "Get-EC2IpamResourceDiscoveryAssociation",
                "Get-EC2Ipam",
@@ -28570,6 +28579,9 @@ $EC2_SelectMap = @{
                "Get-EC2IpamDiscoveredResourceCidr",
                "Get-EC2IpamPoolAllocation",
                "Get-EC2IpamPoolCidr",
+               "Get-EC2IpamPrefixListResolverRule",
+               "Get-EC2IpamPrefixListResolverVersionEntry",
+               "Get-EC2IpamPrefixListResolverVersion",
                "Get-EC2IpamResourceCidr",
                "Get-EC2LaunchTemplateData",
                "Get-EC2ManagedPrefixListAssociation",
@@ -28632,6 +28644,8 @@ $EC2_SelectMap = @{
                "Edit-EC2InstancePlacement",
                "Edit-EC2Ipam",
                "Edit-EC2IpamPool",
+               "Edit-EC2IpamPrefixListResolver",
+               "Edit-EC2IpamPrefixListResolverTarget",
                "Edit-EC2IpamResourceCidr",
                "Edit-EC2IpamResourceDiscovery",
                "Edit-EC2IpamScope",
@@ -45893,7 +45907,7 @@ $LM_Completers = {
             ($_ -eq "Update-LMFunctionConfiguration/Runtime")
         }
         {
-            $v = "dotnet6","dotnet8","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java17","java21","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs20.x","nodejs22.x","nodejs24.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","provided.al2023","python2.7","python3.10","python3.11","python3.12","python3.13","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7","ruby3.2","ruby3.3","ruby3.4"
+            $v = "dotnet6","dotnet8","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java17","java21","java25","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs20.x","nodejs22.x","nodejs24.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","provided.al2023","python2.7","python3.10","python3.11","python3.12","python3.13","python3.14","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7","ruby3.2","ruby3.3","ruby3.4"
             break
         }
 
@@ -56230,7 +56244,7 @@ $OMICS_Completers = {
             ($_ -eq "New-OMICSWorkflowVersion/Engine")
         }
         {
-            $v = "CWL","NEXTFLOW","WDL"
+            $v = "CWL","NEXTFLOW","WDL","WDL_LENIENT"
             break
         }
 

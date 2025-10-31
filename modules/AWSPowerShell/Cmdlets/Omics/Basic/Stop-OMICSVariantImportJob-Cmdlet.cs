@@ -30,7 +30,7 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Cancels a variant import job.
+    /// Amazon.Omics.IAmazonOmics.CancelVariantImportJob
     /// </summary>
     [Cmdlet("Stop", "OMICSVariantImportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

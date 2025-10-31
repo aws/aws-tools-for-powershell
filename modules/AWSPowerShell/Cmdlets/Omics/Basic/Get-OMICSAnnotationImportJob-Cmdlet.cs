@@ -30,7 +30,7 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Gets information about an annotation import job.
+    /// Amazon.Omics.IAmazonOmics.GetAnnotationImportJob
     /// </summary>
     [Cmdlet("Get", "OMICSAnnotationImportJob")]
     [OutputType("Amazon.Omics.Model.GetAnnotationImportJobResponse")]

@@ -218,6 +218,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String NotebookInstanceName { get; set; }
         #endregion
         
+        #region Parameter PlatformIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The platform identifier of the notebook instance runtime environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PlatformIdentifier { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
@@ -328,6 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter NotebookInstanceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PlatformIdentifier = this.PlatformIdentifier;
             context.RoleArn = this.RoleArn;
             context.RootAccess = this.RootAccess;
             context.VolumeSizeInGB = this.VolumeSizeInGB;
@@ -410,6 +421,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.NotebookInstanceName = cmdletContext.NotebookInstanceName;
             }
+            if (cmdletContext.PlatformIdentifier != null)
+            {
+                request.PlatformIdentifier = cmdletContext.PlatformIdentifier;
+            }
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
@@ -489,6 +504,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.IPAddressType IpAddressType { get; set; }
             public System.String LifecycleConfigName { get; set; }
             public System.String NotebookInstanceName { get; set; }
+            public System.String PlatformIdentifier { get; set; }
             public System.String RoleArn { get; set; }
             public Amazon.SageMaker.RootAccess RootAccess { get; set; }
             public System.Int32? VolumeSizeInGB { get; set; }

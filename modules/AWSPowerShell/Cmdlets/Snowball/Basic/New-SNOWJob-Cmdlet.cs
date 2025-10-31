@@ -288,7 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter WirelessConnection_IsWifiEnabled
         /// <summary>
         /// <para>
-        /// <para>Enables the Wi-Fi adapter on an Snowcone device.</para>
+        /// <para>Enables the Wi-Fi adapter on an Snowball Edge device.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

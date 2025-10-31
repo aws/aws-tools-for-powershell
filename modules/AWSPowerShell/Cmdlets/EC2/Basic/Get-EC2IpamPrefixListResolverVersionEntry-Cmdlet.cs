@@ -23,58 +23,82 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Omics;
-using Amazon.Omics.Model;
+using Amazon.EC2;
+using Amazon.EC2.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.OMICS
+namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Amazon.Omics.IAmazonOmics.ListVariantStores<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// Retrieves the CIDR entries for a specific version of an IPAM prefix list resolver.
+    /// This shows the actual CIDRs that were selected and synchronized at a particular point
+    /// in time.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "OMICSVariantStoreList")]
-    [OutputType("Amazon.Omics.Model.VariantStoreItem")]
-    [AWSCmdlet("Calls the Amazon Omics ListVariantStores API operation.", Operation = new[] {"ListVariantStores"}, SelectReturnType = typeof(Amazon.Omics.Model.ListVariantStoresResponse))]
-    [AWSCmdletOutput("Amazon.Omics.Model.VariantStoreItem or Amazon.Omics.Model.ListVariantStoresResponse",
-        "This cmdlet returns a collection of Amazon.Omics.Model.VariantStoreItem objects.",
-        "The service call response (type Amazon.Omics.Model.ListVariantStoresResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "EC2IpamPrefixListResolverVersionEntry")]
+    [OutputType("Amazon.EC2.Model.IpamPrefixListResolverVersionEntry")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetIpamPrefixListResolverVersionEntries API operation.", Operation = new[] {"GetIpamPrefixListResolverVersionEntries"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamPrefixListResolverVersionEntriesResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.IpamPrefixListResolverVersionEntry or Amazon.EC2.Model.GetIpamPrefixListResolverVersionEntriesResponse",
+        "This cmdlet returns a collection of Amazon.EC2.Model.IpamPrefixListResolverVersionEntry objects.",
+        "The service call response (type Amazon.EC2.Model.GetIpamPrefixListResolverVersionEntriesResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetOMICSVariantStoreListCmdlet : AmazonOmicsClientCmdlet, IExecutor
+    public partial class GetEC2IpamPrefixListResolverVersionEntryCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Id
+        #region Parameter DryRun
         /// <summary>
         /// <para>
-        /// <para>A list of store IDs.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// <para>A check for whether you have the required permissions for the action without actually
+        /// making the request and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Ids")]
-        public System.String[] Id { get; set; }
+        public System.Boolean? DryRun { get; set; }
         #endregion
         
-        #region Parameter Filter_Status
+        #region Parameter IpamPrefixListResolverId
         /// <summary>
         /// <para>
-        /// <para>A status to filter on.</para>
+        /// <para>The ID of the IPAM prefix list resolver whose version entries you want to retrieve.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        [AWSConstantClassSource("Amazon.Omics.StoreStatus")]
-        public Amazon.Omics.StoreStatus Filter_Status { get; set; }
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String IpamPrefixListResolverId { get; set; }
+        #endregion
+        
+        #region Parameter IpamPrefixListResolverVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version number of the resolver for which to retrieve CIDR entries. If not specified,
+        /// the latest version is used.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.Int64? IpamPrefixListResolverVersion { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of stores to return in one page of results.</para>
+        /// <para>The maximum number of items to return for this request. To get the next page of items,
+        /// make another request with the token returned in the output. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -90,8 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Specify the pagination token from a previous request to retrieve the next page of
-        /// results.</para>
+        /// <para>The token for the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -104,13 +127,13 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'VariantStores'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Omics.Model.ListVariantStoresResponse).
-        /// Specifying the name of a property of type Amazon.Omics.Model.ListVariantStoresResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Entries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.GetIpamPrefixListResolverVersionEntriesResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.GetIpamPrefixListResolverVersionEntriesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "VariantStores";
+        public string Select { get; set; } = "Entries";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -118,7 +141,6 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
         /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
         /// as the start point.
-        /// This cmdlet didn't autopaginate in V4. To preserve the V4 autopagination behavior for all cmdlets, run Set-AWSAutoIterationMode -IterationMode v4.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter NoAutoIteration { get; set; }
@@ -140,14 +162,24 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Omics.Model.ListVariantStoresResponse, GetOMICSVariantStoreListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.GetIpamPrefixListResolverVersionEntriesResponse, GetEC2IpamPrefixListResolverVersionEntryCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Filter_Status = this.Filter_Status;
-            if (this.Id != null)
+            context.DryRun = this.DryRun;
+            context.IpamPrefixListResolverId = this.IpamPrefixListResolverId;
+            #if MODULAR
+            if (this.IpamPrefixListResolverId == null && ParameterWasBound(nameof(this.IpamPrefixListResolverId)))
             {
-                context.Id = new List<System.String>(this.Id);
+                WriteWarning("You are passing $null as a value for parameter IpamPrefixListResolverId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
+            context.IpamPrefixListResolverVersion = this.IpamPrefixListResolverVersion;
+            #if MODULAR
+            if (this.IpamPrefixListResolverVersion == null && ParameterWasBound(nameof(this.IpamPrefixListResolverVersion)))
+            {
+                WriteWarning("You are passing $null as a value for parameter IpamPrefixListResolverVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -175,30 +207,19 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.Omics.Model.ListVariantStoresRequest();
+            var request = new Amazon.EC2.Model.GetIpamPrefixListResolverVersionEntriesRequest();
             
-            
-             // populate Filter
-            var requestFilterIsNull = true;
-            request.Filter = new Amazon.Omics.Model.ListVariantStoresFilter();
-            Amazon.Omics.StoreStatus requestFilter_filter_Status = null;
-            if (cmdletContext.Filter_Status != null)
+            if (cmdletContext.DryRun != null)
             {
-                requestFilter_filter_Status = cmdletContext.Filter_Status;
+                request.DryRun = cmdletContext.DryRun.Value;
             }
-            if (requestFilter_filter_Status != null)
+            if (cmdletContext.IpamPrefixListResolverId != null)
             {
-                request.Filter.Status = requestFilter_filter_Status;
-                requestFilterIsNull = false;
+                request.IpamPrefixListResolverId = cmdletContext.IpamPrefixListResolverId;
             }
-             // determine if request.Filter should be set to null
-            if (requestFilterIsNull)
+            if (cmdletContext.IpamPrefixListResolverVersion != null)
             {
-                request.Filter = null;
-            }
-            if (cmdletContext.Id != null)
-            {
-                request.Ids = cmdletContext.Id;
+                request.IpamPrefixListResolverVersion = cmdletContext.IpamPrefixListResolverVersion.Value;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -208,7 +229,6 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             // Initialize loop variant and commence piping
             var _nextToken = cmdletContext.NextToken;
             var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
-            var _shouldAutoIterate = !(SessionState.PSVariable.GetValue("AWSPowerShell_AutoIteration_Mode")?.ToString() == "v4");
             
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             do
@@ -242,7 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                 
                 ProcessOutput(output);
                 
-            } while (!_userControllingPaging && _shouldAutoIterate && AutoIterationHelpers.HasValue(_nextToken));
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
             
             if (useParameterSelect)
             {
@@ -262,12 +282,12 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         
         #region AWS Service Operation Call
         
-        private Amazon.Omics.Model.ListVariantStoresResponse CallAWSServiceOperation(IAmazonOmics client, Amazon.Omics.Model.ListVariantStoresRequest request)
+        private Amazon.EC2.Model.GetIpamPrefixListResolverVersionEntriesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetIpamPrefixListResolverVersionEntriesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Omics", "ListVariantStores");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetIpamPrefixListResolverVersionEntries");
             try
             {
-                return client.ListVariantStoresAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetIpamPrefixListResolverVersionEntriesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -284,12 +304,13 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.Omics.StoreStatus Filter_Status { get; set; }
-            public List<System.String> Id { get; set; }
+            public System.Boolean? DryRun { get; set; }
+            public System.String IpamPrefixListResolverId { get; set; }
+            public System.Int64? IpamPrefixListResolverVersion { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.Omics.Model.ListVariantStoresResponse, GetOMICSVariantStoreListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.VariantStores;
+            public System.Func<Amazon.EC2.Model.GetIpamPrefixListResolverVersionEntriesResponse, GetEC2IpamPrefixListResolverVersionEntryCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Entries;
         }
         
     }

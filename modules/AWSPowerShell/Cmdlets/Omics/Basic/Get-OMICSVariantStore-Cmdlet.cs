@@ -30,7 +30,7 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Gets information about a variant store.
+    /// Amazon.Omics.IAmazonOmics.GetVariantStore
     /// </summary>
     [Cmdlet("Get", "OMICSVariantStore")]
     [OutputType("Amazon.Omics.Model.GetVariantStoreResponse")]

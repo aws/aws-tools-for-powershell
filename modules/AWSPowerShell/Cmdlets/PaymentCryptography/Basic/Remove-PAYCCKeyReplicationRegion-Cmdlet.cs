@@ -38,11 +38,13 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// <para>
     /// When you remove Replication Regions, the key material is securely deleted from those
     /// regions and can no longer be used for cryptographic operations there. This operation
-    /// is irreversible for the specified Amazon Web Services Regions.
-    /// </para><para>
+    /// is irreversible for the specified Amazon Web Services Regions. For more information,
+    /// see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-multi-region-replication.html">Multi-Region
+    /// key replication</a>.
+    /// </para><important><para>
     /// Ensure that no active cryptographic operations or applications depend on the key in
     /// the regions you're removing before performing this operation.
-    /// </para><para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
+    /// </para></important><para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
     /// Services accounts.
     /// </para><para><b>Related operations:</b></para><ul><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_AddKeyReplicationRegions.html">AddKeyReplicationRegions</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DisableDefaultKeyReplicationRegions.html">DisableDefaultKeyReplicationRegions</a></para></li></ul>
     /// </summary>

@@ -419,6 +419,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateIpamPrefixListResolver" OutputProperty="IpamPrefixListResolver" Verb="New" Noun="IpamPrefixListResolver" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIpamPrefixListResolverTarget" OutputProperty="IpamPrefixListResolverTarget" Verb="New" Noun="IpamPrefixListResolverTarget" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateIpamResourceDiscovery" OutputProperty="IpamResourceDiscovery" Verb="New" Noun="IpamResourceDiscovery" ShouldProcessTarget="Description" PipelineParameter="Description" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -780,6 +788,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteIpamPool" OutputProperty="IpamPool" Verb="Remove" Noun="IpamPool" ShouldProcessTarget="IpamPoolId" PipelineParameter="IpamPoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIpamPrefixListResolver" OutputProperty="IpamPrefixListResolver" Verb="Remove" Noun="IpamPrefixListResolver" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIpamPrefixListResolverTarget" OutputProperty="IpamPrefixListResolverTarget" Verb="Remove" Noun="IpamPrefixListResolverTarget" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1360,6 +1376,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeIpamPools" OutputProperty="IpamPools" Verb="Get" Noun="IpamPool" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIpamPrefixListResolvers" OutputProperty="IpamPrefixListResolvers" Verb="Get" Noun="IpamPrefixListResolver" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIpamPrefixListResolverTargets" OutputProperty="IpamPrefixListResolverTargets" Verb="Get" Noun="IpamPrefixListResolverTarget" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2193,6 +2217,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetIpamPrefixListResolverRules" OutputProperty="Rules" Verb="Get" Noun="IpamPrefixListResolverRule" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIpamPrefixListResolverVersionEntries" OutputProperty="Entries" Verb="Get" Noun="IpamPrefixListResolverVersionEntry" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIpamPrefixListResolverVersions" OutputProperty="IpamPrefixListResolverVersions" Verb="Get" Noun="IpamPrefixListResolverVersion" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetIpamResourceCidrs" OutputProperty="IpamResourceCidrs" Verb="Get" Noun="IpamResourceCidr" PipelineParameter="IpamScopeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -2457,6 +2493,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyIpamPool" OutputProperty="IpamPool" Verb="Edit" Noun="IpamPool" ShouldProcessTarget="IpamPoolId" PipelineParameter="IpamPoolId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyIpamPrefixListResolver" OutputProperty="IpamPrefixListResolver" Verb="Edit" Noun="IpamPrefixListResolver" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyIpamPrefixListResolverTarget" OutputProperty="IpamPrefixListResolverTarget" Verb="Edit" Noun="IpamPrefixListResolverTarget" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

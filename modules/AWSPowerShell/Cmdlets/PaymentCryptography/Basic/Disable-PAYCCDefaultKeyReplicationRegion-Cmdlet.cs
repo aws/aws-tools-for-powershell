@@ -30,15 +30,16 @@ using Amazon.PaymentCryptography.Model;
 namespace Amazon.PowerShell.Cmdlets.PAYCC
 {
     /// <summary>
-    /// Disables multi-region key replication settings for the specified Amazon Web Services
-    /// Regions in your account, preventing new keys from being automatically replicated to
-    /// those regions.
+    /// Disables <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-multi-region-replication.html">Multi-Region
+    /// key replication</a> settings for the specified Amazon Web Services Regions in your
+    /// Amazon Web Services account, preventing new keys from being automatically replicated
+    /// to those regions.
     /// 
     ///  
     /// <para>
-    /// After disabling default replication for specific regions, new keys created in your
-    /// account will not be automatically replicated to those regions. You can still manually
-    /// add replication to those regions for individual keys using the AddKeyReplicationRegions
+    /// After disabling Multi-Region key replication for specific regions, new keys created
+    /// in your account will not be automatically replicated to those regions. You can still
+    /// manually add replication to those regions for individual keys using the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_AddKeyReplicationRegions.html">AddKeyReplicationRegions</a>
     /// operation.
     /// </para><para>
     /// This operation does not affect existing keys or their current replication configuration.
