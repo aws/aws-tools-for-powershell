@@ -168,8 +168,8 @@ namespace Amazon.PowerShell.Common
                 return;
             }
 
-            // We may use serviceUrl parameter to override the endpoint.
-            signinClient = SigninServiceClientHelpers.BuildSigninClient(RegionEndpoint.GetBySystemName(Region));
+            // We may use serviceUrl parameter to override the endpoint. Setting ProfileName doesn't matter since we need it in pipeline handler only for refresh_token scenario.
+            signinClient = SigninServiceClientHelpers.BuildSigninClient(RegionEndpoint.GetBySystemName(Region), null);
             baseEndpoint = signinClient.GetBaseEndpoint();
             WriteVerbose($"Base endpoint determined as '{baseEndpoint}'.");
 
@@ -217,11 +217,11 @@ namespace Amazon.PowerShell.Common
             }
 
             // Exchange auth code for token
-            var exchangeAuthCodeForTokenResult = await AWSLoginUtils.ExchangeAuthCodeForTokenAsync(signinClient, baseEndpoint, clientId, pkceParameters.CodeVerifier, redirectUri, authCode, _cancellationTokenSource.Token);
+            var exchangeAuthCodeForTokenResponse = await AWSLoginUtils.ExchangeAuthCodeForTokenAsync(signinClient, baseEndpoint, clientId, pkceParameters.CodeVerifier, redirectUri, authCode, _cancellationTokenSource.Token);
 
-            // Process Token received after exchanging auth code (save toke, update profile with login_session, etc.).
-            bool tokenProcessed = await AWSLoginUtils.ProcessTokenFromAuthCodeRedemptionAsync(exchangeAuthCodeForTokenResult.CreateOAuth2TokenResponse, clientId, exchangeAuthCodeForTokenResult.DPoPKeyPem, ProfileName, Region, _cancellationTokenSource.Token);
-            if (tokenProcessed)
+            // Process result of CreateOAuth2Token call to update profile with login_session. Token is persisted in call to CreateOAuth2TokenAsync itself by pipeline handler.
+            bool tokenAndProfileProcessed = await AWSLoginUtils.UpdateProfileAfterAuthCodeRedemptionAsync(exchangeAuthCodeForTokenResponse, ProfileName, Region, _cancellationTokenSource.Token);
+            if (tokenAndProfileProcessed)
             {
                 Console.WriteLine($"Login completed successfully for profile '{ProfileName}'");
             }
@@ -234,8 +234,8 @@ namespace Amazon.PowerShell.Common
             var pkceParameters = PkceUtils.GeneratePkceParameters();
             var clientId = LoginUtils.ClientIdCrossDevice;
 
-            // We may use serviceUrl parameter to override the endpoint.
-            var signinClient = SigninServiceClientHelpers.BuildSigninClient(RegionEndpoint.GetBySystemName(Region));
+            // We may use serviceUrl parameter to override the endpoint. Setting ProfileName doesn't matter since we need it in pipeline handler only for refresh_token scenario.
+            var signinClient = SigninServiceClientHelpers.BuildSigninClient(RegionEndpoint.GetBySystemName(Region), null);
             string baseEndpoint = signinClient.GetBaseEndpoint();
             string redirectUri = (new UriBuilder(baseEndpoint) { Path = CrossDeviceRedirectUriPath }).Uri.ToString();
 
@@ -274,11 +274,11 @@ namespace Amazon.PowerShell.Common
             }
 
             // Exchange auth code for token
-            var exchangeAuthCodeForTokenResult = await AWSLoginUtils.ExchangeAuthCodeForTokenAsync(signinClient, baseEndpoint, clientId, pkceParameters.CodeVerifier, redirectUri, authCode, _cancellationTokenSource.Token);
+            var exchangeAuthCodeForTokenResponse = await AWSLoginUtils.ExchangeAuthCodeForTokenAsync(signinClient, baseEndpoint, clientId, pkceParameters.CodeVerifier, redirectUri, authCode, _cancellationTokenSource.Token);
 
-            // Process Token received after exchanging auth code (save toke, update profile with login_session, etc.).
-            bool tokenProcessed = await AWSLoginUtils.ProcessTokenFromAuthCodeRedemptionAsync(exchangeAuthCodeForTokenResult.CreateOAuth2TokenResponse, clientId, exchangeAuthCodeForTokenResult.DPoPKeyPem, ProfileName, Region, _cancellationTokenSource.Token);
-            if (tokenProcessed)
+            // Process result of CreateOAuth2Token call to update profile with login_session. Token is persisted in call to CreateOAuth2TokenAsync itself by pipeline handler.
+            bool tokenAndProfileProcessed = await AWSLoginUtils.UpdateProfileAfterAuthCodeRedemptionAsync(exchangeAuthCodeForTokenResponse, ProfileName, Region, _cancellationTokenSource.Token);
+            if (tokenAndProfileProcessed)
             {
                 Console.WriteLine($"Login completed successfully for profile '{ProfileName}'");
             }
@@ -415,16 +415,6 @@ namespace Amazon.PowerShell.Common
                     return false;
                 }
             }
-        }
-
-        internal class ExchangeAuthCodeForTokenResult
-        {
-            public CoreCreateOAuth2TokenResponse CreateOAuth2TokenResponse { get; set; }
-
-            /// <summary>
-            /// DPoP private key PEM file contents that was used for DPoP Proof generation.
-            /// </summary>
-            public string DPoPKeyPem { get; set; }
         }
     }
 

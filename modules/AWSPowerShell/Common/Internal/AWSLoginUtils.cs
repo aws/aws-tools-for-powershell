@@ -46,44 +46,42 @@ namespace Amazon.PowerShell.Common.Internal
     internal class AWSLoginUtils
     {
         /// <summary>
-        /// Extracts Login token from Auth Code redemption response. The saves the token in cache and updates the profile with login_session.
+        /// Verifies the login token persisted after call to CreateOAuth2Token and updates the specified profile with login session and region.
         /// </summary>
-        /// <param name="authCodeRedemptionResponse">Response received from CreateOAuth2Toke API.</param>
-        /// <param name="clientId">Client ID for the Login flow.</param>
-        /// <param name="dpopKeyPem">DPoP private key PEM file contents.</param>
+        /// <param name="createOAuth2TokenResponse">Response received from CreateOAuth2Toke API.</param>
+        /// <param name="profileName">Profile which needs to be updated or created.</param>
+        /// <param name="region"></param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns></returns>
-        internal static async Task<bool> ProcessTokenFromAuthCodeRedemptionAsync(CoreCreateOAuth2TokenResponse authCodeRedemptionResponse, string clientId, string dpopKeyPem, string profileName, string region, CancellationToken cancellationToken = default)
+        internal static async Task<bool> UpdateProfileAfterAuthCodeRedemptionAsync(CoreCreateOAuth2TokenResponse createOAuth2TokenResponse, string profileName, string region, CancellationToken cancellationToken = default)
         {
-            var loginToken = LoginUtils.MapCreateOAuth2TokenToLoginToken(authCodeRedemptionResponse, clientId, null, dpopKeyPem);
-            var loginSession = LoginUtils.ExtractLoginSessionFromIdentityToken(loginToken.IdentityToken);
-
-            var profileUpdated = UpdateProfile(profileName, loginSession, region);
-            if (!profileUpdated)
-            {
-                return false;
-            }
-
+            // Token is persisted in call to CreateOAuth2TokenAsync itself. We can try getting new token persisted in cache
+            var loginSession = LoginUtils.ExtractLoginSessionFromIdentityToken(createOAuth2TokenResponse.TokenOutput.IdToken);
             var loginTokenFileCache = new LoginTokenFileCache(
                 CryptoUtilFactory.CryptoInstance,
                 new FileRetriever(),
                 new DirectoryRetriever());
+            var tryGetLoginTokenResponse = await loginTokenFileCache.TryGetLoginTokenAsync(loginSession, null, cancellationToken);
 
-            await loginTokenFileCache.SaveLoginTokenAsync(loginSession, loginToken, null, cancellationToken);
-            return true;
+            // If new token was successfully retrieved based on login_session, then update the profile.
+            if (tryGetLoginTokenResponse.Success)
+            {
+                return UpdateProfile(profileName, loginSession, region);
+            }
+            return false;
         }
 
-        internal static async Task<ExchangeAuthCodeForTokenResult> ExchangeAuthCodeForTokenAsync(ICoreAmazonSignin signinClient, string baseEndpoint, string clientId, string codeVerifier, string redirectUri, string authCode, CancellationToken cancellation = default)
+        internal static async Task<CoreCreateOAuth2TokenResponse> ExchangeAuthCodeForTokenAsync(ICoreAmazonSignin signinClient, string baseEndpoint, string clientId, string codeVerifier, string redirectUri, string authCode, CancellationToken cancellation = default)
         {
-            UriBuilder uriBuilder = new UriBuilder(new Uri(baseEndpoint));
-            uriBuilder.Path = "/v1/token";
+            //UriBuilder uriBuilder = new UriBuilder(new Uri(baseEndpoint));
+            //uriBuilder.Path = "/v1/token";
 
-            string dpopKeyPem = null;
-            string dpopProof = signinClient.GenerateDPoPProof("POST", uriBuilder.Uri.ToString(), ref dpopKeyPem);
+            //string dpopKeyPem = null;
+            //tring dpopProof = signinClient.GenerateDPoPProof("POST", uriBuilder.Uri.ToString(), ref dpopKeyPem);
 
-            var createOAuth2TokenResponse = await signinClient.CreateOAuth2TokenAsync(new CoreCreateOAuth2TokenRequest()
+            return await signinClient.CreateOAuth2TokenAsync(new CoreCreateOAuth2TokenRequest()
             {
-                DpopProof = dpopProof,
+                //DpopProof = dpopProof,
                 TokenInput = new CoreCreateOAuth2TokenRequestBody()
                 {
                     ClientId = clientId,
@@ -93,12 +91,6 @@ namespace Amazon.PowerShell.Common.Internal
                     Code = authCode
                 }
             }, true, cancellation);
-
-            return new ExchangeAuthCodeForTokenResult
-            {
-                CreateOAuth2TokenResponse = createOAuth2TokenResponse,
-                DPoPKeyPem = dpopKeyPem
-            };
         }
 
         internal static bool UpdateProfile(string profileName, string loginSession, string region)
@@ -131,7 +123,7 @@ namespace Amazon.PowerShell.Common.Internal
 
         internal static string PromptForAuthorizationCode()
         {
-            Console.Write("Please enter the authorization code displayed in the browser: ");
+            Console.Write("Please enter the authorization code displayed in the browser:\n");
             return Console.ReadLine();
         }
 
