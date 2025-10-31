@@ -44,6 +44,28 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter FieldOptions_ChildFieldId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the child field whose options are controlled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Rule_FieldOptions_ChildFieldId")]
+        public System.String FieldOptions_ChildFieldId { get; set; }
+        #endregion
+        
+        #region Parameter Hidden_Condition
+        /// <summary>
+        /// <para>
+        /// <para>A list of conditions that determine field visibility.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Rule_Hidden_Conditions")]
+        public Amazon.ConnectCases.Model.BooleanCondition[] Hidden_Condition { get; set; }
+        #endregion
+        
         #region Parameter Required_Condition
         /// <summary>
         /// <para>
@@ -54,6 +76,17 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Rule_Required_Conditions")]
         public Amazon.ConnectCases.Model.BooleanCondition[] Required_Condition { get; set; }
+        #endregion
+        
+        #region Parameter Hidden_DefaultValue
+        /// <summary>
+        /// <para>
+        /// <para>Whether the field is hidden when no conditions match.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Rule_Hidden_DefaultValue")]
+        public System.Boolean? Hidden_DefaultValue { get; set; }
         #endregion
         
         #region Parameter Required_DefaultValue
@@ -110,6 +143,28 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter FieldOptions_ParentChildFieldOptionsMapping
+        /// <summary>
+        /// <para>
+        /// <para>A mapping between a parent field option value and child field option values.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Rule_FieldOptions_ParentChildFieldOptionsMappings")]
+        public Amazon.ConnectCases.Model.ParentChildFieldOptionsMapping[] FieldOptions_ParentChildFieldOptionsMapping { get; set; }
+        #endregion
+        
+        #region Parameter FieldOptions_ParentFieldId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the parent field that controls options.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Rule_FieldOptions_ParentFieldId")]
+        public System.String FieldOptions_ParentFieldId { get; set; }
         #endregion
         
         #region Parameter Select
@@ -189,6 +244,17 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.FieldOptions_ChildFieldId = this.FieldOptions_ChildFieldId;
+            if (this.FieldOptions_ParentChildFieldOptionsMapping != null)
+            {
+                context.FieldOptions_ParentChildFieldOptionsMapping = new List<Amazon.ConnectCases.Model.ParentChildFieldOptionsMapping>(this.FieldOptions_ParentChildFieldOptionsMapping);
+            }
+            context.FieldOptions_ParentFieldId = this.FieldOptions_ParentFieldId;
+            if (this.Hidden_Condition != null)
+            {
+                context.Hidden_Condition = new List<Amazon.ConnectCases.Model.BooleanCondition>(this.Hidden_Condition);
+            }
+            context.Hidden_DefaultValue = this.Hidden_DefaultValue;
             if (this.Required_Condition != null)
             {
                 context.Required_Condition = new List<Amazon.ConnectCases.Model.BooleanCondition>(this.Required_Condition);
@@ -226,6 +292,41 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
              // populate Rule
             var requestRuleIsNull = true;
             request.Rule = new Amazon.ConnectCases.Model.CaseRuleDetails();
+            Amazon.ConnectCases.Model.HiddenCaseRule requestRule_rule_Hidden = null;
+            
+             // populate Hidden
+            var requestRule_rule_HiddenIsNull = true;
+            requestRule_rule_Hidden = new Amazon.ConnectCases.Model.HiddenCaseRule();
+            List<Amazon.ConnectCases.Model.BooleanCondition> requestRule_rule_Hidden_hidden_Condition = null;
+            if (cmdletContext.Hidden_Condition != null)
+            {
+                requestRule_rule_Hidden_hidden_Condition = cmdletContext.Hidden_Condition;
+            }
+            if (requestRule_rule_Hidden_hidden_Condition != null)
+            {
+                requestRule_rule_Hidden.Conditions = requestRule_rule_Hidden_hidden_Condition;
+                requestRule_rule_HiddenIsNull = false;
+            }
+            System.Boolean? requestRule_rule_Hidden_hidden_DefaultValue = null;
+            if (cmdletContext.Hidden_DefaultValue != null)
+            {
+                requestRule_rule_Hidden_hidden_DefaultValue = cmdletContext.Hidden_DefaultValue.Value;
+            }
+            if (requestRule_rule_Hidden_hidden_DefaultValue != null)
+            {
+                requestRule_rule_Hidden.DefaultValue = requestRule_rule_Hidden_hidden_DefaultValue.Value;
+                requestRule_rule_HiddenIsNull = false;
+            }
+             // determine if requestRule_rule_Hidden should be set to null
+            if (requestRule_rule_HiddenIsNull)
+            {
+                requestRule_rule_Hidden = null;
+            }
+            if (requestRule_rule_Hidden != null)
+            {
+                request.Rule.Hidden = requestRule_rule_Hidden;
+                requestRuleIsNull = false;
+            }
             Amazon.ConnectCases.Model.RequiredCaseRule requestRule_rule_Required = null;
             
              // populate Required
@@ -259,6 +360,51 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             if (requestRule_rule_Required != null)
             {
                 request.Rule.Required = requestRule_rule_Required;
+                requestRuleIsNull = false;
+            }
+            Amazon.ConnectCases.Model.FieldOptionsCaseRule requestRule_rule_FieldOptions = null;
+            
+             // populate FieldOptions
+            var requestRule_rule_FieldOptionsIsNull = true;
+            requestRule_rule_FieldOptions = new Amazon.ConnectCases.Model.FieldOptionsCaseRule();
+            System.String requestRule_rule_FieldOptions_fieldOptions_ChildFieldId = null;
+            if (cmdletContext.FieldOptions_ChildFieldId != null)
+            {
+                requestRule_rule_FieldOptions_fieldOptions_ChildFieldId = cmdletContext.FieldOptions_ChildFieldId;
+            }
+            if (requestRule_rule_FieldOptions_fieldOptions_ChildFieldId != null)
+            {
+                requestRule_rule_FieldOptions.ChildFieldId = requestRule_rule_FieldOptions_fieldOptions_ChildFieldId;
+                requestRule_rule_FieldOptionsIsNull = false;
+            }
+            List<Amazon.ConnectCases.Model.ParentChildFieldOptionsMapping> requestRule_rule_FieldOptions_fieldOptions_ParentChildFieldOptionsMapping = null;
+            if (cmdletContext.FieldOptions_ParentChildFieldOptionsMapping != null)
+            {
+                requestRule_rule_FieldOptions_fieldOptions_ParentChildFieldOptionsMapping = cmdletContext.FieldOptions_ParentChildFieldOptionsMapping;
+            }
+            if (requestRule_rule_FieldOptions_fieldOptions_ParentChildFieldOptionsMapping != null)
+            {
+                requestRule_rule_FieldOptions.ParentChildFieldOptionsMappings = requestRule_rule_FieldOptions_fieldOptions_ParentChildFieldOptionsMapping;
+                requestRule_rule_FieldOptionsIsNull = false;
+            }
+            System.String requestRule_rule_FieldOptions_fieldOptions_ParentFieldId = null;
+            if (cmdletContext.FieldOptions_ParentFieldId != null)
+            {
+                requestRule_rule_FieldOptions_fieldOptions_ParentFieldId = cmdletContext.FieldOptions_ParentFieldId;
+            }
+            if (requestRule_rule_FieldOptions_fieldOptions_ParentFieldId != null)
+            {
+                requestRule_rule_FieldOptions.ParentFieldId = requestRule_rule_FieldOptions_fieldOptions_ParentFieldId;
+                requestRule_rule_FieldOptionsIsNull = false;
+            }
+             // determine if requestRule_rule_FieldOptions should be set to null
+            if (requestRule_rule_FieldOptionsIsNull)
+            {
+                requestRule_rule_FieldOptions = null;
+            }
+            if (requestRule_rule_FieldOptions != null)
+            {
+                request.Rule.FieldOptions = requestRule_rule_FieldOptions;
                 requestRuleIsNull = false;
             }
              // determine if request.Rule should be set to null
@@ -330,6 +476,11 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             public System.String Description { get; set; }
             public System.String DomainId { get; set; }
             public System.String Name { get; set; }
+            public System.String FieldOptions_ChildFieldId { get; set; }
+            public List<Amazon.ConnectCases.Model.ParentChildFieldOptionsMapping> FieldOptions_ParentChildFieldOptionsMapping { get; set; }
+            public System.String FieldOptions_ParentFieldId { get; set; }
+            public List<Amazon.ConnectCases.Model.BooleanCondition> Hidden_Condition { get; set; }
+            public System.Boolean? Hidden_DefaultValue { get; set; }
             public List<Amazon.ConnectCases.Model.BooleanCondition> Required_Condition { get; set; }
             public System.Boolean? Required_DefaultValue { get; set; }
             public System.Func<Amazon.ConnectCases.Model.CreateCaseRuleResponse, NewCCASCaseRuleCmdlet, object> Select { get; set; } =

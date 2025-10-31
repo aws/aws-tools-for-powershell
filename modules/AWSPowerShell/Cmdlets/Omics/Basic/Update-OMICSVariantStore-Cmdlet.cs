@@ -28,7 +28,7 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Updates a variant store.
+    /// Amazon.Omics.IAmazonOmics.UpdateVariantStore
     /// </summary>
     [Cmdlet("Update", "OMICSVariantStore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Omics.Model.UpdateVariantStoreResponse")]

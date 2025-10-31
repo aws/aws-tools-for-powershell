@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter CaseRule
         /// <summary>
         /// <para>
-        /// <para>List of case rule identifiers.</para>
+        /// <para>A list of case rule identifiers.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

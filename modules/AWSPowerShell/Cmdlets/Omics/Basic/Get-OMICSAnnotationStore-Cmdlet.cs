@@ -28,7 +28,7 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Gets information about an annotation store.
+    /// Amazon.Omics.IAmazonOmics.GetAnnotationStore
     /// </summary>
     [Cmdlet("Get", "OMICSAnnotationStore")]
     [OutputType("Amazon.Omics.Model.GetAnnotationStoreResponse")]

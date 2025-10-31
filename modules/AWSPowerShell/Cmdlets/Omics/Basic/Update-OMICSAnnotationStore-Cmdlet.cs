@@ -28,7 +28,7 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Updates an annotation store.
+    /// Amazon.Omics.IAmazonOmics.UpdateAnnotationStore
     /// </summary>
     [Cmdlet("Update", "OMICSAnnotationStore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Omics.Model.UpdateAnnotationStoreResponse")]

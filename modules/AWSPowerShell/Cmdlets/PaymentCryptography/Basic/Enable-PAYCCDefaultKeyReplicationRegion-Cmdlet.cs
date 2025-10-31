@@ -28,12 +28,13 @@ using Amazon.PaymentCryptography.Model;
 namespace Amazon.PowerShell.Cmdlets.PAYCC
 {
     /// <summary>
-    /// Enables multi-region key replication settings for your account, causing new keys to
-    /// be automatically replicated to the specified Amazon Web Services Regions when created.
+    /// Enables <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-multi-region-replication.html">Multi-Region
+    /// key replication</a> settings for your Amazon Web Services account, causing new keys
+    /// to be automatically replicated to the specified Amazon Web Services Regions when created.
     /// 
     ///  
     /// <para>
-    /// When default Replication Regions are enabled, any new keys created in your account
+    /// When Multi-Region key replication are enabled, any new keys created in your account
     /// will automatically be replicated to these regions unless you explicitly override this
     /// behavior during key creation. This simplifies key management for applications that
     /// operate across multiple regions.
@@ -60,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         /// <summary>
         /// <para>
         /// <para>The list of Amazon Web Services Regions to enable as default replication regions for
-        /// the account.</para><para>New keys created in this account will automatically be replicated to these regions
+        /// the Amazon Web Services account for <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-multi-region-replication.html">Multi-Region
+        /// key replication</a>.</para><para>New keys created in this account will automatically be replicated to these regions
         /// unless explicitly overridden during key creation.</para>
         /// </para>
         /// </summary>

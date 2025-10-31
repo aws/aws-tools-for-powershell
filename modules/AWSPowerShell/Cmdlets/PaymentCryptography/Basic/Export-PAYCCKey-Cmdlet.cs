@@ -750,7 +750,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         #region Parameter Tr34KeyBlock_SigningKeyCertificate
         /// <summary>
         /// <para>
-        /// <para>Certificate used for signing the export key</para>
+        /// <para>The certificate used to sign the TR-34 key block.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

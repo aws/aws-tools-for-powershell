@@ -28,7 +28,7 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Deletes an annotation store.
+    /// Amazon.Omics.IAmazonOmics.DeleteAnnotationStore
     /// </summary>
     [Cmdlet("Remove", "OMICSAnnotationStore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Omics.StoreStatus")]

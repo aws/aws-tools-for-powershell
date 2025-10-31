@@ -28,7 +28,7 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Deletes a variant store.
+    /// Amazon.Omics.IAmazonOmics.DeleteVariantStore
     /// </summary>
     [Cmdlet("Remove", "OMICSVariantStore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Omics.StoreStatus")]

@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     /// Monitor SLA compliance across cases. For example, search for all cases with "Active"
     /// SLA status to prioritize remediation efforts.
     /// </para></li></ul><para><b>Important things to know</b></para><ul><li><para>
-    /// This API returns case IDs, not complete case objects. To retrieve full case details,
-    /// you must make additional calls to the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_GetCase.html">GetCase</a>
+    /// This API returns case identifiers, not complete case objects. To retrieve full case
+    /// details, you must make additional calls to the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_GetCase.html">GetCase</a>
     /// API for each returned case ID. 
     /// </para></li><li><para>
     /// This API searches across related items content, not case fields. Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_SearchCases.html">SearchCases</a>

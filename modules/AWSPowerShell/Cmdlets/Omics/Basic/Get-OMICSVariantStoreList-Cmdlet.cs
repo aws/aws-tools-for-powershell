@@ -28,7 +28,7 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Retrieves a list of variant stores.
+    /// Amazon.Omics.IAmazonOmics.ListVariantStores
     /// </summary>
     [Cmdlet("Get", "OMICSVariantStoreList")]
     [OutputType("Amazon.Omics.Model.VariantStoreItem")]

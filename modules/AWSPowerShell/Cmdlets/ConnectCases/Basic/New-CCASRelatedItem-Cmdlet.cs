@@ -30,7 +30,31 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     /// <summary>
     /// Creates a related item (comments, tasks, and contacts) and associates it with a case.
     /// 
-    ///  <note><ul><li><para>
+    ///  
+    /// <para>
+    /// There's a quota for the number of fields allowed in a Custom type related item. See
+    /// <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#cases-quotas">Amazon
+    /// Connect Cases quotas</a>.
+    /// </para><para><b>Use cases</b></para><para>
+    /// Following are examples of related items that you may want to associate with a case:
+    /// </para><ul><li><para>
+    /// Related contacts, such as calls, chats, emails tasks
+    /// </para></li><li><para>
+    /// Comments, for agent notes
+    /// </para></li><li><para>
+    /// SLAs, to capture target resolution goals
+    /// </para></li><li><para>
+    /// Cases, to capture related Amazon Connect Cases
+    /// </para></li><li><para>
+    /// Files, such as policy documentation or customer-provided attachments
+    /// </para></li><li><para>
+    /// Custom related items, which provide flexibility for you to define related items that
+    /// such as bookings, orders, products, notices, and more
+    /// </para></li></ul><para><b>Important things to know</b></para><ul><li><para>
+    /// If you are associating a contact to a case by passing in <c>Contact</c> for a <c>type</c>,
+    /// you must have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeContact.html">DescribeContact</a>
+    /// permission on the ARN of the contact that you provide in <c>content.contact.contactArn</c>.
+    /// </para></li><li><para>
     /// A Related Item is a resource that is associated with a case. It may or may not have
     /// an external identifier linking it to an external resource (for example, a <c>contactArn</c>).
     /// All Related Items have their own internal identifier, the <c>relatedItemArn</c>. Examples
@@ -40,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     /// permission on the ARN of the user that you provide.
     /// </para></li><li><para>
     /// The <c>type</c> field is reserved for internal use only.
-    /// </para></li></ul></note>
+    /// </para></li></ul><para><b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon
+    /// Connect endpoints and quotas</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "CCASRelatedItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ConnectCases.Model.CreateRelatedItemResponse")]

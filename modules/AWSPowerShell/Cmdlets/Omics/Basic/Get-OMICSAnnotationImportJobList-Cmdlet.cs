@@ -28,7 +28,7 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Retrieves a list of annotation import jobs.
+    /// Amazon.Omics.IAmazonOmics.ListAnnotationImportJobs
     /// </summary>
     [Cmdlet("Get", "OMICSAnnotationImportJobList")]
     [OutputType("Amazon.Omics.Model.AnnotationImportJobItem")]

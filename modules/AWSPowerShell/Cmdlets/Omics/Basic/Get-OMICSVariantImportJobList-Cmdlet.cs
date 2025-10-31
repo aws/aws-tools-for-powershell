@@ -28,7 +28,7 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Retrieves a list of variant import jobs.
+    /// Amazon.Omics.IAmazonOmics.ListVariantImportJobs
     /// </summary>
     [Cmdlet("Get", "OMICSVariantImportJobList")]
     [OutputType("Amazon.Omics.Model.VariantImportJobItem")]

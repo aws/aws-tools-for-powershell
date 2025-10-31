@@ -28,7 +28,7 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Creates an annotation store.
+    /// Amazon.Omics.IAmazonOmics.CreateAnnotationStore
     /// </summary>
     [Cmdlet("New", "OMICSAnnotationStore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Omics.Model.CreateAnnotationStoreResponse")]

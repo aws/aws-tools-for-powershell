@@ -28,10 +28,15 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Delete a verification token. A verification token is an Amazon Web Services-generated
-    /// random value that you can use to prove ownership of an external resource. For example,
-    /// you can use a verification token to validate that you control a public IP address
-    /// range when you bring an IP address range to Amazon Web Services (BYOIP).
+    /// Delete a verification token.
+    /// 
+    ///  
+    /// <para>
+    /// A verification token is an Amazon Web Services-generated random value that you can
+    /// use to prove ownership of an external resource. For example, you can use a verification
+    /// token to validate that you control a public IP address range when you bring an IP
+    /// address range to Amazon Web Services (BYOIP). 
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "EC2IpamExternalResourceVerificationToken", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.IpamExternalResourceVerificationToken")]

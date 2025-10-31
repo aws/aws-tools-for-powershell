@@ -28,7 +28,7 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Starts a variant import job.
+    /// Amazon.Omics.IAmazonOmics.StartVariantImportJob
     /// </summary>
     [Cmdlet("Start", "OMICSVariantImportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

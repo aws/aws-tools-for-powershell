@@ -72,6 +72,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int64? CurrentVersion { get; set; }
         #endregion
         
+        #region Parameter IpamPrefixListResolverSyncEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether synchronization with an IPAM prefix list resolver should be enabled
+        /// for this managed prefix list. When enabled, the prefix list CIDRs are automatically
+        /// updated based on the associated resolver's CIDR selection rules.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IpamPrefixListResolverSyncEnabled { get; set; }
+        #endregion
+        
         #region Parameter MaxEntry
         /// <summary>
         /// <para>
@@ -191,6 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.AddEntry = new List<Amazon.EC2.Model.AddPrefixListEntry>(this.AddEntry);
             }
             context.CurrentVersion = this.CurrentVersion;
+            context.IpamPrefixListResolverSyncEnabled = this.IpamPrefixListResolverSyncEnabled;
             context.MaxEntry = this.MaxEntry;
             context.PrefixListId = this.PrefixListId;
             #if MODULAR
@@ -227,6 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.CurrentVersion != null)
             {
                 request.CurrentVersion = cmdletContext.CurrentVersion.Value;
+            }
+            if (cmdletContext.IpamPrefixListResolverSyncEnabled != null)
+            {
+                request.IpamPrefixListResolverSyncEnabled = cmdletContext.IpamPrefixListResolverSyncEnabled.Value;
             }
             if (cmdletContext.MaxEntry != null)
             {
@@ -307,6 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public List<Amazon.EC2.Model.AddPrefixListEntry> AddEntry { get; set; }
             public System.Int64? CurrentVersion { get; set; }
+            public System.Boolean? IpamPrefixListResolverSyncEnabled { get; set; }
             public System.Int32? MaxEntry { get; set; }
             public System.String PrefixListId { get; set; }
             public System.String PrefixListName { get; set; }
