@@ -438,6 +438,12 @@ namespace Amazon.PowerShell.Common
         [Parameter(ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public string ProfileName { get; set; }
 
+        /// <summary>
+        /// Indicates if CmdLet log out of all profiles that use Login credentials at once.
+        /// </summary>
+        [Parameter(Mandatory = false)]
+        public SwitchParameter All { get; set; }
+
         protected override void StopProcessing()
         {
             // This is invoked when user presses Ctrl+C.
@@ -450,51 +456,85 @@ namespace Amazon.PowerShell.Common
             WriteVerbose("Executing ProcessRecord().");
             base.ProcessRecord();
 
+            var fileRetriever = new FileRetriever();
+            LoginTokenFileCache loginTokenFileCache = null;
             var resourceIdentifiersText = "";
 
-            // If ProfileName is not specified, then resolve it using SDK's default profile resolution.
-            if (string.IsNullOrWhiteSpace(ProfileName))
+            // If All switch parameter is present, then we need to clear all cached tokens.
+            if (All.IsPresent)
             {
-                ProfileName = LoginUtils.ResolveDefaultProfile();
-                Console.WriteLine($"Using profile '{ProfileName}' determined by environment defaults. To override, specify '-ProfileName' parameter.");
-            }
-
-            if (!string.IsNullOrEmpty(ProfileName))
-            {
-                if (!SettingsStore.TryGetProfile(ProfileName, null, out var profile))
-                {
-                    this.ThrowTerminatingError(new ErrorRecord(
-                        new ArgumentException(
-                            $"Profile {ProfileName} not found in the shared config (~/.aws/config) file."),
-                        "ArgumentException", ErrorCategory.InvalidArgument, this.ProfileName));
-                }
-
-                resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ProfileName), MyInvocation.BoundParameters);
-
+                resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("[All Tokens]", MyInvocation.BoundParameters);
                 if (!ConfirmShouldProceed(false, resourceIdentifiersText, "Invoke-AWSLogout"))
                 {
                     return;
                 }
 
-                WriteVerbose($"Clearing cached login token for profile {this.ProfileName}");
-                var loginSession = AWSLoginProfileMethods.GetLoginSession(this.ProfileName);
-                if (string.IsNullOrEmpty(loginSession))
+                WriteVerbose($"Clearing all cached login tokens.");
+                loginTokenFileCache = new LoginTokenFileCache(
+                        CryptoUtilFactory.CryptoInstance,
+                        fileRetriever,
+                        new DirectoryRetriever());
+                var allTokens = loginTokenFileCache.ScanLoginTokens(null);
+                try
                 {
-                    this.ThrowTerminatingError(new ErrorRecord(
-                        new InvalidOperationException(
-                            $"Profile {ProfileName} is not associated with a login session."),
-                        "InvalidOperationException", ErrorCategory.InvalidOperation, this.ProfileName));
+                    foreach (var token in allTokens)
+                    {
+                        fileRetriever.Delete(token.LoginTokenFilePath);
+                    }
+                }
+                catch(Exception ex)
+                {
+                    new IOException($"Could not remove credentials for all profiles that use 'login_session'. Some credentials might be deleted. Note, SDKs and tools who have already loaded the access tokens may continue to use them until their expiration.", ex);
                 }
 
-                var loginTokenFileCache = new LoginTokenFileCache(
-                    CryptoUtilFactory.CryptoInstance,
-                    new FileRetriever(),
-                    new DirectoryRetriever());
+                Console.WriteLine($"Removed credentials for all profiles that use 'login_session'. Note, SDKs and tools who have already loaded the access tokens may continue to use them until their expiration.");
+            }
+            else
+            {
+                // If ProfileName is not specified, then resolve it using SDK's default profile resolution.
+                if (string.IsNullOrWhiteSpace(ProfileName))
+                {
+                    ProfileName = LoginUtils.ResolveDefaultProfile();
+                    Console.WriteLine($"Using profile '{ProfileName}' determined by environment defaults. To override, specify '-ProfileName' parameter.");
+                }
 
-                loginTokenFileCache.DeleteLoginToken(loginSession, null);
-                Console.WriteLine($"Cleared cached login for profile '{ProfileName}'.");
+                if (!string.IsNullOrEmpty(ProfileName))
+                {
+                    if (!SettingsStore.TryGetProfile(ProfileName, null, out var profile))
+                    {
+                        this.ThrowTerminatingError(new ErrorRecord(
+                            new ArgumentException(
+                                $"Profile {ProfileName} not found in the shared config (~/.aws/config) file."),
+                            "ArgumentException", ErrorCategory.InvalidArgument, this.ProfileName));
+                    }
 
-                return;
+                    resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ProfileName), MyInvocation.BoundParameters);
+
+                    if (!ConfirmShouldProceed(false, resourceIdentifiersText, "Invoke-AWSLogout"))
+                    {
+                        return;
+                    }
+
+                    WriteVerbose($"Clearing cached login token for profile {this.ProfileName}");
+                    var loginSession = AWSLoginProfileMethods.GetLoginSession(this.ProfileName);
+                    if (string.IsNullOrEmpty(loginSession))
+                    {
+                        this.ThrowTerminatingError(new ErrorRecord(
+                            new InvalidOperationException(
+                                $"Profile {ProfileName} is not associated with a login session."),
+                            "InvalidOperationException", ErrorCategory.InvalidOperation, this.ProfileName));
+                    }
+
+                    loginTokenFileCache = new LoginTokenFileCache(
+                        CryptoUtilFactory.CryptoInstance,
+                        fileRetriever,
+                        new DirectoryRetriever());
+
+                    loginTokenFileCache.DeleteLoginToken(loginSession, null);
+                    Console.WriteLine($"Removed credentials for profile '{ProfileName}'. Note, SDKs and tools who have already loaded the access token may continue to use it until its expiration.");
+
+                    return;
+                }
             }
         }
     }
