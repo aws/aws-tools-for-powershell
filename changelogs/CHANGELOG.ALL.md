@@ -1,4 +1,18 @@
-﻿### 4.1.933 (2025-10-31 20:46Z)
+﻿### 4.1.934 (2025-11-03 21:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1157.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCAgentRuntime: added parameters CodeConfiguration_EntryPoint, CodeConfiguration_Runtime, S3_Bucket, S3_Prefix and S3_VersionId.
+    * Modified cmdlet New-BACCBrowser: added parameter S3Location_VersionId.
+    * Modified cmdlet Remove-BACCAgentRuntime: added parameter ClientToken.
+    * Modified cmdlet Update-BACCAgentRuntime: added parameters CodeConfiguration_EntryPoint, CodeConfiguration_Runtime, S3_Bucket, S3_Prefix and S3_VersionId.
+  * Amazon Kinesis
+    * Added cmdlet Get-KINAccountSetting leveraging the DescribeAccountSettings service API.
+    * Added cmdlet Update-KINAccountSetting leveraging the UpdateAccountSettings service API.
+    * Added cmdlet Update-KINStreamWarmThroughput leveraging the UpdateStreamWarmThroughput service API.
+    * Modified cmdlet New-KINStream: added parameter WarmThroughputMiBp.
+    * Modified cmdlet Update-KINStreamMode: added parameter WarmThroughputMiBp.
+
+### 4.1.933 (2025-10-31 20:46Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1156.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Cases
     * Modified cmdlet New-CCASCaseRule: added parameters FieldOptions_ChildFieldId, FieldOptions_ParentChildFieldOptionsMapping, FieldOptions_ParentFieldId, Hidden_Condition and Hidden_DefaultValue.

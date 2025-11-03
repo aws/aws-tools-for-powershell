@@ -59,6 +59,18 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String AgentRuntimeId { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier to ensure that the operation completes no more
+        /// than one time. If this token matches a previous request, the service ignores the request
+        /// but does not return an error.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Status'.
@@ -128,6 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 WriteWarning("You are passing $null as a value for parameter AgentRuntimeId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ClientToken = this.ClientToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -147,6 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (cmdletContext.AgentRuntimeId != null)
             {
                 request.AgentRuntimeId = cmdletContext.AgentRuntimeId;
+            }
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
             }
             
             CmdletOutput output;
@@ -210,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AgentRuntimeId { get; set; }
+            public System.String ClientToken { get; set; }
             public System.Func<Amazon.BedrockAgentCoreControl.Model.DeleteAgentRuntimeResponse, RemoveBACCAgentRuntimeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Status;
         }

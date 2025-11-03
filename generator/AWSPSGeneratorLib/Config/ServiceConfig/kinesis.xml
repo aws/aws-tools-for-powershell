@@ -49,6 +49,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccountSettings" OutputProperty="MinimumThroughputBillingCommitment" Verb="Get" Noun="AccountSetting" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeLimits" OutputProperty="*" Verb="Get" Noun="Limit" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -160,6 +164,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAccountSettings" OutputProperty="MinimumThroughputBillingCommitment" Verb="Update" Noun="AccountSetting" ShouldProcessTarget="MinimumThroughputBillingCommitment_Status" PipelineParameter="MinimumThroughputBillingCommitment_Status" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateMaxRecordSize" Verb="Update" Noun="MaxRecordSize" ShouldProcessTarget="MaxRecordSizeInKiB" PipelineParameter="MaxRecordSizeInKiB" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -169,6 +177,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateStreamMode" Verb="Update" Noun="StreamMode" ShouldProcessTarget="StreamARN" PipelineParameter="StreamARN" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateStreamWarmThroughput" OutputProperty="*" Verb="Update" Noun="StreamWarmThroughput" ShouldProcessTarget="WarmThroughputMiBps" PipelineParameter="WarmThroughputMiBps" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
