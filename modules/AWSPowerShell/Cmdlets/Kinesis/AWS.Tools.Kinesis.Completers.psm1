@@ -90,6 +90,13 @@ $KIN_Completers = {
             break
         }
 
+        # Amazon.Kinesis.MinimumThroughputBillingCommitmentInputStatus
+        "Update-KINAccountSetting/MinimumThroughputBillingCommitment_Status"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.Kinesis.ScalingType
         "Update-KINShardCount/ScalingType"
         {
@@ -131,6 +138,7 @@ $KIN_Completers = {
 
 $KIN_map = @{
     "EncryptionType"=@("Start-KINStreamEncryption","Stop-KINStreamEncryption")
+    "MinimumThroughputBillingCommitment_Status"=@("Update-KINAccountSetting")
     "ScalingType"=@("Update-KINShardCount")
     "ShardFilter_Type"=@("Get-KINShardList")
     "ShardIteratorType"=@("Get-KINShardIterator")
@@ -193,6 +201,7 @@ $KIN_SelectMap = @{
                "Remove-KINResourcePolicy",
                "Remove-KINStream",
                "Unregister-KINStreamConsumer",
+               "Get-KINAccountSetting",
                "Get-KINLimit",
                "Get-KINStream",
                "Get-KINStreamConsumer",
@@ -219,9 +228,11 @@ $KIN_SelectMap = @{
                "Stop-KINStreamEncryption",
                "Add-KINResourceTag",
                "Remove-KINResourceTag",
+               "Update-KINAccountSetting",
                "Update-KINMaxRecordSize",
                "Update-KINShardCount",
-               "Update-KINStreamMode")
+               "Update-KINStreamMode",
+               "Update-KINStreamWarmThroughput")
 }
 
 _awsArgumentCompleterRegistration $KIN_SelectCompleters $KIN_SelectMap

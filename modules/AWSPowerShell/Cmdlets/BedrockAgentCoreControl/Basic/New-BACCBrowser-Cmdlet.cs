@@ -191,6 +191,18 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter S3Location_VersionId
+        /// <summary>
+        /// <para>
+        /// <para>The version ID of the Amazon Amazon S3 object. If not specified, the latest version
+        /// of the object is used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Recording_S3Location_VersionId")]
+        public System.String S3Location_VersionId { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -278,6 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             context.Recording_Enabled = this.Recording_Enabled;
             context.S3Location_Bucket = this.S3Location_Bucket;
             context.S3Location_Prefix = this.S3Location_Prefix;
+            context.S3Location_VersionId = this.S3Location_VersionId;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -430,6 +443,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 requestRecording_recording_S3Location.Prefix = requestRecording_recording_S3Location_s3Location_Prefix;
                 requestRecording_recording_S3LocationIsNull = false;
             }
+            System.String requestRecording_recording_S3Location_s3Location_VersionId = null;
+            if (cmdletContext.S3Location_VersionId != null)
+            {
+                requestRecording_recording_S3Location_s3Location_VersionId = cmdletContext.S3Location_VersionId;
+            }
+            if (requestRecording_recording_S3Location_s3Location_VersionId != null)
+            {
+                requestRecording_recording_S3Location.VersionId = requestRecording_recording_S3Location_s3Location_VersionId;
+                requestRecording_recording_S3LocationIsNull = false;
+            }
              // determine if requestRecording_recording_S3Location should be set to null
             if (requestRecording_recording_S3LocationIsNull)
             {
@@ -515,6 +538,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.Boolean? Recording_Enabled { get; set; }
             public System.String S3Location_Bucket { get; set; }
             public System.String S3Location_Prefix { get; set; }
+            public System.String S3Location_VersionId { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.BedrockAgentCoreControl.Model.CreateBrowserResponse, NewBACCBrowserCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

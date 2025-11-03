@@ -32,7 +32,16 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// <summary>
     /// Updates the capacity mode of the data stream. Currently, in Kinesis Data Streams,
     /// you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b>
-    /// capacity mode for your data stream.
+    /// capacity mode for your data stream. 
+    /// 
+    ///  
+    /// <para>
+    /// If you'd still like to proactively scale your on-demand data stream’s capacity, you
+    /// can unlock the warm throughput feature for on-demand data streams by enabling <c>MinimumThroughputBillingCommitment</c>
+    /// for your account. Once your account has <c>MinimumThroughputBillingCommitment</c>
+    /// enabled, you can specify the warm throughput in MiB per second that your stream can
+    /// support in writes.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "KINStreamMode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -81,6 +90,19 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.Kinesis.StreamMode")]
         public Amazon.Kinesis.StreamMode StreamModeDetails_StreamMode { get; set; }
+        #endregion
+        
+        #region Parameter WarmThroughputMiBp
+        /// <summary>
+        /// <para>
+        /// <para>The target warm throughput in MB/s that the stream should be scaled to handle. This
+        /// represents the throughput capacity that will be immediately available for write operations.
+        /// This field is only valid when the stream mode is being updated to on-demand.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WarmThroughputMiBps")]
+        public System.Int32? WarmThroughputMiBp { get; set; }
         #endregion
         
         #region Parameter Select
@@ -142,6 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 WriteWarning("You are passing $null as a value for parameter StreamModeDetails_StreamMode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.WarmThroughputMiBp = this.WarmThroughputMiBp;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -180,6 +203,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             if (requestStreamModeDetailsIsNull)
             {
                 request.StreamModeDetails = null;
+            }
+            if (cmdletContext.WarmThroughputMiBp != null)
+            {
+                request.WarmThroughputMiBps = cmdletContext.WarmThroughputMiBp.Value;
             }
             
             CmdletOutput output;
@@ -238,6 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             public System.String StreamARN { get; set; }
             public Amazon.Kinesis.StreamMode StreamModeDetails_StreamMode { get; set; }
+            public System.Int32? WarmThroughputMiBp { get; set; }
             public System.Func<Amazon.Kinesis.Model.UpdateStreamModeResponse, UpdateKINStreamModeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

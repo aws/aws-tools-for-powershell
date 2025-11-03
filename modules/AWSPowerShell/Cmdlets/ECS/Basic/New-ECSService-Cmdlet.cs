@@ -140,9 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// Load Balancer, or Service Connect
     /// </para></li></ul></li><li><para><c>LINEAR</c>: A <i>linear</i> deployment strategy (<c>LINEAR</c>) gradually shifts
     /// traffic from the current production environment to a new environment in equal percentage
-    /// increments over a specified time period. With Amazon ECS linear deployments, you can
-    /// control the pace of traffic shifting and validate new service revisions with increasing
-    /// amounts of production traffic.
+    /// increments. With Amazon ECS linear deployments, you can control the pace of traffic
+    /// shifting and validate new service revisions with increasing amounts of production
+    /// traffic.
     /// </para><para>
     /// Linear deployments are best suited for the following scenarios:
     /// </para><ul><li><para>
@@ -155,8 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// Risk minimization: When you want to minimize risk by exposing the new version to production
     /// traffic incrementally
     /// </para></li><li><para>
-    /// Load balancer requirement: When your service uses Application Load Balancer, Network
-    /// Load Balancer, or Service Connect
+    /// Load balancer requirement: When your service uses Application Load Balancer or Service
+    /// Connect
     /// </para></li></ul></li><li><para><c>CANARY</c>: A <i>canary</i> deployment strategy (<c>CANARY</c>) shifts a small
     /// percentage of traffic to the new service revision first, then shifts the remaining
     /// traffic all at once after a specified time period. This allows you to test the new
@@ -173,8 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// Blast radius control: When you want to minimize blast radius if issues are discovered
     /// in the new version
     /// </para></li><li><para>
-    /// Load balancer requirement: When your service uses Application Load Balancer, Network
-    /// Load Balancer, or Service Connect
+    /// Load balancer requirement: When your service uses Application Load Balancer or Service
+    /// Connect
     /// </para></li></ul></li></ul></li><li><para>
     /// External
     /// </para><para>
@@ -229,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter AwsvpcConfiguration_AssignPublicIp
         /// <summary>
         /// <para>
-        /// <para>Whether the task's elastic network interface receives a public IP address. </para><para>Consider the following when you set this value:</para><ul><li><para>When you use <c>create-service</c> or <c>update-service</c>, the The default is <c>DISABLED</c>.
+        /// <para>Whether the task's elastic network interface receives a public IP address. </para><para>Consider the following when you set this value:</para><ul><li><para>When you use <c>create-service</c> or <c>update-service</c>, the default is <c>DISABLED</c>.
         /// </para></li><li><para>When the service <c>deploymentController</c> is <c>ECS</c>, the value must be <c>DISABLED</c>.
         /// </para></li></ul>
         /// </para>
@@ -287,7 +287,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The percentage of production traffic to shift to the new service revision during the
-        /// canary phase. Valid values are 0.1 to 100.0. The default value is 5.0.</para>
+        /// canary phase. Valid values are multiples of 0.1 from 0.1 to 100.0. The default value
+        /// is 5.0.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -950,7 +951,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The amount of time in minutes to wait between each traffic shifting step during a
         /// linear deployment. Valid values are 0 to 1440 minutes (24 hours). The default value
-        /// is 6. This bake time is not applied after reaching 100% traffic.</para>
+        /// is 6. This bake time is not applied after reaching 100 percent traffic.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -962,7 +963,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The percentage of production traffic to shift in each step during a linear deployment.
-        /// Valid values are 3.0 to 100.0. The default value is 10.0.</para>
+        /// Valid values are multiples of 0.1 from 3.0 to 100.0. The default value is 10.0.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -980,7 +981,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// methodology that reduces downtime and risk by running two identical production environments
         /// called blue and green. With Amazon ECS blue/green deployments, you can validate new
         /// service revisions before directing production traffic to them. This approach provides
-        /// a safer way to deploy changes with the ability to quickly roll back if needed.</para></li></ul>
+        /// a safer way to deploy changes with the ability to quickly roll back if needed.</para></li><li><para><c>LINEAR</c> - A <i>linear</i> deployment strategy (<c>LINEAR</c>) gradually shifts
+        /// traffic from the current production environment to a new environment in equal percentages
+        /// over time. With Amazon ECS linear deployments, you can control the pace of traffic
+        /// shifting and validate new service revisions with increasing amounts of production
+        /// traffic.</para></li><li><para><c>CANARY</c> - A <i>canary</i> deployment strategy (<c>CANARY</c>) shifts a small
+        /// percentage of traffic to the new service revision first, then shifts the remaining
+        /// traffic all at once after a specified time period. This allows you to test the new
+        /// version with a subset of users before full deployment.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

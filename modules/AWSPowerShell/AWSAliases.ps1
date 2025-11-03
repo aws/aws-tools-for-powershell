@@ -18193,6 +18193,9 @@ Set-Alias -Name Delete-KINStream -Value Remove-KINStream
 Set-Alias -Name KIN-DeleteStream -Value Remove-KINStream
 Set-Alias -Name Deregister-KINStreamConsumer -Value Unregister-KINStreamConsumer
 Set-Alias -Name KIN-DeregisterStreamConsumer -Value Unregister-KINStreamConsumer
+Set-Alias -Name Describe-KINAccountSettings -Value Get-KINAccountSetting
+Set-Alias -Name Describe-KINAccountSetting -Value Get-KINAccountSetting
+Set-Alias -Name KIN-DescribeAccountSettings -Value Get-KINAccountSetting
 Set-Alias -Name Describe-KINLimits -Value Get-KINLimit
 Set-Alias -Name Describe-KINLimit -Value Get-KINLimit
 Set-Alias -Name KIN-DescribeLimits -Value Get-KINLimit
@@ -18239,9 +18242,12 @@ Set-Alias -Name KIN-StartStreamEncryption -Value Start-KINStreamEncryption
 Set-Alias -Name KIN-StopStreamEncryption -Value Stop-KINStreamEncryption
 Set-Alias -Name KIN-TagResource -Value Add-KINResourceTag
 Set-Alias -Name KIN-UntagResource -Value Remove-KINResourceTag
+Set-Alias -Name Update-KINAccountSettings -Value Update-KINAccountSetting
+Set-Alias -Name KIN-UpdateAccountSettings -Value Update-KINAccountSetting
 Set-Alias -Name KIN-UpdateMaxRecordSize -Value Update-KINMaxRecordSize
 Set-Alias -Name KIN-UpdateShardCount -Value Update-KINShardCount
 Set-Alias -Name KIN-UpdateStreamMode -Value Update-KINStreamMode
+Set-Alias -Name KIN-UpdateStreamWarmThroughput -Value Update-KINStreamWarmThroughput
 Set-Alias -Name KINA-AddApplicationCloudWatchLoggingOption -Value Add-KINAApplicationCloudWatchLoggingOption
 Set-Alias -Name KINA-AddApplicationInput -Value Add-KINAApplicationInput
 Set-Alias -Name KINA-AddApplicationInputProcessingConfiguration -Value Add-KINAApplicationInputProcessingConfiguration

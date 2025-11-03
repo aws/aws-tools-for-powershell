@@ -41,12 +41,19 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// Data streams with an on-demand mode require no capacity planning and automatically
     /// scale to handle gigabytes of write and read throughput per minute. With the on-demand
     /// mode, Kinesis Data Streams automatically manages the shards in order to provide the
-    /// necessary throughput. For the data streams with a provisioned mode, you must specify
-    /// the number of shards for the data stream. Each shard can support reads up to five
-    /// transactions per second, up to a maximum data read total of 2 MiB per second. Each
-    /// shard can support writes up to 1,000 records per second, up to a maximum data write
-    /// total of 1 MiB per second. If the amount of data input increases or decreases, you
-    /// can add or remove shards.
+    /// necessary throughput.
+    /// </para><para>
+    /// If you'd still like to proactively scale your on-demand data stream’s capacity, you
+    /// can unlock the warm throughput feature for on-demand data streams by enabling <c>MinimumThroughputBillingCommitment</c>
+    /// for your account. Once your account has <c>MinimumThroughputBillingCommitment</c>
+    /// enabled, you can specify the warm throughput in MiB per second that your stream can
+    /// support in writes.
+    /// </para><para>
+    /// For the data streams with a provisioned mode, you must specify the number of shards
+    /// for the data stream. Each shard can support reads up to five transactions per second,
+    /// up to a maximum data read total of 2 MiB per second. Each shard can support writes
+    /// up to 1,000 records per second, up to a maximum data write total of 1 MiB per second.
+    /// If the amount of data input increases or decreases, you can add or remove shards.
     /// </para><para>
     /// The stream name identifies the stream. The name is scoped to the Amazon Web Services
     /// account used by the application. It is also scoped by Amazon Web Services Region.
@@ -64,7 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </para></li><li><para>
     /// Create more shards than are authorized for your account.
     /// </para></li></ul><para>
-    /// For the default shard limit for an Amazon Web Services account, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Amazon
+    /// For the default shard or on-demand throughput limits for an Amazon Web Services account,
+    /// see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Amazon
     /// Kinesis Data Streams Limits</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.
     /// To increase this limit, <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">contact
     /// Amazon Web Services Support</a>.
@@ -167,6 +175,18 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter WarmThroughputMiBp
+        /// <summary>
+        /// <para>
+        /// <para>The target warm throughput in MB/s that the stream should be scaled to handle. This
+        /// represents the throughput capacity that will be immediately available for write operations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WarmThroughputMiBps")]
+        public System.Int32? WarmThroughputMiBp { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -230,6 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
+            context.WarmThroughputMiBp = this.WarmThroughputMiBp;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -280,6 +301,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.WarmThroughputMiBp != null)
+            {
+                request.WarmThroughputMiBps = cmdletContext.WarmThroughputMiBp.Value;
             }
             
             CmdletOutput output;
@@ -341,6 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             public Amazon.Kinesis.StreamMode StreamModeDetails_StreamMode { get; set; }
             public System.String StreamName { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.Int32? WarmThroughputMiBp { get; set; }
             public System.Func<Amazon.Kinesis.Model.CreateStreamResponse, NewKINStreamCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

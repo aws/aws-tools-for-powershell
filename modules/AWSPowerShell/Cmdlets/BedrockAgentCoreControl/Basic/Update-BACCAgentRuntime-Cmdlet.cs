@@ -93,6 +93,17 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String[] CustomJWTAuthorizer_AllowedClient { get; set; }
         #endregion
         
+        #region Parameter S3_Bucket
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Amazon S3 bucket. This bucket contains the stored data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AgentRuntimeArtifact_CodeConfiguration_Code_S3_Bucket")]
+        public System.String S3_Bucket { get; set; }
+        #endregion
+        
         #region Parameter ContainerConfiguration_ContainerUri
         /// <summary>
         /// <para>
@@ -124,6 +135,22 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AuthorizerConfiguration_CustomJWTAuthorizer_DiscoveryUrl")]
         public System.String CustomJWTAuthorizer_DiscoveryUrl { get; set; }
+        #endregion
+        
+        #region Parameter CodeConfiguration_EntryPoint
+        /// <summary>
+        /// <para>
+        /// <para>The entry point for the code execution, specifying the function or method that should
+        /// be invoked when the code runs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AgentRuntimeArtifact_CodeConfiguration_EntryPoint")]
+        public System.String[] CodeConfiguration_EntryPoint { get; set; }
         #endregion
         
         #region Parameter EnvironmentVariable
@@ -180,6 +207,18 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public Amazon.BedrockAgentCoreControl.NetworkMode NetworkConfiguration_NetworkMode { get; set; }
         #endregion
         
+        #region Parameter S3_Prefix
+        /// <summary>
+        /// <para>
+        /// <para>The prefix for objects in the Amazon S3 bucket. This prefix is added to the object
+        /// keys to organize the data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AgentRuntimeArtifact_CodeConfiguration_Code_S3_Prefix")]
+        public System.String S3_Prefix { get; set; }
+        #endregion
+        
         #region Parameter RequestHeaderConfiguration_RequestHeaderAllowlist
         /// <summary>
         /// <para>
@@ -209,6 +248,19 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter CodeConfiguration_Runtime
+        /// <summary>
+        /// <para>
+        /// <para>The runtime environment for executing the code (for example, Python 3.9 or Node.js
+        /// 18).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AgentRuntimeArtifact_CodeConfiguration_Runtime")]
+        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.AgentManagedRuntimeType")]
+        public Amazon.BedrockAgentCoreControl.AgentManagedRuntimeType CodeConfiguration_Runtime { get; set; }
         #endregion
         
         #region Parameter NetworkModeConfig_SecurityGroup
@@ -251,6 +303,18 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("NetworkConfiguration_NetworkModeConfig_Subnets")]
         public System.String[] NetworkModeConfig_Subnet { get; set; }
+        #endregion
+        
+        #region Parameter S3_VersionId
+        /// <summary>
+        /// <para>
+        /// <para>The version ID of the Amazon Amazon S3 object. If not specified, the latest version
+        /// of the object is used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AgentRuntimeArtifact_CodeConfiguration_Code_S3_VersionId")]
+        public System.String S3_VersionId { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -309,6 +373,14 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.UpdateAgentRuntimeResponse, UpdateBACCAgentRuntimeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.S3_Bucket = this.S3_Bucket;
+            context.S3_Prefix = this.S3_Prefix;
+            context.S3_VersionId = this.S3_VersionId;
+            if (this.CodeConfiguration_EntryPoint != null)
+            {
+                context.CodeConfiguration_EntryPoint = new List<System.String>(this.CodeConfiguration_EntryPoint);
+            }
+            context.CodeConfiguration_Runtime = this.CodeConfiguration_Runtime;
             context.ContainerConfiguration_ContainerUri = this.ContainerConfiguration_ContainerUri;
             context.AgentRuntimeId = this.AgentRuntimeId;
             #if MODULAR
@@ -408,6 +480,101 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (requestAgentRuntimeArtifact_agentRuntimeArtifact_ContainerConfiguration != null)
             {
                 request.AgentRuntimeArtifact.ContainerConfiguration = requestAgentRuntimeArtifact_agentRuntimeArtifact_ContainerConfiguration;
+                requestAgentRuntimeArtifactIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.CodeConfiguration requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration = null;
+            
+             // populate CodeConfiguration
+            var requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfigurationIsNull = true;
+            requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration = new Amazon.BedrockAgentCoreControl.Model.CodeConfiguration();
+            List<System.String> requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_codeConfiguration_EntryPoint = null;
+            if (cmdletContext.CodeConfiguration_EntryPoint != null)
+            {
+                requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_codeConfiguration_EntryPoint = cmdletContext.CodeConfiguration_EntryPoint;
+            }
+            if (requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_codeConfiguration_EntryPoint != null)
+            {
+                requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration.EntryPoint = requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_codeConfiguration_EntryPoint;
+                requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.AgentManagedRuntimeType requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_codeConfiguration_Runtime = null;
+            if (cmdletContext.CodeConfiguration_Runtime != null)
+            {
+                requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_codeConfiguration_Runtime = cmdletContext.CodeConfiguration_Runtime;
+            }
+            if (requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_codeConfiguration_Runtime != null)
+            {
+                requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration.Runtime = requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_codeConfiguration_Runtime;
+                requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.Code requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code = null;
+            
+             // populate Code
+            var requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_CodeIsNull = true;
+            requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code = new Amazon.BedrockAgentCoreControl.Model.Code();
+            Amazon.BedrockAgentCoreControl.Model.S3Location requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code_agentRuntimeArtifact_CodeConfiguration_Code_S3 = null;
+            
+             // populate S3
+            var requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code_agentRuntimeArtifact_CodeConfiguration_Code_S3IsNull = true;
+            requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code_agentRuntimeArtifact_CodeConfiguration_Code_S3 = new Amazon.BedrockAgentCoreControl.Model.S3Location();
+            System.String requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code_agentRuntimeArtifact_CodeConfiguration_Code_S3_s3_Bucket = null;
+            if (cmdletContext.S3_Bucket != null)
+            {
+                requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code_agentRuntimeArtifact_CodeConfiguration_Code_S3_s3_Bucket = cmdletContext.S3_Bucket;
+            }
+            if (requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code_agentRuntimeArtifact_CodeConfiguration_Code_S3_s3_Bucket != null)
+            {
+                requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code_agentRuntimeArtifact_CodeConfiguration_Code_S3.Bucket = requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code_agentRuntimeArtifact_CodeConfiguration_Code_S3_s3_Bucket;
+                requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code_agentRuntimeArtifact_CodeConfiguration_Code_S3IsNull = false;
+            }
+            System.String requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code_agentRuntimeArtifact_CodeConfiguration_Code_S3_s3_Prefix = null;
+            if (cmdletContext.S3_Prefix != null)
+            {
+                requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code_agentRuntimeArtifact_CodeConfiguration_Code_S3_s3_Prefix = cmdletContext.S3_Prefix;
+            }
+            if (requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code_agentRuntimeArtifact_CodeConfiguration_Code_S3_s3_Prefix != null)
+            {
+                requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code_agentRuntimeArtifact_CodeConfiguration_Code_S3.Prefix = requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code_agentRuntimeArtifact_CodeConfiguration_Code_S3_s3_Prefix;
+                requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code_agentRuntimeArtifact_CodeConfiguration_Code_S3IsNull = false;
+            }
+            System.String requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code_agentRuntimeArtifact_CodeConfiguration_Code_S3_s3_VersionId = null;
+            if (cmdletContext.S3_VersionId != null)
+            {
+                requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code_agentRuntimeArtifact_CodeConfiguration_Code_S3_s3_VersionId = cmdletContext.S3_VersionId;
+            }
+            if (requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code_agentRuntimeArtifact_CodeConfiguration_Code_S3_s3_VersionId != null)
+            {
+                requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code_agentRuntimeArtifact_CodeConfiguration_Code_S3.VersionId = requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code_agentRuntimeArtifact_CodeConfiguration_Code_S3_s3_VersionId;
+                requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code_agentRuntimeArtifact_CodeConfiguration_Code_S3IsNull = false;
+            }
+             // determine if requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code_agentRuntimeArtifact_CodeConfiguration_Code_S3 should be set to null
+            if (requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code_agentRuntimeArtifact_CodeConfiguration_Code_S3IsNull)
+            {
+                requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code_agentRuntimeArtifact_CodeConfiguration_Code_S3 = null;
+            }
+            if (requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code_agentRuntimeArtifact_CodeConfiguration_Code_S3 != null)
+            {
+                requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code.S3 = requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code_agentRuntimeArtifact_CodeConfiguration_Code_S3;
+                requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_CodeIsNull = false;
+            }
+             // determine if requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code should be set to null
+            if (requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_CodeIsNull)
+            {
+                requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code = null;
+            }
+            if (requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code != null)
+            {
+                requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration.Code = requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration_agentRuntimeArtifact_CodeConfiguration_Code;
+                requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfigurationIsNull = false;
+            }
+             // determine if requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration should be set to null
+            if (requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfigurationIsNull)
+            {
+                requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration = null;
+            }
+            if (requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration != null)
+            {
+                request.AgentRuntimeArtifact.CodeConfiguration = requestAgentRuntimeArtifact_agentRuntimeArtifact_CodeConfiguration;
                 requestAgentRuntimeArtifactIsNull = false;
             }
              // determine if request.AgentRuntimeArtifact should be set to null
@@ -665,6 +832,11 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String S3_Bucket { get; set; }
+            public System.String S3_Prefix { get; set; }
+            public System.String S3_VersionId { get; set; }
+            public List<System.String> CodeConfiguration_EntryPoint { get; set; }
+            public Amazon.BedrockAgentCoreControl.AgentManagedRuntimeType CodeConfiguration_Runtime { get; set; }
             public System.String ContainerConfiguration_ContainerUri { get; set; }
             public System.String AgentRuntimeId { get; set; }
             public List<System.String> CustomJWTAuthorizer_AllowedAudience { get; set; }

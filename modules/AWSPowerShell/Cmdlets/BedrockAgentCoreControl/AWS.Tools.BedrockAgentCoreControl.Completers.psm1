@@ -80,6 +80,16 @@ $BACC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.BedrockAgentCoreControl.AgentManagedRuntimeType
+        {
+            ($_ -eq "New-BACCAgentRuntime/CodeConfiguration_Runtime") -Or
+            ($_ -eq "Update-BACCAgentRuntime/CodeConfiguration_Runtime")
+        }
+        {
+            $v = "PYTHON_3_10","PYTHON_3_11","PYTHON_3_12","PYTHON_3_13"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.AuthorizerType
         {
             ($_ -eq "New-BACCGateway/AuthorizerType") -Or
@@ -191,6 +201,7 @@ $BACC_Completers = {
 
 $BACC_map = @{
     "AuthorizerType"=@("New-BACCGateway","Update-BACCGateway")
+    "CodeConfiguration_Runtime"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "CredentialProviderVendor"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "ExceptionLevel"=@("New-BACCGateway","Update-BACCGateway")
     "KmsConfiguration_KeyType"=@("Set-BACCTokenVaultCMK")
