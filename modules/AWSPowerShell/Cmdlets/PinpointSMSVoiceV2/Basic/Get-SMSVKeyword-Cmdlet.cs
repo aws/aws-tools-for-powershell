@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     /// A keyword is a word that you can search for on a particular phone number or pool.
     /// It is also a specific word or phrase that an end user can send to your number to elicit
     /// a response, such as an informational message or a special offer. When your number
-    /// receives a message that begins with a keyword, AWS End User Messaging SMS and Voice
-    /// responds with a customizable message.
+    /// receives a message that begins with a keyword, End User MessagingSMS responds with
+    /// a customizable message.
     /// </para><para>
     /// If you specify a keyword that isn't valid, an error is returned.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
@@ -92,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <para>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId
         /// or SenderIdArn. You can use <a>DescribePhoneNumbers</a> to find the values for PhoneNumberId
         /// and PhoneNumberArn while <a>DescribeSenderIds</a> can be used to get the values for
-        /// SenderId and SenderIdArn.</para><important><para>If you are using a shared AWS End User Messaging SMS and Voice resource then you must
-        /// use the full Amazon Resource Name(ARN).</para></important>
+        /// SenderId and SenderIdArn.</para><important><para>If you are using a shared End User MessagingSMS resource then you must use the full
+        /// Amazon Resource Name(ARN).</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR

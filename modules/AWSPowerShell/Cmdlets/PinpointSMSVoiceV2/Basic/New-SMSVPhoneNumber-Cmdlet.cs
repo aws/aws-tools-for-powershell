@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     /// <summary>
     /// Request an origination phone number for use in your account. For more information
     /// on phone number request see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-request.html">Request
-    /// a phone number</a> in the <i>AWS End User Messaging SMS User Guide</i>.
+    /// a phone number</a> in the <i>End User MessagingSMS User Guide</i>.
     /// </summary>
     [Cmdlet("New", "SMSVPhoneNumber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.RequestPhoneNumberResponse")]
@@ -147,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <summary>
         /// <para>
         /// <para>The name of the OptOutList to associate with the phone number. You can use the OptOutListName
-        /// or OptOutListArn.</para><important><para>If you are using a shared AWS End User Messaging SMS and Voice resource then you must
-        /// use the full Amazon Resource Name(ARN).</para></important>
+        /// or OptOutListArn.</para><important><para>If you are using a shared End User MessagingSMS resource then you must use the full
+        /// Amazon Resource Name(ARN).</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,8 +158,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter PoolId
         /// <summary>
         /// <para>
-        /// <para>The pool to associated with the phone number. You can use the PoolId or PoolArn. </para><important><para>If you are using a shared AWS End User Messaging SMS and Voice resource then you must
-        /// use the full Amazon Resource Name(ARN).</para></important>
+        /// <para>The pool to associated with the phone number. You can use the PoolId or PoolArn. </para><important><para>If you are using a shared End User MessagingSMS resource then you must use the full
+        /// Amazon Resource Name(ARN).</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>An array of tags (key and value pairs) associate with the requested phone number.
+        /// <para>An array of tags (key and value pairs) to associate with the requested phone number.
         /// </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller

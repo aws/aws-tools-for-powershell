@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     /// spend limit in a given Region. For more information on increasing your monthly spend
     /// limit, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/awssupport-spend-threshold.html">
     /// Requesting increases to your monthly SMS, MMS, or Voice spending quota </a> in the
-    /// <i>AWS End User Messaging SMS User Guide</i>.
+    /// <i>End User MessagingSMS User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMSVSpendLimit")]

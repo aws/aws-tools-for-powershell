@@ -1,4 +1,9 @@
-﻿### 5.0.89 (2025-11-03 21:00Z)
+﻿### 5.0.90 (2025-11-04 21:02Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.126.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Pinpoint SMS Voice V2
+    * Added cmdlet Use-SMSVCarrierLookup leveraging the CarrierLookup service API.
+
+### 5.0.89 (2025-11-03 21:00Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.125.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Core Control Plane Fronting Layer
     * Modified cmdlet New-BACCAgentRuntime: added parameters CodeConfiguration_EntryPoint, CodeConfiguration_Runtime, S3_Bucket, S3_Prefix and S3_VersionId.

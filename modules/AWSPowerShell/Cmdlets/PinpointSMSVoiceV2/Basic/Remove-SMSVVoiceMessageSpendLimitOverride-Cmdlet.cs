@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     /// Deleting a spend limit override sets the <c>EnforcedLimit</c> equal to the <c>MaxLimit</c>,
     /// which is controlled by Amazon Web Services. For more information on spending limits
     /// (quotas) see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html">Quotas
-    /// </a> in the <i>AWS End User Messaging SMS User Guide</i>.
+    /// </a> in the <i>End User MessagingSMS User Guide</i>.
     /// </summary>
     [Cmdlet("Remove", "SMSVVoiceMessageSpendLimitOverride", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.DeleteVoiceMessageSpendLimitOverrideResponse")]

@@ -30,48 +30,28 @@ using Amazon.PinpointSMSVoiceV2.Model;
 namespace Amazon.PowerShell.Cmdlets.SMSV
 {
     /// <summary>
-    /// Creates an opted out destination phone number in the opt-out list.
-    /// 
-    ///  
-    /// <para>
-    /// If the destination phone number isn't valid or if the specified opt-out list doesn't
-    /// exist, an error is returned.
-    /// </para>
+    /// Returns information about a destination phone number, including whether the number
+    /// type and whether it is valid, the carrier, and more.
     /// </summary>
-    [Cmdlet("Set", "SMSVOptedOutNumber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.PinpointSMSVoiceV2.Model.PutOptedOutNumberResponse")]
-    [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 PutOptedOutNumber API operation.", Operation = new[] {"PutOptedOutNumber"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.PutOptedOutNumberResponse))]
-    [AWSCmdletOutput("Amazon.PinpointSMSVoiceV2.Model.PutOptedOutNumberResponse",
-        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.PutOptedOutNumberResponse object containing multiple properties."
+    [Cmdlet("Use", "SMSVCarrierLookup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.PinpointSMSVoiceV2.Model.CarrierLookupResponse")]
+    [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 CarrierLookup API operation.", Operation = new[] {"CarrierLookup"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.CarrierLookupResponse))]
+    [AWSCmdletOutput("Amazon.PinpointSMSVoiceV2.Model.CarrierLookupResponse",
+        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.CarrierLookupResponse object containing multiple properties."
     )]
-    public partial class SetSMSVOptedOutNumberCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
+    public partial class UseSMSVCarrierLookupCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter OptedOutNumber
+        #region Parameter PhoneNumber
         /// <summary>
         /// <para>
-        /// <para>The phone number to add to the OptOutList in E.164 format.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String OptedOutNumber { get; set; }
-        #endregion
-        
-        #region Parameter OptOutListName
-        /// <summary>
-        /// <para>
-        /// <para>The OptOutListName or OptOutListArn to add the phone number to.</para><important><para>If you are using a shared End User MessagingSMS resource then you must use the full
-        /// Amazon Resource Name(ARN).</para></important>
+        /// <para>The phone number that you want to retrieve information about. You can provide the
+        /// phone number in various formats including special characters such as parentheses,
+        /// brackets, spaces, hyphens, periods, and commas. The service automatically converts
+        /// the input to E164 format for processing.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,14 +62,14 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String OptOutListName { get; set; }
+        public System.String PhoneNumber { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PinpointSMSVoiceV2.Model.PutOptedOutNumberResponse).
-        /// Specifying the name of a property of type Amazon.PinpointSMSVoiceV2.Model.PutOptedOutNumberResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PinpointSMSVoiceV2.Model.CarrierLookupResponse).
+        /// Specifying the name of a property of type Amazon.PinpointSMSVoiceV2.Model.CarrierLookupResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.OptOutListName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-SMSVOptedOutNumber (PutOptedOutNumber)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PhoneNumber), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Use-SMSVCarrierLookup (CarrierLookup)"))
             {
                 return;
             }
@@ -128,21 +108,14 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.PinpointSMSVoiceV2.Model.PutOptedOutNumberResponse, SetSMSVOptedOutNumberCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PinpointSMSVoiceV2.Model.CarrierLookupResponse, UseSMSVCarrierLookupCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.OptedOutNumber = this.OptedOutNumber;
+            context.PhoneNumber = this.PhoneNumber;
             #if MODULAR
-            if (this.OptedOutNumber == null && ParameterWasBound(nameof(this.OptedOutNumber)))
+            if (this.PhoneNumber == null && ParameterWasBound(nameof(this.PhoneNumber)))
             {
-                WriteWarning("You are passing $null as a value for parameter OptedOutNumber which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.OptOutListName = this.OptOutListName;
-            #if MODULAR
-            if (this.OptOutListName == null && ParameterWasBound(nameof(this.OptOutListName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter OptOutListName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PhoneNumber which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -159,15 +132,11 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.PinpointSMSVoiceV2.Model.PutOptedOutNumberRequest();
+            var request = new Amazon.PinpointSMSVoiceV2.Model.CarrierLookupRequest();
             
-            if (cmdletContext.OptedOutNumber != null)
+            if (cmdletContext.PhoneNumber != null)
             {
-                request.OptedOutNumber = cmdletContext.OptedOutNumber;
-            }
-            if (cmdletContext.OptOutListName != null)
-            {
-                request.OptOutListName = cmdletContext.OptOutListName;
+                request.PhoneNumber = cmdletContext.PhoneNumber;
             }
             
             CmdletOutput output;
@@ -202,12 +171,12 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         
         #region AWS Service Operation Call
         
-        private Amazon.PinpointSMSVoiceV2.Model.PutOptedOutNumberResponse CallAWSServiceOperation(IAmazonPinpointSMSVoiceV2 client, Amazon.PinpointSMSVoiceV2.Model.PutOptedOutNumberRequest request)
+        private Amazon.PinpointSMSVoiceV2.Model.CarrierLookupResponse CallAWSServiceOperation(IAmazonPinpointSMSVoiceV2 client, Amazon.PinpointSMSVoiceV2.Model.CarrierLookupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint SMS Voice V2", "PutOptedOutNumber");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint SMS Voice V2", "CarrierLookup");
             try
             {
-                return client.PutOptedOutNumberAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.CarrierLookupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -224,9 +193,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String OptedOutNumber { get; set; }
-            public System.String OptOutListName { get; set; }
-            public System.Func<Amazon.PinpointSMSVoiceV2.Model.PutOptedOutNumberResponse, SetSMSVOptedOutNumberCmdlet, object> Select { get; set; } =
+            public System.String PhoneNumber { get; set; }
+            public System.Func<Amazon.PinpointSMSVoiceV2.Model.CarrierLookupResponse, UseSMSVCarrierLookupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

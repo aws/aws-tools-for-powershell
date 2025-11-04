@@ -23775,6 +23775,9 @@ Set-Alias -Name Associate-SMSVOriginationIdentity -Value Register-SMSVOriginatio
 Set-Alias -Name SMSV-AssociateOriginationIdentity -Value Register-SMSVOriginationIdentity
 Set-Alias -Name Associate-SMSVProtectConfiguration -Value Register-SMSVProtectConfiguration
 Set-Alias -Name SMSV-AssociateProtectConfiguration -Value Register-SMSVProtectConfiguration
+Set-Alias -Name Carrier-SMSVLookup -Value Use-SMSVCarrierLookup
+Set-Alias -Name Carrier-SMSVCarrierLookup -Value Use-SMSVCarrierLookup
+Set-Alias -Name SMSV-CarrierLookup -Value Use-SMSVCarrierLookup
 Set-Alias -Name Create-SMSVConfigurationSet -Value New-SMSVConfigurationSet
 Set-Alias -Name SMSV-CreateConfigurationSet -Value New-SMSVConfigurationSet
 Set-Alias -Name Create-SMSVEventDestination -Value New-SMSVEventDestination
