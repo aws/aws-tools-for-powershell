@@ -60083,6 +60083,7 @@ $SMSV_SelectCompleters = {
 $SMSV_SelectMap = @{
     "Select"=@("Register-SMSVOriginationIdentity",
                "Register-SMSVProtectConfiguration",
+               "Use-SMSVCarrierLookup",
                "New-SMSVConfigurationSet",
                "New-SMSVEventDestination",
                "New-SMSVOptOutList",

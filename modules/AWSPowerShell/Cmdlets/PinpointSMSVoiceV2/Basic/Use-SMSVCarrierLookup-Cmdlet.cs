@@ -28,28 +28,27 @@ using Amazon.PinpointSMSVoiceV2.Model;
 namespace Amazon.PowerShell.Cmdlets.SMSV
 {
     /// <summary>
-    /// Adds or overwrites only the specified tags for the specified resource. When you specify
-    /// an existing tag key, the value is overwritten with the new value. Each tag consists
-    /// of a key and an optional value. Tag keys must be unique per resource. For more information
-    /// about tags, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-tags.html">Tags
-    /// </a> in the <i>End User MessagingSMS User Guide</i>.
+    /// Returns information about a destination phone number, including whether the number
+    /// type and whether it is valid, the carrier, and more.
     /// </summary>
-    [Cmdlet("Add", "SMSVResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.TagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.PinpointSMSVoiceV2.Model.TagResourceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PinpointSMSVoiceV2.Model.TagResourceResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Use", "SMSVCarrierLookup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.PinpointSMSVoiceV2.Model.CarrierLookupResponse")]
+    [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 CarrierLookup API operation.", Operation = new[] {"CarrierLookup"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.CarrierLookupResponse))]
+    [AWSCmdletOutput("Amazon.PinpointSMSVoiceV2.Model.CarrierLookupResponse",
+        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.CarrierLookupResponse object containing multiple properties."
     )]
-    public partial class AddSMSVResourceTagCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
+    public partial class UseSMSVCarrierLookupCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResourceArn
+        #region Parameter PhoneNumber
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
+        /// <para>The phone number that you want to retrieve information about. You can provide the
+        /// phone number in various formats including special characters such as parentheses,
+        /// brackets, spaces, hyphens, periods, and commas. The service automatically converts
+        /// the input to E164 format for processing.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,31 +59,14 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>An array of key and value pair tags that are associated with the resource.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Tags")]
-        public Amazon.PinpointSMSVoiceV2.Model.Tag[] Tag { get; set; }
+        public System.String PhoneNumber { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PinpointSMSVoiceV2.Model.TagResourceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PinpointSMSVoiceV2.Model.CarrierLookupResponse).
+        /// Specifying the name of a property of type Amazon.PinpointSMSVoiceV2.Model.CarrierLookupResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,10 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the PhoneNumber parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^PhoneNumber' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PhoneNumber' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -116,8 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-SMSVResourceTag (TagResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PhoneNumber), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Use-SMSVCarrierLookup (CarrierLookup)"))
             {
                 return;
             }
@@ -130,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.PinpointSMSVoiceV2.Model.TagResourceResponse, AddSMSVResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PinpointSMSVoiceV2.Model.CarrierLookupResponse, UseSMSVCarrierLookupCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -139,24 +121,14 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.PhoneNumber;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.PhoneNumber = this.PhoneNumber;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.PhoneNumber == null && ParameterWasBound(nameof(this.PhoneNumber)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new List<Amazon.PinpointSMSVoiceV2.Model.Tag>(this.Tag);
-            }
-            #if MODULAR
-            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PhoneNumber which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -173,15 +145,11 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.PinpointSMSVoiceV2.Model.TagResourceRequest();
+            var request = new Amazon.PinpointSMSVoiceV2.Model.CarrierLookupRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.PhoneNumber != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
+                request.PhoneNumber = cmdletContext.PhoneNumber;
             }
             
             CmdletOutput output;
@@ -216,15 +184,15 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         
         #region AWS Service Operation Call
         
-        private Amazon.PinpointSMSVoiceV2.Model.TagResourceResponse CallAWSServiceOperation(IAmazonPinpointSMSVoiceV2 client, Amazon.PinpointSMSVoiceV2.Model.TagResourceRequest request)
+        private Amazon.PinpointSMSVoiceV2.Model.CarrierLookupResponse CallAWSServiceOperation(IAmazonPinpointSMSVoiceV2 client, Amazon.PinpointSMSVoiceV2.Model.CarrierLookupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint SMS Voice V2", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint SMS Voice V2", "CarrierLookup");
             try
             {
                 #if DESKTOP
-                return client.TagResource(request);
+                return client.CarrierLookup(request);
                 #elif CORECLR
-                return client.TagResourceAsync(request).GetAwaiter().GetResult();
+                return client.CarrierLookupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -244,10 +212,9 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public List<Amazon.PinpointSMSVoiceV2.Model.Tag> Tag { get; set; }
-            public System.Func<Amazon.PinpointSMSVoiceV2.Model.TagResourceResponse, AddSMSVResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String PhoneNumber { get; set; }
+            public System.Func<Amazon.PinpointSMSVoiceV2.Model.CarrierLookupResponse, UseSMSVCarrierLookupCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

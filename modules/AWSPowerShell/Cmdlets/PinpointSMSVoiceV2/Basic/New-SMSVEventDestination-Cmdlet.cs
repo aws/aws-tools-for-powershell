@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <summary>
         /// <para>
         /// <para>An array of event types that determine which events to log. If "ALL" is used, then
-        /// AWS End User Messaging SMS and Voice logs every event type.</para><note><para>The <c>TEXT_SENT</c> event type is not supported.</para></note>
+        /// End User MessagingSMS logs every event type.</para><note><para>The <c>TEXT_SENT</c> event type is not supported.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

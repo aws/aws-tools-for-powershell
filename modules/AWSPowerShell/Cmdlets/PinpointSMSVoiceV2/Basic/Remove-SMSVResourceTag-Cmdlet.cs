@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     /// <summary>
     /// Removes the association of the specified tags from a resource. For more information
     /// on tags see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-tags.html">Tags
-    /// </a> in the <i>AWS End User Messaging SMS User Guide</i>.
+    /// </a> in the <i>End User MessagingSMS User Guide</i>.
     /// </summary>
     [Cmdlet("Remove", "SMSVResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     /// depends on the destination country of your messages, as well as the type of phone
     /// number (origination number) that you use to send the message. For more information
     /// about MPS, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/sms-limitations-mps.html">Message
-    /// Parts per Second (MPS) limits</a> in the <i>AWS End User Messaging SMS User Guide</i>.
+    /// Parts per Second (MPS) limits</a> in the <i>End User MessagingSMS User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Send", "SMSVTextMessage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// recipient. You are not charged for using <c>DryRun</c>.</para><para>The Message Parts per Second (MPS) limit when using <c>DryRun</c> is five. If your
         /// origination identity has a lower MPS limit then the lower MPS limit is used. For more
         /// information about MPS limits, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/sms-limitations-mps.html">Message
-        /// Parts per Second (MPS) limits</a> in the <i>AWS End User Messaging SMS User Guide</i>..</para>
+        /// Parts per Second (MPS) limits</a> in the <i>End User MessagingSMS User Guide</i>..</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,8 +182,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <summary>
         /// <para>
         /// <para>The origination identity of the message. This can be either the PhoneNumber, PhoneNumberId,
-        /// PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn.</para><important><para>If you are using a shared AWS End User Messaging SMS and Voice resource then you must
-        /// use the full Amazon Resource Name(ARN).</para></important>
+        /// PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn.</para><important><para>If you are using a shared End User MessagingSMS resource then you must use the full
+        /// Amazon Resource Name(ARN).</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

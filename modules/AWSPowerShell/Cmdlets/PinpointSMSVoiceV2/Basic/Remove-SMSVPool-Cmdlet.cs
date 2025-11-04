@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <summary>
         /// <para>
         /// <para>The PoolId or PoolArn of the pool to delete. You can use <a>DescribePools</a> to find
-        /// the values for PoolId and PoolArn .</para><important><para>If you are using a shared AWS End User Messaging SMS and Voice resource then you must
-        /// use the full Amazon Resource Name(ARN).</para></important>
+        /// the values for PoolId and PoolArn .</para><important><para>If you are using a shared End User MessagingSMS resource then you must use the full
+        /// Amazon Resource Name(ARN).</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR

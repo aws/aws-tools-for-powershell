@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <summary>
         /// <para>
         /// <para>The OptOutList to associate with the pool. Valid values are either OptOutListName
-        /// or OptOutListArn.</para><important><para>If you are using a shared AWS End User Messaging SMS and Voice resource then you must
-        /// use the full Amazon Resource Name(ARN).</para></important>
+        /// or OptOutListArn.</para><important><para>If you are using a shared End User MessagingSMS resource then you must use the full
+        /// Amazon Resource Name(ARN).</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <summary>
         /// <para>
         /// <para>The unique identifier of the pool to update. Valid values are either the PoolId or
-        /// PoolArn.</para><important><para>If you are using a shared AWS End User Messaging SMS and Voice resource then you must
-        /// use the full Amazon Resource Name(ARN).</para></important>
+        /// PoolArn.</para><important><para>If you are using a shared End User MessagingSMS resource then you must use the full
+        /// Amazon Resource Name(ARN).</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -88,11 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter SelfManagedOptOutsEnabled
         /// <summary>
         /// <para>
-        /// <para>By default this is set to false. When an end recipient sends a message that begins
-        /// with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and
-        /// Voice automatically replies with a customizable message and adds the end recipient
-        /// to the OptOutList. When set to true you're responsible for responding to HELP and
-        /// STOP requests. You're also responsible for tracking and honoring opt-out requests.</para>
+        /// <para>By default this is set to false. When set to false and an end recipient sends a message
+        /// that begins with HELP or STOP to one of your dedicated numbers, End User MessagingSMS
+        /// automatically replies with a customizable message and adds the end recipient to the
+        /// OptOutList. When set to true you're responsible for responding to HELP and STOP requests.
+        /// You're also responsible for tracking and honoring opt-out requests.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

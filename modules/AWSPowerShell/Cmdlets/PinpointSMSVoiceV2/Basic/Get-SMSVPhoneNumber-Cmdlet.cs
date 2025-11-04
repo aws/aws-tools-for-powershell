@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <summary>
         /// <para>
         /// <para>The unique identifier of phone numbers to find information about. This is an array
-        /// of strings that can be either the PhoneNumberId or PhoneNumberArn.</para><important><para>If you are using a shared AWS End User Messaging SMS and Voice resource then you must
-        /// use the full Amazon Resource Name(ARN).</para></important>
+        /// of strings that can be either the PhoneNumberId or PhoneNumberArn.</para><important><para>If you are using a shared End User MessagingSMS resource then you must use the full
+        /// Amazon Resource Name(ARN).</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

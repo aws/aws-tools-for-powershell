@@ -175,6 +175,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-SMSVProtectConfiguration', 
         'Update-SMSVProtectConfigurationCountryRuleSet', 
         'Update-SMSVSenderId', 
+        'Use-SMSVCarrierLookup', 
         'Write-SMSVMessageFeedback', 
         'Write-SMSVProtectConfigurationRuleSetNumberOverride', 
         'Write-SMSVResourcePolicy')

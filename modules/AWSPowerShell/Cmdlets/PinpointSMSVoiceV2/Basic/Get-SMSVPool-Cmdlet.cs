@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <summary>
         /// <para>
         /// <para>The unique identifier of pools to find. This is an array of strings that can be either
-        /// the PoolId or PoolArn.</para><important><para>If you are using a shared AWS End User Messaging SMS and Voice resource then you must
-        /// use the full Amazon Resource Name(ARN).</para></important>
+        /// the PoolId or PoolArn.</para><important><para>If you are using a shared End User MessagingSMS resource then you must use the full
+        /// Amazon Resource Name(ARN).</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
