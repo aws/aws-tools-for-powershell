@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters. The possible values are:</para><ul><li><para><c>availability-zone</c>: The Availability Zone of the snapshot.</para></li><li><para><c>owner-id</c>: The ID of the Amazon Web Services account that enabled fast snapshot
+        /// <para>The filters. The possible values are:</para><ul><li><para><c>availability-zone</c>: The Availability Zone of the snapshot. For example, <c>us-east-2a</c>.</para></li><li><para><c>availability-zone-id</c>: The ID of the Availability Zone of the snapshot. For
+        /// example, <c>use2-az1</c>.</para></li><li><para><c>owner-id</c>: The ID of the Amazon Web Services account that enabled fast snapshot
         /// restore on the snapshot.</para></li><li><para><c>snapshot-id</c>: The ID of the snapshot.</para></li><li><para><c>state</c>: The state of fast snapshot restores for the snapshot (<c>enabling</c>
         /// | <c>optimizing</c> | <c>enabled</c> | <c>disabling</c> | <c>disabled</c>).</para></li></ul>
         /// </para>

@@ -97,6 +97,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CFCachePolicy', 
         'Get-CFCachePolicyConfig', 
         'Get-CFCachePolicyList', 
+        'Get-CFCFDistributionsByOwnedResource', 
+        'Get-CFCFResourcePolicy', 
         'Get-CFCloudFrontOriginAccessIdentity', 
         'Get-CFCloudFrontOriginAccessIdentityConfig', 
         'Get-CFCloudFrontOriginAccessIdentityList', 
@@ -194,6 +196,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Publish-CFFunction', 
         'Remove-CFAnycastIpList', 
         'Remove-CFCachePolicy', 
+        'Remove-CFCFResourcePolicy', 
         'Remove-CFCloudFrontOriginAccessIdentity', 
         'Remove-CFConnectionGroup', 
         'Remove-CFContinuousDeploymentPolicy', 
@@ -217,6 +220,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CFVpcOrigin', 
         'Test-CFDnsConfiguration', 
         'Test-CFFunction', 
+        'Update-CFAnycastIpList', 
         'Update-CFCachePolicy', 
         'Update-CFCloudFrontOriginAccessIdentity', 
         'Update-CFConnectionGroup', 
@@ -236,7 +240,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-CFRealtimeLogConfig', 
         'Update-CFResponseHeadersPolicy', 
         'Update-CFStreamingDistribution', 
-        'Update-CFVpcOrigin')
+        'Update-CFVpcOrigin', 
+        'Write-CFCFResourcePolicy')
 
     # Variables to export from this module
     VariablesToExport = '*'

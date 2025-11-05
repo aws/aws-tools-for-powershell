@@ -104,13 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// Your Own Algorithms with Amazon SageMaker</a>. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public Amazon.SageMaker.Model.AlgorithmSpecification AlgorithmSpecification { get; set; }
         #endregion
         
@@ -465,13 +459,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// count greater than 1.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public Amazon.SageMaker.Model.ResourceConfig ResourceConfig { get; set; }
         #endregion
         
@@ -696,12 +684,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AlgorithmSpecification = this.AlgorithmSpecification;
-            #if MODULAR
-            if (this.AlgorithmSpecification == null && ParameterWasBound(nameof(this.AlgorithmSpecification)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AlgorithmSpecification which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.CheckpointConfig_LocalPath = this.CheckpointConfig_LocalPath;
             context.CheckpointConfig_S3Uri = this.CheckpointConfig_S3Uri;
             if (this.DebugHookConfig_CollectionConfiguration != null)
@@ -774,12 +756,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             context.RemoteDebugConfig_EnableRemoteDebug = this.RemoteDebugConfig_EnableRemoteDebug;
             context.ResourceConfig = this.ResourceConfig;
-            #if MODULAR
-            if (this.ResourceConfig == null && ParameterWasBound(nameof(this.ResourceConfig)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ResourceConfig which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.RetryStrategy_MaximumRetryAttempt = this.RetryStrategy_MaximumRetryAttempt;
             context.RoleArn = this.RoleArn;
             #if MODULAR

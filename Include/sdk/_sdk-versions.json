@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1158.0",
+    "ProductVersion"    : "3.7.1159.0",
     "CoreVersion"       : "3.7.500.42",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -40,7 +40,7 @@
             "InPreview"               : false
         },
         "CloudFront"     : {
-            "Version" : "3.7.505.8",
+            "Version" : "3.7.506.0",
             "AssemblyVersionOverride" : "3.3.4.0",
             "Dependencies"            : {
                 "Core" : "3.7.500.42"
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.521.1",
+            "Version" : "3.7.522.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.42"
@@ -308,7 +308,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "3.7.503.3",
+            "Version" : "3.7.504.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.42"
@@ -908,7 +908,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "3.7.515.1",
+            "Version" : "3.7.516.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.42"
@@ -1220,7 +1220,7 @@
             "InPreview"               : false
         },
         "FSx"                             : {
-            "Version" : "3.7.504.1",
+            "Version" : "3.7.505.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.42"
@@ -1316,7 +1316,7 @@
             "InPreview"               : false
         },
         "GroundStation"                   : {
-            "Version" : "3.7.501.3",
+            "Version" : "3.7.502.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.42"
@@ -2684,7 +2684,7 @@
             "InPreview"               : false
         },
         "DataZone"                            : {
-            "Version" : "3.7.508.5",
+            "Version" : "3.7.509.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.42"

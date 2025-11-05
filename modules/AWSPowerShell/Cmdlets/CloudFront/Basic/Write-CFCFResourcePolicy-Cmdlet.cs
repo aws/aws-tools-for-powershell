@@ -22,77 +22,70 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.CloudFront;
+using Amazon.CloudFront.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Disables fast snapshot restores for the specified snapshots in the specified Availability
-    /// Zones.
+    /// Creates a resource control policy for a given CloudFront resource.
     /// </summary>
-    [Cmdlet("Disable", "EC2FastSnapshotRestore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.DisableFastSnapshotRestoresResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisableFastSnapshotRestores API operation.", Operation = new[] {"DisableFastSnapshotRestores"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableFastSnapshotRestoresResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.DisableFastSnapshotRestoresResponse",
-        "This cmdlet returns an Amazon.EC2.Model.DisableFastSnapshotRestoresResponse object containing multiple properties."
+    [Cmdlet("Write", "CFCFResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon CloudFront PutResourcePolicy API operation.", Operation = new[] {"PutResourcePolicy"}, SelectReturnType = typeof(Amazon.CloudFront.Model.PutResourcePolicyResponse))]
+    [AWSCmdletOutput("System.String or Amazon.CloudFront.Model.PutResourcePolicyResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.CloudFront.Model.PutResourcePolicyResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class DisableEC2FastSnapshotRestoreCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class WriteCFCFResourcePolicyCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AvailabilityZoneId
+        #region Parameter PolicyDocument
         /// <summary>
         /// <para>
-        /// <para>One or more Availability Zone IDs. For example, <c>use2-az1</c>.</para><para>Either <c>AvailabilityZone</c> or <c>AvailabilityZoneId</c> must be specified in the
-        /// request, but not both.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("AvailabilityZoneIds")]
-        public System.String[] AvailabilityZoneId { get; set; }
-        #endregion
-        
-        #region Parameter AvailabilityZone
-        /// <summary>
-        /// <para>
-        /// <para>One or more Availability Zones. For example, <c>us-east-2a</c>.</para><para>Either <c>AvailabilityZone</c> or <c>AvailabilityZoneId</c> must be specified in the
-        /// request, but not both.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("AvailabilityZones")]
-        public System.String[] AvailabilityZone { get; set; }
-        #endregion
-        
-        #region Parameter SourceSnapshotId
-        /// <summary>
-        /// <para>
-        /// <para>The IDs of one or more snapshots. For example, <c>snap-1234567890abcdef0</c>.</para>
+        /// <para>The JSON-formatted resource policy to create.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("SourceSnapshotIds")]
-        public System.String[] SourceSnapshotId { get; set; }
+        public System.String PolicyDocument { get; set; }
+        #endregion
+        
+        #region Parameter ResourceArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the CloudFront resource for which the policy is
+        /// being created.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DisableFastSnapshotRestoresResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.DisableFastSnapshotRestoresResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ResourceArn'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudFront.Model.PutResourcePolicyResponse).
+        /// Specifying the name of a property of type Amazon.CloudFront.Model.PutResourcePolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "ResourceArn";
         #endregion
         
         #region Parameter Force
@@ -110,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SourceSnapshotId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disable-EC2FastSnapshotRestore (DisableFastSnapshotRestores)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-CFCFResourcePolicy (PutResourcePolicy)"))
             {
                 return;
             }
@@ -123,25 +116,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DisableFastSnapshotRestoresResponse, DisableEC2FastSnapshotRestoreCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudFront.Model.PutResourcePolicyResponse, WriteCFCFResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.AvailabilityZoneId != null)
-            {
-                context.AvailabilityZoneId = new List<System.String>(this.AvailabilityZoneId);
-            }
-            if (this.AvailabilityZone != null)
-            {
-                context.AvailabilityZone = new List<System.String>(this.AvailabilityZone);
-            }
-            if (this.SourceSnapshotId != null)
-            {
-                context.SourceSnapshotId = new List<System.String>(this.SourceSnapshotId);
-            }
+            context.PolicyDocument = this.PolicyDocument;
             #if MODULAR
-            if (this.SourceSnapshotId == null && ParameterWasBound(nameof(this.SourceSnapshotId)))
+            if (this.PolicyDocument == null && ParameterWasBound(nameof(this.PolicyDocument)))
             {
-                WriteWarning("You are passing $null as a value for parameter SourceSnapshotId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PolicyDocument which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.ResourceArn = this.ResourceArn;
+            #if MODULAR
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -158,19 +147,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.DisableFastSnapshotRestoresRequest();
+            var request = new Amazon.CloudFront.Model.PutResourcePolicyRequest();
             
-            if (cmdletContext.AvailabilityZoneId != null)
+            if (cmdletContext.PolicyDocument != null)
             {
-                request.AvailabilityZoneIds = cmdletContext.AvailabilityZoneId;
+                request.PolicyDocument = cmdletContext.PolicyDocument;
             }
-            if (cmdletContext.AvailabilityZone != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.AvailabilityZones = cmdletContext.AvailabilityZone;
-            }
-            if (cmdletContext.SourceSnapshotId != null)
-            {
-                request.SourceSnapshotIds = cmdletContext.SourceSnapshotId;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -205,15 +190,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.DisableFastSnapshotRestoresResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisableFastSnapshotRestoresRequest request)
+        private Amazon.CloudFront.Model.PutResourcePolicyResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.PutResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisableFastSnapshotRestores");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudFront", "PutResourcePolicy");
             try
             {
                 #if DESKTOP
-                return client.DisableFastSnapshotRestores(request);
+                return client.PutResourcePolicy(request);
                 #elif CORECLR
-                return client.DisableFastSnapshotRestoresAsync(request).GetAwaiter().GetResult();
+                return client.PutResourcePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -233,11 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> AvailabilityZoneId { get; set; }
-            public List<System.String> AvailabilityZone { get; set; }
-            public List<System.String> SourceSnapshotId { get; set; }
-            public System.Func<Amazon.EC2.Model.DisableFastSnapshotRestoresResponse, DisableEC2FastSnapshotRestoreCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String PolicyDocument { get; set; }
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.CloudFront.Model.PutResourcePolicyResponse, WriteCFCFResourcePolicyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ResourceArn;
         }
         
     }

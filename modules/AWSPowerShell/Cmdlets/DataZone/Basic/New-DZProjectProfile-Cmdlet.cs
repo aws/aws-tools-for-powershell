@@ -45,6 +45,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AllowCustomProjectResourceTag
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether custom project resource tags are supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AllowCustomProjectResourceTags")]
+        public System.Boolean? AllowCustomProjectResourceTag { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -108,6 +119,28 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter ProjectResourceTag
+        /// <summary>
+        /// <para>
+        /// <para>The resource tags of the project profile.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProjectResourceTags")]
+        public Amazon.DataZone.Model.ResourceTagParameter[] ProjectResourceTag { get; set; }
+        #endregion
+        
+        #region Parameter ProjectResourceTagsDescription
+        /// <summary>
+        /// <para>
+        /// <para>Field viewable through the UI that provides a project user with the allowed resource
+        /// tag specifications.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProjectResourceTagsDescription { get; set; }
         #endregion
         
         #region Parameter Status
@@ -183,6 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AllowCustomProjectResourceTag = this.AllowCustomProjectResourceTag;
             context.Description = this.Description;
             context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
@@ -203,6 +237,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ProjectResourceTag != null)
+            {
+                context.ProjectResourceTag = new List<Amazon.DataZone.Model.ResourceTagParameter>(this.ProjectResourceTag);
+            }
+            context.ProjectResourceTagsDescription = this.ProjectResourceTagsDescription;
             context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
@@ -220,6 +259,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             // create request
             var request = new Amazon.DataZone.Model.CreateProjectProfileRequest();
             
+            if (cmdletContext.AllowCustomProjectResourceTag != null)
+            {
+                request.AllowCustomProjectResourceTags = cmdletContext.AllowCustomProjectResourceTag.Value;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -239,6 +282,14 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.ProjectResourceTag != null)
+            {
+                request.ProjectResourceTags = cmdletContext.ProjectResourceTag;
+            }
+            if (cmdletContext.ProjectResourceTagsDescription != null)
+            {
+                request.ProjectResourceTagsDescription = cmdletContext.ProjectResourceTagsDescription;
             }
             if (cmdletContext.Status != null)
             {
@@ -305,11 +356,14 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AllowCustomProjectResourceTag { get; set; }
             public System.String Description { get; set; }
             public System.String DomainIdentifier { get; set; }
             public System.String DomainUnitIdentifier { get; set; }
             public List<Amazon.DataZone.Model.EnvironmentConfiguration> EnvironmentConfiguration { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.DataZone.Model.ResourceTagParameter> ProjectResourceTag { get; set; }
+            public System.String ProjectResourceTagsDescription { get; set; }
             public Amazon.DataZone.Status Status { get; set; }
             public System.Func<Amazon.DataZone.Model.CreateProjectProfileResponse, NewDZProjectProfileCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

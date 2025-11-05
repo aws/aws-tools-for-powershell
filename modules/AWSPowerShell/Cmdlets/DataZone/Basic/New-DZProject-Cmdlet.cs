@@ -122,6 +122,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String ProjectProfileId { get; set; }
         #endregion
         
+        #region Parameter ResourceTag
+        /// <summary>
+        /// <para>
+        /// <para>The resource tags of the project.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceTags")]
+        public System.Collections.Hashtable ResourceTag { get; set; }
+        #endregion
+        
         #region Parameter UserParameter
         /// <summary>
         /// <para>
@@ -216,6 +227,14 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             #endif
             context.ProjectProfileId = this.ProjectProfileId;
+            if (this.ResourceTag != null)
+            {
+                context.ResourceTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ResourceTag.Keys)
+                {
+                    context.ResourceTag.Add((String)hashKey, (System.String)(this.ResourceTag[hashKey]));
+                }
+            }
             if (this.UserParameter != null)
             {
                 context.UserParameter = new List<Amazon.DataZone.Model.EnvironmentConfigurationUserParameter>(this.UserParameter);
@@ -259,6 +278,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.ProjectProfileId != null)
             {
                 request.ProjectProfileId = cmdletContext.ProjectProfileId;
+            }
+            if (cmdletContext.ResourceTag != null)
+            {
+                request.ResourceTags = cmdletContext.ResourceTag;
             }
             if (cmdletContext.UserParameter != null)
             {
@@ -331,6 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public List<System.String> GlossaryTerm { get; set; }
             public System.String Name { get; set; }
             public System.String ProjectProfileId { get; set; }
+            public Dictionary<System.String, System.String> ResourceTag { get; set; }
             public List<Amazon.DataZone.Model.EnvironmentConfigurationUserParameter> UserParameter { get; set; }
             public System.Func<Amazon.DataZone.Model.CreateProjectResponse, NewDZProjectCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Id;

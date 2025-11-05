@@ -28,29 +28,25 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Delete a distribution.
-    /// 
-    ///  <important><para>
-    /// Before you can delete a distribution, you must disable it, which requires permission
-    /// to update the distribution. Once deleted, a distribution cannot be recovered.
-    /// </para></important>
+    /// Deletes the resource policy attached to the CloudFront resource.
     /// </summary>
-    [Cmdlet("Remove", "CFDistribution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "CFCFResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon CloudFront DeleteDistribution API operation.", Operation = new[] {"DeleteDistribution"}, SelectReturnType = typeof(Amazon.CloudFront.Model.DeleteDistributionResponse))]
-    [AWSCmdletOutput("None or Amazon.CloudFront.Model.DeleteDistributionResponse",
+    [AWSCmdlet("Calls the Amazon CloudFront DeleteResourcePolicy API operation.", Operation = new[] {"DeleteResourcePolicy"}, SelectReturnType = typeof(Amazon.CloudFront.Model.DeleteResourcePolicyResponse))]
+    [AWSCmdletOutput("None or Amazon.CloudFront.Model.DeleteResourcePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudFront.Model.DeleteDistributionResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.CloudFront.Model.DeleteResourcePolicyResponse) be returned by specifying '-Select *'."
     )]
-    public partial class RemoveCFDistributionCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
+    public partial class RemoveCFCFResourcePolicyCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Id
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The distribution ID.</para>
+        /// <para>The Amazon Resource Name (ARN) of the CloudFront resource for which the resource policy
+        /// should be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,24 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Id { get; set; }
-        #endregion
-        
-        #region Parameter IfMatch
-        /// <summary>
-        /// <para>
-        /// <para>The value of the <c>ETag</c> header that you received when you disabled the distribution.
-        /// For example: <c>E2QWRUHAPOMQZL</c>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public System.String IfMatch { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudFront.Model.DeleteDistributionResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudFront.Model.DeleteResourcePolicyResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,10 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -110,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CFDistribution (DeleteDistribution)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CFCFResourcePolicy (DeleteResourcePolicy)"))
             {
                 return;
             }
@@ -124,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudFront.Model.DeleteDistributionResponse, RemoveCFDistributionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudFront.Model.DeleteResourcePolicyResponse, RemoveCFCFResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -133,17 +118,16 @@ namespace Amazon.PowerShell.Cmdlets.CF
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Id;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Id = this.Id;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.IfMatch = this.IfMatch;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -158,15 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudFront.Model.DeleteDistributionRequest();
+            var request = new Amazon.CloudFront.Model.DeleteResourcePolicyRequest();
             
-            if (cmdletContext.Id != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.Id = cmdletContext.Id;
-            }
-            if (cmdletContext.IfMatch != null)
-            {
-                request.IfMatch = cmdletContext.IfMatch;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -201,15 +181,15 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudFront.Model.DeleteDistributionResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.DeleteDistributionRequest request)
+        private Amazon.CloudFront.Model.DeleteResourcePolicyResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.DeleteResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudFront", "DeleteDistribution");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudFront", "DeleteResourcePolicy");
             try
             {
                 #if DESKTOP
-                return client.DeleteDistribution(request);
+                return client.DeleteResourcePolicy(request);
                 #elif CORECLR
-                return client.DeleteDistributionAsync(request).GetAwaiter().GetResult();
+                return client.DeleteResourcePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -229,9 +209,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Id { get; set; }
-            public System.String IfMatch { get; set; }
-            public System.Func<Amazon.CloudFront.Model.DeleteDistributionResponse, RemoveCFDistributionCmdlet, object> Select { get; set; } =
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.CloudFront.Model.DeleteResourcePolicyResponse, RemoveCFCFResourcePolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

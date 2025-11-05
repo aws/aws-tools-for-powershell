@@ -51,20 +51,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AvailabilityZoneId
+        /// <summary>
+        /// <para>
+        /// <para>One or more Availability Zone IDs. For example, <c>use2-az1</c>.</para><para>Either <c>AvailabilityZone</c> or <c>AvailabilityZoneId</c> must be specified in the
+        /// request, but not both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AvailabilityZoneIds")]
+        public System.String[] AvailabilityZoneId { get; set; }
+        #endregion
+        
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>One or more Availability Zones. For example, <c>us-east-2a</c>.</para>
+        /// <para>One or more Availability Zones. For example, <c>us-east-2a</c>.</para><para>Either <c>AvailabilityZone</c> or <c>AvailabilityZoneId</c> must be specified in the
+        /// request, but not both.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("AvailabilityZones")]
         public System.String[] AvailabilityZone { get; set; }
         #endregion
@@ -130,16 +136,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = CreateSelectDelegate<Amazon.EC2.Model.EnableFastSnapshotRestoresResponse, EnableEC2FastSnapshotRestoreCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AvailabilityZoneId != null)
+            {
+                context.AvailabilityZoneId = new List<System.String>(this.AvailabilityZoneId);
+            }
             if (this.AvailabilityZone != null)
             {
                 context.AvailabilityZone = new List<System.String>(this.AvailabilityZone);
             }
-            #if MODULAR
-            if (this.AvailabilityZone == null && ParameterWasBound(nameof(this.AvailabilityZone)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AvailabilityZone which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.SourceSnapshotId != null)
             {
                 context.SourceSnapshotId = new List<System.String>(this.SourceSnapshotId);
@@ -166,6 +170,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.EnableFastSnapshotRestoresRequest();
             
+            if (cmdletContext.AvailabilityZoneId != null)
+            {
+                request.AvailabilityZoneIds = cmdletContext.AvailabilityZoneId;
+            }
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZones = cmdletContext.AvailabilityZone;
@@ -235,6 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AvailabilityZoneId { get; set; }
             public List<System.String> AvailabilityZone { get; set; }
             public List<System.String> SourceSnapshotId { get; set; }
             public System.Func<Amazon.EC2.Model.EnableFastSnapshotRestoresResponse, EnableEC2FastSnapshotRestoreCmdlet, object> Select { get; set; } =

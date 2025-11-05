@@ -66,6 +66,25 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.String[] SelfManagedActiveDirectoryConfiguration_DnsIp { get; set; }
         #endregion
         
+        #region Parameter SelfManagedActiveDirectoryConfiguration_DomainJoinServiceAccountSecret
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret containing
+        /// the self-managed Active Directory domain join service account credentials. When provided,
+        /// Amazon FSx uses the credentials stored in this secret to join the file system to your
+        /// self-managed Active Directory domain.</para><para>The secret must contain two key-value pairs:</para><ul><li><para><c>CUSTOMER_MANAGED_ACTIVE_DIRECTORY_USERNAME</c> - The username for the service
+        /// account</para></li><li><para><c>CUSTOMER_MANAGED_ACTIVE_DIRECTORY_PASSWORD</c> - The password for the service
+        /// account</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-manage-prereqs.html">
+        /// Using Amazon FSx for Windows with your self-managed Microsoft Active Directory</a>
+        /// or <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/self-manage-prereqs.html">
+        /// Using Amazon FSx for ONTAP with your self-managed Microsoft Active Directory</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ActiveDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_DomainJoinServiceAccountSecret")]
+        public System.String SelfManagedActiveDirectoryConfiguration_DomainJoinServiceAccountSecret { get; set; }
+        #endregion
+        
         #region Parameter SelfManagedActiveDirectoryConfiguration_DomainName
         /// <summary>
         /// <para>
@@ -287,6 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             {
                 context.SelfManagedActiveDirectoryConfiguration_DnsIp = new List<System.String>(this.SelfManagedActiveDirectoryConfiguration_DnsIp);
             }
+            context.SelfManagedActiveDirectoryConfiguration_DomainJoinServiceAccountSecret = this.SelfManagedActiveDirectoryConfiguration_DomainJoinServiceAccountSecret;
             context.SelfManagedActiveDirectoryConfiguration_DomainName = this.SelfManagedActiveDirectoryConfiguration_DomainName;
             context.SelfManagedActiveDirectoryConfiguration_FileSystemAdministratorsGroup = this.SelfManagedActiveDirectoryConfiguration_FileSystemAdministratorsGroup;
             context.SelfManagedActiveDirectoryConfiguration_OrganizationalUnitDistinguishedName = this.SelfManagedActiveDirectoryConfiguration_OrganizationalUnitDistinguishedName;
@@ -356,6 +376,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration_DnsIp != null)
             {
                 requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration.DnsIps = requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration_DnsIp;
+                requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfigurationIsNull = false;
+            }
+            System.String requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration_DomainJoinServiceAccountSecret = null;
+            if (cmdletContext.SelfManagedActiveDirectoryConfiguration_DomainJoinServiceAccountSecret != null)
+            {
+                requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration_DomainJoinServiceAccountSecret = cmdletContext.SelfManagedActiveDirectoryConfiguration_DomainJoinServiceAccountSecret;
+            }
+            if (requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration_DomainJoinServiceAccountSecret != null)
+            {
+                requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration.DomainJoinServiceAccountSecret = requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration_DomainJoinServiceAccountSecret;
                 requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfigurationIsNull = false;
             }
             System.String requestActiveDirectoryConfiguration_activeDirectoryConfiguration_SelfManagedActiveDirectoryConfiguration_selfManagedActiveDirectoryConfiguration_DomainName = null;
@@ -510,6 +540,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         {
             public System.String ActiveDirectoryConfiguration_NetBiosName { get; set; }
             public List<System.String> SelfManagedActiveDirectoryConfiguration_DnsIp { get; set; }
+            public System.String SelfManagedActiveDirectoryConfiguration_DomainJoinServiceAccountSecret { get; set; }
             public System.String SelfManagedActiveDirectoryConfiguration_DomainName { get; set; }
             public System.String SelfManagedActiveDirectoryConfiguration_FileSystemAdministratorsGroup { get; set; }
             public System.String SelfManagedActiveDirectoryConfiguration_OrganizationalUnitDistinguishedName { get; set; }
