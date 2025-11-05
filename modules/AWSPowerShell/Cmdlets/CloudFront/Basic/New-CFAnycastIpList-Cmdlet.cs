@@ -45,6 +45,18 @@ namespace Amazon.PowerShell.Cmdlets.CF
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address type for the Anycast static IP list. You can specify one of the following
+        /// options:</para><ul><li><para><c>ipv4</c> - Allocate a list of only IPv4 addresses</para></li><li><para><c>ipv6</c> - Allocate a list of only IPv4 addresses</para></li><li><para><c>dualstack</c> - Allocate a list of both IPv4 and IPv6 addresses</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudFront.IpAddressType")]
+        public Amazon.CloudFront.IpAddressType IpAddressType { get; set; }
+        #endregion
+        
         #region Parameter IpCount
         /// <summary>
         /// <para>
@@ -140,6 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 context.Select = CreateSelectDelegate<Amazon.CloudFront.Model.CreateAnycastIpListResponse, NewCFAnycastIpListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.IpAddressType = this.IpAddressType;
             context.IpCount = this.IpCount;
             #if MODULAR
             if (this.IpCount == null && ParameterWasBound(nameof(this.IpCount)))
@@ -174,6 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
             // create request
             var request = new Amazon.CloudFront.Model.CreateAnycastIpListRequest();
             
+            if (cmdletContext.IpAddressType != null)
+            {
+                request.IpAddressType = cmdletContext.IpAddressType;
+            }
             if (cmdletContext.IpCount != null)
             {
                 request.IpCount = cmdletContext.IpCount.Value;
@@ -256,6 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.CloudFront.IpAddressType IpAddressType { get; set; }
             public System.Int32? IpCount { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.CloudFront.Model.Tag> Tags_Item { get; set; }

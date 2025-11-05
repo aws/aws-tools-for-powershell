@@ -30,21 +30,16 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Delete a distribution.
-    /// 
-    ///  <important><para>
-    /// Before you can delete a distribution, you must disable it, which requires permission
-    /// to update the distribution. Once deleted, a distribution cannot be recovered.
-    /// </para></important>
+    /// Updates an Anycast static IP list.
     /// </summary>
-    [Cmdlet("Remove", "CFDistribution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon CloudFront DeleteDistribution API operation.", Operation = new[] {"DeleteDistribution"}, SelectReturnType = typeof(Amazon.CloudFront.Model.DeleteDistributionResponse))]
-    [AWSCmdletOutput("None or Amazon.CloudFront.Model.DeleteDistributionResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudFront.Model.DeleteDistributionResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Update", "CFAnycastIpList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CloudFront.Model.AnycastIpList")]
+    [AWSCmdlet("Calls the Amazon CloudFront UpdateAnycastIpList API operation.", Operation = new[] {"UpdateAnycastIpList"}, SelectReturnType = typeof(Amazon.CloudFront.Model.UpdateAnycastIpListResponse))]
+    [AWSCmdletOutput("Amazon.CloudFront.Model.AnycastIpList or Amazon.CloudFront.Model.UpdateAnycastIpListResponse",
+        "This cmdlet returns an Amazon.CloudFront.Model.AnycastIpList object.",
+        "The service call response (type Amazon.CloudFront.Model.UpdateAnycastIpListResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class RemoveCFDistributionCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
+    public partial class UpdateCFAnycastIpListCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -53,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The distribution ID.</para>
+        /// <para>The ID of the Anycast static IP list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,22 +65,41 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter IfMatch
         /// <summary>
         /// <para>
-        /// <para>The value of the <c>ETag</c> header that you received when you disabled the distribution.
-        /// For example: <c>E2QWRUHAPOMQZL</c>.</para>
+        /// <para>The current version (ETag value) of the Anycast static IP list that you are updating.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String IfMatch { get; set; }
+        #endregion
+        
+        #region Parameter IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address type for the Anycast static IP list. You can specify one of the following
+        /// options:</para><ul><li><para><c>ipv4</c> - Allocate a list of only IPv4 addresses</para></li><li><para><c>ipv6</c> - Allocate a list of only IPv4 addresses</para></li><li><para><c>dualstack</c> - Allocate a list of both IPv4 and IPv6 addresses</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudFront.IpAddressType")]
+        public Amazon.CloudFront.IpAddressType IpAddressType { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudFront.Model.DeleteDistributionResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AnycastIpList'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudFront.Model.UpdateAnycastIpListResponse).
+        /// Specifying the name of a property of type Amazon.CloudFront.Model.UpdateAnycastIpListResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "AnycastIpList";
         #endregion
         
         #region Parameter Force
@@ -108,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CFDistribution (DeleteDistribution)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CFAnycastIpList (UpdateAnycastIpList)"))
             {
                 return;
             }
@@ -120,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudFront.Model.DeleteDistributionResponse, RemoveCFDistributionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudFront.Model.UpdateAnycastIpListResponse, UpdateCFAnycastIpListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Id = this.Id;
@@ -131,6 +145,13 @@ namespace Amazon.PowerShell.Cmdlets.CF
             }
             #endif
             context.IfMatch = this.IfMatch;
+            #if MODULAR
+            if (this.IfMatch == null && ParameterWasBound(nameof(this.IfMatch)))
+            {
+                WriteWarning("You are passing $null as a value for parameter IfMatch which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.IpAddressType = this.IpAddressType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -145,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudFront.Model.DeleteDistributionRequest();
+            var request = new Amazon.CloudFront.Model.UpdateAnycastIpListRequest();
             
             if (cmdletContext.Id != null)
             {
@@ -154,6 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (cmdletContext.IfMatch != null)
             {
                 request.IfMatch = cmdletContext.IfMatch;
+            }
+            if (cmdletContext.IpAddressType != null)
+            {
+                request.IpAddressType = cmdletContext.IpAddressType;
             }
             
             CmdletOutput output;
@@ -188,12 +213,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudFront.Model.DeleteDistributionResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.DeleteDistributionRequest request)
+        private Amazon.CloudFront.Model.UpdateAnycastIpListResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.UpdateAnycastIpListRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudFront", "DeleteDistribution");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudFront", "UpdateAnycastIpList");
             try
             {
-                return client.DeleteDistributionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.UpdateAnycastIpListAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -212,8 +237,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             public System.String Id { get; set; }
             public System.String IfMatch { get; set; }
-            public System.Func<Amazon.CloudFront.Model.DeleteDistributionResponse, RemoveCFDistributionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public Amazon.CloudFront.IpAddressType IpAddressType { get; set; }
+            public System.Func<Amazon.CloudFront.Model.UpdateAnycastIpListResponse, UpdateCFAnycastIpListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AnycastIpList;
         }
         
     }

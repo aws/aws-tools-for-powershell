@@ -23,79 +23,70 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.CloudFront;
-using Amazon.CloudFront.Model;
+using Amazon.GroundStation;
+using Amazon.GroundStation.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.CF
+namespace Amazon.PowerShell.Cmdlets.GS
 {
     /// <summary>
-    /// Delete a distribution.
-    /// 
-    ///  <important><para>
-    /// Before you can delete a distribution, you must disable it, which requires permission
-    /// to update the distribution. Once deleted, a distribution cannot be recovered.
-    /// </para></important>
+    /// Amazon.GroundStation.IAmazonGroundStation.GetAgentTaskResponseUrl
     /// </summary>
-    [Cmdlet("Remove", "CFDistribution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon CloudFront DeleteDistribution API operation.", Operation = new[] {"DeleteDistribution"}, SelectReturnType = typeof(Amazon.CloudFront.Model.DeleteDistributionResponse))]
-    [AWSCmdletOutput("None or Amazon.CloudFront.Model.DeleteDistributionResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudFront.Model.DeleteDistributionResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Get", "GSAgentTaskResponseUrl")]
+    [OutputType("Amazon.GroundStation.Model.GetAgentTaskResponseUrlResponse")]
+    [AWSCmdlet("Calls the AWS Ground Station GetAgentTaskResponseUrl API operation.", Operation = new[] {"GetAgentTaskResponseUrl"}, SelectReturnType = typeof(Amazon.GroundStation.Model.GetAgentTaskResponseUrlResponse))]
+    [AWSCmdletOutput("Amazon.GroundStation.Model.GetAgentTaskResponseUrlResponse",
+        "This cmdlet returns an Amazon.GroundStation.Model.GetAgentTaskResponseUrlResponse object containing multiple properties."
     )]
-    public partial class RemoveCFDistributionCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
+    public partial class GetGSAgentTaskResponseUrlCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter Id
+        #region Parameter AgentId
         /// <summary>
         /// <para>
-        /// <para>The distribution ID.</para>
+        /// <para>UUID of agent requesting the response URL.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Id { get; set; }
+        public System.String AgentId { get; set; }
         #endregion
         
-        #region Parameter IfMatch
+        #region Parameter TaskId
         /// <summary>
         /// <para>
-        /// <para>The value of the <c>ETag</c> header that you received when you disabled the distribution.
-        /// For example: <c>E2QWRUHAPOMQZL</c>.</para>
+        /// <para>GUID of the agent task for which the response URL is being requested.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public System.String IfMatch { get; set; }
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String TaskId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudFront.Model.DeleteDistributionResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GroundStation.Model.GetAgentTaskResponseUrlResponse).
+        /// Specifying the name of a property of type Amazon.GroundStation.Model.GetAgentTaskResponseUrlResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -107,12 +98,6 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CFDistribution (DeleteDistribution)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -120,17 +105,23 @@ namespace Amazon.PowerShell.Cmdlets.CF
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudFront.Model.DeleteDistributionResponse, RemoveCFDistributionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.GroundStation.Model.GetAgentTaskResponseUrlResponse, GetGSAgentTaskResponseUrlCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Id = this.Id;
+            context.AgentId = this.AgentId;
             #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            if (this.AgentId == null && ParameterWasBound(nameof(this.AgentId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AgentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.IfMatch = this.IfMatch;
+            context.TaskId = this.TaskId;
+            #if MODULAR
+            if (this.TaskId == null && ParameterWasBound(nameof(this.TaskId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TaskId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -145,15 +136,15 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudFront.Model.DeleteDistributionRequest();
+            var request = new Amazon.GroundStation.Model.GetAgentTaskResponseUrlRequest();
             
-            if (cmdletContext.Id != null)
+            if (cmdletContext.AgentId != null)
             {
-                request.Id = cmdletContext.Id;
+                request.AgentId = cmdletContext.AgentId;
             }
-            if (cmdletContext.IfMatch != null)
+            if (cmdletContext.TaskId != null)
             {
-                request.IfMatch = cmdletContext.IfMatch;
+                request.TaskId = cmdletContext.TaskId;
             }
             
             CmdletOutput output;
@@ -188,12 +179,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudFront.Model.DeleteDistributionResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.DeleteDistributionRequest request)
+        private Amazon.GroundStation.Model.GetAgentTaskResponseUrlResponse CallAWSServiceOperation(IAmazonGroundStation client, Amazon.GroundStation.Model.GetAgentTaskResponseUrlRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudFront", "DeleteDistribution");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Ground Station", "GetAgentTaskResponseUrl");
             try
             {
-                return client.DeleteDistributionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetAgentTaskResponseUrlAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -210,10 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Id { get; set; }
-            public System.String IfMatch { get; set; }
-            public System.Func<Amazon.CloudFront.Model.DeleteDistributionResponse, RemoveCFDistributionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String AgentId { get; set; }
+            public System.String TaskId { get; set; }
+            public System.Func<Amazon.GroundStation.Model.GetAgentTaskResponseUrlResponse, GetGSAgentTaskResponseUrlCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

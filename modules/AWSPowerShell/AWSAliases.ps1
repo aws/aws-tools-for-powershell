@@ -4753,6 +4753,9 @@ Set-Alias -Name Delete-CFPublicKey -Value Remove-CFPublicKey
 Set-Alias -Name CF-DeletePublicKey -Value Remove-CFPublicKey
 Set-Alias -Name Delete-CFRealtimeLogConfig -Value Remove-CFRealtimeLogConfig
 Set-Alias -Name CF-DeleteRealtimeLogConfig -Value Remove-CFRealtimeLogConfig
+Set-Alias -Name Delete-CFResourcePolicy -Value Remove-CFCFResourcePolicy
+Set-Alias -Name Delete-CFCFResourcePolicy -Value Remove-CFCFResourcePolicy
+Set-Alias -Name CF-DeleteResourcePolicy -Value Remove-CFCFResourcePolicy
 Set-Alias -Name Delete-CFResponseHeadersPolicy -Value Remove-CFResponseHeadersPolicy
 Set-Alias -Name CF-DeleteResponseHeadersPolicy -Value Remove-CFResponseHeadersPolicy
 Set-Alias -Name Delete-CFStreamingDistribution -Value Remove-CFStreamingDistribution
@@ -4800,6 +4803,8 @@ Set-Alias -Name CF-GetOriginRequestPolicyConfig -Value Get-CFOriginRequestPolicy
 Set-Alias -Name CF-GetPublicKey -Value Get-CFPublicKey
 Set-Alias -Name CF-GetPublicKeyConfig -Value Get-CFPublicKeyConfig
 Set-Alias -Name CF-GetRealtimeLogConfig -Value Get-CFRealtimeLogConfig
+Set-Alias -Name Get-CFResourcePolicy -Value Get-CFCFResourcePolicy
+Set-Alias -Name CF-GetResourcePolicy -Value Get-CFCFResourcePolicy
 Set-Alias -Name CF-GetResponseHeadersPolicy -Value Get-CFResponseHeadersPolicy
 Set-Alias -Name CF-GetResponseHeadersPolicyConfig -Value Get-CFResponseHeadersPolicyConfig
 Set-Alias -Name CF-GetStreamingDistribution -Value Get-CFStreamingDistribution
@@ -4836,6 +4841,9 @@ Set-Alias -Name List-CFDistributionsByKeyGroup -Value Get-CFDistributionsByKeyGr
 Set-Alias -Name CF-ListDistributionsByKeyGroup -Value Get-CFDistributionsByKeyGroup
 Set-Alias -Name List-CFDistributionsByOriginRequestPolicyId -Value Get-CFDistributionsByOriginRequestPolicyId
 Set-Alias -Name CF-ListDistributionsByOriginRequestPolicyId -Value Get-CFDistributionsByOriginRequestPolicyId
+Set-Alias -Name List-CFDistributionsByOwnedResource -Value Get-CFCFDistributionsByOwnedResource
+Set-Alias -Name List-CFCFDistributionsByOwnedResource -Value Get-CFCFDistributionsByOwnedResource
+Set-Alias -Name CF-ListDistributionsByOwnedResource -Value Get-CFCFDistributionsByOwnedResource
 Set-Alias -Name List-CFDistributionsByRealtimeLogConfig -Value Get-CFDistributionsByRealtimeLogConfig
 Set-Alias -Name CF-ListDistributionsByRealtimeLogConfig -Value Get-CFDistributionsByRealtimeLogConfig
 Set-Alias -Name List-CFDistributionsByResponseHeadersPolicyId -Value Get-CFDistributionsByResponseHeadersPolicyId
@@ -4896,9 +4904,13 @@ Set-Alias -Name List-CFVpcOrigins -Value Get-CFVpcOriginList
 Set-Alias -Name List-CFVpcOriginList -Value Get-CFVpcOriginList
 Set-Alias -Name CF-ListVpcOrigins -Value Get-CFVpcOriginList
 Set-Alias -Name CF-PublishFunction -Value Publish-CFFunction
+Set-Alias -Name Put-CFResourcePolicy -Value Write-CFCFResourcePolicy
+Set-Alias -Name Put-CFCFResourcePolicy -Value Write-CFCFResourcePolicy
+Set-Alias -Name CF-PutResourcePolicy -Value Write-CFCFResourcePolicy
 Set-Alias -Name CF-TagResource -Value Add-CFResourceTag
 Set-Alias -Name CF-TestFunction -Value Test-CFFunction
 Set-Alias -Name CF-UntagResource -Value Remove-CFResourceTag
+Set-Alias -Name CF-UpdateAnycastIpList -Value Update-CFAnycastIpList
 Set-Alias -Name CF-UpdateCachePolicy -Value Update-CFCachePolicy
 Set-Alias -Name CF-UpdateCloudFrontOriginAccessIdentity -Value Update-CFCloudFrontOriginAccessIdentity
 Set-Alias -Name CF-UpdateConnectionGroup -Value Update-CFConnectionGroup
@@ -15149,6 +15161,8 @@ Set-Alias -Name Create-GSConfig -Value New-GSConfig
 Set-Alias -Name GS-CreateConfig -Value New-GSConfig
 Set-Alias -Name Create-GSDataflowEndpointGroup -Value New-GSDataflowEndpointGroup
 Set-Alias -Name GS-CreateDataflowEndpointGroup -Value New-GSDataflowEndpointGroup
+Set-Alias -Name Create-GSDataflowEndpointGroupV2 -Value New-GSDataflowEndpointGroupV2
+Set-Alias -Name GS-CreateDataflowEndpointGroupV2 -Value New-GSDataflowEndpointGroupV2
 Set-Alias -Name Create-GSEphemeris -Value New-GSEphemeris
 Set-Alias -Name GS-CreateEphemeris -Value New-GSEphemeris
 Set-Alias -Name Create-GSMissionProfile -Value New-GSMissionProfile
@@ -15166,6 +15180,7 @@ Set-Alias -Name GS-DescribeContact -Value Get-GSContact
 Set-Alias -Name Describe-GSEphemeris -Value Get-GSEphemeris
 Set-Alias -Name GS-DescribeEphemeris -Value Get-GSEphemeris
 Set-Alias -Name GS-GetAgentConfiguration -Value Get-GSAgentConfiguration
+Set-Alias -Name GS-GetAgentTaskResponseUrl -Value Get-GSAgentTaskResponseUrl
 Set-Alias -Name GS-GetConfig -Value Get-GSConfig
 Set-Alias -Name GS-GetDataflowEndpointGroup -Value Get-GSDataflowEndpointGroup
 Set-Alias -Name GS-GetMinuteUsage -Value Get-GSMinuteUsage

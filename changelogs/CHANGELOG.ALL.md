@@ -1,4 +1,28 @@
-﻿### 5.0.90 (2025-11-04 21:02Z)
+﻿### 5.0.91 (2025-11-05 21:46Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.127.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudFront
+    * Added cmdlet Get-CFCFDistributionsByOwnedResource leveraging the ListDistributionsByOwnedResource service API.
+    * Added cmdlet Get-CFCFResourcePolicy leveraging the GetResourcePolicy service API.
+    * Added cmdlet Remove-CFCFResourcePolicy leveraging the DeleteResourcePolicy service API.
+    * Added cmdlet Update-CFAnycastIpList leveraging the UpdateAnycastIpList service API.
+    * Added cmdlet Write-CFCFResourcePolicy leveraging the PutResourcePolicy service API.
+    * Modified cmdlet New-CFAnycastIpList: added parameter IpAddressType.
+  * Amazon DataZone
+    * Modified cmdlet New-DZProject: added parameter ResourceTag.
+    * Modified cmdlet New-DZProjectProfile: added parameters AllowCustomProjectResourceTag, ProjectResourceTag and ProjectResourceTagsDescription.
+    * Modified cmdlet Update-DZProject: added parameter ResourceTag.
+    * Modified cmdlet Update-DZProjectProfile: added parameters AllowCustomProjectResourceTag, ProjectResourceTag and ProjectResourceTagsDescription.
+  * Amazon Elastic Compute Cloud
+    * Modified cmdlet Disable-EC2FastSnapshotRestore: added parameter AvailabilityZoneId.
+    * Modified cmdlet Enable-EC2FastSnapshotRestore: added parameter AvailabilityZoneId.
+  * Amazon FSx
+    * Modified cmdlet New-FSXStorageVirtualMachine: added parameter SelfManagedActiveDirectoryConfiguration_DomainJoinServiceAccountSecret.
+    * Modified cmdlet Update-FSXStorageVirtualMachine: added parameter SelfManagedActiveDirectoryConfiguration_DomainJoinServiceAccountSecret.
+  * Amazon Ground Station
+    * Added cmdlet Get-GSAgentTaskResponseUrl leveraging the GetAgentTaskResponseUrl service API.
+    * Added cmdlet New-GSDataflowEndpointGroupV2 leveraging the CreateDataflowEndpointGroupV2 service API.
+
+### 5.0.90 (2025-11-04 21:02Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.126.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Pinpoint SMS Voice V2
     * Added cmdlet Use-SMSVCarrierLookup leveraging the CarrierLookup service API.

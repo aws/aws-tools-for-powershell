@@ -233,6 +233,16 @@ $CF_Completers = {
             break
         }
 
+        # Amazon.CloudFront.IpAddressType
+        {
+            ($_ -eq "New-CFAnycastIpList/IpAddressType") -Or
+            ($_ -eq "Update-CFAnycastIpList/IpAddressType")
+        }
+        {
+            $v = "dualstack","ipv4","ipv6"
+            break
+        }
+
         # Amazon.CloudFront.ItemSelection
         {
             ($_ -eq "New-CFDistribution/Cookies_Forward") -Or
@@ -424,6 +434,7 @@ $CF_map = @{
     "GeoRestrictions_RestrictionType"=@("New-CFDistributionTenant","Update-CFDistributionTenant")
     "HeadersConfig_HeaderBehavior"=@("New-CFCachePolicy","New-CFOriginRequestPolicy","Update-CFCachePolicy","Update-CFOriginRequestPolicy")
     "ImportSource_SourceType"=@("New-CFKeyValueStore")
+    "IpAddressType"=@("New-CFAnycastIpList","Update-CFAnycastIpList")
     "ManagedCertificateRequest_CertificateTransparencyLoggingPreference"=@("New-CFDistributionTenant","Update-CFDistributionTenant")
     "ManagedCertificateRequest_ValidationTokenHost"=@("New-CFDistributionTenant","Update-CFDistributionTenant")
     "OriginAccessControlConfig_OriginAccessControlOriginType"=@("New-CFOriginAccessControl","Update-CFOriginAccessControl")
@@ -538,6 +549,7 @@ $CF_SelectMap = @{
                "Remove-CFOriginRequestPolicy",
                "Remove-CFPublicKey",
                "Remove-CFRealtimeLogConfig",
+               "Remove-CFCFResourcePolicy",
                "Remove-CFResponseHeadersPolicy",
                "Remove-CFStreamingDistribution",
                "Remove-CFVpcOrigin",
@@ -576,6 +588,7 @@ $CF_SelectMap = @{
                "Get-CFPublicKey",
                "Get-CFPublicKeyConfig",
                "Get-CFRealtimeLogConfig",
+               "Get-CFCFResourcePolicy",
                "Get-CFResponseHeadersPolicy",
                "Get-CFResponseHeadersPolicyConfig",
                "Get-CFStreamingDistribution",
@@ -593,6 +606,7 @@ $CF_SelectMap = @{
                "Get-CFDistributionsByConnectionMode",
                "Get-CFDistributionsByKeyGroup",
                "Get-CFDistributionsByOriginRequestPolicyId",
+               "Get-CFCFDistributionsByOwnedResource",
                "Get-CFDistributionsByRealtimeLogConfig",
                "Get-CFDistributionsByResponseHeadersPolicyId",
                "Get-CFDistributionsByVpcOriginId",
@@ -616,9 +630,11 @@ $CF_SelectMap = @{
                "Get-CFResourceTag",
                "Get-CFVpcOriginList",
                "Publish-CFFunction",
+               "Write-CFCFResourcePolicy",
                "Add-CFResourceTag",
                "Test-CFFunction",
                "Remove-CFResourceTag",
+               "Update-CFAnycastIpList",
                "Update-CFCachePolicy",
                "Update-CFCloudFrontOriginAccessIdentity",
                "Update-CFConnectionGroup",

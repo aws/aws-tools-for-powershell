@@ -45,24 +45,34 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter AvailabilityZone
+        #region Parameter AvailabilityZoneId
         /// <summary>
         /// <para>
-        /// <para>One or more Availability Zones. For example, <c>us-east-2a</c>.</para><para />
+        /// <para>One or more Availability Zone IDs. For example, <c>use2-az1</c>.</para><para>Either <c>AvailabilityZone</c> or <c>AvailabilityZoneId</c> must be specified in the
+        /// request, but not both.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("AvailabilityZoneIds")]
+        public System.String[] AvailabilityZoneId { get; set; }
+        #endregion
+        
+        #region Parameter AvailabilityZone
+        /// <summary>
+        /// <para>
+        /// <para>One or more Availability Zones. For example, <c>us-east-2a</c>.</para><para>Either <c>AvailabilityZone</c> or <c>AvailabilityZoneId</c> must be specified in the
+        /// request, but not both.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AvailabilityZones")]
         public System.String[] AvailabilityZone { get; set; }
         #endregion
@@ -147,16 +157,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = CreateSelectDelegate<Amazon.EC2.Model.DisableFastSnapshotRestoresResponse, DisableEC2FastSnapshotRestoreCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AvailabilityZoneId != null)
+            {
+                context.AvailabilityZoneId = new List<System.String>(this.AvailabilityZoneId);
+            }
             if (this.AvailabilityZone != null)
             {
                 context.AvailabilityZone = new List<System.String>(this.AvailabilityZone);
             }
-            #if MODULAR
-            if (this.AvailabilityZone == null && ParameterWasBound(nameof(this.AvailabilityZone)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AvailabilityZone which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.DryRun = this.DryRun;
             if (this.SourceSnapshotId != null)
             {
@@ -184,6 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.DisableFastSnapshotRestoresRequest();
             
+            if (cmdletContext.AvailabilityZoneId != null)
+            {
+                request.AvailabilityZoneIds = cmdletContext.AvailabilityZoneId;
+            }
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZones = cmdletContext.AvailabilityZone;
@@ -251,6 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AvailabilityZoneId { get; set; }
             public List<System.String> AvailabilityZone { get; set; }
             public System.Boolean? DryRun { get; set; }
             public List<System.String> SourceSnapshotId { get; set; }

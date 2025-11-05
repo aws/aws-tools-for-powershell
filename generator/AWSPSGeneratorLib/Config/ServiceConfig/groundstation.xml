@@ -31,6 +31,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateDataflowEndpointGroupV2" OutputProperty="DataflowEndpointGroupId" Verb="New" Noun="DataflowEndpointGroupV2" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateEphemeris" OutputProperty="EphemerisId" Verb="New" Noun="Ephemeris" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Ephemeris_Oem_S3Object_Bucket" NewName="Ephemeris_Oem_S3Object_Bucket" />
@@ -74,6 +78,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAgentTaskResponseUrl" OutputProperty="*" Verb="Get" Noun="AgentTaskResponseUrl" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetConfig" OutputProperty="*" Verb="Get" Noun="Config" PipelineParameter="ConfigId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -94,15 +102,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfigs" OutputProperty="ConfigList" Verb="Get" Noun="ConfigList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListConfigs" OutputProperty="ConfigList" Verb="Get" Noun="ConfigList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListContacts" OutputProperty="ContactList" Verb="Get" Noun="ContactList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListContacts" OutputProperty="ContactList" Verb="Get" Noun="ContactList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataflowEndpointGroups" OutputProperty="DataflowEndpointGroupList" Verb="Get" Noun="DataflowEndpointGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListDataflowEndpointGroups" OutputProperty="DataflowEndpointGroupList" Verb="Get" Noun="DataflowEndpointGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -110,15 +118,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroundStations" OutputProperty="GroundStationList" Verb="Get" Noun="GroundStationList" PipelineParameter="SatelliteId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListGroundStations" OutputProperty="GroundStationList" Verb="Get" Noun="GroundStationList" PipelineParameter="SatelliteId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMissionProfiles" OutputProperty="MissionProfileList" Verb="Get" Noun="MissionProfileList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListMissionProfiles" OutputProperty="MissionProfileList" Verb="Get" Noun="MissionProfileList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSatellites" OutputProperty="Satellites" Verb="Get" Noun="SatelliteList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSatellites" OutputProperty="Satellites" Verb="Get" Noun="SatelliteList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
