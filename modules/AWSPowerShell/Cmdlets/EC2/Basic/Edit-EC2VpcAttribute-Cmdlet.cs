@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// enabled DNS support.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = "DnsHostnames")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = "DnsHostnames")]
         [Alias("EnableDnsHostnames")]
         public System.Boolean? EnableDnsHostname { get; set; }
         #endregion
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// Use separate requests for each attribute.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = "DnsSupport")]
+        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, ParameterSetName = "DnsSupport")]
         public System.Boolean? EnableDnsSupport { get; set; }
         #endregion
         

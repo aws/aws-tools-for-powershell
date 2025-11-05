@@ -2667,8 +2667,8 @@
         <ServiceOperation MethodName="ModifyVpcAttribute" Verb="Edit" Noun="VpcAttribute" ShouldProcessTarget="VpcId" PositionalParameters="EnableDnsSupport" PipelineParameter="VpcId" NoPipelineParameter="false" LegacyV4Pagination="true" DefaultParameterSet="DnsSupport">
             <Params>
                 <Param Name="VpcId" Mandatory="true" />
-                <Param Name="EnableDnsSupport" ParameterSetName="DnsSupport" Mandatory="true" />
-                <Param Name="EnableDnsHostnames" NewName="EnableDnsHostname" ParameterSetName="DnsHostnames" Mandatory="true" />
+                <Param Name="EnableDnsSupport" ParameterSetName="DnsSupport" />
+                <Param Name="EnableDnsHostnames" NewName="EnableDnsHostname" ParameterSetName="DnsHostnames" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
