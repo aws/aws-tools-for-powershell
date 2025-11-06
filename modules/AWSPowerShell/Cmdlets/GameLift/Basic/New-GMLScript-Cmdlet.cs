@@ -30,14 +30,16 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere
+    /// 
+    ///  
+    /// <para>
     /// Creates a new script record for your Amazon GameLift Servers Realtime script. Realtime
     /// scripts are JavaScript that provide configuration settings and optional custom game
     /// logic for your game. The script is deployed when you create a Amazon GameLift Servers
     /// Realtime fleet to host your game sessions. Script logic is executed during an active
     /// game session. 
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// To create a new script record, specify a script name and provide the script file(s).
     /// The script files and all dependencies must be zipped into a single file. You can pull
     /// the zip file from either of these locations: 

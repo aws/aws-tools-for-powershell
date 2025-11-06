@@ -30,11 +30,13 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Cancels a game session placement that's in <c>PENDING</c> status. To stop a placement,
-    /// provide the placement ID value. 
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
     /// 
     ///  
     /// <para>
+    /// Cancels a game session placement that's in <c>PENDING</c> status. To stop a placement,
+    /// provide the placement ID value. 
+    /// </para><para>
     /// Results
     /// </para><para>
     /// If successful, this operation removes the placement request from the queue and moves

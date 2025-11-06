@@ -136,6 +136,20 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.Model.DatasetParameter[] DatasetParameter { get; set; }
         #endregion
         
+        #region Parameter DataPrepConfiguration_DestinationTableMap
+        /// <summary>
+        /// <para>
+        /// <para>A map of destination tables that receive the final prepared data.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable DataPrepConfiguration_DestinationTableMap { get; set; }
+        #endregion
+        
         #region Parameter DataSetUsageConfiguration_DisableUseAsDirectQuerySource
         /// <summary>
         /// <para>
@@ -205,20 +219,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.DataSetImportMode ImportMode { get; set; }
         #endregion
         
-        #region Parameter LogicalTableMap
-        /// <summary>
-        /// <para>
-        /// <para>Configures the combination and transformation of the data from the physical tables.</para><para />
-        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
-        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
-        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
-        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Collections.Hashtable LogicalTableMap { get; set; }
-        #endregion
-        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -279,6 +279,20 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.Collections.Hashtable PhysicalTableMap { get; set; }
         #endregion
         
+        #region Parameter DataPrepConfiguration_SourceTableMap
+        /// <summary>
+        /// <para>
+        /// <para>A map of source tables that provide information about underlying sources.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable DataPrepConfiguration_SourceTableMap { get; set; }
+        #endregion
+        
         #region Parameter RowLevelPermissionDataSet_Status
         /// <summary>
         /// <para>
@@ -301,6 +315,20 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QuickSight.Status")]
         public Amazon.QuickSight.Status RowLevelPermissionTagConfiguration_Status { get; set; }
+        #endregion
+        
+        #region Parameter SemanticModelConfiguration_TableMap
+        /// <summary>
+        /// <para>
+        /// <para>A map of semantic tables that define the analytical structure.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable SemanticModelConfiguration_TableMap { get; set; }
         #endregion
         
         #region Parameter RowLevelPermissionTagConfiguration_TagRuleConfiguration
@@ -337,6 +365,20 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.Model.RowLevelPermissionTagRule[] RowLevelPermissionTagConfiguration_TagRule { get; set; }
         #endregion
         
+        #region Parameter DataPrepConfiguration_TransformStepMap
+        /// <summary>
+        /// <para>
+        /// <para>A map of transformation steps that process the data.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable DataPrepConfiguration_TransformStepMap { get; set; }
+        #endregion
+        
         #region Parameter PerformanceConfiguration_UniqueKey
         /// <summary>
         /// <para>
@@ -350,6 +392,23 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("PerformanceConfiguration_UniqueKeys")]
         public Amazon.QuickSight.Model.UniqueKey[] PerformanceConfiguration_UniqueKey { get; set; }
+        #endregion
+        
+        #region Parameter LogicalTableMap
+        /// <summary>
+        /// <para>
+        /// <para>Configures the combination and transformation of the data from the physical tables.
+        /// This parameter is used with the legacy data preparation experience.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Only used in the legacy data preparation experience.")]
+        public System.Collections.Hashtable LogicalTableMap { get; set; }
         #endregion
         
         #region Parameter Select
@@ -413,6 +472,30 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 context.ColumnLevelPermissionRule = new List<Amazon.QuickSight.Model.ColumnLevelPermissionRule>(this.ColumnLevelPermissionRule);
             }
+            if (this.DataPrepConfiguration_DestinationTableMap != null)
+            {
+                context.DataPrepConfiguration_DestinationTableMap = new Dictionary<System.String, Amazon.QuickSight.Model.DestinationTable>(StringComparer.Ordinal);
+                foreach (var hashKey in this.DataPrepConfiguration_DestinationTableMap.Keys)
+                {
+                    context.DataPrepConfiguration_DestinationTableMap.Add((String)hashKey, (Amazon.QuickSight.Model.DestinationTable)(this.DataPrepConfiguration_DestinationTableMap[hashKey]));
+                }
+            }
+            if (this.DataPrepConfiguration_SourceTableMap != null)
+            {
+                context.DataPrepConfiguration_SourceTableMap = new Dictionary<System.String, Amazon.QuickSight.Model.SourceTable>(StringComparer.Ordinal);
+                foreach (var hashKey in this.DataPrepConfiguration_SourceTableMap.Keys)
+                {
+                    context.DataPrepConfiguration_SourceTableMap.Add((String)hashKey, (Amazon.QuickSight.Model.SourceTable)(this.DataPrepConfiguration_SourceTableMap[hashKey]));
+                }
+            }
+            if (this.DataPrepConfiguration_TransformStepMap != null)
+            {
+                context.DataPrepConfiguration_TransformStepMap = new Dictionary<System.String, Amazon.QuickSight.Model.TransformStep>(StringComparer.Ordinal);
+                foreach (var hashKey in this.DataPrepConfiguration_TransformStepMap.Keys)
+                {
+                    context.DataPrepConfiguration_TransformStepMap.Add((String)hashKey, (Amazon.QuickSight.Model.TransformStep)(this.DataPrepConfiguration_TransformStepMap[hashKey]));
+                }
+            }
             context.DataSetId = this.DataSetId;
             #if MODULAR
             if (this.DataSetId == null && ParameterWasBound(nameof(this.DataSetId)))
@@ -441,6 +524,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 WriteWarning("You are passing $null as a value for parameter ImportMode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.LogicalTableMap != null)
             {
                 context.LogicalTableMap = new Dictionary<System.String, Amazon.QuickSight.Model.LogicalTable>(StringComparer.Ordinal);
@@ -449,6 +533,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                     context.LogicalTableMap.Add((String)hashKey, (Amazon.QuickSight.Model.LogicalTable)(this.LogicalTableMap[hashKey]));
                 }
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -492,6 +577,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 context.RowLevelPermissionTagConfiguration_TagRule = new List<Amazon.QuickSight.Model.RowLevelPermissionTagRule>(this.RowLevelPermissionTagConfiguration_TagRule);
             }
+            if (this.SemanticModelConfiguration_TableMap != null)
+            {
+                context.SemanticModelConfiguration_TableMap = new Dictionary<System.String, Amazon.QuickSight.Model.SemanticTable>(StringComparer.Ordinal);
+                foreach (var hashKey in this.SemanticModelConfiguration_TableMap.Keys)
+                {
+                    context.SemanticModelConfiguration_TableMap.Add((String)hashKey, (Amazon.QuickSight.Model.SemanticTable)(this.SemanticModelConfiguration_TableMap[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -519,6 +612,45 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.ColumnLevelPermissionRule != null)
             {
                 request.ColumnLevelPermissionRules = cmdletContext.ColumnLevelPermissionRule;
+            }
+            
+             // populate DataPrepConfiguration
+            var requestDataPrepConfigurationIsNull = true;
+            request.DataPrepConfiguration = new Amazon.QuickSight.Model.DataPrepConfiguration();
+            Dictionary<System.String, Amazon.QuickSight.Model.DestinationTable> requestDataPrepConfiguration_dataPrepConfiguration_DestinationTableMap = null;
+            if (cmdletContext.DataPrepConfiguration_DestinationTableMap != null)
+            {
+                requestDataPrepConfiguration_dataPrepConfiguration_DestinationTableMap = cmdletContext.DataPrepConfiguration_DestinationTableMap;
+            }
+            if (requestDataPrepConfiguration_dataPrepConfiguration_DestinationTableMap != null)
+            {
+                request.DataPrepConfiguration.DestinationTableMap = requestDataPrepConfiguration_dataPrepConfiguration_DestinationTableMap;
+                requestDataPrepConfigurationIsNull = false;
+            }
+            Dictionary<System.String, Amazon.QuickSight.Model.SourceTable> requestDataPrepConfiguration_dataPrepConfiguration_SourceTableMap = null;
+            if (cmdletContext.DataPrepConfiguration_SourceTableMap != null)
+            {
+                requestDataPrepConfiguration_dataPrepConfiguration_SourceTableMap = cmdletContext.DataPrepConfiguration_SourceTableMap;
+            }
+            if (requestDataPrepConfiguration_dataPrepConfiguration_SourceTableMap != null)
+            {
+                request.DataPrepConfiguration.SourceTableMap = requestDataPrepConfiguration_dataPrepConfiguration_SourceTableMap;
+                requestDataPrepConfigurationIsNull = false;
+            }
+            Dictionary<System.String, Amazon.QuickSight.Model.TransformStep> requestDataPrepConfiguration_dataPrepConfiguration_TransformStepMap = null;
+            if (cmdletContext.DataPrepConfiguration_TransformStepMap != null)
+            {
+                requestDataPrepConfiguration_dataPrepConfiguration_TransformStepMap = cmdletContext.DataPrepConfiguration_TransformStepMap;
+            }
+            if (requestDataPrepConfiguration_dataPrepConfiguration_TransformStepMap != null)
+            {
+                request.DataPrepConfiguration.TransformStepMap = requestDataPrepConfiguration_dataPrepConfiguration_TransformStepMap;
+                requestDataPrepConfigurationIsNull = false;
+            }
+             // determine if request.DataPrepConfiguration should be set to null
+            if (requestDataPrepConfigurationIsNull)
+            {
+                request.DataPrepConfiguration = null;
             }
             if (cmdletContext.DataSetId != null)
             {
@@ -565,10 +697,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 request.ImportMode = cmdletContext.ImportMode;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.LogicalTableMap != null)
             {
                 request.LogicalTableMap = cmdletContext.LogicalTableMap;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -695,6 +829,25 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.RowLevelPermissionTagConfiguration = null;
             }
             
+             // populate SemanticModelConfiguration
+            var requestSemanticModelConfigurationIsNull = true;
+            request.SemanticModelConfiguration = new Amazon.QuickSight.Model.SemanticModelConfiguration();
+            Dictionary<System.String, Amazon.QuickSight.Model.SemanticTable> requestSemanticModelConfiguration_semanticModelConfiguration_TableMap = null;
+            if (cmdletContext.SemanticModelConfiguration_TableMap != null)
+            {
+                requestSemanticModelConfiguration_semanticModelConfiguration_TableMap = cmdletContext.SemanticModelConfiguration_TableMap;
+            }
+            if (requestSemanticModelConfiguration_semanticModelConfiguration_TableMap != null)
+            {
+                request.SemanticModelConfiguration.TableMap = requestSemanticModelConfiguration_semanticModelConfiguration_TableMap;
+                requestSemanticModelConfigurationIsNull = false;
+            }
+             // determine if request.SemanticModelConfiguration should be set to null
+            if (requestSemanticModelConfigurationIsNull)
+            {
+                request.SemanticModelConfiguration = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -752,12 +905,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String AwsAccountId { get; set; }
             public List<Amazon.QuickSight.Model.ColumnGroup> ColumnGroup { get; set; }
             public List<Amazon.QuickSight.Model.ColumnLevelPermissionRule> ColumnLevelPermissionRule { get; set; }
+            public Dictionary<System.String, Amazon.QuickSight.Model.DestinationTable> DataPrepConfiguration_DestinationTableMap { get; set; }
+            public Dictionary<System.String, Amazon.QuickSight.Model.SourceTable> DataPrepConfiguration_SourceTableMap { get; set; }
+            public Dictionary<System.String, Amazon.QuickSight.Model.TransformStep> DataPrepConfiguration_TransformStepMap { get; set; }
             public System.String DataSetId { get; set; }
             public List<Amazon.QuickSight.Model.DatasetParameter> DatasetParameter { get; set; }
             public System.Boolean? DataSetUsageConfiguration_DisableUseAsDirectQuerySource { get; set; }
             public System.Boolean? DataSetUsageConfiguration_DisableUseAsImportedSource { get; set; }
             public Dictionary<System.String, Amazon.QuickSight.Model.FieldFolder> FieldFolder { get; set; }
             public Amazon.QuickSight.DataSetImportMode ImportMode { get; set; }
+            [System.ObsoleteAttribute]
             public Dictionary<System.String, Amazon.QuickSight.Model.LogicalTable> LogicalTableMap { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.QuickSight.Model.UniqueKey> PerformanceConfiguration_UniqueKey { get; set; }
@@ -770,6 +927,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.Status RowLevelPermissionTagConfiguration_Status { get; set; }
             public List<List<System.String>> RowLevelPermissionTagConfiguration_TagRuleConfiguration { get; set; }
             public List<Amazon.QuickSight.Model.RowLevelPermissionTagRule> RowLevelPermissionTagConfiguration_TagRule { get; set; }
+            public Dictionary<System.String, Amazon.QuickSight.Model.SemanticTable> SemanticModelConfiguration_TableMap { get; set; }
             public System.Func<Amazon.QuickSight.Model.UpdateDataSetResponse, UpdateQSDataSetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

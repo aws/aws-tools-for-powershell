@@ -1,4 +1,31 @@
-﻿### 5.0.91 (2025-11-05 21:46Z)
+﻿### 5.0.92 (2025-11-06 21:30Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.128.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Backup
+    * Modified cmdlet New-BAKLogicallyAirGappedBackupVault: added parameter EncryptionKeyArn.
+  * Amazon Connect Service
+    * Added cmdlet Search-CONNContactEvaluation leveraging the SearchContactEvaluations service API.
+    * Added cmdlet Search-CONNEvaluationForm leveraging the SearchEvaluationForms service API.
+    * Modified cmdlet New-CONNEvaluationForm: added parameters AutoEvaluationConfiguration_Enabled and Tag.
+    * Modified cmdlet Start-CONNContactEvaluation: added parameters AutoEvaluationConfiguration_Enabled and Tag.
+    * Modified cmdlet Submit-CONNContactEvaluation: added parameter SubmittedBy_ConnectUserArn.
+    * Modified cmdlet Update-CONNContactEvaluation: added parameter UpdatedBy_ConnectUserArn.
+    * Modified cmdlet Update-CONNEvaluationForm: added parameter AutoEvaluationConfiguration_Enabled.
+  * Amazon Identity Store
+    * Modified cmdlet New-IDSUser: added parameters Birthdate, Photo and Website.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSDataSet: added parameters DataPrepConfiguration_DestinationTableMap, DataPrepConfiguration_SourceTableMap, DataPrepConfiguration_TransformStepMap and SemanticModelConfiguration_TableMap.
+    * Modified cmdlet Update-QSDataSet: added parameters DataPrepConfiguration_DestinationTableMap, DataPrepConfiguration_SourceTableMap, DataPrepConfiguration_TransformStepMap and SemanticModelConfiguration_TableMap.
+  * Amazon S3 Tables
+    * Added cmdlet Add-S3TResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-S3TResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-S3TResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-S3TTable: added parameter Tag.
+    * Modified cmdlet New-S3TTableBucket: added parameter Tag.
+  * Amazon SageMaker Service
+    * Modified cmdlet Update-SMCluster: added parameter NodeProvisioningMode.
+    * Modified cmdlet Update-SMDomain: added parameter VpcId.
+
+### 5.0.91 (2025-11-05 21:46Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.127.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudFront
     * Added cmdlet Get-CFCFDistributionsByOwnedResource leveraging the ListDistributionsByOwnedResource service API.

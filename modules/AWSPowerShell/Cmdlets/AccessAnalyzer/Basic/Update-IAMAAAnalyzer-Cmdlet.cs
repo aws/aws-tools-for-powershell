@@ -31,6 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
 {
     /// <summary>
     /// Modifies the configuration of an existing analyzer.
+    /// 
+    ///  <note><para>
+    /// This action is not supported for external access analyzers.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "IAMAAAnalyzer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AccessAnalyzer.Model.UpdateAnalyzerResponse")]

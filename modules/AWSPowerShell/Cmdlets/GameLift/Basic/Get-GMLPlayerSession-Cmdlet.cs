@@ -30,10 +30,12 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves properties for one or more player sessions. 
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
     /// 
     ///  
     /// <para>
+    /// Retrieves properties for one or more player sessions. 
+    /// </para><para>
     /// This action can be used in the following ways: 
     /// </para><ul><li><para>
     /// To retrieve a specific player session, provide the player session ID only.

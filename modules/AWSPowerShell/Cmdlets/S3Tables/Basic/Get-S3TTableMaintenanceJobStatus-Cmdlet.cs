@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the maintenance job.</para>
+        /// <para>The name of the table containing the maintenance job status you want to check.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

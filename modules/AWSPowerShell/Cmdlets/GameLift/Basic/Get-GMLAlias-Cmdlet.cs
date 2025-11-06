@@ -30,11 +30,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
+    /// 
+    ///  
+    /// <para>
     /// Retrieves all aliases for this Amazon Web Services account. You can filter the result
     /// set by alias name and/or routing strategy type. Use the pagination parameters to retrieve
     /// results in sequential pages.
-    /// 
-    ///  <note><para>
+    /// </para><note><para>
     /// Returned aliases are not listed in any particular order.
     /// </para></note><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.

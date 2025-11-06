@@ -30,12 +30,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2
+    /// 
+    ///  
+    /// <para>
     /// Retrieves build resources for all builds associated with the Amazon Web Services account
     /// in use. You can limit results to builds that are in a specific status by using the
-    /// <c>Status</c> parameter. Use the pagination parameters to retrieve results in a set
-    /// of sequential pages. 
-    /// 
-    ///  <note><para>
+    /// <c>Status</c> parameter. Use the pagination parameters to retrieve results in 
+    /// </para><note><para>
     /// Build resources are not listed in any particular order.
     /// </para></note><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">
     /// Upload a Custom Server Build</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All

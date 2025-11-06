@@ -30,6 +30,10 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2
+    /// 
+    ///  
+    /// <para>
     /// Establishes a VPC peering connection between a virtual private cloud (VPC) in an Amazon
     /// Web Services account with the VPC for your Amazon GameLift Servers fleet. VPC peering
     /// enables the game servers on your fleet to communicate directly with other Amazon Web
@@ -38,9 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Servers fleets. You cannot peer with VPCs that are in different Regions. For more
     /// information, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC
     /// Peering with Amazon GameLift Servers Fleets</a>.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// Before calling this operation to establish the peering connection, you first need
     /// to use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateVpcPeeringAuthorization.html">CreateVpcPeeringAuthorization</a>
     /// and identify the VPC you want to peer with. Once the authorization for the specified

@@ -30,10 +30,12 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves information about a managed container fleet deployment. 
+    /// <b>This API works with the following fleet types:</b> Container
     /// 
     ///  
-    /// <para><b>Request options</b></para><ul><li><para>
+    /// <para>
+    /// Retrieves information about a managed container fleet deployment. 
+    /// </para><para><b>Request options</b></para><ul><li><para>
     /// Get information about the latest deployment for a specific fleet. Provide the fleet
     /// ID or ARN.
     /// </para></li><li><para>

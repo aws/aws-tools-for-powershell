@@ -98,6 +98,18 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         public System.String CreatorRequestId { get; set; }
         #endregion
         
+        #region Parameter EncryptionKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the customer-managed KMS key to use for encrypting the logically air-gapped
+        /// backup vault. If not specified, the vault will be encrypted with an Amazon Web Services-owned
+        /// key managed by Amazon Web Services Backup.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EncryptionKeyArn { get; set; }
+        #endregion
+        
         #region Parameter MaxRetentionDay
         /// <summary>
         /// <para>
@@ -195,6 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 }
             }
             context.CreatorRequestId = this.CreatorRequestId;
+            context.EncryptionKeyArn = this.EncryptionKeyArn;
             context.MaxRetentionDay = this.MaxRetentionDay;
             #if MODULAR
             if (this.MaxRetentionDay == null && ParameterWasBound(nameof(this.MaxRetentionDay)))
@@ -236,6 +249,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (cmdletContext.CreatorRequestId != null)
             {
                 request.CreatorRequestId = cmdletContext.CreatorRequestId;
+            }
+            if (cmdletContext.EncryptionKeyArn != null)
+            {
+                request.EncryptionKeyArn = cmdletContext.EncryptionKeyArn;
             }
             if (cmdletContext.MaxRetentionDay != null)
             {
@@ -303,6 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             public System.String BackupVaultName { get; set; }
             public Dictionary<System.String, System.String> BackupVaultTag { get; set; }
             public System.String CreatorRequestId { get; set; }
+            public System.String EncryptionKeyArn { get; set; }
             public System.Int64? MaxRetentionDay { get; set; }
             public System.Int64? MinRetentionDay { get; set; }
             public System.Func<Amazon.Backup.Model.CreateLogicallyAirGappedBackupVaultResponse, NewBAKLogicallyAirGappedBackupVaultCmdlet, object> Select { get; set; } =

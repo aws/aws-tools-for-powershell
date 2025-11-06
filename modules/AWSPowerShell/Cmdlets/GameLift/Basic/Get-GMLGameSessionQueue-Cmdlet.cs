@@ -30,13 +30,15 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
+    /// 
+    ///  
+    /// <para>
     /// Retrieves the properties for one or more game session queues. When requesting multiple
     /// queues, use the pagination parameters to retrieve results as a set of sequential pages.
     /// When specifying a list of queues, objects are returned only for queues that currently
     /// exist in the Region.
-    /// 
-    ///  
-    /// <para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-console.html">
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-console.html">
     /// View Your Queues</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLGameSessionQueue")]

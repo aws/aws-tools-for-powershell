@@ -30,12 +30,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Suspends certain types of activity in a fleet location. Currently, this operation
-    /// is used to stop auto-scaling activity. For multi-location fleets, fleet actions are
-    /// managed separately for each location. 
+    /// <b>This API works with the following fleet types:</b> EC2, Container
     /// 
     ///  
     /// <para>
+    /// Suspends certain types of activity in a fleet location. Currently, this operation
+    /// is used to stop auto-scaling activity. For multi-location fleets, fleet actions are
+    /// managed separately for each location. 
+    /// </para><para>
     /// Stopping fleet actions has several potential purposes. It allows you to temporarily
     /// stop auto-scaling activity but retain your scaling policies for use in the future.
     /// For multi-location fleets, you can set up fleet-wide auto-scaling, and then opt out

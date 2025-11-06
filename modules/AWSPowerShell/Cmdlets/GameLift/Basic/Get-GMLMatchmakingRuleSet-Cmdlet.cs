@@ -30,13 +30,15 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
+    /// 
+    ///  
+    /// <para>
     /// Retrieves the details for FlexMatch matchmaking rule sets. You can request all existing
     /// rule sets for the Region, or provide a list of one or more rule set names. When requesting
     /// multiple items, use the pagination parameters to retrieve results as a set of sequential
     /// pages. If successful, a rule set is returned for each requested name. 
-    /// 
-    ///  
-    /// <para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html">Build
+    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html">Build
     /// a rule set</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLMatchmakingRuleSet")]

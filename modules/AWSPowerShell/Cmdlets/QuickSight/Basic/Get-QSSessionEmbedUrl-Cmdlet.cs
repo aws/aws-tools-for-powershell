@@ -37,11 +37,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// Sight console need belong to the author or admin security cohort. If you want to restrict
     /// permissions to some of these features, add a custom permissions profile to the user
     /// with the <c><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html">UpdateUser</a></c> API operation. Use <c><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisterUser.html">RegisterUser</a></c> API operation to add a new user with a custom permission profile attached. For
-    /// more information, see the following sections in the <i>Amazon QuickSight User Guide</i>:
+    /// more information, see the following sections in the <i>Amazon Quick Suite User Guide</i>:
     /// 
     ///  <ul><li><para><a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html">Embedding
     /// Analytics</a></para></li><li><para><a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html">Customizing
-    /// Access to the Amazon QuickSight Console</a></para></li></ul>
+    /// Access to the Amazon Quick Suite Console</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "QSSessionEmbedUrl")]
     [OutputType("System.String")]
@@ -101,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter UserArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with <c>QUICKSIGHT</c>
-        /// identity type. You can use this for any type of Amazon QuickSight users in your account
+        /// <para>The Amazon Quick Suite user's Amazon Resource Name (ARN), for use with <c>QUICKSIGHT</c>
+        /// identity type. You can use this for any type of Amazon Quick Suite users in your account
         /// (readers, authors, or admins). They need to be authenticated as one of the following:</para><ol><li><para>Active Directory (AD) users or group members</para></li><li><para>Invited nonfederated users</para></li><li><para>IAM users and IAM role-based sessions authenticated through Federated Single Sign-On
         /// using SAML, OpenID Connect, or IAM federation</para></li></ol><para>Omit this parameter for users in the third group, IAM users and IAM role-based sessions.</para>
         /// </para>

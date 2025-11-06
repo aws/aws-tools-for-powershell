@@ -30,11 +30,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2, Container
+    /// 
+    ///  
+    /// <para>
     /// Adds remote locations to an EC2 and begins populating the new locations with instances.
     /// The new instances conform to the fleet's instance type, auto-scaling, and other configuration
     /// settings.
-    /// 
-    ///  <note><para>
+    /// </para><note><para>
     /// You can't add remote locations to a fleet that resides in an Amazon Web Services Region
     /// that doesn't support multiple locations. Fleets created prior to March 2021 can't
     /// support multiple locations.

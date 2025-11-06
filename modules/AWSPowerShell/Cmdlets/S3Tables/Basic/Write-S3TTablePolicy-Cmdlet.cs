@@ -30,8 +30,8 @@ using Amazon.S3Tables.Model;
 namespace Amazon.PowerShell.Cmdlets.S3T
 {
     /// <summary>
-    /// Creates a new maintenance configuration or replaces an existing table policy for a
-    /// table. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-table-policy.html#table-policy-add">Adding
+    /// Creates a new table policy or replaces an existing table policy for a table. For more
+    /// information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-table-policy.html#table-policy-add">Adding
     /// a table policy</a> in the <i>Amazon Simple Storage Service User Guide</i>. 
     /// 
     ///  <dl><dt>Permissions</dt><dd><para>

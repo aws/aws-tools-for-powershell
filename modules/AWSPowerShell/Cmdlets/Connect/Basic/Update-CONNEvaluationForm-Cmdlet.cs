@@ -72,6 +72,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter AutoEvaluationConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>When automated evaluation is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AutoEvaluationConfiguration_Enabled { get; set; }
+        #endregion
+        
         #region Parameter EvaluationFormId
         /// <summary>
         /// <para>
@@ -244,6 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Select = CreateSelectDelegate<Amazon.Connect.Model.UpdateEvaluationFormResponse, UpdateCONNEvaluationFormCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AutoEvaluationConfiguration_Enabled = this.AutoEvaluationConfiguration_Enabled;
             context.ClientToken = this.ClientToken;
             context.CreateNewVersion = this.CreateNewVersion;
             context.Description = this.Description;
@@ -303,6 +314,25 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             // create request
             var request = new Amazon.Connect.Model.UpdateEvaluationFormRequest();
             
+            
+             // populate AutoEvaluationConfiguration
+            var requestAutoEvaluationConfigurationIsNull = true;
+            request.AutoEvaluationConfiguration = new Amazon.Connect.Model.EvaluationFormAutoEvaluationConfiguration();
+            System.Boolean? requestAutoEvaluationConfiguration_autoEvaluationConfiguration_Enabled = null;
+            if (cmdletContext.AutoEvaluationConfiguration_Enabled != null)
+            {
+                requestAutoEvaluationConfiguration_autoEvaluationConfiguration_Enabled = cmdletContext.AutoEvaluationConfiguration_Enabled.Value;
+            }
+            if (requestAutoEvaluationConfiguration_autoEvaluationConfiguration_Enabled != null)
+            {
+                request.AutoEvaluationConfiguration.Enabled = requestAutoEvaluationConfiguration_autoEvaluationConfiguration_Enabled.Value;
+                requestAutoEvaluationConfigurationIsNull = false;
+            }
+             // determine if request.AutoEvaluationConfiguration should be set to null
+            if (requestAutoEvaluationConfigurationIsNull)
+            {
+                request.AutoEvaluationConfiguration = null;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -419,6 +449,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AutoEvaluationConfiguration_Enabled { get; set; }
             public System.String ClientToken { get; set; }
             public System.Boolean? CreateNewVersion { get; set; }
             public System.String Description { get; set; }

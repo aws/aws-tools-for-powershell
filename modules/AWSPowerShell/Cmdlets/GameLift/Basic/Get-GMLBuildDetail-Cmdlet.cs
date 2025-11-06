@@ -30,11 +30,13 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves properties for a custom game build. To request a build resource, specify
-    /// a build ID. If successful, an object containing the build properties is returned.
+    /// <b>This API works with the following fleet types:</b> EC2
     /// 
     ///  
-    /// <para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">
+    /// <para>
+    /// Retrieves properties for a custom game build. To request a build resource, specify
+    /// a build ID. If successful, an object containing the build properties is returned.
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">
     /// Upload a Custom Server Build</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>

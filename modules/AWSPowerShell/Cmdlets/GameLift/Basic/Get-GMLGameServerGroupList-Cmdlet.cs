@@ -30,7 +30,12 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Lists a game server groups.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// <b>This API works with the following fleet types:</b> EC2 (FleetIQ)
+    /// 
+    ///  
+    /// <para>
+    /// Lists a game server groups.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLGameServerGroupList")]
     [OutputType("Amazon.GameLift.Model.GameServerGroup")]

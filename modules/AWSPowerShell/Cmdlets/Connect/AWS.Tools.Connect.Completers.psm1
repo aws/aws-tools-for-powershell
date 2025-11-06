@@ -100,6 +100,16 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.BooleanComparisonType
+        {
+            ($_ -eq "Search-CONNContactEvaluation/BooleanCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNEvaluationForm/BooleanCondition_ComparisonType")
+        }
+        {
+            $v = "IS_FALSE","IS_TRUE"
+            break
+        }
+
         # Amazon.Connect.Channel
         "New-CONNContact/Channel"
         {
@@ -184,6 +194,23 @@ $CONN_Completers = {
         "Search-CONNHoursOfOperationOverride/DateCondition_ComparisonType"
         {
             $v = "EQUAL_TO","GREATER_THAN","GREATER_THAN_OR_EQUAL_TO","LESS_THAN","LESS_THAN_OR_EQUAL_TO"
+            break
+        }
+
+        # Amazon.Connect.DateTimeComparisonType
+        {
+            ($_ -eq "Search-CONNContactEvaluation/DateTimeCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNEvaluationForm/DateTimeCondition_ComparisonType")
+        }
+        {
+            $v = "EQUAL_TO","GREATER_THAN","GREATER_THAN_OR_EQUAL_TO","LESS_THAN","LESS_THAN_OR_EQUAL_TO","RANGE"
+            break
+        }
+
+        # Amazon.Connect.DecimalComparisonType
+        "Search-CONNContactEvaluation/DecimalCondition_ComparisonType"
+        {
+            $v = "EQUAL","GREATER","GREATER_OR_EQUAL","LESSER","LESSER_OR_EQUAL","NOT_EQUAL","RANGE"
             break
         }
 
@@ -362,6 +389,16 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.NumberComparisonType
+        {
+            ($_ -eq "Search-CONNContactEvaluation/NumberCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNEvaluationForm/NumberCondition_ComparisonType")
+        }
+        {
+            $v = "EQUAL","GREATER","GREATER_OR_EQUAL","LESSER","LESSER_OR_EQUAL","NOT_EQUAL","RANGE"
+            break
+        }
+
         # Amazon.Connect.OutboundMessageSourceType
         {
             ($_ -eq "Send-CONNOutboundEmail/EmailMessage_MessageSourceType") -Or
@@ -520,9 +557,11 @@ $CONN_Completers = {
         # Amazon.Connect.StringComparisonType
         {
             ($_ -eq "Search-CONNAgentStatus/StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNContactEvaluation/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNContactFlow/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNContactFlowModule/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNEmailAddress/StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNEvaluationForm/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNHoursOfOperation/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNHoursOfOperationOverride/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNPredefinedAttribute/StringCondition_ComparisonType") -Or
@@ -644,6 +683,7 @@ $CONN_map = @{
     "Agent_Video"=@("Start-CONNWebRTCContact")
     "AgentAvailabilityTimer"=@("New-CONNRoutingProfile","Update-CONNRoutingProfileAgentAvailabilityTimer")
     "AttributeType"=@("Get-CONNInstanceAttribute","Update-CONNInstanceAttribute")
+    "BooleanCondition_ComparisonType"=@("Search-CONNContactEvaluation","Search-CONNEvaluationForm")
     "Channel"=@("New-CONNContact")
     "ContactConfiguration_ParticipantRole"=@("New-CONNPushNotificationRegistration")
     "ContactFlowModuleState"=@("Get-CONNContactFlowModuleList")
@@ -653,6 +693,8 @@ $CONN_map = @{
     "Customer_Video"=@("Start-CONNWebRTCContact")
     "CustomerEndpoint_Type"=@("Update-CONNContact")
     "DateCondition_ComparisonType"=@("Search-CONNHoursOfOperationOverride")
+    "DateTimeCondition_ComparisonType"=@("Search-CONNContactEvaluation","Search-CONNEvaluationForm")
+    "DecimalCondition_ComparisonType"=@("Search-CONNContactEvaluation")
     "DestinationEndpoint_Type"=@("Start-CONNOutboundChatContact")
     "DeviceType"=@("New-CONNPushNotificationRegistration")
     "EmailMessage_MessageSourceType"=@("Send-CONNOutboundEmail","Start-CONNEmailContact","Start-CONNOutboundEmailContact")
@@ -669,6 +711,7 @@ $CONN_map = @{
     "LexVersion"=@("Get-CONNBotList")
     "ListCondition_TargetListType"=@("Search-CONNUser")
     "Name_MatchType"=@("Search-CONNContact")
+    "NumberCondition_ComparisonType"=@("Search-CONNContactEvaluation","Search-CONNEvaluationForm")
     "OutboundStrategy_Type"=@("Start-CONNOutboundVoiceContact")
     "OutputType"=@("Get-CONNRealtimeContactAnalysisSegmentsV2List")
     "ParticipantCapabilities_ScreenShare"=@("New-CONNParticipant")
@@ -700,7 +743,7 @@ $CONN_map = @{
     "StorageConfig_StorageType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfigKinesisVideoStreamConfigEncryptionConfigEncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfigS3ConfigEncryptionConfigEncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
-    "StringCondition_ComparisonType"=@("Search-CONNAgentStatus","Search-CONNContactFlow","Search-CONNContactFlowModule","Search-CONNEmailAddress","Search-CONNHoursOfOperation","Search-CONNHoursOfOperationOverride","Search-CONNPredefinedAttribute","Search-CONNPrompt","Search-CONNQueue","Search-CONNQuickConnect","Search-CONNRoutingProfile","Search-CONNSecurityProfile","Search-CONNUser","Search-CONNUserHierarchyGroup")
+    "StringCondition_ComparisonType"=@("Search-CONNAgentStatus","Search-CONNContactEvaluation","Search-CONNContactFlow","Search-CONNContactFlowModule","Search-CONNEmailAddress","Search-CONNEvaluationForm","Search-CONNHoursOfOperation","Search-CONNHoursOfOperationOverride","Search-CONNPredefinedAttribute","Search-CONNPrompt","Search-CONNQueue","Search-CONNQuickConnect","Search-CONNRoutingProfile","Search-CONNSecurityProfile","Search-CONNUser","Search-CONNUserHierarchyGroup")
     "SystemEndpoint_Type"=@("Update-CONNContact")
     "TagSearchCondition_TagKeyComparisonType"=@("Search-CONNResourceTag")
     "TagSearchCondition_TagValueComparisonType"=@("Search-CONNResourceTag")
@@ -960,10 +1003,12 @@ $CONN_SelectMap = @{
                "Resume-CONNContactRecording",
                "Search-CONNAgentStatus",
                "Search-CONNAvailablePhoneNumber",
+               "Search-CONNContactEvaluation",
                "Search-CONNContactFlowModule",
                "Search-CONNContactFlow",
                "Search-CONNContact",
                "Search-CONNEmailAddress",
+               "Search-CONNEvaluationForm",
                "Search-CONNHoursOfOperationOverride",
                "Search-CONNHoursOfOperation",
                "Search-CONNPredefinedAttribute",

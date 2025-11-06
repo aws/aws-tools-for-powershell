@@ -30,12 +30,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
+    /// 
+    ///  
+    /// <para>
     /// Retrieves properties for a specific compute resource in an Amazon GameLift Servers
     /// fleet. You can list all computes in a fleet by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute.html">ListCompute</a>.
     /// 
-    /// 
-    ///  
-    /// <para><b>Request options</b></para><para>
+    /// </para><para><b>Request options</b></para><para>
     /// Provide the fleet ID and compute name. The compute name varies depending on the type
     /// of fleet.
     /// </para><ul><li><para>

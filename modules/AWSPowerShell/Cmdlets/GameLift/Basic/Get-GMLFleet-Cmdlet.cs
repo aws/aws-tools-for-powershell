@@ -30,13 +30,15 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
+    /// 
+    ///  
+    /// <para>
     /// Retrieves a collection of fleet resources in an Amazon Web Services Region. You can
     /// filter the result set to find only those fleets that are deployed with a specific
     /// build or script. For fleets that have multiple locations, this operation retrieves
     /// fleets based on their home Region only.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// You can use operation in the following ways: 
     /// </para><ul><li><para>
     /// To get a list of all fleets in a Region, don't provide a build or script identifier.

@@ -30,10 +30,12 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Updates the mutable properties of a game session. 
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
     /// 
     ///  
     /// <para>
+    /// Updates the mutable properties of a game session. 
+    /// </para><para>
     /// To update a game session, specify the game session ID and the values you want to change.
     /// 
     /// </para><para>

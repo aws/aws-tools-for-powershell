@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The ID of the dashboard that has the visual that you want to embed. The <c>DashboardId</c>
         /// can be found in the <c>IDs for developers</c> section of the <c>Embed visual</c> pane
-        /// of the visual's on-visual menu of the QuickSight console. You can also get the <c>DashboardId</c>
+        /// of the visual's on-visual menu of the Quick Suite console. You can also get the <c>DashboardId</c>
         /// with a <c>ListDashboards</c> API operation.</para>
         /// </para>
         /// </summary>
@@ -313,7 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The ID of the new Q reader experience topic that you want to make the starting topic
         /// in the Generative Q&amp;A experience. You can find a topic ID by navigating to the
-        /// Topics pane in the QuickSight application and opening a topic. The ID is in the URL
+        /// Topics pane in the Quick Suite application and opening a topic. The ID is in the URL
         /// for the topic that you open.</para><para>If you don't specify an initial topic or you specify a legacy topic, a list of all
         /// shared new reader experience topics is shown in the Generative Q&amp;A experience
         /// for your readers. When you select an initial new reader experience topic, you can
@@ -359,7 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The ID of the sheet that the has visual that you want to embed. The <c>SheetId</c>
         /// can be found in the <c>IDs for developers</c> section of the <c>Embed visual</c> pane
-        /// of the visual's on-visual menu of the QuickSight console.</para>
+        /// of the visual's on-visual menu of the Quick Suite console.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

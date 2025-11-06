@@ -18,11 +18,11 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateIndex" Verb="New" Noun="Index" ShouldProcessTarget="IndexName" PipelineParameter="IndexName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateIndex" OutputProperty="IndexArn" Verb="New" Noun="Index" ShouldProcessTarget="IndexName" PipelineParameter="IndexName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateVectorBucket" Verb="New" Noun="VectorBucket" ShouldProcessTarget="VectorBucketName" PipelineParameter="VectorBucketName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateVectorBucket" OutputProperty="VectorBucketArn" Verb="New" Noun="VectorBucket" ShouldProcessTarget="VectorBucketName" PipelineParameter="VectorBucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

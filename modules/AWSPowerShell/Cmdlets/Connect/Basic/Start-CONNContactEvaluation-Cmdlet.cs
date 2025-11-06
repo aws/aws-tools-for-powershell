@@ -69,6 +69,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String ContactId { get; set; }
         #endregion
         
+        #region Parameter AutoEvaluationConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Whether automated evaluations are enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AutoEvaluationConfiguration_Enabled { get; set; }
+        #endregion
+        
         #region Parameter EvaluationFormId
         /// <summary>
         /// <para>
@@ -102,6 +112,22 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String InstanceId { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags used to organize, track, or control access for this resource. For example,
+        /// { "Tags": {"key1":"value1", "key2":"value2"} }.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -163,6 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Select = CreateSelectDelegate<Amazon.Connect.Model.StartContactEvaluationResponse, StartCONNContactEvaluationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AutoEvaluationConfiguration_Enabled = this.AutoEvaluationConfiguration_Enabled;
             context.ClientToken = this.ClientToken;
             context.ContactId = this.ContactId;
             #if MODULAR
@@ -185,6 +212,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -201,6 +236,25 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             // create request
             var request = new Amazon.Connect.Model.StartContactEvaluationRequest();
             
+            
+             // populate AutoEvaluationConfiguration
+            var requestAutoEvaluationConfigurationIsNull = true;
+            request.AutoEvaluationConfiguration = new Amazon.Connect.Model.AutoEvaluationConfiguration();
+            System.Boolean? requestAutoEvaluationConfiguration_autoEvaluationConfiguration_Enabled = null;
+            if (cmdletContext.AutoEvaluationConfiguration_Enabled != null)
+            {
+                requestAutoEvaluationConfiguration_autoEvaluationConfiguration_Enabled = cmdletContext.AutoEvaluationConfiguration_Enabled.Value;
+            }
+            if (requestAutoEvaluationConfiguration_autoEvaluationConfiguration_Enabled != null)
+            {
+                request.AutoEvaluationConfiguration.Enabled = requestAutoEvaluationConfiguration_autoEvaluationConfiguration_Enabled.Value;
+                requestAutoEvaluationConfigurationIsNull = false;
+            }
+             // determine if request.AutoEvaluationConfiguration should be set to null
+            if (requestAutoEvaluationConfigurationIsNull)
+            {
+                request.AutoEvaluationConfiguration = null;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -216,6 +270,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -272,10 +330,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AutoEvaluationConfiguration_Enabled { get; set; }
             public System.String ClientToken { get; set; }
             public System.String ContactId { get; set; }
             public System.String EvaluationFormId { get; set; }
             public System.String InstanceId { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Connect.Model.StartContactEvaluationResponse, StartCONNContactEvaluationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

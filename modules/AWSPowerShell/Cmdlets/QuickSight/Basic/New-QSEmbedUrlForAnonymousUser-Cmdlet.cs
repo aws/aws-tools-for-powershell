@@ -30,7 +30,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Generates an embed URL that you can use to embed an Amazon QuickSight dashboard or
+    /// Generates an embed URL that you can use to embed an Amazon Quick Suite dashboard or
     /// visual in your website, without having to register any reader users. Before you use
     /// this action, make sure that you have configured the dashboards and permissions.
     /// 
@@ -45,14 +45,15 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// can be customized using the <c><a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForAnonymousUser.html#QS-GenerateEmbedUrlForAnonymousUser-request-SessionLifetimeInMinutes">SessionLifetimeInMinutes</a></c> parameter. The resulting user session is valid for 15 minutes (minimum) to 10
     /// hours (maximum). The default session duration is 10 hours.
     /// </para></li><li><para>
-    /// You are charged only when the URL is used or there is interaction with Amazon QuickSight.
+    /// You are charged only when the URL is used or there is interaction with Amazon Quick
+    /// Suite.
     /// </para></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html">Embedded
-    /// Analytics</a> in the <i>Amazon QuickSight User Guide</i>.
+    /// Analytics</a> in the <i>Amazon Quick Suite User Guide</i>.
     /// </para><para>
     /// For more information about the high-level steps for embedding and for an interactive
     /// demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon
-    /// QuickSight Developer Portal</a>.
+    /// Quick Suite Developer Portal</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "QSEmbedUrlForAnonymousUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -136,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The ID of the dashboard that has the visual that you want to embed. The <c>DashboardId</c>
         /// can be found in the <c>IDs for developers</c> section of the <c>Embed visual</c> pane
-        /// of the visual's on-visual menu of the QuickSight console. You can also get the <c>DashboardId</c>
+        /// of the visual's on-visual menu of the Quick Suite console. You can also get the <c>DashboardId</c>
         /// with a <c>ListDashboards</c> API operation.</para>
         /// </para>
         /// </summary>
@@ -235,7 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The Amazon Quick Sight namespace that the anonymous user virtually belongs to. If
-        /// you are not using an Amazon QuickSight custom namespace, set this to <c>default</c>.</para>
+        /// you are not using an Amazon Quick Suite custom namespace, set this to <c>default</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -285,7 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The ID of the sheet that the has visual that you want to embed. The <c>SheetId</c>
         /// can be found in the <c>IDs for developers</c> section of the <c>Embed visual</c> pane
-        /// of the visual's on-visual menu of the QuickSight console.</para>
+        /// of the visual's on-visual menu of the Quick Suite console.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -30,12 +30,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Creates a placement queue that processes requests for new game sessions. A queue uses
-    /// FleetIQ algorithms to locate the best available placement locations for a new game
-    /// session, and then prompts the game server process to start a new game session.
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
     /// 
     ///  
     /// <para>
+    /// Creates a placement queue that processes requests for new game sessions. A queue uses
+    /// FleetIQ algorithms to locate the best available placement locations for a new game
+    /// session, and then prompts the game server process to start a new game session.
+    /// </para><para>
     /// A game session queue is configured with a set of destinations (Amazon GameLift Servers
     /// fleets or aliases) that determine where the queue can place new game sessions. These
     /// destinations can span multiple Amazon Web Services Regions, can use different instance

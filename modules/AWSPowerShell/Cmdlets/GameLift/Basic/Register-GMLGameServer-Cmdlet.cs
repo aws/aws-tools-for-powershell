@@ -30,8 +30,10 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game
-    /// server groups.</b><para>
+    /// <b>This API works with the following fleet types:</b> EC2 (FleetIQ)
+    /// 
+    ///  
+    /// <para>
     /// Creates a new game server resource and notifies Amazon GameLift Servers FleetIQ that
     /// the game server is ready to host gameplay and players. This operation is called by
     /// a game server process that is running on an instance in a game server group. Registering

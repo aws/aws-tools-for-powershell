@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// Before you can turn on public sharing on your account, make sure to give public sharing
     /// permissions to an administrative user in the Identity and Access Management (IAM)
     /// console. For more information on using IAM with Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html">Using
-    /// QuickSight with IAM</a> in the <i>Amazon Quick Sight User Guide</i>.
+    /// Quick Suite with IAM</a> in the <i>Amazon Quick Sight User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "QSPublicSharingSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter PublicSharingEnabled
         /// <summary>
         /// <para>
-        /// <para>A Boolean value that indicates whether public sharing is turned on for an QuickSight
+        /// <para>A Boolean value that indicates whether public sharing is turned on for an Quick Suite
         /// account.</para>
         /// </para>
         /// </summary>

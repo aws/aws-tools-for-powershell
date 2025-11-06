@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.127.0",
+    "ProductVersion"    : "4.0.128.0",
     "CoreVersion"       : "4.0.2.0",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "4.0.48.0",
+            "Version" : "4.0.49.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.2.0"
@@ -308,7 +308,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "4.0.10.0",
+            "Version" : "4.0.11.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.2.0"
@@ -364,7 +364,7 @@
             "InPreview"               : false
         },
         "SimpleSystemsManagement"   : {
-            "Version" : "4.0.5.3",
+            "Version" : "4.0.6.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.2.0"
@@ -508,7 +508,7 @@
             "InPreview"               : false
         },
         "GameLift"                        : {
-            "Version" : "4.0.3.3",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.2.0"
@@ -908,7 +908,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "4.0.30.0",
+            "Version" : "4.0.31.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.2.0"
@@ -1020,7 +1020,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "4.0.14.3",
+            "Version" : "4.0.15.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.2.0"
@@ -1164,7 +1164,7 @@
             "InPreview"               : false
         },
         "QuickSight"                      : {
-            "Version" : "4.0.7.5",
+            "Version" : "4.0.8.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.2.0"
@@ -1292,7 +1292,7 @@
             "InPreview"               : false
         },
         "Backup"                          : {
-            "Version" : "4.0.5.4",
+            "Version" : "4.0.6.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.2.0"
@@ -1556,7 +1556,7 @@
             "InPreview"               : false
         },
         "AccessAnalyzer"                  : {
-            "Version" : "4.0.3.1",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.2.0"
@@ -1708,7 +1708,7 @@
             "InPreview"               : false
         },
         "IdentityStore"                   : {
-            "Version" : "4.0.2.3",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.2.0"
@@ -3116,7 +3116,7 @@
             "InPreview"               : false
         },
         "S3Tables"                            : {
-            "Version" : "4.0.5.2",
+            "Version" : "4.0.6.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.2.0"
@@ -3228,7 +3228,7 @@
             "InPreview"               : false
         },
         "S3Vectors"                           : {
-            "Version" : "4.0.2.1",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.2.0"

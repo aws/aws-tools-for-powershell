@@ -30,11 +30,13 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Updates permissions that allow inbound traffic to connect to game sessions in the
-    /// fleet. 
+    /// <b>This API works with the following fleet types:</b> EC2, Container
     /// 
     ///  
     /// <para>
+    /// Updates permissions that allow inbound traffic to connect to game sessions in the
+    /// fleet. 
+    /// </para><para>
     /// To update settings, specify the fleet ID to be updated and specify the changes to
     /// be made. List the permissions you want to add in <c>InboundPermissionAuthorizations</c>,
     /// and permissions you want to remove in <c>InboundPermissionRevocations</c>. Permissions

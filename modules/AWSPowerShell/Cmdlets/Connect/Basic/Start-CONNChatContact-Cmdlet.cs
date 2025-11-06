@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// </para></li></ul><para>
     /// If you use the <c>ChatDurationInMinutes</c> parameter and receive a 400 error, your
     /// account may not support the ability to configure custom chat durations. For more information,
-    /// contact Amazon Web ServicesSupport. 
+    /// contact Amazon Web Services Support. 
     /// </para><para>
     /// For more information about chat, see the following topics in the <i>Amazon Connect
     /// Administrator Guide</i>: 

@@ -33,11 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.S3V
     /// Amazon.S3Vectors.IAmazonS3Vectors.CreateVectorBucket
     /// </summary>
     [Cmdlet("New", "S3VVectorBucket", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("System.String")]
     [AWSCmdlet("Calls the Amazon S3 Vectors CreateVectorBucket API operation.", Operation = new[] {"CreateVectorBucket"}, SelectReturnType = typeof(Amazon.S3Vectors.Model.CreateVectorBucketResponse))]
-    [AWSCmdletOutput("None or Amazon.S3Vectors.Model.CreateVectorBucketResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3Vectors.Model.CreateVectorBucketResponse) be returned by specifying '-Select *'."
+    [AWSCmdletOutput("System.String or Amazon.S3Vectors.Model.CreateVectorBucketResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.S3Vectors.Model.CreateVectorBucketResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewS3VVectorBucketCmdlet : AmazonS3VectorsClientCmdlet, IExecutor
     {
@@ -90,12 +90,13 @@ namespace Amazon.PowerShell.Cmdlets.S3V
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'VectorBucketArn'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.S3Vectors.Model.CreateVectorBucketResponse).
+        /// Specifying the name of a property of type Amazon.S3Vectors.Model.CreateVectorBucketResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "VectorBucketArn";
         #endregion
         
         #region Parameter Force
@@ -250,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.S3V
             public Amazon.S3Vectors.SseType EncryptionConfiguration_SseType { get; set; }
             public System.String VectorBucketName { get; set; }
             public System.Func<Amazon.S3Vectors.Model.CreateVectorBucketResponse, NewS3VVectorBucketCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response.VectorBucketArn;
         }
         
     }

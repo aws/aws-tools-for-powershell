@@ -30,13 +30,15 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
+    /// 
+    ///  
+    /// <para>
     /// Removes a tag assigned to a Amazon GameLift Servers resource. You can use resource
     /// tags to organize Amazon Web Services resources for a range of purposes. This operation
     /// handles the permissions necessary to manage tags for Amazon GameLift Servers resources
     /// that support tagging.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// To remove a tag from a resource, specify the unique ARN value for the resource and
     /// provide a string list containing one or more tags to remove. This operation succeeds
     /// even if the list includes tags that aren't assigned to the resource.

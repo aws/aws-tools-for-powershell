@@ -30,12 +30,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
+    /// 
+    ///  
+    /// <para>
     /// Deletes an alias. This operation removes all record of the alias. Game clients attempting
     /// to access a server process using the deleted alias receive an error. To delete an
     /// alias, specify the alias ID to be deleted.
-    /// 
-    ///  
-    /// <para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// </para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Remove", "GMLAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

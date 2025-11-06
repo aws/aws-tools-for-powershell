@@ -30,12 +30,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves a fresh set of credentials for use when uploading a new set of game build
-    /// files to Amazon GameLift Servers's Amazon S3. This is done as part of the build creation
-    /// process; see <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateBuild.html">CreateBuild</a>.
+    /// <b>This API works with the following fleet types:</b> EC2
     /// 
     ///  
     /// <para>
+    /// Retrieves a fresh set of credentials for use when uploading a new set of game build
+    /// files to Amazon GameLift Servers's Amazon S3. This is done as part of the build creation
+    /// process; see <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateBuild.html">CreateBuild</a>.
+    /// </para><para>
     /// To request new credentials, specify the build ID as returned with an initial <c>CreateBuild</c>
     /// request. If successful, a new set of credentials are returned, along with the S3 storage
     /// location associated with the build ID.

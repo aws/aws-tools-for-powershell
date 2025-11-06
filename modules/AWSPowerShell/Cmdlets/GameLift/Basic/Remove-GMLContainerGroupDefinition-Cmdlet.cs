@@ -30,10 +30,12 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Deletes a container group definition. 
+    /// <b>This API works with the following fleet types:</b> Container
     /// 
     ///  
-    /// <para><b>Request options:</b></para><ul><li><para>
+    /// <para><b>Request options:</b></para><para>
+    /// Deletes a container group definition. 
+    /// </para><ul><li><para>
     /// Delete an entire container group definition, including all versions. Specify the container
     /// group definition name, or use an ARN value without the version number.
     /// </para></li><li><para>

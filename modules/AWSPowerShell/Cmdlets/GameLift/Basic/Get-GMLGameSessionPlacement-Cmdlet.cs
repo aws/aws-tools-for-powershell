@@ -30,11 +30,13 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves information, including current status, about a game session placement request.
-    /// 
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
     /// 
     ///  
     /// <para>
+    /// Retrieves information, including current status, about a game session placement request.
+    /// 
+    /// </para><para>
     /// To get game session placement details, specify the placement ID.
     /// </para><para>
     /// This operation is not designed to be continually called to track game session status.

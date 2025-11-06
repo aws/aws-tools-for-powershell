@@ -31,6 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
 {
     /// <summary>
     /// Retrieves information about a resource that was analyzed.
+    /// 
+    ///  <note><para>
+    /// This action is supported only for external access analyzers.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "IAMAAAnalyzedResource")]
     [OutputType("Amazon.AccessAnalyzer.Model.AnalyzedResource")]

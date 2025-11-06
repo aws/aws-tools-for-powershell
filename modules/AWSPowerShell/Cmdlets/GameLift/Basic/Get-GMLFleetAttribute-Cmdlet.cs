@@ -30,12 +30,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves core fleet-wide properties for fleets in an Amazon Web Services Region.
-    /// Properties include the computing hardware and deployment configuration for instances
-    /// in the fleet.
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
     /// 
     ///  
     /// <para>
+    /// Retrieves core fleet-wide properties for fleets in an Amazon Web Services Region.
+    /// Properties include the computing hardware and deployment configuration for instances
+    /// in the fleet.
+    /// </para><para>
     /// You can use this operation in the following ways: 
     /// </para><ul><li><para>
     /// To get attributes for specific fleets, provide a list of fleet IDs or fleet ARNs.

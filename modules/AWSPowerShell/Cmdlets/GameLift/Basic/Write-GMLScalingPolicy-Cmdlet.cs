@@ -30,6 +30,10 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2
+    /// 
+    ///  
+    /// <para>
     /// Creates or updates a scaling policy for a fleet. Scaling policies are used to automatically
     /// scale a fleet's hosting capacity to meet player demand. An active scaling policy instructs
     /// Amazon GameLift Servers to track a fleet metric and automatically change the fleet's
@@ -37,9 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// target-based and rule-based. Use a target-based policy to quickly and efficiently
     /// manage fleet scaling; this option is the most commonly used. Use rule-based policies
     /// when you need to exert fine-grained control over auto-scaling. 
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// Fleets can have multiple scaling policies of each type in force at the same time;
     /// you can have one target-based policy, one or multiple rule-based scaling policies,
     /// or both. We recommend caution, however, because multiple auto-scaling policies can

@@ -30,11 +30,13 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves all versions of a container group definition. Use the pagination parameters
-    /// to retrieve results in a set of sequential pages.
+    /// <b>This API works with the following fleet types:</b> Container
     /// 
     ///  
-    /// <para><b>Request options:</b></para><ul><li><para>
+    /// <para>
+    /// Retrieves all versions of a container group definition. Use the pagination parameters
+    /// to retrieve results in a set of sequential pages.
+    /// </para><para><b>Request options:</b></para><ul><li><para>
     /// Get all versions of a specified container group definition. Specify the container
     /// group definition name or ARN value. (If the ARN value has a version number, it's ignored.)
     /// </para></li></ul><para><b>Results:</b></para><para>

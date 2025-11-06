@@ -30,11 +30,13 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Lists all custom and Amazon Web Services locations where Amazon GameLift Servers can
-    /// host game servers. 
+    /// <b>This API works with the following fleet types:</b> Anywhere
     /// 
     ///  
     /// <para>
+    /// Lists all custom and Amazon Web Services locations where Amazon GameLift Servers can
+    /// host game servers. 
+    /// </para><para>
     /// Note that if you call this API using a location that doesn't have a service endpoint,
     /// such as one that can only be a remote location in a multi-location fleet, the API
     /// returns an error.

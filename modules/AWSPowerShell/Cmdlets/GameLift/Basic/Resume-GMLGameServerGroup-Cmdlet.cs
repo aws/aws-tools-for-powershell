@@ -30,8 +30,10 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game
-    /// server groups.</b><para>
+    /// <b>This API works with the following fleet types:</b> EC2 (FleetIQ)
+    /// 
+    ///  
+    /// <para>
     /// Reinstates activity on a game server group after it has been suspended. A game server
     /// group might be suspended by the <a href="gamelift/latest/apireference/API_SuspendGameServerGroup.html">SuspendGameServerGroup</a>
     /// operation, or it might be suspended involuntarily due to a configuration problem.

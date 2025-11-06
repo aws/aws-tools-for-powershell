@@ -30,8 +30,7 @@ using Amazon.IdentityStore.Model;
 namespace Amazon.PowerShell.Cmdlets.IDS
 {
     /// <summary>
-    /// For the specified group in the specified identity store, updates the group metadata
-    /// and attributes.
+    /// Updates the specified group metadata and attributes in the specified identity store.
     /// </summary>
     [Cmdlet("Update", "IDSGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -84,7 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         /// <summary>
         /// <para>
         /// <para>A list of <c>AttributeOperation</c> objects to apply to the requested group. These
-        /// operations might add, replace, or remove an attribute.</para><para />
+        /// operations might add, replace, or remove an attribute. For more information on the
+        /// attributes that can be added, replaced, or removed, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html">Group</a>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

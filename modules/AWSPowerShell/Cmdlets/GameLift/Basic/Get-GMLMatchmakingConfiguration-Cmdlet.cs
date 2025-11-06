@@ -30,10 +30,12 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves the details of FlexMatch matchmaking configurations. 
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
     /// 
     ///  
     /// <para>
+    /// Retrieves the details of FlexMatch matchmaking configurations. 
+    /// </para><para>
     /// This operation offers the following options: (1) retrieve all matchmaking configurations,
     /// (2) retrieve configurations for a specified list, or (3) retrieve all configurations
     /// that use a specified rule set name. When requesting multiple items, use the pagination

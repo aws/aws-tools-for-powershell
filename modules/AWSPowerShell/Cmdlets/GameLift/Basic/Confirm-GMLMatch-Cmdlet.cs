@@ -30,13 +30,15 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
+    /// 
+    ///  
+    /// <para>
     /// Registers a player's acceptance or rejection of a proposed FlexMatch match. A matchmaking
     /// configuration may require player acceptance; if so, then matches built with that configuration
     /// cannot be completed unless all players accept the proposed match within a specified
     /// time limit. 
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// When FlexMatch builds a match, all the matchmaking tickets involved in the proposed
     /// match are placed into status <c>REQUIRES_ACCEPTANCE</c>. This is a trigger for your
     /// game to get acceptance from all players in each ticket. Calls to this action are only

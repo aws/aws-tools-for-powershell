@@ -30,13 +30,15 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves a fleet's runtime configuration settings. The runtime configuration determines
-    /// which server processes run, and how, on computes in the fleet. For managed EC2 fleets,
-    /// the runtime configuration describes server processes that run on each fleet instance.
-    /// can update a fleet's runtime configuration at any time using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateRuntimeConfiguration.html">UpdateRuntimeConfiguration</a>.
+    /// <b>This API works with the following fleet types:</b> EC2
     /// 
     ///  
     /// <para>
+    /// Retrieves a fleet's runtime configuration settings. The runtime configuration determines
+    /// which server processes run, and how, on computes in the fleet. For managed EC2 fleets,
+    /// the runtime configuration describes server processes that run on each fleet instance.
+    /// You can update a fleet's runtime configuration at any time using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateRuntimeConfiguration.html">UpdateRuntimeConfiguration</a>.
+    /// </para><para>
     /// To get the current runtime configuration for a fleet, provide the fleet ID. 
     /// </para><para>
     /// If successful, a <c>RuntimeConfiguration</c> object is returned for the requested
