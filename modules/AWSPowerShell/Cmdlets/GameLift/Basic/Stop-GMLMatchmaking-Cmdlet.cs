@@ -28,12 +28,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Cancels a matchmaking ticket or match backfill ticket that is currently being processed.
-    /// To stop the matchmaking operation, specify the ticket ID. If successful, work on the
-    /// ticket is stopped, and the ticket status is changed to <c>CANCELLED</c>.
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
     /// 
     ///  
     /// <para>
+    /// Cancels a matchmaking ticket or match backfill ticket that is currently being processed.
+    /// To stop the matchmaking operation, specify the ticket ID. If successful, work on the
+    /// ticket is stopped, and the ticket status is changed to <c>CANCELLED</c>.
+    /// </para><para>
     /// This call is also used to turn off automatic backfill for an individual game session.
     /// This is for game sessions that are created with a matchmaking configuration that has
     /// automatic backfill enabled. The ticket ID is included in the <c>MatchmakerData</c>

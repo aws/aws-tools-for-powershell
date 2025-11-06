@@ -28,12 +28,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> Container
+    /// 
+    ///  
+    /// <para>
     /// Retrieves the properties for a container fleet. When requesting attributes for multiple
     /// fleets, use the pagination parameters to retrieve results as a set of sequential pages.
     /// 
-    /// 
-    ///  
-    /// <para><b>Request options</b></para><ul><li><para>
+    /// </para><para><b>Request options</b></para><ul><li><para>
     /// Get container fleet properties for a single fleet. Provide either the fleet ID or
     /// ARN value. 
     /// </para></li></ul><para><b>Results</b></para><para>

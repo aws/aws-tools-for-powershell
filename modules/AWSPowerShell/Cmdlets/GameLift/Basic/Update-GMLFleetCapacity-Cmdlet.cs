@@ -28,14 +28,16 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2, Container
+    /// 
+    ///  
+    /// <para>
     /// Updates capacity settings for a managed EC2 fleet or managed container fleet. For
     /// these fleets, you adjust capacity by changing the number of instances in the fleet.
     /// Fleet capacity determines the number of game sessions and players that the fleet can
     /// host based on its configuration. For fleets with multiple locations, use this operation
     /// to manage capacity settings in each location individually.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// Use this operation to set these fleet capacity properties: 
     /// </para><ul><li><para>
     /// Minimum/maximum size: Set hard limits on the number of Amazon EC2 instances allowed.

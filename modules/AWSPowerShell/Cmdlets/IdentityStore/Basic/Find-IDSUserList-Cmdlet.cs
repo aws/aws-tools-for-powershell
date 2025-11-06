@@ -33,9 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.IDS
     /// Instead, use the <c>GetUserId</c> API action.
     /// 
     ///  <note><para>
-    /// If you have administrator access to a member account, you can use this API from the
-    /// member account. Read about <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html">member
-    /// accounts</a> in the <i>Organizations User Guide</i>.
+    /// If you have access to a member account, you can use this API operation from the member
+    /// account. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts">Limiting
+    /// access to the identity store from member accounts</a> in the <i> IAM Identity Center
+    /// User Guide</i>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Find", "IDSUserList")]
@@ -77,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>A list of <c>Filter</c> objects, which is used in the <c>ListUsers</c> and <c>ListGroups</c>
+        /// <para>A list of <c>Filter</c> objects, which is used in the <c>ListUsers</c> and <c> ListGroups</c>
         /// requests. </para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
@@ -92,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to be returned per request. This parameter is used in
-        /// the <c>ListUsers</c> and <c>ListGroups</c> requests to specify how many results to
+        /// the <c> ListUsers</c> and <c>ListGroups</c> requests to specify how many results to
         /// return in one page. The length limit is 50 characters.</para>
         /// </para>
         /// </summary>

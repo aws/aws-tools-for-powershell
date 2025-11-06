@@ -28,13 +28,15 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2
+    /// 
+    ///  
+    /// <para>
     /// Requests authorization to remotely connect to an instance in an Amazon GameLift Servers
     /// managed fleet. Use this operation to connect to instances with game servers that use
     /// Amazon GameLift Servers server SDK 4.x or earlier. To connect to instances with game
     /// servers that use server SDK 5.x or later, call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetComputeAccess">https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetComputeAccess</a>.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// To request access to an instance, specify IDs for the instance and the fleet it belongs
     /// to. You can retrieve instance IDs for a fleet by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeInstances.html">DescribeInstances</a>
     /// with the fleet ID. 

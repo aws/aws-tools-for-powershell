@@ -7275,6 +7275,8 @@ Set-Alias -Name Search-CONNAgentStatuses -Value Search-CONNAgentStatus
 Set-Alias -Name CONN-SearchAgentStatuses -Value Search-CONNAgentStatus
 Set-Alias -Name Search-CONNAvailablePhoneNumbers -Value Search-CONNAvailablePhoneNumber
 Set-Alias -Name CONN-SearchAvailablePhoneNumbers -Value Search-CONNAvailablePhoneNumber
+Set-Alias -Name Search-CONNContactEvaluations -Value Search-CONNContactEvaluation
+Set-Alias -Name CONN-SearchContactEvaluations -Value Search-CONNContactEvaluation
 Set-Alias -Name Search-CONNContactFlowModules -Value Search-CONNContactFlowModule
 Set-Alias -Name CONN-SearchContactFlowModules -Value Search-CONNContactFlowModule
 Set-Alias -Name Search-CONNContactFlows -Value Search-CONNContactFlow
@@ -7283,6 +7285,8 @@ Set-Alias -Name Search-CONNContacts -Value Search-CONNContact
 Set-Alias -Name CONN-SearchContacts -Value Search-CONNContact
 Set-Alias -Name Search-CONNEmailAddresses -Value Search-CONNEmailAddress
 Set-Alias -Name CONN-SearchEmailAddresses -Value Search-CONNEmailAddress
+Set-Alias -Name Search-CONNEvaluationForms -Value Search-CONNEvaluationForm
+Set-Alias -Name CONN-SearchEvaluationForms -Value Search-CONNEvaluationForm
 Set-Alias -Name Search-CONNHoursOfOperationOverrides -Value Search-CONNHoursOfOperationOverride
 Set-Alias -Name CONN-SearchHoursOfOperationOverrides -Value Search-CONNHoursOfOperationOverride
 Set-Alias -Name Search-CONNHoursOfOperations -Value Search-CONNHoursOfOperation
@@ -27530,6 +27534,7 @@ Set-Alias -Name S3T-ListTableBuckets -Value Get-S3TTableBucketList
 Set-Alias -Name List-S3TTables -Value Get-S3TTableList
 Set-Alias -Name List-S3TTableList -Value Get-S3TTableList
 Set-Alias -Name S3T-ListTables -Value Get-S3TTableList
+Set-Alias -Name S3T-ListTagsForResource -Value Get-S3TResourceTag
 Set-Alias -Name Put-S3TTableBucketEncryption -Value Write-S3TTableBucketEncryption
 Set-Alias -Name S3T-PutTableBucketEncryption -Value Write-S3TTableBucketEncryption
 Set-Alias -Name Put-S3TTableBucketMaintenanceConfiguration -Value Write-S3TTableBucketMaintenanceConfiguration
@@ -27541,6 +27546,8 @@ Set-Alias -Name S3T-PutTableMaintenanceConfiguration -Value Write-S3TTableMainte
 Set-Alias -Name Put-S3TTablePolicy -Value Write-S3TTablePolicy
 Set-Alias -Name S3T-PutTablePolicy -Value Write-S3TTablePolicy
 Set-Alias -Name S3T-RenameTable -Value Rename-S3TTable
+Set-Alias -Name S3T-TagResource -Value Add-S3TResourceTag
+Set-Alias -Name S3T-UntagResource -Value Remove-S3TResourceTag
 Set-Alias -Name S3T-UpdateTableMetadataLocation -Value Update-S3TTableMetadataLocation
 Set-Alias -Name Create-S3VIndex -Value New-S3VIndex
 Set-Alias -Name S3V-CreateIndex -Value New-S3VIndex

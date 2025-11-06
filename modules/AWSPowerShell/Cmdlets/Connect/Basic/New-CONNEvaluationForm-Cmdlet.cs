@@ -54,6 +54,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter AutoEvaluationConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>When automated evaluation is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AutoEvaluationConfiguration_Enabled { get; set; }
+        #endregion
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>
@@ -111,6 +121,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Connect.EvaluationFormScoringStatus")]
         public Amazon.Connect.EvaluationFormScoringStatus ScoringStrategy_Status { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags used to organize, track, or control access for this resource. For example,
+        /// { "Tags": {"key1":"value1", "key2":"value2"} }.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Title
@@ -205,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Select = (response, cmdlet) => this.Title;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AutoEvaluationConfiguration_Enabled = this.AutoEvaluationConfiguration_Enabled;
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             context.InstanceId = this.InstanceId;
@@ -226,6 +249,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #endif
             context.ScoringStrategy_Mode = this.ScoringStrategy_Mode;
             context.ScoringStrategy_Status = this.ScoringStrategy_Status;
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
             context.Title = this.Title;
             #if MODULAR
             if (this.Title == null && ParameterWasBound(nameof(this.Title)))
@@ -249,6 +280,25 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             // create request
             var request = new Amazon.Connect.Model.CreateEvaluationFormRequest();
             
+            
+             // populate AutoEvaluationConfiguration
+            var requestAutoEvaluationConfigurationIsNull = true;
+            request.AutoEvaluationConfiguration = new Amazon.Connect.Model.EvaluationFormAutoEvaluationConfiguration();
+            System.Boolean? requestAutoEvaluationConfiguration_autoEvaluationConfiguration_Enabled = null;
+            if (cmdletContext.AutoEvaluationConfiguration_Enabled != null)
+            {
+                requestAutoEvaluationConfiguration_autoEvaluationConfiguration_Enabled = cmdletContext.AutoEvaluationConfiguration_Enabled.Value;
+            }
+            if (requestAutoEvaluationConfiguration_autoEvaluationConfiguration_Enabled != null)
+            {
+                request.AutoEvaluationConfiguration.Enabled = requestAutoEvaluationConfiguration_autoEvaluationConfiguration_Enabled.Value;
+                requestAutoEvaluationConfigurationIsNull = false;
+            }
+             // determine if request.AutoEvaluationConfiguration should be set to null
+            if (requestAutoEvaluationConfigurationIsNull)
+            {
+                request.AutoEvaluationConfiguration = null;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -293,6 +343,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestScoringStrategyIsNull)
             {
                 request.ScoringStrategy = null;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.Title != null)
             {
@@ -359,12 +413,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AutoEvaluationConfiguration_Enabled { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public System.String InstanceId { get; set; }
             public List<Amazon.Connect.Model.EvaluationFormItem> Item { get; set; }
             public Amazon.Connect.EvaluationFormScoringMode ScoringStrategy_Mode { get; set; }
             public Amazon.Connect.EvaluationFormScoringStatus ScoringStrategy_Status { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String Title { get; set; }
             public System.Func<Amazon.Connect.Model.CreateEvaluationFormResponse, NewCONNEvaluationFormCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

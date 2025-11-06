@@ -28,12 +28,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Deletes all resources and information related to a container fleet and shuts down
-    /// currently running fleet instances, including those in remote locations. The container
-    /// fleet must be in <c>ACTIVE</c> status to be deleted.
+    /// <b>This API works with the following fleet types:</b> Container
     /// 
     ///  
     /// <para>
+    /// Deletes all resources and information related to a container fleet and shuts down
+    /// currently running fleet instances, including those in remote locations. The container
+    /// fleet must be in <c>ACTIVE</c> status to be deleted.
+    /// </para><para>
     /// To delete a fleet, specify the fleet ID to be terminated. During the deletion process,
     /// the fleet status is changed to <c>DELETING</c>. 
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting

@@ -28,6 +28,10 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
+    /// 
+    ///  
+    /// <para>
     /// Defines a new matchmaking configuration for use with FlexMatch. Whether your are using
     /// FlexMatch with Amazon GameLift Servers hosting or as a standalone matchmaking service,
     /// the matchmaking configuration sets out rules for matching players and forming teams.
@@ -36,9 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// handle different game scenarios. All matchmaking requests identify the matchmaking
     /// configuration to use and provide player attributes consistent with that configuration.
     /// 
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// To create a matchmaking configuration, you must provide the following: configuration
     /// name and FlexMatch mode (with or without Amazon GameLift Servers hosting); a rule
     /// set that specifies how to evaluate players and find acceptable matches; whether player

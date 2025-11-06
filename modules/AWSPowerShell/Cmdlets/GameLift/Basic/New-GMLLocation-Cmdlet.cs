@@ -28,7 +28,12 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> Anywhere
+    /// 
+    ///  
+    /// <para>
     /// Creates a custom location for use in an Anywhere fleet.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "GMLLocation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.LocationModel")]

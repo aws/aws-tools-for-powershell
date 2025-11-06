@@ -225,12 +225,15 @@ $S3T_SelectMap = @{
                "Get-S3TNamespaceList",
                "Get-S3TTableBucketList",
                "Get-S3TTableList",
+               "Get-S3TResourceTag",
                "Write-S3TTableBucketEncryption",
                "Write-S3TTableBucketMaintenanceConfiguration",
                "Write-S3TTableBucketPolicy",
                "Write-S3TTableMaintenanceConfiguration",
                "Write-S3TTablePolicy",
                "Rename-S3TTable",
+               "Add-S3TResourceTag",
+               "Remove-S3TResourceTag",
                "Update-S3TTableMetadataLocation")
 }
 

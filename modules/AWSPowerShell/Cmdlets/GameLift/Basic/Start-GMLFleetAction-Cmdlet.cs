@@ -28,12 +28,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Resumes certain types of activity on fleet instances that were suspended with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html">StopFleetActions</a>.
-    /// For multi-location fleets, fleet actions are managed separately for each location.
-    /// Currently, this operation is used to restart a fleet's auto-scaling activity.
+    /// <b>This API works with the following fleet types:</b> EC2, Container
     /// 
     ///  
     /// <para>
+    /// Resumes certain types of activity on fleet instances that were suspended with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html">StopFleetActions</a>.
+    /// For multi-location fleets, fleet actions are managed separately for each location.
+    /// Currently, this operation is used to restart a fleet's auto-scaling activity.
+    /// </para><para>
     /// This operation can be used in the following ways: 
     /// </para><ul><li><para>
     /// To restart actions on instances in the fleet's home Region, provide a fleet ID and

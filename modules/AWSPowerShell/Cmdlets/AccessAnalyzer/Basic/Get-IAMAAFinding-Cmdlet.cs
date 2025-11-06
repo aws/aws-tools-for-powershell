@@ -32,6 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     /// use <c>access-analyzer:GetFinding</c> in the <c>Action</c> element of an IAM policy
     /// statement. You must have permission to perform the <c>access-analyzer:GetFinding</c>
     /// action.
+    /// 
+    ///  <note><para>
+    /// GetFinding is supported only for external access analyzers. You must use GetFindingV2
+    /// for internal and unused access analyzers.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "IAMAAFinding")]
     [OutputType("Amazon.AccessAnalyzer.Model.Finding")]

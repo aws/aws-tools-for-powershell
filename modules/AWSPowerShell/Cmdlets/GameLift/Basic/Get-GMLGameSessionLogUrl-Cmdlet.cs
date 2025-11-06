@@ -28,12 +28,15 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2
+    /// 
+    ///  
+    /// <para>
     /// Retrieves the location of stored game session logs for a specified game session on
     /// Amazon GameLift Servers managed fleets. When a game session is terminated, Amazon
     /// GameLift Servers automatically stores the logs in Amazon S3 and retains them for 14
     /// days. Use this URL to download the logs.
-    /// 
-    ///  <note><para>
+    /// </para><note><para>
     /// See the <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift">Amazon
     /// Web Services Service Limits</a> page for maximum log file sizes. Log files that exceed
     /// this limit are not saved.

@@ -831,6 +831,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Int64? CustomPosixUserConfig_Uid { get; set; }
         #endregion
         
+        #region Parameter VpcId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the VPC used by the domain for network communication. Use this
+        /// field only when adding VPC configuration to a SageMaker AI domain used in Amazon SageMaker
+        /// Unified Studio that was created without VPC settings. SageMaker AI doesn't automatically
+        /// apply VPC updates to existing applications. Stop and restart your applications to
+        /// apply the changes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VpcId { get; set; }
+        #endregion
+        
         #region Parameter DockerSettings_VpcOnlyTrustedAccount
         /// <summary>
         /// <para>
@@ -1020,6 +1034,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.SubnetId = new List<System.String>(this.SubnetId);
             }
             context.TagPropagation = this.TagPropagation;
+            context.VpcId = this.VpcId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -1958,6 +1973,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.TagPropagation = cmdletContext.TagPropagation;
             }
+            if (cmdletContext.VpcId != null)
+            {
+                request.VpcId = cmdletContext.VpcId;
+            }
             
             CmdletOutput output;
             
@@ -2086,6 +2105,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.FeatureStatus UnifiedStudioSettings_StudioWebPortalAccess { get; set; }
             public List<System.String> SubnetId { get; set; }
             public Amazon.SageMaker.TagPropagation TagPropagation { get; set; }
+            public System.String VpcId { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdateDomainResponse, UpdateSMDomainCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DomainArn;
         }

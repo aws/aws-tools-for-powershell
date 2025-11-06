@@ -28,12 +28,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Deletes a build. This operation permanently deletes the build resource and any uploaded
-    /// build files. Deleting a build does not affect the status of any active fleets using
-    /// the build, but you can no longer create new fleets with the deleted build.
+    /// <b>This API works with the following fleet types:</b> EC2
     /// 
     ///  
     /// <para>
+    /// Deletes a build. This operation permanently deletes the build resource and any uploaded
+    /// build files. Deleting a build does not affect the status of any active fleets using
+    /// the build, but you can no longer create new fleets with the deleted build.
+    /// </para><para>
     /// To delete a build, specify the build ID. 
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">
     /// Upload a Custom Server Build</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All

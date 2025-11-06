@@ -28,11 +28,13 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves the properties of a container group definition, including all container
-    /// definitions in the group. 
+    /// <b>This API works with the following fleet types:</b> Container
     /// 
     ///  
-    /// <para><b>Request options:</b></para><ul><li><para>
+    /// <para>
+    /// Retrieves the properties of a container group definition, including all container
+    /// definitions in the group. 
+    /// </para><para><b>Request options:</b></para><ul><li><para>
     /// Retrieve the latest version of a container group definition. Specify the container
     /// group definition name only, or use an ARN value without a version number.
     /// </para></li><li><para>

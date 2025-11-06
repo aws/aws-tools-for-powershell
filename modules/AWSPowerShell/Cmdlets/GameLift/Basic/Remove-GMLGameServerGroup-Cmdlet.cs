@@ -28,8 +28,10 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game
-    /// server groups.</b><para>
+    /// <b>This API works with the following fleet types:</b> EC2 (FleetIQ)
+    /// 
+    ///  
+    /// <para>
     /// Terminates a game server group and permanently deletes the game server group record.
     /// You have several options for how these resources are impacted when deleting the game
     /// server group. Depending on the type of delete operation selected, this operation might

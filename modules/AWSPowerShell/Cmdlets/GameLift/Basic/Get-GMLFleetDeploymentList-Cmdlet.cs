@@ -28,11 +28,13 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves a collection of container fleet deployments in an Amazon Web Services Region.
-    /// Use the pagination parameters to retrieve results as a set of sequential pages. 
+    /// <b>This API works with the following fleet types:</b> Container
     /// 
     ///  
-    /// <para><b>Request options</b></para><ul><li><para>
+    /// <para>
+    /// Retrieves a collection of container fleet deployments in an Amazon Web Services Region.
+    /// Use the pagination parameters to retrieve results as a set of sequential pages. 
+    /// </para><para><b>Request options</b></para><ul><li><para>
     /// Get a list of all deployments. Call this operation without specifying a fleet ID.
     /// 
     /// </para></li><li><para>

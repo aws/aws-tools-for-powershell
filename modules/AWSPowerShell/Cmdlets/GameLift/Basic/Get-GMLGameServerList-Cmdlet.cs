@@ -28,8 +28,10 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game
-    /// server groups.</b><para>
+    /// <b>This API works with the following fleet types:</b> EC2 (FleetIQ)
+    /// 
+    ///  
+    /// <para>
     /// Retrieves information on all game servers that are currently active in a specified
     /// game server group. You can opt to sort the list by game server age. Use the pagination
     /// parameters to retrieve results in a set of sequential segments. 

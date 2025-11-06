@@ -28,9 +28,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
+    /// 
+    ///  
+    /// <para>
     /// Permanently removes a FlexMatch matchmaking configuration. To delete, specify the
     /// configuration name. A matchmaking configuration cannot be deleted if it is being used
     /// in any active matchmaking tickets.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "GMLMatchmakingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

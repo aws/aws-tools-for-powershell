@@ -28,13 +28,15 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2
+    /// 
+    ///  
+    /// <para>
     /// Updates the runtime configuration for the specified fleet. The runtime configuration
     /// tells Amazon GameLift Servers how to launch server processes on computes in managed
     /// EC2 and Anywhere fleets. You can update a fleet's runtime configuration at any time
     /// after the fleet is created; it does not need to be in <c>ACTIVE</c> status.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// To update runtime configuration, specify the fleet ID and provide a <c>RuntimeConfiguration</c>
     /// with an updated set of server process configurations.
     /// </para><para>

@@ -28,6 +28,10 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2
+    /// 
+    ///  
+    /// <para>
     /// Retrieves the instance limits and current utilization for an Amazon Web Services Region
     /// or location. Instance limits control the number of instances, per instance type, per
     /// location, that your Amazon Web Services account can use. Learn more at <a href="http://aws.amazon.com/ec2/instance-types/">Amazon
@@ -36,9 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// your ability to scale your Amazon GameLift Servers fleets. You can request a limit
     /// increase for your account by using the <b>Service limits</b> page in the Amazon GameLift
     /// Servers console.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// Instance limits differ based on whether the instances are deployed in a fleet's home
     /// Region or in a remote location. For remote locations, limits also differ based on
     /// the combination of home Region and remote location. All requests must specify an Amazon

@@ -28,6 +28,10 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
+    /// 
+    ///  
+    /// <para>
     /// Makes a request to start a new game session using a game session queue. When processing
     /// a placement request, Amazon GameLift Servers looks for the best possible available
     /// resource to host the game session, based on how the queue is configured to prioritize
@@ -36,9 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// placement request can include a list of players to create a set of player sessions.
     /// The request can also include information to pass to the new game session, such as
     /// to specify a game map or other options.
-    /// 
-    ///  
-    /// <para><b>Request options</b></para><para>
+    /// </para><para><b>Request options</b></para><para>
     /// Use this operation to make the following types of requests. 
     /// </para><ul><li><para>
     /// Request a placement using the queue's default prioritization process (see the default

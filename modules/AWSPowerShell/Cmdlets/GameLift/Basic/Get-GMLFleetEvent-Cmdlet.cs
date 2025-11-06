@@ -28,13 +28,15 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves entries from a fleet's event log. Fleet events are initiated by changes
-    /// in status, such as during fleet creation and termination, changes in capacity, etc.
-    /// If a fleet has multiple locations, events are also initiated by changes to status
-    /// and capacity in remote locations. 
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
     /// 
     ///  
     /// <para>
+    /// Retrieves entries from a fleet's event log. Fleet events are initiated by changes
+    /// in status, such as during fleet creation and termination, changes in capacity, etc.
+    /// If a fleet has multiple locations, events are also initiated by changes to status
+    /// and capacity in remote locations.
+    /// </para><para>
     /// You can specify a time range to limit the result set. Use the pagination parameters
     /// to retrieve results as a set of sequential pages. 
     /// </para><para>

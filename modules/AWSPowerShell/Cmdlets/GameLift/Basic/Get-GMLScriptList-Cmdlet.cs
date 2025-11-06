@@ -28,11 +28,13 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves script records for all Realtime scripts that are associated with the Amazon
-    /// Web Services account in use. 
+    /// <b>This API works with the following fleet types:</b> EC2
     /// 
     ///  
-    /// <para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon
+    /// <para>
+    /// Retrieves script records for all Realtime scripts that are associated with the Amazon
+    /// Web Services account in use. 
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon
     /// GameLift Servers Amazon GameLift Servers Realtime</a></para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

@@ -28,11 +28,13 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves all active game sessions that match a set of search criteria and sorts them
-    /// into a specified order. 
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
     /// 
     ///  
     /// <para>
+    /// Retrieves all active game sessions that match a set of search criteria and sorts them
+    /// into a specified order. 
+    /// </para><para>
     /// This operation is not designed to continually track game session status because that
     /// practice can cause you to exceed your API limit and generate errors. Instead, configure
     /// an Amazon Simple Notification Service (Amazon SNS) topic to receive notifications

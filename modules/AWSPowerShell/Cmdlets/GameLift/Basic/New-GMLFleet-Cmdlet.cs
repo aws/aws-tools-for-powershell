@@ -28,11 +28,13 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Creates a fleet of compute resources to host your game servers. Use this operation
-    /// to set up the following types of fleets based on compute type: 
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
     /// 
     ///  
-    /// <para><b>Managed EC2 fleet</b></para><para>
+    /// <para>
+    /// Creates a fleet of compute resources to host your game servers. Use this operation
+    /// to set up a fleet for the following compute types: 
+    /// </para><para><b>Managed EC2 fleet</b></para><para>
     /// An EC2 fleet is a set of Amazon Elastic Compute Cloud (Amazon EC2) instances. Your
     /// game server build is deployed to each fleet instance. Amazon GameLift Servers manages
     /// the fleet's instances and controls the lifecycle of game server processes, which host
@@ -53,7 +55,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para>
     /// When the fleet status is ACTIVE, you can adjust capacity settings and turn autoscaling
     /// on/off for each location.
-    /// </para><para><b>Anywhere fleet</b></para><para>
+    /// </para><note><para>
+    /// A managed fleet's runtime environment depends on the Amazon Machine Image (AMI) version
+    /// it uses. When a new fleet is created, Amazon GameLift Servers assigns the latest available
+    /// AMI version to the fleet, and all compute instances in that fleet are deployed with
+    /// that version. To update the AMI version, you must create a new fleet. As a best practice,
+    /// we recommend replacing your managed fleets every 30 days to maintain a secure and
+    /// up-to-date runtime environment for your hosted game servers. For guidance, see <a href="https://docs.aws.amazon.com/gameliftservers/latest/developerguide/security-best-practices.html">
+    /// Security best practices for Amazon GameLift Servers</a>.
+    /// </para></note><para><b>Anywhere fleet</b></para><para>
     /// An Anywhere fleet represents compute resources that are not owned or managed by Amazon
     /// GameLift Servers. You might create an Anywhere fleet with your local machine for testing,
     /// or use one to host game servers with on-premises hardware or other game hosting solutions.

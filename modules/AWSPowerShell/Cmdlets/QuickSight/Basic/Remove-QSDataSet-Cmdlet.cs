@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DataSetId
         /// <summary>
         /// <para>
-        /// <para>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services
+        /// <para>The ID for the dataset that you want to delete. This ID is unique per Amazon Web Services
         /// Region for each Amazon Web Services account.</para>
         /// </para>
         /// </summary>

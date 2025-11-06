@@ -28,11 +28,13 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves information on a fleet's remote locations, including life-cycle status and
-    /// any suspended fleet activity. 
+    /// <b>This API works with the following fleet types:</b> EC2, Container
     /// 
     ///  
     /// <para>
+    /// Retrieves information on a fleet's remote locations, including life-cycle status and
+    /// any suspended fleet activity. 
+    /// </para><para>
     /// This operation can be used in the following ways: 
     /// </para><ul><li><para>
     /// To get data for specific locations, provide a fleet identifier and a list of locations.

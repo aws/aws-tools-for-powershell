@@ -28,15 +28,17 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
+    /// 
+    ///  
+    /// <para>
     /// Requests an authentication token from Amazon GameLift Servers for a compute resource
     /// in an Amazon GameLift Servers fleet. Game servers that are running on the compute
     /// use this token to communicate with the Amazon GameLift Servers service, such as when
     /// calling the Amazon GameLift Servers server SDK action <c>InitSDK()</c>. Authentication
     /// tokens are valid for a limited time span, so you need to request a fresh token before
     /// the current token expires.
-    /// 
-    ///  
-    /// <para><b>Request options</b></para><ul><li><para>
+    /// </para><para><b>Request options</b></para><ul><li><para>
     /// For managed EC2 fleets (compute type <c>EC2</c>), auth token retrieval and refresh
     /// is handled automatically. All game servers that are running on all fleet instances
     /// have access to a valid auth token.

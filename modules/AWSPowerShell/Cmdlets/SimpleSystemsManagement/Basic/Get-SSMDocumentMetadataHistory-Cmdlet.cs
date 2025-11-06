@@ -28,7 +28,15 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Information about approval reviews for a version of a change template in Change Manager.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// <important><para>
+    /// Amazon Web Services Systems Manager Change Manager will no longer be open to new customers
+    /// starting November 7, 2025. If you would like to use Change Manager, sign up prior
+    /// to that date. Existing customers can continue to use the service as normal. For more
+    /// information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager-availability-change.html">Amazon
+    /// Web Services Systems Manager Change Manager availability change</a>.
+    /// </para></important><para>
+    /// Information about approval reviews for a version of a change template in Change Manager.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMDocumentMetadataHistory")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.ListDocumentMetadataHistoryResponse")]

@@ -28,14 +28,16 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2, Container
+    /// 
+    ///  
+    /// <para>
     /// Retrieves utilization statistics for one or more fleets. Utilization data provides
     /// a snapshot of how the fleet's hosting resources are currently being used. For fleets
     /// with remote locations, this operation retrieves data for the fleet's home Region only.
     /// See <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationUtilization.html">DescribeFleetLocationUtilization</a>
     /// to get utilization statistics for a fleet's remote locations.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// This operation can be used in the following ways: 
     /// </para><ul><li><para>
     /// To get utilization data for one or more specific fleets, provide a list of fleet IDs

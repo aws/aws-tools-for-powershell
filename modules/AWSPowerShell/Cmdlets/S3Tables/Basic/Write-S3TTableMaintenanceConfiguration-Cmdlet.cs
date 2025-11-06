@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the maintenance configuration.</para>
+        /// <para>The name of the table.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

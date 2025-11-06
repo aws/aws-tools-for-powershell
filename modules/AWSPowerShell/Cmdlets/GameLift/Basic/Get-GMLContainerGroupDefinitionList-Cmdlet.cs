@@ -28,12 +28,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves container group definitions for the Amazon Web Services account and Amazon
-    /// Web Services Region. Use the pagination parameters to retrieve results in a set of
-    /// sequential pages.
+    /// <b>This API works with the following fleet types:</b> Container
     /// 
     ///  
     /// <para>
+    /// Retrieves container group definitions for the Amazon Web Services account and Amazon
+    /// Web Services Region. Use the pagination parameters to retrieve results in a set of
+    /// sequential pages.
+    /// </para><para>
     /// This operation returns only the latest version of each definition. To retrieve all
     /// versions of a container group definition, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListContainerGroupDefinitionVersions.html">ListContainerGroupDefinitionVersions</a>.
     /// </para><para><b>Request options:</b></para><ul><li><para>

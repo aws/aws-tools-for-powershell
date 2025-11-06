@@ -28,12 +28,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves additional game session properties, including the game session protection
-    /// policy in force, a set of one or more game sessions in a specific fleet location.
-    /// You can optionally filter the results by current game session status.
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
     /// 
     ///  
     /// <para>
+    /// Retrieves additional game session properties, including the game session protection
+    /// policy in force, a set of one or more game sessions in a specific fleet location.
+    /// You can optionally filter the results by current game session status.
+    /// </para><para>
     /// This operation can be used in the following ways: 
     /// </para><ul><li><para>
     /// To retrieve details for all game sessions that are currently running on all locations

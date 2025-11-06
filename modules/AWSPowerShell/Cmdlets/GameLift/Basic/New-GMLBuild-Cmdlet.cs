@@ -28,11 +28,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere
+    /// 
+    ///  
+    /// <para>
     /// Creates a new Amazon GameLift Servers build resource for your game server binary files.
     /// Combine game server binaries into a zip file for use with Amazon GameLift Servers.
     /// 
-    /// 
-    ///  <important><para>
+    /// </para><important><para>
     /// When setting up a new game build for Amazon GameLift Servers, we recommend using the
     /// CLI command <b><a href="https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html">upload-build</a></b>. This helper command combines two tasks: (1) it uploads your build files from
     /// a file directory to an Amazon GameLift Servers Amazon S3 location, and (2) it creates

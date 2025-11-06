@@ -28,11 +28,13 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Attempts to retrieve a fleet ID that is associated with an alias. Specify a unique
-    /// alias identifier.
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
     /// 
     ///  
     /// <para>
+    /// Attempts to retrieve a fleet ID that is associated with an alias. Specify a unique
+    /// alias identifier.
+    /// </para><para>
     /// If the alias has a <c>SIMPLE</c> routing strategy, Amazon GameLift Servers returns
     /// a fleet ID. If the alias has a <c>TERMINAL</c> routing strategy, the result is a <c>TerminalRoutingStrategyException</c>.
     /// </para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All

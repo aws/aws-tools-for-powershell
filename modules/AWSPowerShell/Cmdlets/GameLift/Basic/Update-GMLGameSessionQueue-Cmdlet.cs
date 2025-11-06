@@ -28,13 +28,15 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
+    /// 
+    ///  
+    /// <para>
     /// Updates the configuration of a game session queue, which determines how the queue
     /// processes new game session requests. To update settings, specify the queue name to
     /// be updated and provide the new settings. When updating destinations, provide a complete
     /// list of destinations. 
-    /// 
-    ///  
-    /// <para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html">
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html">
     /// Using Multi-Region Queues</a></para>
     /// </summary>
     [Cmdlet("Update", "GMLGameSessionQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

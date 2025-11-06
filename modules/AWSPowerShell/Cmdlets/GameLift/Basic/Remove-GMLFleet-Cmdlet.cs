@@ -28,10 +28,13 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
+    /// 
+    ///  
+    /// <para>
     /// Deletes all resources and information related to a fleet and shuts down any currently
     /// running fleet instances, including those in remote locations.
-    /// 
-    ///  <note><para>
+    /// </para><note><para>
     /// If the fleet being deleted has a VPC peering connection, you first need to get a valid
     /// authorization (good for 24 hours) by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateVpcPeeringAuthorization.html">CreateVpcPeeringAuthorization</a>.
     /// You don't need to explicitly delete the VPC peering connection.

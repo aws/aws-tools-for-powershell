@@ -29,6 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
 {
     /// <summary>
     /// Immediately starts a scan of the policies applied to the specified resource.
+    /// 
+    ///  <note><para>
+    /// This action is supported only for external access analyzers.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Start", "IAMAAResourceScan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

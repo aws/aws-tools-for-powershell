@@ -31,9 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.IDS
     /// Retrieves the group metadata and attributes from <c>GroupId</c> in an identity store.
     /// 
     ///  <note><para>
-    /// If you have administrator access to a member account, you can use this API from the
-    /// member account. Read about <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html">member
-    /// accounts</a> in the <i>Organizations User Guide</i>. 
+    /// If you have access to a member account, you can use this API operation from the member
+    /// account. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html#limiting-access-from-member-accounts">Limiting
+    /// access to the identity store from member accounts</a> in the <i> IAM Identity Center
+    /// User Guide</i>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "IDSGroup")]

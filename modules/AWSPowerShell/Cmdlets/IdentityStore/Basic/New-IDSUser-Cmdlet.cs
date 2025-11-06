@@ -55,11 +55,23 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         public Amazon.IdentityStore.Model.Address[] Address { get; set; }
         #endregion
         
+        #region Parameter Birthdate
+        /// <summary>
+        /// <para>
+        /// <para>The user's birthdate in YYYY-MM-DD format. This field supports standard date format
+        /// for storing personal information.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Birthdate { get; set; }
+        #endregion
+        
         #region Parameter DisplayName
         /// <summary>
         /// <para>
         /// <para>A string containing the name of the user. This value is typically formatted for display
-        /// when the user is referenced. For example, "John Doe." </para>
+        /// when the user is referenced. For example, "John Doe." When used in IAM Identity Center,
+        /// this parameter is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -186,6 +198,18 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         public Amazon.IdentityStore.Model.PhoneNumber[] PhoneNumber { get; set; }
         #endregion
         
+        #region Parameter Photo
+        /// <summary>
+        /// <para>
+        /// <para>A list of photos associated with the user. You can add up to 3 photos per user. Each
+        /// photo can include a value, type, display name, and primary designation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Photos")]
+        public Amazon.IdentityStore.Model.Photo[] Photo { get; set; }
+        #endregion
+        
         #region Parameter PreferredLanguage
         /// <summary>
         /// <para>
@@ -251,6 +275,17 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String UserType { get; set; }
+        #endregion
+        
+        #region Parameter Website
+        /// <summary>
+        /// <para>
+        /// <para>The user's personal website or blog URL. This field allows users to provide a link
+        /// to their personal or professional website.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Website { get; set; }
         #endregion
         
         #region Parameter Select
@@ -319,6 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             {
                 context.Address = new List<Amazon.IdentityStore.Model.Address>(this.Address);
             }
+            context.Birthdate = this.Birthdate;
             context.DisplayName = this.DisplayName;
             if (this.Email != null)
             {
@@ -343,12 +379,17 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             {
                 context.PhoneNumber = new List<Amazon.IdentityStore.Model.PhoneNumber>(this.PhoneNumber);
             }
+            if (this.Photo != null)
+            {
+                context.Photo = new List<Amazon.IdentityStore.Model.Photo>(this.Photo);
+            }
             context.PreferredLanguage = this.PreferredLanguage;
             context.ProfileUrl = this.ProfileUrl;
             context.Timezone = this.Timezone;
             context.Title = this.Title;
             context.UserName = this.UserName;
             context.UserType = this.UserType;
+            context.Website = this.Website;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -368,6 +409,10 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             if (cmdletContext.Address != null)
             {
                 request.Addresses = cmdletContext.Address;
+            }
+            if (cmdletContext.Birthdate != null)
+            {
+                request.Birthdate = cmdletContext.Birthdate;
             }
             if (cmdletContext.DisplayName != null)
             {
@@ -462,6 +507,10 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             {
                 request.PhoneNumbers = cmdletContext.PhoneNumber;
             }
+            if (cmdletContext.Photo != null)
+            {
+                request.Photos = cmdletContext.Photo;
+            }
             if (cmdletContext.PreferredLanguage != null)
             {
                 request.PreferredLanguage = cmdletContext.PreferredLanguage;
@@ -485,6 +534,10 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             if (cmdletContext.UserType != null)
             {
                 request.UserType = cmdletContext.UserType;
+            }
+            if (cmdletContext.Website != null)
+            {
+                request.Website = cmdletContext.Website;
             }
             
             CmdletOutput output;
@@ -548,6 +601,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.IdentityStore.Model.Address> Address { get; set; }
+            public System.String Birthdate { get; set; }
             public System.String DisplayName { get; set; }
             public List<Amazon.IdentityStore.Model.Email> Email { get; set; }
             public System.String IdentityStoreId { get; set; }
@@ -560,12 +614,14 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             public System.String Name_MiddleName { get; set; }
             public System.String NickName { get; set; }
             public List<Amazon.IdentityStore.Model.PhoneNumber> PhoneNumber { get; set; }
+            public List<Amazon.IdentityStore.Model.Photo> Photo { get; set; }
             public System.String PreferredLanguage { get; set; }
             public System.String ProfileUrl { get; set; }
             public System.String Timezone { get; set; }
             public System.String Title { get; set; }
             public System.String UserName { get; set; }
             public System.String UserType { get; set; }
+            public System.String Website { get; set; }
             public System.Func<Amazon.IdentityStore.Model.CreateUserResponse, NewIDSUserCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.UserId;
         }

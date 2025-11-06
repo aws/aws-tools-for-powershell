@@ -28,8 +28,7 @@ using Amazon.IdentityStore.Model;
 namespace Amazon.PowerShell.Cmdlets.IDS
 {
     /// <summary>
-    /// For the specified user in the specified identity store, updates the user metadata
-    /// and attributes.
+    /// Updates the specified user metadata and attributes in the specified identity store.
     /// </summary>
     [Cmdlet("Update", "IDSUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -64,7 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         /// <summary>
         /// <para>
         /// <para>A list of <c>AttributeOperation</c> objects to apply to the requested user. These
-        /// operations might add, replace, or remove an attribute.</para>
+        /// operations might add, replace, or remove an attribute. For more information on the
+        /// attributes that can be added, replaced, or removed, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html">User</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

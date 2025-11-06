@@ -28,12 +28,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
+    /// 
+    ///  
+    /// <para>
     /// Validates the syntax of a matchmaking rule or rule set. This operation checks that
     /// the rule set is using syntactically correct JSON and that it conforms to allowed property
     /// expressions. To validate syntax, provide a rule set JSON string.
-    /// 
-    ///  
-    /// <para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html">Build
+    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html">Build
     /// a rule set</a></para></li></ul>
     /// </summary>
     [Cmdlet("Test", "GMLMatchmakingRuleSetValidity")]

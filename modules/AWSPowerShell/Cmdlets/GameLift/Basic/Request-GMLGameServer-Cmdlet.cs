@@ -28,8 +28,10 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game
-    /// server groups.</b><para>
+    /// <b>This API works with the following fleet types:</b> EC2 (FleetIQ)
+    /// 
+    ///  
+    /// <para>
     /// Locates an available game server and temporarily reserves it to host gameplay and
     /// players. This operation is called from a game client or client service (such as a
     /// matchmaker) to request hosting resources for a new game session. In response, Amazon

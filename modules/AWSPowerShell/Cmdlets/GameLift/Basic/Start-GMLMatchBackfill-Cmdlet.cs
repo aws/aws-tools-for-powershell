@@ -28,15 +28,17 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
+    /// 
+    ///  
+    /// <para>
     /// Finds new players to fill open slots in currently running game sessions. The backfill
     /// match process is essentially identical to the process of forming new matches. Backfill
     /// requests use the same matchmaker that was used to make the original match, and they
     /// provide matchmaking data for all players currently in the game session. FlexMatch
     /// uses this information to select new players so that backfilled match continues to
     /// meet the original match requirements. 
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// When using FlexMatch with Amazon GameLift Servers managed hosting, you can request
     /// a backfill match from a client service by calling this operation with a <c>GameSessions</c>
     /// ID. You also have the option of making backfill requests directly from your game server.

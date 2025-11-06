@@ -28,12 +28,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2, Container
+    /// 
+    ///  
+    /// <para>
     /// Requests authorization to remotely connect to a hosting resource in a Amazon GameLift
     /// Servers managed fleet. This operation is not used with Amazon GameLift Servers Anywhere
     /// fleets.
-    /// 
-    ///  
-    /// <para><b>Request options</b></para><para>
+    /// </para><para><b>Request options</b></para><para>
     /// Provide the fleet ID and compute name. The compute name varies depending on the type
     /// of fleet.
     /// </para><ul><li><para>

@@ -140,6 +140,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.ClusterConfigMode TieredStorageConfig_Mode { get; set; }
         #endregion
         
+        #region Parameter NodeProvisioningMode
+        /// <summary>
+        /// <para>
+        /// <para>Determines how instance provisioning is handled during cluster operations. In <c>Continuous</c>
+        /// mode, the cluster provisions available instances incrementally and retries until the
+        /// target count is reached. The cluster becomes operational once cluster-level resources
+        /// are ready. Use <c>CurrentCount</c> and <c>TargetCount</c> in <c>DescribeCluster</c>
+        /// to track provisioning progress.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.ClusterNodeProvisioningMode")]
+        public Amazon.SageMaker.ClusterNodeProvisioningMode NodeProvisioningMode { get; set; }
+        #endregion
+        
         #region Parameter NodeRecovery
         /// <summary>
         /// <para>
@@ -243,6 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.InstanceGroupsToDelete = new List<System.String>(this.InstanceGroupsToDelete);
             }
+            context.NodeProvisioningMode = this.NodeProvisioningMode;
             context.NodeRecovery = this.NodeRecovery;
             if (this.RestrictedInstanceGroup != null)
             {
@@ -310,6 +326,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.InstanceGroupsToDelete != null)
             {
                 request.InstanceGroupsToDelete = cmdletContext.InstanceGroupsToDelete;
+            }
+            if (cmdletContext.NodeProvisioningMode != null)
+            {
+                request.NodeProvisioningMode = cmdletContext.NodeProvisioningMode;
             }
             if (cmdletContext.NodeRecovery != null)
             {
@@ -415,6 +435,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String ClusterRole { get; set; }
             public List<Amazon.SageMaker.Model.ClusterInstanceGroupSpecification> InstanceGroup { get; set; }
             public List<System.String> InstanceGroupsToDelete { get; set; }
+            public Amazon.SageMaker.ClusterNodeProvisioningMode NodeProvisioningMode { get; set; }
             public Amazon.SageMaker.ClusterNodeRecovery NodeRecovery { get; set; }
             public List<Amazon.SageMaker.Model.ClusterRestrictedInstanceGroupSpecification> RestrictedInstanceGroup { get; set; }
             public System.Int32? TieredStorageConfig_InstanceMemoryAllocationPercentage { get; set; }

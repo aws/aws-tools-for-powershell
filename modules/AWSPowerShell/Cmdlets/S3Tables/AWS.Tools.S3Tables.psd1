@@ -88,8 +88,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-S3TResourceTag', 
         'Get-S3TNamespace', 
         'Get-S3TNamespaceList', 
+        'Get-S3TResourceTag', 
         'Get-S3TTable', 
         'Get-S3TTableBucket', 
         'Get-S3TTableBucketEncryption', 
@@ -106,6 +108,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-S3TTable', 
         'New-S3TTableBucket', 
         'Remove-S3TNamespace', 
+        'Remove-S3TResourceTag', 
         'Remove-S3TTable', 
         'Remove-S3TTableBucket', 
         'Remove-S3TTableBucketEncryption', 

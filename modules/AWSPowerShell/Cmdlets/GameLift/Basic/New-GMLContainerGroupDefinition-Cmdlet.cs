@@ -28,14 +28,16 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> Container
+    /// 
+    ///  
+    /// <para>
     /// Creates a <c>ContainerGroupDefinition</c> that describes a set of containers for hosting
     /// your game server with Amazon GameLift Servers managed containers hosting. An Amazon
     /// GameLift Servers container group is similar to a container task or pod. Use container
     /// group definitions when you create a container fleet with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateContainerFleet.html">CreateContainerFleet</a>.
     /// 
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// A container group definition determines how Amazon GameLift Servers deploys your containers
     /// to each instance in a container fleet. You can maintain multiple versions of a container
     /// group definition.

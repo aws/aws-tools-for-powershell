@@ -55,6 +55,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.Collections.Hashtable Answer { get; set; }
         #endregion
         
+        #region Parameter UpdatedBy_ConnectUserArn
+        /// <summary>
+        /// <para>
+        /// <para>Represents the Amazon Connect ARN of the user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String UpdatedBy_ConnectUserArn { get; set; }
+        #endregion
+        
         #region Parameter EvaluationId
         /// <summary>
         /// <para>
@@ -193,6 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                     context.Note.Add((String)hashKey, (Amazon.Connect.Model.EvaluationNote)(this.Note[hashKey]));
                 }
             }
+            context.UpdatedBy_ConnectUserArn = this.UpdatedBy_ConnectUserArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -224,6 +235,25 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.Note != null)
             {
                 request.Notes = cmdletContext.Note;
+            }
+            
+             // populate UpdatedBy
+            var requestUpdatedByIsNull = true;
+            request.UpdatedBy = new Amazon.Connect.Model.EvaluatorUserUnion();
+            System.String requestUpdatedBy_updatedBy_ConnectUserArn = null;
+            if (cmdletContext.UpdatedBy_ConnectUserArn != null)
+            {
+                requestUpdatedBy_updatedBy_ConnectUserArn = cmdletContext.UpdatedBy_ConnectUserArn;
+            }
+            if (requestUpdatedBy_updatedBy_ConnectUserArn != null)
+            {
+                request.UpdatedBy.ConnectUserArn = requestUpdatedBy_updatedBy_ConnectUserArn;
+                requestUpdatedByIsNull = false;
+            }
+             // determine if request.UpdatedBy should be set to null
+            if (requestUpdatedByIsNull)
+            {
+                request.UpdatedBy = null;
             }
             
             CmdletOutput output;
@@ -290,6 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String EvaluationId { get; set; }
             public System.String InstanceId { get; set; }
             public Dictionary<System.String, Amazon.Connect.Model.EvaluationNote> Note { get; set; }
+            public System.String UpdatedBy_ConnectUserArn { get; set; }
             public System.Func<Amazon.Connect.Model.UpdateContactEvaluationResponse, UpdateCONNContactEvaluationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

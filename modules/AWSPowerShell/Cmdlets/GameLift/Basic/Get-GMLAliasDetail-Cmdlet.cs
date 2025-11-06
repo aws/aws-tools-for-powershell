@@ -28,11 +28,13 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves properties for an alias. This operation returns all alias metadata and settings.
-    /// To get an alias's target fleet ID only, use <c>ResolveAlias</c>. 
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
     /// 
     ///  
     /// <para>
+    /// Retrieves properties for an alias. This operation returns all alias metadata and settings.
+    /// To get an alias's target fleet ID only, use <c>ResolveAlias</c>. 
+    /// </para><para>
     /// To get alias properties, specify the alias ID. If successful, the requested alias
     /// record is returned.
     /// </para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All

@@ -28,10 +28,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
+    /// 
+    ///  
+    /// <para>
     /// Reserves open slots in a game session for a group of players. New player sessions
     /// can be created in any game session with an open slot that is in <c>ACTIVE</c> status
     /// and has a player creation policy of <c>ACCEPT_ALL</c>. To add a single player to a
-    /// game session, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreatePlayerSession.html">CreatePlayerSession</a><para>
+    /// game session, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreatePlayerSession.html">CreatePlayerSession</a></para><para>
     /// To create player sessions, specify a game session ID and a list of player IDs. Optionally,
     /// provide a set of player data for each player ID. 
     /// </para><para>

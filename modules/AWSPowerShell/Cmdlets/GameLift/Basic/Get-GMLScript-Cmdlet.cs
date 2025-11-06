@@ -28,10 +28,12 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves properties for a Realtime script. 
+    /// <b>This API works with the following fleet types:</b> EC2
     /// 
     ///  
     /// <para>
+    /// Retrieves properties for a Realtime script. 
+    /// </para><para>
     /// To request a script record, specify the script ID. If successful, an object containing
     /// the script properties is returned.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon

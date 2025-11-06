@@ -28,13 +28,15 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
+    /// 
+    ///  
+    /// <para>
     /// Retrieves all tags assigned to a Amazon GameLift Servers resource. Use resource tags
     /// to organize Amazon Web Services resources for a range of purposes. This operation
     /// handles the permissions necessary to manage tags for Amazon GameLift Servers resources
     /// that support tagging.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// To list tags for a resource, specify the unique ARN value for the resource.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
     /// Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i></para><para><a href="http://aws.amazon.com/answers/account-management/aws-tagging-strategies/">

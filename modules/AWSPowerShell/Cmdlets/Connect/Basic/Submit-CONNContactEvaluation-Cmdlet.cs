@@ -62,6 +62,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.Collections.Hashtable Answer { get; set; }
         #endregion
         
+        #region Parameter SubmittedBy_ConnectUserArn
+        /// <summary>
+        /// <para>
+        /// <para>Represents the Amazon Connect ARN of the user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SubmittedBy_ConnectUserArn { get; set; }
+        #endregion
+        
         #region Parameter EvaluationId
         /// <summary>
         /// <para>
@@ -200,6 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                     context.Note.Add((String)hashKey, (Amazon.Connect.Model.EvaluationNote)(this.Note[hashKey]));
                 }
             }
+            context.SubmittedBy_ConnectUserArn = this.SubmittedBy_ConnectUserArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -231,6 +242,25 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.Note != null)
             {
                 request.Notes = cmdletContext.Note;
+            }
+            
+             // populate SubmittedBy
+            var requestSubmittedByIsNull = true;
+            request.SubmittedBy = new Amazon.Connect.Model.EvaluatorUserUnion();
+            System.String requestSubmittedBy_submittedBy_ConnectUserArn = null;
+            if (cmdletContext.SubmittedBy_ConnectUserArn != null)
+            {
+                requestSubmittedBy_submittedBy_ConnectUserArn = cmdletContext.SubmittedBy_ConnectUserArn;
+            }
+            if (requestSubmittedBy_submittedBy_ConnectUserArn != null)
+            {
+                request.SubmittedBy.ConnectUserArn = requestSubmittedBy_submittedBy_ConnectUserArn;
+                requestSubmittedByIsNull = false;
+            }
+             // determine if request.SubmittedBy should be set to null
+            if (requestSubmittedByIsNull)
+            {
+                request.SubmittedBy = null;
             }
             
             CmdletOutput output;
@@ -297,6 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String EvaluationId { get; set; }
             public System.String InstanceId { get; set; }
             public Dictionary<System.String, Amazon.Connect.Model.EvaluationNote> Note { get; set; }
+            public System.String SubmittedBy_ConnectUserArn { get; set; }
             public System.Func<Amazon.Connect.Model.SubmitContactEvaluationResponse, SubmitCONNContactEvaluationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

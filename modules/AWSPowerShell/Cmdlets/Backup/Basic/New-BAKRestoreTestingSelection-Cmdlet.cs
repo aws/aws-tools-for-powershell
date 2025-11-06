@@ -156,7 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>The unique name of the restore testing selection that belongs to the related restore
-        /// testing plan.</para>
+        /// testing plan.</para><para>The name consists of only alphanumeric characters and underscores. Maximum length
+        /// is 50.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

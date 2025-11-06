@@ -37,6 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.S3T
     /// </para></li><li><para>
     /// If you use this operation with the optional <c>encryptionConfiguration</c> parameter
     /// you must have the <c>s3tables:PutTableBucketEncryption</c> permission.
+    /// </para></li><li><para>
+    /// You must have the <c>s3tables:TagResource</c> permission in addition to <c>s3tables:CreateTableBucket</c>
+    /// permission to create a table bucket with tags.
     /// </para></li></ul></dd></dl>
     /// </summary>
     [Cmdlet("New", "S3TTableBucket", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -92,6 +95,21 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.S3Tables.SSEAlgorithm")]
         public Amazon.S3Tables.SSEAlgorithm EncryptionConfiguration_SseAlgorithm { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A map of user-defined tags that you would like to apply to the table bucket that you
+        /// are creating. A tag is a key-value pair that you apply to your resources. Tags can
+        /// help you organize and control access to resources. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html">Tagging
+        /// for cost allocation or attribute-based access control (ABAC)</a>.</para><note><para>You must have the <c>s3tables:TagResource</c> permission in addition to <c>s3tables:CreateTableBucket</c>
+        /// permisson to create a table bucket with tags.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -165,6 +183,14 @@ namespace Amazon.PowerShell.Cmdlets.S3T
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -213,6 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.S3T
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -278,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.S3T
             public System.String EncryptionConfiguration_KmsKeyArn { get; set; }
             public Amazon.S3Tables.SSEAlgorithm EncryptionConfiguration_SseAlgorithm { get; set; }
             public System.String Name { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.S3Tables.Model.CreateTableBucketResponse, NewS3TTableBucketCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Arn;
         }

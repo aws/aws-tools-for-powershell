@@ -28,11 +28,13 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves information on the compute resources in an Amazon GameLift Servers fleet.
-    /// Use the pagination parameters to retrieve results in a set of sequential pages.
+    /// <b>This API works with the following fleet types:</b> EC2, Anywhere, Container
     /// 
     ///  
-    /// <para><b>Request options</b></para><ul><li><para>
+    /// <para>
+    /// Retrieves information on the compute resources in an Amazon GameLift Servers fleet.
+    /// Use the pagination parameters to retrieve results in a set of sequential pages.
+    /// </para><para><b>Request options</b></para><ul><li><para>
     /// Retrieve a list of all computes in a fleet. Specify a fleet ID. 
     /// </para></li><li><para>
     /// Retrieve a list of all computes in a specific fleet location. Specify a fleet ID and
