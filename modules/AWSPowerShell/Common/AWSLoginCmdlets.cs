@@ -20,6 +20,7 @@ using Amazon.PowerShell.Common.Internal;
 using Amazon.PowerShell.Utils;
 using Amazon.Runtime;
 using Amazon.Runtime.CredentialManagement;
+using Amazon.Runtime.Credentials;
 using Amazon.Runtime.Credentials.Internal;
 using Amazon.Runtime.Internal;
 using Amazon.Runtime.Internal.Util;
@@ -40,9 +41,11 @@ using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
+using static System.Net.WebRequestMethods;
 
 namespace Amazon.PowerShell.Common
 {
@@ -52,13 +55,14 @@ namespace Amazon.PowerShell.Common
     /// It will configure the named profile specified by the ProfileName parameter.
     /// </para>
     /// </summary>
-    [Cmdlet("Invoke", "AWSLogin")]
+    [Cmdlet("Invoke", "AWSLogin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [AWSCmdlet("Retrieves and caches an AWS Login access token to exchange for AWS credentials.")]
     [OutputType("None")]
     [AWSCmdletOutput("None", "This cmdlet does not generate any output.")]
     public class InvokeAWSLoginCmdlet : BaseCmdlet
     {
-        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource(900000); // 15 min
+        private const int DefaultExecutionTimeoutMs = 900000; // 15 min.
+        private CancellationTokenSource _cancellationTokenSource;
         private readonly ILogger _logger = Logger.GetLogger(typeof(InvokeAWSLoginCmdlet));
         private WorkflowSelector _workflowSelector;
         private const string AuthorizeEndpointPath = "/v1/authorize";
@@ -67,13 +71,13 @@ namespace Amazon.PowerShell.Common
         /// <summary>
         /// AWS Region to be used for login.
         /// </summary>
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = false)]
+        [Parameter(Position = 210, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = false)]
         public string Region { get; set; }
 
         /// <summary>
         /// The name of an AWS Login profile that contains login session information. The profile is defined in the shared configuration file '~/.aws/config'.
         /// </summary>
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = false)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = false)]
         public string ProfileName { get; set; }
 
         /// <summary>
@@ -82,11 +86,19 @@ namespace Amazon.PowerShell.Common
         [Parameter(Mandatory = false)]
         public SwitchParameter NoBrowser { get; set; }
 
+        /// <summary>
+        /// Execution timeout value in milliseconds.
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, HelpMessage = "ExecutionTimeout (in milliseconds)")]
+        public int? ExecutionTimeout { get;set; }
+
         protected override void BeginProcessing()
         {
             WriteVerbose("Executing BeginProcessing().");
             base.BeginProcessing();
 
+            _cancellationTokenSource = new CancellationTokenSource(this.ExecutionTimeout.HasValue ? this.ExecutionTimeout.Value : DefaultExecutionTimeoutMs);
+            WriteVerbose($"CancellationToken timeout: {this.ExecutionTimeout}");
             _workflowSelector = new WorkflowSelector();
         }
         protected override void StopProcessing()
@@ -104,7 +116,7 @@ namespace Amazon.PowerShell.Common
             // If ProfileName is not specified, then resolve it using SDK's default profile resolution.
             if (string.IsNullOrWhiteSpace(ProfileName))
             {
-                ProfileName = LoginUtils.ResolveDefaultProfile();
+                ProfileName = DefaultAWSCredentialsIdentityResolver.GetProfileName();
                 Console.WriteLine($"Using profile '{ProfileName}' determined by environment defaults. To override, specify '-ProfileName' parameter.");
             }
 
@@ -128,6 +140,14 @@ namespace Amazon.PowerShell.Common
                     "ArgumentException", ErrorCategory.InvalidArgument, Region));
             }
 
+            if (!ShouldProcess($"profile '{ProfileName}' in region '{Region}'",
+                       "Login and cache AWS credentials"))
+            {
+                Console.WriteLine($"Workflow canceled by user. This would have launched browser, started HTTP listener, displayed authorization URL, exchanged authorization code for access token, cached access token and updated profile.");
+                return;
+            }
+
+            // Now proceed with workflow.
             var workflow = _workflowSelector.DetermineWorkflow(NoBrowser.IsPresent);
 
             if (workflow == AuthorizationWorkflow.OAuth)
@@ -178,11 +198,12 @@ namespace Amazon.PowerShell.Common
             using (httpListenerResult)
             {
                 redirectUri = httpListenerResult.RedirectUri;
+                var csrfState = Guid.NewGuid().ToString();
                 Dictionary<string, string> queryStringParameters = new Dictionary<string, string>() {
                     { "response_type", "code" },
                     { "client_id", clientId },
                     { "redirect_uri", redirectUri },
-                    { "state", pkceParameters.CodeVerifier },
+                    { "state", csrfState },
                     { "code_challenge", pkceParameters.CodeChallenge },
                     { "code_challenge_method", pkceParameters.CodeChallengeMethod },
                     { "scope", "openid" }
@@ -201,19 +222,26 @@ namespace Amazon.PowerShell.Common
                 var returnedState = httpListenerContext.Request.QueryString?["state"]; // This has CSRF Prevention String
                 var error = httpListenerContext.Request.QueryString["error"];
 
-                AWSLoginUtils.SendHtmlResponse(httpListenerContext.Response);
-
                 if (error != null)
                 {
-                    throw new Exception($"OAuth error: {error}");
+                    // Sanitize/validate error parameter
+                    if (error.Length > 300 || !IsAlphanumericUnderscore(error))
+                    {
+                        error = "invalid_error_format";
+                    }
+
+                    // HTML encode if displaying in web page
+                    var safeError = WebUtility.HtmlEncode(error);
+
+                    throw new Exception($"OAuth error: {safeError}");
                 }
 
-                if (returnedState != pkceParameters.CodeVerifier)
+                AWSLoginUtils.SendHtmlResponse(httpListenerContext.Response, error);
+
+                if (returnedState != csrfState)
                 {
                     throw new Exception("State mismatch - possible CSRF attack");
                 }
-
-                Thread.Sleep(1000); // Sleep for 1 sec. Sometimes response if not displayed on time before HTTP listener is disposed off.
             }
 
             // Exchange auth code for token
@@ -240,12 +268,13 @@ namespace Amazon.PowerShell.Common
             string redirectUri = (new UriBuilder(baseEndpoint) { Path = CrossDeviceRedirectUriPath }).Uri.ToString();
 
             WriteVerbose($"Base endpoint determined as '{baseEndpoint}'.");
-            
+
+            var csrfState = Guid.NewGuid().ToString();
             Dictionary<string, string> queryStringParameters = new Dictionary<string, string>() {
                 { "response_type", "code" },
                 { "client_id", clientId },
                 { "redirect_uri", redirectUri },
-                { "state", pkceParameters.CodeVerifier },
+                { "state", csrfState },
                 { "code_challenge", pkceParameters.CodeChallenge },
                 { "code_challenge_method", pkceParameters.CodeChallengeMethod },
                 { "scope", "openid" }
@@ -259,16 +288,58 @@ namespace Amazon.PowerShell.Common
 
             // Prompt for authorization code. The verification code displayed in browser is a Base64 encoded string of code=xyz&state=abc
             var base64EncodedVerificationCode = AWSLoginUtils.PromptForAuthorizationCode();
-            byte[] verificationCodeData = Convert.FromBase64String(base64EncodedVerificationCode);
-            var verificationCodeDataString = Encoding.UTF8.GetString(verificationCodeData);
-            var verificationCodePropertyBag = verificationCodeDataString.Split('&')
-                                                    .Select(part => part.Split('='))
-                                                    .Where(part => part.Length == 2)
-                                                    .ToDictionary(part => part[0], part => part[1]);
-            var authCode = verificationCodePropertyBag["code"];
-            var returnedState = verificationCodePropertyBag["state"]; // This has CSRF Prevention String
+            byte[] verificationCodeData;
+            try
+            {
+                verificationCodeData = Convert.FromBase64String(base64EncodedVerificationCode);
+            }
+            catch (FormatException ex)
+            {
+                this.ThrowTerminatingError(new ErrorRecord(
+                    new ArgumentException("Invalid verification code format. Please ensure you copied the complete code from the browser.", ex),
+                    "InvalidVerificationCode",
+                    ErrorCategory.InvalidArgument,
+                    base64EncodedVerificationCode));
+                return;
 
-            if (returnedState != pkceParameters.CodeVerifier)
+            }
+            var verificationCodeDataString = Encoding.UTF8.GetString(verificationCodeData);
+
+            // Parse query string safely
+            var verificationCodePropertyBag = new Dictionary<string, string>();
+            foreach (var part in verificationCodeDataString.Split('&'))
+            {
+                var keyValue = part.Split(new[] { '=' }, 2);
+                if (keyValue.Length == 2)
+                {
+                    var key = WebUtility.UrlDecode(keyValue[0]);
+                    var value = WebUtility.UrlDecode(keyValue[1]);
+                    verificationCodePropertyBag[key] = value; // Later value wins if duplicates
+                }
+            }
+
+            // Validate required parameters
+            if (!verificationCodePropertyBag.TryGetValue("code", out var authCode) || string.IsNullOrEmpty(authCode))
+            {
+                this.ThrowTerminatingError(new ErrorRecord(
+                    new ArgumentException("Verification code is missing the required 'code' parameter."),
+                    "MissingAuthorizationCode",
+                    ErrorCategory.InvalidData,
+                    verificationCodeDataString));
+                return;
+            }
+
+            if (!verificationCodePropertyBag.TryGetValue("state", out var returnedState) || string.IsNullOrEmpty(returnedState))
+            {
+                this.ThrowTerminatingError(new ErrorRecord(
+                    new ArgumentException("Verification code is missing the required 'state' parameter."),
+                    "MissingStateParameter",
+                    ErrorCategory.InvalidData,
+                    verificationCodeDataString));
+                return;
+            }
+
+            if (returnedState != csrfState)
             {
                 throw new Exception("State mismatch - possible CSRF attack");
             }
@@ -284,22 +355,47 @@ namespace Amazon.PowerShell.Common
             }
         }
 
+        private static bool IsAlphanumericUnderscore(string value)
+        {
+            return Regex.IsMatch(value, @"^[a-zA-Z0-9_]+$");
+        }
+
         private void LaunchBrowser(string authorizationUrl)
         {
-            if (!string.IsNullOrWhiteSpace(authorizationUrl))
+            if (string.IsNullOrWhiteSpace(authorizationUrl))
             {
-                try
+                WriteWarning("Authorization URL is empty, cannot launch browser.");
+                return;
+            }
+
+            // Validate URL
+            if (!Uri.TryCreate(authorizationUrl, UriKind.Absolute, out var uri))
+            {
+                WriteWarning($"Invalid authorization URL format: {authorizationUrl}");
+                return;
+            }
+
+            // Only allow HTTPS (or HTTP for localhost testing)
+            if (uri.Scheme != Uri.UriSchemeHttps &&
+                !(uri.Scheme == Uri.UriSchemeHttp && uri.Host == "localhost"))
+            {
+                WriteWarning($"Authorization URL must use HTTPS protocol: {authorizationUrl}");
+                return;
+            }
+
+            try
+            {
+                WriteVerbose($"Launching browser for URL: {uri}");
+                Process.Start(new ProcessStartInfo
                 {
-                    Process.Start(new ProcessStartInfo
-                    {
-                        FileName = authorizationUrl,
-                        UseShellExecute = true
-                    });
-                }
-                catch
-                {
-                    // Do nothing
-                }
+                    FileName = authorizationUrl,
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception ex)
+            {
+                WriteWarning($"Failed to launch browser: {ex.Message}");
+                WriteVerbose($"Browser launch exception: {ex}");
             }
         }
 
@@ -484,7 +580,7 @@ namespace Amazon.PowerShell.Common
                 }
                 catch(Exception ex)
                 {
-                    new IOException($"Could not remove credentials for all profiles that use 'login_session'. Some credentials might be deleted. Note, SDKs and tools who have already loaded the access tokens may continue to use them until their expiration.", ex);
+                    throw new IOException($"Could not remove credentials for all profiles that use 'login_session'. Some credentials might be deleted. Note, SDKs and tools who have already loaded the access tokens may continue to use them until their expiration.", ex);
                 }
 
                 Console.WriteLine($"Removed credentials for all profiles that use 'login_session'. Note, SDKs and tools who have already loaded the access tokens may continue to use them until their expiration.");
@@ -494,7 +590,7 @@ namespace Amazon.PowerShell.Common
                 // If ProfileName is not specified, then resolve it using SDK's default profile resolution.
                 if (string.IsNullOrWhiteSpace(ProfileName))
                 {
-                    ProfileName = LoginUtils.ResolveDefaultProfile();
+                    ProfileName = DefaultAWSCredentialsIdentityResolver.GetProfileName();
                     Console.WriteLine($"Using profile '{ProfileName}' determined by environment defaults. To override, specify '-ProfileName' parameter.");
                 }
 

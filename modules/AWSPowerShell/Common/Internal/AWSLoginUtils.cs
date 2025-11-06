@@ -16,7 +16,6 @@
  *  
  */
 
-
 using Amazon.PowerShell.Utils;
 using Amazon.Runtime;
 using Amazon.Runtime.CredentialManagement;
@@ -73,15 +72,9 @@ namespace Amazon.PowerShell.Common.Internal
 
         internal static async Task<CoreCreateOAuth2TokenResponse> ExchangeAuthCodeForTokenAsync(ICoreAmazonSignin signinClient, string baseEndpoint, string clientId, string codeVerifier, string redirectUri, string authCode, CancellationToken cancellation = default)
         {
-            //UriBuilder uriBuilder = new UriBuilder(new Uri(baseEndpoint));
-            //uriBuilder.Path = "/v1/token";
-
-            //string dpopKeyPem = null;
-            //tring dpopProof = signinClient.GenerateDPoPProof("POST", uriBuilder.Uri.ToString(), ref dpopKeyPem);
-
+            // DPoP Proof is now calculated and set as "DPoP" header in AmazonSigninPostMarshallerHandler pipeline handler in .NET SDK, which takes care of saving token as well.
             return await signinClient.CreateOAuth2TokenAsync(new CoreCreateOAuth2TokenRequest()
             {
-                //DpopProof = dpopProof,
                 TokenInput = new CoreCreateOAuth2TokenRequestBody()
                 {
                     ClientId = clientId,
@@ -142,44 +135,85 @@ namespace Amazon.PowerShell.Common.Internal
             return isRegionValid;
         }
 
-        internal static void SendHtmlResponse(HttpListenerResponse response)
+        /// <summary>
+        /// Sends the response HTML content to HttpListenerResponse output stream.
+        /// </summary>
+        /// <param name="response">Represents a response to a request being handled by an System.Net.HttpListener object.</param>
+        /// <param name="error">Text that is recieved from authentication flow in case of error.</param>
+        internal static void SendHtmlResponse(HttpListenerResponse response, string error = null)
         {
-            string html = string.Empty;
+            // The contents of AWSLoginPKCEResponse.html is taken from Visual Studio toolkit.
+            // In case CLI starts to use a different HTML response, then we need to use that content.
+            string html;
 
-            // Get the current assembly
-            Assembly assembly = Assembly.GetExecutingAssembly();
-
-            // Get the names of all embedded resources in the assembly
-            string[] resourceNames = assembly.GetManifestResourceNames();
-
-            foreach (string resourceName in resourceNames)
+            // Initialize default fallback HTML if manifest resouce couldn't be loaded or not found.
+            if (string.IsNullOrWhiteSpace(error))
             {
-                if (resourceName.ToLower().EndsWith("AWSLoginPKCEResponse.html".ToLower()))
+                html = "<!DOCTYPE html><html><head><title>AWS Authentication</title>" +
+                          "<style> body { font-family: Arial, sans-serif; text-align: center; padding: 50px; } " +
+                          ".success { color: #28a745; } .hint { color: #545b64; }</style></head>" +
+                          "<body><h1 class='success'>Request approved</h1>" +
+                          "<p>AWS Tools for PowerShell has been given requested permissions.</p>" +
+                          "<p class='hint'>You can close this window and start using the AWS Tools for PowerShell.</p>" +
+                          "</body></html>";
+            }
+            else
+            {
+                html = "<!DOCTYPE html><html><head><title>AWS Authentication</title>" +
+                          "<style> body { font-family: Arial, sans-serif; text-align: center; padding: 50px; } " +
+                          ".error { color: #dc3545; } " +
+                          ".hint { color: #545b64; }</style></head>" +
+                          "<body><h1 class='error'>Request denied</h1>" +
+                          $"<p>{error}</p>" +
+                          "<p class='hint'>You can close this window and re-start the authorization flow.</p>" +
+                          "</body></html>";
+            }
+
+            try
+            {
+                // Get the current assembly
+                Assembly assembly = Assembly.GetExecutingAssembly();
+
+                // Get the names of all embedded resources in the assembly
+                string[] resourceNames = assembly.GetManifestResourceNames();
+
+                foreach (string resourceName in resourceNames)
                 {
-                    using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                    // The prefix of the resource name could vary/differ when inspected in modular AWS.Tools.Common and monolithic AWSPowerShell module.
+                    if (resourceName.ToLower().EndsWith("AWSLoginPKCEResponse.html".ToLower()))
                     {
-                        if (stream != null)
+                        try
                         {
-                            using (StreamReader reader = new StreamReader(stream))
+                            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
                             {
-                                html = reader.ReadToEnd();
+                                if (stream != null)
+                                {
+                                    using (StreamReader reader = new StreamReader(stream))
+                                    {
+                                        html = reader.ReadToEnd();
+                                    }
+                                }
                             }
                         }
+                        catch { /* Silently ignore any errors here since we do not want to disrupt the authorization code flow. */ }
+                        break;
                     }
-
-                    break;
                 }
             }
+            catch { /* Silently ignore any errors here since we do not want to disrupt the authorization code flow. */ }
 
             var buffer = System.Text.Encoding.UTF8.GetBytes(html);
             response.ContentLength64 = buffer.Length;
             response.ContentType = "text/html; charset=utf-8";
             response.StatusCode = 200;
-            response.OutputStream.Write(buffer, 0, buffer.Length);
-            response.OutputStream.Flush();
-            response.OutputStream.Close();
-            response.KeepAlive = true;
+            response.KeepAlive = false;
+
+            using (var responseOutput = response.OutputStream)
+            {
+                responseOutput.Write(buffer, 0, buffer.Length);
+                responseOutput.Flush();
+                responseOutput.Close();
+            }
         }
     }
-
 }
