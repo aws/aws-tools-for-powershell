@@ -1,0 +1,23 @@
+---
+Common_Invoke-AWSLogout:
+  title: Use Invoke-AWSLogout
+  title_abbrev: Invoke-AWSLogout
+  synopsis: use Invoke-AWSLogout
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 5
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Logs out from a specific profile named "aws-login-test-profile".</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/common_Invoke-AWSLogout.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: Logs out from all profiles that use login sessions. This will remove all cached login tokens.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/common_Invoke-AWSLogout.2.1.ps1
+  services:
+    Common:
+      Invoke-AWSLogout:
