@@ -76,6 +76,66 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         public System.String[] Filter_DriftStatus { get; set; }
         #endregion
         
+        #region Parameter IncludeChild
+        /// <summary>
+        /// <para>
+        /// <para>A boolean value that determines whether to include enabled controls from child organizational
+        /// units in the response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeChildren")]
+        public System.Boolean? IncludeChild { get; set; }
+        #endregion
+        
+        #region Parameter Filter_InheritanceDriftStatus
+        /// <summary>
+        /// <para>
+        /// <para>Filters enabled controls by their inheritance drift status, allowing you to find controls
+        /// with specific inheritance-related drift conditions.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_InheritanceDriftStatuses")]
+        public System.String[] Filter_InheritanceDriftStatus { get; set; }
+        #endregion
+        
+        #region Parameter Filter_ParentIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>Filters enabled controls by their parent control identifiers, allowing you to find
+        /// child controls of specific parent controls.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_ParentIdentifiers")]
+        public System.String[] Filter_ParentIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter Filter_ResourceDriftStatus
+        /// <summary>
+        /// <para>
+        /// <para>Filters enabled controls by their resource drift status, allowing you to find controls
+        /// with specific resource-related drift conditions.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_ResourceDriftStatuses")]
+        public System.String[] Filter_ResourceDriftStatus { get; set; }
+        #endregion
+        
         #region Parameter Filter_Status
         /// <summary>
         /// <para>
@@ -182,10 +242,23 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             {
                 context.Filter_DriftStatus = new List<System.String>(this.Filter_DriftStatus);
             }
+            if (this.Filter_InheritanceDriftStatus != null)
+            {
+                context.Filter_InheritanceDriftStatus = new List<System.String>(this.Filter_InheritanceDriftStatus);
+            }
+            if (this.Filter_ParentIdentifier != null)
+            {
+                context.Filter_ParentIdentifier = new List<System.String>(this.Filter_ParentIdentifier);
+            }
+            if (this.Filter_ResourceDriftStatus != null)
+            {
+                context.Filter_ResourceDriftStatus = new List<System.String>(this.Filter_ResourceDriftStatus);
+            }
             if (this.Filter_Status != null)
             {
                 context.Filter_Status = new List<System.String>(this.Filter_Status);
             }
+            context.IncludeChild = this.IncludeChild;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -240,6 +313,36 @@ namespace Amazon.PowerShell.Cmdlets.ACT
                 request.Filter.DriftStatuses = requestFilter_filter_DriftStatus;
                 requestFilterIsNull = false;
             }
+            List<System.String> requestFilter_filter_InheritanceDriftStatus = null;
+            if (cmdletContext.Filter_InheritanceDriftStatus != null)
+            {
+                requestFilter_filter_InheritanceDriftStatus = cmdletContext.Filter_InheritanceDriftStatus;
+            }
+            if (requestFilter_filter_InheritanceDriftStatus != null)
+            {
+                request.Filter.InheritanceDriftStatuses = requestFilter_filter_InheritanceDriftStatus;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_ParentIdentifier = null;
+            if (cmdletContext.Filter_ParentIdentifier != null)
+            {
+                requestFilter_filter_ParentIdentifier = cmdletContext.Filter_ParentIdentifier;
+            }
+            if (requestFilter_filter_ParentIdentifier != null)
+            {
+                request.Filter.ParentIdentifiers = requestFilter_filter_ParentIdentifier;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_ResourceDriftStatus = null;
+            if (cmdletContext.Filter_ResourceDriftStatus != null)
+            {
+                requestFilter_filter_ResourceDriftStatus = cmdletContext.Filter_ResourceDriftStatus;
+            }
+            if (requestFilter_filter_ResourceDriftStatus != null)
+            {
+                request.Filter.ResourceDriftStatuses = requestFilter_filter_ResourceDriftStatus;
+                requestFilterIsNull = false;
+            }
             List<System.String> requestFilter_filter_Status = null;
             if (cmdletContext.Filter_Status != null)
             {
@@ -254,6 +357,10 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             if (requestFilterIsNull)
             {
                 request.Filter = null;
+            }
+            if (cmdletContext.IncludeChild != null)
+            {
+                request.IncludeChildren = cmdletContext.IncludeChild.Value;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -345,7 +452,11 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         {
             public List<System.String> Filter_ControlIdentifier { get; set; }
             public List<System.String> Filter_DriftStatus { get; set; }
+            public List<System.String> Filter_InheritanceDriftStatus { get; set; }
+            public List<System.String> Filter_ParentIdentifier { get; set; }
+            public List<System.String> Filter_ResourceDriftStatus { get; set; }
             public List<System.String> Filter_Status { get; set; }
+            public System.Boolean? IncludeChild { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String TargetIdentifier { get; set; }

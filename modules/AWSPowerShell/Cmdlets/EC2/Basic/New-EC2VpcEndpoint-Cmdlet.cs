@@ -125,6 +125,43 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? DnsOptions_PrivateDnsOnlyForInboundResolverEndpoint { get; set; }
         #endregion
         
+        #region Parameter DnsOptions_PrivateDnsPreference
+        /// <summary>
+        /// <para>
+        /// <para> The preference for which private domains have a private hosted zone created for and
+        /// associated with the specified VPC. Only supported when private DNS is enabled and
+        /// when the VPC endpoint type is ServiceNetwork or Resource. </para><ul><li><para><c>ALL_DOMAINS</c> - VPC Lattice provisions private hosted zones for all custom domain
+        /// names.</para></li><li><para><c>VERIFIED_DOMAINS_ONLY</c> - VPC Lattice provisions a private hosted zone only
+        /// if custom domain name has been verified by the provider.</para></li><li><para><c>VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS</c> - VPC Lattice provisions private hosted
+        /// zones for all verified custom domain names and other domain names that the resource
+        /// consumer specifies. The resource consumer specifies the domain names in the PrivateDnsSpecifiedDomains
+        /// parameter.</para></li><li><para><c>SPECIFIED_DOMAINS_ONLY</c> - VPC Lattice provisions a private hosted zone for
+        /// domain names specified by the resource consumer. The resource consumer specifies the
+        /// domain names in the PrivateDnsSpecifiedDomains parameter.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DnsOptions_PrivateDnsPreference { get; set; }
+        #endregion
+        
+        #region Parameter DnsOptions_PrivateDnsSpecifiedDomain
+        /// <summary>
+        /// <para>
+        /// <para> Indicates which of the private domains to create private hosted zones for and associate
+        /// with the specified VPC. Only supported when private DNS is enabled and the private
+        /// DNS preference is verified-domains-and-specified-domains or specified-domains-only.
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DnsOptions_PrivateDnsSpecifiedDomains")]
+        public System.String[] DnsOptions_PrivateDnsSpecifiedDomain { get; set; }
+        #endregion
+        
         #region Parameter ResourceConfigurationArn
         /// <summary>
         /// <para>
@@ -335,6 +372,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.ClientToken = this.ClientToken;
             context.DnsOptions_DnsRecordIpType = this.DnsOptions_DnsRecordIpType;
             context.DnsOptions_PrivateDnsOnlyForInboundResolverEndpoint = this.DnsOptions_PrivateDnsOnlyForInboundResolverEndpoint;
+            context.DnsOptions_PrivateDnsPreference = this.DnsOptions_PrivateDnsPreference;
+            if (this.DnsOptions_PrivateDnsSpecifiedDomain != null)
+            {
+                context.DnsOptions_PrivateDnsSpecifiedDomain = new List<System.String>(this.DnsOptions_PrivateDnsSpecifiedDomain);
+            }
             context.DryRun = this.DryRun;
             context.IpAddressType = this.IpAddressType;
             context.PolicyDocument = this.PolicyDocument;
@@ -413,6 +455,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestDnsOptions_dnsOptions_PrivateDnsOnlyForInboundResolverEndpoint != null)
             {
                 request.DnsOptions.PrivateDnsOnlyForInboundResolverEndpoint = requestDnsOptions_dnsOptions_PrivateDnsOnlyForInboundResolverEndpoint.Value;
+                requestDnsOptionsIsNull = false;
+            }
+            System.String requestDnsOptions_dnsOptions_PrivateDnsPreference = null;
+            if (cmdletContext.DnsOptions_PrivateDnsPreference != null)
+            {
+                requestDnsOptions_dnsOptions_PrivateDnsPreference = cmdletContext.DnsOptions_PrivateDnsPreference;
+            }
+            if (requestDnsOptions_dnsOptions_PrivateDnsPreference != null)
+            {
+                request.DnsOptions.PrivateDnsPreference = requestDnsOptions_dnsOptions_PrivateDnsPreference;
+                requestDnsOptionsIsNull = false;
+            }
+            List<System.String> requestDnsOptions_dnsOptions_PrivateDnsSpecifiedDomain = null;
+            if (cmdletContext.DnsOptions_PrivateDnsSpecifiedDomain != null)
+            {
+                requestDnsOptions_dnsOptions_PrivateDnsSpecifiedDomain = cmdletContext.DnsOptions_PrivateDnsSpecifiedDomain;
+            }
+            if (requestDnsOptions_dnsOptions_PrivateDnsSpecifiedDomain != null)
+            {
+                request.DnsOptions.PrivateDnsSpecifiedDomains = requestDnsOptions_dnsOptions_PrivateDnsSpecifiedDomain;
                 requestDnsOptionsIsNull = false;
             }
              // determine if request.DnsOptions should be set to null
@@ -538,6 +600,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String ClientToken { get; set; }
             public Amazon.EC2.DnsRecordIpType DnsOptions_DnsRecordIpType { get; set; }
             public System.Boolean? DnsOptions_PrivateDnsOnlyForInboundResolverEndpoint { get; set; }
+            public System.String DnsOptions_PrivateDnsPreference { get; set; }
+            public List<System.String> DnsOptions_PrivateDnsSpecifiedDomain { get; set; }
             public System.Boolean? DryRun { get; set; }
             public Amazon.EC2.IpAddressType IpAddressType { get; set; }
             public System.String PolicyDocument { get; set; }

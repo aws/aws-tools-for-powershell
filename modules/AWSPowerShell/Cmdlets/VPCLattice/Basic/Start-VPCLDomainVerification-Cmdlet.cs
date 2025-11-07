@@ -30,71 +30,41 @@ using Amazon.VPCLattice.Model;
 namespace Amazon.PowerShell.Cmdlets.VPCL
 {
     /// <summary>
-    /// Associates the specified service network with the specified resource configuration.
-    /// This allows the resource configuration to receive connections through the service
-    /// network, including through a service network VPC endpoint.
+    /// Starts the domain verification process for a custom domain name.
     /// </summary>
-    [Cmdlet("New", "VPCLServiceNetworkResourceAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.VPCLattice.Model.CreateServiceNetworkResourceAssociationResponse")]
-    [AWSCmdlet("Calls the VPC Lattice CreateServiceNetworkResourceAssociation API operation.", Operation = new[] {"CreateServiceNetworkResourceAssociation"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.CreateServiceNetworkResourceAssociationResponse))]
-    [AWSCmdletOutput("Amazon.VPCLattice.Model.CreateServiceNetworkResourceAssociationResponse",
-        "This cmdlet returns an Amazon.VPCLattice.Model.CreateServiceNetworkResourceAssociationResponse object containing multiple properties."
+    [Cmdlet("Start", "VPCLDomainVerification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.VPCLattice.Model.StartDomainVerificationResponse")]
+    [AWSCmdlet("Calls the VPC Lattice StartDomainVerification API operation.", Operation = new[] {"StartDomainVerification"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.StartDomainVerificationResponse))]
+    [AWSCmdletOutput("Amazon.VPCLattice.Model.StartDomainVerificationResponse",
+        "This cmdlet returns an Amazon.VPCLattice.Model.StartDomainVerificationResponse object containing multiple properties."
     )]
-    public partial class NewVPCLServiceNetworkResourceAssociationCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
+    public partial class StartVPCLDomainVerificationCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter PrivateDnsEnabled
+        #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para> Indicates if private DNS is enabled for the service network resource association.
-        /// </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? PrivateDnsEnabled { get; set; }
-        #endregion
-        
-        #region Parameter ResourceConfigurationIdentifier
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the resource configuration to associate with the service network.</para>
+        /// <para> The domain name to verify ownership for. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceConfigurationIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter ServiceNetworkIdentifier
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the service network to associate with the resource configuration.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ServiceNetworkIdentifier { get; set; }
+        public System.String DomainName { get; set; }
         #endregion
         
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A key-value pair to associate with a resource.</para><para />
+        /// <para> The tags for the domain verification. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -109,10 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// <para> A unique, case-sensitive identifier that you provide to ensure the idempotency of
         /// the request. If you retry a request that completed successfully using the same client
         /// token and parameters, the retry succeeds without performing any actions. If the parameters
-        /// aren't identical, the retry fails.</para>
+        /// aren't identical, the retry fails. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.VPCLattice.Model.CreateServiceNetworkResourceAssociationResponse).
-        /// Specifying the name of a property of type Amazon.VPCLattice.Model.CreateServiceNetworkResourceAssociationResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.VPCLattice.Model.StartDomainVerificationResponse).
+        /// Specifying the name of a property of type Amazon.VPCLattice.Model.StartDomainVerificationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,8 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-VPCLServiceNetworkResourceAssociation (CreateServiceNetworkResourceAssociation)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DomainName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-VPCLDomainVerification (StartDomainVerification)"))
             {
                 return;
             }
@@ -162,23 +132,15 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.VPCLattice.Model.CreateServiceNetworkResourceAssociationResponse, NewVPCLServiceNetworkResourceAssociationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.VPCLattice.Model.StartDomainVerificationResponse, StartVPCLDomainVerificationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientToken = this.ClientToken;
-            context.PrivateDnsEnabled = this.PrivateDnsEnabled;
-            context.ResourceConfigurationIdentifier = this.ResourceConfigurationIdentifier;
+            context.DomainName = this.DomainName;
             #if MODULAR
-            if (this.ResourceConfigurationIdentifier == null && ParameterWasBound(nameof(this.ResourceConfigurationIdentifier)))
+            if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceConfigurationIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.ServiceNetworkIdentifier = this.ServiceNetworkIdentifier;
-            #if MODULAR
-            if (this.ServiceNetworkIdentifier == null && ParameterWasBound(nameof(this.ServiceNetworkIdentifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ServiceNetworkIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             if (this.Tag != null)
@@ -203,23 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.VPCLattice.Model.CreateServiceNetworkResourceAssociationRequest();
+            var request = new Amazon.VPCLattice.Model.StartDomainVerificationRequest();
             
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.PrivateDnsEnabled != null)
+            if (cmdletContext.DomainName != null)
             {
-                request.PrivateDnsEnabled = cmdletContext.PrivateDnsEnabled.Value;
-            }
-            if (cmdletContext.ResourceConfigurationIdentifier != null)
-            {
-                request.ResourceConfigurationIdentifier = cmdletContext.ResourceConfigurationIdentifier;
-            }
-            if (cmdletContext.ServiceNetworkIdentifier != null)
-            {
-                request.ServiceNetworkIdentifier = cmdletContext.ServiceNetworkIdentifier;
+                request.DomainName = cmdletContext.DomainName;
             }
             if (cmdletContext.Tag != null)
             {
@@ -258,12 +212,12 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         #region AWS Service Operation Call
         
-        private Amazon.VPCLattice.Model.CreateServiceNetworkResourceAssociationResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.CreateServiceNetworkResourceAssociationRequest request)
+        private Amazon.VPCLattice.Model.StartDomainVerificationResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.StartDomainVerificationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "CreateServiceNetworkResourceAssociation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "StartDomainVerification");
             try
             {
-                return client.CreateServiceNetworkResourceAssociationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.StartDomainVerificationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -281,11 +235,9 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
-            public System.Boolean? PrivateDnsEnabled { get; set; }
-            public System.String ResourceConfigurationIdentifier { get; set; }
-            public System.String ServiceNetworkIdentifier { get; set; }
+            public System.String DomainName { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.VPCLattice.Model.CreateServiceNetworkResourceAssociationResponse, NewVPCLServiceNetworkResourceAssociationCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.VPCLattice.Model.StartDomainVerificationResponse, StartVPCLDomainVerificationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

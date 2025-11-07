@@ -174,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// KMS skips the concatenated hashing of the public key hash and the message done in
         /// the ML-DSA signing algorithm.</para><important><para>Use the <c>DIGEST</c> or <c>EXTERNAL_MU</c> value only when the value of the <c>Message</c>
         /// parameter is a message digest. If you use the <c>DIGEST</c> value with an unhashed
-        /// message, the security of the signing operation can be compromised.</para></important><para>When the value of <c>MessageType</c> is <c>DIGEST</c>, the length of the <c>Message</c>
+        /// message, the security of the signing operation can be compromised.</para></important><para>When using ECC_NIST_EDWARDS25519 KMS keys:</para><ul><li><para>ED25519_SHA_512 signing algorithm requires KMS <c>MessageType:RAW</c></para></li><li><para>ED25519_PH_SHA_512 signing algorithm requires KMS <c>MessageType:DIGEST</c></para></li></ul><para>When the value of <c>MessageType</c> is <c>DIGEST</c>, the length of the <c>Message</c>
         /// value must match the length of hashed messages for the specified signing algorithm.</para><para>When the value of <c>MessageType</c> is <c>EXTERNAL_MU</c> the length of the <c>Message</c>
         /// value must be 64 bytes.</para><para>You can submit a message digest and omit the <c>MessageType</c> or specify <c>RAW</c>
         /// so the digest is hashed again while signing. However, if the signed message is hashed

@@ -23,41 +23,32 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.ControlTower;
-using Amazon.ControlTower.Model;
+using Amazon.VPCLattice;
+using Amazon.VPCLattice.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.ACT
+namespace Amazon.PowerShell.Cmdlets.VPCL
 {
     /// <summary>
-    /// Decommissions a landing zone. This API call starts an asynchronous operation that
-    /// deletes Amazon Web Services Control Tower resources deployed in accounts managed by
-    /// Amazon Web Services Control Tower.
-    /// 
-    ///  
-    /// <para>
-    /// Decommissioning a landing zone is a process with significant consequences, and it
-    /// cannot be undone. We strongly recommend that you perform this decommissioning process
-    /// only if you intend to stop using your landing zone.
-    /// </para>
+    /// Deletes the specified domain verification.
     /// </summary>
-    [Cmdlet("Remove", "ACTLandingZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Control Tower DeleteLandingZone API operation.", Operation = new[] {"DeleteLandingZone"}, SelectReturnType = typeof(Amazon.ControlTower.Model.DeleteLandingZoneResponse))]
-    [AWSCmdletOutput("System.String or Amazon.ControlTower.Model.DeleteLandingZoneResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ControlTower.Model.DeleteLandingZoneResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "VPCLDomainVerification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the VPC Lattice DeleteDomainVerification API operation.", Operation = new[] {"DeleteDomainVerification"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteDomainVerificationResponse))]
+    [AWSCmdletOutput("None or Amazon.VPCLattice.Model.DeleteDomainVerificationResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.VPCLattice.Model.DeleteDomainVerificationResponse) be returned by specifying '-Select *'."
     )]
-    public partial class RemoveACTLandingZoneCmdlet : AmazonControlTowerClientCmdlet, IExecutor
+    public partial class RemoveVPCLDomainVerificationCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter LandingZoneIdentifier
+        #region Parameter DomainVerificationIdentifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the landing zone.</para>
+        /// <para> The ID of the domain verification to delete. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,18 +59,17 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String LandingZoneIdentifier { get; set; }
+        public System.String DomainVerificationIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'OperationIdentifier'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ControlTower.Model.DeleteLandingZoneResponse).
-        /// Specifying the name of a property of type Amazon.ControlTower.Model.DeleteLandingZoneResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.VPCLattice.Model.DeleteDomainVerificationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "OperationIdentifier";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -101,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LandingZoneIdentifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-ACTLandingZone (DeleteLandingZone)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DomainVerificationIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-VPCLDomainVerification (DeleteDomainVerification)"))
             {
                 return;
             }
@@ -114,14 +104,14 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ControlTower.Model.DeleteLandingZoneResponse, RemoveACTLandingZoneCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.VPCLattice.Model.DeleteDomainVerificationResponse, RemoveVPCLDomainVerificationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.LandingZoneIdentifier = this.LandingZoneIdentifier;
+            context.DomainVerificationIdentifier = this.DomainVerificationIdentifier;
             #if MODULAR
-            if (this.LandingZoneIdentifier == null && ParameterWasBound(nameof(this.LandingZoneIdentifier)))
+            if (this.DomainVerificationIdentifier == null && ParameterWasBound(nameof(this.DomainVerificationIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter LandingZoneIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DomainVerificationIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -138,11 +128,11 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ControlTower.Model.DeleteLandingZoneRequest();
+            var request = new Amazon.VPCLattice.Model.DeleteDomainVerificationRequest();
             
-            if (cmdletContext.LandingZoneIdentifier != null)
+            if (cmdletContext.DomainVerificationIdentifier != null)
             {
-                request.LandingZoneIdentifier = cmdletContext.LandingZoneIdentifier;
+                request.DomainVerificationIdentifier = cmdletContext.DomainVerificationIdentifier;
             }
             
             CmdletOutput output;
@@ -177,12 +167,12 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         
         #region AWS Service Operation Call
         
-        private Amazon.ControlTower.Model.DeleteLandingZoneResponse CallAWSServiceOperation(IAmazonControlTower client, Amazon.ControlTower.Model.DeleteLandingZoneRequest request)
+        private Amazon.VPCLattice.Model.DeleteDomainVerificationResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.DeleteDomainVerificationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Control Tower", "DeleteLandingZone");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "DeleteDomainVerification");
             try
             {
-                return client.DeleteLandingZoneAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DeleteDomainVerificationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -199,9 +189,9 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String LandingZoneIdentifier { get; set; }
-            public System.Func<Amazon.ControlTower.Model.DeleteLandingZoneResponse, RemoveACTLandingZoneCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.OperationIdentifier;
+            public System.String DomainVerificationIdentifier { get; set; }
+            public System.Func<Amazon.VPCLattice.Model.DeleteDomainVerificationResponse, RemoveVPCLDomainVerificationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

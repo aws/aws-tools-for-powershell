@@ -123,6 +123,13 @@ $VPCL_Completers = {
             break
         }
 
+        # Amazon.VPCLattice.PrivateDnsPreference
+        "New-VPCLServiceNetworkVpcAssociation/DnsOptions_PrivateDnsPreference"
+        {
+            $v = "ALL_DOMAINS","SPECIFIED_DOMAINS_ONLY","VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS","VERIFIED_DOMAINS_ONLY"
+            break
+        }
+
         # Amazon.VPCLattice.ProtocolType
         "New-VPCLResourceConfiguration/Protocol"
         {
@@ -203,6 +210,7 @@ $VPCL_map = @{
     "Config_LambdaEventStructureVersion"=@("New-VPCLTargetGroup")
     "Config_Protocol"=@("New-VPCLTargetGroup")
     "Config_ProtocolVersion"=@("New-VPCLTargetGroup")
+    "DnsOptions_PrivateDnsPreference"=@("New-VPCLServiceNetworkVpcAssociation")
     "DnsResource_IpAddressType"=@("New-VPCLResourceConfiguration","Update-VPCLResourceConfiguration")
     "HealthCheck_Protocol"=@("New-VPCLTargetGroup","Update-VPCLTargetGroup")
     "HealthCheck_ProtocolVersion"=@("New-VPCLTargetGroup","Update-VPCLTargetGroup")
@@ -277,6 +285,7 @@ $VPCL_SelectMap = @{
                "New-VPCLTargetGroup",
                "Remove-VPCLAccessLogSubscription",
                "Remove-VPCLAuthPolicy",
+               "Remove-VPCLDomainVerification",
                "Remove-VPCLListener",
                "Remove-VPCLResourceConfiguration",
                "Remove-VPCLResourceEndpointAssociation",
@@ -292,6 +301,7 @@ $VPCL_SelectMap = @{
                "Unregister-VPCLTarget",
                "Get-VPCLAccessLogSubscription",
                "Get-VPCLAuthPolicy",
+               "Get-VPCLDomainVerification",
                "Get-VPCLListener",
                "Get-VPCLResourceConfiguration",
                "Get-VPCLResourceGateway",
@@ -304,6 +314,7 @@ $VPCL_SelectMap = @{
                "Get-VPCLServiceNetworkVpcAssociation",
                "Get-VPCLTargetGroup",
                "Get-VPCLAccessLogSubscriptionList",
+               "Get-VPCLDomainVerificationList",
                "Get-VPCLListenerList",
                "Get-VPCLResourceConfigurationList",
                "Get-VPCLResourceEndpointAssociationList",
@@ -321,6 +332,7 @@ $VPCL_SelectMap = @{
                "Write-VPCLAuthPolicy",
                "Write-VPCLResourcePolicy",
                "Register-VPCLTarget",
+               "Start-VPCLDomainVerification",
                "Add-VPCLResourceTag",
                "Remove-VPCLResourceTag",
                "Update-VPCLAccessLogSubscription",

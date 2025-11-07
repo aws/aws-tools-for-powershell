@@ -98,6 +98,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-OSCompatibleVersion', 
         'Get-OSDataSource', 
         'Get-OSDataSourceList', 
+        'Get-OSDefaultApplicationSetting', 
         'Get-OSDirectQueryDataSource', 
         'Get-OSDirectQueryDataSourceList', 
         'Get-OSDomain', 
@@ -162,7 +163,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-OSOSPackageScope', 
         'Update-OSPackage', 
         'Update-OSScheduledAction', 
-        'Update-OSVpcEndpoint')
+        'Update-OSVpcEndpoint', 
+        'Write-OSDefaultApplicationSetting')
 
     # Variables to export from this module
     VariablesToExport = '*'

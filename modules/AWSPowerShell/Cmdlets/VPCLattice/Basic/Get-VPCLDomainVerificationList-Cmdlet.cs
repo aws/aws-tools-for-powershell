@@ -30,55 +30,25 @@ using Amazon.VPCLattice.Model;
 namespace Amazon.PowerShell.Cmdlets.VPCL
 {
     /// <summary>
-    /// Lists the resource configurations owned by or shared with this account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// Lists the domain verifications.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "VPCLResourceConfigurationList")]
-    [OutputType("Amazon.VPCLattice.Model.ResourceConfigurationSummary")]
-    [AWSCmdlet("Calls the VPC Lattice ListResourceConfigurations API operation.", Operation = new[] {"ListResourceConfigurations"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.ListResourceConfigurationsResponse))]
-    [AWSCmdletOutput("Amazon.VPCLattice.Model.ResourceConfigurationSummary or Amazon.VPCLattice.Model.ListResourceConfigurationsResponse",
-        "This cmdlet returns a collection of Amazon.VPCLattice.Model.ResourceConfigurationSummary objects.",
-        "The service call response (type Amazon.VPCLattice.Model.ListResourceConfigurationsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "VPCLDomainVerificationList")]
+    [OutputType("Amazon.VPCLattice.Model.DomainVerificationSummary")]
+    [AWSCmdlet("Calls the VPC Lattice ListDomainVerifications API operation.", Operation = new[] {"ListDomainVerifications"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.ListDomainVerificationsResponse))]
+    [AWSCmdletOutput("Amazon.VPCLattice.Model.DomainVerificationSummary or Amazon.VPCLattice.Model.ListDomainVerificationsResponse",
+        "This cmdlet returns a collection of Amazon.VPCLattice.Model.DomainVerificationSummary objects.",
+        "The service call response (type Amazon.VPCLattice.Model.ListDomainVerificationsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetVPCLResourceConfigurationListCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
+    public partial class GetVPCLDomainVerificationListCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter DomainVerificationIdentifier
-        /// <summary>
-        /// <para>
-        /// <para> The domain verification ID. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String DomainVerificationIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter ResourceConfigurationGroupIdentifier
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the resource configuration of type <c>Group</c>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ResourceConfigurationGroupIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter ResourceGatewayIdentifier
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the resource gateway for the resource configuration.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ResourceGatewayIdentifier { get; set; }
-        #endregion
-        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum page size.</para>
+        /// <para> The maximum number of results to return. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -94,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A pagination token for the next page of results.</para>
+        /// <para> A pagination token for the next page of results. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -108,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.VPCLattice.Model.ListResourceConfigurationsResponse).
-        /// Specifying the name of a property of type Amazon.VPCLattice.Model.ListResourceConfigurationsResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.VPCLattice.Model.ListDomainVerificationsResponse).
+        /// Specifying the name of a property of type Amazon.VPCLattice.Model.ListDomainVerificationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +91,6 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
         /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
         /// as the start point.
-        /// This cmdlet didn't autopaginate in V4. To preserve the V4 autopagination behavior for all cmdlets, run Set-AWSAutoIterationMode -IterationMode v4.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter NoAutoIteration { get; set; }
@@ -143,10 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.VPCLattice.Model.ListResourceConfigurationsResponse, GetVPCLResourceConfigurationListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.VPCLattice.Model.ListDomainVerificationsResponse, GetVPCLDomainVerificationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.DomainVerificationIdentifier = this.DomainVerificationIdentifier;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -158,8 +126,6 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             }
             #endif
             context.NextToken = this.NextToken;
-            context.ResourceConfigurationGroupIdentifier = this.ResourceConfigurationGroupIdentifier;
-            context.ResourceGatewayIdentifier = this.ResourceGatewayIdentifier;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -176,29 +142,16 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.VPCLattice.Model.ListResourceConfigurationsRequest();
+            var request = new Amazon.VPCLattice.Model.ListDomainVerificationsRequest();
             
-            if (cmdletContext.DomainVerificationIdentifier != null)
-            {
-                request.DomainVerificationIdentifier = cmdletContext.DomainVerificationIdentifier;
-            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
-            }
-            if (cmdletContext.ResourceConfigurationGroupIdentifier != null)
-            {
-                request.ResourceConfigurationGroupIdentifier = cmdletContext.ResourceConfigurationGroupIdentifier;
-            }
-            if (cmdletContext.ResourceGatewayIdentifier != null)
-            {
-                request.ResourceGatewayIdentifier = cmdletContext.ResourceGatewayIdentifier;
             }
             
             // Initialize loop variant and commence piping
             var _nextToken = cmdletContext.NextToken;
             var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
-            var _shouldAutoIterate = !(SessionState.PSVariable.GetValue("AWSPowerShell_AutoIteration_Mode")?.ToString() == "v4");
             
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             do
@@ -232,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
                 
                 ProcessOutput(output);
                 
-            } while (!_userControllingPaging && _shouldAutoIterate && AutoIterationHelpers.HasValue(_nextToken));
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
             
             if (useParameterSelect)
             {
@@ -252,12 +205,12 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         #region AWS Service Operation Call
         
-        private Amazon.VPCLattice.Model.ListResourceConfigurationsResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.ListResourceConfigurationsRequest request)
+        private Amazon.VPCLattice.Model.ListDomainVerificationsResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.ListDomainVerificationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "ListResourceConfigurations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "ListDomainVerifications");
             try
             {
-                return client.ListResourceConfigurationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListDomainVerificationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -274,12 +227,9 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DomainVerificationIdentifier { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String ResourceConfigurationGroupIdentifier { get; set; }
-            public System.String ResourceGatewayIdentifier { get; set; }
-            public System.Func<Amazon.VPCLattice.Model.ListResourceConfigurationsResponse, GetVPCLResourceConfigurationListCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.VPCLattice.Model.ListDomainVerificationsResponse, GetVPCLDomainVerificationListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Items;
         }
         

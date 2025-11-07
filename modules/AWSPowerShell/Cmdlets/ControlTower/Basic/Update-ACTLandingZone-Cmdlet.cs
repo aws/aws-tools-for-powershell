@@ -83,6 +83,22 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         public System.Management.Automation.PSObject Manifest { get; set; }
         #endregion
         
+        #region Parameter RemediationType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the types of remediation actions to apply when updating the landing zone
+        /// configuration.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RemediationTypes")]
+        public System.String[] RemediationType { get; set; }
+        #endregion
+        
         #region Parameter Version
         /// <summary>
         /// <para>
@@ -160,6 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.ACT
                 WriteWarning("You are passing $null as a value for parameter Manifest which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.RemediationType != null)
+            {
+                context.RemediationType = new List<System.String>(this.RemediationType);
+            }
             context.Version = this.Version;
             #if MODULAR
             if (this.Version == null && ParameterWasBound(nameof(this.Version)))
@@ -190,6 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             if (cmdletContext.Manifest != null)
             {
                 request.Manifest = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.Manifest);
+            }
+            if (cmdletContext.RemediationType != null)
+            {
+                request.RemediationTypes = cmdletContext.RemediationType;
             }
             if (cmdletContext.Version != null)
             {
@@ -252,6 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         {
             public System.String LandingZoneIdentifier { get; set; }
             public System.Management.Automation.PSObject Manifest { get; set; }
+            public List<System.String> RemediationType { get; set; }
             public System.String Version { get; set; }
             public System.Func<Amazon.ControlTower.Model.UpdateLandingZoneResponse, UpdateACTLandingZoneCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.OperationIdentifier;

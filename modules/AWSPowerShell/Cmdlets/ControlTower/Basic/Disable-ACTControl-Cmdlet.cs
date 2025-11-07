@@ -57,15 +57,19 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         /// overview page</a>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ControlIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter EnabledControlIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the enabled control to be disabled, which uniquely identifies the control
+        /// instance on the target organizational unit.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EnabledControlIdentifier { get; set; }
         #endregion
         
         #region Parameter TargetIdentifier
@@ -76,14 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         /// overview page</a>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TargetIdentifier { get; set; }
         #endregion
         
@@ -134,19 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.ACT
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ControlIdentifier = this.ControlIdentifier;
-            #if MODULAR
-            if (this.ControlIdentifier == null && ParameterWasBound(nameof(this.ControlIdentifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ControlIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.EnabledControlIdentifier = this.EnabledControlIdentifier;
             context.TargetIdentifier = this.TargetIdentifier;
-            #if MODULAR
-            if (this.TargetIdentifier == null && ParameterWasBound(nameof(this.TargetIdentifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TargetIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -166,6 +152,10 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             if (cmdletContext.ControlIdentifier != null)
             {
                 request.ControlIdentifier = cmdletContext.ControlIdentifier;
+            }
+            if (cmdletContext.EnabledControlIdentifier != null)
+            {
+                request.EnabledControlIdentifier = cmdletContext.EnabledControlIdentifier;
             }
             if (cmdletContext.TargetIdentifier != null)
             {
@@ -227,6 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ControlIdentifier { get; set; }
+            public System.String EnabledControlIdentifier { get; set; }
             public System.String TargetIdentifier { get; set; }
             public System.Func<Amazon.ControlTower.Model.DisableControlResponse, DisableACTControlCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.OperationIdentifier;

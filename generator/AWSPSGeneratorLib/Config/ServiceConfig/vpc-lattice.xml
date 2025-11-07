@@ -74,6 +74,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDomainVerification" Verb="Remove" Noun="DomainVerification" ShouldProcessTarget="DomainVerificationIdentifier" PipelineParameter="DomainVerificationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteListener" Verb="Remove" Noun="Listener" ShouldProcessTarget="ListenerIdentifier" PipelineParameter="ListenerIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -134,6 +138,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDomainVerification" OutputProperty="*" Verb="Get" Noun="DomainVerification" PipelineParameter="DomainVerificationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetListener" OutputProperty="*" Verb="Get" Noun="Listener" PipelineParameter="ListenerIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -179,6 +187,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAccessLogSubscriptions" OutputProperty="Items" Verb="Get" Noun="AccessLogSubscriptionList" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDomainVerifications" OutputProperty="Items" Verb="Get" Noun="DomainVerificationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -247,6 +259,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RegisterTargets" OutputProperty="*" Verb="Register" Noun="Target" ShouldProcessTarget="TargetGroupIdentifier" PipelineParameter="TargetGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDomainVerification" OutputProperty="*" Verb="Start" Noun="DomainVerification" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

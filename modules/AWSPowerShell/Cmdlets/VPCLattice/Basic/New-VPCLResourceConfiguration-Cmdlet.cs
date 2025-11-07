@@ -67,6 +67,17 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         public System.String ArnResource_Arn { get; set; }
         #endregion
         
+        #region Parameter CustomDomainName
+        /// <summary>
+        /// <para>
+        /// <para> A custom domain name for your resource configuration. Additionally, provide a DomainVerificationID
+        /// to prove your ownership of a domain. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomDomainName { get; set; }
+        #endregion
+        
         #region Parameter DnsResource_DomainName
         /// <summary>
         /// <para>
@@ -76,6 +87,29 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ResourceConfigurationDefinition_DnsResource_DomainName")]
         public System.String DnsResource_DomainName { get; set; }
+        #endregion
+        
+        #region Parameter DomainVerificationIdentifier
+        /// <summary>
+        /// <para>
+        /// <para> The domain verification ID of your verified custom domain name. If you don't provide
+        /// an ID, you must configure the DNS settings yourself. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DomainVerificationIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter GroupDomain
+        /// <summary>
+        /// <para>
+        /// <para> (GROUP) The group domain for a group resource configuration. Any domains that you
+        /// create for the child resource are subdomains of the group domain. Child resources
+        /// inherit the verification status of the domain. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GroupDomain { get; set; }
         #endregion
         
         #region Parameter IpResource_IpAddress
@@ -266,6 +300,9 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             }
             context.AllowAssociationToShareableServiceNetwork = this.AllowAssociationToShareableServiceNetwork;
             context.ClientToken = this.ClientToken;
+            context.CustomDomainName = this.CustomDomainName;
+            context.DomainVerificationIdentifier = this.DomainVerificationIdentifier;
+            context.GroupDomain = this.GroupDomain;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -322,6 +359,18 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.CustomDomainName != null)
+            {
+                request.CustomDomainName = cmdletContext.CustomDomainName;
+            }
+            if (cmdletContext.DomainVerificationIdentifier != null)
+            {
+                request.DomainVerificationIdentifier = cmdletContext.DomainVerificationIdentifier;
+            }
+            if (cmdletContext.GroupDomain != null)
+            {
+                request.GroupDomain = cmdletContext.GroupDomain;
             }
             if (cmdletContext.Name != null)
             {
@@ -502,6 +551,9 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         {
             public System.Boolean? AllowAssociationToShareableServiceNetwork { get; set; }
             public System.String ClientToken { get; set; }
+            public System.String CustomDomainName { get; set; }
+            public System.String DomainVerificationIdentifier { get; set; }
+            public System.String GroupDomain { get; set; }
             public System.String Name { get; set; }
             public List<System.String> PortRange { get; set; }
             public Amazon.VPCLattice.ProtocolType Protocol { get; set; }
