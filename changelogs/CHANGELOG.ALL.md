@@ -1,4 +1,29 @@
-﻿### 4.1.937 (2025-11-06 22:03Z)
+﻿### 4.1.938 (2025-11-07 21:08Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1161.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Control Tower
+    * Modified cmdlet Disable-ACTControl: added parameter EnabledControlIdentifier.
+    * Modified cmdlet Get-ACTEnabledControlList: added parameters Filter_InheritanceDriftStatus, Filter_ParentIdentifier, Filter_ResourceDriftStatus and IncludeChild.
+    * Modified cmdlet New-ACTLandingZone: added parameter RemediationType.
+    * Modified cmdlet Update-ACTLandingZone: added parameter RemediationType.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Edit-EC2IpamScope: added parameters ExternalAuthorityConfiguration_ExternalResourceIdentifier, ExternalAuthorityConfiguration_Type and RemoveExternalAuthorityConfiguration.
+    * Modified cmdlet Edit-EC2VpcEndpoint: added parameters DnsOptions_PrivateDnsPreference and DnsOptions_PrivateDnsSpecifiedDomain.
+    * Modified cmdlet New-EC2IpamScope: added parameters ExternalAuthorityConfiguration_ExternalResourceIdentifier and ExternalAuthorityConfiguration_Type.
+    * Modified cmdlet New-EC2VpcEndpoint: added parameters DnsOptions_PrivateDnsPreference and DnsOptions_PrivateDnsSpecifiedDomain.
+  * Amazon OpenSearch Service
+    * Added cmdlet Get-OSDefaultApplicationSetting leveraging the GetDefaultApplicationSetting service API.
+    * Added cmdlet Write-OSDefaultApplicationSetting leveraging the PutDefaultApplicationSetting service API.
+  * Amazon VPC Lattice
+    * Added cmdlet Get-VPCLDomainVerification leveraging the GetDomainVerification service API.
+    * Added cmdlet Get-VPCLDomainVerificationList leveraging the ListDomainVerifications service API.
+    * Added cmdlet Remove-VPCLDomainVerification leveraging the DeleteDomainVerification service API.
+    * Added cmdlet Start-VPCLDomainVerification leveraging the StartDomainVerification service API.
+    * Modified cmdlet Get-VPCLResourceConfigurationList: added parameter DomainVerificationIdentifier.
+    * Modified cmdlet New-VPCLResourceConfiguration: added parameters CustomDomainName, DomainVerificationIdentifier and GroupDomain.
+    * Modified cmdlet New-VPCLServiceNetworkResourceAssociation: added parameter PrivateDnsEnabled.
+    * Modified cmdlet New-VPCLServiceNetworkVpcAssociation: added parameters DnsOptions_PrivateDnsPreference, DnsOptions_PrivateDnsSpecifiedDomain and PrivateDnsEnabled.
+
+### 4.1.937 (2025-11-06 22:03Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1160.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Backup
     * Modified cmdlet New-BAKLogicallyAirGappedBackupVault: added parameter EncryptionKeyArn.

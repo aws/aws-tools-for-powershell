@@ -22833,6 +22833,7 @@ Set-Alias -Name OS-GetApplication -Value Get-OSApplication
 Set-Alias -Name Get-OSCompatibleVersions -Value Get-OSCompatibleVersion
 Set-Alias -Name OS-GetCompatibleVersions -Value Get-OSCompatibleVersion
 Set-Alias -Name OS-GetDataSource -Value Get-OSDataSource
+Set-Alias -Name OS-GetDefaultApplicationSetting -Value Get-OSDefaultApplicationSetting
 Set-Alias -Name OS-GetDirectQueryDataSource -Value Get-OSDirectQueryDataSource
 Set-Alias -Name OS-GetDomainMaintenanceStatus -Value Get-OSDomainMaintenanceStatus
 Set-Alias -Name OS-GetPackageVersionHistory -Value Get-OSPackageVersionHistory
@@ -22881,6 +22882,8 @@ Set-Alias -Name List-OSVpcEndpointsForDomainList -Value Get-OSVpcEndpointsForDom
 Set-Alias -Name OS-ListVpcEndpointsForDomain -Value Get-OSVpcEndpointsForDomainList
 Set-Alias -Name Purchase-OSReservedInstanceOffering -Value New-OSReservedInstanceOffering
 Set-Alias -Name OS-PurchaseReservedInstanceOffering -Value New-OSReservedInstanceOffering
+Set-Alias -Name Put-OSDefaultApplicationSetting -Value Write-OSDefaultApplicationSetting
+Set-Alias -Name OS-PutDefaultApplicationSetting -Value Write-OSDefaultApplicationSetting
 Set-Alias -Name Reject-OSInboundConnection -Value Deny-OSInboundConnection
 Set-Alias -Name OS-RejectInboundConnection -Value Deny-OSInboundConnection
 Set-Alias -Name Remove-OSTags -Value Remove-OSResourceTag
@@ -31556,6 +31559,8 @@ Set-Alias -Name Delete-VPCLAccessLogSubscription -Value Remove-VPCLAccessLogSubs
 Set-Alias -Name VPCL-DeleteAccessLogSubscription -Value Remove-VPCLAccessLogSubscription
 Set-Alias -Name Delete-VPCLAuthPolicy -Value Remove-VPCLAuthPolicy
 Set-Alias -Name VPCL-DeleteAuthPolicy -Value Remove-VPCLAuthPolicy
+Set-Alias -Name Delete-VPCLDomainVerification -Value Remove-VPCLDomainVerification
+Set-Alias -Name VPCL-DeleteDomainVerification -Value Remove-VPCLDomainVerification
 Set-Alias -Name Delete-VPCLListener -Value Remove-VPCLListener
 Set-Alias -Name VPCL-DeleteListener -Value Remove-VPCLListener
 Set-Alias -Name Delete-VPCLResourceConfiguration -Value Remove-VPCLResourceConfiguration
@@ -31585,6 +31590,7 @@ Set-Alias -Name Deregister-VPCLTarget -Value Unregister-VPCLTarget
 Set-Alias -Name VPCL-DeregisterTargets -Value Unregister-VPCLTarget
 Set-Alias -Name VPCL-GetAccessLogSubscription -Value Get-VPCLAccessLogSubscription
 Set-Alias -Name VPCL-GetAuthPolicy -Value Get-VPCLAuthPolicy
+Set-Alias -Name VPCL-GetDomainVerification -Value Get-VPCLDomainVerification
 Set-Alias -Name VPCL-GetListener -Value Get-VPCLListener
 Set-Alias -Name VPCL-GetResourceConfiguration -Value Get-VPCLResourceConfiguration
 Set-Alias -Name VPCL-GetResourceGateway -Value Get-VPCLResourceGateway
@@ -31599,6 +31605,9 @@ Set-Alias -Name VPCL-GetTargetGroup -Value Get-VPCLTargetGroup
 Set-Alias -Name List-VPCLAccessLogSubscriptions -Value Get-VPCLAccessLogSubscriptionList
 Set-Alias -Name List-VPCLAccessLogSubscriptionList -Value Get-VPCLAccessLogSubscriptionList
 Set-Alias -Name VPCL-ListAccessLogSubscriptions -Value Get-VPCLAccessLogSubscriptionList
+Set-Alias -Name List-VPCLDomainVerifications -Value Get-VPCLDomainVerificationList
+Set-Alias -Name List-VPCLDomainVerificationList -Value Get-VPCLDomainVerificationList
+Set-Alias -Name VPCL-ListDomainVerifications -Value Get-VPCLDomainVerificationList
 Set-Alias -Name List-VPCLListeners -Value Get-VPCLListenerList
 Set-Alias -Name List-VPCLListenerList -Value Get-VPCLListenerList
 Set-Alias -Name VPCL-ListListeners -Value Get-VPCLListenerList
@@ -31645,6 +31654,7 @@ Set-Alias -Name Put-VPCLResourcePolicy -Value Write-VPCLResourcePolicy
 Set-Alias -Name VPCL-PutResourcePolicy -Value Write-VPCLResourcePolicy
 Set-Alias -Name Register-VPCLTargets -Value Register-VPCLTarget
 Set-Alias -Name VPCL-RegisterTargets -Value Register-VPCLTarget
+Set-Alias -Name VPCL-StartDomainVerification -Value Start-VPCLDomainVerification
 Set-Alias -Name VPCL-TagResource -Value Add-VPCLResourceTag
 Set-Alias -Name VPCL-UntagResource -Value Remove-VPCLResourceTag
 Set-Alias -Name VPCL-UpdateAccessLogSubscription -Value Update-VPCLAccessLogSubscription

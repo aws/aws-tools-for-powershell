@@ -42,6 +42,16 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter DomainVerificationIdentifier
+        /// <summary>
+        /// <para>
+        /// <para> The domain verification ID. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DomainVerificationIdentifier { get; set; }
+        #endregion
+        
         #region Parameter ResourceConfigurationGroupIdentifier
         /// <summary>
         /// <para>
@@ -109,6 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
                 context.Select = CreateSelectDelegate<Amazon.VPCLattice.Model.ListResourceConfigurationsResponse, GetVPCLResourceConfigurationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.DomainVerificationIdentifier = this.DomainVerificationIdentifier;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.ResourceConfigurationGroupIdentifier = this.ResourceConfigurationGroupIdentifier;
@@ -129,6 +140,10 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             // create request
             var request = new Amazon.VPCLattice.Model.ListResourceConfigurationsRequest();
             
+            if (cmdletContext.DomainVerificationIdentifier != null)
+            {
+                request.DomainVerificationIdentifier = cmdletContext.DomainVerificationIdentifier;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -206,6 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String DomainVerificationIdentifier { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String ResourceConfigurationGroupIdentifier { get; set; }

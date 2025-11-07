@@ -27371,6 +27371,16 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.IpamScopeExternalAuthorityType
+        {
+            ($_ -eq "Edit-EC2IpamScope/ExternalAuthorityConfiguration_Type") -Or
+            ($_ -eq "New-EC2IpamScope/ExternalAuthorityConfiguration_Type")
+        }
+        {
+            $v = "infoblox"
+            break
+        }
+
         # Amazon.EC2.IpamTier
         {
             ($_ -eq "Edit-EC2Ipam/Tier") -Or
@@ -27998,6 +28008,7 @@ $EC2_map = @{
     "ExcessCapacityTerminationPolicy"=@("Edit-EC2Fleet","Edit-EC2SpotFleetRequest","New-EC2Fleet")
     "ExportToS3Task_ContainerFormat"=@("New-EC2InstanceExportTask")
     "ExportToS3Task_DiskImageFormat"=@("New-EC2InstanceExportTask")
+    "ExternalAuthorityConfiguration_Type"=@("Edit-EC2IpamScope","New-EC2IpamScope")
     "HostMaintenance"=@("Edit-EC2Host","New-EC2Host")
     "HostnameType"=@("Edit-EC2PublicIpDnsNameOption")
     "HostRecovery"=@("Edit-EC2Host","New-EC2Host")
@@ -45418,7 +45429,7 @@ $KMS_Completers = {
             ($_ -eq "New-KMSDataKeyPairWithoutPlaintext/KeyPairSpec")
         }
         {
-            $v = "ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","RSA_2048","RSA_3072","RSA_4096","SM2"
+            $v = "ECC_NIST_EDWARDS25519","ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","RSA_2048","RSA_3072","RSA_4096","SM2"
             break
         }
 
@@ -45488,7 +45499,7 @@ $KMS_Completers = {
         # Amazon.KeyManagementService.KeySpec
         "New-KMSKey/KeySpec"
         {
-            $v = "ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","HMAC_224","HMAC_256","HMAC_384","HMAC_512","ML_DSA_44","ML_DSA_65","ML_DSA_87","RSA_2048","RSA_3072","RSA_4096","SM2","SYMMETRIC_DEFAULT"
+            $v = "ECC_NIST_EDWARDS25519","ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","HMAC_224","HMAC_256","HMAC_384","HMAC_512","ML_DSA_44","ML_DSA_65","ML_DSA_87","RSA_2048","RSA_3072","RSA_4096","SM2","SYMMETRIC_DEFAULT"
             break
         }
 
@@ -45532,7 +45543,7 @@ $KMS_Completers = {
             ($_ -eq "Test-KMSSignature/SigningAlgorithm")
         }
         {
-            $v = "ECDSA_SHA_256","ECDSA_SHA_384","ECDSA_SHA_512","ML_DSA_SHAKE_256","RSASSA_PKCS1_V1_5_SHA_256","RSASSA_PKCS1_V1_5_SHA_384","RSASSA_PKCS1_V1_5_SHA_512","RSASSA_PSS_SHA_256","RSASSA_PSS_SHA_384","RSASSA_PSS_SHA_512","SM2DSA"
+            $v = "ECDSA_SHA_256","ECDSA_SHA_384","ECDSA_SHA_512","ED25519_PH_SHA_512","ED25519_SHA_512","ML_DSA_SHAKE_256","RSASSA_PKCS1_V1_5_SHA_256","RSASSA_PKCS1_V1_5_SHA_384","RSASSA_PKCS1_V1_5_SHA_512","RSASSA_PSS_SHA_256","RSASSA_PSS_SHA_384","RSASSA_PSS_SHA_512","SM2DSA"
             break
         }
 
@@ -56914,6 +56925,7 @@ $OS_SelectMap = @{
                "Get-OSApplication",
                "Get-OSCompatibleVersion",
                "Get-OSDataSource",
+               "Get-OSDefaultApplicationSetting",
                "Get-OSDirectQueryDataSource",
                "Get-OSDomainMaintenanceStatus",
                "Get-OSPackageVersionHistory",
@@ -56934,6 +56946,7 @@ $OS_SelectMap = @{
                "Get-OSVpcEndpointList",
                "Get-OSVpcEndpointsForDomainList",
                "New-OSReservedInstanceOffering",
+               "Write-OSDefaultApplicationSetting",
                "Deny-OSInboundConnection",
                "Remove-OSResourceTag",
                "Revoke-OSVpcEndpointAccess",
@@ -79333,6 +79346,13 @@ $VPCL_Completers = {
             break
         }
 
+        # Amazon.VPCLattice.PrivateDnsPreference
+        "New-VPCLServiceNetworkVpcAssociation/DnsOptions_PrivateDnsPreference"
+        {
+            $v = "ALL_DOMAINS","SPECIFIED_DOMAINS_ONLY","VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS","VERIFIED_DOMAINS_ONLY"
+            break
+        }
+
         # Amazon.VPCLattice.ProtocolType
         "New-VPCLResourceConfiguration/Protocol"
         {
@@ -79413,6 +79433,7 @@ $VPCL_map = @{
     "Config_LambdaEventStructureVersion"=@("New-VPCLTargetGroup")
     "Config_Protocol"=@("New-VPCLTargetGroup")
     "Config_ProtocolVersion"=@("New-VPCLTargetGroup")
+    "DnsOptions_PrivateDnsPreference"=@("New-VPCLServiceNetworkVpcAssociation")
     "DnsResource_IpAddressType"=@("New-VPCLResourceConfiguration","Update-VPCLResourceConfiguration")
     "HealthCheck_Protocol"=@("New-VPCLTargetGroup","Update-VPCLTargetGroup")
     "HealthCheck_ProtocolVersion"=@("New-VPCLTargetGroup","Update-VPCLTargetGroup")
@@ -79487,6 +79508,7 @@ $VPCL_SelectMap = @{
                "New-VPCLTargetGroup",
                "Remove-VPCLAccessLogSubscription",
                "Remove-VPCLAuthPolicy",
+               "Remove-VPCLDomainVerification",
                "Remove-VPCLListener",
                "Remove-VPCLResourceConfiguration",
                "Remove-VPCLResourceEndpointAssociation",
@@ -79502,6 +79524,7 @@ $VPCL_SelectMap = @{
                "Unregister-VPCLTarget",
                "Get-VPCLAccessLogSubscription",
                "Get-VPCLAuthPolicy",
+               "Get-VPCLDomainVerification",
                "Get-VPCLListener",
                "Get-VPCLResourceConfiguration",
                "Get-VPCLResourceGateway",
@@ -79514,6 +79537,7 @@ $VPCL_SelectMap = @{
                "Get-VPCLServiceNetworkVpcAssociation",
                "Get-VPCLTargetGroup",
                "Get-VPCLAccessLogSubscriptionList",
+               "Get-VPCLDomainVerificationList",
                "Get-VPCLListenerList",
                "Get-VPCLResourceConfigurationList",
                "Get-VPCLResourceEndpointAssociationList",
@@ -79531,6 +79555,7 @@ $VPCL_SelectMap = @{
                "Write-VPCLAuthPolicy",
                "Write-VPCLResourcePolicy",
                "Register-VPCLTarget",
+               "Start-VPCLDomainVerification",
                "Add-VPCLResourceTag",
                "Remove-VPCLResourceTag",
                "Update-VPCLAccessLogSubscription",

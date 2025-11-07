@@ -22,39 +22,37 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ControlTower;
-using Amazon.ControlTower.Model;
+using Amazon.OpenSearchService;
+using Amazon.OpenSearchService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ACT
+namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Decommissions a landing zone. This API call starts an asynchronous operation that
-    /// deletes Amazon Web Services Control Tower resources deployed in accounts managed by
-    /// Amazon Web Services Control Tower.
+    /// Sets the default application to the application with the specified ARN.
     /// 
     ///  
     /// <para>
-    /// Decommissioning a landing zone is a process with significant consequences, and it
-    /// cannot be undone. We strongly recommend that you perform this decommissioning process
-    /// only if you intend to stop using your landing zone.
+    ///  To remove the default application, use the <c>GetDefaultApplicationSetting</c> operation
+    /// to get the current default and then call the <c>PutDefaultApplicationSetting</c> with
+    /// the current applications ARN and the <c>setAsDefault</c> parameter set to <c>false</c>.
     /// </para>
     /// </summary>
-    [Cmdlet("Remove", "ACTLandingZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Write", "OSDefaultApplicationSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Control Tower DeleteLandingZone API operation.", Operation = new[] {"DeleteLandingZone"}, SelectReturnType = typeof(Amazon.ControlTower.Model.DeleteLandingZoneResponse))]
-    [AWSCmdletOutput("System.String or Amazon.ControlTower.Model.DeleteLandingZoneResponse",
+    [AWSCmdlet("Calls the Amazon OpenSearch Service PutDefaultApplicationSetting API operation.", Operation = new[] {"PutDefaultApplicationSetting"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.PutDefaultApplicationSettingResponse))]
+    [AWSCmdletOutput("System.String or Amazon.OpenSearchService.Model.PutDefaultApplicationSettingResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ControlTower.Model.DeleteLandingZoneResponse) can be returned by specifying '-Select *'."
+        "The service call response (type Amazon.OpenSearchService.Model.PutDefaultApplicationSettingResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class RemoveACTLandingZoneCmdlet : AmazonControlTowerClientCmdlet, IExecutor
+    public partial class WriteOSDefaultApplicationSettingCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter LandingZoneIdentifier
+        #region Parameter ApplicationArn
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the landing zone.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,26 +63,43 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String LandingZoneIdentifier { get; set; }
+        public System.String ApplicationArn { get; set; }
+        #endregion
+        
+        #region Parameter SetAsDefault
+        /// <summary>
+        /// <para>
+        /// <para>Set to true to set the specified ARN as the default application. Set to false to clear
+        /// the default application.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.Boolean? SetAsDefault { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'OperationIdentifier'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ControlTower.Model.DeleteLandingZoneResponse).
-        /// Specifying the name of a property of type Amazon.ControlTower.Model.DeleteLandingZoneResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ApplicationArn'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OpenSearchService.Model.PutDefaultApplicationSettingResponse).
+        /// Specifying the name of a property of type Amazon.OpenSearchService.Model.PutDefaultApplicationSettingResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "OperationIdentifier";
+        public string Select { get; set; } = "ApplicationArn";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the LandingZoneIdentifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^LandingZoneIdentifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ApplicationArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ApplicationArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^LandingZoneIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ApplicationArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -104,8 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LandingZoneIdentifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-ACTLandingZone (DeleteLandingZone)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ApplicationArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-OSDefaultApplicationSetting (PutDefaultApplicationSetting)"))
             {
                 return;
             }
@@ -118,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ControlTower.Model.DeleteLandingZoneResponse, RemoveACTLandingZoneCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.OpenSearchService.Model.PutDefaultApplicationSettingResponse, WriteOSDefaultApplicationSettingCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -127,14 +142,21 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.LandingZoneIdentifier;
+                context.Select = (response, cmdlet) => this.ApplicationArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.LandingZoneIdentifier = this.LandingZoneIdentifier;
+            context.ApplicationArn = this.ApplicationArn;
             #if MODULAR
-            if (this.LandingZoneIdentifier == null && ParameterWasBound(nameof(this.LandingZoneIdentifier)))
+            if (this.ApplicationArn == null && ParameterWasBound(nameof(this.ApplicationArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter LandingZoneIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ApplicationArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.SetAsDefault = this.SetAsDefault;
+            #if MODULAR
+            if (this.SetAsDefault == null && ParameterWasBound(nameof(this.SetAsDefault)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SetAsDefault which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -151,11 +173,15 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ControlTower.Model.DeleteLandingZoneRequest();
+            var request = new Amazon.OpenSearchService.Model.PutDefaultApplicationSettingRequest();
             
-            if (cmdletContext.LandingZoneIdentifier != null)
+            if (cmdletContext.ApplicationArn != null)
             {
-                request.LandingZoneIdentifier = cmdletContext.LandingZoneIdentifier;
+                request.ApplicationArn = cmdletContext.ApplicationArn;
+            }
+            if (cmdletContext.SetAsDefault != null)
+            {
+                request.SetAsDefault = cmdletContext.SetAsDefault.Value;
             }
             
             CmdletOutput output;
@@ -190,15 +216,15 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         
         #region AWS Service Operation Call
         
-        private Amazon.ControlTower.Model.DeleteLandingZoneResponse CallAWSServiceOperation(IAmazonControlTower client, Amazon.ControlTower.Model.DeleteLandingZoneRequest request)
+        private Amazon.OpenSearchService.Model.PutDefaultApplicationSettingResponse CallAWSServiceOperation(IAmazonOpenSearchService client, Amazon.OpenSearchService.Model.PutDefaultApplicationSettingRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Control Tower", "DeleteLandingZone");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon OpenSearch Service", "PutDefaultApplicationSetting");
             try
             {
                 #if DESKTOP
-                return client.DeleteLandingZone(request);
+                return client.PutDefaultApplicationSetting(request);
                 #elif CORECLR
-                return client.DeleteLandingZoneAsync(request).GetAwaiter().GetResult();
+                return client.PutDefaultApplicationSettingAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -218,9 +244,10 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String LandingZoneIdentifier { get; set; }
-            public System.Func<Amazon.ControlTower.Model.DeleteLandingZoneResponse, RemoveACTLandingZoneCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.OperationIdentifier;
+            public System.String ApplicationArn { get; set; }
+            public System.Boolean? SetAsDefault { get; set; }
+            public System.Func<Amazon.OpenSearchService.Model.PutDefaultApplicationSettingResponse, WriteOSDefaultApplicationSettingCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ApplicationArn;
         }
         
     }

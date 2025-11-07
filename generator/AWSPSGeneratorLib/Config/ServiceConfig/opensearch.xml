@@ -31,7 +31,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="TagList" PipelineParameter="TagList" NoPipelineParameter="false" LegacyAlias="Add-ESTag" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="TagList" PipelineParameter="TagList" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Add-ESTag">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -162,11 +162,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservedInstanceOfferings" OutputProperty="ReservedInstanceOfferings" Verb="Get" Noun="ReservedInstanceOfferingList" PipelineParameter="ReservedInstanceOfferingId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeReservedInstanceOfferings" OutputProperty="ReservedInstanceOfferings" Verb="Get" Noun="ReservedInstanceOfferingList" PipelineParameter="ReservedInstanceOfferingId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservedInstances" OutputProperty="ReservedInstances" Verb="Get" Noun="ReservedInstanceList" PipelineParameter="ReservedInstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeReservedInstances" OutputProperty="ReservedInstances" Verb="Get" Noun="ReservedInstanceList" PipelineParameter="ReservedInstanceId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -194,6 +194,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDefaultApplicationSetting" OutputProperty="ApplicationArn" Verb="Get" Noun="DefaultApplicationSetting" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDirectQueryDataSource" OutputProperty="*" Verb="Get" Noun="DirectQueryDataSource" PipelineParameter="DataSourceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -206,7 +210,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUpgradeHistory" OutputProperty="UpgradeHistories" Verb="Get" Noun="UpgradeHistory" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetUpgradeHistory" OutputProperty="UpgradeHistories" Verb="Get" Noun="UpgradeHistory" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -238,7 +242,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInstanceTypeDetails" OutputProperty="InstanceTypeDetails" Verb="Get" Noun="InstanceTypeDetailList" PipelineParameter="EngineVersion" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListInstanceTypeDetails" OutputProperty="InstanceTypeDetails" Verb="Get" Noun="InstanceTypeDetailList" PipelineParameter="EngineVersion" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -250,11 +254,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTags" OutputProperty="TagList" Verb="Get" Noun="ResourceTag" PipelineParameter="ARN" NoPipelineParameter="false" LegacyAlias="Get-ESTag" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTags" OutputProperty="TagList" Verb="Get" Noun="ResourceTag" PipelineParameter="ARN" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-ESTag">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVersions" OutputProperty="Versions" Verb="Get" Noun="VersionList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListVersions" OutputProperty="Versions" Verb="Get" Noun="VersionList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -274,11 +278,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutDefaultApplicationSetting" OutputProperty="ApplicationArn" Verb="Write" Noun="DefaultApplicationSetting" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RejectInboundConnection" OutputProperty="Connection" Verb="Deny" Noun="InboundConnection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ARN" PipelineParameter="TagKeys" NoPipelineParameter="false" LegacyAlias="Remove-ESTag" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ARN" PipelineParameter="TagKeys" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Remove-ESTag">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

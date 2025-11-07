@@ -43,6 +43,17 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter PrivateDnsEnabled
+        /// <summary>
+        /// <para>
+        /// <para> Indicates if private DNS is enabled for the service network resource association.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? PrivateDnsEnabled { get; set; }
+        #endregion
+        
         #region Parameter ResourceConfigurationIdentifier
         /// <summary>
         /// <para>
@@ -144,6 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientToken = this.ClientToken;
+            context.PrivateDnsEnabled = this.PrivateDnsEnabled;
             context.ResourceConfigurationIdentifier = this.ResourceConfigurationIdentifier;
             #if MODULAR
             if (this.ResourceConfigurationIdentifier == null && ParameterWasBound(nameof(this.ResourceConfigurationIdentifier)))
@@ -185,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.PrivateDnsEnabled != null)
+            {
+                request.PrivateDnsEnabled = cmdletContext.PrivateDnsEnabled.Value;
             }
             if (cmdletContext.ResourceConfigurationIdentifier != null)
             {
@@ -260,6 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.Boolean? PrivateDnsEnabled { get; set; }
             public System.String ResourceConfigurationIdentifier { get; set; }
             public System.String ServiceNetworkIdentifier { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

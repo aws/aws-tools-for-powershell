@@ -278,7 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter IAMFederationOptions_Enabled
         /// <summary>
         /// <para>
-        /// <para>True to enable IAM federation authentication for a domain.</para>
+        /// <para>Specifies whether IAM identity federation is enabled for the OpenSearch domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -658,7 +658,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter IAMFederationOptions_RolesKey
         /// <summary>
         /// <para>
-        /// <para>Element of the IAM federation assertion to use for backend roles. Default is <c>roles</c>.</para>
+        /// <para>The key in the SAML assertion that contains the user's role information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -742,7 +742,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter IAMFederationOptions_SubjectKey
         /// <summary>
         /// <para>
-        /// <para>Element of the IAM federation assertion to use for the user name. Default is <c>sub</c>.</para>
+        /// <para>The key in the SAML assertion that contains the user's subject identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

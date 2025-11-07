@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// Derives a shared secret using a key agreement algorithm.
     /// 
     ///  <note><para>
-    /// You must use an asymmetric NIST-recommended elliptic curve (ECC) or SM2 (China Regions
+    /// You must use an asymmetric NIST-standard elliptic curve (ECC) or SM2 (China Regions
     /// only) KMS key pair with a <c>KeyUsage</c> value of <c>KEY_AGREEMENT</c> to call DeriveSharedSecret.
     /// </para></note><para>
     /// DeriveSharedSecret uses the <a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Ar3.pdf#page=60">Elliptic
@@ -49,12 +49,12 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><ol><li><para><b>Alice</b> calls <a>CreateKey</a> to create an asymmetric KMS key pair with a <c>KeyUsage</c>
     /// value of <c>KEY_AGREEMENT</c>.
     /// </para><para>
-    /// The asymmetric KMS key must use a NIST-recommended elliptic curve (ECC) or SM2 (China
+    /// The asymmetric KMS key must use a NIST-standard elliptic curve (ECC) or SM2 (China
     /// Regions only) key spec.
     /// </para></li><li><para><b>Bob</b> creates an elliptic curve key pair.
     /// </para><para>
     /// Bob can call <a>CreateKey</a> to create an asymmetric KMS key pair or generate a key
-    /// pair outside of KMS. Bob's key pair must use the same NIST-recommended elliptic curve
+    /// pair outside of KMS. Bob's key pair must use the same NIST-standard elliptic curve
     /// (ECC) or SM2 (China Regions ony) curve as Alice.
     /// </para></li><li><para>
     /// Alice and Bob <b>exchange their public keys</b> through an insecure communication
@@ -74,9 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// to calculate the same raw secret using his private key and Alice's public key.
     /// </para></li></ol><para>
     /// To derive a shared secret you must provide a key agreement algorithm, the private
-    /// key of the caller's asymmetric NIST-recommended elliptic curve or SM2 (China Regions
-    /// only) KMS key pair, and the public key from your peer's NIST-recommended elliptic
-    /// curve or SM2 (China Regions only) key pair. The public key can be from another asymmetric
+    /// key of the caller's asymmetric NIST-standard elliptic curve or SM2 (China Regions
+    /// only) KMS key pair, and the public key from your peer's NIST-standard elliptic curve
+    /// or SM2 (China Regions only) key pair. The public key can be from another asymmetric
     /// KMS key pair or from a key pair generated outside of KMS, but both key pairs must
     /// be on the same elliptic curve.
     /// </para><para>
@@ -178,10 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>Identifies an asymmetric NIST-recommended ECC or SM2 (China Regions only) KMS key.
-        /// KMS uses the private key in the specified key pair to derive the shared secret. The
-        /// key usage of the KMS key must be <c>KEY_AGREEMENT</c>. To find the <c>KeyUsage</c>
-        /// of a KMS key, use the <a>DescribeKey</a> operation.</para><para>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using
+        /// <para>Identifies an asymmetric NIST-standard ECC or SM2 (China Regions only) KMS key. KMS
+        /// uses the private key in the specified key pair to derive the shared secret. The key
+        /// usage of the KMS key must be <c>KEY_AGREEMENT</c>. To find the <c>KeyUsage</c> of
+        /// a KMS key, use the <a>DescribeKey</a> operation.</para><para>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using
         /// an alias name, prefix it with <c>"alias/"</c>. To specify a KMS key in a different
         /// Amazon Web Services account, you must use the key ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Alias name: <c>alias/ExampleAlias</c></para></li><li><para>Alias ARN: <c>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</c></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.
         /// To get the alias name and alias ARN, use <a>ListAliases</a>.</para>
@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter PublicKey
         /// <summary>
         /// <para>
-        /// <para>Specifies the public key in your peer's NIST-recommended elliptic curve (ECC) or SM2
+        /// <para>Specifies the public key in your peer's NIST-standard elliptic curve (ECC) or SM2
         /// (China Regions only) key pair.</para><para>The public key must be a DER-encoded X.509 public key, also known as <c>SubjectPublicKeyInfo</c>
         /// (SPKI), as defined in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>.</para><para><a>GetPublicKey</a> returns the public key of an asymmetric KMS key pair in the required
         /// DER-encoded format.</para><note><para>If you use <a href="https://docs.aws.amazon.com/cli/v1/userguide/cli-chap-welcome.html">Amazon

@@ -62,6 +62,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter ExternalAuthorityConfiguration_ExternalResourceIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the external resource managing this scope. For Infoblox integrations,
+        /// this is the Infoblox resource identifier in the format <c>&lt;version&gt;.identity.account.&lt;entity_realm&gt;.&lt;entity_id&gt;</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExternalAuthorityConfiguration_ExternalResourceIdentifier { get; set; }
+        #endregion
+        
         #region Parameter IpamId
         /// <summary>
         /// <para>
@@ -91,6 +102,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TagSpecifications")]
         public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
+        #region Parameter ExternalAuthorityConfiguration_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of external authority.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.IpamScopeExternalAuthorityType")]
+        public Amazon.EC2.IpamScopeExternalAuthorityType ExternalAuthorityConfiguration_Type { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -169,6 +191,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.ExternalAuthorityConfiguration_ExternalResourceIdentifier = this.ExternalAuthorityConfiguration_ExternalResourceIdentifier;
+            context.ExternalAuthorityConfiguration_Type = this.ExternalAuthorityConfiguration_Type;
             context.IpamId = this.IpamId;
             #if MODULAR
             if (this.IpamId == null && ParameterWasBound(nameof(this.IpamId)))
@@ -203,6 +227,35 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate ExternalAuthorityConfiguration
+            var requestExternalAuthorityConfigurationIsNull = true;
+            request.ExternalAuthorityConfiguration = new Amazon.EC2.Model.ExternalAuthorityConfiguration();
+            System.String requestExternalAuthorityConfiguration_externalAuthorityConfiguration_ExternalResourceIdentifier = null;
+            if (cmdletContext.ExternalAuthorityConfiguration_ExternalResourceIdentifier != null)
+            {
+                requestExternalAuthorityConfiguration_externalAuthorityConfiguration_ExternalResourceIdentifier = cmdletContext.ExternalAuthorityConfiguration_ExternalResourceIdentifier;
+            }
+            if (requestExternalAuthorityConfiguration_externalAuthorityConfiguration_ExternalResourceIdentifier != null)
+            {
+                request.ExternalAuthorityConfiguration.ExternalResourceIdentifier = requestExternalAuthorityConfiguration_externalAuthorityConfiguration_ExternalResourceIdentifier;
+                requestExternalAuthorityConfigurationIsNull = false;
+            }
+            Amazon.EC2.IpamScopeExternalAuthorityType requestExternalAuthorityConfiguration_externalAuthorityConfiguration_Type = null;
+            if (cmdletContext.ExternalAuthorityConfiguration_Type != null)
+            {
+                requestExternalAuthorityConfiguration_externalAuthorityConfiguration_Type = cmdletContext.ExternalAuthorityConfiguration_Type;
+            }
+            if (requestExternalAuthorityConfiguration_externalAuthorityConfiguration_Type != null)
+            {
+                request.ExternalAuthorityConfiguration.Type = requestExternalAuthorityConfiguration_externalAuthorityConfiguration_Type;
+                requestExternalAuthorityConfigurationIsNull = false;
+            }
+             // determine if request.ExternalAuthorityConfiguration should be set to null
+            if (requestExternalAuthorityConfigurationIsNull)
+            {
+                request.ExternalAuthorityConfiguration = null;
             }
             if (cmdletContext.IpamId != null)
             {
@@ -275,6 +328,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public System.String ExternalAuthorityConfiguration_ExternalResourceIdentifier { get; set; }
+            public Amazon.EC2.IpamScopeExternalAuthorityType ExternalAuthorityConfiguration_Type { get; set; }
             public System.String IpamId { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.CreateIpamScopeResponse, NewEC2IpamScopeCmdlet, object> Select { get; set; } =

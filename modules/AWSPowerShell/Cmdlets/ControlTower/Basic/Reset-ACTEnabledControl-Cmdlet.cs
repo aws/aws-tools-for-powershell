@@ -28,7 +28,7 @@ using Amazon.ControlTower.Model;
 namespace Amazon.PowerShell.Cmdlets.ACT
 {
     /// <summary>
-    /// Resets an enabled control.
+    /// Resets an enabled control. Does not work for controls implemented with SCPs.
     /// </summary>
     [Cmdlet("Reset", "ACTEnabledControl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

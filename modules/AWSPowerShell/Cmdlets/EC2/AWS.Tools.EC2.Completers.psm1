@@ -764,6 +764,16 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.IpamScopeExternalAuthorityType
+        {
+            ($_ -eq "Edit-EC2IpamScope/ExternalAuthorityConfiguration_Type") -Or
+            ($_ -eq "New-EC2IpamScope/ExternalAuthorityConfiguration_Type")
+        }
+        {
+            $v = "infoblox"
+            break
+        }
+
         # Amazon.EC2.IpamTier
         {
             ($_ -eq "Edit-EC2Ipam/Tier") -Or
@@ -1391,6 +1401,7 @@ $EC2_map = @{
     "ExcessCapacityTerminationPolicy"=@("Edit-EC2Fleet","Edit-EC2SpotFleetRequest","New-EC2Fleet")
     "ExportToS3Task_ContainerFormat"=@("New-EC2InstanceExportTask")
     "ExportToS3Task_DiskImageFormat"=@("New-EC2InstanceExportTask")
+    "ExternalAuthorityConfiguration_Type"=@("Edit-EC2IpamScope","New-EC2IpamScope")
     "HostMaintenance"=@("Edit-EC2Host","New-EC2Host")
     "HostnameType"=@("Edit-EC2PublicIpDnsNameOption")
     "HostRecovery"=@("Edit-EC2Host","New-EC2Host")

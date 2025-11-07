@@ -22,72 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ControlTower;
-using Amazon.ControlTower.Model;
+using Amazon.VPCLattice;
+using Amazon.VPCLattice.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ACT
+namespace Amazon.PowerShell.Cmdlets.VPCL
 {
     /// <summary>
-    /// Creates a new landing zone. This API call starts an asynchronous operation that creates
-    /// and configures a landing zone, based on the parameters specified in the manifest JSON
-    /// file.
+    /// Starts the domain verification process for a custom domain name.
     /// </summary>
-    [Cmdlet("New", "ACTLandingZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ControlTower.Model.CreateLandingZoneResponse")]
-    [AWSCmdlet("Calls the AWS Control Tower CreateLandingZone API operation.", Operation = new[] {"CreateLandingZone"}, SelectReturnType = typeof(Amazon.ControlTower.Model.CreateLandingZoneResponse))]
-    [AWSCmdletOutput("Amazon.ControlTower.Model.CreateLandingZoneResponse",
-        "This cmdlet returns an Amazon.ControlTower.Model.CreateLandingZoneResponse object containing multiple properties."
+    [Cmdlet("Start", "VPCLDomainVerification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.VPCLattice.Model.StartDomainVerificationResponse")]
+    [AWSCmdlet("Calls the VPC Lattice StartDomainVerification API operation.", Operation = new[] {"StartDomainVerification"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.StartDomainVerificationResponse))]
+    [AWSCmdletOutput("Amazon.VPCLattice.Model.StartDomainVerificationResponse",
+        "This cmdlet returns an Amazon.VPCLattice.Model.StartDomainVerificationResponse object containing multiple properties."
     )]
-    public partial class NewACTLandingZoneCmdlet : AmazonControlTowerClientCmdlet, IExecutor
+    public partial class StartVPCLDomainVerificationCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Manifest
+        #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The manifest JSON file is a text file that describes your Amazon Web Services resources.
-        /// For examples, review <a href="https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch">Launch
-        /// your landing zone</a>. </para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.Management.Automation.PSObject Manifest { get; set; }
-        #endregion
-        
-        #region Parameter RemediationType
-        /// <summary>
-        /// <para>
-        /// <para>Specifies the types of remediation actions to apply when creating the landing zone,
-        /// such as automatic drift correction or compliance enforcement.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("RemediationTypes")]
-        public System.String[] RemediationType { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>Tags to be applied to the landing zone. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
-        #endregion
-        
-        #region Parameter Version
-        /// <summary>
-        /// <para>
-        /// <para>The landing zone version, for example, 3.0.</para>
+        /// <para> The domain name to verify ownership for. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,14 +55,38 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Version { get; set; }
+        public System.String DomainName { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para> The tags for the domain verification. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para> A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request. If you retry a request that completed successfully using the same client
+        /// token and parameters, the retry succeeds without performing any actions. If the parameters
+        /// aren't identical, the retry fails. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ControlTower.Model.CreateLandingZoneResponse).
-        /// Specifying the name of a property of type Amazon.ControlTower.Model.CreateLandingZoneResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.VPCLattice.Model.StartDomainVerificationResponse).
+        /// Specifying the name of a property of type Amazon.VPCLattice.Model.StartDomainVerificationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,10 +95,10 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Version parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Version' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DomainName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DomainName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Version' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DomainName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -137,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Version), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-ACTLandingZone (CreateLandingZone)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DomainName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-VPCLDomainVerification (StartDomainVerification)"))
             {
                 return;
             }
@@ -151,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ControlTower.Model.CreateLandingZoneResponse, NewACTLandingZoneCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.VPCLattice.Model.StartDomainVerificationResponse, StartVPCLDomainVerificationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -160,20 +141,17 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Version;
+                context.Select = (response, cmdlet) => this.DomainName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Manifest = this.Manifest;
+            context.ClientToken = this.ClientToken;
+            context.DomainName = this.DomainName;
             #if MODULAR
-            if (this.Manifest == null && ParameterWasBound(nameof(this.Manifest)))
+            if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
             {
-                WriteWarning("You are passing $null as a value for parameter Manifest which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.RemediationType != null)
-            {
-                context.RemediationType = new List<System.String>(this.RemediationType);
-            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -182,13 +160,6 @@ namespace Amazon.PowerShell.Cmdlets.ACT
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
-            context.Version = this.Version;
-            #if MODULAR
-            if (this.Version == null && ParameterWasBound(nameof(this.Version)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Version which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -203,23 +174,19 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ControlTower.Model.CreateLandingZoneRequest();
+            var request = new Amazon.VPCLattice.Model.StartDomainVerificationRequest();
             
-            if (cmdletContext.Manifest != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.Manifest = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.Manifest);
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.RemediationType != null)
+            if (cmdletContext.DomainName != null)
             {
-                request.RemediationTypes = cmdletContext.RemediationType;
+                request.DomainName = cmdletContext.DomainName;
             }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
-            }
-            if (cmdletContext.Version != null)
-            {
-                request.Version = cmdletContext.Version;
             }
             
             CmdletOutput output;
@@ -254,15 +221,15 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         
         #region AWS Service Operation Call
         
-        private Amazon.ControlTower.Model.CreateLandingZoneResponse CallAWSServiceOperation(IAmazonControlTower client, Amazon.ControlTower.Model.CreateLandingZoneRequest request)
+        private Amazon.VPCLattice.Model.StartDomainVerificationResponse CallAWSServiceOperation(IAmazonVPCLattice client, Amazon.VPCLattice.Model.StartDomainVerificationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Control Tower", "CreateLandingZone");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "VPC Lattice", "StartDomainVerification");
             try
             {
                 #if DESKTOP
-                return client.CreateLandingZone(request);
+                return client.StartDomainVerification(request);
                 #elif CORECLR
-                return client.CreateLandingZoneAsync(request).GetAwaiter().GetResult();
+                return client.StartDomainVerificationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -282,11 +249,10 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Management.Automation.PSObject Manifest { get; set; }
-            public List<System.String> RemediationType { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String DomainName { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.String Version { get; set; }
-            public System.Func<Amazon.ControlTower.Model.CreateLandingZoneResponse, NewACTLandingZoneCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.VPCLattice.Model.StartDomainVerificationResponse, StartVPCLDomainVerificationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         
