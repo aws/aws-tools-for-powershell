@@ -1,4 +1,29 @@
-﻿### 5.0.93 (2025-11-07 21:38Z)
+﻿### 5.0.94 (2025-11-10 21:19Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.130.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Backup
+    * Modified cmdlet Get-BAKRestoreJobList: added parameter ByParentJobId.
+  * Amazon Braket
+    * Modified cmdlet New-BRKTQuantumTask: added parameter ExperimentalCapabilities_Enabled.
+  * Amazon DataZone
+    * [Breaking Change] Modified cmdlet New-DZConnection: removed parameter MlflowProperties_TrackingServerName.
+    * [Breaking Change] Modified cmdlet Update-DZConnection: removed parameter MlflowProperties_TrackingServerName.
+  * Amazon Elastic Compute Cloud
+    * Modified cmdlet Get-EC2InstanceTypesFromInstanceRequirement: added parameter InstanceRequirements_RequireEncryptionInTransit.
+    * Modified cmdlet Get-EC2SpotPlacementScore: added parameter InstanceRequirements_RequireEncryptionInTransit.
+  * Amazon GuardDuty
+    * Modified cmdlet New-GDPublishingDestination: added parameter Tag.
+  * Amazon Identity and Access Management
+    * Added cmdlet New-IAMDelegationRequest leveraging the CreateDelegationRequest service API.
+  * Amazon Invoicing
+    * Added cmdlet Get-INVInvoicePDF leveraging the GetInvoicePDF service API.
+  * Amazon Managed Streaming for Apache Kafka (MSK)
+    * Added cmdlet Update-MSKRebalancing leveraging the UpdateRebalancing service API.
+    * Modified cmdlet New-MSKCluster: added parameter Rebalancing_Status.
+    * Modified cmdlet New-MSKClusterV2: added parameter Rebalancing_Status.
+  * Amazon Security Token Service
+    * Added cmdlet Get-STSDelegatedAccessToken leveraging the GetDelegatedAccessToken service API.
+
+### 5.0.93 (2025-11-07 21:38Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.129.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Control Tower
     * Modified cmdlet Disable-ACTControl: added parameter EnabledControlIdentifier.

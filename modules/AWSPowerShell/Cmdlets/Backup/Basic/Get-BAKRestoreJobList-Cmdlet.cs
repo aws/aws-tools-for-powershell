@@ -99,6 +99,16 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         public System.DateTime? ByCreatedBefore { get; set; }
         #endregion
         
+        #region Parameter ByParentJobId
+        /// <summary>
+        /// <para>
+        /// <para>This is a filter to list child (nested) restore jobs based on parent restore job ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ByParentJobId { get; set; }
+        #endregion
+        
         #region Parameter ByResourceType
         /// <summary>
         /// <para>
@@ -209,6 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             context.ByCompleteBefore = this.ByCompleteBefore;
             context.ByCreatedAfter = this.ByCreatedAfter;
             context.ByCreatedBefore = this.ByCreatedBefore;
+            context.ByParentJobId = this.ByParentJobId;
             context.ByResourceType = this.ByResourceType;
             context.ByRestoreTestingPlanArn = this.ByRestoreTestingPlanArn;
             context.ByStatus = this.ByStatus;
@@ -261,6 +272,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (cmdletContext.ByCreatedBefore != null)
             {
                 request.ByCreatedBefore = cmdletContext.ByCreatedBefore.Value;
+            }
+            if (cmdletContext.ByParentJobId != null)
+            {
+                request.ByParentJobId = cmdletContext.ByParentJobId;
             }
             if (cmdletContext.ByResourceType != null)
             {
@@ -352,6 +367,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (cmdletContext.ByCreatedBefore != null)
             {
                 request.ByCreatedBefore = cmdletContext.ByCreatedBefore.Value;
+            }
+            if (cmdletContext.ByParentJobId != null)
+            {
+                request.ByParentJobId = cmdletContext.ByParentJobId;
             }
             if (cmdletContext.ByResourceType != null)
             {
@@ -483,6 +502,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             public System.DateTime? ByCompleteBefore { get; set; }
             public System.DateTime? ByCreatedAfter { get; set; }
             public System.DateTime? ByCreatedBefore { get; set; }
+            public System.String ByParentJobId { get; set; }
             public System.String ByResourceType { get; set; }
             public System.String ByRestoreTestingPlanArn { get; set; }
             public Amazon.Backup.RestoreJobStatus ByStatus { get; set; }

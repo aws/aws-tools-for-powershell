@@ -87,6 +87,13 @@ $BRKT_Completers = {
             break
         }
 
+        # Amazon.Braket.ExperimentalCapabilitiesEnablementType
+        "New-BRKTQuantumTask/ExperimentalCapabilities_Enabled"
+        {
+            $v = "ALL","NONE"
+            break
+        }
+
         # Amazon.Braket.InstanceType
         "New-BRKTJob/InstanceConfig_InstanceType"
         {
@@ -103,6 +110,7 @@ $BRKT_Completers = {
 }
 
 $BRKT_map = @{
+    "ExperimentalCapabilities_Enabled"=@("New-BRKTQuantumTask")
     "InstanceConfig_InstanceType"=@("New-BRKTJob")
     "ScriptModeConfig_CompressionType"=@("New-BRKTJob")
 }

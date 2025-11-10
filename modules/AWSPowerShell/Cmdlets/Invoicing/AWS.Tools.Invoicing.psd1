@@ -89,6 +89,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-INVResourceTag', 
         'Get-INVBatchInvoiceProfile', 
+        'Get-INVInvoicePDF', 
         'Get-INVInvoiceSummaryList', 
         'Get-INVInvoiceUnit', 
         'Get-INVInvoiceUnitList', 

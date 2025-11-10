@@ -152,6 +152,7 @@ $INV_SelectMap = @{
     "Select"=@("Get-INVBatchInvoiceProfile",
                "New-INVInvoiceUnit",
                "Remove-INVInvoiceUnit",
+               "Get-INVInvoicePDF",
                "Get-INVInvoiceUnit",
                "Get-INVInvoiceSummaryList",
                "Get-INVInvoiceUnitList",

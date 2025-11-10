@@ -31,7 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
 {
     /// <summary>
     /// Returns a set of short term credentials you can use to perform privileged tasks on
-    /// a member account in your organization.
+    /// a member account in your organization. You must use credentials from an Organizations
+    /// management account or a delegated administrator account for IAM to call <c>AssumeRoot</c>.
+    /// You cannot use root user credentials to make this call.
     /// 
     ///  
     /// <para>
@@ -45,6 +47,13 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// You can track AssumeRoot in CloudTrail logs to determine what actions were performed
     /// in a session. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-track-privileged-tasks.html">Track
     /// privileged tasks in CloudTrail</a> in the <i>IAM User Guide</i>.
+    /// </para><para>
+    /// When granting access to privileged tasks you should only grant the necessary permissions
+    /// required to perform that task. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html">Security
+    /// best practices in IAM</a>. In addition, you can use <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html">service
+    /// control policies</a> (SCPs) to manage and limit permissions in your organization.
+    /// See <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples_general.html">General
+    /// examples</a> in the <i>Organizations User Guide</i> for more information on SCPs.
     /// </para>
     /// </summary>
     [Cmdlet("Use", "STSRoot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

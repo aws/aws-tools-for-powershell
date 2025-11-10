@@ -418,7 +418,7 @@ $PCA_Completers = {
         # Amazon.ACMPCA.SigningAlgorithm
         "New-PCACertificate/SigningAlgorithm"
         {
-            $v = "SHA256WITHECDSA","SHA256WITHRSA","SHA384WITHECDSA","SHA384WITHRSA","SHA512WITHECDSA","SHA512WITHRSA","SM3WITHSM2"
+            $v = "ML_DSA_44","ML_DSA_65","ML_DSA_87","SHA256WITHECDSA","SHA256WITHRSA","SHA384WITHECDSA","SHA384WITHRSA","SHA512WITHECDSA","SHA512WITHRSA","SM3WITHSM2"
             break
         }
 
@@ -9546,6 +9546,13 @@ $BRKT_Completers = {
             break
         }
 
+        # Amazon.Braket.ExperimentalCapabilitiesEnablementType
+        "New-BRKTQuantumTask/ExperimentalCapabilities_Enabled"
+        {
+            $v = "ALL","NONE"
+            break
+        }
+
         # Amazon.Braket.InstanceType
         "New-BRKTJob/InstanceConfig_InstanceType"
         {
@@ -9562,6 +9569,7 @@ $BRKT_Completers = {
 }
 
 $BRKT_map = @{
+    "ExperimentalCapabilities_Enabled"=@("New-BRKTQuantumTask")
     "InstanceConfig_InstanceType"=@("New-BRKTJob")
     "ScriptModeConfig_CompressionType"=@("New-BRKTJob")
 }
@@ -38369,6 +38377,7 @@ $IAM_SelectMap = @{
                "Edit-IAMPassword",
                "New-IAMAccessKey",
                "New-IAMAccountAlias",
+               "New-IAMDelegationRequest",
                "New-IAMGroup",
                "New-IAMInstanceProfile",
                "New-IAMLoginProfile",
@@ -39993,6 +40002,7 @@ $INV_SelectMap = @{
     "Select"=@("Get-INVBatchInvoiceProfile",
                "New-INVInvoiceUnit",
                "Remove-INVInvoiceUnit",
+               "Get-INVInvoicePDF",
                "Get-INVInvoiceUnit",
                "Get-INVInvoiceSummaryList",
                "Get-INVInvoiceUnitList",
@@ -43671,6 +43681,17 @@ $MSK_Completers = {
             break
         }
 
+        # Amazon.Kafka.RebalancingStatus
+        {
+            ($_ -eq "New-MSKCluster/Rebalancing_Status") -Or
+            ($_ -eq "New-MSKClusterV2/Rebalancing_Status") -Or
+            ($_ -eq "Update-MSKRebalancing/Rebalancing_Status")
+        }
+        {
+            $v = "ACTIVE","PAUSED"
+            break
+        }
+
         # Amazon.Kafka.StorageMode
         {
             ($_ -eq "New-MSKClusterV2/Provisioned_StorageMode") -Or
@@ -43695,6 +43716,7 @@ $MSK_map = @{
     "EnhancedMonitoring"=@("New-MSKCluster","Update-MSKMonitoring")
     "Provisioned_EnhancedMonitoring"=@("New-MSKClusterV2")
     "Provisioned_StorageMode"=@("New-MSKClusterV2")
+    "Rebalancing_Status"=@("New-MSKCluster","New-MSKClusterV2","Update-MSKRebalancing")
     "StorageMode"=@("New-MSKCluster","Update-MSKStorage")
 }
 
@@ -43797,6 +43819,7 @@ $MSK_SelectMap = @{
                "Update-MSKConfiguration",
                "Update-MSKConnectivity",
                "Update-MSKMonitoring",
+               "Update-MSKRebalancing",
                "Update-MSKReplicationInfo",
                "Update-MSKSecurity",
                "Update-MSKStorage")
@@ -76283,6 +76306,7 @@ $STS_SelectMap = @{
                "Convert-STSAuthorizationMessage",
                "Get-STSAccessKeyInfo",
                "Get-STSCallerIdentity",
+               "Get-STSDelegatedAccessToken",
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Use-STSRoleWithSAML",
@@ -79918,7 +79942,7 @@ $WAF2_Completers = {
             ($_ -eq "Remove-WAF2LoggingConfiguration/LogScope")
         }
         {
-            $v = "CUSTOMER","SECURITY_LAKE"
+            $v = "CLOUDWATCH_TELEMETRY_RULE_MANAGED","CUSTOMER","SECURITY_LAKE"
             break
         }
 

@@ -105,6 +105,17 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
         public System.String DeviceParameter { get; set; }
         #endregion
         
+        #region Parameter ExperimentalCapabilities_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Enabled experimental capabilities.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Braket.ExperimentalCapabilitiesEnablementType")]
+        public Amazon.Braket.ExperimentalCapabilitiesEnablementType ExperimentalCapabilities_Enabled { get; set; }
+        #endregion
+        
         #region Parameter JobToken
         /// <summary>
         /// <para>
@@ -257,6 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
             }
             #endif
             context.DeviceParameter = this.DeviceParameter;
+            context.ExperimentalCapabilities_Enabled = this.ExperimentalCapabilities_Enabled;
             context.JobToken = this.JobToken;
             context.OutputS3Bucket = this.OutputS3Bucket;
             #if MODULAR
@@ -322,6 +334,25 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
             if (cmdletContext.DeviceParameter != null)
             {
                 request.DeviceParameters = cmdletContext.DeviceParameter;
+            }
+            
+             // populate ExperimentalCapabilities
+            var requestExperimentalCapabilitiesIsNull = true;
+            request.ExperimentalCapabilities = new Amazon.Braket.Model.ExperimentalCapabilities();
+            Amazon.Braket.ExperimentalCapabilitiesEnablementType requestExperimentalCapabilities_experimentalCapabilities_Enabled = null;
+            if (cmdletContext.ExperimentalCapabilities_Enabled != null)
+            {
+                requestExperimentalCapabilities_experimentalCapabilities_Enabled = cmdletContext.ExperimentalCapabilities_Enabled;
+            }
+            if (requestExperimentalCapabilities_experimentalCapabilities_Enabled != null)
+            {
+                request.ExperimentalCapabilities.Enabled = requestExperimentalCapabilities_experimentalCapabilities_Enabled;
+                requestExperimentalCapabilitiesIsNull = false;
+            }
+             // determine if request.ExperimentalCapabilities should be set to null
+            if (requestExperimentalCapabilitiesIsNull)
+            {
+                request.ExperimentalCapabilities = null;
             }
             if (cmdletContext.JobToken != null)
             {
@@ -403,6 +434,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
             public System.String ClientToken { get; set; }
             public System.String DeviceArn { get; set; }
             public System.String DeviceParameter { get; set; }
+            public Amazon.Braket.ExperimentalCapabilitiesEnablementType ExperimentalCapabilities_Enabled { get; set; }
             public System.String JobToken { get; set; }
             public System.String OutputS3Bucket { get; set; }
             public System.String OutputS3KeyPrefix { get; set; }

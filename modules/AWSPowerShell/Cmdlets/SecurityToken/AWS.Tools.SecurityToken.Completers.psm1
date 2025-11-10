@@ -128,6 +128,7 @@ $STS_SelectMap = @{
                "Convert-STSAuthorizationMessage",
                "Get-STSAccessKeyInfo",
                "Get-STSCallerIdentity",
+               "Get-STSDelegatedAccessToken",
                "Get-STSFederationToken",
                "Get-STSSessionToken",
                "Use-STSRoleWithSAML",

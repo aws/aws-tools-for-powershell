@@ -118,7 +118,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClusterOperations" OutputProperty="ClusterOperationInfoList" Verb="Get" Noun="ClusterOperationList" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListClusterOperations" OutputProperty="ClusterOperationInfoList" Verb="Get" Noun="ClusterOperationList" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -126,7 +126,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClusters" OutputProperty="ClusterInfoList" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListClusters" OutputProperty="ClusterInfoList" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -134,11 +134,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfigurationRevisions" OutputProperty="Revisions" Verb="Get" Noun="ConfigurationRevisionList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListConfigurationRevisions" OutputProperty="Revisions" Verb="Get" Noun="ConfigurationRevisionList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfigurations" OutputProperty="Configurations" Verb="Get" Noun="ConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListConfigurations" OutputProperty="Configurations" Verb="Get" Noun="ConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -146,7 +146,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNodes" OutputProperty="NodeInfoList" Verb="Get" Noun="NodeList" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListNodes" OutputProperty="NodeInfoList" Verb="Get" Noun="NodeList" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -215,6 +215,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMonitoring" OutputProperty="*" Verb="Update" Noun="Monitoring" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRebalancing" OutputProperty="*" Verb="Update" Noun="Rebalancing" ShouldProcessTarget="ClusterArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
