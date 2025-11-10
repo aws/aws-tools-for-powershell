@@ -326,6 +326,19 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         public System.Int64? ConfigurationInfo_Revision { get; set; }
         #endregion
         
+        #region Parameter Rebalancing_Status
+        /// <summary>
+        /// <para>
+        /// <para>Intelligent rebalancing status. The default intelligent rebalancing status is ACTIVE
+        /// for all new Express-based clusters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Provisioned_Rebalancing_Status")]
+        [AWSConstantClassSource("Amazon.Kafka.RebalancingStatus")]
+        public Amazon.Kafka.RebalancingStatus Rebalancing_Status { get; set; }
+        #endregion
+        
         #region Parameter Provisioned_StorageMode
         /// <summary>
         /// <para>
@@ -454,6 +467,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             context.Provisioned_NumberOfBrokerNode = this.Provisioned_NumberOfBrokerNode;
             context.JmxExporter_EnabledInBroker = this.JmxExporter_EnabledInBroker;
             context.NodeExporter_EnabledInBroker = this.NodeExporter_EnabledInBroker;
+            context.Rebalancing_Status = this.Rebalancing_Status;
             context.Provisioned_StorageMode = this.Provisioned_StorageMode;
             context.Serverless_ClientAuthentication_Sasl_Iam_Enabled = this.Serverless_ClientAuthentication_Sasl_Iam_Enabled;
             if (this.Serverless_VpcConfig != null)
@@ -765,6 +779,31 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             if (requestProvisioned_provisioned_OpenMonitoring != null)
             {
                 request.Provisioned.OpenMonitoring = requestProvisioned_provisioned_OpenMonitoring;
+                requestProvisionedIsNull = false;
+            }
+            Amazon.Kafka.Model.Rebalancing requestProvisioned_provisioned_Rebalancing = null;
+            
+             // populate Rebalancing
+            var requestProvisioned_provisioned_RebalancingIsNull = true;
+            requestProvisioned_provisioned_Rebalancing = new Amazon.Kafka.Model.Rebalancing();
+            Amazon.Kafka.RebalancingStatus requestProvisioned_provisioned_Rebalancing_rebalancing_Status = null;
+            if (cmdletContext.Rebalancing_Status != null)
+            {
+                requestProvisioned_provisioned_Rebalancing_rebalancing_Status = cmdletContext.Rebalancing_Status;
+            }
+            if (requestProvisioned_provisioned_Rebalancing_rebalancing_Status != null)
+            {
+                requestProvisioned_provisioned_Rebalancing.Status = requestProvisioned_provisioned_Rebalancing_rebalancing_Status;
+                requestProvisioned_provisioned_RebalancingIsNull = false;
+            }
+             // determine if requestProvisioned_provisioned_Rebalancing should be set to null
+            if (requestProvisioned_provisioned_RebalancingIsNull)
+            {
+                requestProvisioned_provisioned_Rebalancing = null;
+            }
+            if (requestProvisioned_provisioned_Rebalancing != null)
+            {
+                request.Provisioned.Rebalancing = requestProvisioned_provisioned_Rebalancing;
                 requestProvisionedIsNull = false;
             }
             Amazon.Kafka.Model.ConfigurationInfo requestProvisioned_provisioned_ConfigurationInfo = null;
@@ -1185,6 +1224,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             public System.Int32? Provisioned_NumberOfBrokerNode { get; set; }
             public System.Boolean? JmxExporter_EnabledInBroker { get; set; }
             public System.Boolean? NodeExporter_EnabledInBroker { get; set; }
+            public Amazon.Kafka.RebalancingStatus Rebalancing_Status { get; set; }
             public Amazon.Kafka.StorageMode Provisioned_StorageMode { get; set; }
             public System.Boolean? Serverless_ClientAuthentication_Sasl_Iam_Enabled { get; set; }
             public List<Amazon.Kafka.Model.VpcConfig> Serverless_VpcConfig { get; set; }

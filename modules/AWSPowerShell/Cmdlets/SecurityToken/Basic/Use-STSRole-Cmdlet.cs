@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// to Use an External ID When Granting Access to Your Amazon Web Services Resources to
         /// a Third Party</a> in the <i>IAM User Guide</i>.</para><para>The regex used to validate this parameter is a string of characters consisting of
         /// upper- and lower-case alphanumeric characters with no spaces. You can also include
-        /// underscores or any of the following characters: =,.@:/-</para>
+        /// underscores or any of the following characters: +=,.@:\/-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
@@ -273,7 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// might require that you specify your user name as the session name when you assume
         /// the role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_rolesessionname"><c>sts:RoleSessionName</c></a>.</para><para>The regex used to validate this parameter is a string of characters consisting of
         /// upper- and lower-case alphanumeric characters with no spaces. You can also include
-        /// underscores or any of the following characters: =,.@-</para>
+        /// underscores or any of the following characters: +=,.@-</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -296,7 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// either the serial number for a hardware device (such as <c>GAHT12345678</c>) or an
         /// Amazon Resource Name (ARN) for a virtual device (such as <c>arn:aws:iam::123456789012:mfa/user</c>).</para><para>The regex used to validate this parameter is a string of characters consisting of
         /// upper- and lower-case alphanumeric characters with no spaces. You can also include
-        /// underscores or any of the following characters: =,.@-</para>
+        /// underscores or any of the following characters: +=/:,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -497,6 +497,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] RegionName { get; set; }
         #endregion
         
+        #region Parameter InstanceRequirements_RequireEncryptionInTransit
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether instance types must support encrypting in-transit traffic between
+        /// instances. For more information, including the supported instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit">Encryption
+        /// in transit</a> in the <i>Amazon EC2 User Guide</i>.</para><para>Default: <c>false</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InstanceRequirementsWithMetadata_InstanceRequirements_RequireEncryptionInTransit")]
+        public System.Boolean? InstanceRequirements_RequireEncryptionInTransit { get; set; }
+        #endregion
+        
         #region Parameter InstanceRequirements_RequireHibernateSupport
         /// <summary>
         /// <para>
@@ -727,6 +740,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.NetworkInterfaceCount_Max = this.NetworkInterfaceCount_Max;
             context.NetworkInterfaceCount_Min = this.NetworkInterfaceCount_Min;
             context.InstanceRequirements_OnDemandMaxPricePercentageOverLowestPrice = this.InstanceRequirements_OnDemandMaxPricePercentageOverLowestPrice;
+            context.InstanceRequirements_RequireEncryptionInTransit = this.InstanceRequirements_RequireEncryptionInTransit;
             context.InstanceRequirements_RequireHibernateSupport = this.InstanceRequirements_RequireHibernateSupport;
             context.InstanceRequirements_SpotMaxPricePercentageOverLowestPrice = this.InstanceRequirements_SpotMaxPricePercentageOverLowestPrice;
             context.TotalLocalStorageGB_Max = this.TotalLocalStorageGB_Max;
@@ -933,6 +947,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestInstanceRequirementsWithMetadata_instanceRequirementsWithMetadata_InstanceRequirements_instanceRequirements_OnDemandMaxPricePercentageOverLowestPrice != null)
             {
                 requestInstanceRequirementsWithMetadata_instanceRequirementsWithMetadata_InstanceRequirements.OnDemandMaxPricePercentageOverLowestPrice = requestInstanceRequirementsWithMetadata_instanceRequirementsWithMetadata_InstanceRequirements_instanceRequirements_OnDemandMaxPricePercentageOverLowestPrice.Value;
+                requestInstanceRequirementsWithMetadata_instanceRequirementsWithMetadata_InstanceRequirementsIsNull = false;
+            }
+            System.Boolean? requestInstanceRequirementsWithMetadata_instanceRequirementsWithMetadata_InstanceRequirements_instanceRequirements_RequireEncryptionInTransit = null;
+            if (cmdletContext.InstanceRequirements_RequireEncryptionInTransit != null)
+            {
+                requestInstanceRequirementsWithMetadata_instanceRequirementsWithMetadata_InstanceRequirements_instanceRequirements_RequireEncryptionInTransit = cmdletContext.InstanceRequirements_RequireEncryptionInTransit.Value;
+            }
+            if (requestInstanceRequirementsWithMetadata_instanceRequirementsWithMetadata_InstanceRequirements_instanceRequirements_RequireEncryptionInTransit != null)
+            {
+                requestInstanceRequirementsWithMetadata_instanceRequirementsWithMetadata_InstanceRequirements.RequireEncryptionInTransit = requestInstanceRequirementsWithMetadata_instanceRequirementsWithMetadata_InstanceRequirements_instanceRequirements_RequireEncryptionInTransit.Value;
                 requestInstanceRequirementsWithMetadata_instanceRequirementsWithMetadata_InstanceRequirementsIsNull = false;
             }
             System.Boolean? requestInstanceRequirementsWithMetadata_instanceRequirementsWithMetadata_InstanceRequirements_instanceRequirements_RequireHibernateSupport = null;
@@ -1463,6 +1487,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Int32? NetworkInterfaceCount_Max { get; set; }
             public System.Int32? NetworkInterfaceCount_Min { get; set; }
             public System.Int32? InstanceRequirements_OnDemandMaxPricePercentageOverLowestPrice { get; set; }
+            public System.Boolean? InstanceRequirements_RequireEncryptionInTransit { get; set; }
             public System.Boolean? InstanceRequirements_RequireHibernateSupport { get; set; }
             public System.Int32? InstanceRequirements_SpotMaxPricePercentageOverLowestPrice { get; set; }
             public System.Double? TotalLocalStorageGB_Max { get; set; }

@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1161.0",
+    "ProductVersion"    : "3.7.1162.0",
     "CoreVersion"       : "3.7.500.43",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.524.0",
+            "Version" : "3.7.525.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.43"
@@ -220,7 +220,7 @@
             "InPreview"               : false
         },
         "IdentityManagement"   : {
-            "Version" : "3.7.503.5",
+            "Version" : "3.7.504.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.43"
@@ -316,7 +316,7 @@
             "InPreview"               : false
         },
         "SecurityToken"        : {
-            "Version" : "3.7.502.3",
+            "Version" : "3.7.503.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.43"
@@ -628,7 +628,7 @@
             "InPreview"               : false
         },
         "AppStream"                       : {
-            "Version" : "3.7.502.12",
+            "Version" : "3.7.503.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.43"
@@ -876,7 +876,7 @@
             "InPreview"               : false
         },
         "GuardDuty"                       : {
-            "Version" : "3.7.505.11",
+            "Version" : "3.7.506.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.43"
@@ -1036,7 +1036,7 @@
             "InPreview"               : false
         },
         "ACMPCA"                          : {
-            "Version" : "3.7.502.10",
+            "Version" : "3.7.503.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.43"
@@ -1252,7 +1252,7 @@
             "InPreview"               : false
         },
         "Kafka"                           : {
-            "Version" : "3.7.502.10",
+            "Version" : "3.7.503.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.43"
@@ -1284,7 +1284,7 @@
             "InPreview"               : false
         },
         "Backup"                          : {
-            "Version" : "3.7.504.0",
+            "Version" : "3.7.505.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.43"
@@ -1508,7 +1508,7 @@
             "InPreview"               : false
         },
         "WAFV2"                           : {
-            "Version" : "3.7.502.13",
+            "Version" : "3.7.503.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.43"
@@ -1692,7 +1692,7 @@
             "InPreview"               : false
         },
         "Braket"                          : {
-            "Version" : "3.7.502.5",
+            "Version" : "3.7.503.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.43"
@@ -2612,7 +2612,7 @@
             "InPreview"               : false
         },
         "VerifiedPermissions"                 : {
-            "Version" : "3.7.503.6",
+            "Version" : "3.7.504.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.43"
@@ -2684,7 +2684,7 @@
             "InPreview"               : false
         },
         "DataZone"                            : {
-            "Version" : "3.7.509.1",
+            "Version" : "3.7.510.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.43"
@@ -3084,7 +3084,7 @@
             "InPreview"               : false
         },
         "Invoicing"                           : {
-            "Version" : "3.7.502.5",
+            "Version" : "3.7.503.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.43"
@@ -3108,7 +3108,7 @@
             "InPreview"               : false
         },
         "DSQL"                                : {
-            "Version" : "3.7.503.7",
+            "Version" : "3.7.504.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.43"

@@ -15460,6 +15460,8 @@ Set-Alias -Name Create-IAMAccessKey -Value New-IAMAccessKey
 Set-Alias -Name IAM-CreateAccessKey -Value New-IAMAccessKey
 Set-Alias -Name Create-IAMAccountAlias -Value New-IAMAccountAlias
 Set-Alias -Name IAM-CreateAccountAlias -Value New-IAMAccountAlias
+Set-Alias -Name Create-IAMDelegationRequest -Value New-IAMDelegationRequest
+Set-Alias -Name IAM-CreateDelegationRequest -Value New-IAMDelegationRequest
 Set-Alias -Name Create-IAMGroup -Value New-IAMGroup
 Set-Alias -Name IAM-CreateGroup -Value New-IAMGroup
 Set-Alias -Name Create-IAMInstanceProfile -Value New-IAMInstanceProfile
@@ -16228,6 +16230,7 @@ Set-Alias -Name Create-INVInvoiceUnit -Value New-INVInvoiceUnit
 Set-Alias -Name INV-CreateInvoiceUnit -Value New-INVInvoiceUnit
 Set-Alias -Name Delete-INVInvoiceUnit -Value Remove-INVInvoiceUnit
 Set-Alias -Name INV-DeleteInvoiceUnit -Value Remove-INVInvoiceUnit
+Set-Alias -Name INV-GetInvoicePDF -Value Get-INVInvoicePDF
 Set-Alias -Name INV-GetInvoiceUnit -Value Get-INVInvoiceUnit
 Set-Alias -Name List-INVInvoiceSummaries -Value Get-INVInvoiceSummaryList
 Set-Alias -Name List-INVInvoiceSummaryList -Value Get-INVInvoiceSummaryList
@@ -17963,6 +17966,7 @@ Set-Alias -Name MSK-UpdateClusterKafkaVersion -Value Update-MSKClusterKafkaVersi
 Set-Alias -Name MSK-UpdateConfiguration -Value Update-MSKConfiguration
 Set-Alias -Name MSK-UpdateConnectivity -Value Update-MSKConnectivity
 Set-Alias -Name MSK-UpdateMonitoring -Value Update-MSKMonitoring
+Set-Alias -Name MSK-UpdateRebalancing -Value Update-MSKRebalancing
 Set-Alias -Name MSK-UpdateReplicationInfo -Value Update-MSKReplicationInfo
 Set-Alias -Name MSK-UpdateSecurity -Value Update-MSKSecurity
 Set-Alias -Name MSK-UpdateStorage -Value Update-MSKStorage
@@ -30700,6 +30704,7 @@ Set-Alias -Name Decode-STSAuthorizationMessage -Value Convert-STSAuthorizationMe
 Set-Alias -Name STS-DecodeAuthorizationMessage -Value Convert-STSAuthorizationMessage
 Set-Alias -Name STS-GetAccessKeyInfo -Value Get-STSAccessKeyInfo
 Set-Alias -Name STS-GetCallerIdentity -Value Get-STSCallerIdentity
+Set-Alias -Name STS-GetDelegatedAccessToken -Value Get-STSDelegatedAccessToken
 Set-Alias -Name STS-GetFederationToken -Value Get-STSFederationToken
 Set-Alias -Name STS-GetSessionToken -Value Get-STSSessionToken
 Set-Alias -Name Assume-STSWebIdentityRole -Value Use-STSWebIdentityRole

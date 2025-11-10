@@ -334,6 +334,18 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         public System.Int64? ConfigurationInfo_Revision { get; set; }
         #endregion
         
+        #region Parameter Rebalancing_Status
+        /// <summary>
+        /// <para>
+        /// <para>Intelligent rebalancing status. The default intelligent rebalancing status is ACTIVE
+        /// for all new Express-based clusters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Kafka.RebalancingStatus")]
+        public Amazon.Kafka.RebalancingStatus Rebalancing_Status { get; set; }
+        #endregion
+        
         #region Parameter StorageMode
         /// <summary>
         /// <para>
@@ -469,6 +481,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             #endif
             context.JmxExporter_EnabledInBroker = this.JmxExporter_EnabledInBroker;
             context.NodeExporter_EnabledInBroker = this.NodeExporter_EnabledInBroker;
+            context.Rebalancing_Status = this.Rebalancing_Status;
             context.StorageMode = this.StorageMode;
             if (this.Tag != null)
             {
@@ -959,6 +972,25 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             {
                 request.OpenMonitoring = null;
             }
+            
+             // populate Rebalancing
+            var requestRebalancingIsNull = true;
+            request.Rebalancing = new Amazon.Kafka.Model.Rebalancing();
+            Amazon.Kafka.RebalancingStatus requestRebalancing_rebalancing_Status = null;
+            if (cmdletContext.Rebalancing_Status != null)
+            {
+                requestRebalancing_rebalancing_Status = cmdletContext.Rebalancing_Status;
+            }
+            if (requestRebalancing_rebalancing_Status != null)
+            {
+                request.Rebalancing.Status = requestRebalancing_rebalancing_Status;
+                requestRebalancingIsNull = false;
+            }
+             // determine if request.Rebalancing should be set to null
+            if (requestRebalancingIsNull)
+            {
+                request.Rebalancing = null;
+            }
             if (cmdletContext.StorageMode != null)
             {
                 request.StorageMode = cmdletContext.StorageMode;
@@ -1052,6 +1084,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             public System.Int32? NumberOfBrokerNode { get; set; }
             public System.Boolean? JmxExporter_EnabledInBroker { get; set; }
             public System.Boolean? NodeExporter_EnabledInBroker { get; set; }
+            public Amazon.Kafka.RebalancingStatus Rebalancing_Status { get; set; }
             public Amazon.Kafka.StorageMode StorageMode { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Kafka.Model.CreateClusterResponse, NewMSKClusterCmdlet, object> Select { get; set; } =

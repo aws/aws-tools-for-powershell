@@ -132,7 +132,7 @@ $PCA_Completers = {
         # Amazon.ACMPCA.SigningAlgorithm
         "New-PCACertificate/SigningAlgorithm"
         {
-            $v = "SHA256WITHECDSA","SHA256WITHRSA","SHA384WITHECDSA","SHA384WITHRSA","SHA512WITHECDSA","SHA512WITHRSA","SM3WITHSM2"
+            $v = "ML_DSA_44","ML_DSA_65","ML_DSA_87","SHA256WITHECDSA","SHA256WITHRSA","SHA384WITHECDSA","SHA384WITHRSA","SHA512WITHECDSA","SHA512WITHRSA","SM3WITHSM2"
             break
         }
 

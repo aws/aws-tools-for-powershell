@@ -102,6 +102,17 @@ $MSK_Completers = {
             break
         }
 
+        # Amazon.Kafka.RebalancingStatus
+        {
+            ($_ -eq "New-MSKCluster/Rebalancing_Status") -Or
+            ($_ -eq "New-MSKClusterV2/Rebalancing_Status") -Or
+            ($_ -eq "Update-MSKRebalancing/Rebalancing_Status")
+        }
+        {
+            $v = "ACTIVE","PAUSED"
+            break
+        }
+
         # Amazon.Kafka.StorageMode
         {
             ($_ -eq "New-MSKClusterV2/Provisioned_StorageMode") -Or
@@ -126,6 +137,7 @@ $MSK_map = @{
     "EnhancedMonitoring"=@("New-MSKCluster","Update-MSKMonitoring")
     "Provisioned_EnhancedMonitoring"=@("New-MSKClusterV2")
     "Provisioned_StorageMode"=@("New-MSKClusterV2")
+    "Rebalancing_Status"=@("New-MSKCluster","New-MSKClusterV2","Update-MSKRebalancing")
     "StorageMode"=@("New-MSKCluster","Update-MSKStorage")
 }
 
@@ -228,6 +240,7 @@ $MSK_SelectMap = @{
                "Update-MSKConfiguration",
                "Update-MSKConnectivity",
                "Update-MSKMonitoring",
+               "Update-MSKRebalancing",
                "Update-MSKReplicationInfo",
                "Update-MSKSecurity",
                "Update-MSKStorage")

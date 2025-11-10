@@ -241,6 +241,7 @@ $IAM_SelectMap = @{
                "Edit-IAMPassword",
                "New-IAMAccessKey",
                "New-IAMAccountAlias",
+               "New-IAMDelegationRequest",
                "New-IAMGroup",
                "New-IAMInstanceProfile",
                "New-IAMLoginProfile",

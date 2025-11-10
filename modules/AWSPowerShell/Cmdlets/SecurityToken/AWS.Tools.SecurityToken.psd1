@@ -91,6 +91,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Convert-STSAuthorizationMessage', 
         'Get-STSAccessKeyInfo', 
         'Get-STSCallerIdentity', 
+        'Get-STSDelegatedAccessToken', 
         'Get-STSFederationToken', 
         'Get-STSSessionToken', 
         'Use-STSRole', 

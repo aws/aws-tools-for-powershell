@@ -102,7 +102,7 @@ $WAF2_Completers = {
             ($_ -eq "Remove-WAF2LoggingConfiguration/LogScope")
         }
         {
-            $v = "CUSTOMER","SECURITY_LAKE"
+            $v = "CLOUDWATCH_TELEMETRY_RULE_MANAGED","CUSTOMER","SECURITY_LAKE"
             break
         }
 
