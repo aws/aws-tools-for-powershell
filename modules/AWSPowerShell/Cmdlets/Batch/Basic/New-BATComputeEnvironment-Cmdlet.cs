@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <c>c5</c>, <c>m5</c>, and <c>r5</c> instance families) that match the demand of your
         /// job queues. </para></li><li><para><c>default_x86_64</c> to choose x86 based instance types (from the <c>m6i</c>, <c>c6i</c>,
         /// <c>r6i</c>, and <c>c7i</c> instance families) that matches the resource demands of
-        /// the job queue.</para></li><li><para><c>default_arm64</c> to choose x86 based instance types (from the <c>m6g</c>, <c>c6g</c>,
+        /// the job queue.</para></li><li><para><c>default_arm64</c> to choose ARM based instance types (from the <c>m6g</c>, <c>c6g</c>,
         /// <c>r6g</c>, and <c>c7g</c> instance families) that matches the resource demands of
         /// the job queue.</para></li></ul><note><para>Starting on 11/01/2025 the behavior of <c>optimal</c> is going to be changed to match
         /// <c>default_x86_64</c>. During the change your instance families could be updated to

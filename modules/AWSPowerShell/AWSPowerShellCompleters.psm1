@@ -8486,6 +8486,16 @@ $BDA_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.BedrockDataAutomation.AudioGenerativeOutputLanguage
+        {
+            ($_ -eq "New-BDADataAutomationProject/LanguageConfiguration_GenerativeOutputLanguage") -Or
+            ($_ -eq "Update-BDADataAutomationProject/LanguageConfiguration_GenerativeOutputLanguage")
+        }
+        {
+            $v = "DEFAULT","EN"
+            break
+        }
+
         # Amazon.BedrockDataAutomation.BlueprintStage
         {
             ($_ -eq "Get-BDADataAutomationProjectList/BlueprintFilter_BlueprintStage") -Or
@@ -8615,6 +8625,7 @@ $BDA_map = @{
     "BlueprintStage"=@("Get-BDABlueprint","New-BDABlueprint","Update-BDABlueprint")
     "BlueprintStageFilter"=@("Get-BDABlueprintList")
     "ChannelLabeling_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "LanguageConfiguration_GenerativeOutputLanguage"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ModalityRouting_Jpeg"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ModalityRouting_Mov"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ModalityRouting_Mp4"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
@@ -27975,6 +27986,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.VpnTunnelBandwidth
+        "New-EC2VpnConnection/Options_TunnelBandwidth"
+        {
+            $v = "large","standard"
+            break
+        }
+
 
     }
 
@@ -28085,6 +28103,7 @@ $EC2_map = @{
     "Options_Protocol"=@("New-EC2TransitGatewayConnect")
     "Options_SecurityGroupReferencingSupport"=@("Edit-EC2TransitGateway","Edit-EC2TransitGatewayVpcAttachment","New-EC2TransitGateway","New-EC2TransitGatewayVpcAttachment")
     "Options_StaticSourcesSupport"=@("New-EC2TransitGatewayMulticastDomain")
+    "Options_TunnelBandwidth"=@("New-EC2VpnConnection")
     "Options_TunnelInsideIpVersion"=@("New-EC2VpnConnection")
     "Options_VpnEcmpSupport"=@("Edit-EC2TransitGateway","New-EC2TransitGateway")
     "OutputFormat"=@("New-EC2CapacityManagerDataExport")
@@ -51723,6 +51742,13 @@ $MIS_Completers = {
             break
         }
 
+        # Amazon.MedicalImaging.LosslessStorageFormat
+        "New-MISDatastore/LosslessStorageFormat"
+        {
+            $v = "HTJ2K","JPEG_2000_LOSSLESS"
+            break
+        }
+
         # Amazon.MedicalImaging.SortField
         "Search-MISImageSet/Sort_SortField"
         {
@@ -51748,6 +51774,7 @@ $MIS_Completers = {
 $MIS_map = @{
     "DatastoreStatus"=@("Get-MISDatastoreList")
     "JobStatus"=@("Get-MISDICOMImportJobList")
+    "LosslessStorageFormat"=@("New-MISDatastore")
     "Sort_SortField"=@("Search-MISImageSet")
     "Sort_SortOrder"=@("Search-MISImageSet")
 }

@@ -54,6 +54,40 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         public Amazon.BedrockDataAutomation.Model.BlueprintItem[] CustomOutputConfiguration_Blueprint { get; set; }
         #endregion
         
+        #region Parameter LanguageConfiguration_GenerativeOutputLanguage
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OverrideConfiguration_Audio_LanguageConfiguration_GenerativeOutputLanguage")]
+        [AWSConstantClassSource("Amazon.BedrockDataAutomation.AudioGenerativeOutputLanguage")]
+        public Amazon.BedrockDataAutomation.AudioGenerativeOutputLanguage LanguageConfiguration_GenerativeOutputLanguage { get; set; }
+        #endregion
+        
+        #region Parameter LanguageConfiguration_IdentifyMultipleLanguage
+        /// <summary>
+        /// <para>
+        /// <para>Enable multiple language identification in audio</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OverrideConfiguration_Audio_LanguageConfiguration_IdentifyMultipleLanguages")]
+        public System.Boolean? LanguageConfiguration_IdentifyMultipleLanguage { get; set; }
+        #endregion
+        
+        #region Parameter LanguageConfiguration_InputLanguage
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OverrideConfiguration_Audio_LanguageConfiguration_InputLanguages")]
+        public System.String[] LanguageConfiguration_InputLanguage { get; set; }
+        #endregion
+        
         #region Parameter ModalityRouting_Jpeg
         /// <summary>
         /// <para>
@@ -541,6 +575,12 @@ namespace Amazon.PowerShell.Cmdlets.BDA
                 }
             }
             context.EncryptionConfiguration_KmsKeyId = this.EncryptionConfiguration_KmsKeyId;
+            context.LanguageConfiguration_GenerativeOutputLanguage = this.LanguageConfiguration_GenerativeOutputLanguage;
+            context.LanguageConfiguration_IdentifyMultipleLanguage = this.LanguageConfiguration_IdentifyMultipleLanguage;
+            if (this.LanguageConfiguration_InputLanguage != null)
+            {
+                context.LanguageConfiguration_InputLanguage = new List<System.String>(this.LanguageConfiguration_InputLanguage);
+            }
             context.OverrideConfiguration_Audio_ModalityProcessing_State = this.OverrideConfiguration_Audio_ModalityProcessing_State;
             context.OverrideConfiguration_Document_ModalityProcessing_State = this.OverrideConfiguration_Document_ModalityProcessing_State;
             context.Splitter_State = this.Splitter_State;
@@ -680,46 +720,6 @@ namespace Amazon.PowerShell.Cmdlets.BDA
              // populate OverrideConfiguration
             var requestOverrideConfigurationIsNull = true;
             request.OverrideConfiguration = new Amazon.BedrockDataAutomation.Model.OverrideConfiguration();
-            Amazon.BedrockDataAutomation.Model.AudioOverrideConfiguration requestOverrideConfiguration_overrideConfiguration_Audio = null;
-            
-             // populate Audio
-            var requestOverrideConfiguration_overrideConfiguration_AudioIsNull = true;
-            requestOverrideConfiguration_overrideConfiguration_Audio = new Amazon.BedrockDataAutomation.Model.AudioOverrideConfiguration();
-            Amazon.BedrockDataAutomation.Model.ModalityProcessingConfiguration requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing = null;
-            
-             // populate ModalityProcessing
-            var requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessingIsNull = true;
-            requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing = new Amazon.BedrockDataAutomation.Model.ModalityProcessingConfiguration();
-            Amazon.BedrockDataAutomation.State requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing_overrideConfiguration_Audio_ModalityProcessing_State = null;
-            if (cmdletContext.OverrideConfiguration_Audio_ModalityProcessing_State != null)
-            {
-                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing_overrideConfiguration_Audio_ModalityProcessing_State = cmdletContext.OverrideConfiguration_Audio_ModalityProcessing_State;
-            }
-            if (requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing_overrideConfiguration_Audio_ModalityProcessing_State != null)
-            {
-                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing.State = requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing_overrideConfiguration_Audio_ModalityProcessing_State;
-                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessingIsNull = false;
-            }
-             // determine if requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing should be set to null
-            if (requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessingIsNull)
-            {
-                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing = null;
-            }
-            if (requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing != null)
-            {
-                requestOverrideConfiguration_overrideConfiguration_Audio.ModalityProcessing = requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing;
-                requestOverrideConfiguration_overrideConfiguration_AudioIsNull = false;
-            }
-             // determine if requestOverrideConfiguration_overrideConfiguration_Audio should be set to null
-            if (requestOverrideConfiguration_overrideConfiguration_AudioIsNull)
-            {
-                requestOverrideConfiguration_overrideConfiguration_Audio = null;
-            }
-            if (requestOverrideConfiguration_overrideConfiguration_Audio != null)
-            {
-                request.OverrideConfiguration.Audio = requestOverrideConfiguration_overrideConfiguration_Audio;
-                requestOverrideConfigurationIsNull = false;
-            }
             Amazon.BedrockDataAutomation.Model.ImageOverrideConfiguration requestOverrideConfiguration_overrideConfiguration_Image = null;
             
              // populate Image
@@ -798,6 +798,91 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             if (requestOverrideConfiguration_overrideConfiguration_Video != null)
             {
                 request.OverrideConfiguration.Video = requestOverrideConfiguration_overrideConfiguration_Video;
+                requestOverrideConfigurationIsNull = false;
+            }
+            Amazon.BedrockDataAutomation.Model.AudioOverrideConfiguration requestOverrideConfiguration_overrideConfiguration_Audio = null;
+            
+             // populate Audio
+            var requestOverrideConfiguration_overrideConfiguration_AudioIsNull = true;
+            requestOverrideConfiguration_overrideConfiguration_Audio = new Amazon.BedrockDataAutomation.Model.AudioOverrideConfiguration();
+            Amazon.BedrockDataAutomation.Model.ModalityProcessingConfiguration requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing = null;
+            
+             // populate ModalityProcessing
+            var requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessingIsNull = true;
+            requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing = new Amazon.BedrockDataAutomation.Model.ModalityProcessingConfiguration();
+            Amazon.BedrockDataAutomation.State requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing_overrideConfiguration_Audio_ModalityProcessing_State = null;
+            if (cmdletContext.OverrideConfiguration_Audio_ModalityProcessing_State != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing_overrideConfiguration_Audio_ModalityProcessing_State = cmdletContext.OverrideConfiguration_Audio_ModalityProcessing_State;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing_overrideConfiguration_Audio_ModalityProcessing_State != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing.State = requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing_overrideConfiguration_Audio_ModalityProcessing_State;
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessingIsNull = false;
+            }
+             // determine if requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing should be set to null
+            if (requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessingIsNull)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing = null;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio.ModalityProcessing = requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing;
+                requestOverrideConfiguration_overrideConfiguration_AudioIsNull = false;
+            }
+            Amazon.BedrockDataAutomation.Model.AudioLanguageConfiguration requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfiguration = null;
+            
+             // populate LanguageConfiguration
+            var requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfigurationIsNull = true;
+            requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfiguration = new Amazon.BedrockDataAutomation.Model.AudioLanguageConfiguration();
+            Amazon.BedrockDataAutomation.AudioGenerativeOutputLanguage requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfiguration_languageConfiguration_GenerativeOutputLanguage = null;
+            if (cmdletContext.LanguageConfiguration_GenerativeOutputLanguage != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfiguration_languageConfiguration_GenerativeOutputLanguage = cmdletContext.LanguageConfiguration_GenerativeOutputLanguage;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfiguration_languageConfiguration_GenerativeOutputLanguage != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfiguration.GenerativeOutputLanguage = requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfiguration_languageConfiguration_GenerativeOutputLanguage;
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfigurationIsNull = false;
+            }
+            System.Boolean? requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfiguration_languageConfiguration_IdentifyMultipleLanguage = null;
+            if (cmdletContext.LanguageConfiguration_IdentifyMultipleLanguage != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfiguration_languageConfiguration_IdentifyMultipleLanguage = cmdletContext.LanguageConfiguration_IdentifyMultipleLanguage.Value;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfiguration_languageConfiguration_IdentifyMultipleLanguage != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfiguration.IdentifyMultipleLanguages = requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfiguration_languageConfiguration_IdentifyMultipleLanguage.Value;
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfigurationIsNull = false;
+            }
+            List<System.String> requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfiguration_languageConfiguration_InputLanguage = null;
+            if (cmdletContext.LanguageConfiguration_InputLanguage != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfiguration_languageConfiguration_InputLanguage = cmdletContext.LanguageConfiguration_InputLanguage;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfiguration_languageConfiguration_InputLanguage != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfiguration.InputLanguages = requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfiguration_languageConfiguration_InputLanguage;
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfigurationIsNull = false;
+            }
+             // determine if requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfiguration should be set to null
+            if (requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfigurationIsNull)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfiguration = null;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfiguration != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio.LanguageConfiguration = requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfiguration;
+                requestOverrideConfiguration_overrideConfiguration_AudioIsNull = false;
+            }
+             // determine if requestOverrideConfiguration_overrideConfiguration_Audio should be set to null
+            if (requestOverrideConfiguration_overrideConfiguration_AudioIsNull)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio = null;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Audio != null)
+            {
+                request.OverrideConfiguration.Audio = requestOverrideConfiguration_overrideConfiguration_Audio;
                 requestOverrideConfigurationIsNull = false;
             }
             Amazon.BedrockDataAutomation.Model.DocumentOverrideConfiguration requestOverrideConfiguration_overrideConfiguration_Document = null;
@@ -1615,6 +1700,9 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             public List<Amazon.BedrockDataAutomation.Model.BlueprintItem> CustomOutputConfiguration_Blueprint { get; set; }
             public Dictionary<System.String, System.String> EncryptionConfiguration_KmsEncryptionContext { get; set; }
             public System.String EncryptionConfiguration_KmsKeyId { get; set; }
+            public Amazon.BedrockDataAutomation.AudioGenerativeOutputLanguage LanguageConfiguration_GenerativeOutputLanguage { get; set; }
+            public System.Boolean? LanguageConfiguration_IdentifyMultipleLanguage { get; set; }
+            public List<System.String> LanguageConfiguration_InputLanguage { get; set; }
             public Amazon.BedrockDataAutomation.State OverrideConfiguration_Audio_ModalityProcessing_State { get; set; }
             public Amazon.BedrockDataAutomation.State OverrideConfiguration_Document_ModalityProcessing_State { get; set; }
             public Amazon.BedrockDataAutomation.State Splitter_State { get; set; }

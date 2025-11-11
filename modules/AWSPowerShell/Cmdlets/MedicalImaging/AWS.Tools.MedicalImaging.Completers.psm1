@@ -94,6 +94,13 @@ $MIS_Completers = {
             break
         }
 
+        # Amazon.MedicalImaging.LosslessStorageFormat
+        "New-MISDatastore/LosslessStorageFormat"
+        {
+            $v = "HTJ2K","JPEG_2000_LOSSLESS"
+            break
+        }
+
         # Amazon.MedicalImaging.SortField
         "Search-MISImageSet/Sort_SortField"
         {
@@ -119,6 +126,7 @@ $MIS_Completers = {
 $MIS_map = @{
     "DatastoreStatus"=@("Get-MISDatastoreList")
     "JobStatus"=@("Get-MISDICOMImportJobList")
+    "LosslessStorageFormat"=@("New-MISDatastore")
     "Sort_SortField"=@("Search-MISImageSet")
     "Sort_SortOrder"=@("Search-MISImageSet")
 }

@@ -51,6 +51,40 @@ namespace Amazon.PowerShell.Cmdlets.RTB
         public System.String Attributes_CustomerProvidedId { get; set; }
         #endregion
         
+        #region Parameter Sampling_ErrorLog
+        /// <summary>
+        /// <para>
+        /// <para>An error log entry.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("LogSettings_ApplicationLogs_Sampling_ErrorLog")]
+        public System.Double? Sampling_ErrorLog { get; set; }
+        #endregion
+        
+        #region Parameter Sampling_FilterLog
+        /// <summary>
+        /// <para>
+        /// <para>A filter log entry.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("LogSettings_ApplicationLogs_Sampling_FilterLog")]
+        public System.Double? Sampling_FilterLog { get; set; }
+        #endregion
+        
         #region Parameter GatewayId
         /// <summary>
         /// <para>
@@ -174,6 +208,20 @@ namespace Amazon.PowerShell.Cmdlets.RTB
                 WriteWarning("You are passing $null as a value for parameter GatewayId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Sampling_ErrorLog = this.Sampling_ErrorLog;
+            #if MODULAR
+            if (this.Sampling_ErrorLog == null && ParameterWasBound(nameof(this.Sampling_ErrorLog)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Sampling_ErrorLog which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Sampling_FilterLog = this.Sampling_FilterLog;
+            #if MODULAR
+            if (this.Sampling_FilterLog == null && ParameterWasBound(nameof(this.Sampling_FilterLog)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Sampling_FilterLog which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -234,6 +282,65 @@ namespace Amazon.PowerShell.Cmdlets.RTB
             if (cmdletContext.GatewayId != null)
             {
                 request.GatewayId = cmdletContext.GatewayId;
+            }
+            
+             // populate LogSettings
+            var requestLogSettingsIsNull = true;
+            request.LogSettings = new Amazon.RTBFabric.Model.LinkLogSettings();
+            Amazon.RTBFabric.Model.LinkApplicationLogConfiguration requestLogSettings_logSettings_ApplicationLogs = null;
+            
+             // populate ApplicationLogs
+            var requestLogSettings_logSettings_ApplicationLogsIsNull = true;
+            requestLogSettings_logSettings_ApplicationLogs = new Amazon.RTBFabric.Model.LinkApplicationLogConfiguration();
+            Amazon.RTBFabric.Model.LinkApplicationLogSampling requestLogSettings_logSettings_ApplicationLogs_logSettings_ApplicationLogs_Sampling = null;
+            
+             // populate Sampling
+            var requestLogSettings_logSettings_ApplicationLogs_logSettings_ApplicationLogs_SamplingIsNull = true;
+            requestLogSettings_logSettings_ApplicationLogs_logSettings_ApplicationLogs_Sampling = new Amazon.RTBFabric.Model.LinkApplicationLogSampling();
+            System.Double? requestLogSettings_logSettings_ApplicationLogs_logSettings_ApplicationLogs_Sampling_sampling_ErrorLog = null;
+            if (cmdletContext.Sampling_ErrorLog != null)
+            {
+                requestLogSettings_logSettings_ApplicationLogs_logSettings_ApplicationLogs_Sampling_sampling_ErrorLog = cmdletContext.Sampling_ErrorLog.Value;
+            }
+            if (requestLogSettings_logSettings_ApplicationLogs_logSettings_ApplicationLogs_Sampling_sampling_ErrorLog != null)
+            {
+                requestLogSettings_logSettings_ApplicationLogs_logSettings_ApplicationLogs_Sampling.ErrorLog = requestLogSettings_logSettings_ApplicationLogs_logSettings_ApplicationLogs_Sampling_sampling_ErrorLog.Value;
+                requestLogSettings_logSettings_ApplicationLogs_logSettings_ApplicationLogs_SamplingIsNull = false;
+            }
+            System.Double? requestLogSettings_logSettings_ApplicationLogs_logSettings_ApplicationLogs_Sampling_sampling_FilterLog = null;
+            if (cmdletContext.Sampling_FilterLog != null)
+            {
+                requestLogSettings_logSettings_ApplicationLogs_logSettings_ApplicationLogs_Sampling_sampling_FilterLog = cmdletContext.Sampling_FilterLog.Value;
+            }
+            if (requestLogSettings_logSettings_ApplicationLogs_logSettings_ApplicationLogs_Sampling_sampling_FilterLog != null)
+            {
+                requestLogSettings_logSettings_ApplicationLogs_logSettings_ApplicationLogs_Sampling.FilterLog = requestLogSettings_logSettings_ApplicationLogs_logSettings_ApplicationLogs_Sampling_sampling_FilterLog.Value;
+                requestLogSettings_logSettings_ApplicationLogs_logSettings_ApplicationLogs_SamplingIsNull = false;
+            }
+             // determine if requestLogSettings_logSettings_ApplicationLogs_logSettings_ApplicationLogs_Sampling should be set to null
+            if (requestLogSettings_logSettings_ApplicationLogs_logSettings_ApplicationLogs_SamplingIsNull)
+            {
+                requestLogSettings_logSettings_ApplicationLogs_logSettings_ApplicationLogs_Sampling = null;
+            }
+            if (requestLogSettings_logSettings_ApplicationLogs_logSettings_ApplicationLogs_Sampling != null)
+            {
+                requestLogSettings_logSettings_ApplicationLogs.Sampling = requestLogSettings_logSettings_ApplicationLogs_logSettings_ApplicationLogs_Sampling;
+                requestLogSettings_logSettings_ApplicationLogsIsNull = false;
+            }
+             // determine if requestLogSettings_logSettings_ApplicationLogs should be set to null
+            if (requestLogSettings_logSettings_ApplicationLogsIsNull)
+            {
+                requestLogSettings_logSettings_ApplicationLogs = null;
+            }
+            if (requestLogSettings_logSettings_ApplicationLogs != null)
+            {
+                request.LogSettings.ApplicationLogs = requestLogSettings_logSettings_ApplicationLogs;
+                requestLogSettingsIsNull = false;
+            }
+             // determine if request.LogSettings should be set to null
+            if (requestLogSettingsIsNull)
+            {
+                request.LogSettings = null;
             }
             if (cmdletContext.Tag != null)
             {
@@ -304,6 +411,8 @@ namespace Amazon.PowerShell.Cmdlets.RTB
             public List<Amazon.RTBFabric.Model.ResponderErrorMaskingForHttpCode> Attributes_ResponderErrorMasking { get; set; }
             public System.String ClientToken { get; set; }
             public System.String GatewayId { get; set; }
+            public System.Double? Sampling_ErrorLog { get; set; }
+            public System.Double? Sampling_FilterLog { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.RTBFabric.Model.CreateInboundExternalLinkResponse, NewRTBInboundExternalLinkCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

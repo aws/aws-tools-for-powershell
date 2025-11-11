@@ -80,6 +80,16 @@ $BDA_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.BedrockDataAutomation.AudioGenerativeOutputLanguage
+        {
+            ($_ -eq "New-BDADataAutomationProject/LanguageConfiguration_GenerativeOutputLanguage") -Or
+            ($_ -eq "Update-BDADataAutomationProject/LanguageConfiguration_GenerativeOutputLanguage")
+        }
+        {
+            $v = "DEFAULT","EN"
+            break
+        }
+
         # Amazon.BedrockDataAutomation.BlueprintStage
         {
             ($_ -eq "Get-BDADataAutomationProjectList/BlueprintFilter_BlueprintStage") -Or
@@ -209,6 +219,7 @@ $BDA_map = @{
     "BlueprintStage"=@("Get-BDABlueprint","New-BDABlueprint","Update-BDABlueprint")
     "BlueprintStageFilter"=@("Get-BDABlueprintList")
     "ChannelLabeling_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "LanguageConfiguration_GenerativeOutputLanguage"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ModalityRouting_Jpeg"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ModalityRouting_Mov"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ModalityRouting_Mp4"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")

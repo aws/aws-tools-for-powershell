@@ -72,6 +72,17 @@ namespace Amazon.PowerShell.Cmdlets.MIS
         public System.String LambdaAuthorizerArn { get; set; }
         #endregion
         
+        #region Parameter LosslessStorageFormat
+        /// <summary>
+        /// <para>
+        /// <para>The lossless storage format for the datastore.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MedicalImaging.LosslessStorageFormat")]
+        public Amazon.MedicalImaging.LosslessStorageFormat LosslessStorageFormat { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -159,6 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.MIS
             context.DatastoreName = this.DatastoreName;
             context.KmsKeyArn = this.KmsKeyArn;
             context.LambdaAuthorizerArn = this.LambdaAuthorizerArn;
+            context.LosslessStorageFormat = this.LosslessStorageFormat;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -198,6 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.MIS
             if (cmdletContext.LambdaAuthorizerArn != null)
             {
                 request.LambdaAuthorizerArn = cmdletContext.LambdaAuthorizerArn;
+            }
+            if (cmdletContext.LosslessStorageFormat != null)
+            {
+                request.LosslessStorageFormat = cmdletContext.LosslessStorageFormat;
             }
             if (cmdletContext.Tag != null)
             {
@@ -268,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.MIS
             public System.String DatastoreName { get; set; }
             public System.String KmsKeyArn { get; set; }
             public System.String LambdaAuthorizerArn { get; set; }
+            public Amazon.MedicalImaging.LosslessStorageFormat LosslessStorageFormat { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.MedicalImaging.Model.CreateDatastoreResponse, NewMISDatastoreCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
