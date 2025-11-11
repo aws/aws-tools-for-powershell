@@ -49,10 +49,11 @@ namespace Amazon.PowerShell.Common.Internal
         /// </summary>
         /// <param name="createOAuth2TokenResponse">Response received from CreateOAuth2Toke API.</param>
         /// <param name="profileName">Profile which needs to be updated or created.</param>
-        /// <param name="region"></param>
+        /// <param name="region">Region</param>
+        /// <param name="updateRegionInProfile">Boolean flag to indicate if we should update region in profile.</param>
         /// <param name="cancellationToken">CancellationToken</param>
         /// <returns></returns>
-        internal static async Task<bool> UpdateProfileAfterAuthCodeRedemptionAsync(CoreCreateOAuth2TokenResponse createOAuth2TokenResponse, string profileName, string region, CancellationToken cancellationToken = default)
+        internal static async Task<bool> UpdateProfileAfterAuthCodeRedemptionAsync(CoreCreateOAuth2TokenResponse createOAuth2TokenResponse, string profileName, string region, bool updateRegionInProfile = false, CancellationToken cancellationToken = default)
         {
             // Token is persisted in call to CreateOAuth2TokenAsync itself. We can try getting new token persisted in cache
             var loginSession = LoginUtils.ExtractLoginSessionFromIdentityToken(createOAuth2TokenResponse.TokenOutput.IdToken);
@@ -65,7 +66,7 @@ namespace Amazon.PowerShell.Common.Internal
             // If new token was successfully retrieved based on login_session, then update the profile.
             if (tryGetLoginTokenResponse.Success)
             {
-                return UpdateProfile(profileName, loginSession, region);
+                return UpdateProfile(profileName, loginSession, (updateRegionInProfile ? region : null));
             }
             return false;
         }

@@ -67,6 +67,8 @@ namespace Amazon.PowerShell.Common
         private WorkflowSelector _workflowSelector;
         private const string AuthorizeEndpointPath = "/v1/authorize";
         private const string CrossDeviceRedirectUriPath = "/v1/sessions/confirmation";
+        private const string RegionPrompt = "No AWS region has been configured. The AWS region is the geographic location of your AWS resources.\r\n\r\nIf you've used AWS before and already have resources in your account, tell us which region they were created in. If you haven't created resources in your account before, you can pick the region closest to you: https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html\r\n\r\n";
+        private bool promptedForRegion = false; // Flag to indicate if we prompted user for region.
 
         /// <summary>
         /// AWS Region to be used for login.
@@ -113,6 +115,8 @@ namespace Amazon.PowerShell.Common
             WriteVerbose("Executing ProcessRecord().");
             base.ProcessRecord();
 
+            Console.WriteLine($"Use Ctrl+C anytime to cancel the workflow.");
+
             // If ProfileName is not specified, then resolve it using SDK's default profile resolution.
             if (string.IsNullOrWhiteSpace(ProfileName))
             {
@@ -129,8 +133,26 @@ namespace Amazon.PowerShell.Common
             // If Region is not specified, then try to resolve it using SDK's region resolution.
             if (string.IsNullOrWhiteSpace(Region))
             {
-                Region = DetermineRegion(existingProfile);
-                Console.WriteLine($"Using region '{Region}' determined by profile/environment defaults. To override, specify '-Region' parameter.");
+                // Check region set in PowerShell session state first. If found, use that region else try to determine region from defaul profile chain.
+                var regionSetInSession = this.SessionState.PSVariable.Get(SessionKeys.AWSRegionVariableName);
+                if (!string.IsNullOrWhiteSpace(regionSetInSession?.Value.ToString()) && AWSLoginUtils.IsRegionValid(regionSetInSession?.Value.ToString()))
+                {
+                    promptedForRegion = true; // If we have used region set in session, then treat it as a prompt. Later, we need to check for this flag and if existing profile has region set (this could be new profile based on ProfileName).
+                    Region = regionSetInSession.Value.ToString();
+                }
+                else
+                {
+                    Region = DetermineRegion(existingProfile, ref promptedForRegion);
+                }
+
+                if (!promptedForRegion)
+                {
+                    Console.WriteLine($"Using region '{Region}' determined by profile/environment defaults. To override, specify '-Region' parameter.");
+                }
+                else
+                {
+                    Console.WriteLine($"Using region '{Region}'");
+                }
             }
 
             if (Region != null && !AWSLoginUtils.IsRegionValid(Region))
@@ -247,8 +269,8 @@ namespace Amazon.PowerShell.Common
             // Exchange auth code for token
             var exchangeAuthCodeForTokenResponse = await AWSLoginUtils.ExchangeAuthCodeForTokenAsync(signinClient, baseEndpoint, clientId, pkceParameters.CodeVerifier, redirectUri, authCode, _cancellationTokenSource.Token);
 
-            // Process result of CreateOAuth2Token call to update profile with login_session. Token is persisted in call to CreateOAuth2TokenAsync itself by pipeline handler.
-            bool tokenAndProfileProcessed = await AWSLoginUtils.UpdateProfileAfterAuthCodeRedemptionAsync(exchangeAuthCodeForTokenResponse, ProfileName, Region, _cancellationTokenSource.Token);
+            // Process result of CreateOAuth2Token call to update profile with login_session (and if required, with region). Token is persisted in call to CreateOAuth2TokenAsync itself by pipeline handler.
+            bool tokenAndProfileProcessed = await AWSLoginUtils.UpdateProfileAfterAuthCodeRedemptionAsync(exchangeAuthCodeForTokenResponse, ProfileName, Region, ShouldSetRegionInProfile(ProfileName, promptedForRegion), _cancellationTokenSource.Token);
             if (tokenAndProfileProcessed)
             {
                 Console.WriteLine($"Login completed successfully for profile '{ProfileName}'");
@@ -347,8 +369,8 @@ namespace Amazon.PowerShell.Common
             // Exchange auth code for token
             var exchangeAuthCodeForTokenResponse = await AWSLoginUtils.ExchangeAuthCodeForTokenAsync(signinClient, baseEndpoint, clientId, pkceParameters.CodeVerifier, redirectUri, authCode, _cancellationTokenSource.Token);
 
-            // Process result of CreateOAuth2Token call to update profile with login_session. Token is persisted in call to CreateOAuth2TokenAsync itself by pipeline handler.
-            bool tokenAndProfileProcessed = await AWSLoginUtils.UpdateProfileAfterAuthCodeRedemptionAsync(exchangeAuthCodeForTokenResponse, ProfileName, Region, _cancellationTokenSource.Token);
+            // Process result of CreateOAuth2Token call to update profile with login_session (and if required, with region). Token is persisted in call to CreateOAuth2TokenAsync itself by pipeline handler.
+            bool tokenAndProfileProcessed = await AWSLoginUtils.UpdateProfileAfterAuthCodeRedemptionAsync(exchangeAuthCodeForTokenResponse, ProfileName, Region, ShouldSetRegionInProfile(ProfileName, promptedForRegion), _cancellationTokenSource.Token);
             if (tokenAndProfileProcessed)
             {
                 Console.WriteLine($"Login completed successfully for profile '{ProfileName}'");
@@ -399,7 +421,7 @@ namespace Amazon.PowerShell.Common
             }
         }
 
-        private string DetermineRegion(CredentialProfile existingProfile)
+        private string DetermineRegion(CredentialProfile existingProfile, ref bool promptedForRegion)
         {
             // First determine region from existing profile.
             string region = existingProfile?.Region?.SystemName;
@@ -413,17 +435,29 @@ namespace Amazon.PowerShell.Common
             if (string.IsNullOrWhiteSpace(region))
             {
                 region = PromptForRegion(existingProfile?.Region?.SystemName);
+                promptedForRegion = true;
             }
 
             return region;
         }
 
-        private string PromptForRegion(string currentRegion)
+        private bool ShouldSetRegionInProfile(string profileName, bool promptedForRegion)
         {
-            return PromptForInput("No AWS region has been configured. The AWS region is the geographic location of your AWS resources.\r\n\r\nIf you've used AWS before and already have resources in your account, tell us which region they were created in. If you haven't created resources in your account before, you can pick the region closest to you: https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html\r\n\r\nAWS Region", currentRegion, null, AWSLoginUtils.IsRegionValid, true);
+            if (string.IsNullOrWhiteSpace(profileName))
+                throw new ArgumentNullException(nameof(profileName));
+
+            CredentialProfile existingProfile = null;
+            SettingsStore.TryGetProfile(ProfileName, null, out existingProfile); // ProfileName will always have a value whether it is entered by user or determined by environment defaults.
+
+            return (existingProfile?.Region == null && promptedForRegion);
         }
 
-        private string PromptForInput(string fieldDescription, string currentValue, string defaultValue, Func<string, bool> isValueValid, bool optionalInput, string caption = "")
+        private string PromptForRegion(string currentRegion)
+        {
+            return PromptForInput("AWS Region", currentRegion, null, AWSLoginUtils.IsRegionValid, false, "Specify AWS Region", RegionPrompt);
+        }
+
+        private string PromptForInput(string fieldDescription, string currentValue, string defaultValue, Func<string, bool> isValueValid, bool optionalInput, string caption = "", string message = "")
         {
             var displayDefault = currentValue ?? defaultValue;
 
@@ -442,7 +476,7 @@ namespace Amazon.PowerShell.Common
             var descriptions = new Collection<FieldDescription> { new FieldDescription(fieldDescription) };
             while (true)
             {
-                enteredValue = Host.UI.Prompt(caption, "", descriptions).Values.First().ToString().Trim();
+                enteredValue = Host.UI.Prompt(caption, message, descriptions).Values.First().ToString().Trim();
 
                 if (string.IsNullOrEmpty(enteredValue))
                 {
@@ -463,10 +497,13 @@ namespace Amazon.PowerShell.Common
                 }
                 else
                 {
-                    Console.WriteLine($"Invalid input: {enteredValue}");
+                    Console.WriteLine($"Invalid input '{enteredValue}'");
                 }
+
+                // No need to display caption and long message in subsequent prompts.
+                caption = string.Empty;
+                message = string.Empty;
             }
-            ;
 
             return enteredValue;
         }
