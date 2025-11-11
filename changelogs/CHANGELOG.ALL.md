@@ -1,4 +1,17 @@
-﻿### 5.0.94 (2025-11-10 21:19Z)
+﻿### 5.0.95 (2025-11-11 21:06Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.131.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Data Automation for Amazon Bedrock
+    * Modified cmdlet New-BDADataAutomationProject: added parameters LanguageConfiguration_GenerativeOutputLanguage, LanguageConfiguration_IdentifyMultipleLanguage and LanguageConfiguration_InputLanguage.
+    * Modified cmdlet Update-BDADataAutomationProject: added parameters LanguageConfiguration_GenerativeOutputLanguage, LanguageConfiguration_IdentifyMultipleLanguage and LanguageConfiguration_InputLanguage.
+  * Amazon Elastic Compute Cloud
+    * Modified cmdlet New-EC2VpnConnection: added parameter Options_TunnelBandwidth.
+  * Amazon Medical Imaging Service
+    * Modified cmdlet New-MISDatastore: added parameter LosslessStorageFormat.
+  * Amazon RTBFabric
+    * Modified cmdlet New-RTBInboundExternalLink: added parameters Sampling_ErrorLog and Sampling_FilterLog.
+    * Modified cmdlet New-RTBOutboundExternalLink: added parameters Attributes_CustomerProvidedId, Attributes_ResponderErrorMasking, Sampling_ErrorLog and Sampling_FilterLog.
+
+### 5.0.94 (2025-11-10 21:19Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.130.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Backup
     * Modified cmdlet Get-BAKRestoreJobList: added parameter ByParentJobId.

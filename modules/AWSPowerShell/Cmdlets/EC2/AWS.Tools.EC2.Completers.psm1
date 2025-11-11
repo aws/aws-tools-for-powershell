@@ -1360,6 +1360,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.VpnTunnelBandwidth
+        "New-EC2VpnConnection/Options_TunnelBandwidth"
+        {
+            $v = "large","standard"
+            break
+        }
+
 
     }
 
@@ -1470,6 +1477,7 @@ $EC2_map = @{
     "Options_Protocol"=@("New-EC2TransitGatewayConnect")
     "Options_SecurityGroupReferencingSupport"=@("Edit-EC2TransitGateway","Edit-EC2TransitGatewayVpcAttachment","New-EC2TransitGateway","New-EC2TransitGatewayVpcAttachment")
     "Options_StaticSourcesSupport"=@("New-EC2TransitGatewayMulticastDomain")
+    "Options_TunnelBandwidth"=@("New-EC2VpnConnection")
     "Options_TunnelInsideIpVersion"=@("New-EC2VpnConnection")
     "Options_VpnEcmpSupport"=@("Edit-EC2TransitGateway","New-EC2TransitGateway")
     "OutputFormat"=@("New-EC2CapacityManagerDataExport")

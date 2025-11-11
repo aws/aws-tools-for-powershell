@@ -217,6 +217,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Options_TransportTransitGatewayAttachmentId { get; set; }
         #endregion
         
+        #region Parameter Options_TunnelBandwidth
+        /// <summary>
+        /// <para>
+        /// <para> The desired bandwidth specification for the VPN tunnel, used when creating or modifying
+        /// VPN connection options to set the tunnel's throughput capacity. <c>standard</c> supports
+        /// up to 1.25 Gbps per tunnel, while <c>large</c> supports up to 5 Gbps per tunnel. The
+        /// default value is <c>standard</c>. Existing VPN connections without a bandwidth setting
+        /// will automatically default to <c>standard</c>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.VpnTunnelBandwidth")]
+        public Amazon.EC2.VpnTunnelBandwidth Options_TunnelBandwidth { get; set; }
+        #endregion
+        
         #region Parameter Options_TunnelInsideIpVersion
         /// <summary>
         /// <para>
@@ -333,6 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Options_RemoteIpv6NetworkCidr = this.Options_RemoteIpv6NetworkCidr;
             context.Options_StaticRoutesOnly = this.Options_StaticRoutesOnly;
             context.Options_TransportTransitGatewayAttachmentId = this.Options_TransportTransitGatewayAttachmentId;
+            context.Options_TunnelBandwidth = this.Options_TunnelBandwidth;
             context.Options_TunnelInsideIpVersion = this.Options_TunnelInsideIpVersion;
             if (this.Options_TunnelOption != null)
             {
@@ -460,6 +476,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.Options.TransportTransitGatewayAttachmentId = requestOptions_options_TransportTransitGatewayAttachmentId;
                 requestOptionsIsNull = false;
             }
+            Amazon.EC2.VpnTunnelBandwidth requestOptions_options_TunnelBandwidth = null;
+            if (cmdletContext.Options_TunnelBandwidth != null)
+            {
+                requestOptions_options_TunnelBandwidth = cmdletContext.Options_TunnelBandwidth;
+            }
+            if (requestOptions_options_TunnelBandwidth != null)
+            {
+                request.Options.TunnelBandwidth = requestOptions_options_TunnelBandwidth;
+                requestOptionsIsNull = false;
+            }
             Amazon.EC2.TunnelInsideIpVersion requestOptions_options_TunnelInsideIpVersion = null;
             if (cmdletContext.Options_TunnelInsideIpVersion != null)
             {
@@ -570,6 +596,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String Options_RemoteIpv6NetworkCidr { get; set; }
             public System.Boolean? Options_StaticRoutesOnly { get; set; }
             public System.String Options_TransportTransitGatewayAttachmentId { get; set; }
+            public Amazon.EC2.VpnTunnelBandwidth Options_TunnelBandwidth { get; set; }
             public Amazon.EC2.TunnelInsideIpVersion Options_TunnelInsideIpVersion { get; set; }
             public List<Amazon.EC2.Model.VpnTunnelOptionsSpecification> Options_TunnelOption { get; set; }
             public System.String PreSharedKeyStorage { get; set; }
