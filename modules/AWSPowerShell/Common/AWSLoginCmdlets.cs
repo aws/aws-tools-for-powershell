@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Common
             WriteVerbose("Executing ProcessRecord().");
             base.ProcessRecord();
 
-            Console.WriteLine($"Use Ctrl+C anytime to cancel the workflow.");
+            Console.WriteLine($"Press Ctrl+C to cancel the following login prompts.");
 
             // If ProfileName is not specified, then resolve it using SDK's default profile resolution.
             if (string.IsNullOrWhiteSpace(ProfileName))
@@ -262,7 +262,7 @@ namespace Amazon.PowerShell.Common
 
                 if (returnedState != csrfState)
                 {
-                    throw new Exception("State mismatch - possible CSRF attack");
+                    throw new Exception($"State parameter {returnedState} does not match expected value {csrfState}.");
                 }
             }
 
@@ -270,7 +270,12 @@ namespace Amazon.PowerShell.Common
             var exchangeAuthCodeForTokenResponse = await AWSLoginUtils.ExchangeAuthCodeForTokenAsync(signinClient, baseEndpoint, clientId, pkceParameters.CodeVerifier, redirectUri, authCode, _cancellationTokenSource.Token);
 
             // Process result of CreateOAuth2Token call to update profile with login_session (and if required, with region). Token is persisted in call to CreateOAuth2TokenAsync itself by pipeline handler.
-            bool tokenAndProfileProcessed = await AWSLoginUtils.UpdateProfileAfterAuthCodeRedemptionAsync(exchangeAuthCodeForTokenResponse, ProfileName, Region, ShouldSetRegionInProfile(ProfileName, promptedForRegion), _cancellationTokenSource.Token);
+            bool shouldSetRegion = ShouldSetRegionInProfile(ProfileName, promptedForRegion);
+            if (shouldSetRegion)
+            {
+                Console.WriteLine($"Region '{Region}' will be persisted in the profile '{ProfileName}'.");
+            }
+            bool tokenAndProfileProcessed = await AWSLoginUtils.UpdateProfileAfterAuthCodeRedemptionAsync(exchangeAuthCodeForTokenResponse, ProfileName, Region, shouldSetRegion, _cancellationTokenSource.Token);
             if (tokenAndProfileProcessed)
             {
                 Console.WriteLine($"Login completed successfully for profile '{ProfileName}'");
@@ -363,14 +368,19 @@ namespace Amazon.PowerShell.Common
 
             if (returnedState != csrfState)
             {
-                throw new Exception("State mismatch - possible CSRF attack");
+                throw new Exception($"State parameter {returnedState} does not match expected value {csrfState}.");
             }
 
             // Exchange auth code for token
             var exchangeAuthCodeForTokenResponse = await AWSLoginUtils.ExchangeAuthCodeForTokenAsync(signinClient, baseEndpoint, clientId, pkceParameters.CodeVerifier, redirectUri, authCode, _cancellationTokenSource.Token);
 
             // Process result of CreateOAuth2Token call to update profile with login_session (and if required, with region). Token is persisted in call to CreateOAuth2TokenAsync itself by pipeline handler.
-            bool tokenAndProfileProcessed = await AWSLoginUtils.UpdateProfileAfterAuthCodeRedemptionAsync(exchangeAuthCodeForTokenResponse, ProfileName, Region, ShouldSetRegionInProfile(ProfileName, promptedForRegion), _cancellationTokenSource.Token);
+            bool shouldSetRegion = ShouldSetRegionInProfile(ProfileName, promptedForRegion);
+            if (shouldSetRegion)
+            {
+                Console.WriteLine($"Region '{Region}' will be persisted in the profile '{ProfileName}'.");
+            }
+            bool tokenAndProfileProcessed = await AWSLoginUtils.UpdateProfileAfterAuthCodeRedemptionAsync(exchangeAuthCodeForTokenResponse, ProfileName, Region, shouldSetRegion, _cancellationTokenSource.Token);
             if (tokenAndProfileProcessed)
             {
                 Console.WriteLine($"Login completed successfully for profile '{ProfileName}'");
