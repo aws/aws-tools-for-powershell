@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
     /// Describes the specified rules or the rules for the specified listener. You must specify
-    /// either a listener or one or more rules.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// either a listener or rules.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ELB2Rule")]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.Rule")]

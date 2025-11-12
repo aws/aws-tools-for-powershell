@@ -2096,6 +2096,7 @@ $EC2_SelectMap = @{
                "Get-EC2FlowLogsIntegrationTemplate",
                "Get-EC2GroupsForCapacityReservation",
                "Get-EC2HostReservationPurchasePreview",
+               "Get-EC2ImageAncestry",
                "Get-EC2ImageBlockPublicAccessState",
                "Get-EC2InstanceMetadataDefault",
                "Get-EC2InstanceTpmEkPub",

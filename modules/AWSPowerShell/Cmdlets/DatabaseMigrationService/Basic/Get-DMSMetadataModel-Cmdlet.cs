@@ -1,0 +1,244 @@
+/*******************************************************************************
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.DatabaseMigrationService;
+using Amazon.DatabaseMigrationService.Model;
+
+namespace Amazon.PowerShell.Cmdlets.DMS
+{
+    /// <summary>
+    /// Gets detailed information about the specified metadata model, including its definition
+    /// and corresponding converted objects in the target database if applicable.
+    /// </summary>
+    [Cmdlet("Get", "DMSMetadataModel")]
+    [OutputType("Amazon.DatabaseMigrationService.Model.DescribeMetadataModelResponse")]
+    [AWSCmdlet("Calls the AWS Database Migration Service DescribeMetadataModel API operation.", Operation = new[] {"DescribeMetadataModel"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.DescribeMetadataModelResponse))]
+    [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.DescribeMetadataModelResponse",
+        "This cmdlet returns an Amazon.DatabaseMigrationService.Model.DescribeMetadataModelResponse object containing multiple properties."
+    )]
+    public partial class GetDMSMetadataModelCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
+    {
+        
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter MigrationProjectIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The migration project name or Amazon Resource Name (ARN).</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String MigrationProjectIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter Origin
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to retrieve metadata from the source or target tree. Valid values:
+        /// SOURCE | TARGET</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.OriginTypeValue")]
+        public Amazon.DatabaseMigrationService.OriginTypeValue Origin { get; set; }
+        #endregion
+        
+        #region Parameter SelectionRule
+        /// <summary>
+        /// <para>
+        /// <para>The JSON string that specifies which metadata model to retrieve. Only one selection
+        /// rule with "rule-action": "explicit" can be provided. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Selections.html">Selection
+        /// Rules</a> in the DMS User Guide.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("SelectionRules")]
+        public System.String SelectionRule { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DatabaseMigrationService.Model.DescribeMetadataModelResponse).
+        /// Specifying the name of a property of type Amazon.DatabaseMigrationService.Model.DescribeMetadataModelResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            this._AWSSignerType = "v4";
+            base.ProcessRecord();
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.DatabaseMigrationService.Model.DescribeMetadataModelResponse, GetDMSMetadataModelCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            context.MigrationProjectIdentifier = this.MigrationProjectIdentifier;
+            #if MODULAR
+            if (this.MigrationProjectIdentifier == null && ParameterWasBound(nameof(this.MigrationProjectIdentifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter MigrationProjectIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Origin = this.Origin;
+            #if MODULAR
+            if (this.Origin == null && ParameterWasBound(nameof(this.Origin)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Origin which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.SelectionRule = this.SelectionRule;
+            #if MODULAR
+            if (this.SelectionRule == null && ParameterWasBound(nameof(this.SelectionRule)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SelectionRule which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.DatabaseMigrationService.Model.DescribeMetadataModelRequest();
+            
+            if (cmdletContext.MigrationProjectIdentifier != null)
+            {
+                request.MigrationProjectIdentifier = cmdletContext.MigrationProjectIdentifier;
+            }
+            if (cmdletContext.Origin != null)
+            {
+                request.Origin = cmdletContext.Origin;
+            }
+            if (cmdletContext.SelectionRule != null)
+            {
+                request.SelectionRules = cmdletContext.SelectionRule;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.DatabaseMigrationService.Model.DescribeMetadataModelResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.DescribeMetadataModelRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Database Migration Service", "DescribeMetadataModel");
+            try
+            {
+                #if DESKTOP
+                return client.DescribeMetadataModel(request);
+                #elif CORECLR
+                return client.DescribeMetadataModelAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public System.String MigrationProjectIdentifier { get; set; }
+            public Amazon.DatabaseMigrationService.OriginTypeValue Origin { get; set; }
+            public System.String SelectionRule { get; set; }
+            public System.Func<Amazon.DatabaseMigrationService.Model.DescribeMetadataModelResponse, GetDMSMetadataModelCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
+        }
+        
+    }
+}

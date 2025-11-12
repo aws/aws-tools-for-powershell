@@ -29,16 +29,18 @@ namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
     /// The <c>CreateScraper</c> operation creates a scraper to collect metrics. A scraper
-    /// pulls metrics from Prometheus-compatible sources within an Amazon EKS cluster, and
-    /// sends them to your Amazon Managed Service for Prometheus workspace. Scrapers are flexible,
-    /// and can be configured to control what metrics are collected, the frequency of collection,
-    /// what transformations are applied to the metrics, and more.
+    /// pulls metrics from Prometheus-compatible sources and sends them to your Amazon Managed
+    /// Service for Prometheus workspace. You can configure scrapers to collect metrics from
+    /// Amazon EKS clusters, Amazon MSK clusters, or from VPC-based sources that support DNS-based
+    /// service discovery. Scrapers are flexible, and can be configured to control what metrics
+    /// are collected, the frequency of collection, what transformations are applied to the
+    /// metrics, and more.
     /// 
     ///  
     /// <para>
     /// An IAM role will be created for you that Amazon Managed Service for Prometheus uses
-    /// to access the metrics in your cluster. You must configure this role with a policy
-    /// that allows it to scrape metrics from your cluster. For more information, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-eks-setup">Configuring
+    /// to access the metrics in your source. You must configure this role with a policy that
+    /// allows it to scrape metrics from your source. For Amazon EKS sources, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-eks-setup">Configuring
     /// your Amazon EKS cluster</a> in the <i>Amazon Managed Service for Prometheus User Guide</i>.
     /// </para><para>
     /// The <c>scrapeConfiguration</c> parameter contains the base-64 encoded YAML configuration
@@ -46,8 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
     /// </para><para>
     /// When creating a scraper, the service creates a <c>Network Interface</c> in each <b>Availability
     /// Zone</b> that are passed into <c>CreateScraper</c> through subnets. These network
-    /// interfaces are used to connect to the Amazon EKS cluster within the VPC for scraping
-    /// metrics.
+    /// interfaces are used to connect to your source within the VPC for scraping metrics.
     /// </para><note><para>
     /// For more information about collectors, including what metrics are collected, and how
     /// to configure the scraper, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html">Using
@@ -111,6 +112,19 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         public System.String[] EksConfiguration_SecurityGroupId { get; set; }
         #endregion
         
+        #region Parameter VpcConfiguration_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The security group IDs that control network access for the Prometheus collector. These
+        /// security groups must allow the collector to communicate with your Amazon MSK cluster
+        /// on the required ports.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Source_VpcConfiguration_SecurityGroupIds")]
+        public System.String[] VpcConfiguration_SecurityGroupId { get; set; }
+        #endregion
+        
         #region Parameter RoleConfiguration_SourceRoleArn
         /// <summary>
         /// <para>
@@ -132,6 +146,19 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Source_EksConfiguration_SubnetIds")]
         public System.String[] EksConfiguration_SubnetId { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfiguration_SubnetId
+        /// <summary>
+        /// <para>
+        /// <para>The subnet IDs where the Prometheus collector will be deployed. The subnets must be
+        /// in the same Amazon VPC as your Amazon MSK cluster and have network connectivity to
+        /// the cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Source_VpcConfiguration_SubnetIds")]
+        public System.String[] VpcConfiguration_SubnetId { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -256,6 +283,14 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             {
                 context.EksConfiguration_SubnetId = new List<System.String>(this.EksConfiguration_SubnetId);
             }
+            if (this.VpcConfiguration_SecurityGroupId != null)
+            {
+                context.VpcConfiguration_SecurityGroupId = new List<System.String>(this.VpcConfiguration_SecurityGroupId);
+            }
+            if (this.VpcConfiguration_SubnetId != null)
+            {
+                context.VpcConfiguration_SubnetId = new List<System.String>(this.VpcConfiguration_SubnetId);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -379,6 +414,41 @@ namespace Amazon.PowerShell.Cmdlets.PROM
                  // populate Source
                 var requestSourceIsNull = true;
                 request.Source = new Amazon.PrometheusService.Model.Source();
+                Amazon.PrometheusService.Model.VpcConfiguration requestSource_source_VpcConfiguration = null;
+                
+                 // populate VpcConfiguration
+                var requestSource_source_VpcConfigurationIsNull = true;
+                requestSource_source_VpcConfiguration = new Amazon.PrometheusService.Model.VpcConfiguration();
+                List<System.String> requestSource_source_VpcConfiguration_vpcConfiguration_SecurityGroupId = null;
+                if (cmdletContext.VpcConfiguration_SecurityGroupId != null)
+                {
+                    requestSource_source_VpcConfiguration_vpcConfiguration_SecurityGroupId = cmdletContext.VpcConfiguration_SecurityGroupId;
+                }
+                if (requestSource_source_VpcConfiguration_vpcConfiguration_SecurityGroupId != null)
+                {
+                    requestSource_source_VpcConfiguration.SecurityGroupIds = requestSource_source_VpcConfiguration_vpcConfiguration_SecurityGroupId;
+                    requestSource_source_VpcConfigurationIsNull = false;
+                }
+                List<System.String> requestSource_source_VpcConfiguration_vpcConfiguration_SubnetId = null;
+                if (cmdletContext.VpcConfiguration_SubnetId != null)
+                {
+                    requestSource_source_VpcConfiguration_vpcConfiguration_SubnetId = cmdletContext.VpcConfiguration_SubnetId;
+                }
+                if (requestSource_source_VpcConfiguration_vpcConfiguration_SubnetId != null)
+                {
+                    requestSource_source_VpcConfiguration.SubnetIds = requestSource_source_VpcConfiguration_vpcConfiguration_SubnetId;
+                    requestSource_source_VpcConfigurationIsNull = false;
+                }
+                 // determine if requestSource_source_VpcConfiguration should be set to null
+                if (requestSource_source_VpcConfigurationIsNull)
+                {
+                    requestSource_source_VpcConfiguration = null;
+                }
+                if (requestSource_source_VpcConfiguration != null)
+                {
+                    request.Source.VpcConfiguration = requestSource_source_VpcConfiguration;
+                    requestSourceIsNull = false;
+                }
                 Amazon.PrometheusService.Model.EksConfiguration requestSource_source_EksConfiguration = null;
                 
                  // populate EksConfiguration
@@ -511,6 +581,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             public System.String EksConfiguration_ClusterArn { get; set; }
             public List<System.String> EksConfiguration_SecurityGroupId { get; set; }
             public List<System.String> EksConfiguration_SubnetId { get; set; }
+            public List<System.String> VpcConfiguration_SecurityGroupId { get; set; }
+            public List<System.String> VpcConfiguration_SubnetId { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.PrometheusService.Model.CreateScraperResponse, NewPROMScraperCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

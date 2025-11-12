@@ -32,8 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.PROM
     /// is associated with exactly one rules file. A workspace can have multiple rule groups
     /// namespaces.
     /// 
-    ///  
-    /// <para>
+    ///  <important><para>
+    /// The combined length of a rule group namespace and a rule group name cannot exceed
+    /// 721 UTF-8 bytes.
+    /// </para></important><para>
     /// Use this operation only to update existing rule groups namespaces. To create a new
     /// rule groups namespace, use <c>CreateRuleGroupsNamespace</c>.
     /// </para><para>

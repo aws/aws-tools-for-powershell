@@ -9192,6 +9192,10 @@ Set-Alias -Name DMS-ApplyPendingMaintenanceAction -Value Complete-DMSPendingMain
 Set-Alias -Name Batch-DMSStartRecommendations -Value Start-DMSBatchRecommendation
 Set-Alias -Name Batch-DMSBatchRecommendation -Value Start-DMSBatchRecommendation
 Set-Alias -Name DMS-BatchStartRecommendations -Value Start-DMSBatchRecommendation
+Set-Alias -Name Cancel-DMSMetadataModelConversion -Value Stop-DMSMetadataModelConversion
+Set-Alias -Name DMS-CancelMetadataModelConversion -Value Stop-DMSMetadataModelConversion
+Set-Alias -Name Cancel-DMSMetadataModelCreation -Value Stop-DMSMetadataModelCreation
+Set-Alias -Name DMS-CancelMetadataModelCreation -Value Stop-DMSMetadataModelCreation
 Set-Alias -Name Cancel-DMSReplicationTaskAssessmentRun -Value Stop-DMSReplicationTaskAssessmentRun
 Set-Alias -Name DMS-CancelReplicationTaskAssessmentRun -Value Stop-DMSReplicationTaskAssessmentRun
 Set-Alias -Name Create-DMSDataMigration -Value New-DMSDataMigration
@@ -9310,9 +9314,17 @@ Set-Alias -Name DMS-DescribeInstanceProfiles -Value Get-DMSInstanceProfile
 Set-Alias -Name Describe-DMSMetadataModelAssessments -Value Get-DMSMetadataModelAssessment
 Set-Alias -Name Describe-DMSMetadataModelAssessment -Value Get-DMSMetadataModelAssessment
 Set-Alias -Name DMS-DescribeMetadataModelAssessments -Value Get-DMSMetadataModelAssessment
+Set-Alias -Name Describe-DMSMetadataModel -Value Get-DMSMetadataModel
+Set-Alias -Name DMS-DescribeMetadataModel -Value Get-DMSMetadataModel
+Set-Alias -Name Describe-DMSMetadataModelChildren -Value Get-DMSMetadataModelChild
+Set-Alias -Name Describe-DMSMetadataModelChild -Value Get-DMSMetadataModelChild
+Set-Alias -Name DMS-DescribeMetadataModelChildren -Value Get-DMSMetadataModelChild
 Set-Alias -Name Describe-DMSMetadataModelConversions -Value Get-DMSMetadataModelConversion
 Set-Alias -Name Describe-DMSMetadataModelConversion -Value Get-DMSMetadataModelConversion
 Set-Alias -Name DMS-DescribeMetadataModelConversions -Value Get-DMSMetadataModelConversion
+Set-Alias -Name Describe-DMSMetadataModelCreations -Value Get-DMSMetadataModelCreation
+Set-Alias -Name Describe-DMSMetadataModelCreation -Value Get-DMSMetadataModelCreation
+Set-Alias -Name DMS-DescribeMetadataModelCreations -Value Get-DMSMetadataModelCreation
 Set-Alias -Name Describe-DMSMetadataModelExportsAsScript -Value Get-DMSMetadataModelExportsAsScript
 Set-Alias -Name DMS-DescribeMetadataModelExportsAsScript -Value Get-DMSMetadataModelExportsAsScript
 Set-Alias -Name Describe-DMSMetadataModelExportsToTarget -Value Get-DMSMetadataModelExportsToTarget
@@ -9374,6 +9386,8 @@ Set-Alias -Name Describe-DMSTableStatistics -Value Get-DMSTableStatistic
 Set-Alias -Name Describe-DMSTableStatistic -Value Get-DMSTableStatistic
 Set-Alias -Name DMS-DescribeTableStatistics -Value Get-DMSTableStatistic
 Set-Alias -Name DMS-ExportMetadataModelAssessment -Value Export-DMSMetadataModelAssessment
+Set-Alias -Name Get-DMSTargetSelectionRules -Value Get-DMSTargetSelectionRule
+Set-Alias -Name DMS-GetTargetSelectionRules -Value Get-DMSTargetSelectionRule
 Set-Alias -Name DMS-ImportCertificate -Value Import-DMSCertificate
 Set-Alias -Name DMS-ListTagsForResource -Value Get-DMSResourceTag
 Set-Alias -Name Modify-DMSConversionConfiguration -Value Edit-DMSConversionConfiguration
@@ -9418,6 +9432,7 @@ Set-Alias -Name DMS-StartDataMigration -Value Start-DMSDataMigration
 Set-Alias -Name DMS-StartExtensionPackAssociation -Value Start-DMSExtensionPackAssociation
 Set-Alias -Name DMS-StartMetadataModelAssessment -Value Start-DMSMetadataModelAssessment
 Set-Alias -Name DMS-StartMetadataModelConversion -Value Start-DMSMetadataModelConversion
+Set-Alias -Name DMS-StartMetadataModelCreation -Value Start-DMSMetadataModelCreation
 Set-Alias -Name DMS-StartMetadataModelExportAsScript -Value Start-DMSMetadataModelExportAsScript
 Set-Alias -Name DMS-StartMetadataModelExportToTarget -Value Start-DMSMetadataModelExportToTarget
 Set-Alias -Name DMS-StartMetadataModelImport -Value Start-DMSMetadataModelImport
@@ -11116,6 +11131,7 @@ Set-Alias -Name EC2-GetEbsEncryptionByDefault -Value Get-EC2EbsEncryptionByDefau
 Set-Alias -Name EC2-GetFlowLogsIntegrationTemplate -Value Get-EC2FlowLogsIntegrationTemplate
 Set-Alias -Name EC2-GetGroupsForCapacityReservation -Value Get-EC2GroupsForCapacityReservation
 Set-Alias -Name EC2-GetHostReservationPurchasePreview -Value Get-EC2HostReservationPurchasePreview
+Set-Alias -Name EC2-GetImageAncestry -Value Get-EC2ImageAncestry
 Set-Alias -Name EC2-GetImageBlockPublicAccessState -Value Get-EC2ImageBlockPublicAccessState
 Set-Alias -Name Get-EC2InstanceMetadataDefaults -Value Get-EC2InstanceMetadataDefault
 Set-Alias -Name EC2-GetInstanceMetadataDefaults -Value Get-EC2InstanceMetadataDefault
@@ -26065,6 +26081,7 @@ Set-Alias -Name RS-FailoverPrimaryCompute -Value Start-RSFailoverPrimaryCompute
 Set-Alias -Name Get-RSClusterCredentials -Value Get-RSClusterCredential
 Set-Alias -Name RS-GetClusterCredentials -Value Get-RSClusterCredential
 Set-Alias -Name RS-GetClusterCredentialsWithIAM -Value Get-RSClusterCredentialsWithIAM
+Set-Alias -Name RS-GetIdentityCenterAuthToken -Value Get-RSIdentityCenterAuthToken
 Set-Alias -Name Get-RSReservedNodeExchangeConfigurationOptions -Value Get-RSReservedNodeExchangeConfigurationOption
 Set-Alias -Name RS-GetReservedNodeExchangeConfigurationOptions -Value Get-RSReservedNodeExchangeConfigurationOption
 Set-Alias -Name Get-RSReservedNodeExchangeOfferings -Value Get-RSReservedNodeExchangeOffering
@@ -27517,6 +27534,8 @@ Set-Alias -Name Delete-S3TTableBucket -Value Remove-S3TTableBucket
 Set-Alias -Name S3T-DeleteTableBucket -Value Remove-S3TTableBucket
 Set-Alias -Name Delete-S3TTableBucketEncryption -Value Remove-S3TTableBucketEncryption
 Set-Alias -Name S3T-DeleteTableBucketEncryption -Value Remove-S3TTableBucketEncryption
+Set-Alias -Name Delete-S3TTableBucketMetricsConfiguration -Value Remove-S3TTableBucketMetricsConfiguration
+Set-Alias -Name S3T-DeleteTableBucketMetricsConfiguration -Value Remove-S3TTableBucketMetricsConfiguration
 Set-Alias -Name Delete-S3TTableBucketPolicy -Value Remove-S3TTableBucketPolicy
 Set-Alias -Name S3T-DeleteTableBucketPolicy -Value Remove-S3TTableBucketPolicy
 Set-Alias -Name Delete-S3TTablePolicy -Value Remove-S3TTablePolicy
@@ -27526,6 +27545,7 @@ Set-Alias -Name S3T-GetTable -Value Get-S3TTable
 Set-Alias -Name S3T-GetTableBucket -Value Get-S3TTableBucket
 Set-Alias -Name S3T-GetTableBucketEncryption -Value Get-S3TTableBucketEncryption
 Set-Alias -Name S3T-GetTableBucketMaintenanceConfiguration -Value Get-S3TTableBucketMaintenanceConfiguration
+Set-Alias -Name S3T-GetTableBucketMetricsConfiguration -Value Get-S3TTableBucketMetricsConfiguration
 Set-Alias -Name S3T-GetTableBucketPolicy -Value Get-S3TTableBucketPolicy
 Set-Alias -Name S3T-GetTableEncryption -Value Get-S3TTableEncryption
 Set-Alias -Name S3T-GetTableMaintenanceConfiguration -Value Get-S3TTableMaintenanceConfiguration
@@ -27546,6 +27566,8 @@ Set-Alias -Name Put-S3TTableBucketEncryption -Value Write-S3TTableBucketEncrypti
 Set-Alias -Name S3T-PutTableBucketEncryption -Value Write-S3TTableBucketEncryption
 Set-Alias -Name Put-S3TTableBucketMaintenanceConfiguration -Value Write-S3TTableBucketMaintenanceConfiguration
 Set-Alias -Name S3T-PutTableBucketMaintenanceConfiguration -Value Write-S3TTableBucketMaintenanceConfiguration
+Set-Alias -Name Put-S3TTableBucketMetricsConfiguration -Value Write-S3TTableBucketMetricsConfiguration
+Set-Alias -Name S3T-PutTableBucketMetricsConfiguration -Value Write-S3TTableBucketMetricsConfiguration
 Set-Alias -Name Put-S3TTableBucketPolicy -Value Write-S3TTableBucketPolicy
 Set-Alias -Name S3T-PutTableBucketPolicy -Value Write-S3TTableBucketPolicy
 Set-Alias -Name Put-S3TTableMaintenanceConfiguration -Value Write-S3TTableMaintenanceConfiguration

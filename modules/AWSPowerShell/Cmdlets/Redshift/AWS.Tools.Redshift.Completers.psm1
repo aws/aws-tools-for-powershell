@@ -352,6 +352,7 @@ $RS_SelectMap = @{
                "Start-RSFailoverPrimaryCompute",
                "Get-RSClusterCredential",
                "Get-RSClusterCredentialsWithIAM",
+               "Get-RSIdentityCenterAuthToken",
                "Get-RSReservedNodeExchangeConfigurationOption",
                "Get-RSReservedNodeExchangeOffering",
                "Get-RSResourcePolicy",
