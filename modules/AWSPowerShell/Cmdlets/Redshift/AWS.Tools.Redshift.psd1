@@ -144,6 +144,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-RSEventSubscription', 
         'Get-RSHsmClientCertificate', 
         'Get-RSHsmConfiguration', 
+        'Get-RSIdentityCenterAuthToken', 
         'Get-RSInboundIntegration', 
         'Get-RSIntegration', 
         'Get-RSLoggingStatus', 

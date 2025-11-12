@@ -24842,6 +24842,8 @@ $DMS_Completers = {
 
         # Amazon.DatabaseMigrationService.OriginTypeValue
         {
+            ($_ -eq "Get-DMSMetadataModel/Origin") -Or
+            ($_ -eq "Get-DMSMetadataModelChild/Origin") -Or
             ($_ -eq "Start-DMSMetadataModelExportAsScript/Origin") -Or
             ($_ -eq "Start-DMSMetadataModelImport/Origin")
         }
@@ -25020,7 +25022,7 @@ $DMS_map = @{
     "OracleSettings_AuthenticationMethod"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "OracleSettings_CharLengthSemantic"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "OracleSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
-    "Origin"=@("Start-DMSMetadataModelExportAsScript","Start-DMSMetadataModelImport")
+    "Origin"=@("Get-DMSMetadataModel","Get-DMSMetadataModelChild","Start-DMSMetadataModelExportAsScript","Start-DMSMetadataModelImport")
     "PostgreSQLSettings_AuthenticationMethod"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "PostgreSQLSettings_DatabaseMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "PostgreSQLSettings_MapLongVarcharAs"=@("Edit-DMSEndpoint","New-DMSEndpoint")
@@ -25098,6 +25100,8 @@ $DMS_SelectMap = @{
     "Select"=@("Set-DMSResourceTag",
                "Complete-DMSPendingMaintenanceAction",
                "Start-DMSBatchRecommendation",
+               "Stop-DMSMetadataModelConversion",
+               "Stop-DMSMetadataModelCreation",
                "Stop-DMSReplicationTaskAssessmentRun",
                "New-DMSDataMigration",
                "New-DMSDataProvider",
@@ -25146,8 +25150,11 @@ $DMS_SelectMap = @{
                "Get-DMSFleetAdvisorSchemaObjectSummary",
                "Get-DMSFleetAdvisorSchema",
                "Get-DMSInstanceProfile",
+               "Get-DMSMetadataModel",
                "Get-DMSMetadataModelAssessment",
+               "Get-DMSMetadataModelChild",
                "Get-DMSMetadataModelConversion",
+               "Get-DMSMetadataModelCreation",
                "Get-DMSMetadataModelExportsAsScript",
                "Get-DMSMetadataModelExportsToTarget",
                "Get-DMSMetadataModelImport",
@@ -25170,6 +25177,7 @@ $DMS_SelectMap = @{
                "Get-DMSSchema",
                "Get-DMSTableStatistic",
                "Export-DMSMetadataModelAssessment",
+               "Get-DMSTargetSelectionRule",
                "Import-DMSCertificate",
                "Get-DMSResourceTag",
                "Edit-DMSConversionConfiguration",
@@ -25194,6 +25202,7 @@ $DMS_SelectMap = @{
                "Start-DMSExtensionPackAssociation",
                "Start-DMSMetadataModelAssessment",
                "Start-DMSMetadataModelConversion",
+               "Start-DMSMetadataModelCreation",
                "Start-DMSMetadataModelExportAsScript",
                "Start-DMSMetadataModelExportToTarget",
                "Start-DMSMetadataModelImport",
@@ -28678,6 +28687,7 @@ $EC2_SelectMap = @{
                "Get-EC2FlowLogsIntegrationTemplate",
                "Get-EC2GroupsForCapacityReservation",
                "Get-EC2HostReservationPurchasePreview",
+               "Get-EC2ImageAncestry",
                "Get-EC2ImageBlockPublicAccessState",
                "Get-EC2InstanceMetadataDefault",
                "Get-EC2InstanceTpmEkPub",
@@ -64624,6 +64634,7 @@ $RS_SelectMap = @{
                "Start-RSFailoverPrimaryCompute",
                "Get-RSClusterCredential",
                "Get-RSClusterCredentialsWithIAM",
+               "Get-RSIdentityCenterAuthToken",
                "Get-RSReservedNodeExchangeConfigurationOption",
                "Get-RSReservedNodeExchangeOffering",
                "Get-RSResourcePolicy",
@@ -68446,6 +68457,7 @@ $S3T_SelectMap = @{
                "Remove-S3TTable",
                "Remove-S3TTableBucket",
                "Remove-S3TTableBucketEncryption",
+               "Remove-S3TTableBucketMetricsConfiguration",
                "Remove-S3TTableBucketPolicy",
                "Remove-S3TTablePolicy",
                "Get-S3TNamespace",
@@ -68453,6 +68465,7 @@ $S3T_SelectMap = @{
                "Get-S3TTableBucket",
                "Get-S3TTableBucketEncryption",
                "Get-S3TTableBucketMaintenanceConfiguration",
+               "Get-S3TTableBucketMetricsConfiguration",
                "Get-S3TTableBucketPolicy",
                "Get-S3TTableEncryption",
                "Get-S3TTableMaintenanceConfiguration",
@@ -68465,6 +68478,7 @@ $S3T_SelectMap = @{
                "Get-S3TResourceTag",
                "Write-S3TTableBucketEncryption",
                "Write-S3TTableBucketMaintenanceConfiguration",
+               "Write-S3TTableBucketMetricsConfiguration",
                "Write-S3TTableBucketPolicy",
                "Write-S3TTableMaintenanceConfiguration",
                "Write-S3TTablePolicy",

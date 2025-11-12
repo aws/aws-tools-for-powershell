@@ -1,4 +1,27 @@
-﻿### 5.0.95 (2025-11-11 21:06Z)
+﻿### 5.0.96 (2025-11-12 21:48Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.132.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Modified cmdlet Update-CONNAuthenticationProfile: added parameters SessionInactivityDuration and SessionInactivityHandlingEnabled.
+  * Amazon Database Migration Service
+    * Added cmdlet Get-DMSMetadataModel leveraging the DescribeMetadataModel service API.
+    * Added cmdlet Get-DMSMetadataModelChild leveraging the DescribeMetadataModelChildren service API.
+    * Added cmdlet Get-DMSMetadataModelCreation leveraging the DescribeMetadataModelCreations service API.
+    * Added cmdlet Get-DMSTargetSelectionRule leveraging the GetTargetSelectionRules service API.
+    * Added cmdlet Start-DMSMetadataModelCreation leveraging the StartMetadataModelCreation service API.
+    * Added cmdlet Stop-DMSMetadataModelConversion leveraging the CancelMetadataModelConversion service API.
+    * Added cmdlet Stop-DMSMetadataModelCreation leveraging the CancelMetadataModelCreation service API.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Get-EC2ImageAncestry leveraging the GetImageAncestry service API.
+  * Amazon Prometheus Service
+    * Modified cmdlet New-PROMScraper: added parameters VpcConfiguration_SecurityGroupId and VpcConfiguration_SubnetId.
+  * Amazon Redshift
+    * Added cmdlet Get-RSIdentityCenterAuthToken leveraging the GetIdentityCenterAuthToken service API.
+  * Amazon S3 Tables
+    * Added cmdlet Get-S3TTableBucketMetricsConfiguration leveraging the GetTableBucketMetricsConfiguration service API.
+    * Added cmdlet Remove-S3TTableBucketMetricsConfiguration leveraging the DeleteTableBucketMetricsConfiguration service API.
+    * Added cmdlet Write-S3TTableBucketMetricsConfiguration leveraging the PutTableBucketMetricsConfiguration service API.
+
+### 5.0.95 (2025-11-11 21:06Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.131.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Data Automation for Amazon Bedrock
     * Modified cmdlet New-BDADataAutomationProject: added parameters LanguageConfiguration_GenerativeOutputLanguage, LanguageConfiguration_IdentifyMultipleLanguage and LanguageConfiguration_InputLanguage.

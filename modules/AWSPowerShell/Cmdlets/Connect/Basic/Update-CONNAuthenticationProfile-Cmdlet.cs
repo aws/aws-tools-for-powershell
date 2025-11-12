@@ -141,6 +141,27 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter SessionInactivityDuration
+        /// <summary>
+        /// <para>
+        /// <para>The period, in minutes, before an agent is automatically signed out of the contact
+        /// center when they go inactive.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? SessionInactivityDuration { get; set; }
+        #endregion
+        
+        #region Parameter SessionInactivityHandlingEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Determines if automatic logout on user inactivity is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SessionInactivityHandlingEnabled { get; set; }
+        #endregion
+        
         #region Parameter PeriodicSessionDuration
         /// <summary>
         /// <para>
@@ -149,8 +170,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// For more information, For more information on how to configure IP addresses, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-session-timeouts">Configure
         /// session timeouts</a> in the <i>Amazon Connect Administrator Guide</i>. </para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("PeriodicSessionDuration is deprecated. Use SessionInactivityDuration instead.")]
         public System.Int32? PeriodicSessionDuration { get; set; }
         #endregion
         
@@ -223,7 +246,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             #endif
             context.Name = this.Name;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.PeriodicSessionDuration = this.PeriodicSessionDuration;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.SessionInactivityDuration = this.SessionInactivityDuration;
+            context.SessionInactivityHandlingEnabled = this.SessionInactivityHandlingEnabled;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -264,9 +291,19 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 request.Name = cmdletContext.Name;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.PeriodicSessionDuration != null)
             {
                 request.PeriodicSessionDuration = cmdletContext.PeriodicSessionDuration.Value;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.SessionInactivityDuration != null)
+            {
+                request.SessionInactivityDuration = cmdletContext.SessionInactivityDuration.Value;
+            }
+            if (cmdletContext.SessionInactivityHandlingEnabled != null)
+            {
+                request.SessionInactivityHandlingEnabled = cmdletContext.SessionInactivityHandlingEnabled.Value;
             }
             
             CmdletOutput output;
@@ -329,7 +366,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String Description { get; set; }
             public System.String InstanceId { get; set; }
             public System.String Name { get; set; }
+            [System.ObsoleteAttribute]
             public System.Int32? PeriodicSessionDuration { get; set; }
+            public System.Int32? SessionInactivityDuration { get; set; }
+            public System.Boolean? SessionInactivityHandlingEnabled { get; set; }
             public System.Func<Amazon.Connect.Model.UpdateAuthenticationProfileResponse, UpdateCONNAuthenticationProfileCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

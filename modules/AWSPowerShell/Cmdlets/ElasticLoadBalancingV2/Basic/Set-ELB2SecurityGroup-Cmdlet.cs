@@ -59,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>Indicates whether to evaluate inbound security group rules for traffic sent to a Network
-        /// Load Balancer through Amazon Web Services PrivateLink. The default is <c>on</c>.</para>
+        /// Load Balancer through Amazon Web Services PrivateLink. Applies only if the load balancer
+        /// has an associated security group. The default is <c>on</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

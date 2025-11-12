@@ -1,0 +1,216 @@
+/*******************************************************************************
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using System.Threading;
+using Amazon.DatabaseMigrationService;
+using Amazon.DatabaseMigrationService.Model;
+
+#pragma warning disable CS0618, CS0612
+namespace Amazon.PowerShell.Cmdlets.DMS
+{
+    /// <summary>
+    /// Converts source selection rules into their target counterparts for schema conversion
+    /// operations.
+    /// </summary>
+    [Cmdlet("Get", "DMSTargetSelectionRule")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Database Migration Service GetTargetSelectionRules API operation.", Operation = new[] {"GetTargetSelectionRules"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.GetTargetSelectionRulesResponse))]
+    [AWSCmdletOutput("System.String or Amazon.DatabaseMigrationService.Model.GetTargetSelectionRulesResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.DatabaseMigrationService.Model.GetTargetSelectionRulesResponse) can be returned by specifying '-Select *'."
+    )]
+    public partial class GetDMSTargetSelectionRuleCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
+    {
+        
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter MigrationProjectIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The migration project name or Amazon Resource Name (ARN).</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String MigrationProjectIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter SelectionRule
+        /// <summary>
+        /// <para>
+        /// <para>The JSON string representing the source selection rules for conversion. Selection
+        /// rules must contain only supported metadata model types. For more information, see
+        /// Selection Rules in the DMS User Guide.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("SelectionRules")]
+        public System.String SelectionRule { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'TargetSelectionRules'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DatabaseMigrationService.Model.GetTargetSelectionRulesResponse).
+        /// Specifying the name of a property of type Amazon.DatabaseMigrationService.Model.GetTargetSelectionRulesResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "TargetSelectionRules";
+        #endregion
+        
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.DatabaseMigrationService.Model.GetTargetSelectionRulesResponse, GetDMSTargetSelectionRuleCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            context.MigrationProjectIdentifier = this.MigrationProjectIdentifier;
+            #if MODULAR
+            if (this.MigrationProjectIdentifier == null && ParameterWasBound(nameof(this.MigrationProjectIdentifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter MigrationProjectIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.SelectionRule = this.SelectionRule;
+            #if MODULAR
+            if (this.SelectionRule == null && ParameterWasBound(nameof(this.SelectionRule)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SelectionRule which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.DatabaseMigrationService.Model.GetTargetSelectionRulesRequest();
+            
+            if (cmdletContext.MigrationProjectIdentifier != null)
+            {
+                request.MigrationProjectIdentifier = cmdletContext.MigrationProjectIdentifier;
+            }
+            if (cmdletContext.SelectionRule != null)
+            {
+                request.SelectionRules = cmdletContext.SelectionRule;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.DatabaseMigrationService.Model.GetTargetSelectionRulesResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.GetTargetSelectionRulesRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Database Migration Service", "GetTargetSelectionRules");
+            try
+            {
+                return client.GetTargetSelectionRulesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public System.String MigrationProjectIdentifier { get; set; }
+            public System.String SelectionRule { get; set; }
+            public System.Func<Amazon.DatabaseMigrationService.Model.GetTargetSelectionRulesResponse, GetDMSTargetSelectionRuleCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.TargetSelectionRules;
+        }
+        
+    }
+}

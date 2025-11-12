@@ -2173,6 +2173,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetImageAncestry" OutputProperty="ImageAncestryEntries" Verb="Get" Noun="ImageAncestry" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetImageBlockPublicAccessState" OutputProperty="ImageBlockPublicAccessState" Verb="Get" Noun="ImageBlockPublicAccessState" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

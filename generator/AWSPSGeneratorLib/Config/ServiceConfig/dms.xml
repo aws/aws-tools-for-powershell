@@ -33,6 +33,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelMetadataModelConversion" OutputProperty="Request" Verb="Stop" Noun="MetadataModelConversion" ShouldProcessTarget="MigrationProjectIdentifier,RequestIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelMetadataModelCreation" OutputProperty="Request" Verb="Stop" Noun="MetadataModelCreation" ShouldProcessTarget="MigrationProjectIdentifier,RequestIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelReplicationTaskAssessmentRun" OutputProperty="ReplicationTaskAssessmentRun" Verb="Stop" Noun="ReplicationTaskAssessmentRun" ShouldProcessTarget="ReplicationTaskAssessmentRunArn" PipelineParameter="ReplicationTaskAssessmentRunArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -149,11 +157,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCertificates" OutputProperty="Certificates" Verb="Get" Noun="Certificate" PipelineParameter="Filters" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeCertificates" OutputProperty="Certificates" Verb="Get" Noun="Certificate" PipelineParameter="Filters" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConnections" OutputProperty="Connections" Verb="Get" Noun="Connection" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeConnections" OutputProperty="Connections" Verb="Get" Noun="Connection" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -169,7 +177,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="Endpoint" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="Endpoint" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -177,7 +185,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEndpointTypes" OutputProperty="SupportedEndpointTypes" Verb="Get" Noun="EndpointType" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeEndpointTypes" OutputProperty="SupportedEndpointTypes" Verb="Get" Noun="EndpointType" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -189,11 +197,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PipelineParameter="SourceIdentifier" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PipelineParameter="SourceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEventSubscriptions" OutputProperty="EventSubscriptionsList" Verb="Get" Noun="EventSubscription" PipelineParameter="SubscriptionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeEventSubscriptions" OutputProperty="EventSubscriptionsList" Verb="Get" Noun="EventSubscription" PipelineParameter="SubscriptionName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -225,11 +233,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMetadataModel" OutputProperty="*" Verb="Get" Noun="MetadataModel" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeMetadataModelAssessments" OutputProperty="Requests" Verb="Get" Noun="MetadataModelAssessment" PipelineParameter="MigrationProjectIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMetadataModelChildren" OutputProperty="MetadataModelChildren" Verb="Get" Noun="MetadataModelChild" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeMetadataModelConversions" OutputProperty="Requests" Verb="Get" Noun="MetadataModelConversion" PipelineParameter="MigrationProjectIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMetadataModelCreations" OutputProperty="Requests" Verb="Get" Noun="MetadataModelCreation" PipelineParameter="MigrationProjectIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -249,11 +269,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOrderableReplicationInstances" OutputProperty="OrderableReplicationInstances" Verb="Get" Noun="OrderableReplicationInstance" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeOrderableReplicationInstances" OutputProperty="OrderableReplicationInstances" Verb="Get" Noun="OrderableReplicationInstance" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePendingMaintenanceActions" OutputProperty="PendingMaintenanceActions" Verb="Get" Noun="PendingMaintenanceAction" PipelineParameter="ReplicationInstanceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribePendingMaintenanceActions" OutputProperty="PendingMaintenanceActions" Verb="Get" Noun="PendingMaintenanceAction" PipelineParameter="ReplicationInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -273,11 +293,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReplicationInstances" OutputProperty="ReplicationInstances" Verb="Get" Noun="ReplicationInstance" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeReplicationInstances" OutputProperty="ReplicationInstances" Verb="Get" Noun="ReplicationInstance" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReplicationInstanceTaskLogs" OutputProperty="ReplicationInstanceTaskLogs" Verb="Get" Noun="ReplicationInstanceTaskLog" PipelineParameter="ReplicationInstanceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeReplicationInstanceTaskLogs" OutputProperty="ReplicationInstanceTaskLogs" Verb="Get" Noun="ReplicationInstanceTaskLog" PipelineParameter="ReplicationInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -285,7 +305,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReplicationSubnetGroups" OutputProperty="ReplicationSubnetGroups" Verb="Get" Noun="ReplicationSubnetGroup" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeReplicationSubnetGroups" OutputProperty="ReplicationSubnetGroups" Verb="Get" Noun="ReplicationSubnetGroup" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -293,7 +313,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReplicationTaskAssessmentResults" OutputProperty="*" Verb="Get" Noun="ReplicationTaskAssessmentResult" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeReplicationTaskAssessmentResults" OutputProperty="*" Verb="Get" Noun="ReplicationTaskAssessmentResult" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -305,19 +325,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReplicationTasks" OutputProperty="ReplicationTasks" Verb="Get" Noun="ReplicationTask" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeReplicationTasks" OutputProperty="ReplicationTasks" Verb="Get" Noun="ReplicationTask" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSchemas" OutputProperty="Schemas" Verb="Get" Noun="Schema" PipelineParameter="EndpointArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeSchemas" OutputProperty="Schemas" Verb="Get" Noun="Schema" PipelineParameter="EndpointArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTableStatistics" OutputProperty="*" Verb="Get" Noun="TableStatistic" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTableStatistics" OutputProperty="*" Verb="Get" Noun="TableStatistic" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ExportMetadataModelAssessment" OutputProperty="*" Verb="Export" Noun="MetadataModelAssessment" ShouldProcessTarget="MigrationProjectIdentifier" PipelineParameter="MigrationProjectIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTargetSelectionRules" OutputProperty="TargetSelectionRules" Verb="Get" Noun="TargetSelectionRule" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -414,6 +438,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartMetadataModelConversion" OutputProperty="RequestIdentifier" Verb="Start" Noun="MetadataModelConversion" ShouldProcessTarget="MigrationProjectIdentifier" PipelineParameter="MigrationProjectIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartMetadataModelCreation" OutputProperty="RequestIdentifier" Verb="Start" Noun="MetadataModelCreation" ShouldProcessTarget="MetadataModelName,MigrationProjectIdentifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
