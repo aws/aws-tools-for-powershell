@@ -84,6 +84,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String DestinationName { get; set; }
         #endregion
         
+        #region Parameter Positioning_DestinationName
+        /// <summary>
+        /// <para>
+        /// <para>The location destination name of the Sidewalk device.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Sidewalk_Positioning_DestinationName")]
+        public System.String Positioning_DestinationName { get; set; }
+        #endregion
+        
         #region Parameter LoRaWAN_DeviceProfileId
         /// <summary>
         /// <para>
@@ -155,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter Positioning
         /// <summary>
         /// <para>
-        /// <para>FPort values for the GNSS, stream, and ClockSync functions of the positioning information.</para>
+        /// <para>The integration status of the Device Location feature for LoRaWAN and Sidewalk devices.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -267,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             context.LoRaWAN_ServiceProfileId = this.LoRaWAN_ServiceProfileId;
             context.Name = this.Name;
             context.Positioning = this.Positioning;
+            context.Positioning_DestinationName = this.Positioning_DestinationName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -453,6 +465,40 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
                 request.Positioning = cmdletContext.Positioning;
             }
             
+             // populate Sidewalk
+            var requestSidewalkIsNull = true;
+            request.Sidewalk = new Amazon.IoTWireless.Model.SidewalkUpdateWirelessDevice();
+            Amazon.IoTWireless.Model.SidewalkPositioning requestSidewalk_sidewalk_Positioning = null;
+            
+             // populate Positioning
+            var requestSidewalk_sidewalk_PositioningIsNull = true;
+            requestSidewalk_sidewalk_Positioning = new Amazon.IoTWireless.Model.SidewalkPositioning();
+            System.String requestSidewalk_sidewalk_Positioning_positioning_DestinationName = null;
+            if (cmdletContext.Positioning_DestinationName != null)
+            {
+                requestSidewalk_sidewalk_Positioning_positioning_DestinationName = cmdletContext.Positioning_DestinationName;
+            }
+            if (requestSidewalk_sidewalk_Positioning_positioning_DestinationName != null)
+            {
+                requestSidewalk_sidewalk_Positioning.DestinationName = requestSidewalk_sidewalk_Positioning_positioning_DestinationName;
+                requestSidewalk_sidewalk_PositioningIsNull = false;
+            }
+             // determine if requestSidewalk_sidewalk_Positioning should be set to null
+            if (requestSidewalk_sidewalk_PositioningIsNull)
+            {
+                requestSidewalk_sidewalk_Positioning = null;
+            }
+            if (requestSidewalk_sidewalk_Positioning != null)
+            {
+                request.Sidewalk.Positioning = requestSidewalk_sidewalk_Positioning;
+                requestSidewalkIsNull = false;
+            }
+             // determine if request.Sidewalk should be set to null
+            if (requestSidewalkIsNull)
+            {
+                request.Sidewalk = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -526,6 +572,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public System.String LoRaWAN_ServiceProfileId { get; set; }
             public System.String Name { get; set; }
             public Amazon.IoTWireless.PositioningConfigStatus Positioning { get; set; }
+            public System.String Positioning_DestinationName { get; set; }
             public System.Func<Amazon.IoTWireless.Model.UpdateWirelessDeviceResponse, UpdateIOTWWirelessDeviceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

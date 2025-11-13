@@ -56,14 +56,22 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// interchangeable:</para><ul><li><para>Running stacks: You can specify either the stack's name or its unique stack ID.</para></li><li><para>Deleted stacks: You must specify the unique stack ID.</para></li></ul>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String StackName { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A string that identifies the next page of events that you want to retrieve.</para>
+        /// <para>The token for the next set of items to return. (You received this token from a previous
+        /// call.)</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -132,6 +140,12 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.NextToken = this.NextToken;
             context.StackName = this.StackName;
+            #if MODULAR
+            if (this.StackName == null && ParameterWasBound(nameof(this.StackName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter StackName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

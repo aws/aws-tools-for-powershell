@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>In some cases, you must explicitly acknowledge that your stack template contains certain
         /// capabilities in order for CloudFormation to create the stack.</para><ul><li><para><c>CAPABILITY_IAM</c> and <c>CAPABILITY_NAMED_IAM</c></para><para>Some stack templates might include resources that can affect permissions in your Amazon
-        /// Web Services account; for example, by creating new IAM users. For those stacks, you
+        /// Web Services account, for example, by creating new IAM users. For those stacks, you
         /// must explicitly acknowledge this by specifying one of these capabilities.</para><para>The following IAM resources require you to specify either the <c>CAPABILITY_IAM</c>
         /// or <c>CAPABILITY_NAMED_IAM</c> capability.</para><ul><li><para>If you have IAM resources, you can specify either capability.</para></li><li><para>If you have IAM resources with custom names, you <i>must</i> specify <c>CAPABILITY_NAMED_IAM</c>.</para></li><li><para>If you don't specify either of these capabilities, CloudFormation returns an <c>InsufficientCapabilities</c>
         /// error.</para></li></ul><para>If your stack template contains these resources, we suggest that you review all permissions
@@ -239,12 +239,13 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The template resource types that you have permissions to work with if you execute
-        /// this change set, such as <c>AWS::EC2::Instance</c>, <c>AWS::EC2::*</c>, or <c>Custom::MyCustomInstance</c>.</para><para>If the list of resource types doesn't include a resource type that you're updating,
+        /// <para>Specifies which resource types you can work with, such as <c>AWS::EC2::Instance</c>
+        /// or <c>Custom::MyCustomInstance</c>.</para><para>If the list of resource types doesn't include a resource type that you're updating,
         /// the stack update fails. By default, CloudFormation grants permissions to all resource
         /// types. IAM uses this parameter for condition keys in IAM policies for CloudFormation.
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/control-access-with-iam.html">Control
-        /// access with Identity and Access Management</a> in the <i>CloudFormation User Guide</i>.</para><note><para>Only one of the <c>Capabilities</c> and <c>ResourceType</c> parameters can be specified.</para></note>
+        /// CloudFormation access with Identity and Access Management</a> in the <i>CloudFormation
+        /// User Guide</i>.</para><note><para>Only one of the <c>Capabilities</c> and <c>ResourceType</c> parameters can be specified.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -315,7 +316,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>A structure that contains the body of the revised template, with a minimum length
         /// of 1 byte and a maximum length of 51,200 bytes. CloudFormation generates the change
-        /// set by comparing this template with the template of the stack that you specified.</para><para>Conditional: You must specify only <c>TemplateBody</c> or <c>TemplateURL</c>.</para>
+        /// set by comparing this template with the template of the stack that you specified.</para><para>Conditional: You must specify only one of the following parameters: <c>TemplateBody</c>,
+        /// <c>TemplateURL</c>, or set the <c>UsePreviousTemplate</c> to <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -329,7 +331,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// (max size: 1 MB) that's located in an Amazon S3 bucket or a Systems Manager document.
         /// CloudFormation generates the change set by comparing this template with the stack
         /// that you specified. The location for an Amazon S3 bucket must start with <c>https://</c>.
-        /// URLs from S3 static websites are not supported.</para><para>Conditional: You must specify only <c>TemplateBody</c> or <c>TemplateURL</c>.</para>
+        /// URLs from S3 static websites are not supported.</para><para>Conditional: You must specify only one of the following parameters: <c>TemplateBody</c>,
+        /// <c>TemplateURL</c>, or set the <c>UsePreviousTemplate</c> to <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -340,7 +343,12 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>Whether to reuse the template that's associated with the stack to create the change
-        /// set.</para>
+        /// set.</para><para>When using templates with the <c>AWS::LanguageExtensions</c> transform, provide the
+        /// template instead of using <c>UsePreviousTemplate</c> to ensure new parameter values
+        /// and Systems Manager parameter updates are applied correctly. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/transform-aws-languageextensions.html">AWS::LanguageExtensions
+        /// transform</a>.</para><para>Conditional: You must specify only one of the following parameters: <c>TemplateBody</c>,
+        /// <c>TemplateURL</c>, or set the <c>UsePreviousTemplate</c> to <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

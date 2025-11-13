@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter DestinationName
         /// <summary>
         /// <para>
-        /// <para>A filter to list only the wireless devices that use this destination.</para>
+        /// <para>A filter to list only the wireless devices that use as uplink destination.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -457,6 +457,7 @@ $CFN_SelectMap = @{
                "Start-CFNChangeSet",
                "Start-CFNCFNStackRefactor",
                "Get-CFNGeneratedTemplate",
+               "Get-CFNHookResultDetail",
                "Get-CFNStackPolicy",
                "Get-CFNTemplate",
                "Get-CFNTemplateSummary",

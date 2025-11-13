@@ -228,6 +228,8 @@ $IOTW_Completers = {
         # Amazon.IoTWireless.PositioningConfigStatus
         {
             ($_ -eq "New-IOTWWirelessDevice/Positioning") -Or
+            ($_ -eq "Start-IOTWSingleWirelessDeviceImportTask/Positioning") -Or
+            ($_ -eq "Start-IOTWWirelessDeviceImportTask/Positioning") -Or
             ($_ -eq "Update-IOTWWirelessDevice/Positioning")
         }
         {
@@ -347,7 +349,7 @@ $IOTW_map = @{
     "MessageDeliveryStatus_WirelessDeviceIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
     "ParticipatingGateways_DownlinkMode"=@("Send-IOTWDataToWirelessDevice")
     "PartnerType"=@("Get-IOTWPartnerAccount","Get-IOTWResourceEventConfiguration","Split-IOTWAwsAccountFromPartnerAccount","Update-IOTWPartnerAccount","Update-IOTWResourceEventConfiguration")
-    "Positioning"=@("New-IOTWWirelessDevice","Update-IOTWWirelessDevice")
+    "Positioning"=@("New-IOTWWirelessDevice","Start-IOTWSingleWirelessDeviceImportTask","Start-IOTWWirelessDeviceImportTask","Update-IOTWWirelessDevice")
     "Proximity_Sidewalk_WirelessDeviceEventTopic"=@("Update-IOTWEventConfigurationByResourceType")
     "Proximity_WirelessDeviceIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
     "ResourceType"=@("Get-IOTWEventConfigurationList","Get-IOTWPosition","Get-IOTWPositionConfiguration","Get-IOTWPositionConfigurationList","Get-IOTWResourcePosition","Update-IOTWPosition","Update-IOTWResourcePosition","Write-IOTWPositionConfiguration")

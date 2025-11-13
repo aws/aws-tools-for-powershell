@@ -144,7 +144,7 @@ $ELB2_Completers = {
             ($_ -eq "New-ELB2TargetGroup/Protocol")
         }
         {
-            $v = "GENEVE","HTTP","HTTPS","TCP","TCP_UDP","TLS","UDP"
+            $v = "GENEVE","HTTP","HTTPS","QUIC","TCP","TCP_QUIC","TCP_UDP","TLS","UDP"
             break
         }
 

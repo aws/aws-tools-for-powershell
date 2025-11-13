@@ -69,6 +69,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String DestinationName { get; set; }
         #endregion
         
+        #region Parameter Positioning_DestinationName
+        /// <summary>
+        /// <para>
+        /// <para>The location destination name of the Sidewalk device.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Sidewalk_Positioning_DestinationName")]
+        public System.String Positioning_DestinationName { get; set; }
+        #endregion
+        
         #region Parameter Sidewalk_DeviceCreationFile
         /// <summary>
         /// <para>
@@ -78,6 +89,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Sidewalk_DeviceCreationFile { get; set; }
+        #endregion
+        
+        #region Parameter Positioning
+        /// <summary>
+        /// <para>
+        /// <para>The integration status of the Device Location feature for Sidewalk devices.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoTWireless.PositioningConfigStatus")]
+        public Amazon.IoTWireless.PositioningConfigStatus Positioning { get; set; }
         #endregion
         
         #region Parameter Sidewalk_Role
@@ -171,7 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
                 WriteWarning("You are passing $null as a value for parameter DestinationName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Positioning = this.Positioning;
             context.Sidewalk_DeviceCreationFile = this.Sidewalk_DeviceCreationFile;
+            context.Positioning_DestinationName = this.Positioning_DestinationName;
             context.Sidewalk_Role = this.Sidewalk_Role;
             if (this.Tag != null)
             {
@@ -201,6 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             {
                 request.DestinationName = cmdletContext.DestinationName;
             }
+            if (cmdletContext.Positioning != null)
+            {
+                request.Positioning = cmdletContext.Positioning;
+            }
             
              // populate Sidewalk
             var requestSidewalkIsNull = true;
@@ -223,6 +251,31 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestSidewalk_sidewalk_Role != null)
             {
                 request.Sidewalk.Role = requestSidewalk_sidewalk_Role;
+                requestSidewalkIsNull = false;
+            }
+            Amazon.IoTWireless.Model.SidewalkPositioning requestSidewalk_sidewalk_Positioning = null;
+            
+             // populate Positioning
+            var requestSidewalk_sidewalk_PositioningIsNull = true;
+            requestSidewalk_sidewalk_Positioning = new Amazon.IoTWireless.Model.SidewalkPositioning();
+            System.String requestSidewalk_sidewalk_Positioning_positioning_DestinationName = null;
+            if (cmdletContext.Positioning_DestinationName != null)
+            {
+                requestSidewalk_sidewalk_Positioning_positioning_DestinationName = cmdletContext.Positioning_DestinationName;
+            }
+            if (requestSidewalk_sidewalk_Positioning_positioning_DestinationName != null)
+            {
+                requestSidewalk_sidewalk_Positioning.DestinationName = requestSidewalk_sidewalk_Positioning_positioning_DestinationName;
+                requestSidewalk_sidewalk_PositioningIsNull = false;
+            }
+             // determine if requestSidewalk_sidewalk_Positioning should be set to null
+            if (requestSidewalk_sidewalk_PositioningIsNull)
+            {
+                requestSidewalk_sidewalk_Positioning = null;
+            }
+            if (requestSidewalk_sidewalk_Positioning != null)
+            {
+                request.Sidewalk.Positioning = requestSidewalk_sidewalk_Positioning;
                 requestSidewalkIsNull = false;
             }
              // determine if request.Sidewalk should be set to null
@@ -297,7 +350,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         {
             public System.String ClientRequestToken { get; set; }
             public System.String DestinationName { get; set; }
+            public Amazon.IoTWireless.PositioningConfigStatus Positioning { get; set; }
             public System.String Sidewalk_DeviceCreationFile { get; set; }
+            public System.String Positioning_DestinationName { get; set; }
             public System.String Sidewalk_Role { get; set; }
             public List<Amazon.IoTWireless.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.IoTWireless.Model.StartWirelessDeviceImportTaskResponse, StartIOTWWirelessDeviceImportTaskCmdlet, object> Select { get; set; } =

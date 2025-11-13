@@ -1,4 +1,21 @@
-﻿### 4.1.941 (2025-11-12 22:00Z)
+﻿### 4.1.942 (2025-11-13 21:20Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1165.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudFormation
+    * Added cmdlet Get-CFNHookResultDetail leveraging the GetHookResult service API.
+  * Amazon IoT Wireless
+    * Modified cmdlet New-IOTWWirelessDevice: added parameters Positioning_DestinationName and Sidewalk_SidewalkManufacturingSn.
+    * Modified cmdlet Start-IOTWSingleWirelessDeviceImportTask: added parameters Positioning and Positioning_DestinationName.
+    * Modified cmdlet Start-IOTWWirelessDeviceImportTask: added parameters Positioning and Positioning_DestinationName.
+    * Modified cmdlet Update-IOTWWirelessDevice: added parameter Positioning_DestinationName.
+  * Amazon SageMaker Service
+    * Modified cmdlet Get-SMPartnerApp: added parameter IncludeAvailableUpgrade.
+    * Modified cmdlet New-SMPartnerApp: added parameters ApplicationConfig_AssignedGroupPattern, ApplicationConfig_RoleGroupAssignment and EnableAutoMinorVersionUpgrade.
+    * Modified cmdlet Update-SMPartnerApp: added parameters ApplicationConfig_AssignedGroupPattern, ApplicationConfig_RoleGroupAssignment, AppVersion and EnableAutoMinorVersionUpgrade.
+  * Amazon WorkSpaces Web
+    * Modified cmdlet New-WSWBrowserSetting: added parameters WebContentFilteringPolicy_AllowedUrl, WebContentFilteringPolicy_BlockedCategory and WebContentFilteringPolicy_BlockedUrl.
+    * Modified cmdlet Update-WSWBrowserSetting: added parameters WebContentFilteringPolicy_AllowedUrl, WebContentFilteringPolicy_BlockedCategory and WebContentFilteringPolicy_BlockedUrl.
+
+### 4.1.941 (2025-11-12 22:00Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1164.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Modified cmdlet Update-CONNAuthenticationProfile: added parameters SessionInactivityDuration and SessionInactivityHandlingEnabled.

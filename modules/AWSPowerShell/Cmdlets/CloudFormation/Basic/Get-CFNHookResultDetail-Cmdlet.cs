@@ -22,58 +22,56 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IoTWireless;
-using Amazon.IoTWireless.Model;
+using Amazon.CloudFormation;
+using Amazon.CloudFormation.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IOTW
+namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// List of import tasks and summary information of onboarding status of devices in each
-    /// import task.
+    /// Retrieves detailed information and remediation guidance for a Hook invocation result.
     /// </summary>
-    [Cmdlet("Get", "IOTWWirelessDeviceImportTaskList")]
-    [OutputType("Amazon.IoTWireless.Model.WirelessDeviceImportTask")]
-    [AWSCmdlet("Calls the AWS IoT Wireless ListWirelessDeviceImportTasks API operation.", Operation = new[] {"ListWirelessDeviceImportTasks"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.ListWirelessDeviceImportTasksResponse))]
-    [AWSCmdletOutput("Amazon.IoTWireless.Model.WirelessDeviceImportTask or Amazon.IoTWireless.Model.ListWirelessDeviceImportTasksResponse",
-        "This cmdlet returns a collection of Amazon.IoTWireless.Model.WirelessDeviceImportTask objects.",
-        "The service call response (type Amazon.IoTWireless.Model.ListWirelessDeviceImportTasksResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "CFNHookResultDetail")]
+    [OutputType("Amazon.CloudFormation.Model.GetHookResultResponse")]
+    [AWSCmdlet("Calls the AWS CloudFormation GetHookResult API operation.", Operation = new[] {"GetHookResult"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.GetHookResultResponse))]
+    [AWSCmdletOutput("Amazon.CloudFormation.Model.GetHookResultResponse",
+        "This cmdlet returns an Amazon.CloudFormation.Model.GetHookResultResponse object containing multiple properties."
     )]
-    public partial class GetIOTWWirelessDeviceImportTaskListCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
+    public partial class GetCFNHookResultDetailCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter MaxResult
+        #region Parameter HookResultId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The unique identifier (ID) of the Hook invocation result that you want details about.
+        /// You can get the ID from the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListHookResults.html">ListHookResults</a>
+        /// operation.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para>To retrieve the next set of results, the <c>nextToken</c> value from a previous response;
-        /// otherwise <c>null</c> to receive the first set of results.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String HookResultId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'WirelessDeviceImportTaskList'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTWireless.Model.ListWirelessDeviceImportTasksResponse).
-        /// Specifying the name of a property of type Amazon.IoTWireless.Model.ListWirelessDeviceImportTasksResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudFormation.Model.GetHookResultResponse).
+        /// Specifying the name of a property of type Amazon.CloudFormation.Model.GetHookResultResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "WirelessDeviceImportTaskList";
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the HookResultId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^HookResultId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^HookResultId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -86,13 +84,22 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoTWireless.Model.ListWirelessDeviceImportTasksResponse, GetIOTWWirelessDeviceImportTaskListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudFormation.Model.GetHookResultResponse, GetCFNHookResultDetailCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.HookResultId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.HookResultId = this.HookResultId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -107,15 +114,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoTWireless.Model.ListWirelessDeviceImportTasksRequest();
+            var request = new Amazon.CloudFormation.Model.GetHookResultRequest();
             
-            if (cmdletContext.MaxResult != null)
+            if (cmdletContext.HookResultId != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
+                request.HookResultId = cmdletContext.HookResultId;
             }
             
             CmdletOutput output;
@@ -150,15 +153,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         
         #region AWS Service Operation Call
         
-        private Amazon.IoTWireless.Model.ListWirelessDeviceImportTasksResponse CallAWSServiceOperation(IAmazonIoTWireless client, Amazon.IoTWireless.Model.ListWirelessDeviceImportTasksRequest request)
+        private Amazon.CloudFormation.Model.GetHookResultResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.GetHookResultRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT Wireless", "ListWirelessDeviceImportTasks");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudFormation", "GetHookResult");
             try
             {
                 #if DESKTOP
-                return client.ListWirelessDeviceImportTasks(request);
+                return client.GetHookResult(request);
                 #elif CORECLR
-                return client.ListWirelessDeviceImportTasksAsync(request).GetAwaiter().GetResult();
+                return client.GetHookResultAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -178,10 +181,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? MaxResult { get; set; }
-            public System.String NextToken { get; set; }
-            public System.Func<Amazon.IoTWireless.Model.ListWirelessDeviceImportTasksResponse, GetIOTWWirelessDeviceImportTaskListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.WirelessDeviceImportTaskList;
+            public System.String HookResultId { get; set; }
+            public System.Func<Amazon.CloudFormation.Model.GetHookResultResponse, GetCFNHookResultDetailCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

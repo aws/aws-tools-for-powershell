@@ -66,6 +66,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Collections.Hashtable ApplicationConfig_Argument { get; set; }
         #endregion
         
+        #region Parameter ApplicationConfig_AssignedGroupPattern
+        /// <summary>
+        /// <para>
+        /// <para>A list of Amazon Web Services IAM Identity Center group patterns that can access the
+        /// SageMaker Partner AI App. Group names support wildcard matching using <c>*</c>. An
+        /// empty list indicates the app will not use Identity Center group features. All groups
+        /// specified in <c>RoleGroupAssignments</c> must match patterns in this list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ApplicationConfig_AssignedGroupPatterns")]
+        public System.String[] ApplicationConfig_AssignedGroupPattern { get; set; }
+        #endregion
+        
         #region Parameter AuthType
         /// <summary>
         /// <para>
@@ -81,6 +95,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.SageMaker.PartnerAppAuthType")]
         public Amazon.SageMaker.PartnerAppAuthType AuthType { get; set; }
+        #endregion
+        
+        #region Parameter EnableAutoMinorVersionUpgrade
+        /// <summary>
+        /// <para>
+        /// <para>When set to <c>TRUE</c>, the SageMaker Partner AI App is automatically upgraded to
+        /// the latest minor version during the next scheduled maintenance window, if one is available.
+        /// Default is <c>FALSE</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableAutoMinorVersionUpgrade { get; set; }
         #endregion
         
         #region Parameter EnableIamSessionBasedIdentity
@@ -151,6 +177,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter ApplicationConfig_RoleGroupAssignment
+        /// <summary>
+        /// <para>
+        /// <para>A map of in-app roles to Amazon Web Services IAM Identity Center group patterns. Groups
+        /// assigned to specific roles receive those permissions, while groups in <c>AssignedGroupPatterns</c>
+        /// but not in this map receive default in-app role depending on app type. Group patterns
+        /// support wildcard matching using <c>*</c>. Currently supported by Fiddler version 1.3
+        /// and later with roles: <c>ORG_MEMBER</c> (default) and <c>ORG_ADMIN</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ApplicationConfig_RoleGroupAssignments")]
+        public Amazon.SageMaker.Model.RoleGroupAssignment[] ApplicationConfig_RoleGroupAssignment { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -264,6 +305,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
                     context.ApplicationConfig_Argument.Add((String)hashKey, (System.String)(this.ApplicationConfig_Argument[hashKey]));
                 }
             }
+            if (this.ApplicationConfig_AssignedGroupPattern != null)
+            {
+                context.ApplicationConfig_AssignedGroupPattern = new List<System.String>(this.ApplicationConfig_AssignedGroupPattern);
+            }
+            if (this.ApplicationConfig_RoleGroupAssignment != null)
+            {
+                context.ApplicationConfig_RoleGroupAssignment = new List<Amazon.SageMaker.Model.RoleGroupAssignment>(this.ApplicationConfig_RoleGroupAssignment);
+            }
             context.AuthType = this.AuthType;
             #if MODULAR
             if (this.AuthType == null && ParameterWasBound(nameof(this.AuthType)))
@@ -272,6 +321,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             #endif
             context.ClientToken = this.ClientToken;
+            context.EnableAutoMinorVersionUpgrade = this.EnableAutoMinorVersionUpgrade;
             context.EnableIamSessionBasedIdentity = this.EnableIamSessionBasedIdentity;
             context.ExecutionRoleArn = this.ExecutionRoleArn;
             #if MODULAR
@@ -347,6 +397,26 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.ApplicationConfig.Arguments = requestApplicationConfig_applicationConfig_Argument;
                 requestApplicationConfigIsNull = false;
             }
+            List<System.String> requestApplicationConfig_applicationConfig_AssignedGroupPattern = null;
+            if (cmdletContext.ApplicationConfig_AssignedGroupPattern != null)
+            {
+                requestApplicationConfig_applicationConfig_AssignedGroupPattern = cmdletContext.ApplicationConfig_AssignedGroupPattern;
+            }
+            if (requestApplicationConfig_applicationConfig_AssignedGroupPattern != null)
+            {
+                request.ApplicationConfig.AssignedGroupPatterns = requestApplicationConfig_applicationConfig_AssignedGroupPattern;
+                requestApplicationConfigIsNull = false;
+            }
+            List<Amazon.SageMaker.Model.RoleGroupAssignment> requestApplicationConfig_applicationConfig_RoleGroupAssignment = null;
+            if (cmdletContext.ApplicationConfig_RoleGroupAssignment != null)
+            {
+                requestApplicationConfig_applicationConfig_RoleGroupAssignment = cmdletContext.ApplicationConfig_RoleGroupAssignment;
+            }
+            if (requestApplicationConfig_applicationConfig_RoleGroupAssignment != null)
+            {
+                request.ApplicationConfig.RoleGroupAssignments = requestApplicationConfig_applicationConfig_RoleGroupAssignment;
+                requestApplicationConfigIsNull = false;
+            }
              // determine if request.ApplicationConfig should be set to null
             if (requestApplicationConfigIsNull)
             {
@@ -359,6 +429,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.EnableAutoMinorVersionUpgrade != null)
+            {
+                request.EnableAutoMinorVersionUpgrade = cmdletContext.EnableAutoMinorVersionUpgrade.Value;
             }
             if (cmdletContext.EnableIamSessionBasedIdentity != null)
             {
@@ -470,8 +544,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             public List<System.String> ApplicationConfig_AdminUser { get; set; }
             public Dictionary<System.String, System.String> ApplicationConfig_Argument { get; set; }
+            public List<System.String> ApplicationConfig_AssignedGroupPattern { get; set; }
+            public List<Amazon.SageMaker.Model.RoleGroupAssignment> ApplicationConfig_RoleGroupAssignment { get; set; }
             public Amazon.SageMaker.PartnerAppAuthType AuthType { get; set; }
             public System.String ClientToken { get; set; }
+            public System.Boolean? EnableAutoMinorVersionUpgrade { get; set; }
             public System.Boolean? EnableIamSessionBasedIdentity { get; set; }
             public System.String ExecutionRoleArn { get; set; }
             public System.String KmsKeyId { get; set; }

@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A string (provided by the <a>ListImports</a> response output) that identifies the
-        /// next page of stacks that are importing the specified exported output value.</para>
+        /// <para>The token for the next set of items to return. (You received this token from a previous
+        /// call.)</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

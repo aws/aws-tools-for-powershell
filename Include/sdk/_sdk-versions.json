@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1164.0",
+    "ProductVersion"    : "3.7.1165.0",
     "CoreVersion"       : "3.7.500.43",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -32,7 +32,7 @@
             "InPreview"               : false
         },
         "CloudFormation" : {
-            "Version" : "3.7.503.8",
+            "Version" : "3.7.504.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.43"
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.527.0",
+            "Version" : "3.7.528.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.43"
@@ -276,7 +276,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "3.7.506.17",
+            "Version" : "3.7.507.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.43"
@@ -484,7 +484,7 @@
             "InPreview"               : false
         },
         "ECR"                             : {
-            "Version" : "3.7.502.7",
+            "Version" : "3.7.503.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.43"
@@ -564,7 +564,7 @@
             "InPreview"               : false
         },
         "ElasticLoadBalancingV2"          : {
-            "Version" : "3.7.503.0",
+            "Version" : "3.7.504.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.43"
@@ -860,7 +860,7 @@
             "InPreview"               : false
         },
         "MediaConvert"                    : {
-            "Version" : "3.7.504.2",
+            "Version" : "3.7.505.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.43"
@@ -908,7 +908,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "3.7.518.0",
+            "Version" : "3.7.519.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.43"
@@ -1892,7 +1892,7 @@
             "InPreview"               : false
         },
         "IoTWireless"                     : {
-            "Version" : "3.7.502.6",
+            "Version" : "3.7.503.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.43"
@@ -2228,7 +2228,7 @@
             "InPreview"               : false
         },
         "WorkSpacesWeb"                       : {
-            "Version" : "3.7.502.10",
+            "Version" : "3.7.503.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.43"
@@ -2900,7 +2900,7 @@
             "InPreview"               : false
         },
         "ControlCatalog"                      : {
-            "Version" : "3.7.502.9",
+            "Version" : "3.7.503.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.43"
