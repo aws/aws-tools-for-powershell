@@ -60,6 +60,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String[] ApplicationConfig_AdminUser { get; set; }
         #endregion
         
+        #region Parameter AppVersion
+        /// <summary>
+        /// <para>
+        /// <para>The semantic version to upgrade the SageMaker Partner AI App to. Must be the same
+        /// semantic version returned in the <c>AvailableUpgrade</c> field from <c>DescribePartnerApp</c>.
+        /// Version skipping and downgrades are not supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AppVersion { get; set; }
+        #endregion
+        
         #region Parameter ApplicationConfig_Argument
         /// <summary>
         /// <para>
@@ -94,6 +106,35 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String Arn { get; set; }
         #endregion
         
+        #region Parameter ApplicationConfig_AssignedGroupPattern
+        /// <summary>
+        /// <para>
+        /// <para>A list of Amazon Web Services IAM Identity Center group patterns that can access the
+        /// SageMaker Partner AI App. Group names support wildcard matching using <c>*</c>. An
+        /// empty list indicates the app will not use Identity Center group features. All groups
+        /// specified in <c>RoleGroupAssignments</c> must match patterns in this list.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ApplicationConfig_AssignedGroupPatterns")]
+        public System.String[] ApplicationConfig_AssignedGroupPattern { get; set; }
+        #endregion
+        
+        #region Parameter EnableAutoMinorVersionUpgrade
+        /// <summary>
+        /// <para>
+        /// <para>When set to <c>TRUE</c>, the SageMaker Partner AI App is automatically upgraded to
+        /// the latest minor version during the next scheduled maintenance window, if one is available.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableAutoMinorVersionUpgrade { get; set; }
+        #endregion
+        
         #region Parameter EnableIamSessionBasedIdentity
         /// <summary>
         /// <para>
@@ -116,6 +157,25 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String MaintenanceConfig_MaintenanceWindowStart { get; set; }
+        #endregion
+        
+        #region Parameter ApplicationConfig_RoleGroupAssignment
+        /// <summary>
+        /// <para>
+        /// <para>A map of in-app roles to Amazon Web Services IAM Identity Center group patterns. Groups
+        /// assigned to specific roles receive those permissions, while groups in <c>AssignedGroupPatterns</c>
+        /// but not in this map receive default in-app role depending on app type. Group patterns
+        /// support wildcard matching using <c>*</c>. Currently supported by Fiddler version 1.3
+        /// and later with roles: <c>ORG_MEMBER</c> (default) and <c>ORG_ADMIN</c>.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ApplicationConfig_RoleGroupAssignments")]
+        public Amazon.SageMaker.Model.RoleGroupAssignment[] ApplicationConfig_RoleGroupAssignment { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -212,6 +272,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
                     context.ApplicationConfig_Argument.Add((String)hashKey, (System.String)(this.ApplicationConfig_Argument[hashKey]));
                 }
             }
+            if (this.ApplicationConfig_AssignedGroupPattern != null)
+            {
+                context.ApplicationConfig_AssignedGroupPattern = new List<System.String>(this.ApplicationConfig_AssignedGroupPattern);
+            }
+            if (this.ApplicationConfig_RoleGroupAssignment != null)
+            {
+                context.ApplicationConfig_RoleGroupAssignment = new List<Amazon.SageMaker.Model.RoleGroupAssignment>(this.ApplicationConfig_RoleGroupAssignment);
+            }
+            context.AppVersion = this.AppVersion;
             context.Arn = this.Arn;
             #if MODULAR
             if (this.Arn == null && ParameterWasBound(nameof(this.Arn)))
@@ -220,6 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             #endif
             context.ClientToken = this.ClientToken;
+            context.EnableAutoMinorVersionUpgrade = this.EnableAutoMinorVersionUpgrade;
             context.EnableIamSessionBasedIdentity = this.EnableIamSessionBasedIdentity;
             context.MaintenanceConfig_MaintenanceWindowStart = this.MaintenanceConfig_MaintenanceWindowStart;
             if (this.Tag != null)
@@ -267,10 +337,34 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.ApplicationConfig.Arguments = requestApplicationConfig_applicationConfig_Argument;
                 requestApplicationConfigIsNull = false;
             }
+            List<System.String> requestApplicationConfig_applicationConfig_AssignedGroupPattern = null;
+            if (cmdletContext.ApplicationConfig_AssignedGroupPattern != null)
+            {
+                requestApplicationConfig_applicationConfig_AssignedGroupPattern = cmdletContext.ApplicationConfig_AssignedGroupPattern;
+            }
+            if (requestApplicationConfig_applicationConfig_AssignedGroupPattern != null)
+            {
+                request.ApplicationConfig.AssignedGroupPatterns = requestApplicationConfig_applicationConfig_AssignedGroupPattern;
+                requestApplicationConfigIsNull = false;
+            }
+            List<Amazon.SageMaker.Model.RoleGroupAssignment> requestApplicationConfig_applicationConfig_RoleGroupAssignment = null;
+            if (cmdletContext.ApplicationConfig_RoleGroupAssignment != null)
+            {
+                requestApplicationConfig_applicationConfig_RoleGroupAssignment = cmdletContext.ApplicationConfig_RoleGroupAssignment;
+            }
+            if (requestApplicationConfig_applicationConfig_RoleGroupAssignment != null)
+            {
+                request.ApplicationConfig.RoleGroupAssignments = requestApplicationConfig_applicationConfig_RoleGroupAssignment;
+                requestApplicationConfigIsNull = false;
+            }
              // determine if request.ApplicationConfig should be set to null
             if (requestApplicationConfigIsNull)
             {
                 request.ApplicationConfig = null;
+            }
+            if (cmdletContext.AppVersion != null)
+            {
+                request.AppVersion = cmdletContext.AppVersion;
             }
             if (cmdletContext.Arn != null)
             {
@@ -279,6 +373,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.EnableAutoMinorVersionUpgrade != null)
+            {
+                request.EnableAutoMinorVersionUpgrade = cmdletContext.EnableAutoMinorVersionUpgrade.Value;
             }
             if (cmdletContext.EnableIamSessionBasedIdentity != null)
             {
@@ -368,8 +466,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             public List<System.String> ApplicationConfig_AdminUser { get; set; }
             public Dictionary<System.String, System.String> ApplicationConfig_Argument { get; set; }
+            public List<System.String> ApplicationConfig_AssignedGroupPattern { get; set; }
+            public List<Amazon.SageMaker.Model.RoleGroupAssignment> ApplicationConfig_RoleGroupAssignment { get; set; }
+            public System.String AppVersion { get; set; }
             public System.String Arn { get; set; }
             public System.String ClientToken { get; set; }
+            public System.Boolean? EnableAutoMinorVersionUpgrade { get; set; }
             public System.Boolean? EnableIamSessionBasedIdentity { get; set; }
             public System.String MaintenanceConfig_MaintenanceWindowStart { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }

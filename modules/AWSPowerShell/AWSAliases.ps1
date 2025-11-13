@@ -4559,6 +4559,8 @@ Set-Alias -Name Execute-CFNStackRefactor -Value Start-CFNCFNStackRefactor
 Set-Alias -Name Execute-CFNCFNStackRefactor -Value Start-CFNCFNStackRefactor
 Set-Alias -Name CFN-ExecuteStackRefactor -Value Start-CFNCFNStackRefactor
 Set-Alias -Name CFN-GetGeneratedTemplate -Value Get-CFNGeneratedTemplate
+Set-Alias -Name Get-CFNHookResult -Value Get-CFNHookResultDetail
+Set-Alias -Name CFN-GetHookResult -Value Get-CFNHookResultDetail
 Set-Alias -Name CFN-GetStackPolicy -Value Get-CFNStackPolicy
 Set-Alias -Name CFN-GetTemplate -Value Get-CFNTemplate
 Set-Alias -Name CFN-GetTemplateSummary -Value Get-CFNTemplateSummary

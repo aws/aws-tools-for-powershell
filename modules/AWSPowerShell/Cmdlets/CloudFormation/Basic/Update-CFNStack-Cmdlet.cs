@@ -183,12 +183,12 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The template resource types that you have permissions to work with for this update
-        /// stack action, such as <c>AWS::EC2::Instance</c>, <c>AWS::EC2::*</c>, or <c>Custom::MyCustomInstance</c>.</para><para>If the list of resource types doesn't include a resource that you're updating, the
+        /// <para>Specifies which resource types you can work with, such as <c>AWS::EC2::Instance</c>
+        /// or <c>Custom::MyCustomInstance</c>.</para><para>If the list of resource types doesn't include a resource that you're updating, the
         /// stack update fails. By default, CloudFormation grants permissions to all resource
         /// types. IAM uses this parameter for CloudFormation-specific condition keys in IAM policies.
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/control-access-with-iam.html">Control
-        /// access with Identity and Access Management</a>.</para><note><para>Only one of the <c>Capabilities</c> and <c>ResourceType</c> parameters can be specified.</para></note><para />
+        /// CloudFormation access with Identity and Access Management</a>.</para><note><para>Only one of the <c>Capabilities</c> and <c>ResourceType</c> parameters can be specified.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -372,7 +372,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter UsePreviousTemplate
         /// <summary>
         /// <para>
-        /// <para>Reuse the existing template that is associated with the stack that you are updating.</para><para>Conditional: You must specify only one of the following parameters: <c>TemplateBody</c>,
+        /// <para>Reuse the existing template that is associated with the stack that you are updating.</para><para>When using templates with the <c>AWS::LanguageExtensions</c> transform, provide the
+        /// template instead of using <c>UsePreviousTemplate</c> to ensure new parameter values
+        /// and Systems Manager parameter updates are applied correctly. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/transform-aws-languageextensions.html">AWS::LanguageExtensions
+        /// transform</a>.</para><para>Conditional: You must specify only one of the following parameters: <c>TemplateBody</c>,
         /// <c>TemplateURL</c>, or set the <c>UsePreviousTemplate</c> to <c>true</c>.</para>
         /// </para>
         /// </summary>

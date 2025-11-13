@@ -45,6 +45,51 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter WebContentFilteringPolicy_AllowedUrl
+        /// <summary>
+        /// <para>
+        /// <para>URLs and domains that are always accessible to end users.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WebContentFilteringPolicy_AllowedUrls")]
+        public System.String[] WebContentFilteringPolicy_AllowedUrl { get; set; }
+        #endregion
+        
+        #region Parameter WebContentFilteringPolicy_BlockedCategory
+        /// <summary>
+        /// <para>
+        /// <para>Categories of websites that are blocked on the end user’s browsers.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WebContentFilteringPolicy_BlockedCategories")]
+        public System.String[] WebContentFilteringPolicy_BlockedCategory { get; set; }
+        #endregion
+        
+        #region Parameter WebContentFilteringPolicy_BlockedUrl
+        /// <summary>
+        /// <para>
+        /// <para>URLs and domains that end users cannot access.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WebContentFilteringPolicy_BlockedUrls")]
+        public System.String[] WebContentFilteringPolicy_BlockedUrl { get; set; }
+        #endregion
+        
         #region Parameter BrowserPolicy
         /// <summary>
         /// <para>
@@ -143,6 +188,18 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             }
             #endif
             context.ClientToken = this.ClientToken;
+            if (this.WebContentFilteringPolicy_AllowedUrl != null)
+            {
+                context.WebContentFilteringPolicy_AllowedUrl = new List<System.String>(this.WebContentFilteringPolicy_AllowedUrl);
+            }
+            if (this.WebContentFilteringPolicy_BlockedCategory != null)
+            {
+                context.WebContentFilteringPolicy_BlockedCategory = new List<System.String>(this.WebContentFilteringPolicy_BlockedCategory);
+            }
+            if (this.WebContentFilteringPolicy_BlockedUrl != null)
+            {
+                context.WebContentFilteringPolicy_BlockedUrl = new List<System.String>(this.WebContentFilteringPolicy_BlockedUrl);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -170,6 +227,45 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            
+             // populate WebContentFilteringPolicy
+            var requestWebContentFilteringPolicyIsNull = true;
+            request.WebContentFilteringPolicy = new Amazon.WorkSpacesWeb.Model.WebContentFilteringPolicy();
+            List<System.String> requestWebContentFilteringPolicy_webContentFilteringPolicy_AllowedUrl = null;
+            if (cmdletContext.WebContentFilteringPolicy_AllowedUrl != null)
+            {
+                requestWebContentFilteringPolicy_webContentFilteringPolicy_AllowedUrl = cmdletContext.WebContentFilteringPolicy_AllowedUrl;
+            }
+            if (requestWebContentFilteringPolicy_webContentFilteringPolicy_AllowedUrl != null)
+            {
+                request.WebContentFilteringPolicy.AllowedUrls = requestWebContentFilteringPolicy_webContentFilteringPolicy_AllowedUrl;
+                requestWebContentFilteringPolicyIsNull = false;
+            }
+            List<System.String> requestWebContentFilteringPolicy_webContentFilteringPolicy_BlockedCategory = null;
+            if (cmdletContext.WebContentFilteringPolicy_BlockedCategory != null)
+            {
+                requestWebContentFilteringPolicy_webContentFilteringPolicy_BlockedCategory = cmdletContext.WebContentFilteringPolicy_BlockedCategory;
+            }
+            if (requestWebContentFilteringPolicy_webContentFilteringPolicy_BlockedCategory != null)
+            {
+                request.WebContentFilteringPolicy.BlockedCategories = requestWebContentFilteringPolicy_webContentFilteringPolicy_BlockedCategory;
+                requestWebContentFilteringPolicyIsNull = false;
+            }
+            List<System.String> requestWebContentFilteringPolicy_webContentFilteringPolicy_BlockedUrl = null;
+            if (cmdletContext.WebContentFilteringPolicy_BlockedUrl != null)
+            {
+                requestWebContentFilteringPolicy_webContentFilteringPolicy_BlockedUrl = cmdletContext.WebContentFilteringPolicy_BlockedUrl;
+            }
+            if (requestWebContentFilteringPolicy_webContentFilteringPolicy_BlockedUrl != null)
+            {
+                request.WebContentFilteringPolicy.BlockedUrls = requestWebContentFilteringPolicy_webContentFilteringPolicy_BlockedUrl;
+                requestWebContentFilteringPolicyIsNull = false;
+            }
+             // determine if request.WebContentFilteringPolicy should be set to null
+            if (requestWebContentFilteringPolicyIsNull)
+            {
+                request.WebContentFilteringPolicy = null;
             }
             
             CmdletOutput output;
@@ -229,6 +325,9 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             public System.String BrowserPolicy { get; set; }
             public System.String BrowserSettingsArn { get; set; }
             public System.String ClientToken { get; set; }
+            public List<System.String> WebContentFilteringPolicy_AllowedUrl { get; set; }
+            public List<System.String> WebContentFilteringPolicy_BlockedCategory { get; set; }
+            public List<System.String> WebContentFilteringPolicy_BlockedUrl { get; set; }
             public System.Func<Amazon.WorkSpacesWeb.Model.UpdateBrowserSettingsResponse, UpdateWSWBrowserSettingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.BrowserSettings;
         }

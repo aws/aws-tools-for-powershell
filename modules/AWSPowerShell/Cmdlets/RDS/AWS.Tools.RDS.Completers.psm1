@@ -104,7 +104,7 @@ $RDS_Completers = {
         # Amazon.RDS.ClusterScalabilityType
         "New-RDSDBCluster/ClusterScalabilityType"
         {
-            $v = "limitless","scaleout","standard"
+            $v = "limitless","standard"
             break
         }
 

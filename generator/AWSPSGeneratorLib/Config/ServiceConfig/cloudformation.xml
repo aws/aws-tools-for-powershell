@@ -117,11 +117,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccountLimits" OutputProperty="AccountLimits" Verb="Get" Noun="AccountLimit" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-CFNAccountLimits" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAccountLimits" OutputProperty="AccountLimits" Verb="Get" Noun="AccountLimit" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-CFNAccountLimits">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeChangeSet" OutputProperty="*" Verb="Get" Noun="ChangeSet" PositionalParameters="StackName" PipelineParameter="ChangeSetName" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeChangeSet" OutputProperty="*" Verb="Get" Noun="ChangeSet" PositionalParameters="StackName" PipelineParameter="ChangeSetName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -149,7 +149,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStackEvents" OutputProperty="StackEvents" Verb="Get" Noun="StackEvent" PipelineParameter="StackName" NoPipelineParameter="false" LegacyAlias="Get-CFNStackEvents" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeStackEvents" OutputProperty="StackEvents" Verb="Get" Noun="StackEvent" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-CFNStackEvents">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -169,7 +169,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStackResources" OutputProperty="StackResources" Verb="Get" Noun="StackResourceList" PipelineParameter="StackName" NoPipelineParameter="false" LegacyAlias="Get-CFNStackResources" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeStackResources" OutputProperty="StackResources" Verb="Get" Noun="StackResourceList" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-CFNStackResources">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -218,6 +218,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetGeneratedTemplate" OutputProperty="*" Verb="Get" Noun="GeneratedTemplate" PipelineParameter="GeneratedTemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetHookResult" OutputProperty="*" Verb="Get" Noun="HookResultDetail" PipelineParameter="HookResultId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -273,7 +277,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStackInstances" OutputProperty="Summaries" Verb="Get" Noun="StackInstanceList" PipelineParameter="StackSetName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListStackInstances" OutputProperty="Summaries" Verb="Get" Noun="StackInstanceList" PipelineParameter="StackSetName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />
@@ -286,11 +290,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStackResources" OutputProperty="StackResourceSummaries" Verb="Get" Noun="StackResourceSummary" PipelineParameter="StackName" NoPipelineParameter="false" LegacyAlias="Get-CFNStackResourceSummaries" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListStackResources" OutputProperty="StackResourceSummaries" Verb="Get" Noun="StackResourceSummary" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-CFNStackResourceSummaries">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStacks" OutputProperty="StackSummaries" Verb="Get" Noun="StackSummary" PipelineParameter="StackStatusFilter" NoPipelineParameter="false" LegacyAlias="Get-CFNStackSummaries" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListStacks" OutputProperty="StackSummaries" Verb="Get" Noun="StackSummary" PipelineParameter="StackStatusFilter" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-CFNStackSummaries">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -298,17 +302,17 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStackSetOperationResults" OutputProperty="Summaries" Verb="Get" Noun="StackSetOperationResultList" PipelineParameter="OperationId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListStackSetOperationResults" OutputProperty="Summaries" Verb="Get" Noun="StackSetOperationResultList" PipelineParameter="OperationId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStackSetOperations" OutputProperty="Summaries" Verb="Get" Noun="StackSetOperationList" PipelineParameter="StackSetName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListStackSetOperations" OutputProperty="Summaries" Verb="Get" Noun="StackSetOperationList" PipelineParameter="StackSetName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStackSets" OutputProperty="Summaries" Verb="Get" Noun="StackSetList" PipelineParameter="Status" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListStackSets" OutputProperty="Summaries" Verb="Get" Noun="StackSetList" PipelineParameter="Status" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />

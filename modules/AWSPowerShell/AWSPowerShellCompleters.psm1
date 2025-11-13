@@ -13206,6 +13206,7 @@ $CFN_SelectMap = @{
                "Start-CFNChangeSet",
                "Start-CFNCFNStackRefactor",
                "Get-CFNGeneratedTemplate",
+               "Get-CFNHookResultDetail",
                "Get-CFNStackPolicy",
                "Get-CFNTemplate",
                "Get-CFNTemplateSummary",
@@ -30663,7 +30664,7 @@ $ELB2_Completers = {
             ($_ -eq "New-ELB2TargetGroup/Protocol")
         }
         {
-            $v = "GENEVE","HTTP","HTTPS","TCP","TCP_UDP","TLS","UDP"
+            $v = "GENEVE","HTTP","HTTPS","QUIC","TCP","TCP_QUIC","TCP_UDP","TLS","UDP"
             break
         }
 
@@ -42880,6 +42881,8 @@ $IOTW_Completers = {
         # Amazon.IoTWireless.PositioningConfigStatus
         {
             ($_ -eq "New-IOTWWirelessDevice/Positioning") -Or
+            ($_ -eq "Start-IOTWSingleWirelessDeviceImportTask/Positioning") -Or
+            ($_ -eq "Start-IOTWWirelessDeviceImportTask/Positioning") -Or
             ($_ -eq "Update-IOTWWirelessDevice/Positioning")
         }
         {
@@ -42999,7 +43002,7 @@ $IOTW_map = @{
     "MessageDeliveryStatus_WirelessDeviceIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
     "ParticipatingGateways_DownlinkMode"=@("Send-IOTWDataToWirelessDevice")
     "PartnerType"=@("Get-IOTWPartnerAccount","Get-IOTWResourceEventConfiguration","Split-IOTWAwsAccountFromPartnerAccount","Update-IOTWPartnerAccount","Update-IOTWResourceEventConfiguration")
-    "Positioning"=@("New-IOTWWirelessDevice","Update-IOTWWirelessDevice")
+    "Positioning"=@("New-IOTWWirelessDevice","Start-IOTWSingleWirelessDeviceImportTask","Start-IOTWWirelessDeviceImportTask","Update-IOTWWirelessDevice")
     "Proximity_Sidewalk_WirelessDeviceEventTopic"=@("Update-IOTWEventConfigurationByResourceType")
     "Proximity_WirelessDeviceIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
     "ResourceType"=@("Get-IOTWEventConfigurationList","Get-IOTWPosition","Get-IOTWPositionConfiguration","Get-IOTWPositionConfigurationList","Get-IOTWResourcePosition","Update-IOTWPosition","Update-IOTWResourcePosition","Write-IOTWPositionConfiguration")
@@ -63831,7 +63834,7 @@ $RDS_Completers = {
         # Amazon.RDS.ClusterScalabilityType
         "New-RDSDBCluster/ClusterScalabilityType"
         {
-            $v = "limitless","scaleout","standard"
+            $v = "limitless","standard"
             break
         }
 

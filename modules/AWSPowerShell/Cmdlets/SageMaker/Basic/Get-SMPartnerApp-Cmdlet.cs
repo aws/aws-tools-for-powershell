@@ -61,6 +61,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String Arn { get; set; }
         #endregion
         
+        #region Parameter IncludeAvailableUpgrade
+        /// <summary>
+        /// <para>
+        /// <para>When set to <c>TRUE</c>, the response includes available upgrade information for the
+        /// SageMaker Partner AI App. Default is <c>FALSE</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IncludeAvailableUpgrade { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -98,6 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IncludeAvailableUpgrade = this.IncludeAvailableUpgrade;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -117,6 +129,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.Arn != null)
             {
                 request.Arn = cmdletContext.Arn;
+            }
+            if (cmdletContext.IncludeAvailableUpgrade != null)
+            {
+                request.IncludeAvailableUpgrade = cmdletContext.IncludeAvailableUpgrade.Value;
             }
             
             CmdletOutput output;
@@ -174,6 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Arn { get; set; }
+            public System.Boolean? IncludeAvailableUpgrade { get; set; }
             public System.Func<Amazon.SageMaker.Model.DescribePartnerAppResponse, GetSMPartnerAppCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
