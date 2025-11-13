@@ -35,17 +35,11 @@ using System.IO;
 using System.Linq;
 using System.Management.Automation;
 using System.Management.Automation.Host;
-using System.Management.Automation.Language;
 using System.Net;
-using System.Reflection;
-using System.Security.Cryptography;
 using System.Text;
-using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Web;
-using static System.Net.WebRequestMethods;
 
 namespace Amazon.PowerShell.Common
 {
@@ -86,7 +80,7 @@ namespace Amazon.PowerShell.Common
         /// Indicates if CmdLet should use cross-device scenario.
         /// </summary>
         [Parameter(Mandatory = false)]
-        public SwitchParameter NoBrowser { get; set; }
+        public SwitchParameter Remote { get; set; }
 
         /// <summary>
         /// Execution timeout value in milliseconds.
@@ -170,7 +164,7 @@ namespace Amazon.PowerShell.Common
             }
 
             // Now proceed with workflow.
-            var workflow = _workflowSelector.DetermineWorkflow(NoBrowser.IsPresent);
+            var workflow = _workflowSelector.DetermineWorkflow(Remote.IsPresent);
 
             if (workflow == AuthorizationWorkflow.OAuth)
             {
@@ -205,8 +199,8 @@ namespace Amazon.PowerShell.Common
             }
             catch (Exception ex)
             {
-                WriteVerbose($"Error launching local HTTP listener. Try re-executing CmdLet with -${nameof(NoBrowser)}\n${ex}\n${ex.StackTrace}");
-                Console.WriteLine($"Error launching local HTTP listener. Try re-executing CmdLet with -${nameof(NoBrowser)}");
+                WriteVerbose($"Error launching local HTTP listener. Try re-executing CmdLet with -${nameof(Remote)}\n${ex}\n${ex.StackTrace}");
+                Console.WriteLine($"Error launching local HTTP listener. Try re-executing CmdLet with -${nameof(Remote)}");
                 return;
             }
 
@@ -232,9 +226,12 @@ namespace Amazon.PowerShell.Common
                 };
 
                 string authorizeUrl = Utils.Common.ConstructUri(baseEndpoint, AuthorizeEndpointPath ,queryStringParameters);
-                Console.WriteLine($"Using a browser, visit:");
+
+                Console.WriteLine($"Attempting to open the login page for '{Region}' in your default browser.");
+                Console.WriteLine("If the browser does not open, use the following URL to complete your login:");
                 Console.WriteLine(authorizeUrl);
                 Console.WriteLine();
+                Console.WriteLine("If you cannot connect to this URL, make sure that you have specified a valid region.");
                 LaunchBrowser(authorizeUrl);
 
                 // Wait for listener to detect redirect. If user pressed Ctrl+C, then StopProcessing() would be invoked. There we are sending cancel request via CancellationTokenSource.
@@ -526,14 +523,9 @@ namespace Amazon.PowerShell.Common
 
         public class WorkflowSelector
         {
-            public AuthorizationWorkflow DetermineWorkflow(bool noBrowser)
+            public AuthorizationWorkflow DetermineWorkflow(bool isRemote)
             {
-                if (noBrowser) return AuthorizationWorkflow.CrossDevice;
-
-                // PowerShell-specific browser detection
-                if (!CanLaunchBrowser()) return AuthorizationWorkflow.CrossDevice;
-
-                return AuthorizationWorkflow.OAuth;
+                return isRemote? AuthorizationWorkflow.CrossDevice : AuthorizationWorkflow.OAuth;
             }
 
             private bool CanLaunchBrowser()
