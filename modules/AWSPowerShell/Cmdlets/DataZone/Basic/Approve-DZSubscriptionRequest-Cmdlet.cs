@@ -44,6 +44,21 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AssetPermission
+        /// <summary>
+        /// <para>
+        /// <para>The asset permissions of the accept subscription request.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AssetPermissions")]
+        public Amazon.DataZone.Model.AssetPermission[] AssetPermission { get; set; }
+        #endregion
+        
         #region Parameter AssetScope
         /// <summary>
         /// <para>
@@ -149,6 +164,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 context.Select = CreateSelectDelegate<Amazon.DataZone.Model.AcceptSubscriptionRequestResponse, ApproveDZSubscriptionRequestCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AssetPermission != null)
+            {
+                context.AssetPermission = new List<Amazon.DataZone.Model.AssetPermission>(this.AssetPermission);
+            }
             if (this.AssetScope != null)
             {
                 context.AssetScope = new List<Amazon.DataZone.Model.AcceptedAssetScope>(this.AssetScope);
@@ -184,6 +203,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             // create request
             var request = new Amazon.DataZone.Model.AcceptSubscriptionRequestRequest();
             
+            if (cmdletContext.AssetPermission != null)
+            {
+                request.AssetPermissions = cmdletContext.AssetPermission;
+            }
             if (cmdletContext.AssetScope != null)
             {
                 request.AssetScopes = cmdletContext.AssetScope;
@@ -255,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.DataZone.Model.AssetPermission> AssetPermission { get; set; }
             public List<Amazon.DataZone.Model.AcceptedAssetScope> AssetScope { get; set; }
             public System.String DecisionComment { get; set; }
             public System.String DomainIdentifier { get; set; }

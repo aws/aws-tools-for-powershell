@@ -65,23 +65,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Component
         /// <summary>
         /// <para>
-        /// <para>Components for build and test that are included in the container recipe. Recipes require
-        /// a minimum of one build component, and can have a maximum of 20 build and test components
-        /// in any combination.</para><para />
+        /// <para>The components included in the container recipe.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Components")]
         public Amazon.Imagebuilder.Model.ComponentConfiguration[] Component { get; set; }
         #endregion
@@ -360,12 +351,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             {
                 context.Component = new List<Amazon.Imagebuilder.Model.ComponentConfiguration>(this.Component);
             }
-            #if MODULAR
-            if (this.Component == null && ParameterWasBound(nameof(this.Component)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Component which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ContainerType = this.ContainerType;
             #if MODULAR
             if (this.ContainerType == null && ParameterWasBound(nameof(this.ContainerType)))
