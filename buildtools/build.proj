@@ -240,6 +240,9 @@
         <Copy SourceFiles="$(RootPath)/CHANGELOG.md" DestinationFiles="$(NetCoreDeploymentArtifacts)/CHANGELOG.txt"/>
         <Copy SourceFiles="$(RootPath)/LICENSE" DestinationFiles="$(NetCoreDeploymentArtifacts)/LICENSE"/>
         <Copy SourceFiles="$(RootPath)/NOTICE" DestinationFiles="$(NetCoreDeploymentArtifacts)/NOTICE"/>
+
+        <!-- Copy transitive dependencies -->
+        <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/BouncyCastle.Cryptography.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
     </Target>
 
     <Target Name="copy-modular-artifacts" DependsOnTargets="build-modular-modules">
