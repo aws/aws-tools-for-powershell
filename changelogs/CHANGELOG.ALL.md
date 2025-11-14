@@ -1,4 +1,13 @@
-﻿### 4.1.942 (2025-11-13 21:20Z)
+﻿### 4.1.943 (2025-11-14 21:48Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1166.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DataZone
+    * Modified cmdlet Approve-DZSubscriptionRequest: added parameter AssetPermission.
+    * Modified cmdlet Get-DZSubscriptionGrantList: added parameters OwningGroupId and OwningUserId.
+    * Modified cmdlet Get-DZSubscriptionList: added parameters OwningGroupId and OwningUserId.
+    * Modified cmdlet Get-DZSubscriptionRequestList: added parameters OwningGroupId and OwningUserId.
+    * Modified cmdlet New-DZSubscriptionRequest: added parameters AssetPermission and AssetScope.
+
+### 4.1.942 (2025-11-13 21:20Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1165.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudFormation
     * Added cmdlet Get-CFNHookResultDetail leveraging the GetHookResult service API.

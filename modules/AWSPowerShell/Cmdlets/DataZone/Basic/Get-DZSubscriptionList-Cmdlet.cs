@@ -70,6 +70,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String DomainIdentifier { get; set; }
         #endregion
         
+        #region Parameter OwningGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the owning group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OwningGroupId { get; set; }
+        #endregion
+        
         #region Parameter OwningProjectId
         /// <summary>
         /// <para>
@@ -80,15 +90,14 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String OwningProjectId { get; set; }
         #endregion
         
-        #region Parameter SortBy
+        #region Parameter OwningUserId
         /// <summary>
         /// <para>
-        /// <para>Specifies the way in which the results of this action are to be sorted.</para>
+        /// <para>The ID of the owning user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.DataZone.SortKey")]
-        public Amazon.DataZone.SortKey SortBy { get; set; }
+        public System.String OwningUserId { get; set; }
         #endregion
         
         #region Parameter SortOrder
@@ -167,6 +176,19 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String NextToken { get; set; }
         #endregion
         
+        #region Parameter SortBy
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the way in which the results of this action are to be sorted.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Results are always sorted by updatedAt")]
+        [AWSConstantClassSource("Amazon.DataZone.SortKey")]
+        public Amazon.DataZone.SortKey SortBy { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -233,8 +255,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.OwningGroupId = this.OwningGroupId;
             context.OwningProjectId = this.OwningProjectId;
+            context.OwningUserId = this.OwningUserId;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.SortBy = this.SortBy;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.SortOrder = this.SortOrder;
             context.Status = this.Status;
             context.SubscribedListingId = this.SubscribedListingId;
@@ -271,14 +297,24 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
+            if (cmdletContext.OwningGroupId != null)
+            {
+                request.OwningGroupId = cmdletContext.OwningGroupId;
+            }
             if (cmdletContext.OwningProjectId != null)
             {
                 request.OwningProjectId = cmdletContext.OwningProjectId;
             }
+            if (cmdletContext.OwningUserId != null)
+            {
+                request.OwningUserId = cmdletContext.OwningUserId;
+            }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.SortBy != null)
             {
                 request.SortBy = cmdletContext.SortBy;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.SortOrder != null)
             {
                 request.SortOrder = cmdletContext.SortOrder;
@@ -384,7 +420,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String DomainIdentifier { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.String OwningGroupId { get; set; }
             public System.String OwningProjectId { get; set; }
+            public System.String OwningUserId { get; set; }
+            [System.ObsoleteAttribute]
             public Amazon.DataZone.SortKey SortBy { get; set; }
             public Amazon.DataZone.SortOrder SortOrder { get; set; }
             public Amazon.DataZone.SubscriptionStatus Status { get; set; }
