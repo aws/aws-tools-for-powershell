@@ -283,6 +283,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SendObjectMalwareScan" Verb="Send" Noun="ObjectMalwareScan" ShouldProcessTarget="S3Object_VersionId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartMalwareScan" OutputProperty="ScanId" Verb="Start" Noun="MalwareScan" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

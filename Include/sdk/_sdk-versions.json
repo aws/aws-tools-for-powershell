@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.134.0",
+    "ProductVersion"    : "4.0.135.0",
     "CoreVersion"       : "4.0.3.1",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -130,7 +130,7 @@
             "InPreview"               : false
         },
         "DeviceFarm"        : {
-            "Version" : "4.0.2.5",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.1"
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "4.0.55.0",
+            "Version" : "4.0.56.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.1"
@@ -516,7 +516,7 @@
             "InPreview"               : false
         },
         "DatabaseMigrationService"        : {
-            "Version" : "4.0.5.0",
+            "Version" : "4.0.6.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.1"
@@ -628,7 +628,7 @@
             "InPreview"               : false
         },
         "AppStream"                       : {
-            "Version" : "4.0.3.1",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.1"
@@ -796,7 +796,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "4.0.20.3",
+            "Version" : "4.0.21.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.1"
@@ -836,7 +836,7 @@
             "InPreview"               : false
         },
         "MediaLive"                       : {
-            "Version" : "4.0.9.0",
+            "Version" : "4.0.10.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.1"
@@ -876,7 +876,7 @@
             "InPreview"               : false
         },
         "GuardDuty"                       : {
-            "Version" : "4.0.9.1",
+            "Version" : "4.0.10.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.1"
@@ -1148,7 +1148,7 @@
             "InPreview"               : false
         },
         "Route53Resolver"                 : {
-            "Version" : "4.0.3.3",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.1"
@@ -1292,7 +1292,7 @@
             "InPreview"               : false
         },
         "Backup"                          : {
-            "Version" : "4.0.7.1",
+            "Version" : "4.0.8.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.1"
@@ -1940,7 +1940,7 @@
             "InPreview"               : false
         },
         "LexModelsV2"                     : {
-            "Version" : "4.0.2.5",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.1"
@@ -2084,7 +2084,7 @@
             "InPreview"               : false
         },
         "OpenSearchService"               : {
-            "Version" : "4.0.5.1",
+            "Version" : "4.0.6.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.1"
@@ -2588,7 +2588,7 @@
             "InPreview"               : false
         },
         "MediaPackageV2"                      : {
-            "Version" : "4.0.7.5",
+            "Version" : "4.0.8.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.1"
@@ -2684,7 +2684,7 @@
             "InPreview"               : false
         },
         "Bedrock"                             : {
-            "Version" : "4.0.13.6",
+            "Version" : "4.0.14.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.1"
@@ -2972,7 +2972,7 @@
             "InPreview"               : false
         },
         "PCS"                                 : {
-            "Version" : "4.0.10.5",
+            "Version" : "4.0.11.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.1"
@@ -3277,6 +3277,14 @@
         },
         "RTBFabric"                           : {
             "Version" : "4.0.2.1",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.3.1"
+            },
+            "InPreview"               : false
+        },
+        "MWAAServerless"                      : {
+            "Version" : "4.0.0.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.1"

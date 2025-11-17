@@ -156,6 +156,16 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         public System.String ByResourceType { get; set; }
         #endregion
         
+        #region Parameter BySourceRecoveryPointArn
+        /// <summary>
+        /// <para>
+        /// <para>Filters copy jobs by the specified source recovery point ARN.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BySourceRecoveryPointArn { get; set; }
+        #endregion
+        
         #region Parameter ByState
         /// <summary>
         /// <para>
@@ -244,6 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             context.ByParentJobId = this.ByParentJobId;
             context.ByResourceArn = this.ByResourceArn;
             context.ByResourceType = this.ByResourceType;
+            context.BySourceRecoveryPointArn = this.BySourceRecoveryPointArn;
             context.ByState = this.ByState;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -304,6 +315,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (cmdletContext.ByResourceType != null)
             {
                 request.ByResourceType = cmdletContext.ByResourceType;
+            }
+            if (cmdletContext.BySourceRecoveryPointArn != null)
+            {
+                request.BySourceRecoveryPointArn = cmdletContext.BySourceRecoveryPointArn;
             }
             if (cmdletContext.ByState != null)
             {
@@ -402,6 +417,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             public System.String ByParentJobId { get; set; }
             public System.String ByResourceArn { get; set; }
             public System.String ByResourceType { get; set; }
+            public System.String BySourceRecoveryPointArn { get; set; }
             public Amazon.Backup.CopyJobState ByState { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }

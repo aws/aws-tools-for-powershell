@@ -323,6 +323,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.MQ.dll',
         'AWSSDK.MTurk.dll',
         'AWSSDK.MWAA.dll',
+        'AWSSDK.MWAAServerless.dll',
         'AWSSDK.Neptune.dll',
         'AWSSDK.Neptunedata.dll',
         'AWSSDK.NeptuneGraph.dll',

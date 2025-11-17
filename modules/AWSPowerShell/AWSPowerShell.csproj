@@ -868,6 +868,9 @@
     <Reference Include="AWSSDK.MWAA">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MWAA.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.MWAAServerless">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.MWAAServerless.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Neptune">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Neptune.dll</HintPath>
     </Reference>
@@ -2085,6 +2088,9 @@
     </Reference>
     <Reference Include="AWSSDK.MWAA">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MWAA.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.MWAAServerless">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MWAAServerless.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Neptune">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Neptune.dll</HintPath>

@@ -30,14 +30,15 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Disassociates one or more specified tags from the specified AppStream 2.0 resource.
+    /// Disassociates one or more specified tags from the specified WorkSpaces Applications
+    /// resource.
     /// 
     ///  
     /// <para>
     /// To list the current tags for your resources, use <a>ListTagsForResource</a>.
     /// </para><para>
     /// For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-    /// Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.
+    /// Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "APSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

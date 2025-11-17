@@ -64,6 +64,19 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         public System.Int64? Lifecycle_DeleteAfterDay { get; set; }
         #endregion
         
+        #region Parameter Lifecycle_DeleteAfterEvent
+        /// <summary>
+        /// <para>
+        /// <para>The event after which a recovery point is deleted. A recovery point with both <c>DeleteAfterDays</c>
+        /// and <c>DeleteAfterEvent</c> will delete after whichever condition is satisfied first.
+        /// Not valid as an input.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Backup.LifecycleDeleteAfterEvent")]
+        public Amazon.Backup.LifecycleDeleteAfterEvent Lifecycle_DeleteAfterEvent { get; set; }
+        #endregion
+        
         #region Parameter DestinationBackupVaultArn
         /// <summary>
         /// <para>
@@ -234,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             #endif
             context.IdempotencyToken = this.IdempotencyToken;
             context.Lifecycle_DeleteAfterDay = this.Lifecycle_DeleteAfterDay;
+            context.Lifecycle_DeleteAfterEvent = this.Lifecycle_DeleteAfterEvent;
             context.Lifecycle_MoveToColdStorageAfterDay = this.Lifecycle_MoveToColdStorageAfterDay;
             context.Lifecycle_OptInToArchiveForSupportedResource = this.Lifecycle_OptInToArchiveForSupportedResource;
             context.RecoveryPointArn = this.RecoveryPointArn;
@@ -290,6 +304,16 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (requestLifecycle_lifecycle_DeleteAfterDay != null)
             {
                 request.Lifecycle.DeleteAfterDays = requestLifecycle_lifecycle_DeleteAfterDay.Value;
+                requestLifecycleIsNull = false;
+            }
+            Amazon.Backup.LifecycleDeleteAfterEvent requestLifecycle_lifecycle_DeleteAfterEvent = null;
+            if (cmdletContext.Lifecycle_DeleteAfterEvent != null)
+            {
+                requestLifecycle_lifecycle_DeleteAfterEvent = cmdletContext.Lifecycle_DeleteAfterEvent;
+            }
+            if (requestLifecycle_lifecycle_DeleteAfterEvent != null)
+            {
+                request.Lifecycle.DeleteAfterEvent = requestLifecycle_lifecycle_DeleteAfterEvent;
                 requestLifecycleIsNull = false;
             }
             System.Int64? requestLifecycle_lifecycle_MoveToColdStorageAfterDay = null;
@@ -384,6 +408,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             public System.String IamRoleArn { get; set; }
             public System.String IdempotencyToken { get; set; }
             public System.Int64? Lifecycle_DeleteAfterDay { get; set; }
+            public Amazon.Backup.LifecycleDeleteAfterEvent Lifecycle_DeleteAfterEvent { get; set; }
             public System.Int64? Lifecycle_MoveToColdStorageAfterDay { get; set; }
             public System.Boolean? Lifecycle_OptInToArchiveForSupportedResource { get; set; }
             public System.String RecoveryPointArn { get; set; }

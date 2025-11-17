@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>mwaaserverless</C2jFilename>
+    <AssemblyName>MWAAServerless</AssemblyName>
+    <ServiceNounPrefix>MWAAS</ServiceNounPrefix>
+    <ServiceName>AmazonMWAAServerless</ServiceName>
+    <ServiceClientInterface>IAmazonMWAAServerless</ServiceClientInterface>
+    <ServiceClient>AmazonMWAAServerlessClient</ServiceClient>
+    <ServiceModuleGuid>ca291a58-d556-4287-9a4d-70c92ab513df</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateWorkflow" OutputProperty="*" Verb="New" Noun="Workflow" ShouldProcessTarget="Name,RoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWorkflow" OutputProperty="*" Verb="Remove" Noun="Workflow" ShouldProcessTarget="WorkflowArn" PipelineParameter="WorkflowArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTaskInstance" OutputProperty="*" Verb="Get" Noun="TaskInstance" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWorkflow" OutputProperty="*" Verb="Get" Noun="Workflow" PipelineParameter="WorkflowArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWorkflowRun" OutputProperty="*" Verb="Get" Noun="WorkflowRun" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTaskInstances" OutputProperty="TaskInstances" Verb="Get" Noun="TaskInstanceList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkflowRuns" OutputProperty="WorkflowRuns" Verb="Get" Noun="WorkflowRunList" PipelineParameter="WorkflowArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkflows" OutputProperty="Workflows" Verb="Get" Noun="WorkflowList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkflowVersions" OutputProperty="WorkflowVersions" Verb="Get" Noun="WorkflowVersionList" PipelineParameter="WorkflowArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartWorkflowRun" OutputProperty="*" Verb="Start" Noun="WorkflowRun" ShouldProcessTarget="WorkflowArn" PipelineParameter="WorkflowArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopWorkflowRun" OutputProperty="*" Verb="Stop" Noun="WorkflowRun" ShouldProcessTarget="RunId,WorkflowArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWorkflow" OutputProperty="*" Verb="Update" Noun="Workflow" ShouldProcessTarget="WorkflowArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

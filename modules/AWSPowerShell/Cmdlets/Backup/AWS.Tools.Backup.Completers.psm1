@@ -136,6 +136,17 @@ $BAK_Completers = {
             break
         }
 
+        # Amazon.Backup.LifecycleDeleteAfterEvent
+        {
+            ($_ -eq "Start-BAKBackupJob/Lifecycle_DeleteAfterEvent") -Or
+            ($_ -eq "Start-BAKCopyJob/Lifecycle_DeleteAfterEvent") -Or
+            ($_ -eq "Update-BAKRecoveryPointLifecycle/Lifecycle_DeleteAfterEvent")
+        }
+        {
+            $v = "DELETE_AFTER_COPY"
+            break
+        }
+
         # Amazon.Backup.RestoreJobState
         "Get-BAKRestoreJobSummaryList/State"
         {
@@ -192,6 +203,7 @@ $BAK_map = @{
     "ByVaultType"=@("Get-BAKBackupVaultList")
     "Index"=@("Start-BAKBackupJob","Update-BAKRecoveryPointIndexSetting")
     "IndexStatus"=@("Get-BAKIndexedRecoveryPointList")
+    "Lifecycle_DeleteAfterEvent"=@("Start-BAKBackupJob","Start-BAKCopyJob","Update-BAKRecoveryPointLifecycle")
     "RecoveryPointSelection_Algorithm"=@("New-BAKRestoreTestingPlan","Update-BAKRestoreTestingPlan")
     "State"=@("Get-BAKBackupJobSummaryList","Get-BAKCopyJobSummaryList","Get-BAKRestoreJobSummaryList")
     "ValidationStatus"=@("Write-BAKRestoreValidationResult")

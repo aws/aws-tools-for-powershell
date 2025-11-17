@@ -1,0 +1,3 @@
+﻿# MWAAServerless
+
+Export-ModuleMember -Alias *

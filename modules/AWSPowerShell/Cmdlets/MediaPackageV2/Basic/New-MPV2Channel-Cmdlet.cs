@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         /// <summary>
         /// <para>
         /// <para>When true, AWS Elemental MediaPackage performs input switching based on the MQCS.
-        /// Default is true. This setting is valid only when <c>InputType</c> is <c>CMAF</c>.</para>
+        /// Default is false. This setting is valid only when <c>InputType</c> is <c>CMAF</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

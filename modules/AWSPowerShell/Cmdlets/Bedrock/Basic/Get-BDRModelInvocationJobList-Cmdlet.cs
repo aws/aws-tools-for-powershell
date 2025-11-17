@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         /// S3 location.</para></li><li><para>PartiallyCompleted – This job has partially completed. Not all of your records could
         /// be processed in time. View the output files in the output S3 location.</para></li><li><para>Failed – This job has failed. Check the failure message for any further details. For
         /// further assistance, reach out to the <a href="https://console.aws.amazon.com/support/home/">Amazon
-        /// Web ServicesSupport Center</a>.</para></li><li><para>Stopped – This job was stopped by a user.</para></li><li><para>Stopping – This job is being stopped by a user.</para></li></ul>
+        /// Web Services Support Center</a>.</para></li><li><para>Stopped – This job was stopped by a user.</para></li><li><para>Stopping – This job is being stopped by a user.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

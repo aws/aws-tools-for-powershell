@@ -116,6 +116,21 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String TargetProcessingProperties_RoleArn { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Metadata assigned to the resource consisting of a list of key-value pairs.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Glue.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -170,6 +185,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             #endif
             context.SourceProcessingProperties_RoleArn = this.SourceProcessingProperties_RoleArn;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Glue.Model.Tag>(this.Tag);
+            }
             context.TargetProcessingProperties_ConnectionName = this.TargetProcessingProperties_ConnectionName;
             context.TargetProcessingProperties_EventBusArn = this.TargetProcessingProperties_EventBusArn;
             context.TargetProcessingProperties_KmsArn = this.TargetProcessingProperties_KmsArn;
@@ -212,6 +231,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestSourceProcessingPropertiesIsNull)
             {
                 request.SourceProcessingProperties = null;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
              // populate TargetProcessingProperties
@@ -319,6 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             public System.String ResourceArn { get; set; }
             public System.String SourceProcessingProperties_RoleArn { get; set; }
+            public List<Amazon.Glue.Model.Tag> Tag { get; set; }
             public System.String TargetProcessingProperties_ConnectionName { get; set; }
             public System.String TargetProcessingProperties_EventBusArn { get; set; }
             public System.String TargetProcessingProperties_KmsArn { get; set; }

@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter AppstreamAgentVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the AppStream 2.0 agent to use for this image builder. To use the latest
-        /// version of the AppStream 2.0 agent, specify [LATEST]. </para>
+        /// <para>The version of the WorkSpaces Applications agent to use for this image builder. To
+        /// use the latest version of the WorkSpaces Applications agent, specify [LATEST]. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

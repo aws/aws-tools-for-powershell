@@ -30,12 +30,12 @@ using Amazon.DeviceFarm.Model;
 namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Deletes an AWS Device Farm project, given the project ARN.
+    /// Deletes an AWS Device Farm project, given the project ARN. You cannot delete a project
+    /// if it has an active run or session.
     /// 
-    ///  
-    /// <para>
-    ///  Deleting this resource does not stop an in-progress run.
-    /// </para>
+    ///  <important><para>
+    /// You cannot undo this operation.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "DFProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

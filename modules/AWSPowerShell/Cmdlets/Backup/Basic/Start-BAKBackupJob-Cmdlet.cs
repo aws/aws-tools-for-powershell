@@ -108,6 +108,19 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         public System.Int64? Lifecycle_DeleteAfterDay { get; set; }
         #endregion
         
+        #region Parameter Lifecycle_DeleteAfterEvent
+        /// <summary>
+        /// <para>
+        /// <para>The event after which a recovery point is deleted. A recovery point with both <c>DeleteAfterDays</c>
+        /// and <c>DeleteAfterEvent</c> will delete after whichever condition is satisfied first.
+        /// Not valid as an input.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Backup.LifecycleDeleteAfterEvent")]
+        public Amazon.Backup.LifecycleDeleteAfterEvent Lifecycle_DeleteAfterEvent { get; set; }
+        #endregion
+        
         #region Parameter IamRoleArn
         /// <summary>
         /// <para>
@@ -149,6 +162,20 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Backup.Index")]
         public Amazon.Backup.Index Index { get; set; }
+        #endregion
+        
+        #region Parameter LogicallyAirGappedBackupVaultArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of a logically air-gapped vault. ARN must be in the same account and Region.
+        /// If provided, supported fully managed resources back up directly to logically air-gapped
+        /// vault, while other supported resources create a temporary (billable) snapshot in backup
+        /// vault, then copy it to logically air-gapped vault. Unsupported resources only back
+        /// up to the specified backup vault.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LogicallyAirGappedBackupVaultArn { get; set; }
         #endregion
         
         #region Parameter Lifecycle_MoveToColdStorageAfterDay
@@ -298,8 +325,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             context.IdempotencyToken = this.IdempotencyToken;
             context.Index = this.Index;
             context.Lifecycle_DeleteAfterDay = this.Lifecycle_DeleteAfterDay;
+            context.Lifecycle_DeleteAfterEvent = this.Lifecycle_DeleteAfterEvent;
             context.Lifecycle_MoveToColdStorageAfterDay = this.Lifecycle_MoveToColdStorageAfterDay;
             context.Lifecycle_OptInToArchiveForSupportedResource = this.Lifecycle_OptInToArchiveForSupportedResource;
+            context.LogicallyAirGappedBackupVaultArn = this.LogicallyAirGappedBackupVaultArn;
             if (this.RecoveryPointTag != null)
             {
                 context.RecoveryPointTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -370,6 +399,16 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 request.Lifecycle.DeleteAfterDays = requestLifecycle_lifecycle_DeleteAfterDay.Value;
                 requestLifecycleIsNull = false;
             }
+            Amazon.Backup.LifecycleDeleteAfterEvent requestLifecycle_lifecycle_DeleteAfterEvent = null;
+            if (cmdletContext.Lifecycle_DeleteAfterEvent != null)
+            {
+                requestLifecycle_lifecycle_DeleteAfterEvent = cmdletContext.Lifecycle_DeleteAfterEvent;
+            }
+            if (requestLifecycle_lifecycle_DeleteAfterEvent != null)
+            {
+                request.Lifecycle.DeleteAfterEvent = requestLifecycle_lifecycle_DeleteAfterEvent;
+                requestLifecycleIsNull = false;
+            }
             System.Int64? requestLifecycle_lifecycle_MoveToColdStorageAfterDay = null;
             if (cmdletContext.Lifecycle_MoveToColdStorageAfterDay != null)
             {
@@ -394,6 +433,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (requestLifecycleIsNull)
             {
                 request.Lifecycle = null;
+            }
+            if (cmdletContext.LogicallyAirGappedBackupVaultArn != null)
+            {
+                request.LogicallyAirGappedBackupVaultArn = cmdletContext.LogicallyAirGappedBackupVaultArn;
             }
             if (cmdletContext.RecoveryPointTag != null)
             {
@@ -469,8 +512,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             public System.String IdempotencyToken { get; set; }
             public Amazon.Backup.Index Index { get; set; }
             public System.Int64? Lifecycle_DeleteAfterDay { get; set; }
+            public Amazon.Backup.LifecycleDeleteAfterEvent Lifecycle_DeleteAfterEvent { get; set; }
             public System.Int64? Lifecycle_MoveToColdStorageAfterDay { get; set; }
             public System.Boolean? Lifecycle_OptInToArchiveForSupportedResource { get; set; }
+            public System.String LogicallyAirGappedBackupVaultArn { get; set; }
             public Dictionary<System.String, System.String> RecoveryPointTag { get; set; }
             public System.String ResourceArn { get; set; }
             public System.Int64? StartWindowMinute { get; set; }

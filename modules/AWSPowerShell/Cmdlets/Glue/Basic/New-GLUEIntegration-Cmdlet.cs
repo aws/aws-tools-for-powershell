@@ -124,8 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <para>Specifies the frequency at which CDC (Change Data Capture) pulls or incremental loads
         /// should occur. This parameter provides flexibility to align the refresh rate with your
         /// specific data update patterns, system load considerations, and performance optimization
-        /// goals. Time increment can be set from 15 minutes to 8640 minutes (six days). Currently
-        /// supports creation of <c>RefreshInterval</c> only.</para>
+        /// goals. Time increment can be set from 15 minutes to 8640 minutes (six days).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

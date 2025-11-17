@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter AppstreamAgentVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the AppStream 2.0 agent to use for this image builder. To use the latest
-        /// version of the AppStream 2.0 agent, specify [LATEST]. </para>
+        /// <para>The version of the WorkSpaces Applications agent to use for this image builder. To
+        /// use the latest version of the WorkSpaces Applications agent, specify [LATEST]. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,10 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <para>The Amazon Resource Name (ARN) of the IAM role to apply to the image builder. To assume
         /// a role, the image builder calls the AWS Security Token Service (STS) <c>AssumeRole</c>
         /// API operation and passes the ARN of the role to use. The operation creates a new session
-        /// with temporary credentials. AppStream 2.0 retrieves the temporary credentials and
-        /// creates the <b>appstream_machine_role</b> credential profile on the instance.</para><para>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using
-        /// an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream
-        /// 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</para>
+        /// with temporary credentials. WorkSpaces Applications retrieves the temporary credentials
+        /// and creates the <b>appstream_machine_role</b> credential profile on the instance.</para><para>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using
+        /// an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces
+        /// Applications Streaming Instances</a> in the <i>Amazon WorkSpaces Applications Administration
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <summary>
         /// <para>
         /// <para>The instance type to use when launching the image builder. The following instance
-        /// types are available:</para><ul><li><para>stream.standard.small</para></li><li><para>stream.standard.medium</para></li><li><para>stream.standard.large</para></li><li><para>stream.compute.large</para></li><li><para>stream.compute.xlarge</para></li><li><para>stream.compute.2xlarge</para></li><li><para>stream.compute.4xlarge</para></li><li><para>stream.compute.8xlarge</para></li><li><para>stream.memory.large</para></li><li><para>stream.memory.xlarge</para></li><li><para>stream.memory.2xlarge</para></li><li><para>stream.memory.4xlarge</para></li><li><para>stream.memory.8xlarge</para></li><li><para>stream.memory.z1d.large</para></li><li><para>stream.memory.z1d.xlarge</para></li><li><para>stream.memory.z1d.2xlarge</para></li><li><para>stream.memory.z1d.3xlarge</para></li><li><para>stream.memory.z1d.6xlarge</para></li><li><para>stream.memory.z1d.12xlarge</para></li><li><para>stream.graphics-design.large</para></li><li><para>stream.graphics-design.xlarge</para></li><li><para>stream.graphics-design.2xlarge</para></li><li><para>stream.graphics-design.4xlarge</para></li><li><para>stream.graphics-desktop.2xlarge</para></li><li><para>stream.graphics.g4dn.xlarge</para></li><li><para>stream.graphics.g4dn.2xlarge</para></li><li><para>stream.graphics.g4dn.4xlarge</para></li><li><para>stream.graphics.g4dn.8xlarge</para></li><li><para>stream.graphics.g4dn.12xlarge</para></li><li><para>stream.graphics.g4dn.16xlarge</para></li><li><para>stream.graphics-pro.4xlarge</para></li><li><para>stream.graphics-pro.8xlarge</para></li><li><para>stream.graphics-pro.16xlarge</para></li><li><para>stream.graphics.g5.xlarge</para></li><li><para>stream.graphics.g5.2xlarge</para></li><li><para>stream.graphics.g5.4xlarge</para></li><li><para>stream.graphics.g5.8xlarge</para></li><li><para>stream.graphics.g5.16xlarge</para></li><li><para>stream.graphics.g5.12xlarge</para></li><li><para>stream.graphics.g5.24xlarge</para></li><li><para>stream.graphics.g6.xlarge</para></li><li><para>stream.graphics.g6.2xlarge</para></li><li><para>stream.graphics.g6.4xlarge</para></li><li><para>stream.graphics.g6.8xlarge</para></li><li><para>stream.graphics.g6.16xlarge</para></li><li><para>stream.graphics.g6.12xlarge</para></li><li><para>stream.graphics.g6.24xlarge</para></li><li><para>stream.graphics.gr6.4xlarge</para></li><li><para>stream.graphics.gr6.8xlarge</para></li><li><para>stream.graphics.g6f.large</para></li><li><para>stream.graphics.g6f.xlarge</para></li><li><para>stream.graphics.g6f.2xlarge</para></li><li><para>stream.graphics.g6f.4xlarge</para></li><li><para>stream.graphics.gr6f.4xlarge</para></li></ul>
+        /// types are available:</para><ul><li><para>stream.standard.small</para></li><li><para>stream.standard.medium</para></li><li><para>stream.standard.large</para></li><li><para>stream.compute.large</para></li><li><para>stream.compute.xlarge</para></li><li><para>stream.compute.2xlarge</para></li><li><para>stream.compute.4xlarge</para></li><li><para>stream.compute.8xlarge</para></li><li><para>stream.memory.large</para></li><li><para>stream.memory.xlarge</para></li><li><para>stream.memory.2xlarge</para></li><li><para>stream.memory.4xlarge</para></li><li><para>stream.memory.8xlarge</para></li><li><para>stream.memory.z1d.large</para></li><li><para>stream.memory.z1d.xlarge</para></li><li><para>stream.memory.z1d.2xlarge</para></li><li><para>stream.memory.z1d.3xlarge</para></li><li><para>stream.memory.z1d.6xlarge</para></li><li><para>stream.memory.z1d.12xlarge</para></li><li><para>stream.graphics-design.large</para></li><li><para>stream.graphics-design.xlarge</para></li><li><para>stream.graphics-design.2xlarge</para></li><li><para>stream.graphics-design.4xlarge</para></li><li><para>stream.graphics.g4dn.xlarge</para></li><li><para>stream.graphics.g4dn.2xlarge</para></li><li><para>stream.graphics.g4dn.4xlarge</para></li><li><para>stream.graphics.g4dn.8xlarge</para></li><li><para>stream.graphics.g4dn.12xlarge</para></li><li><para>stream.graphics.g4dn.16xlarge</para></li><li><para>stream.graphics.g5.xlarge</para></li><li><para>stream.graphics.g5.2xlarge</para></li><li><para>stream.graphics.g5.4xlarge</para></li><li><para>stream.graphics.g5.8xlarge</para></li><li><para>stream.graphics.g5.16xlarge</para></li><li><para>stream.graphics.g5.12xlarge</para></li><li><para>stream.graphics.g5.24xlarge</para></li><li><para>stream.graphics.g6.xlarge</para></li><li><para>stream.graphics.g6.2xlarge</para></li><li><para>stream.graphics.g6.4xlarge</para></li><li><para>stream.graphics.g6.8xlarge</para></li><li><para>stream.graphics.g6.16xlarge</para></li><li><para>stream.graphics.g6.12xlarge</para></li><li><para>stream.graphics.g6.24xlarge</para></li><li><para>stream.graphics.gr6.4xlarge</para></li><li><para>stream.graphics.gr6.8xlarge</para></li><li><para>stream.graphics.g6f.large</para></li><li><para>stream.graphics.g6f.xlarge</para></li><li><para>stream.graphics.g6f.2xlarge</para></li><li><para>stream.graphics.g6f.4xlarge</para></li><li><para>stream.graphics.gr6f.4xlarge</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -268,7 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// is optional. For example, Environment=Test. If you do not specify a value, Environment=.
         /// </para><para>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8,
         /// and the following special characters: </para><para>_ . : / = + \ - @</para><para>If you do not specify a value, the value is set to an empty string.</para><para>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-        /// Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</para><para />
+        /// Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -278,6 +279,18 @@ namespace Amazon.PowerShell.Cmdlets.APS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter RootVolumeConfig_VolumeSizeInGb
+        /// <summary>
+        /// <para>
+        /// <para>The size of the root volume in GB. Valid range is 200-500 GB. The default is 200 GB,
+        /// which is included in the hourly instance rate. Additional storage beyond 200 GB incurs
+        /// extra charges and applies to instances regardless of their running state.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? RootVolumeConfig_VolumeSizeInGb { get; set; }
         #endregion
         
         #region Parameter Select
@@ -353,6 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RootVolumeConfig_VolumeSizeInGb = this.RootVolumeConfig_VolumeSizeInGb;
             if (this.SoftwaresToInstall != null)
             {
                 context.SoftwaresToInstall = new List<System.String>(this.SoftwaresToInstall);
@@ -462,6 +476,25 @@ namespace Amazon.PowerShell.Cmdlets.APS
             {
                 request.Name = cmdletContext.Name;
             }
+            
+             // populate RootVolumeConfig
+            var requestRootVolumeConfigIsNull = true;
+            request.RootVolumeConfig = new Amazon.AppStream.Model.VolumeConfig();
+            System.Int32? requestRootVolumeConfig_rootVolumeConfig_VolumeSizeInGb = null;
+            if (cmdletContext.RootVolumeConfig_VolumeSizeInGb != null)
+            {
+                requestRootVolumeConfig_rootVolumeConfig_VolumeSizeInGb = cmdletContext.RootVolumeConfig_VolumeSizeInGb.Value;
+            }
+            if (requestRootVolumeConfig_rootVolumeConfig_VolumeSizeInGb != null)
+            {
+                request.RootVolumeConfig.VolumeSizeInGb = requestRootVolumeConfig_rootVolumeConfig_VolumeSizeInGb.Value;
+                requestRootVolumeConfigIsNull = false;
+            }
+             // determine if request.RootVolumeConfig should be set to null
+            if (requestRootVolumeConfigIsNull)
+            {
+                request.RootVolumeConfig = null;
+            }
             if (cmdletContext.SoftwaresToInstall != null)
             {
                 request.SoftwaresToInstall = cmdletContext.SoftwaresToInstall;
@@ -570,6 +603,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public System.String ImageName { get; set; }
             public System.String InstanceType { get; set; }
             public System.String Name { get; set; }
+            public System.Int32? RootVolumeConfig_VolumeSizeInGb { get; set; }
             public List<System.String> SoftwaresToInstall { get; set; }
             public List<System.String> SoftwaresToUninstall { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

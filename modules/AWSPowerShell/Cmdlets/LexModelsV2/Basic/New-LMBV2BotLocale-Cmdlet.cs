@@ -46,6 +46,20 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter NluImprovement_AssistedNluMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the mode for Assisted NLU operation. Use <c>Primary</c> to make Assisted
+        /// NLU the primary intent recognition method, or <c>Fallback</c> to use it only when
+        /// standard NLU confidence is low.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("GenerativeAISettings_RuntimeSettings_NluImprovement_AssistedNluMode")]
+        [AWSConstantClassSource("Amazon.LexModelsV2.AssistedNluMode")]
+        public Amazon.LexModelsV2.AssistedNluMode NluImprovement_AssistedNluMode { get; set; }
+        #endregion
+        
         #region Parameter BotId
         /// <summary>
         /// <para>
@@ -147,7 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter NluImprovement_Enabled
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the assisted nlu feature is enabled.</para>
+        /// <para>Determines whether the Assisted NLU feature is enabled for the bot. When set to <c>true</c>,
+        /// Amazon Lex uses advanced models to improve intent recognition and slot resolution,
+        /// with the default being <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -431,6 +447,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             context.GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_ModelArn = this.GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_ModelArn;
             context.GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_TraceStatus = this.GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_TraceStatus;
             context.SampleUtteranceGeneration_Enabled = this.SampleUtteranceGeneration_Enabled;
+            context.NluImprovement_AssistedNluMode = this.NluImprovement_AssistedNluMode;
             context.NluImprovement_Enabled = this.NluImprovement_Enabled;
             context.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_CustomPrompt = this.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_CustomPrompt;
             context.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Identifier = this.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Identifier;
@@ -721,6 +738,16 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
              // populate NluImprovement
             var requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovementIsNull = true;
             requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement = new Amazon.LexModelsV2.Model.NluImprovementSpecification();
+            Amazon.LexModelsV2.AssistedNluMode requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_nluImprovement_AssistedNluMode = null;
+            if (cmdletContext.NluImprovement_AssistedNluMode != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_nluImprovement_AssistedNluMode = cmdletContext.NluImprovement_AssistedNluMode;
+            }
+            if (requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_nluImprovement_AssistedNluMode != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement.AssistedNluMode = requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_nluImprovement_AssistedNluMode;
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovementIsNull = false;
+            }
             System.Boolean? requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_nluImprovement_Enabled = null;
             if (cmdletContext.NluImprovement_Enabled != null)
             {
@@ -968,6 +995,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.String GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_ModelArn { get; set; }
             public Amazon.LexModelsV2.BedrockTraceStatus GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_TraceStatus { get; set; }
             public System.Boolean? SampleUtteranceGeneration_Enabled { get; set; }
+            public Amazon.LexModelsV2.AssistedNluMode NluImprovement_AssistedNluMode { get; set; }
             public System.Boolean? NluImprovement_Enabled { get; set; }
             public System.String GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_CustomPrompt { get; set; }
             public System.String GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Identifier { get; set; }

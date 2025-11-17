@@ -1347,6 +1347,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstanceSqlHaHistoryStates" OutputProperty="Instances" Verb="Get" Noun="InstanceSqlHaHistoryState" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstanceSqlHaStates" OutputProperty="Instances" Verb="Get" Noun="InstanceSqlHaState" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeInstanceStatus" OutputProperty="InstanceStatuses" Verb="Get" Noun="InstanceStatus" PositionalParameters="Filters" PipelineParameter="InstanceIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -1889,6 +1897,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisableInstanceSqlHaStandbyDetections" OutputProperty="Instances" Verb="Disable" Noun="InstanceSqlHaStandbyDetection" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisableIpamOrganizationAdminAccount" OutputProperty="Success" Verb="Disable" Noun="IpamOrganizationAdminAccount" ShouldProcessTarget="DelegatedAdminAccountId" PipelineParameter="DelegatedAdminAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -2034,6 +2046,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="EnableImageDeregistrationProtection" OutputProperty="Return" Verb="Enable" Noun="ImageDeregistrationProtection" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableInstanceSqlHaStandbyDetections" OutputProperty="Instances" Verb="Enable" Noun="InstanceSqlHaStandbyDetection" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

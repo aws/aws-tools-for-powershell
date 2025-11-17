@@ -30,8 +30,8 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Adds or overwrites one or more tags for the specified AppStream 2.0 resource. You
-    /// can tag AppStream 2.0 image builders, images, fleets, and stacks.
+    /// Adds or overwrites one or more tags for the specified WorkSpaces Applications resource.
+    /// You can tag WorkSpaces Applications image builders, images, fleets, and stacks.
     /// 
     ///  
     /// <para>
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     /// tags from your resources, use <a>UntagResource</a>.
     /// </para><para>
     /// For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-    /// Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.
+    /// Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "APSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
