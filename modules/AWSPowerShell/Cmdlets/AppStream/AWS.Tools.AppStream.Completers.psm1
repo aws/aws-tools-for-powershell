@@ -80,6 +80,13 @@ $APS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AppStream.AgentSoftwareVersion
+        "New-APSImportedImage/AgentSoftwareVersion"
+        {
+            $v = "ALWAYS_LATEST","CURRENT_LATEST"
+            break
+        }
+
         # Amazon.AppStream.AppBlockBuilderPlatformType
         "New-APSAppBlockBuilder/Platform"
         {
@@ -207,6 +214,7 @@ $APS_Completers = {
 }
 
 $APS_map = @{
+    "AgentSoftwareVersion"=@("New-APSImportedImage")
     "AppVisibility"=@("New-APSEntitlement","Update-APSEntitlement")
     "AuthenticationType"=@("Disable-APSUser","Enable-APSUser","Get-APSSessionList","Get-APSUser","Get-APSUserStackAssociation","New-APSUser","Remove-APSUser")
     "CertificateBasedAuthProperties_Status"=@("New-APSDirectoryConfig","Update-APSDirectoryConfig")
@@ -285,9 +293,11 @@ $APS_SelectMap = @{
                "New-APSApplication",
                "New-APSDirectoryConfig",
                "New-APSEntitlement",
+               "New-APSExportImageTask",
                "New-APSFleet",
                "New-APSImageBuilder",
                "New-APSImageBuilderStreamingURL",
+               "New-APSImportedImage",
                "New-APSStack",
                "New-APSStreamingURL",
                "New-APSThemeForStack",
@@ -334,9 +344,11 @@ $APS_SelectMap = @{
                "Remove-APSSoftwareFromImageBuilder",
                "Enable-APSUser",
                "Revoke-APSSession",
+               "Get-APSExportImageTask",
                "Get-APSAssociatedFleetList",
                "Get-APSAssociatedStackList",
                "Get-APSEntitledApplicationList",
+               "Get-APSExportImageTaskList",
                "Get-APSTagsForResourceList",
                "Start-APSAppBlockBuilder",
                "Start-APSFleet",

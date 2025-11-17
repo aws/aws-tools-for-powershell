@@ -93,6 +93,19 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         public Amazon.PCS.AccountingMode Accounting_Mode { get; set; }
         #endregion
         
+        #region Parameter SlurmRest_Mode
+        /// <summary>
+        /// <para>
+        /// <para>The default value for <c>mode</c> is <c>STANDARD</c>. A value of <c>STANDARD</c> means
+        /// the Slurm REST API is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SlurmConfiguration_SlurmRest_Mode")]
+        [AWSConstantClassSource("Amazon.PCS.SlurmRestMode")]
+        public Amazon.PCS.SlurmRestMode SlurmRest_Mode { get; set; }
+        #endregion
+        
         #region Parameter SlurmConfiguration_ScaleDownIdleTimeInSecond
         /// <summary>
         /// <para>
@@ -207,6 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             {
                 context.SlurmConfiguration_SlurmCustomSetting = new List<Amazon.PCS.Model.SlurmCustomSetting>(this.SlurmConfiguration_SlurmCustomSetting);
             }
+            context.SlurmRest_Mode = this.SlurmRest_Mode;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -253,6 +267,31 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             if (requestSlurmConfiguration_slurmConfiguration_SlurmCustomSetting != null)
             {
                 request.SlurmConfiguration.SlurmCustomSettings = requestSlurmConfiguration_slurmConfiguration_SlurmCustomSetting;
+                requestSlurmConfigurationIsNull = false;
+            }
+            Amazon.PCS.Model.UpdateSlurmRestRequest requestSlurmConfiguration_slurmConfiguration_SlurmRest = null;
+            
+             // populate SlurmRest
+            var requestSlurmConfiguration_slurmConfiguration_SlurmRestIsNull = true;
+            requestSlurmConfiguration_slurmConfiguration_SlurmRest = new Amazon.PCS.Model.UpdateSlurmRestRequest();
+            Amazon.PCS.SlurmRestMode requestSlurmConfiguration_slurmConfiguration_SlurmRest_slurmRest_Mode = null;
+            if (cmdletContext.SlurmRest_Mode != null)
+            {
+                requestSlurmConfiguration_slurmConfiguration_SlurmRest_slurmRest_Mode = cmdletContext.SlurmRest_Mode;
+            }
+            if (requestSlurmConfiguration_slurmConfiguration_SlurmRest_slurmRest_Mode != null)
+            {
+                requestSlurmConfiguration_slurmConfiguration_SlurmRest.Mode = requestSlurmConfiguration_slurmConfiguration_SlurmRest_slurmRest_Mode;
+                requestSlurmConfiguration_slurmConfiguration_SlurmRestIsNull = false;
+            }
+             // determine if requestSlurmConfiguration_slurmConfiguration_SlurmRest should be set to null
+            if (requestSlurmConfiguration_slurmConfiguration_SlurmRestIsNull)
+            {
+                requestSlurmConfiguration_slurmConfiguration_SlurmRest = null;
+            }
+            if (requestSlurmConfiguration_slurmConfiguration_SlurmRest != null)
+            {
+                request.SlurmConfiguration.SlurmRest = requestSlurmConfiguration_slurmConfiguration_SlurmRest;
                 requestSlurmConfigurationIsNull = false;
             }
             Amazon.PCS.Model.UpdateAccountingRequest requestSlurmConfiguration_slurmConfiguration_Accounting = null;
@@ -362,6 +401,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             public Amazon.PCS.AccountingMode Accounting_Mode { get; set; }
             public System.Int32? SlurmConfiguration_ScaleDownIdleTimeInSecond { get; set; }
             public List<Amazon.PCS.Model.SlurmCustomSetting> SlurmConfiguration_SlurmCustomSetting { get; set; }
+            public Amazon.PCS.SlurmRestMode SlurmRest_Mode { get; set; }
             public System.Func<Amazon.PCS.Model.UpdateClusterResponse, UpdatePCSClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Cluster;
         }

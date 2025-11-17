@@ -134,7 +134,7 @@ $R53R_Completers = {
             ($_ -eq "New-R53RFirewallRule/DnsThreatProtection")
         }
         {
-            $v = "DGA","DNS_TUNNELING"
+            $v = "DGA","DICTIONARY_DGA","DNS_TUNNELING"
             break
         }
 

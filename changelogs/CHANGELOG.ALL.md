@@ -1,4 +1,51 @@
-﻿### 4.1.943 (2025-11-14 21:48Z)
+﻿### 4.1.944 (2025-11-17 22:00Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1167.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AmazonMWAAServerless. Added cmdlets to support the service. Cmdlets for the service have the noun prefix MWAAS and can be listed using the command 'Get-AWSCmdletName -Service MWAAS'.
+  * Amazon AppStream
+    * Added cmdlet Get-APSExportImageTask leveraging the GetExportImageTask service API.
+    * Added cmdlet Get-APSExportImageTaskList leveraging the ListExportImageTasks service API.
+    * Added cmdlet New-APSExportImageTask leveraging the CreateExportImageTask service API.
+    * Added cmdlet New-APSImportedImage leveraging the CreateImportedImage service API.
+    * Modified cmdlet New-APSFleet: added parameter RootVolumeConfig_VolumeSizeInGb.
+    * Modified cmdlet New-APSImageBuilder: added parameter RootVolumeConfig_VolumeSizeInGb.
+    * Modified cmdlet Update-APSFleet: added parameter RootVolumeConfig_VolumeSizeInGb.
+  * Amazon Backup
+    * Modified cmdlet Get-BAKCopyJobList: added parameter BySourceRecoveryPointArn.
+    * Modified cmdlet Start-BAKBackupJob: added parameters Lifecycle_DeleteAfterEvent and LogicallyAirGappedBackupVaultArn.
+    * Modified cmdlet Start-BAKCopyJob: added parameter Lifecycle_DeleteAfterEvent.
+    * Modified cmdlet Update-BAKRecoveryPointLifecycle: added parameter Lifecycle_DeleteAfterEvent.
+  * Amazon Database Migration Service
+    * Modified cmdlet Edit-DMSDataProvider: added parameters SybaseAseSettings_CertificateArn, SybaseAseSettings_DatabaseName, SybaseAseSettings_EncryptPassword, SybaseAseSettings_Port, SybaseAseSettings_ServerName and SybaseAseSettings_SslMode.
+    * Modified cmdlet New-DMSDataProvider: added parameters SybaseAseSettings_CertificateArn, SybaseAseSettings_DatabaseName, SybaseAseSettings_EncryptPassword, SybaseAseSettings_Port, SybaseAseSettings_ServerName and SybaseAseSettings_SslMode.
+  * Amazon Device Farm
+    * [Breaking Change] Modified cmdlet New-DFRemoteAccessSession: removed parameters ClientId, RemoteDebugEnabled, RemoteRecordAppArn, RemoteRecordEnabled and SshPublicKey.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Disable-EC2InstanceSqlHaStandbyDetection leveraging the DisableInstanceSqlHaStandbyDetections service API.
+    * Added cmdlet Enable-EC2InstanceSqlHaStandbyDetection leveraging the EnableInstanceSqlHaStandbyDetections service API.
+    * Added cmdlet Get-EC2InstanceSqlHaHistoryState leveraging the DescribeInstanceSqlHaHistoryStates service API.
+    * Added cmdlet Get-EC2InstanceSqlHaState leveraging the DescribeInstanceSqlHaStates service API.
+  * Amazon Elemental MediaPackage v2
+    * Modified cmdlet New-MPV2OriginEndpoint: added parameter Scte_ScteInSegment.
+    * Modified cmdlet Update-MPV2OriginEndpoint: added parameter Scte_ScteInSegment.
+  * Amazon Glue
+    * Added cmdlet Get-GLUEIntegrationResourcePropertyList leveraging the ListIntegrationResourceProperties service API.
+    * Added cmdlet Remove-GLUEIntegrationResourceProperty leveraging the DeleteIntegrationResourceProperty service API.
+    * Modified cmdlet New-GLUEIntegrationResourceProperty: added parameter Tag.
+  * Amazon GuardDuty
+    * Added cmdlet Send-GDObjectMalwareScan leveraging the SendObjectMalwareScan service API.
+  * Amazon Lex Model Building V2
+    * Modified cmdlet New-LMBV2BotLocale: added parameter NluImprovement_AssistedNluMode.
+    * Modified cmdlet Update-LMBV2BotLocale: added parameter NluImprovement_AssistedNluMode.
+  * Amazon OpenSearch Service
+    * Added cmdlet Get-OSIndex leveraging the GetIndex service API.
+    * Added cmdlet New-OSIndex leveraging the CreateIndex service API.
+    * Added cmdlet Remove-OSIndex leveraging the DeleteIndex service API.
+    * Added cmdlet Update-OSIndex leveraging the UpdateIndex service API.
+  * Amazon Parallel Computing Service
+    * Modified cmdlet New-PCSCluster: added parameter SlurmRest_Mode.
+    * Modified cmdlet Update-PCSCluster: added parameter SlurmRest_Mode.
+
+### 4.1.943 (2025-11-14 21:48Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1166.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DataZone
     * Modified cmdlet Approve-DZSubscriptionRequest: added parameter AssetPermission.

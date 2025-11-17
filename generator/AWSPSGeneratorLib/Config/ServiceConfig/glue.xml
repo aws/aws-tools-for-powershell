@@ -290,6 +290,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIntegrationResourceProperty" Verb="Remove" Noun="IntegrationResourceProperty" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteIntegrationTableProperties" Verb="Remove" Noun="IntegrationTableProperty" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -753,6 +757,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListEntities" OutputProperty="Entities" Verb="Get" Noun="EntityList" PipelineParameter="ConnectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIntegrationResourceProperties" OutputProperty="IntegrationResourcePropertyList" Verb="Get" Noun="IntegrationResourcePropertyList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

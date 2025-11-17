@@ -366,6 +366,20 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         public System.String[] Scte_ScteFilter { get; set; }
         #endregion
         
+        #region Parameter Scte_ScteInSegment
+        /// <summary>
+        /// <para>
+        /// <para>Controls whether SCTE-35 messages are included in segment files.</para><ul><li><para>None – SCTE-35 messages are not included in segments (default)</para></li><li><para>All – SCTE-35 messages are embedded in segment data</para></li></ul><para> For DASH manifests, when set to <c>All</c>, an <c>InbandEventStream</c> tag signals
+        /// that SCTE messages are present in segments. This setting works independently of manifest
+        /// ad markers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Segment_Scte_ScteInSegments")]
+        [AWSConstantClassSource("Amazon.MediaPackageV2.ScteInSegments")]
+        public Amazon.MediaPackageV2.ScteInSegments Scte_ScteInSegment { get; set; }
+        #endregion
+        
         #region Parameter Segment_SegmentDurationSecond
         /// <summary>
         /// <para>
@@ -595,6 +609,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             {
                 context.Scte_ScteFilter = new List<System.String>(this.Scte_ScteFilter);
             }
+            context.Scte_ScteInSegment = this.Scte_ScteInSegment;
             context.Segment_SegmentDurationSecond = this.Segment_SegmentDurationSecond;
             context.Segment_SegmentName = this.Segment_SegmentName;
             context.Segment_TsIncludeDvbSubtitle = this.Segment_TsIncludeDvbSubtitle;
@@ -742,6 +757,16 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             if (requestSegment_segment_Scte_scte_ScteFilter != null)
             {
                 requestSegment_segment_Scte.ScteFilter = requestSegment_segment_Scte_scte_ScteFilter;
+                requestSegment_segment_ScteIsNull = false;
+            }
+            Amazon.MediaPackageV2.ScteInSegments requestSegment_segment_Scte_scte_ScteInSegment = null;
+            if (cmdletContext.Scte_ScteInSegment != null)
+            {
+                requestSegment_segment_Scte_scte_ScteInSegment = cmdletContext.Scte_ScteInSegment;
+            }
+            if (requestSegment_segment_Scte_scte_ScteInSegment != null)
+            {
+                requestSegment_segment_Scte.ScteInSegments = requestSegment_segment_Scte_scte_ScteInSegment;
                 requestSegment_segment_ScteIsNull = false;
             }
              // determine if requestSegment_segment_Scte should be set to null
@@ -1029,6 +1054,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             public System.String SpekeKeyProvider_Url { get; set; }
             public System.Boolean? Segment_IncludeIframeOnlyStream { get; set; }
             public List<System.String> Scte_ScteFilter { get; set; }
+            public Amazon.MediaPackageV2.ScteInSegments Scte_ScteInSegment { get; set; }
             public System.Int32? Segment_SegmentDurationSecond { get; set; }
             public System.String Segment_SegmentName { get; set; }
             public System.Boolean? Segment_TsIncludeDvbSubtitle { get; set; }

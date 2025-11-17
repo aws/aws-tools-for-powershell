@@ -90,11 +90,12 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <para>The Amazon Resource Name (ARN) of the IAM role to apply to the app block builder.
         /// To assume a role, the app block builder calls the AWS Security Token Service (STS)
         /// <c>AssumeRole</c> API operation and passes the ARN of the role to use. The operation
-        /// creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary
-        /// credentials and creates the <b>appstream_machine_role</b> credential profile on the
-        /// instance.</para><para>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using
-        /// an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream
-        /// 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</para>
+        /// creates a new session with temporary credentials. WorkSpaces Applications retrieves
+        /// the temporary credentials and creates the <b>appstream_machine_role</b> credential
+        /// profile on the instance.</para><para>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using
+        /// an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces
+        /// Applications Streaming Instances</a> in the <i>Amazon WorkSpaces Applications Administration
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// value is optional. For example, Environment=Test. If you do not specify a value, Environment=.
         /// </para><para>If you do not specify a value, the value is set to an empty string.</para><para>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8,
         /// and the following special characters: </para><para>_ . : / = + \ - @</para><para>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-        /// Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</para>
+        /// Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

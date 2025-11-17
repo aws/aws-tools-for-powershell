@@ -3724,6 +3724,13 @@ $APS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AppStream.AgentSoftwareVersion
+        "New-APSImportedImage/AgentSoftwareVersion"
+        {
+            $v = "ALWAYS_LATEST","CURRENT_LATEST"
+            break
+        }
+
         # Amazon.AppStream.AppBlockBuilderPlatformType
         "New-APSAppBlockBuilder/Platform"
         {
@@ -3851,6 +3858,7 @@ $APS_Completers = {
 }
 
 $APS_map = @{
+    "AgentSoftwareVersion"=@("New-APSImportedImage")
     "AppVisibility"=@("New-APSEntitlement","Update-APSEntitlement")
     "AuthenticationType"=@("Disable-APSUser","Enable-APSUser","Get-APSSessionList","Get-APSUser","Get-APSUserStackAssociation","New-APSUser","Remove-APSUser")
     "CertificateBasedAuthProperties_Status"=@("New-APSDirectoryConfig","Update-APSDirectoryConfig")
@@ -3929,9 +3937,11 @@ $APS_SelectMap = @{
                "New-APSApplication",
                "New-APSDirectoryConfig",
                "New-APSEntitlement",
+               "New-APSExportImageTask",
                "New-APSFleet",
                "New-APSImageBuilder",
                "New-APSImageBuilderStreamingURL",
+               "New-APSImportedImage",
                "New-APSStack",
                "New-APSStreamingURL",
                "New-APSThemeForStack",
@@ -3978,9 +3988,11 @@ $APS_SelectMap = @{
                "Remove-APSSoftwareFromImageBuilder",
                "Enable-APSUser",
                "Revoke-APSSession",
+               "Get-APSExportImageTask",
                "Get-APSAssociatedFleetList",
                "Get-APSAssociatedStackList",
                "Get-APSEntitledApplicationList",
+               "Get-APSExportImageTaskList",
                "Get-APSTagsForResourceList",
                "Start-APSAppBlockBuilder",
                "Start-APSFleet",
@@ -6314,6 +6326,17 @@ $BAK_Completers = {
             break
         }
 
+        # Amazon.Backup.LifecycleDeleteAfterEvent
+        {
+            ($_ -eq "Start-BAKBackupJob/Lifecycle_DeleteAfterEvent") -Or
+            ($_ -eq "Start-BAKCopyJob/Lifecycle_DeleteAfterEvent") -Or
+            ($_ -eq "Update-BAKRecoveryPointLifecycle/Lifecycle_DeleteAfterEvent")
+        }
+        {
+            $v = "DELETE_AFTER_COPY"
+            break
+        }
+
         # Amazon.Backup.RestoreJobState
         "Get-BAKRestoreJobSummaryList/State"
         {
@@ -6370,6 +6393,7 @@ $BAK_map = @{
     "ByVaultType"=@("Get-BAKBackupVaultList")
     "Index"=@("Start-BAKBackupJob","Update-BAKRecoveryPointIndexSetting")
     "IndexStatus"=@("Get-BAKIndexedRecoveryPointList")
+    "Lifecycle_DeleteAfterEvent"=@("Start-BAKBackupJob","Start-BAKCopyJob","Update-BAKRecoveryPointLifecycle")
     "RecoveryPointSelection_Algorithm"=@("New-BAKRestoreTestingPlan","Update-BAKRestoreTestingPlan")
     "State"=@("Get-BAKBackupJobSummaryList","Get-BAKCopyJobSummaryList","Get-BAKRestoreJobSummaryList")
     "ValidationStatus"=@("Write-BAKRestoreValidationResult")
@@ -8916,7 +8940,7 @@ $BDR_Completers = {
         # Amazon.Bedrock.AutomatedReasoningPolicyBuildResultAssetType
         "Get-BDRAutomatedReasoningPolicyBuildWorkflowResultAsset/AssetType"
         {
-            $v = "BUILD_LOG","POLICY_DEFINITION","QUALITY_REPORT"
+            $v = "BUILD_LOG","GENERATED_TEST_CASES","POLICY_DEFINITION","QUALITY_REPORT"
             break
         }
 
@@ -24713,7 +24737,9 @@ $DMS_Completers = {
             ($_ -eq "Edit-DMSDataProvider/PostgreSqlSettings_SslMode") -Or
             ($_ -eq "New-DMSDataProvider/PostgreSqlSettings_SslMode") -Or
             ($_ -eq "Edit-DMSEndpoint/SslMode") -Or
-            ($_ -eq "New-DMSEndpoint/SslMode")
+            ($_ -eq "New-DMSEndpoint/SslMode") -Or
+            ($_ -eq "Edit-DMSDataProvider/SybaseAseSettings_SslMode") -Or
+            ($_ -eq "New-DMSDataProvider/SybaseAseSettings_SslMode")
         }
         {
             $v = "none","require","verify-ca","verify-full"
@@ -25046,6 +25072,7 @@ $DMS_map = @{
     "SslMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "StartReplicationTaskType"=@("Start-DMSReplicationTask")
     "StartType"=@("Start-DMSDataMigration")
+    "SybaseAseSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
 }
 
 _awsArgumentCompleterRegistration $DMS_Completers $DMS_map
@@ -28531,6 +28558,8 @@ $EC2_SelectMap = @{
                "Get-EC2InstanceEventWindow",
                "Get-EC2InstanceImageMetadata",
                "Get-EC2Instance",
+               "Get-EC2InstanceSqlHaHistoryState",
+               "Get-EC2InstanceSqlHaState",
                "Get-EC2InstanceStatus",
                "Get-EC2InstanceTopology",
                "Get-EC2InstanceTypeOffering",
@@ -28661,6 +28690,7 @@ $EC2_SelectMap = @{
                "Disable-EC2ImageBlockPublicAccess",
                "Disable-EC2ImageDeprecation",
                "Disable-EC2ImageDeregistrationProtection",
+               "Disable-EC2InstanceSqlHaStandbyDetection",
                "Disable-EC2IpamOrganizationAdminAccount",
                "Disable-EC2RouteServerPropagation",
                "Disable-EC2SerialConsoleAccess",
@@ -28698,6 +28728,7 @@ $EC2_SelectMap = @{
                "Enable-EC2ImageBlockPublicAccess",
                "Enable-EC2ImageDeprecation",
                "Enable-EC2ImageDeregistrationProtection",
+               "Enable-EC2InstanceSqlHaStandbyDetection",
                "Enable-EC2IpamOrganizationAdminAccount",
                "Enable-EC2ReachabilityAnalyzerOrganizationSharing",
                "Enable-EC2RouteServerPropagation",
@@ -36864,6 +36895,7 @@ $GLUE_SelectMap = @{
                "Remove-GLUEDevEndpoint",
                "Remove-GLUEGlueIdentityCenterConfiguration",
                "Remove-GLUEIntegration",
+               "Remove-GLUEIntegrationResourceProperty",
                "Remove-GLUEIntegrationTableProperty",
                "Remove-GLUEJob",
                "Remove-GLUEMLTransform",
@@ -36979,6 +37011,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEDataQualityStatisticList",
                "Get-GLUEDevEndpointNameList",
                "Get-GLUEEntityList",
+               "Get-GLUEIntegrationResourcePropertyList",
                "Get-GLUEJobNameList",
                "Get-GLUEMLTransformIdentifier",
                "Get-GLUERegistryList",
@@ -38024,6 +38057,7 @@ $GD_SelectMap = @{
                "Get-GDThreatEntitySetList",
                "Get-GDThreatIntelSetList",
                "Get-GDTrustedEntitySetList",
+               "Send-GDObjectMalwareScan",
                "Start-GDMalwareScan",
                "Start-GDMonitoringMember",
                "Stop-GDMonitoringMember",
@@ -51217,6 +51251,16 @@ $MPV2_Completers = {
             break
         }
 
+        # Amazon.MediaPackageV2.ScteInSegments
+        {
+            ($_ -eq "New-MPV2OriginEndpoint/Scte_ScteInSegment") -Or
+            ($_ -eq "Update-MPV2OriginEndpoint/Scte_ScteInSegment")
+        }
+        {
+            $v = "ALL","NONE"
+            break
+        }
+
         # Amazon.MediaPackageV2.TsEncryptionMethod
         {
             ($_ -eq "New-MPV2OriginEndpoint/EncryptionMethod_TsEncryptionMethod") -Or
@@ -51243,6 +51287,7 @@ $MPV2_map = @{
     "EncryptionMethod_IsmEncryptionMethod"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "EncryptionMethod_TsEncryptionMethod"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "InputType"=@("New-MPV2Channel")
+    "Scte_ScteInSegment"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "Status"=@("Get-MPV2HarvestJobList")
 }
 
@@ -52989,6 +53034,16 @@ $LMBV2_Completers = {
             break
         }
 
+        # Amazon.LexModelsV2.AssistedNluMode
+        {
+            ($_ -eq "New-LMBV2BotLocale/NluImprovement_AssistedNluMode") -Or
+            ($_ -eq "Update-LMBV2BotLocale/NluImprovement_AssistedNluMode")
+        }
+        {
+            $v = "Fallback","Primary"
+            break
+        }
+
         # Amazon.LexModelsV2.AudioRecognitionStrategy
         {
             ($_ -eq "New-LMBV2SlotType/AdvancedRecognitionSetting_AudioRecognitionStrategy") -Or
@@ -53426,6 +53481,7 @@ $LMBV2_map = @{
     "IntentConfirmationSetting_FailureConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "IntentConfirmationSetting_FailureNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "MergeStrategy"=@("Start-LMBV2Import")
+    "NluImprovement_AssistedNluMode"=@("New-LMBV2BotLocale","Update-LMBV2BotLocale")
     "ObfuscationSetting_ObfuscationSettingType"=@("New-LMBV2Slot","Update-LMBV2Slot")
     "PromptSpecification_MessageSelectionStrategy"=@("New-LMBV2Intent","New-LMBV2Slot","Update-LMBV2Intent","Update-LMBV2Slot")
     "RelativeAggregationDuration_TimeDimension"=@("Get-LMBV2AggregatedUtteranceList")
@@ -54349,6 +54405,101 @@ $MWAA_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $MWAA_SelectCompleters $MWAA_SelectMap
+# Argument completions for service AmazonMWAAServerless
+
+
+$MWAAS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.MWAAServerless.EncryptionType
+        "New-MWAASWorkflow/EncryptionConfiguration_Type"
+        {
+            $v = "AWS_MANAGED_KEY","CUSTOMER_MANAGED_KEY"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$MWAAS_map = @{
+    "EncryptionConfiguration_Type"=@("New-MWAASWorkflow")
+}
+
+_awsArgumentCompleterRegistration $MWAAS_Completers $MWAAS_map
+
+$MWAAS_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.MWAAS.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$MWAAS_SelectMap = @{
+    "Select"=@("New-MWAASWorkflow",
+               "Remove-MWAASWorkflow",
+               "Get-MWAASTaskInstance",
+               "Get-MWAASWorkflow",
+               "Get-MWAASWorkflowRun",
+               "Get-MWAASResourceTag",
+               "Get-MWAASTaskInstanceList",
+               "Get-MWAASWorkflowRunList",
+               "Get-MWAASWorkflowList",
+               "Get-MWAASWorkflowVersionList",
+               "Start-MWAASWorkflowRun",
+               "Stop-MWAASWorkflowRun",
+               "Add-MWAASResourceTag",
+               "Remove-MWAASResourceTag",
+               "Update-MWAASWorkflow")
+}
+
+_awsArgumentCompleterRegistration $MWAAS_SelectCompleters $MWAAS_SelectMap
 # Argument completions for service Amazon Neptune Graph
 
 
@@ -56957,6 +57108,7 @@ $OS_SelectMap = @{
                "Stop-OSServiceSoftwareUpdate",
                "New-OSApplication",
                "New-OSDomain",
+               "New-OSIndex",
                "New-OSOutboundConnection",
                "New-OSPackage",
                "New-OSVpcEndpoint",
@@ -56965,6 +57117,7 @@ $OS_SelectMap = @{
                "Remove-OSDirectQueryDataSource",
                "Remove-OSDomain",
                "Remove-OSInboundConnection",
+               "Remove-OSIndex",
                "Remove-OSOutboundConnection",
                "Remove-OSPackage",
                "Remove-OSVpcEndpoint",
@@ -56991,6 +57144,7 @@ $OS_SelectMap = @{
                "Get-OSDefaultApplicationSetting",
                "Get-OSDirectQueryDataSource",
                "Get-OSDomainMaintenanceStatus",
+               "Get-OSIndex",
                "Get-OSPackageVersionHistory",
                "Get-OSUpgradeHistory",
                "Get-OSUpgradeStatus",
@@ -57019,6 +57173,7 @@ $OS_SelectMap = @{
                "Update-OSDataSource",
                "Update-OSDirectQueryDataSource",
                "Update-OSDomainConfig",
+               "Update-OSIndex",
                "Update-OSPackage",
                "Update-OSOSPackageScope",
                "Update-OSScheduledAction",
@@ -59367,6 +59522,16 @@ $PCS_Completers = {
             break
         }
 
+        # Amazon.PCS.SlurmRestMode
+        {
+            ($_ -eq "New-PCSCluster/SlurmRest_Mode") -Or
+            ($_ -eq "Update-PCSCluster/SlurmRest_Mode")
+        }
+        {
+            $v = "NONE","STANDARD"
+            break
+        }
+
         # Amazon.PCS.SpotAllocationStrategy
         {
             ($_ -eq "New-PCSComputeNodeGroup/SpotOptions_AllocationStrategy") -Or
@@ -59391,6 +59556,7 @@ $PCS_map = @{
     "PurchaseOption"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")
     "Scheduler_Type"=@("New-PCSCluster")
     "Size"=@("New-PCSCluster")
+    "SlurmRest_Mode"=@("New-PCSCluster","Update-PCSCluster")
     "SpotOptions_AllocationStrategy"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")
 }
 
@@ -66087,7 +66253,7 @@ $R53R_Completers = {
             ($_ -eq "New-R53RFirewallRule/DnsThreatProtection")
         }
         {
-            $v = "DGA","DNS_TUNNELING"
+            $v = "DGA","DICTIONARY_DGA","DNS_TUNNELING"
             break
         }
 

@@ -28,9 +28,9 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Updates the specified Directory Config object in AppStream 2.0. This object includes
-    /// the configuration information required to join fleets and image builders to Microsoft
-    /// Active Directory domains.
+    /// Updates the specified Directory Config object in WorkSpaces Applications. This object
+    /// includes the configuration information required to join fleets and image builders
+    /// to Microsoft Active Directory domains.
     /// </summary>
     [Cmdlet("Update", "APSDirectoryConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppStream.Model.DirectoryConfig")]

@@ -63,6 +63,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateIndex" OutputProperty="Status" Verb="New" Noun="Index" ShouldProcessTarget="IndexName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateOutboundConnection" OutputProperty="*" Verb="New" Noun="OutboundConnection" ShouldProcessTarget="" PipelineParameter="ConnectionAlias" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="LocalDomainInfo_AWSDomainInformation_DomainName" NewName="LocalDomainInfo_AWSDomainInformation_DomainName" />
@@ -99,6 +103,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteInboundConnection" OutputProperty="Connection" Verb="Remove" Noun="InboundConnection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIndex" OutputProperty="Status" Verb="Remove" Noun="Index" ShouldProcessTarget="IndexName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -203,6 +211,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetDomainMaintenanceStatus" OutputProperty="*" Verb="Get" Noun="DomainMaintenanceStatus" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIndex" OutputProperty="IndexSchema" Verb="Get" Noun="Index" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -315,6 +327,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDomainConfig" OutputProperty="DomainConfig" Verb="Update" Noun="DomainConfig" ShouldProcessTarget="DomainName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIndex" OutputProperty="Status" Verb="Update" Noun="Index" ShouldProcessTarget="IndexName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

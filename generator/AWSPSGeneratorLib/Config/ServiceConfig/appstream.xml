@@ -78,6 +78,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateExportImageTask" OutputProperty="ExportImageTask" Verb="New" Noun="ExportImageTask" ShouldProcessTarget="AmiName,ImageName,IamRoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateFleet" OutputProperty="Fleet" Verb="New" Noun="Fleet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -87,6 +91,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateImageBuilderStreamingURL" OutputProperty="*" Verb="New" Noun="ImageBuilderStreamingURL" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateImportedImage" OutputProperty="Image" Verb="New" Noun="ImportedImage" ShouldProcessTarget="SourceAmiId,Name,IamRoleArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -276,6 +284,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetExportImageTask" OutputProperty="ExportImageTask" Verb="Get" Noun="ExportImageTask" PipelineParameter="TaskId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAssociatedFleets" OutputProperty="Names" Verb="Get" Noun="AssociatedFleetList" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -285,6 +297,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListEntitledApplications" OutputProperty="EntitledApplications" Verb="Get" Noun="EntitledApplicationList" PipelineParameter="StackName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExportImageTasks" OutputProperty="ExportImageTasks" Verb="Get" Noun="ExportImageTaskList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

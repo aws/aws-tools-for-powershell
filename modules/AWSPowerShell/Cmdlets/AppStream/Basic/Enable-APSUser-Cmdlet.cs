@@ -28,8 +28,8 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Enables a user in the user pool. After being enabled, users can sign in to AppStream
-    /// 2.0 and open applications from the stacks to which they are assigned.
+    /// Enables a user in the user pool. After being enabled, users can sign in to WorkSpaces
+    /// Applications and open applications from the stacks to which they are assigned.
     /// </summary>
     [Cmdlet("Enable", "APSUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

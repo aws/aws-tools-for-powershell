@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
     public partial class NewDFRemoteAccessSessionCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter AppArn
@@ -73,19 +75,6 @@ namespace Amazon.PowerShell.Cmdlets.DF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.DeviceFarm.BillingMethod")]
         public Amazon.DeviceFarm.BillingMethod Configuration_BillingMethod { get; set; }
-        #endregion
-        
-        #region Parameter ClientId
-        /// <summary>
-        /// <para>
-        /// <para>Unique identifier for the client. If you want access to multiple devices on the same
-        /// client, you should pass the same <c>clientId</c> value in each call to <c>CreateRemoteAccessSession</c>.
-        /// This identifier is required only if <c>remoteDebugEnabled</c> is set to <c>true</c>.</para><para>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-        /// longer supported</a>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientId { get; set; }
         #endregion
         
         #region Parameter DeviceArn
@@ -127,21 +116,6 @@ namespace Amazon.PowerShell.Cmdlets.DF
         public System.String InstanceArn { get; set; }
         #endregion
         
-        #region Parameter InteractionMode
-        /// <summary>
-        /// <para>
-        /// <para>The interaction mode of the remote access session. Valid values are:</para><ul><li><para>INTERACTIVE: You can interact with the iOS device by viewing, touching, and rotating
-        /// the screen. You cannot run XCUITest framework-based tests in this mode.</para></li><li><para>NO_VIDEO: You are connected to the device, but cannot interact with it or view the
-        /// screen. This mode has the fastest test execution speed. You can run XCUITest framework-based
-        /// tests in this mode.</para></li><li><para>VIDEO_ONLY: You can view the screen, but cannot touch or rotate it. You can run XCUITest
-        /// framework-based tests and watch the screen in this mode.</para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.DeviceFarm.InteractionMode")]
-        public Amazon.DeviceFarm.InteractionMode InteractionMode { get; set; }
-        #endregion
-        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -181,38 +155,6 @@ namespace Amazon.PowerShell.Cmdlets.DF
         public System.String ProjectArn { get; set; }
         #endregion
         
-        #region Parameter RemoteDebugEnabled
-        /// <summary>
-        /// <para>
-        /// <para>Set to <c>true</c> if you want to access devices remotely for debugging in your remote
-        /// access session.</para><para>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-        /// longer supported</a>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? RemoteDebugEnabled { get; set; }
-        #endregion
-        
-        #region Parameter RemoteRecordAppArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) for the app to be recorded in the remote access session.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String RemoteRecordAppArn { get; set; }
-        #endregion
-        
-        #region Parameter RemoteRecordEnabled
-        /// <summary>
-        /// <para>
-        /// <para>Set to <c>true</c> to enable remote recording for the remote access session.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? RemoteRecordEnabled { get; set; }
-        #endregion
-        
         #region Parameter SkipAppResign
         /// <summary>
         /// <para>
@@ -224,19 +166,6 @@ namespace Amazon.PowerShell.Cmdlets.DF
         public System.Boolean? SkipAppResign { get; set; }
         #endregion
         
-        #region Parameter SshPublicKey
-        /// <summary>
-        /// <para>
-        /// <para>Ignored. The public key of the <c>ssh</c> key pair you want to use for connecting
-        /// to remote devices in your remote debugging session. This key is required only if <c>remoteDebugEnabled</c>
-        /// is set to <c>true</c>.</para><para>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-        /// longer supported</a>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String SshPublicKey { get; set; }
-        #endregion
-        
         #region Parameter Configuration_VpceConfigurationArn
         /// <summary>
         /// <para>
@@ -246,6 +175,20 @@ namespace Amazon.PowerShell.Cmdlets.DF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Configuration_VpceConfigurationArns")]
         public System.String[] Configuration_VpceConfigurationArn { get; set; }
+        #endregion
+        
+        #region Parameter InteractionMode
+        /// <summary>
+        /// <para>
+        /// <para>The interaction mode of the remote access session. Changing the interactive mode of
+        /// remote access sessions is no longer available.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Changing the interactive mode of Remote Access sessions is no longer available.")]
+        [AWSConstantClassSource("Amazon.DeviceFarm.InteractionMode")]
+        public Amazon.DeviceFarm.InteractionMode InteractionMode { get; set; }
         #endregion
         
         #region Parameter Select
@@ -311,7 +254,6 @@ namespace Amazon.PowerShell.Cmdlets.DF
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AppArn = this.AppArn;
-            context.ClientId = this.ClientId;
             if (this.Configuration_AuxiliaryApp != null)
             {
                 context.Configuration_AuxiliaryApp = new List<System.String>(this.Configuration_AuxiliaryApp);
@@ -331,7 +273,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
             }
             #endif
             context.InstanceArn = this.InstanceArn;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.InteractionMode = this.InteractionMode;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Name = this.Name;
             context.ProjectArn = this.ProjectArn;
             #if MODULAR
@@ -340,11 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 WriteWarning("You are passing $null as a value for parameter ProjectArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.RemoteDebugEnabled = this.RemoteDebugEnabled;
-            context.RemoteRecordAppArn = this.RemoteRecordAppArn;
-            context.RemoteRecordEnabled = this.RemoteRecordEnabled;
             context.SkipAppResign = this.SkipAppResign;
-            context.SshPublicKey = this.SshPublicKey;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -364,10 +304,6 @@ namespace Amazon.PowerShell.Cmdlets.DF
             if (cmdletContext.AppArn != null)
             {
                 request.AppArn = cmdletContext.AppArn;
-            }
-            if (cmdletContext.ClientId != null)
-            {
-                request.ClientId = cmdletContext.ClientId;
             }
             
              // populate Configuration
@@ -451,10 +387,12 @@ namespace Amazon.PowerShell.Cmdlets.DF
             {
                 request.InstanceArn = cmdletContext.InstanceArn;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.InteractionMode != null)
             {
                 request.InteractionMode = cmdletContext.InteractionMode;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -463,25 +401,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
             {
                 request.ProjectArn = cmdletContext.ProjectArn;
             }
-            if (cmdletContext.RemoteDebugEnabled != null)
-            {
-                request.RemoteDebugEnabled = cmdletContext.RemoteDebugEnabled.Value;
-            }
-            if (cmdletContext.RemoteRecordAppArn != null)
-            {
-                request.RemoteRecordAppArn = cmdletContext.RemoteRecordAppArn;
-            }
-            if (cmdletContext.RemoteRecordEnabled != null)
-            {
-                request.RemoteRecordEnabled = cmdletContext.RemoteRecordEnabled.Value;
-            }
             if (cmdletContext.SkipAppResign != null)
             {
                 request.SkipAppResign = cmdletContext.SkipAppResign.Value;
-            }
-            if (cmdletContext.SshPublicKey != null)
-            {
-                request.SshPublicKey = cmdletContext.SshPublicKey;
             }
             
             CmdletOutput output;
@@ -545,7 +467,6 @@ namespace Amazon.PowerShell.Cmdlets.DF
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppArn { get; set; }
-            public System.String ClientId { get; set; }
             public List<System.String> Configuration_AuxiliaryApp { get; set; }
             public Amazon.DeviceFarm.BillingMethod Configuration_BillingMethod { get; set; }
             public System.String DeviceProxy_Host { get; set; }
@@ -553,14 +474,11 @@ namespace Amazon.PowerShell.Cmdlets.DF
             public List<System.String> Configuration_VpceConfigurationArn { get; set; }
             public System.String DeviceArn { get; set; }
             public System.String InstanceArn { get; set; }
+            [System.ObsoleteAttribute]
             public Amazon.DeviceFarm.InteractionMode InteractionMode { get; set; }
             public System.String Name { get; set; }
             public System.String ProjectArn { get; set; }
-            public System.Boolean? RemoteDebugEnabled { get; set; }
-            public System.String RemoteRecordAppArn { get; set; }
-            public System.Boolean? RemoteRecordEnabled { get; set; }
             public System.Boolean? SkipAppResign { get; set; }
-            public System.String SshPublicKey { get; set; }
             public System.Func<Amazon.DeviceFarm.Model.CreateRemoteAccessSessionResponse, NewDFRemoteAccessSessionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RemoteAccessSession;
         }

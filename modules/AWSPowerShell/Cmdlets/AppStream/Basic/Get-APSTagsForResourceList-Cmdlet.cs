@@ -28,13 +28,13 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Retrieves a list of all tags for the specified AppStream 2.0 resource. You can tag
-    /// AppStream 2.0 image builders, images, fleets, and stacks.
+    /// Retrieves a list of all tags for the specified WorkSpaces Applications resource. You
+    /// can tag WorkSpaces Applications image builders, images, fleets, and stacks.
     /// 
     ///  
     /// <para>
     /// For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-    /// Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.
+    /// Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "APSTagsForResourceList")]

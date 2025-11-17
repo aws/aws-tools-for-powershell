@@ -28,7 +28,12 @@ using Amazon.DeviceFarm.Model;
 namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Deletes a completed remote access session and its results.
+    /// Deletes a completed remote access session and its results. You cannot delete a remote
+    /// access session if it is still active.
+    /// 
+    ///  <important><para>
+    /// You cannot undo this operation.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "DFRemoteAccessSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

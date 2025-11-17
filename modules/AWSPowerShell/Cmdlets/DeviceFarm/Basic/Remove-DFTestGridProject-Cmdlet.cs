@@ -28,13 +28,12 @@ using Amazon.DeviceFarm.Model;
 namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Deletes a Selenium testing project and all content generated under it. 
+    /// Deletes a Selenium testing project and all content generated under it. You cannot
+    /// delete a project if it has active sessions.
     /// 
     ///  <important><para>
     /// You cannot undo this operation.
-    /// </para></important><note><para>
-    /// You cannot delete a project if it has active sessions.
-    /// </para></note>
+    /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "DFTestGridProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

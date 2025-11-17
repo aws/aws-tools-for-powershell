@@ -199,6 +199,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String PostgreSqlSettings_CertificateArn { get; set; }
         #endregion
         
+        #region Parameter SybaseAseSettings_CertificateArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the certificate used for SSL connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_SybaseAseSettings_CertificateArn")]
+        public System.String SybaseAseSettings_CertificateArn { get; set; }
+        #endregion
+        
         #region Parameter DocDbSettings_DatabaseName
         /// <summary>
         /// <para>
@@ -287,6 +298,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String RedshiftSettings_DatabaseName { get; set; }
         #endregion
         
+        #region Parameter SybaseAseSettings_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>The database name on the SAP ASE data provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_SybaseAseSettings_DatabaseName")]
+        public System.String SybaseAseSettings_DatabaseName { get; set; }
+        #endregion
+        
         #region Parameter DataProviderIdentifier
         /// <summary>
         /// <para>
@@ -326,13 +348,27 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter SybaseAseSettings_EncryptPassword
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to encrypt the password when connecting to the Sybase ASE database.
+        /// When set to true, the connection password is encrypted during transmission. Default
+        /// is true.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_SybaseAseSettings_EncryptPassword")]
+        public System.Boolean? SybaseAseSettings_EncryptPassword { get; set; }
+        #endregion
+        
         #region Parameter Engine
         /// <summary>
         /// <para>
         /// <para>The type of database engine for the data provider. Valid values include <c>"aurora"</c>,
         /// <c>"aurora-postgresql"</c>, <c>"mysql"</c>, <c>"oracle"</c>, <c>"postgres"</c>, <c>"sqlserver"</c>,
-        /// <c>redshift</c>, <c>mariadb</c>, <c>mongodb</c>, <c>db2</c>, <c>db2-zos</c> and <c>docdb</c>.
-        /// A value of <c>"aurora"</c> represents Amazon Aurora MySQL-Compatible Edition.</para>
+        /// <c>redshift</c>, <c>mariadb</c>, <c>mongodb</c>, <c>db2</c>, <c>db2-zos</c>, <c>docdb</c>,
+        /// and <c>sybase</c>. A value of <c>"aurora"</c> represents Amazon Aurora MySQL-Compatible
+        /// Edition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -463,6 +499,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Settings_RedshiftSettings_Port")]
         public System.Int32? RedshiftSettings_Port { get; set; }
+        #endregion
+        
+        #region Parameter SybaseAseSettings_Port
+        /// <summary>
+        /// <para>
+        /// <para>The port value for the SAP ASE data provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_SybaseAseSettings_Port")]
+        public System.Int32? SybaseAseSettings_Port { get; set; }
         #endregion
         
         #region Parameter IbmDb2LuwSettings_S3AccessRoleArn
@@ -808,6 +855,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String RedshiftSettings_ServerName { get; set; }
         #endregion
         
+        #region Parameter SybaseAseSettings_ServerName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the SAP ASE server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_SybaseAseSettings_ServerName")]
+        public System.String SybaseAseSettings_ServerName { get; set; }
+        #endregion
+        
         #region Parameter DocDbSettings_SslMode
         /// <summary>
         /// <para>
@@ -919,6 +977,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         [Alias("Settings_PostgreSqlSettings_SslMode")]
         [AWSConstantClassSource("Amazon.DatabaseMigrationService.DmsSslModeValue")]
         public Amazon.DatabaseMigrationService.DmsSslModeValue PostgreSqlSettings_SslMode { get; set; }
+        #endregion
+        
+        #region Parameter SybaseAseSettings_SslMode
+        /// <summary>
+        /// <para>
+        /// <para>The SSL mode used to connect to the SAP ASE data provider. The default value is <c>none</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_SybaseAseSettings_SslMode")]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.DmsSslModeValue")]
+        public Amazon.DatabaseMigrationService.DmsSslModeValue SybaseAseSettings_SslMode { get; set; }
         #endregion
         
         #region Parameter Virtual
@@ -1074,6 +1144,12 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.RedshiftSettings_S3AccessRoleArn = this.RedshiftSettings_S3AccessRoleArn;
             context.RedshiftSettings_S3Path = this.RedshiftSettings_S3Path;
             context.RedshiftSettings_ServerName = this.RedshiftSettings_ServerName;
+            context.SybaseAseSettings_CertificateArn = this.SybaseAseSettings_CertificateArn;
+            context.SybaseAseSettings_DatabaseName = this.SybaseAseSettings_DatabaseName;
+            context.SybaseAseSettings_EncryptPassword = this.SybaseAseSettings_EncryptPassword;
+            context.SybaseAseSettings_Port = this.SybaseAseSettings_Port;
+            context.SybaseAseSettings_ServerName = this.SybaseAseSettings_ServerName;
+            context.SybaseAseSettings_SslMode = this.SybaseAseSettings_SslMode;
             context.Virtual = this.Virtual;
             
             // allow further manipulation of loaded context prior to processing
@@ -1393,6 +1469,81 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestSettings_settings_MySqlSettings != null)
             {
                 request.Settings.MySqlSettings = requestSettings_settings_MySqlSettings;
+                requestSettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.Model.SybaseAseDataProviderSettings requestSettings_settings_SybaseAseSettings = null;
+            
+             // populate SybaseAseSettings
+            var requestSettings_settings_SybaseAseSettingsIsNull = true;
+            requestSettings_settings_SybaseAseSettings = new Amazon.DatabaseMigrationService.Model.SybaseAseDataProviderSettings();
+            System.String requestSettings_settings_SybaseAseSettings_sybaseAseSettings_CertificateArn = null;
+            if (cmdletContext.SybaseAseSettings_CertificateArn != null)
+            {
+                requestSettings_settings_SybaseAseSettings_sybaseAseSettings_CertificateArn = cmdletContext.SybaseAseSettings_CertificateArn;
+            }
+            if (requestSettings_settings_SybaseAseSettings_sybaseAseSettings_CertificateArn != null)
+            {
+                requestSettings_settings_SybaseAseSettings.CertificateArn = requestSettings_settings_SybaseAseSettings_sybaseAseSettings_CertificateArn;
+                requestSettings_settings_SybaseAseSettingsIsNull = false;
+            }
+            System.String requestSettings_settings_SybaseAseSettings_sybaseAseSettings_DatabaseName = null;
+            if (cmdletContext.SybaseAseSettings_DatabaseName != null)
+            {
+                requestSettings_settings_SybaseAseSettings_sybaseAseSettings_DatabaseName = cmdletContext.SybaseAseSettings_DatabaseName;
+            }
+            if (requestSettings_settings_SybaseAseSettings_sybaseAseSettings_DatabaseName != null)
+            {
+                requestSettings_settings_SybaseAseSettings.DatabaseName = requestSettings_settings_SybaseAseSettings_sybaseAseSettings_DatabaseName;
+                requestSettings_settings_SybaseAseSettingsIsNull = false;
+            }
+            System.Boolean? requestSettings_settings_SybaseAseSettings_sybaseAseSettings_EncryptPassword = null;
+            if (cmdletContext.SybaseAseSettings_EncryptPassword != null)
+            {
+                requestSettings_settings_SybaseAseSettings_sybaseAseSettings_EncryptPassword = cmdletContext.SybaseAseSettings_EncryptPassword.Value;
+            }
+            if (requestSettings_settings_SybaseAseSettings_sybaseAseSettings_EncryptPassword != null)
+            {
+                requestSettings_settings_SybaseAseSettings.EncryptPassword = requestSettings_settings_SybaseAseSettings_sybaseAseSettings_EncryptPassword.Value;
+                requestSettings_settings_SybaseAseSettingsIsNull = false;
+            }
+            System.Int32? requestSettings_settings_SybaseAseSettings_sybaseAseSettings_Port = null;
+            if (cmdletContext.SybaseAseSettings_Port != null)
+            {
+                requestSettings_settings_SybaseAseSettings_sybaseAseSettings_Port = cmdletContext.SybaseAseSettings_Port.Value;
+            }
+            if (requestSettings_settings_SybaseAseSettings_sybaseAseSettings_Port != null)
+            {
+                requestSettings_settings_SybaseAseSettings.Port = requestSettings_settings_SybaseAseSettings_sybaseAseSettings_Port.Value;
+                requestSettings_settings_SybaseAseSettingsIsNull = false;
+            }
+            System.String requestSettings_settings_SybaseAseSettings_sybaseAseSettings_ServerName = null;
+            if (cmdletContext.SybaseAseSettings_ServerName != null)
+            {
+                requestSettings_settings_SybaseAseSettings_sybaseAseSettings_ServerName = cmdletContext.SybaseAseSettings_ServerName;
+            }
+            if (requestSettings_settings_SybaseAseSettings_sybaseAseSettings_ServerName != null)
+            {
+                requestSettings_settings_SybaseAseSettings.ServerName = requestSettings_settings_SybaseAseSettings_sybaseAseSettings_ServerName;
+                requestSettings_settings_SybaseAseSettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.DmsSslModeValue requestSettings_settings_SybaseAseSettings_sybaseAseSettings_SslMode = null;
+            if (cmdletContext.SybaseAseSettings_SslMode != null)
+            {
+                requestSettings_settings_SybaseAseSettings_sybaseAseSettings_SslMode = cmdletContext.SybaseAseSettings_SslMode;
+            }
+            if (requestSettings_settings_SybaseAseSettings_sybaseAseSettings_SslMode != null)
+            {
+                requestSettings_settings_SybaseAseSettings.SslMode = requestSettings_settings_SybaseAseSettings_sybaseAseSettings_SslMode;
+                requestSettings_settings_SybaseAseSettingsIsNull = false;
+            }
+             // determine if requestSettings_settings_SybaseAseSettings should be set to null
+            if (requestSettings_settings_SybaseAseSettingsIsNull)
+            {
+                requestSettings_settings_SybaseAseSettings = null;
+            }
+            if (requestSettings_settings_SybaseAseSettings != null)
+            {
+                request.Settings.SybaseAseSettings = requestSettings_settings_SybaseAseSettings;
                 requestSettingsIsNull = false;
             }
             Amazon.DatabaseMigrationService.Model.IbmDb2LuwDataProviderSettings requestSettings_settings_IbmDb2LuwSettings = null;
@@ -2110,6 +2261,12 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String RedshiftSettings_S3AccessRoleArn { get; set; }
             public System.String RedshiftSettings_S3Path { get; set; }
             public System.String RedshiftSettings_ServerName { get; set; }
+            public System.String SybaseAseSettings_CertificateArn { get; set; }
+            public System.String SybaseAseSettings_DatabaseName { get; set; }
+            public System.Boolean? SybaseAseSettings_EncryptPassword { get; set; }
+            public System.Int32? SybaseAseSettings_Port { get; set; }
+            public System.String SybaseAseSettings_ServerName { get; set; }
+            public Amazon.DatabaseMigrationService.DmsSslModeValue SybaseAseSettings_SslMode { get; set; }
             public System.Boolean? Virtual { get; set; }
             public System.Func<Amazon.DatabaseMigrationService.Model.ModifyDataProviderResponse, EditDMSDataProviderCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DataProvider;

@@ -111,6 +111,16 @@ $LMBV2_Completers = {
             break
         }
 
+        # Amazon.LexModelsV2.AssistedNluMode
+        {
+            ($_ -eq "New-LMBV2BotLocale/NluImprovement_AssistedNluMode") -Or
+            ($_ -eq "Update-LMBV2BotLocale/NluImprovement_AssistedNluMode")
+        }
+        {
+            $v = "Fallback","Primary"
+            break
+        }
+
         # Amazon.LexModelsV2.AudioRecognitionStrategy
         {
             ($_ -eq "New-LMBV2SlotType/AdvancedRecognitionSetting_AudioRecognitionStrategy") -Or
@@ -548,6 +558,7 @@ $LMBV2_map = @{
     "IntentConfirmationSetting_FailureConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "IntentConfirmationSetting_FailureNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "MergeStrategy"=@("Start-LMBV2Import")
+    "NluImprovement_AssistedNluMode"=@("New-LMBV2BotLocale","Update-LMBV2BotLocale")
     "ObfuscationSetting_ObfuscationSettingType"=@("New-LMBV2Slot","Update-LMBV2Slot")
     "PromptSpecification_MessageSelectionStrategy"=@("New-LMBV2Intent","New-LMBV2Slot","Update-LMBV2Intent","Update-LMBV2Slot")
     "RelativeAggregationDuration_TimeDimension"=@("Get-LMBV2AggregatedUtteranceList")

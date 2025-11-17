@@ -28,12 +28,11 @@ using Amazon.DeviceFarm.Model;
 namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Deletes the run, given the run ARN.
+    /// Deletes the run, given the run ARN. You cannot delete a run if it is still active.
     /// 
-    ///  
-    /// <para>
-    ///  Deleting this resource does not stop an in-progress run.
-    /// </para>
+    ///  <important><para>
+    /// You cannot undo this operation.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "DFRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

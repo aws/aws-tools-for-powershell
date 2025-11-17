@@ -142,10 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <para>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a
         /// role, a fleet instance calls the AWS Security Token Service (STS) <c>AssumeRole</c>
         /// API operation and passes the ARN of the role to use. The operation creates a new session
-        /// with temporary credentials. AppStream 2.0 retrieves the temporary credentials and
-        /// creates the <b>appstream_machine_role</b> credential profile on the instance.</para><para>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using
-        /// an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream
-        /// 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</para>
+        /// with temporary credentials. WorkSpaces Applications retrieves the temporary credentials
+        /// and creates the <b>appstream_machine_role</b> credential profile on the instance.</para><para>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using
+        /// an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces
+        /// Applications Streaming Instances</a> in the <i>Amazon WorkSpaces Applications Administration
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -202,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <summary>
         /// <para>
         /// <para>The instance type to use when launching fleet instances. The following instance types
-        /// are available:</para><ul><li><para>stream.standard.small</para></li><li><para>stream.standard.medium</para></li><li><para>stream.standard.large</para></li><li><para>stream.standard.xlarge</para></li><li><para>stream.standard.2xlarge</para></li><li><para>stream.compute.large</para></li><li><para>stream.compute.xlarge</para></li><li><para>stream.compute.2xlarge</para></li><li><para>stream.compute.4xlarge</para></li><li><para>stream.compute.8xlarge</para></li><li><para>stream.memory.large</para></li><li><para>stream.memory.xlarge</para></li><li><para>stream.memory.2xlarge</para></li><li><para>stream.memory.4xlarge</para></li><li><para>stream.memory.8xlarge</para></li><li><para>stream.memory.z1d.large</para></li><li><para>stream.memory.z1d.xlarge</para></li><li><para>stream.memory.z1d.2xlarge</para></li><li><para>stream.memory.z1d.3xlarge</para></li><li><para>stream.memory.z1d.6xlarge</para></li><li><para>stream.memory.z1d.12xlarge</para></li><li><para>stream.graphics-design.large</para></li><li><para>stream.graphics-design.xlarge</para></li><li><para>stream.graphics-design.2xlarge</para></li><li><para>stream.graphics-design.4xlarge</para></li><li><para>stream.graphics-desktop.2xlarge</para></li><li><para>stream.graphics.g4dn.xlarge</para></li><li><para>stream.graphics.g4dn.2xlarge</para></li><li><para>stream.graphics.g4dn.4xlarge</para></li><li><para>stream.graphics.g4dn.8xlarge</para></li><li><para>stream.graphics.g4dn.12xlarge</para></li><li><para>stream.graphics.g4dn.16xlarge</para></li><li><para>stream.graphics.g5.xlarge</para></li><li><para>stream.graphics.g5.2xlarge</para></li><li><para>stream.graphics.g5.4xlarge</para></li><li><para>stream.graphics.g5.8xlarge</para></li><li><para>stream.graphics.g5.12xlarge</para></li><li><para>stream.graphics.g5.16xlarge</para></li><li><para>stream.graphics.g5.24xlarge</para></li><li><para>stream.graphics-pro.4xlarge</para></li><li><para>stream.graphics-pro.8xlarge</para></li><li><para>stream.graphics-pro.16xlarge</para></li><li><para>stream.graphics.g6.xlarge</para></li><li><para>stream.graphics.g6.2xlarge</para></li><li><para>stream.graphics.g6.4xlarge</para></li><li><para>stream.graphics.g6.8xlarge</para></li><li><para>stream.graphics.g6.16xlarge</para></li><li><para>stream.graphics.g6.12xlarge</para></li><li><para>stream.graphics.g6.24xlarge</para></li><li><para>stream.graphics.gr6.4xlarge</para></li><li><para>stream.graphics.gr6.8xlarge</para></li><li><para>stream.graphics.g6f.large</para></li><li><para>stream.graphics.g6f.xlarge</para></li><li><para>stream.graphics.g6f.2xlarge</para></li><li><para>stream.graphics.g6f.4xlarge</para></li><li><para>stream.graphics.gr6f.4xlarge</para></li></ul><para>The following instance types are available for Elastic fleets:</para><ul><li><para>stream.standard.small</para></li><li><para>stream.standard.medium</para></li><li><para>stream.standard.large</para></li><li><para>stream.standard.xlarge</para></li><li><para>stream.standard.2xlarge</para></li></ul>
+        /// are available:</para><ul><li><para>stream.standard.small</para></li><li><para>stream.standard.medium</para></li><li><para>stream.standard.large</para></li><li><para>stream.standard.xlarge</para></li><li><para>stream.standard.2xlarge</para></li><li><para>stream.compute.large</para></li><li><para>stream.compute.xlarge</para></li><li><para>stream.compute.2xlarge</para></li><li><para>stream.compute.4xlarge</para></li><li><para>stream.compute.8xlarge</para></li><li><para>stream.memory.large</para></li><li><para>stream.memory.xlarge</para></li><li><para>stream.memory.2xlarge</para></li><li><para>stream.memory.4xlarge</para></li><li><para>stream.memory.8xlarge</para></li><li><para>stream.memory.z1d.large</para></li><li><para>stream.memory.z1d.xlarge</para></li><li><para>stream.memory.z1d.2xlarge</para></li><li><para>stream.memory.z1d.3xlarge</para></li><li><para>stream.memory.z1d.6xlarge</para></li><li><para>stream.memory.z1d.12xlarge</para></li><li><para>stream.graphics-design.large</para></li><li><para>stream.graphics-design.xlarge</para></li><li><para>stream.graphics-design.2xlarge</para></li><li><para>stream.graphics-design.4xlarge</para></li><li><para>stream.graphics.g4dn.xlarge</para></li><li><para>stream.graphics.g4dn.2xlarge</para></li><li><para>stream.graphics.g4dn.4xlarge</para></li><li><para>stream.graphics.g4dn.8xlarge</para></li><li><para>stream.graphics.g4dn.12xlarge</para></li><li><para>stream.graphics.g4dn.16xlarge</para></li><li><para>stream.graphics.g5.xlarge</para></li><li><para>stream.graphics.g5.2xlarge</para></li><li><para>stream.graphics.g5.4xlarge</para></li><li><para>stream.graphics.g5.8xlarge</para></li><li><para>stream.graphics.g5.12xlarge</para></li><li><para>stream.graphics.g5.16xlarge</para></li><li><para>stream.graphics.g5.24xlarge</para></li><li><para>stream.graphics.g6.xlarge</para></li><li><para>stream.graphics.g6.2xlarge</para></li><li><para>stream.graphics.g6.4xlarge</para></li><li><para>stream.graphics.g6.8xlarge</para></li><li><para>stream.graphics.g6.16xlarge</para></li><li><para>stream.graphics.g6.12xlarge</para></li><li><para>stream.graphics.g6.24xlarge</para></li><li><para>stream.graphics.gr6.4xlarge</para></li><li><para>stream.graphics.gr6.8xlarge</para></li><li><para>stream.graphics.g6f.large</para></li><li><para>stream.graphics.g6f.xlarge</para></li><li><para>stream.graphics.g6f.2xlarge</para></li><li><para>stream.graphics.g6f.4xlarge</para></li><li><para>stream.graphics.gr6f.4xlarge</para></li></ul><para>The following instance types are available for Elastic fleets:</para><ul><li><para>stream.standard.small</para></li><li><para>stream.standard.medium</para></li><li><para>stream.standard.large</para></li><li><para>stream.standard.xlarge</para></li><li><para>stream.standard.2xlarge</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -330,10 +331,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter StreamView
         /// <summary>
         /// <para>
-        /// <para>The AppStream 2.0 view that is displayed to your users when they stream from the fleet.
-        /// When <c>APP</c> is specified, only the windows of applications opened by users display.
-        /// When <c>DESKTOP</c> is specified, the standard desktop that is provided by the operating
-        /// system displays.</para><para>The default value is <c>APP</c>.</para>
+        /// <para>The WorkSpaces Applications view that is displayed to your users when they stream
+        /// from the fleet. When <c>APP</c> is specified, only the windows of applications opened
+        /// by users display. When <c>DESKTOP</c> is specified, the standard desktop that is provided
+        /// by the operating system displays.</para><para>The default value is <c>APP</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -361,7 +362,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// optional. For example, Environment=Test. If you do not specify a value, Environment=.
         /// </para><para>If you do not specify a value, the value is set to an empty string.</para><para>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8,
         /// and the following special characters: </para><para>_ . : / = + \ - @</para><para>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-        /// Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</para>
+        /// Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -380,6 +381,18 @@ namespace Amazon.PowerShell.Cmdlets.APS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("UsbDeviceFilterStrings")]
         public System.String[] UsbDeviceFilterString { get; set; }
+        #endregion
+        
+        #region Parameter RootVolumeConfig_VolumeSizeInGb
+        /// <summary>
+        /// <para>
+        /// <para>The size of the root volume in GB. Valid range is 200-500 GB. The default is 200 GB,
+        /// which is included in the hourly instance rate. Additional storage beyond 200 GB incurs
+        /// extra charges and applies to instances regardless of their running state.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? RootVolumeConfig_VolumeSizeInGb { get; set; }
         #endregion
         
         #region Parameter Select
@@ -475,6 +488,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             }
             #endif
             context.Platform = this.Platform;
+            context.RootVolumeConfig_VolumeSizeInGb = this.RootVolumeConfig_VolumeSizeInGb;
             context.SessionScriptS3Location_S3Bucket = this.SessionScriptS3Location_S3Bucket;
             context.SessionScriptS3Location_S3Key = this.SessionScriptS3Location_S3Key;
             context.StreamView = this.StreamView;
@@ -633,6 +647,25 @@ namespace Amazon.PowerShell.Cmdlets.APS
                 request.Platform = cmdletContext.Platform;
             }
             
+             // populate RootVolumeConfig
+            var requestRootVolumeConfigIsNull = true;
+            request.RootVolumeConfig = new Amazon.AppStream.Model.VolumeConfig();
+            System.Int32? requestRootVolumeConfig_rootVolumeConfig_VolumeSizeInGb = null;
+            if (cmdletContext.RootVolumeConfig_VolumeSizeInGb != null)
+            {
+                requestRootVolumeConfig_rootVolumeConfig_VolumeSizeInGb = cmdletContext.RootVolumeConfig_VolumeSizeInGb.Value;
+            }
+            if (requestRootVolumeConfig_rootVolumeConfig_VolumeSizeInGb != null)
+            {
+                request.RootVolumeConfig.VolumeSizeInGb = requestRootVolumeConfig_rootVolumeConfig_VolumeSizeInGb.Value;
+                requestRootVolumeConfigIsNull = false;
+            }
+             // determine if request.RootVolumeConfig should be set to null
+            if (requestRootVolumeConfigIsNull)
+            {
+                request.RootVolumeConfig = null;
+            }
+            
              // populate SessionScriptS3Location
             var requestSessionScriptS3LocationIsNull = true;
             request.SessionScriptS3Location = new Amazon.AppStream.Model.S3Location();
@@ -782,6 +815,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public System.Int32? MaxUserDurationInSecond { get; set; }
             public System.String Name { get; set; }
             public Amazon.AppStream.PlatformType Platform { get; set; }
+            public System.Int32? RootVolumeConfig_VolumeSizeInGb { get; set; }
             public System.String SessionScriptS3Location_S3Bucket { get; set; }
             public System.String SessionScriptS3Location_S3Key { get; set; }
             public Amazon.AppStream.StreamView StreamView { get; set; }

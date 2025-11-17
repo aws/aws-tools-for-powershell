@@ -28,7 +28,7 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Dissociates multiple packages from a domain simulatneously.
+    /// Dissociates multiple packages from a domain simultaneously.
     /// </summary>
     [Cmdlet("Start", "OSOSDissociatePackageList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.OpenSearchService.Model.DomainPackageDetails")]

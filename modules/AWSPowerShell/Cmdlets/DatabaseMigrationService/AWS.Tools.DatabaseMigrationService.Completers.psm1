@@ -195,7 +195,9 @@ $DMS_Completers = {
             ($_ -eq "Edit-DMSDataProvider/PostgreSqlSettings_SslMode") -Or
             ($_ -eq "New-DMSDataProvider/PostgreSqlSettings_SslMode") -Or
             ($_ -eq "Edit-DMSEndpoint/SslMode") -Or
-            ($_ -eq "New-DMSEndpoint/SslMode")
+            ($_ -eq "New-DMSEndpoint/SslMode") -Or
+            ($_ -eq "Edit-DMSDataProvider/SybaseAseSettings_SslMode") -Or
+            ($_ -eq "New-DMSDataProvider/SybaseAseSettings_SslMode")
         }
         {
             $v = "none","require","verify-ca","verify-full"
@@ -528,6 +530,7 @@ $DMS_map = @{
     "SslMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "StartReplicationTaskType"=@("Start-DMSReplicationTask")
     "StartType"=@("Start-DMSDataMigration")
+    "SybaseAseSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
 }
 
 _awsArgumentCompleterRegistration $DMS_Completers $DMS_map

@@ -28,8 +28,9 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Creates a temporary URL to start an AppStream 2.0 streaming session for the specified
-    /// user. A streaming URL enables application streaming to be tested without user setup.
+    /// Creates a temporary URL to start an WorkSpaces Applications streaming session for
+    /// the specified user. A streaming URL enables application streaming to be tested without
+    /// user setup.
     /// </summary>
     [Cmdlet("New", "APSStreamingURL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppStream.Model.CreateStreamingURLResponse")]
@@ -76,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <summary>
         /// <para>
         /// <para>The session context. For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters">Session
-        /// Context</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</para>
+        /// Context</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

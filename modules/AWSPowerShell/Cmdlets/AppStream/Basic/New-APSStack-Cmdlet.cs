@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <summary>
         /// <para>
         /// <para>The list of interface VPC endpoint (interface endpoint) objects. Users of the stack
-        /// can connect to AppStream 2.0 only through the specified endpoints.</para>
+        /// can connect to WorkSpaces Applications only through the specified endpoints.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,9 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter EmbedHostDomain
         /// <summary>
         /// <para>
-        /// <para>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You
-        /// must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
-        /// </para>
+        /// <para>The domains where WorkSpaces Applications streaming sessions can be embedded in an
+        /// iframe. You must approve the domains that you want to host embedded WorkSpaces Applications
+        /// streaming sessions. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// optional. For example, Environment=Test. If you do not specify a value, Environment=.
         /// </para><para>If you do not specify a value, the value is set to an empty string.</para><para>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8,
         /// and the following special characters: </para><para>_ . : / = + \ - @</para><para>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-        /// Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</para>
+        /// Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

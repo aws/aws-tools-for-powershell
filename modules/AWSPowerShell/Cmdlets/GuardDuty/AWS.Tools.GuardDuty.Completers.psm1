@@ -337,6 +337,7 @@ $GD_SelectMap = @{
                "Get-GDThreatEntitySetList",
                "Get-GDThreatIntelSetList",
                "Get-GDTrustedEntitySetList",
+               "Send-GDObjectMalwareScan",
                "Start-GDMalwareScan",
                "Start-GDMonitoringMember",
                "Stop-GDMonitoringMember",

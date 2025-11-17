@@ -121,6 +121,16 @@ $PCS_Completers = {
             break
         }
 
+        # Amazon.PCS.SlurmRestMode
+        {
+            ($_ -eq "New-PCSCluster/SlurmRest_Mode") -Or
+            ($_ -eq "Update-PCSCluster/SlurmRest_Mode")
+        }
+        {
+            $v = "NONE","STANDARD"
+            break
+        }
+
         # Amazon.PCS.SpotAllocationStrategy
         {
             ($_ -eq "New-PCSComputeNodeGroup/SpotOptions_AllocationStrategy") -Or
@@ -145,6 +155,7 @@ $PCS_map = @{
     "PurchaseOption"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")
     "Scheduler_Type"=@("New-PCSCluster")
     "Size"=@("New-PCSCluster")
+    "SlurmRest_Mode"=@("New-PCSCluster","Update-PCSCluster")
     "SpotOptions_AllocationStrategy"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")
 }
 

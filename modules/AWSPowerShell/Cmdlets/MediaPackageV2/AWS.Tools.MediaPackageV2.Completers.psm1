@@ -144,6 +144,16 @@ $MPV2_Completers = {
             break
         }
 
+        # Amazon.MediaPackageV2.ScteInSegments
+        {
+            ($_ -eq "New-MPV2OriginEndpoint/Scte_ScteInSegment") -Or
+            ($_ -eq "Update-MPV2OriginEndpoint/Scte_ScteInSegment")
+        }
+        {
+            $v = "ALL","NONE"
+            break
+        }
+
         # Amazon.MediaPackageV2.TsEncryptionMethod
         {
             ($_ -eq "New-MPV2OriginEndpoint/EncryptionMethod_TsEncryptionMethod") -Or
@@ -170,6 +180,7 @@ $MPV2_map = @{
     "EncryptionMethod_IsmEncryptionMethod"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "EncryptionMethod_TsEncryptionMethod"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "InputType"=@("New-MPV2Channel")
+    "Scte_ScteInSegment"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "Status"=@("Get-MPV2HarvestJobList")
 }
 

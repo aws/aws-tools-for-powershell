@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     /// 
     ///  
     /// <para>
-    /// App blocks are an Amazon AppStream 2.0 resource that stores the details about the
+    /// App blocks are a WorkSpaces Applications resource that stores the details about the
     /// virtual hard disk in an S3 bucket. It also stores the setup script with details about
     /// how to mount the virtual hard disk. The virtual hard disk includes the application
     /// binaries and other files necessary to launch your applications. Multiple applications
