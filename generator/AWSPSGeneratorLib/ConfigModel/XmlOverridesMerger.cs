@@ -179,6 +179,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
                 if (hasErrors)
                 {                    
                     errorMessage = $"Override file schema validation failed. The following errors need to be corrected:{Environment.NewLine}{validationMessages}";
+                    TryWriteErrorFile(folderPath, errorMessage);
                     return new Dictionary<string, XmlElement>();
                 }
 
@@ -189,9 +190,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
             catch (Exception e)
             {
                 errorMessage = $"Error deserializing the provided override file. {e.Message}";
-                //Create a flag file `buildConfigValidationErrors` for CDK to send trebuchet approvals for build validation failures
-                var errorFilePath = Path.Combine(folderPath, "buildConfigValidationErrors.txt");
-                File.WriteAllText(errorFilePath, errorMessage);
+                TryWriteErrorFile(folderPath, errorMessage);
                 return new Dictionary<string, XmlElement>();
             }
         }
@@ -199,6 +198,21 @@ namespace AWSPowerShellGenerator.ServiceConfig
         private static IEnumerable<XmlElement> GetChildElementsByTagName(XmlElement element, string name)
         {
             return element.ChildNodes.OfType<XmlElement>().Where(child => child.Name == name);
+        }
+
+        // Creates a flag file 'buildConfigValidationErrors.txt' that is read by CDK to send approval notifications
+        // for preview build failures caused by invalid build configuration files.
+        private static void TryWriteErrorFile(string folderPath, string errorMessage)
+        {
+            try
+            {
+                var errorFilePath = Path.Combine(folderPath, "buildConfigValidationErrors.txt");        
+                File.WriteAllText(errorFilePath, errorMessage);
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine($"Failed to create or write to the file buildConfigValidationErrors.txt. Exception occurred: {ex.Message}");
+            }
         }
     }
 }
