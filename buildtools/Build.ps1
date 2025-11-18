@@ -30,7 +30,11 @@ param (
   [string] $RunTests = "false",
 
   [Parameter()]
-  [string] $RunAsStagingBuild = "false"
+  [string] $RunAsStagingBuild = "false",
+
+  # Indicates if we should skip/remove AWSSDK.Core DLLs from extracted .NET artifact.
+  [Parameter()]
+  [bool] $SkipAWSSDKCoreDlls = $true
 )
 function DownloadSdkArtifacts {
   [CmdletBinding()]
@@ -76,6 +80,7 @@ function DownloadSdkArtifacts {
     Write-Host "Extracting sdk.zip"
     Expand-Archive ./Include/sdk.zip -DestinationPath ./Include/sdktmp -Force
     if ($SkipAWSSDKCoreDlls) {
+      Write-Host "Removing AWSSDK.Core DLLs from extracted SDK artifacts"
       Remove-Item ./Include/sdktmp/assemblies/*/AWSSDK.Core.*
     }
     Move-Item ./Include/sdktmp/assemblies ./Include/sdk/assemblies
@@ -117,7 +122,8 @@ try {
   if ($BuildType -eq 'PREVIEW') {
     # for Preview build, $SdkArtifactsUri will have s3 uri for the preview artifacts from .NET build. e.g https://bucketname.s3.us-west-2.amazonaws.com/{path to dotnet3.zip}
     if ($SdkArtifactsUri) {
-      DownloadSdkArtifacts -SdkArtifactsUri $SdkArtifactsUri -SkipAWSSDKCoreDlls
+      Write-Host "WARNING: Running preview build with specific SDK artifacts. This build will $($SkipAWSSDKCoreDlls ? 'not ' : '')include AWSSDK.Core from SDK artifacts [SkipAWSSDKCoreDlls: $SkipAWSSDKCoreDlls]."
+      DownloadSdkArtifacts -SdkArtifactsUri $SdkArtifactsUri -SkipAWSSDKCoreDlls:$SkipAWSSDKCoreDlls
     }
     elseif ($Environment -eq "DEV") {
       Write-Host "WARNING: running preview build without specific SDK artifacts."
