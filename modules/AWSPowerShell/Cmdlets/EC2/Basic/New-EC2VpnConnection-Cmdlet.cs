@@ -275,6 +275,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Type { get; set; }
         #endregion
         
+        #region Parameter VpnConcentratorId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the VPN concentrator to associate with the VPN connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VpnConcentratorId { get; set; }
+        #endregion
+        
         #region Parameter VpnGatewayId
         /// <summary>
         /// <para>
@@ -367,6 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter Type which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.VpnConcentratorId = this.VpnConcentratorId;
             context.VpnGatewayId = this.VpnGatewayId;
             
             // allow further manipulation of loaded context prior to processing
@@ -527,6 +538,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.Type = cmdletContext.Type;
             }
+            if (cmdletContext.VpnConcentratorId != null)
+            {
+                request.VpnConcentratorId = cmdletContext.VpnConcentratorId;
+            }
             if (cmdletContext.VpnGatewayId != null)
             {
                 request.VpnGatewayId = cmdletContext.VpnGatewayId;
@@ -603,6 +618,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.String TransitGatewayId { get; set; }
             public System.String Type { get; set; }
+            public System.String VpnConcentratorId { get; set; }
             public System.String VpnGatewayId { get; set; }
             public System.Func<Amazon.EC2.Model.CreateVpnConnectionResponse, NewEC2VpnConnectionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.VpnConnection;

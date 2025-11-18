@@ -129,6 +129,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEvents" OutputProperty="OperationEvents" Verb="Get" Noun="CFNOperationEvent" PipelineParameter="StackName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeGeneratedTemplate" OutputProperty="*" Verb="Get" Noun="GeneratedTemplateInformation" PipelineParameter="GeneratedTemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

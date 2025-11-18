@@ -361,6 +361,17 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         public Amazon.BedrockRuntime.GuardrailTrace GuardrailConfig_Trace { get; set; }
         #endregion
         
+        #region Parameter ServiceTier_Type
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the processing tier type used for serving the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockRuntime.ServiceTierType")]
+        public Amazon.BedrockRuntime.ServiceTierType ServiceTier_Type { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -450,6 +461,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
                     context.RequestMetadata.Add((String)hashKey, (System.String)(this.RequestMetadata[hashKey]));
                 }
             }
+            context.ServiceTier_Type = this.ServiceTier_Type;
             if (this.System != null)
             {
                 context.System = new List<Amazon.BedrockRuntime.Model.SystemContentBlock>(this.System);
@@ -608,6 +620,25 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             {
                 request.RequestMetadata = cmdletContext.RequestMetadata;
             }
+            
+             // populate ServiceTier
+            var requestServiceTierIsNull = true;
+            request.ServiceTier = new Amazon.BedrockRuntime.Model.ServiceTier();
+            Amazon.BedrockRuntime.ServiceTierType requestServiceTier_serviceTier_Type = null;
+            if (cmdletContext.ServiceTier_Type != null)
+            {
+                requestServiceTier_serviceTier_Type = cmdletContext.ServiceTier_Type;
+            }
+            if (requestServiceTier_serviceTier_Type != null)
+            {
+                request.ServiceTier.Type = requestServiceTier_serviceTier_Type;
+                requestServiceTierIsNull = false;
+            }
+             // determine if request.ServiceTier should be set to null
+            if (requestServiceTierIsNull)
+            {
+                request.ServiceTier = null;
+            }
             if (cmdletContext.System != null)
             {
                 request.System = cmdletContext.System;
@@ -760,6 +791,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             public Amazon.BedrockRuntime.PerformanceConfigLatency PerformanceConfig_Latency { get; set; }
             public Dictionary<System.String, Amazon.BedrockRuntime.Model.PromptVariableValues> PromptVariable { get; set; }
             public Dictionary<System.String, System.String> RequestMetadata { get; set; }
+            public Amazon.BedrockRuntime.ServiceTierType ServiceTier_Type { get; set; }
             public List<Amazon.BedrockRuntime.Model.SystemContentBlock> System { get; set; }
             public Amazon.BedrockRuntime.Model.AnyToolChoice ToolChoice_Any { get; set; }
             public Amazon.BedrockRuntime.Model.AutoToolChoice ToolChoice_Auto { get; set; }

@@ -31,6 +31,14 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
     /// Retrieves detailed information and remediation guidance for a Hook invocation result.
+    /// 
+    ///  
+    /// <para>
+    /// If the Hook uses a KMS key to encrypt annotations, callers of the <c>GetHookResult</c>
+    /// operation must have <c>kms:Decrypt</c> permissions. For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/hooks-kms-key-policy.html">KMS
+    /// key policy and permissions for encrypting CloudFormation Hooks results at rest</a>
+    /// in the <i>CloudFormation Hooks User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "CFNHookResultDetail")]
     [OutputType("Amazon.CloudFormation.Model.GetHookResultResponse")]

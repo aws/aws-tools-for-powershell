@@ -69,6 +69,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateTieringConfiguration" OutputProperty="*" Verb="New" Noun="TieringConfiguration" ShouldProcessTarget="TieringConfiguration_BackupVaultName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteBackupPlan" OutputProperty="*" Verb="Remove" Noun="BackupPlan" ShouldProcessTarget="BackupPlanId" PipelineParameter="BackupPlanId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -110,6 +114,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteRestoreTestingSelection" Verb="Remove" Noun="RestoreTestingSelection" ShouldProcessTarget="RestoreTestingSelectionName" PipelineParameter="RestoreTestingSelectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTieringConfiguration" Verb="Remove" Noun="TieringConfiguration" ShouldProcessTarget="TieringConfigurationName" PipelineParameter="TieringConfigurationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -229,6 +237,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetTieringConfiguration" OutputProperty="TieringConfiguration" Verb="Get" Noun="TieringConfiguration" PipelineParameter="TieringConfigurationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListBackupJobs" OutputProperty="BackupJobs" Verb="Get" Noun="BackupJobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -333,6 +345,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTieringConfigurations" OutputProperty="TieringConfigurations" Verb="Get" Noun="TieringConfigurationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutBackupVaultAccessPolicy" Verb="Write" Noun="BackupVaultAccessPolicy" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -414,6 +430,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRestoreTestingSelection" OutputProperty="*" Verb="Update" Noun="RestoreTestingSelection" ShouldProcessTarget="RestoreTestingSelectionName" PipelineParameter="RestoreTestingSelectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTieringConfiguration" OutputProperty="*" Verb="Update" Noun="TieringConfiguration" ShouldProcessTarget="TieringConfigurationName" PipelineParameter="TieringConfigurationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -38,7 +38,7 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AttachInstances" Verb="Mount" Noun="Instance" ShouldProcessTarget="InstanceIds" PositionalParameters="AutoScalingGroupName" PipelineParameter="InstanceIds" NoPipelineParameter="false" LegacyAlias="Add-ASInstances" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AttachInstances" Verb="Mount" Noun="Instance" ShouldProcessTarget="InstanceIds" PositionalParameters="AutoScalingGroupName" PipelineParameter="InstanceIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Add-ASInstances">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -116,7 +116,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccountLimits" OutputProperty="*" Verb="Get" Noun="AccountLimit" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-ASAccountLimits" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAccountLimits" OutputProperty="*" Verb="Get" Noun="AccountLimit" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-ASAccountLimits">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -124,11 +124,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAutoScalingGroups" OutputProperty="AutoScalingGroups" Verb="Get" Noun="AutoScalingGroup" PipelineParameter="AutoScalingGroupNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAutoScalingGroups" OutputProperty="AutoScalingGroups" Verb="Get" Noun="AutoScalingGroup" PipelineParameter="AutoScalingGroupNames" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAutoScalingInstances" OutputProperty="AutoScalingInstances" Verb="Get" Noun="AutoScalingInstance" PipelineParameter="InstanceIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeAutoScalingInstances" OutputProperty="AutoScalingInstances" Verb="Get" Noun="AutoScalingInstance" PipelineParameter="InstanceIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -140,23 +140,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLaunchConfigurations" OutputProperty="LaunchConfigurations" Verb="Get" Noun="LaunchConfiguration" PipelineParameter="LaunchConfigurationNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeLaunchConfigurations" OutputProperty="LaunchConfigurations" Verb="Get" Noun="LaunchConfiguration" PipelineParameter="LaunchConfigurationNames" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLifecycleHooks" OutputProperty="LifecycleHooks" Verb="Get" Noun="LifecycleHook" PositionalParameters="LifecycleHookNames" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyAlias="Get-ASLifecycleHooks" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeLifecycleHooks" OutputProperty="LifecycleHooks" Verb="Get" Noun="LifecycleHook" PositionalParameters="LifecycleHookNames" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-ASLifecycleHooks">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLifecycleHookTypes" OutputProperty="LifecycleHookTypes" Verb="Get" Noun="LifecycleHookType" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-ASLifecycleHookTypes" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeLifecycleHookTypes" OutputProperty="LifecycleHookTypes" Verb="Get" Noun="LifecycleHookType" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-ASLifecycleHookTypes">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLoadBalancers" OutputProperty="LoadBalancers" Verb="Get" Noun="LoadBalancer" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeLoadBalancers" OutputProperty="LoadBalancers" Verb="Get" Noun="LoadBalancer" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLoadBalancerTargetGroups" OutputProperty="LoadBalancerTargetGroups" Verb="Get" Noun="LoadBalancerTargetGroup" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeLoadBalancerTargetGroups" OutputProperty="LoadBalancerTargetGroups" Verb="Get" Noun="LoadBalancerTargetGroup" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -164,15 +164,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeNotificationConfigurations" OutputProperty="NotificationConfigurations" Verb="Get" Noun="NotificationConfiguration" PipelineParameter="AutoScalingGroupNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeNotificationConfigurations" OutputProperty="NotificationConfigurations" Verb="Get" Noun="NotificationConfiguration" PipelineParameter="AutoScalingGroupNames" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePolicies" OutputProperty="ScalingPolicies" Verb="Get" Noun="Policy" PositionalParameters="PolicyNames" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribePolicies" OutputProperty="ScalingPolicies" Verb="Get" Noun="Policy" PositionalParameters="PolicyNames" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScalingActivities" OutputProperty="Activities" Verb="Get" Noun="ScalingActivity" PositionalParameters="ActivityIds" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeScalingActivities" OutputProperty="Activities" Verb="Get" Noun="ScalingActivity" PositionalParameters="ActivityIds" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -180,11 +180,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScheduledActions" OutputProperty="ScheduledUpdateGroupActions" Verb="Get" Noun="ScheduledAction" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeScheduledActions" OutputProperty="ScheduledUpdateGroupActions" Verb="Get" Noun="ScheduledAction" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTags" OutputProperty="Tags" Verb="Get" Noun="Tag" PipelineParameter="Filters" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeTags" OutputProperty="Tags" Verb="Get" Noun="Tag" PipelineParameter="Filters" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -200,7 +200,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetachInstances" OutputProperty="Activities" Verb="Dismount" Noun="Instance" ShouldProcessTarget="InstanceIds" PositionalParameters="AutoScalingGroupName" PipelineParameter="InstanceIds" NoPipelineParameter="false" LegacyAlias="Dismount-ASInstances" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DetachInstances" OutputProperty="Activities" Verb="Dismount" Noun="Instance" ShouldProcessTarget="InstanceIds" PositionalParameters="AutoScalingGroupName" PipelineParameter="InstanceIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Dismount-ASInstances">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -237,6 +237,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetPredictiveScalingForecast" OutputProperty="*" Verb="Get" Noun="PredictiveScalingForecast" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="LaunchInstances" OutputProperty="*" Verb="Add" Noun="Instance" ShouldProcessTarget="AutoScalingGroupName" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

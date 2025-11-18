@@ -2029,6 +2029,9 @@ Set-Alias -Name Execute-ASPolicy -Value Start-ASPolicy
 Set-Alias -Name AS-ExecutePolicy -Value Start-ASPolicy
 Set-Alias -Name AS-ExitStandby -Value Exit-ASStandby
 Set-Alias -Name AS-GetPredictiveScalingForecast -Value Get-ASPredictiveScalingForecast
+Set-Alias -Name Launch-ASInstances -Value Add-ASInstance
+Set-Alias -Name Launch-ASInstance -Value Add-ASInstance
+Set-Alias -Name AS-LaunchInstances -Value Add-ASInstance
 Set-Alias -Name Put-ASLifecycleHook -Value Write-ASLifecycleHook
 Set-Alias -Name AS-PutLifecycleHook -Value Write-ASLifecycleHook
 Set-Alias -Name Put-ASNotificationConfiguration -Value Write-ASNotificationConfiguration
@@ -2219,6 +2222,8 @@ Set-Alias -Name Create-BAKRestoreTestingPlan -Value New-BAKRestoreTestingPlan
 Set-Alias -Name BAK-CreateRestoreTestingPlan -Value New-BAKRestoreTestingPlan
 Set-Alias -Name Create-BAKRestoreTestingSelection -Value New-BAKRestoreTestingSelection
 Set-Alias -Name BAK-CreateRestoreTestingSelection -Value New-BAKRestoreTestingSelection
+Set-Alias -Name Create-BAKTieringConfiguration -Value New-BAKTieringConfiguration
+Set-Alias -Name BAK-CreateTieringConfiguration -Value New-BAKTieringConfiguration
 Set-Alias -Name Delete-BAKBackupPlan -Value Remove-BAKBackupPlan
 Set-Alias -Name BAK-DeleteBackupPlan -Value Remove-BAKBackupPlan
 Set-Alias -Name Delete-BAKBackupSelection -Value Remove-BAKBackupSelection
@@ -2242,6 +2247,8 @@ Set-Alias -Name Delete-BAKRestoreTestingPlan -Value Remove-BAKRestoreTestingPlan
 Set-Alias -Name BAK-DeleteRestoreTestingPlan -Value Remove-BAKRestoreTestingPlan
 Set-Alias -Name Delete-BAKRestoreTestingSelection -Value Remove-BAKRestoreTestingSelection
 Set-Alias -Name BAK-DeleteRestoreTestingSelection -Value Remove-BAKRestoreTestingSelection
+Set-Alias -Name Delete-BAKTieringConfiguration -Value Remove-BAKTieringConfiguration
+Set-Alias -Name BAK-DeleteTieringConfiguration -Value Remove-BAKTieringConfiguration
 Set-Alias -Name Describe-BAKBackupJob -Value Get-BAKBackupJob
 Set-Alias -Name BAK-DescribeBackupJob -Value Get-BAKBackupJob
 Set-Alias -Name Describe-BAKBackupVault -Value Get-BAKBackupVault
@@ -2291,6 +2298,7 @@ Set-Alias -Name BAK-GetRestoreTestingPlan -Value Get-BAKRestoreTestingPlan
 Set-Alias -Name BAK-GetRestoreTestingSelection -Value Get-BAKRestoreTestingSelection
 Set-Alias -Name Get-BAKSupportedResourceTypes -Value Get-BAKSupportedResourceType
 Set-Alias -Name BAK-GetSupportedResourceTypes -Value Get-BAKSupportedResourceType
+Set-Alias -Name BAK-GetTieringConfiguration -Value Get-BAKTieringConfiguration
 Set-Alias -Name List-BAKBackupJobs -Value Get-BAKBackupJobList
 Set-Alias -Name List-BAKBackupJobList -Value Get-BAKBackupJobList
 Set-Alias -Name BAK-ListBackupJobs -Value Get-BAKBackupJobList
@@ -2368,6 +2376,9 @@ Set-Alias -Name List-BAKRestoreTestingSelectionList -Value Get-BAKRestoreTesting
 Set-Alias -Name BAK-ListRestoreTestingSelections -Value Get-BAKRestoreTestingSelectionList
 Set-Alias -Name Get-BAKTag -Value Get-BAKResourceTag
 Set-Alias -Name BAK-ListTags -Value Get-BAKResourceTag
+Set-Alias -Name List-BAKTieringConfigurations -Value Get-BAKTieringConfigurationList
+Set-Alias -Name List-BAKTieringConfigurationList -Value Get-BAKTieringConfigurationList
+Set-Alias -Name BAK-ListTieringConfigurations -Value Get-BAKTieringConfigurationList
 Set-Alias -Name Put-BAKBackupVaultAccessPolicy -Value Write-BAKBackupVaultAccessPolicy
 Set-Alias -Name BAK-PutBackupVaultAccessPolicy -Value Write-BAKBackupVaultAccessPolicy
 Set-Alias -Name Put-BAKBackupVaultLockConfiguration -Value Write-BAKBackupVaultLockConfiguration
@@ -2397,6 +2408,7 @@ Set-Alias -Name BAK-UpdateRegionSettings -Value Update-BAKRegionSetting
 Set-Alias -Name BAK-UpdateReportPlan -Value Update-BAKReportPlan
 Set-Alias -Name BAK-UpdateRestoreTestingPlan -Value Update-BAKRestoreTestingPlan
 Set-Alias -Name BAK-UpdateRestoreTestingSelection -Value Update-BAKRestoreTestingSelection
+Set-Alias -Name BAK-UpdateTieringConfiguration -Value Update-BAKTieringConfiguration
 Set-Alias -Name BAKS-GetSearchJob -Value Get-BAKSSearchJob
 Set-Alias -Name BAKS-GetSearchResultExportJob -Value Get-BAKSSearchResultExportJob
 Set-Alias -Name List-BAKSSearchJobBackups -Value Get-BAKSSearchJobBackupList
@@ -4513,6 +4525,9 @@ Set-Alias -Name CFN-DescribeChangeSet -Value Get-CFNChangeSet
 Set-Alias -Name Describe-CFNChangeSetHooks -Value Get-CFNChangeSetHook
 Set-Alias -Name Describe-CFNChangeSetHook -Value Get-CFNChangeSetHook
 Set-Alias -Name CFN-DescribeChangeSetHooks -Value Get-CFNChangeSetHook
+Set-Alias -Name Describe-CFNEvents -Value Get-CFNCFNOperationEvent
+Set-Alias -Name Describe-CFNCFNOperationEvent -Value Get-CFNCFNOperationEvent
+Set-Alias -Name CFN-DescribeEvents -Value Get-CFNCFNOperationEvent
 Set-Alias -Name Describe-CFNGeneratedTemplate -Value Get-CFNGeneratedTemplateInformation
 Set-Alias -Name Describe-CFNGeneratedTemplateInformation -Value Get-CFNGeneratedTemplateInformation
 Set-Alias -Name CFN-DescribeGeneratedTemplate -Value Get-CFNGeneratedTemplateInformation
@@ -10318,6 +10333,8 @@ Set-Alias -Name Create-EC2VpcEndpointServiceConfiguration -Value New-EC2VpcEndpo
 Set-Alias -Name EC2-CreateVpcEndpointServiceConfiguration -Value New-EC2VpcEndpointServiceConfiguration
 Set-Alias -Name Create-EC2VpcPeeringConnection -Value New-EC2VpcPeeringConnection
 Set-Alias -Name EC2-CreateVpcPeeringConnection -Value New-EC2VpcPeeringConnection
+Set-Alias -Name Create-EC2VpnConcentrator -Value New-EC2VpnConcentrator
+Set-Alias -Name EC2-CreateVpnConcentrator -Value New-EC2VpnConcentrator
 Set-Alias -Name Create-EC2VpnConnection -Value New-EC2VpnConnection
 Set-Alias -Name EC2-CreateVpnConnection -Value New-EC2VpnConnection
 Set-Alias -Name Create-EC2VpnConnectionRoute -Value New-EC2VpnConnectionRoute
@@ -10497,6 +10514,8 @@ Set-Alias -Name Delete-EC2EndpointServiceConfiguration -Value Remove-EC2Endpoint
 Set-Alias -Name EC2-DeleteVpcEndpointServiceConfigurations -Value Remove-EC2EndpointServiceConfiguration
 Set-Alias -Name Delete-EC2VpcPeeringConnection -Value Remove-EC2VpcPeeringConnection
 Set-Alias -Name EC2-DeleteVpcPeeringConnection -Value Remove-EC2VpcPeeringConnection
+Set-Alias -Name Delete-EC2VpnConcentrator -Value Remove-EC2VpnConcentrator
+Set-Alias -Name EC2-DeleteVpnConcentrator -Value Remove-EC2VpnConcentrator
 Set-Alias -Name Delete-EC2VpnConnection -Value Remove-EC2VpnConnection
 Set-Alias -Name EC2-DeleteVpnConnection -Value Remove-EC2VpnConnection
 Set-Alias -Name Delete-EC2VpnConnectionRoute -Value Remove-EC2VpnConnectionRoute
@@ -11019,6 +11038,9 @@ Set-Alias -Name EC2-DescribeVpcPeeringConnections -Value Get-EC2VpcPeeringConnec
 Set-Alias -Name Describe-EC2Vpcs -Value Get-EC2Vpc
 Set-Alias -Name Describe-EC2Vpc -Value Get-EC2Vpc
 Set-Alias -Name EC2-DescribeVpcs -Value Get-EC2Vpc
+Set-Alias -Name Describe-EC2VpnConcentrators -Value Get-EC2VpnConcentrator
+Set-Alias -Name Describe-EC2VpnConcentrator -Value Get-EC2VpnConcentrator
+Set-Alias -Name EC2-DescribeVpnConcentrators -Value Get-EC2VpnConcentrator
 Set-Alias -Name Describe-EC2VpnConnections -Value Get-EC2VpnConnection
 Set-Alias -Name Describe-EC2VpnConnection -Value Get-EC2VpnConnection
 Set-Alias -Name EC2-DescribeVpnConnections -Value Get-EC2VpnConnection
@@ -15487,9 +15509,13 @@ Set-Alias -Name AHL-StartFHIRExportJob -Value Start-AHLFHIRExportJob
 Set-Alias -Name AHL-StartFHIRImportJob -Value Start-AHLFHIRImportJob
 Set-Alias -Name AHL-TagResource -Value Add-AHLResourceTag
 Set-Alias -Name AHL-UntagResource -Value Remove-AHLResourceTag
+Set-Alias -Name Accept-IAMDelegationRequest -Value Approve-IAMDelegationRequest
+Set-Alias -Name IAM-AcceptDelegationRequest -Value Approve-IAMDelegationRequest
 Set-Alias -Name IAM-AddClientIDToOpenIDConnectProvider -Value Add-IAMClientIDToOpenIDConnectProvider
 Set-Alias -Name IAM-AddRoleToInstanceProfile -Value Add-IAMRoleToInstanceProfile
 Set-Alias -Name IAM-AddUserToGroup -Value Add-IAMUserToGroup
+Set-Alias -Name Associate-IAMDelegationRequest -Value Register-IAMDelegationRequest
+Set-Alias -Name IAM-AssociateDelegationRequest -Value Register-IAMDelegationRequest
 Set-Alias -Name Attach-IAMGroupPolicy -Value Register-IAMGroupPolicy
 Set-Alias -Name IAM-AttachGroupPolicy -Value Register-IAMGroupPolicy
 Set-Alias -Name Attach-IAMRolePolicy -Value Register-IAMRolePolicy
@@ -15604,8 +15630,10 @@ Set-Alias -Name IAM-GetAccountSummary -Value Get-IAMAccountSummary
 Set-Alias -Name IAM-GetContextKeysForCustomPolicy -Value Get-IAMContextKeysForCustomPolicy
 Set-Alias -Name IAM-GetContextKeysForPrincipalPolicy -Value Get-IAMContextKeysForPrincipalPolicy
 Set-Alias -Name IAM-GetCredentialReport -Value Get-IAMCredentialReport
+Set-Alias -Name IAM-GetDelegationRequest -Value Get-IAMDelegationRequest
 Set-Alias -Name IAM-GetGroup -Value Get-IAMGroup
 Set-Alias -Name IAM-GetGroupPolicy -Value Get-IAMGroupPolicy
+Set-Alias -Name IAM-GetHumanReadableSummary -Value Get-IAMHumanReadableSummary
 Set-Alias -Name IAM-GetInstanceProfile -Value Get-IAMInstanceProfile
 Set-Alias -Name IAM-GetLoginProfile -Value Get-IAMLoginProfile
 Set-Alias -Name Get-IAMMFADevice -Value Get-IAMMFADeviceMetadata
@@ -15641,6 +15669,9 @@ Set-Alias -Name IAM-ListAttachedRolePolicies -Value Get-IAMAttachedRolePolicyLis
 Set-Alias -Name List-IAMAttachedUserPolicies -Value Get-IAMAttachedUserPolicyList
 Set-Alias -Name List-IAMAttachedUserPolicyList -Value Get-IAMAttachedUserPolicyList
 Set-Alias -Name IAM-ListAttachedUserPolicies -Value Get-IAMAttachedUserPolicyList
+Set-Alias -Name List-IAMDelegationRequests -Value Get-IAMDelegationRequestList
+Set-Alias -Name List-IAMDelegationRequestList -Value Get-IAMDelegationRequestList
+Set-Alias -Name IAM-ListDelegationRequests -Value Get-IAMDelegationRequestList
 Set-Alias -Name List-IAMEntitiesForPolicy -Value Get-IAMEntitiesForPolicy
 Set-Alias -Name IAM-ListEntitiesForPolicy -Value Get-IAMEntitiesForPolicy
 Set-Alias -Name List-IAMGroupPolicies -Value Get-IAMGroupPolicyList
@@ -15740,12 +15771,15 @@ Set-Alias -Name Put-IAMUserPermissionsBoundary -Value Set-IAMUserPermissionsBoun
 Set-Alias -Name IAM-PutUserPermissionsBoundary -Value Set-IAMUserPermissionsBoundary
 Set-Alias -Name Put-IAMUserPolicy -Value Write-IAMUserPolicy
 Set-Alias -Name IAM-PutUserPolicy -Value Write-IAMUserPolicy
+Set-Alias -Name Reject-IAMDelegationRequest -Value Deny-IAMDelegationRequest
+Set-Alias -Name IAM-RejectDelegationRequest -Value Deny-IAMDelegationRequest
 Set-Alias -Name IAM-RemoveClientIDFromOpenIDConnectProvider -Value Remove-IAMClientIDFromOpenIDConnectProvider
 Set-Alias -Name IAM-RemoveRoleFromInstanceProfile -Value Remove-IAMRoleFromInstanceProfile
 Set-Alias -Name IAM-RemoveUserFromGroup -Value Remove-IAMUserFromGroup
 Set-Alias -Name IAM-ResetServiceSpecificCredential -Value Reset-IAMServiceSpecificCredential
 Set-Alias -Name Resync-IAMMFADevice -Value Sync-IAMMFADevice
 Set-Alias -Name IAM-ResyncMFADevice -Value Sync-IAMMFADevice
+Set-Alias -Name IAM-SendDelegationToken -Value Send-IAMDelegationToken
 Set-Alias -Name IAM-SetDefaultPolicyVersion -Value Set-IAMDefaultPolicyVersion
 Set-Alias -Name Set-IAMSecurityTokenServicePreferences -Value Set-IAMSecurityTokenServicePreference
 Set-Alias -Name IAM-SetSecurityTokenServicePreferences -Value Set-IAMSecurityTokenServicePreference
@@ -15804,6 +15838,7 @@ Set-Alias -Name IAM-UntagUser -Value Remove-IAMUserTag
 Set-Alias -Name IAM-UpdateAccessKey -Value Update-IAMAccessKey
 Set-Alias -Name IAM-UpdateAccountPasswordPolicy -Value Update-IAMAccountPasswordPolicy
 Set-Alias -Name IAM-UpdateAssumeRolePolicy -Value Update-IAMAssumeRolePolicy
+Set-Alias -Name IAM-UpdateDelegationRequest -Value Update-IAMDelegationRequest
 Set-Alias -Name IAM-UpdateGroup -Value Update-IAMGroup
 Set-Alias -Name IAM-UpdateLoginProfile -Value Update-IAMLoginProfile
 Set-Alias -Name IAM-UpdateOpenIDConnectProviderThumbprint -Value Update-IAMOpenIDConnectProviderThumbprint
@@ -17948,6 +17983,11 @@ Set-Alias -Name Describe-MSKConfigurationRevision -Value Get-MSKConfigurationRev
 Set-Alias -Name MSK-DescribeConfigurationRevision -Value Get-MSKConfigurationRevision
 Set-Alias -Name Describe-MSKReplicator -Value Get-MSKReplicator
 Set-Alias -Name MSK-DescribeReplicator -Value Get-MSKReplicator
+Set-Alias -Name Describe-MSKTopic -Value Get-MSKTopic
+Set-Alias -Name MSK-DescribeTopic -Value Get-MSKTopic
+Set-Alias -Name Describe-MSKTopicPartitions -Value Get-MSKTopicPartition
+Set-Alias -Name Describe-MSKTopicPartition -Value Get-MSKTopicPartition
+Set-Alias -Name MSK-DescribeTopicPartitions -Value Get-MSKTopicPartition
 Set-Alias -Name Describe-MSKVpcConnection -Value Get-MSKVpcConnection
 Set-Alias -Name MSK-DescribeVpcConnection -Value Get-MSKVpcConnection
 Set-Alias -Name Get-MSKBootstrapBrokers -Value Get-MSKBootstrapBroker
@@ -17989,6 +18029,9 @@ Set-Alias -Name List-MSKScramSecrets -Value Get-MSKScramSecretList
 Set-Alias -Name List-MSKScramSecretList -Value Get-MSKScramSecretList
 Set-Alias -Name MSK-ListScramSecrets -Value Get-MSKScramSecretList
 Set-Alias -Name MSK-ListTagsForResource -Value Get-MSKResourceTag
+Set-Alias -Name List-MSKTopics -Value Get-MSKTopicList
+Set-Alias -Name List-MSKTopicList -Value Get-MSKTopicList
+Set-Alias -Name MSK-ListTopics -Value Get-MSKTopicList
 Set-Alias -Name List-MSKVpcConnections -Value Get-MSKVpcConnectionList
 Set-Alias -Name List-MSKVpcConnectionList -Value Get-MSKVpcConnectionList
 Set-Alias -Name MSK-ListVpcConnections -Value Get-MSKVpcConnectionList
@@ -19452,6 +19495,8 @@ Set-Alias -Name Create-CWLLogGroup -Value New-CWLLogGroup
 Set-Alias -Name CWL-CreateLogGroup -Value New-CWLLogGroup
 Set-Alias -Name Create-CWLLogStream -Value New-CWLLogStream
 Set-Alias -Name CWL-CreateLogStream -Value New-CWLLogStream
+Set-Alias -Name Create-CWLScheduledQuery -Value New-CWLScheduledQuery
+Set-Alias -Name CWL-CreateScheduledQuery -Value New-CWLScheduledQuery
 Set-Alias -Name Delete-CWLAccountPolicy -Value Remove-CWLAccountPolicy
 Set-Alias -Name CWL-DeleteAccountPolicy -Value Remove-CWLAccountPolicy
 Set-Alias -Name Delete-CWLDataProtectionPolicy -Value Remove-CWLDataProtectionPolicy
@@ -19484,6 +19529,8 @@ Set-Alias -Name Delete-CWLResourcePolicy -Value Remove-CWLResourcePolicy
 Set-Alias -Name CWL-DeleteResourcePolicy -Value Remove-CWLResourcePolicy
 Set-Alias -Name Delete-CWLRetentionPolicy -Value Remove-CWLRetentionPolicy
 Set-Alias -Name CWL-DeleteRetentionPolicy -Value Remove-CWLRetentionPolicy
+Set-Alias -Name Delete-CWLScheduledQuery -Value Remove-CWLScheduledQuery
+Set-Alias -Name CWL-DeleteScheduledQuery -Value Remove-CWLScheduledQuery
 Set-Alias -Name Delete-CWLSubscriptionFilter -Value Remove-CWLSubscriptionFilter
 Set-Alias -Name CWL-DeleteSubscriptionFilter -Value Remove-CWLSubscriptionFilter
 Set-Alias -Name Delete-CWLTransformer -Value Remove-CWLTransformer
@@ -19556,6 +19603,8 @@ Set-Alias -Name CWL-GetLogObject -Value Get-CWLLogObject
 Set-Alias -Name CWL-GetLogRecord -Value Get-CWLLogRecord
 Set-Alias -Name Get-CWLQueryResults -Value Get-CWLQueryResult
 Set-Alias -Name CWL-GetQueryResults -Value Get-CWLQueryResult
+Set-Alias -Name CWL-GetScheduledQuery -Value Get-CWLScheduledQuery
+Set-Alias -Name CWL-GetScheduledQueryHistory -Value Get-CWLScheduledQueryHistory
 Set-Alias -Name CWL-GetTransformer -Value Get-CWLTransformer
 Set-Alias -Name List-CWLAnomalies -Value Get-CWLAnomalyList
 Set-Alias -Name List-CWLAnomalyList -Value Get-CWLAnomalyList
@@ -19572,6 +19621,9 @@ Set-Alias -Name CWL-ListLogGroups -Value Get-CWLLogGroupList
 Set-Alias -Name List-CWLLogGroupsForQuery -Value Get-CWLLogGroupsForQueryList
 Set-Alias -Name List-CWLLogGroupsForQueryList -Value Get-CWLLogGroupsForQueryList
 Set-Alias -Name CWL-ListLogGroupsForQuery -Value Get-CWLLogGroupsForQueryList
+Set-Alias -Name List-CWLScheduledQueries -Value Get-CWLScheduledQueryList
+Set-Alias -Name List-CWLScheduledQueryList -Value Get-CWLScheduledQueryList
+Set-Alias -Name CWL-ListScheduledQueries -Value Get-CWLScheduledQueryList
 Set-Alias -Name CWL-ListTagsForResource -Value Get-CWLResourceTag
 Set-Alias -Name List-CWLTagsLogGroup -Value Get-CWLLogGroupTag
 Set-Alias -Name List-CWLLogGroupTag -Value Get-CWLLogGroupTag
@@ -19625,6 +19677,7 @@ Set-Alias -Name CWL-UntagResource -Value Remove-CWLResourceTag
 Set-Alias -Name CWL-UpdateAnomaly -Value Update-CWLAnomaly
 Set-Alias -Name CWL-UpdateDeliveryConfiguration -Value Update-CWLDeliveryConfiguration
 Set-Alias -Name CWL-UpdateLogAnomalyDetector -Value Update-CWLLogAnomalyDetector
+Set-Alias -Name CWL-UpdateScheduledQuery -Value Update-CWLScheduledQuery
 Set-Alias -Name Create-L4EDataset -Value New-L4EDataset
 Set-Alias -Name L4E-CreateDataset -Value New-L4EDataset
 Set-Alias -Name Create-L4EInferenceScheduler -Value New-L4EInferenceScheduler
@@ -26662,6 +26715,9 @@ Set-Alias -Name Get-RGTTagKeys -Value Get-RGTTagKey
 Set-Alias -Name RGT-GetTagKeys -Value Get-RGTTagKey
 Set-Alias -Name Get-RGTTagValues -Value Get-RGTTagValue
 Set-Alias -Name RGT-GetTagValues -Value Get-RGTTagValue
+Set-Alias -Name List-RGTRequiredTags -Value Get-RGTRequiredTagList
+Set-Alias -Name List-RGTRequiredTagList -Value Get-RGTRequiredTagList
+Set-Alias -Name RGT-ListRequiredTags -Value Get-RGTRequiredTagList
 Set-Alias -Name RGT-StartReportCreation -Value Start-RGTReportCreation
 Set-Alias -Name Tag-RGTResources -Value Add-RGTResourceTag
 Set-Alias -Name Tag-RGTResourceTag -Value Add-RGTResourceTag

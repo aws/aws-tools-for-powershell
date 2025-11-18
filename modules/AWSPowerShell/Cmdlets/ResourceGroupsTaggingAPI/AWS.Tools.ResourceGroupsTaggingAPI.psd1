@@ -90,6 +90,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-RGTResourceTag', 
         'Get-RGTComplianceSummary', 
         'Get-RGTReportCreation', 
+        'Get-RGTRequiredTagList', 
         'Get-RGTResource', 
         'Get-RGTTagKey', 
         'Get-RGTTagValue', 

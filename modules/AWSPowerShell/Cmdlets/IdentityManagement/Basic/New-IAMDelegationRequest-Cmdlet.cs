@@ -30,7 +30,14 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// This API is currently unavailable for general use.
+    /// Creates an IAM delegation request for temporary access delegation.
+    /// 
+    ///  
+    /// <para>
+    /// This API is not available for general use. In order to use this API, a caller first
+    /// need to go through an onboarding process described in the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation-partner-guide.html">partner
+    /// onboarding documentation</a>. 
+    /// </para>
     /// </summary>
     [Cmdlet("New", "IAMDelegationRequest", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IdentityManagement.Model.CreateDelegationRequestResponse")]
@@ -47,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A description of the delegation request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter NotificationChannel
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The notification channel for updates about the delegation request.</para><para>At this time,only SNS topic ARNs are accepted for notification. This topic ARN must
+        /// have a resource policy granting <c>SNS:Publish</c> permission to the IAM service principal
+        /// (<c>iam.amazonaws.com</c>). See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation-partner-guide.html">partner
+        /// onboarding documentation</a> for more details. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,7 +91,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter OnlySendByOwner
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specifies whether the delegation token should only be sent by the owner.</para><para>This flag prevents any party other than the owner from calling <c>SendDelegationToken</c>
+        /// API for this delegation request. This behavior becomes useful when the delegation
+        /// request owner needs to be present for subsequent partner interactions, but the delegation
+        /// request was sent to a more privileged user for approval due to the owner lacking sufficient
+        /// delegation permissions. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter OwnerAccountId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon Web Services account ID this delegation request is targeted to.</para><para>If the account ID is not known, this parameter can be omitted, resulting in a request
+        /// that can be associated by any account. If the account ID passed, then the created
+        /// delegation request can only be associated with an identity of that target account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter Permissions_Parameter
         /// <summary>
         /// <para>
-        /// <para />
+        /// <para>A list of policy parameters that define the scope and constraints of the delegated
+        /// permissions.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -116,7 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter Permissions_PolicyTemplateArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>This ARN maps to a pre-registered policy content for this partner. See the <a href="">partner
+        /// onboarding documentation</a> to understand how to create a delegation template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,7 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter RedirectUrl
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The URL to redirect to after the delegation request is processed.</para><para>This URL is used by the IAM console to show a link to the customer to re-load the
+        /// partner workflow.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +155,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter RequestMessage
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A message explaining the reason for the delegation request.</para><para>Requesters can utilize this field to add a custom note to the delegation request.
+        /// This field is different from the description such that this is to be utilized for
+        /// a custom messaging on a case-by-case basis.</para><para>For example, if the current delegation request is in response to a previous request
+        /// being rejected, this explanation can be added to the request via this field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,7 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter RequestorWorkflowId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The workflow ID associated with the requestor.</para><para>This is the unique identifier on the partner side that can be used to track the progress
+        /// of the request.</para><para>IAM maintains a uniqueness check on this workflow id for each request - if a workflow
+        /// id for an existing request is passed, this API call will fail.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -163,7 +187,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter SessionDuration
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The duration for which the delegated session should remain active, in seconds.</para><para>The active time window for the session starts when the customer calls the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SendDelegationToken.html">SendDelegationToken</a>
+        /// API.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

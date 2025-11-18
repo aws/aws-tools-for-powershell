@@ -50,6 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// Campaign calls are not allowed by default. Before you can make a call with <c>TrafficType</c>
     /// = <c>CAMPAIGN</c>, you must submit a service quota increase request to the quota <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas">Amazon
     /// Connect campaigns</a>. 
+    /// </para></note><note><para>
+    /// For Preview dialing mode, only the Amazon Connect outbound campaigns service principal
+    /// is allowed to assume a role in your account and call this API with OutboundStrategy.
+    /// 
     /// </para></note>
     /// </summary>
     [Cmdlet("Start", "CONNOutboundVoiceContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -264,6 +268,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String RelatedContactId { get; set; }
         #endregion
         
+        #region Parameter RingTimeoutInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The maximum time the outbound call will wait for the destination to answer the call,
+        /// in seconds </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RingTimeoutInSeconds")]
+        public System.Int32? RingTimeoutInSecond { get; set; }
+        #endregion
+        
         #region Parameter SourcePhoneNumber
         /// <summary>
         /// <para>
@@ -410,6 +426,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 }
             }
             context.RelatedContactId = this.RelatedContactId;
+            context.RingTimeoutInSecond = this.RingTimeoutInSecond;
             context.SourcePhoneNumber = this.SourcePhoneNumber;
             context.TrafficType = this.TrafficType;
             
@@ -600,6 +617,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 request.RelatedContactId = cmdletContext.RelatedContactId;
             }
+            if (cmdletContext.RingTimeoutInSecond != null)
+            {
+                request.RingTimeoutInSeconds = cmdletContext.RingTimeoutInSecond.Value;
+            }
             if (cmdletContext.SourcePhoneNumber != null)
             {
                 request.SourcePhoneNumber = cmdletContext.SourcePhoneNumber;
@@ -679,6 +700,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String QueueId { get; set; }
             public Dictionary<System.String, Amazon.Connect.Model.Reference> Reference { get; set; }
             public System.String RelatedContactId { get; set; }
+            public System.Int32? RingTimeoutInSecond { get; set; }
             public System.String SourcePhoneNumber { get; set; }
             public Amazon.Connect.TrafficType TrafficType { get; set; }
             public System.Func<Amazon.Connect.Model.StartOutboundVoiceContactResponse, StartCONNOutboundVoiceContactCmdlet, object> Select { get; set; } =

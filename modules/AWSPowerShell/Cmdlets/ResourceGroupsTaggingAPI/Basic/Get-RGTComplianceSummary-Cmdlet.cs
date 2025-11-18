@@ -105,7 +105,13 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         /// Web Services General Reference</a></i> for the following:</para><ul><li><para>For a list of service name strings, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">Amazon
         /// Web Services Service Namespaces</a>.</para></li><li><para>For resource type strings, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arns-syntax">Example
         /// ARNs</a>.</para></li><li><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</para></li></ul><para>You can specify multiple resource types by using a comma separated array. The array
+        /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</para></li></ul><note><para>For the list of services whose resources you can tag using the Resource Groups Tagging
+        /// API, see <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/supported-services.html">Services
+        /// that support the Resource Groups Tagging API</a>. If an Amazon Web Services service
+        /// isn't listed on that page, you might still be able to tag that service's resources
+        /// by using that service's native tagging operations instead of using Resource Groups
+        /// Tagging API operations. All tagged resources, whether the tagging used the Resource
+        /// Groups Tagging API or not, are returned by the <c>Get*</c> operation.</para></note><para>You can specify multiple resource types by using a comma separated array. The array
         /// can include up to 100 items. Note that the length constraint requirement applies to
         /// each resource type filter. </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned

@@ -701,6 +701,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpnConcentrator" OutputProperty="VpnConcentrator" Verb="New" Noun="VpnConcentrator" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateVpnConnection" OutputProperty="VpnConnection" Verb="New" Noun="VpnConnection" ShouldProcessTarget="VpnGatewayId" PositionalParameters="CustomerGatewayId;VpnGatewayId;Options_StaticRoutesOnly" PipelineParameter="Type" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Options_StaticRoutesOnly" Alias="StaticRoutesOnly" />
@@ -1044,6 +1048,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteVpcPeeringConnection" Verb="Remove" Noun="VpcPeeringConnection" ShouldProcessTarget="VpcPeeringConnectionId" PipelineParameter="VpcPeeringConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpnConcentrator" OutputProperty="Return" Verb="Remove" Noun="VpnConcentrator" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1812,6 +1820,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeVpcs" OutputProperty="Vpcs" Verb="Get" Noun="Vpc" PositionalParameters="Filters" PipelineParameter="VpcIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpnConcentrators" OutputProperty="VpnConcentrators" Verb="Get" Noun="VpnConcentrator" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

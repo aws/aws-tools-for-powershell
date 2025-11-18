@@ -1,4 +1,53 @@
-﻿### 5.0.99 (2025-11-17 21:54Z)
+﻿### 5.0.100 (2025-11-18 22:31Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.136.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Auto Scaling
+    * Added cmdlet Add-ASInstance leveraging the LaunchInstances service API.
+  * Amazon Backup
+    * Added cmdlet Get-BAKTieringConfiguration leveraging the GetTieringConfiguration service API.
+    * Added cmdlet Get-BAKTieringConfigurationList leveraging the ListTieringConfigurations service API.
+    * Added cmdlet New-BAKTieringConfiguration leveraging the CreateTieringConfiguration service API.
+    * Added cmdlet Remove-BAKTieringConfiguration leveraging the DeleteTieringConfiguration service API.
+    * Added cmdlet Update-BAKTieringConfiguration leveraging the UpdateTieringConfiguration service API.
+  * Amazon Bedrock Runtime
+    * Modified cmdlet Get-BDRRCountToken: added parameters Converse_AdditionalModelRequestField, Tool_Name, ToolChoice_Any, ToolChoice_Auto and ToolConfig_Tool.
+    * Modified cmdlet Invoke-BDRRConverse: added parameter ServiceTier_Type.
+    * Modified cmdlet Invoke-BDRRConverseStream: added parameter ServiceTier_Type.
+    * Modified cmdlet Invoke-BDRRModel: added parameter ServiceTier.
+    * Modified cmdlet Invoke-BDRRModelWithResponseStream: added parameter ServiceTier.
+  * Amazon CloudFormation
+    * Added cmdlet Get-CFNCFNOperationEvent leveraging the DescribeEvents service API.
+    * Modified cmdlet New-CFNChangeSet: added parameter DeploymentMode.
+  * Amazon CloudWatch Logs
+    * Added cmdlet Get-CWLScheduledQuery leveraging the GetScheduledQuery service API.
+    * Added cmdlet Get-CWLScheduledQueryHistory leveraging the GetScheduledQueryHistory service API.
+    * Added cmdlet Get-CWLScheduledQueryList leveraging the ListScheduledQueries service API.
+    * Added cmdlet New-CWLScheduledQuery leveraging the CreateScheduledQuery service API.
+    * Added cmdlet Remove-CWLScheduledQuery leveraging the DeleteScheduledQuery service API.
+    * Added cmdlet Update-CWLScheduledQuery leveraging the UpdateScheduledQuery service API.
+  * Amazon Connect Service
+    * Modified cmdlet Start-CONNOutboundVoiceContact: added parameter RingTimeoutInSecond.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Get-EC2VpnConcentrator leveraging the DescribeVpnConcentrators service API.
+    * Added cmdlet New-EC2VpnConcentrator leveraging the CreateVpnConcentrator service API.
+    * Added cmdlet Remove-EC2VpnConcentrator leveraging the DeleteVpnConcentrator service API.
+    * Modified cmdlet New-EC2VpnConnection: added parameter VpnConcentratorId.
+  * Amazon Identity and Access Management
+    * Added cmdlet Approve-IAMDelegationRequest leveraging the AcceptDelegationRequest service API.
+    * Added cmdlet Deny-IAMDelegationRequest leveraging the RejectDelegationRequest service API.
+    * Added cmdlet Get-IAMDelegationRequest leveraging the GetDelegationRequest service API.
+    * Added cmdlet Get-IAMDelegationRequestList leveraging the ListDelegationRequests service API.
+    * Added cmdlet Get-IAMHumanReadableSummary leveraging the GetHumanReadableSummary service API.
+    * Added cmdlet Register-IAMDelegationRequest leveraging the AssociateDelegationRequest service API.
+    * Added cmdlet Send-IAMDelegationToken leveraging the SendDelegationToken service API.
+    * Added cmdlet Update-IAMDelegationRequest leveraging the UpdateDelegationRequest service API.
+  * Amazon Managed Streaming for Apache Kafka (MSK)
+    * Added cmdlet Get-MSKTopic leveraging the DescribeTopic service API.
+    * Added cmdlet Get-MSKTopicList leveraging the ListTopics service API.
+    * Added cmdlet Get-MSKTopicPartition leveraging the DescribeTopicPartitions service API.
+  * Amazon Resource Groups Tagging API
+    * Added cmdlet Get-RGTRequiredTagList leveraging the ListRequiredTags service API.
+
+### 5.0.99 (2025-11-17 21:54Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.135.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AmazonMWAAServerless. Added cmdlets to support the service. Cmdlets for the service have the noun prefix MWAAS and can be listed using the command 'Get-AWSCmdletName -Service MWAAS'.
   * Amazon AppStream

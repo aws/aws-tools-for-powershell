@@ -49,6 +49,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateScheduledQuery" OutputProperty="*" Verb="New" Noun="ScheduledQuery" ShouldProcessTarget="Name,ExecutionRoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAccountPolicy" Verb="Remove" Noun="AccountPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -112,6 +116,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteRetentionPolicy" Verb="Remove" Noun="RetentionPolicy" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteScheduledQuery" Verb="Remove" Noun="ScheduledQuery" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -243,6 +251,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetScheduledQuery" OutputProperty="*" Verb="Get" Noun="ScheduledQuery" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetScheduledQueryHistory" OutputProperty="*" Verb="Get" Noun="ScheduledQueryHistory" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTransformer" OutputProperty="*" Verb="Get" Noun="Transformer" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -264,6 +280,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListLogGroupsForQuery" OutputProperty="LogGroupIdentifiers" Verb="Get" Noun="LogGroupsForQueryList" PipelineParameter="QueryId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListScheduledQueries" OutputProperty="ScheduledQueries" Verb="Get" Noun="ScheduledQueryList" PipelineParameter="State" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -388,6 +408,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateLogAnomalyDetector" Verb="Update" Noun="LogAnomalyDetector" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateScheduledQuery" OutputProperty="*" Verb="Update" Noun="ScheduledQuery" ShouldProcessTarget="ExecutionRoleArn,Identifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

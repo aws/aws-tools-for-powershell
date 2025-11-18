@@ -130,6 +130,18 @@ $BDRR_Completers = {
             break
         }
 
+        # Amazon.BedrockRuntime.ServiceTierType
+        {
+            ($_ -eq "Invoke-BDRRModel/ServiceTier") -Or
+            ($_ -eq "Invoke-BDRRModelWithResponseStream/ServiceTier") -Or
+            ($_ -eq "Invoke-BDRRConverse/ServiceTier_Type") -Or
+            ($_ -eq "Invoke-BDRRConverseStream/ServiceTier_Type")
+        }
+        {
+            $v = "default","flex","priority"
+            break
+        }
+
         # Amazon.BedrockRuntime.SortAsyncInvocationBy
         "Get-BDRRAsyncInvokeList/SortBy"
         {
@@ -168,6 +180,8 @@ $BDRR_map = @{
     "OutputScope"=@("Invoke-BDRRGuardrail")
     "PerformanceConfig_Latency"=@("Invoke-BDRRConverse","Invoke-BDRRConverseStream")
     "PerformanceConfigLatency"=@("Invoke-BDRRModel","Invoke-BDRRModelWithResponseStream")
+    "ServiceTier"=@("Invoke-BDRRModel","Invoke-BDRRModelWithResponseStream")
+    "ServiceTier_Type"=@("Invoke-BDRRConverse","Invoke-BDRRConverseStream")
     "SortBy"=@("Get-BDRRAsyncInvokeList")
     "SortOrder"=@("Get-BDRRAsyncInvokeList")
     "Source"=@("Invoke-BDRRGuardrail")

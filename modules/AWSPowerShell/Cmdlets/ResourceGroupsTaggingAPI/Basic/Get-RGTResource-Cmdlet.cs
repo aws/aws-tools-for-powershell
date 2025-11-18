@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.RGT
 {
     /// <summary>
     /// Returns all the tagged or previously tagged resources that are located in the specified
-    /// Amazon Web Services Region for the account.
+    /// Amazon Web Services Region for the account. 
     /// 
     ///  
     /// <para>
@@ -48,7 +48,12 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     /// response parameter value as an input to the next request until you recieve a <c>null</c>
     /// value. A null value for <c>PaginationToken</c> indicates that there are no more results
     /// waiting to be returned.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><note><para><c>GetResources</c> does not return untagged resources. 
+    /// </para><para>
+    /// To find untagged resources in your account, use Amazon Web Services Resource Explorer
+    /// with a query that uses <c>tag:none</c>. For more information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html">
+    /// Search query syntax reference for Resource Explorer</a>. 
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RGTResource")]
     [OutputType("Amazon.ResourceGroupsTaggingAPI.Model.ResourceTagMapping")]
@@ -93,10 +98,11 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         #region Parameter ResourceARNList
         /// <summary>
         /// <para>
-        /// <para>Specifies a list of ARNs of resources for which you want to retrieve tag data. You
-        /// can't specify both this parameter and any of the pagination parameters (<c>ResourcesPerPage</c>,
-        /// <c>TagsPerPage</c>, <c>PaginationToken</c>) in the same request. If you specify both,
-        /// you get an <c>Invalid Parameter</c> exception.</para><para>If a resource specified by this parameter doesn't exist, it doesn't generate an error;
+        /// <para>Specifies a list of ARNs of resources for which you want to retrieve tag data.</para><para>You can't specify both this parameter and the <c>ResourceTypeFilters</c> parameter
+        /// in the same request. If you do, you get an <c>Invalid Parameter</c> exception.</para><para>You can't specify both this parameter and the <c>TagFilters</c> parameter in the same
+        /// request. If you do, you get an <c>Invalid Parameter</c> exception.</para><para>You can't specify both this parameter and any of the pagination parameters (<c>ResourcesPerPage</c>,
+        /// <c>TagsPerPage</c>, <c>PaginationToken</c>) in the same request. If you do, you get
+        /// an <c>Invalid Parameter</c> exception.</para><para>If a resource specified by this parameter doesn't exist, it doesn't generate an error;
         /// it simply isn't included in the response.</para><para>An ARN (Amazon Resource Name) uniquely identifies a resource. For more information,
         /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon
@@ -128,12 +134,17 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         /// <summary>
         /// <para>
         /// <para>Specifies the resource types that you want included in the response. The format of
-        /// each resource type is <c>service[:resourceType]</c>. For example, specifying a resource
-        /// type of <c>ec2</c> returns all Amazon EC2 resources (which includes EC2 instances).
-        /// Specifying a resource type of <c>ec2:instance</c> returns only EC2 instances. </para><para>The string for each service name and resource type is the same as that embedded in
-        /// a resource's Amazon Resource Name (ARN). For the list of services whose resources
-        /// you can use in this parameter, see <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/supported-services.html">Services
-        /// that support the Resource Groups Tagging API</a>.</para><para>You can specify multiple resource types by using an array. The array can include up
+        /// each resource type is <c>service[:resourceType]</c>. For example, specifying a service
+        /// of <c>ec2</c> returns all Amazon EC2 resources (which includes EC2 instances). Specifying
+        /// a resource type of <c>ec2:instance</c> returns only EC2 instances. </para><para>You can't specify both this parameter and the <c>ResourceArnList</c> parameter in
+        /// the same request. If you do, you get an <c>Invalid Parameter</c> exception.</para><para>The string for each service name and resource type is the same as that embedded in
+        /// a resource's Amazon Resource Name (ARN).</para><note><para>For the list of services whose resources you can tag using the Resource Groups Tagging
+        /// API, see <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/supported-services.html">Services
+        /// that support the Resource Groups Tagging API</a>. If an Amazon Web Services service
+        /// isn't listed on that page, you might still be able to tag that service's resources
+        /// by using that service's native tagging operations instead of using Resource Groups
+        /// Tagging API operations. All tagged resources, whether the tagging used the Resource
+        /// Groups Tagging API or not, are returned by the <c>Get*</c> operation.</para></note><para>You can specify multiple resource types by using an array. The array can include up
         /// to 100 items. Note that the length constraint requirement applies to each resource
         /// type filter. For example, the following string would limit the response to only Amazon
         /// EC2 instances, Amazon S3 buckets, or any Audit Manager resource:</para><para><c>ec2:instance,s3:bucket,auditmanager</c></para><para />
@@ -154,13 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         /// <para>Specifies a list of TagFilters (keys and values) to restrict the output to only those
         /// resources that have tags with the specified keys and, if included, the specified values.
         /// Each <c>TagFilter</c> must contain a key with values optional. A request can include
-        /// up to 50 keys, and each key can include up to 20 values. </para><para>Note the following when deciding how to use TagFilters:</para><ul><li><para>If you <i>don't</i> specify a <c>TagFilter</c>, the response includes all resources
-        /// that are currently tagged or ever had a tag. Resources that currently don't have tags
-        /// are shown with an empty tag set, like this: <c>"Tags": []</c>.</para></li><li><para>If you specify more than one filter in a single request, the response returns only
+        /// up to 50 keys, and each key can include up to 20 values. </para><para>You can't specify both this parameter and the <c>ResourceArnList</c> parameter in
+        /// the same request. If you do, you get an <c>Invalid Parameter</c> exception.</para><para>Note the following when deciding how to use TagFilters:</para><ul><li><para>If you <i>don't</i> specify a <c>TagFilter</c>, the response includes all resources
+        /// that are currently tagged or ever had a tag. Resources that were previously tagged,
+        /// <i>but do not currently</i> have tags, are shown with an empty tag set, like this:
+        /// <c>"Tags": []</c>.</para></li><li><para>If you specify more than one filter in a single request, the response returns only
         /// those resources that satisfy all filters.</para></li><li><para>If you specify a filter that contains more than one value for a key, the response
         /// returns resources that match <i>any</i> of the specified values for that key.</para></li><li><para>If you don't specify a value for a key, the response returns all resources that are
-        /// tagged with that key, with any or no value.</para><para>For example, for the following filters: <c>filter1= {keyA,{value1}}</c>, <c>filter2={keyB,{value2,value3,value4}}</c>,
-        /// <c>filter3= {keyC}</c>:</para><ul><li><para><c>GetResources({filter1})</c> returns resources tagged with <c>key1=value1</c></para></li><li><para><c>GetResources({filter2})</c> returns resources tagged with <c>key2=value2</c> or
+        /// tagged with that key, with any or no value.</para><para>For example, for the following filters: <c>filter1= {key1,{value1}}</c>, <c>filter2={key2,{value2,value3,value4}}</c>,
+        /// <c>filter3= {key3}</c>:</para><ul><li><para><c>GetResources({filter1})</c> returns resources tagged with <c>key1=value1</c></para></li><li><para><c>GetResources({filter2})</c> returns resources tagged with <c>key2=value2</c> or
         /// <c>key2=value3</c> or <c>key2=value4</c></para></li><li><para><c>GetResources({filter3})</c> returns resources tagged with any tag with the key
         /// <c>key3</c>, and with any or no value</para></li><li><para><c>GetResources({filter1,filter2,filter3})</c> returns resources tagged with <c>(key1=value1)
         /// and (key2=value2 or key2=value3 or key2=value4) and (key3, any or no value)</c></para></li></ul></li></ul><para />

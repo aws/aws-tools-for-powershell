@@ -73,6 +73,41 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Converse_AdditionalModelRequestField
+        /// <summary>
+        /// <para>
+        /// <para>The additionalModelRequestFields of Converse input request to count tokens for. Use
+        /// this field when you want to pass additional parameters that the model supports.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Input_Converse_AdditionalModelRequestFields")]
+        public System.Management.Automation.PSObject Converse_AdditionalModelRequestField { get; set; }
+        #endregion
+        
+        #region Parameter ToolChoice_Any
+        /// <summary>
+        /// <para>
+        /// <para>The model must request at least one tool (no text is generated).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Input_Converse_ToolConfig_ToolChoice_Any")]
+        public Amazon.BedrockRuntime.Model.AnyToolChoice ToolChoice_Any { get; set; }
+        #endregion
+        
+        #region Parameter ToolChoice_Auto
+        /// <summary>
+        /// <para>
+        /// <para>(Default). The Model automatically decides if a tool should be called or whether to
+        /// generate text instead. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Input_Converse_ToolConfig_ToolChoice_Auto")]
+        public Amazon.BedrockRuntime.Model.AutoToolChoice ToolChoice_Auto { get; set; }
+        #endregion
+        
         #region Parameter InvokeModel_Body
         /// <summary>
         /// <para>
@@ -122,6 +157,17 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         public System.String ModelId { get; set; }
         #endregion
         
+        #region Parameter Tool_Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the tool that the model must request. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Input_Converse_ToolConfig_ToolChoice_Tool_Name")]
+        public System.String Tool_Name { get; set; }
+        #endregion
+        
         #region Parameter Converse_System
         /// <summary>
         /// <para>
@@ -137,6 +183,21 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Input_Converse_System")]
         public Amazon.BedrockRuntime.Model.SystemContentBlock[] Converse_System { get; set; }
+        #endregion
+        
+        #region Parameter ToolConfig_Tool
+        /// <summary>
+        /// <para>
+        /// <para>An array of tools that you want to pass to a model. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Input_Converse_ToolConfig_Tools")]
+        public Amazon.BedrockRuntime.Model.Tool[] ToolConfig_Tool { get; set; }
         #endregion
         
         #region Parameter Select
@@ -169,6 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
                 context.Select = CreateSelectDelegate<Amazon.BedrockRuntime.Model.CountTokensResponse, GetBDRRCountTokenCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Converse_AdditionalModelRequestField = this.Converse_AdditionalModelRequestField;
             if (this.Converse_Message != null)
             {
                 context.Converse_Message = new List<Amazon.BedrockRuntime.Model.Message>(this.Converse_Message);
@@ -176,6 +238,13 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             if (this.Converse_System != null)
             {
                 context.Converse_System = new List<Amazon.BedrockRuntime.Model.SystemContentBlock>(this.Converse_System);
+            }
+            context.ToolChoice_Any = this.ToolChoice_Any;
+            context.ToolChoice_Auto = this.ToolChoice_Auto;
+            context.Tool_Name = this.Tool_Name;
+            if (this.ToolConfig_Tool != null)
+            {
+                context.ToolConfig_Tool = new List<Amazon.BedrockRuntime.Model.Tool>(this.ToolConfig_Tool);
             }
             context.InvokeModel_Body = this.InvokeModel_Body;
             context.ModelId = this.ModelId;
@@ -240,6 +309,16 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
                  // populate Converse
                 var requestInput_input_ConverseIsNull = true;
                 requestInput_input_Converse = new Amazon.BedrockRuntime.Model.ConverseTokensRequest();
+                Amazon.Runtime.Documents.Document? requestInput_input_Converse_converse_AdditionalModelRequestField = null;
+                if (cmdletContext.Converse_AdditionalModelRequestField != null)
+                {
+                    requestInput_input_Converse_converse_AdditionalModelRequestField = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.Converse_AdditionalModelRequestField);
+                }
+                if (requestInput_input_Converse_converse_AdditionalModelRequestField != null)
+                {
+                    requestInput_input_Converse.AdditionalModelRequestFields = requestInput_input_Converse_converse_AdditionalModelRequestField.Value;
+                    requestInput_input_ConverseIsNull = false;
+                }
                 List<Amazon.BedrockRuntime.Model.Message> requestInput_input_Converse_converse_Message = null;
                 if (cmdletContext.Converse_Message != null)
                 {
@@ -258,6 +337,91 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
                 if (requestInput_input_Converse_converse_System != null)
                 {
                     requestInput_input_Converse.System = requestInput_input_Converse_converse_System;
+                    requestInput_input_ConverseIsNull = false;
+                }
+                Amazon.BedrockRuntime.Model.ToolConfiguration requestInput_input_Converse_input_Converse_ToolConfig = null;
+                
+                 // populate ToolConfig
+                var requestInput_input_Converse_input_Converse_ToolConfigIsNull = true;
+                requestInput_input_Converse_input_Converse_ToolConfig = new Amazon.BedrockRuntime.Model.ToolConfiguration();
+                List<Amazon.BedrockRuntime.Model.Tool> requestInput_input_Converse_input_Converse_ToolConfig_toolConfig_Tool = null;
+                if (cmdletContext.ToolConfig_Tool != null)
+                {
+                    requestInput_input_Converse_input_Converse_ToolConfig_toolConfig_Tool = cmdletContext.ToolConfig_Tool;
+                }
+                if (requestInput_input_Converse_input_Converse_ToolConfig_toolConfig_Tool != null)
+                {
+                    requestInput_input_Converse_input_Converse_ToolConfig.Tools = requestInput_input_Converse_input_Converse_ToolConfig_toolConfig_Tool;
+                    requestInput_input_Converse_input_Converse_ToolConfigIsNull = false;
+                }
+                Amazon.BedrockRuntime.Model.ToolChoice requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice = null;
+                
+                 // populate ToolChoice
+                var requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoiceIsNull = true;
+                requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice = new Amazon.BedrockRuntime.Model.ToolChoice();
+                Amazon.BedrockRuntime.Model.AnyToolChoice requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice_toolChoice_Any = null;
+                if (cmdletContext.ToolChoice_Any != null)
+                {
+                    requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice_toolChoice_Any = cmdletContext.ToolChoice_Any;
+                }
+                if (requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice_toolChoice_Any != null)
+                {
+                    requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice.Any = requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice_toolChoice_Any;
+                    requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoiceIsNull = false;
+                }
+                Amazon.BedrockRuntime.Model.AutoToolChoice requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice_toolChoice_Auto = null;
+                if (cmdletContext.ToolChoice_Auto != null)
+                {
+                    requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice_toolChoice_Auto = cmdletContext.ToolChoice_Auto;
+                }
+                if (requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice_toolChoice_Auto != null)
+                {
+                    requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice.Auto = requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice_toolChoice_Auto;
+                    requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoiceIsNull = false;
+                }
+                Amazon.BedrockRuntime.Model.SpecificToolChoice requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice_input_Converse_ToolConfig_ToolChoice_Tool = null;
+                
+                 // populate Tool
+                var requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice_input_Converse_ToolConfig_ToolChoice_ToolIsNull = true;
+                requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice_input_Converse_ToolConfig_ToolChoice_Tool = new Amazon.BedrockRuntime.Model.SpecificToolChoice();
+                System.String requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice_input_Converse_ToolConfig_ToolChoice_Tool_tool_Name = null;
+                if (cmdletContext.Tool_Name != null)
+                {
+                    requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice_input_Converse_ToolConfig_ToolChoice_Tool_tool_Name = cmdletContext.Tool_Name;
+                }
+                if (requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice_input_Converse_ToolConfig_ToolChoice_Tool_tool_Name != null)
+                {
+                    requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice_input_Converse_ToolConfig_ToolChoice_Tool.Name = requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice_input_Converse_ToolConfig_ToolChoice_Tool_tool_Name;
+                    requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice_input_Converse_ToolConfig_ToolChoice_ToolIsNull = false;
+                }
+                 // determine if requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice_input_Converse_ToolConfig_ToolChoice_Tool should be set to null
+                if (requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice_input_Converse_ToolConfig_ToolChoice_ToolIsNull)
+                {
+                    requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice_input_Converse_ToolConfig_ToolChoice_Tool = null;
+                }
+                if (requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice_input_Converse_ToolConfig_ToolChoice_Tool != null)
+                {
+                    requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice.Tool = requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice_input_Converse_ToolConfig_ToolChoice_Tool;
+                    requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoiceIsNull = false;
+                }
+                 // determine if requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice should be set to null
+                if (requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoiceIsNull)
+                {
+                    requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice = null;
+                }
+                if (requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice != null)
+                {
+                    requestInput_input_Converse_input_Converse_ToolConfig.ToolChoice = requestInput_input_Converse_input_Converse_ToolConfig_input_Converse_ToolConfig_ToolChoice;
+                    requestInput_input_Converse_input_Converse_ToolConfigIsNull = false;
+                }
+                 // determine if requestInput_input_Converse_input_Converse_ToolConfig should be set to null
+                if (requestInput_input_Converse_input_Converse_ToolConfigIsNull)
+                {
+                    requestInput_input_Converse_input_Converse_ToolConfig = null;
+                }
+                if (requestInput_input_Converse_input_Converse_ToolConfig != null)
+                {
+                    requestInput_input_Converse.ToolConfig = requestInput_input_Converse_input_Converse_ToolConfig;
                     requestInput_input_ConverseIsNull = false;
                 }
                  // determine if requestInput_input_Converse should be set to null
@@ -342,8 +506,13 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Management.Automation.PSObject Converse_AdditionalModelRequestField { get; set; }
             public List<Amazon.BedrockRuntime.Model.Message> Converse_Message { get; set; }
             public List<Amazon.BedrockRuntime.Model.SystemContentBlock> Converse_System { get; set; }
+            public Amazon.BedrockRuntime.Model.AnyToolChoice ToolChoice_Any { get; set; }
+            public Amazon.BedrockRuntime.Model.AutoToolChoice ToolChoice_Auto { get; set; }
+            public System.String Tool_Name { get; set; }
+            public List<Amazon.BedrockRuntime.Model.Tool> ToolConfig_Tool { get; set; }
             public byte[] InvokeModel_Body { get; set; }
             public System.String ModelId { get; set; }
             public System.Func<Amazon.BedrockRuntime.Model.CountTokensResponse, GetBDRRCountTokenCmdlet, object> Select { get; set; } =

@@ -40,14 +40,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// action last accessed information services and actions</a>.
     /// 
     ///  <important><para>
-    /// The service last accessed data includes all attempts to access an Amazon Web Services
+    /// The service last accessed data includes all attempts to access an Amazon Web Services
     /// API, not just the successful ones. This includes all attempts that were made using
     /// the Amazon Web Services Management Console, the Amazon Web Services API through any
     /// of the SDKs, or any of the command line tools. An unexpected entry in the service
     /// last accessed data does not mean that your account has been compromised, because the
     /// request might have been denied. Refer to your CloudTrail logs as the authoritative
     /// source for information about all API calls and whether they were successful or denied
-    /// access. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html">Logging
+    /// access. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html">Logging
     /// IAM events with CloudTrail</a> in the <i>IAM User Guide</i>.
     /// </para></important><para>
     /// The <c>GenerateServiceLastAccessedDetails</c> operation returns a <c>JobId</c>. Use

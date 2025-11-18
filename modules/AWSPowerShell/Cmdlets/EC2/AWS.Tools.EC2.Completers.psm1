@@ -1350,6 +1350,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.VpnConcentratorType
+        "New-EC2VpnConcentrator/Type"
+        {
+            $v = "ipsec.1"
+            break
+        }
+
         # Amazon.EC2.VpnEcmpSupportValue
         {
             ($_ -eq "Edit-EC2TransitGateway/Options_VpnEcmpSupport") -Or
@@ -1527,7 +1534,7 @@ $EC2_map = @{
     "TrafficType"=@("New-EC2FlowLog")
     "TransportProtocol"=@("New-EC2ClientVpnEndpoint")
     "TrustProviderType"=@("New-EC2VerifiedAccessTrustProvider")
-    "Type"=@("New-EC2CustomerGateway","New-EC2Fleet","New-EC2VpnGateway","Request-EC2SpotInstance")
+    "Type"=@("New-EC2CustomerGateway","New-EC2Fleet","New-EC2VpnConcentrator","New-EC2VpnGateway","Request-EC2SpotInstance")
     "UserTrustProviderType"=@("New-EC2VerifiedAccessTrustProvider")
     "VerificationMethod"=@("Register-EC2IpamPoolCidr")
     "VolumeType"=@("Copy-EC2Volume","Edit-EC2Volume","New-EC2Volume")
@@ -1737,6 +1744,7 @@ $EC2_SelectMap = @{
                "New-EC2VpcEndpointConnectionNotification",
                "New-EC2VpcEndpointServiceConfiguration",
                "New-EC2VpcPeeringConnection",
+               "New-EC2VpnConcentrator",
                "New-EC2VpnConnection",
                "New-EC2VpnConnectionRoute",
                "New-EC2VpnGateway",
@@ -1822,6 +1830,7 @@ $EC2_SelectMap = @{
                "Remove-EC2VpcEndpoint",
                "Remove-EC2EndpointServiceConfiguration",
                "Remove-EC2VpcPeeringConnection",
+               "Remove-EC2VpnConcentrator",
                "Remove-EC2VpnConnection",
                "Remove-EC2VpnConnectionRoute",
                "Remove-EC2VpnGateway",
@@ -2008,6 +2017,7 @@ $EC2_SelectMap = @{
                "Get-EC2VpcEndpointService",
                "Get-EC2VpcPeeringConnection",
                "Get-EC2Vpc",
+               "Get-EC2VpnConcentrator",
                "Get-EC2VpnConnection",
                "Get-EC2VpnGateway",
                "Dismount-EC2ClassicLinkVpc",

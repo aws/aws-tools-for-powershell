@@ -128,6 +128,7 @@ $RGT_SelectMap = @{
                "Get-RGTResource",
                "Get-RGTTagKey",
                "Get-RGTTagValue",
+               "Get-RGTRequiredTagList",
                "Start-RGTReportCreation",
                "Add-RGTResourceTag",
                "Remove-RGTResourceTag")

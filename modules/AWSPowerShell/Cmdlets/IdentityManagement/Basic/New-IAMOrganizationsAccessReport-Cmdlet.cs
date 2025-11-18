@@ -57,13 +57,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// troubleshooting, and supported Regions see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing
     /// permissions using service last accessed data</a> in the <i>IAM User Guide</i>.
     /// </para><important><para>
-    /// The data includes all attempts to access Amazon Web Services, not just the successful
+    /// The data includes all attempts to access Amazon Web Services, not just the successful
     /// ones. This includes all attempts that were made using the Amazon Web Services Management
     /// Console, the Amazon Web Services API through any of the SDKs, or any of the command
     /// line tools. An unexpected entry in the service last accessed data does not mean that
     /// an account has been compromised, because the request might have been denied. Refer
     /// to your CloudTrail logs as the authoritative source for information about all API
-    /// calls and whether they were successful or denied access. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html">Logging
+    /// calls and whether they were successful or denied access. For more information, see
+    /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html">Logging
     /// IAM events with CloudTrail</a> in the <i>IAM User Guide</i>.
     /// </para></important><para>
     /// This operation returns a <c>JobId</c>. Use this parameter in the <c><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a></c> operation to check the status of the report generation. To check the status of

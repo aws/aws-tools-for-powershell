@@ -92,6 +92,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Enable-CFNOrganizationsAccess', 
         'Enable-CFNType', 
         'Get-CFNAccountLimit', 
+        'Get-CFNCFNOperationEvent', 
         'Get-CFNCFNStackRefactor', 
         'Get-CFNCFNStackRefactorActionList', 
         'Get-CFNCFNStackRefactorList', 
