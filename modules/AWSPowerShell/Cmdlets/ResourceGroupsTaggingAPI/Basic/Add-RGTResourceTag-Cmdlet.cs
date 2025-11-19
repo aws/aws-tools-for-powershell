@@ -45,6 +45,15 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     /// To add tags to a resource, you need the necessary permissions for the service that
     /// the resource belongs to as well as permissions for adding tags. For more information,
     /// see the documentation for each service.
+    /// </para></li><li><para>
+    /// When you use the <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/overview.html">Amazon
+    /// Web Services Resource Groups Tagging API</a> to update tags for Amazon Web Services
+    /// CloudFormation stack sets, Amazon Web Services calls the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStack.html">Amazon
+    /// Web Services CloudFormation <c>UpdateStack</c></a> operation. This operation may
+    /// initiate additional resource property updates in addition to the desired tag updates.
+    /// To avoid unexpected resource updates, Amazon Web Services recommends that you only
+    /// apply or update tags to your CloudFormation stack sets using Amazon Web Services CloudFormation.
+    /// 
     /// </para></li></ul><important><para>
     /// Do not store personally identifiable information (PII) or other confidential or sensitive
     /// information in tags. We use tags to provide you with billing and administration services.
@@ -54,7 +63,12 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     /// you must also have the tagging permission defined by the service that created the
     /// resource. For example, to tag an Amazon EC2 instance using the <c>TagResources</c>
     /// operation, you must have both of the following permissions:
-    /// </para><ul><li><para><c>tag:TagResource</c></para></li><li><para><c>ec2:CreateTags</c></para></li></ul>
+    /// </para><ul><li><para><c>tag:TagResources</c></para></li><li><para><c>ec2:CreateTags</c></para></li></ul><note><para>
+    /// In addition, some services might have specific requirements for tagging some types
+    /// of resources. For example, to tag an Amazon S3 bucket, you must also have the <c>s3:GetBucketTagging</c>
+    /// permission. If the expected minimum permissions don't work, check the documentation
+    /// for that service's tagging APIs for more information.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Add", "RGTResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

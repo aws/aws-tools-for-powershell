@@ -106,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// | <c>CAMPAIGN_DELIVERY_EVENT_TYPE</c> | <c>CAMPAIGN_EXCLUDED_EVENT_TYPE </c> | <c>CASE_TEMPLATE_ARN</c>
         /// | <c>CASE_STATUS</c> | <c>CHANNEL</c> | <c>contact/segmentAttributes/connect:Subtype</c>
         /// | <c>DISCONNECT_REASON</c> | <c>EVALUATION_FORM</c> | <c>EVALUATION_SECTION</c> |
-        /// <c>EVALUATION_QUESTION</c> | <c>EVALUATION_SOURCE</c> | <c>FEATURE</c> | <c>FLOW_ACTION_ID</c>
-        /// | <c>FLOW_TYPE</c> | <c>FLOWS_MODULE_RESOURCE_ID</c> | <c>FLOWS_NEXT_RESOURCE_ID</c>
+        /// <c>EVALUATION_QUESTION</c> | <c>EVALUATION_SOURCE</c> | <c>EVALUATOR_ID</c> | <c>FEATURE</c>
+        /// | <c>FLOW_ACTION_ID</c> | <c>FLOW_TYPE</c> | <c>FLOWS_MODULE_RESOURCE_ID</c> | <c>FLOWS_NEXT_RESOURCE_ID</c>
         /// | <c>FLOWS_NEXT_RESOURCE_QUEUE_ID</c> | <c>FLOWS_OUTCOME_TYPE</c> | <c>FLOWS_RESOURCE_ID</c>
         /// | <c>FORM_VERSION</c> | <c>INITIATION_METHOD</c> | <c>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</c>
         /// | <c>INVOKING_RESOURCE_TYPE</c> | <c>PARENT_FLOWS_RESOURCE_ID</c> | <c>RESOURCE_PUBLISHED_TIMESTAMP</c>
@@ -152,8 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// | <c>CAMPAIGN_EXCLUDED_EVENT_TYPE</c> | <c>CAMPAIGN_EXECUTION_TIMESTAMP</c> | <c>CASE_TEMPLATE_ARN</c>
         /// | <c>CASE_STATUS</c> | <c>CHANNEL</c> | <c>contact/segmentAttributes/connect:Subtype</c>
         /// | <c>DISCONNECT_REASON</c> | <c>EVALUATION_FORM</c> | <c>EVALUATION_SECTION</c> |
-        /// <c>EVALUATION_QUESTION</c> | <c>EVALUATION_SOURCE</c> | <c>FLOWS_RESOURCE_ID</c> |
-        /// <c>FLOWS_MODULE_RESOURCE_ID</c> | <c>FLOW_ACTION_ID</c> | <c>FLOW_TYPE</c> | <c>FLOWS_OUTCOME_TYPE</c>
+        /// <c>EVALUATION_QUESTION</c> | <c>EVALUATION_SOURCE</c> | <c>EVALUATOR_ID</c> | <c>FLOWS_RESOURCE_ID</c>
+        /// | <c>FLOWS_MODULE_RESOURCE_ID</c> | <c>FLOW_ACTION_ID</c> | <c>FLOW_TYPE</c> | <c>FLOWS_OUTCOME_TYPE</c>
         /// | <c>FORM_VERSION</c> | <c>INITIATION_METHOD</c> | <c>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</c>
         /// | <c>INVOKING_RESOURCE_TYPE</c> | <c>PARENT_FLOWS_RESOURCE_ID</c> | <c>Q_CONNECT_ENABLED</c>
         /// | <c>QUEUE</c> | <c>RESOURCE_PUBLISHED_TIMESTAMP</c> | <c>ROUTING_PROFILE</c> | <c>ROUTING_STEP_EXPRESSION</c></para><para>Type: Array of strings</para><para>Array Members: Maximum number of 4 items</para><para>Required: No</para>
@@ -212,7 +212,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-active-time">Average
         /// active time</a></para></dd><dt>AVG_AFTER_CONTACT_WORK_TIME</dt><dd><para>Unit: Seconds</para><para>Valid metric filter key: <c>INITIATION_METHOD</c></para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
         /// Feature, contact/segmentAttributes/connect:Subtype, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#after-contact-work-time">Average
-        /// after contact work time</a></para><note><para>Feature is a valid filter but not a valid grouping.</para></note></dd><dt>AVG_AGENT_CONNECTING_TIME</dt><dd><para>Unit: Seconds</para><para>Valid metric filter key: <c>INITIATION_METHOD</c>. For now, this metric only supports
+        /// after contact work time</a></para><note><para>Feature is a valid filter but not a valid grouping.</para></note></dd><dt>AVG_AGENT_CONCURRENCY</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
+        /// Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-agent-concurrency">Average
+        /// agent concurrency</a></para></dd><dt>AVG_AGENT_CONNECTING_TIME</dt><dd><para>Unit: Seconds</para><para>Valid metric filter key: <c>INITIATION_METHOD</c>. For now, this metric only supports
         /// the following as <c>INITIATION_METHOD</c>: <c>INBOUND</c> | <c>OUTBOUND</c> | <c>CALLBACK</c>
         /// | <c>API</c></para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-agent-api-connecting-time">Average
         /// agent API connecting time</a></para><note><para>The <c>Negate</c> key in metric-level filters is not applicable for this metric.</para></note></dd><dt>AVG_AGENT_PAUSE_TIME</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,

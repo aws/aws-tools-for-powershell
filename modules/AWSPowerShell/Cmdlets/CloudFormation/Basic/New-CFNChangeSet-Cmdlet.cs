@@ -141,6 +141,20 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public Amazon.CloudFormation.ChangeSetType ChangeSetType { get; set; }
         #endregion
         
+        #region Parameter DeploymentMode
+        /// <summary>
+        /// <para>
+        /// <para>Determines how CloudFormation handles configuration drift during deployment.</para><ul><li><para><c>REVERT_DRIFT</c> – Creates a drift-aware change set that brings actual resource
+        /// states in line with template definitions. Provides a three-way comparison between
+        /// actual state, previous deployment state, and desired state.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/drift-aware-change-sets.html">Using
+        /// drift-aware change sets</a> in the <i>CloudFormation User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudFormation.DeploymentMode")]
+        public Amazon.CloudFormation.DeploymentMode DeploymentMode { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -443,6 +457,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             #endif
             context.ChangeSetType = this.ChangeSetType;
             context.ClientToken = this.ClientToken;
+            context.DeploymentMode = this.DeploymentMode;
             context.Description = this.Description;
             context.ImportExistingResource = this.ImportExistingResource;
             context.IncludeNestedStack = this.IncludeNestedStack;
@@ -510,6 +525,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.DeploymentMode != null)
+            {
+                request.DeploymentMode = cmdletContext.DeploymentMode;
             }
             if (cmdletContext.Description != null)
             {
@@ -636,6 +655,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public System.String ChangeSetName { get; set; }
             public Amazon.CloudFormation.ChangeSetType ChangeSetType { get; set; }
             public System.String ClientToken { get; set; }
+            public Amazon.CloudFormation.DeploymentMode DeploymentMode { get; set; }
             public System.String Description { get; set; }
             public System.Boolean? ImportExistingResource { get; set; }
             public System.Boolean? IncludeNestedStack { get; set; }

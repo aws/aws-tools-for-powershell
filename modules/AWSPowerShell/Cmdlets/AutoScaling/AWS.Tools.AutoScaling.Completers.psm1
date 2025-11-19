@@ -159,6 +159,13 @@ $AS_Completers = {
             break
         }
 
+        # Amazon.AutoScaling.RetryStrategy
+        "Add-ASInstance/RetryStrategy"
+        {
+            $v = "none","retry-with-group-configuration"
+            break
+        }
+
         # Amazon.AutoScaling.ScaleInProtectedInstances
         "Start-ASInstanceRefresh/Preferences_ScaleInProtectedInstance"
         {
@@ -201,6 +208,7 @@ $AS_map = @{
     "PredictiveScalingConfiguration_Mode"=@("Write-ASScalingPolicy")
     "Preferences_ScaleInProtectedInstance"=@("Start-ASInstanceRefresh")
     "Preferences_StandbyInstance"=@("Start-ASInstanceRefresh")
+    "RetryStrategy"=@("Add-ASInstance")
     "Strategy"=@("Start-ASInstanceRefresh")
 }
 
@@ -304,6 +312,7 @@ $AS_SelectMap = @{
                "Start-ASPolicy",
                "Exit-ASStandby",
                "Get-ASPredictiveScalingForecast",
+               "Add-ASInstance",
                "Write-ASLifecycleHook",
                "Write-ASNotificationConfiguration",
                "Write-ASScalingPolicy",

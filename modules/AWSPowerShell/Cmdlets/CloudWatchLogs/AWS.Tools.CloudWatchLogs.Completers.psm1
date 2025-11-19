@@ -175,7 +175,9 @@ $CWL_Completers = {
         {
             ($_ -eq "Get-CWLQuery/QueryLanguage") -Or
             ($_ -eq "Get-CWLQueryDefinition/QueryLanguage") -Or
+            ($_ -eq "New-CWLScheduledQuery/QueryLanguage") -Or
             ($_ -eq "Start-CWLQuery/QueryLanguage") -Or
+            ($_ -eq "Update-CWLScheduledQuery/QueryLanguage") -Or
             ($_ -eq "Write-CWLQueryDefinition/QueryLanguage")
         }
         {
@@ -187,6 +189,17 @@ $CWL_Completers = {
         "Get-CWLQuery/Status"
         {
             $v = "Cancelled","Complete","Failed","Running","Scheduled","Timeout","Unknown"
+            break
+        }
+
+        # Amazon.CloudWatchLogs.ScheduledQueryState
+        {
+            ($_ -eq "Get-CWLScheduledQueryList/State") -Or
+            ($_ -eq "New-CWLScheduledQuery/State") -Or
+            ($_ -eq "Update-CWLScheduledQuery/State")
+        }
+        {
+            $v = "DISABLED","ENABLED"
             break
         }
 
@@ -237,8 +250,9 @@ $CWL_map = @{
     "OutputFormat"=@("Write-CWLDeliveryDestination")
     "PolicyScope"=@("Get-CWLResourcePolicy")
     "PolicyType"=@("Get-CWLAccountPolicy","Remove-CWLAccountPolicy","Write-CWLAccountPolicy")
-    "QueryLanguage"=@("Get-CWLQuery","Get-CWLQueryDefinition","Start-CWLQuery","Write-CWLQueryDefinition")
+    "QueryLanguage"=@("Get-CWLQuery","Get-CWLQueryDefinition","New-CWLScheduledQuery","Start-CWLQuery","Update-CWLScheduledQuery","Write-CWLQueryDefinition")
     "Scope"=@("Write-CWLAccountPolicy")
+    "State"=@("Get-CWLScheduledQueryList","New-CWLScheduledQuery","Update-CWLScheduledQuery")
     "Status"=@("Get-CWLQuery")
     "StatusCode"=@("Get-CWLExportTask")
     "SuppressionPeriod_SuppressionUnit"=@("Update-CWLAnomaly")
@@ -303,6 +317,7 @@ $CWL_SelectMap = @{
                "New-CWLLogAnomalyDetector",
                "New-CWLLogGroup",
                "New-CWLLogStream",
+               "New-CWLScheduledQuery",
                "Remove-CWLAccountPolicy",
                "Remove-CWLDataProtectionPolicy",
                "Remove-CWLDelivery",
@@ -319,6 +334,7 @@ $CWL_SelectMap = @{
                "Remove-CWLQueryDefinition",
                "Remove-CWLResourcePolicy",
                "Remove-CWLRetentionPolicy",
+               "Remove-CWLScheduledQuery",
                "Remove-CWLSubscriptionFilter",
                "Remove-CWLTransformer",
                "Get-CWLAccountPolicy",
@@ -351,12 +367,15 @@ $CWL_SelectMap = @{
                "Get-CWLLogObject",
                "Get-CWLLogRecord",
                "Get-CWLQueryResult",
+               "Get-CWLScheduledQuery",
+               "Get-CWLScheduledQueryHistory",
                "Get-CWLTransformer",
                "Get-CWLAnomalyList",
                "Get-CWLIntegrationList",
                "Get-CWLLogAnomalyDetectorList",
                "Get-CWLLogGroupList",
                "Get-CWLLogGroupsForQueryList",
+               "Get-CWLScheduledQueryList",
                "Get-CWLResourceTag",
                "Get-CWLLogGroupTag",
                "Write-CWLAccountPolicy",
@@ -386,7 +405,8 @@ $CWL_SelectMap = @{
                "Remove-CWLResourceTag",
                "Update-CWLAnomaly",
                "Update-CWLDeliveryConfiguration",
-               "Update-CWLLogAnomalyDetector")
+               "Update-CWLLogAnomalyDetector",
+               "Update-CWLScheduledQuery")
 }
 
 _awsArgumentCompleterRegistration $CWL_SelectCompleters $CWL_SelectMap

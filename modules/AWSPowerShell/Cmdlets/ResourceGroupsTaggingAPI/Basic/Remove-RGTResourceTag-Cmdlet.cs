@@ -45,7 +45,12 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     /// you must also have the remove tags permission defined by the service that created
     /// the resource. For example, to remove the tags from an Amazon EC2 instance using the
     /// <c>UntagResources</c> operation, you must have both of the following permissions:
-    /// </para><ul><li><para><c>tag:UntagResource</c></para></li><li><para><c>ec2:DeleteTags</c></para></li></ul>
+    /// </para><ul><li><para><c>tag:UntagResources</c></para></li><li><para><c>ec2:DeleteTags</c></para></li></ul><note><para>
+    /// In addition, some services might have specific requirements for untagging some types
+    /// of resources. For example, to untag Amazon Web Services Glue Connection, you must
+    /// also have the <c>glue:GetConnection</c> permission. If the expected minimum permissions
+    /// don't work, check the documentation for that service's tagging APIs for more information.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "RGTResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]

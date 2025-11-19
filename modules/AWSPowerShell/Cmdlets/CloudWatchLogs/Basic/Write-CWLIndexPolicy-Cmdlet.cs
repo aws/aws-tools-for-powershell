@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// CloudWatch Logs provides default field indexes for all log groups in the Standard
     /// log class. Default field indexes are automatically available for the following fields:
     /// 
-    /// </para><ul><li><para><c>@aws.region</c></para></li><li><para><c>@aws.account</c></para></li><li><para><c>@source.log</c></para></li><li><para><c>traceId</c></para></li></ul><para>
+    /// </para><ul><li><para><c>@logStream</c></para></li><li><para><c>@aws.region</c></para></li><li><para><c>@aws.account</c></para></li><li><para><c>@source.log</c></para></li><li><para><c>traceId</c></para></li></ul><para>
     /// Default field indexes are in addition to any custom field indexes you define within
     /// your policy. Default field indexes are not counted towards your field index quota.
     /// 

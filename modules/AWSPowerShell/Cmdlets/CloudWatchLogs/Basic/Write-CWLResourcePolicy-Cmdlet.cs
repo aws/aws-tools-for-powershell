@@ -29,8 +29,20 @@ namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
     /// Creates or updates a resource policy allowing other Amazon Web Services services to
-    /// put log events to this account, such as Amazon Route 53. An account can have up to
-    /// 10 resource policies per Amazon Web Services Region.
+    /// put log events to this account, such as Amazon Route 53. This API has the following
+    /// restrictions:
+    /// 
+    ///  <ul><li><para><b>Supported actions</b> - Policy only supports <c>logs:PutLogEvents</c> and <c>logs:CreateLogStream
+    /// </c> actions
+    /// </para></li><li><para><b>Supported principals</b> - Policy only applies when operations are invoked by
+    /// Amazon Web Services service principals (not IAM users, roles, or cross-account principals
+    /// </para></li><li><para><b>Policy limits</b> - An account can have a maximum of 10 policies without resourceARN
+    /// and one per LogGroup resourceARN
+    /// </para></li></ul><important><para>
+    /// Resource policies with actions invoked by non-Amazon Web Services service principals
+    /// (such as IAM users, roles, or other Amazon Web Services accounts) will not be enforced.
+    /// For access control involving these principals, use the IAM policies.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Write", "CWLResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchLogs.Model.ResourcePolicy")]

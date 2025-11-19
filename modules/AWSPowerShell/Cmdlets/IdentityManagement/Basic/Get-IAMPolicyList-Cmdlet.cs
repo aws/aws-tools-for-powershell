@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter PolicyUsageFilter
         /// <summary>
         /// <para>
-        /// <para>The policy usage method to use for filtering the results.</para><para>To list only permissions policies, set <c>PolicyUsageFilter</c> to <c>PermissionsPolicy</c>.
-        /// To list only the policies used to set permissions boundaries, set the value to <c>PermissionsBoundary</c>.</para><para>This parameter is optional. If it is not included, all policies are returned. </para>
+        /// <para>The policy usage method to use for filtering the results.</para><para>To list only permissions policies, set <c>PolicyUsageFilter</c> to <c>PermissionsPolicy</c>.
+        /// To list only the policies used to set permissions boundaries, set the value to <c>PermissionsBoundary</c>.</para><para>This parameter is optional. If it is not included, all policies are returned. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

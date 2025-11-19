@@ -36,6 +36,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AcceptDelegationRequest" Verb="Approve" Noun="DelegationRequest" ShouldProcessTarget="DelegationRequestId" PipelineParameter="DelegationRequestId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AddClientIDToOpenIDConnectProvider" Verb="Add" Noun="ClientIDToOpenIDConnectProvider" ShouldProcessTarget="OpenIDConnectProviderArn" PipelineParameter="OpenIDConnectProviderArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -45,6 +49,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AddUserToGroup" Verb="Add" Noun="UserToGroup" ShouldProcessTarget="GroupName" PositionalParameters="UserName" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateDelegationRequest" Verb="Register" Noun="DelegationRequest" ShouldProcessTarget="DelegationRequestId" PipelineParameter="DelegationRequestId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -292,11 +300,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDelegationRequest" OutputProperty="*" Verb="Get" Noun="DelegationRequest" PipelineParameter="DelegationRequestId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetGroup" OutputProperty="*" Verb="Get" Noun="Group" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetGroupPolicy" OutputProperty="*" Verb="Get" Noun="GroupPolicy" PositionalParameters="PolicyName" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetHumanReadableSummary" OutputProperty="*" Verb="Get" Noun="HumanReadableSummary" PipelineParameter="EntityArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -385,6 +401,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAttachedUserPolicies" OutputProperty="AttachedPolicies" Verb="Get" Noun="AttachedUserPolicyList" PipelineParameter="UserName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-IAMAttachedUserPolicies">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDelegationRequests" OutputProperty="DelegationRequests" Verb="Get" Noun="DelegationRequestList" PipelineParameter="OwnerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -528,6 +548,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RejectDelegationRequest" Verb="Deny" Noun="DelegationRequest" ShouldProcessTarget="DelegationRequestId" PipelineParameter="DelegationRequestId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RemoveClientIDFromOpenIDConnectProvider" Verb="Remove" Noun="ClientIDFromOpenIDConnectProvider" ShouldProcessTarget="ClientID" PipelineParameter="ClientID" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -545,6 +569,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ResyncMFADevice" Verb="Sync" Noun="MFADevice" ShouldProcessTarget="UserName" PositionalParameters="SerialNumber;AuthenticationCode1;AuthenticationCode2" PipelineParameter="UserName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendDelegationToken" Verb="Send" Noun="DelegationToken" ShouldProcessTarget="DelegationRequestId" PipelineParameter="DelegationRequestId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -637,6 +665,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAssumeRolePolicy" Verb="Update" Noun="AssumeRolePolicy" ShouldProcessTarget="RoleName" PositionalParameters="PolicyDocument" PipelineParameter="RoleName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDelegationRequest" Verb="Update" Noun="DelegationRequest" ShouldProcessTarget="DelegationRequestId" PipelineParameter="DelegationRequestId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

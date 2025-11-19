@@ -271,6 +271,7 @@ $BAK_SelectMap = @{
                "New-BAKRestoreAccessBackupVault",
                "New-BAKRestoreTestingPlan",
                "New-BAKRestoreTestingSelection",
+               "New-BAKTieringConfiguration",
                "Remove-BAKBackupPlan",
                "Remove-BAKBackupSelection",
                "Remove-BAKBackupVault",
@@ -282,6 +283,7 @@ $BAK_SelectMap = @{
                "Remove-BAKReportPlan",
                "Remove-BAKRestoreTestingPlan",
                "Remove-BAKRestoreTestingSelection",
+               "Remove-BAKTieringConfiguration",
                "Get-BAKBackupJob",
                "Get-BAKBackupVault",
                "Get-BAKCopyJob",
@@ -311,6 +313,7 @@ $BAK_SelectMap = @{
                "Get-BAKRestoreTestingPlan",
                "Get-BAKRestoreTestingSelection",
                "Get-BAKSupportedResourceType",
+               "Get-BAKTieringConfiguration",
                "Get-BAKBackupJobList",
                "Get-BAKBackupJobSummaryList",
                "Get-BAKBackupPlanList",
@@ -337,6 +340,7 @@ $BAK_SelectMap = @{
                "Get-BAKRestoreTestingPlanList",
                "Get-BAKRestoreTestingSelectionList",
                "Get-BAKResourceTag",
+               "Get-BAKTieringConfigurationList",
                "Write-BAKBackupVaultAccessPolicy",
                "Write-BAKBackupVaultLockConfiguration",
                "Write-BAKBackupVaultNotification",
@@ -357,7 +361,8 @@ $BAK_SelectMap = @{
                "Update-BAKRegionSetting",
                "Update-BAKReportPlan",
                "Update-BAKRestoreTestingPlan",
-               "Update-BAKRestoreTestingSelection")
+               "Update-BAKRestoreTestingSelection",
+               "Update-BAKTieringConfiguration")
 }
 
 _awsArgumentCompleterRegistration $BAK_SelectCompleters $BAK_SelectMap

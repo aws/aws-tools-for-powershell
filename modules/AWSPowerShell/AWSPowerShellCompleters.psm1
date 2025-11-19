@@ -5565,6 +5565,13 @@ $AS_Completers = {
             break
         }
 
+        # Amazon.AutoScaling.RetryStrategy
+        "Add-ASInstance/RetryStrategy"
+        {
+            $v = "none","retry-with-group-configuration"
+            break
+        }
+
         # Amazon.AutoScaling.ScaleInProtectedInstances
         "Start-ASInstanceRefresh/Preferences_ScaleInProtectedInstance"
         {
@@ -5607,6 +5614,7 @@ $AS_map = @{
     "PredictiveScalingConfiguration_Mode"=@("Write-ASScalingPolicy")
     "Preferences_ScaleInProtectedInstance"=@("Start-ASInstanceRefresh")
     "Preferences_StandbyInstance"=@("Start-ASInstanceRefresh")
+    "RetryStrategy"=@("Add-ASInstance")
     "Strategy"=@("Start-ASInstanceRefresh")
 }
 
@@ -5710,6 +5718,7 @@ $AS_SelectMap = @{
                "Start-ASPolicy",
                "Exit-ASStandby",
                "Get-ASPredictiveScalingForecast",
+               "Add-ASInstance",
                "Write-ASLifecycleHook",
                "Write-ASNotificationConfiguration",
                "Write-ASScalingPolicy",
@@ -6461,6 +6470,7 @@ $BAK_SelectMap = @{
                "New-BAKRestoreAccessBackupVault",
                "New-BAKRestoreTestingPlan",
                "New-BAKRestoreTestingSelection",
+               "New-BAKTieringConfiguration",
                "Remove-BAKBackupPlan",
                "Remove-BAKBackupSelection",
                "Remove-BAKBackupVault",
@@ -6472,6 +6482,7 @@ $BAK_SelectMap = @{
                "Remove-BAKReportPlan",
                "Remove-BAKRestoreTestingPlan",
                "Remove-BAKRestoreTestingSelection",
+               "Remove-BAKTieringConfiguration",
                "Get-BAKBackupJob",
                "Get-BAKBackupVault",
                "Get-BAKCopyJob",
@@ -6501,6 +6512,7 @@ $BAK_SelectMap = @{
                "Get-BAKRestoreTestingPlan",
                "Get-BAKRestoreTestingSelection",
                "Get-BAKSupportedResourceType",
+               "Get-BAKTieringConfiguration",
                "Get-BAKBackupJobList",
                "Get-BAKBackupJobSummaryList",
                "Get-BAKBackupPlanList",
@@ -6527,6 +6539,7 @@ $BAK_SelectMap = @{
                "Get-BAKRestoreTestingPlanList",
                "Get-BAKRestoreTestingSelectionList",
                "Get-BAKResourceTag",
+               "Get-BAKTieringConfigurationList",
                "Write-BAKBackupVaultAccessPolicy",
                "Write-BAKBackupVaultLockConfiguration",
                "Write-BAKBackupVaultNotification",
@@ -6547,7 +6560,8 @@ $BAK_SelectMap = @{
                "Update-BAKRegionSetting",
                "Update-BAKReportPlan",
                "Update-BAKRestoreTestingPlan",
-               "Update-BAKRestoreTestingSelection")
+               "Update-BAKRestoreTestingSelection",
+               "Update-BAKTieringConfiguration")
 }
 
 _awsArgumentCompleterRegistration $BAK_SelectCompleters $BAK_SelectMap
@@ -8802,6 +8816,18 @@ $BDRR_Completers = {
             break
         }
 
+        # Amazon.BedrockRuntime.ServiceTierType
+        {
+            ($_ -eq "Invoke-BDRRModel/ServiceTier") -Or
+            ($_ -eq "Invoke-BDRRModelWithResponseStream/ServiceTier") -Or
+            ($_ -eq "Invoke-BDRRConverse/ServiceTier_Type") -Or
+            ($_ -eq "Invoke-BDRRConverseStream/ServiceTier_Type")
+        }
+        {
+            $v = "default","flex","priority"
+            break
+        }
+
         # Amazon.BedrockRuntime.SortAsyncInvocationBy
         "Get-BDRRAsyncInvokeList/SortBy"
         {
@@ -8840,6 +8866,8 @@ $BDRR_map = @{
     "OutputScope"=@("Invoke-BDRRGuardrail")
     "PerformanceConfig_Latency"=@("Invoke-BDRRConverse","Invoke-BDRRConverseStream")
     "PerformanceConfigLatency"=@("Invoke-BDRRModel","Invoke-BDRRModelWithResponseStream")
+    "ServiceTier"=@("Invoke-BDRRModel","Invoke-BDRRModelWithResponseStream")
+    "ServiceTier_Type"=@("Invoke-BDRRConverse","Invoke-BDRRConverseStream")
     "SortBy"=@("Get-BDRRAsyncInvokeList")
     "SortOrder"=@("Get-BDRRAsyncInvokeList")
     "Source"=@("Invoke-BDRRGuardrail")
@@ -12914,6 +12942,13 @@ $CFN_Completers = {
             break
         }
 
+        # Amazon.CloudFormation.DeploymentMode
+        "New-CFNChangeSet/DeploymentMode"
+        {
+            $v = "REVERT_DRIFT"
+            break
+        }
+
         # Amazon.CloudFormation.DeprecatedStatus
         {
             ($_ -eq "Get-CFNTypeList/DeprecatedStatus") -Or
@@ -13113,6 +13148,7 @@ $CFN_map = @{
     "ChangeSetType"=@("New-CFNChangeSet")
     "CurrentOperationStatus"=@("Write-CFNHandlerProgress")
     "DeletionMode"=@("Remove-CFNStack")
+    "DeploymentMode"=@("New-CFNChangeSet")
     "DeploymentTargets_AccountFilterType"=@("New-CFNStackInstance","Remove-CFNStackInstance","Update-CFNStackInstance","Update-CFNStackSet")
     "DeprecatedStatus"=@("Get-CFNTypeList","Get-CFNTypeVersion")
     "ErrorCode"=@("Write-CFNHandlerProgress")
@@ -13207,6 +13243,7 @@ $CFN_SelectMap = @{
                "Get-CFNAccountLimit",
                "Get-CFNChangeSet",
                "Get-CFNChangeSetHook",
+               "Get-CFNCFNOperationEvent",
                "Get-CFNGeneratedTemplateInformation",
                "Get-CFNOrganizationsAccess",
                "Get-CFNPublisher",
@@ -28013,6 +28050,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.VpnConcentratorType
+        "New-EC2VpnConcentrator/Type"
+        {
+            $v = "ipsec.1"
+            break
+        }
+
         # Amazon.EC2.VpnEcmpSupportValue
         {
             ($_ -eq "Edit-EC2TransitGateway/Options_VpnEcmpSupport") -Or
@@ -28190,7 +28234,7 @@ $EC2_map = @{
     "TrafficType"=@("New-EC2FlowLog")
     "TransportProtocol"=@("New-EC2ClientVpnEndpoint")
     "TrustProviderType"=@("New-EC2VerifiedAccessTrustProvider")
-    "Type"=@("New-EC2CustomerGateway","New-EC2Fleet","New-EC2VpnGateway","Request-EC2SpotInstance")
+    "Type"=@("New-EC2CustomerGateway","New-EC2Fleet","New-EC2VpnConcentrator","New-EC2VpnGateway","Request-EC2SpotInstance")
     "UserTrustProviderType"=@("New-EC2VerifiedAccessTrustProvider")
     "VerificationMethod"=@("Register-EC2IpamPoolCidr")
     "VolumeType"=@("Copy-EC2Volume","Edit-EC2Volume","New-EC2Volume")
@@ -28400,6 +28444,7 @@ $EC2_SelectMap = @{
                "New-EC2VpcEndpointConnectionNotification",
                "New-EC2VpcEndpointServiceConfiguration",
                "New-EC2VpcPeeringConnection",
+               "New-EC2VpnConcentrator",
                "New-EC2VpnConnection",
                "New-EC2VpnConnectionRoute",
                "New-EC2VpnGateway",
@@ -28485,6 +28530,7 @@ $EC2_SelectMap = @{
                "Remove-EC2VpcEndpoint",
                "Remove-EC2EndpointServiceConfiguration",
                "Remove-EC2VpcPeeringConnection",
+               "Remove-EC2VpnConcentrator",
                "Remove-EC2VpnConnection",
                "Remove-EC2VpnConnectionRoute",
                "Remove-EC2VpnGateway",
@@ -28671,6 +28717,7 @@ $EC2_SelectMap = @{
                "Get-EC2VpcEndpointService",
                "Get-EC2VpcPeeringConnection",
                "Get-EC2Vpc",
+               "Get-EC2VpnConcentrator",
                "Get-EC2VpnConnection",
                "Get-EC2VpnGateway",
                "Dismount-EC2ClassicLinkVpc",
@@ -38477,9 +38524,11 @@ $IAM_SelectCompleters = {
 }
 
 $IAM_SelectMap = @{
-    "Select"=@("Add-IAMClientIDToOpenIDConnectProvider",
+    "Select"=@("Approve-IAMDelegationRequest",
+               "Add-IAMClientIDToOpenIDConnectProvider",
                "Add-IAMRoleToInstanceProfile",
                "Add-IAMUserToGroup",
+               "Register-IAMDelegationRequest",
                "Register-IAMGroupPolicy",
                "Register-IAMRolePolicy",
                "Register-IAMUserPolicy",
@@ -38541,8 +38590,10 @@ $IAM_SelectMap = @{
                "Get-IAMContextKeysForCustomPolicy",
                "Get-IAMContextKeysForPrincipalPolicy",
                "Get-IAMCredentialReport",
+               "Get-IAMDelegationRequest",
                "Get-IAMGroup",
                "Get-IAMGroupPolicy",
+               "Get-IAMHumanReadableSummary",
                "Get-IAMInstanceProfile",
                "Get-IAMLoginProfile",
                "Get-IAMMFADeviceMetadata",
@@ -38565,6 +38616,7 @@ $IAM_SelectMap = @{
                "Get-IAMAttachedGroupPolicyList",
                "Get-IAMAttachedRolePolicyList",
                "Get-IAMAttachedUserPolicyList",
+               "Get-IAMDelegationRequestList",
                "Get-IAMEntitiesForPolicy",
                "Get-IAMGroupPolicyList",
                "Get-IAMGroupList",
@@ -38600,11 +38652,13 @@ $IAM_SelectMap = @{
                "Write-IAMRolePolicy",
                "Set-IAMUserPermissionsBoundary",
                "Write-IAMUserPolicy",
+               "Deny-IAMDelegationRequest",
                "Remove-IAMClientIDFromOpenIDConnectProvider",
                "Remove-IAMRoleFromInstanceProfile",
                "Remove-IAMUserFromGroup",
                "Reset-IAMServiceSpecificCredential",
                "Sync-IAMMFADevice",
+               "Send-IAMDelegationToken",
                "Set-IAMDefaultPolicyVersion",
                "Set-IAMSecurityTokenServicePreference",
                "Test-IAMCustomPolicy",
@@ -38628,6 +38682,7 @@ $IAM_SelectMap = @{
                "Update-IAMAccessKey",
                "Update-IAMAccountPasswordPolicy",
                "Update-IAMAssumeRolePolicy",
+               "Update-IAMDelegationRequest",
                "Update-IAMGroup",
                "Update-IAMLoginProfile",
                "Update-IAMOpenIDConnectProviderThumbprint",
@@ -43900,6 +43955,8 @@ $MSK_SelectMap = @{
                "Get-MSKConfiguration",
                "Get-MSKConfigurationRevision",
                "Get-MSKReplicator",
+               "Get-MSKTopic",
+               "Get-MSKTopicPartition",
                "Get-MSKVpcConnection",
                "Get-MSKBootstrapBroker",
                "Get-MSKClusterPolicy",
@@ -43916,6 +43973,7 @@ $MSK_SelectMap = @{
                "Get-MSKReplicatorList",
                "Get-MSKScramSecretList",
                "Get-MSKResourceTag",
+               "Get-MSKTopicList",
                "Get-MSKVpcConnectionList",
                "Write-MSKClusterPolicy",
                "Restart-MSKBroker",
@@ -47935,7 +47993,9 @@ $CWL_Completers = {
         {
             ($_ -eq "Get-CWLQuery/QueryLanguage") -Or
             ($_ -eq "Get-CWLQueryDefinition/QueryLanguage") -Or
+            ($_ -eq "New-CWLScheduledQuery/QueryLanguage") -Or
             ($_ -eq "Start-CWLQuery/QueryLanguage") -Or
+            ($_ -eq "Update-CWLScheduledQuery/QueryLanguage") -Or
             ($_ -eq "Write-CWLQueryDefinition/QueryLanguage")
         }
         {
@@ -47947,6 +48007,17 @@ $CWL_Completers = {
         "Get-CWLQuery/Status"
         {
             $v = "Cancelled","Complete","Failed","Running","Scheduled","Timeout","Unknown"
+            break
+        }
+
+        # Amazon.CloudWatchLogs.ScheduledQueryState
+        {
+            ($_ -eq "Get-CWLScheduledQueryList/State") -Or
+            ($_ -eq "New-CWLScheduledQuery/State") -Or
+            ($_ -eq "Update-CWLScheduledQuery/State")
+        }
+        {
+            $v = "DISABLED","ENABLED"
             break
         }
 
@@ -47997,8 +48068,9 @@ $CWL_map = @{
     "OutputFormat"=@("Write-CWLDeliveryDestination")
     "PolicyScope"=@("Get-CWLResourcePolicy")
     "PolicyType"=@("Get-CWLAccountPolicy","Remove-CWLAccountPolicy","Write-CWLAccountPolicy")
-    "QueryLanguage"=@("Get-CWLQuery","Get-CWLQueryDefinition","Start-CWLQuery","Write-CWLQueryDefinition")
+    "QueryLanguage"=@("Get-CWLQuery","Get-CWLQueryDefinition","New-CWLScheduledQuery","Start-CWLQuery","Update-CWLScheduledQuery","Write-CWLQueryDefinition")
     "Scope"=@("Write-CWLAccountPolicy")
+    "State"=@("Get-CWLScheduledQueryList","New-CWLScheduledQuery","Update-CWLScheduledQuery")
     "Status"=@("Get-CWLQuery")
     "StatusCode"=@("Get-CWLExportTask")
     "SuppressionPeriod_SuppressionUnit"=@("Update-CWLAnomaly")
@@ -48063,6 +48135,7 @@ $CWL_SelectMap = @{
                "New-CWLLogAnomalyDetector",
                "New-CWLLogGroup",
                "New-CWLLogStream",
+               "New-CWLScheduledQuery",
                "Remove-CWLAccountPolicy",
                "Remove-CWLDataProtectionPolicy",
                "Remove-CWLDelivery",
@@ -48079,6 +48152,7 @@ $CWL_SelectMap = @{
                "Remove-CWLQueryDefinition",
                "Remove-CWLResourcePolicy",
                "Remove-CWLRetentionPolicy",
+               "Remove-CWLScheduledQuery",
                "Remove-CWLSubscriptionFilter",
                "Remove-CWLTransformer",
                "Get-CWLAccountPolicy",
@@ -48111,12 +48185,15 @@ $CWL_SelectMap = @{
                "Get-CWLLogObject",
                "Get-CWLLogRecord",
                "Get-CWLQueryResult",
+               "Get-CWLScheduledQuery",
+               "Get-CWLScheduledQueryHistory",
                "Get-CWLTransformer",
                "Get-CWLAnomalyList",
                "Get-CWLIntegrationList",
                "Get-CWLLogAnomalyDetectorList",
                "Get-CWLLogGroupList",
                "Get-CWLLogGroupsForQueryList",
+               "Get-CWLScheduledQueryList",
                "Get-CWLResourceTag",
                "Get-CWLLogGroupTag",
                "Write-CWLAccountPolicy",
@@ -48146,7 +48223,8 @@ $CWL_SelectMap = @{
                "Remove-CWLResourceTag",
                "Update-CWLAnomaly",
                "Update-CWLDeliveryConfiguration",
-               "Update-CWLLogAnomalyDetector")
+               "Update-CWLLogAnomalyDetector",
+               "Update-CWLScheduledQuery")
 }
 
 _awsArgumentCompleterRegistration $CWL_SelectCompleters $CWL_SelectMap
@@ -65857,6 +65935,7 @@ $RGT_SelectMap = @{
                "Get-RGTResource",
                "Get-RGTTagKey",
                "Get-RGTTagValue",
+               "Get-RGTRequiredTagList",
                "Start-RGTReportCreation",
                "Add-RGTResourceTag",
                "Remove-RGTResourceTag")

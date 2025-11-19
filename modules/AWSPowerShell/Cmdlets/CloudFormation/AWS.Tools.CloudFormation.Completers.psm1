@@ -141,6 +141,13 @@ $CFN_Completers = {
             break
         }
 
+        # Amazon.CloudFormation.DeploymentMode
+        "New-CFNChangeSet/DeploymentMode"
+        {
+            $v = "REVERT_DRIFT"
+            break
+        }
+
         # Amazon.CloudFormation.DeprecatedStatus
         {
             ($_ -eq "Get-CFNTypeList/DeprecatedStatus") -Or
@@ -340,6 +347,7 @@ $CFN_map = @{
     "ChangeSetType"=@("New-CFNChangeSet")
     "CurrentOperationStatus"=@("Write-CFNHandlerProgress")
     "DeletionMode"=@("Remove-CFNStack")
+    "DeploymentMode"=@("New-CFNChangeSet")
     "DeploymentTargets_AccountFilterType"=@("New-CFNStackInstance","Remove-CFNStackInstance","Update-CFNStackInstance","Update-CFNStackSet")
     "DeprecatedStatus"=@("Get-CFNTypeList","Get-CFNTypeVersion")
     "ErrorCode"=@("Write-CFNHandlerProgress")
@@ -434,6 +442,7 @@ $CFN_SelectMap = @{
                "Get-CFNAccountLimit",
                "Get-CFNChangeSet",
                "Get-CFNChangeSetHook",
+               "Get-CFNCFNOperationEvent",
                "Get-CFNGeneratedTemplateInformation",
                "Get-CFNOrganizationsAccess",
                "Get-CFNPublisher",
