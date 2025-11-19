@@ -1,0 +1,28 @@
+---
+Common_Invoke-AWSLogin:
+  title: Use Invoke-AWSLogin
+  title_abbrev: Invoke-AWSLogin
+  synopsis: use Invoke-AWSLogin
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 5
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Logs in using the default profile and region determined by AWS configuration. The cmdlet will launch a browser for authentication.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/common_Invoke-AWSLogin.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: Logs in using a specific profile named "aws-login-test-profile" in the us-west-2 region. The login session will be cached and associated with this profile.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/common_Invoke-AWSLogin.2.1.ps1
+        - description: '<emphasis role="bold">Example 3: Logs in using cross-device authentication flow without launching a browser. This is useful for headless environments or when a browser cannot be launched. You will receive a URL to visit in a browser and a verification code to enter.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/common_Invoke-AWSLogin.3.1.ps1
+  services:
+    Common:
+      Invoke-AWSLogin:

@@ -38,9 +38,9 @@ namespace Amazon.PowerShell.Common.Internal
         public string CodeChallenge { get; set; }
 
         /// <summary>
-        /// The code challenge method (always "S256" for SHA256).
+        /// The code challenge method.
         /// </summary>
-        public string CodeChallengeMethod => "S256";
+        public string CodeChallengeMethod => "SHA-256";
     }
 
     /// <summary>
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Common.Internal
     public static class PkceUtils
     {
         /// <summary>
-        /// Generates PKCE parameters (code_verifier and code_challenge) per SEP requirements.
+        /// Generates PKCE parameters (code_verifier and code_challenge).
         /// </summary>
         /// <returns>PkceParameters object containing code_verifier and code_challenge</returns>
         public static PkceParameters GeneratePkceParameters()
@@ -65,8 +65,7 @@ namespace Amazon.PowerShell.Common.Internal
         }
 
         /// <summary>
-        /// Generates a CSRF prevention state token.
-        /// SEP: A non-guessable, opaque value (cryptographically random UUID v4).
+        /// Generates a CSRF prevention state token. This is a non-guessable, opaque value (cryptographically random UUID v4).
         /// </summary>
         public static string GenerateState()
         {
@@ -74,8 +73,7 @@ namespace Amazon.PowerShell.Common.Internal
         }
 
         /// <summary>
-        /// Generates a cryptographically random code_verifier.
-        /// SEP: 128 characters from [A-Z, a-z, 0-9, -._~]
+        /// Generates a cryptographically random code_verifier of 128 characters from [A-Z, a-z, 0-9, -._~]
         /// </summary>
         private static string GenerateCodeVerifier()
         {
@@ -97,27 +95,15 @@ namespace Amazon.PowerShell.Common.Internal
         }
 
         /// <summary>
-        /// Generates code_challenge from code_verifier.
-        /// SEP: BASE64URL(SHA256(code_verifier)) - must be exactly 43 bytes
+        /// Generates code_challenge from code_verifier. This should be BASE64URL(SHA256(code_verifier)) of exactly 43 bytes.
         /// </summary>
         private static string GenerateCodeChallenge(string codeVerifier)
         {
             using (var sha256 = SHA256.Create())
             {
                 var hash = sha256.ComputeHash(Encoding.ASCII.GetBytes(codeVerifier));
-                return Base64UrlEncode(hash);
+                return Utils.Common.Base64UrlEncode(hash);
             }
-        }
-
-        /// <summary>
-        /// Base64URL encoding without padding per RFC 7636 Appendix A.
-        /// </summary>
-        private static string Base64UrlEncode(byte[] input)
-        {
-            return Convert.ToBase64String(input)
-                .TrimEnd('=')
-                .Replace('+', '-')
-                .Replace('/', '_');
         }
     }
 }

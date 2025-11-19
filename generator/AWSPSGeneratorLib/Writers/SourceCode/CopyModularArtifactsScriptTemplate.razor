@@ -24,6 +24,10 @@ $binFilesSuffixes = @@('.dll', '.XML', '.dll-Help.xml', '.Format.ps1xml')
 
 $transitiveDependencies = @@('BouncyCastle.Cryptography.dll','Microsoft.Bcl.AsyncInterfaces.dll','Microsoft.Bcl.HashCode.dll','System.Buffers.dll','System.Memory.dll','System.Numerics.Vectors.dll','System.Runtime.CompilerServices.Unsafe.dll','System.Text.Json.dll','System.Threading.Tasks.Extensions.dll','System.Text.Encodings.Web.dll','System.Formats.Cbor.dll','AWSSDK.Extensions.CborProtocol.dll')
 
+$serviceTransitiveDependencies = @@{
+    Signin = @@('BouncyCastle.Cryptography.dll')
+}
+
 If (Test-Path $modularDeploymentFolder)
 {
     Remove-Item -Path $modularDeploymentFolder -Recurse
@@ -54,6 +58,7 @@ Copy-Item -Path "$commonModuleFolder/$releaseBitPath/AWSSDK.Core.dll" -Destinati
 Copy-Item -Path "$commonModuleFolder/$releaseBitPath/AWSSDK.SecurityToken.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/AWSSDK.SecurityToken.dll"
 Copy-Item -Path "$commonModuleFolder/$releaseBitPath/AWSSDK.SSOOIDC.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/AWSSDK.SSOOIDC.dll"
 Copy-Item -Path "$commonModuleFolder/$releaseBitPath/AWSSDK.SSO.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/AWSSDK.SSO.dll"
+Copy-Item -Path "$commonModuleFolder/$releaseBitPath/AWSSDK.Signin.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/AWSSDK.Signin.dll"
 Copy-Item -Path "$monolithicModuleFolder/ImportGuard.ps1" -Destination "$modularDeploymentFolder/AWS.Tools.Common/ImportGuard.ps1"
 Copy-Item -Path "$assembliesFolder/netstandard2.0/aws-crt.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/aws-crt.dll"
 Copy-Item -Path "$assembliesFolder/netstandard2.0/aws-crt-auth.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/aws-crt-auth.dll"
@@ -89,6 +94,20 @@ foreach ($project in $projectNameList)
     if ($project -ne 'SecurityToken')
     {
         Copy-Item -Path "$projectFolder/$releaseBitPath/AWSSDK.$project.dll" -Destination "$projectDeploymentFolder/AWSSDK.$project.dll"
+    }
+
+    if ($serviceTransitiveDependencies -ne $null -and $serviceTransitiveDependencies.ContainsKey($project))
+    {
+        if ($serviceTransitiveDependencies[$project] -ne $null)
+        {
+            foreach ($transitiveDependency in $serviceTransitiveDependencies[$project])
+            {
+                if (Test-Path -Path "$assembliesFolder/netstandard2.0/$transitiveDependency" -PathType Leaf)
+                {
+                    Copy-Item -Path "$assembliesFolder/netstandard2.0/$transitiveDependency" -Destination "$projectDeploymentFolder/"
+                }
+            }
+        }
     }
 
     Copy-Item -Path "$rootFolder/LICENSE" -Destination "$projectDeploymentFolder/LICENSE"
