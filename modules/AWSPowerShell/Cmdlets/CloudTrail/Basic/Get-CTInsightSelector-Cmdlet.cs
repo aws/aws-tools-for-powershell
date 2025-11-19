@@ -32,10 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// <summary>
     /// Describes the settings for the Insights event selectors that you configured for your
     /// trail or event data store. <c>GetInsightSelectors</c> shows if CloudTrail Insights
-    /// event logging is enabled on the trail or event data store, and if it is, which Insights
-    /// types are enabled. If you run <c>GetInsightSelectors</c> on a trail or event data
-    /// store that does not have Insights events enabled, the operation throws the exception
-    /// <c>InsightNotEnabledException</c><para>
+    /// logging is enabled and which Insights types are configured with corresponding event
+    /// categories. If you run <c>GetInsightSelectors</c> on a trail or event data store that
+    /// does not have Insights events enabled, the operation throws the exception <c>InsightNotEnabledException</c><para>
     /// Specify either the <c>EventDataStore</c> parameter to get Insights event selectors
     /// for an event data store, or the <c>TrailName</c> parameter to the get Insights event
     /// selectors for a trail. You cannot specify these parameters together.

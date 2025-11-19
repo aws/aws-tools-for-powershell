@@ -82,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter ByStatus
         /// <summary>
         /// <para>
-        /// <para>Returns only report jobs that are in the specified status. The statuses are:</para><para><c>CREATED | RUNNING | COMPLETED | FAILED</c></para>
+        /// <para>Returns only report jobs that are in the specified status. The statuses are:</para><para><c>CREATED | RUNNING | COMPLETED | FAILED | COMPLETED_WITH_ISSUES</c></para><para> Please note that only scanning jobs finish with state completed with issues. For
+        /// backup jobs this is a console interpretation of a job that finishes in completed state
+        /// and has a status message.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

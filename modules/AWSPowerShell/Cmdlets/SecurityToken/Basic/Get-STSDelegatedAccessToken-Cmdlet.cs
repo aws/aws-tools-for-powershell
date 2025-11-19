@@ -30,7 +30,10 @@ using Amazon.SecurityToken.Model;
 namespace Amazon.PowerShell.Cmdlets.STS
 {
     /// <summary>
-    /// This API is currently unavailable for general use.
+    /// Exchanges a trade-in token for temporary Amazon Web Services credentials with the
+    /// permissions associated with the assumed principal. This operation allows you to obtain
+    /// credentials for a specific principal based on a trade-in token, enabling delegation
+    /// of access to Amazon Web Services resources.
     /// </summary>
     [Cmdlet("Get", "STSDelegatedAccessToken")]
     [OutputType("Amazon.SecurityToken.Model.GetDelegatedAccessTokenResponse")]
@@ -47,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
         #region Parameter TradeInToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The token to exchange for temporary Amazon Web Services credentials. This token must
+        /// be valid and unexpired at the time of the request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

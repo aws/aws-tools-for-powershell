@@ -84,7 +84,8 @@ $BAK_Completers = {
         {
             ($_ -eq "Get-BAKBackupJobSummaryList/AggregationPeriod") -Or
             ($_ -eq "Get-BAKCopyJobSummaryList/AggregationPeriod") -Or
-            ($_ -eq "Get-BAKRestoreJobSummaryList/AggregationPeriod")
+            ($_ -eq "Get-BAKRestoreJobSummaryList/AggregationPeriod") -Or
+            ($_ -eq "Get-BAKScanJobSummaryList/AggregationPeriod")
         }
         {
             $v = "FOURTEEN_DAYS","ONE_DAY","SEVEN_DAYS"
@@ -147,6 +148,17 @@ $BAK_Completers = {
             break
         }
 
+        # Amazon.Backup.MalwareScanner
+        {
+            ($_ -eq "Get-BAKScanJobList/ByMalwareScanner") -Or
+            ($_ -eq "Get-BAKScanJobSummaryList/MalwareScanner") -Or
+            ($_ -eq "Start-BAKScanJob/MalwareScanner")
+        }
+        {
+            $v = "GUARDDUTY"
+            break
+        }
+
         # Amazon.Backup.RestoreJobState
         "Get-BAKRestoreJobSummaryList/State"
         {
@@ -181,6 +193,44 @@ $BAK_Completers = {
             break
         }
 
+        # Amazon.Backup.ScanJobStatus
+        "Get-BAKScanJobSummaryList/State"
+        {
+            $v = "AGGREGATE_ALL","ANY","CANCELED","COMPLETED","COMPLETED_WITH_ISSUES","CREATED","FAILED","RUNNING"
+            break
+        }
+
+        # Amazon.Backup.ScanMode
+        "Start-BAKScanJob/ScanMode"
+        {
+            $v = "FULL_SCAN","INCREMENTAL_SCAN"
+            break
+        }
+
+        # Amazon.Backup.ScanResourceType
+        "Get-BAKScanJobList/ByResourceType"
+        {
+            $v = "EBS","EC2","S3"
+            break
+        }
+
+        # Amazon.Backup.ScanResultStatus
+        {
+            ($_ -eq "Get-BAKScanJobList/ByScanResultStatus") -Or
+            ($_ -eq "Get-BAKScanJobSummaryList/ScanResultStatus")
+        }
+        {
+            $v = "NO_THREATS_FOUND","THREATS_FOUND"
+            break
+        }
+
+        # Amazon.Backup.ScanState
+        "Get-BAKScanJobList/ByState"
+        {
+            $v = "CANCELED","COMPLETED","COMPLETED_WITH_ISSUES","CREATED","FAILED","RUNNING"
+            break
+        }
+
         # Amazon.Backup.VaultType
         "Get-BAKBackupVaultList/ByVaultType"
         {
@@ -197,15 +247,21 @@ $BAK_Completers = {
 }
 
 $BAK_map = @{
-    "AggregationPeriod"=@("Get-BAKBackupJobSummaryList","Get-BAKCopyJobSummaryList","Get-BAKRestoreJobSummaryList")
-    "ByState"=@("Get-BAKBackupJobList","Get-BAKCopyJobList")
+    "AggregationPeriod"=@("Get-BAKBackupJobSummaryList","Get-BAKCopyJobSummaryList","Get-BAKRestoreJobSummaryList","Get-BAKScanJobSummaryList")
+    "ByMalwareScanner"=@("Get-BAKScanJobList")
+    "ByResourceType"=@("Get-BAKScanJobList")
+    "ByScanResultStatus"=@("Get-BAKScanJobList")
+    "ByState"=@("Get-BAKBackupJobList","Get-BAKCopyJobList","Get-BAKScanJobList")
     "ByStatus"=@("Get-BAKRestoreJobList","Get-BAKRestoreJobsByProtectedResourceList")
     "ByVaultType"=@("Get-BAKBackupVaultList")
     "Index"=@("Start-BAKBackupJob","Update-BAKRecoveryPointIndexSetting")
     "IndexStatus"=@("Get-BAKIndexedRecoveryPointList")
     "Lifecycle_DeleteAfterEvent"=@("Start-BAKBackupJob","Start-BAKCopyJob","Update-BAKRecoveryPointLifecycle")
+    "MalwareScanner"=@("Get-BAKScanJobSummaryList","Start-BAKScanJob")
     "RecoveryPointSelection_Algorithm"=@("New-BAKRestoreTestingPlan","Update-BAKRestoreTestingPlan")
-    "State"=@("Get-BAKBackupJobSummaryList","Get-BAKCopyJobSummaryList","Get-BAKRestoreJobSummaryList")
+    "ScanMode"=@("Start-BAKScanJob")
+    "ScanResultStatus"=@("Get-BAKScanJobSummaryList")
+    "State"=@("Get-BAKBackupJobSummaryList","Get-BAKCopyJobSummaryList","Get-BAKRestoreJobSummaryList","Get-BAKScanJobSummaryList")
     "ValidationStatus"=@("Write-BAKRestoreValidationResult")
 }
 
@@ -295,6 +351,7 @@ $BAK_SelectMap = @{
                "Get-BAKReportJob",
                "Get-BAKReportPlan",
                "Get-BAKRestoreJob",
+               "Get-BAKScanJob",
                "Remove-BAKBackupVaultMpaApprovalTeam",
                "Unlock-BAKRecoveryPoint",
                "Move-BAKRecoveryPoint",
@@ -339,6 +396,8 @@ $BAK_SelectMap = @{
                "Get-BAKRestoreJobSummaryList",
                "Get-BAKRestoreTestingPlanList",
                "Get-BAKRestoreTestingSelectionList",
+               "Get-BAKScanJobList",
+               "Get-BAKScanJobSummaryList",
                "Get-BAKResourceTag",
                "Get-BAKTieringConfigurationList",
                "Write-BAKBackupVaultAccessPolicy",
@@ -350,6 +409,7 @@ $BAK_SelectMap = @{
                "Start-BAKCopyJob",
                "Start-BAKReportJob",
                "Start-BAKRestoreJob",
+               "Start-BAKScanJob",
                "Stop-BAKBackupJob",
                "Add-BAKResourceTag",
                "Remove-BAKResourceTag",

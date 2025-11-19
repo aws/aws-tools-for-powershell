@@ -928,6 +928,9 @@
     <Reference Include="AWSSDK.Panorama">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Panorama.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.PartnerCentralChannel">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.PartnerCentralChannel.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.PartnerCentralSelling">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.PartnerCentralSelling.dll</HintPath>
     </Reference>
@@ -2151,6 +2154,9 @@
     </Reference>
     <Reference Include="AWSSDK.Panorama">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Panorama.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.PartnerCentralChannel">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.PartnerCentralChannel.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.PartnerCentralSelling">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.PartnerCentralSelling.dll</HintPath>

@@ -125,6 +125,13 @@ $CT_Completers = {
             break
         }
 
+        # Amazon.CloudTrail.ListInsightsDataType
+        "Get-CTInsightsData/DataType"
+        {
+            $v = "InsightsEvents"
+            break
+        }
+
         # Amazon.CloudTrail.MaxEventSize
         "Write-CTEventConfiguration/MaxEventSize"
         {
@@ -169,7 +176,7 @@ $CT_Completers = {
 
 $CT_map = @{
     "BillingMode"=@("New-CTEventDataStore","Update-CTEventDataStore")
-    "DataType"=@("Get-CTInsightsMetricData")
+    "DataType"=@("Get-CTInsightsData","Get-CTInsightsMetricData")
     "EventCategory"=@("Find-CTEvent")
     "Frequency_Unit"=@("New-CTDashboard","Update-CTDashboard")
     "ImportStatus"=@("Get-CTImportList")
@@ -263,6 +270,7 @@ $CT_SelectMap = @{
                "Get-CTEventDataStoreSummary",
                "Get-CTImportFailure",
                "Get-CTImportList",
+               "Get-CTInsightsData",
                "Get-CTInsightsMetricData",
                "Get-CTPublicKey",
                "Get-CTQuerySummary",

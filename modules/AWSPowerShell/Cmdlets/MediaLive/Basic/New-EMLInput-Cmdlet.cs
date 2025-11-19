@@ -61,6 +61,34 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public Amazon.MediaLive.Model.InputDestinationRequest[] Destination { get; set; }
         #endregion
         
+        #region Parameter RouterSettings_Destination
+        /// <summary>
+        /// <para>
+        /// Destinations for the input from MediaConnect
+        /// Router. Provide one for a single-pipeline input and two for a standard input.
+        /// <para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RouterSettings_Destinations")]
+        public Amazon.MediaLive.Model.RouterDestinationSettings[] RouterSettings_Destination { get; set; }
+        #endregion
+        
+        #region Parameter RouterSettings_EncryptionType
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaLive.RouterEncryptionType")]
+        public Amazon.MediaLive.RouterEncryptionType RouterSettings_EncryptionType { get; set; }
+        #endregion
+        
         #region Parameter InputDevice
         /// <summary>
         /// <para>
@@ -171,6 +199,16 @@ namespace Amazon.PowerShell.Cmdlets.EML
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SdiSources")]
         public System.String[] SdiSource { get; set; }
+        #endregion
+        
+        #region Parameter RouterSettings_SecretArn
+        /// <summary>
+        /// <para>
+        /// ARN of the secret used to encrypt this input.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RouterSettings_SecretArn { get; set; }
         #endregion
         
         #region Parameter Vpc_SecurityGroupId
@@ -368,6 +406,12 @@ namespace Amazon.PowerShell.Cmdlets.EML
             context.Name = this.Name;
             context.RequestId = this.RequestId;
             context.RoleArn = this.RoleArn;
+            if (this.RouterSettings_Destination != null)
+            {
+                context.RouterSettings_Destination = new List<Amazon.MediaLive.Model.RouterDestinationSettings>(this.RouterSettings_Destination);
+            }
+            context.RouterSettings_EncryptionType = this.RouterSettings_EncryptionType;
+            context.RouterSettings_SecretArn = this.RouterSettings_SecretArn;
             if (this.SdiSource != null)
             {
                 context.SdiSource = new List<System.String>(this.SdiSource);
@@ -467,6 +511,45 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
+            }
+            
+             // populate RouterSettings
+            var requestRouterSettingsIsNull = true;
+            request.RouterSettings = new Amazon.MediaLive.Model.RouterSettings();
+            List<Amazon.MediaLive.Model.RouterDestinationSettings> requestRouterSettings_routerSettings_Destination = null;
+            if (cmdletContext.RouterSettings_Destination != null)
+            {
+                requestRouterSettings_routerSettings_Destination = cmdletContext.RouterSettings_Destination;
+            }
+            if (requestRouterSettings_routerSettings_Destination != null)
+            {
+                request.RouterSettings.Destinations = requestRouterSettings_routerSettings_Destination;
+                requestRouterSettingsIsNull = false;
+            }
+            Amazon.MediaLive.RouterEncryptionType requestRouterSettings_routerSettings_EncryptionType = null;
+            if (cmdletContext.RouterSettings_EncryptionType != null)
+            {
+                requestRouterSettings_routerSettings_EncryptionType = cmdletContext.RouterSettings_EncryptionType;
+            }
+            if (requestRouterSettings_routerSettings_EncryptionType != null)
+            {
+                request.RouterSettings.EncryptionType = requestRouterSettings_routerSettings_EncryptionType;
+                requestRouterSettingsIsNull = false;
+            }
+            System.String requestRouterSettings_routerSettings_SecretArn = null;
+            if (cmdletContext.RouterSettings_SecretArn != null)
+            {
+                requestRouterSettings_routerSettings_SecretArn = cmdletContext.RouterSettings_SecretArn;
+            }
+            if (requestRouterSettings_routerSettings_SecretArn != null)
+            {
+                request.RouterSettings.SecretArn = requestRouterSettings_routerSettings_SecretArn;
+                requestRouterSettingsIsNull = false;
+            }
+             // determine if request.RouterSettings should be set to null
+            if (requestRouterSettingsIsNull)
+            {
+                request.RouterSettings = null;
             }
             if (cmdletContext.SdiSource != null)
             {
@@ -615,6 +698,9 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public System.String Name { get; set; }
             public System.String RequestId { get; set; }
             public System.String RoleArn { get; set; }
+            public List<Amazon.MediaLive.Model.RouterDestinationSettings> RouterSettings_Destination { get; set; }
+            public Amazon.MediaLive.RouterEncryptionType RouterSettings_EncryptionType { get; set; }
+            public System.String RouterSettings_SecretArn { get; set; }
             public List<System.String> SdiSource { get; set; }
             public List<Amazon.MediaLive.Model.Smpte2110ReceiverGroup> Smpte2110ReceiverGroupSettings_Smpte2110ReceiverGroup { get; set; }
             public List<Amazon.MediaLive.Model.InputSourceRequest> Source { get; set; }

@@ -72,6 +72,21 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         public System.Boolean? Filters_AutoAssociate { get; set; }
         #endregion
         
+        #region Parameter Filters_BillingGroupType
+        /// <summary>
+        /// <para>
+        /// <para> Filter billing groups by their type. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_BillingGroupTypes")]
+        public System.String[] Filters_BillingGroupType { get; set; }
+        #endregion
+        
         #region Parameter BillingPeriod
         /// <summary>
         /// <para>
@@ -82,6 +97,21 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         public System.String BillingPeriod { get; set; }
         #endregion
         
+        #region Parameter Filters_Name
+        /// <summary>
+        /// <para>
+        /// <para> Filter billing groups by their names. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_Names")]
+        public Amazon.BillingConductor.Model.StringSearch[] Filters_Name { get; set; }
+        #endregion
+        
         #region Parameter Filters_PricingPlan
         /// <summary>
         /// <para>
@@ -90,6 +120,36 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Filters_PricingPlan { get; set; }
+        #endregion
+        
+        #region Parameter Filters_PrimaryAccountId
+        /// <summary>
+        /// <para>
+        /// <para> A list of primary account IDs to filter the billing groups. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_PrimaryAccountIds")]
+        public System.String[] Filters_PrimaryAccountId { get; set; }
+        #endregion
+        
+        #region Parameter Filters_ResponsibilityTransferArn
+        /// <summary>
+        /// <para>
+        /// <para> Filter billing groups by their responsibility transfer ARNs. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_ResponsibilityTransferArns")]
+        public System.String[] Filters_ResponsibilityTransferArn { get; set; }
         #endregion
         
         #region Parameter Filters_Status
@@ -185,7 +245,23 @@ namespace Amazon.PowerShell.Cmdlets.ABC
                 context.Filters_Arn = new List<System.String>(this.Filters_Arn);
             }
             context.Filters_AutoAssociate = this.Filters_AutoAssociate;
+            if (this.Filters_BillingGroupType != null)
+            {
+                context.Filters_BillingGroupType = new List<System.String>(this.Filters_BillingGroupType);
+            }
+            if (this.Filters_Name != null)
+            {
+                context.Filters_Name = new List<Amazon.BillingConductor.Model.StringSearch>(this.Filters_Name);
+            }
             context.Filters_PricingPlan = this.Filters_PricingPlan;
+            if (this.Filters_PrimaryAccountId != null)
+            {
+                context.Filters_PrimaryAccountId = new List<System.String>(this.Filters_PrimaryAccountId);
+            }
+            if (this.Filters_ResponsibilityTransferArn != null)
+            {
+                context.Filters_ResponsibilityTransferArn = new List<System.String>(this.Filters_ResponsibilityTransferArn);
+            }
             if (this.Filters_Status != null)
             {
                 context.Filters_Status = new List<System.String>(this.Filters_Status);
@@ -247,6 +323,26 @@ namespace Amazon.PowerShell.Cmdlets.ABC
                 request.Filters.AutoAssociate = requestFilters_filters_AutoAssociate.Value;
                 requestFiltersIsNull = false;
             }
+            List<System.String> requestFilters_filters_BillingGroupType = null;
+            if (cmdletContext.Filters_BillingGroupType != null)
+            {
+                requestFilters_filters_BillingGroupType = cmdletContext.Filters_BillingGroupType;
+            }
+            if (requestFilters_filters_BillingGroupType != null)
+            {
+                request.Filters.BillingGroupTypes = requestFilters_filters_BillingGroupType;
+                requestFiltersIsNull = false;
+            }
+            List<Amazon.BillingConductor.Model.StringSearch> requestFilters_filters_Name = null;
+            if (cmdletContext.Filters_Name != null)
+            {
+                requestFilters_filters_Name = cmdletContext.Filters_Name;
+            }
+            if (requestFilters_filters_Name != null)
+            {
+                request.Filters.Names = requestFilters_filters_Name;
+                requestFiltersIsNull = false;
+            }
             System.String requestFilters_filters_PricingPlan = null;
             if (cmdletContext.Filters_PricingPlan != null)
             {
@@ -255,6 +351,26 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             if (requestFilters_filters_PricingPlan != null)
             {
                 request.Filters.PricingPlan = requestFilters_filters_PricingPlan;
+                requestFiltersIsNull = false;
+            }
+            List<System.String> requestFilters_filters_PrimaryAccountId = null;
+            if (cmdletContext.Filters_PrimaryAccountId != null)
+            {
+                requestFilters_filters_PrimaryAccountId = cmdletContext.Filters_PrimaryAccountId;
+            }
+            if (requestFilters_filters_PrimaryAccountId != null)
+            {
+                request.Filters.PrimaryAccountIds = requestFilters_filters_PrimaryAccountId;
+                requestFiltersIsNull = false;
+            }
+            List<System.String> requestFilters_filters_ResponsibilityTransferArn = null;
+            if (cmdletContext.Filters_ResponsibilityTransferArn != null)
+            {
+                requestFilters_filters_ResponsibilityTransferArn = cmdletContext.Filters_ResponsibilityTransferArn;
+            }
+            if (requestFilters_filters_ResponsibilityTransferArn != null)
+            {
+                request.Filters.ResponsibilityTransferArns = requestFilters_filters_ResponsibilityTransferArn;
                 requestFiltersIsNull = false;
             }
             List<System.String> requestFilters_filters_Status = null;
@@ -359,7 +475,11 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             public System.String BillingPeriod { get; set; }
             public List<System.String> Filters_Arn { get; set; }
             public System.Boolean? Filters_AutoAssociate { get; set; }
+            public List<System.String> Filters_BillingGroupType { get; set; }
+            public List<Amazon.BillingConductor.Model.StringSearch> Filters_Name { get; set; }
             public System.String Filters_PricingPlan { get; set; }
+            public List<System.String> Filters_PrimaryAccountId { get; set; }
+            public List<System.String> Filters_ResponsibilityTransferArn { get; set; }
             public List<System.String> Filters_Status { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }

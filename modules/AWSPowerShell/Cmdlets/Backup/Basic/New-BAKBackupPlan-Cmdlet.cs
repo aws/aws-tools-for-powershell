@@ -135,6 +135,22 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         public Amazon.Backup.Model.BackupRuleInput[] BackupPlan_Rule { get; set; }
         #endregion
         
+        #region Parameter BackupPlan_ScanSetting
+        /// <summary>
+        /// <para>
+        /// <para>Contains your scanning configuration for the backup rule and includes the malware
+        /// scanner, and scan mode of either full or incremental.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BackupPlan_ScanSettings")]
+        public Amazon.Backup.Model.ScanSetting[] BackupPlan_ScanSetting { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -202,6 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 WriteWarning("You are passing $null as a value for parameter BackupPlan_Rule which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.BackupPlan_ScanSetting != null)
+            {
+                context.BackupPlan_ScanSetting = new List<Amazon.Backup.Model.ScanSetting>(this.BackupPlan_ScanSetting);
+            }
             if (this.BackupPlanTag != null)
             {
                 context.BackupPlanTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -259,6 +279,16 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (requestBackupPlan_backupPlan_Rule != null)
             {
                 request.BackupPlan.Rules = requestBackupPlan_backupPlan_Rule;
+                requestBackupPlanIsNull = false;
+            }
+            List<Amazon.Backup.Model.ScanSetting> requestBackupPlan_backupPlan_ScanSetting = null;
+            if (cmdletContext.BackupPlan_ScanSetting != null)
+            {
+                requestBackupPlan_backupPlan_ScanSetting = cmdletContext.BackupPlan_ScanSetting;
+            }
+            if (requestBackupPlan_backupPlan_ScanSetting != null)
+            {
+                request.BackupPlan.ScanSettings = requestBackupPlan_backupPlan_ScanSetting;
                 requestBackupPlanIsNull = false;
             }
              // determine if request.BackupPlan should be set to null
@@ -332,6 +362,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             public List<Amazon.Backup.Model.AdvancedBackupSetting> BackupPlan_AdvancedBackupSetting { get; set; }
             public System.String BackupPlan_BackupPlanName { get; set; }
             public List<Amazon.Backup.Model.BackupRuleInput> BackupPlan_Rule { get; set; }
+            public List<Amazon.Backup.Model.ScanSetting> BackupPlan_ScanSetting { get; set; }
             public Dictionary<System.String, System.String> BackupPlanTag { get; set; }
             public System.String CreatorRequestId { get; set; }
             public System.Func<Amazon.Backup.Model.CreateBackupPlanResponse, NewBAKBackupPlanCmdlet, object> Select { get; set; } =

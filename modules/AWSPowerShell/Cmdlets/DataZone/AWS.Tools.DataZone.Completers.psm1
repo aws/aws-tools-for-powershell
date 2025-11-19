@@ -87,6 +87,16 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.AttributeEntityType
+        {
+            ($_ -eq "Get-DZBatchAttributesMetadata/EntityType") -Or
+            ($_ -eq "Set-DZBatchAttributesMetadata/EntityType")
+        }
+        {
+            $v = "ASSET","LISTING"
+            break
+        }
+
         # Amazon.DataZone.AuthenticationType
         "New-DZConnection/AuthenticationConfiguration_AuthenticationType"
         {
@@ -404,7 +414,7 @@ $DZ_Completers = {
         # Amazon.DataZone.RuleType
         "Get-DZRuleList/RuleType"
         {
-            $v = "METADATA_FORM_ENFORCEMENT"
+            $v = "GLOSSARY_TERM_ENFORCEMENT","METADATA_FORM_ENFORCEMENT"
             break
         }
 
@@ -609,7 +619,7 @@ $DZ_map = @{
     "DomainUnit_DomainUnitDesignation"=@("Add-DZPolicyGrant","Remove-DZPolicyGrant")
     "DomainVersion"=@("New-DZDomain")
     "EnableSetting"=@("New-DZDataSource","Update-DZDataSource")
-    "EntityType"=@("Add-DZEntityOwner","Add-DZGovernedTerm","Add-DZPolicyGrant","Get-DZEntityOwnerList","Get-DZPolicyGrantList","Get-DZTimeSeriesDataPoint","Get-DZTimeSeriesDataPointList","New-DZListingChangeSet","New-DZTimeSeriesDataPoint","Remove-DZEntityOwner","Remove-DZGovernedTerm","Remove-DZPolicyGrant","Remove-DZTimeSeriesDataPoint")
+    "EntityType"=@("Add-DZEntityOwner","Add-DZGovernedTerm","Add-DZPolicyGrant","Get-DZBatchAttributesMetadata","Get-DZEntityOwnerList","Get-DZPolicyGrantList","Get-DZTimeSeriesDataPoint","Get-DZTimeSeriesDataPointList","New-DZListingChangeSet","New-DZTimeSeriesDataPoint","Remove-DZEntityOwner","Remove-DZGovernedTerm","Remove-DZPolicyGrant","Remove-DZTimeSeriesDataPoint","Set-DZBatchAttributesMetadata")
     "EnvironmentDeploymentDetails_OverallDeploymentStatus"=@("Update-DZProject")
     "GlueConnectionInput_ConnectionType"=@("New-DZConnection")
     "GroupType"=@("Search-DZGroupProfile")
@@ -692,6 +702,8 @@ $DZ_SelectMap = @{
                "Add-DZPolicyGrant",
                "Set-DZEnvironmentRole",
                "Add-DZGovernedTerm",
+               "Get-DZBatchAttributesMetadata",
+               "Set-DZBatchAttributesMetadata",
                "Stop-DZMetadataGenerationRun",
                "Stop-DZSubscription",
                "New-DZAccountPool",
@@ -850,6 +862,7 @@ $DZ_SelectMap = @{
                "Update-DZGroupProfile",
                "Update-DZProject",
                "Update-DZProjectProfile",
+               "Update-DZRootDomainUnitOwner",
                "Update-DZRule",
                "Update-DZSubscriptionGrantStatus",
                "Update-DZSubscriptionRequest",

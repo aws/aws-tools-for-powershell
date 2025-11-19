@@ -91,20 +91,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public Amazon.S3.Model.AnalyticsFilterPredicate AnalyticsFilter_AnalyticsFilterPredicate { get; set; }
         #endregion
         
-        #region Parameter AnalyticsId
-        /// <summary>
-        /// <para>
-        /// The identifier used to represent an analytics configuration.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AnalyticsId { get; set; }
-        #endregion
-        
         #region Parameter AnalyticsConfiguration_AnalyticsId
         /// <summary>
         /// <para>
-        /// The identifier used to represent an analytics configuration.
+        /// <para>The ID that identifies the analytics configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -118,10 +108,29 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String AnalyticsConfiguration_AnalyticsId { get; set; }
         #endregion
         
+        #region Parameter AnalyticsId
+        /// <summary>
+        /// <para>
+        /// <para>The ID that identifies the analytics configuration.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String AnalyticsId { get; set; }
+        #endregion
+        
         #region Parameter S3BucketDestination_BucketAccountId
         /// <summary>
         /// <para>
-        /// The account ID that owns the destination bucket. If no account ID is provided, the owner will not be validated prior to exporting data.
+        /// <para>The account ID that owns the destination S3 bucket. If no account ID is provided,
+        /// the owner is not validated before exporting data.</para><note><para> Although this value is optional, we strongly recommend that you set it to help prevent
+        /// problems if the destination bucket ownership changes. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,20 +138,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String S3BucketDestination_BucketAccountId { get; set; }
         #endregion
         
-        #region Parameter BucketName
-        /// <summary>
-        /// <para>
-        /// The name of the bucket to which an analytics configuration is stored.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String BucketName { get; set; }
-        #endregion
-        
         #region Parameter S3BucketDestination_BucketName
         /// <summary>
         /// <para>
-        /// The Amazon resource name (ARN) of the bucket to which data is exported.
+        /// <para>The Amazon Resource Name (ARN) of the bucket to which data is exported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,12 +149,29 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String S3BucketDestination_BucketName { get; set; }
         #endregion
         
+        #region Parameter BucketName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the bucket to which an analytics configuration is stored.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String BucketName { get; set; }
+        #endregion
+        
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
         /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
         /// not match the actual owner of the bucket, the request fails with the HTTP status code
-        /// <code>403 Forbidden</code> (access denied).</para>
+        /// <c>403 Forbidden</c> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter S3BucketDestination_Format
         /// <summary>
         /// <para>
-        /// The file format used when exporting data to Amazon S3.
+        /// <para>Specifies the file format used when exporting data to Amazon S3.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -176,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter DataExport_OutputSchemaVersion
         /// <summary>
         /// <para>
-        /// The version of the output schema to use when exporting data. Must be V_1.
+        /// <para>The version of the output schema to use when exporting data. Must be <c>V_1</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter S3BucketDestination_Prefix
         /// <summary>
         /// <para>
-        /// The prefix to use when exporting data. The exported data begins with this prefix.
+        /// <para>The prefix to use when exporting data. The prefix is prepended to all results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -241,8 +257,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.Select = CreateSelectDelegate<Amazon.S3.Model.PutBucketAnalyticsConfigurationResponse, WriteS3BucketAnalyticsConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.BucketName = this.BucketName;
-            context.AnalyticsId = this.AnalyticsId;
             context.AnalyticsFilter_AnalyticsFilterPredicate = this.AnalyticsFilter_AnalyticsFilterPredicate;
             context.AnalyticsConfiguration_AnalyticsId = this.AnalyticsConfiguration_AnalyticsId;
             #if MODULAR
@@ -251,11 +265,25 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 WriteWarning("You are passing $null as a value for parameter AnalyticsConfiguration_AnalyticsId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.DataExport_OutputSchemaVersion = this.DataExport_OutputSchemaVersion;
             context.S3BucketDestination_BucketAccountId = this.S3BucketDestination_BucketAccountId;
             context.S3BucketDestination_BucketName = this.S3BucketDestination_BucketName;
             context.S3BucketDestination_Format = this.S3BucketDestination_Format;
             context.S3BucketDestination_Prefix = this.S3BucketDestination_Prefix;
+            context.DataExport_OutputSchemaVersion = this.DataExport_OutputSchemaVersion;
+            context.AnalyticsId = this.AnalyticsId;
+            #if MODULAR
+            if (this.AnalyticsId == null && ParameterWasBound(nameof(this.AnalyticsId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AnalyticsId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.BucketName = this.BucketName;
+            #if MODULAR
+            if (this.BucketName == null && ParameterWasBound(nameof(this.BucketName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter BucketName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
@@ -273,14 +301,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             // create request
             var request = new Amazon.S3.Model.PutBucketAnalyticsConfigurationRequest();
             
-            if (cmdletContext.BucketName != null)
-            {
-                request.BucketName = cmdletContext.BucketName;
-            }
-            if (cmdletContext.AnalyticsId != null)
-            {
-                request.AnalyticsId = cmdletContext.AnalyticsId;
-            }
             
              // populate AnalyticsConfiguration
             var requestAnalyticsConfigurationIsNull = true;
@@ -390,20 +410,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestination.Prefix = requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestination_s3BucketDestination_Prefix;
                 requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestinationIsNull = false;
             }
-             // determine if requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestination should be set to null
-            if (requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestinationIsNull)
-            {
-                requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestination = null;
-            }
             if (requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestination != null)
             {
                 requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination.S3BucketDestination = requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination_S3BucketDestination;
                 requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_DestinationIsNull = false;
-            }
-             // determine if requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination should be set to null
-            if (requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_DestinationIsNull)
-            {
-                requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination = null;
             }
             if (requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis_analyticsConfiguration_StorageClassAnalysis_DataExport_analyticsConfiguration_StorageClassAnalysis_DataExport_Destination != null)
             {
@@ -424,6 +434,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.AnalyticsConfiguration.StorageClassAnalysis = requestAnalyticsConfiguration_analyticsConfiguration_StorageClassAnalysis;
                 requestAnalyticsConfigurationIsNull = false;
+            }
+            if (cmdletContext.AnalyticsId != null)
+            {
+                request.AnalyticsId = cmdletContext.AnalyticsId;
+            }
+            if (cmdletContext.BucketName != null)
+            {
+                request.BucketName = cmdletContext.BucketName;
             }
             if (cmdletContext.ExpectedBucketOwner != null)
             {
@@ -484,15 +502,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String BucketName { get; set; }
-            public System.String AnalyticsId { get; set; }
             public Amazon.S3.Model.AnalyticsFilterPredicate AnalyticsFilter_AnalyticsFilterPredicate { get; set; }
             public System.String AnalyticsConfiguration_AnalyticsId { get; set; }
-            public Amazon.S3.StorageClassAnalysisSchemaVersion DataExport_OutputSchemaVersion { get; set; }
             public System.String S3BucketDestination_BucketAccountId { get; set; }
             public System.String S3BucketDestination_BucketName { get; set; }
             public System.String S3BucketDestination_Format { get; set; }
             public System.String S3BucketDestination_Prefix { get; set; }
+            public Amazon.S3.StorageClassAnalysisSchemaVersion DataExport_OutputSchemaVersion { get; set; }
+            public System.String AnalyticsId { get; set; }
+            public System.String BucketName { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutBucketAnalyticsConfigurationResponse, WriteS3BucketAnalyticsConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

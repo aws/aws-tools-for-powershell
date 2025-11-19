@@ -53,6 +53,22 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreatePortal" OutputProperty="*" Verb="New" Noun="Portal" ShouldProcessTarget="PortalContent_DisplayName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePortalProduct" OutputProperty="*" Verb="New" Noun="PortalProduct" ShouldProcessTarget="DisplayName" PipelineParameter="DisplayName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProductPage" OutputProperty="*" Verb="New" Noun="ProductPage" ShouldProcessTarget="PortalProductId" PipelineParameter="PortalProductId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProductRestEndpointPage" OutputProperty="*" Verb="New" Noun="ProductRestEndpointPage" ShouldProcessTarget="PortalProductId" PipelineParameter="PortalProductId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateRoute" OutputProperty="*" Verb="New" Noun="Route" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -113,6 +129,26 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeletePortal" Verb="Remove" Noun="Portal" ShouldProcessTarget="PortalId" PipelineParameter="PortalId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePortalProduct" Verb="Remove" Noun="PortalProduct" ShouldProcessTarget="PortalProductId" PipelineParameter="PortalProductId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePortalProductSharingPolicy" Verb="Remove" Noun="PortalProductSharingPolicy" ShouldProcessTarget="PortalProductId" PipelineParameter="PortalProductId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProductPage" Verb="Remove" Noun="ProductPage" ShouldProcessTarget="ProductPageId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProductRestEndpointPage" Verb="Remove" Noun="ProductRestEndpointPage" ShouldProcessTarget="ProductRestEndpointPageId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteRoute" Verb="Remove" Noun="Route" ShouldProcessTarget="RouteId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -138,6 +174,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteVpcLink" Verb="Remove" Noun="VpcLink" ShouldProcessTarget="VpcLinkId" PipelineParameter="VpcLinkId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisablePortal" Verb="Disable" Noun="Portal" ShouldProcessTarget="PortalId" PipelineParameter="PortalId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -213,6 +253,26 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetPortal" OutputProperty="*" Verb="Get" Noun="Portal" PipelineParameter="PortalId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPortalProduct" OutputProperty="*" Verb="Get" Noun="PortalProduct" PipelineParameter="PortalProductId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPortalProductSharingPolicy" OutputProperty="*" Verb="Get" Noun="PortalProductSharingPolicy" PipelineParameter="PortalProductId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProductPage" OutputProperty="*" Verb="Get" Noun="ProductPage" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProductRestEndpointPage" OutputProperty="*" Verb="Get" Noun="ProductRestEndpointPage" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetRoute" OutputProperty="*" Verb="Get" Noun="Route" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -257,7 +317,35 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPortalProducts" OutputProperty="Items" Verb="Get" Noun="PortalProductList" PipelineParameter="ResourceOwner" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPortals" OutputProperty="Items" Verb="Get" Noun="PortalList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProductPages" OutputProperty="Items" Verb="Get" Noun="ProductPageList" PipelineParameter="PortalProductId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProductRestEndpointPages" OutputProperty="Items" Verb="Get" Noun="ProductRestEndpointPageList" PipelineParameter="PortalProductId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListRoutingRules" OutputProperty="RoutingRules" Verb="Get" Noun="RoutingRuleList" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PreviewPortal" Verb="Request" Noun="Portal" ShouldProcessTarget="PortalId" PipelineParameter="PortalId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PublishPortal" Verb="Publish" Noun="Portal" ShouldProcessTarget="PortalId" PipelineParameter="PortalId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutPortalProductSharingPolicy" Verb="Write" Noun="PortalProductSharingPolicy" ShouldProcessTarget="PortalProductId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -310,6 +398,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateModel" OutputProperty="*" Verb="Update" Noun="Model" ShouldProcessTarget="ModelId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePortal" OutputProperty="*" Verb="Update" Noun="Portal" ShouldProcessTarget="PortalId" PipelineParameter="PortalId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePortalProduct" OutputProperty="*" Verb="Update" Noun="PortalProduct" ShouldProcessTarget="PortalProductId" PipelineParameter="PortalProductId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProductPage" OutputProperty="*" Verb="Update" Noun="ProductPage" ShouldProcessTarget="ProductPageId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProductRestEndpointPage" OutputProperty="*" Verb="Update" Noun="ProductRestEndpointPage" ShouldProcessTarget="ProductRestEndpointPageId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

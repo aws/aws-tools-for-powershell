@@ -68,20 +68,34 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter AnalyticsId
         /// <summary>
         /// <para>
-        /// The identifier used to represent an analytics configuration.
+        /// <para>The ID that identifies the analytics configuration.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AnalyticsId { get; set; }
         #endregion
         
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// The name of the bucket from which an analytics configuration is deleted.
+        /// <para>The name of the bucket from which an analytics configuration is deleted.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String BucketName { get; set; }
         #endregion
         
@@ -90,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
         /// not match the actual owner of the bucket, the request fails with the HTTP status code
-        /// <code>403 Forbidden</code> (access denied).</para>
+        /// <c>403 Forbidden</c> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,8 +156,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.Select = CreateSelectDelegate<Amazon.S3.Model.DeleteBucketAnalyticsConfigurationResponse, RemoveS3BucketAnalyticsConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.BucketName = this.BucketName;
             context.AnalyticsId = this.AnalyticsId;
+            #if MODULAR
+            if (this.AnalyticsId == null && ParameterWasBound(nameof(this.AnalyticsId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AnalyticsId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.BucketName = this.BucketName;
+            #if MODULAR
+            if (this.BucketName == null && ParameterWasBound(nameof(this.BucketName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter BucketName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
@@ -161,13 +187,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
             // create request
             var request = new Amazon.S3.Model.DeleteBucketAnalyticsConfigurationRequest();
             
-            if (cmdletContext.BucketName != null)
-            {
-                request.BucketName = cmdletContext.BucketName;
-            }
             if (cmdletContext.AnalyticsId != null)
             {
                 request.AnalyticsId = cmdletContext.AnalyticsId;
+            }
+            if (cmdletContext.BucketName != null)
+            {
+                request.BucketName = cmdletContext.BucketName;
             }
             if (cmdletContext.ExpectedBucketOwner != null)
             {
@@ -228,8 +254,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String BucketName { get; set; }
             public System.String AnalyticsId { get; set; }
+            public System.String BucketName { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.DeleteBucketAnalyticsConfigurationResponse, RemoveS3BucketAnalyticsConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

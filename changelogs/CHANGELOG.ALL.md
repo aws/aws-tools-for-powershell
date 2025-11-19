@@ -1,4 +1,168 @@
-﻿### 5.0.100 (2025-11-18 22:31Z)
+﻿### 5.0.101 (2025-11-19 23:41Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.137.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * 
+    * Added cmdlet Invoke-AWSLogin.
+    * Added cmdlet Invoke-AWSLogout.
+  * Amazon AmazonConnectCampaignServiceV2
+    * Modified cmdlet New-CCS2Campaign: added parameter DefaultOutboundConfig_RingTimeout.
+    * Modified cmdlet Update-CCS2CampaignChannelSubtypeConfig: added parameter DefaultOutboundConfig_RingTimeout.
+  * Amazon API Gateway
+    * Modified cmdlet New-AGDomainName: added parameter EndpointAccessMode.
+    * Modified cmdlet New-AGRestApi: added parameters EndpointAccessMode and SecurityPolicy.
+    * Modified cmdlet Write-AGIntegration: added parameter ResponseTransferMode.
+  * Amazon API Gateway V2
+    * Added cmdlet Disable-AG2Portal leveraging the DisablePortal service API.
+    * Added cmdlet Get-AG2Portal leveraging the GetPortal service API.
+    * Added cmdlet Get-AG2PortalList leveraging the ListPortals service API.
+    * Added cmdlet Get-AG2PortalProduct leveraging the GetPortalProduct service API.
+    * Added cmdlet Get-AG2PortalProductList leveraging the ListPortalProducts service API.
+    * Added cmdlet Get-AG2PortalProductSharingPolicy leveraging the GetPortalProductSharingPolicy service API.
+    * Added cmdlet Get-AG2ProductPage leveraging the GetProductPage service API.
+    * Added cmdlet Get-AG2ProductPageList leveraging the ListProductPages service API.
+    * Added cmdlet Get-AG2ProductRestEndpointPage leveraging the GetProductRestEndpointPage service API.
+    * Added cmdlet Get-AG2ProductRestEndpointPageList leveraging the ListProductRestEndpointPages service API.
+    * Added cmdlet New-AG2Portal leveraging the CreatePortal service API.
+    * Added cmdlet New-AG2PortalProduct leveraging the CreatePortalProduct service API.
+    * Added cmdlet New-AG2ProductPage leveraging the CreateProductPage service API.
+    * Added cmdlet New-AG2ProductRestEndpointPage leveraging the CreateProductRestEndpointPage service API.
+    * Added cmdlet Publish-AG2Portal leveraging the PublishPortal service API.
+    * Added cmdlet Remove-AG2Portal leveraging the DeletePortal service API.
+    * Added cmdlet Remove-AG2PortalProduct leveraging the DeletePortalProduct service API.
+    * Added cmdlet Remove-AG2PortalProductSharingPolicy leveraging the DeletePortalProductSharingPolicy service API.
+    * Added cmdlet Remove-AG2ProductPage leveraging the DeleteProductPage service API.
+    * Added cmdlet Remove-AG2ProductRestEndpointPage leveraging the DeleteProductRestEndpointPage service API.
+    * Added cmdlet Request-AG2Portal leveraging the PreviewPortal service API.
+    * Added cmdlet Update-AG2Portal leveraging the UpdatePortal service API.
+    * Added cmdlet Update-AG2PortalProduct leveraging the UpdatePortalProduct service API.
+    * Added cmdlet Update-AG2ProductPage leveraging the UpdateProductPage service API.
+    * Added cmdlet Update-AG2ProductRestEndpointPage leveraging the UpdateProductRestEndpointPage service API.
+    * Added cmdlet Write-AG2PortalProductSharingPolicy leveraging the PutPortalProductSharingPolicy service API.
+  * Amazon AWSBillingConductor
+    * Modified cmdlet Get-ABCBillingGroupList: added parameters Filters_BillingGroupType, Filters_Name, Filters_PrimaryAccountId and Filters_ResponsibilityTransferArn.
+    * Modified cmdlet New-ABCBillingGroup: added parameter AccountGrouping_ResponsibilityTransferArn.
+    * Modified cmdlet Update-ABCBillingGroup: added parameter AccountGrouping_ResponsibilityTransferArn.
+  * Amazon Backup
+    * Added cmdlet Get-BAKScanJob leveraging the DescribeScanJob service API.
+    * Added cmdlet Get-BAKScanJobList leveraging the ListScanJobs service API.
+    * Added cmdlet Get-BAKScanJobSummaryList leveraging the ListScanJobSummaries service API.
+    * Added cmdlet Start-BAKScanJob leveraging the StartScanJob service API.
+    * Modified cmdlet New-BAKBackupPlan: added parameter BackupPlan_ScanSetting.
+    * Modified cmdlet Update-BAKBackupPlan: added parameter BackupPlan_ScanSetting.
+  * Amazon Billing
+    * Modified cmdlet Get-AWSBBillingViewList: added parameter Name.
+  * Amazon CloudTrail
+    * Added cmdlet Get-CTInsightsData leveraging the ListInsightsData service API.
+    * Modified cmdlet Get-CTInsightsMetricData: added parameter TrailName.
+  * Amazon CloudWatch RUM
+    * Modified cmdlet New-CWRUMAppMonitor: added parameter Platform.
+  * Amazon Cost Optimization Hub
+    * Added cmdlet Get-COHEfficiencyMetricList leveraging the ListEfficiencyMetrics service API.
+  * Amazon DataZone
+    * Added cmdlet Get-DZBatchAttributesMetadata leveraging the BatchGetAttributesMetadata service API.
+    * Added cmdlet Set-DZBatchAttributesMetadata leveraging the BatchPutAttributesMetadata service API.
+    * Added cmdlet Update-DZRootDomainUnitOwner leveraging the UpdateRootDomainUnitOwner service API.
+  * Amazon EC2 Container Registry
+    * Added cmdlet Get-ECRImageReferrerList leveraging the ListImageReferrers service API.
+    * Added cmdlet Get-ECRPullTimeUpdateExclusionList leveraging the ListPullTimeUpdateExclusions service API.
+    * Added cmdlet Register-ECRPullTimeUpdateExclusion leveraging the RegisterPullTimeUpdateExclusion service API.
+    * Added cmdlet Unregister-ECRPullTimeUpdateExclusion leveraging the DeregisterPullTimeUpdateExclusion service API.
+    * Added cmdlet Update-ECRImageStorageClass leveraging the UpdateImageStorageClass service API.
+    * Modified cmdlet Get-ECRImage: added parameter Filter_ImageStatus.
+    * Modified cmdlet Get-ECRImageMetadata: added parameter Filter_ImageStatus.
+  * Amazon EC2 Container Service
+    * Modified cmdlet New-ECSCapacityProvider: added parameter InfrastructureOptimization_ScaleInAfter.
+    * Modified cmdlet Update-ECSCapacityProvider: added parameter InfrastructureOptimization_ScaleInAfter.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Disable-EC2IpamPolicy leveraging the DisableIpamPolicy service API.
+    * Added cmdlet Edit-EC2IpamPolicyAllocationRule leveraging the ModifyIpamPolicyAllocationRules service API.
+    * Added cmdlet Enable-EC2IpamPolicy leveraging the EnableIpamPolicy service API.
+    * Added cmdlet Get-EC2EnabledIpamPolicy leveraging the GetEnabledIpamPolicy service API.
+    * Added cmdlet Get-EC2IpamPolicy leveraging the DescribeIpamPolicies service API.
+    * Added cmdlet Get-EC2IpamPolicyAllocationRule leveraging the GetIpamPolicyAllocationRules service API.
+    * Added cmdlet Get-EC2IpamPolicyOrganizationTarget leveraging the GetIpamPolicyOrganizationTargets service API.
+    * Added cmdlet New-EC2IpamPolicy leveraging the CreateIpamPolicy service API.
+    * Added cmdlet Remove-EC2IpamPolicy leveraging the DeleteIpamPolicy service API.
+    * Modified cmdlet Edit-EC2VpcAttribute: parameter EnableDnsHostname is not mandatory anymore; parameter EnableDnsSupport is not mandatory anymore.
+    * Modified cmdlet New-EC2NatGateway: added parameters AvailabilityMode, AvailabilityZoneAddress and VpcId.
+    * Modified cmdlet Register-EC2NatGatewayAddress: added parameters AvailabilityZone and AvailabilityZoneId.
+  * Amazon Elastic MapReduce
+    * Modified cmdlet Start-EMRJobFlow: added parameters CloudWatchLogConfiguration_Enabled, CloudWatchLogConfiguration_EncryptionKeyArn, CloudWatchLogConfiguration_LogGroupName, CloudWatchLogConfiguration_LogStreamNamePrefix and CloudWatchLogConfiguration_LogType.
+  * Amazon Elemental MediaConnect
+    * Added cmdlet Add-EMCNTagGlobalResource leveraging the TagGlobalResource service API.
+    * Added cmdlet Get-EMCNBatchRouterInput leveraging the BatchGetRouterInput service API.
+    * Added cmdlet Get-EMCNBatchRouterNetworkInterface leveraging the BatchGetRouterNetworkInterface service API.
+    * Added cmdlet Get-EMCNBatchRouterOutput leveraging the BatchGetRouterOutput service API.
+    * Added cmdlet Get-EMCNRouterInput leveraging the GetRouterInput service API.
+    * Added cmdlet Get-EMCNRouterInputList leveraging the ListRouterInputs service API.
+    * Added cmdlet Get-EMCNRouterInputSourceMetadata leveraging the GetRouterInputSourceMetadata service API.
+    * Added cmdlet Get-EMCNRouterInputThumbnail leveraging the GetRouterInputThumbnail service API.
+    * Added cmdlet Get-EMCNRouterNetworkInterface leveraging the GetRouterNetworkInterface service API.
+    * Added cmdlet Get-EMCNRouterNetworkInterfaceList leveraging the ListRouterNetworkInterfaces service API.
+    * Added cmdlet Get-EMCNRouterOutput leveraging the GetRouterOutput service API.
+    * Added cmdlet Get-EMCNRouterOutputList leveraging the ListRouterOutputs service API.
+    * Added cmdlet Get-EMCNTagsForGlobalResourceList leveraging the ListTagsForGlobalResource service API.
+    * Added cmdlet New-EMCNRouterInput leveraging the CreateRouterInput service API.
+    * Added cmdlet New-EMCNRouterNetworkInterface leveraging the CreateRouterNetworkInterface service API.
+    * Added cmdlet New-EMCNRouterOutput leveraging the CreateRouterOutput service API.
+    * Added cmdlet Remove-EMCNRouterInput leveraging the DeleteRouterInput service API.
+    * Added cmdlet Remove-EMCNRouterNetworkInterface leveraging the DeleteRouterNetworkInterface service API.
+    * Added cmdlet Remove-EMCNRouterOutput leveraging the DeleteRouterOutput service API.
+    * Added cmdlet Remove-EMCNTagGlobalResource leveraging the UntagGlobalResource service API.
+    * Added cmdlet Restart-EMCNRouterInput leveraging the RestartRouterInput service API.
+    * Added cmdlet Restart-EMCNRouterOutput leveraging the RestartRouterOutput service API.
+    * Added cmdlet Set-EMCNRouterInput leveraging the TakeRouterInput service API.
+    * Added cmdlet Start-EMCNRouterInput leveraging the StartRouterInput service API.
+    * Added cmdlet Start-EMCNRouterOutput leveraging the StartRouterOutput service API.
+    * Added cmdlet Stop-EMCNRouterInput leveraging the StopRouterInput service API.
+    * Added cmdlet Stop-EMCNRouterOutput leveraging the StopRouterOutput service API.
+    * Added cmdlet Update-EMCNRouterInput leveraging the UpdateRouterInput service API.
+    * Added cmdlet Update-EMCNRouterNetworkInterface leveraging the UpdateRouterNetworkInterface service API.
+    * Added cmdlet Update-EMCNRouterOutput leveraging the UpdateRouterOutput service API.
+    * Modified cmdlet Update-EMCNFlowOutput: added parameters EncryptionKeyConfiguration_Automatic, RouterIntegrationState, RouterIntegrationTransitEncryption_EncryptionKeyType, SecretsManager_RoleArn and SecretsManager_SecretArn.
+    * Modified cmdlet Update-EMCNFlowSource: added parameters EncryptionKeyConfiguration_Automatic, RouterIntegrationState, RouterIntegrationTransitDecryption_EncryptionKeyType, SecretsManager_RoleArn and SecretsManager_SecretArn.
+  * Amazon Elemental MediaLive
+    * Modified cmdlet New-EMLInput: added parameters RouterSettings_Destination, RouterSettings_EncryptionType and RouterSettings_SecretArn.
+    * Modified cmdlet Update-EMLInput: added parameter SpecialRouterSettings_RouterArn.
+  * Amazon GuardDuty
+    * Added cmdlet Get-GDMalwareScanDetail leveraging the GetMalwareScan service API.
+    * Added cmdlet Get-GDMalwareScanList leveraging the ListMalwareScans service API.
+    * Modified cmdlet Start-GDMalwareScan: added parameters ClientToken, IncrementalScanDetails_BaselineResourceArn, RecoveryPoint_BackupVaultName and ScanConfiguration_Role.
+  * Amazon Health
+    * Modified cmdlet Get-HLTHEvent: added parameters Filter_Actionability and Filter_Persona.
+    * Modified cmdlet Get-HLTHEventAggregate: added parameters Filter_Actionability and Filter_Persona.
+    * Modified cmdlet Get-HLTHEventsForOrganization: added parameters Filter_Actionability and Filter_Persona.
+    * Modified cmdlet Get-HLTHEventType: added parameters Filter_Actionability and Filter_Persona.
+  * Amazon Identity and Access Management
+    * Added cmdlet Disable-IAMOutboundWebIdentityFederation leveraging the DisableOutboundWebIdentityFederation service API.
+    * Added cmdlet Enable-IAMOutboundWebIdentityFederation leveraging the EnableOutboundWebIdentityFederation service API.
+    * Added cmdlet Get-IAMOutboundWebIdentityFederationInfo leveraging the GetOutboundWebIdentityFederationInfo service API.
+  * Amazon Invoicing
+    * Modified cmdlet Get-INVInvoiceUnitList: added parameter Filters_BillSourceAccount.
+    * Modified cmdlet New-INVInvoiceUnit: added parameter Rule_BillSourceAccount.
+    * Modified cmdlet Update-INVInvoiceUnit: added parameter Rule_BillSourceAccount.
+  * Amazon Lambda
+    * Modified cmdlet Publish-LMFunction: added parameter TenancyConfig_TenantIsolationMode.
+    * Modified cmdlet Invoke-LMFunction: added parameter TenantId.
+    * Modified cmdlet Invoke-LMWithResponseStream: added parameter TenantId.
+  * Amazon Network Firewall
+    * Modified cmdlet Get-NWFWRuleGroupList: added parameter SubscriptionStatus.
+  * Amazon Partner Central Channel API. Added cmdlets to support the service. Cmdlets for the service have the noun prefix PCC and can be listed using the command 'Get-AWSCmdletName -Service PCC'.
+  * Amazon Pricing Calculator
+    * Modified cmdlet New-BCMPCBillScenario: added parameters CostCategoryGroupSharingPreferenceArn and GroupSharingPreference.
+    * Modified cmdlet Update-BCMPCBillScenario: added parameters CostCategoryGroupSharingPreferenceArn and GroupSharingPreference.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMEndpointConfig: added parameters MetricsConfig_EnableEnhancedMetric and MetricsConfig_MetricPublishFrequencyInSecond.
+  * Amazon Secrets Manager
+    * Modified cmdlet Invoke-SECSecretRotation: added parameters ExternalSecretRotationMetadata and ExternalSecretRotationRoleArn.
+    * Modified cmdlet New-SECSecret: added parameter Type.
+    * Modified cmdlet Update-SECSecret: added parameter Type.
+  * Amazon Security Token Service
+    * Added cmdlet Get-STSWebIdentityToken leveraging the GetWebIdentityToken service API.
+  * Amazon Sign-In Data Plane. Added cmdlets to support the service. Cmdlets for the service have the noun prefix AMSP and can be listed using the command 'Get-AWSCmdletName -Service AMSP'.
+  * Amazon Step Functions
+    * Modified cmdlet Test-SFNState: added parameters Context, ErrorOutput_Cause, ErrorOutput_Error, Mock_FieldValidationMode, Mock_Result, StateConfiguration_ErrorCausedByState, StateConfiguration_MapItemReaderData, StateConfiguration_MapIterationFailureCount, StateConfiguration_RetrierRetryCount and StateName.
+
+### 5.0.100 (2025-11-18 22:31Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.136.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Auto Scaling
     * Added cmdlet Add-ASInstance leveraging the LaunchInstances service API.

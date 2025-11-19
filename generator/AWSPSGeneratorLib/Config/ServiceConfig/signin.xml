@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>signin</C2jFilename>
+    <AssemblyName>Signin</AssemblyName>
+    <ServiceNounPrefix>AMSP</ServiceNounPrefix>
+    <ServiceName>AWS Sign-In Data Plane</ServiceName>
+    <ServiceClientInterface>IAmazonSignin</ServiceClientInterface>
+    <ServiceClient>AmazonSigninClient</ServiceClient>
+    <ServiceModuleGuid>b5d6e883-7241-4b5e-9397-a1864260725d</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateOAuth2Token" OutputProperty="TokenOutput" Verb="New" Noun="OAuth2Token" ShouldProcessTarget="TokenInput_ClientId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -30,7 +30,9 @@ using Amazon.Inspector2.Model;
 namespace Amazon.PowerShell.Cmdlets.INS2
 {
     /// <summary>
-    /// Lists the permissions an account has to configure Amazon Inspector.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// Lists the permissions an account has to configure Amazon Inspector. If the account
+    /// is a member account or standalone account with resources managed by an Organizations
+    /// policy, the operation returns fewer permissions.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
     /// </summary>
     [Cmdlet("Get", "INS2AccountPermissionList")]
     [OutputType("Amazon.Inspector2.Model.Permission")]

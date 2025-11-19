@@ -30,7 +30,7 @@ using Amazon.MediaConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.EMCN
 {
     /// <summary>
-    /// List all tags on a MediaConnect resource.
+    /// List all tags on a MediaConnect resource in the current region.
     /// </summary>
     [Cmdlet("Get", "EMCNResourceTag")]
     [OutputType("System.String")]

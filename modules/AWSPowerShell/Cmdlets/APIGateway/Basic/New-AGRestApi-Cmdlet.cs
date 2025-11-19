@@ -107,6 +107,18 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.Boolean? DisableExecuteApiEndpoint { get; set; }
         #endregion
         
+        #region Parameter EndpointAccessMode
+        /// <summary>
+        /// <para>
+        /// <para> The endpoint access mode of the RestApi. Only available for RestApis that use security
+        /// policies that start with <c>SecurityPolicy_</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.APIGateway.EndpointAccessMode")]
+        public Amazon.APIGateway.EndpointAccessMode EndpointAccessMode { get; set; }
+        #endregion
+        
         #region Parameter EndpointConfiguration_IpAddressType
         /// <summary>
         /// <para>
@@ -161,6 +173,17 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Policy { get; set; }
+        #endregion
+        
+        #region Parameter SecurityPolicy
+        /// <summary>
+        /// <para>
+        /// <para> The Transport Layer Security (TLS) version + cipher suite for this RestApi. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.APIGateway.SecurityPolicy")]
+        public Amazon.APIGateway.SecurityPolicy SecurityPolicy { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -278,6 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             context.CloneFrom = this.CloneFrom;
             context.Description = this.Description;
             context.DisableExecuteApiEndpoint = this.DisableExecuteApiEndpoint;
+            context.EndpointAccessMode = this.EndpointAccessMode;
             context.EndpointConfiguration_IpAddressType = this.EndpointConfiguration_IpAddressType;
             if (this.EndpointConfiguration_Type != null)
             {
@@ -296,6 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             }
             #endif
             context.Policy = this.Policy;
+            context.SecurityPolicy = this.SecurityPolicy;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -340,6 +365,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.DisableExecuteApiEndpoint != null)
             {
                 request.DisableExecuteApiEndpoint = cmdletContext.DisableExecuteApiEndpoint.Value;
+            }
+            if (cmdletContext.EndpointAccessMode != null)
+            {
+                request.EndpointAccessMode = cmdletContext.EndpointAccessMode;
             }
             
              // populate EndpointConfiguration
@@ -391,6 +420,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.Policy != null)
             {
                 request.Policy = cmdletContext.Policy;
+            }
+            if (cmdletContext.SecurityPolicy != null)
+            {
+                request.SecurityPolicy = cmdletContext.SecurityPolicy;
             }
             if (cmdletContext.Tag != null)
             {
@@ -460,12 +493,14 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public System.String CloneFrom { get; set; }
             public System.String Description { get; set; }
             public System.Boolean? DisableExecuteApiEndpoint { get; set; }
+            public Amazon.APIGateway.EndpointAccessMode EndpointAccessMode { get; set; }
             public Amazon.APIGateway.IpAddressType EndpointConfiguration_IpAddressType { get; set; }
             public List<System.String> EndpointConfiguration_Type { get; set; }
             public List<System.String> EndpointConfiguration_VpcEndpointId { get; set; }
             public System.Int32? MinimumCompressionSize { get; set; }
             public System.String Name { get; set; }
             public System.String Policy { get; set; }
+            public Amazon.APIGateway.SecurityPolicy SecurityPolicy { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String Version { get; set; }
             public System.Func<Amazon.APIGateway.Model.CreateRestApiResponse, NewAGRestApiCmdlet, object> Select { get; set; } =

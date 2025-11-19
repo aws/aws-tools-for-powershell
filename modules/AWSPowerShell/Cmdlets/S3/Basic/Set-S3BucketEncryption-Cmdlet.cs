@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// This operation configures default encryption and Amazon S3 Bucket Keys for an existing
-    /// bucket.
+    /// bucket. You can also block encryption types using this operation.
     /// 
     ///  <note><para><b>Directory buckets </b> - For directory buckets, you must make requests for this
     /// API operation to the Regional endpoint. These endpoints support path-style requests

@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter ComputationRule
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> Specifies how the custom line item charges are computed. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -199,7 +199,9 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter PresentationDetails_Service
         /// <summary>
         /// <para>
-        /// <para>This defines the service of where the custom line item is presented</para>
+        /// <para> The service under which the custom line item charges will be presented. Must be a
+        /// string between 1 and 128 characters matching the pattern "<c>^[a-zA-Z0-9]+$</c>".
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

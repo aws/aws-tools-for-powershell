@@ -30,13 +30,17 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Lets you enable Insights event logging by specifying the Insights selectors that you
-    /// want to enable on an existing trail or event data store. You also use <c>PutInsightSelectors</c>
-    /// to turn off Insights event logging, by passing an empty list of Insights types. The
-    /// valid Insights event types are <c>ApiErrorRateInsight</c> and <c>ApiCallRateInsight</c>.
+    /// Lets you enable Insights event logging on specific event categories by specifying
+    /// the Insights selectors that you want to enable on an existing trail or event data
+    /// store. You also use <c>PutInsightSelectors</c> to turn off Insights event logging,
+    /// by passing an empty list of Insights types. The valid Insights event types are <c>ApiErrorRateInsight</c>
+    /// and <c>ApiCallRateInsight</c>, and valid EventCategories are <c>Management</c> and
+    /// <c>Data</c>.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    ///  Insights on data events are not supported on event data stores. For event data stores,
+    /// you can only enable Insights on management events. 
+    /// </para></note><para>
     /// To enable Insights on an event data store, you must specify the ARNs (or ID suffix
     /// of the ARNs) for the source event data store (<c>EventDataStore</c>) and the destination
     /// event data store (<c>InsightsDestination</c>). The source event data store logs management
@@ -46,7 +50,16 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// </para><para>
     /// To log Insights events for a trail, you must specify the name (<c>TrailName</c>) of
     /// the CloudTrail trail for which you want to change or add Insights selectors.
-    /// </para><para>
+    /// </para><ul><li><para>
+    ///  For Management events Insights: To log CloudTrail Insights on the API call rate,
+    /// the trail or event data store must log <c>write</c> management events. To log CloudTrail
+    /// Insights on the API error rate, the trail or event data store must log <c>read</c>
+    /// or <c>write</c> management events. 
+    /// </para></li><li><para>
+    ///  For Data events Insights: To log CloudTrail Insights on the API call rate or API
+    /// error rate, the trail must log <c>read</c> or <c>write</c> data events. Data events
+    /// Insights are not supported on event data store. 
+    /// </para></li></ul><para>
     /// To log CloudTrail Insights events on API call volume, the trail or event data store
     /// must log <c>write</c> management events. To log CloudTrail Insights events on API
     /// error rate, the trail or event data store must log <c>read</c> or <c>write</c> management
@@ -97,11 +110,13 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter InsightSelector
         /// <summary>
         /// <para>
-        /// <para>A JSON string that contains the Insights types you want to log on a trail or event
-        /// data store. <c>ApiCallRateInsight</c> and <c>ApiErrorRateInsight</c> are valid Insight
-        /// types.</para><para>The <c>ApiCallRateInsight</c> Insights type analyzes write-only management API calls
-        /// that are aggregated per minute against a baseline API call volume.</para><para>The <c>ApiErrorRateInsight</c> Insights type analyzes management API calls that result
-        /// in error codes. The error is shown if the API call is unsuccessful.</para><para />
+        /// <para>Contains the Insights types you want to log on a specific category of events on a
+        /// trail or event data store. <c>ApiCallRateInsight</c> and <c>ApiErrorRateInsight</c>
+        /// are valid Insight types.The EventCategory field can specify <c>Management</c> or <c>Data</c>
+        /// events or both. For event data store, you can log Insights for management events only.</para><para>The <c>ApiCallRateInsight</c> Insights type analyzes write-only management API calls
+        /// or read and write data API calls that are aggregated per minute against a baseline
+        /// API call volume.</para><para>The <c>ApiErrorRateInsight</c> Insights type analyzes management and data API calls
+        /// that result in error codes. The error is shown if the API call is unsuccessful.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

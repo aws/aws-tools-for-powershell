@@ -196,6 +196,18 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         public System.String SecretString { get; set; }
         #endregion
         
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para>The exact string that identifies the third-party partner that holds the external secret.
+        /// For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html">Managed
+        /// external secret partners</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Type { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -254,6 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             }
             #endif
             context.SecretString = this.SecretString;
+            context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -298,6 +311,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
                 if (cmdletContext.SecretString != null)
                 {
                     request.SecretString = cmdletContext.SecretString;
+                }
+                if (cmdletContext.Type != null)
+                {
+                    request.Type = cmdletContext.Type;
                 }
                 
                 CmdletOutput output;
@@ -368,6 +385,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             public byte[] SecretBinary { get; set; }
             public System.String SecretId { get; set; }
             public System.String SecretString { get; set; }
+            public System.String Type { get; set; }
             public System.Func<Amazon.SecretsManager.Model.UpdateSecretResponse, UpdateSECSecretCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

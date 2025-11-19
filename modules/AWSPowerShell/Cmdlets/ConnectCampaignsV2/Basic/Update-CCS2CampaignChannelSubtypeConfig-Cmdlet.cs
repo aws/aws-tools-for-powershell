@@ -261,6 +261,17 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
         public System.String Id { get; set; }
         #endregion
         
+        #region Parameter DefaultOutboundConfig_RingTimeout
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChannelSubtypeConfig_Telephony_DefaultOutboundConfig_RingTimeout")]
+        public System.Int32? DefaultOutboundConfig_RingTimeout { get; set; }
+        #endregion
+        
         #region Parameter DefaultOutboundConfig_SourceEmailAddressDisplayName
         /// <summary>
         /// <para>
@@ -352,6 +363,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             context.AnswerMachineDetectionConfig_EnableAnswerMachineDetection = this.AnswerMachineDetectionConfig_EnableAnswerMachineDetection;
             context.DefaultOutboundConfig_ConnectContactFlowId = this.DefaultOutboundConfig_ConnectContactFlowId;
             context.DefaultOutboundConfig_ConnectSourcePhoneNumber = this.DefaultOutboundConfig_ConnectSourcePhoneNumber;
+            context.DefaultOutboundConfig_RingTimeout = this.DefaultOutboundConfig_RingTimeout;
             context.ChannelSubtypeConfig_Telephony_OutboundMode_Agentless = this.ChannelSubtypeConfig_Telephony_OutboundMode_Agentless;
             context.Predictive_BandwidthAllocation = this.Predictive_BandwidthAllocation;
             if (this.Preview_AgentAction != null)
@@ -616,6 +628,16 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_DefaultOutboundConfig_defaultOutboundConfig_ConnectSourcePhoneNumber != null)
             {
                 requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_DefaultOutboundConfig.ConnectSourcePhoneNumber = requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_DefaultOutboundConfig_defaultOutboundConfig_ConnectSourcePhoneNumber;
+                requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_DefaultOutboundConfigIsNull = false;
+            }
+            System.Int32? requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_DefaultOutboundConfig_defaultOutboundConfig_RingTimeout = null;
+            if (cmdletContext.DefaultOutboundConfig_RingTimeout != null)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_DefaultOutboundConfig_defaultOutboundConfig_RingTimeout = cmdletContext.DefaultOutboundConfig_RingTimeout.Value;
+            }
+            if (requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_DefaultOutboundConfig_defaultOutboundConfig_RingTimeout != null)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_DefaultOutboundConfig.RingTimeout = requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_DefaultOutboundConfig_defaultOutboundConfig_RingTimeout.Value;
                 requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_DefaultOutboundConfigIsNull = false;
             }
             Amazon.ConnectCampaignsV2.Model.AnswerMachineDetectionConfig requestChannelSubtypeConfig_channelSubtypeConfig_Telephony_channelSubtypeConfig_Telephony_DefaultOutboundConfig_channelSubtypeConfig_Telephony_DefaultOutboundConfig_AnswerMachineDetectionConfig = null;
@@ -887,6 +909,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             public System.Boolean? AnswerMachineDetectionConfig_EnableAnswerMachineDetection { get; set; }
             public System.String DefaultOutboundConfig_ConnectContactFlowId { get; set; }
             public System.String DefaultOutboundConfig_ConnectSourcePhoneNumber { get; set; }
+            public System.Int32? DefaultOutboundConfig_RingTimeout { get; set; }
             public Amazon.ConnectCampaignsV2.Model.AgentlessConfig ChannelSubtypeConfig_Telephony_OutboundMode_Agentless { get; set; }
             public System.Double? Predictive_BandwidthAllocation { get; set; }
             public List<System.String> Preview_AgentAction { get; set; }

@@ -104,6 +104,22 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         public System.String[] BillingViewType { get; set; }
         #endregion
         
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para> Filters the list of billing views by name. You can specify search criteria to match
+        /// billing view names based on the search option provided. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Names")]
+        public Amazon.Billing.Model.StringSearch[] Name { get; set; }
+        #endregion
+        
         #region Parameter OwnerAccountId
         /// <summary>
         /// <para>
@@ -201,6 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
                 context.BillingViewType = new List<System.String>(this.BillingViewType);
             }
             context.MaxResult = this.MaxResult;
+            if (this.Name != null)
+            {
+                context.Name = new List<Amazon.Billing.Model.StringSearch>(this.Name);
+            }
             context.NextToken = this.NextToken;
             context.OwnerAccountId = this.OwnerAccountId;
             context.SourceAccountId = this.SourceAccountId;
@@ -262,6 +282,10 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Names = cmdletContext.Name;
             }
             if (cmdletContext.OwnerAccountId != null)
             {
@@ -355,6 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
             public List<System.String> Arn { get; set; }
             public List<System.String> BillingViewType { get; set; }
             public System.Int32? MaxResult { get; set; }
+            public List<Amazon.Billing.Model.StringSearch> Name { get; set; }
             public System.String NextToken { get; set; }
             public System.String OwnerAccountId { get; set; }
             public System.String SourceAccountId { get; set; }

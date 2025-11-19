@@ -247,6 +247,13 @@ $LM_Completers = {
             break
         }
 
+        # Amazon.Lambda.TenantIsolationMode
+        "Publish-LMFunction/TenancyConfig_TenantIsolationMode"
+        {
+            $v = "PER_TENANT"
+            break
+        }
+
         # Amazon.Lambda.TracingMode
         {
             ($_ -eq "Publish-LMFunction/TracingConfig_Mode") -Or
@@ -293,6 +300,7 @@ $LM_map = @{
     "SchemaRegistryConfig_EventRecordFormat"=@("New-LMEventSourceMapping","Update-LMEventSourceMapping")
     "SnapStart_ApplyOn"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "StartingPosition"=@("New-LMEventSourceMapping")
+    "TenancyConfig_TenantIsolationMode"=@("Publish-LMFunction")
     "TracingConfig_Mode"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "UpdateRuntimeOn"=@("Write-LMRuntimeManagementConfig")
 }

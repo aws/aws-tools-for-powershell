@@ -30,18 +30,18 @@ using Amazon.SecretsManager.Model;
 namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
-    /// Creates a new version with a new encrypted secret value and attaches it to the secret.
-    /// The version can contain a new <c>SecretString</c> value or a new <c>SecretBinary</c>
+    /// Creates a new version of your secret by creating a new encrypted value and attaching
+    /// it to the secret. version can contain a new <c>SecretString</c> value or a new <c>SecretBinary</c>
     /// value. 
     /// 
     ///  
     /// <para>
-    /// We recommend you avoid calling <c>PutSecretValue</c> at a sustained rate of more than
-    /// once every 10 minutes. When you update the secret value, Secrets Manager creates a
-    /// new version of the secret. Secrets Manager removes outdated versions when there are
-    /// more than 100, but it does not remove versions created less than 24 hours ago. If
-    /// you call <c>PutSecretValue</c> more than once every 10 minutes, you create more versions
-    /// than Secrets Manager removes, and you will reach the quota for secret versions.
+    /// Do not call <c>PutSecretValue</c> at a sustained rate of more than once every 10 minutes.
+    /// When you update the secret value, Secrets Manager creates a new version of the secret.
+    /// Secrets Manager keeps 100 of the most recent versions, but it keeps <i>all</i> secret
+    /// versions created in the last 24 hours. If you call <c>PutSecretValue</c> more than
+    /// once every 10 minutes, you will create more versions than Secrets Manager removes,
+    /// and you will reach the quota for secret versions.
     /// </para><para>
     /// You can specify the staging labels to attach to the new version in <c>VersionStages</c>.
     /// If you don't include <c>VersionStages</c>, then Secrets Manager automatically moves
@@ -111,12 +111,14 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter RotationToken
         /// <summary>
         /// <para>
-        /// <para>A unique identifier that indicates the source of the request. For cross-account rotation
-        /// (when you rotate a secret in one account by using a Lambda rotation function in another
-        /// account) and the Lambda rotation function assumes an IAM role to call Secrets Manager,
-        /// Secrets Manager validates the identity with the rotation token. For more information,
+        /// <para>A unique identifier that indicates the source of the request. Required for secret
+        /// rotations using an IAM assumed role or cross-account rotation, in which you rotate
+        /// a secret in one account by using a Lambda rotation function in another account. In
+        /// both cases, the rotation function assumes an IAM role to call Secrets Manager, and
+        /// then Secrets Manager validates the identity using the token. For more information,
         /// see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">How
-        /// rotation works</a>.</para><para>Sensitive: This field contains sensitive information, so the service does not include
+        /// rotation works</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_lambda">Rotation
+        /// by Lambda functions</a>.</para><para>Sensitive: This field contains sensitive information, so the service does not include
         /// it in CloudTrail log entries. If you create your own log entries, you must also avoid
         /// logging the information in this field.</para>
         /// </para>

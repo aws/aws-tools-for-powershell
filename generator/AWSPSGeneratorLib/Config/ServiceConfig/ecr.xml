@@ -11,7 +11,9 @@
     <ServiceModuleGuid>58bb5011-59c3-41ea-ba12-45c3813db939</ServiceModuleGuid>
     <PipelineParameter>RepositoryName</PipelineParameter>
     <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="100" />
-    <VerbMappings />
+    <VerbMappings>
+        <Map From="Deregister" To="Unregister" />
+    </VerbMappings>
     <NounMappings />
     <Params />
     <CustomAliases />
@@ -77,15 +79,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterPullTimeUpdateExclusion" OutputProperty="PrincipalArn" Verb="Unregister" Noun="PullTimeUpdateExclusion" ShouldProcessTarget="PrincipalArn" PipelineParameter="PrincipalArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeImageReplicationStatus" OutputProperty="*" Verb="Get" Noun="ImageReplicationStatus" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeImages" OutputProperty="ImageDetails" Verb="Get" Noun="ImageMetadata" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeImages" OutputProperty="ImageDetails" Verb="Get" Noun="ImageMetadata" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeImageScanFindings" OutputProperty="*" Verb="Get" Noun="ImageScanFinding" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeImageScanFindings" OutputProperty="*" Verb="Get" Noun="ImageScanFinding" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -97,7 +103,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRepositories" OutputProperty="Repositories" Verb="Get" Noun="Repository" PipelineParameter="RepositoryNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DescribeRepositories" OutputProperty="Repositories" Verb="Get" Noun="Repository" PipelineParameter="RepositoryNames" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params>
                 <Param Name="MaxResults" NewName="MaxResult" Alias="MaxItems" />
             </Params>
@@ -123,7 +129,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLifecyclePolicyPreview" OutputProperty="*" Verb="Get" Noun="LifecyclePolicyPreview" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetLifecyclePolicyPreview" OutputProperty="*" Verb="Get" Noun="LifecyclePolicyPreview" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -143,7 +149,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListImages" OutputProperty="ImageIds" Verb="Get" Noun="Image" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListImageReferrers" OutputProperty="Referrers" Verb="Get" Noun="ImageReferrerList" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListImages" OutputProperty="ImageIds" Verb="Get" Noun="Image" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPullTimeUpdateExclusions" OutputProperty="PullTimeUpdateExclusions" Verb="Get" Noun="PullTimeUpdateExclusionList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -183,6 +197,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RegisterPullTimeUpdateExclusion" OutputProperty="*" Verb="Register" Noun="PullTimeUpdateExclusion" ShouldProcessTarget="PrincipalArn" PipelineParameter="PrincipalArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SetRepositoryPolicy" OutputProperty="*" Verb="Set" Noun="RepositoryPolicy" ShouldProcessTarget="RepositoryName" PipelineParameter="PolicyText" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Force" NewName="OverridePolicy" AutoApplyAlias="false" />
@@ -205,6 +223,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateImageStorageClass" OutputProperty="*" Verb="Update" Noun="ImageStorageClass" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdatePullThroughCacheRule" OutputProperty="*" Verb="Update" Noun="PullThroughCacheRule" ShouldProcessTarget="CredentialArn" PipelineParameter="CredentialArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -213,7 +235,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UploadLayerPart" OutputProperty="*" Verb="Send" Noun="LayerPart" ShouldProcessTarget="RepositoryName" PipelineParameter="LayerPartBlob" NoPipelineParameter="false" DefaultParameterSet="FromBytes" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="UploadLayerPart" OutputProperty="*" Verb="Send" Noun="LayerPart" ShouldProcessTarget="RepositoryName" PipelineParameter="LayerPartBlob" NoPipelineParameter="false" LegacyV4Pagination="true" DefaultParameterSet="FromBytes">
             <Params>
                 <Param Name="LayerPartBlob" Alias="LayerPartBytes" AutoConvert="ToBase64" ParameterSetName="FromBytes" Mandatory="true" />
             </Params>

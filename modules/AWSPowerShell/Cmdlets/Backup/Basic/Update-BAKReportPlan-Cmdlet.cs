@@ -177,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <para>
         /// <para>Identifies the report template for the report. Reports are built using a report template.
         /// The report templates are:</para><para><c>RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT | COPY_JOB_REPORT
-        /// | RESTORE_JOB_REPORT</c></para>
+        /// | RESTORE_JOB_REPORT | SCAN_JOB_REPORT</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

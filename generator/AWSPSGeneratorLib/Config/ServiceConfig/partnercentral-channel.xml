@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>partnercentral-channel</C2jFilename>
+    <AssemblyName>PartnerCentralChannel</AssemblyName>
+    <ServiceNounPrefix>PCC</ServiceNounPrefix>
+    <ServiceName>Partner Central Channel API</ServiceName>
+    <ServiceClientInterface>IAmazonPartnerCentralChannel</ServiceClientInterface>
+    <ServiceClient>AmazonPartnerCentralChannelClient</ServiceClient>
+    <ServiceModuleGuid>8de5375d-32f4-4d28-8491-a6fbae15574b</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AcceptChannelHandshake" OutputProperty="ChannelHandshakeDetail" Verb="Approve" Noun="ChannelHandshake" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelChannelHandshake" OutputProperty="ChannelHandshakeDetail" Verb="Stop" Noun="ChannelHandshake" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateChannelHandshake" OutputProperty="ChannelHandshakeDetail" Verb="New" Noun="ChannelHandshake" ShouldProcessTarget="AssociatedResourceIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProgramManagementAccount" OutputProperty="ProgramManagementAccountDetail" Verb="New" Noun="ProgramManagementAccount" ShouldProcessTarget="AccountId,DisplayName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRelationship" OutputProperty="RelationshipDetail" Verb="New" Noun="Relationship" ShouldProcessTarget="AssociatedAccountId,DisplayName,ProgramManagementAccountIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProgramManagementAccount" Verb="Remove" Noun="ProgramManagementAccount" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRelationship" Verb="Remove" Noun="Relationship" ShouldProcessTarget="Identifier,ProgramManagementAccountIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRelationship" OutputProperty="RelationshipDetail" Verb="Get" Noun="Relationship" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChannelHandshakes" OutputProperty="Items" Verb="Get" Noun="ChannelHandshakeList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProgramManagementAccounts" OutputProperty="Items" Verb="Get" Noun="ProgramManagementAccountList" PipelineParameter="Catalog" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRelationships" OutputProperty="Items" Verb="Get" Noun="RelationshipList" PipelineParameter="Catalog" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RejectChannelHandshake" OutputProperty="ChannelHandshakeDetail" Verb="Deny" Noun="ChannelHandshake" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProgramManagementAccount" OutputProperty="ProgramManagementAccountDetail" Verb="Update" Noun="ProgramManagementAccount" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRelationship" OutputProperty="RelationshipDetail" Verb="Update" Noun="Relationship" ShouldProcessTarget="Identifier,ProgramManagementAccountIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -93,6 +93,8 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Invoke-AWSLogin', 
+        'Invoke-AWSLogout', 
         'Initialize-AWSDefaultConfiguration', 
         'Clear-AWSDefaultConfiguration', 
         'Get-AWSPowerShellVersion', 
@@ -124,9 +126,7 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
         'Invoke-AWSSSOLogin', 
         'Initialize-AWSSSOConfiguration', 
         'Set-AWSSSOSessionConfiguration', 
-        'Invoke-AWSSSOLogout', 
-        'Invoke-AWSLogin', 
-        'Invoke-AWSLogout')
+        'Invoke-AWSSSOLogout')
 
     # Variables to export from this module
     VariablesToExport = '*'

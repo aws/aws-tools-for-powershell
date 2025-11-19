@@ -224,7 +224,7 @@ $EML_Completers = {
         # Amazon.MediaLive.InputType
         "New-EMLInput/Type"
         {
-            $v = "AWS_CDI","INPUT_DEVICE","MEDIACONNECT","MP4_FILE","MULTICAST","RTMP_PULL","RTMP_PUSH","RTP_PUSH","SDI","SMPTE_2110_RECEIVER_GROUP","SRT_CALLER","TS_FILE","UDP_PUSH","URL_PULL"
+            $v = "AWS_CDI","INPUT_DEVICE","MEDIACONNECT","MEDIACONNECT_ROUTER","MP4_FILE","MULTICAST","RTMP_PULL","RTMP_PUSH","RTP_PUSH","SDI","SMPTE_2110_RECEIVER_GROUP","SRT_CALLER","TS_FILE","UDP_PUSH","URL_PULL"
             break
         }
 
@@ -286,6 +286,13 @@ $EML_Completers = {
             break
         }
 
+        # Amazon.MediaLive.RouterEncryptionType
+        "New-EMLInput/RouterSettings_EncryptionType"
+        {
+            $v = "AUTOMATIC","SECRETS_MANAGER"
+            break
+        }
+
         # Amazon.MediaLive.SdiSourceMode
         {
             ($_ -eq "New-EMLSdiSource/Mode") -Or
@@ -341,6 +348,7 @@ $EML_map = @{
     "MultiplexProgramSettings_PreferredChannelPipeline"=@("New-EMLMultiplexProgram","Update-EMLMultiplexProgram")
     "RenewalSettings_AutomaticRenewal"=@("New-EMLOfferingPurchase","Update-EMLReservation")
     "Role"=@("New-EMLNode","New-EMLNodeRegistrationScript","Update-EMLNode")
+    "RouterSettings_EncryptionType"=@("New-EMLInput")
     "State"=@("Update-EMLNodeState")
     "Statistic"=@("New-EMLCloudWatchAlarmTemplate","Update-EMLCloudWatchAlarmTemplate")
     "TargetResourceType"=@("New-EMLCloudWatchAlarmTemplate","Update-EMLCloudWatchAlarmTemplate")

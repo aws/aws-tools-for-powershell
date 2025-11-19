@@ -637,6 +637,22 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.Boolean? InstanceRequirements_RequireHibernateSupport { get; set; }
         #endregion
         
+        #region Parameter InfrastructureOptimization_ScaleInAfter
+        /// <summary>
+        /// <para>
+        /// <para>This parameter defines the number of seconds Amazon ECS Managed Instances waits before
+        /// optimizing EC2 instances that have become idle or underutilized. A longer delay increases
+        /// the likelihood of placing new tasks on idle or underutilized instances instances,
+        /// reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing
+        /// idle or underutilized instances,instances more quickly.</para><para>Valid values are:</para><ul><li><para><c>null</c> - Uses the default optimization behavior.</para></li><li><para><c>-1</c> - Disables automatic infrastructure optimization.</para></li><li><para>A value between <c>0</c> and <c>3600</c> (inclusive) - Specifies the number of seconds
+        /// to wait before optimizing instances.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManagedInstancesProvider_InfrastructureOptimization_ScaleInAfter")]
+        public System.Int32? InfrastructureOptimization_ScaleInAfter { get; set; }
+        #endregion
+        
         #region Parameter NetworkConfiguration_SecurityGroup
         /// <summary>
         /// <para>
@@ -775,6 +791,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.ManagedScaling_TargetCapacity = this.ManagedScaling_TargetCapacity;
             context.AutoScalingGroupProvider_ManagedTerminationProtection = this.AutoScalingGroupProvider_ManagedTerminationProtection;
             context.Cluster = this.Cluster;
+            context.InfrastructureOptimization_ScaleInAfter = this.InfrastructureOptimization_ScaleInAfter;
             context.ManagedInstancesProvider_InfrastructureRoleArn = this.ManagedInstancesProvider_InfrastructureRoleArn;
             context.InstanceLaunchTemplate_Ec2InstanceProfileArn = this.InstanceLaunchTemplate_Ec2InstanceProfileArn;
             context.AcceleratorCount_Max = this.AcceleratorCount_Max;
@@ -988,6 +1005,31 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (requestManagedInstancesProvider_managedInstancesProvider_PropagateTag != null)
             {
                 request.ManagedInstancesProvider.PropagateTags = requestManagedInstancesProvider_managedInstancesProvider_PropagateTag;
+                requestManagedInstancesProviderIsNull = false;
+            }
+            Amazon.ECS.Model.InfrastructureOptimization requestManagedInstancesProvider_managedInstancesProvider_InfrastructureOptimization = null;
+            
+             // populate InfrastructureOptimization
+            var requestManagedInstancesProvider_managedInstancesProvider_InfrastructureOptimizationIsNull = true;
+            requestManagedInstancesProvider_managedInstancesProvider_InfrastructureOptimization = new Amazon.ECS.Model.InfrastructureOptimization();
+            System.Int32? requestManagedInstancesProvider_managedInstancesProvider_InfrastructureOptimization_infrastructureOptimization_ScaleInAfter = null;
+            if (cmdletContext.InfrastructureOptimization_ScaleInAfter != null)
+            {
+                requestManagedInstancesProvider_managedInstancesProvider_InfrastructureOptimization_infrastructureOptimization_ScaleInAfter = cmdletContext.InfrastructureOptimization_ScaleInAfter.Value;
+            }
+            if (requestManagedInstancesProvider_managedInstancesProvider_InfrastructureOptimization_infrastructureOptimization_ScaleInAfter != null)
+            {
+                requestManagedInstancesProvider_managedInstancesProvider_InfrastructureOptimization.ScaleInAfter = requestManagedInstancesProvider_managedInstancesProvider_InfrastructureOptimization_infrastructureOptimization_ScaleInAfter.Value;
+                requestManagedInstancesProvider_managedInstancesProvider_InfrastructureOptimizationIsNull = false;
+            }
+             // determine if requestManagedInstancesProvider_managedInstancesProvider_InfrastructureOptimization should be set to null
+            if (requestManagedInstancesProvider_managedInstancesProvider_InfrastructureOptimizationIsNull)
+            {
+                requestManagedInstancesProvider_managedInstancesProvider_InfrastructureOptimization = null;
+            }
+            if (requestManagedInstancesProvider_managedInstancesProvider_InfrastructureOptimization != null)
+            {
+                request.ManagedInstancesProvider.InfrastructureOptimization = requestManagedInstancesProvider_managedInstancesProvider_InfrastructureOptimization;
                 requestManagedInstancesProviderIsNull = false;
             }
             Amazon.ECS.Model.InstanceLaunchTemplateUpdate requestManagedInstancesProvider_managedInstancesProvider_InstanceLaunchTemplate = null;
@@ -1637,6 +1679,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.Int32? ManagedScaling_TargetCapacity { get; set; }
             public Amazon.ECS.ManagedTerminationProtection AutoScalingGroupProvider_ManagedTerminationProtection { get; set; }
             public System.String Cluster { get; set; }
+            public System.Int32? InfrastructureOptimization_ScaleInAfter { get; set; }
             public System.String ManagedInstancesProvider_InfrastructureRoleArn { get; set; }
             public System.String InstanceLaunchTemplate_Ec2InstanceProfileArn { get; set; }
             public System.Int32? AcceleratorCount_Max { get; set; }

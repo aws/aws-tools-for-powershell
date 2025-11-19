@@ -44,6 +44,16 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter CostCategoryGroupSharingPreferenceArn
+        /// <summary>
+        /// <para>
+        /// <para>The arn of the cost category used in the reserved and prioritized group sharing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CostCategoryGroupSharingPreferenceArn { get; set; }
+        #endregion
+        
         #region Parameter ExpiresAt
         /// <summary>
         /// <para>
@@ -52,6 +62,18 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.DateTime? ExpiresAt { get; set; }
+        #endregion
+        
+        #region Parameter GroupSharingPreference
+        /// <summary>
+        /// <para>
+        /// <para>The setting for the reserved instance and savings plan group sharing used in this
+        /// estimate.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BCMPricingCalculator.GroupSharingPreferenceEnum")]
+        public Amazon.BCMPricingCalculator.GroupSharingPreferenceEnum GroupSharingPreference { get; set; }
         #endregion
         
         #region Parameter Identifier
@@ -127,7 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
                 context.Select = CreateSelectDelegate<Amazon.BCMPricingCalculator.Model.UpdateBillScenarioResponse, UpdateBCMPCBillScenarioCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.CostCategoryGroupSharingPreferenceArn = this.CostCategoryGroupSharingPreferenceArn;
             context.ExpiresAt = this.ExpiresAt;
+            context.GroupSharingPreference = this.GroupSharingPreference;
             context.Identifier = this.Identifier;
             #if MODULAR
             if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
@@ -152,9 +176,17 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
             // create request
             var request = new Amazon.BCMPricingCalculator.Model.UpdateBillScenarioRequest();
             
+            if (cmdletContext.CostCategoryGroupSharingPreferenceArn != null)
+            {
+                request.CostCategoryGroupSharingPreferenceArn = cmdletContext.CostCategoryGroupSharingPreferenceArn;
+            }
             if (cmdletContext.ExpiresAt != null)
             {
                 request.ExpiresAt = cmdletContext.ExpiresAt.Value;
+            }
+            if (cmdletContext.GroupSharingPreference != null)
+            {
+                request.GroupSharingPreference = cmdletContext.GroupSharingPreference;
             }
             if (cmdletContext.Identifier != null)
             {
@@ -219,7 +251,9 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CostCategoryGroupSharingPreferenceArn { get; set; }
             public System.DateTime? ExpiresAt { get; set; }
+            public Amazon.BCMPricingCalculator.GroupSharingPreferenceEnum GroupSharingPreference { get; set; }
             public System.String Identifier { get; set; }
             public System.String Name { get; set; }
             public System.Func<Amazon.BCMPricingCalculator.Model.UpdateBillScenarioResponse, UpdateBCMPCBillScenarioCmdlet, object> Select { get; set; } =

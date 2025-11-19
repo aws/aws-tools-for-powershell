@@ -77,6 +77,23 @@ namespace Amazon.PowerShell.Cmdlets.INV
         public System.DateTime? AsOf { get; set; }
         #endregion
         
+        #region Parameter Filters_BillSourceAccount
+        /// <summary>
+        /// <para>
+        /// <para> A list of Amazon Web Services account account IDs used to filter invoice units. These
+        /// are payer accounts from other Organizations that have delegated their billing responsibility
+        /// to the receiver account through the billing transfer feature. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_BillSourceAccounts")]
+        public System.String[] Filters_BillSourceAccount { get; set; }
+        #endregion
+        
         #region Parameter Filters_InvoiceReceiver
         /// <summary>
         /// <para>
@@ -184,6 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.INV
             {
                 context.Filters_Account = new List<System.String>(this.Filters_Account);
             }
+            if (this.Filters_BillSourceAccount != null)
+            {
+                context.Filters_BillSourceAccount = new List<System.String>(this.Filters_BillSourceAccount);
+            }
             if (this.Filters_InvoiceReceiver != null)
             {
                 context.Filters_InvoiceReceiver = new List<System.String>(this.Filters_InvoiceReceiver);
@@ -228,6 +249,16 @@ namespace Amazon.PowerShell.Cmdlets.INV
             if (requestFilters_filters_Account != null)
             {
                 request.Filters.Accounts = requestFilters_filters_Account;
+                requestFiltersIsNull = false;
+            }
+            List<System.String> requestFilters_filters_BillSourceAccount = null;
+            if (cmdletContext.Filters_BillSourceAccount != null)
+            {
+                requestFilters_filters_BillSourceAccount = cmdletContext.Filters_BillSourceAccount;
+            }
+            if (requestFilters_filters_BillSourceAccount != null)
+            {
+                request.Filters.BillSourceAccounts = requestFilters_filters_BillSourceAccount;
                 requestFiltersIsNull = false;
             }
             List<System.String> requestFilters_filters_InvoiceReceiver = null;
@@ -340,6 +371,7 @@ namespace Amazon.PowerShell.Cmdlets.INV
         {
             public System.DateTime? AsOf { get; set; }
             public List<System.String> Filters_Account { get; set; }
+            public List<System.String> Filters_BillSourceAccount { get; set; }
             public List<System.String> Filters_InvoiceReceiver { get; set; }
             public List<System.String> Filters_Name { get; set; }
             public System.Int32? MaxResult { get; set; }

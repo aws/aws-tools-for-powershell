@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <note><para>
     /// This operation is not supported for directory buckets.
     /// </para></note><para>
-    /// Sets the tags for a bucket.
+    /// Sets the tags for a general purpose bucket. 
     /// </para><para>
     /// Use tags to organize your Amazon Web Services bill to reflect your own cost structure.
     /// To do this, sign up to get your Amazon Web Services account bill with tag key values

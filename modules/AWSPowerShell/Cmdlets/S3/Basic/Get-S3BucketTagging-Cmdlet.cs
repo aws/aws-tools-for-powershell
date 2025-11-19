@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <note><para>
     /// This operation is not supported for directory buckets.
     /// </para></note><para>
-    /// Returns the tag set associated with the bucket.
+    /// Returns the tag set associated with the general purpose bucket.
     /// </para><para>
     /// To use this operation, you must have permission to perform the <c>s3:GetBucketTagging</c>
     /// action. By default, the bucket owner has this permission and can grant this permission

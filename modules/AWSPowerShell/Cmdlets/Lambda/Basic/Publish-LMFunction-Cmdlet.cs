@@ -593,6 +593,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String DeadLetterConfig_TargetArn { get; set; }
         #endregion
         
+        #region Parameter TenancyConfig_TenantIsolationMode
+        /// <summary>
+        /// <para>
+        /// <para>Tenant isolation mode allows for invocation to be sent to a corresponding execution
+        /// environment dedicated to a specific tenant ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lambda.TenantIsolationMode")]
+        public Amazon.Lambda.TenantIsolationMode TenancyConfig_TenantIsolationMode { get; set; }
+        #endregion
+        
         #region Parameter Timeout
         /// <summary>
         /// <para>
@@ -779,6 +791,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
+            context.TenancyConfig_TenantIsolationMode = this.TenancyConfig_TenantIsolationMode;
             context.Timeout = this.Timeout;
             context.TracingConfig_Mode = this.TracingConfig_Mode;
             context.VpcConfig_Ipv6AllowedForDualStack = this.VpcConfig_Ipv6AllowedForDualStack;
@@ -1140,6 +1153,25 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 {
                     request.Tags = cmdletContext.Tag;
                 }
+                
+                 // populate TenancyConfig
+                var requestTenancyConfigIsNull = true;
+                request.TenancyConfig = new Amazon.Lambda.Model.TenancyConfig();
+                Amazon.Lambda.TenantIsolationMode requestTenancyConfig_tenancyConfig_TenantIsolationMode = null;
+                if (cmdletContext.TenancyConfig_TenantIsolationMode != null)
+                {
+                    requestTenancyConfig_tenancyConfig_TenantIsolationMode = cmdletContext.TenancyConfig_TenantIsolationMode;
+                }
+                if (requestTenancyConfig_tenancyConfig_TenantIsolationMode != null)
+                {
+                    request.TenancyConfig.TenantIsolationMode = requestTenancyConfig_tenancyConfig_TenantIsolationMode;
+                    requestTenancyConfigIsNull = false;
+                }
+                 // determine if request.TenancyConfig should be set to null
+                if (requestTenancyConfigIsNull)
+                {
+                    request.TenancyConfig = null;
+                }
                 if (cmdletContext.Timeout != null)
                 {
                     request.Timeout = cmdletContext.Timeout.Value;
@@ -1319,6 +1351,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public Amazon.Lambda.Runtime Runtime { get; set; }
             public Amazon.Lambda.SnapStartApplyOn SnapStart_ApplyOn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public Amazon.Lambda.TenantIsolationMode TenancyConfig_TenantIsolationMode { get; set; }
             public System.Int32? Timeout { get; set; }
             public Amazon.Lambda.TracingMode TracingConfig_Mode { get; set; }
             public System.Boolean? VpcConfig_Ipv6AllowedForDualStack { get; set; }

@@ -30,10 +30,15 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describe verification tokens. A verification token is an Amazon Web Services-generated
-    /// random value that you can use to prove ownership of an external resource. For example,
-    /// you can use a verification token to validate that you control a public IP address
-    /// range when you bring an IP address range to Amazon Web Services (BYOIP).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describe verification tokens.
+    /// 
+    ///  
+    /// <para>
+    /// A verification token is an Amazon Web Services-generated random value that you can
+    /// use to prove ownership of an external resource. For example, you can use a verification
+    /// token to validate that you control a public IP address range when you bring an IP
+    /// address range to Amazon Web Services (BYOIP). 
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2IpamExternalResourceVerificationToken")]
     [OutputType("Amazon.EC2.Model.IpamExternalResourceVerificationToken")]

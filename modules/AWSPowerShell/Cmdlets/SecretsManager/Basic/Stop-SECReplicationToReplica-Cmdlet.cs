@@ -64,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SecretId
         /// <summary>
         /// <para>
-        /// <para>The ARN of the primary secret. </para>
+        /// <para>The name of the secret or the replica ARN. The replica ARN is the same as the original
+        /// primary secret ARN expect the Region is changed to the replica Region. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

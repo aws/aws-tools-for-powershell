@@ -45,6 +45,17 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter EncryptionKeyConfiguration_Automatic
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RouterIntegrationTransitEncryption_EncryptionKeyConfiguration_Automatic")]
+        public Amazon.MediaConnect.Model.AutomaticEncryptionKeyConfiguration EncryptionKeyConfiguration_Automatic { get; set; }
+        #endregion
+        
         #region Parameter CidrAllowList
         /// <summary>
         /// <para>
@@ -91,6 +102,17 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.MediaConnect.Model.UpdateEncryption Encryption { get; set; }
+        #endregion
+        
+        #region Parameter RouterIntegrationTransitEncryption_EncryptionKeyType
+        /// <summary>
+        /// <para>
+        /// <para>The type of encryption key to use for flow transit encryption.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.FlowTransitEncryptionKeyType")]
+        public Amazon.MediaConnect.FlowTransitEncryptionKeyType RouterIntegrationTransitEncryption_EncryptionKeyType { get; set; }
         #endregion
         
         #region Parameter FlowArn
@@ -234,6 +256,40 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public System.String RemoteId { get; set; }
         #endregion
         
+        #region Parameter SecretsManager_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager
+        /// secret.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RouterIntegrationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_RoleArn")]
+        public System.String SecretsManager_RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter RouterIntegrationState
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to enable or disable router integration for this flow output.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.State")]
+        public Amazon.MediaConnect.State RouterIntegrationState { get; set; }
+        #endregion
+        
+        #region Parameter SecretsManager_SecretArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the AWS Secrets Manager secret used for transit encryption.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RouterIntegrationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_SecretArn")]
+        public System.String SecretsManager_SecretArn { get; set; }
+        #endregion
+        
         #region Parameter SenderControlPort
         /// <summary>
         /// <para>
@@ -365,6 +421,11 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             context.Port = this.Port;
             context.Protocol = this.Protocol;
             context.RemoteId = this.RemoteId;
+            context.RouterIntegrationState = this.RouterIntegrationState;
+            context.EncryptionKeyConfiguration_Automatic = this.EncryptionKeyConfiguration_Automatic;
+            context.SecretsManager_RoleArn = this.SecretsManager_RoleArn;
+            context.SecretsManager_SecretArn = this.SecretsManager_SecretArn;
+            context.RouterIntegrationTransitEncryption_EncryptionKeyType = this.RouterIntegrationTransitEncryption_EncryptionKeyType;
             context.SenderControlPort = this.SenderControlPort;
             context.SenderIpAddress = this.SenderIpAddress;
             context.SmoothingLatency = this.SmoothingLatency;
@@ -445,6 +506,89 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             if (cmdletContext.RemoteId != null)
             {
                 request.RemoteId = cmdletContext.RemoteId;
+            }
+            if (cmdletContext.RouterIntegrationState != null)
+            {
+                request.RouterIntegrationState = cmdletContext.RouterIntegrationState;
+            }
+            
+             // populate RouterIntegrationTransitEncryption
+            var requestRouterIntegrationTransitEncryptionIsNull = true;
+            request.RouterIntegrationTransitEncryption = new Amazon.MediaConnect.Model.FlowTransitEncryption();
+            Amazon.MediaConnect.FlowTransitEncryptionKeyType requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyType = null;
+            if (cmdletContext.RouterIntegrationTransitEncryption_EncryptionKeyType != null)
+            {
+                requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyType = cmdletContext.RouterIntegrationTransitEncryption_EncryptionKeyType;
+            }
+            if (requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyType != null)
+            {
+                request.RouterIntegrationTransitEncryption.EncryptionKeyType = requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyType;
+                requestRouterIntegrationTransitEncryptionIsNull = false;
+            }
+            Amazon.MediaConnect.Model.FlowTransitEncryptionKeyConfiguration requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration = null;
+            
+             // populate EncryptionKeyConfiguration
+            var requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfigurationIsNull = true;
+            requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration = new Amazon.MediaConnect.Model.FlowTransitEncryptionKeyConfiguration();
+            Amazon.MediaConnect.Model.AutomaticEncryptionKeyConfiguration requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_encryptionKeyConfiguration_Automatic = null;
+            if (cmdletContext.EncryptionKeyConfiguration_Automatic != null)
+            {
+                requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_encryptionKeyConfiguration_Automatic = cmdletContext.EncryptionKeyConfiguration_Automatic;
+            }
+            if (requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_encryptionKeyConfiguration_Automatic != null)
+            {
+                requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration.Automatic = requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_encryptionKeyConfiguration_Automatic;
+                requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfigurationIsNull = false;
+            }
+            Amazon.MediaConnect.Model.SecretsManagerEncryptionKeyConfiguration requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_SecretsManager = null;
+            
+             // populate SecretsManager
+            var requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_SecretsManagerIsNull = true;
+            requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_SecretsManager = new Amazon.MediaConnect.Model.SecretsManagerEncryptionKeyConfiguration();
+            System.String requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_secretsManager_RoleArn = null;
+            if (cmdletContext.SecretsManager_RoleArn != null)
+            {
+                requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_secretsManager_RoleArn = cmdletContext.SecretsManager_RoleArn;
+            }
+            if (requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_secretsManager_RoleArn != null)
+            {
+                requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_SecretsManager.RoleArn = requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_secretsManager_RoleArn;
+                requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_SecretsManagerIsNull = false;
+            }
+            System.String requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_secretsManager_SecretArn = null;
+            if (cmdletContext.SecretsManager_SecretArn != null)
+            {
+                requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_secretsManager_SecretArn = cmdletContext.SecretsManager_SecretArn;
+            }
+            if (requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_secretsManager_SecretArn != null)
+            {
+                requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_SecretsManager.SecretArn = requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_secretsManager_SecretArn;
+                requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_SecretsManagerIsNull = false;
+            }
+             // determine if requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_SecretsManager should be set to null
+            if (requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_SecretsManagerIsNull)
+            {
+                requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_SecretsManager = null;
+            }
+            if (requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_SecretsManager != null)
+            {
+                requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration.SecretsManager = requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_routerIntegrationTransitEncryption_EncryptionKeyConfiguration_SecretsManager;
+                requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfigurationIsNull = false;
+            }
+             // determine if requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration should be set to null
+            if (requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfigurationIsNull)
+            {
+                requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration = null;
+            }
+            if (requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration != null)
+            {
+                request.RouterIntegrationTransitEncryption.EncryptionKeyConfiguration = requestRouterIntegrationTransitEncryption_routerIntegrationTransitEncryption_EncryptionKeyConfiguration;
+                requestRouterIntegrationTransitEncryptionIsNull = false;
+            }
+             // determine if request.RouterIntegrationTransitEncryption should be set to null
+            if (requestRouterIntegrationTransitEncryptionIsNull)
+            {
+                request.RouterIntegrationTransitEncryption = null;
             }
             if (cmdletContext.SenderControlPort != null)
             {
@@ -551,6 +695,11 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public System.Int32? Port { get; set; }
             public Amazon.MediaConnect.Protocol Protocol { get; set; }
             public System.String RemoteId { get; set; }
+            public Amazon.MediaConnect.State RouterIntegrationState { get; set; }
+            public Amazon.MediaConnect.Model.AutomaticEncryptionKeyConfiguration EncryptionKeyConfiguration_Automatic { get; set; }
+            public System.String SecretsManager_RoleArn { get; set; }
+            public System.String SecretsManager_SecretArn { get; set; }
+            public Amazon.MediaConnect.FlowTransitEncryptionKeyType RouterIntegrationTransitEncryption_EncryptionKeyType { get; set; }
             public System.Int32? SenderControlPort { get; set; }
             public System.String SenderIpAddress { get; set; }
             public System.Int32? SmoothingLatency { get; set; }

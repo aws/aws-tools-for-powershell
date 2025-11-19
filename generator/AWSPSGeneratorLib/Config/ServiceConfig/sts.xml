@@ -75,6 +75,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetWebIdentityToken" OutputProperty="*" Verb="Get" Noun="WebIdentityToken" PipelineParameter="SigningAlgorithm" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
     <TypesNotToFlatten />
 </ConfigModel>

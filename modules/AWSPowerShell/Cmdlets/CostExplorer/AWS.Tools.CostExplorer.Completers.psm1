@@ -217,7 +217,7 @@ $CE_Completers = {
         # Amazon.CostExplorer.MonitorDimension
         "New-CEAnomalyMonitor/AnomalyMonitor_MonitorDimension"
         {
-            $v = "SERVICE"
+            $v = "COST_CATEGORY","LINKED_ACCOUNT","SERVICE","TAG"
             break
         }
 

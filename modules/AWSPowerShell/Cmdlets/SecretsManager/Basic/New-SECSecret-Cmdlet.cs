@@ -259,6 +259,18 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         public Amazon.SecretsManager.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para>The exact string that identifies the partner that holds the external secret. For more
+        /// information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/managed-external-secrets.html">Using
+        /// Secrets Manager managed external secrets</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Type { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -326,6 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             {
                 context.Tag = new List<Amazon.SecretsManager.Model.Tag>(this.Tag);
             }
+            context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -382,6 +395,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
                 if (cmdletContext.Tag != null)
                 {
                     request.Tags = cmdletContext.Tag;
+                }
+                if (cmdletContext.Type != null)
+                {
+                    request.Type = cmdletContext.Type;
                 }
                 
                 CmdletOutput output;
@@ -455,6 +472,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             public byte[] SecretBinary { get; set; }
             public System.String SecretString { get; set; }
             public List<Amazon.SecretsManager.Model.Tag> Tag { get; set; }
+            public System.String Type { get; set; }
             public System.Func<Amazon.SecretsManager.Model.CreateSecretResponse, NewSECSecretCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

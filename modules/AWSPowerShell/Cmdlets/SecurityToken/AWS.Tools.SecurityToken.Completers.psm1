@@ -131,6 +131,7 @@ $STS_SelectMap = @{
                "Get-STSDelegatedAccessToken",
                "Get-STSFederationToken",
                "Get-STSSessionToken",
+               "Get-STSWebIdentityToken",
                "Use-STSRoleWithSAML",
                "Use-STSWebIdentityRole")
 }

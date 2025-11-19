@@ -73,6 +73,18 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         public Amazon.ECR.Model.ImageIdentifier[] ImageId { get; set; }
         #endregion
         
+        #region Parameter Filter_ImageStatus
+        /// <summary>
+        /// <para>
+        /// <para>The image status with which to filter your <a>DescribeImages</a> results. Valid values
+        /// are <c>ACTIVE</c>, <c>ARCHIVED</c>, and <c>ACTIVATING</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ECR.ImageStatusFilter")]
+        public Amazon.ECR.ImageStatusFilter Filter_ImageStatus { get; set; }
+        #endregion
+        
         #region Parameter RegistryId
         /// <summary>
         /// <para>
@@ -195,6 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
                 context.Select = CreateSelectDelegate<Amazon.ECR.Model.DescribeImagesResponse, GetECRImageMetadataCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Filter_ImageStatus = this.Filter_ImageStatus;
             context.Filter_TagStatus = this.Filter_TagStatus;
             if (this.ImageId != null)
             {
@@ -242,6 +255,16 @@ namespace Amazon.PowerShell.Cmdlets.ECR
              // populate Filter
             var requestFilterIsNull = true;
             request.Filter = new Amazon.ECR.Model.DescribeImagesFilter();
+            Amazon.ECR.ImageStatusFilter requestFilter_filter_ImageStatus = null;
+            if (cmdletContext.Filter_ImageStatus != null)
+            {
+                requestFilter_filter_ImageStatus = cmdletContext.Filter_ImageStatus;
+            }
+            if (requestFilter_filter_ImageStatus != null)
+            {
+                request.Filter.ImageStatus = requestFilter_filter_ImageStatus;
+                requestFilterIsNull = false;
+            }
             Amazon.ECR.TagStatus requestFilter_filter_TagStatus = null;
             if (cmdletContext.Filter_TagStatus != null)
             {
@@ -332,6 +355,16 @@ namespace Amazon.PowerShell.Cmdlets.ECR
              // populate Filter
             var requestFilterIsNull = true;
             request.Filter = new Amazon.ECR.Model.DescribeImagesFilter();
+            Amazon.ECR.ImageStatusFilter requestFilter_filter_ImageStatus = null;
+            if (cmdletContext.Filter_ImageStatus != null)
+            {
+                requestFilter_filter_ImageStatus = cmdletContext.Filter_ImageStatus;
+            }
+            if (requestFilter_filter_ImageStatus != null)
+            {
+                request.Filter.ImageStatus = requestFilter_filter_ImageStatus;
+                requestFilterIsNull = false;
+            }
             Amazon.ECR.TagStatus requestFilter_filter_TagStatus = null;
             if (cmdletContext.Filter_TagStatus != null)
             {
@@ -472,6 +505,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.ECR.ImageStatusFilter Filter_ImageStatus { get; set; }
             public Amazon.ECR.TagStatus Filter_TagStatus { get; set; }
             public List<Amazon.ECR.Model.ImageIdentifier> ImageId { get; set; }
             public int? MaxResult { get; set; }

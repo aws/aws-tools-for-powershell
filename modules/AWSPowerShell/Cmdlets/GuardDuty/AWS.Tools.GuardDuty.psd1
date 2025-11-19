@@ -110,6 +110,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-GDMalwareProtectionPlan', 
         'Get-GDMalwareProtectionPlanList', 
         'Get-GDMalwareScan', 
+        'Get-GDMalwareScanDetail', 
+        'Get-GDMalwareScanList', 
         'Get-GDMalwareScanSetting', 
         'Get-GDMasterAccount', 
         'Get-GDMember', 

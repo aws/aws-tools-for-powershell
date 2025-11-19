@@ -80,6 +80,13 @@ $CWRUM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CloudWatchRUM.AppMonitorPlatform
+        "New-CWRUMAppMonitor/Platform"
+        {
+            $v = "Android","iOS","Web"
+            break
+        }
+
         # Amazon.CloudWatchRUM.CustomEventsStatus
         {
             ($_ -eq "New-CWRUMAppMonitor/CustomEvents_Status") -Or
@@ -126,6 +133,7 @@ $CWRUM_map = @{
     "CustomEvents_Status"=@("New-CWRUMAppMonitor","Update-CWRUMAppMonitor")
     "Destination"=@("Add-CWRUMCreateRumMetricDefinition","Get-CWRUMGetRumMetricDefinition","Remove-CWRUMDeleteRumMetricDefinition","Remove-CWRUMRumMetricsDestination","Update-CWRUMRumMetricDefinition","Write-CWRUMRumMetricsDestination")
     "JavaScriptSourceMaps_Status"=@("New-CWRUMAppMonitor","Update-CWRUMAppMonitor")
+    "Platform"=@("New-CWRUMAppMonitor")
 }
 
 _awsArgumentCompleterRegistration $CWRUM_Completers $CWRUM_map

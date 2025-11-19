@@ -80,6 +80,13 @@ $ECR_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ECR.ArtifactStatusFilter
+        "Get-ECRImageReferrerList/Filter_ArtifactStatus"
+        {
+            $v = "ACTIVATING","ACTIVE","ANY","ARCHIVED"
+            break
+        }
+
         # Amazon.ECR.EncryptionType
         {
             ($_ -eq "New-ECRRepository/EncryptionConfiguration_EncryptionType") -Or
@@ -88,6 +95,16 @@ $ECR_Completers = {
         }
         {
             $v = "AES256","KMS","KMS_DSSE"
+            break
+        }
+
+        # Amazon.ECR.ImageStatusFilter
+        {
+            ($_ -eq "Get-ECRImage/Filter_ImageStatus") -Or
+            ($_ -eq "Get-ECRImageMetadata/Filter_ImageStatus")
+        }
+        {
+            $v = "ACTIVATING","ACTIVE","ANY","ARCHIVED"
             break
         }
 
@@ -121,6 +138,13 @@ $ECR_Completers = {
             break
         }
 
+        # Amazon.ECR.TargetStorageClass
+        "Update-ECRImageStorageClass/TargetStorageClass"
+        {
+            $v = "ARCHIVE","STANDARD"
+            break
+        }
+
         # Amazon.ECR.UpstreamRegistry
         "New-ECRPullThroughCacheRule/UpstreamRegistry"
         {
@@ -138,9 +162,12 @@ $ECR_Completers = {
 
 $ECR_map = @{
     "EncryptionConfiguration_EncryptionType"=@("New-ECRRepository","New-ECRRepositoryCreationTemplate","Update-ECRRepositoryCreationTemplate")
+    "Filter_ArtifactStatus"=@("Get-ECRImageReferrerList")
+    "Filter_ImageStatus"=@("Get-ECRImage","Get-ECRImageMetadata")
     "Filter_TagStatus"=@("Get-ECRImage","Get-ECRImageMetadata","Get-ECRLifecyclePolicyPreview")
     "ImageTagMutability"=@("New-ECRRepository","New-ECRRepositoryCreationTemplate","Update-ECRRepositoryCreationTemplate","Write-ECRImageTagMutability")
     "ScanType"=@("Write-ECRRegistryScanningConfiguration")
+    "TargetStorageClass"=@("Update-ECRImageStorageClass")
     "UpstreamRegistry"=@("New-ECRPullThroughCacheRule")
 }
 
@@ -208,6 +235,7 @@ $ECR_SelectMap = @{
                "Remove-ECRRepository",
                "Remove-ECRRepositoryCreationTemplate",
                "Remove-ECRRepositoryPolicy",
+               "Unregister-ECRPullTimeUpdateExclusion",
                "Get-ECRImageReplicationStatus",
                "Get-ECRImageMetadata",
                "Get-ECRImageScanFinding",
@@ -224,7 +252,9 @@ $ECR_SelectMap = @{
                "Get-ECRRegistryScanningConfiguration",
                "Get-ECRRepositoryPolicy",
                "Start-ECRLayerUpload",
+               "Get-ECRImageReferrerList",
                "Get-ECRImage",
+               "Get-ECRPullTimeUpdateExclusionList",
                "Get-ECRResourceTag",
                "Write-ECRAccountSetting",
                "Write-ECRImage",
@@ -234,11 +264,13 @@ $ECR_SelectMap = @{
                "Write-ECRRegistryPolicy",
                "Write-ECRRegistryScanningConfiguration",
                "Write-ECRReplicationConfiguration",
+               "Register-ECRPullTimeUpdateExclusion",
                "Set-ECRRepositoryPolicy",
                "Start-ECRImageScan",
                "Start-ECRLifecyclePolicyPreview",
                "Add-ECRResourceTag",
                "Remove-ECRResourceTag",
+               "Update-ECRImageStorageClass",
                "Update-ECRPullThroughCacheRule",
                "Update-ECRRepositoryCreationTemplate",
                "Send-ECRLayerPart",

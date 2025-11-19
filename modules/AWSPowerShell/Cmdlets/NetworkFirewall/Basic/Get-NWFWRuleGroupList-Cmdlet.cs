@@ -71,6 +71,18 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public Amazon.NetworkFirewall.ResourceManagedStatus Scope { get; set; }
         #endregion
         
+        #region Parameter SubscriptionStatus
+        /// <summary>
+        /// <para>
+        /// <para>Filters the results to show only rule groups with the specified subscription status.
+        /// Use this to find subscribed or unsubscribed rule groups.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.NetworkFirewall.SubscriptionStatus")]
+        public Amazon.NetworkFirewall.SubscriptionStatus SubscriptionStatus { get; set; }
+        #endregion
+        
         #region Parameter Type
         /// <summary>
         /// <para>
@@ -173,6 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             #endif
             context.NextToken = this.NextToken;
             context.Scope = this.Scope;
+            context.SubscriptionStatus = this.SubscriptionStatus;
             context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
@@ -203,6 +216,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             if (cmdletContext.Scope != null)
             {
                 request.Scope = cmdletContext.Scope;
+            }
+            if (cmdletContext.SubscriptionStatus != null)
+            {
+                request.SubscriptionStatus = cmdletContext.SubscriptionStatus;
             }
             if (cmdletContext.Type != null)
             {
@@ -292,6 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.NetworkFirewall.ResourceManagedStatus Scope { get; set; }
+            public Amazon.NetworkFirewall.SubscriptionStatus SubscriptionStatus { get; set; }
             public Amazon.NetworkFirewall.RuleGroupType Type { get; set; }
             public System.Func<Amazon.NetworkFirewall.Model.ListRuleGroupsResponse, GetNWFWRuleGroupListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RuleGroups;

@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter ImageTagMutabilityExclusionFilter
         /// <summary>
         /// <para>
-        /// <para>Creates or updates a repository with filters that define which image tags can override
-        /// the default image tag mutability setting.</para><para />
+        /// <para>A list of filters that specify which image tags should be excluded from the image
+        /// tag mutability setting being applied.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
