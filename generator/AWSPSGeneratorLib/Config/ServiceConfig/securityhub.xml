@@ -281,6 +281,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetFindingsTrendsV2" OutputProperty="*" Verb="Get" Noun="FindingsTrendsV2" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetFindingsV2" OutputProperty="Findings" Verb="Get" Noun="FindingsV2" PipelineParameter="Filters_CompositeOperator" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -306,6 +310,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetResourcesStatisticsV2" OutputProperty="GroupByResults" Verb="Get" Noun="ResourcesStatisticsV2" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourcesTrendsV2" OutputProperty="*" Verb="Get" Noun="ResourcesTrendsV2" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

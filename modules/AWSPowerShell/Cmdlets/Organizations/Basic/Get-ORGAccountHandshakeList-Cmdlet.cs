@@ -30,22 +30,21 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Lists the current handshakes that are associated with the account of the requesting
-    /// user.
+    /// Lists the recent handshakes that you have received.
     /// 
     ///  
     /// <para>
-    /// Handshakes that are <c>ACCEPTED</c>, <c>DECLINED</c>, <c>CANCELED</c>, or <c>EXPIRED</c>
-    /// appear in the results of this API for only 30 days after changing to that state. After
-    /// that, they're deleted and no longer accessible.
+    /// You can view <c>CANCELED</c>, <c>ACCEPTED</c>, <c>DECLINED</c>, or <c>EXPIRED</c>
+    /// handshakes in API responses for 30 days before they are deleted.
+    /// </para><para>
+    /// You can call this operation from any account in a organization.
     /// </para><note><para>
-    /// Always check the <c>NextToken</c> response parameter for a <c>null</c> value when
-    /// calling a <c>List*</c> operation. These operations can occasionally return an empty
-    /// set of results even when there are more results available. The <c>NextToken</c> response
-    /// parameter value is <c>null</c><i>only</i> when there are no more results to display.
-    /// </para></note><para>
-    /// This operation can be called from any account in the organization.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// When calling List* operations, always check the <c>NextToken</c> response parameter
+    /// value, even if you receive an empty result set. These operations can occasionally
+    /// return an empty set of results even when more results are available. Continue making
+    /// requests until <c>NextToken</c> returns null. A null <c>NextToken</c> value indicates
+    /// that you have retrieved all available results.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ORGAccountHandshakeList")]
     [OutputType("Amazon.Organizations.Model.Handshake")]
@@ -63,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter Filter_ActionType
         /// <summary>
         /// <para>
-        /// <para>Specifies the type of handshake action.</para><para>If you specify <c>ActionType</c>, you cannot also specify <c>ParentHandshakeId</c>.</para>
+        /// <para>The type of handshake.</para><para>If you specify <c>ActionType</c>, you cannot also specify <c>ParentHandshakeId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,8 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter Filter_ParentHandshakeId
         /// <summary>
         /// <para>
-        /// <para>Specifies the parent handshake. Only used for handshake types that are a child of
-        /// another type.</para><para>If you specify <c>ParentHandshakeId</c>, you cannot also specify <c>ActionType</c>.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for handshake ID string
+        /// <para>The parent handshake. Only used for handshake types that are a child of another type.</para><para>If you specify <c>ParentHandshakeId</c>, you cannot also specify <c>ActionType</c>.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for handshake ID string
         /// requires "h-" followed by from 8 to 32 lowercase letters or digits.</para>
         /// </para>
         /// </summary>
@@ -86,14 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The total number of results that you want included on each page of the response. If
-        /// you do not include this parameter, it defaults to a value that is specific to the
-        /// operation. If additional items exist beyond the maximum you specify, the <c>NextToken</c>
-        /// response element is present and has a value (is not null). Include that value as the
-        /// <c>NextToken</c> request parameter in the next call to the operation to get the next
-        /// part of the results. Note that Organizations might return fewer results than the maximum
-        /// even when there are more results available. You should check <c>NextToken</c> after
-        /// every operation to ensure that you receive all of the results.</para>
+        /// <para>The maximum number of items to return in the response. If more results exist than
+        /// the specified <c>MaxResults</c> value, a token is included in the response so that
+        /// you can retrieve the remaining results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

@@ -82,7 +82,9 @@ $SHUB_Completers = {
     {
         # Amazon.SecurityHub.AllowedOperators
         {
+            ($_ -eq "Get-SHUBFindingsTrendsV2/Filters_CompositeOperator") -Or
             ($_ -eq "Get-SHUBFindingsV2/Filters_CompositeOperator") -Or
+            ($_ -eq "Get-SHUBResourcesTrendsV2/Filters_CompositeOperator") -Or
             ($_ -eq "Get-SHUBResourcesV2/Filters_CompositeOperator") -Or
             ($_ -eq "New-SHUBAutomationRuleV2/OcsfFindingCriteria_CompositeOperator") -Or
             ($_ -eq "Update-SHUBAutomationRuleV2/OcsfFindingCriteria_CompositeOperator")
@@ -240,7 +242,7 @@ $SHUB_map = @{
     "Feature"=@("Disable-SHUBOrganizationAdminAccount","Enable-SHUBOrganizationAdminAccount","Get-SHUBOrganizationAdminAccountList")
     "Filters_AssociationStatus"=@("Get-SHUBConfigurationPolicyAssociationList")
     "Filters_AssociationType"=@("Get-SHUBConfigurationPolicyAssociationList")
-    "Filters_CompositeOperator"=@("Get-SHUBFindingsV2","Get-SHUBResourcesV2")
+    "Filters_CompositeOperator"=@("Get-SHUBFindingsTrendsV2","Get-SHUBFindingsV2","Get-SHUBResourcesTrendsV2","Get-SHUBResourcesV2")
     "OcsfFindingCriteria_CompositeOperator"=@("New-SHUBAutomationRuleV2","Update-SHUBAutomationRuleV2")
     "OrganizationConfiguration_ConfigurationType"=@("Update-SHUBOrganizationConfiguration")
     "OrganizationConfiguration_Status"=@("Update-SHUBOrganizationConfiguration")
@@ -368,6 +370,7 @@ $SHUB_SelectMap = @{
                "Get-SHUBFindingHistory",
                "Get-SHUBFinding",
                "Get-SHUBFindingStatisticsV2",
+               "Get-SHUBFindingsTrendsV2",
                "Get-SHUBFindingsV2",
                "Get-SHUBInsightResult",
                "Get-SHUBInsight",
@@ -375,6 +378,7 @@ $SHUB_SelectMap = @{
                "Get-SHUBMasterAccount",
                "Get-SHUBMember",
                "Get-SHUBResourcesStatisticsV2",
+               "Get-SHUBResourcesTrendsV2",
                "Get-SHUBResourcesV2",
                "Get-SHUBSecurityControlDefinition",
                "Send-SHUBMemberInvitation",

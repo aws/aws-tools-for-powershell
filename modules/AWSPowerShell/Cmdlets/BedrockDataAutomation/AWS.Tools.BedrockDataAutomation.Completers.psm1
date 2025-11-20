@@ -128,6 +128,13 @@ $BDA_Completers = {
             break
         }
 
+        # Amazon.BedrockDataAutomation.DataAutomationProjectType
+        "New-BDADataAutomationProject/ProjectType"
+        {
+            $v = "ASYNC","SYNC"
+            break
+        }
+
         # Amazon.BedrockDataAutomation.DesiredModality
         {
             ($_ -eq "New-BDADataAutomationProject/ModalityRouting_Jpeg") -Or
@@ -144,6 +151,22 @@ $BDA_Completers = {
             break
         }
 
+        # Amazon.BedrockDataAutomation.PIIRedactionMaskMode
+        {
+            ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode") -Or
+            ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode") -Or
+            ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode") -Or
+            ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode") -Or
+            ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode") -Or
+            ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode") -Or
+            ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode") -Or
+            ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode")
+        }
+        {
+            $v = "ENTITY_TYPE","PII"
+            break
+        }
+
         # Amazon.BedrockDataAutomation.ResourceOwner
         {
             ($_ -eq "Get-BDABlueprintList/ResourceOwner") -Or
@@ -151,6 +174,22 @@ $BDA_Completers = {
         }
         {
             $v = "ACCOUNT","SERVICE"
+            break
+        }
+
+        # Amazon.BedrockDataAutomation.SensitiveDataDetectionMode
+        {
+            ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionMode") -Or
+            ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionMode") -Or
+            ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionMode") -Or
+            ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionMode") -Or
+            ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionMode") -Or
+            ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionMode") -Or
+            ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionMode") -Or
+            ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionMode")
+        }
+        {
+            $v = "DETECTION","DETECTION_AND_REDACTION"
             break
         }
 
@@ -225,12 +264,21 @@ $BDA_map = @{
     "ModalityRouting_Mp4"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ModalityRouting_Png"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "OverrideConfiguration_Audio_ModalityProcessing_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionMode"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "OverrideConfiguration_Document_ModalityProcessing_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionMode"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "OverrideConfiguration_Image_ModalityProcessing_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionMode"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "OverrideConfiguration_Video_ModalityProcessing_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionMode"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ProjectFilter_ProjectStage"=@("Get-BDABlueprintList")
     "ProjectStage"=@("Get-BDADataAutomationProject","New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ProjectStageFilter"=@("Get-BDADataAutomationProjectList")
+    "ProjectType"=@("New-BDADataAutomationProject")
     "ResourceOwner"=@("Get-BDABlueprintList","Get-BDADataAutomationProjectList")
     "SpeakerLabeling_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "Splitter_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")

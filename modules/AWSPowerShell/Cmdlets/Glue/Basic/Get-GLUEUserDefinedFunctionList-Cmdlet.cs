@@ -67,6 +67,20 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String DatabaseName { get; set; }
         #endregion
         
+        #region Parameter FunctionType
+        /// <summary>
+        /// <para>
+        /// <para>An optional function-type pattern string that filters the function definitions returned
+        /// from Amazon Redshift Federated Permissions Catalog.</para><para>Specify a value of <c>REGULAR_FUNCTION</c> or <c>STORED_PROCEDURE</c>. The <c>STORED_PROCEDURE</c>
+        /// function type is only compatible with Amazon Redshift Federated Permissions Catalog.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Glue.FunctionType")]
+        public Amazon.Glue.FunctionType FunctionType { get; set; }
+        #endregion
+        
         #region Parameter Pattern
         /// <summary>
         /// <para>
@@ -156,6 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             context.CatalogId = this.CatalogId;
             context.DatabaseName = this.DatabaseName;
+            context.FunctionType = this.FunctionType;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -200,6 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.DatabaseName != null)
             {
                 request.DatabaseName = cmdletContext.DatabaseName;
+            }
+            if (cmdletContext.FunctionType != null)
+            {
+                request.FunctionType = cmdletContext.FunctionType;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -271,6 +290,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.DatabaseName != null)
             {
                 request.DatabaseName = cmdletContext.DatabaseName;
+            }
+            if (cmdletContext.FunctionType != null)
+            {
+                request.FunctionType = cmdletContext.FunctionType;
             }
             if (cmdletContext.Pattern != null)
             {
@@ -391,6 +414,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             public System.String CatalogId { get; set; }
             public System.String DatabaseName { get; set; }
+            public Amazon.Glue.FunctionType FunctionType { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String Pattern { get; set; }

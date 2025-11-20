@@ -111,6 +111,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeResponsibilityTransfer" OutputProperty="ResponsibilityTransfer" Verb="Get" Noun="ResponsibilityTransfer" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DetachPolicy" Verb="Dismount" Noun="Policy" ShouldProcessTarget="PolicyId" PipelineParameter="PolicyId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -136,6 +140,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="InviteAccountToOrganization" OutputProperty="Handshake" Verb="New" Noun="AccountInvitation" ShouldProcessTarget="Target_Id" PipelineParameter="Target_Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="InviteOrganizationToTransferResponsibility" OutputProperty="Handshake" Verb="New" Noun="OrganizationToTransferResponsibility" ShouldProcessTarget="SourceName" PipelineParameter="SourceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -187,7 +195,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListInboundResponsibilityTransfers" OutputProperty="ResponsibilityTransfers" Verb="Get" Noun="InboundResponsibilityTransferList" PipelineParameter="Type" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListOrganizationalUnitsForParent" OutputProperty="OrganizationalUnits" Verb="Get" Noun="OrganizationalUnitList" PipelineParameter="ParentId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOutboundResponsibilityTransfers" OutputProperty="ResponsibilityTransfers" Verb="Get" Noun="OutboundResponsibilityTransferList" PipelineParameter="Type" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -235,6 +251,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="TerminateResponsibilityTransfer" OutputProperty="ResponsibilityTransfer" Verb="Stop" Noun="ResponsibilityTransfer" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -244,6 +264,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePolicy" OutputProperty="Policy" Verb="Update" Noun="Policy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResponsibilityTransfer" OutputProperty="ResponsibilityTransfer" Verb="Update" Noun="ResponsibilityTransfer" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

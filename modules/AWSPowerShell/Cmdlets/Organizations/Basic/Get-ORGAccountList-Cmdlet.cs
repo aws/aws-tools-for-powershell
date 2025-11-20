@@ -34,13 +34,14 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// root or organizational unit (OU), use the <a>ListAccountsForParent</a> operation instead.
     /// 
     ///  <note><para>
-    /// Always check the <c>NextToken</c> response parameter for a <c>null</c> value when
-    /// calling a <c>List*</c> operation. These operations can occasionally return an empty
-    /// set of results even when there are more results available. The <c>NextToken</c> response
-    /// parameter value is <c>null</c><i>only</i> when there are no more results to display.
+    /// When calling List* operations, always check the <c>NextToken</c> response parameter
+    /// value, even if you receive an empty result set. These operations can occasionally
+    /// return an empty set of results even when more results are available. Continue making
+    /// requests until <c>NextToken</c> returns null. A null <c>NextToken</c> value indicates
+    /// that you have retrieved all available results.
     /// </para></note><para>
-    /// This operation can be called only from the organization's management account or by
-    /// a member account that is a delegated administrator.
+    /// You can only call this operation from the management account or a member account that
+    /// is a delegated administrator.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ORGAccountList")]
@@ -59,14 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The total number of results that you want included on each page of the response. If
-        /// you do not include this parameter, it defaults to a value that is specific to the
-        /// operation. If additional items exist beyond the maximum you specify, the <c>NextToken</c>
-        /// response element is present and has a value (is not null). Include that value as the
-        /// <c>NextToken</c> request parameter in the next call to the operation to get the next
-        /// part of the results. Note that Organizations might return fewer results than the maximum
-        /// even when there are more results available. You should check <c>NextToken</c> after
-        /// every operation to ensure that you receive all of the results.</para>
+        /// <para>The maximum number of items to return in the response. If more results exist than
+        /// the specified <c>MaxResults</c> value, a token is included in the response so that
+        /// you can retrieve the remaining results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

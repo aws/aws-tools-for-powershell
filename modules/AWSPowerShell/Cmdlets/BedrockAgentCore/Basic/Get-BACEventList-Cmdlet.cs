@@ -54,8 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter ActorId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the actor for which to list events. If specified, only events from
-        /// this actor are returned.</para>
+        /// <para>The identifier of the actor for which to list events.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -138,8 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter SessionId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the session for which to list events. If specified, only events
-        /// from this session are returned.</para>
+        /// <para>The identifier of the session for which to list events.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -156,8 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return in a single call. Minimum value of 1, maximum
-        /// value of 100. Default is 20.</para>
+        /// <para>The maximum number of results to return in a single call. The default value is 20.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

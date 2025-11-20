@@ -35,13 +35,14 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// the returned list.
     /// 
     ///  <note><para>
-    /// Always check the <c>NextToken</c> response parameter for a <c>null</c> value when
-    /// calling a <c>List*</c> operation. These operations can occasionally return an empty
-    /// set of results even when there are more results available. The <c>NextToken</c> response
-    /// parameter value is <c>null</c><i>only</i> when there are no more results to display.
+    /// When calling List* operations, always check the <c>NextToken</c> response parameter
+    /// value, even if you receive an empty result set. These operations can occasionally
+    /// return an empty set of results even when more results are available. Continue making
+    /// requests until <c>NextToken</c> returns null. A null <c>NextToken</c> value indicates
+    /// that you have retrieved all available results.
     /// </para></note><para>
-    /// This operation can be called only from the organization's management account or by
-    /// a member account that is a delegated administrator.
+    /// You can only call this operation from the management account or a member account that
+    /// is a delegated administrator.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ORGPolicyForTarget")]
@@ -61,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <summary>
         /// <para>
         /// <para>The type of policy that you want to include in the returned list. You must specify
-        /// one of the following values:</para><ul><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html">SERVICE_CONTROL_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html">RESOURCE_CONTROL_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative.html">DECLARATIVE_POLICY_EC2</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html">BACKUP_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">TAG_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_chatbot.html">CHATBOT_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html">SECURITYHUB_POLICY</a></para></li></ul>
+        /// one of the following values:</para><ul><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html">SERVICE_CONTROL_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html">RESOURCE_CONTROL_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative.html">DECLARATIVE_POLICY_EC2</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html">BACKUP_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">TAG_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_chatbot.html">CHATBOT_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html">SECURITYHUB_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inspector.html">INSPECTOR_POLICY</a></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,8 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter TargetId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier (ID) of the root, organizational unit, or account whose policies
-        /// you want to list.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a target ID string
+        /// <para>ID for the root, organizational unit, or account whose policies you want to list.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a target ID string
         /// requires one of the following:</para><ul><li><para><b>Root</b> - A string that begins with "r-" followed by from 4 to 32 lowercase letters
         /// or digits.</para></li><li><para><b>Account</b> - A string that consists of exactly 12 digits.</para></li><li><para><b>Organizational unit (OU)</b> - A string that begins with "ou-" followed by from
         /// 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string
@@ -101,14 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The total number of results that you want included on each page of the response. If
-        /// you do not include this parameter, it defaults to a value that is specific to the
-        /// operation. If additional items exist beyond the maximum you specify, the <c>NextToken</c>
-        /// response element is present and has a value (is not null). Include that value as the
-        /// <c>NextToken</c> request parameter in the next call to the operation to get the next
-        /// part of the results. Note that Organizations might return fewer results than the maximum
-        /// even when there are more results available. You should check <c>NextToken</c> after
-        /// every operation to ensure that you receive all of the results.</para>
+        /// <para>The maximum number of items to return in the response. If more results exist than
+        /// the specified <c>MaxResults</c> value, a token is included in the response so that
+        /// you can retrieve the remaining results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

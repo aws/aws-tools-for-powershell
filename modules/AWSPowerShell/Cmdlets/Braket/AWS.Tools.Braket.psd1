@@ -94,12 +94,16 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-BRKTResourceTag', 
         'New-BRKTJob', 
         'New-BRKTQuantumTask', 
+        'New-BRKTSpendingLimit', 
         'Remove-BRKTResourceTag', 
+        'Remove-BRKTSpendingLimit', 
         'Search-BRKTDevice', 
         'Search-BRKTJob', 
         'Search-BRKTQuantumTask', 
+        'Search-BRKTSpendingLimit', 
         'Stop-BRKTJob', 
-        'Stop-BRKTQuantumTask')
+        'Stop-BRKTQuantumTask', 
+        'Update-BRKTSpendingLimit')
 
     # Variables to export from this module
     VariablesToExport = '*'

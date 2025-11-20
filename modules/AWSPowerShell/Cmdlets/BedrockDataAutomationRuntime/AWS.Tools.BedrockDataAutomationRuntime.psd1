@@ -90,6 +90,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-BDARResourceTag', 
         'Get-BDARDataAutomationStatus', 
         'Get-BDARResourceTag', 
+        'Invoke-BDARDataAutomation', 
         'Invoke-BDARDataAutomationAsync', 
         'Remove-BDARResourceTag')
 

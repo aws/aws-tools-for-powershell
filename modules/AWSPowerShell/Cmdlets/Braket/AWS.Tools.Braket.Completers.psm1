@@ -169,6 +169,8 @@ $BRKT_SelectMap = @{
                "Stop-BRKTQuantumTask",
                "New-BRKTJob",
                "New-BRKTQuantumTask",
+               "New-BRKTSpendingLimit",
+               "Remove-BRKTSpendingLimit",
                "Get-BRKTDevice",
                "Get-BRKTJob",
                "Get-BRKTQuantumTask",
@@ -176,8 +178,10 @@ $BRKT_SelectMap = @{
                "Search-BRKTDevice",
                "Search-BRKTJob",
                "Search-BRKTQuantumTask",
+               "Search-BRKTSpendingLimit",
                "Add-BRKTResourceTag",
-               "Remove-BRKTResourceTag")
+               "Remove-BRKTResourceTag",
+               "Update-BRKTSpendingLimit")
 }
 
 _awsArgumentCompleterRegistration $BRKT_SelectCompleters $BRKT_SelectMap

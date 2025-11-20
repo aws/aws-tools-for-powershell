@@ -81,7 +81,10 @@ $BDAR_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.BedrockDataAutomationRuntime.DataAutomationStage
-        "Invoke-BDARDataAutomationAsync/DataAutomationConfiguration_Stage"
+        {
+            ($_ -eq "Invoke-BDARDataAutomation/DataAutomationConfiguration_Stage") -Or
+            ($_ -eq "Invoke-BDARDataAutomationAsync/DataAutomationConfiguration_Stage")
+        }
         {
             $v = "DEVELOPMENT","LIVE"
             break
@@ -96,7 +99,7 @@ $BDAR_Completers = {
 }
 
 $BDAR_map = @{
-    "DataAutomationConfiguration_Stage"=@("Invoke-BDARDataAutomationAsync")
+    "DataAutomationConfiguration_Stage"=@("Invoke-BDARDataAutomation","Invoke-BDARDataAutomationAsync")
 }
 
 _awsArgumentCompleterRegistration $BDAR_Completers $BDAR_map
@@ -150,6 +153,7 @@ $BDAR_SelectCompleters = {
 
 $BDAR_SelectMap = @{
     "Select"=@("Get-BDARDataAutomationStatus",
+               "Invoke-BDARDataAutomation",
                "Invoke-BDARDataAutomationAsync",
                "Get-BDARResourceTag",
                "Add-BDARResourceTag",

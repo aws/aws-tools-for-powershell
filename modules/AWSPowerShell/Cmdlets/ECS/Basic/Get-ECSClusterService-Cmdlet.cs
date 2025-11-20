@@ -69,6 +69,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.LaunchType LaunchType { get; set; }
         #endregion
         
+        #region Parameter ResourceManagementType
+        /// <summary>
+        /// <para>
+        /// <para>The resourceManagementType type to use when filtering the <c>ListServices</c> results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ECS.ResourceManagementType")]
+        public Amazon.ECS.ResourceManagementType ResourceManagementType { get; set; }
+        #endregion
+        
         #region Parameter SchedulingStrategy
         /// <summary>
         /// <para>
@@ -173,6 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             }
             #endif
             context.NextToken = this.NextToken;
+            context.ResourceManagementType = this.ResourceManagementType;
             context.SchedulingStrategy = this.SchedulingStrategy;
             
             // allow further manipulation of loaded context prior to processing
@@ -204,6 +216,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.ResourceManagementType != null)
+            {
+                request.ResourceManagementType = cmdletContext.ResourceManagementType;
             }
             if (cmdletContext.SchedulingStrategy != null)
             {
@@ -271,6 +287,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.LaunchType != null)
             {
                 request.LaunchType = cmdletContext.LaunchType;
+            }
+            if (cmdletContext.ResourceManagementType != null)
+            {
+                request.ResourceManagementType = cmdletContext.ResourceManagementType;
             }
             if (cmdletContext.SchedulingStrategy != null)
             {
@@ -386,6 +406,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public Amazon.ECS.LaunchType LaunchType { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.ECS.ResourceManagementType ResourceManagementType { get; set; }
             public Amazon.ECS.SchedulingStrategy SchedulingStrategy { get; set; }
             public System.Func<Amazon.ECS.Model.ListServicesResponse, GetECSClusterServiceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ServiceArns;

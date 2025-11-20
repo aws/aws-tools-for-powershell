@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The IP address type for the Anycast static IP list. You can specify one of the following
-        /// options:</para><ul><li><para><c>ipv4</c> - Allocate a list of only IPv4 addresses</para></li><li><para><c>ipv6</c> - Allocate a list of only IPv4 addresses</para></li><li><para><c>dualstack</c> - Allocate a list of both IPv4 and IPv6 addresses</para></li></ul>
+        /// options:</para><ul><li><para><c>ipv4</c> only</para></li><li><para><c>ipv6</c> only</para></li><li><para><c>dualstack</c> - Allocate a list of both IPv4 and IPv6 addresses</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

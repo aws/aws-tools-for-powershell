@@ -1982,6 +1982,8 @@ $SM_SelectMap = @{
                "Set-SMAddClusterNode",
                "Set-SMDeleteClusterNode",
                "Get-SMDescribeModelPackage",
+               "Set-SMBatchRebootClusterNode",
+               "Set-SMBatchReplaceClusterNode",
                "New-SMAction",
                "New-SMAlgorithm",
                "New-SMApp",

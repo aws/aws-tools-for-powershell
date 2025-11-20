@@ -113,6 +113,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListMemoryExtractionJobs" OutputProperty="Jobs" Verb="Get" Noun="MemoryExtractionJobList" PipelineParameter="MemoryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListMemoryRecords" OutputProperty="MemoryRecordSummaries" Verb="Get" Noun="MemoryRecordList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -130,6 +134,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartCodeInterpreterSession" OutputProperty="*" Verb="Start" Noun="CodeInterpreterSession" ShouldProcessTarget="CodeInterpreterIdentifier" PipelineParameter="CodeInterpreterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartMemoryExtractionJob" OutputProperty="JobId" Verb="Start" Noun="MemoryExtractionJob" ShouldProcessTarget="MemoryId" PipelineParameter="MemoryId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

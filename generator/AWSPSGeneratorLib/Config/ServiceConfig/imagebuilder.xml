@@ -99,6 +99,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DistributeImage" OutputProperty="ImageBuildVersionArn" Verb="Start" Noun="ImageDistribution" ShouldProcessTarget="DistributionConfigurationArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetComponent" OutputProperty="Component" Verb="Get" Noun="Component" PipelineParameter="ComponentBuildVersionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -280,6 +284,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutImageRecipePolicy" OutputProperty="*" Verb="Write" Noun="ImageRecipePolicy" ShouldProcessTarget="ImageRecipeArn" PipelineParameter="Policy" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RetryImage" OutputProperty="ImageBuildVersionArn" Verb="Start" Noun="ImageRetry" ShouldProcessTarget="ImageBuildVersionArn" PipelineParameter="ImageBuildVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

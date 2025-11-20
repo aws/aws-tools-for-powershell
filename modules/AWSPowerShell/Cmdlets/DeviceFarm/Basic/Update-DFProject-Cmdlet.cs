@@ -73,6 +73,34 @@ namespace Amazon.PowerShell.Cmdlets.DF
         public System.Int32? DefaultJobTimeoutMinute { get; set; }
         #endregion
         
+        #region Parameter EnvironmentVariable
+        /// <summary>
+        /// <para>
+        /// <para> A set of environment variables which are used by default for all runs in the project.
+        /// These environment variables are applied to the test run during the execution of a
+        /// test spec file. </para><para> For more information about using test spec files, please see <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/custom-test-environments.html">Custom
+        /// test environments </a> in <i>AWS Device Farm.</i></para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EnvironmentVariables")]
+        public Amazon.DeviceFarm.Model.EnvironmentVariable[] EnvironmentVariable { get; set; }
+        #endregion
+        
+        #region Parameter ExecutionRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>An IAM role to be assumed by the test host for all runs in the project.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExecutionRoleArn { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -177,6 +205,11 @@ namespace Amazon.PowerShell.Cmdlets.DF
             }
             #endif
             context.DefaultJobTimeoutMinute = this.DefaultJobTimeoutMinute;
+            if (this.EnvironmentVariable != null)
+            {
+                context.EnvironmentVariable = new List<Amazon.DeviceFarm.Model.EnvironmentVariable>(this.EnvironmentVariable);
+            }
+            context.ExecutionRoleArn = this.ExecutionRoleArn;
             context.Name = this.Name;
             if (this.VpcConfig_SecurityGroupId != null)
             {
@@ -210,6 +243,14 @@ namespace Amazon.PowerShell.Cmdlets.DF
             if (cmdletContext.DefaultJobTimeoutMinute != null)
             {
                 request.DefaultJobTimeoutMinutes = cmdletContext.DefaultJobTimeoutMinute.Value;
+            }
+            if (cmdletContext.EnvironmentVariable != null)
+            {
+                request.EnvironmentVariables = cmdletContext.EnvironmentVariable;
+            }
+            if (cmdletContext.ExecutionRoleArn != null)
+            {
+                request.ExecutionRoleArn = cmdletContext.ExecutionRoleArn;
             }
             if (cmdletContext.Name != null)
             {
@@ -311,6 +352,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
         {
             public System.String Arn { get; set; }
             public System.Int32? DefaultJobTimeoutMinute { get; set; }
+            public List<Amazon.DeviceFarm.Model.EnvironmentVariable> EnvironmentVariable { get; set; }
+            public System.String ExecutionRoleArn { get; set; }
             public System.String Name { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }
             public List<System.String> VpcConfig_SubnetId { get; set; }

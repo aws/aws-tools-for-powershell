@@ -108,6 +108,13 @@ $LICM_Completers = {
             break
         }
 
+        # Amazon.LicenseManager.LicenseAssetGroupStatus
+        "Update-LICMLicenseAssetGroup/Status"
+        {
+            $v = "ACTIVE","DELETED","DISABLED"
+            break
+        }
+
         # Amazon.LicenseManager.LicenseConfigurationStatus
         "Update-LICMLicenseConfiguration/LicenseConfigurationStatus"
         {
@@ -145,7 +152,7 @@ $LICM_Completers = {
             ($_ -eq "Update-LICMLicenseManagerReportGenerator/ReportFrequency_Period")
         }
         {
-            $v = "DAY","MONTH","WEEK"
+            $v = "DAY","MONTH","ONE_TIME","WEEK"
             break
         }
 
@@ -165,7 +172,7 @@ $LICM_map = @{
     "LicenseCountingType"=@("New-LICMLicenseConfiguration")
     "Options_ActivationOverrideBehavior"=@("New-LICMGrantVersion")
     "ReportFrequency_Period"=@("New-LICMLicenseManagerReportGenerator","Update-LICMLicenseManagerReportGenerator")
-    "Status"=@("New-LICMGrantVersion","New-LICMLicenseVersion")
+    "Status"=@("New-LICMGrantVersion","New-LICMLicenseVersion","Update-LICMLicenseAssetGroup")
 }
 
 _awsArgumentCompleterRegistration $LICM_Completers $LICM_map
@@ -225,6 +232,8 @@ $LICM_SelectMap = @{
                "New-LICMGrant",
                "New-LICMGrantVersion",
                "New-LICMLicense",
+               "New-LICMLicenseAssetGroup",
+               "New-LICMLicenseAssetRuleset",
                "New-LICMLicenseConfiguration",
                "New-LICMLicenseConversionTaskForResource",
                "New-LICMLicenseManagerReportGenerator",
@@ -232,6 +241,8 @@ $LICM_SelectMap = @{
                "New-LICMToken",
                "Remove-LICMGrant",
                "Remove-LICMLicense",
+               "Remove-LICMLicenseAssetGroup",
+               "Remove-LICMLicenseAssetRuleset",
                "Remove-LICMLicenseConfiguration",
                "Remove-LICMLicenseManagerReportGenerator",
                "Remove-LICMToken",
@@ -239,15 +250,21 @@ $LICM_SelectMap = @{
                "Get-LICMAccessToken",
                "Get-LICMGrant",
                "Get-LICMLicense",
+               "Get-LICMLicenseAssetGroup",
+               "Get-LICMLicenseAssetRuleset",
                "Get-LICMLicenseConfiguration",
                "Get-LICMLicenseConversionTask",
                "Get-LICMLicenseManagerReportGenerator",
                "Get-LICMLicenseUsage",
                "Get-LICMServiceSetting",
+               "Get-LICMAssetsForLicenseAssetGroupList",
                "Get-LICMAssociationsForLicenseConfigurationList",
                "Get-LICMDistributedGrantList",
                "Get-LICMFailuresForLicenseConfigurationOperationList",
+               "Get-LICMLicenseAssetGroupList",
+               "Get-LICMLicenseAssetRulesetList",
                "Get-LICMLicenseConfigurationList",
+               "Get-LICMLicenseConfigurationsForOrganizationList",
                "Get-LICMLicenseConversionTaskList",
                "Get-LICMLicenseManagerReportGeneratorList",
                "Get-LICMLicenseList",
@@ -264,6 +281,8 @@ $LICM_SelectMap = @{
                "Deny-LICMGrant",
                "Add-LICMResourceTag",
                "Remove-LICMResourceTag",
+               "Update-LICMLicenseAssetGroup",
+               "Update-LICMLicenseAssetRuleset",
                "Update-LICMLicenseConfiguration",
                "Update-LICMLicenseManagerReportGenerator",
                "Update-LICMLicenseSpecificationsForResource",

@@ -36,7 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     /// 
     ///  
     /// <para>
-    /// This operation returns only those permissions that have been explicitly granted.
+    /// This operation returns only those permissions that have been explicitly granted. If
+    /// both <c>Principal</c> and <c>Resource</c> parameters are provided, the response returns
+    /// effective permissions rather than the explicitly granted permissions.
     /// </para><para>
     /// For information about permissions, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security
     /// and Access Control to Metadata and Data</a>.
@@ -269,7 +271,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter IncludeRelated
         /// <summary>
         /// <para>
-        /// <para>Indicates that related permissions should be included in the results.</para>
+        /// <para>Indicates that related permissions should be included in the results when listing
+        /// permissions on a table resource.</para><para>Set the field to <c>TRUE</c> to show the cell filters on a table resource. Default
+        /// is <c>FALSE</c>. The Principal parameter must not be specified when requesting cell
+        /// filter information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -49,6 +49,41 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter CloudWatchLogOptions_BgpLogEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to enable BGP logging for the VPN connection. Default value is <c>False</c>.</para><para>Valid values: <c>True</c> | <c>False</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TunnelOptions_LogOptions_CloudWatchLogOptions_BgpLogEnabled")]
+        public System.Boolean? CloudWatchLogOptions_BgpLogEnabled { get; set; }
+        #endregion
+        
+        #region Parameter CloudWatchLogOptions_BgpLogGroupArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the CloudWatch log group where BGP logs will be
+        /// sent.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TunnelOptions_LogOptions_CloudWatchLogOptions_BgpLogGroupArn")]
+        public System.String CloudWatchLogOptions_BgpLogGroupArn { get; set; }
+        #endregion
+        
+        #region Parameter CloudWatchLogOptions_BgpLogOutputFormat
+        /// <summary>
+        /// <para>
+        /// <para>The desired output format for BGP logs to be sent to CloudWatch. Default format is
+        /// <c>json</c>.</para><para>Valid values: <c>json</c> | <c>text</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TunnelOptions_LogOptions_CloudWatchLogOptions_BgpLogOutputFormat")]
+        public System.String CloudWatchLogOptions_BgpLogOutputFormat { get; set; }
+        #endregion
+        
         #region Parameter TunnelOptions_DPDTimeoutAction
         /// <summary>
         /// <para>
@@ -458,6 +493,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.TunnelOptions_IKEVersion = new List<Amazon.EC2.Model.IKEVersionsRequestListValue>(this.TunnelOptions_IKEVersion);
             }
+            context.CloudWatchLogOptions_BgpLogEnabled = this.CloudWatchLogOptions_BgpLogEnabled;
+            context.CloudWatchLogOptions_BgpLogGroupArn = this.CloudWatchLogOptions_BgpLogGroupArn;
+            context.CloudWatchLogOptions_BgpLogOutputFormat = this.CloudWatchLogOptions_BgpLogOutputFormat;
             context.CloudWatchLogOptions_LogEnabled = this.CloudWatchLogOptions_LogEnabled;
             context.CloudWatchLogOptions_LogGroupArn = this.CloudWatchLogOptions_LogGroupArn;
             context.CloudWatchLogOptions_LogOutputFormat = this.CloudWatchLogOptions_LogOutputFormat;
@@ -740,6 +778,36 @@ namespace Amazon.PowerShell.Cmdlets.EC2
              // populate CloudWatchLogOptions
             var requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptionsIsNull = true;
             requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions = new Amazon.EC2.Model.CloudWatchLogOptionsSpecification();
+            System.Boolean? requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions_cloudWatchLogOptions_BgpLogEnabled = null;
+            if (cmdletContext.CloudWatchLogOptions_BgpLogEnabled != null)
+            {
+                requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions_cloudWatchLogOptions_BgpLogEnabled = cmdletContext.CloudWatchLogOptions_BgpLogEnabled.Value;
+            }
+            if (requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions_cloudWatchLogOptions_BgpLogEnabled != null)
+            {
+                requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions.BgpLogEnabled = requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions_cloudWatchLogOptions_BgpLogEnabled.Value;
+                requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptionsIsNull = false;
+            }
+            System.String requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions_cloudWatchLogOptions_BgpLogGroupArn = null;
+            if (cmdletContext.CloudWatchLogOptions_BgpLogGroupArn != null)
+            {
+                requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions_cloudWatchLogOptions_BgpLogGroupArn = cmdletContext.CloudWatchLogOptions_BgpLogGroupArn;
+            }
+            if (requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions_cloudWatchLogOptions_BgpLogGroupArn != null)
+            {
+                requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions.BgpLogGroupArn = requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions_cloudWatchLogOptions_BgpLogGroupArn;
+                requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptionsIsNull = false;
+            }
+            System.String requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions_cloudWatchLogOptions_BgpLogOutputFormat = null;
+            if (cmdletContext.CloudWatchLogOptions_BgpLogOutputFormat != null)
+            {
+                requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions_cloudWatchLogOptions_BgpLogOutputFormat = cmdletContext.CloudWatchLogOptions_BgpLogOutputFormat;
+            }
+            if (requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions_cloudWatchLogOptions_BgpLogOutputFormat != null)
+            {
+                requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions.BgpLogOutputFormat = requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions_cloudWatchLogOptions_BgpLogOutputFormat;
+                requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptionsIsNull = false;
+            }
             System.Boolean? requestTunnelOptions_tunnelOptions_LogOptions_tunnelOptions_LogOptions_CloudWatchLogOptions_cloudWatchLogOptions_LogEnabled = null;
             if (cmdletContext.CloudWatchLogOptions_LogEnabled != null)
             {
@@ -865,6 +933,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Int32? TunnelOptions_DPDTimeoutSecond { get; set; }
             public System.Boolean? TunnelOptions_EnableTunnelLifecycleControl { get; set; }
             public List<Amazon.EC2.Model.IKEVersionsRequestListValue> TunnelOptions_IKEVersion { get; set; }
+            public System.Boolean? CloudWatchLogOptions_BgpLogEnabled { get; set; }
+            public System.String CloudWatchLogOptions_BgpLogGroupArn { get; set; }
+            public System.String CloudWatchLogOptions_BgpLogOutputFormat { get; set; }
             public System.Boolean? CloudWatchLogOptions_LogEnabled { get; set; }
             public System.String CloudWatchLogOptions_LogGroupArn { get; set; }
             public System.String CloudWatchLogOptions_LogOutputFormat { get; set; }

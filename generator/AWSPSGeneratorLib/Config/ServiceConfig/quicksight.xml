@@ -143,7 +143,37 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTheme" OutputProperty="*" Verb="New" Noun="Theme" ShouldProcessTarget="ThemeId" PipelineParameter="ThemeId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_Typography_AxisLabelFontConfiguration_FontSize_Absolute" NewName="Configuration_Typography_AxisLabelFontConfiguration_FontSize_Absolute" Alias="AxisLabelFontSize_Absolute" />
+                <Param Name="Configuration_Typography_AxisTitleFontConfiguration_FontSize_Absolute" NewName="Configuration_Typography_AxisTitleFontConfiguration_FontSize_Absolute" Alias="AxisTitleFontSize_Absolute" />
+                <Param Name="Configuration_Typography_DataLabelFontConfiguration_FontSize_Absolute" NewName="Configuration_Typography_DataLabelFontConfiguration_FontSize_Absolute" Alias="DataLabelFontSize_Absolute" />
+                <Param Name="Configuration_Typography_LegendTitleFontConfiguration_FontSize_Absolute" NewName="Configuration_Typography_LegendTitleFontConfiguration_FontSize_Absolute" Alias="LegendTitleFontSize_Absolute" />
+                <Param Name="Configuration_Typography_LegendValueFontConfiguration_FontSize_Absolute" NewName="Configuration_Typography_LegendValueFontConfiguration_FontSize_Absolute" Alias="LegendValueFontSize_Absolute" />
+                <Param Name="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontSize_Absolute" NewName="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontSize_Absolute" Alias="VisualSubtitleFontSize_Absolute" />
+                <Param Name="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontSize_Absolute" NewName="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontSize_Absolute" Alias="VisualTitleFontSize_Absolute" />
+                <Param Name="Configuration_Typography_AxisLabelFontConfiguration_FontSize_Relative" NewName="Configuration_Typography_AxisLabelFontConfiguration_FontSize_Relative" Alias="AxisLabelFontSize_Relative" />
+                <Param Name="Configuration_Typography_AxisTitleFontConfiguration_FontSize_Relative" NewName="Configuration_Typography_AxisTitleFontConfiguration_FontSize_Relative" Alias="AxisTitleFontSize_Relative" />
+                <Param Name="Configuration_Typography_DataLabelFontConfiguration_FontSize_Relative" NewName="Configuration_Typography_DataLabelFontConfiguration_FontSize_Relative" Alias="DataLabelFontSize_Relative" />
+                <Param Name="Configuration_Typography_LegendTitleFontConfiguration_FontSize_Relative" NewName="Configuration_Typography_LegendTitleFontConfiguration_FontSize_Relative" Alias="LegendTitleFontSize_Relative" />
+                <Param Name="Configuration_Typography_LegendValueFontConfiguration_FontSize_Relative" NewName="Configuration_Typography_LegendValueFontConfiguration_FontSize_Relative" Alias="LegendValueFontSize_Relative" />
+                <Param Name="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontSize_Relative" NewName="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontSize_Relative" Alias="VisualSubtitleFontSize_Relative" />
+                <Param Name="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontSize_Relative" NewName="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontSize_Relative" Alias="VisualTitleFontSize_Relative" />
+                <Param Name="Configuration_Typography_AxisLabelFontConfiguration_FontWeight_Name" NewName="Configuration_Typography_AxisLabelFontConfiguration_FontWeight_Name" Alias="AxisLabelFontWeight_Name" />
+                <Param Name="Configuration_Typography_AxisTitleFontConfiguration_FontWeight_Name" NewName="Configuration_Typography_AxisTitleFontConfiguration_FontWeight_Name" Alias="AxisTitleFontWeight_Name" />
+                <Param Name="Configuration_Typography_DataLabelFontConfiguration_FontWeight_Name" NewName="Configuration_Typography_DataLabelFontConfiguration_FontWeight_Name" Alias="DataLabelFontWeight_Name" />
+                <Param Name="Configuration_Typography_LegendTitleFontConfiguration_FontWeight_Name" NewName="Configuration_Typography_LegendTitleFontConfiguration_FontWeight_Name" Alias="LegendTitleFontWeight_Name" />
+                <Param Name="Configuration_Typography_LegendValueFontConfiguration_FontWeight_Name" NewName="Configuration_Typography_LegendValueFontConfiguration_FontWeight_Name" Alias="LegendValueFontWeight_Name" />
+                <Param Name="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontWeight_Name" NewName="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontWeight_Name" Alias="VisualSubtitleFontWeight_Name" />
+                <Param Name="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontWeight_Name" NewName="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontWeight_Name" Alias="VisualTitleFontWeight_Name" />
+                <Param Name="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontColor" NewName="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontColor" Alias="VisualSubtitleFontColor" />
+                <Param Name="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontColor" NewName="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontColor" Alias="VisualTitleFontColor" />
+                <Param Name="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontDecoration" NewName="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontDecoration" Alias="VisualSubtitleFontDecoration" />
+                <Param Name="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontDecoration" NewName="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontDecoration" Alias="VisualTitleFontDecoration" />
+                <Param Name="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontFamily" NewName="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontFamily" Alias="VisualSubtitleFontFamily" />
+                <Param Name="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontFamily" NewName="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontFamily" Alias="VisualTitleFontFamily" />
+                <Param Name="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontStyle" NewName="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontStyle" Alias="VisualSubtitleFontStyle" />
+                <Param Name="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontStyle" NewName="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontStyle" Alias="VisualTitleFontStyle" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateThemeAlias" OutputProperty="ThemeAlias" Verb="New" Noun="ThemeAlias" ShouldProcessTarget="ThemeId" PipelineParameter="ThemeId" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -971,7 +1001,37 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTheme" OutputProperty="*" Verb="Update" Noun="Theme" ShouldProcessTarget="ThemeId" PipelineParameter="ThemeId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Configuration_Typography_AxisLabelFontConfiguration_FontSize_Absolute" NewName="Configuration_Typography_AxisLabelFontConfiguration_FontSize_Absolute" Alias="AxisLabelFontSize_Absolute" />
+                <Param Name="Configuration_Typography_AxisTitleFontConfiguration_FontSize_Absolute" NewName="Configuration_Typography_AxisTitleFontConfiguration_FontSize_Absolute" Alias="AxisTitleFontSize_Absolute" />
+                <Param Name="Configuration_Typography_DataLabelFontConfiguration_FontSize_Absolute" NewName="Configuration_Typography_DataLabelFontConfiguration_FontSize_Absolute" Alias="DataLabelFontSize_Absolute" />
+                <Param Name="Configuration_Typography_LegendTitleFontConfiguration_FontSize_Absolute" NewName="Configuration_Typography_LegendTitleFontConfiguration_FontSize_Absolute" Alias="LegendTitleFontSize_Absolute" />
+                <Param Name="Configuration_Typography_LegendValueFontConfiguration_FontSize_Absolute" NewName="Configuration_Typography_LegendValueFontConfiguration_FontSize_Absolute" Alias="LegendValueFontSize_Absolute" />
+                <Param Name="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontSize_Absolute" NewName="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontSize_Absolute" Alias="VisualSubtitleFontSize_Absolute" />
+                <Param Name="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontSize_Absolute" NewName="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontSize_Absolute" Alias="VisualTitleFontSize_Absolute" />
+                <Param Name="Configuration_Typography_AxisLabelFontConfiguration_FontSize_Relative" NewName="Configuration_Typography_AxisLabelFontConfiguration_FontSize_Relative" Alias="AxisLabelFontSize_Relative" />
+                <Param Name="Configuration_Typography_AxisTitleFontConfiguration_FontSize_Relative" NewName="Configuration_Typography_AxisTitleFontConfiguration_FontSize_Relative" Alias="AxisTitleFontSize_Relative" />
+                <Param Name="Configuration_Typography_DataLabelFontConfiguration_FontSize_Relative" NewName="Configuration_Typography_DataLabelFontConfiguration_FontSize_Relative" Alias="DataLabelFontSize_Relative" />
+                <Param Name="Configuration_Typography_LegendTitleFontConfiguration_FontSize_Relative" NewName="Configuration_Typography_LegendTitleFontConfiguration_FontSize_Relative" Alias="LegendTitleFontSize_Relative" />
+                <Param Name="Configuration_Typography_LegendValueFontConfiguration_FontSize_Relative" NewName="Configuration_Typography_LegendValueFontConfiguration_FontSize_Relative" Alias="LegendValueFontSize_Relative" />
+                <Param Name="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontSize_Relative" NewName="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontSize_Relative" Alias="VisualSubtitleFontSize_Relative" />
+                <Param Name="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontSize_Relative" NewName="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontSize_Relative" Alias="VisualTitleFontSize_Relative" />
+                <Param Name="Configuration_Typography_AxisLabelFontConfiguration_FontWeight_Name" NewName="Configuration_Typography_AxisLabelFontConfiguration_FontWeight_Name" Alias="AxisLabelFontWeight_Name" />
+                <Param Name="Configuration_Typography_AxisTitleFontConfiguration_FontWeight_Name" NewName="Configuration_Typography_AxisTitleFontConfiguration_FontWeight_Name" Alias="AxisTitleFontWeight_Name" />
+                <Param Name="Configuration_Typography_DataLabelFontConfiguration_FontWeight_Name" NewName="Configuration_Typography_DataLabelFontConfiguration_FontWeight_Name" Alias="DataLabelFontWeight_Name" />
+                <Param Name="Configuration_Typography_LegendTitleFontConfiguration_FontWeight_Name" NewName="Configuration_Typography_LegendTitleFontConfiguration_FontWeight_Name" Alias="LegendTitleFontWeight_Name" />
+                <Param Name="Configuration_Typography_LegendValueFontConfiguration_FontWeight_Name" NewName="Configuration_Typography_LegendValueFontConfiguration_FontWeight_Name" Alias="LegendValueFontWeight_Name" />
+                <Param Name="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontWeight_Name" NewName="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontWeight_Name" Alias="VisualSubtitleFontWeight_Name" />
+                <Param Name="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontWeight_Name" NewName="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontWeight_Name" Alias="VisualTitleFontWeight_Name" />
+                <Param Name="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontColor" NewName="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontColor" Alias="VisualSubtitleFontColor" />
+                <Param Name="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontColor" NewName="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontColor" Alias="VisualTitleFontColor" />
+                <Param Name="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontDecoration" NewName="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontDecoration" Alias="VisualSubtitleFontDecoration" />
+                <Param Name="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontDecoration" NewName="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontDecoration" Alias="VisualTitleFontDecoration" />
+                <Param Name="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontFamily" NewName="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontFamily" Alias="VisualSubtitleFontFamily" />
+                <Param Name="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontFamily" NewName="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontFamily" Alias="VisualTitleFontFamily" />
+                <Param Name="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontStyle" NewName="Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontStyle" Alias="VisualSubtitleFontStyle" />
+                <Param Name="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontStyle" NewName="Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontStyle" Alias="VisualTitleFontStyle" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateThemeAlias" OutputProperty="ThemeAlias" Verb="Update" Noun="ThemeAlias" ShouldProcessTarget="ThemeId" PipelineParameter="ThemeId" NoPipelineParameter="false" LegacyV4Pagination="true">

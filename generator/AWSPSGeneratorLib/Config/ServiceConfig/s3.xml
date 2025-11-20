@@ -155,6 +155,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetBucketAbac" OutputProperty="AbacStatus" Verb="Get" Noun="BucketAbac" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetBucketAccelerateConfiguration" OutputProperty="Status" Verb="Get" Noun="BucketAccelerateConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -367,6 +371,10 @@
             <Params>
                 <Param Name="BucketName" Mandatory="true" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutBucketAbac" Verb="Write" Noun="BucketAbac" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutBucketAccelerateConfiguration" Verb="Write" Noun="BucketAccelerateConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyV4Pagination="true">

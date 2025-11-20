@@ -80,6 +80,13 @@ $S3_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.S3.BucketAbacStatus
+        "Write-S3BucketAbac/AbacStatus_Status"
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+
         # Amazon.S3.BucketAccelerateStatus
         "Write-S3BucketAccelerateConfiguration/AccelerateConfiguration_Status"
         {
@@ -101,6 +108,7 @@ $S3_Completers = {
             ($_ -eq "Set-S3ObjectACL/ChecksumAlgorithm") -Or
             ($_ -eq "Update-S3BucketMetadataInventoryTableConfiguration/ChecksumAlgorithm") -Or
             ($_ -eq "Update-S3BucketMetadataJournalTableConfiguration/ChecksumAlgorithm") -Or
+            ($_ -eq "Write-S3BucketAbac/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3BucketAccelerateConfiguration/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3BucketLogging/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3BucketNotification/ChecksumAlgorithm") -Or
@@ -413,11 +421,12 @@ $S3_Completers = {
 }
 
 $S3_map = @{
+    "AbacStatus_Status"=@("Write-S3BucketAbac")
     "AccelerateConfiguration_Status"=@("Write-S3BucketAccelerateConfiguration")
     "ACL"=@("Set-S3BucketACL","Set-S3ObjectACL")
     "CannedACL"=@("Set-S3ACL")
     "CannedACLName"=@("Copy-S3Object","New-S3Bucket","Write-S3Object")
-    "ChecksumAlgorithm"=@("Add-S3PublicAccessBlock","Copy-S3Object","New-S3BucketMetadataConfiguration","New-S3BucketMetadataTableConfiguration","Remove-S3Object","Restore-S3Object","Set-S3ACL","Set-S3BucketACL","Set-S3BucketEncryption","Set-S3ObjectACL","Update-S3BucketMetadataInventoryTableConfiguration","Update-S3BucketMetadataJournalTableConfiguration","Write-S3BucketAccelerateConfiguration","Write-S3BucketLogging","Write-S3BucketNotification","Write-S3BucketOwnershipControl","Write-S3BucketPolicy","Write-S3BucketReplication","Write-S3BucketRequestPayment","Write-S3BucketTagging","Write-S3BucketVersioning","Write-S3BucketWebsite","Write-S3CORSConfiguration","Write-S3LifecycleConfiguration","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
+    "ChecksumAlgorithm"=@("Add-S3PublicAccessBlock","Copy-S3Object","New-S3BucketMetadataConfiguration","New-S3BucketMetadataTableConfiguration","Remove-S3Object","Restore-S3Object","Set-S3ACL","Set-S3BucketACL","Set-S3BucketEncryption","Set-S3ObjectACL","Update-S3BucketMetadataInventoryTableConfiguration","Update-S3BucketMetadataJournalTableConfiguration","Write-S3BucketAbac","Write-S3BucketAccelerateConfiguration","Write-S3BucketLogging","Write-S3BucketNotification","Write-S3BucketOwnershipControl","Write-S3BucketPolicy","Write-S3BucketReplication","Write-S3BucketRequestPayment","Write-S3BucketTagging","Write-S3BucketVersioning","Write-S3BucketWebsite","Write-S3CORSConfiguration","Write-S3LifecycleConfiguration","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
     "ChecksumMode"=@("Copy-S3Object","Get-S3ObjectMetadata","Read-S3Object")
     "CopySourceServerSideEncryptionCustomerMethod"=@("Copy-S3Object")
     "DataExport_OutputSchemaVersion"=@("Write-S3BucketAnalyticsConfiguration")
@@ -530,6 +539,7 @@ $S3_SelectMap = @{
                "Remove-S3ObjectTagSet",
                "Remove-S3PublicAccessBlock",
                "Get-S3ACL",
+               "Get-S3BucketAbac",
                "Get-S3BucketAccelerateConfiguration",
                "Get-S3BucketACL",
                "Get-S3BucketAnalyticsConfiguration",
@@ -571,6 +581,7 @@ $S3_SelectMap = @{
                "Get-S3ObjectV2",
                "Get-S3Version",
                "Set-S3ACL",
+               "Write-S3BucketAbac",
                "Write-S3BucketAccelerateConfiguration",
                "Set-S3BucketACL",
                "Write-S3BucketAnalyticsConfiguration",

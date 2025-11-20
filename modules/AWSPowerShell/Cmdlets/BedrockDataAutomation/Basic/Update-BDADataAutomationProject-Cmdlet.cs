@@ -59,6 +59,106 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         public Amazon.BedrockDataAutomation.Model.BlueprintItem[] CustomOutputConfiguration_Blueprint { get; set; }
         #endregion
         
+        #region Parameter OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionMode
+        /// <summary>
+        /// <para>
+        /// <para>Mode for sensitive data detection</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockDataAutomation.SensitiveDataDetectionMode")]
+        public Amazon.BedrockDataAutomation.SensitiveDataDetectionMode OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionMode { get; set; }
+        #endregion
+        
+        #region Parameter OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionMode
+        /// <summary>
+        /// <para>
+        /// <para>Mode for sensitive data detection</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockDataAutomation.SensitiveDataDetectionMode")]
+        public Amazon.BedrockDataAutomation.SensitiveDataDetectionMode OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionMode { get; set; }
+        #endregion
+        
+        #region Parameter OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionMode
+        /// <summary>
+        /// <para>
+        /// <para>Mode for sensitive data detection</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockDataAutomation.SensitiveDataDetectionMode")]
+        public Amazon.BedrockDataAutomation.SensitiveDataDetectionMode OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionMode { get; set; }
+        #endregion
+        
+        #region Parameter OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionMode
+        /// <summary>
+        /// <para>
+        /// <para>Mode for sensitive data detection</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockDataAutomation.SensitiveDataDetectionMode")]
+        public Amazon.BedrockDataAutomation.SensitiveDataDetectionMode OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionMode { get; set; }
+        #endregion
+        
+        #region Parameter OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionScope
+        /// <summary>
+        /// <para>
+        /// <para>Scope of detection - what types of sensitive data to detect</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionScope { get; set; }
+        #endregion
+        
+        #region Parameter OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionScope
+        /// <summary>
+        /// <para>
+        /// <para>Scope of detection - what types of sensitive data to detect</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionScope { get; set; }
+        #endregion
+        
+        #region Parameter OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionScope
+        /// <summary>
+        /// <para>
+        /// <para>Scope of detection - what types of sensitive data to detect</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionScope { get; set; }
+        #endregion
+        
+        #region Parameter OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionScope
+        /// <summary>
+        /// <para>
+        /// <para>Scope of detection - what types of sensitive data to detect</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionScope { get; set; }
+        #endregion
+        
         #region Parameter LanguageConfiguration_GenerativeOutputLanguage
         /// <summary>
         /// <para>
@@ -157,6 +257,62 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         public Amazon.BedrockDataAutomation.DesiredModality ModalityRouting_Mp4 { get; set; }
         #endregion
         
+        #region Parameter OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes
+        /// <summary>
+        /// <para>
+        /// <para>Types of PII entities to detect</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes { get; set; }
+        #endregion
+        
+        #region Parameter OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes
+        /// <summary>
+        /// <para>
+        /// <para>Types of PII entities to detect</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes { get; set; }
+        #endregion
+        
+        #region Parameter OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes
+        /// <summary>
+        /// <para>
+        /// <para>Types of PII entities to detect</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes { get; set; }
+        #endregion
+        
+        #region Parameter OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes
+        /// <summary>
+        /// <para>
+        /// <para>Types of PII entities to detect</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes { get; set; }
+        #endregion
+        
         #region Parameter ModalityRouting_Png
         /// <summary>
         /// <para>
@@ -205,6 +361,50 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.BedrockDataAutomation.DataAutomationProjectStage")]
         public Amazon.BedrockDataAutomation.DataAutomationProjectStage ProjectStage { get; set; }
+        #endregion
+        
+        #region Parameter OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode
+        /// <summary>
+        /// <para>
+        /// <para>Mode for redacting detected PII</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockDataAutomation.PIIRedactionMaskMode")]
+        public Amazon.BedrockDataAutomation.PIIRedactionMaskMode OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode { get; set; }
+        #endregion
+        
+        #region Parameter OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode
+        /// <summary>
+        /// <para>
+        /// <para>Mode for redacting detected PII</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockDataAutomation.PIIRedactionMaskMode")]
+        public Amazon.BedrockDataAutomation.PIIRedactionMaskMode OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode { get; set; }
+        #endregion
+        
+        #region Parameter OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode
+        /// <summary>
+        /// <para>
+        /// <para>Mode for redacting detected PII</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockDataAutomation.PIIRedactionMaskMode")]
+        public Amazon.BedrockDataAutomation.PIIRedactionMaskMode OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode { get; set; }
+        #endregion
+        
+        #region Parameter OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode
+        /// <summary>
+        /// <para>
+        /// <para>Mode for redacting detected PII</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockDataAutomation.PIIRedactionMaskMode")]
+        public Amazon.BedrockDataAutomation.PIIRedactionMaskMode OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode { get; set; }
         #endregion
         
         #region Parameter OverrideConfiguration_Audio_ModalityProcessing_State
@@ -589,14 +789,54 @@ namespace Amazon.PowerShell.Cmdlets.BDA
                 context.LanguageConfiguration_InputLanguage = new List<System.String>(this.LanguageConfiguration_InputLanguage);
             }
             context.OverrideConfiguration_Audio_ModalityProcessing_State = this.OverrideConfiguration_Audio_ModalityProcessing_State;
+            context.OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionMode = this.OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionMode;
+            if (this.OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionScope != null)
+            {
+                context.OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionScope = new List<System.String>(this.OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionScope);
+            }
+            if (this.OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes != null)
+            {
+                context.OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes = new List<System.String>(this.OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes);
+            }
+            context.OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode = this.OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode;
             context.OverrideConfiguration_Document_ModalityProcessing_State = this.OverrideConfiguration_Document_ModalityProcessing_State;
+            context.OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionMode = this.OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionMode;
+            if (this.OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionScope != null)
+            {
+                context.OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionScope = new List<System.String>(this.OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionScope);
+            }
+            if (this.OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes != null)
+            {
+                context.OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes = new List<System.String>(this.OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes);
+            }
+            context.OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode = this.OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode;
             context.Splitter_State = this.Splitter_State;
             context.OverrideConfiguration_Image_ModalityProcessing_State = this.OverrideConfiguration_Image_ModalityProcessing_State;
+            context.OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionMode = this.OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionMode;
+            if (this.OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionScope != null)
+            {
+                context.OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionScope = new List<System.String>(this.OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionScope);
+            }
+            if (this.OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes != null)
+            {
+                context.OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes = new List<System.String>(this.OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes);
+            }
+            context.OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode = this.OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode;
             context.ModalityRouting_Jpeg = this.ModalityRouting_Jpeg;
             context.ModalityRouting_Mov = this.ModalityRouting_Mov;
             context.ModalityRouting_Mp4 = this.ModalityRouting_Mp4;
             context.ModalityRouting_Png = this.ModalityRouting_Png;
             context.OverrideConfiguration_Video_ModalityProcessing_State = this.OverrideConfiguration_Video_ModalityProcessing_State;
+            context.OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionMode = this.OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionMode;
+            if (this.OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionScope != null)
+            {
+                context.OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionScope = new List<System.String>(this.OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionScope);
+            }
+            if (this.OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes != null)
+            {
+                context.OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes = new List<System.String>(this.OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes);
+            }
+            context.OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode = this.OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode;
             context.ProjectArn = this.ProjectArn;
             #if MODULAR
             if (this.ProjectArn == null && ParameterWasBound(nameof(this.ProjectArn)))
@@ -749,6 +989,76 @@ namespace Amazon.PowerShell.Cmdlets.BDA
                 requestOverrideConfiguration_overrideConfiguration_Image.ModalityProcessing = requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_ModalityProcessing;
                 requestOverrideConfiguration_overrideConfiguration_ImageIsNull = false;
             }
+            Amazon.BedrockDataAutomation.Model.SensitiveDataConfiguration requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration = null;
+            
+             // populate SensitiveDataConfiguration
+            var requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfigurationIsNull = true;
+            requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration = new Amazon.BedrockDataAutomation.Model.SensitiveDataConfiguration();
+            Amazon.BedrockDataAutomation.SensitiveDataDetectionMode requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_DetectionMode = null;
+            if (cmdletContext.OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionMode != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_DetectionMode = cmdletContext.OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionMode;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_DetectionMode != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration.DetectionMode = requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_DetectionMode;
+                requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfigurationIsNull = false;
+            }
+            List<System.String> requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_DetectionScope = null;
+            if (cmdletContext.OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionScope != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_DetectionScope = cmdletContext.OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionScope;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_DetectionScope != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration.DetectionScope = requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_DetectionScope;
+                requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfigurationIsNull = false;
+            }
+            Amazon.BedrockDataAutomation.Model.PIIEntitiesConfiguration requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration = null;
+            
+             // populate PiiEntitiesConfiguration
+            var requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfigurationIsNull = true;
+            requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration = new Amazon.BedrockDataAutomation.Model.PIIEntitiesConfiguration();
+            List<System.String> requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes = null;
+            if (cmdletContext.OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes = cmdletContext.OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration.PiiEntityTypes = requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes;
+                requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfigurationIsNull = false;
+            }
+            Amazon.BedrockDataAutomation.PIIRedactionMaskMode requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode = null;
+            if (cmdletContext.OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode = cmdletContext.OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration.RedactionMaskMode = requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode;
+                requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfigurationIsNull = false;
+            }
+             // determine if requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration should be set to null
+            if (requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfigurationIsNull)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration = null;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration.PiiEntitiesConfiguration = requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration_overrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration;
+                requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfigurationIsNull = false;
+            }
+             // determine if requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration should be set to null
+            if (requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfigurationIsNull)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration = null;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Image.SensitiveDataConfiguration = requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_SensitiveDataConfiguration;
+                requestOverrideConfiguration_overrideConfiguration_ImageIsNull = false;
+            }
              // determine if requestOverrideConfiguration_overrideConfiguration_Image should be set to null
             if (requestOverrideConfiguration_overrideConfiguration_ImageIsNull)
             {
@@ -787,6 +1097,76 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             if (requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_ModalityProcessing != null)
             {
                 requestOverrideConfiguration_overrideConfiguration_Video.ModalityProcessing = requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_ModalityProcessing;
+                requestOverrideConfiguration_overrideConfiguration_VideoIsNull = false;
+            }
+            Amazon.BedrockDataAutomation.Model.SensitiveDataConfiguration requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration = null;
+            
+             // populate SensitiveDataConfiguration
+            var requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfigurationIsNull = true;
+            requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration = new Amazon.BedrockDataAutomation.Model.SensitiveDataConfiguration();
+            Amazon.BedrockDataAutomation.SensitiveDataDetectionMode requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_DetectionMode = null;
+            if (cmdletContext.OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionMode != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_DetectionMode = cmdletContext.OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionMode;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_DetectionMode != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration.DetectionMode = requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_DetectionMode;
+                requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfigurationIsNull = false;
+            }
+            List<System.String> requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_DetectionScope = null;
+            if (cmdletContext.OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionScope != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_DetectionScope = cmdletContext.OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionScope;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_DetectionScope != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration.DetectionScope = requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_DetectionScope;
+                requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfigurationIsNull = false;
+            }
+            Amazon.BedrockDataAutomation.Model.PIIEntitiesConfiguration requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration = null;
+            
+             // populate PiiEntitiesConfiguration
+            var requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfigurationIsNull = true;
+            requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration = new Amazon.BedrockDataAutomation.Model.PIIEntitiesConfiguration();
+            List<System.String> requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes = null;
+            if (cmdletContext.OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes = cmdletContext.OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration.PiiEntityTypes = requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes;
+                requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfigurationIsNull = false;
+            }
+            Amazon.BedrockDataAutomation.PIIRedactionMaskMode requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode = null;
+            if (cmdletContext.OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode = cmdletContext.OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration.RedactionMaskMode = requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode;
+                requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfigurationIsNull = false;
+            }
+             // determine if requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration should be set to null
+            if (requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfigurationIsNull)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration = null;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration.PiiEntitiesConfiguration = requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration_overrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration;
+                requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfigurationIsNull = false;
+            }
+             // determine if requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration should be set to null
+            if (requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfigurationIsNull)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration = null;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Video.SensitiveDataConfiguration = requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_SensitiveDataConfiguration;
                 requestOverrideConfiguration_overrideConfiguration_VideoIsNull = false;
             }
              // determine if requestOverrideConfiguration_overrideConfiguration_Video should be set to null
@@ -874,6 +1254,76 @@ namespace Amazon.PowerShell.Cmdlets.BDA
                 requestOverrideConfiguration_overrideConfiguration_Audio.LanguageConfiguration = requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_LanguageConfiguration;
                 requestOverrideConfiguration_overrideConfiguration_AudioIsNull = false;
             }
+            Amazon.BedrockDataAutomation.Model.SensitiveDataConfiguration requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration = null;
+            
+             // populate SensitiveDataConfiguration
+            var requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfigurationIsNull = true;
+            requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration = new Amazon.BedrockDataAutomation.Model.SensitiveDataConfiguration();
+            Amazon.BedrockDataAutomation.SensitiveDataDetectionMode requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_DetectionMode = null;
+            if (cmdletContext.OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionMode != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_DetectionMode = cmdletContext.OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionMode;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_DetectionMode != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration.DetectionMode = requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_DetectionMode;
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfigurationIsNull = false;
+            }
+            List<System.String> requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_DetectionScope = null;
+            if (cmdletContext.OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionScope != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_DetectionScope = cmdletContext.OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionScope;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_DetectionScope != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration.DetectionScope = requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_DetectionScope;
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfigurationIsNull = false;
+            }
+            Amazon.BedrockDataAutomation.Model.PIIEntitiesConfiguration requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration = null;
+            
+             // populate PiiEntitiesConfiguration
+            var requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfigurationIsNull = true;
+            requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration = new Amazon.BedrockDataAutomation.Model.PIIEntitiesConfiguration();
+            List<System.String> requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes = null;
+            if (cmdletContext.OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes = cmdletContext.OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration.PiiEntityTypes = requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes;
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfigurationIsNull = false;
+            }
+            Amazon.BedrockDataAutomation.PIIRedactionMaskMode requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode = null;
+            if (cmdletContext.OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode = cmdletContext.OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration.RedactionMaskMode = requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode;
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfigurationIsNull = false;
+            }
+             // determine if requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration should be set to null
+            if (requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfigurationIsNull)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration = null;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration.PiiEntitiesConfiguration = requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration_overrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration;
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfigurationIsNull = false;
+            }
+             // determine if requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration should be set to null
+            if (requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfigurationIsNull)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration = null;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio.SensitiveDataConfiguration = requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_SensitiveDataConfiguration;
+                requestOverrideConfiguration_overrideConfiguration_AudioIsNull = false;
+            }
              // determine if requestOverrideConfiguration_overrideConfiguration_Audio should be set to null
             if (requestOverrideConfiguration_overrideConfiguration_AudioIsNull)
             {
@@ -937,6 +1387,76 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             if (requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_Splitter != null)
             {
                 requestOverrideConfiguration_overrideConfiguration_Document.Splitter = requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_Splitter;
+                requestOverrideConfiguration_overrideConfiguration_DocumentIsNull = false;
+            }
+            Amazon.BedrockDataAutomation.Model.SensitiveDataConfiguration requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration = null;
+            
+             // populate SensitiveDataConfiguration
+            var requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfigurationIsNull = true;
+            requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration = new Amazon.BedrockDataAutomation.Model.SensitiveDataConfiguration();
+            Amazon.BedrockDataAutomation.SensitiveDataDetectionMode requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_DetectionMode = null;
+            if (cmdletContext.OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionMode != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_DetectionMode = cmdletContext.OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionMode;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_DetectionMode != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration.DetectionMode = requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_DetectionMode;
+                requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfigurationIsNull = false;
+            }
+            List<System.String> requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_DetectionScope = null;
+            if (cmdletContext.OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionScope != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_DetectionScope = cmdletContext.OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionScope;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_DetectionScope != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration.DetectionScope = requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_DetectionScope;
+                requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfigurationIsNull = false;
+            }
+            Amazon.BedrockDataAutomation.Model.PIIEntitiesConfiguration requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration = null;
+            
+             // populate PiiEntitiesConfiguration
+            var requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfigurationIsNull = true;
+            requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration = new Amazon.BedrockDataAutomation.Model.PIIEntitiesConfiguration();
+            List<System.String> requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes = null;
+            if (cmdletContext.OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes = cmdletContext.OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration.PiiEntityTypes = requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes;
+                requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfigurationIsNull = false;
+            }
+            Amazon.BedrockDataAutomation.PIIRedactionMaskMode requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode = null;
+            if (cmdletContext.OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode = cmdletContext.OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration.RedactionMaskMode = requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode;
+                requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfigurationIsNull = false;
+            }
+             // determine if requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration should be set to null
+            if (requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfigurationIsNull)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration = null;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration.PiiEntitiesConfiguration = requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration_overrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration;
+                requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfigurationIsNull = false;
+            }
+             // determine if requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration should be set to null
+            if (requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfigurationIsNull)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration = null;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Document.SensitiveDataConfiguration = requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_SensitiveDataConfiguration;
                 requestOverrideConfiguration_overrideConfiguration_DocumentIsNull = false;
             }
              // determine if requestOverrideConfiguration_overrideConfiguration_Document should be set to null
@@ -1692,14 +2212,30 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             public System.Boolean? LanguageConfiguration_IdentifyMultipleLanguage { get; set; }
             public List<System.String> LanguageConfiguration_InputLanguage { get; set; }
             public Amazon.BedrockDataAutomation.State OverrideConfiguration_Audio_ModalityProcessing_State { get; set; }
+            public Amazon.BedrockDataAutomation.SensitiveDataDetectionMode OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionMode { get; set; }
+            public List<System.String> OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionScope { get; set; }
+            public List<System.String> OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes { get; set; }
+            public Amazon.BedrockDataAutomation.PIIRedactionMaskMode OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode { get; set; }
             public Amazon.BedrockDataAutomation.State OverrideConfiguration_Document_ModalityProcessing_State { get; set; }
+            public Amazon.BedrockDataAutomation.SensitiveDataDetectionMode OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionMode { get; set; }
+            public List<System.String> OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionScope { get; set; }
+            public List<System.String> OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes { get; set; }
+            public Amazon.BedrockDataAutomation.PIIRedactionMaskMode OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode { get; set; }
             public Amazon.BedrockDataAutomation.State Splitter_State { get; set; }
             public Amazon.BedrockDataAutomation.State OverrideConfiguration_Image_ModalityProcessing_State { get; set; }
+            public Amazon.BedrockDataAutomation.SensitiveDataDetectionMode OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionMode { get; set; }
+            public List<System.String> OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionScope { get; set; }
+            public List<System.String> OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes { get; set; }
+            public Amazon.BedrockDataAutomation.PIIRedactionMaskMode OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode { get; set; }
             public Amazon.BedrockDataAutomation.DesiredModality ModalityRouting_Jpeg { get; set; }
             public Amazon.BedrockDataAutomation.DesiredModality ModalityRouting_Mov { get; set; }
             public Amazon.BedrockDataAutomation.DesiredModality ModalityRouting_Mp4 { get; set; }
             public Amazon.BedrockDataAutomation.DesiredModality ModalityRouting_Png { get; set; }
             public Amazon.BedrockDataAutomation.State OverrideConfiguration_Video_ModalityProcessing_State { get; set; }
+            public Amazon.BedrockDataAutomation.SensitiveDataDetectionMode OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionMode { get; set; }
+            public List<System.String> OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionScope { get; set; }
+            public List<System.String> OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes { get; set; }
+            public Amazon.BedrockDataAutomation.PIIRedactionMaskMode OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode { get; set; }
             public System.String ProjectArn { get; set; }
             public System.String ProjectDescription { get; set; }
             public Amazon.BedrockDataAutomation.DataAutomationProjectStage ProjectStage { get; set; }

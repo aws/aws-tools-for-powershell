@@ -392,6 +392,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.EncryptionSupportOptionValue
+        "Edit-EC2TransitGateway/Options_EncryptionSupport"
+        {
+            $v = "disable","enable"
+            break
+        }
+
         # Amazon.EC2.EndDateType
         {
             ($_ -eq "Add-EC2CapacityReservation/EndDateType") -Or
@@ -756,7 +763,7 @@ $EC2_Completers = {
         # Amazon.EC2.IpamPoolAwsService
         "New-EC2IpamPool/AwsService"
         {
-            $v = "ec2"
+            $v = "ec2","global-services"
             break
         }
 
@@ -777,7 +784,7 @@ $EC2_Completers = {
         # Amazon.EC2.IpamResourceType
         "Get-EC2IpamResourceCidr/ResourceType"
         {
-            $v = "eip","eni","ipv6-pool","public-ipv4-pool","subnet","vpc"
+            $v = "anycast-ip-list","eip","eni","ipv6-pool","public-ipv4-pool","subnet","vpc"
             break
         }
 
@@ -1255,6 +1262,23 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.TransitGatewayAttachmentResourceType
+        {
+            ($_ -eq "New-EC2TransitGatewayMeteringPolicyEntry/DestinationTransitGatewayAttachmentType") -Or
+            ($_ -eq "New-EC2TransitGatewayMeteringPolicyEntry/SourceTransitGatewayAttachmentType")
+        }
+        {
+            $v = "connect","direct-connect-gateway","network-function","peering","tgw-peering","vpc","vpn","vpn-concentrator"
+            break
+        }
+
+        # Amazon.EC2.TransitGatewayMeteringPayerType
+        "New-EC2TransitGatewayMeteringPolicyEntry/MeteredAccount"
+        {
+            $v = "destination-attachment-owner","source-attachment-owner","transit-gateway-owner"
+            break
+        }
+
         # Amazon.EC2.TransportProtocol
         "New-EC2ClientVpnEndpoint/TransportProtocol"
         {
@@ -1353,6 +1377,40 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.VpcEncryptionControlExclusionStateInput
+        {
+            ($_ -eq "Edit-EC2VpcEncryptionControl/EgressOnlyInternetGatewayExclusion") -Or
+            ($_ -eq "Edit-EC2VpcEncryptionControl/ElasticFileSystemExclusion") -Or
+            ($_ -eq "Edit-EC2VpcEncryptionControl/InternetGatewayExclusion") -Or
+            ($_ -eq "Edit-EC2VpcEncryptionControl/LambdaExclusion") -Or
+            ($_ -eq "Edit-EC2VpcEncryptionControl/NatGatewayExclusion") -Or
+            ($_ -eq "Edit-EC2VpcEncryptionControl/VirtualPrivateGatewayExclusion") -Or
+            ($_ -eq "New-EC2Vpc/VpcEncryptionControl_EgressOnlyInternetGatewayExclusion") -Or
+            ($_ -eq "New-EC2Vpc/VpcEncryptionControl_ElasticFileSystemExclusion") -Or
+            ($_ -eq "New-EC2Vpc/VpcEncryptionControl_InternetGatewayExclusion") -Or
+            ($_ -eq "New-EC2Vpc/VpcEncryptionControl_LambdaExclusion") -Or
+            ($_ -eq "New-EC2Vpc/VpcEncryptionControl_NatGatewayExclusion") -Or
+            ($_ -eq "New-EC2Vpc/VpcEncryptionControl_VirtualPrivateGatewayExclusion") -Or
+            ($_ -eq "New-EC2Vpc/VpcEncryptionControl_VpcLatticeExclusion") -Or
+            ($_ -eq "New-EC2Vpc/VpcEncryptionControl_VpcPeeringExclusion") -Or
+            ($_ -eq "Edit-EC2VpcEncryptionControl/VpcLatticeExclusion") -Or
+            ($_ -eq "Edit-EC2VpcEncryptionControl/VpcPeeringExclusion")
+        }
+        {
+            $v = "disable","enable"
+            break
+        }
+
+        # Amazon.EC2.VpcEncryptionControlMode
+        {
+            ($_ -eq "Edit-EC2VpcEncryptionControl/Mode") -Or
+            ($_ -eq "New-EC2Vpc/VpcEncryptionControl_Mode")
+        }
+        {
+            $v = "enforce","monitor"
+            break
+        }
+
         # Amazon.EC2.VpcEndpointType
         "New-EC2VpcEndpoint/VpcEndpointType"
         {
@@ -1422,10 +1480,13 @@ $EC2_map = @{
     "CurrencyCode"=@("New-EC2HostReservation")
     "DeliveryPreference"=@("Add-EC2CapacityReservation")
     "DestinationOptions_FileFormat"=@("New-EC2FlowLog")
+    "DestinationTransitGatewayAttachmentType"=@("New-EC2TransitGatewayMeteringPolicyEntry")
     "DeviceTrustProviderType"=@("New-EC2VerifiedAccessTrustProvider")
     "DiskImageFormat"=@("Export-EC2Image")
     "DnsOptions_DnsRecordIpType"=@("Edit-EC2VpcEndpoint","New-EC2VpcEndpoint")
     "Domain"=@("New-EC2Address")
+    "EgressOnlyInternetGatewayExclusion"=@("Edit-EC2VpcEncryptionControl")
+    "ElasticFileSystemExclusion"=@("Edit-EC2VpcEncryptionControl")
     "EndDateType"=@("Add-EC2CapacityReservation","Edit-EC2CapacityReservation")
     "EndpointIpAddressType"=@("New-EC2ClientVpnEndpoint")
     "EndpointType"=@("New-EC2VerifiedAccessEndpoint")
@@ -1455,10 +1516,12 @@ $EC2_map = @{
     "InstanceType"=@("Get-EC2ReservedInstancesOffering","New-EC2Instance")
     "InterfaceType"=@("New-EC2NetworkInterface")
     "InternetGatewayBlockMode"=@("Edit-EC2VpcBlockPublicAccessOption")
+    "InternetGatewayExclusion"=@("Edit-EC2VpcEncryptionControl")
     "InternetGatewayExclusionMode"=@("Edit-EC2VpcBlockPublicAccessExclusion","New-EC2VpcBlockPublicAccessExclusion")
     "IpAddressType"=@("Edit-EC2InstanceConnectEndpoint","Edit-EC2VpcEndpoint","New-EC2InstanceConnectEndpoint","New-EC2VpcEndpoint")
     "KeyFormat"=@("Get-EC2InstanceTpmEkPub","New-EC2KeyPair")
     "KeyType"=@("Get-EC2InstanceTpmEkPub","New-EC2KeyPair")
+    "LambdaExclusion"=@("Edit-EC2VpcEncryptionControl")
     "LaunchSpecification_InstanceType"=@("Request-EC2SpotInstance")
     "LimitPrice_CurrencyCode"=@("New-EC2ReservedInstance")
     "LoadBalancerOptions_Protocol"=@("Edit-EC2VerifiedAccessEndpoint","New-EC2VerifiedAccessEndpoint")
@@ -1479,9 +1542,10 @@ $EC2_map = @{
     "MetadataOptions_HttpProtocolIpv6"=@("New-EC2Instance")
     "MetadataOptions_HttpToken"=@("New-EC2Instance")
     "MetadataOptions_InstanceMetadataTag"=@("New-EC2Instance")
-    "MeteredAccount"=@("Edit-EC2Ipam","New-EC2Ipam")
+    "MeteredAccount"=@("Edit-EC2Ipam","New-EC2Ipam","New-EC2TransitGatewayMeteringPolicyEntry")
     "Metric"=@("Disable-EC2AwsNetworkPerformanceMetricSubscription","Enable-EC2AwsNetworkPerformanceMetricSubscription")
-    "Mode"=@("New-EC2LocalGatewayRouteTable")
+    "Mode"=@("Edit-EC2VpcEncryptionControl","New-EC2LocalGatewayRouteTable")
+    "NatGatewayExclusion"=@("Edit-EC2VpcEncryptionControl")
     "NetworkInterfaceOptions_Protocol"=@("Edit-EC2VerifiedAccessEndpoint","New-EC2VerifiedAccessEndpoint")
     "NetworkPerformanceOptions_BandwidthWeighting"=@("New-EC2Instance")
     "OfferingClass"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
@@ -1496,6 +1560,7 @@ $EC2_map = @{
     "Options_DefaultRouteTablePropagation"=@("Edit-EC2TransitGateway","New-EC2TransitGateway")
     "Options_DnsSupport"=@("Edit-EC2TransitGateway","Edit-EC2TransitGatewayVpcAttachment","New-EC2TransitGateway","New-EC2TransitGatewayVpcAttachment")
     "Options_DynamicRouting"=@("New-EC2TransitGatewayPeeringAttachment")
+    "Options_EncryptionSupport"=@("Edit-EC2TransitGateway")
     "Options_Igmpv2Support"=@("New-EC2TransitGatewayMulticastDomain")
     "Options_Ipv6Support"=@("Edit-EC2TransitGatewayVpcAttachment","New-EC2TransitGatewayVpcAttachment")
     "Options_MulticastSupport"=@("New-EC2TransitGateway")
@@ -1526,6 +1591,7 @@ $EC2_map = @{
     "SelfServicePortal"=@("Edit-EC2ClientVpnEndpoint","New-EC2ClientVpnEndpoint")
     "SnapshotLocation"=@("New-EC2Image")
     "SourceResource_ResourceType"=@("New-EC2IpamPool")
+    "SourceTransitGatewayAttachmentType"=@("New-EC2TransitGatewayMeteringPolicyEntry")
     "SpotFleetRequestConfig_AllocationStrategy"=@("Request-EC2SpotFleet")
     "SpotFleetRequestConfig_ExcessCapacityTerminationPolicy"=@("Request-EC2SpotFleet")
     "SpotFleetRequestConfig_InstanceInterruptionBehavior"=@("Request-EC2SpotFleet")
@@ -1555,8 +1621,20 @@ $EC2_map = @{
     "Type"=@("New-EC2CustomerGateway","New-EC2Fleet","New-EC2VpnConcentrator","New-EC2VpnGateway","Request-EC2SpotInstance")
     "UserTrustProviderType"=@("New-EC2VerifiedAccessTrustProvider")
     "VerificationMethod"=@("Register-EC2IpamPoolCidr")
+    "VirtualPrivateGatewayExclusion"=@("Edit-EC2VpcEncryptionControl")
     "VolumeType"=@("Copy-EC2Volume","Edit-EC2Volume","New-EC2Volume")
+    "VpcEncryptionControl_EgressOnlyInternetGatewayExclusion"=@("New-EC2Vpc")
+    "VpcEncryptionControl_ElasticFileSystemExclusion"=@("New-EC2Vpc")
+    "VpcEncryptionControl_InternetGatewayExclusion"=@("New-EC2Vpc")
+    "VpcEncryptionControl_LambdaExclusion"=@("New-EC2Vpc")
+    "VpcEncryptionControl_Mode"=@("New-EC2Vpc")
+    "VpcEncryptionControl_NatGatewayExclusion"=@("New-EC2Vpc")
+    "VpcEncryptionControl_VirtualPrivateGatewayExclusion"=@("New-EC2Vpc")
+    "VpcEncryptionControl_VpcLatticeExclusion"=@("New-EC2Vpc")
+    "VpcEncryptionControl_VpcPeeringExclusion"=@("New-EC2Vpc")
     "VpcEndpointType"=@("New-EC2VpcEndpoint")
+    "VpcLatticeExclusion"=@("Edit-EC2VpcEncryptionControl")
+    "VpcPeeringExclusion"=@("Edit-EC2VpcEncryptionControl")
 }
 
 _awsArgumentCompleterRegistration $EC2_Completers $EC2_map
@@ -1744,6 +1822,8 @@ $EC2_SelectMap = @{
                "New-EC2TransitGateway",
                "New-EC2TransitGatewayConnect",
                "New-EC2TransitGatewayConnectPeer",
+               "New-EC2TransitGatewayMeteringPolicy",
+               "New-EC2TransitGatewayMeteringPolicyEntry",
                "New-EC2TransitGatewayMulticastDomain",
                "New-EC2TransitGatewayPeeringAttachment",
                "New-EC2TransitGatewayPolicyTable",
@@ -1759,6 +1839,7 @@ $EC2_SelectMap = @{
                "New-EC2Volume",
                "New-EC2Vpc",
                "New-EC2VpcBlockPublicAccessExclusion",
+               "New-EC2VpcEncryptionControl",
                "New-EC2VpcEndpoint",
                "New-EC2VpcEndpointConnectionNotification",
                "New-EC2VpcEndpointServiceConfiguration",
@@ -1831,6 +1912,8 @@ $EC2_SelectMap = @{
                "Remove-EC2TransitGateway",
                "Remove-EC2TransitGatewayConnect",
                "Remove-EC2TransitGatewayConnectPeer",
+               "Remove-EC2TransitGatewayMeteringPolicy",
+               "Remove-EC2TransitGatewayMeteringPolicyEntry",
                "Remove-EC2TransitGatewayMulticastDomain",
                "Remove-EC2TransitGatewayPeeringAttachment",
                "Remove-EC2TransitGatewayPolicyTable",
@@ -1846,6 +1929,7 @@ $EC2_SelectMap = @{
                "Remove-EC2Volume",
                "Remove-EC2Vpc",
                "Remove-EC2VpcBlockPublicAccessExclusion",
+               "Remove-EC2VpcEncryptionControl",
                "Remove-EC2EndpointConnectionNotification",
                "Remove-EC2VpcEndpoint",
                "Remove-EC2EndpointServiceConfiguration",
@@ -2007,6 +2091,7 @@ $EC2_SelectMap = @{
                "Get-EC2TransitGatewayAttachment",
                "Get-EC2TransitGatewayConnectPeer",
                "Get-EC2TransitGatewayConnect",
+               "Get-EC2TransitGatewayMeteringPolicy",
                "Get-EC2TransitGatewayMulticastDomain",
                "Get-EC2TransitGatewayPeeringAttachment",
                "Get-EC2TransitGatewayPolicyTable",
@@ -2029,6 +2114,7 @@ $EC2_SelectMap = @{
                "Get-EC2VpcBlockPublicAccessOption",
                "Get-EC2VpcClassicLink",
                "Get-EC2VpcClassicLinkDnsSupport",
+               "Get-EC2VpcEncryptionControl",
                "Get-EC2VpcEndpointAssociation",
                "Get-EC2EndpointConnectionNotification",
                "Get-EC2EndpointConnection",
@@ -2167,6 +2253,7 @@ $EC2_SelectMap = @{
                "Get-EC2SpotPlacementScore",
                "Get-EC2SubnetCidrReservation",
                "Get-EC2TransitGatewayAttachmentPropagation",
+               "Get-EC2TransitGatewayMeteringPolicyEntry",
                "Get-EC2TransitGatewayMulticastDomainAssociation",
                "Get-EC2TransitGatewayPolicyTableAssociation",
                "Get-EC2TransitGatewayPolicyTableEntry",
@@ -2176,6 +2263,7 @@ $EC2_SelectMap = @{
                "Get-EC2VerifiedAccessEndpointPolicy",
                "Get-EC2VerifiedAccessEndpointTarget",
                "Get-EC2VerifiedAccessGroupPolicy",
+               "Get-EC2VpcResourcesBlockingEncryptionEnforcement",
                "Get-EC2VpnConnectionDeviceSampleConfiguration",
                "Get-EC2VpnConnectionDeviceType",
                "Get-EC2VpnTunnelReplacementStatus",
@@ -2185,6 +2273,7 @@ $EC2_SelectMap = @{
                "Import-EC2Snapshot",
                "Get-EC2ImagesInRecycleBinList",
                "Get-EC2SnapshotsInRecycleBinList",
+               "Get-EC2VolumesInRecycleBinList",
                "Lock-EC2Snapshot",
                "Edit-EC2AddressAttribute",
                "Edit-EC2AvailabilityZoneGroup",
@@ -2236,6 +2325,7 @@ $EC2_SelectMap = @{
                "Edit-EC2TrafficMirrorFilterRule",
                "Edit-EC2TrafficMirrorSession",
                "Edit-EC2TransitGateway",
+               "Edit-EC2TransitGatewayMeteringPolicy",
                "Edit-EC2TransitGatewayPrefixListReference",
                "Edit-EC2TransitGatewayVpcAttachment",
                "Edit-EC2VerifiedAccessEndpoint",
@@ -2250,6 +2340,7 @@ $EC2_SelectMap = @{
                "Edit-EC2VpcAttribute",
                "Edit-EC2VpcBlockPublicAccessExclusion",
                "Edit-EC2VpcBlockPublicAccessOption",
+               "Edit-EC2VpcEncryptionControl",
                "Edit-EC2VpcEndpoint",
                "Edit-EC2VpcEndpointConnectionNotification",
                "Edit-EC2VpcEndpointServiceConfiguration",
@@ -2311,6 +2402,7 @@ $EC2_SelectMap = @{
                "Restore-EC2ManagedPrefixListVersion",
                "Restore-EC2SnapshotFromRecycleBin",
                "Restore-EC2SnapshotTier",
+               "Restore-EC2VolumeFromRecycleBin",
                "Revoke-EC2ClientVpnIngress",
                "Revoke-EC2SecurityGroupEgress",
                "Revoke-EC2SecurityGroupIngress",

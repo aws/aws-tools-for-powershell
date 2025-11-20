@@ -30,8 +30,9 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Updates the event configuration settings for the specified event data store. You can
-    /// update the maximum event size and context key selectors.
+    /// Updates the event configuration settings for the specified event data store or trail.
+    /// This operation supports updating the maximum event size, adding or modifying context
+    /// key selectors for event data store, and configuring aggregation settings for the trail.
     /// </summary>
     [Cmdlet("Write", "CTEventConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudTrail.Model.PutEventConfigurationResponse")]
@@ -45,6 +46,21 @@ namespace Amazon.PowerShell.Cmdlets.CT
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AggregationConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The list of aggregation configurations that you want to configure for the trail.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationConfigurations")]
+        public Amazon.CloudTrail.Model.AggregationConfiguration[] AggregationConfiguration { get; set; }
+        #endregion
+        
         #region Parameter ContextKeySelector
         /// <summary>
         /// <para>
@@ -55,14 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("ContextKeySelectors")]
         public Amazon.CloudTrail.Model.ContextKeySelector[] ContextKeySelector { get; set; }
         #endregion
@@ -71,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) or ID suffix of the ARN of the event data store for
-        /// which you want to update event configuration settings.</para>
+        /// which event configuration settings are updated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,15 +94,19 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// If you are using context key selectors, MaxEventSize must be set to Large.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.CloudTrail.MaxEventSize")]
         public Amazon.CloudTrail.MaxEventSize MaxEventSize { get; set; }
+        #endregion
+        
+        #region Parameter TrailName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the trail for which you want to update event configuration settings.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TrailName { get; set; }
         #endregion
         
         #region Parameter Select
@@ -142,24 +155,17 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 context.Select = CreateSelectDelegate<Amazon.CloudTrail.Model.PutEventConfigurationResponse, WriteCTEventConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AggregationConfiguration != null)
+            {
+                context.AggregationConfiguration = new List<Amazon.CloudTrail.Model.AggregationConfiguration>(this.AggregationConfiguration);
+            }
             if (this.ContextKeySelector != null)
             {
                 context.ContextKeySelector = new List<Amazon.CloudTrail.Model.ContextKeySelector>(this.ContextKeySelector);
             }
-            #if MODULAR
-            if (this.ContextKeySelector == null && ParameterWasBound(nameof(this.ContextKeySelector)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ContextKeySelector which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.EventDataStore = this.EventDataStore;
             context.MaxEventSize = this.MaxEventSize;
-            #if MODULAR
-            if (this.MaxEventSize == null && ParameterWasBound(nameof(this.MaxEventSize)))
-            {
-                WriteWarning("You are passing $null as a value for parameter MaxEventSize which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.TrailName = this.TrailName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -176,6 +182,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
             // create request
             var request = new Amazon.CloudTrail.Model.PutEventConfigurationRequest();
             
+            if (cmdletContext.AggregationConfiguration != null)
+            {
+                request.AggregationConfigurations = cmdletContext.AggregationConfiguration;
+            }
             if (cmdletContext.ContextKeySelector != null)
             {
                 request.ContextKeySelectors = cmdletContext.ContextKeySelector;
@@ -187,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
             if (cmdletContext.MaxEventSize != null)
             {
                 request.MaxEventSize = cmdletContext.MaxEventSize;
+            }
+            if (cmdletContext.TrailName != null)
+            {
+                request.TrailName = cmdletContext.TrailName;
             }
             
             CmdletOutput output;
@@ -243,9 +257,11 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.CloudTrail.Model.AggregationConfiguration> AggregationConfiguration { get; set; }
             public List<Amazon.CloudTrail.Model.ContextKeySelector> ContextKeySelector { get; set; }
             public System.String EventDataStore { get; set; }
             public Amazon.CloudTrail.MaxEventSize MaxEventSize { get; set; }
+            public System.String TrailName { get; set; }
             public System.Func<Amazon.CloudTrail.Model.PutEventConfigurationResponse, WriteCTEventConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -3095,6 +3095,13 @@ $CWAS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ApplicationSignals.DetailLevel
+        "Get-CWASAuditFindingList/DetailLevel"
+        {
+            $v = "BRIEF","DETAILED"
+            break
+        }
+
         # Amazon.ApplicationSignals.DurationUnit
         {
             ($_ -eq "New-CWASServiceLevelObjective/CalendarInterval_DurationUnit") -Or
@@ -3141,6 +3148,7 @@ $CWAS_Completers = {
 
 $CWAS_map = @{
     "CalendarInterval_DurationUnit"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
+    "DetailLevel"=@("Get-CWASAuditFindingList")
     "RequestBasedSliConfig_ComparisonOperator"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
     "RequestBasedSliMetricConfig_MetricType"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
     "RollingInterval_DurationUnit"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
@@ -3206,6 +3214,7 @@ $CWAS_SelectMap = @{
                "Get-CWASService",
                "Get-CWASServiceLevelObjective",
                "Get-CWASAuditFindingList",
+               "Get-CWASEntityEventList",
                "Get-CWASGroupingAttributeDefinitionList",
                "Get-CWASServiceDependencyList",
                "Get-CWASServiceDependentList",
@@ -5620,7 +5629,17 @@ $AS_Completers = {
         # Amazon.AutoScaling.RefreshStrategy
         "Start-ASInstanceRefresh/Strategy"
         {
-            $v = "Rolling"
+            $v = "ReplaceRootVolume","Rolling"
+            break
+        }
+
+        # Amazon.AutoScaling.RetentionAction
+        {
+            ($_ -eq "New-ASAutoScalingGroup/RetentionTriggers_TerminateHookAbandon") -Or
+            ($_ -eq "Update-ASAutoScalingGroup/RetentionTriggers_TerminateHookAbandon")
+        }
+        {
+            $v = "retain","terminate"
             break
         }
 
@@ -5673,6 +5692,7 @@ $AS_map = @{
     "PredictiveScalingConfiguration_Mode"=@("Write-ASScalingPolicy")
     "Preferences_ScaleInProtectedInstance"=@("Start-ASInstanceRefresh")
     "Preferences_StandbyInstance"=@("Start-ASInstanceRefresh")
+    "RetentionTriggers_TerminateHookAbandon"=@("New-ASAutoScalingGroup","Update-ASAutoScalingGroup")
     "RetryStrategy"=@("Add-ASInstance")
     "Strategy"=@("Start-ASInstanceRefresh")
 }
@@ -8439,6 +8459,13 @@ $BAC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCore.ExtractionJobStatus
+        "Get-BACMemoryExtractionJobList/Filter_Status"
+        {
+            $v = "FAILED"
+            break
+        }
+
         # Amazon.BedrockAgentCore.Oauth2FlowType
         "Get-BACResourceOauth2Token/Oauth2Flow"
         {
@@ -8471,6 +8498,7 @@ $BAC_Completers = {
 $BAC_map = @{
     "Arguments_Language"=@("Invoke-BACCodeInterpreter")
     "AutomationStreamUpdate_StreamStatus"=@("Update-BACBrowserStream")
+    "Filter_Status"=@("Get-BACMemoryExtractionJobList")
     "Name"=@("Invoke-BACCodeInterpreter")
     "Oauth2Flow"=@("Get-BACResourceOauth2Token")
     "Status"=@("Get-BACBrowserSessionList","Get-BACCodeInterpreterSessionList")
@@ -8549,11 +8577,13 @@ $BAC_SelectMap = @{
                "Get-BACBrowserSessionList",
                "Get-BACCodeInterpreterSessionList",
                "Get-BACEventList",
+               "Get-BACMemoryExtractionJobList",
                "Get-BACMemoryRecordList",
                "Get-BACSessionList",
                "Invoke-BACMemoryRecord",
                "Start-BACBrowserSession",
                "Start-BACCodeInterpreterSession",
+               "Start-BACMemoryExtractionJob",
                "Stop-BACBrowserSession",
                "Stop-BACCodeInterpreterSession",
                "Stop-BACRuntimeSession",
@@ -8570,7 +8600,10 @@ $BDAR_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.BedrockDataAutomationRuntime.DataAutomationStage
-        "Invoke-BDARDataAutomationAsync/DataAutomationConfiguration_Stage"
+        {
+            ($_ -eq "Invoke-BDARDataAutomation/DataAutomationConfiguration_Stage") -Or
+            ($_ -eq "Invoke-BDARDataAutomationAsync/DataAutomationConfiguration_Stage")
+        }
         {
             $v = "DEVELOPMENT","LIVE"
             break
@@ -8585,7 +8618,7 @@ $BDAR_Completers = {
 }
 
 $BDAR_map = @{
-    "DataAutomationConfiguration_Stage"=@("Invoke-BDARDataAutomationAsync")
+    "DataAutomationConfiguration_Stage"=@("Invoke-BDARDataAutomation","Invoke-BDARDataAutomationAsync")
 }
 
 _awsArgumentCompleterRegistration $BDAR_Completers $BDAR_map
@@ -8639,6 +8672,7 @@ $BDAR_SelectCompleters = {
 
 $BDAR_SelectMap = @{
     "Select"=@("Get-BDARDataAutomationStatus",
+               "Invoke-BDARDataAutomation",
                "Invoke-BDARDataAutomationAsync",
                "Get-BDARResourceTag",
                "Add-BDARResourceTag",
@@ -8702,6 +8736,13 @@ $BDA_Completers = {
             break
         }
 
+        # Amazon.BedrockDataAutomation.DataAutomationProjectType
+        "New-BDADataAutomationProject/ProjectType"
+        {
+            $v = "ASYNC","SYNC"
+            break
+        }
+
         # Amazon.BedrockDataAutomation.DesiredModality
         {
             ($_ -eq "New-BDADataAutomationProject/ModalityRouting_Jpeg") -Or
@@ -8718,6 +8759,22 @@ $BDA_Completers = {
             break
         }
 
+        # Amazon.BedrockDataAutomation.PIIRedactionMaskMode
+        {
+            ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode") -Or
+            ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode") -Or
+            ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode") -Or
+            ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode") -Or
+            ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode") -Or
+            ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode") -Or
+            ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode") -Or
+            ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode")
+        }
+        {
+            $v = "ENTITY_TYPE","PII"
+            break
+        }
+
         # Amazon.BedrockDataAutomation.ResourceOwner
         {
             ($_ -eq "Get-BDABlueprintList/ResourceOwner") -Or
@@ -8725,6 +8782,22 @@ $BDA_Completers = {
         }
         {
             $v = "ACCOUNT","SERVICE"
+            break
+        }
+
+        # Amazon.BedrockDataAutomation.SensitiveDataDetectionMode
+        {
+            ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionMode") -Or
+            ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionMode") -Or
+            ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionMode") -Or
+            ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionMode") -Or
+            ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionMode") -Or
+            ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionMode") -Or
+            ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionMode") -Or
+            ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionMode")
+        }
+        {
+            $v = "DETECTION","DETECTION_AND_REDACTION"
             break
         }
 
@@ -8799,12 +8872,21 @@ $BDA_map = @{
     "ModalityRouting_Mp4"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ModalityRouting_Png"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "OverrideConfiguration_Audio_ModalityProcessing_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionMode"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "OverrideConfiguration_Document_ModalityProcessing_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionMode"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "OverrideConfiguration_Image_ModalityProcessing_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionMode"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "OverrideConfiguration_Video_ModalityProcessing_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionMode"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ProjectFilter_ProjectStage"=@("Get-BDABlueprintList")
     "ProjectStage"=@("Get-BDADataAutomationProject","New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ProjectStageFilter"=@("Get-BDADataAutomationProjectList")
+    "ProjectType"=@("New-BDADataAutomationProject")
     "ResourceOwner"=@("Get-BDABlueprintList","Get-BDADataAutomationProjectList")
     "SpeakerLabeling_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "Splitter_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
@@ -9821,6 +9903,8 @@ $BRKT_SelectMap = @{
                "Stop-BRKTQuantumTask",
                "New-BRKTJob",
                "New-BRKTQuantumTask",
+               "New-BRKTSpendingLimit",
+               "Remove-BRKTSpendingLimit",
                "Get-BRKTDevice",
                "Get-BRKTJob",
                "Get-BRKTQuantumTask",
@@ -9828,8 +9912,10 @@ $BRKT_SelectMap = @{
                "Search-BRKTDevice",
                "Search-BRKTJob",
                "Search-BRKTQuantumTask",
+               "Search-BRKTSpendingLimit",
                "Add-BRKTResourceTag",
-               "Remove-BRKTResourceTag")
+               "Remove-BRKTResourceTag",
+               "Update-BRKTSpendingLimit")
 }
 
 _awsArgumentCompleterRegistration $BRKT_SelectCompleters $BRKT_SelectMap
@@ -27211,6 +27297,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.EncryptionSupportOptionValue
+        "Edit-EC2TransitGateway/Options_EncryptionSupport"
+        {
+            $v = "disable","enable"
+            break
+        }
+
         # Amazon.EC2.EndDateType
         {
             ($_ -eq "Add-EC2CapacityReservation/EndDateType") -Or
@@ -27575,7 +27668,7 @@ $EC2_Completers = {
         # Amazon.EC2.IpamPoolAwsService
         "New-EC2IpamPool/AwsService"
         {
-            $v = "ec2"
+            $v = "ec2","global-services"
             break
         }
 
@@ -27596,7 +27689,7 @@ $EC2_Completers = {
         # Amazon.EC2.IpamResourceType
         "Get-EC2IpamResourceCidr/ResourceType"
         {
-            $v = "eip","eni","ipv6-pool","public-ipv4-pool","subnet","vpc"
+            $v = "anycast-ip-list","eip","eni","ipv6-pool","public-ipv4-pool","subnet","vpc"
             break
         }
 
@@ -28074,6 +28167,23 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.TransitGatewayAttachmentResourceType
+        {
+            ($_ -eq "New-EC2TransitGatewayMeteringPolicyEntry/DestinationTransitGatewayAttachmentType") -Or
+            ($_ -eq "New-EC2TransitGatewayMeteringPolicyEntry/SourceTransitGatewayAttachmentType")
+        }
+        {
+            $v = "connect","direct-connect-gateway","network-function","peering","tgw-peering","vpc","vpn","vpn-concentrator"
+            break
+        }
+
+        # Amazon.EC2.TransitGatewayMeteringPayerType
+        "New-EC2TransitGatewayMeteringPolicyEntry/MeteredAccount"
+        {
+            $v = "destination-attachment-owner","source-attachment-owner","transit-gateway-owner"
+            break
+        }
+
         # Amazon.EC2.TransportProtocol
         "New-EC2ClientVpnEndpoint/TransportProtocol"
         {
@@ -28172,6 +28282,40 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.VpcEncryptionControlExclusionStateInput
+        {
+            ($_ -eq "Edit-EC2VpcEncryptionControl/EgressOnlyInternetGatewayExclusion") -Or
+            ($_ -eq "Edit-EC2VpcEncryptionControl/ElasticFileSystemExclusion") -Or
+            ($_ -eq "Edit-EC2VpcEncryptionControl/InternetGatewayExclusion") -Or
+            ($_ -eq "Edit-EC2VpcEncryptionControl/LambdaExclusion") -Or
+            ($_ -eq "Edit-EC2VpcEncryptionControl/NatGatewayExclusion") -Or
+            ($_ -eq "Edit-EC2VpcEncryptionControl/VirtualPrivateGatewayExclusion") -Or
+            ($_ -eq "New-EC2Vpc/VpcEncryptionControl_EgressOnlyInternetGatewayExclusion") -Or
+            ($_ -eq "New-EC2Vpc/VpcEncryptionControl_ElasticFileSystemExclusion") -Or
+            ($_ -eq "New-EC2Vpc/VpcEncryptionControl_InternetGatewayExclusion") -Or
+            ($_ -eq "New-EC2Vpc/VpcEncryptionControl_LambdaExclusion") -Or
+            ($_ -eq "New-EC2Vpc/VpcEncryptionControl_NatGatewayExclusion") -Or
+            ($_ -eq "New-EC2Vpc/VpcEncryptionControl_VirtualPrivateGatewayExclusion") -Or
+            ($_ -eq "New-EC2Vpc/VpcEncryptionControl_VpcLatticeExclusion") -Or
+            ($_ -eq "New-EC2Vpc/VpcEncryptionControl_VpcPeeringExclusion") -Or
+            ($_ -eq "Edit-EC2VpcEncryptionControl/VpcLatticeExclusion") -Or
+            ($_ -eq "Edit-EC2VpcEncryptionControl/VpcPeeringExclusion")
+        }
+        {
+            $v = "disable","enable"
+            break
+        }
+
+        # Amazon.EC2.VpcEncryptionControlMode
+        {
+            ($_ -eq "Edit-EC2VpcEncryptionControl/Mode") -Or
+            ($_ -eq "New-EC2Vpc/VpcEncryptionControl_Mode")
+        }
+        {
+            $v = "enforce","monitor"
+            break
+        }
+
         # Amazon.EC2.VpcEndpointType
         "New-EC2VpcEndpoint/VpcEndpointType"
         {
@@ -28241,10 +28385,13 @@ $EC2_map = @{
     "CurrencyCode"=@("New-EC2HostReservation")
     "DeliveryPreference"=@("Add-EC2CapacityReservation")
     "DestinationOptions_FileFormat"=@("New-EC2FlowLog")
+    "DestinationTransitGatewayAttachmentType"=@("New-EC2TransitGatewayMeteringPolicyEntry")
     "DeviceTrustProviderType"=@("New-EC2VerifiedAccessTrustProvider")
     "DiskImageFormat"=@("Export-EC2Image")
     "DnsOptions_DnsRecordIpType"=@("Edit-EC2VpcEndpoint","New-EC2VpcEndpoint")
     "Domain"=@("New-EC2Address")
+    "EgressOnlyInternetGatewayExclusion"=@("Edit-EC2VpcEncryptionControl")
+    "ElasticFileSystemExclusion"=@("Edit-EC2VpcEncryptionControl")
     "EndDateType"=@("Add-EC2CapacityReservation","Edit-EC2CapacityReservation")
     "EndpointIpAddressType"=@("New-EC2ClientVpnEndpoint")
     "EndpointType"=@("New-EC2VerifiedAccessEndpoint")
@@ -28274,10 +28421,12 @@ $EC2_map = @{
     "InstanceType"=@("Get-EC2ReservedInstancesOffering","New-EC2Instance")
     "InterfaceType"=@("New-EC2NetworkInterface")
     "InternetGatewayBlockMode"=@("Edit-EC2VpcBlockPublicAccessOption")
+    "InternetGatewayExclusion"=@("Edit-EC2VpcEncryptionControl")
     "InternetGatewayExclusionMode"=@("Edit-EC2VpcBlockPublicAccessExclusion","New-EC2VpcBlockPublicAccessExclusion")
     "IpAddressType"=@("Edit-EC2InstanceConnectEndpoint","Edit-EC2VpcEndpoint","New-EC2InstanceConnectEndpoint","New-EC2VpcEndpoint")
     "KeyFormat"=@("Get-EC2InstanceTpmEkPub","New-EC2KeyPair")
     "KeyType"=@("Get-EC2InstanceTpmEkPub","New-EC2KeyPair")
+    "LambdaExclusion"=@("Edit-EC2VpcEncryptionControl")
     "LaunchSpecification_InstanceType"=@("Request-EC2SpotInstance")
     "LimitPrice_CurrencyCode"=@("New-EC2ReservedInstance")
     "LoadBalancerOptions_Protocol"=@("Edit-EC2VerifiedAccessEndpoint","New-EC2VerifiedAccessEndpoint")
@@ -28298,9 +28447,10 @@ $EC2_map = @{
     "MetadataOptions_HttpProtocolIpv6"=@("New-EC2Instance")
     "MetadataOptions_HttpToken"=@("New-EC2Instance")
     "MetadataOptions_InstanceMetadataTag"=@("New-EC2Instance")
-    "MeteredAccount"=@("Edit-EC2Ipam","New-EC2Ipam")
+    "MeteredAccount"=@("Edit-EC2Ipam","New-EC2Ipam","New-EC2TransitGatewayMeteringPolicyEntry")
     "Metric"=@("Disable-EC2AwsNetworkPerformanceMetricSubscription","Enable-EC2AwsNetworkPerformanceMetricSubscription")
-    "Mode"=@("New-EC2LocalGatewayRouteTable")
+    "Mode"=@("Edit-EC2VpcEncryptionControl","New-EC2LocalGatewayRouteTable")
+    "NatGatewayExclusion"=@("Edit-EC2VpcEncryptionControl")
     "NetworkInterfaceOptions_Protocol"=@("Edit-EC2VerifiedAccessEndpoint","New-EC2VerifiedAccessEndpoint")
     "NetworkPerformanceOptions_BandwidthWeighting"=@("New-EC2Instance")
     "OfferingClass"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
@@ -28315,6 +28465,7 @@ $EC2_map = @{
     "Options_DefaultRouteTablePropagation"=@("Edit-EC2TransitGateway","New-EC2TransitGateway")
     "Options_DnsSupport"=@("Edit-EC2TransitGateway","Edit-EC2TransitGatewayVpcAttachment","New-EC2TransitGateway","New-EC2TransitGatewayVpcAttachment")
     "Options_DynamicRouting"=@("New-EC2TransitGatewayPeeringAttachment")
+    "Options_EncryptionSupport"=@("Edit-EC2TransitGateway")
     "Options_Igmpv2Support"=@("New-EC2TransitGatewayMulticastDomain")
     "Options_Ipv6Support"=@("Edit-EC2TransitGatewayVpcAttachment","New-EC2TransitGatewayVpcAttachment")
     "Options_MulticastSupport"=@("New-EC2TransitGateway")
@@ -28345,6 +28496,7 @@ $EC2_map = @{
     "SelfServicePortal"=@("Edit-EC2ClientVpnEndpoint","New-EC2ClientVpnEndpoint")
     "SnapshotLocation"=@("New-EC2Image")
     "SourceResource_ResourceType"=@("New-EC2IpamPool")
+    "SourceTransitGatewayAttachmentType"=@("New-EC2TransitGatewayMeteringPolicyEntry")
     "SpotFleetRequestConfig_AllocationStrategy"=@("Request-EC2SpotFleet")
     "SpotFleetRequestConfig_ExcessCapacityTerminationPolicy"=@("Request-EC2SpotFleet")
     "SpotFleetRequestConfig_InstanceInterruptionBehavior"=@("Request-EC2SpotFleet")
@@ -28374,8 +28526,20 @@ $EC2_map = @{
     "Type"=@("New-EC2CustomerGateway","New-EC2Fleet","New-EC2VpnConcentrator","New-EC2VpnGateway","Request-EC2SpotInstance")
     "UserTrustProviderType"=@("New-EC2VerifiedAccessTrustProvider")
     "VerificationMethod"=@("Register-EC2IpamPoolCidr")
+    "VirtualPrivateGatewayExclusion"=@("Edit-EC2VpcEncryptionControl")
     "VolumeType"=@("Copy-EC2Volume","Edit-EC2Volume","New-EC2Volume")
+    "VpcEncryptionControl_EgressOnlyInternetGatewayExclusion"=@("New-EC2Vpc")
+    "VpcEncryptionControl_ElasticFileSystemExclusion"=@("New-EC2Vpc")
+    "VpcEncryptionControl_InternetGatewayExclusion"=@("New-EC2Vpc")
+    "VpcEncryptionControl_LambdaExclusion"=@("New-EC2Vpc")
+    "VpcEncryptionControl_Mode"=@("New-EC2Vpc")
+    "VpcEncryptionControl_NatGatewayExclusion"=@("New-EC2Vpc")
+    "VpcEncryptionControl_VirtualPrivateGatewayExclusion"=@("New-EC2Vpc")
+    "VpcEncryptionControl_VpcLatticeExclusion"=@("New-EC2Vpc")
+    "VpcEncryptionControl_VpcPeeringExclusion"=@("New-EC2Vpc")
     "VpcEndpointType"=@("New-EC2VpcEndpoint")
+    "VpcLatticeExclusion"=@("Edit-EC2VpcEncryptionControl")
+    "VpcPeeringExclusion"=@("Edit-EC2VpcEncryptionControl")
 }
 
 _awsArgumentCompleterRegistration $EC2_Completers $EC2_map
@@ -28563,6 +28727,8 @@ $EC2_SelectMap = @{
                "New-EC2TransitGateway",
                "New-EC2TransitGatewayConnect",
                "New-EC2TransitGatewayConnectPeer",
+               "New-EC2TransitGatewayMeteringPolicy",
+               "New-EC2TransitGatewayMeteringPolicyEntry",
                "New-EC2TransitGatewayMulticastDomain",
                "New-EC2TransitGatewayPeeringAttachment",
                "New-EC2TransitGatewayPolicyTable",
@@ -28578,6 +28744,7 @@ $EC2_SelectMap = @{
                "New-EC2Volume",
                "New-EC2Vpc",
                "New-EC2VpcBlockPublicAccessExclusion",
+               "New-EC2VpcEncryptionControl",
                "New-EC2VpcEndpoint",
                "New-EC2VpcEndpointConnectionNotification",
                "New-EC2VpcEndpointServiceConfiguration",
@@ -28650,6 +28817,8 @@ $EC2_SelectMap = @{
                "Remove-EC2TransitGateway",
                "Remove-EC2TransitGatewayConnect",
                "Remove-EC2TransitGatewayConnectPeer",
+               "Remove-EC2TransitGatewayMeteringPolicy",
+               "Remove-EC2TransitGatewayMeteringPolicyEntry",
                "Remove-EC2TransitGatewayMulticastDomain",
                "Remove-EC2TransitGatewayPeeringAttachment",
                "Remove-EC2TransitGatewayPolicyTable",
@@ -28665,6 +28834,7 @@ $EC2_SelectMap = @{
                "Remove-EC2Volume",
                "Remove-EC2Vpc",
                "Remove-EC2VpcBlockPublicAccessExclusion",
+               "Remove-EC2VpcEncryptionControl",
                "Remove-EC2EndpointConnectionNotification",
                "Remove-EC2VpcEndpoint",
                "Remove-EC2EndpointServiceConfiguration",
@@ -28826,6 +28996,7 @@ $EC2_SelectMap = @{
                "Get-EC2TransitGatewayAttachment",
                "Get-EC2TransitGatewayConnectPeer",
                "Get-EC2TransitGatewayConnect",
+               "Get-EC2TransitGatewayMeteringPolicy",
                "Get-EC2TransitGatewayMulticastDomain",
                "Get-EC2TransitGatewayPeeringAttachment",
                "Get-EC2TransitGatewayPolicyTable",
@@ -28848,6 +29019,7 @@ $EC2_SelectMap = @{
                "Get-EC2VpcBlockPublicAccessOption",
                "Get-EC2VpcClassicLink",
                "Get-EC2VpcClassicLinkDnsSupport",
+               "Get-EC2VpcEncryptionControl",
                "Get-EC2VpcEndpointAssociation",
                "Get-EC2EndpointConnectionNotification",
                "Get-EC2EndpointConnection",
@@ -28986,6 +29158,7 @@ $EC2_SelectMap = @{
                "Get-EC2SpotPlacementScore",
                "Get-EC2SubnetCidrReservation",
                "Get-EC2TransitGatewayAttachmentPropagation",
+               "Get-EC2TransitGatewayMeteringPolicyEntry",
                "Get-EC2TransitGatewayMulticastDomainAssociation",
                "Get-EC2TransitGatewayPolicyTableAssociation",
                "Get-EC2TransitGatewayPolicyTableEntry",
@@ -28995,6 +29168,7 @@ $EC2_SelectMap = @{
                "Get-EC2VerifiedAccessEndpointPolicy",
                "Get-EC2VerifiedAccessEndpointTarget",
                "Get-EC2VerifiedAccessGroupPolicy",
+               "Get-EC2VpcResourcesBlockingEncryptionEnforcement",
                "Get-EC2VpnConnectionDeviceSampleConfiguration",
                "Get-EC2VpnConnectionDeviceType",
                "Get-EC2VpnTunnelReplacementStatus",
@@ -29004,6 +29178,7 @@ $EC2_SelectMap = @{
                "Import-EC2Snapshot",
                "Get-EC2ImagesInRecycleBinList",
                "Get-EC2SnapshotsInRecycleBinList",
+               "Get-EC2VolumesInRecycleBinList",
                "Lock-EC2Snapshot",
                "Edit-EC2AddressAttribute",
                "Edit-EC2AvailabilityZoneGroup",
@@ -29055,6 +29230,7 @@ $EC2_SelectMap = @{
                "Edit-EC2TrafficMirrorFilterRule",
                "Edit-EC2TrafficMirrorSession",
                "Edit-EC2TransitGateway",
+               "Edit-EC2TransitGatewayMeteringPolicy",
                "Edit-EC2TransitGatewayPrefixListReference",
                "Edit-EC2TransitGatewayVpcAttachment",
                "Edit-EC2VerifiedAccessEndpoint",
@@ -29069,6 +29245,7 @@ $EC2_SelectMap = @{
                "Edit-EC2VpcAttribute",
                "Edit-EC2VpcBlockPublicAccessExclusion",
                "Edit-EC2VpcBlockPublicAccessOption",
+               "Edit-EC2VpcEncryptionControl",
                "Edit-EC2VpcEndpoint",
                "Edit-EC2VpcEndpointConnectionNotification",
                "Edit-EC2VpcEndpointServiceConfiguration",
@@ -29130,6 +29307,7 @@ $EC2_SelectMap = @{
                "Restore-EC2ManagedPrefixListVersion",
                "Restore-EC2SnapshotFromRecycleBin",
                "Restore-EC2SnapshotTier",
+               "Restore-EC2VolumeFromRecycleBin",
                "Revoke-EC2ClientVpnIngress",
                "Revoke-EC2SecurityGroupEgress",
                "Revoke-EC2SecurityGroupIngress",
@@ -29550,6 +29728,16 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.ExpressGatewayServiceScalingMetric
+        {
+            ($_ -eq "New-ECSExpressGatewayService/ScalingTarget_AutoScalingMetric") -Or
+            ($_ -eq "Update-ECSExpressGatewayService/ScalingTarget_AutoScalingMetric")
+        }
+        {
+            $v = "AVERAGE_CPU","AVERAGE_MEMORY","REQUEST_COUNT_PER_TARGET"
+            break
+        }
+
         # Amazon.ECS.IpcMode
         "Register-ECSTaskDefinition/IpcMode"
         {
@@ -29680,6 +29868,13 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.ResourceManagementType
+        "Get-ECSClusterService/ResourceManagementType"
+        {
+            $v = "CUSTOMER","ECS"
+            break
+        }
+
         # Amazon.ECS.ScaleUnit
         {
             ($_ -eq "New-ECSTaskSet/Scale_Unit") -Or
@@ -29800,9 +29995,11 @@ $ECS_map = @{
     "PidMode"=@("Register-ECSTaskDefinition")
     "PropagateTag"=@("New-ECSService","New-ECSTask","Start-ECSTask","Update-ECSService")
     "ProxyConfiguration_Type"=@("Register-ECSTaskDefinition")
+    "ResourceManagementType"=@("Get-ECSClusterService")
     "RuntimePlatform_CpuArchitecture"=@("Register-ECSTaskDefinition")
     "RuntimePlatform_OperatingSystemFamily"=@("Register-ECSTaskDefinition")
     "Scale_Unit"=@("New-ECSTaskSet","Update-ECSTaskSet")
+    "ScalingTarget_AutoScalingMetric"=@("New-ECSExpressGatewayService","Update-ECSExpressGatewayService")
     "SchedulingStrategy"=@("Get-ECSClusterService","New-ECSService")
     "Sort"=@("Get-ECSTaskDefinitionList")
     "Status"=@("Get-ECSContainerInstanceList","Get-ECSTaskDefinitionFamilyList","Get-ECSTaskDefinitionList","Update-ECSContainerInstancesState")
@@ -29862,12 +30059,14 @@ $ECS_SelectCompleters = {
 $ECS_SelectMap = @{
     "Select"=@("New-ECSCapacityProvider",
                "New-ECSCluster",
+               "New-ECSExpressGatewayService",
                "New-ECSService",
                "New-ECSTaskSet",
                "Remove-ECSAccountSetting",
                "Remove-ECSAttribute",
                "Remove-ECSCapacityProvider",
                "Remove-ECSCluster",
+               "Remove-ECSExpressGatewayService",
                "Remove-ECSService",
                "Remove-ECSTaskDefinition",
                "Remove-ECSTaskSet",
@@ -29876,6 +30075,7 @@ $ECS_SelectMap = @{
                "Get-ECSCapacityProvider",
                "Get-ECSClusterDetail",
                "Get-ECSContainerInstanceDetail",
+               "Get-ECSExpressGatewayService",
                "Get-ECSServiceDeploymentDetail",
                "Get-ECSServiceRevision",
                "Get-ECSService",
@@ -29912,6 +30112,7 @@ $ECS_SelectMap = @{
                "Update-ECSClusterSetting",
                "Update-ECSContainerAgent",
                "Update-ECSContainerInstancesState",
+               "Update-ECSExpressGatewayService",
                "Update-ECSService",
                "Update-ECSServicePrimaryTaskSet",
                "Update-ECSTaskProtection",
@@ -36719,6 +36920,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.FunctionType
+        "Get-GLUEUserDefinedFunctionList/FunctionType"
+        {
+            $v = "AGGREGATE_FUNCTION","REGULAR_FUNCTION","STORED_PROCEDURE"
+            break
+        }
+
         # Amazon.Glue.IcebergStructTypeEnum
         "New-GLUETable/Schema_Type"
         {
@@ -36975,6 +37183,7 @@ $GLUE_map = @{
     "Filter_Status"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Filter_TaskRunType"=@("Get-GLUEMLTaskRunList")
     "Filter_TransformType"=@("Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
+    "FunctionType"=@("Get-GLUEUserDefinedFunctionList")
     "IcebergConfiguration_Strategy"=@("New-GLUETableOptimizer","Update-GLUETableOptimizer")
     "IcebergInput_MetadataOperation"=@("New-GLUETable")
     "InclusionAnnotation"=@("Write-GLUEDataQualityProfileAnnotation")
@@ -39196,6 +39405,7 @@ $EC2IB_SelectMap = @{
                "Remove-EC2IBInfrastructureConfiguration",
                "Remove-EC2IBLifecyclePolicy",
                "Remove-EC2IBWorkflow",
+               "Start-EC2IBImageDistribution",
                "Get-EC2IBComponent",
                "Get-EC2IBComponentPolicy",
                "Get-EC2IBContainerRecipe",
@@ -39242,6 +39452,7 @@ $EC2IB_SelectMap = @{
                "Write-EC2IBContainerRecipePolicy",
                "Write-EC2IBImagePolicy",
                "Write-EC2IBImageRecipePolicy",
+               "Start-EC2IBImageRetry",
                "Send-EC2IBWorkflowStepAction",
                "Start-EC2IBImagePipelineExecution",
                "Start-EC2IBResourceStateUpdate",
@@ -47017,6 +47228,13 @@ $LICM_Completers = {
             break
         }
 
+        # Amazon.LicenseManager.LicenseAssetGroupStatus
+        "Update-LICMLicenseAssetGroup/Status"
+        {
+            $v = "ACTIVE","DELETED","DISABLED"
+            break
+        }
+
         # Amazon.LicenseManager.LicenseConfigurationStatus
         "Update-LICMLicenseConfiguration/LicenseConfigurationStatus"
         {
@@ -47054,7 +47272,7 @@ $LICM_Completers = {
             ($_ -eq "Update-LICMLicenseManagerReportGenerator/ReportFrequency_Period")
         }
         {
-            $v = "DAY","MONTH","WEEK"
+            $v = "DAY","MONTH","ONE_TIME","WEEK"
             break
         }
 
@@ -47074,7 +47292,7 @@ $LICM_map = @{
     "LicenseCountingType"=@("New-LICMLicenseConfiguration")
     "Options_ActivationOverrideBehavior"=@("New-LICMGrantVersion")
     "ReportFrequency_Period"=@("New-LICMLicenseManagerReportGenerator","Update-LICMLicenseManagerReportGenerator")
-    "Status"=@("New-LICMGrantVersion","New-LICMLicenseVersion")
+    "Status"=@("New-LICMGrantVersion","New-LICMLicenseVersion","Update-LICMLicenseAssetGroup")
 }
 
 _awsArgumentCompleterRegistration $LICM_Completers $LICM_map
@@ -47134,6 +47352,8 @@ $LICM_SelectMap = @{
                "New-LICMGrant",
                "New-LICMGrantVersion",
                "New-LICMLicense",
+               "New-LICMLicenseAssetGroup",
+               "New-LICMLicenseAssetRuleset",
                "New-LICMLicenseConfiguration",
                "New-LICMLicenseConversionTaskForResource",
                "New-LICMLicenseManagerReportGenerator",
@@ -47141,6 +47361,8 @@ $LICM_SelectMap = @{
                "New-LICMToken",
                "Remove-LICMGrant",
                "Remove-LICMLicense",
+               "Remove-LICMLicenseAssetGroup",
+               "Remove-LICMLicenseAssetRuleset",
                "Remove-LICMLicenseConfiguration",
                "Remove-LICMLicenseManagerReportGenerator",
                "Remove-LICMToken",
@@ -47148,15 +47370,21 @@ $LICM_SelectMap = @{
                "Get-LICMAccessToken",
                "Get-LICMGrant",
                "Get-LICMLicense",
+               "Get-LICMLicenseAssetGroup",
+               "Get-LICMLicenseAssetRuleset",
                "Get-LICMLicenseConfiguration",
                "Get-LICMLicenseConversionTask",
                "Get-LICMLicenseManagerReportGenerator",
                "Get-LICMLicenseUsage",
                "Get-LICMServiceSetting",
+               "Get-LICMAssetsForLicenseAssetGroupList",
                "Get-LICMAssociationsForLicenseConfigurationList",
                "Get-LICMDistributedGrantList",
                "Get-LICMFailuresForLicenseConfigurationOperationList",
+               "Get-LICMLicenseAssetGroupList",
+               "Get-LICMLicenseAssetRulesetList",
                "Get-LICMLicenseConfigurationList",
+               "Get-LICMLicenseConfigurationsForOrganizationList",
                "Get-LICMLicenseConversionTaskList",
                "Get-LICMLicenseManagerReportGeneratorList",
                "Get-LICMLicenseList",
@@ -47173,6 +47401,8 @@ $LICM_SelectMap = @{
                "Deny-LICMGrant",
                "Add-LICMResourceTag",
                "Remove-LICMResourceTag",
+               "Update-LICMLicenseAssetGroup",
+               "Update-LICMLicenseAssetRuleset",
                "Update-LICMLicenseConfiguration",
                "Update-LICMLicenseManagerReportGenerator",
                "Update-LICMLicenseSpecificationsForResource",
@@ -55999,6 +56229,7 @@ $NMGR_SelectMap = @{
                "New-NMGRConnection",
                "New-NMGRConnectPeer",
                "New-NMGRCoreNetwork",
+               "New-NMGRCoreNetworkPrefixListAssociation",
                "New-NMGRDevice",
                "New-NMGRDirectConnectGatewayAttachment",
                "New-NMGRGlobalNetwork",
@@ -56013,6 +56244,7 @@ $NMGR_SelectMap = @{
                "Remove-NMGRConnectPeer",
                "Remove-NMGRCoreNetwork",
                "Remove-NMGRCoreNetworkPolicyVersion",
+               "Remove-NMGRCoreNetworkPrefixListAssociation",
                "Remove-NMGRDevice",
                "Remove-NMGRGlobalNetwork",
                "Remove-NMGRLink",
@@ -56053,17 +56285,22 @@ $NMGR_SelectMap = @{
                "Get-NMGRTransitGatewayRegistration",
                "Get-NMGRTransitGatewayRouteTableAttachment",
                "Get-NMGRVpcAttachment",
+               "Get-NMGRAttachmentRoutingPolicyAssociationList",
                "Get-NMGRAttachmentList",
                "Get-NMGRConnectPeerList",
                "Get-NMGRCoreNetworkPolicyVersionList",
+               "Get-NMGRCoreNetworkPrefixListAssociationList",
+               "Get-NMGRCoreNetworkRoutingInformationList",
                "Get-NMGRCoreNetworkList",
                "Get-NMGROrganizationServiceAccessStatusList",
                "Get-NMGRPeeringList",
                "Get-NMGRResourceTag",
+               "Write-NMGRAttachmentRoutingPolicyLabel",
                "Write-NMGRCoreNetworkPolicy",
                "Write-NMGRResourcePolicy",
                "Register-NMGRTransitGateway",
                "Deny-NMGRAttachment",
+               "Remove-NMGRAttachmentRoutingPolicyLabel",
                "Restore-NMGRCoreNetworkPolicyVersion",
                "Start-NMGROrganizationServiceAccessUpdate",
                "Start-NMGRRouteAnalysis",
@@ -57872,7 +58109,7 @@ $ORG_Completers = {
             ($_ -eq "Get-ORGOrganizationHandshakeList/Filter_ActionType")
         }
         {
-            $v = "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE","APPROVE_ALL_FEATURES","ENABLE_ALL_FEATURES","INVITE"
+            $v = "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE","APPROVE_ALL_FEATURES","ENABLE_ALL_FEATURES","INVITE","TRANSFER_RESPONSIBILITY"
             break
         }
 
@@ -57890,12 +58127,15 @@ $ORG_Completers = {
             ($_ -eq "Get-ORGEffectivePolicyValidationErrorList/PolicyType")
         }
         {
-            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","CHATBOT_POLICY","DECLARATIVE_POLICY_EC2","SECURITYHUB_POLICY","TAG_POLICY"
+            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","CHATBOT_POLICY","DECLARATIVE_POLICY_EC2","INSPECTOR_POLICY","SECURITYHUB_POLICY","TAG_POLICY"
             break
         }
 
         # Amazon.Organizations.HandshakePartyType
-        "New-ORGAccountInvitation/Target_Type"
+        {
+            ($_ -eq "New-ORGAccountInvitation/Target_Type") -Or
+            ($_ -eq "New-ORGOrganizationToTransferResponsibility/Target_Type")
+        }
         {
             $v = "ACCOUNT","EMAIL","ORGANIZATION"
             break
@@ -57927,7 +58167,18 @@ $ORG_Completers = {
             ($_ -eq "New-ORGPolicy/Type")
         }
         {
-            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","CHATBOT_POLICY","DECLARATIVE_POLICY_EC2","RESOURCE_CONTROL_POLICY","SECURITYHUB_POLICY","SERVICE_CONTROL_POLICY","TAG_POLICY"
+            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","CHATBOT_POLICY","DECLARATIVE_POLICY_EC2","INSPECTOR_POLICY","RESOURCE_CONTROL_POLICY","SECURITYHUB_POLICY","SERVICE_CONTROL_POLICY","TAG_POLICY"
+            break
+        }
+
+        # Amazon.Organizations.ResponsibilityTransferType
+        {
+            ($_ -eq "Get-ORGInboundResponsibilityTransferList/Type") -Or
+            ($_ -eq "Get-ORGOutboundResponsibilityTransferList/Type") -Or
+            ($_ -eq "New-ORGOrganizationToTransferResponsibility/Type")
+        }
+        {
+            $v = "BILLING"
             break
         }
 
@@ -57946,8 +58197,8 @@ $ORG_map = @{
     "Filter_ActionType"=@("Get-ORGAccountHandshakeList","Get-ORGOrganizationHandshakeList")
     "IamUserAccessToBilling"=@("New-ORGAccount","New-ORGGovCloudAccount")
     "PolicyType"=@("Disable-ORGPolicyType","Enable-ORGPolicyType","Get-ORGAccountsWithInvalidEffectivePolicyList","Get-ORGEffectivePolicy","Get-ORGEffectivePolicyValidationErrorList")
-    "Target_Type"=@("New-ORGAccountInvitation")
-    "Type"=@("New-ORGPolicy")
+    "Target_Type"=@("New-ORGAccountInvitation","New-ORGOrganizationToTransferResponsibility")
+    "Type"=@("Get-ORGInboundResponsibilityTransferList","Get-ORGOutboundResponsibilityTransferList","New-ORGOrganizationToTransferResponsibility","New-ORGPolicy")
 }
 
 _awsArgumentCompleterRegistration $ORG_Completers $ORG_map
@@ -58023,6 +58274,7 @@ $ORG_SelectMap = @{
                "Get-ORGOrganizationalUnit",
                "Get-ORGPolicy",
                "Get-ORGResourcePolicy",
+               "Get-ORGResponsibilityTransfer",
                "Dismount-ORGPolicy",
                "Disable-ORGAWSServiceAccess",
                "Disable-ORGPolicyType",
@@ -58030,6 +58282,7 @@ $ORG_SelectMap = @{
                "Enable-ORGAWSServiceAccess",
                "Enable-ORGPolicyType",
                "New-ORGAccountInvitation",
+               "New-ORGOrganizationToTransferResponsibility",
                "Remove-ORGOrganizationAssociation",
                "Get-ORGAccountList",
                "Get-ORGAccountForParent",
@@ -58042,7 +58295,9 @@ $ORG_SelectMap = @{
                "Get-ORGEffectivePolicyValidationErrorList",
                "Get-ORGAccountHandshakeList",
                "Get-ORGOrganizationHandshakeList",
+               "Get-ORGInboundResponsibilityTransferList",
                "Get-ORGOrganizationalUnitList",
+               "Get-ORGOutboundResponsibilityTransferList",
                "Get-ORGParent",
                "Get-ORGPolicyList",
                "Get-ORGPolicyForTarget",
@@ -58054,9 +58309,11 @@ $ORG_SelectMap = @{
                "Register-ORGDelegatedAdministrator",
                "Remove-ORGAccountFromOrganization",
                "Add-ORGResourceTag",
+               "Stop-ORGResponsibilityTransfer",
                "Remove-ORGResourceTag",
                "Update-ORGOrganizationalUnit",
-               "Update-ORGPolicy")
+               "Update-ORGPolicy",
+               "Update-ORGResponsibilityTransfer")
 }
 
 _awsArgumentCompleterRegistration $ORG_SelectCompleters $ORG_SelectMap
@@ -63575,6 +63832,84 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.FontDecoration
+        {
+            ($_ -eq "New-QSTheme/AxisLabelFontConfiguration_FontDecoration") -Or
+            ($_ -eq "Update-QSTheme/AxisLabelFontConfiguration_FontDecoration") -Or
+            ($_ -eq "New-QSTheme/AxisTitleFontConfiguration_FontDecoration") -Or
+            ($_ -eq "Update-QSTheme/AxisTitleFontConfiguration_FontDecoration") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontDecoration") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontDecoration") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontDecoration") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontDecoration") -Or
+            ($_ -eq "New-QSTheme/DataLabelFontConfiguration_FontDecoration") -Or
+            ($_ -eq "Update-QSTheme/DataLabelFontConfiguration_FontDecoration") -Or
+            ($_ -eq "New-QSTheme/LegendTitleFontConfiguration_FontDecoration") -Or
+            ($_ -eq "Update-QSTheme/LegendTitleFontConfiguration_FontDecoration") -Or
+            ($_ -eq "New-QSTheme/LegendValueFontConfiguration_FontDecoration") -Or
+            ($_ -eq "Update-QSTheme/LegendValueFontConfiguration_FontDecoration")
+        }
+        {
+            $v = "NONE","UNDERLINE"
+            break
+        }
+
+        # Amazon.QuickSight.FontStyle
+        {
+            ($_ -eq "New-QSTheme/AxisLabelFontConfiguration_FontStyle") -Or
+            ($_ -eq "Update-QSTheme/AxisLabelFontConfiguration_FontStyle") -Or
+            ($_ -eq "New-QSTheme/AxisTitleFontConfiguration_FontStyle") -Or
+            ($_ -eq "Update-QSTheme/AxisTitleFontConfiguration_FontStyle") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontStyle") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontStyle") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontStyle") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontStyle") -Or
+            ($_ -eq "New-QSTheme/DataLabelFontConfiguration_FontStyle") -Or
+            ($_ -eq "Update-QSTheme/DataLabelFontConfiguration_FontStyle") -Or
+            ($_ -eq "New-QSTheme/LegendTitleFontConfiguration_FontStyle") -Or
+            ($_ -eq "Update-QSTheme/LegendTitleFontConfiguration_FontStyle") -Or
+            ($_ -eq "New-QSTheme/LegendValueFontConfiguration_FontStyle") -Or
+            ($_ -eq "Update-QSTheme/LegendValueFontConfiguration_FontStyle")
+        }
+        {
+            $v = "ITALIC","NORMAL"
+            break
+        }
+
+        # Amazon.QuickSight.FontWeightName
+        {
+            ($_ -eq "New-QSTheme/Configuration_Typography_AxisLabelFontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_AxisLabelFontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_AxisTitleFontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_AxisTitleFontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_DataLabelFontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_DataLabelFontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_LegendTitleFontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_LegendTitleFontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_LegendValueFontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_LegendValueFontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontWeight_Name")
+        }
+        {
+            $v = "BOLD","NORMAL"
+            break
+        }
+
+        # Amazon.QuickSight.HorizontalTextAlignment
+        {
+            ($_ -eq "New-QSTheme/VisualSubtitleFontConfiguration_TextAlignment") -Or
+            ($_ -eq "Update-QSTheme/VisualSubtitleFontConfiguration_TextAlignment") -Or
+            ($_ -eq "New-QSTheme/VisualTitleFontConfiguration_TextAlignment") -Or
+            ($_ -eq "Update-QSTheme/VisualTitleFontConfiguration_TextAlignment")
+        }
+        {
+            $v = "AUTO","CENTER","LEFT","RIGHT"
+            break
+        }
+
         # Amazon.QuickSight.IdentityStore
         "New-QSNamespace/IdentityStore"
         {
@@ -63730,6 +64065,28 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.RelativeFontSize
+        {
+            ($_ -eq "New-QSTheme/Configuration_Typography_AxisLabelFontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_AxisLabelFontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_AxisTitleFontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_AxisTitleFontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_DataLabelFontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_DataLabelFontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_LegendTitleFontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_LegendTitleFontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_LegendValueFontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_LegendValueFontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontSize_Relative")
+        }
+        {
+            $v = "EXTRA_LARGE","EXTRA_SMALL","LARGE","MEDIUM","SMALL"
+            break
+        }
+
         # Amazon.QuickSight.ResizeOption
         {
             ($_ -eq "New-QSAnalysis/ScreenCanvasSizeOptions_ResizeOption") -Or
@@ -63831,6 +64188,18 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.TextTransform
+        {
+            ($_ -eq "New-QSTheme/VisualSubtitleFontConfiguration_TextTransform") -Or
+            ($_ -eq "Update-QSTheme/VisualSubtitleFontConfiguration_TextTransform") -Or
+            ($_ -eq "New-QSTheme/VisualTitleFontConfiguration_TextTransform") -Or
+            ($_ -eq "Update-QSTheme/VisualTitleFontConfiguration_TextTransform")
+        }
+        {
+            $v = "CAPITALIZE"
+            break
+        }
+
         # Amazon.QuickSight.ThemeType
         "Get-QSThemeList/Type"
         {
@@ -63920,6 +64289,10 @@ $QS_map = @{
     "AuthenticationConfig_AuthenticationType"=@("New-QSActionConnector","Update-QSActionConnector")
     "AuthenticationMethod"=@("New-QSAccountSubscription")
     "AuthorizationCodeGrantMetadata_AuthorizationCodeGrantCredentialsSource"=@("New-QSActionConnector","Update-QSActionConnector")
+    "AxisLabelFontConfiguration_FontDecoration"=@("New-QSTheme","Update-QSTheme")
+    "AxisLabelFontConfiguration_FontStyle"=@("New-QSTheme","Update-QSTheme")
+    "AxisTitleFontConfiguration_FontDecoration"=@("New-QSTheme","Update-QSTheme")
+    "AxisTitleFontConfiguration_FontStyle"=@("New-QSTheme","Update-QSTheme")
     "Capabilities_Action"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_AddOrRunAnomalyDetectionForAnalyses"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Analysis"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -63958,7 +64331,27 @@ $QS_map = @{
     "Capabilities_UseBedrockModel"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ViewAccountSPICECapacity"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "ClientCredentialsGrantMetadata_ClientCredentialsSource"=@("New-QSActionConnector","Update-QSActionConnector")
+    "Configuration_Typography_AxisLabelFontConfiguration_FontSize_Relative"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_AxisLabelFontConfiguration_FontWeight_Name"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_AxisTitleFontConfiguration_FontSize_Relative"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_AxisTitleFontConfiguration_FontWeight_Name"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_DataLabelFontConfiguration_FontSize_Relative"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_DataLabelFontConfiguration_FontWeight_Name"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_LegendTitleFontConfiguration_FontSize_Relative"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_LegendTitleFontConfiguration_FontWeight_Name"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_LegendValueFontConfiguration_FontSize_Relative"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_LegendValueFontConfiguration_FontWeight_Name"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontDecoration"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontSize_Relative"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontStyle"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontWeight_Name"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontDecoration"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontSize_Relative"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontStyle"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontWeight_Name"=@("New-QSTheme","Update-QSTheme")
     "DashboardsQAStatus"=@("Update-QSDashboardsQAConfiguration")
+    "DataLabelFontConfiguration_FontDecoration"=@("New-QSTheme","Update-QSTheme")
+    "DataLabelFontConfiguration_FontStyle"=@("New-QSTheme","Update-QSTheme")
     "DataPointDrillUpDownOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataPointMenuLabelOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataPointTooltipOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
@@ -63982,6 +64375,10 @@ $QS_map = @{
     "IncludeGeneratedAnswer"=@("Search-QSQAResult")
     "IncludeQuickSightQIndex"=@("Search-QSQAResult")
     "IngestionType"=@("New-QSIngestion")
+    "LegendTitleFontConfiguration_FontDecoration"=@("New-QSTheme","Update-QSTheme")
+    "LegendTitleFontConfiguration_FontStyle"=@("New-QSTheme","Update-QSTheme")
+    "LegendValueFontConfiguration_FontDecoration"=@("New-QSTheme","Update-QSTheme")
+    "LegendValueFontConfiguration_FontStyle"=@("New-QSTheme","Update-QSTheme")
     "LookbackWindow_SizeUnit"=@("Write-QSDataSetRefreshProperty")
     "MemberType"=@("New-QSFolderMembership","Remove-QSFolderMembership")
     "Options_QBusinessInsightsStatus"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
@@ -64017,6 +64414,10 @@ $QS_map = @{
     "ValidationStrategy_Mode"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "VisualAxisSortOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "VisualMenuOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "VisualSubtitleFontConfiguration_TextAlignment"=@("New-QSTheme","Update-QSTheme")
+    "VisualSubtitleFontConfiguration_TextTransform"=@("New-QSTheme","Update-QSTheme")
+    "VisualTitleFontConfiguration_TextAlignment"=@("New-QSTheme","Update-QSTheme")
+    "VisualTitleFontConfiguration_TextTransform"=@("New-QSTheme","Update-QSTheme")
     "WebCrawlerParameters_WebCrawlerAuthType"=@("New-QSDataSource","Update-QSDataSource")
 }
 
@@ -64501,7 +64902,7 @@ $RBIN_Completers = {
             ($_ -eq "Update-RBINRule/ResourceType")
         }
         {
-            $v = "EBS_SNAPSHOT","EC2_IMAGE"
+            $v = "EBS_SNAPSHOT","EBS_VOLUME","EC2_IMAGE"
             break
         }
 
@@ -68219,6 +68620,13 @@ $S3_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.S3.BucketAbacStatus
+        "Write-S3BucketAbac/AbacStatus_Status"
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+
         # Amazon.S3.BucketAccelerateStatus
         "Write-S3BucketAccelerateConfiguration/AccelerateConfiguration_Status"
         {
@@ -68240,6 +68648,7 @@ $S3_Completers = {
             ($_ -eq "Set-S3ObjectACL/ChecksumAlgorithm") -Or
             ($_ -eq "Update-S3BucketMetadataInventoryTableConfiguration/ChecksumAlgorithm") -Or
             ($_ -eq "Update-S3BucketMetadataJournalTableConfiguration/ChecksumAlgorithm") -Or
+            ($_ -eq "Write-S3BucketAbac/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3BucketAccelerateConfiguration/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3BucketLogging/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3BucketNotification/ChecksumAlgorithm") -Or
@@ -68552,11 +68961,12 @@ $S3_Completers = {
 }
 
 $S3_map = @{
+    "AbacStatus_Status"=@("Write-S3BucketAbac")
     "AccelerateConfiguration_Status"=@("Write-S3BucketAccelerateConfiguration")
     "ACL"=@("Set-S3BucketACL","Set-S3ObjectACL")
     "CannedACL"=@("Set-S3ACL")
     "CannedACLName"=@("Copy-S3Object","New-S3Bucket","Write-S3Object")
-    "ChecksumAlgorithm"=@("Add-S3PublicAccessBlock","Copy-S3Object","New-S3BucketMetadataConfiguration","New-S3BucketMetadataTableConfiguration","Remove-S3Object","Restore-S3Object","Set-S3ACL","Set-S3BucketACL","Set-S3BucketEncryption","Set-S3ObjectACL","Update-S3BucketMetadataInventoryTableConfiguration","Update-S3BucketMetadataJournalTableConfiguration","Write-S3BucketAccelerateConfiguration","Write-S3BucketLogging","Write-S3BucketNotification","Write-S3BucketOwnershipControl","Write-S3BucketPolicy","Write-S3BucketReplication","Write-S3BucketRequestPayment","Write-S3BucketTagging","Write-S3BucketVersioning","Write-S3BucketWebsite","Write-S3CORSConfiguration","Write-S3LifecycleConfiguration","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
+    "ChecksumAlgorithm"=@("Add-S3PublicAccessBlock","Copy-S3Object","New-S3BucketMetadataConfiguration","New-S3BucketMetadataTableConfiguration","Remove-S3Object","Restore-S3Object","Set-S3ACL","Set-S3BucketACL","Set-S3BucketEncryption","Set-S3ObjectACL","Update-S3BucketMetadataInventoryTableConfiguration","Update-S3BucketMetadataJournalTableConfiguration","Write-S3BucketAbac","Write-S3BucketAccelerateConfiguration","Write-S3BucketLogging","Write-S3BucketNotification","Write-S3BucketOwnershipControl","Write-S3BucketPolicy","Write-S3BucketReplication","Write-S3BucketRequestPayment","Write-S3BucketTagging","Write-S3BucketVersioning","Write-S3BucketWebsite","Write-S3CORSConfiguration","Write-S3LifecycleConfiguration","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
     "ChecksumMode"=@("Copy-S3Object","Get-S3ObjectMetadata","Read-S3Object")
     "CopySourceServerSideEncryptionCustomerMethod"=@("Copy-S3Object")
     "DataExport_OutputSchemaVersion"=@("Write-S3BucketAnalyticsConfiguration")
@@ -68669,6 +69079,7 @@ $S3_SelectMap = @{
                "Remove-S3ObjectTagSet",
                "Remove-S3PublicAccessBlock",
                "Get-S3ACL",
+               "Get-S3BucketAbac",
                "Get-S3BucketAccelerateConfiguration",
                "Get-S3BucketACL",
                "Get-S3BucketAnalyticsConfiguration",
@@ -68710,6 +69121,7 @@ $S3_SelectMap = @{
                "Get-S3ObjectV2",
                "Get-S3Version",
                "Set-S3ACL",
+               "Write-S3BucketAbac",
                "Write-S3BucketAccelerateConfiguration",
                "Set-S3BucketACL",
                "Write-S3BucketAnalyticsConfiguration",
@@ -71924,6 +72336,8 @@ $SM_SelectMap = @{
                "Set-SMAddClusterNode",
                "Set-SMDeleteClusterNode",
                "Get-SMDescribeModelPackage",
+               "Set-SMBatchRebootClusterNode",
+               "Set-SMBatchReplaceClusterNode",
                "New-SMAction",
                "New-SMAlgorithm",
                "New-SMApp",
@@ -72884,7 +73298,9 @@ $SHUB_Completers = {
     {
         # Amazon.SecurityHub.AllowedOperators
         {
+            ($_ -eq "Get-SHUBFindingsTrendsV2/Filters_CompositeOperator") -Or
             ($_ -eq "Get-SHUBFindingsV2/Filters_CompositeOperator") -Or
+            ($_ -eq "Get-SHUBResourcesTrendsV2/Filters_CompositeOperator") -Or
             ($_ -eq "Get-SHUBResourcesV2/Filters_CompositeOperator") -Or
             ($_ -eq "New-SHUBAutomationRuleV2/OcsfFindingCriteria_CompositeOperator") -Or
             ($_ -eq "Update-SHUBAutomationRuleV2/OcsfFindingCriteria_CompositeOperator")
@@ -73042,7 +73458,7 @@ $SHUB_map = @{
     "Feature"=@("Disable-SHUBOrganizationAdminAccount","Enable-SHUBOrganizationAdminAccount","Get-SHUBOrganizationAdminAccountList")
     "Filters_AssociationStatus"=@("Get-SHUBConfigurationPolicyAssociationList")
     "Filters_AssociationType"=@("Get-SHUBConfigurationPolicyAssociationList")
-    "Filters_CompositeOperator"=@("Get-SHUBFindingsV2","Get-SHUBResourcesV2")
+    "Filters_CompositeOperator"=@("Get-SHUBFindingsTrendsV2","Get-SHUBFindingsV2","Get-SHUBResourcesTrendsV2","Get-SHUBResourcesV2")
     "OcsfFindingCriteria_CompositeOperator"=@("New-SHUBAutomationRuleV2","Update-SHUBAutomationRuleV2")
     "OrganizationConfiguration_ConfigurationType"=@("Update-SHUBOrganizationConfiguration")
     "OrganizationConfiguration_Status"=@("Update-SHUBOrganizationConfiguration")
@@ -73170,6 +73586,7 @@ $SHUB_SelectMap = @{
                "Get-SHUBFindingHistory",
                "Get-SHUBFinding",
                "Get-SHUBFindingStatisticsV2",
+               "Get-SHUBFindingsTrendsV2",
                "Get-SHUBFindingsV2",
                "Get-SHUBInsightResult",
                "Get-SHUBInsight",
@@ -73177,6 +73594,7 @@ $SHUB_SelectMap = @{
                "Get-SHUBMasterAccount",
                "Get-SHUBMember",
                "Get-SHUBResourcesStatisticsV2",
+               "Get-SHUBResourcesTrendsV2",
                "Get-SHUBResourcesV2",
                "Get-SHUBSecurityControlDefinition",
                "Send-SHUBMemberInvitation",

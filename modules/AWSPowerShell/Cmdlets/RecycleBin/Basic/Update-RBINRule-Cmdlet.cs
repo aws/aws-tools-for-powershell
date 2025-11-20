@@ -143,8 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         #region Parameter RetentionPeriod_RetentionPeriodValue
         /// <summary>
         /// <para>
-        /// <para>The period value for which the retention rule is to retain resources. The period is
-        /// measured using the unit specified for <b>RetentionPeriodUnit</b>.</para>
+        /// <para>The period value for which the retention rule is to retain resources, measured in
+        /// days. The supported retention periods are:</para><ul><li><para>EBS volumes: 1 - 7 days</para></li><li><para>EBS snapshots and EBS-backed AMIs: 1 - 365 days</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

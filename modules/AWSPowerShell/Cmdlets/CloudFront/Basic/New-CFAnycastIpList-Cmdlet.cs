@@ -49,12 +49,28 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The IP address type for the Anycast static IP list. You can specify one of the following
-        /// options:</para><ul><li><para><c>ipv4</c> - Allocate a list of only IPv4 addresses</para></li><li><para><c>ipv6</c> - Allocate a list of only IPv4 addresses</para></li><li><para><c>dualstack</c> - Allocate a list of both IPv4 and IPv6 addresses</para></li></ul>
+        /// options:</para><ul><li><para><c>ipv4</c> only</para></li><li><para><c>ipv6</c> only </para></li><li><para><c>dualstack</c> - Allocate a list of both IPv4 and IPv6 addresses</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.CloudFront.IpAddressType")]
         public Amazon.CloudFront.IpAddressType IpAddressType { get; set; }
+        #endregion
+        
+        #region Parameter IpamCidrConfig
+        /// <summary>
+        /// <para>
+        /// <para> A list of IPAM CIDR configurations that specify the IP address ranges and IPAM pool
+        /// settings for creating the Anycast static IP list. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IpamCidrConfigs")]
+        public Amazon.CloudFront.Model.IpamCidrConfig[] IpamCidrConfig { get; set; }
         #endregion
         
         #region Parameter IpCount
@@ -153,6 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.IpAddressType = this.IpAddressType;
+            if (this.IpamCidrConfig != null)
+            {
+                context.IpamCidrConfig = new List<Amazon.CloudFront.Model.IpamCidrConfig>(this.IpamCidrConfig);
+            }
             context.IpCount = this.IpCount;
             #if MODULAR
             if (this.IpCount == null && ParameterWasBound(nameof(this.IpCount)))
@@ -190,6 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (cmdletContext.IpAddressType != null)
             {
                 request.IpAddressType = cmdletContext.IpAddressType;
+            }
+            if (cmdletContext.IpamCidrConfig != null)
+            {
+                request.IpamCidrConfigs = cmdletContext.IpamCidrConfig;
             }
             if (cmdletContext.IpCount != null)
             {
@@ -274,6 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.CloudFront.IpAddressType IpAddressType { get; set; }
+            public List<Amazon.CloudFront.Model.IpamCidrConfig> IpamCidrConfig { get; set; }
             public System.Int32? IpCount { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.CloudFront.Model.Tag> Tags_Item { get; set; }

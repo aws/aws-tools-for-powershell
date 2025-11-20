@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Grants permission to complete the authorization based on input parameters. This API
-    /// is in preview release and subject to change.
+    /// is in public preview and subject to change.
     /// </summary>
     [Cmdlet("Register", "SHUBConnectorV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.ConnectorRegistrationsV2Response")]

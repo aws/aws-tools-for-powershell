@@ -98,6 +98,16 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         public Amazon.NetworkManager.TunnelProtocol Options_Protocol { get; set; }
         #endregion
         
+        #region Parameter RoutingPolicyLabel
+        /// <summary>
+        /// <para>
+        /// <para>The routing policy label to apply to the Connect attachment for traffic routing decisions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RoutingPolicyLabel { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -202,6 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             }
             #endif
             context.Options_Protocol = this.Options_Protocol;
+            context.RoutingPolicyLabel = this.RoutingPolicyLabel;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.NetworkManager.Model.Tag>(this.Tag);
@@ -259,6 +270,10 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             if (requestOptionsIsNull)
             {
                 request.Options = null;
+            }
+            if (cmdletContext.RoutingPolicyLabel != null)
+            {
+                request.RoutingPolicyLabel = cmdletContext.RoutingPolicyLabel;
             }
             if (cmdletContext.Tag != null)
             {
@@ -327,6 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             public System.String CoreNetworkId { get; set; }
             public System.String EdgeLocation { get; set; }
             public Amazon.NetworkManager.TunnelProtocol Options_Protocol { get; set; }
+            public System.String RoutingPolicyLabel { get; set; }
             public List<Amazon.NetworkManager.Model.Tag> Tag { get; set; }
             public System.String TransportAttachmentId { get; set; }
             public System.Func<Amazon.NetworkManager.Model.CreateConnectAttachmentResponse, NewNMGRConnectAttachmentCmdlet, object> Select { get; set; } =

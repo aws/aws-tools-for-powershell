@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         /// <summary>
         /// <para>
         /// <para>The unit of time in which to measure the unlock delay. Currently, the unlock delay
-        /// can be measure only in days.</para>
+        /// can be measured only in days.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

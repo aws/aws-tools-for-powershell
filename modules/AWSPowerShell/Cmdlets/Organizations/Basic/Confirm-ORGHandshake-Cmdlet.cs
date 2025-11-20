@@ -30,33 +30,28 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Sends a response to the originator of a handshake agreeing to the action proposed
-    /// by the handshake request.
+    /// Accepts a handshake by sending an <c>ACCEPTED</c> response to the sender. You can
+    /// view accepted handshakes in API responses for 30 days before they are deleted.
     /// 
     ///  
-    /// <para>
-    /// You can only call this operation by the following principals when they also have the
-    /// relevant IAM permissions:
-    /// </para><ul><li><para><b>Invitation to join</b> or <b>Approve all features request</b> handshakes: only
-    /// a principal from the member account.
-    /// </para><para>
-    /// The user who calls the API for an invitation to join must have the <c>organizations:AcceptHandshake</c>
-    /// permission. If you enabled all features in the organization, the user must also have
-    /// the <c>iam:CreateServiceLinkedRole</c> permission so that Organizations can create
-    /// the required service-linked role named <c>AWSServiceRoleForOrganizations</c>. For
-    /// more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integration_services.html#orgs_integrate_services-using_slrs">Organizations
-    /// and service-linked roles</a> in the <i>Organizations User Guide</i>.
-    /// </para></li><li><para><b>Enable all features final confirmation</b> handshake: only a principal from the
-    /// management account.
-    /// </para><para>
-    /// For more information about invitations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_invites.html">Inviting
-    /// an Amazon Web Services account to join your organization</a> in the <i>Organizations
-    /// User Guide</i>. For more information about requests to enable all features in the
-    /// organization, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling
-    /// all features in your organization</a> in the <i>Organizations User Guide</i>.
+    /// <para><b>Only the management account can accept the following handshakes</b>:
+    /// </para><ul><li><para>
+    /// Enable all features final confirmation (<c>APPROVE_ALL_FEATURES</c>)
+    /// </para></li><li><para>
+    /// Billing transfer (<c>TRANSFER_RESPONSIBILITY</c>)
     /// </para></li></ul><para>
-    /// After you accept a handshake, it continues to appear in the results of relevant APIs
-    /// for only 30 days. After that, it's deleted.
+    /// For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/manage-begin-all-features-standard-migration.html#manage-approve-all-features-invite">Enabling
+    /// all features</a> and <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_transfer_billing-respond-invitation.html">Responding
+    /// to a billing transfer invitation</a> in the <i>Organizations User Guide</i>.
+    /// </para><para><b>Only a member account can accept the following handshakes</b>:
+    /// </para><ul><li><para>
+    /// Invitation to join (<c>INVITE</c>)
+    /// </para></li><li><para>
+    /// Approve all features request (<c>ENABLE_ALL_FEATURES</c>)
+    /// </para></li></ul><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_accept-decline-invite.html">Responding
+    /// to invitations</a> and <a href="https://docs.aws.amazon.com/organizations/latest/userguide/manage-begin-all-features-standard-migration.html#manage-approve-all-features-invite">Enabling
+    /// all features</a> in the <i>Organizations User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Confirm", "ORGHandshake", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -75,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter HandshakeId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier (ID) of the handshake that you want to accept.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for handshake ID string
+        /// <para>ID for the handshake that you want to accept.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for handshake ID string
         /// requires "h-" followed by from 8 to 32 lowercase letters or digits.</para>
         /// </para>
         /// </summary>

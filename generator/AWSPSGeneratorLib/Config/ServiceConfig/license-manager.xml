@@ -47,6 +47,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateLicenseAssetGroup" OutputProperty="*" Verb="New" Noun="LicenseAssetGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLicenseAssetRuleset" OutputProperty="LicenseAssetRulesetArn" Verb="New" Noun="LicenseAssetRuleset" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateLicenseConfiguration" OutputProperty="LicenseConfigurationArn" Verb="New" Noun="LicenseConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -72,6 +80,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteLicense" OutputProperty="*" Verb="Remove" Noun="License" ShouldProcessTarget="LicenseArn" PipelineParameter="LicenseArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLicenseAssetGroup" OutputProperty="Status" Verb="Remove" Noun="LicenseAssetGroup" ShouldProcessTarget="LicenseAssetGroupArn" PipelineParameter="LicenseAssetGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLicenseAssetRuleset" Verb="Remove" Noun="LicenseAssetRuleset" ShouldProcessTarget="LicenseAssetRulesetArn" PipelineParameter="LicenseAssetRulesetArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -103,6 +119,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetLicenseAssetGroup" OutputProperty="LicenseAssetGroup" Verb="Get" Noun="LicenseAssetGroup" PipelineParameter="LicenseAssetGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLicenseAssetRuleset" OutputProperty="LicenseAssetRuleset" Verb="Get" Noun="LicenseAssetRuleset" PipelineParameter="LicenseAssetRulesetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetLicenseConfiguration" OutputProperty="*" Verb="Get" Noun="LicenseConfiguration" PipelineParameter="LicenseConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -123,7 +147,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssociationsForLicenseConfiguration" OutputProperty="LicenseConfigurationAssociations" Verb="Get" Noun="AssociationsForLicenseConfigurationList" PipelineParameter="LicenseConfigurationArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAssetsForLicenseAssetGroup" OutputProperty="Assets" Verb="Get" Noun="AssetsForLicenseAssetGroupList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssociationsForLicenseConfiguration" OutputProperty="LicenseConfigurationAssociations" Verb="Get" Noun="AssociationsForLicenseConfigurationList" PipelineParameter="LicenseConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -131,11 +159,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFailuresForLicenseConfigurationOperations" OutputProperty="LicenseOperationFailureList" Verb="Get" Noun="FailuresForLicenseConfigurationOperationList" PipelineParameter="LicenseConfigurationArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFailuresForLicenseConfigurationOperations" OutputProperty="LicenseOperationFailureList" Verb="Get" Noun="FailuresForLicenseConfigurationOperationList" PipelineParameter="LicenseConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLicenseConfigurations" OutputProperty="LicenseConfigurations" Verb="Get" Noun="LicenseConfigurationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLicenseAssetGroups" OutputProperty="LicenseAssetGroups" Verb="Get" Noun="LicenseAssetGroupList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLicenseAssetRulesets" OutputProperty="LicenseAssetRulesets" Verb="Get" Noun="LicenseAssetRulesetList" PipelineParameter="ShowAWSManagedLicenseAssetRulesets" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLicenseConfigurations" OutputProperty="LicenseConfigurations" Verb="Get" Noun="LicenseConfigurationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLicenseConfigurationsForOrganization" OutputProperty="LicenseConfigurations" Verb="Get" Noun="LicenseConfigurationsForOrganizationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -151,7 +191,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLicenseSpecificationsForResource" OutputProperty="LicenseSpecifications" Verb="Get" Noun="LicenseSpecificationsForResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLicenseSpecificationsForResource" OutputProperty="LicenseSpecifications" Verb="Get" Noun="LicenseSpecificationsForResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -175,7 +215,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceInventory" OutputProperty="ResourceInventoryList" Verb="Get" Noun="ResourceInventoryList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListResourceInventory" OutputProperty="ResourceInventoryList" Verb="Get" Noun="ResourceInventoryList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -187,7 +227,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUsageForLicenseConfiguration" OutputProperty="LicenseConfigurationUsageList" Verb="Get" Noun="UsageForLicenseConfigurationList" PipelineParameter="LicenseConfigurationArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListUsageForLicenseConfiguration" OutputProperty="LicenseConfigurationUsageList" Verb="Get" Noun="UsageForLicenseConfigurationList" PipelineParameter="LicenseConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -200,6 +240,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLicenseAssetGroup" OutputProperty="*" Verb="Update" Noun="LicenseAssetGroup" ShouldProcessTarget="LicenseAssetGroupArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLicenseAssetRuleset" OutputProperty="LicenseAssetRulesetArn" Verb="Update" Noun="LicenseAssetRuleset" ShouldProcessTarget="LicenseAssetRulesetArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

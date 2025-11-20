@@ -388,6 +388,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Send-SMPipelineExecutionStepFailure', 
         'Send-SMPipelineExecutionStepSuccess', 
         'Set-SMAddClusterNode', 
+        'Set-SMBatchRebootClusterNode', 
+        'Set-SMBatchReplaceClusterNode', 
         'Set-SMDeleteClusterNode', 
         'Start-SMEdgeDeploymentStage', 
         'Start-SMInferenceExperiment', 

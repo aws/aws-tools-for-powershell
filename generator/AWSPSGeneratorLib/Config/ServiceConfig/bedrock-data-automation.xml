@@ -49,6 +49,22 @@
                 <Param Name="OverrideConfiguration_Document_ModalityProcessing_State" NewName="OverrideConfiguration_Document_ModalityProcessing_State" />
                 <Param Name="OverrideConfiguration_Image_ModalityProcessing_State" NewName="OverrideConfiguration_Image_ModalityProcessing_State" />
                 <Param Name="OverrideConfiguration_Video_ModalityProcessing_State" NewName="OverrideConfiguration_Video_ModalityProcessing_State" />
+                <Param Name="OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionMode" NewName="OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionMode" />
+                <Param Name="OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionMode" NewName="OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionMode" />
+                <Param Name="OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionMode" NewName="OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionMode" />
+                <Param Name="OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionMode" NewName="OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionMode" />
+                <Param Name="OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionScope" NewName="OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionScope" />
+                <Param Name="OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionScope" NewName="OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionScope" />
+                <Param Name="OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionScope" NewName="OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionScope" />
+                <Param Name="OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionScope" NewName="OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionScope" />
+                <Param Name="OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes" NewName="OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes" />
+                <Param Name="OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes" NewName="OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes" />
+                <Param Name="OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes" NewName="OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes" />
+                <Param Name="OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes" NewName="OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes" />
+                <Param Name="OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" NewName="OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" />
+                <Param Name="OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" NewName="OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" />
+                <Param Name="OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" NewName="OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" />
+                <Param Name="OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" NewName="OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -114,6 +130,22 @@
                 <Param Name="OverrideConfiguration_Document_ModalityProcessing_State" NewName="OverrideConfiguration_Document_ModalityProcessing_State" />
                 <Param Name="OverrideConfiguration_Image_ModalityProcessing_State" NewName="OverrideConfiguration_Image_ModalityProcessing_State" />
                 <Param Name="OverrideConfiguration_Video_ModalityProcessing_State" NewName="OverrideConfiguration_Video_ModalityProcessing_State" />
+                <Param Name="OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionMode" NewName="OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionMode" />
+                <Param Name="OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionMode" NewName="OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionMode" />
+                <Param Name="OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionMode" NewName="OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionMode" />
+                <Param Name="OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionMode" NewName="OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionMode" />
+                <Param Name="OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionScope" NewName="OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionScope" />
+                <Param Name="OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionScope" NewName="OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionScope" />
+                <Param Name="OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionScope" NewName="OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionScope" />
+                <Param Name="OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionScope" NewName="OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionScope" />
+                <Param Name="OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes" NewName="OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes" />
+                <Param Name="OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes" NewName="OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes" />
+                <Param Name="OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes" NewName="OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes" />
+                <Param Name="OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes" NewName="OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes" />
+                <Param Name="OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" NewName="OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" />
+                <Param Name="OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" NewName="OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" />
+                <Param Name="OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" NewName="OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" />
+                <Param Name="OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" NewName="OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

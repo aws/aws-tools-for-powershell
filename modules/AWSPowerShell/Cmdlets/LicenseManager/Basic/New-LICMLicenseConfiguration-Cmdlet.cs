@@ -113,6 +113,16 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         public Amazon.LicenseManager.LicenseCountingType LicenseCountingType { get; set; }
         #endregion
         
+        #region Parameter LicenseExpiry
+        /// <summary>
+        /// <para>
+        /// <para>License configuration expiry.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? LicenseExpiry { get; set; }
+        #endregion
+        
         #region Parameter LicenseRule
         /// <summary>
         /// <para>
@@ -238,6 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
                 WriteWarning("You are passing $null as a value for parameter LicenseCountingType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.LicenseExpiry = this.LicenseExpiry;
             if (this.LicenseRule != null)
             {
                 context.LicenseRule = new List<System.String>(this.LicenseRule);
@@ -292,6 +303,10 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             if (cmdletContext.LicenseCountingType != null)
             {
                 request.LicenseCountingType = cmdletContext.LicenseCountingType;
+            }
+            if (cmdletContext.LicenseExpiry != null)
+            {
+                request.LicenseExpiry = cmdletContext.LicenseExpiry.Value;
             }
             if (cmdletContext.LicenseRule != null)
             {
@@ -369,6 +384,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             public System.Int64? LicenseCount { get; set; }
             public System.Boolean? LicenseCountHardLimit { get; set; }
             public Amazon.LicenseManager.LicenseCountingType LicenseCountingType { get; set; }
+            public System.Int64? LicenseExpiry { get; set; }
             public List<System.String> LicenseRule { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.LicenseManager.Model.ProductInformation> ProductInformationList { get; set; }

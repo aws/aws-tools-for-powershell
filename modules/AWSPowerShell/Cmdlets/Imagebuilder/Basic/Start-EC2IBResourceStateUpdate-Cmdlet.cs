@@ -107,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Image Builder resource that is updated. The state update might also
-        /// impact associated resources.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Image Builder resource that is updated. The
+        /// state update might also impact associated resources.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

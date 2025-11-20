@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// Organizations clones the company name and address information for the new account
     /// from the organization's management account.
     /// </para><para>
-    /// This operation can be called only from the organization's management account.
+    /// You can only call this operation from the management account.
     /// </para><para>
     /// For more information about creating accounts, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html">Creating
     /// a member account in your organization</a> in the <i>Organizations User Guide</i>.

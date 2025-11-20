@@ -113,9 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The resource type to be retained by the retention rule. Currently, only Amazon EBS
-        /// snapshots and EBS-backed AMIs are supported. To retain snapshots, specify <c>EBS_SNAPSHOT</c>.
-        /// To retain EBS-backed AMIs, specify <c>EC2_IMAGE</c>.</para>
+        /// <para>The resource type to be retained by the retention rule. Currently, only EBS volumes,
+        /// EBS snapshots, and EBS-backed AMIs are supported.</para><ul><li><para>To retain EBS volumes, specify <c>EBS_VOLUME</c>.</para></li><li><para>To retain EBS snapshots, specify <c>EBS_SNAPSHOT</c></para></li><li><para>To retain EBS-backed AMIs, specify <c>EC2_IMAGE</c>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -150,8 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         #region Parameter RetentionPeriod_RetentionPeriodValue
         /// <summary>
         /// <para>
-        /// <para>The period value for which the retention rule is to retain resources. The period is
-        /// measured using the unit specified for <b>RetentionPeriodUnit</b>.</para>
+        /// <para>The period value for which the retention rule is to retain resources, measured in
+        /// days. The supported retention periods are:</para><ul><li><para>EBS volumes: 1 - 7 days</para></li><li><para>EBS snapshots and EBS-backed AMIs: 1 - 365 days</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -183,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         /// <summary>
         /// <para>
         /// <para>The unit of time in which to measure the unlock delay. Currently, the unlock delay
-        /// can be measure only in days.</para>
+        /// can be measured only in days.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

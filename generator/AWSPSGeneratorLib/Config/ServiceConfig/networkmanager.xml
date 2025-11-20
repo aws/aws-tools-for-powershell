@@ -55,6 +55,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCoreNetworkPrefixListAssociation" OutputProperty="*" Verb="New" Noun="CoreNetworkPrefixListAssociation" ShouldProcessTarget="CoreNetworkId,PrefixListArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDevice" OutputProperty="Device" Verb="New" Noun="Device" ShouldProcessTarget="GlobalNetworkId" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -108,6 +112,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteCoreNetworkPolicyVersion" OutputProperty="CoreNetworkPolicy" Verb="Remove" Noun="CoreNetworkPolicyVersion" ShouldProcessTarget="CoreNetworkId" PipelineParameter="CoreNetworkId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCoreNetworkPrefixListAssociation" OutputProperty="*" Verb="Remove" Noun="CoreNetworkPrefixListAssociation" ShouldProcessTarget="CoreNetworkId,PrefixListArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -271,6 +279,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAttachmentRoutingPolicyAssociations" OutputProperty="AttachmentRoutingPolicyAssociations" Verb="Get" Noun="AttachmentRoutingPolicyAssociationList" PipelineParameter="CoreNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAttachments" OutputProperty="Attachments" Verb="Get" Noun="AttachmentList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -280,6 +292,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListCoreNetworkPolicyVersions" OutputProperty="CoreNetworkPolicyVersions" Verb="Get" Noun="CoreNetworkPolicyVersionList" PipelineParameter="CoreNetworkId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCoreNetworkPrefixListAssociations" OutputProperty="PrefixListAssociations" Verb="Get" Noun="CoreNetworkPrefixListAssociationList" PipelineParameter="CoreNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCoreNetworkRoutingInformation" OutputProperty="CoreNetworkRoutingInformation" Verb="Get" Noun="CoreNetworkRoutingInformationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -299,6 +319,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutAttachmentRoutingPolicyLabel" OutputProperty="*" Verb="Write" Noun="AttachmentRoutingPolicyLabel" ShouldProcessTarget="AttachmentId,CoreNetworkId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutCoreNetworkPolicy" OutputProperty="CoreNetworkPolicy" Verb="Write" Noun="CoreNetworkPolicy" ShouldProcessTarget="CoreNetworkId" PipelineParameter="CoreNetworkId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -312,6 +336,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RejectAttachment" OutputProperty="Attachment" Verb="Deny" Noun="Attachment" ShouldProcessTarget="AttachmentId" PipelineParameter="AttachmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveAttachmentRoutingPolicyLabel" OutputProperty="*" Verb="Remove" Noun="AttachmentRoutingPolicyLabel" ShouldProcessTarget="AttachmentId,CoreNetworkId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

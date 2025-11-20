@@ -223,6 +223,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.FunctionType
+        "Get-GLUEUserDefinedFunctionList/FunctionType"
+        {
+            $v = "AGGREGATE_FUNCTION","REGULAR_FUNCTION","STORED_PROCEDURE"
+            break
+        }
+
         # Amazon.Glue.IcebergStructTypeEnum
         "New-GLUETable/Schema_Type"
         {
@@ -479,6 +486,7 @@ $GLUE_map = @{
     "Filter_Status"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Filter_TaskRunType"=@("Get-GLUEMLTaskRunList")
     "Filter_TransformType"=@("Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
+    "FunctionType"=@("Get-GLUEUserDefinedFunctionList")
     "IcebergConfiguration_Strategy"=@("New-GLUETableOptimizer","Update-GLUETableOptimizer")
     "IcebergInput_MetadataOperation"=@("New-GLUETable")
     "InclusionAnnotation"=@("Write-GLUEDataQualityProfileAnnotation")

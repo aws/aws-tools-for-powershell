@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </para></li><li><para>
     /// Policy (any type)
     /// </para></li></ul><para>
-    /// This operation can be called only from the organization's management account or by
-    /// a member account that is a delegated administrator.
+    /// You can only call this operation from the management account or a member account that
+    /// is a delegated administrator.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ORGResourceTag")]

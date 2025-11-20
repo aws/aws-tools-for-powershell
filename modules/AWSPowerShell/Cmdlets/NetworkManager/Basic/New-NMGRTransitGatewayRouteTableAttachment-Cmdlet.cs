@@ -62,6 +62,17 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         public System.String PeeringId { get; set; }
         #endregion
         
+        #region Parameter RoutingPolicyLabel
+        /// <summary>
+        /// <para>
+        /// <para>The routing policy label to apply to the Transit Gateway route table attachment for
+        /// traffic routing decisions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RoutingPolicyLabel { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -159,6 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
                 WriteWarning("You are passing $null as a value for parameter PeeringId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RoutingPolicyLabel = this.RoutingPolicyLabel;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.NetworkManager.Model.Tag>(this.Tag);
@@ -193,6 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             if (cmdletContext.PeeringId != null)
             {
                 request.PeeringId = cmdletContext.PeeringId;
+            }
+            if (cmdletContext.RoutingPolicyLabel != null)
+            {
+                request.RoutingPolicyLabel = cmdletContext.RoutingPolicyLabel;
             }
             if (cmdletContext.Tag != null)
             {
@@ -259,6 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         {
             public System.String ClientToken { get; set; }
             public System.String PeeringId { get; set; }
+            public System.String RoutingPolicyLabel { get; set; }
             public List<Amazon.NetworkManager.Model.Tag> Tag { get; set; }
             public System.String TransitGatewayRouteTableArn { get; set; }
             public System.Func<Amazon.NetworkManager.Model.CreateTransitGatewayRouteTableAttachmentResponse, NewNMGRTransitGatewayRouteTableAttachmentCmdlet, object> Select { get; set; } =

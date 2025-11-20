@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Grants permission to update a connectorV2 based on its id and input parameters. This
-    /// API is in preview release and subject to change.
+    /// API is in public preview and subject to change.
     /// </summary>
     [Cmdlet("Update", "SHUBConnectorV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
