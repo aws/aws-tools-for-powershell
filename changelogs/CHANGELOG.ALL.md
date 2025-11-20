@@ -1,4 +1,125 @@
-﻿### 4.1.946 (2025-11-20 00:47Z)
+﻿### 4.1.947 (2025-11-20 21:57Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1170.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Auto Scaling
+    * Modified cmdlet New-ASAutoScalingGroup: added parameter RetentionTriggers_TerminateHookAbandon.
+    * Modified cmdlet Update-ASAutoScalingGroup: added parameter RetentionTriggers_TerminateHookAbandon.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Added cmdlet Get-BACMemoryExtractionJobList leveraging the ListMemoryExtractionJobs service API.
+    * Added cmdlet Start-BACMemoryExtractionJob leveraging the StartMemoryExtractionJob service API.
+  * Amazon Braket
+    * Added cmdlet New-BRKTSpendingLimit leveraging the CreateSpendingLimit service API.
+    * Added cmdlet Remove-BRKTSpendingLimit leveraging the DeleteSpendingLimit service API.
+    * Added cmdlet Search-BRKTSpendingLimit leveraging the SearchSpendingLimits service API.
+    * Added cmdlet Update-BRKTSpendingLimit leveraging the UpdateSpendingLimit service API.
+  * Amazon CloudFront
+    * Modified cmdlet New-CFAnycastIpList: added parameter IpamCidrConfig.
+  * Amazon CloudTrail
+    * Modified cmdlet Get-CTEventConfiguration: added parameter TrailName.
+    * Modified cmdlet Write-CTEventConfiguration: added parameters AggregationConfiguration and TrailName.
+  * Amazon CloudWatch Application Signals
+    * Added cmdlet Get-CWASEntityEventList leveraging the ListEntityEvents service API.
+    * Modified cmdlet Get-CWASAuditFindingList: added parameter DetailLevel.
+    * Modified cmdlet Get-CWASGroupingAttributeDefinitionList: added parameters AwsAccountId and IncludeLinkedAccount.
+  * Amazon Data Automation for Amazon Bedrock
+    * Modified cmdlet New-BDADataAutomationProject: added parameters OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionMode, OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionScope, OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes, OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode, OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionMode, OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionScope, OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes, OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode, OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionMode, OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionScope, OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes, OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode, OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionMode, OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionScope, OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes, OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode and ProjectType.
+    * Modified cmdlet Update-BDADataAutomationProject: added parameters OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionMode, OverrideConfiguration_Audio_SensitiveDataConfiguration_DetectionScope, OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes, OverrideConfiguration_Audio_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode, OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionMode, OverrideConfiguration_Document_SensitiveDataConfiguration_DetectionScope, OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes, OverrideConfiguration_Document_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode, OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionMode, OverrideConfiguration_Image_SensitiveDataConfiguration_DetectionScope, OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes, OverrideConfiguration_Image_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode, OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionMode, OverrideConfiguration_Video_SensitiveDataConfiguration_DetectionScope, OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_PiiEntityTypes and OverrideConfiguration_Video_SensitiveDataConfiguration_PiiEntitiesConfiguration_RedactionMaskMode.
+  * Amazon Database Migration Service
+    * Modified cmdlet Import-DMSCertificate: added parameter KmsKeyId.
+  * Amazon Device Farm
+    * Modified cmdlet Get-DFDevicePoolCompatibility: added parameters Configuration_EnvironmentVariable and Configuration_ExecutionRoleArn.
+    * Modified cmdlet New-DFProject: added parameters EnvironmentVariable and ExecutionRoleArn.
+    * Modified cmdlet Submit-DFTestRun: added parameters Configuration_EnvironmentVariable and Configuration_ExecutionRoleArn.
+    * Modified cmdlet Update-DFProject: added parameters EnvironmentVariable and ExecutionRoleArn.
+  * Amazon EC2 Container Service
+    * Added cmdlet Get-ECSExpressGatewayService leveraging the DescribeExpressGatewayService service API.
+    * Added cmdlet New-ECSExpressGatewayService leveraging the CreateExpressGatewayService service API.
+    * Added cmdlet Remove-ECSExpressGatewayService leveraging the DeleteExpressGatewayService service API.
+    * Added cmdlet Update-ECSExpressGatewayService leveraging the UpdateExpressGatewayService service API.
+    * Modified cmdlet Get-ECSClusterService: added parameter ResourceManagementType.
+  * Amazon EC2 Image Builder
+    * Added cmdlet Start-EC2IBImageDistribution leveraging the DistributeImage service API.
+    * Added cmdlet Start-EC2IBImageRetry leveraging the RetryImage service API.
+    * Modified cmdlet New-EC2IBComponent: added parameter DryRun.
+    * Modified cmdlet New-EC2IBWorkflow: added parameter DryRun.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Edit-EC2TransitGatewayMeteringPolicy leveraging the ModifyTransitGatewayMeteringPolicy service API.
+    * Added cmdlet Edit-EC2VpcEncryptionControl leveraging the ModifyVpcEncryptionControl service API.
+    * Added cmdlet Get-EC2TransitGatewayMeteringPolicy leveraging the DescribeTransitGatewayMeteringPolicies service API.
+    * Added cmdlet Get-EC2TransitGatewayMeteringPolicyEntry leveraging the GetTransitGatewayMeteringPolicyEntries service API.
+    * Added cmdlet Get-EC2VolumesInRecycleBinList leveraging the ListVolumesInRecycleBin service API.
+    * Added cmdlet Get-EC2VpcEncryptionControl leveraging the DescribeVpcEncryptionControls service API.
+    * Added cmdlet Get-EC2VpcResourcesBlockingEncryptionEnforcement leveraging the GetVpcResourcesBlockingEncryptionEnforcement service API.
+    * Added cmdlet New-EC2TransitGatewayMeteringPolicy leveraging the CreateTransitGatewayMeteringPolicy service API.
+    * Added cmdlet New-EC2TransitGatewayMeteringPolicyEntry leveraging the CreateTransitGatewayMeteringPolicyEntry service API.
+    * Added cmdlet New-EC2VpcEncryptionControl leveraging the CreateVpcEncryptionControl service API.
+    * Added cmdlet Remove-EC2TransitGatewayMeteringPolicy leveraging the DeleteTransitGatewayMeteringPolicy service API.
+    * Added cmdlet Remove-EC2TransitGatewayMeteringPolicyEntry leveraging the DeleteTransitGatewayMeteringPolicyEntry service API.
+    * Added cmdlet Remove-EC2VpcEncryptionControl leveraging the DeleteVpcEncryptionControl service API.
+    * Added cmdlet Restore-EC2VolumeFromRecycleBin leveraging the RestoreVolumeFromRecycleBin service API.
+    * Modified cmdlet Edit-EC2TransitGateway: added parameter Options_EncryptionSupport.
+    * Modified cmdlet Edit-EC2VpnTunnelOption: added parameters CloudWatchLogOptions_BgpLogEnabled, CloudWatchLogOptions_BgpLogGroupArn and CloudWatchLogOptions_BgpLogOutputFormat.
+    * Modified cmdlet New-EC2Vpc: added parameters VpcEncryptionControl_EgressOnlyInternetGatewayExclusion, VpcEncryptionControl_ElasticFileSystemExclusion, VpcEncryptionControl_InternetGatewayExclusion, VpcEncryptionControl_LambdaExclusion, VpcEncryptionControl_Mode, VpcEncryptionControl_NatGatewayExclusion, VpcEncryptionControl_VirtualPrivateGatewayExclusion, VpcEncryptionControl_VpcLatticeExclusion and VpcEncryptionControl_VpcPeeringExclusion.
+  * Amazon Elastic Load Balancing V2
+    * Modified cmdlet New-ELB2TargetGroup: added parameter TargetControlPort.
+  * Amazon Glue
+    * Modified cmdlet Get-GLUEUserDefinedFunctionList: added parameter FunctionType.
+  * Amazon Lake Formation
+    * Modified cmdlet New-LKFLakeFormationIdentityCenterConfiguration: added parameter ServiceIntegration.
+    * Modified cmdlet Update-LKFLakeFormationIdentityCenterConfiguration: added parameter ServiceIntegration.
+  * Amazon License Manager
+    * Added cmdlet Get-LICMAssetsForLicenseAssetGroupList leveraging the ListAssetsForLicenseAssetGroup service API.
+    * Added cmdlet Get-LICMLicenseAssetGroup leveraging the GetLicenseAssetGroup service API.
+    * Added cmdlet Get-LICMLicenseAssetGroupList leveraging the ListLicenseAssetGroups service API.
+    * Added cmdlet Get-LICMLicenseAssetRuleset leveraging the GetLicenseAssetRuleset service API.
+    * Added cmdlet Get-LICMLicenseAssetRulesetList leveraging the ListLicenseAssetRulesets service API.
+    * Added cmdlet Get-LICMLicenseConfigurationsForOrganizationList leveraging the ListLicenseConfigurationsForOrganization service API.
+    * Added cmdlet New-LICMLicenseAssetGroup leveraging the CreateLicenseAssetGroup service API.
+    * Added cmdlet New-LICMLicenseAssetRuleset leveraging the CreateLicenseAssetRuleset service API.
+    * Added cmdlet Remove-LICMLicenseAssetGroup leveraging the DeleteLicenseAssetGroup service API.
+    * Added cmdlet Remove-LICMLicenseAssetRuleset leveraging the DeleteLicenseAssetRuleset service API.
+    * Added cmdlet Update-LICMLicenseAssetGroup leveraging the UpdateLicenseAssetGroup service API.
+    * Added cmdlet Update-LICMLicenseAssetRuleset leveraging the UpdateLicenseAssetRuleset service API.
+    * Modified cmdlet New-LICMLicenseConfiguration: added parameter LicenseExpiry.
+    * Modified cmdlet New-LICMLicenseManagerReportGenerator: added parameters ReportContext_LicenseAssetGroupArn, ReportContext_ReportEndDate and ReportContext_ReportStartDate.
+    * Modified cmdlet Update-LICMLicenseConfiguration: added parameter LicenseExpiry.
+    * Modified cmdlet Update-LICMLicenseManagerReportGenerator: added parameters ReportContext_LicenseAssetGroupArn, ReportContext_ReportEndDate and ReportContext_ReportStartDate.
+    * Modified cmdlet Update-LICMServiceSetting: added parameter EnabledDiscoverySourceRegion.
+  * Amazon Network Manager
+    * Added cmdlet Get-NMGRAttachmentRoutingPolicyAssociationList leveraging the ListAttachmentRoutingPolicyAssociations service API.
+    * Added cmdlet Get-NMGRCoreNetworkPrefixListAssociationList leveraging the ListCoreNetworkPrefixListAssociations service API.
+    * Added cmdlet Get-NMGRCoreNetworkRoutingInformationList leveraging the ListCoreNetworkRoutingInformation service API.
+    * Added cmdlet New-NMGRCoreNetworkPrefixListAssociation leveraging the CreateCoreNetworkPrefixListAssociation service API.
+    * Added cmdlet Remove-NMGRAttachmentRoutingPolicyLabel leveraging the RemoveAttachmentRoutingPolicyLabel service API.
+    * Added cmdlet Remove-NMGRCoreNetworkPrefixListAssociation leveraging the DeleteCoreNetworkPrefixListAssociation service API.
+    * Added cmdlet Write-NMGRAttachmentRoutingPolicyLabel leveraging the PutAttachmentRoutingPolicyLabel service API.
+    * Modified cmdlet New-NMGRConnectAttachment: added parameter RoutingPolicyLabel.
+    * Modified cmdlet New-NMGRDirectConnectGatewayAttachment: added parameter RoutingPolicyLabel.
+    * Modified cmdlet New-NMGRSiteToSiteVpnAttachment: added parameter RoutingPolicyLabel.
+    * Modified cmdlet New-NMGRTransitGatewayRouteTableAttachment: added parameter RoutingPolicyLabel.
+    * Modified cmdlet New-NMGRVpcAttachment: added parameter RoutingPolicyLabel.
+  * Amazon Organizations
+    * Added cmdlet Get-ORGInboundResponsibilityTransferList leveraging the ListInboundResponsibilityTransfers service API.
+    * Added cmdlet Get-ORGOutboundResponsibilityTransferList leveraging the ListOutboundResponsibilityTransfers service API.
+    * Added cmdlet Get-ORGResponsibilityTransfer leveraging the DescribeResponsibilityTransfer service API.
+    * Added cmdlet New-ORGOrganizationToTransferResponsibility leveraging the InviteOrganizationToTransferResponsibility service API.
+    * Added cmdlet Stop-ORGResponsibilityTransfer leveraging the TerminateResponsibilityTransfer service API.
+    * Added cmdlet Update-ORGResponsibilityTransfer leveraging the UpdateResponsibilityTransfer service API.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSTheme: added parameters AxisLabelFontConfiguration_FontColor, AxisLabelFontConfiguration_FontDecoration, AxisLabelFontConfiguration_FontFamily, AxisLabelFontConfiguration_FontStyle, AxisTitleFontConfiguration_FontColor, AxisTitleFontConfiguration_FontDecoration, AxisTitleFontConfiguration_FontFamily, AxisTitleFontConfiguration_FontStyle, Background_Color, Background_Gradient, Border_Color, Border_Width, Configuration_Typography_AxisLabelFontConfiguration_FontSize_Absolute, Configuration_Typography_AxisLabelFontConfiguration_FontSize_Relative, Configuration_Typography_AxisLabelFontConfiguration_FontWeight_Name, Configuration_Typography_AxisTitleFontConfiguration_FontSize_Absolute, Configuration_Typography_AxisTitleFontConfiguration_FontSize_Relative, Configuration_Typography_AxisTitleFontConfiguration_FontWeight_Name, Configuration_Typography_DataLabelFontConfiguration_FontSize_Absolute, Configuration_Typography_DataLabelFontConfiguration_FontSize_Relative, Configuration_Typography_DataLabelFontConfiguration_FontWeight_Name, Configuration_Typography_LegendTitleFontConfiguration_FontSize_Absolute, Configuration_Typography_LegendTitleFontConfiguration_FontSize_Relative, Configuration_Typography_LegendTitleFontConfiguration_FontWeight_Name, Configuration_Typography_LegendValueFontConfiguration_FontSize_Absolute, Configuration_Typography_LegendValueFontConfiguration_FontSize_Relative, Configuration_Typography_LegendValueFontConfiguration_FontWeight_Name, Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontColor, Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontDecoration, Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontFamily, Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontSize_Absolute, Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontSize_Relative, Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontStyle, Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontWeight_Name, Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontColor, Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontDecoration, Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontFamily, Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontSize_Absolute, Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontSize_Relative, Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontStyle, Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontWeight_Name, DataLabelFontConfiguration_FontColor, DataLabelFontConfiguration_FontDecoration, DataLabelFontConfiguration_FontFamily, DataLabelFontConfiguration_FontStyle, LegendTitleFontConfiguration_FontColor, LegendTitleFontConfiguration_FontDecoration, LegendTitleFontConfiguration_FontFamily, LegendTitleFontConfiguration_FontStyle, LegendValueFontConfiguration_FontColor, LegendValueFontConfiguration_FontDecoration, LegendValueFontConfiguration_FontFamily, LegendValueFontConfiguration_FontStyle, Tile_BackgroundColor, Tile_BorderRadius, Tile_Padding, VisualSubtitleFontConfiguration_TextAlignment, VisualSubtitleFontConfiguration_TextTransform, VisualTitleFontConfiguration_TextAlignment and VisualTitleFontConfiguration_TextTransform.
+    * Modified cmdlet Update-QSTheme: added parameters AxisLabelFontConfiguration_FontColor, AxisLabelFontConfiguration_FontDecoration, AxisLabelFontConfiguration_FontFamily, AxisLabelFontConfiguration_FontStyle, AxisTitleFontConfiguration_FontColor, AxisTitleFontConfiguration_FontDecoration, AxisTitleFontConfiguration_FontFamily, AxisTitleFontConfiguration_FontStyle, Background_Color, Background_Gradient, Border_Color, Border_Width, Configuration_Typography_AxisLabelFontConfiguration_FontSize_Absolute, Configuration_Typography_AxisLabelFontConfiguration_FontSize_Relative, Configuration_Typography_AxisLabelFontConfiguration_FontWeight_Name, Configuration_Typography_AxisTitleFontConfiguration_FontSize_Absolute, Configuration_Typography_AxisTitleFontConfiguration_FontSize_Relative, Configuration_Typography_AxisTitleFontConfiguration_FontWeight_Name, Configuration_Typography_DataLabelFontConfiguration_FontSize_Absolute, Configuration_Typography_DataLabelFontConfiguration_FontSize_Relative, Configuration_Typography_DataLabelFontConfiguration_FontWeight_Name, Configuration_Typography_LegendTitleFontConfiguration_FontSize_Absolute, Configuration_Typography_LegendTitleFontConfiguration_FontSize_Relative, Configuration_Typography_LegendTitleFontConfiguration_FontWeight_Name, Configuration_Typography_LegendValueFontConfiguration_FontSize_Absolute, Configuration_Typography_LegendValueFontConfiguration_FontSize_Relative, Configuration_Typography_LegendValueFontConfiguration_FontWeight_Name, Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontColor, Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontDecoration, Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontFamily, Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontSize_Absolute, Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontSize_Relative, Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontStyle, Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontWeight_Name, Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontColor, Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontDecoration, Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontFamily, Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontSize_Absolute, Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontSize_Relative, Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontStyle, Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontWeight_Name, DataLabelFontConfiguration_FontColor, DataLabelFontConfiguration_FontDecoration, DataLabelFontConfiguration_FontFamily, DataLabelFontConfiguration_FontStyle, LegendTitleFontConfiguration_FontColor, LegendTitleFontConfiguration_FontDecoration, LegendTitleFontConfiguration_FontFamily, LegendTitleFontConfiguration_FontStyle, LegendValueFontConfiguration_FontColor, LegendValueFontConfiguration_FontDecoration, LegendValueFontConfiguration_FontFamily, LegendValueFontConfiguration_FontStyle, Tile_BackgroundColor, Tile_BorderRadius, Tile_Padding, VisualSubtitleFontConfiguration_TextAlignment, VisualSubtitleFontConfiguration_TextTransform, VisualTitleFontConfiguration_TextAlignment and VisualTitleFontConfiguration_TextTransform.
+  * Amazon Runtime for Amazon Bedrock Data Automation
+    * Added cmdlet Invoke-BDARDataAutomation leveraging the InvokeDataAutomation service API.
+  * Amazon SageMaker Service
+    * Added cmdlet Set-SMBatchRebootClusterNode leveraging the BatchRebootClusterNodes service API.
+    * Added cmdlet Set-SMBatchReplaceClusterNode leveraging the BatchReplaceClusterNodes service API.
+  * Amazon Security Hub
+    * Added cmdlet Get-SHUBFindingsTrendsV2 leveraging the GetFindingsTrendsV2 service API.
+    * Added cmdlet Get-SHUBResourcesTrendsV2 leveraging the GetResourcesTrendsV2 service API.
+  * Amazon Simple Storage Service (S3)
+    * Added cmdlet Get-S3BucketAbac leveraging the GetBucketAbac service API.
+    * Added cmdlet Write-S3BucketAbac leveraging the PutBucketAbac service API.
+
+### 4.1.946 (2025-11-20 00:47Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1169.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AmazonConnectCampaignServiceV2
     * Modified cmdlet New-CCS2Campaign: added parameter DefaultOutboundConfig_RingTimeout.

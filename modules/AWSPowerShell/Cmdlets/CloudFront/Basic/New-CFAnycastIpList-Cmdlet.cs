@@ -46,12 +46,24 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The IP address type for the Anycast static IP list. You can specify one of the following
-        /// options:</para><ul><li><para><c>ipv4</c> - Allocate a list of only IPv4 addresses</para></li><li><para><c>ipv6</c> - Allocate a list of only IPv4 addresses</para></li><li><para><c>dualstack</c> - Allocate a list of both IPv4 and IPv6 addresses</para></li></ul>
+        /// options:</para><ul><li><para><c>ipv4</c> only</para></li><li><para><c>ipv6</c> only </para></li><li><para><c>dualstack</c> - Allocate a list of both IPv4 and IPv6 addresses</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.CloudFront.IpAddressType")]
         public Amazon.CloudFront.IpAddressType IpAddressType { get; set; }
+        #endregion
+        
+        #region Parameter IpamCidrConfig
+        /// <summary>
+        /// <para>
+        /// <para> A list of IPAM CIDR configurations that specify the IP address ranges and IPAM pool
+        /// settings for creating the Anycast static IP list. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IpamCidrConfigs")]
+        public Amazon.CloudFront.Model.IpamCidrConfig[] IpamCidrConfig { get; set; }
         #endregion
         
         #region Parameter IpCount
@@ -162,6 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.IpAddressType = this.IpAddressType;
+            if (this.IpamCidrConfig != null)
+            {
+                context.IpamCidrConfig = new List<Amazon.CloudFront.Model.IpamCidrConfig>(this.IpamCidrConfig);
+            }
             context.IpCount = this.IpCount;
             #if MODULAR
             if (this.IpCount == null && ParameterWasBound(nameof(this.IpCount)))
@@ -199,6 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (cmdletContext.IpAddressType != null)
             {
                 request.IpAddressType = cmdletContext.IpAddressType;
+            }
+            if (cmdletContext.IpamCidrConfig != null)
+            {
+                request.IpamCidrConfigs = cmdletContext.IpamCidrConfig;
             }
             if (cmdletContext.IpCount != null)
             {
@@ -289,6 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.CloudFront.IpAddressType IpAddressType { get; set; }
+            public List<Amazon.CloudFront.Model.IpamCidrConfig> IpamCidrConfig { get; set; }
             public System.Int32? IpCount { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.CloudFront.Model.Tag> Tags_Item { get; set; }

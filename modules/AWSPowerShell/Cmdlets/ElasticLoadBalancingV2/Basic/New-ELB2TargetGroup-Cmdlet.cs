@@ -81,9 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>
         /// <para>The approximate amount of time, in seconds, between health checks of an individual
         /// target. The range is 5-300. If the target group protocol is TCP, TLS, UDP, TCP_UDP,
-        /// HTTP or HTTPS, the default is 30 seconds. If the target group protocol is GENEVE,
-        /// the default is 10 seconds. If the target type is <c>lambda</c>, the default is 35
-        /// seconds.</para>
+        /// QUIC, TCP_QUIC, HTTP or HTTPS, the default is 30 seconds. If the target group protocol
+        /// is GENEVE, the default is 10 seconds. If the target type is <c>lambda</c>, the default
+        /// is 35 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,9 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The port the load balancer uses when performing health checks on targets. If the protocol
-        /// is HTTP, HTTPS, TCP, TLS, UDP, or TCP_UDP, the default is <c>traffic-port</c>, which
-        /// is the port on which each target receives traffic from the load balancer. If the protocol
-        /// is GENEVE, the default is port 80.</para>
+        /// is HTTP, HTTPS, TCP, TLS, UDP, TCP_UDP, QUIC, or TCP_QUIC the default is <c>traffic-port</c>,
+        /// which is the port on which each target receives traffic from the load balancer. If
+        /// the protocol is GENEVE, the default is port 80.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,8 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>The protocol the load balancer uses when performing health checks on targets. For
         /// Application Load Balancers, the default is HTTP. For Network Load Balancers and Gateway
         /// Load Balancers, the default is TCP. The TCP protocol is not supported for health checks
-        /// if the protocol of the target group is HTTP or HTTPS. The GENEVE, TLS, UDP, and TCP_UDP
-        /// protocols are not supported for health checks.</para>
+        /// if the protocol of the target group is HTTP or HTTPS. The GENEVE, TLS, UDP, TCP_UDP,
+        /// QUIC, and TCP_QUIC protocols are not supported for health checks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -219,8 +219,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>
         /// <para>The protocol to use for routing traffic to the targets. For Application Load Balancers,
         /// the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported
-        /// protocols are TCP, TLS, UDP, or TCP_UDP. For Gateway Load Balancers, the supported
-        /// protocol is GENEVE. A TCP_UDP listener must be associated with a TCP_UDP target group.
+        /// protocols are TCP, TLS, UDP, TCP_UDP, QUIC, or TCP_QUIC. For Gateway Load Balancers,
+        /// the supported protocol is GENEVE. A TCP_UDP listener must be associated with a TCP_UDP
+        /// target group. A TCP_QUIC listener must be associated with a TCP_QUIC target group.
         /// If the target is a Lambda function, this parameter does not apply.</para>
         /// </para>
         /// </summary>
@@ -252,6 +253,17 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         public Amazon.ElasticLoadBalancingV2.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter TargetControlPort
+        /// <summary>
+        /// <para>
+        /// <para>The port on which the target control agent and application load balancer exchange
+        /// management traffic for the target optimizer feature.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? TargetControlPort { get; set; }
+        #endregion
+        
         #region Parameter TargetType
         /// <summary>
         /// <para>
@@ -272,8 +284,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>
         /// <para>The number of consecutive health check failures required before considering a target
         /// unhealthy. The range is 2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS,
-        /// HTTP or HTTPS, the default is 2. For target groups with a protocol of GENEVE, the
-        /// default is 2. If the target type is <c>lambda</c>, the default is 5.</para>
+        /// QUIC, TCP_QUIC, HTTP or HTTPS, the default is 2. For target groups with a protocol
+        /// of GENEVE, the default is 2. If the target type is <c>lambda</c>, the default is 5.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -357,6 +369,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             {
                 context.Tag = new List<Amazon.ElasticLoadBalancingV2.Model.Tag>(this.Tag);
             }
+            context.TargetControlPort = this.TargetControlPort;
             context.TargetType = this.TargetType;
             context.UnhealthyThresholdCount = this.UnhealthyThresholdCount;
             context.VpcId = this.VpcId;
@@ -457,6 +470,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             {
                 request.Tags = cmdletContext.Tag;
             }
+            if (cmdletContext.TargetControlPort != null)
+            {
+                request.TargetControlPort = cmdletContext.TargetControlPort.Value;
+            }
             if (cmdletContext.TargetType != null)
             {
                 request.TargetType = cmdletContext.TargetType;
@@ -545,6 +562,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             public Amazon.ElasticLoadBalancingV2.ProtocolEnum Protocol { get; set; }
             public System.String ProtocolVersion { get; set; }
             public List<Amazon.ElasticLoadBalancingV2.Model.Tag> Tag { get; set; }
+            public System.Int32? TargetControlPort { get; set; }
             public Amazon.ElasticLoadBalancingV2.TargetTypeEnum TargetType { get; set; }
             public System.Int32? UnhealthyThresholdCount { get; set; }
             public System.String VpcId { get; set; }

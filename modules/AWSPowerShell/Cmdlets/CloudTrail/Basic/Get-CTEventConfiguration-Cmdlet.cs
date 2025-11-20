@@ -28,9 +28,10 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Retrieves the current event configuration settings for the specified event data store,
-    /// including details about maximum event size and context key selectors configured for
-    /// the event data store.
+    /// Retrieves the current event configuration settings for the specified event data store
+    /// or trail. The response includes maximum event size configuration, the context key
+    /// selectors configured for the event data store, and any aggregation settings configured
+    /// for the trail.
     /// </summary>
     [Cmdlet("Get", "CTEventConfiguration")]
     [OutputType("Amazon.CloudTrail.Model.GetEventConfigurationResponse")]
@@ -52,6 +53,16 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String EventDataStore { get; set; }
+        #endregion
+        
+        #region Parameter TrailName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the trail for which you want to retrieve event configuration settings.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TrailName { get; set; }
         #endregion
         
         #region Parameter Select
@@ -101,6 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EventDataStore = this.EventDataStore;
+            context.TrailName = this.TrailName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -120,6 +132,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
             if (cmdletContext.EventDataStore != null)
             {
                 request.EventDataStore = cmdletContext.EventDataStore;
+            }
+            if (cmdletContext.TrailName != null)
+            {
+                request.TrailName = cmdletContext.TrailName;
             }
             
             CmdletOutput output;
@@ -183,6 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String EventDataStore { get; set; }
+            public System.String TrailName { get; set; }
             public System.Func<Amazon.CloudTrail.Model.GetEventConfigurationResponse, GetCTEventConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

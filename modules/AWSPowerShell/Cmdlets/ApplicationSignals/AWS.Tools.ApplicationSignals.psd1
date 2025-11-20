@@ -91,6 +91,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-CWASResourceTag', 
         'Get-CWASAuditFindingList', 
         'Get-CWASBatchServiceLevelObjectiveBudgetReport', 
+        'Get-CWASEntityEventList', 
         'Get-CWASGroupingAttributeDefinitionList', 
         'Get-CWASResourceTag', 
         'Get-CWASService', 

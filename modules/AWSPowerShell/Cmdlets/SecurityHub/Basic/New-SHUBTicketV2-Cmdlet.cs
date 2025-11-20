@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Grants permission to create a ticket in the chosen ITSM based on finding information
-    /// for the provided finding metadata UID. This API is in preview release and subject
-    /// to change.
+    /// for the provided finding metadata UID. This API is in public preview and subject to
+    /// change.
     /// </summary>
     [Cmdlet("New", "SHUBTicketV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.CreateTicketV2Response")]

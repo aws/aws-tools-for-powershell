@@ -84,6 +84,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Validates the required permissions for the operation and the request parameters, without
+        /// actually making the request, and provides an error response. Upon a successful request,
+        /// the error response is <c>DryRunOperationException</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
@@ -268,6 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             context.ClientToken = this.ClientToken;
             context.Data = this.Data;
             context.Description = this.Description;
+            context.DryRun = this.DryRun;
             context.KmsKeyId = this.KmsKeyId;
             context.Name = this.Name;
             #if MODULAR
@@ -334,6 +347,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.KmsKeyId != null)
             {
@@ -428,6 +445,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             public System.String ClientToken { get; set; }
             public System.String Data { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String Name { get; set; }
             public Amazon.Imagebuilder.Platform Platform { get; set; }

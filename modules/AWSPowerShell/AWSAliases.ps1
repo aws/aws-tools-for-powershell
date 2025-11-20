@@ -1036,6 +1036,9 @@ Set-Alias -Name CWAS-GetServiceLevelObjective -Value Get-CWASServiceLevelObjecti
 Set-Alias -Name List-CWASAuditFindings -Value Get-CWASAuditFindingList
 Set-Alias -Name List-CWASAuditFindingList -Value Get-CWASAuditFindingList
 Set-Alias -Name CWAS-ListAuditFindings -Value Get-CWASAuditFindingList
+Set-Alias -Name List-CWASEntityEvents -Value Get-CWASEntityEventList
+Set-Alias -Name List-CWASEntityEventList -Value Get-CWASEntityEventList
+Set-Alias -Name CWAS-ListEntityEvents -Value Get-CWASEntityEventList
 Set-Alias -Name List-CWASGroupingAttributeDefinitions -Value Get-CWASGroupingAttributeDefinitionList
 Set-Alias -Name List-CWASGroupingAttributeDefinitionList -Value Get-CWASGroupingAttributeDefinitionList
 Set-Alias -Name CWAS-ListGroupingAttributeDefinitions -Value Get-CWASGroupingAttributeDefinitionList
@@ -2999,6 +3002,9 @@ Set-Alias -Name BAC-ListCodeInterpreterSessions -Value Get-BACCodeInterpreterSes
 Set-Alias -Name List-BACEvents -Value Get-BACEventList
 Set-Alias -Name List-BACEventList -Value Get-BACEventList
 Set-Alias -Name BAC-ListEvents -Value Get-BACEventList
+Set-Alias -Name List-BACMemoryExtractionJobs -Value Get-BACMemoryExtractionJobList
+Set-Alias -Name List-BACMemoryExtractionJobList -Value Get-BACMemoryExtractionJobList
+Set-Alias -Name BAC-ListMemoryExtractionJobs -Value Get-BACMemoryExtractionJobList
 Set-Alias -Name List-BACMemoryRecords -Value Get-BACMemoryRecordList
 Set-Alias -Name List-BACMemoryRecordList -Value Get-BACMemoryRecordList
 Set-Alias -Name BAC-ListMemoryRecords -Value Get-BACMemoryRecordList
@@ -3010,11 +3016,13 @@ Set-Alias -Name Retrieve-BACMemoryRecord -Value Invoke-BACMemoryRecord
 Set-Alias -Name BAC-RetrieveMemoryRecords -Value Invoke-BACMemoryRecord
 Set-Alias -Name BAC-StartBrowserSession -Value Start-BACBrowserSession
 Set-Alias -Name BAC-StartCodeInterpreterSession -Value Start-BACCodeInterpreterSession
+Set-Alias -Name BAC-StartMemoryExtractionJob -Value Start-BACMemoryExtractionJob
 Set-Alias -Name BAC-StopBrowserSession -Value Stop-BACBrowserSession
 Set-Alias -Name BAC-StopCodeInterpreterSession -Value Stop-BACCodeInterpreterSession
 Set-Alias -Name BAC-StopRuntimeSession -Value Stop-BACRuntimeSession
 Set-Alias -Name BAC-UpdateBrowserStream -Value Update-BACBrowserStream
 Set-Alias -Name BDAR-GetDataAutomationStatus -Value Get-BDARDataAutomationStatus
+Set-Alias -Name BDAR-InvokeDataAutomation -Value Invoke-BDARDataAutomation
 Set-Alias -Name BDAR-InvokeDataAutomationAsync -Value Invoke-BDARDataAutomationAsync
 Set-Alias -Name BDAR-ListTagsForResource -Value Get-BDARResourceTag
 Set-Alias -Name BDAR-TagResource -Value Add-BDARResourceTag
@@ -3333,6 +3341,10 @@ Set-Alias -Name Create-BRKTJob -Value New-BRKTJob
 Set-Alias -Name BRKT-CreateJob -Value New-BRKTJob
 Set-Alias -Name Create-BRKTQuantumTask -Value New-BRKTQuantumTask
 Set-Alias -Name BRKT-CreateQuantumTask -Value New-BRKTQuantumTask
+Set-Alias -Name Create-BRKTSpendingLimit -Value New-BRKTSpendingLimit
+Set-Alias -Name BRKT-CreateSpendingLimit -Value New-BRKTSpendingLimit
+Set-Alias -Name Delete-BRKTSpendingLimit -Value Remove-BRKTSpendingLimit
+Set-Alias -Name BRKT-DeleteSpendingLimit -Value Remove-BRKTSpendingLimit
 Set-Alias -Name BRKT-GetDevice -Value Get-BRKTDevice
 Set-Alias -Name BRKT-GetJob -Value Get-BRKTJob
 Set-Alias -Name BRKT-GetQuantumTask -Value Get-BRKTQuantumTask
@@ -3343,8 +3355,11 @@ Set-Alias -Name Search-BRKTJobs -Value Search-BRKTJob
 Set-Alias -Name BRKT-SearchJobs -Value Search-BRKTJob
 Set-Alias -Name Search-BRKTQuantumTasks -Value Search-BRKTQuantumTask
 Set-Alias -Name BRKT-SearchQuantumTasks -Value Search-BRKTQuantumTask
+Set-Alias -Name Search-BRKTSpendingLimits -Value Search-BRKTSpendingLimit
+Set-Alias -Name BRKT-SearchSpendingLimits -Value Search-BRKTSpendingLimit
 Set-Alias -Name BRKT-TagResource -Value Add-BRKTResourceTag
 Set-Alias -Name BRKT-UntagResource -Value Remove-BRKTResourceTag
+Set-Alias -Name BRKT-UpdateSpendingLimit -Value Update-BRKTSpendingLimit
 Set-Alias -Name Create-BGTBudgetAction -Value New-BGTBudgetAction
 Set-Alias -Name BGT-CreateBudgetAction -Value New-BGTBudgetAction
 Set-Alias -Name Create-BGTBudget -Value New-BGTBudget
@@ -10363,6 +10378,10 @@ Set-Alias -Name Create-EC2TransitGatewayConnect -Value New-EC2TransitGatewayConn
 Set-Alias -Name EC2-CreateTransitGatewayConnect -Value New-EC2TransitGatewayConnect
 Set-Alias -Name Create-EC2TransitGatewayConnectPeer -Value New-EC2TransitGatewayConnectPeer
 Set-Alias -Name EC2-CreateTransitGatewayConnectPeer -Value New-EC2TransitGatewayConnectPeer
+Set-Alias -Name Create-EC2TransitGatewayMeteringPolicy -Value New-EC2TransitGatewayMeteringPolicy
+Set-Alias -Name EC2-CreateTransitGatewayMeteringPolicy -Value New-EC2TransitGatewayMeteringPolicy
+Set-Alias -Name Create-EC2TransitGatewayMeteringPolicyEntry -Value New-EC2TransitGatewayMeteringPolicyEntry
+Set-Alias -Name EC2-CreateTransitGatewayMeteringPolicyEntry -Value New-EC2TransitGatewayMeteringPolicyEntry
 Set-Alias -Name Create-EC2TransitGatewayMulticastDomain -Value New-EC2TransitGatewayMulticastDomain
 Set-Alias -Name EC2-CreateTransitGatewayMulticastDomain -Value New-EC2TransitGatewayMulticastDomain
 Set-Alias -Name Create-EC2TransitGatewayPeeringAttachment -Value New-EC2TransitGatewayPeeringAttachment
@@ -10393,6 +10412,8 @@ Set-Alias -Name Create-EC2Vpc -Value New-EC2Vpc
 Set-Alias -Name EC2-CreateVpc -Value New-EC2Vpc
 Set-Alias -Name Create-EC2VpcBlockPublicAccessExclusion -Value New-EC2VpcBlockPublicAccessExclusion
 Set-Alias -Name EC2-CreateVpcBlockPublicAccessExclusion -Value New-EC2VpcBlockPublicAccessExclusion
+Set-Alias -Name Create-EC2VpcEncryptionControl -Value New-EC2VpcEncryptionControl
+Set-Alias -Name EC2-CreateVpcEncryptionControl -Value New-EC2VpcEncryptionControl
 Set-Alias -Name Create-EC2VpcEndpoint -Value New-EC2VpcEndpoint
 Set-Alias -Name EC2-CreateVpcEndpoint -Value New-EC2VpcEndpoint
 Set-Alias -Name Create-EC2VpcEndpointConnectionNotification -Value New-EC2VpcEndpointConnectionNotification
@@ -10543,6 +10564,10 @@ Set-Alias -Name Delete-EC2TransitGatewayConnect -Value Remove-EC2TransitGatewayC
 Set-Alias -Name EC2-DeleteTransitGatewayConnect -Value Remove-EC2TransitGatewayConnect
 Set-Alias -Name Delete-EC2TransitGatewayConnectPeer -Value Remove-EC2TransitGatewayConnectPeer
 Set-Alias -Name EC2-DeleteTransitGatewayConnectPeer -Value Remove-EC2TransitGatewayConnectPeer
+Set-Alias -Name Delete-EC2TransitGatewayMeteringPolicy -Value Remove-EC2TransitGatewayMeteringPolicy
+Set-Alias -Name EC2-DeleteTransitGatewayMeteringPolicy -Value Remove-EC2TransitGatewayMeteringPolicy
+Set-Alias -Name Delete-EC2TransitGatewayMeteringPolicyEntry -Value Remove-EC2TransitGatewayMeteringPolicyEntry
+Set-Alias -Name EC2-DeleteTransitGatewayMeteringPolicyEntry -Value Remove-EC2TransitGatewayMeteringPolicyEntry
 Set-Alias -Name Delete-EC2TransitGatewayMulticastDomain -Value Remove-EC2TransitGatewayMulticastDomain
 Set-Alias -Name EC2-DeleteTransitGatewayMulticastDomain -Value Remove-EC2TransitGatewayMulticastDomain
 Set-Alias -Name Delete-EC2TransitGatewayPeeringAttachment -Value Remove-EC2TransitGatewayPeeringAttachment
@@ -10573,6 +10598,8 @@ Set-Alias -Name Delete-EC2Vpc -Value Remove-EC2Vpc
 Set-Alias -Name EC2-DeleteVpc -Value Remove-EC2Vpc
 Set-Alias -Name Delete-EC2VpcBlockPublicAccessExclusion -Value Remove-EC2VpcBlockPublicAccessExclusion
 Set-Alias -Name EC2-DeleteVpcBlockPublicAccessExclusion -Value Remove-EC2VpcBlockPublicAccessExclusion
+Set-Alias -Name Delete-EC2VpcEncryptionControl -Value Remove-EC2VpcEncryptionControl
+Set-Alias -Name EC2-DeleteVpcEncryptionControl -Value Remove-EC2VpcEncryptionControl
 Set-Alias -Name Delete-EC2VpcEndpointConnectionNotifications -Value Remove-EC2EndpointConnectionNotification
 Set-Alias -Name Delete-EC2EndpointConnectionNotification -Value Remove-EC2EndpointConnectionNotification
 Set-Alias -Name EC2-DeleteVpcEndpointConnectionNotifications -Value Remove-EC2EndpointConnectionNotification
@@ -11023,6 +11050,9 @@ Set-Alias -Name EC2-DescribeTransitGatewayConnectPeers -Value Get-EC2TransitGate
 Set-Alias -Name Describe-EC2TransitGatewayConnects -Value Get-EC2TransitGatewayConnect
 Set-Alias -Name Describe-EC2TransitGatewayConnect -Value Get-EC2TransitGatewayConnect
 Set-Alias -Name EC2-DescribeTransitGatewayConnects -Value Get-EC2TransitGatewayConnect
+Set-Alias -Name Describe-EC2TransitGatewayMeteringPolicies -Value Get-EC2TransitGatewayMeteringPolicy
+Set-Alias -Name Describe-EC2TransitGatewayMeteringPolicy -Value Get-EC2TransitGatewayMeteringPolicy
+Set-Alias -Name EC2-DescribeTransitGatewayMeteringPolicies -Value Get-EC2TransitGatewayMeteringPolicy
 Set-Alias -Name Describe-EC2TransitGatewayMulticastDomains -Value Get-EC2TransitGatewayMulticastDomain
 Set-Alias -Name Describe-EC2TransitGatewayMulticastDomain -Value Get-EC2TransitGatewayMulticastDomain
 Set-Alias -Name EC2-DescribeTransitGatewayMulticastDomains -Value Get-EC2TransitGatewayMulticastDomain
@@ -11084,6 +11114,9 @@ Set-Alias -Name Describe-EC2VpcClassicLink -Value Get-EC2VpcClassicLink
 Set-Alias -Name EC2-DescribeVpcClassicLink -Value Get-EC2VpcClassicLink
 Set-Alias -Name Describe-EC2VpcClassicLinkDnsSupport -Value Get-EC2VpcClassicLinkDnsSupport
 Set-Alias -Name EC2-DescribeVpcClassicLinkDnsSupport -Value Get-EC2VpcClassicLinkDnsSupport
+Set-Alias -Name Describe-EC2VpcEncryptionControls -Value Get-EC2VpcEncryptionControl
+Set-Alias -Name Describe-EC2VpcEncryptionControl -Value Get-EC2VpcEncryptionControl
+Set-Alias -Name EC2-DescribeVpcEncryptionControls -Value Get-EC2VpcEncryptionControl
 Set-Alias -Name Describe-EC2VpcEndpointAssociations -Value Get-EC2VpcEndpointAssociation
 Set-Alias -Name Describe-EC2VpcEndpointAssociation -Value Get-EC2VpcEndpointAssociation
 Set-Alias -Name EC2-DescribeVpcEndpointAssociations -Value Get-EC2VpcEndpointAssociation
@@ -11303,6 +11336,8 @@ Set-Alias -Name Get-EC2SubnetCidrReservations -Value Get-EC2SubnetCidrReservatio
 Set-Alias -Name EC2-GetSubnetCidrReservations -Value Get-EC2SubnetCidrReservation
 Set-Alias -Name Get-EC2TransitGatewayAttachmentPropagations -Value Get-EC2TransitGatewayAttachmentPropagation
 Set-Alias -Name EC2-GetTransitGatewayAttachmentPropagations -Value Get-EC2TransitGatewayAttachmentPropagation
+Set-Alias -Name Get-EC2TransitGatewayMeteringPolicyEntries -Value Get-EC2TransitGatewayMeteringPolicyEntry
+Set-Alias -Name EC2-GetTransitGatewayMeteringPolicyEntries -Value Get-EC2TransitGatewayMeteringPolicyEntry
 Set-Alias -Name Get-EC2TransitGatewayMulticastDomainAssociations -Value Get-EC2TransitGatewayMulticastDomainAssociation
 Set-Alias -Name EC2-GetTransitGatewayMulticastDomainAssociations -Value Get-EC2TransitGatewayMulticastDomainAssociation
 Set-Alias -Name Get-EC2TransitGatewayPolicyTableAssociations -Value Get-EC2TransitGatewayPolicyTableAssociation
@@ -11319,6 +11354,7 @@ Set-Alias -Name EC2-GetVerifiedAccessEndpointPolicy -Value Get-EC2VerifiedAccess
 Set-Alias -Name Get-EC2VerifiedAccessEndpointTargets -Value Get-EC2VerifiedAccessEndpointTarget
 Set-Alias -Name EC2-GetVerifiedAccessEndpointTargets -Value Get-EC2VerifiedAccessEndpointTarget
 Set-Alias -Name EC2-GetVerifiedAccessGroupPolicy -Value Get-EC2VerifiedAccessGroupPolicy
+Set-Alias -Name EC2-GetVpcResourcesBlockingEncryptionEnforcement -Value Get-EC2VpcResourcesBlockingEncryptionEnforcement
 Set-Alias -Name EC2-GetVpnConnectionDeviceSampleConfiguration -Value Get-EC2VpnConnectionDeviceSampleConfiguration
 Set-Alias -Name Get-EC2VpnConnectionDeviceTypes -Value Get-EC2VpnConnectionDeviceType
 Set-Alias -Name EC2-GetVpnConnectionDeviceTypes -Value Get-EC2VpnConnectionDeviceType
@@ -11333,6 +11369,9 @@ Set-Alias -Name EC2-ListImagesInRecycleBin -Value Get-EC2ImagesInRecycleBinList
 Set-Alias -Name List-EC2SnapshotsInRecycleBin -Value Get-EC2SnapshotsInRecycleBinList
 Set-Alias -Name List-EC2SnapshotsInRecycleBinList -Value Get-EC2SnapshotsInRecycleBinList
 Set-Alias -Name EC2-ListSnapshotsInRecycleBin -Value Get-EC2SnapshotsInRecycleBinList
+Set-Alias -Name List-EC2VolumesInRecycleBin -Value Get-EC2VolumesInRecycleBinList
+Set-Alias -Name List-EC2VolumesInRecycleBinList -Value Get-EC2VolumesInRecycleBinList
+Set-Alias -Name EC2-ListVolumesInRecycleBin -Value Get-EC2VolumesInRecycleBinList
 Set-Alias -Name EC2-LockSnapshot -Value Lock-EC2Snapshot
 Set-Alias -Name Modify-EC2AddressAttribute -Value Edit-EC2AddressAttribute
 Set-Alias -Name EC2-ModifyAddressAttribute -Value Edit-EC2AddressAttribute
@@ -11447,6 +11486,8 @@ Set-Alias -Name Modify-EC2TrafficMirrorSession -Value Edit-EC2TrafficMirrorSessi
 Set-Alias -Name EC2-ModifyTrafficMirrorSession -Value Edit-EC2TrafficMirrorSession
 Set-Alias -Name Modify-EC2TransitGateway -Value Edit-EC2TransitGateway
 Set-Alias -Name EC2-ModifyTransitGateway -Value Edit-EC2TransitGateway
+Set-Alias -Name Modify-EC2TransitGatewayMeteringPolicy -Value Edit-EC2TransitGatewayMeteringPolicy
+Set-Alias -Name EC2-ModifyTransitGatewayMeteringPolicy -Value Edit-EC2TransitGatewayMeteringPolicy
 Set-Alias -Name Modify-EC2TransitGatewayPrefixListReference -Value Edit-EC2TransitGatewayPrefixListReference
 Set-Alias -Name EC2-ModifyTransitGatewayPrefixListReference -Value Edit-EC2TransitGatewayPrefixListReference
 Set-Alias -Name Modify-EC2TransitGatewayVpcAttachment -Value Edit-EC2TransitGatewayVpcAttachment
@@ -11476,6 +11517,8 @@ Set-Alias -Name EC2-ModifyVpcBlockPublicAccessExclusion -Value Edit-EC2VpcBlockP
 Set-Alias -Name Modify-EC2VpcBlockPublicAccessOptions -Value Edit-EC2VpcBlockPublicAccessOption
 Set-Alias -Name Modify-EC2VpcBlockPublicAccessOption -Value Edit-EC2VpcBlockPublicAccessOption
 Set-Alias -Name EC2-ModifyVpcBlockPublicAccessOptions -Value Edit-EC2VpcBlockPublicAccessOption
+Set-Alias -Name Modify-EC2VpcEncryptionControl -Value Edit-EC2VpcEncryptionControl
+Set-Alias -Name EC2-ModifyVpcEncryptionControl -Value Edit-EC2VpcEncryptionControl
 Set-Alias -Name Modify-EC2VpcEndpoint -Value Edit-EC2VpcEndpoint
 Set-Alias -Name EC2-ModifyVpcEndpoint -Value Edit-EC2VpcEndpoint
 Set-Alias -Name Modify-EC2VpcEndpointConnectionNotification -Value Edit-EC2VpcEndpointConnectionNotification
@@ -11595,6 +11638,7 @@ Set-Alias -Name EC2-RestoreImageFromRecycleBin -Value Restore-EC2ImageFromRecycl
 Set-Alias -Name EC2-RestoreManagedPrefixListVersion -Value Restore-EC2ManagedPrefixListVersion
 Set-Alias -Name EC2-RestoreSnapshotFromRecycleBin -Value Restore-EC2SnapshotFromRecycleBin
 Set-Alias -Name EC2-RestoreSnapshotTier -Value Restore-EC2SnapshotTier
+Set-Alias -Name EC2-RestoreVolumeFromRecycleBin -Value Restore-EC2VolumeFromRecycleBin
 Set-Alias -Name EC2-RevokeClientVpnIngress -Value Revoke-EC2ClientVpnIngress
 Set-Alias -Name EC2-RevokeSecurityGroupEgress -Value Revoke-EC2SecurityGroupEgress
 Set-Alias -Name EC2-RevokeSecurityGroupIngress -Value Revoke-EC2SecurityGroupIngress
@@ -11794,6 +11838,8 @@ Set-Alias -Name Create-ECSCapacityProvider -Value New-ECSCapacityProvider
 Set-Alias -Name ECS-CreateCapacityProvider -Value New-ECSCapacityProvider
 Set-Alias -Name Create-ECSCluster -Value New-ECSCluster
 Set-Alias -Name ECS-CreateCluster -Value New-ECSCluster
+Set-Alias -Name Create-ECSExpressGatewayService -Value New-ECSExpressGatewayService
+Set-Alias -Name ECS-CreateExpressGatewayService -Value New-ECSExpressGatewayService
 Set-Alias -Name Create-ECSService -Value New-ECSService
 Set-Alias -Name ECS-CreateService -Value New-ECSService
 Set-Alias -Name Create-ECSTaskSet -Value New-ECSTaskSet
@@ -11807,6 +11853,8 @@ Set-Alias -Name Delete-ECSCapacityProvider -Value Remove-ECSCapacityProvider
 Set-Alias -Name ECS-DeleteCapacityProvider -Value Remove-ECSCapacityProvider
 Set-Alias -Name Delete-ECSCluster -Value Remove-ECSCluster
 Set-Alias -Name ECS-DeleteCluster -Value Remove-ECSCluster
+Set-Alias -Name Delete-ECSExpressGatewayService -Value Remove-ECSExpressGatewayService
+Set-Alias -Name ECS-DeleteExpressGatewayService -Value Remove-ECSExpressGatewayService
 Set-Alias -Name Delete-ECSService -Value Remove-ECSService
 Set-Alias -Name ECS-DeleteService -Value Remove-ECSService
 Set-Alias -Name Delete-ECSTaskDefinitions -Value Remove-ECSTaskDefinition
@@ -11827,6 +11875,8 @@ Set-Alias -Name ECS-DescribeClusters -Value Get-ECSClusterDetail
 Set-Alias -Name Describe-ECSContainerInstances -Value Get-ECSContainerInstanceDetail
 Set-Alias -Name Describe-ECSContainerInstanceDetail -Value Get-ECSContainerInstanceDetail
 Set-Alias -Name ECS-DescribeContainerInstances -Value Get-ECSContainerInstanceDetail
+Set-Alias -Name Describe-ECSExpressGatewayService -Value Get-ECSExpressGatewayService
+Set-Alias -Name ECS-DescribeExpressGatewayService -Value Get-ECSExpressGatewayService
 Set-Alias -Name Describe-ECSServiceDeployments -Value Get-ECSServiceDeploymentDetail
 Set-Alias -Name Describe-ECSServiceDeploymentDetail -Value Get-ECSServiceDeploymentDetail
 Set-Alias -Name ECS-DescribeServiceDeployments -Value Get-ECSServiceDeploymentDetail
@@ -11905,6 +11955,7 @@ Set-Alias -Name Update-ECSClusterSettings -Value Update-ECSClusterSetting
 Set-Alias -Name ECS-UpdateClusterSettings -Value Update-ECSClusterSetting
 Set-Alias -Name ECS-UpdateContainerAgent -Value Update-ECSContainerAgent
 Set-Alias -Name ECS-UpdateContainerInstancesState -Value Update-ECSContainerInstancesState
+Set-Alias -Name ECS-UpdateExpressGatewayService -Value Update-ECSExpressGatewayService
 Set-Alias -Name ECS-UpdateService -Value Update-ECSService
 Set-Alias -Name ECS-UpdateServicePrimaryTaskSet -Value Update-ECSServicePrimaryTaskSet
 Set-Alias -Name ECS-UpdateTaskProtection -Value Update-ECSTaskProtection
@@ -16035,6 +16086,9 @@ Set-Alias -Name Delete-EC2IBLifecyclePolicy -Value Remove-EC2IBLifecyclePolicy
 Set-Alias -Name EC2IB-DeleteLifecyclePolicy -Value Remove-EC2IBLifecyclePolicy
 Set-Alias -Name Delete-EC2IBWorkflow -Value Remove-EC2IBWorkflow
 Set-Alias -Name EC2IB-DeleteWorkflow -Value Remove-EC2IBWorkflow
+Set-Alias -Name Distribute-EC2IBImage -Value Start-EC2IBImageDistribution
+Set-Alias -Name Distribute-EC2IBImageDistribution -Value Start-EC2IBImageDistribution
+Set-Alias -Name EC2IB-DistributeImage -Value Start-EC2IBImageDistribution
 Set-Alias -Name EC2IB-GetComponent -Value Get-EC2IBComponent
 Set-Alias -Name EC2IB-GetComponentPolicy -Value Get-EC2IBComponentPolicy
 Set-Alias -Name EC2IB-GetContainerRecipe -Value Get-EC2IBContainerRecipe
@@ -16127,6 +16181,9 @@ Set-Alias -Name Put-EC2IBImagePolicy -Value Write-EC2IBImagePolicy
 Set-Alias -Name EC2IB-PutImagePolicy -Value Write-EC2IBImagePolicy
 Set-Alias -Name Put-EC2IBImageRecipePolicy -Value Write-EC2IBImageRecipePolicy
 Set-Alias -Name EC2IB-PutImageRecipePolicy -Value Write-EC2IBImageRecipePolicy
+Set-Alias -Name Retry-EC2IBImage -Value Start-EC2IBImageRetry
+Set-Alias -Name Retry-EC2IBImageRetry -Value Start-EC2IBImageRetry
+Set-Alias -Name EC2IB-RetryImage -Value Start-EC2IBImageRetry
 Set-Alias -Name EC2IB-SendWorkflowStepAction -Value Send-EC2IBWorkflowStepAction
 Set-Alias -Name EC2IB-StartImagePipelineExecution -Value Start-EC2IBImagePipelineExecution
 Set-Alias -Name EC2IB-StartResourceStateUpdate -Value Start-EC2IBResourceStateUpdate
@@ -19051,6 +19108,10 @@ Set-Alias -Name Create-LICMGrant -Value New-LICMGrant
 Set-Alias -Name LICM-CreateGrant -Value New-LICMGrant
 Set-Alias -Name Create-LICMGrantVersion -Value New-LICMGrantVersion
 Set-Alias -Name LICM-CreateGrantVersion -Value New-LICMGrantVersion
+Set-Alias -Name Create-LICMLicenseAssetGroup -Value New-LICMLicenseAssetGroup
+Set-Alias -Name LICM-CreateLicenseAssetGroup -Value New-LICMLicenseAssetGroup
+Set-Alias -Name Create-LICMLicenseAssetRuleset -Value New-LICMLicenseAssetRuleset
+Set-Alias -Name LICM-CreateLicenseAssetRuleset -Value New-LICMLicenseAssetRuleset
 Set-Alias -Name Create-LICMLicense -Value New-LICMLicense
 Set-Alias -Name LICM-CreateLicense -Value New-LICMLicense
 Set-Alias -Name Create-LICMLicenseConfiguration -Value New-LICMLicenseConfiguration
@@ -19065,6 +19126,10 @@ Set-Alias -Name Create-LICMToken -Value New-LICMToken
 Set-Alias -Name LICM-CreateToken -Value New-LICMToken
 Set-Alias -Name Delete-LICMGrant -Value Remove-LICMGrant
 Set-Alias -Name LICM-DeleteGrant -Value Remove-LICMGrant
+Set-Alias -Name Delete-LICMLicenseAssetGroup -Value Remove-LICMLicenseAssetGroup
+Set-Alias -Name LICM-DeleteLicenseAssetGroup -Value Remove-LICMLicenseAssetGroup
+Set-Alias -Name Delete-LICMLicenseAssetRuleset -Value Remove-LICMLicenseAssetRuleset
+Set-Alias -Name LICM-DeleteLicenseAssetRuleset -Value Remove-LICMLicenseAssetRuleset
 Set-Alias -Name Delete-LICMLicense -Value Remove-LICMLicense
 Set-Alias -Name LICM-DeleteLicense -Value Remove-LICMLicense
 Set-Alias -Name Delete-LICMLicenseConfiguration -Value Remove-LICMLicenseConfiguration
@@ -19078,6 +19143,8 @@ Set-Alias -Name Extend-LICMExtendLicenseConsumption -Value Invoke-LICMExtendLice
 Set-Alias -Name LICM-ExtendLicenseConsumption -Value Invoke-LICMExtendLicenseConsumption
 Set-Alias -Name LICM-GetAccessToken -Value Get-LICMAccessToken
 Set-Alias -Name LICM-GetGrant -Value Get-LICMGrant
+Set-Alias -Name LICM-GetLicenseAssetGroup -Value Get-LICMLicenseAssetGroup
+Set-Alias -Name LICM-GetLicenseAssetRuleset -Value Get-LICMLicenseAssetRuleset
 Set-Alias -Name LICM-GetLicense -Value Get-LICMLicense
 Set-Alias -Name LICM-GetLicenseConfiguration -Value Get-LICMLicenseConfiguration
 Set-Alias -Name LICM-GetLicenseConversionTask -Value Get-LICMLicenseConversionTask
@@ -19085,6 +19152,9 @@ Set-Alias -Name LICM-GetLicenseManagerReportGenerator -Value Get-LICMLicenseMana
 Set-Alias -Name LICM-GetLicenseUsage -Value Get-LICMLicenseUsage
 Set-Alias -Name Get-LICMServiceSettings -Value Get-LICMServiceSetting
 Set-Alias -Name LICM-GetServiceSettings -Value Get-LICMServiceSetting
+Set-Alias -Name List-LICMAssetsForLicenseAssetGroup -Value Get-LICMAssetsForLicenseAssetGroupList
+Set-Alias -Name List-LICMAssetsForLicenseAssetGroupList -Value Get-LICMAssetsForLicenseAssetGroupList
+Set-Alias -Name LICM-ListAssetsForLicenseAssetGroup -Value Get-LICMAssetsForLicenseAssetGroupList
 Set-Alias -Name List-LICMAssociationsForLicenseConfiguration -Value Get-LICMAssociationsForLicenseConfigurationList
 Set-Alias -Name List-LICMAssociationsForLicenseConfigurationList -Value Get-LICMAssociationsForLicenseConfigurationList
 Set-Alias -Name LICM-ListAssociationsForLicenseConfiguration -Value Get-LICMAssociationsForLicenseConfigurationList
@@ -19094,9 +19164,18 @@ Set-Alias -Name LICM-ListDistributedGrants -Value Get-LICMDistributedGrantList
 Set-Alias -Name List-LICMFailuresForLicenseConfigurationOperations -Value Get-LICMFailuresForLicenseConfigurationOperationList
 Set-Alias -Name List-LICMFailuresForLicenseConfigurationOperationList -Value Get-LICMFailuresForLicenseConfigurationOperationList
 Set-Alias -Name LICM-ListFailuresForLicenseConfigurationOperations -Value Get-LICMFailuresForLicenseConfigurationOperationList
+Set-Alias -Name List-LICMLicenseAssetGroups -Value Get-LICMLicenseAssetGroupList
+Set-Alias -Name List-LICMLicenseAssetGroupList -Value Get-LICMLicenseAssetGroupList
+Set-Alias -Name LICM-ListLicenseAssetGroups -Value Get-LICMLicenseAssetGroupList
+Set-Alias -Name List-LICMLicenseAssetRulesets -Value Get-LICMLicenseAssetRulesetList
+Set-Alias -Name List-LICMLicenseAssetRulesetList -Value Get-LICMLicenseAssetRulesetList
+Set-Alias -Name LICM-ListLicenseAssetRulesets -Value Get-LICMLicenseAssetRulesetList
 Set-Alias -Name List-LICMLicenseConfigurations -Value Get-LICMLicenseConfigurationList
 Set-Alias -Name List-LICMLicenseConfigurationList -Value Get-LICMLicenseConfigurationList
 Set-Alias -Name LICM-ListLicenseConfigurations -Value Get-LICMLicenseConfigurationList
+Set-Alias -Name List-LICMLicenseConfigurationsForOrganization -Value Get-LICMLicenseConfigurationsForOrganizationList
+Set-Alias -Name List-LICMLicenseConfigurationsForOrganizationList -Value Get-LICMLicenseConfigurationsForOrganizationList
+Set-Alias -Name LICM-ListLicenseConfigurationsForOrganization -Value Get-LICMLicenseConfigurationsForOrganizationList
 Set-Alias -Name List-LICMLicenseConversionTasks -Value Get-LICMLicenseConversionTaskList
 Set-Alias -Name List-LICMLicenseConversionTaskList -Value Get-LICMLicenseConversionTaskList
 Set-Alias -Name LICM-ListLicenseConversionTasks -Value Get-LICMLicenseConversionTaskList
@@ -19139,6 +19218,8 @@ Set-Alias -Name Reject-LICMGrant -Value Deny-LICMGrant
 Set-Alias -Name LICM-RejectGrant -Value Deny-LICMGrant
 Set-Alias -Name LICM-TagResource -Value Add-LICMResourceTag
 Set-Alias -Name LICM-UntagResource -Value Remove-LICMResourceTag
+Set-Alias -Name LICM-UpdateLicenseAssetGroup -Value Update-LICMLicenseAssetGroup
+Set-Alias -Name LICM-UpdateLicenseAssetRuleset -Value Update-LICMLicenseAssetRuleset
 Set-Alias -Name LICM-UpdateLicenseConfiguration -Value Update-LICMLicenseConfiguration
 Set-Alias -Name LICM-UpdateLicenseManagerReportGenerator -Value Update-LICMLicenseManagerReportGenerator
 Set-Alias -Name LICM-UpdateLicenseSpecificationsForResource -Value Update-LICMLicenseSpecificationsForResource
@@ -22455,6 +22536,8 @@ Set-Alias -Name Create-NMGRConnectPeer -Value New-NMGRConnectPeer
 Set-Alias -Name NMGR-CreateConnectPeer -Value New-NMGRConnectPeer
 Set-Alias -Name Create-NMGRCoreNetwork -Value New-NMGRCoreNetwork
 Set-Alias -Name NMGR-CreateCoreNetwork -Value New-NMGRCoreNetwork
+Set-Alias -Name Create-NMGRCoreNetworkPrefixListAssociation -Value New-NMGRCoreNetworkPrefixListAssociation
+Set-Alias -Name NMGR-CreateCoreNetworkPrefixListAssociation -Value New-NMGRCoreNetworkPrefixListAssociation
 Set-Alias -Name Create-NMGRDevice -Value New-NMGRDevice
 Set-Alias -Name NMGR-CreateDevice -Value New-NMGRDevice
 Set-Alias -Name Create-NMGRDirectConnectGatewayAttachment -Value New-NMGRDirectConnectGatewayAttachment
@@ -22483,6 +22566,8 @@ Set-Alias -Name Delete-NMGRCoreNetwork -Value Remove-NMGRCoreNetwork
 Set-Alias -Name NMGR-DeleteCoreNetwork -Value Remove-NMGRCoreNetwork
 Set-Alias -Name Delete-NMGRCoreNetworkPolicyVersion -Value Remove-NMGRCoreNetworkPolicyVersion
 Set-Alias -Name NMGR-DeleteCoreNetworkPolicyVersion -Value Remove-NMGRCoreNetworkPolicyVersion
+Set-Alias -Name Delete-NMGRCoreNetworkPrefixListAssociation -Value Remove-NMGRCoreNetworkPrefixListAssociation
+Set-Alias -Name NMGR-DeleteCoreNetworkPrefixListAssociation -Value Remove-NMGRCoreNetworkPrefixListAssociation
 Set-Alias -Name Delete-NMGRDevice -Value Remove-NMGRDevice
 Set-Alias -Name NMGR-DeleteDevice -Value Remove-NMGRDevice
 Set-Alias -Name Delete-NMGRGlobalNetwork -Value Remove-NMGRGlobalNetwork
@@ -22552,6 +22637,9 @@ Set-Alias -Name Get-NMGRTransitGatewayRegistrations -Value Get-NMGRTransitGatewa
 Set-Alias -Name NMGR-GetTransitGatewayRegistrations -Value Get-NMGRTransitGatewayRegistration
 Set-Alias -Name NMGR-GetTransitGatewayRouteTableAttachment -Value Get-NMGRTransitGatewayRouteTableAttachment
 Set-Alias -Name NMGR-GetVpcAttachment -Value Get-NMGRVpcAttachment
+Set-Alias -Name List-NMGRAttachmentRoutingPolicyAssociations -Value Get-NMGRAttachmentRoutingPolicyAssociationList
+Set-Alias -Name List-NMGRAttachmentRoutingPolicyAssociationList -Value Get-NMGRAttachmentRoutingPolicyAssociationList
+Set-Alias -Name NMGR-ListAttachmentRoutingPolicyAssociations -Value Get-NMGRAttachmentRoutingPolicyAssociationList
 Set-Alias -Name List-NMGRAttachments -Value Get-NMGRAttachmentList
 Set-Alias -Name List-NMGRAttachmentList -Value Get-NMGRAttachmentList
 Set-Alias -Name NMGR-ListAttachments -Value Get-NMGRAttachmentList
@@ -22561,6 +22649,12 @@ Set-Alias -Name NMGR-ListConnectPeers -Value Get-NMGRConnectPeerList
 Set-Alias -Name List-NMGRCoreNetworkPolicyVersions -Value Get-NMGRCoreNetworkPolicyVersionList
 Set-Alias -Name List-NMGRCoreNetworkPolicyVersionList -Value Get-NMGRCoreNetworkPolicyVersionList
 Set-Alias -Name NMGR-ListCoreNetworkPolicyVersions -Value Get-NMGRCoreNetworkPolicyVersionList
+Set-Alias -Name List-NMGRCoreNetworkPrefixListAssociations -Value Get-NMGRCoreNetworkPrefixListAssociationList
+Set-Alias -Name List-NMGRCoreNetworkPrefixListAssociationList -Value Get-NMGRCoreNetworkPrefixListAssociationList
+Set-Alias -Name NMGR-ListCoreNetworkPrefixListAssociations -Value Get-NMGRCoreNetworkPrefixListAssociationList
+Set-Alias -Name List-NMGRCoreNetworkRoutingInformation -Value Get-NMGRCoreNetworkRoutingInformationList
+Set-Alias -Name List-NMGRCoreNetworkRoutingInformationList -Value Get-NMGRCoreNetworkRoutingInformationList
+Set-Alias -Name NMGR-ListCoreNetworkRoutingInformation -Value Get-NMGRCoreNetworkRoutingInformationList
 Set-Alias -Name List-NMGRCoreNetworks -Value Get-NMGRCoreNetworkList
 Set-Alias -Name List-NMGRCoreNetworkList -Value Get-NMGRCoreNetworkList
 Set-Alias -Name NMGR-ListCoreNetworks -Value Get-NMGRCoreNetworkList
@@ -22571,6 +22665,8 @@ Set-Alias -Name List-NMGRPeerings -Value Get-NMGRPeeringList
 Set-Alias -Name List-NMGRPeeringList -Value Get-NMGRPeeringList
 Set-Alias -Name NMGR-ListPeerings -Value Get-NMGRPeeringList
 Set-Alias -Name NMGR-ListTagsForResource -Value Get-NMGRResourceTag
+Set-Alias -Name Put-NMGRAttachmentRoutingPolicyLabel -Value Write-NMGRAttachmentRoutingPolicyLabel
+Set-Alias -Name NMGR-PutAttachmentRoutingPolicyLabel -Value Write-NMGRAttachmentRoutingPolicyLabel
 Set-Alias -Name Put-NMGRCoreNetworkPolicy -Value Write-NMGRCoreNetworkPolicy
 Set-Alias -Name NMGR-PutCoreNetworkPolicy -Value Write-NMGRCoreNetworkPolicy
 Set-Alias -Name Put-NMGRResourcePolicy -Value Write-NMGRResourcePolicy
@@ -22578,6 +22674,7 @@ Set-Alias -Name NMGR-PutResourcePolicy -Value Write-NMGRResourcePolicy
 Set-Alias -Name NMGR-RegisterTransitGateway -Value Register-NMGRTransitGateway
 Set-Alias -Name Reject-NMGRAttachment -Value Deny-NMGRAttachment
 Set-Alias -Name NMGR-RejectAttachment -Value Deny-NMGRAttachment
+Set-Alias -Name NMGR-RemoveAttachmentRoutingPolicyLabel -Value Remove-NMGRAttachmentRoutingPolicyLabel
 Set-Alias -Name NMGR-RestoreCoreNetworkPolicyVersion -Value Restore-NMGRCoreNetworkPolicyVersion
 Set-Alias -Name NMGR-StartOrganizationServiceAccessUpdate -Value Start-NMGROrganizationServiceAccessUpdate
 Set-Alias -Name NMGR-StartRouteAnalysis -Value Start-NMGRRouteAnalysis
@@ -23308,6 +23405,8 @@ Set-Alias -Name Describe-ORGPolicy -Value Get-ORGPolicy
 Set-Alias -Name ORG-DescribePolicy -Value Get-ORGPolicy
 Set-Alias -Name Describe-ORGResourcePolicy -Value Get-ORGResourcePolicy
 Set-Alias -Name ORG-DescribeResourcePolicy -Value Get-ORGResourcePolicy
+Set-Alias -Name Describe-ORGResponsibilityTransfer -Value Get-ORGResponsibilityTransfer
+Set-Alias -Name ORG-DescribeResponsibilityTransfer -Value Get-ORGResponsibilityTransfer
 Set-Alias -Name Detach-ORGPolicy -Value Dismount-ORGPolicy
 Set-Alias -Name ORG-DetachPolicy -Value Dismount-ORGPolicy
 Set-Alias -Name ORG-DisableAWSServiceAccess -Value Disable-ORGAWSServiceAccess
@@ -23319,6 +23418,8 @@ Set-Alias -Name ORG-EnablePolicyType -Value Enable-ORGPolicyType
 Set-Alias -Name Invite-ORGAccountToOrganization -Value New-ORGAccountInvitation
 Set-Alias -Name Invite-ORGAccountInvitation -Value New-ORGAccountInvitation
 Set-Alias -Name ORG-InviteAccountToOrganization -Value New-ORGAccountInvitation
+Set-Alias -Name Invite-ORGOrganizationToTransferResponsibility -Value New-ORGOrganizationToTransferResponsibility
+Set-Alias -Name ORG-InviteOrganizationToTransferResponsibility -Value New-ORGOrganizationToTransferResponsibility
 Set-Alias -Name Leave-ORGOrganization -Value Remove-ORGOrganizationAssociation
 Set-Alias -Name Leave-ORGOrganizationAssociation -Value Remove-ORGOrganizationAssociation
 Set-Alias -Name ORG-LeaveOrganization -Value Remove-ORGOrganizationAssociation
@@ -23354,9 +23455,15 @@ Set-Alias -Name ORG-ListHandshakesForAccount -Value Get-ORGAccountHandshakeList
 Set-Alias -Name List-ORGHandshakesForOrganization -Value Get-ORGOrganizationHandshakeList
 Set-Alias -Name List-ORGOrganizationHandshakeList -Value Get-ORGOrganizationHandshakeList
 Set-Alias -Name ORG-ListHandshakesForOrganization -Value Get-ORGOrganizationHandshakeList
+Set-Alias -Name List-ORGInboundResponsibilityTransfers -Value Get-ORGInboundResponsibilityTransferList
+Set-Alias -Name List-ORGInboundResponsibilityTransferList -Value Get-ORGInboundResponsibilityTransferList
+Set-Alias -Name ORG-ListInboundResponsibilityTransfers -Value Get-ORGInboundResponsibilityTransferList
 Set-Alias -Name List-ORGOrganizationalUnitsForParent -Value Get-ORGOrganizationalUnitList
 Set-Alias -Name List-ORGOrganizationalUnitList -Value Get-ORGOrganizationalUnitList
 Set-Alias -Name ORG-ListOrganizationalUnitsForParent -Value Get-ORGOrganizationalUnitList
+Set-Alias -Name List-ORGOutboundResponsibilityTransfers -Value Get-ORGOutboundResponsibilityTransferList
+Set-Alias -Name List-ORGOutboundResponsibilityTransferList -Value Get-ORGOutboundResponsibilityTransferList
+Set-Alias -Name ORG-ListOutboundResponsibilityTransfers -Value Get-ORGOutboundResponsibilityTransferList
 Set-Alias -Name List-ORGParents -Value Get-ORGParent
 Set-Alias -Name List-ORGParent -Value Get-ORGParent
 Set-Alias -Name ORG-ListParents -Value Get-ORGParent
@@ -23379,9 +23486,12 @@ Set-Alias -Name ORG-PutResourcePolicy -Value Write-ORGResourcePolicy
 Set-Alias -Name ORG-RegisterDelegatedAdministrator -Value Register-ORGDelegatedAdministrator
 Set-Alias -Name ORG-RemoveAccountFromOrganization -Value Remove-ORGAccountFromOrganization
 Set-Alias -Name ORG-TagResource -Value Add-ORGResourceTag
+Set-Alias -Name Terminate-ORGResponsibilityTransfer -Value Stop-ORGResponsibilityTransfer
+Set-Alias -Name ORG-TerminateResponsibilityTransfer -Value Stop-ORGResponsibilityTransfer
 Set-Alias -Name ORG-UntagResource -Value Remove-ORGResourceTag
 Set-Alias -Name ORG-UpdateOrganizationalUnit -Value Update-ORGOrganizationalUnit
 Set-Alias -Name ORG-UpdatePolicy -Value Update-ORGPolicy
+Set-Alias -Name ORG-UpdateResponsibilityTransfer -Value Update-ORGResponsibilityTransfer
 Set-Alias -Name Create-OSISPipeline -Value New-OSISPipeline
 Set-Alias -Name OSIS-CreatePipeline -Value New-OSISPipeline
 Set-Alias -Name Create-OSISPipelineEndpoint -Value New-OSISPipelineEndpoint
@@ -27522,6 +27632,7 @@ Set-Alias -Name S3-DeleteObjectTagging -Value Remove-S3ObjectTagSet
 Set-Alias -Name Delete-S3PublicAccessBlock -Value Remove-S3PublicAccessBlock
 Set-Alias -Name S3-DeletePublicAccessBlock -Value Remove-S3PublicAccessBlock
 Set-Alias -Name S3-GetACL -Value Get-S3ACL
+Set-Alias -Name S3-GetBucketAbac -Value Get-S3BucketAbac
 Set-Alias -Name S3-GetBucketAccelerateConfiguration -Value Get-S3BucketAccelerateConfiguration
 Set-Alias -Name S3-GetBucketAnalyticsConfiguration -Value Get-S3BucketAnalyticsConfiguration
 Set-Alias -Name S3-GetBucketEncryption -Value Get-S3BucketEncryption
@@ -27582,6 +27693,8 @@ Set-Alias -Name List-S3Version -Value Get-S3Version
 Set-Alias -Name S3-ListVersions -Value Get-S3Version
 Set-Alias -Name Put-S3ACL -Value Set-S3ACL
 Set-Alias -Name S3-PutACL -Value Set-S3ACL
+Set-Alias -Name Put-S3BucketAbac -Value Write-S3BucketAbac
+Set-Alias -Name S3-PutBucketAbac -Value Write-S3BucketAbac
 Set-Alias -Name Put-S3BucketAccelerateConfiguration -Value Write-S3BucketAccelerateConfiguration
 Set-Alias -Name S3-PutBucketAccelerateConfiguration -Value Write-S3BucketAccelerateConfiguration
 Set-Alias -Name Put-S3BucketAnalyticsConfiguration -Value Write-S3BucketAnalyticsConfiguration
@@ -27982,6 +28095,12 @@ Set-Alias -Name Batch-SMDeleteClusterNode -Value Set-SMDeleteClusterNode
 Set-Alias -Name SM-BatchDeleteClusterNodes -Value Set-SMDeleteClusterNode
 Set-Alias -Name Batch-SMDescribeModelPackage -Value Get-SMDescribeModelPackage
 Set-Alias -Name SM-BatchDescribeModelPackage -Value Get-SMDescribeModelPackage
+Set-Alias -Name Batch-SMRebootClusterNodes -Value Set-SMBatchRebootClusterNode
+Set-Alias -Name Batch-SMBatchRebootClusterNode -Value Set-SMBatchRebootClusterNode
+Set-Alias -Name SM-BatchRebootClusterNodes -Value Set-SMBatchRebootClusterNode
+Set-Alias -Name Batch-SMReplaceClusterNodes -Value Set-SMBatchReplaceClusterNode
+Set-Alias -Name Batch-SMBatchReplaceClusterNode -Value Set-SMBatchReplaceClusterNode
+Set-Alias -Name SM-BatchReplaceClusterNodes -Value Set-SMBatchReplaceClusterNode
 Set-Alias -Name Create-SMAction -Value New-SMAction
 Set-Alias -Name SM-CreateAction -Value New-SMAction
 Set-Alias -Name Create-SMAlgorithm -Value New-SMAlgorithm
@@ -29032,6 +29151,7 @@ Set-Alias -Name SHUB-GetFindingHistory -Value Get-SHUBFindingHistory
 Set-Alias -Name Get-SHUBFindings -Value Get-SHUBFinding
 Set-Alias -Name SHUB-GetFindings -Value Get-SHUBFinding
 Set-Alias -Name SHUB-GetFindingStatisticsV2 -Value Get-SHUBFindingStatisticsV2
+Set-Alias -Name SHUB-GetFindingsTrendsV2 -Value Get-SHUBFindingsTrendsV2
 Set-Alias -Name SHUB-GetFindingsV2 -Value Get-SHUBFindingsV2
 Set-Alias -Name Get-SHUBInsightResults -Value Get-SHUBInsightResult
 Set-Alias -Name SHUB-GetInsightResults -Value Get-SHUBInsightResult
@@ -29042,6 +29162,7 @@ Set-Alias -Name SHUB-GetMasterAccount -Value Get-SHUBMasterAccount
 Set-Alias -Name Get-SHUBMembers -Value Get-SHUBMember
 Set-Alias -Name SHUB-GetMembers -Value Get-SHUBMember
 Set-Alias -Name SHUB-GetResourcesStatisticsV2 -Value Get-SHUBResourcesStatisticsV2
+Set-Alias -Name SHUB-GetResourcesTrendsV2 -Value Get-SHUBResourcesTrendsV2
 Set-Alias -Name SHUB-GetResourcesV2 -Value Get-SHUBResourcesV2
 Set-Alias -Name SHUB-GetSecurityControlDefinition -Value Get-SHUBSecurityControlDefinition
 Set-Alias -Name Invite-SHUBMembers -Value Send-SHUBMemberInvitation

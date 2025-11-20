@@ -22,6 +22,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="InvokeDataAutomation" OutputProperty="*" Verb="Invoke" Noun="DataAutomation" ShouldProcessTarget="DataAutomationProfileArn" PipelineParameter="DataAutomationProfileArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="InvokeDataAutomationAsync" OutputProperty="InvocationArn" Verb="Invoke" Noun="DataAutomationAsync" ShouldProcessTarget="DataAutomationConfiguration_DataAutomationProjectArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

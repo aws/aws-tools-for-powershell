@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Grants permission to create a connectorV2 based on input parameters. This API is in
-    /// preview release and subject to change.
+    /// public preview and subject to change.
     /// </summary>
     [Cmdlet("New", "SHUBConnectorV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.CreateConnectorV2Response")]

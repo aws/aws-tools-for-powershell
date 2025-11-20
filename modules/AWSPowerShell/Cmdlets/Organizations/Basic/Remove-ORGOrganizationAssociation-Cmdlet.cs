@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// 
     ///  
     /// <para>
-    /// This operation can be called only from a member account in the organization.
+    /// You can only call from operation from a member account.
     /// </para><important><ul><li><para>
     /// The management account in an organization with all features enabled can set service
     /// control policies (SCPs) that can restrict what administrators of member accounts can

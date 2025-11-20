@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// 
     ///  
     /// <para>
-    /// This operation can be called only from the organization's management account.
+    /// You can only call this operation from the management account.
     /// </para>
     /// </summary>
     [Cmdlet("Move", "ORGAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier (ID) of the account that you want to move.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID
+        /// <para>ID for the account that you want to move.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID
         /// string requires exactly 12 digits.</para>
         /// </para>
         /// </summary>
@@ -69,8 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter DestinationParentId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier (ID) of the root or organizational unit that you want to move
-        /// the account to.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string
+        /// <para>ID for the root or organizational unit that you want to move the account to.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string
         /// requires one of the following:</para><ul><li><para><b>Root</b> - A string that begins with "r-" followed by from 4 to 32 lowercase letters
         /// or digits.</para></li><li><para><b>Organizational unit (OU)</b> - A string that begins with "ou-" followed by from
         /// 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string
@@ -92,8 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter SourceParentId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier (ID) of the root or organizational unit that you want to move
-        /// the account from.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string
+        /// <para>ID for the root or organizational unit that you want to move the account from.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string
         /// requires one of the following:</para><ul><li><para><b>Root</b> - A string that begins with "r-" followed by from 4 to 32 lowercase letters
         /// or digits.</para></li><li><para><b>Organizational unit (OU)</b> - A string that begins with "ou-" followed by from
         /// 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string

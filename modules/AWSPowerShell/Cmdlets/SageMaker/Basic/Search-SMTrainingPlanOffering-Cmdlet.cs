@@ -123,10 +123,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TargetResource
         /// <summary>
         /// <para>
-        /// <para>The target resources (e.g., SageMaker Training Jobs, SageMaker HyperPod) to search
-        /// for in the offerings.</para><para>Training plans are specific to their target resource.</para><ul><li><para>A training plan designed for SageMaker training jobs can only be used to schedule
+        /// <para>The target resources (e.g., SageMaker Training Jobs, SageMaker HyperPod, SageMaker
+        /// Endpoints) to search for in the offerings.</para><para>Training plans are specific to their target resource.</para><ul><li><para>A training plan designed for SageMaker training jobs can only be used to schedule
         /// and run training jobs.</para></li><li><para>A training plan for HyperPod clusters can be used exclusively to provide compute resources
-        /// to a cluster's instance group.</para></li></ul>
+        /// to a cluster's instance group.</para></li><li><para>A training plan for SageMaker endpoints can be used exclusively to provide compute
+        /// resources to SageMaker endpoints for model deployment.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -49,9 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the resource or resources to which to add tags.
-        /// You can associate tags with the following Device Farm resources: <c>PROJECT</c>, <c>RUN</c>,
-        /// <c>NETWORK_PROFILE</c>, <c>INSTANCE_PROFILE</c>, <c>DEVICE_INSTANCE</c>, <c>SESSION</c>,
-        /// <c>DEVICE_POOL</c>, <c>DEVICE</c>, and <c>VPCE_CONFIGURATION</c>.</para>
+        /// You can associate tags with the following Device Farm resources: <c>PROJECT</c>, <c>TESTGRID_PROJECT</c>,
+        /// <c>RUN</c>, <c>NETWORK_PROFILE</c>, <c>INSTANCE_PROFILE</c>, <c>DEVICE_INSTANCE</c>,
+        /// <c>SESSION</c>, <c>DEVICE_POOL</c>, <c>DEVICE</c>, and <c>VPCE_CONFIGURATION</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

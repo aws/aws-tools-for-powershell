@@ -56,6 +56,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListEntityEvents" OutputProperty="*" Verb="Get" Noun="EntityEventList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListGroupingAttributeDefinitions" OutputProperty="*" Verb="Get" Noun="GroupingAttributeDefinitionList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

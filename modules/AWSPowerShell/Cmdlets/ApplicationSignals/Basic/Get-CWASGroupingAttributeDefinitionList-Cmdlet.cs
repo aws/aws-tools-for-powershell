@@ -28,15 +28,10 @@ using Amazon.ApplicationSignals.Model;
 namespace Amazon.PowerShell.Cmdlets.CWAS
 {
     /// <summary>
-    /// Retrieves the available grouping attribute definitions that can be used to create
-    /// grouping configurations. These definitions specify the attributes and rules available
-    /// for organizing services.
-    /// 
-    ///  
-    /// <para>
-    /// Use this operation to discover what grouping options are available before creating
-    /// or updating grouping configurations.
-    /// </para>
+    /// Returns the current grouping configuration for this account, including all custom
+    /// grouping attribute definitions that have been configured. These definitions determine
+    /// how services are logically grouped based on telemetry attributes, Amazon Web Services
+    /// tags, or predefined mappings.
     /// </summary>
     [Cmdlet("Get", "CWASGroupingAttributeDefinitionList")]
     [OutputType("Amazon.ApplicationSignals.Model.ListGroupingAttributeDefinitionsResponse")]
@@ -49,11 +44,35 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AwsAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services account ID to retrieve grouping attribute definitions for.
+        /// Use this when accessing grouping configurations from a different account in cross-account
+        /// monitoring scenarios.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AwsAccountId { get; set; }
+        #endregion
+        
+        #region Parameter IncludeLinkedAccount
+        /// <summary>
+        /// <para>
+        /// <para>If you are using this operation in a monitoring account, specify <c>true</c> to include
+        /// grouping attributes from source accounts in the returned data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeLinkedAccounts")]
+        public System.Boolean? IncludeLinkedAccount { get; set; }
+        #endregion
+        
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of results. Use this token to retrieve additional pages
-        /// of grouping attribute definitions when the result set is large.</para>
+        /// <para>Include this value, if it was returned by the previous operation, to get the next
+        /// set of grouping attribute definitions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,6 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
                 context.Select = CreateSelectDelegate<Amazon.ApplicationSignals.Model.ListGroupingAttributeDefinitionsResponse, GetCWASGroupingAttributeDefinitionListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AwsAccountId = this.AwsAccountId;
+            context.IncludeLinkedAccount = this.IncludeLinkedAccount;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -103,6 +124,14 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             // create request
             var request = new Amazon.ApplicationSignals.Model.ListGroupingAttributeDefinitionsRequest();
             
+            if (cmdletContext.AwsAccountId != null)
+            {
+                request.AwsAccountId = cmdletContext.AwsAccountId;
+            }
+            if (cmdletContext.IncludeLinkedAccount != null)
+            {
+                request.IncludeLinkedAccounts = cmdletContext.IncludeLinkedAccount.Value;
+            }
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
@@ -168,6 +197,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AwsAccountId { get; set; }
+            public System.Boolean? IncludeLinkedAccount { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.ApplicationSignals.Model.ListGroupingAttributeDefinitionsResponse, GetCWASGroupingAttributeDefinitionListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

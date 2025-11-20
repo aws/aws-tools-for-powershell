@@ -28,17 +28,15 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Retrieves information about a previously requested handshake. The handshake ID comes
-    /// from the response to the original <a>InviteAccountToOrganization</a> operation that
-    /// generated the handshake.
+    /// Returns details for a handshake. A handshake is the secure exchange of information
+    /// between two Amazon Web Services accounts: a sender and a recipient.
     /// 
     ///  
     /// <para>
-    /// You can access handshakes that are <c>ACCEPTED</c>, <c>DECLINED</c>, or <c>CANCELED</c>
-    /// for only 30 days after they change to that state. They're then deleted and no longer
-    /// accessible.
+    /// You can view <c>ACCEPTED</c>, <c>DECLINED</c>, or <c>CANCELED</c> handshakes in API
+    /// Responses for 30 days before they are deleted.
     /// </para><para>
-    /// This operation can be called from any account in the organization.
+    /// You can call this operation from any account in a organization.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "ORGHandshake")]
@@ -58,9 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter HandshakeId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier (ID) of the handshake that you want information about. You can
-        /// get the ID from the original call to <a>InviteAccountToOrganization</a>, or from a
-        /// call to <a>ListHandshakesForAccount</a> or <a>ListHandshakesForOrganization</a>.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for handshake ID string
+        /// <para>ID for the handshake that you want information about.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for handshake ID string
         /// requires "h-" followed by from 8 to 32 lowercase letters or digits.</para>
         /// </para>
         /// </summary>

@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// 
     ///  
     /// <para>
-    /// This operation can be called only from the organization's management account or by
-    /// a member account that is a delegated administrator.
+    /// You can only call this operation from the management account or a member account that
+    /// is a delegated administrator.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "ORGPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter PolicyId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier (ID) of the policy that you want to update.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string
+        /// <para>ID for the policy that you want to update.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string
         /// requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or
         /// the underscore character (_).</para>
         /// </para>

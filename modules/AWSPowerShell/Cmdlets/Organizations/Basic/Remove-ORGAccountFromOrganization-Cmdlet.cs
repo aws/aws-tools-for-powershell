@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// The organization's management account is no longer charged for any expenses accrued
     /// by the member account after it's removed from the organization.
     /// </para><para>
-    /// This operation can be called only from the organization's management account. Member
-    /// accounts can remove themselves with <a>LeaveOrganization</a> instead.
+    /// You can only call this operation from the management account. Member accounts can
+    /// remove themselves with <a>LeaveOrganization</a> instead.
     /// </para><important><ul><li><para>
     /// You can remove an account from your organization only if the account is configured
     /// with the information required to operate as a standalone account. When you create
@@ -72,8 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier (ID) of the member account that you want to remove from the
-        /// organization.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID
+        /// <para>ID for the member account that you want to remove from the organization.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID
         /// string requires exactly 12 digits.</para>
         /// </para>
         /// </summary>

@@ -127,6 +127,27 @@ namespace Amazon.PowerShell.Cmdlets.DF
         public System.String DevicePoolArn { get; set; }
         #endregion
         
+        #region Parameter Configuration_EnvironmentVariable
+        /// <summary>
+        /// <para>
+        /// <para>Environment variables associated with the run.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_EnvironmentVariables")]
+        public Amazon.DeviceFarm.Model.EnvironmentVariable[] Configuration_EnvironmentVariable { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_ExecutionRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>An IAM role to be assumed by the test host for the run.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration_ExecutionRoleArn { get; set; }
+        #endregion
+        
         #region Parameter Configuration_ExtraDataPackageArn
         /// <summary>
         /// <para>
@@ -385,6 +406,11 @@ namespace Amazon.PowerShell.Cmdlets.DF
             }
             context.DeviceProxy_Host = this.DeviceProxy_Host;
             context.DeviceProxy_Port = this.DeviceProxy_Port;
+            if (this.Configuration_EnvironmentVariable != null)
+            {
+                context.Configuration_EnvironmentVariable = new List<Amazon.DeviceFarm.Model.EnvironmentVariable>(this.Configuration_EnvironmentVariable);
+            }
+            context.Configuration_ExecutionRoleArn = this.Configuration_ExecutionRoleArn;
             context.Configuration_ExtraDataPackageArn = this.Configuration_ExtraDataPackageArn;
             context.Configuration_Locale = this.Configuration_Locale;
             context.Location_Latitude = this.Location_Latitude;
@@ -461,6 +487,26 @@ namespace Amazon.PowerShell.Cmdlets.DF
             if (requestConfiguration_configuration_BillingMethod != null)
             {
                 request.Configuration.BillingMethod = requestConfiguration_configuration_BillingMethod;
+                requestConfigurationIsNull = false;
+            }
+            List<Amazon.DeviceFarm.Model.EnvironmentVariable> requestConfiguration_configuration_EnvironmentVariable = null;
+            if (cmdletContext.Configuration_EnvironmentVariable != null)
+            {
+                requestConfiguration_configuration_EnvironmentVariable = cmdletContext.Configuration_EnvironmentVariable;
+            }
+            if (requestConfiguration_configuration_EnvironmentVariable != null)
+            {
+                request.Configuration.EnvironmentVariables = requestConfiguration_configuration_EnvironmentVariable;
+                requestConfigurationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_ExecutionRoleArn = null;
+            if (cmdletContext.Configuration_ExecutionRoleArn != null)
+            {
+                requestConfiguration_configuration_ExecutionRoleArn = cmdletContext.Configuration_ExecutionRoleArn;
+            }
+            if (requestConfiguration_configuration_ExecutionRoleArn != null)
+            {
+                request.Configuration.ExecutionRoleArn = requestConfiguration_configuration_ExecutionRoleArn;
                 requestConfigurationIsNull = false;
             }
             System.String requestConfiguration_configuration_ExtraDataPackageArn = null;
@@ -818,6 +864,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
             public List<System.String> CustomerArtifactPaths_IosPath { get; set; }
             public System.String DeviceProxy_Host { get; set; }
             public System.Int32? DeviceProxy_Port { get; set; }
+            public List<Amazon.DeviceFarm.Model.EnvironmentVariable> Configuration_EnvironmentVariable { get; set; }
+            public System.String Configuration_ExecutionRoleArn { get; set; }
             public System.String Configuration_ExtraDataPackageArn { get; set; }
             public System.String Configuration_Locale { get; set; }
             public System.Double? Location_Latitude { get; set; }

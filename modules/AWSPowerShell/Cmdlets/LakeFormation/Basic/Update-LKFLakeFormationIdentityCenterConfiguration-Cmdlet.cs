@@ -76,6 +76,18 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         public System.String CatalogId { get; set; }
         #endregion
         
+        #region Parameter ServiceIntegration
+        /// <summary>
+        /// <para>
+        /// <para>A list of service integrations for enabling trusted identity propagation with external
+        /// services such as Redshift.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ServiceIntegrations")]
+        public Amazon.LakeFormation.Model.ServiceIntegrationUnion[] ServiceIntegration { get; set; }
+        #endregion
+        
         #region Parameter ShareRecipient
         /// <summary>
         /// <para>
@@ -171,6 +183,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
                 context.ExternalFiltering_AuthorizedTarget = new List<System.String>(this.ExternalFiltering_AuthorizedTarget);
             }
             context.ExternalFiltering_Status = this.ExternalFiltering_Status;
+            if (this.ServiceIntegration != null)
+            {
+                context.ServiceIntegration = new List<Amazon.LakeFormation.Model.ServiceIntegrationUnion>(this.ServiceIntegration);
+            }
             if (this.ShareRecipient != null)
             {
                 context.ShareRecipient = new List<Amazon.LakeFormation.Model.DataLakePrincipal>(this.ShareRecipient);
@@ -227,6 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestExternalFilteringIsNull)
             {
                 request.ExternalFiltering = null;
+            }
+            if (cmdletContext.ServiceIntegration != null)
+            {
+                request.ServiceIntegrations = cmdletContext.ServiceIntegration;
             }
             if (cmdletContext.ShareRecipient != null)
             {
@@ -297,6 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             public System.String CatalogId { get; set; }
             public List<System.String> ExternalFiltering_AuthorizedTarget { get; set; }
             public Amazon.LakeFormation.EnableStatus ExternalFiltering_Status { get; set; }
+            public List<Amazon.LakeFormation.Model.ServiceIntegrationUnion> ServiceIntegration { get; set; }
             public List<Amazon.LakeFormation.Model.DataLakePrincipal> ShareRecipient { get; set; }
             public System.Func<Amazon.LakeFormation.Model.UpdateLakeFormationIdentityCenterConfigurationResponse, UpdateLKFLakeFormationIdentityCenterConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

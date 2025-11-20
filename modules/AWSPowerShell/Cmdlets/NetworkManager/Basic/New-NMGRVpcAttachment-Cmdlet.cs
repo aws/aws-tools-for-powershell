@@ -91,6 +91,16 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         public System.Boolean? Options_Ipv6Support { get; set; }
         #endregion
         
+        #region Parameter RoutingPolicyLabel
+        /// <summary>
+        /// <para>
+        /// <para>The routing policy label to apply to the VPC attachment for traffic routing decisions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RoutingPolicyLabel { get; set; }
+        #endregion
+        
         #region Parameter Options_SecurityGroupReferencingSupport
         /// <summary>
         /// <para>
@@ -233,6 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             context.Options_DnsSupport = this.Options_DnsSupport;
             context.Options_Ipv6Support = this.Options_Ipv6Support;
             context.Options_SecurityGroupReferencingSupport = this.Options_SecurityGroupReferencingSupport;
+            context.RoutingPolicyLabel = this.RoutingPolicyLabel;
             if (this.SubnetArn != null)
             {
                 context.SubnetArn = new List<System.String>(this.SubnetArn);
@@ -327,6 +338,10 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             {
                 request.Options = null;
             }
+            if (cmdletContext.RoutingPolicyLabel != null)
+            {
+                request.RoutingPolicyLabel = cmdletContext.RoutingPolicyLabel;
+            }
             if (cmdletContext.SubnetArn != null)
             {
                 request.SubnetArns = cmdletContext.SubnetArn;
@@ -406,6 +421,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             public System.Boolean? Options_DnsSupport { get; set; }
             public System.Boolean? Options_Ipv6Support { get; set; }
             public System.Boolean? Options_SecurityGroupReferencingSupport { get; set; }
+            public System.String RoutingPolicyLabel { get; set; }
             public List<System.String> SubnetArn { get; set; }
             public List<Amazon.NetworkManager.Model.Tag> Tag { get; set; }
             public System.String VpcArn { get; set; }

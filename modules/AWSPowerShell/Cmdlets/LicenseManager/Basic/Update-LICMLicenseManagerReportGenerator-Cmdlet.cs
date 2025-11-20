@@ -58,6 +58,17 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter ReportContext_LicenseAssetGroupArn
+        /// <summary>
+        /// <para>
+        /// <para>Amazon Resource Names (ARNs) of the license asset groups to include in the report.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReportContext_LicenseAssetGroupArns")]
+        public System.String[] ReportContext_LicenseAssetGroupArn { get; set; }
+        #endregion
+        
         #region Parameter ReportContext_LicenseConfigurationArn
         /// <summary>
         /// <para>
@@ -65,14 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         /// on.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("ReportContext_LicenseConfigurationArns")]
         public System.String[] ReportContext_LicenseConfigurationArn { get; set; }
         #endregion
@@ -105,6 +109,16 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         public Amazon.LicenseManager.ReportFrequencyType ReportFrequency_Period { get; set; }
         #endregion
         
+        #region Parameter ReportContext_ReportEndDate
+        /// <summary>
+        /// <para>
+        /// <para>End date for the report data collection period.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? ReportContext_ReportEndDate { get; set; }
+        #endregion
+        
         #region Parameter ReportGeneratorName
         /// <summary>
         /// <para>
@@ -120,6 +134,16 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ReportGeneratorName { get; set; }
+        #endregion
+        
+        #region Parameter ReportContext_ReportStartDate
+        /// <summary>
+        /// <para>
+        /// <para>Start date for the report data collection period.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? ReportContext_ReportStartDate { get; set; }
         #endregion
         
         #region Parameter Type
@@ -246,16 +270,16 @@ namespace Amazon.PowerShell.Cmdlets.LICM
                 WriteWarning("You are passing $null as a value for parameter LicenseManagerReportGeneratorArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ReportContext_LicenseAssetGroupArn != null)
+            {
+                context.ReportContext_LicenseAssetGroupArn = new List<System.String>(this.ReportContext_LicenseAssetGroupArn);
+            }
             if (this.ReportContext_LicenseConfigurationArn != null)
             {
                 context.ReportContext_LicenseConfigurationArn = new List<System.String>(this.ReportContext_LicenseConfigurationArn);
             }
-            #if MODULAR
-            if (this.ReportContext_LicenseConfigurationArn == null && ParameterWasBound(nameof(this.ReportContext_LicenseConfigurationArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ReportContext_LicenseConfigurationArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.ReportContext_ReportEndDate = this.ReportContext_ReportEndDate;
+            context.ReportContext_ReportStartDate = this.ReportContext_ReportStartDate;
             context.ReportFrequency_Period = this.ReportFrequency_Period;
             context.ReportFrequency_Value = this.ReportFrequency_Value;
             context.ReportGeneratorName = this.ReportGeneratorName;
@@ -307,6 +331,16 @@ namespace Amazon.PowerShell.Cmdlets.LICM
              // populate ReportContext
             var requestReportContextIsNull = true;
             request.ReportContext = new Amazon.LicenseManager.Model.ReportContext();
+            List<System.String> requestReportContext_reportContext_LicenseAssetGroupArn = null;
+            if (cmdletContext.ReportContext_LicenseAssetGroupArn != null)
+            {
+                requestReportContext_reportContext_LicenseAssetGroupArn = cmdletContext.ReportContext_LicenseAssetGroupArn;
+            }
+            if (requestReportContext_reportContext_LicenseAssetGroupArn != null)
+            {
+                request.ReportContext.LicenseAssetGroupArns = requestReportContext_reportContext_LicenseAssetGroupArn;
+                requestReportContextIsNull = false;
+            }
             List<System.String> requestReportContext_reportContext_LicenseConfigurationArn = null;
             if (cmdletContext.ReportContext_LicenseConfigurationArn != null)
             {
@@ -315,6 +349,26 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             if (requestReportContext_reportContext_LicenseConfigurationArn != null)
             {
                 request.ReportContext.LicenseConfigurationArns = requestReportContext_reportContext_LicenseConfigurationArn;
+                requestReportContextIsNull = false;
+            }
+            System.DateTime? requestReportContext_reportContext_ReportEndDate = null;
+            if (cmdletContext.ReportContext_ReportEndDate != null)
+            {
+                requestReportContext_reportContext_ReportEndDate = cmdletContext.ReportContext_ReportEndDate.Value;
+            }
+            if (requestReportContext_reportContext_ReportEndDate != null)
+            {
+                request.ReportContext.ReportEndDate = requestReportContext_reportContext_ReportEndDate.Value;
+                requestReportContextIsNull = false;
+            }
+            System.DateTime? requestReportContext_reportContext_ReportStartDate = null;
+            if (cmdletContext.ReportContext_ReportStartDate != null)
+            {
+                requestReportContext_reportContext_ReportStartDate = cmdletContext.ReportContext_ReportStartDate.Value;
+            }
+            if (requestReportContext_reportContext_ReportStartDate != null)
+            {
+                request.ReportContext.ReportStartDate = requestReportContext_reportContext_ReportStartDate.Value;
                 requestReportContextIsNull = false;
             }
              // determine if request.ReportContext should be set to null
@@ -423,7 +477,10 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public System.String LicenseManagerReportGeneratorArn { get; set; }
+            public List<System.String> ReportContext_LicenseAssetGroupArn { get; set; }
             public List<System.String> ReportContext_LicenseConfigurationArn { get; set; }
+            public System.DateTime? ReportContext_ReportEndDate { get; set; }
+            public System.DateTime? ReportContext_ReportStartDate { get; set; }
             public Amazon.LicenseManager.ReportFrequencyType ReportFrequency_Period { get; set; }
             public System.Int32? ReportFrequency_Value { get; set; }
             public System.String ReportGeneratorName { get; set; }

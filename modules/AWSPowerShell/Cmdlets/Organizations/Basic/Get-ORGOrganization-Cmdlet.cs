@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// 
     ///  
     /// <para>
-    /// This operation can be called from any account in the organization.
+    /// You can call this operation from any account in a organization.
     /// </para><note><para>
     /// Even if a policy type is shown as available in the organization, you can disable it
     /// separately at the root level with <a>DisablePolicyType</a>. Use <a>ListRoots</a> to

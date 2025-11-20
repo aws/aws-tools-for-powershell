@@ -33,6 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
     /// role. This service- linked role has the following permissions:
     /// 
     ///  <ul><li><para><c>xray:GetServiceGraph</c></para></li><li><para><c>logs:StartQuery</c></para></li><li><para><c>logs:GetQueryResults</c></para></li><li><para><c>cloudwatch:GetMetricData</c></para></li><li><para><c>cloudwatch:ListMetrics</c></para></li><li><para><c>tag:GetResources</c></para></li><li><para><c>autoscaling:DescribeAutoScalingGroups</c></para></li></ul><para>
+    /// A service-linked CloudTrail event channel is created to process CloudTrail events
+    /// and return change event information. This includes last deployment time, userName,
+    /// eventName, and other event metadata.
+    /// </para><para>
     /// After completing this step, you still need to instrument your Java and Python applications
     /// to send data to Application Signals. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable.html">
     /// Enabling Application Signals</a>.

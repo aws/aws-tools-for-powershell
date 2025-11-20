@@ -101,6 +101,13 @@ $BAC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCore.ExtractionJobStatus
+        "Get-BACMemoryExtractionJobList/Filter_Status"
+        {
+            $v = "FAILED"
+            break
+        }
+
         # Amazon.BedrockAgentCore.Oauth2FlowType
         "Get-BACResourceOauth2Token/Oauth2Flow"
         {
@@ -133,6 +140,7 @@ $BAC_Completers = {
 $BAC_map = @{
     "Arguments_Language"=@("Invoke-BACCodeInterpreter")
     "AutomationStreamUpdate_StreamStatus"=@("Update-BACBrowserStream")
+    "Filter_Status"=@("Get-BACMemoryExtractionJobList")
     "Name"=@("Invoke-BACCodeInterpreter")
     "Oauth2Flow"=@("Get-BACResourceOauth2Token")
     "Status"=@("Get-BACBrowserSessionList","Get-BACCodeInterpreterSessionList")
@@ -211,11 +219,13 @@ $BAC_SelectMap = @{
                "Get-BACBrowserSessionList",
                "Get-BACCodeInterpreterSessionList",
                "Get-BACEventList",
+               "Get-BACMemoryExtractionJobList",
                "Get-BACMemoryRecordList",
                "Get-BACSessionList",
                "Invoke-BACMemoryRecord",
                "Start-BACBrowserSession",
                "Start-BACCodeInterpreterSession",
+               "Start-BACMemoryExtractionJob",
                "Stop-BACBrowserSession",
                "Stop-BACCodeInterpreterSession",
                "Stop-BACRuntimeSession",

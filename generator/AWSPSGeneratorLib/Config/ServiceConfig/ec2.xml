@@ -640,6 +640,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateTransitGatewayMeteringPolicy" OutputProperty="TransitGatewayMeteringPolicy" Verb="New" Noun="TransitGatewayMeteringPolicy" ShouldProcessTarget="TransitGatewayId" PipelineParameter="TransitGatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTransitGatewayMeteringPolicyEntry" OutputProperty="TransitGatewayMeteringPolicyEntry" Verb="New" Noun="TransitGatewayMeteringPolicyEntry" ShouldProcessTarget="TransitGatewayMeteringPolicyId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateTransitGatewayMulticastDomain" OutputProperty="TransitGatewayMulticastDomain" Verb="New" Noun="TransitGatewayMulticastDomain" ShouldProcessTarget="TransitGatewayId" PipelineParameter="TransitGatewayId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -697,6 +705,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateVpcBlockPublicAccessExclusion" OutputProperty="VpcBlockPublicAccessExclusion" Verb="New" Noun="VpcBlockPublicAccessExclusion" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpcEncryptionControl" OutputProperty="VpcEncryptionControl" Verb="New" Noun="VpcEncryptionControl" ShouldProcessTarget="VpcId" PipelineParameter="VpcId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -998,6 +1010,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTransitGatewayMeteringPolicy" OutputProperty="TransitGatewayMeteringPolicy" Verb="Remove" Noun="TransitGatewayMeteringPolicy" ShouldProcessTarget="TransitGatewayMeteringPolicyId" PipelineParameter="TransitGatewayMeteringPolicyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTransitGatewayMeteringPolicyEntry" OutputProperty="TransitGatewayMeteringPolicyEntry" Verb="Remove" Noun="TransitGatewayMeteringPolicyEntry" ShouldProcessTarget="TransitGatewayMeteringPolicyId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteTransitGatewayMulticastDomain" OutputProperty="TransitGatewayMulticastDomain" Verb="Remove" Noun="TransitGatewayMulticastDomain" ShouldProcessTarget="TransitGatewayMulticastDomainId" PipelineParameter="TransitGatewayMulticastDomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -1055,6 +1075,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteVpcBlockPublicAccessExclusion" OutputProperty="VpcBlockPublicAccessExclusion" Verb="Remove" Noun="VpcBlockPublicAccessExclusion" ShouldProcessTarget="ExclusionId" PipelineParameter="ExclusionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpcEncryptionControl" OutputProperty="VpcEncryptionControl" Verb="Remove" Noun="VpcEncryptionControl" ShouldProcessTarget="VpcEncryptionControlId" PipelineParameter="VpcEncryptionControlId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1741,6 +1765,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTransitGatewayMeteringPolicies" OutputProperty="TransitGatewayMeteringPolicies" Verb="Get" Noun="TransitGatewayMeteringPolicy" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeTransitGatewayMulticastDomains" OutputProperty="TransitGatewayMulticastDomains" Verb="Get" Noun="TransitGatewayMulticastDomain" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -1832,6 +1860,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeVpcClassicLinkDnsSupport" OutputProperty="Vpcs" Verb="Get" Noun="VpcClassicLinkDnsSupport" PipelineParameter="VpcIds" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcEncryptionControls" OutputProperty="VpcEncryptionControls" Verb="Get" Noun="VpcEncryptionControl" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2397,6 +2429,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetTransitGatewayMeteringPolicyEntries" OutputProperty="TransitGatewayMeteringPolicyEntries" Verb="Get" Noun="TransitGatewayMeteringPolicyEntry" PipelineParameter="TransitGatewayMeteringPolicyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTransitGatewayMulticastDomainAssociations" OutputProperty="MulticastDomainAssociations" Verb="Get" Noun="TransitGatewayMulticastDomainAssociation" PipelineParameter="TransitGatewayMulticastDomainId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -2430,6 +2466,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetVerifiedAccessGroupPolicy" OutputProperty="*" Verb="Get" Noun="VerifiedAccessGroupPolicy" PipelineParameter="VerifiedAccessGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVpcResourcesBlockingEncryptionEnforcement" OutputProperty="NonCompliantResources" Verb="Get" Noun="VpcResourcesBlockingEncryptionEnforcement" PipelineParameter="VpcId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2488,6 +2528,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListSnapshotsInRecycleBin" OutputProperty="Snapshots" Verb="Get" Noun="SnapshotsInRecycleBinList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVolumesInRecycleBin" OutputProperty="Volumes" Verb="Get" Noun="VolumesInRecycleBinList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2701,6 +2745,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyTransitGatewayMeteringPolicy" OutputProperty="TransitGatewayMeteringPolicy" Verb="Edit" Noun="TransitGatewayMeteringPolicy" ShouldProcessTarget="TransitGatewayMeteringPolicyId" PipelineParameter="TransitGatewayMeteringPolicyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyTransitGatewayPrefixListReference" OutputProperty="TransitGatewayPrefixListReference" Verb="Edit" Noun="TransitGatewayPrefixListReference" ShouldProcessTarget="TransitGatewayRouteTableId" PipelineParameter="TransitGatewayRouteTableId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -2758,6 +2806,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyVpcBlockPublicAccessOptions" OutputProperty="VpcBlockPublicAccessOptions" Verb="Edit" Noun="VpcBlockPublicAccessOption" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVpcEncryptionControl" OutputProperty="VpcEncryptionControl" Verb="Edit" Noun="VpcEncryptionControl" ShouldProcessTarget="VpcEncryptionControlId" PipelineParameter="VpcEncryptionControlId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -3021,6 +3073,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RestoreSnapshotTier" OutputProperty="*" Verb="Restore" Noun="SnapshotTier" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreVolumeFromRecycleBin" OutputProperty="Return" Verb="Restore" Noun="VolumeFromRecycleBin" ShouldProcessTarget="VolumeId" PipelineParameter="VolumeId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -461,6 +461,21 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.Boolean? SkipZonalShiftValidation { get; set; }
         #endregion
         
+        #region Parameter RetentionTriggers_TerminateHookAbandon
+        /// <summary>
+        /// <para>
+        /// <para> Specifies the action when a termination lifecycle hook is abandoned due to failure,
+        /// timeout, or explicit abandonment (calling CompleteLifecycleAction). </para><para> Set to <c>Retain</c> to move instances to a <c>Retained</c> state. Set to <c>Terminate</c>
+        /// for default termination behavior. </para><para> Retained instances don't count toward desired capacity and remain until you call
+        /// <c>TerminateInstanceInAutoScalingGroup</c>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InstanceLifecyclePolicy_RetentionTriggers_TerminateHookAbandon")]
+        [AWSConstantClassSource("Amazon.AutoScaling.RetentionAction")]
+        public Amazon.AutoScaling.RetentionAction RetentionTriggers_TerminateHookAbandon { get; set; }
+        #endregion
+        
         #region Parameter TerminationPolicy
         /// <summary>
         /// <para>
@@ -608,6 +623,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.DesiredCapacityType = this.DesiredCapacityType;
             context.HealthCheckGracePeriod = this.HealthCheckGracePeriod;
             context.HealthCheckType = this.HealthCheckType;
+            context.RetentionTriggers_TerminateHookAbandon = this.RetentionTriggers_TerminateHookAbandon;
             context.InstanceMaintenancePolicy_MaxHealthyPercentage = this.InstanceMaintenancePolicy_MaxHealthyPercentage;
             context.InstanceMaintenancePolicy_MinHealthyPercentage = this.InstanceMaintenancePolicy_MinHealthyPercentage;
             context.LaunchConfigurationName = this.LaunchConfigurationName;
@@ -784,6 +800,40 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.HealthCheckType != null)
             {
                 request.HealthCheckType = cmdletContext.HealthCheckType;
+            }
+            
+             // populate InstanceLifecyclePolicy
+            var requestInstanceLifecyclePolicyIsNull = true;
+            request.InstanceLifecyclePolicy = new Amazon.AutoScaling.Model.InstanceLifecyclePolicy();
+            Amazon.AutoScaling.Model.RetentionTriggers requestInstanceLifecyclePolicy_instanceLifecyclePolicy_RetentionTriggers = null;
+            
+             // populate RetentionTriggers
+            var requestInstanceLifecyclePolicy_instanceLifecyclePolicy_RetentionTriggersIsNull = true;
+            requestInstanceLifecyclePolicy_instanceLifecyclePolicy_RetentionTriggers = new Amazon.AutoScaling.Model.RetentionTriggers();
+            Amazon.AutoScaling.RetentionAction requestInstanceLifecyclePolicy_instanceLifecyclePolicy_RetentionTriggers_retentionTriggers_TerminateHookAbandon = null;
+            if (cmdletContext.RetentionTriggers_TerminateHookAbandon != null)
+            {
+                requestInstanceLifecyclePolicy_instanceLifecyclePolicy_RetentionTriggers_retentionTriggers_TerminateHookAbandon = cmdletContext.RetentionTriggers_TerminateHookAbandon;
+            }
+            if (requestInstanceLifecyclePolicy_instanceLifecyclePolicy_RetentionTriggers_retentionTriggers_TerminateHookAbandon != null)
+            {
+                requestInstanceLifecyclePolicy_instanceLifecyclePolicy_RetentionTriggers.TerminateHookAbandon = requestInstanceLifecyclePolicy_instanceLifecyclePolicy_RetentionTriggers_retentionTriggers_TerminateHookAbandon;
+                requestInstanceLifecyclePolicy_instanceLifecyclePolicy_RetentionTriggersIsNull = false;
+            }
+             // determine if requestInstanceLifecyclePolicy_instanceLifecyclePolicy_RetentionTriggers should be set to null
+            if (requestInstanceLifecyclePolicy_instanceLifecyclePolicy_RetentionTriggersIsNull)
+            {
+                requestInstanceLifecyclePolicy_instanceLifecyclePolicy_RetentionTriggers = null;
+            }
+            if (requestInstanceLifecyclePolicy_instanceLifecyclePolicy_RetentionTriggers != null)
+            {
+                request.InstanceLifecyclePolicy.RetentionTriggers = requestInstanceLifecyclePolicy_instanceLifecyclePolicy_RetentionTriggers;
+                requestInstanceLifecyclePolicyIsNull = false;
+            }
+             // determine if request.InstanceLifecyclePolicy should be set to null
+            if (requestInstanceLifecyclePolicyIsNull)
+            {
+                request.InstanceLifecyclePolicy = null;
             }
             
              // populate InstanceMaintenancePolicy
@@ -974,6 +1024,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public System.String DesiredCapacityType { get; set; }
             public System.Int32? HealthCheckGracePeriod { get; set; }
             public System.String HealthCheckType { get; set; }
+            public Amazon.AutoScaling.RetentionAction RetentionTriggers_TerminateHookAbandon { get; set; }
             public System.Int32? InstanceMaintenancePolicy_MaxHealthyPercentage { get; set; }
             public System.Int32? InstanceMaintenancePolicy_MinHealthyPercentage { get; set; }
             public System.String LaunchConfigurationName { get; set; }

@@ -28,18 +28,15 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Declines a handshake request. This sets the handshake state to <c>DECLINED</c> and
-    /// effectively deactivates the request.
+    /// Declines a <a>Handshake</a>.
     /// 
     ///  
     /// <para>
-    /// This operation can be called only from the account that received the handshake. The
-    /// originator of the handshake can use <a>CancelHandshake</a> instead. The originator
-    /// can't reactivate a declined request, but can reinitiate the process with a new handshake
-    /// request.
+    /// Only the account that receives a handshake can call this operation. The sender of
+    /// the handshake can use <a>CancelHandshake</a> to cancel if the handshake hasn't yet
+    /// been responded to.
     /// </para><para>
-    /// After you decline a handshake, it continues to appear in the results of relevant APIs
-    /// for only 30 days. After that, it's deleted.
+    /// You can view canceled handshakes in API responses for 30 days before they are deleted.
     /// </para>
     /// </summary>
     [Cmdlet("Deny", "ORGHandshake", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -59,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter HandshakeId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier (ID) of the handshake that you want to decline. You can get
-        /// the ID from the <a>ListHandshakesForAccount</a> operation.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for handshake ID string
+        /// <para>ID for the handshake that you want to decline. You can get the ID from the <a>ListHandshakesForAccount</a>
+        /// operation.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for handshake ID string
         /// requires "h-" followed by from 8 to 32 lowercase letters or digits.</para>
         /// </para>
         /// </summary>

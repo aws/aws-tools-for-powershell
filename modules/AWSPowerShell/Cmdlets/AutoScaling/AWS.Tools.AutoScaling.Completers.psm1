@@ -155,7 +155,17 @@ $AS_Completers = {
         # Amazon.AutoScaling.RefreshStrategy
         "Start-ASInstanceRefresh/Strategy"
         {
-            $v = "Rolling"
+            $v = "ReplaceRootVolume","Rolling"
+            break
+        }
+
+        # Amazon.AutoScaling.RetentionAction
+        {
+            ($_ -eq "New-ASAutoScalingGroup/RetentionTriggers_TerminateHookAbandon") -Or
+            ($_ -eq "Update-ASAutoScalingGroup/RetentionTriggers_TerminateHookAbandon")
+        }
+        {
+            $v = "retain","terminate"
             break
         }
 
@@ -208,6 +218,7 @@ $AS_map = @{
     "PredictiveScalingConfiguration_Mode"=@("Write-ASScalingPolicy")
     "Preferences_ScaleInProtectedInstance"=@("Start-ASInstanceRefresh")
     "Preferences_StandbyInstance"=@("Start-ASInstanceRefresh")
+    "RetentionTriggers_TerminateHookAbandon"=@("New-ASAutoScalingGroup","Update-ASAutoScalingGroup")
     "RetryStrategy"=@("Add-ASInstance")
     "Strategy"=@("Start-ASInstanceRefresh")
 }

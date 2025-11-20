@@ -52,6 +52,17 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         public System.Boolean? EnableCrossAccountsDiscovery { get; set; }
         #endregion
         
+        #region Parameter EnabledDiscoverySourceRegion
+        /// <summary>
+        /// <para>
+        /// <para>Cross region discovery enabled source regions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EnabledDiscoverySourceRegions")]
+        public System.String[] EnabledDiscoverySourceRegion { get; set; }
+        #endregion
+        
         #region Parameter OrganizationConfiguration_EnableIntegration
         /// <summary>
         /// <para>
@@ -125,6 +136,10 @@ namespace Amazon.PowerShell.Cmdlets.LICM
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.EnableCrossAccountsDiscovery = this.EnableCrossAccountsDiscovery;
+            if (this.EnabledDiscoverySourceRegion != null)
+            {
+                context.EnabledDiscoverySourceRegion = new List<System.String>(this.EnabledDiscoverySourceRegion);
+            }
             context.OrganizationConfiguration_EnableIntegration = this.OrganizationConfiguration_EnableIntegration;
             context.S3BucketArn = this.S3BucketArn;
             context.SnsTopicArn = this.SnsTopicArn;
@@ -147,6 +162,10 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             if (cmdletContext.EnableCrossAccountsDiscovery != null)
             {
                 request.EnableCrossAccountsDiscovery = cmdletContext.EnableCrossAccountsDiscovery.Value;
+            }
+            if (cmdletContext.EnabledDiscoverySourceRegion != null)
+            {
+                request.EnabledDiscoverySourceRegions = cmdletContext.EnabledDiscoverySourceRegion;
             }
             
              // populate OrganizationConfiguration
@@ -237,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? EnableCrossAccountsDiscovery { get; set; }
+            public List<System.String> EnabledDiscoverySourceRegion { get; set; }
             public System.Boolean? OrganizationConfiguration_EnableIntegration { get; set; }
             public System.String S3BucketArn { get; set; }
             public System.String SnsTopicArn { get; set; }

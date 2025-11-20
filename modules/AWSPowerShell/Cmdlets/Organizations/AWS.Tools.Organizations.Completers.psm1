@@ -86,7 +86,7 @@ $ORG_Completers = {
             ($_ -eq "Get-ORGOrganizationHandshakeList/Filter_ActionType")
         }
         {
-            $v = "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE","APPROVE_ALL_FEATURES","ENABLE_ALL_FEATURES","INVITE"
+            $v = "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE","APPROVE_ALL_FEATURES","ENABLE_ALL_FEATURES","INVITE","TRANSFER_RESPONSIBILITY"
             break
         }
 
@@ -104,12 +104,15 @@ $ORG_Completers = {
             ($_ -eq "Get-ORGEffectivePolicyValidationErrorList/PolicyType")
         }
         {
-            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","CHATBOT_POLICY","DECLARATIVE_POLICY_EC2","SECURITYHUB_POLICY","TAG_POLICY"
+            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","CHATBOT_POLICY","DECLARATIVE_POLICY_EC2","INSPECTOR_POLICY","SECURITYHUB_POLICY","TAG_POLICY"
             break
         }
 
         # Amazon.Organizations.HandshakePartyType
-        "New-ORGAccountInvitation/Target_Type"
+        {
+            ($_ -eq "New-ORGAccountInvitation/Target_Type") -Or
+            ($_ -eq "New-ORGOrganizationToTransferResponsibility/Target_Type")
+        }
         {
             $v = "ACCOUNT","EMAIL","ORGANIZATION"
             break
@@ -141,7 +144,18 @@ $ORG_Completers = {
             ($_ -eq "New-ORGPolicy/Type")
         }
         {
-            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","CHATBOT_POLICY","DECLARATIVE_POLICY_EC2","RESOURCE_CONTROL_POLICY","SECURITYHUB_POLICY","SERVICE_CONTROL_POLICY","TAG_POLICY"
+            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","CHATBOT_POLICY","DECLARATIVE_POLICY_EC2","INSPECTOR_POLICY","RESOURCE_CONTROL_POLICY","SECURITYHUB_POLICY","SERVICE_CONTROL_POLICY","TAG_POLICY"
+            break
+        }
+
+        # Amazon.Organizations.ResponsibilityTransferType
+        {
+            ($_ -eq "Get-ORGInboundResponsibilityTransferList/Type") -Or
+            ($_ -eq "Get-ORGOutboundResponsibilityTransferList/Type") -Or
+            ($_ -eq "New-ORGOrganizationToTransferResponsibility/Type")
+        }
+        {
+            $v = "BILLING"
             break
         }
 
@@ -160,8 +174,8 @@ $ORG_map = @{
     "Filter_ActionType"=@("Get-ORGAccountHandshakeList","Get-ORGOrganizationHandshakeList")
     "IamUserAccessToBilling"=@("New-ORGAccount","New-ORGGovCloudAccount")
     "PolicyType"=@("Disable-ORGPolicyType","Enable-ORGPolicyType","Get-ORGAccountsWithInvalidEffectivePolicyList","Get-ORGEffectivePolicy","Get-ORGEffectivePolicyValidationErrorList")
-    "Target_Type"=@("New-ORGAccountInvitation")
-    "Type"=@("New-ORGPolicy")
+    "Target_Type"=@("New-ORGAccountInvitation","New-ORGOrganizationToTransferResponsibility")
+    "Type"=@("Get-ORGInboundResponsibilityTransferList","Get-ORGOutboundResponsibilityTransferList","New-ORGOrganizationToTransferResponsibility","New-ORGPolicy")
 }
 
 _awsArgumentCompleterRegistration $ORG_Completers $ORG_map
@@ -237,6 +251,7 @@ $ORG_SelectMap = @{
                "Get-ORGOrganizationalUnit",
                "Get-ORGPolicy",
                "Get-ORGResourcePolicy",
+               "Get-ORGResponsibilityTransfer",
                "Dismount-ORGPolicy",
                "Disable-ORGAWSServiceAccess",
                "Disable-ORGPolicyType",
@@ -244,6 +259,7 @@ $ORG_SelectMap = @{
                "Enable-ORGAWSServiceAccess",
                "Enable-ORGPolicyType",
                "New-ORGAccountInvitation",
+               "New-ORGOrganizationToTransferResponsibility",
                "Remove-ORGOrganizationAssociation",
                "Get-ORGAccountList",
                "Get-ORGAccountForParent",
@@ -256,7 +272,9 @@ $ORG_SelectMap = @{
                "Get-ORGEffectivePolicyValidationErrorList",
                "Get-ORGAccountHandshakeList",
                "Get-ORGOrganizationHandshakeList",
+               "Get-ORGInboundResponsibilityTransferList",
                "Get-ORGOrganizationalUnitList",
+               "Get-ORGOutboundResponsibilityTransferList",
                "Get-ORGParent",
                "Get-ORGPolicyList",
                "Get-ORGPolicyForTarget",
@@ -268,9 +286,11 @@ $ORG_SelectMap = @{
                "Register-ORGDelegatedAdministrator",
                "Remove-ORGAccountFromOrganization",
                "Add-ORGResourceTag",
+               "Stop-ORGResponsibilityTransfer",
                "Remove-ORGResourceTag",
                "Update-ORGOrganizationalUnit",
-               "Update-ORGPolicy")
+               "Update-ORGPolicy",
+               "Update-ORGResponsibilityTransfer")
 }
 
 _awsArgumentCompleterRegistration $ORG_SelectCompleters $ORG_SelectMap

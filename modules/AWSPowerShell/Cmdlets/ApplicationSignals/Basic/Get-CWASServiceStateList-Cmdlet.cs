@@ -28,16 +28,9 @@ using Amazon.ApplicationSignals.Model;
 namespace Amazon.PowerShell.Cmdlets.CWAS
 {
     /// <summary>
-    /// Retrieves the current state information for services monitored by Application Signals.
-    /// Service states include health status, recent change events, and other operational
-    /// metadata.
-    /// 
-    ///  
-    /// <para>
-    /// You can filter results by time range, AWS account, and service attributes to focus
-    /// on specific services or time periods. This operation supports pagination and can include
-    /// data from linked accounts.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns information about the last deployment and other change states of services.
+    /// This API provides visibility into recent changes that may have affected service performance,
+    /// helping with troubleshooting and change correlation.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWASServiceStateList")]
     [OutputType("Amazon.ApplicationSignals.Model.ListServiceStatesResponse")]
@@ -53,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter AttributeFilter
         /// <summary>
         /// <para>
-        /// <para>An array of attribute filters to narrow down the service states returned. Each filter
-        /// specifies an attribute name and the values to match against.</para>
+        /// <para>A list of attribute filters to narrow down the services. You can filter by platform,
+        /// environment, or other service attributes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,9 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID to filter service states. If specified, only service states from
-        /// this account will be returned. If not specified, service states from the current account
-        /// (and linked accounts if enabled) are returned.</para>
+        /// <para>The Amazon Web Services account ID to filter service states by. Use this to limit
+        /// results to services from a specific account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,9 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The end time for the service states query. Only service states before this time will
-        /// be included. Specify the time as the number of milliseconds since January 1, 1970,
-        /// 00:00:00 UTC.</para>
+        /// <para>The end of the time period to retrieve service state information for. When used in
+        /// a raw HTTP Query API, it is formatted as epoch time in seconds. For example, <c>1698778057</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,9 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter IncludeLinkedAccount
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to include service states from linked AWS accounts in the results.
-        /// Set to <c>true</c> to include linked accounts, or <c>false</c> to only include the
-        /// current account. Defaults to <c>false</c>.</para>
+        /// <para>If you are using this operation in a monitoring account, specify <c>true</c> to include
+        /// service states from source accounts in the returned data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,9 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>The start time for the service states query. Only service states from this time onward
-        /// will be included. Specify the time as the number of milliseconds since January 1,
-        /// 1970, 00:00:00 UTC.</para>
+        /// <para>The start of the time period to retrieve service state information for. When used
+        /// in a raw HTTP Query API, it is formatted as epoch time in seconds. For example, <c>1698778057</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -126,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of service states to return in a single request. Valid range is
-        /// 1 to 100. If not specified, defaults to 50.</para>
+        /// <para>The maximum number of service states to return in one operation. If you omit this
+        /// parameter, the default of 20 is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of results. Use this token to retrieve additional pages
-        /// of service states when the result set is large.</para>
+        /// <para>Include this value, if it was returned by the previous operation, to get the next
+        /// set of service states.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

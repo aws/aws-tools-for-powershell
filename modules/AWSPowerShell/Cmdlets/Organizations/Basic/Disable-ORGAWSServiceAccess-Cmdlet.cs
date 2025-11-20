@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// Organizations with other Amazon Web Services services</a> in the <i>Organizations
     /// User Guide</i>.
     /// </para><para>
-    /// This operation can be called only from the organization's management account.
+    /// You can only call this operation from the management account.
     /// </para>
     /// </summary>
     [Cmdlet("Disable", "ORGAWSServiceAccess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

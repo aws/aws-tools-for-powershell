@@ -80,6 +80,13 @@ $CWAS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ApplicationSignals.DetailLevel
+        "Get-CWASAuditFindingList/DetailLevel"
+        {
+            $v = "BRIEF","DETAILED"
+            break
+        }
+
         # Amazon.ApplicationSignals.DurationUnit
         {
             ($_ -eq "New-CWASServiceLevelObjective/CalendarInterval_DurationUnit") -Or
@@ -126,6 +133,7 @@ $CWAS_Completers = {
 
 $CWAS_map = @{
     "CalendarInterval_DurationUnit"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
+    "DetailLevel"=@("Get-CWASAuditFindingList")
     "RequestBasedSliConfig_ComparisonOperator"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
     "RequestBasedSliMetricConfig_MetricType"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
     "RollingInterval_DurationUnit"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
@@ -191,6 +199,7 @@ $CWAS_SelectMap = @{
                "Get-CWASService",
                "Get-CWASServiceLevelObjective",
                "Get-CWASAuditFindingList",
+               "Get-CWASEntityEventList",
                "Get-CWASGroupingAttributeDefinitionList",
                "Get-CWASServiceDependencyList",
                "Get-CWASServiceDependentList",

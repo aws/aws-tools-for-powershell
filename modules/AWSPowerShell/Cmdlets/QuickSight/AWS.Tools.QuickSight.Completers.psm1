@@ -365,6 +365,84 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.FontDecoration
+        {
+            ($_ -eq "New-QSTheme/AxisLabelFontConfiguration_FontDecoration") -Or
+            ($_ -eq "Update-QSTheme/AxisLabelFontConfiguration_FontDecoration") -Or
+            ($_ -eq "New-QSTheme/AxisTitleFontConfiguration_FontDecoration") -Or
+            ($_ -eq "Update-QSTheme/AxisTitleFontConfiguration_FontDecoration") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontDecoration") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontDecoration") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontDecoration") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontDecoration") -Or
+            ($_ -eq "New-QSTheme/DataLabelFontConfiguration_FontDecoration") -Or
+            ($_ -eq "Update-QSTheme/DataLabelFontConfiguration_FontDecoration") -Or
+            ($_ -eq "New-QSTheme/LegendTitleFontConfiguration_FontDecoration") -Or
+            ($_ -eq "Update-QSTheme/LegendTitleFontConfiguration_FontDecoration") -Or
+            ($_ -eq "New-QSTheme/LegendValueFontConfiguration_FontDecoration") -Or
+            ($_ -eq "Update-QSTheme/LegendValueFontConfiguration_FontDecoration")
+        }
+        {
+            $v = "NONE","UNDERLINE"
+            break
+        }
+
+        # Amazon.QuickSight.FontStyle
+        {
+            ($_ -eq "New-QSTheme/AxisLabelFontConfiguration_FontStyle") -Or
+            ($_ -eq "Update-QSTheme/AxisLabelFontConfiguration_FontStyle") -Or
+            ($_ -eq "New-QSTheme/AxisTitleFontConfiguration_FontStyle") -Or
+            ($_ -eq "Update-QSTheme/AxisTitleFontConfiguration_FontStyle") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontStyle") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontStyle") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontStyle") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontStyle") -Or
+            ($_ -eq "New-QSTheme/DataLabelFontConfiguration_FontStyle") -Or
+            ($_ -eq "Update-QSTheme/DataLabelFontConfiguration_FontStyle") -Or
+            ($_ -eq "New-QSTheme/LegendTitleFontConfiguration_FontStyle") -Or
+            ($_ -eq "Update-QSTheme/LegendTitleFontConfiguration_FontStyle") -Or
+            ($_ -eq "New-QSTheme/LegendValueFontConfiguration_FontStyle") -Or
+            ($_ -eq "Update-QSTheme/LegendValueFontConfiguration_FontStyle")
+        }
+        {
+            $v = "ITALIC","NORMAL"
+            break
+        }
+
+        # Amazon.QuickSight.FontWeightName
+        {
+            ($_ -eq "New-QSTheme/Configuration_Typography_AxisLabelFontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_AxisLabelFontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_AxisTitleFontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_AxisTitleFontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_DataLabelFontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_DataLabelFontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_LegendTitleFontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_LegendTitleFontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_LegendValueFontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_LegendValueFontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontWeight_Name") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontWeight_Name")
+        }
+        {
+            $v = "BOLD","NORMAL"
+            break
+        }
+
+        # Amazon.QuickSight.HorizontalTextAlignment
+        {
+            ($_ -eq "New-QSTheme/VisualSubtitleFontConfiguration_TextAlignment") -Or
+            ($_ -eq "Update-QSTheme/VisualSubtitleFontConfiguration_TextAlignment") -Or
+            ($_ -eq "New-QSTheme/VisualTitleFontConfiguration_TextAlignment") -Or
+            ($_ -eq "Update-QSTheme/VisualTitleFontConfiguration_TextAlignment")
+        }
+        {
+            $v = "AUTO","CENTER","LEFT","RIGHT"
+            break
+        }
+
         # Amazon.QuickSight.IdentityStore
         "New-QSNamespace/IdentityStore"
         {
@@ -520,6 +598,28 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.RelativeFontSize
+        {
+            ($_ -eq "New-QSTheme/Configuration_Typography_AxisLabelFontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_AxisLabelFontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_AxisTitleFontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_AxisTitleFontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_DataLabelFontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_DataLabelFontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_LegendTitleFontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_LegendTitleFontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_LegendValueFontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_LegendValueFontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "New-QSTheme/Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontSize_Relative") -Or
+            ($_ -eq "Update-QSTheme/Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontSize_Relative")
+        }
+        {
+            $v = "EXTRA_LARGE","EXTRA_SMALL","LARGE","MEDIUM","SMALL"
+            break
+        }
+
         # Amazon.QuickSight.ResizeOption
         {
             ($_ -eq "New-QSAnalysis/ScreenCanvasSizeOptions_ResizeOption") -Or
@@ -621,6 +721,18 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.TextTransform
+        {
+            ($_ -eq "New-QSTheme/VisualSubtitleFontConfiguration_TextTransform") -Or
+            ($_ -eq "Update-QSTheme/VisualSubtitleFontConfiguration_TextTransform") -Or
+            ($_ -eq "New-QSTheme/VisualTitleFontConfiguration_TextTransform") -Or
+            ($_ -eq "Update-QSTheme/VisualTitleFontConfiguration_TextTransform")
+        }
+        {
+            $v = "CAPITALIZE"
+            break
+        }
+
         # Amazon.QuickSight.ThemeType
         "Get-QSThemeList/Type"
         {
@@ -710,6 +822,10 @@ $QS_map = @{
     "AuthenticationConfig_AuthenticationType"=@("New-QSActionConnector","Update-QSActionConnector")
     "AuthenticationMethod"=@("New-QSAccountSubscription")
     "AuthorizationCodeGrantMetadata_AuthorizationCodeGrantCredentialsSource"=@("New-QSActionConnector","Update-QSActionConnector")
+    "AxisLabelFontConfiguration_FontDecoration"=@("New-QSTheme","Update-QSTheme")
+    "AxisLabelFontConfiguration_FontStyle"=@("New-QSTheme","Update-QSTheme")
+    "AxisTitleFontConfiguration_FontDecoration"=@("New-QSTheme","Update-QSTheme")
+    "AxisTitleFontConfiguration_FontStyle"=@("New-QSTheme","Update-QSTheme")
     "Capabilities_Action"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_AddOrRunAnomalyDetectionForAnalyses"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_Analysis"=@("New-QSCustomPermission","Update-QSCustomPermission")
@@ -748,7 +864,27 @@ $QS_map = @{
     "Capabilities_UseBedrockModel"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ViewAccountSPICECapacity"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "ClientCredentialsGrantMetadata_ClientCredentialsSource"=@("New-QSActionConnector","Update-QSActionConnector")
+    "Configuration_Typography_AxisLabelFontConfiguration_FontSize_Relative"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_AxisLabelFontConfiguration_FontWeight_Name"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_AxisTitleFontConfiguration_FontSize_Relative"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_AxisTitleFontConfiguration_FontWeight_Name"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_DataLabelFontConfiguration_FontSize_Relative"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_DataLabelFontConfiguration_FontWeight_Name"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_LegendTitleFontConfiguration_FontSize_Relative"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_LegendTitleFontConfiguration_FontWeight_Name"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_LegendValueFontConfiguration_FontSize_Relative"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_LegendValueFontConfiguration_FontWeight_Name"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontDecoration"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontSize_Relative"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontStyle"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_VisualSubtitleFontConfiguration_FontConfiguration_FontWeight_Name"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontDecoration"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontSize_Relative"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontStyle"=@("New-QSTheme","Update-QSTheme")
+    "Configuration_Typography_VisualTitleFontConfiguration_FontConfiguration_FontWeight_Name"=@("New-QSTheme","Update-QSTheme")
     "DashboardsQAStatus"=@("Update-QSDashboardsQAConfiguration")
+    "DataLabelFontConfiguration_FontDecoration"=@("New-QSTheme","Update-QSTheme")
+    "DataLabelFontConfiguration_FontStyle"=@("New-QSTheme","Update-QSTheme")
     "DataPointDrillUpDownOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataPointMenuLabelOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataPointTooltipOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
@@ -772,6 +908,10 @@ $QS_map = @{
     "IncludeGeneratedAnswer"=@("Search-QSQAResult")
     "IncludeQuickSightQIndex"=@("Search-QSQAResult")
     "IngestionType"=@("New-QSIngestion")
+    "LegendTitleFontConfiguration_FontDecoration"=@("New-QSTheme","Update-QSTheme")
+    "LegendTitleFontConfiguration_FontStyle"=@("New-QSTheme","Update-QSTheme")
+    "LegendValueFontConfiguration_FontDecoration"=@("New-QSTheme","Update-QSTheme")
+    "LegendValueFontConfiguration_FontStyle"=@("New-QSTheme","Update-QSTheme")
     "LookbackWindow_SizeUnit"=@("Write-QSDataSetRefreshProperty")
     "MemberType"=@("New-QSFolderMembership","Remove-QSFolderMembership")
     "Options_QBusinessInsightsStatus"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
@@ -807,6 +947,10 @@ $QS_map = @{
     "ValidationStrategy_Mode"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "VisualAxisSortOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "VisualMenuOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "VisualSubtitleFontConfiguration_TextAlignment"=@("New-QSTheme","Update-QSTheme")
+    "VisualSubtitleFontConfiguration_TextTransform"=@("New-QSTheme","Update-QSTheme")
+    "VisualTitleFontConfiguration_TextAlignment"=@("New-QSTheme","Update-QSTheme")
+    "VisualTitleFontConfiguration_TextTransform"=@("New-QSTheme","Update-QSTheme")
     "WebCrawlerParameters_WebCrawlerAuthType"=@("New-QSDataSource","Update-QSDataSource")
 }
 

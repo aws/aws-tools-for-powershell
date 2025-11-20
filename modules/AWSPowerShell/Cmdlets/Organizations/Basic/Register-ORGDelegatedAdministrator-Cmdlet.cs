@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// Administrator</i> in the table at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html">Amazon
     /// Web Services Services that you can use with Organizations</a> in the <i>Organizations
     /// User Guide.</i></para><para>
-    /// This operation can be called only from the organization's management account.
+    /// You can only call this operation from the management account.
     /// </para>
     /// </summary>
     [Cmdlet("Register", "ORGDelegatedAdministrator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

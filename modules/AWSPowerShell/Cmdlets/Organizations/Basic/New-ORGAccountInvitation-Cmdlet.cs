@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// If the request includes tags, then the requester must have the <c>organizations:TagResource</c>
     /// permission.
     /// </para><para>
-    /// This operation can be called only from the organization's management account.
+    /// You can only call this operation from the management account.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ORGAccountInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter Target_Id
         /// <summary>
         /// <para>
-        /// <para>The unique identifier (ID) for the party.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for handshake ID string
+        /// <para>ID for the participant: Acccount ID, organization ID, or email address.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for handshake ID string
         /// requires "h-" followed by from 8 to 32 lowercase letters or digits.</para>
         /// </para>
         /// </summary>
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter Target_Type
         /// <summary>
         /// <para>
-        /// <para>The type of party.</para>
+        /// <para>The type of ID for the participant.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

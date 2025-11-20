@@ -87,6 +87,19 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public byte[] CertificateWallet { get; set; }
         #endregion
         
+        #region Parameter KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>An KMS key identifier that is used to encrypt the certificate.</para><para>If you don't specify a value for the <c>KmsKeyId</c> parameter, then DMS uses your
+        /// default encryption key.</para><para>KMS creates the default encryption key for your Amazon Web Services account. Your
+        /// Amazon Web Services account has a different default encryption key for each Amazon
+        /// Web Services Region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -169,6 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             #endif
             context.CertificatePem = this.CertificatePem;
             context.CertificateWallet = this.CertificateWallet;
+            context.KmsKeyId = this.KmsKeyId;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.DatabaseMigrationService.Model.Tag>(this.Tag);
@@ -205,6 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 {
                     _CertificateWalletStream = new System.IO.MemoryStream(cmdletContext.CertificateWallet);
                     request.CertificateWallet = _CertificateWalletStream;
+                }
+                if (cmdletContext.KmsKeyId != null)
+                {
+                    request.KmsKeyId = cmdletContext.KmsKeyId;
                 }
                 if (cmdletContext.Tag != null)
                 {
@@ -282,6 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String CertificateIdentifier { get; set; }
             public System.String CertificatePem { get; set; }
             public byte[] CertificateWallet { get; set; }
+            public System.String KmsKeyId { get; set; }
             public List<Amazon.DatabaseMigrationService.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.DatabaseMigrationService.Model.ImportCertificateResponse, ImportDMSCertificateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Certificate;

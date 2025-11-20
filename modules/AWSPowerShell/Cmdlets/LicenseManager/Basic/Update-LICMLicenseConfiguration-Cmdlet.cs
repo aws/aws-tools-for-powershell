@@ -110,6 +110,16 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         public System.Boolean? LicenseCountHardLimit { get; set; }
         #endregion
         
+        #region Parameter LicenseExpiry
+        /// <summary>
+        /// <para>
+        /// <para>License configuration expiry time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? LicenseExpiry { get; set; }
+        #endregion
+        
         #region Parameter LicenseRule
         /// <summary>
         /// <para>
@@ -215,6 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             context.LicenseConfigurationStatus = this.LicenseConfigurationStatus;
             context.LicenseCount = this.LicenseCount;
             context.LicenseCountHardLimit = this.LicenseCountHardLimit;
+            context.LicenseExpiry = this.LicenseExpiry;
             if (this.LicenseRule != null)
             {
                 context.LicenseRule = new List<System.String>(this.LicenseRule);
@@ -263,6 +274,10 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             if (cmdletContext.LicenseCountHardLimit != null)
             {
                 request.LicenseCountHardLimit = cmdletContext.LicenseCountHardLimit.Value;
+            }
+            if (cmdletContext.LicenseExpiry != null)
+            {
+                request.LicenseExpiry = cmdletContext.LicenseExpiry.Value;
             }
             if (cmdletContext.LicenseRule != null)
             {
@@ -343,6 +358,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             public Amazon.LicenseManager.LicenseConfigurationStatus LicenseConfigurationStatus { get; set; }
             public System.Int64? LicenseCount { get; set; }
             public System.Boolean? LicenseCountHardLimit { get; set; }
+            public System.Int64? LicenseExpiry { get; set; }
             public List<System.String> LicenseRule { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.LicenseManager.Model.ProductInformation> ProductInformationList { get; set; }

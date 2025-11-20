@@ -47,6 +47,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchRebootClusterNodes" OutputProperty="*" Verb="Set" Noun="BatchRebootClusterNode" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchReplaceClusterNodes" OutputProperty="*" Verb="Set" Noun="BatchReplaceClusterNode" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAction" OutputProperty="ActionArn" Verb="New" Noun="Action" ShouldProcessTarget="ActionName" PipelineParameter="ActionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

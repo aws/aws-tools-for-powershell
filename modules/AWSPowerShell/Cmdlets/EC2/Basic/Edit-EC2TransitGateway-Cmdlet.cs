@@ -137,6 +137,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.DnsSupportValue Options_DnsSupport { get; set; }
         #endregion
         
+        #region Parameter Options_EncryptionSupport
+        /// <summary>
+        /// <para>
+        /// <para>Enable or disable encryption support for VPC Encryption Control.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.EncryptionSupportOptionValue")]
+        public Amazon.EC2.EncryptionSupportOptionValue Options_EncryptionSupport { get; set; }
+        #endregion
+        
         #region Parameter Options_PropagationDefaultRouteTableId
         /// <summary>
         /// <para>
@@ -272,6 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Options_DefaultRouteTableAssociation = this.Options_DefaultRouteTableAssociation;
             context.Options_DefaultRouteTablePropagation = this.Options_DefaultRouteTablePropagation;
             context.Options_DnsSupport = this.Options_DnsSupport;
+            context.Options_EncryptionSupport = this.Options_EncryptionSupport;
             context.Options_PropagationDefaultRouteTableId = this.Options_PropagationDefaultRouteTableId;
             if (this.Options_RemoveTransitGatewayCidrBlock != null)
             {
@@ -378,6 +390,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestOptions_options_DnsSupport != null)
             {
                 request.Options.DnsSupport = requestOptions_options_DnsSupport;
+                requestOptionsIsNull = false;
+            }
+            Amazon.EC2.EncryptionSupportOptionValue requestOptions_options_EncryptionSupport = null;
+            if (cmdletContext.Options_EncryptionSupport != null)
+            {
+                requestOptions_options_EncryptionSupport = cmdletContext.Options_EncryptionSupport;
+            }
+            if (requestOptions_options_EncryptionSupport != null)
+            {
+                request.Options.EncryptionSupport = requestOptions_options_EncryptionSupport;
                 requestOptionsIsNull = false;
             }
             System.String requestOptions_options_PropagationDefaultRouteTableId = null;
@@ -498,6 +520,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.DefaultRouteTableAssociationValue Options_DefaultRouteTableAssociation { get; set; }
             public Amazon.EC2.DefaultRouteTablePropagationValue Options_DefaultRouteTablePropagation { get; set; }
             public Amazon.EC2.DnsSupportValue Options_DnsSupport { get; set; }
+            public Amazon.EC2.EncryptionSupportOptionValue Options_EncryptionSupport { get; set; }
             public System.String Options_PropagationDefaultRouteTableId { get; set; }
             public List<System.String> Options_RemoveTransitGatewayCidrBlock { get; set; }
             public Amazon.EC2.SecurityGroupReferencingSupportValue Options_SecurityGroupReferencingSupport { get; set; }

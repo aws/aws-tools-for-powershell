@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// 
     ///  
     /// <para>
-    /// This operation can be called only from the organization's management account.
+    /// You can only call this operation from the management account.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "ORGOrganizationalUnit", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter OrganizationalUnitId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier (ID) of the OU that you want to rename. You can get the ID from
-        /// the <a>ListOrganizationalUnitsForParent</a> operation.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational
+        /// <para>ID for the OU that you want to rename. You can get the ID from the <a>ListOrganizationalUnitsForParent</a>
+        /// operation.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational
         /// unit ID string requires "ou-" followed by from 4 to 32 lowercase letters or digits
         /// (the ID of the root that contains the OU). This string is followed by a second "-"
         /// dash and from 8 to 32 additional lowercase letters or digits.</para>
