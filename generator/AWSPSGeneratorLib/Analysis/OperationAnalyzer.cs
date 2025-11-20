@@ -857,6 +857,12 @@ namespace AWSPowerShellGenerator.Analysis
             CurrentOperation.SelectedVerb = verb;
             CurrentOperation.SelectedNoun = nounWithPrefix;
 
+            // Log the assigned verb and noun when AutoConfiguring
+            if (CurrentOperation.IsAutoConfiguring)
+            {
+                Console.WriteLine($"Assigned Noun and Verb: Verb='{verb}', Noun='{nounWithPrefix}', ServiceOperation='{CurrentOperation.MethodName}', C2JFileName='{CurrentModel.C2jFilename}'");
+            }
+
             if (CurrentOperation.RequestedVerb != verb || CurrentOperation.RequestedNoun != noun)
             {
                 if (!CurrentOperation.IsAutoConfiguring)
