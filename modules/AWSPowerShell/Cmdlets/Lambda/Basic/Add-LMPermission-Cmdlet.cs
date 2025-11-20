@@ -128,9 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter InvokedViaFunctionUrl
         /// <summary>
         /// <para>
-        /// <para>Restricts the <c>lambda:InvokeFunction</c> action to function URL calls. When set
-        /// to <c>true</c>, this prevents the principal from invoking the function by any means
-        /// other than the function URL. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control
+        /// <para>Restricts the <c>lambda:InvokeFunction</c> action to function URL calls. When specified,
+        /// this option prevents the principal from invoking the function by any means other than
+        /// the function URL. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control
         /// access to Lambda function URLs</a>.</para>
         /// </para>
         /// </summary>

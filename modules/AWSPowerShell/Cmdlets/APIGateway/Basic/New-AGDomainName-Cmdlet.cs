@@ -117,6 +117,18 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String DomainName { get; set; }
         #endregion
         
+        #region Parameter EndpointAccessMode
+        /// <summary>
+        /// <para>
+        /// <para> The endpoint access mode of the DomainName. Only available for DomainNames that use
+        /// security policies that start with <c>SecurityPolicy_</c>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.APIGateway.EndpointAccessMode")]
+        public Amazon.APIGateway.EndpointAccessMode EndpointAccessMode { get; set; }
+        #endregion
+        
         #region Parameter EndpointConfiguration_IpAddressType
         /// <summary>
         /// <para>
@@ -192,8 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter SecurityPolicy
         /// <summary>
         /// <para>
-        /// <para>The Transport Layer Security (TLS) version + cipher suite for this DomainName. The
-        /// valid values are <c>TLS_1_0</c> and <c>TLS_1_2</c>.</para>
+        /// <para>The Transport Layer Security (TLS) version + cipher suite for this DomainName.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -339,6 +350,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EndpointAccessMode = this.EndpointAccessMode;
             context.EndpointConfiguration_IpAddressType = this.EndpointConfiguration_IpAddressType;
             if (this.EndpointConfiguration_Type != null)
             {
@@ -403,6 +415,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.DomainName != null)
             {
                 request.DomainName = cmdletContext.DomainName;
+            }
+            if (cmdletContext.EndpointAccessMode != null)
+            {
+                request.EndpointAccessMode = cmdletContext.EndpointAccessMode;
             }
             
              // populate EndpointConfiguration
@@ -567,6 +583,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public System.String CertificateName { get; set; }
             public System.String CertificatePrivateKey { get; set; }
             public System.String DomainName { get; set; }
+            public Amazon.APIGateway.EndpointAccessMode EndpointAccessMode { get; set; }
             public Amazon.APIGateway.IpAddressType EndpointConfiguration_IpAddressType { get; set; }
             public List<System.String> EndpointConfiguration_Type { get; set; }
             public List<System.String> EndpointConfiguration_VpcEndpointId { get; set; }

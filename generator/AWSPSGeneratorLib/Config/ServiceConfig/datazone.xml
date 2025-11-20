@@ -43,6 +43,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetAttributesMetadata" OutputProperty="*" Verb="Get" Noun="BatchAttributesMetadata" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchPutAttributesMetadata" OutputProperty="*" Verb="Set" Noun="BatchAttributesMetadata" ShouldProcessTarget="DomainIdentifier,EntityIdentifier,EntityType" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelMetadataGenerationRun" Verb="Stop" Noun="MetadataGenerationRun" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -693,6 +701,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateProjectProfile" OutputProperty="*" Verb="Update" Noun="ProjectProfile" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRootDomainUnitOwner" Verb="Update" Noun="RootDomainUnitOwner" ShouldProcessTarget="CurrentOwner,DomainIdentifier,NewOwner" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

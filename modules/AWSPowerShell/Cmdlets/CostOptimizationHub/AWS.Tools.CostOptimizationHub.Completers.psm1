@@ -87,6 +87,13 @@ $COH_Completers = {
             break
         }
 
+        # Amazon.CostOptimizationHub.GranularityType
+        "Get-COHEfficiencyMetricList/Granularity"
+        {
+            $v = "Daily","Monthly"
+            break
+        }
+
         # Amazon.CostOptimizationHub.MemberAccountDiscountVisibility
         "Update-COHPreference/MemberAccountDiscountVisibility"
         {
@@ -95,7 +102,10 @@ $COH_Completers = {
         }
 
         # Amazon.CostOptimizationHub.Order
-        "Get-COHRecommendationList/OrderBy_Order"
+        {
+            ($_ -eq "Get-COHEfficiencyMetricList/OrderBy_Order") -Or
+            ($_ -eq "Get-COHRecommendationList/OrderBy_Order")
+        }
         {
             $v = "Asc","Desc"
             break
@@ -131,8 +141,9 @@ $COH_Completers = {
 }
 
 $COH_map = @{
+    "Granularity"=@("Get-COHEfficiencyMetricList")
     "MemberAccountDiscountVisibility"=@("Update-COHPreference")
-    "OrderBy_Order"=@("Get-COHRecommendationList")
+    "OrderBy_Order"=@("Get-COHEfficiencyMetricList","Get-COHRecommendationList")
     "PreferredCommitment_PaymentOption"=@("Update-COHPreference")
     "PreferredCommitment_Term"=@("Update-COHPreference")
     "SavingsEstimationMode"=@("Update-COHPreference")
@@ -191,6 +202,7 @@ $COH_SelectCompleters = {
 $COH_SelectMap = @{
     "Select"=@("Get-COHPreference",
                "Get-COHRecommendation",
+               "Get-COHEfficiencyMetricList",
                "Get-COHEnrollmentStatusList",
                "Get-COHRecommendationList",
                "Get-COHRecommendationSummaryList",

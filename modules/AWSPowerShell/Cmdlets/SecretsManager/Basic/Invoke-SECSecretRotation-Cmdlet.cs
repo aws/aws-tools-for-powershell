@@ -124,14 +124,43 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         public System.String RotationRules_Duration { get; set; }
         #endregion
         
+        #region Parameter ExternalSecretRotationMetadata
+        /// <summary>
+        /// <para>
+        /// <para>The metadata needed to successfully rotate a managed external secret. A list of key
+        /// value pairs in JSON format specified by the partner. For more information about the
+        /// required information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/managed-external-secrets.html">Using
+        /// Secrets Manager managed external secrets</a></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.SecretsManager.Model.ExternalSecretRotationMetadataItem[] ExternalSecretRotationMetadata { get; set; }
+        #endregion
+        
+        #region Parameter ExternalSecretRotationRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the role that allows Secrets Manager to rotate a
+        /// secret held by a third-party partner. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-security.html">Security
+        /// and permissions</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExternalSecretRotationRoleArn { get; set; }
+        #endregion
+        
         #region Parameter RotateImmediately
         /// <summary>
         /// <para>
         /// <para>Specifies whether to rotate the secret immediately or wait until the next scheduled
-        /// rotation window. The rotation schedule is defined in <a>RotateSecretRequest$RotationRules</a>.</para><para>For secrets that use a Lambda rotation function to rotate, if you don't immediately
-        /// rotate the secret, Secrets Manager tests the rotation configuration by running the
-        /// <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_lambda-functions.html#rotate-secrets_lambda-functions-code"><c>testSecret</c> step</a> of the Lambda rotation function. The test creates an <c>AWSPENDING</c>
-        /// version of the secret and then removes it.</para><para>By default, Secrets Manager rotates the secret immediately.</para>
+        /// rotation window. The rotation schedule is defined in <a>RotateSecretRequest$RotationRules</a>.</para><para>The default for <c>RotateImmediately</c> is <c>true</c>. If you don't specify this
+        /// value, Secrets Manager rotates the secret immediately.</para><para>If you set <c>RotateImmediately</c> to <c>false</c>, Secrets Manager tests the rotation
+        /// configuration by running the <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html"><c>testSecret</c> step</a> of the Lambda rotation function. This test creates an <c>AWSPENDING</c>
+        /// version of the secret and then removes it.</para><para>When changing an existing rotation schedule and setting <c>RotateImmediately</c> to
+        /// <c>false</c>:</para><ul><li><para>If using <c>AutomaticallyAfterDays</c> or a <c>ScheduleExpression</c> with <c>rate()</c>,
+        /// the previously scheduled rotation might still occur.</para></li><li><para>To prevent unintended rotations, use a <c>ScheduleExpression</c> with <c>cron()</c>
+        /// for granular control over rotation windows.</para></li></ul><para>Rotation is an asynchronous process. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html">How
+        /// rotation works</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -259,6 +288,11 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
+            if (this.ExternalSecretRotationMetadata != null)
+            {
+                context.ExternalSecretRotationMetadata = new List<Amazon.SecretsManager.Model.ExternalSecretRotationMetadataItem>(this.ExternalSecretRotationMetadata);
+            }
+            context.ExternalSecretRotationRoleArn = this.ExternalSecretRotationRoleArn;
             context.RotateImmediately = this.RotateImmediately;
             context.RotationLambdaARN = this.RotationLambdaARN;
             context.RotationRules_AutomaticallyAfterDay = this.RotationRules_AutomaticallyAfterDay;
@@ -290,6 +324,14 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.ExternalSecretRotationMetadata != null)
+            {
+                request.ExternalSecretRotationMetadata = cmdletContext.ExternalSecretRotationMetadata;
+            }
+            if (cmdletContext.ExternalSecretRotationRoleArn != null)
+            {
+                request.ExternalSecretRotationRoleArn = cmdletContext.ExternalSecretRotationRoleArn;
             }
             if (cmdletContext.RotateImmediately != null)
             {
@@ -404,6 +446,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public List<Amazon.SecretsManager.Model.ExternalSecretRotationMetadataItem> ExternalSecretRotationMetadata { get; set; }
+            public System.String ExternalSecretRotationRoleArn { get; set; }
             public System.Boolean? RotateImmediately { get; set; }
             public System.String RotationLambdaARN { get; set; }
             public System.Int64? RotationRules_AutomaticallyAfterDay { get; set; }

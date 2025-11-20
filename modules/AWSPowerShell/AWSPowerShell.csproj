@@ -919,6 +919,9 @@
     <Reference Include="AWSSDK.Panorama">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Panorama.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.PartnerCentralChannel">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.PartnerCentralChannel.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.PartnerCentralSelling">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.PartnerCentralSelling.dll</HintPath>
     </Reference>
@@ -1119,6 +1122,9 @@
     </Reference>
     <Reference Include="AWSSDK.Shield">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Shield.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Signin">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Signin.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleEmail">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SimpleEmail.dll</HintPath>
@@ -2130,6 +2136,9 @@
     <Reference Include="AWSSDK.Panorama">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Panorama.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.PartnerCentralChannel">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.PartnerCentralChannel.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.PartnerCentralSelling">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.PartnerCentralSelling.dll</HintPath>
     </Reference>
@@ -2330,6 +2339,9 @@
     </Reference>
     <Reference Include="AWSSDK.Shield">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Shield.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Signin">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Signin.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleEmail">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SimpleEmail.dll</HintPath>

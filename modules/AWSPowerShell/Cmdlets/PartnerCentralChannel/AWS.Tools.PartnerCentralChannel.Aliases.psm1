@@ -1,0 +1,3 @@
+﻿# PartnerCentralChannel
+
+Export-ModuleMember -Alias *

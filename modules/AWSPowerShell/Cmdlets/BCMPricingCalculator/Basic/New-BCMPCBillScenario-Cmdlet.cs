@@ -42,6 +42,28 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter CostCategoryGroupSharingPreferenceArn
+        /// <summary>
+        /// <para>
+        /// <para>The arn of the cost category used in the reserved and prioritized group sharing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CostCategoryGroupSharingPreferenceArn { get; set; }
+        #endregion
+        
+        #region Parameter GroupSharingPreference
+        /// <summary>
+        /// <para>
+        /// <para>The setting for the reserved instance and savings plan group sharing used in this
+        /// estimate.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BCMPricingCalculator.GroupSharingPreferenceEnum")]
+        public Amazon.BCMPricingCalculator.GroupSharingPreferenceEnum GroupSharingPreference { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -143,6 +165,8 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            context.CostCategoryGroupSharingPreferenceArn = this.CostCategoryGroupSharingPreferenceArn;
+            context.GroupSharingPreference = this.GroupSharingPreference;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -177,6 +201,14 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.CostCategoryGroupSharingPreferenceArn != null)
+            {
+                request.CostCategoryGroupSharingPreferenceArn = cmdletContext.CostCategoryGroupSharingPreferenceArn;
+            }
+            if (cmdletContext.GroupSharingPreference != null)
+            {
+                request.GroupSharingPreference = cmdletContext.GroupSharingPreference;
             }
             if (cmdletContext.Name != null)
             {
@@ -248,6 +280,8 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.String CostCategoryGroupSharingPreferenceArn { get; set; }
+            public Amazon.BCMPricingCalculator.GroupSharingPreferenceEnum GroupSharingPreference { get; set; }
             public System.String Name { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.BCMPricingCalculator.Model.CreateBillScenarioResponse, NewBCMPCBillScenarioCmdlet, object> Select { get; set; } =

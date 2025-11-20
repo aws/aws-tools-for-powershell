@@ -45,10 +45,19 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// </para></li><li><para>
     /// Data points with a period of 3600 seconds (1 hour) are available for 90 days.
     /// </para></li></ul><para>
-    /// Access to the <c>ListInsightsMetricData</c> API operation is linked to the <c>cloudtrail:LookupEvents</c>
-    /// action. To use this operation, you must have permissions to perform the <c>cloudtrail:LookupEvents</c>
+    /// To use <c>ListInsightsMetricData</c> operation, you must have the following permissions:
+    /// </para><ul><li><para>
+    /// If <c>ListInsightsMetricData</c> is invoked with <c>TrailName</c> parameter, access
+    /// to the <c>ListInsightsMetricData</c> API operation is linked to the <c>cloudtrail:LookupEvents</c>
+    /// action and <c>cloudtrail:ListInsightsData</c>. To use this operation, you must have
+    /// permissions to perform the <c>cloudtrail:LookupEvents</c> and <c>cloudtrail:ListInsightsData</c>
+    /// action on the specific trail.
+    /// </para></li><li><para>
+    /// If <c>ListInsightsMetricData</c> is invoked without <c>TrailName</c> parameter, access
+    /// to the <c>ListInsightsMetricData</c> API operation is linked to the <c>cloudtrail:LookupEvents</c>
+    /// action only. To use this operation, you must have permissions to perform the <c>cloudtrail:LookupEvents</c>
     /// action.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CTInsightsMetricData")]
     [OutputType("Amazon.CloudTrail.Model.ListInsightsMetricDataResponse")]
@@ -175,6 +184,19 @@ namespace Amazon.PowerShell.Cmdlets.CT
         public System.DateTime? StartTime { get; set; }
         #endregion
         
+        #region Parameter TrailName
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name(ARN) or name of the trail for which you want to retrieve
+        /// Insights metrics data. This parameter should only be provided to fetch Insights metrics
+        /// data generated on trails logging data events. This parameter is not required for Insights
+        /// metric data generated on trails logging management events.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TrailName { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -267,6 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             context.NextToken = this.NextToken;
             context.Period = this.Period;
             context.StartTime = this.StartTime;
+            context.TrailName = this.TrailName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -320,6 +343,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
             if (cmdletContext.StartTime != null)
             {
                 request.StartTime = cmdletContext.StartTime.Value;
+            }
+            if (cmdletContext.TrailName != null)
+            {
+                request.TrailName = cmdletContext.TrailName;
             }
             
             // Initialize loop variant and commence piping
@@ -416,6 +443,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             public System.String NextToken { get; set; }
             public System.Int32? Period { get; set; }
             public System.DateTime? StartTime { get; set; }
+            public System.String TrailName { get; set; }
             public System.Func<Amazon.CloudTrail.Model.ListInsightsMetricDataResponse, GetCTInsightsMetricDataCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

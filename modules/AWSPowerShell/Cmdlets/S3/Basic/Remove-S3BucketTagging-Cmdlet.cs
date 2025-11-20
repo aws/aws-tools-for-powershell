@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <note><para>
     /// This operation is not supported for directory buckets.
     /// </para></note><para>
-    /// Deletes the tags from the bucket.
+    /// Deletes tags from the bucket.
     /// </para><para>
     /// To use this operation, you must have permission to perform the <c>s3:PutBucketTagging</c>
     /// action. By default, the bucket owner has this permission and can grant this permission

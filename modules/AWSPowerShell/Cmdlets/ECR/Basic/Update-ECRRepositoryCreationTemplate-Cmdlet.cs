@@ -114,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter ImageTagMutabilityExclusionFilter
         /// <summary>
         /// <para>
-        /// <para>Updates a repository with filters that define which image tags can override the default
-        /// image tag mutability setting.</para>
+        /// <para>A list of filters that specify which image tags should be excluded from the repository
+        /// creation template's image tag mutability setting.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

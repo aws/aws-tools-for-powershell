@@ -73,14 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         /// consolidated billing family, and not associated with another billing group.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("AccountGrouping_LinkedAccountIds")]
         public System.String[] AccountGrouping_LinkedAccountId { get; set; }
         #endregion
@@ -128,6 +121,18 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String PrimaryAccountId { get; set; }
+        #endregion
+        
+        #region Parameter AccountGrouping_ResponsibilityTransferArn
+        /// <summary>
+        /// <para>
+        /// <para> The Amazon Resource Name (ARN) that identifies the transfer relationship owned by
+        /// the Bill Transfer account (caller account). When specified, the PrimaryAccountId is
+        /// no longer required. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountGrouping_ResponsibilityTransferArn { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -222,12 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             {
                 context.AccountGrouping_LinkedAccountId = new List<System.String>(this.AccountGrouping_LinkedAccountId);
             }
-            #if MODULAR
-            if (this.AccountGrouping_LinkedAccountId == null && ParameterWasBound(nameof(this.AccountGrouping_LinkedAccountId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AccountGrouping_LinkedAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.AccountGrouping_ResponsibilityTransferArn = this.AccountGrouping_ResponsibilityTransferArn;
             context.ClientToken = this.ClientToken;
             context.ComputationPreference_PricingPlanArn = this.ComputationPreference_PricingPlanArn;
             #if MODULAR
@@ -291,6 +291,16 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             if (requestAccountGrouping_accountGrouping_LinkedAccountId != null)
             {
                 request.AccountGrouping.LinkedAccountIds = requestAccountGrouping_accountGrouping_LinkedAccountId;
+                requestAccountGroupingIsNull = false;
+            }
+            System.String requestAccountGrouping_accountGrouping_ResponsibilityTransferArn = null;
+            if (cmdletContext.AccountGrouping_ResponsibilityTransferArn != null)
+            {
+                requestAccountGrouping_accountGrouping_ResponsibilityTransferArn = cmdletContext.AccountGrouping_ResponsibilityTransferArn;
+            }
+            if (requestAccountGrouping_accountGrouping_ResponsibilityTransferArn != null)
+            {
+                request.AccountGrouping.ResponsibilityTransferArn = requestAccountGrouping_accountGrouping_ResponsibilityTransferArn;
                 requestAccountGroupingIsNull = false;
             }
              // determine if request.AccountGrouping should be set to null
@@ -400,6 +410,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         {
             public System.Boolean? AccountGrouping_AutoAssociate { get; set; }
             public List<System.String> AccountGrouping_LinkedAccountId { get; set; }
+            public System.String AccountGrouping_ResponsibilityTransferArn { get; set; }
             public System.String ClientToken { get; set; }
             public System.String ComputationPreference_PricingPlanArn { get; set; }
             public System.String Description { get; set; }

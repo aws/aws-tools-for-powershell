@@ -61,6 +61,19 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Filter_Actionability
+        /// <summary>
+        /// <para>
+        /// <para>A list of actionability values to filter events. Use this to filter events based on
+        /// whether they require action (<c>ACTION_REQUIRED</c>), may require action (<c>ACTION_MAY_BE_REQUIRED</c>)
+        /// or are informational (<c>INFORMATIONAL</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_Actionabilities")]
+        public System.String[] Filter_Actionability { get; set; }
+        #endregion
+        
         #region Parameter Filter_AwsAccountId
         /// <summary>
         /// <para>
@@ -173,6 +186,18 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Locale { get; set; }
+        #endregion
+        
+        #region Parameter Filter_Persona
+        /// <summary>
+        /// <para>
+        /// <para>A list of persona values to filter events. Use this to filter events based on their
+        /// target audience: <c>OPERATIONS</c>, <c>SECURITY</c>, or <c>BILLING</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_Personas")]
+        public System.String[] Filter_Persona { get; set; }
         #endregion
         
         #region Parameter Filter_Region
@@ -321,6 +346,10 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
                 context.Select = (response, cmdlet) => this.Locale;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.Filter_Actionability != null)
+            {
+                context.Filter_Actionability = new List<System.String>(this.Filter_Actionability);
+            }
             if (this.Filter_AwsAccountId != null)
             {
                 context.Filter_AwsAccountId = new List<System.String>(this.Filter_AwsAccountId);
@@ -349,6 +378,10 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             }
             context.LastUpdatedTime_From = this.LastUpdatedTime_From;
             context.LastUpdatedTime_To = this.LastUpdatedTime_To;
+            if (this.Filter_Persona != null)
+            {
+                context.Filter_Persona = new List<System.String>(this.Filter_Persona);
+            }
             if (this.Filter_Region != null)
             {
                 context.Filter_Region = new List<System.String>(this.Filter_Region);
@@ -396,6 +429,16 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
              // populate Filter
             var requestFilterIsNull = true;
             request.Filter = new Amazon.AWSHealth.Model.OrganizationEventFilter();
+            List<System.String> requestFilter_filter_Actionability = null;
+            if (cmdletContext.Filter_Actionability != null)
+            {
+                requestFilter_filter_Actionability = cmdletContext.Filter_Actionability;
+            }
+            if (requestFilter_filter_Actionability != null)
+            {
+                request.Filter.Actionabilities = requestFilter_filter_Actionability;
+                requestFilterIsNull = false;
+            }
             List<System.String> requestFilter_filter_AwsAccountId = null;
             if (cmdletContext.Filter_AwsAccountId != null)
             {
@@ -454,6 +497,16 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             if (requestFilter_filter_EventTypeCode != null)
             {
                 request.Filter.EventTypeCodes = requestFilter_filter_EventTypeCode;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_Persona = null;
+            if (cmdletContext.Filter_Persona != null)
+            {
+                requestFilter_filter_Persona = cmdletContext.Filter_Persona;
+            }
+            if (requestFilter_filter_Persona != null)
+            {
+                request.Filter.Personas = requestFilter_filter_Persona;
                 requestFilterIsNull = false;
             }
             List<System.String> requestFilter_filter_Region = null;
@@ -653,6 +706,16 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
              // populate Filter
             var requestFilterIsNull = true;
             request.Filter = new Amazon.AWSHealth.Model.OrganizationEventFilter();
+            List<System.String> requestFilter_filter_Actionability = null;
+            if (cmdletContext.Filter_Actionability != null)
+            {
+                requestFilter_filter_Actionability = cmdletContext.Filter_Actionability;
+            }
+            if (requestFilter_filter_Actionability != null)
+            {
+                request.Filter.Actionabilities = requestFilter_filter_Actionability;
+                requestFilterIsNull = false;
+            }
             List<System.String> requestFilter_filter_AwsAccountId = null;
             if (cmdletContext.Filter_AwsAccountId != null)
             {
@@ -711,6 +774,16 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             if (requestFilter_filter_EventTypeCode != null)
             {
                 request.Filter.EventTypeCodes = requestFilter_filter_EventTypeCode;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_Persona = null;
+            if (cmdletContext.Filter_Persona != null)
+            {
+                requestFilter_filter_Persona = cmdletContext.Filter_Persona;
+            }
+            if (requestFilter_filter_Persona != null)
+            {
+                request.Filter.Personas = requestFilter_filter_Persona;
                 requestFilterIsNull = false;
             }
             List<System.String> requestFilter_filter_Region = null;
@@ -966,6 +1039,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> Filter_Actionability { get; set; }
             public List<System.String> Filter_AwsAccountId { get; set; }
             public System.DateTime? EndTime_From { get; set; }
             public System.DateTime? EndTime_To { get; set; }
@@ -976,6 +1050,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             public List<System.String> Filter_EventTypeCode { get; set; }
             public System.DateTime? LastUpdatedTime_From { get; set; }
             public System.DateTime? LastUpdatedTime_To { get; set; }
+            public List<System.String> Filter_Persona { get; set; }
             public List<System.String> Filter_Region { get; set; }
             public List<System.String> Filter_Service { get; set; }
             public System.DateTime? StartTime_From { get; set; }

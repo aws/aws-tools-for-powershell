@@ -198,6 +198,19 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Platform
+        /// <summary>
+        /// <para>
+        /// <para>The platform type for the app monitor. Valid values are <c>Web</c> for web applications,
+        /// <c>Android</c> for Android applications, and <c>iOS</c> for IOS applications. If you
+        /// omit this parameter, the default is <c>Web</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudWatchRUM.AppMonitorPlatform")]
+        public Amazon.CloudWatchRUM.AppMonitorPlatform Platform { get; set; }
+        #endregion
+        
         #region Parameter JavaScriptSourceMaps_S3Uri
         /// <summary>
         /// <para>
@@ -377,6 +390,7 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Platform = this.Platform;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -579,6 +593,10 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.Platform != null)
+            {
+                request.Platform = cmdletContext.Platform;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -660,6 +678,7 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
             public System.String Domain { get; set; }
             public List<System.String> DomainList { get; set; }
             public System.String Name { get; set; }
+            public Amazon.CloudWatchRUM.AppMonitorPlatform Platform { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.CloudWatchRUM.Model.CreateAppMonitorResponse, NewCWRUMAppMonitorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Id;

@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// </para><para>
     /// The <c>TestState</c> API can run for up to five minutes. If the execution of a state
     /// exceeds this duration, it fails with the <c>States.Timeout</c> error.
-    /// </para><para><c>TestState</c> doesn't support <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-activities.html">Activity
+    /// </para><para><c>TestState</c> only supports the following when a mock is specified: <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-activities.html">Activity
     /// tasks</a>, <c>.sync</c> or <c>.waitForTaskToken</c><a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html">service
     /// integration patterns</a>, <a href="https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-parallel-state.html">Parallel</a>,
     /// or <a href="https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-map-state.html">Map</a>
@@ -75,11 +75,33 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ErrorOutput_Cause
+        /// <summary>
+        /// <para>
+        /// <para>A string containing the cause of the exception thrown when executing the state's logic.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Mock_ErrorOutput_Cause")]
+        public System.String ErrorOutput_Cause { get; set; }
+        #endregion
+        
+        #region Parameter Context
+        /// <summary>
+        /// <para>
+        /// <para>A JSON string representing a valid Context object for the state under test. This field
+        /// may only be specified if a mock is specified in the same request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Context { get; set; }
+        #endregion
+        
         #region Parameter Definition
         /// <summary>
         /// <para>
         /// <para>The <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon
-        /// States Language</a> (ASL) definition of the state.</para>
+        /// States Language</a> (ASL) definition of the state or state machine.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,6 +113,42 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Definition { get; set; }
+        #endregion
+        
+        #region Parameter ErrorOutput_Error
+        /// <summary>
+        /// <para>
+        /// <para>A string denoting the error code of the exception thrown when invoking the tested
+        /// state. This field is required if <c>mock.errorOutput</c> is specified.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Mock_ErrorOutput_Error")]
+        public System.String ErrorOutput_Error { get; set; }
+        #endregion
+        
+        #region Parameter StateConfiguration_ErrorCausedByState
+        /// <summary>
+        /// <para>
+        /// <para>The name of the state from which an error originates when an error is mocked for a
+        /// Map or Parallel state.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StateConfiguration_ErrorCausedByState { get; set; }
+        #endregion
+        
+        #region Parameter Mock_FieldValidationMode
+        /// <summary>
+        /// <para>
+        /// <para>Determines the level of strictness when validating mocked results against their respective
+        /// API models. Values include:</para><ul><li><para><c>STRICT</c>: All required fields must be present, and all present fields must conform
+        /// to the API's schema.</para></li><li><para><c>PRESENT</c>: All present fields must conform to the API's schema.</para></li><li><para><c>NONE</c>: No validation is performed.</para></li></ul><para>If no value is specified, the default value is <c>STRICT</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.StepFunctions.MockResponseValidationMode")]
+        public Amazon.StepFunctions.MockResponseValidationMode Mock_FieldValidationMode { get; set; }
         #endregion
         
         #region Parameter Input
@@ -117,6 +175,47 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.StepFunctions.InspectionLevel")]
         public Amazon.StepFunctions.InspectionLevel InspectionLevel { get; set; }
+        #endregion
+        
+        #region Parameter StateConfiguration_MapItemReaderData
+        /// <summary>
+        /// <para>
+        /// <para>The data read by ItemReader in Distributed Map states as found in its original source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StateConfiguration_MapItemReaderData { get; set; }
+        #endregion
+        
+        #region Parameter StateConfiguration_MapIterationFailureCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of Map state iterations that failed during the Map state invocation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? StateConfiguration_MapIterationFailureCount { get; set; }
+        #endregion
+        
+        #region Parameter Mock_Result
+        /// <summary>
+        /// <para>
+        /// <para>A JSON string containing the mocked result of the state invocation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Mock_Result { get; set; }
+        #endregion
+        
+        #region Parameter StateConfiguration_RetrierRetryCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of retry attempts that have occurred for the state's Retry that applies
+        /// to the mocked error.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? StateConfiguration_RetrierRetryCount { get; set; }
         #endregion
         
         #region Parameter RevealSecret
@@ -147,6 +246,18 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter StateName
+        /// <summary>
+        /// <para>
+        /// <para>Denotes the particular state within a state machine definition to be tested. If this
+        /// field is specified, the <c>definition</c> must contain a fully-formed state machine
+        /// definition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StateName { get; set; }
         #endregion
         
         #region Parameter Variable
@@ -187,6 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
                 context.Select = CreateSelectDelegate<Amazon.StepFunctions.Model.TestStateResponse, TestSFNStateCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Context = this.Context;
             context.Definition = this.Definition;
             #if MODULAR
             if (this.Definition == null && ParameterWasBound(nameof(this.Definition)))
@@ -196,8 +308,17 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             #endif
             context.Input = this.Input;
             context.InspectionLevel = this.InspectionLevel;
+            context.ErrorOutput_Cause = this.ErrorOutput_Cause;
+            context.ErrorOutput_Error = this.ErrorOutput_Error;
+            context.Mock_FieldValidationMode = this.Mock_FieldValidationMode;
+            context.Mock_Result = this.Mock_Result;
             context.RevealSecret = this.RevealSecret;
             context.RoleArn = this.RoleArn;
+            context.StateConfiguration_ErrorCausedByState = this.StateConfiguration_ErrorCausedByState;
+            context.StateConfiguration_MapItemReaderData = this.StateConfiguration_MapItemReaderData;
+            context.StateConfiguration_MapIterationFailureCount = this.StateConfiguration_MapIterationFailureCount;
+            context.StateConfiguration_RetrierRetryCount = this.StateConfiguration_RetrierRetryCount;
+            context.StateName = this.StateName;
             context.Variable = this.Variable;
             
             // allow further manipulation of loaded context prior to processing
@@ -215,6 +336,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             // create request
             var request = new Amazon.StepFunctions.Model.TestStateRequest();
             
+            if (cmdletContext.Context != null)
+            {
+                request.Context = cmdletContext.Context;
+            }
             if (cmdletContext.Definition != null)
             {
                 request.Definition = cmdletContext.Definition;
@@ -227,6 +352,70 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             {
                 request.InspectionLevel = cmdletContext.InspectionLevel;
             }
+            
+             // populate Mock
+            var requestMockIsNull = true;
+            request.Mock = new Amazon.StepFunctions.Model.MockInput();
+            Amazon.StepFunctions.MockResponseValidationMode requestMock_mock_FieldValidationMode = null;
+            if (cmdletContext.Mock_FieldValidationMode != null)
+            {
+                requestMock_mock_FieldValidationMode = cmdletContext.Mock_FieldValidationMode;
+            }
+            if (requestMock_mock_FieldValidationMode != null)
+            {
+                request.Mock.FieldValidationMode = requestMock_mock_FieldValidationMode;
+                requestMockIsNull = false;
+            }
+            System.String requestMock_mock_Result = null;
+            if (cmdletContext.Mock_Result != null)
+            {
+                requestMock_mock_Result = cmdletContext.Mock_Result;
+            }
+            if (requestMock_mock_Result != null)
+            {
+                request.Mock.Result = requestMock_mock_Result;
+                requestMockIsNull = false;
+            }
+            Amazon.StepFunctions.Model.MockErrorOutput requestMock_mock_ErrorOutput = null;
+            
+             // populate ErrorOutput
+            var requestMock_mock_ErrorOutputIsNull = true;
+            requestMock_mock_ErrorOutput = new Amazon.StepFunctions.Model.MockErrorOutput();
+            System.String requestMock_mock_ErrorOutput_errorOutput_Cause = null;
+            if (cmdletContext.ErrorOutput_Cause != null)
+            {
+                requestMock_mock_ErrorOutput_errorOutput_Cause = cmdletContext.ErrorOutput_Cause;
+            }
+            if (requestMock_mock_ErrorOutput_errorOutput_Cause != null)
+            {
+                requestMock_mock_ErrorOutput.Cause = requestMock_mock_ErrorOutput_errorOutput_Cause;
+                requestMock_mock_ErrorOutputIsNull = false;
+            }
+            System.String requestMock_mock_ErrorOutput_errorOutput_Error = null;
+            if (cmdletContext.ErrorOutput_Error != null)
+            {
+                requestMock_mock_ErrorOutput_errorOutput_Error = cmdletContext.ErrorOutput_Error;
+            }
+            if (requestMock_mock_ErrorOutput_errorOutput_Error != null)
+            {
+                requestMock_mock_ErrorOutput.Error = requestMock_mock_ErrorOutput_errorOutput_Error;
+                requestMock_mock_ErrorOutputIsNull = false;
+            }
+             // determine if requestMock_mock_ErrorOutput should be set to null
+            if (requestMock_mock_ErrorOutputIsNull)
+            {
+                requestMock_mock_ErrorOutput = null;
+            }
+            if (requestMock_mock_ErrorOutput != null)
+            {
+                request.Mock.ErrorOutput = requestMock_mock_ErrorOutput;
+                requestMockIsNull = false;
+            }
+             // determine if request.Mock should be set to null
+            if (requestMockIsNull)
+            {
+                request.Mock = null;
+            }
             if (cmdletContext.RevealSecret != null)
             {
                 request.RevealSecrets = cmdletContext.RevealSecret.Value;
@@ -234,6 +423,59 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
+            }
+            
+             // populate StateConfiguration
+            var requestStateConfigurationIsNull = true;
+            request.StateConfiguration = new Amazon.StepFunctions.Model.TestStateConfiguration();
+            System.String requestStateConfiguration_stateConfiguration_ErrorCausedByState = null;
+            if (cmdletContext.StateConfiguration_ErrorCausedByState != null)
+            {
+                requestStateConfiguration_stateConfiguration_ErrorCausedByState = cmdletContext.StateConfiguration_ErrorCausedByState;
+            }
+            if (requestStateConfiguration_stateConfiguration_ErrorCausedByState != null)
+            {
+                request.StateConfiguration.ErrorCausedByState = requestStateConfiguration_stateConfiguration_ErrorCausedByState;
+                requestStateConfigurationIsNull = false;
+            }
+            System.String requestStateConfiguration_stateConfiguration_MapItemReaderData = null;
+            if (cmdletContext.StateConfiguration_MapItemReaderData != null)
+            {
+                requestStateConfiguration_stateConfiguration_MapItemReaderData = cmdletContext.StateConfiguration_MapItemReaderData;
+            }
+            if (requestStateConfiguration_stateConfiguration_MapItemReaderData != null)
+            {
+                request.StateConfiguration.MapItemReaderData = requestStateConfiguration_stateConfiguration_MapItemReaderData;
+                requestStateConfigurationIsNull = false;
+            }
+            System.Int32? requestStateConfiguration_stateConfiguration_MapIterationFailureCount = null;
+            if (cmdletContext.StateConfiguration_MapIterationFailureCount != null)
+            {
+                requestStateConfiguration_stateConfiguration_MapIterationFailureCount = cmdletContext.StateConfiguration_MapIterationFailureCount.Value;
+            }
+            if (requestStateConfiguration_stateConfiguration_MapIterationFailureCount != null)
+            {
+                request.StateConfiguration.MapIterationFailureCount = requestStateConfiguration_stateConfiguration_MapIterationFailureCount.Value;
+                requestStateConfigurationIsNull = false;
+            }
+            System.Int32? requestStateConfiguration_stateConfiguration_RetrierRetryCount = null;
+            if (cmdletContext.StateConfiguration_RetrierRetryCount != null)
+            {
+                requestStateConfiguration_stateConfiguration_RetrierRetryCount = cmdletContext.StateConfiguration_RetrierRetryCount.Value;
+            }
+            if (requestStateConfiguration_stateConfiguration_RetrierRetryCount != null)
+            {
+                request.StateConfiguration.RetrierRetryCount = requestStateConfiguration_stateConfiguration_RetrierRetryCount.Value;
+                requestStateConfigurationIsNull = false;
+            }
+             // determine if request.StateConfiguration should be set to null
+            if (requestStateConfigurationIsNull)
+            {
+                request.StateConfiguration = null;
+            }
+            if (cmdletContext.StateName != null)
+            {
+                request.StateName = cmdletContext.StateName;
             }
             if (cmdletContext.Variable != null)
             {
@@ -300,11 +542,21 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Context { get; set; }
             public System.String Definition { get; set; }
             public System.String Input { get; set; }
             public Amazon.StepFunctions.InspectionLevel InspectionLevel { get; set; }
+            public System.String ErrorOutput_Cause { get; set; }
+            public System.String ErrorOutput_Error { get; set; }
+            public Amazon.StepFunctions.MockResponseValidationMode Mock_FieldValidationMode { get; set; }
+            public System.String Mock_Result { get; set; }
             public System.Boolean? RevealSecret { get; set; }
             public System.String RoleArn { get; set; }
+            public System.String StateConfiguration_ErrorCausedByState { get; set; }
+            public System.String StateConfiguration_MapItemReaderData { get; set; }
+            public System.Int32? StateConfiguration_MapIterationFailureCount { get; set; }
+            public System.Int32? StateConfiguration_RetrierRetryCount { get; set; }
+            public System.String StateName { get; set; }
             public System.String Variable { get; set; }
             public System.Func<Amazon.StepFunctions.Model.TestStateResponse, TestSFNStateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

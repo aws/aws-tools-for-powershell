@@ -179,6 +179,16 @@ $AG2_Completers = {
             break
         }
 
+        # Amazon.ApiGatewayV2.TryItState
+        {
+            ($_ -eq "New-AG2ProductRestEndpointPage/TryItState") -Or
+            ($_ -eq "Update-AG2ProductRestEndpointPage/TryItState")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
 
     }
 
@@ -198,6 +208,7 @@ $AG2_map = @{
     "PassthroughBehavior"=@("New-AG2Integration","Update-AG2Integration")
     "ProtocolType"=@("New-AG2Api")
     "RoutingMode"=@("New-AG2DomainName","Update-AG2DomainName")
+    "TryItState"=@("New-AG2ProductRestEndpointPage","Update-AG2ProductRestEndpointPage")
 }
 
 _awsArgumentCompleterRegistration $AG2_Completers $AG2_map
@@ -258,6 +269,10 @@ $AG2_SelectMap = @{
                "New-AG2Integration",
                "New-AG2IntegrationResponse",
                "New-AG2Model",
+               "New-AG2Portal",
+               "New-AG2PortalProduct",
+               "New-AG2ProductPage",
+               "New-AG2ProductRestEndpointPage",
                "New-AG2Route",
                "New-AG2RouteResponse",
                "New-AG2RoutingRule",
@@ -273,6 +288,11 @@ $AG2_SelectMap = @{
                "Remove-AG2Integration",
                "Remove-AG2IntegrationResponse",
                "Remove-AG2Model",
+               "Remove-AG2Portal",
+               "Remove-AG2PortalProduct",
+               "Remove-AG2PortalProductSharingPolicy",
+               "Remove-AG2ProductPage",
+               "Remove-AG2ProductRestEndpointPage",
                "Remove-AG2Route",
                "Remove-AG2RouteRequestParameter",
                "Remove-AG2RouteResponse",
@@ -280,6 +300,7 @@ $AG2_SelectMap = @{
                "Remove-AG2RoutingRule",
                "Remove-AG2Stage",
                "Remove-AG2VpcLink",
+               "Disable-AG2Portal",
                "Export-AG2Api",
                "Get-AG2Api",
                "Get-AG2ApiMapping",
@@ -298,6 +319,11 @@ $AG2_SelectMap = @{
                "Get-AG2Model",
                "Get-AG2ModelList",
                "Get-AG2ModelTemplate",
+               "Get-AG2Portal",
+               "Get-AG2PortalProduct",
+               "Get-AG2PortalProductSharingPolicy",
+               "Get-AG2ProductPage",
+               "Get-AG2ProductRestEndpointPage",
                "Get-AG2Route",
                "Get-AG2RouteResponse",
                "Get-AG2RouteResponseList",
@@ -309,7 +335,14 @@ $AG2_SelectMap = @{
                "Get-AG2VpcLink",
                "Get-AG2VpcLinkList",
                "Import-AG2Api",
+               "Get-AG2PortalProductList",
+               "Get-AG2PortalList",
+               "Get-AG2ProductPageList",
+               "Get-AG2ProductRestEndpointPageList",
                "Get-AG2RoutingRuleList",
+               "Request-AG2Portal",
+               "Publish-AG2Portal",
+               "Write-AG2PortalProductSharingPolicy",
                "Write-AG2RoutingRule",
                "Update-AG2ApiImport",
                "Reset-AG2AuthorizersCache",
@@ -323,6 +356,10 @@ $AG2_SelectMap = @{
                "Update-AG2Integration",
                "Update-AG2IntegrationResponse",
                "Update-AG2Model",
+               "Update-AG2Portal",
+               "Update-AG2PortalProduct",
+               "Update-AG2ProductPage",
+               "Update-AG2ProductRestEndpointPage",
                "Update-AG2Route",
                "Update-AG2RouteResponse",
                "Update-AG2Stage",

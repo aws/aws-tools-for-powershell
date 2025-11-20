@@ -45,6 +45,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetRouterInput" OutputProperty="*" Verb="Get" Noun="BatchRouterInput" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetRouterNetworkInterface" OutputProperty="*" Verb="Get" Noun="BatchRouterNetworkInterface" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetRouterOutput" OutputProperty="*" Verb="Get" Noun="BatchRouterOutput" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateBridge" OutputProperty="Bridge" Verb="New" Noun="Bridge" ShouldProcessTarget="Name" PipelineParameter="PlacementArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -60,6 +72,42 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateRouterInput" OutputProperty="RouterInput" Verb="New" Noun="RouterInput" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="Configuration_MediaConnectFlow_SourceTransitDecryption_EncryptionKeyConfiguration_Automatic" NewName="SourceTransitDecryption_EncryptionKeyConfiguration_Automatic" />
+                <Param Name="TransitEncryption_EncryptionKeyConfiguration_Automatic" NewName="TransitEncryption_EncryptionKeyConfiguration_Automatic" />
+                <Param Name="Configuration_MediaConnectFlow_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_RoleArn" NewName="SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_RoleArn" />
+                <Param Name="TransitEncryption_EncryptionKeyConfiguration_SecretsManager_RoleArn" NewName="TransitEncryption_EncryptionKeyConfiguration_SecretsManager_RoleArn" />
+                <Param Name="Configuration_MediaConnectFlow_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_SecretArn" NewName="SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_SecretArn" />
+                <Param Name="TransitEncryption_EncryptionKeyConfiguration_SecretsManager_SecretArn" NewName="TransitEncryption_EncryptionKeyConfiguration_SecretsManager_SecretArn" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_DecryptionConfiguration_EncryptionKey_RoleArn" NewName="SrtCaller_DecryptionConfiguration_EncryptionKey_RoleArn" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtListener_DecryptionConfiguration_EncryptionKey_RoleArn" NewName="SrtListener_DecryptionConfiguration_EncryptionKey_RoleArn" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_DecryptionConfiguration_EncryptionKey_SecretArn" NewName="SrtCaller_DecryptionConfiguration_EncryptionKey_SecretArn" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtListener_DecryptionConfiguration_EncryptionKey_SecretArn" NewName="SrtListener_DecryptionConfiguration_EncryptionKey_SecretArn" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRouterNetworkInterface" OutputProperty="RouterNetworkInterface" Verb="New" Noun="RouterNetworkInterface" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRouterOutput" OutputProperty="RouterOutput" Verb="New" Noun="RouterOutput" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="Configuration_MediaConnectFlow_DestinationTransitEncryption_EncryptionKeyConfiguration_Automatic" NewName="MediaConnectFlow_DestinationTransitEncryption_EncryptionKeyConfiguration_Automatic" />
+                <Param Name="Configuration_MediaLiveInput_DestinationTransitEncryption_EncryptionKeyConfiguration_Automatic" NewName="MediaLiveInput_DestinationTransitEncryption_EncryptionKeyConfiguration_Automatic" />
+                <Param Name="Configuration_MediaConnectFlow_DestinationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_RoleArn" NewName="MediaConnectFlow_DestinationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_RoleArn" />
+                <Param Name="Configuration_MediaLiveInput_DestinationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_RoleArn" NewName="MediaLiveInput_DestinationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_RoleArn" />
+                <Param Name="Configuration_MediaConnectFlow_DestinationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_SecretArn" NewName="MediaConnectFlow_DestinationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_SecretArn" />
+                <Param Name="Configuration_MediaLiveInput_DestinationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_SecretArn" NewName="MediaLiveInput_DestinationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_SecretArn" />
+                <Param Name="Configuration_MediaConnectFlow_DestinationTransitEncryption_EncryptionKeyType" NewName="MediaConnectFlow_DestinationTransitEncryption_EncryptionKeyType" />
+                <Param Name="Configuration_MediaLiveInput_DestinationTransitEncryption_EncryptionKeyType" NewName="MediaLiveInput_DestinationTransitEncryption_EncryptionKeyType" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_EncryptionConfiguration_EncryptionKey_RoleArn" NewName="SrtCaller_EncryptionConfiguration_EncryptionKey_RoleArn" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtListener_EncryptionConfiguration_EncryptionKey_RoleArn" NewName="SrtListener_EncryptionConfiguration_EncryptionKey_RoleArn" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_EncryptionConfiguration_EncryptionKey_SecretArn" NewName="SrtCaller_EncryptionConfiguration_EncryptionKey_SecretArn" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtListener_EncryptionConfiguration_EncryptionKey_SecretArn" NewName="SrtListener_EncryptionConfiguration_EncryptionKey_SecretArn" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteBridge" OutputProperty="BridgeArn" Verb="Remove" Noun="Bridge" ShouldProcessTarget="BridgeArn" PipelineParameter="BridgeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -69,6 +117,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteGateway" OutputProperty="GatewayArn" Verb="Remove" Noun="Gateway" ShouldProcessTarget="GatewayArn" PipelineParameter="GatewayArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRouterInput" OutputProperty="*" Verb="Remove" Noun="RouterInput" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRouterNetworkInterface" OutputProperty="*" Verb="Remove" Noun="RouterNetworkInterface" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRouterOutput" OutputProperty="*" Verb="Remove" Noun="RouterOutput" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -110,6 +170,26 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetRouterInput" OutputProperty="RouterInput" Verb="Get" Noun="RouterInput" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRouterInputSourceMetadata" OutputProperty="*" Verb="Get" Noun="RouterInputSourceMetadata" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRouterInputThumbnail" OutputProperty="*" Verb="Get" Noun="RouterInputThumbnail" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRouterNetworkInterface" OutputProperty="RouterNetworkInterface" Verb="Get" Noun="RouterNetworkInterface" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRouterOutput" OutputProperty="RouterOutput" Verb="Get" Noun="RouterOutput" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GrantFlowEntitlements" OutputProperty="Entitlements" Verb="Grant" Noun="FlowEntitlement" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -118,11 +198,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEntitlements" OutputProperty="Entitlements" Verb="Get" Noun="EntitlementList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListEntitlements" OutputProperty="Entitlements" Verb="Get" Noun="EntitlementList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFlows" OutputProperty="Flows" Verb="Get" Noun="FlowList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListFlows" OutputProperty="Flows" Verb="Get" Noun="FlowList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -139,6 +219,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListReservations" OutputProperty="Reservations" Verb="Get" Noun="ReservationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRouterInputs" OutputProperty="RouterInputs" Verb="Get" Noun="RouterInputList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRouterNetworkInterfaces" OutputProperty="RouterNetworkInterfaces" Verb="Get" Noun="RouterNetworkInterfaceList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRouterOutputs" OutputProperty="RouterOutputs" Verb="Get" Noun="RouterOutputList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForGlobalResource" OutputProperty="Tags" Verb="Get" Noun="TagsForGlobalResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -174,6 +270,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RestartRouterInput" OutputProperty="*" Verb="Restart" Noun="RouterInput" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestartRouterOutput" OutputProperty="*" Verb="Restart" Noun="RouterOutput" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RevokeFlowEntitlement" OutputProperty="*" Verb="Revoke" Noun="FlowEntitlement" ShouldProcessTarget="EntitlementArn" PipelineParameter="EntitlementArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -182,11 +286,39 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartRouterInput" OutputProperty="*" Verb="Start" Noun="RouterInput" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartRouterOutput" OutputProperty="*" Verb="Start" Noun="RouterOutput" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopFlow" OutputProperty="*" Verb="Stop" Noun="Flow" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StopRouterInput" OutputProperty="*" Verb="Stop" Noun="RouterInput" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopRouterOutput" OutputProperty="*" Verb="Stop" Noun="RouterOutput" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagGlobalResource" Verb="Add" Noun="TagGlobalResource" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TakeRouterInput" OutputProperty="*" Verb="Set" Noun="RouterInput" ShouldProcessTarget="RouterOutputArn" PipelineParameter="RouterOutputArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagGlobalResource" Verb="Remove" Noun="TagGlobalResource" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -232,6 +364,42 @@
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateGatewayInstance" OutputProperty="*" Verb="Update" Noun="GatewayInstance" ShouldProcessTarget="GatewayInstanceArn" PipelineParameter="GatewayInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRouterInput" OutputProperty="RouterInput" Verb="Update" Noun="RouterInput" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Configuration_MediaConnectFlow_SourceTransitDecryption_EncryptionKeyConfiguration_Automatic" NewName="SourceTransitDecryption_EncryptionKeyConfiguration_Automatic" />
+                <Param Name="TransitEncryption_EncryptionKeyConfiguration_Automatic" NewName="TransitEncryption_EncryptionKeyConfiguration_Automatic" />
+                <Param Name="Configuration_MediaConnectFlow_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_RoleArn" NewName="SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_RoleArn" />
+                <Param Name="TransitEncryption_EncryptionKeyConfiguration_SecretsManager_RoleArn" NewName="TransitEncryption_EncryptionKeyConfiguration_SecretsManager_RoleArn" />
+                <Param Name="Configuration_MediaConnectFlow_SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_SecretArn" NewName="SourceTransitDecryption_EncryptionKeyConfiguration_SecretsManager_SecretArn" />
+                <Param Name="TransitEncryption_EncryptionKeyConfiguration_SecretsManager_SecretArn" NewName="TransitEncryption_EncryptionKeyConfiguration_SecretsManager_SecretArn" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_DecryptionConfiguration_EncryptionKey_RoleArn" NewName="SrtCaller_DecryptionConfiguration_EncryptionKey_RoleArn" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtListener_DecryptionConfiguration_EncryptionKey_RoleArn" NewName="SrtListener_DecryptionConfiguration_EncryptionKey_RoleArn" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_DecryptionConfiguration_EncryptionKey_SecretArn" NewName="SrtCaller_DecryptionConfiguration_EncryptionKey_SecretArn" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtListener_DecryptionConfiguration_EncryptionKey_SecretArn" NewName="SrtListener_DecryptionConfiguration_EncryptionKey_SecretArn" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRouterNetworkInterface" OutputProperty="RouterNetworkInterface" Verb="Update" Noun="RouterNetworkInterface" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRouterOutput" OutputProperty="RouterOutput" Verb="Update" Noun="RouterOutput" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Configuration_MediaConnectFlow_DestinationTransitEncryption_EncryptionKeyConfiguration_Automatic" NewName="MediaConnectFlow_DestinationTransitEncryption_EncryptionKeyConfiguration_Automatic" />
+                <Param Name="Configuration_MediaLiveInput_DestinationTransitEncryption_EncryptionKeyConfiguration_Automatic" NewName="MediaLiveInput_DestinationTransitEncryption_EncryptionKeyConfiguration_Automatic" />
+                <Param Name="Configuration_MediaConnectFlow_DestinationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_RoleArn" NewName="MediaConnectFlow_DestinationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_RoleArn" />
+                <Param Name="Configuration_MediaLiveInput_DestinationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_RoleArn" NewName="MediaLiveInput_DestinationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_RoleArn" />
+                <Param Name="Configuration_MediaConnectFlow_DestinationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_SecretArn" NewName="MediaConnectFlow_DestinationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_SecretArn" />
+                <Param Name="Configuration_MediaLiveInput_DestinationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_SecretArn" NewName="MediaLiveInput_DestinationTransitEncryption_EncryptionKeyConfiguration_SecretsManager_SecretArn" />
+                <Param Name="Configuration_MediaConnectFlow_DestinationTransitEncryption_EncryptionKeyType" NewName="MediaConnectFlow_DestinationTransitEncryption_EncryptionKeyType" />
+                <Param Name="Configuration_MediaLiveInput_DestinationTransitEncryption_EncryptionKeyType" NewName="MediaLiveInput_DestinationTransitEncryption_EncryptionKeyType" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_EncryptionConfiguration_EncryptionKey_RoleArn" NewName="SrtCaller_EncryptionConfiguration_EncryptionKey_RoleArn" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtListener_EncryptionConfiguration_EncryptionKey_RoleArn" NewName="SrtListener_EncryptionConfiguration_EncryptionKey_RoleArn" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtCaller_EncryptionConfiguration_EncryptionKey_SecretArn" NewName="SrtCaller_EncryptionConfiguration_EncryptionKey_SecretArn" />
+                <Param Name="Configuration_Standard_ProtocolConfiguration_SrtListener_EncryptionConfiguration_EncryptionKey_SecretArn" NewName="SrtListener_EncryptionConfiguration_EncryptionKey_SecretArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

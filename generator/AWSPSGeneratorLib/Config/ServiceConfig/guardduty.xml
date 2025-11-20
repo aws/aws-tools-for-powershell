@@ -183,6 +183,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMalwareScan" OutputProperty="*" Verb="Get" Noun="MalwareScanDetail" PipelineParameter="ScanId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetMalwareScanSettings" OutputProperty="*" Verb="Get" Noun="MalwareScanSetting" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -252,6 +256,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListMalwareProtectionPlans" OutputProperty="MalwareProtectionPlans" Verb="Get" Noun="MalwareProtectionPlanList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMalwareScans" OutputProperty="Scans" Verb="Get" Noun="MalwareScanList" PipelineParameter="SortCriteria" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

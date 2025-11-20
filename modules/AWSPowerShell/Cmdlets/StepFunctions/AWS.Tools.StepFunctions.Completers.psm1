@@ -134,6 +134,13 @@ $SFN_Completers = {
             break
         }
 
+        # Amazon.StepFunctions.MockResponseValidationMode
+        "Test-SFNState/Mock_FieldValidationMode"
+        {
+            $v = "NONE","PRESENT","STRICT"
+            break
+        }
+
         # Amazon.StepFunctions.StateMachineType
         {
             ($_ -eq "New-SFNStateMachine/Type") -Or
@@ -164,6 +171,7 @@ $SFN_map = @{
     "IncludedData"=@("Get-SFNExecution","Get-SFNStateMachine","Get-SFNStateMachineForExecution","Start-SFNSyncExecution")
     "InspectionLevel"=@("Test-SFNState")
     "LoggingConfiguration_Level"=@("New-SFNStateMachine","Update-SFNStateMachine")
+    "Mock_FieldValidationMode"=@("Test-SFNState")
     "RedriveFilter"=@("Get-SFNExecutionList")
     "Severity"=@("Test-SFNStateMachineDefinitionValidation")
     "StatusFilter"=@("Get-SFNExecutionList")

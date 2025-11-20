@@ -28,7 +28,9 @@ using Amazon.Inspector2.Model;
 namespace Amazon.PowerShell.Cmdlets.INS2
 {
     /// <summary>
-    /// Lists the permissions an account has to configure Amazon Inspector.
+    /// Lists the permissions an account has to configure Amazon Inspector. If the account
+    /// is a member account or standalone account with resources managed by an Organizations
+    /// policy, the operation returns fewer permissions.
     /// </summary>
     [Cmdlet("Get", "INS2AccountPermissionList")]
     [OutputType("Amazon.Inspector2.Model.Permission")]

@@ -80,6 +80,16 @@ $BCMPC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.BCMPricingCalculator.GroupSharingPreferenceEnum
+        {
+            ($_ -eq "New-BCMPCBillScenario/GroupSharingPreference") -Or
+            ($_ -eq "Update-BCMPCBillScenario/GroupSharingPreference")
+        }
+        {
+            $v = "OPEN","PRIORITIZED","RESTRICTED"
+            break
+        }
+
         # Amazon.BCMPricingCalculator.WorkloadEstimateRateType
         "New-BCMPCWorkloadEstimate/RateType"
         {
@@ -96,6 +106,7 @@ $BCMPC_Completers = {
 }
 
 $BCMPC_map = @{
+    "GroupSharingPreference"=@("New-BCMPCBillScenario","Update-BCMPCBillScenario")
     "RateType"=@("New-BCMPCWorkloadEstimate")
 }
 

@@ -95,8 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter ImageTag
         /// <summary>
         /// <para>
-        /// <para>The tag to associate with the image. This parameter is required for images that use
-        /// the Docker Image Manifest V2 Schema 2 or Open Container Initiative (OCI) formats.</para>
+        /// <para>The tag to associate with the image. This parameter is optional.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

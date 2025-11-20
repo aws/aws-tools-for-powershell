@@ -104,6 +104,18 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.Day
+        {
+            ($_ -eq "New-EMCNRouterInput/PreferredDayTime_Day") -Or
+            ($_ -eq "New-EMCNRouterOutput/PreferredDayTime_Day") -Or
+            ($_ -eq "Update-EMCNRouterInput/PreferredDayTime_Day") -Or
+            ($_ -eq "Update-EMCNRouterOutput/PreferredDayTime_Day")
+        }
+        {
+            $v = "FRIDAY","MONDAY","SATURDAY","SUNDAY","THURSDAY","TUESDAY","WEDNESDAY"
+            break
+        }
+
         # Amazon.MediaConnect.DesiredState
         "Update-EMCNBridgeState/DesiredState"
         {
@@ -115,6 +127,16 @@ $EMCN_Completers = {
         "Update-EMCNFlowEntitlement/EntitlementStatus"
         {
             $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.MediaConnect.FailoverInputSourcePriorityMode
+        {
+            ($_ -eq "New-EMCNRouterInput/Failover_SourcePriorityMode") -Or
+            ($_ -eq "Update-EMCNRouterInput/Failover_SourcePriorityMode")
+        }
+        {
+            $v = "NO_PRIORITY","PRIMARY_SECONDARY"
             break
         }
 
@@ -140,6 +162,32 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.FlowTransitEncryptionKeyType
+        {
+            ($_ -eq "New-EMCNRouterOutput/MediaConnectFlow_DestinationTransitEncryption_EncryptionKeyType") -Or
+            ($_ -eq "Update-EMCNRouterOutput/MediaConnectFlow_DestinationTransitEncryption_EncryptionKeyType") -Or
+            ($_ -eq "Update-EMCNFlowSource/RouterIntegrationTransitDecryption_EncryptionKeyType") -Or
+            ($_ -eq "Update-EMCNFlowOutput/RouterIntegrationTransitEncryption_EncryptionKeyType") -Or
+            ($_ -eq "New-EMCNRouterInput/SourceTransitDecryption_EncryptionKeyType") -Or
+            ($_ -eq "Update-EMCNRouterInput/SourceTransitDecryption_EncryptionKeyType")
+        }
+        {
+            $v = "AUTOMATIC","SECRETS_MANAGER"
+            break
+        }
+
+        # Amazon.MediaConnect.ForwardErrorCorrectionState
+        {
+            ($_ -eq "New-EMCNRouterInput/Rtp_ForwardErrorCorrection") -Or
+            ($_ -eq "New-EMCNRouterOutput/Rtp_ForwardErrorCorrection") -Or
+            ($_ -eq "Update-EMCNRouterInput/Rtp_ForwardErrorCorrection") -Or
+            ($_ -eq "Update-EMCNRouterOutput/Rtp_ForwardErrorCorrection")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.MediaConnect.MaintenanceDay
         {
             ($_ -eq "New-EMCNFlow/Maintenance_MaintenanceDay") -Or
@@ -147,6 +195,26 @@ $EMCN_Completers = {
         }
         {
             $v = "Friday","Monday","Saturday","Sunday","Thursday","Tuesday","Wednesday"
+            break
+        }
+
+        # Amazon.MediaConnect.MediaLiveInputPipelineId
+        {
+            ($_ -eq "New-EMCNRouterOutput/MediaLiveInput_MediaLivePipelineId") -Or
+            ($_ -eq "Update-EMCNRouterOutput/MediaLiveInput_MediaLivePipelineId")
+        }
+        {
+            $v = "PIPELINE_0","PIPELINE_1"
+            break
+        }
+
+        # Amazon.MediaConnect.MediaLiveTransitEncryptionKeyType
+        {
+            ($_ -eq "New-EMCNRouterOutput/MediaLiveInput_DestinationTransitEncryption_EncryptionKeyType") -Or
+            ($_ -eq "Update-EMCNRouterOutput/MediaLiveInput_DestinationTransitEncryption_EncryptionKeyType")
+        }
+        {
+            $v = "AUTOMATIC","SECRETS_MANAGER"
             break
         }
 
@@ -193,6 +261,68 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.RouterInputProtocol
+        {
+            ($_ -eq "New-EMCNRouterInput/Standard_Protocol") -Or
+            ($_ -eq "Update-EMCNRouterInput/Standard_Protocol")
+        }
+        {
+            $v = "RIST","RTP","SRT_CALLER","SRT_LISTENER"
+            break
+        }
+
+        # Amazon.MediaConnect.RouterInputTier
+        {
+            ($_ -eq "New-EMCNRouterInput/Tier") -Or
+            ($_ -eq "Update-EMCNRouterInput/Tier")
+        }
+        {
+            $v = "INPUT_100","INPUT_20","INPUT_50"
+            break
+        }
+
+        # Amazon.MediaConnect.RouterInputTransitEncryptionKeyType
+        {
+            ($_ -eq "New-EMCNRouterInput/TransitEncryption_EncryptionKeyType") -Or
+            ($_ -eq "Update-EMCNRouterInput/TransitEncryption_EncryptionKeyType")
+        }
+        {
+            $v = "AUTOMATIC","SECRETS_MANAGER"
+            break
+        }
+
+        # Amazon.MediaConnect.RouterOutputProtocol
+        {
+            ($_ -eq "New-EMCNRouterOutput/Standard_Protocol") -Or
+            ($_ -eq "Update-EMCNRouterOutput/Standard_Protocol")
+        }
+        {
+            $v = "RIST","RTP","SRT_CALLER","SRT_LISTENER"
+            break
+        }
+
+        # Amazon.MediaConnect.RouterOutputTier
+        {
+            ($_ -eq "New-EMCNRouterOutput/Tier") -Or
+            ($_ -eq "Update-EMCNRouterOutput/Tier")
+        }
+        {
+            $v = "OUTPUT_100","OUTPUT_20","OUTPUT_50"
+            break
+        }
+
+        # Amazon.MediaConnect.RoutingScope
+        {
+            ($_ -eq "New-EMCNRouterInput/RoutingScope") -Or
+            ($_ -eq "New-EMCNRouterOutput/RoutingScope") -Or
+            ($_ -eq "Update-EMCNRouterInput/RoutingScope") -Or
+            ($_ -eq "Update-EMCNRouterOutput/RoutingScope")
+        }
+        {
+            $v = "GLOBAL","REGIONAL"
+            break
+        }
+
         # Amazon.MediaConnect.ScanMode
         "Update-EMCNFlowMediaStream/Fmtp_ScanMode"
         {
@@ -202,6 +332,8 @@ $EMCN_Completers = {
 
         # Amazon.MediaConnect.State
         {
+            ($_ -eq "Update-EMCNFlowOutput/RouterIntegrationState") -Or
+            ($_ -eq "Update-EMCNFlowSource/RouterIntegrationState") -Or
             ($_ -eq "New-EMCNBridge/SourceFailoverConfig_State") -Or
             ($_ -eq "New-EMCNFlow/SourceFailoverConfig_State") -Or
             ($_ -eq "Update-EMCNBridge/SourceFailoverConfig_State") -Or
@@ -241,22 +373,36 @@ $EMCN_map = @{
     "BridgePlacement"=@("Update-EMCNGatewayInstance")
     "DesiredState"=@("Update-EMCNBridgeState")
     "EntitlementStatus"=@("Update-EMCNFlowEntitlement")
+    "Failover_SourcePriorityMode"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
     "FlowSize"=@("New-EMCNFlow","Update-EMCNFlow")
     "Fmtp_Colorimetry"=@("Update-EMCNFlowMediaStream")
     "Fmtp_Range"=@("Update-EMCNFlowMediaStream")
     "Fmtp_ScanMode"=@("Update-EMCNFlowMediaStream")
     "Fmtp_Tc"=@("Update-EMCNFlowMediaStream")
     "Maintenance_MaintenanceDay"=@("New-EMCNFlow","Update-EMCNFlow")
+    "MediaConnectFlow_DestinationTransitEncryption_EncryptionKeyType"=@("New-EMCNRouterOutput","Update-EMCNRouterOutput")
+    "MediaLiveInput_DestinationTransitEncryption_EncryptionKeyType"=@("New-EMCNRouterOutput","Update-EMCNRouterOutput")
+    "MediaLiveInput_MediaLivePipelineId"=@("New-EMCNRouterOutput","Update-EMCNRouterOutput")
     "MediaStreamType"=@("Update-EMCNFlowMediaStream")
     "NdiConfig_NdiState"=@("New-EMCNFlow","Update-EMCNFlow")
     "NetworkOutput_Protocol"=@("Update-EMCNBridgeOutput")
     "NetworkSource_Protocol"=@("Update-EMCNBridgeSource")
     "OutputStatus"=@("Update-EMCNFlowOutput")
+    "PreferredDayTime_Day"=@("New-EMCNRouterInput","New-EMCNRouterOutput","Update-EMCNRouterInput","Update-EMCNRouterOutput")
     "Protocol"=@("Update-EMCNFlowOutput","Update-EMCNFlowSource")
+    "RouterIntegrationState"=@("Update-EMCNFlowOutput","Update-EMCNFlowSource")
+    "RouterIntegrationTransitDecryption_EncryptionKeyType"=@("Update-EMCNFlowSource")
+    "RouterIntegrationTransitEncryption_EncryptionKeyType"=@("Update-EMCNFlowOutput")
+    "RoutingScope"=@("New-EMCNRouterInput","New-EMCNRouterOutput","Update-EMCNRouterInput","Update-EMCNRouterOutput")
+    "Rtp_ForwardErrorCorrection"=@("New-EMCNRouterInput","New-EMCNRouterOutput","Update-EMCNRouterInput","Update-EMCNRouterOutput")
     "SourceFailoverConfig_FailoverMode"=@("New-EMCNBridge","New-EMCNFlow","Update-EMCNBridge","Update-EMCNFlow")
     "SourceFailoverConfig_State"=@("New-EMCNBridge","New-EMCNFlow","Update-EMCNBridge","Update-EMCNFlow")
     "SourceMonitoringConfig_ContentQualityAnalysisState"=@("New-EMCNFlow","Update-EMCNFlow")
     "SourceMonitoringConfig_ThumbnailState"=@("New-EMCNFlow","Update-EMCNFlow")
+    "SourceTransitDecryption_EncryptionKeyType"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
+    "Standard_Protocol"=@("New-EMCNRouterInput","New-EMCNRouterOutput","Update-EMCNRouterInput","Update-EMCNRouterOutput")
+    "Tier"=@("New-EMCNRouterInput","New-EMCNRouterOutput","Update-EMCNRouterInput","Update-EMCNRouterOutput")
+    "TransitEncryption_EncryptionKeyType"=@("New-EMCNRouterInput","Update-EMCNRouterInput")
 }
 
 _awsArgumentCompleterRegistration $EMCN_Completers $EMCN_map
@@ -315,12 +461,21 @@ $EMCN_SelectMap = @{
                "Add-EMCNFlowOutput",
                "Add-EMCNFlowSource",
                "Add-EMCNFlowVpcInterface",
+               "Get-EMCNBatchRouterInput",
+               "Get-EMCNBatchRouterNetworkInterface",
+               "Get-EMCNBatchRouterOutput",
                "New-EMCNBridge",
                "New-EMCNFlow",
                "New-EMCNGateway",
+               "New-EMCNRouterInput",
+               "New-EMCNRouterNetworkInterface",
+               "New-EMCNRouterOutput",
                "Remove-EMCNBridge",
                "Remove-EMCNFlow",
                "Remove-EMCNGateway",
+               "Remove-EMCNRouterInput",
+               "Remove-EMCNRouterNetworkInterface",
+               "Remove-EMCNRouterOutput",
                "Remove-EMCNGatewayInstance",
                "Get-EMCNBridge",
                "Get-EMCNFlow",
@@ -330,6 +485,11 @@ $EMCN_SelectMap = @{
                "Get-EMCNGatewayInstance",
                "Get-EMCNOffering",
                "Get-EMCNReservation",
+               "Get-EMCNRouterInput",
+               "Get-EMCNRouterInputSourceMetadata",
+               "Get-EMCNRouterInputThumbnail",
+               "Get-EMCNRouterNetworkInterface",
+               "Get-EMCNRouterOutput",
                "Grant-EMCNFlowEntitlement",
                "Get-EMCNBridgeList",
                "Get-EMCNEntitlementList",
@@ -338,6 +498,10 @@ $EMCN_SelectMap = @{
                "Get-EMCNGatewayList",
                "Get-EMCNOfferingList",
                "Get-EMCNReservationList",
+               "Get-EMCNRouterInputList",
+               "Get-EMCNRouterNetworkInterfaceList",
+               "Get-EMCNRouterOutputList",
+               "Get-EMCNTagsForGlobalResourceList",
                "Get-EMCNResourceTag",
                "New-EMCNOffering",
                "Remove-EMCNBridgeOutput",
@@ -346,10 +510,19 @@ $EMCN_SelectMap = @{
                "Remove-EMCNFlowOutput",
                "Remove-EMCNFlowSource",
                "Remove-EMCNFlowVpcInterface",
+               "Restart-EMCNRouterInput",
+               "Restart-EMCNRouterOutput",
                "Revoke-EMCNFlowEntitlement",
                "Start-EMCNFlow",
+               "Start-EMCNRouterInput",
+               "Start-EMCNRouterOutput",
                "Stop-EMCNFlow",
+               "Stop-EMCNRouterInput",
+               "Stop-EMCNRouterOutput",
+               "Add-EMCNTagGlobalResource",
                "Add-EMCNResourceTag",
+               "Set-EMCNRouterInput",
+               "Remove-EMCNTagGlobalResource",
                "Remove-EMCNResourceTag",
                "Update-EMCNBridge",
                "Update-EMCNBridgeOutput",
@@ -360,7 +533,10 @@ $EMCN_SelectMap = @{
                "Update-EMCNFlowMediaStream",
                "Update-EMCNFlowOutput",
                "Update-EMCNFlowSource",
-               "Update-EMCNGatewayInstance")
+               "Update-EMCNGatewayInstance",
+               "Update-EMCNRouterInput",
+               "Update-EMCNRouterNetworkInterface",
+               "Update-EMCNRouterOutput")
 }
 
 _awsArgumentCompleterRegistration $EMCN_SelectCompleters $EMCN_SelectMap

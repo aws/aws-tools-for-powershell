@@ -131,6 +131,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Boolean? DataCaptureConfig_EnableCapture { get; set; }
         #endregion
         
+        #region Parameter MetricsConfig_EnableEnhancedMetric
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to enable enhanced metrics for the endpoint. Enhanced metrics provide
+        /// utilization data at instance and container granularity. Container granularity is supported
+        /// for Inference Components. The default is <c>False</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetricsConfig_EnableEnhancedMetrics")]
+        public System.Boolean? MetricsConfig_EnableEnhancedMetric { get; set; }
+        #endregion
+        
         #region Parameter ClarifyExplainerConfig_EnableExplanation
         /// <summary>
         /// <para>
@@ -433,6 +446,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ExplainerConfig_ClarifyExplainerConfig_InferenceConfig_MaxRecordCount")]
         public System.Int32? InferenceConfig_MaxRecordCount { get; set; }
+        #endregion
+        
+        #region Parameter MetricsConfig_MetricPublishFrequencyInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The frequency, in seconds, at which utilization metrics are published to Amazon CloudWatch.
+        /// The default is <c>60</c> seconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetricsConfig_MetricPublishFrequencyInSeconds")]
+        public System.Int32? MetricsConfig_MetricPublishFrequencyInSecond { get; set; }
         #endregion
         
         #region Parameter ShapBaselineConfig_MimeType
@@ -787,6 +812,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.TextConfig_Language = this.TextConfig_Language;
             context.ShapConfig_UseLogit = this.ShapConfig_UseLogit;
             context.KmsKeyId = this.KmsKeyId;
+            context.MetricsConfig_EnableEnhancedMetric = this.MetricsConfig_EnableEnhancedMetric;
+            context.MetricsConfig_MetricPublishFrequencyInSecond = this.MetricsConfig_MetricPublishFrequencyInSecond;
             if (this.ProductionVariant != null)
             {
                 context.ProductionVariant = new List<Amazon.SageMaker.Model.ProductionVariant>(this.ProductionVariant);
@@ -1347,6 +1374,35 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
             }
+            
+             // populate MetricsConfig
+            var requestMetricsConfigIsNull = true;
+            request.MetricsConfig = new Amazon.SageMaker.Model.MetricsConfig();
+            System.Boolean? requestMetricsConfig_metricsConfig_EnableEnhancedMetric = null;
+            if (cmdletContext.MetricsConfig_EnableEnhancedMetric != null)
+            {
+                requestMetricsConfig_metricsConfig_EnableEnhancedMetric = cmdletContext.MetricsConfig_EnableEnhancedMetric.Value;
+            }
+            if (requestMetricsConfig_metricsConfig_EnableEnhancedMetric != null)
+            {
+                request.MetricsConfig.EnableEnhancedMetrics = requestMetricsConfig_metricsConfig_EnableEnhancedMetric.Value;
+                requestMetricsConfigIsNull = false;
+            }
+            System.Int32? requestMetricsConfig_metricsConfig_MetricPublishFrequencyInSecond = null;
+            if (cmdletContext.MetricsConfig_MetricPublishFrequencyInSecond != null)
+            {
+                requestMetricsConfig_metricsConfig_MetricPublishFrequencyInSecond = cmdletContext.MetricsConfig_MetricPublishFrequencyInSecond.Value;
+            }
+            if (requestMetricsConfig_metricsConfig_MetricPublishFrequencyInSecond != null)
+            {
+                request.MetricsConfig.MetricPublishFrequencyInSeconds = requestMetricsConfig_metricsConfig_MetricPublishFrequencyInSecond.Value;
+                requestMetricsConfigIsNull = false;
+            }
+             // determine if request.MetricsConfig should be set to null
+            if (requestMetricsConfigIsNull)
+            {
+                request.MetricsConfig = null;
+            }
             if (cmdletContext.ProductionVariant != null)
             {
                 request.ProductionVariants = cmdletContext.ProductionVariant;
@@ -1487,6 +1543,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.ClarifyTextLanguage TextConfig_Language { get; set; }
             public System.Boolean? ShapConfig_UseLogit { get; set; }
             public System.String KmsKeyId { get; set; }
+            public System.Boolean? MetricsConfig_EnableEnhancedMetric { get; set; }
+            public System.Int32? MetricsConfig_MetricPublishFrequencyInSecond { get; set; }
             public List<Amazon.SageMaker.Model.ProductionVariant> ProductionVariant { get; set; }
             public List<Amazon.SageMaker.Model.ProductionVariant> ShadowProductionVariant { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }

@@ -79,6 +79,41 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String AllocationId { get; set; }
         #endregion
         
+        #region Parameter AvailabilityMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway.
+        /// Defaults to <c>zonal</c>.</para><para>A zonal NAT gateway is a NAT Gateway that provides redundancy and scalability within
+        /// a single availability zone. A regional NAT gateway is a single NAT Gateway that works
+        /// across multiple availability zones (AZs) in your VPC, providing redundancy, scalability
+        /// and availability across all the AZs in a Region.</para><para>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html">Regional
+        /// NAT gateways for automatic multi-AZ expansion</a> in the <i>Amazon VPC User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.AvailabilityMode")]
+        public Amazon.EC2.AvailabilityMode AvailabilityMode { get; set; }
+        #endregion
+        
+        #region Parameter AvailabilityZoneAddress
+        /// <summary>
+        /// <para>
+        /// <para>For regional NAT gateways only: Specifies which Availability Zones you want the NAT
+        /// gateway to support and the Elastic IP addresses (EIPs) to use in each AZ. The regional
+        /// NAT gateway uses these EIPs to handle outbound NAT traffic from their respective AZs.
+        /// If not specified, the NAT gateway will automatically expand to new AZs and associate
+        /// EIPs upon detection of an elastic network interface. If you specify this parameter,
+        /// auto-expansion is disabled and you must manually manage AZ coverage.</para><para>A regional NAT gateway is a single NAT Gateway that works across multiple availability
+        /// zones (AZs) in your VPC, providing redundancy, scalability and availability across
+        /// all the AZs in a Region.</para><para>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html">Regional
+        /// NAT gateways for automatic multi-AZ expansion</a> in the <i>Amazon VPC User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AvailabilityZoneAddresses")]
+        public Amazon.EC2.Model.AvailabilityZoneAddress[] AvailabilityZoneAddress { get; set; }
+        #endregion
+        
         #region Parameter ConnectivityType
         /// <summary>
         /// <para>
@@ -146,14 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The ID of the subnet in which to create the NAT gateway.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SubnetId { get; set; }
         #endregion
         
@@ -166,6 +194,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TagSpecifications")]
         public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
+        #region Parameter VpcId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the VPC where you want to create a regional NAT gateway.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VpcId { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -243,6 +281,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AllocationId = this.AllocationId;
+            context.AvailabilityMode = this.AvailabilityMode;
+            if (this.AvailabilityZoneAddress != null)
+            {
+                context.AvailabilityZoneAddress = new List<Amazon.EC2.Model.AvailabilityZoneAddress>(this.AvailabilityZoneAddress);
+            }
             context.ClientToken = this.ClientToken;
             context.ConnectivityType = this.ConnectivityType;
             context.PrivateIpAddress = this.PrivateIpAddress;
@@ -256,16 +299,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.SecondaryPrivateIpAddress = new List<System.String>(this.SecondaryPrivateIpAddress);
             }
             context.SubnetId = this.SubnetId;
-            #if MODULAR
-            if (this.SubnetId == null && ParameterWasBound(nameof(this.SubnetId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SubnetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.TagSpecification != null)
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
             }
+            context.VpcId = this.VpcId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -285,6 +323,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AllocationId != null)
             {
                 request.AllocationId = cmdletContext.AllocationId;
+            }
+            if (cmdletContext.AvailabilityMode != null)
+            {
+                request.AvailabilityMode = cmdletContext.AvailabilityMode;
+            }
+            if (cmdletContext.AvailabilityZoneAddress != null)
+            {
+                request.AvailabilityZoneAddresses = cmdletContext.AvailabilityZoneAddress;
             }
             if (cmdletContext.ClientToken != null)
             {
@@ -317,6 +363,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.TagSpecification != null)
             {
                 request.TagSpecifications = cmdletContext.TagSpecification;
+            }
+            if (cmdletContext.VpcId != null)
+            {
+                request.VpcId = cmdletContext.VpcId;
             }
             
             CmdletOutput output;
@@ -380,6 +430,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AllocationId { get; set; }
+            public Amazon.EC2.AvailabilityMode AvailabilityMode { get; set; }
+            public List<Amazon.EC2.Model.AvailabilityZoneAddress> AvailabilityZoneAddress { get; set; }
             public System.String ClientToken { get; set; }
             public Amazon.EC2.ConnectivityType ConnectivityType { get; set; }
             public System.String PrivateIpAddress { get; set; }
@@ -388,6 +440,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<System.String> SecondaryPrivateIpAddress { get; set; }
             public System.String SubnetId { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
+            public System.String VpcId { get; set; }
             public System.Func<Amazon.EC2.Model.CreateNatGatewayResponse, NewEC2NatGatewayCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

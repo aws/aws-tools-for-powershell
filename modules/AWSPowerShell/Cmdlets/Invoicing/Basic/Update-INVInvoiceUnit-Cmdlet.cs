@@ -43,6 +43,20 @@ namespace Amazon.PowerShell.Cmdlets.INV
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Rule_BillSourceAccount
+        /// <summary>
+        /// <para>
+        /// <para> A list of Amazon Web Services account account IDs that have delegated their billing
+        /// responsibility to the receiver account through transfer billing. Unlike linked accounts,
+        /// these bill source accounts can be payer accounts from other organizations that have
+        /// authorized billing transfer to this account. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Rule_BillSourceAccounts")]
+        public System.String[] Rule_BillSourceAccount { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -165,6 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.INV
                 WriteWarning("You are passing $null as a value for parameter InvoiceUnitArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Rule_BillSourceAccount != null)
+            {
+                context.Rule_BillSourceAccount = new List<System.String>(this.Rule_BillSourceAccount);
+            }
             if (this.Rule_LinkedAccount != null)
             {
                 context.Rule_LinkedAccount = new List<System.String>(this.Rule_LinkedAccount);
@@ -198,6 +216,16 @@ namespace Amazon.PowerShell.Cmdlets.INV
              // populate Rule
             var requestRuleIsNull = true;
             request.Rule = new Amazon.Invoicing.Model.InvoiceUnitRule();
+            List<System.String> requestRule_rule_BillSourceAccount = null;
+            if (cmdletContext.Rule_BillSourceAccount != null)
+            {
+                requestRule_rule_BillSourceAccount = cmdletContext.Rule_BillSourceAccount;
+            }
+            if (requestRule_rule_BillSourceAccount != null)
+            {
+                request.Rule.BillSourceAccounts = requestRule_rule_BillSourceAccount;
+                requestRuleIsNull = false;
+            }
             List<System.String> requestRule_rule_LinkedAccount = null;
             if (cmdletContext.Rule_LinkedAccount != null)
             {
@@ -280,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.INV
         {
             public System.String Description { get; set; }
             public System.String InvoiceUnitArn { get; set; }
+            public List<System.String> Rule_BillSourceAccount { get; set; }
             public List<System.String> Rule_LinkedAccount { get; set; }
             public System.Boolean? TaxInheritanceDisabled { get; set; }
             public System.Func<Amazon.Invoicing.Model.UpdateInvoiceUnitResponse, UpdateINVInvoiceUnitCmdlet, object> Select { get; set; } =

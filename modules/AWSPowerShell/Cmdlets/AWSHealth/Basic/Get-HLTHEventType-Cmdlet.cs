@@ -54,6 +54,18 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Filter_Actionability
+        /// <summary>
+        /// <para>
+        /// <para>A list of actionability values to filter event types. Possible values are <c>ACTION_REQUIRED</c>,
+        /// <c>ACTION_MAY_BE_REQUIRED</c> and <c>INFORMATIONAL</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_Actionabilities")]
+        public System.String[] Filter_Actionability { get; set; }
+        #endregion
+        
         #region Parameter Filter_EventTypeCategory
         /// <summary>
         /// <para>
@@ -87,6 +99,18 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Locale { get; set; }
+        #endregion
+        
+        #region Parameter Filter_Persona
+        /// <summary>
+        /// <para>
+        /// <para>A list of persona classifications to filter event types. Possible values are <c>OPERATIONS</c>,
+        /// <c>SECURITY</c>, and <c>BILLING</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_Personas")]
+        public System.String[] Filter_Persona { get; set; }
         #endregion
         
         #region Parameter Filter_Service
@@ -172,6 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
                 context.Select = CreateSelectDelegate<Amazon.AWSHealth.Model.DescribeEventTypesResponse, GetHLTHEventTypeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.Filter_Actionability != null)
+            {
+                context.Filter_Actionability = new List<System.String>(this.Filter_Actionability);
+            }
             if (this.Filter_EventTypeCategory != null)
             {
                 context.Filter_EventTypeCategory = new List<System.String>(this.Filter_EventTypeCategory);
@@ -179,6 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             if (this.Filter_EventTypeCode != null)
             {
                 context.Filter_EventTypeCode = new List<System.String>(this.Filter_EventTypeCode);
+            }
+            if (this.Filter_Persona != null)
+            {
+                context.Filter_Persona = new List<System.String>(this.Filter_Persona);
             }
             if (this.Filter_Service != null)
             {
@@ -219,6 +251,16 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
              // populate Filter
             var requestFilterIsNull = true;
             request.Filter = new Amazon.AWSHealth.Model.EventTypeFilter();
+            List<System.String> requestFilter_filter_Actionability = null;
+            if (cmdletContext.Filter_Actionability != null)
+            {
+                requestFilter_filter_Actionability = cmdletContext.Filter_Actionability;
+            }
+            if (requestFilter_filter_Actionability != null)
+            {
+                request.Filter.Actionabilities = requestFilter_filter_Actionability;
+                requestFilterIsNull = false;
+            }
             List<System.String> requestFilter_filter_EventTypeCategory = null;
             if (cmdletContext.Filter_EventTypeCategory != null)
             {
@@ -237,6 +279,16 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             if (requestFilter_filter_EventTypeCode != null)
             {
                 request.Filter.EventTypeCodes = requestFilter_filter_EventTypeCode;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_Persona = null;
+            if (cmdletContext.Filter_Persona != null)
+            {
+                requestFilter_filter_Persona = cmdletContext.Filter_Persona;
+            }
+            if (requestFilter_filter_Persona != null)
+            {
+                request.Filter.Personas = requestFilter_filter_Persona;
                 requestFilterIsNull = false;
             }
             List<System.String> requestFilter_filter_Service = null;
@@ -321,6 +373,16 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
              // populate Filter
             var requestFilterIsNull = true;
             request.Filter = new Amazon.AWSHealth.Model.EventTypeFilter();
+            List<System.String> requestFilter_filter_Actionability = null;
+            if (cmdletContext.Filter_Actionability != null)
+            {
+                requestFilter_filter_Actionability = cmdletContext.Filter_Actionability;
+            }
+            if (requestFilter_filter_Actionability != null)
+            {
+                request.Filter.Actionabilities = requestFilter_filter_Actionability;
+                requestFilterIsNull = false;
+            }
             List<System.String> requestFilter_filter_EventTypeCategory = null;
             if (cmdletContext.Filter_EventTypeCategory != null)
             {
@@ -339,6 +401,16 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             if (requestFilter_filter_EventTypeCode != null)
             {
                 request.Filter.EventTypeCodes = requestFilter_filter_EventTypeCode;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_Persona = null;
+            if (cmdletContext.Filter_Persona != null)
+            {
+                requestFilter_filter_Persona = cmdletContext.Filter_Persona;
+            }
+            if (requestFilter_filter_Persona != null)
+            {
+                request.Filter.Personas = requestFilter_filter_Persona;
                 requestFilterIsNull = false;
             }
             List<System.String> requestFilter_filter_Service = null;
@@ -479,8 +551,10 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> Filter_Actionability { get; set; }
             public List<System.String> Filter_EventTypeCategory { get; set; }
             public List<System.String> Filter_EventTypeCode { get; set; }
+            public List<System.String> Filter_Persona { get; set; }
             public List<System.String> Filter_Service { get; set; }
             public System.String Locale { get; set; }
             public int? MaxResult { get; set; }

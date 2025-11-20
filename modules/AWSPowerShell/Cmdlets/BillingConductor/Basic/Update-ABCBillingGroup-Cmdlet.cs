@@ -104,6 +104,17 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         public System.String ComputationPreference_PricingPlanArn { get; set; }
         #endregion
         
+        #region Parameter AccountGrouping_ResponsibilityTransferArn
+        /// <summary>
+        /// <para>
+        /// <para> The Amazon Resource Name (ARN) that identifies the transfer relationship. Note: Modifications
+        /// to the ResponsibilityTransferArn are not permitted for existing billing groups. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountGrouping_ResponsibilityTransferArn { get; set; }
+        #endregion
+        
         #region Parameter Status
         /// <summary>
         /// <para>
@@ -178,6 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AccountGrouping_AutoAssociate = this.AccountGrouping_AutoAssociate;
+            context.AccountGrouping_ResponsibilityTransferArn = this.AccountGrouping_ResponsibilityTransferArn;
             context.Arn = this.Arn;
             #if MODULAR
             if (this.Arn == null && ParameterWasBound(nameof(this.Arn)))
@@ -217,6 +229,16 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             if (requestAccountGrouping_accountGrouping_AutoAssociate != null)
             {
                 request.AccountGrouping.AutoAssociate = requestAccountGrouping_accountGrouping_AutoAssociate.Value;
+                requestAccountGroupingIsNull = false;
+            }
+            System.String requestAccountGrouping_accountGrouping_ResponsibilityTransferArn = null;
+            if (cmdletContext.AccountGrouping_ResponsibilityTransferArn != null)
+            {
+                requestAccountGrouping_accountGrouping_ResponsibilityTransferArn = cmdletContext.AccountGrouping_ResponsibilityTransferArn;
+            }
+            if (requestAccountGrouping_accountGrouping_ResponsibilityTransferArn != null)
+            {
+                request.AccountGrouping.ResponsibilityTransferArn = requestAccountGrouping_accountGrouping_ResponsibilityTransferArn;
                 requestAccountGroupingIsNull = false;
             }
              // determine if request.AccountGrouping should be set to null
@@ -321,6 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? AccountGrouping_AutoAssociate { get; set; }
+            public System.String AccountGrouping_ResponsibilityTransferArn { get; set; }
             public System.String Arn { get; set; }
             public System.String ComputationPreference_PricingPlanArn { get; set; }
             public System.String Description { get; set; }

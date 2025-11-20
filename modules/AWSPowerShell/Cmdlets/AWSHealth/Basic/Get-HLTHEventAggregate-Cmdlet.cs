@@ -49,6 +49,19 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Filter_Actionability
+        /// <summary>
+        /// <para>
+        /// <para>A list of actionability values to filter events. Use this to filter events based on
+        /// whether they require action (<c>ACTION_REQUIRED</c>), may require action (<c>ACTION_MAY_BE_REQUIRED</c>)
+        /// or are informational (<c>INFORMATIONAL</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_Actionabilities")]
+        public System.String[] Filter_Actionability { get; set; }
+        #endregion
+        
         #region Parameter AggregateField
         /// <summary>
         /// <para>
@@ -167,6 +180,18 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Filter_LastUpdatedTimes")]
         public Amazon.AWSHealth.Model.DateTimeRange[] Filter_LastUpdatedTime { get; set; }
+        #endregion
+        
+        #region Parameter Filter_Persona
+        /// <summary>
+        /// <para>
+        /// <para>A list of persona values to filter events. Use this to filter events based on their
+        /// target audience: <c>OPERATIONS</c>, <c>SECURITY</c>, or <c>BILLING</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_Personas")]
+        public System.String[] Filter_Persona { get; set; }
         #endregion
         
         #region Parameter Filter_Region
@@ -311,6 +336,10 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
                 WriteWarning("You are passing $null as a value for parameter AggregateField which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Filter_Actionability != null)
+            {
+                context.Filter_Actionability = new List<System.String>(this.Filter_Actionability);
+            }
             if (this.Filter_AvailabilityZone != null)
             {
                 context.Filter_AvailabilityZone = new List<System.String>(this.Filter_AvailabilityZone);
@@ -346,6 +375,10 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             if (this.Filter_LastUpdatedTime != null)
             {
                 context.Filter_LastUpdatedTime = new List<Amazon.AWSHealth.Model.DateTimeRange>(this.Filter_LastUpdatedTime);
+            }
+            if (this.Filter_Persona != null)
+            {
+                context.Filter_Persona = new List<System.String>(this.Filter_Persona);
             }
             if (this.Filter_Region != null)
             {
@@ -412,6 +445,16 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
              // populate Filter
             var requestFilterIsNull = true;
             request.Filter = new Amazon.AWSHealth.Model.EventFilter();
+            List<System.String> requestFilter_filter_Actionability = null;
+            if (cmdletContext.Filter_Actionability != null)
+            {
+                requestFilter_filter_Actionability = cmdletContext.Filter_Actionability;
+            }
+            if (requestFilter_filter_Actionability != null)
+            {
+                request.Filter.Actionabilities = requestFilter_filter_Actionability;
+                requestFilterIsNull = false;
+            }
             List<System.String> requestFilter_filter_AvailabilityZone = null;
             if (cmdletContext.Filter_AvailabilityZone != null)
             {
@@ -500,6 +543,16 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             if (requestFilter_filter_LastUpdatedTime != null)
             {
                 request.Filter.LastUpdatedTimes = requestFilter_filter_LastUpdatedTime;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_Persona = null;
+            if (cmdletContext.Filter_Persona != null)
+            {
+                requestFilter_filter_Persona = cmdletContext.Filter_Persona;
+            }
+            if (requestFilter_filter_Persona != null)
+            {
+                request.Filter.Personas = requestFilter_filter_Persona;
                 requestFilterIsNull = false;
             }
             List<System.String> requestFilter_filter_Region = null;
@@ -614,6 +667,16 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
              // populate Filter
             var requestFilterIsNull = true;
             request.Filter = new Amazon.AWSHealth.Model.EventFilter();
+            List<System.String> requestFilter_filter_Actionability = null;
+            if (cmdletContext.Filter_Actionability != null)
+            {
+                requestFilter_filter_Actionability = cmdletContext.Filter_Actionability;
+            }
+            if (requestFilter_filter_Actionability != null)
+            {
+                request.Filter.Actionabilities = requestFilter_filter_Actionability;
+                requestFilterIsNull = false;
+            }
             List<System.String> requestFilter_filter_AvailabilityZone = null;
             if (cmdletContext.Filter_AvailabilityZone != null)
             {
@@ -702,6 +765,16 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             if (requestFilter_filter_LastUpdatedTime != null)
             {
                 request.Filter.LastUpdatedTimes = requestFilter_filter_LastUpdatedTime;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_Persona = null;
+            if (cmdletContext.Filter_Persona != null)
+            {
+                requestFilter_filter_Persona = cmdletContext.Filter_Persona;
+            }
+            if (requestFilter_filter_Persona != null)
+            {
+                request.Filter.Personas = requestFilter_filter_Persona;
                 requestFilterIsNull = false;
             }
             List<System.String> requestFilter_filter_Region = null;
@@ -869,6 +942,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.AWSHealth.EventAggregateField AggregateField { get; set; }
+            public List<System.String> Filter_Actionability { get; set; }
             public List<System.String> Filter_AvailabilityZone { get; set; }
             public List<Amazon.AWSHealth.Model.DateTimeRange> Filter_EndTime { get; set; }
             public List<System.String> Filter_EntityArn { get; set; }
@@ -878,6 +952,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             public List<System.String> Filter_EventTypeCategory { get; set; }
             public List<System.String> Filter_EventTypeCode { get; set; }
             public List<Amazon.AWSHealth.Model.DateTimeRange> Filter_LastUpdatedTime { get; set; }
+            public List<System.String> Filter_Persona { get; set; }
             public List<System.String> Filter_Region { get; set; }
             public List<System.String> Filter_Service { get; set; }
             public List<Amazon.AWSHealth.Model.DateTimeRange> Filter_StartTime { get; set; }

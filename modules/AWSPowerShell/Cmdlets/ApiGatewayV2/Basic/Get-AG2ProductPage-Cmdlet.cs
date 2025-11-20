@@ -1,0 +1,226 @@
+/*******************************************************************************
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.ApiGatewayV2;
+using Amazon.ApiGatewayV2.Model;
+
+namespace Amazon.PowerShell.Cmdlets.AG2
+{
+    /// <summary>
+    /// Gets a product page of a portal product.
+    /// </summary>
+    [Cmdlet("Get", "AG2ProductPage")]
+    [OutputType("Amazon.ApiGatewayV2.Model.GetProductPageResponse")]
+    [AWSCmdlet("Calls the Amazon API Gateway V2 GetProductPage API operation.", Operation = new[] {"GetProductPage"}, SelectReturnType = typeof(Amazon.ApiGatewayV2.Model.GetProductPageResponse))]
+    [AWSCmdletOutput("Amazon.ApiGatewayV2.Model.GetProductPageResponse",
+        "This cmdlet returns an Amazon.ApiGatewayV2.Model.GetProductPageResponse object containing multiple properties."
+    )]
+    public partial class GetAG2ProductPageCmdlet : AmazonApiGatewayV2ClientCmdlet, IExecutor
+    {
+        
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter PortalProductId
+        /// <summary>
+        /// <para>
+        /// <para>The portal product identifier.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String PortalProductId { get; set; }
+        #endregion
+        
+        #region Parameter ProductPageId
+        /// <summary>
+        /// <para>
+        /// <para>The portal product identifier.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ProductPageId { get; set; }
+        #endregion
+        
+        #region Parameter ResourceOwnerAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The account ID of the resource owner of the portal product.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceOwnerAccountId { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ApiGatewayV2.Model.GetProductPageResponse).
+        /// Specifying the name of a property of type Amazon.ApiGatewayV2.Model.GetProductPageResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            this._AWSSignerType = "v4";
+            base.ProcessRecord();
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.ApiGatewayV2.Model.GetProductPageResponse, GetAG2ProductPageCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            context.PortalProductId = this.PortalProductId;
+            #if MODULAR
+            if (this.PortalProductId == null && ParameterWasBound(nameof(this.PortalProductId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter PortalProductId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.ProductPageId = this.ProductPageId;
+            #if MODULAR
+            if (this.ProductPageId == null && ParameterWasBound(nameof(this.ProductPageId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ProductPageId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.ResourceOwnerAccountId = this.ResourceOwnerAccountId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.ApiGatewayV2.Model.GetProductPageRequest();
+            
+            if (cmdletContext.PortalProductId != null)
+            {
+                request.PortalProductId = cmdletContext.PortalProductId;
+            }
+            if (cmdletContext.ProductPageId != null)
+            {
+                request.ProductPageId = cmdletContext.ProductPageId;
+            }
+            if (cmdletContext.ResourceOwnerAccountId != null)
+            {
+                request.ResourceOwnerAccountId = cmdletContext.ResourceOwnerAccountId;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.ApiGatewayV2.Model.GetProductPageResponse CallAWSServiceOperation(IAmazonApiGatewayV2 client, Amazon.ApiGatewayV2.Model.GetProductPageRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway V2", "GetProductPage");
+            try
+            {
+                #if DESKTOP
+                return client.GetProductPage(request);
+                #elif CORECLR
+                return client.GetProductPageAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public System.String PortalProductId { get; set; }
+            public System.String ProductPageId { get; set; }
+            public System.String ResourceOwnerAccountId { get; set; }
+            public System.Func<Amazon.ApiGatewayV2.Model.GetProductPageResponse, GetAG2ProductPageCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
+        }
+        
+    }
+}

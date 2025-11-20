@@ -83,7 +83,7 @@ $ABC_Completers = {
         # Amazon.BillingConductor.BillingGroupStatus
         "Update-ABCBillingGroup/Status"
         {
-            $v = "ACTIVE","PRIMARY_ACCOUNT_MISSING"
+            $v = "ACTIVE","PENDING","PRIMARY_ACCOUNT_MISSING"
             break
         }
 

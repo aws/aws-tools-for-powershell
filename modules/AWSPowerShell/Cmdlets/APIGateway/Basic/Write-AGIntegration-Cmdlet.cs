@@ -219,6 +219,17 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String ResourceId { get; set; }
         #endregion
         
+        #region Parameter ResponseTransferMode
+        /// <summary>
+        /// <para>
+        /// <para> The response transfer mode of the integration. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.APIGateway.ResponseTransferMode")]
+        public Amazon.APIGateway.ResponseTransferMode ResponseTransferMode { get; set; }
+        #endregion
+        
         #region Parameter RestApiId
         /// <summary>
         /// <para>
@@ -395,6 +406,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 WriteWarning("You are passing $null as a value for parameter ResourceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ResponseTransferMode = this.ResponseTransferMode;
             context.RestApiId = this.RestApiId;
             #if MODULAR
             if (this.RestApiId == null && ParameterWasBound(nameof(this.RestApiId)))
@@ -475,6 +487,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.ResourceId != null)
             {
                 request.ResourceId = cmdletContext.ResourceId;
+            }
+            if (cmdletContext.ResponseTransferMode != null)
+            {
+                request.ResponseTransferMode = cmdletContext.ResponseTransferMode;
             }
             if (cmdletContext.RestApiId != null)
             {
@@ -584,6 +600,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public Dictionary<System.String, System.String> RequestParameter { get; set; }
             public Dictionary<System.String, System.String> RequestTemplate { get; set; }
             public System.String ResourceId { get; set; }
+            public Amazon.APIGateway.ResponseTransferMode ResponseTransferMode { get; set; }
             public System.String RestApiId { get; set; }
             public System.Int32? TimeoutInMilli { get; set; }
             public System.Boolean? TlsConfig_InsecureSkipVerification { get; set; }

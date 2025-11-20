@@ -248,6 +248,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisableOutboundWebIdentityFederation" Verb="Disable" Noun="OutboundWebIdentityFederation" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="EnableMFADevice" Verb="Enable" Noun="MFADevice" ShouldProcessTarget="UserName" PositionalParameters="SerialNumber;AuthenticationCode1;AuthenticationCode2" PipelineParameter="UserName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -257,6 +261,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="EnableOrganizationsRootSessions" OutputProperty="*" Verb="Enable" Noun="OrganizationsRootSession" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableOutboundWebIdentityFederation" OutputProperty="IssuerIdentifier" Verb="Enable" Noun="OutboundWebIdentityFederation" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -333,6 +341,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetOrganizationsAccessReport" OutputProperty="*" Verb="Get" Noun="OrganizationsAccessReport" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOutboundWebIdentityFederationInfo" OutputProperty="*" Verb="Get" Noun="OutboundWebIdentityFederationInfo" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

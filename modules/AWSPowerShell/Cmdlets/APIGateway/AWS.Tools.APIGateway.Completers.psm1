@@ -145,6 +145,16 @@ $AG_Completers = {
             break
         }
 
+        # Amazon.APIGateway.EndpointAccessMode
+        {
+            ($_ -eq "New-AGDomainName/EndpointAccessMode") -Or
+            ($_ -eq "New-AGRestApi/EndpointAccessMode")
+        }
+        {
+            $v = "BASIC","STRICT"
+            break
+        }
+
         # Amazon.APIGateway.GatewayResponseType
         {
             ($_ -eq "Get-AGGatewayResponse/ResponseType") -Or
@@ -208,6 +218,13 @@ $AG_Completers = {
             break
         }
 
+        # Amazon.APIGateway.ResponseTransferMode
+        "Write-AGIntegration/ResponseTransferMode"
+        {
+            $v = "BUFFERED","STREAM"
+            break
+        }
+
         # Amazon.APIGateway.RoutingMode
         "New-AGDomainName/RoutingMode"
         {
@@ -216,9 +233,12 @@ $AG_Completers = {
         }
 
         # Amazon.APIGateway.SecurityPolicy
-        "New-AGDomainName/SecurityPolicy"
         {
-            $v = "TLS_1_0","TLS_1_2"
+            ($_ -eq "New-AGDomainName/SecurityPolicy") -Or
+            ($_ -eq "New-AGRestApi/SecurityPolicy")
+        }
+        {
+            $v = "SecurityPolicy_TLS12_2018_EDGE","SecurityPolicy_TLS12_PFS_2025_EDGE","SecurityPolicy_TLS13_1_2_2021_06","SecurityPolicy_TLS13_1_2_FIPS_PQ_2025_09","SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09","SecurityPolicy_TLS13_1_2_PQ_2025_09","SecurityPolicy_TLS13_1_3_2025_09","SecurityPolicy_TLS13_1_3_FIPS_2025_09","SecurityPolicy_TLS13_2025_EDGE","TLS_1_0","TLS_1_2"
             break
         }
 
@@ -236,6 +256,7 @@ $AG_map = @{
     "CacheClusterSize"=@("New-AGDeployment","New-AGStage")
     "ConnectionType"=@("Write-AGIntegration")
     "ContentHandling"=@("Write-AGIntegration","Write-AGIntegrationResponse")
+    "EndpointAccessMode"=@("New-AGDomainName","New-AGRestApi")
     "EndpointConfiguration_IpAddressType"=@("New-AGDomainName","New-AGRestApi")
     "Format"=@("Import-AGApiKey")
     "Location_Type"=@("New-AGDocumentationPart")
@@ -243,9 +264,10 @@ $AG_map = @{
     "Mode"=@("Import-AGDocumentationPartList","Write-AGRestApi")
     "Quota_Period"=@("New-AGUsagePlan")
     "ResourceOwner"=@("Get-AGDomainNameAccessAssociation","Get-AGDomainNameList")
+    "ResponseTransferMode"=@("Write-AGIntegration")
     "ResponseType"=@("Get-AGGatewayResponse","Remove-AGGatewayResponse","Update-AGGatewayResponse","Write-AGGatewayResponse")
     "RoutingMode"=@("New-AGDomainName")
-    "SecurityPolicy"=@("New-AGDomainName")
+    "SecurityPolicy"=@("New-AGDomainName","New-AGRestApi")
     "Type"=@("Get-AGDocumentationPartList","New-AGAuthorizer","Write-AGIntegration")
 }
 

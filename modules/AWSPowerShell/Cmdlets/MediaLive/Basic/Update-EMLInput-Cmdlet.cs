@@ -129,6 +129,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter SpecialRouterSettings_RouterArn
+        /// <summary>
+        /// <para>
+        /// This is the arn of the MediaConnect Router resource
+        /// being associated with the MediaLive Input.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SpecialRouterSettings_RouterArn { get; set; }
+        #endregion
+        
         #region Parameter SdiSource
         /// <summary>
         /// <para>
@@ -289,6 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             {
                 context.Source = new List<Amazon.MediaLive.Model.InputSourceRequest>(this.Source);
             }
+            context.SpecialRouterSettings_RouterArn = this.SpecialRouterSettings_RouterArn;
             if (this.SrtSettings_SrtCallerSource != null)
             {
                 context.SrtSettings_SrtCallerSource = new List<Amazon.MediaLive.Model.SrtCallerSourceRequest>(this.SrtSettings_SrtCallerSource);
@@ -384,6 +396,25 @@ namespace Amazon.PowerShell.Cmdlets.EML
                 request.Sources = cmdletContext.Source;
             }
             
+             // populate SpecialRouterSettings
+            var requestSpecialRouterSettingsIsNull = true;
+            request.SpecialRouterSettings = new Amazon.MediaLive.Model.SpecialRouterSettings();
+            System.String requestSpecialRouterSettings_specialRouterSettings_RouterArn = null;
+            if (cmdletContext.SpecialRouterSettings_RouterArn != null)
+            {
+                requestSpecialRouterSettings_specialRouterSettings_RouterArn = cmdletContext.SpecialRouterSettings_RouterArn;
+            }
+            if (requestSpecialRouterSettings_specialRouterSettings_RouterArn != null)
+            {
+                request.SpecialRouterSettings.RouterArn = requestSpecialRouterSettings_specialRouterSettings_RouterArn;
+                requestSpecialRouterSettingsIsNull = false;
+            }
+             // determine if request.SpecialRouterSettings should be set to null
+            if (requestSpecialRouterSettingsIsNull)
+            {
+                request.SpecialRouterSettings = null;
+            }
+            
              // populate SrtSettings
             var requestSrtSettingsIsNull = true;
             request.SrtSettings = new Amazon.MediaLive.Model.SrtSettingsRequest();
@@ -474,6 +505,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public List<System.String> SdiSource { get; set; }
             public List<Amazon.MediaLive.Model.Smpte2110ReceiverGroup> Smpte2110ReceiverGroupSettings_Smpte2110ReceiverGroup { get; set; }
             public List<Amazon.MediaLive.Model.InputSourceRequest> Source { get; set; }
+            public System.String SpecialRouterSettings_RouterArn { get; set; }
             public List<Amazon.MediaLive.Model.SrtCallerSourceRequest> SrtSettings_SrtCallerSource { get; set; }
             public System.Func<Amazon.MediaLive.Model.UpdateInputResponse, UpdateEMLInputCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Input;

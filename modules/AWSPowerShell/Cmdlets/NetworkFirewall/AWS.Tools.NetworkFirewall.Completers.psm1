@@ -137,7 +137,7 @@ $NWFW_Completers = {
         # Amazon.NetworkFirewall.ResourceManagedType
         "Get-NWFWRuleGroupList/ManagedType"
         {
-            $v = "ACTIVE_THREAT_DEFENSE","AWS_MANAGED_DOMAIN_LISTS","AWS_MANAGED_THREAT_SIGNATURES"
+            $v = "ACTIVE_THREAT_DEFENSE","AWS_MANAGED_DOMAIN_LISTS","AWS_MANAGED_THREAT_SIGNATURES","PARTNER_MANAGED"
             break
         }
 
@@ -178,6 +178,13 @@ $NWFW_Completers = {
             break
         }
 
+        # Amazon.NetworkFirewall.SubscriptionStatus
+        "Get-NWFWRuleGroupList/SubscriptionStatus"
+        {
+            $v = "NOT_SUBSCRIBED","SUBSCRIBED"
+            break
+        }
+
 
     }
 
@@ -197,6 +204,7 @@ $NWFW_map = @{
     "StatefulEngineOptions_StreamExceptionPolicy"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
     "StatefulRuleOptions_RuleOrder"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
     "SubnetMapping_IPAddressType"=@("New-NWFWVpcEndpointAssociation")
+    "SubscriptionStatus"=@("Get-NWFWRuleGroupList")
     "Type"=@("Get-NWFWRuleGroup","Get-NWFWRuleGroupList","Get-NWFWRuleGroupMetadata","Get-NWFWRuleGroupSummary","New-NWFWRuleGroup","Remove-NWFWRuleGroup","Update-NWFWRuleGroup")
 }
 

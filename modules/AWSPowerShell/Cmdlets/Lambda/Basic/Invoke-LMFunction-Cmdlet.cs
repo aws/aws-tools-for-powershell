@@ -209,6 +209,16 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String Qualifier { get; set; }
         #endregion
         
+        #region Parameter TenantId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the tenant in a multi-tenant Lambda function.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TenantId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -295,6 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.LogType = this.LogType;
             context.PayloadStream = this.PayloadStream;
             context.Qualifier = this.Qualifier;
+            context.TenantId = this.TenantId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -347,6 +358,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 if (cmdletContext.Qualifier != null)
                 {
                     request.Qualifier = cmdletContext.Qualifier;
+                }
+                if (cmdletContext.TenantId != null)
+                {
+                    request.TenantId = cmdletContext.TenantId;
                 }
                 
                 CmdletOutput output;
@@ -425,6 +440,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public Amazon.Lambda.LogType LogType { get; set; }
             public byte[] PayloadStream { get; set; }
             public System.String Qualifier { get; set; }
+            public System.String TenantId { get; set; }
             public System.Func<Amazon.Lambda.Model.InvokeResponse, InvokeLMFunctionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

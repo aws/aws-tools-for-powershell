@@ -380,7 +380,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter ProvisionedPollerConfig_MaximumPoller
         /// <summary>
         /// <para>
-        /// <para>The maximum number of event pollers this event source can scale up to.</para>
+        /// <para>The maximum number of event pollers this event source can scale up to. For Amazon
+        /// SQS events source mappings, default is 200, and minimum value allowed is 2. For Amazon
+        /// MSK and self-managed Apache Kafka event source mappings, default is 200, and minimum
+        /// value allowed is 1.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -430,7 +433,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter ProvisionedPollerConfig_MinimumPoller
         /// <summary>
         /// <para>
-        /// <para>The minimum number of event pollers this event source can scale down to.</para>
+        /// <para>The minimum number of event pollers this event source can scale down to. For Amazon
+        /// SQS events source mappings, default is 2, and minimum 2 required. For Amazon MSK and
+        /// self-managed Apache Kafka event source mappings, default is 1.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

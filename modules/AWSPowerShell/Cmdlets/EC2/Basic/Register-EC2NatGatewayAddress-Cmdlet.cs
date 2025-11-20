@@ -78,6 +78,35 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] AllocationId { get; set; }
         #endregion
         
+        #region Parameter AvailabilityZone
+        /// <summary>
+        /// <para>
+        /// <para>For regional NAT gateways only: The Availability Zone where you want to associate
+        /// an Elastic IP address (EIP). The regional NAT gateway uses a separate EIP in each
+        /// AZ to handle outbound NAT traffic from that AZ.</para><para>A regional NAT gateway is a single NAT Gateway that works across multiple availability
+        /// zones (AZs) in your VPC, providing redundancy, scalability and availability across
+        /// all the AZs in a Region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AvailabilityZone { get; set; }
+        #endregion
+        
+        #region Parameter AvailabilityZoneId
+        /// <summary>
+        /// <para>
+        /// <para>For regional NAT gateways only: The ID of the Availability Zone where you want to
+        /// associate an Elastic IP address (EIP). The regional NAT gateway uses a separate EIP
+        /// in each AZ to handle outbound NAT traffic from that AZ. Use this instead of AvailabilityZone
+        /// for consistent identification of AZs across Amazon Web Services Regions. </para><para>A regional NAT gateway is a single NAT Gateway that works across multiple availability
+        /// zones (AZs) in your VPC, providing redundancy, scalability and availability across
+        /// all the AZs in a Region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AvailabilityZoneId { get; set; }
+        #endregion
+        
         #region Parameter NatGatewayId
         /// <summary>
         /// <para>
@@ -178,6 +207,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter AllocationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AvailabilityZone = this.AvailabilityZone;
+            context.AvailabilityZoneId = this.AvailabilityZoneId;
             context.NatGatewayId = this.NatGatewayId;
             #if MODULAR
             if (this.NatGatewayId == null && ParameterWasBound(nameof(this.NatGatewayId)))
@@ -208,6 +239,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AllocationId != null)
             {
                 request.AllocationIds = cmdletContext.AllocationId;
+            }
+            if (cmdletContext.AvailabilityZone != null)
+            {
+                request.AvailabilityZone = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.AvailabilityZoneId != null)
+            {
+                request.AvailabilityZoneId = cmdletContext.AvailabilityZoneId;
             }
             if (cmdletContext.NatGatewayId != null)
             {
@@ -279,6 +318,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AllocationId { get; set; }
+            public System.String AvailabilityZone { get; set; }
+            public System.String AvailabilityZoneId { get; set; }
             public System.String NatGatewayId { get; set; }
             public List<System.String> PrivateIpAddress { get; set; }
             public System.Func<Amazon.EC2.Model.AssociateNatGatewayAddressResponse, RegisterEC2NatGatewayAddressCmdlet, object> Select { get; set; } =

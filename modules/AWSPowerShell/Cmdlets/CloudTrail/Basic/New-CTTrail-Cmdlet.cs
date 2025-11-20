@@ -121,9 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value
-        /// can be an alias name prefixed by <c>alias/</c>, a fully specified ARN to an alias,
-        /// a fully specified ARN to a key, or a globally unique identifier.</para><para>CloudTrail also supports KMS multi-Region keys. For more information about multi-Region
+        /// <para>Specifies the KMS key ID to use to encrypt the logs and digest files delivered by
+        /// CloudTrail. The value can be an alias name prefixed by <c>alias/</c>, a fully specified
+        /// ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.</para><para>CloudTrail also supports KMS multi-Region keys. For more information about multi-Region
         /// keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Using
         /// multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.</para><para>Examples:</para><ul><li><para><c>alias/MyAliasName</c></para></li><li><para><c>arn:aws:kms:us-east-2:123456789012:alias/MyAliasName</c></para></li><li><para><c>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</c></para></li><li><para><c>12345678-1234-1234-1234-123456789012</c></para></li></ul>
         /// </para>
