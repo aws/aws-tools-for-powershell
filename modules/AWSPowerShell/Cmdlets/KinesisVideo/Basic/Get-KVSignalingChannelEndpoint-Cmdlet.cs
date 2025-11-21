@@ -38,7 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
     /// <para><c>Protocols</c> is used to determine the communication mechanism. For example, if
     /// you specify <c>WSS</c> as the protocol, this API produces a secure websocket endpoint.
     /// If you specify <c>HTTPS</c> as the protocol, this API generates an HTTPS endpoint.
-    /// 
+    /// If you specify <c>WEBRTC</c> as the protocol, but the signaling channel isn't configured
+    /// for ingestion, you will receive the error <c>InvalidArgumentException</c>.
     /// </para><para><c>Role</c> determines the messaging permissions. A <c>MASTER</c> role results in
     /// this API generating an endpoint that a client can use to communicate with any of the
     /// viewers on the channel. A <c>VIEWER</c> role results in this API generating an endpoint

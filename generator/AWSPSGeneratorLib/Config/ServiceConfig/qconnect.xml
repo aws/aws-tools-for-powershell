@@ -70,6 +70,14 @@
             <Params>
                 <Param Name="Content_Email_Body_PlainText_Content" NewName="Content_Email_Body_PlainText_Content" />
                 <Param Name="Content_Sms_Body_PlainText_Content" NewName="Content_Sms_Body_PlainText_Content" />
+                <Param Name="Content_Push_Adm_Body_Content" NewName="Content_Push_Adm_Body_Content" />
+                <Param Name="Content_Push_Apns_Body_Content" NewName="Content_Push_Apns_Body_Content" />
+                <Param Name="Content_Push_Baidu_Body_Content" NewName="Content_Push_Baidu_Body_Content" />
+                <Param Name="Content_Push_Fcm_Body_Content" NewName="Content_Push_Fcm_Body_Content" />
+                <Param Name="Content_Push_Adm_RawContent_Content" NewName="Content_Push_Adm_RawContent_Content" />
+                <Param Name="Content_Push_Apns_RawContent_Content" NewName="Content_Push_Apns_RawContent_Content" />
+                <Param Name="Content_Push_Baidu_RawContent_Content" NewName="Content_Push_Baidu_RawContent_Content" />
+                <Param Name="Content_Push_Fcm_RawContent_Content" NewName="Content_Push_Fcm_RawContent_Content" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -369,6 +377,14 @@
             <Params>
                 <Param Name="Content_Email_Body_PlainText_Content" NewName="Content_Email_Body_PlainText_Content" />
                 <Param Name="Content_Sms_Body_PlainText_Content" NewName="Content_Sms_Body_PlainText_Content" />
+                <Param Name="Content_Push_Adm_Body_Content" NewName="Content_Push_Adm_Body_Content" />
+                <Param Name="Content_Push_Apns_Body_Content" NewName="Content_Push_Apns_Body_Content" />
+                <Param Name="Content_Push_Baidu_Body_Content" NewName="Content_Push_Baidu_Body_Content" />
+                <Param Name="Content_Push_Fcm_Body_Content" NewName="Content_Push_Fcm_Body_Content" />
+                <Param Name="Content_Push_Adm_RawContent_Content" NewName="Content_Push_Adm_RawContent_Content" />
+                <Param Name="Content_Push_Apns_RawContent_Content" NewName="Content_Push_Apns_RawContent_Content" />
+                <Param Name="Content_Push_Baidu_RawContent_Content" NewName="Content_Push_Baidu_RawContent_Content" />
+                <Param Name="Content_Push_Fcm_RawContent_Content" NewName="Content_Push_Fcm_RawContent_Content" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

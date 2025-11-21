@@ -189,8 +189,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The number of instances for which to reserve capacity.</para><note><para>You can request future-dated Capacity Reservations for an instance count with a minimum
-        /// of 64 vCPUs. For example, if you request a future-dated Capacity Reservation for <c>m5.xlarge</c>
-        /// instances, you must request at least 25 instances (<i>16 * m5.xlarge = 64 vCPUs</i>).</para></note><para>Valid range: 1 - 1000</para>
+        /// of 32 vCPUs. For example, if you request a future-dated Capacity Reservation for <c>m5.xlarge</c>
+        /// instances, you must request at least 8 instances (<i>8 * m5.xlarge = 32 vCPUs</i>).</para></note><para>Valid range: 1 - 1000</para>
         /// </para>
         /// </summary>
         #if !MODULAR

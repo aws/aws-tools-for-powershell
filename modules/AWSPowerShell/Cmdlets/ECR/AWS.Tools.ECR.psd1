@@ -98,6 +98,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ECRImageReferrerList', 
         'Get-ECRImageReplicationStatus', 
         'Get-ECRImageScanFinding', 
+        'Get-ECRImageSigningStatusDetail', 
         'Get-ECRLayerAvailabilityBatch', 
         'Get-ECRLifecyclePolicy', 
         'Get-ECRLifecyclePolicyPreview', 
@@ -112,6 +113,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ECRRepositoryPolicy', 
         'Get-ECRRepositoryScanningConfigurationBatch', 
         'Get-ECRResourceTag', 
+        'Get-ECRSigningConfiguration', 
         'New-ECRPullThroughCacheRule', 
         'New-ECRRepository', 
         'New-ECRRepositoryCreationTemplate', 
@@ -124,6 +126,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-ECRRepositoryCreationTemplate', 
         'Remove-ECRRepositoryPolicy', 
         'Remove-ECRResourceTag', 
+        'Remove-ECRSigningConfiguration', 
         'Send-ECRLayerPart', 
         'Set-ECRRepositoryPolicy', 
         'Start-ECRImageScan', 
@@ -141,7 +144,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Write-ECRLifecyclePolicy', 
         'Write-ECRRegistryPolicy', 
         'Write-ECRRegistryScanningConfiguration', 
-        'Write-ECRReplicationConfiguration')
+        'Write-ECRReplicationConfiguration', 
+        'Write-ECRSigningConfiguration')
 
     # Variables to export from this module
     VariablesToExport = '*'

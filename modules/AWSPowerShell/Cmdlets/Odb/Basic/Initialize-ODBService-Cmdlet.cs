@@ -45,6 +45,16 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter OciIdentityDomain
+        /// <summary>
+        /// <para>
+        /// <para>The Oracle Cloud Infrastructure (OCI) identity domain configuration for service initialization.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.Boolean? OciIdentityDomain { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -74,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.OciIdentityDomain), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Initialize-ODBService (InitializeService)"))
             {
                 return;
@@ -90,6 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
                 context.Select = CreateSelectDelegate<Amazon.Odb.Model.InitializeServiceResponse, InitializeODBServiceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.OciIdentityDomain = this.OciIdentityDomain;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -106,6 +117,10 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             // create request
             var request = new Amazon.Odb.Model.InitializeServiceRequest();
             
+            if (cmdletContext.OciIdentityDomain != null)
+            {
+                request.OciIdentityDomain = cmdletContext.OciIdentityDomain.Value;
+            }
             
             CmdletOutput output;
             
@@ -161,6 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? OciIdentityDomain { get; set; }
             public System.Func<Amazon.Odb.Model.InitializeServiceResponse, InitializeODBServiceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// Amazon SQS</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping">
     /// Amazon MQ and RabbitMQ</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html"> Amazon MSK</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html"> Apache Kafka</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html"> Amazon
     /// DocumentDB</a></para></li></ul><para>
-    /// The following error handling options are available only for DynamoDB and Kinesis event
-    /// sources:
+    /// The following error handling options are available for stream sources (DynamoDB, Kinesis,
+    /// Amazon MSK, and self-managed Apache Kafka):
     /// </para><ul><li><para><c>BisectBatchOnFunctionError</c> – If the function returns an error, split the batch
     /// in two and retry.
     /// </para></li><li><para><c>MaximumRecordAgeInSeconds</c> – Discard records older than the specified age.
@@ -53,13 +53,12 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </para></li><li><para><c>MaximumRetryAttempts</c> – Discard records after the specified number of retries.
     /// The default value is infinite (-1). When set to infinite (-1), failed records are
     /// retried until the record expires.
-    /// </para></li><li><para><c>ParallelizationFactor</c> – Process multiple batches from each shard concurrently.
-    /// </para></li></ul><para>
-    /// For stream sources (DynamoDB, Kinesis, Amazon MSK, and self-managed Apache Kafka),
-    /// the following option is also available:
-    /// </para><ul><li><para><c>OnFailure</c> – Send discarded records to an Amazon SQS queue, Amazon SNS topic,
-    /// or Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations">Adding
+    /// </para></li><li><para><c>OnFailure</c> – Send discarded records to an Amazon SQS queue, Amazon SNS topic,
+    /// Kafka topic, or Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations">Adding
     /// a destination</a>.
+    /// </para></li></ul><para>
+    /// The following option is available only for DynamoDB and Kinesis event sources:
+    /// </para><ul><li><para><c>ParallelizationFactor</c> – Process multiple batches from each shard concurrently.
     /// </para></li></ul><para>
     /// For information about which configuration parameters apply to each event source, see
     /// the following topics.
@@ -132,8 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter BisectBatchOnFunctionError
         /// <summary>
         /// <para>
-        /// <para>(Kinesis and DynamoDB Streams only) If the function returns an error, split the batch
-        /// in two and retry.</para>
+        /// <para>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) If the function
+        /// returns an error, split the batch in two and retry.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,9 +191,12 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter OnFailure_Destination
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the destination resource.</para><para>To retain records of unsuccessful <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations">asynchronous
-        /// invocations</a>, you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3
-        /// bucket, Lambda function, or Amazon EventBridge event bus as the destination.</para><note><para>Amazon SNS destinations have a message size limit of 256 KB. If the combined size
+        /// <para>The Amazon Resource Name (ARN) of the destination resource.</para><para>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Kinesis</a>,
+        /// <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">DynamoDB</a>,
+        /// <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-on-failure.html">self-managed
+        /// Apache Kafka</a>, or <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-on-failure.html">Amazon
+        /// MSK</a>, you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket,
+        /// or Kafka topic as the destination.</para><note><para>Amazon SNS destinations have a message size limit of 256 KB. If the combined size
         /// of the function request and response payload exceeds the limit, Lambda will drop the
         /// payload when sending <c>OnFailure</c> event to the destination. For details on this
         /// behavior, refer to <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html">Retaining
@@ -309,8 +311,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionResponseType
         /// <summary>
         /// <para>
-        /// <para>(Kinesis, DynamoDB Streams, and Amazon SQS) A list of current response type enums
-        /// applied to the event source mapping.</para><para />
+        /// <para>(Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS)
+        /// A list of current response type enums applied to the event source mapping.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -382,8 +384,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MaximumRecordAgeInSecond
         /// <summary>
         /// <para>
-        /// <para>(Kinesis and DynamoDB Streams only) Discard records older than the specified age.
-        /// The default value is infinite (-1).</para>
+        /// <para>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records
+        /// older than the specified age. The default value is infinite (-1).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -394,9 +396,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MaximumRetryAttempt
         /// <summary>
         /// <para>
-        /// <para>(Kinesis and DynamoDB Streams only) Discard records after the specified number of
-        /// retries. The default value is infinite (-1). When set to infinite (-1), failed records
-        /// are retried until the record expires.</para>
+        /// <para>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records
+        /// after the specified number of retries. The default value is infinite (-1). When set
+        /// to infinite (-1), failed records are retried until the record expires.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -444,6 +446,20 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? ParallelizationFactor { get; set; }
+        #endregion
+        
+        #region Parameter ProvisionedPollerConfig_PollerGroupName
+        /// <summary>
+        /// <para>
+        /// <para>(Amazon MSK and self-managed Apache Kafka) The name of the provisioned poller group.
+        /// Use this option to group multiple ESMs within the VPC to share Event Poller Unit (EPU)
+        /// capacity. This option is used to optimize Provisioned mode costs for your ESMs. You
+        /// can group up to 100 ESMs per poller group and aggregate maximum pollers across all
+        /// ESMs in a group cannot exceed 2000.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProvisionedPollerConfig_PollerGroupName { get; set; }
         #endregion
         
         #region Parameter AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_SchemaRegistryURI
@@ -631,6 +647,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.ParallelizationFactor = this.ParallelizationFactor;
             context.ProvisionedPollerConfig_MaximumPoller = this.ProvisionedPollerConfig_MaximumPoller;
             context.ProvisionedPollerConfig_MinimumPoller = this.ProvisionedPollerConfig_MinimumPoller;
+            context.ProvisionedPollerConfig_PollerGroupName = this.ProvisionedPollerConfig_PollerGroupName;
             context.ScalingConfig_MaximumConcurrency = this.ScalingConfig_MaximumConcurrency;
             context.SelfManagedKafkaEventSourceConfig_ConsumerGroupId = this.SelfManagedKafkaEventSourceConfig_ConsumerGroupId;
             if (this.SchemaRegistryConfig_AccessConfig != null)
@@ -945,6 +962,16 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 request.ProvisionedPollerConfig.MinimumPollers = requestProvisionedPollerConfig_provisionedPollerConfig_MinimumPoller.Value;
                 requestProvisionedPollerConfigIsNull = false;
             }
+            System.String requestProvisionedPollerConfig_provisionedPollerConfig_PollerGroupName = null;
+            if (cmdletContext.ProvisionedPollerConfig_PollerGroupName != null)
+            {
+                requestProvisionedPollerConfig_provisionedPollerConfig_PollerGroupName = cmdletContext.ProvisionedPollerConfig_PollerGroupName;
+            }
+            if (requestProvisionedPollerConfig_provisionedPollerConfig_PollerGroupName != null)
+            {
+                request.ProvisionedPollerConfig.PollerGroupName = requestProvisionedPollerConfig_provisionedPollerConfig_PollerGroupName;
+                requestProvisionedPollerConfigIsNull = false;
+            }
              // determine if request.ProvisionedPollerConfig should be set to null
             if (requestProvisionedPollerConfigIsNull)
             {
@@ -1134,6 +1161,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.Int32? ParallelizationFactor { get; set; }
             public System.Int32? ProvisionedPollerConfig_MaximumPoller { get; set; }
             public System.Int32? ProvisionedPollerConfig_MinimumPoller { get; set; }
+            public System.String ProvisionedPollerConfig_PollerGroupName { get; set; }
             public System.Int32? ScalingConfig_MaximumConcurrency { get; set; }
             public System.String SelfManagedKafkaEventSourceConfig_ConsumerGroupId { get; set; }
             public List<Amazon.Lambda.Model.KafkaSchemaRegistryAccessConfig> SchemaRegistryConfig_AccessConfig { get; set; }

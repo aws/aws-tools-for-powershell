@@ -41,10 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// It runs on its own set of Amazon EC2 instances.
     /// </para><para>
     /// The cluster control plane is provisioned across multiple Availability Zones and fronted
-    /// by an Elastic Load Balancing Network Load Balancer. Amazon EKS also provisions elastic
-    /// network interfaces in your VPC subnets to provide connectivity from the control plane
-    /// instances to the nodes (for example, to support <c>kubectl exec</c>, <c>logs</c>,
-    /// and <c>proxy</c> data flows).
+    /// by an ELB Network Load Balancer. Amazon EKS also provisions elastic network interfaces
+    /// in your VPC subnets to provide connectivity from the control plane instances to the
+    /// nodes (for example, to support <c>kubectl exec</c>, <c>logs</c>, and <c>proxy</c>
+    /// data flows).
     /// </para><para>
     /// Amazon EKS nodes run in your Amazon Web Services account and connect to your cluster's
     /// control plane over the Kubernetes API server endpoint and a certificate file that
@@ -479,6 +479,19 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter ControlPlaneScalingConfig_Tier
+        /// <summary>
+        /// <para>
+        /// <para>The control plane scaling tier configuration. Available options are <c>standard</c>,
+        /// <c>tier-xl</c>, <c>tier-2xl</c>, or <c>tier-4xl</c>. For more information, see EKS
+        /// Provisioned Control Plane in the Amazon EKS User Guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EKS.ProvisionedControlPlaneTier")]
+        public Amazon.EKS.ProvisionedControlPlaneTier ControlPlaneScalingConfig_Tier { get; set; }
+        #endregion
+        
         #region Parameter Version
         /// <summary>
         /// <para>
@@ -546,6 +559,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 context.ComputeConfig_NodePool = new List<System.String>(this.ComputeConfig_NodePool);
             }
             context.ComputeConfig_NodeRoleArn = this.ComputeConfig_NodeRoleArn;
+            context.ControlPlaneScalingConfig_Tier = this.ControlPlaneScalingConfig_Tier;
             context.DeletionProtection = this.DeletionProtection;
             if (this.EncryptionConfig != null)
             {
@@ -696,6 +710,25 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (requestComputeConfigIsNull)
             {
                 request.ComputeConfig = null;
+            }
+            
+             // populate ControlPlaneScalingConfig
+            var requestControlPlaneScalingConfigIsNull = true;
+            request.ControlPlaneScalingConfig = new Amazon.EKS.Model.ControlPlaneScalingConfig();
+            Amazon.EKS.ProvisionedControlPlaneTier requestControlPlaneScalingConfig_controlPlaneScalingConfig_Tier = null;
+            if (cmdletContext.ControlPlaneScalingConfig_Tier != null)
+            {
+                requestControlPlaneScalingConfig_controlPlaneScalingConfig_Tier = cmdletContext.ControlPlaneScalingConfig_Tier;
+            }
+            if (requestControlPlaneScalingConfig_controlPlaneScalingConfig_Tier != null)
+            {
+                request.ControlPlaneScalingConfig.Tier = requestControlPlaneScalingConfig_controlPlaneScalingConfig_Tier;
+                requestControlPlaneScalingConfigIsNull = false;
+            }
+             // determine if request.ControlPlaneScalingConfig should be set to null
+            if (requestControlPlaneScalingConfigIsNull)
+            {
+                request.ControlPlaneScalingConfig = null;
             }
             if (cmdletContext.DeletionProtection != null)
             {
@@ -1015,6 +1048,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.Boolean? ComputeConfig_Enabled { get; set; }
             public List<System.String> ComputeConfig_NodePool { get; set; }
             public System.String ComputeConfig_NodeRoleArn { get; set; }
+            public Amazon.EKS.ProvisionedControlPlaneTier ControlPlaneScalingConfig_Tier { get; set; }
             public System.Boolean? DeletionProtection { get; set; }
             public List<Amazon.EKS.Model.EncryptionConfig> EncryptionConfig { get; set; }
             public System.Boolean? ElasticLoadBalancing_Enabled { get; set; }

@@ -359,6 +359,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String QSearchBar_InitialTopicId { get; set; }
         #endregion
         
+        #region Parameter ExperienceConfiguration_QuickChat
+        /// <summary>
+        /// <para>
+        /// <para>The configuration details for embedding the Quick chat agent.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.QuickSight.Model.RegisteredUserQuickChatEmbeddingConfiguration ExperienceConfiguration_QuickChat { get; set; }
+        #endregion
+        
         #region Parameter SessionLifetimeInMinute
         /// <summary>
         /// <para>
@@ -484,6 +494,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.InitialDashboardVisualId_VisualId = this.InitialDashboardVisualId_VisualId;
             context.GenerativeQnA_InitialTopicId = this.GenerativeQnA_InitialTopicId;
             context.QSearchBar_InitialTopicId = this.QSearchBar_InitialTopicId;
+            context.ExperienceConfiguration_QuickChat = this.ExperienceConfiguration_QuickChat;
             context.DataQnA_Enabled = this.DataQnA_Enabled;
             context.DataStories_Enabled = this.DataStories_Enabled;
             context.Console_ExecutiveSummary_Enabled = this.Console_ExecutiveSummary_Enabled;
@@ -530,6 +541,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
              // populate ExperienceConfiguration
             var requestExperienceConfigurationIsNull = true;
             request.ExperienceConfiguration = new Amazon.QuickSight.Model.RegisteredUserEmbeddingExperienceConfiguration();
+            Amazon.QuickSight.Model.RegisteredUserQuickChatEmbeddingConfiguration requestExperienceConfiguration_experienceConfiguration_QuickChat = null;
+            if (cmdletContext.ExperienceConfiguration_QuickChat != null)
+            {
+                requestExperienceConfiguration_experienceConfiguration_QuickChat = cmdletContext.ExperienceConfiguration_QuickChat;
+            }
+            if (requestExperienceConfiguration_experienceConfiguration_QuickChat != null)
+            {
+                request.ExperienceConfiguration.QuickChat = requestExperienceConfiguration_experienceConfiguration_QuickChat;
+                requestExperienceConfigurationIsNull = false;
+            }
             Amazon.QuickSight.Model.RegisteredUserDashboardVisualEmbeddingConfiguration requestExperienceConfiguration_experienceConfiguration_DashboardVisual = null;
             
              // populate DashboardVisual
@@ -1233,6 +1254,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String InitialDashboardVisualId_VisualId { get; set; }
             public System.String GenerativeQnA_InitialTopicId { get; set; }
             public System.String QSearchBar_InitialTopicId { get; set; }
+            public Amazon.QuickSight.Model.RegisteredUserQuickChatEmbeddingConfiguration ExperienceConfiguration_QuickChat { get; set; }
             public System.Boolean? DataQnA_Enabled { get; set; }
             public System.Boolean? DataStories_Enabled { get; set; }
             public System.Boolean? Console_ExecutiveSummary_Enabled { get; set; }

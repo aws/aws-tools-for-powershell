@@ -48,6 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para></li><li><para><b>Instance state</b> - You can manage your instances from the moment you launch
     /// them through their termination. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance
     /// lifecycle</a> in the <i>Amazon EC2 User Guide</i>.
+    /// </para></li><li><para><b>SQL license exemption monitoring</b> - For instances registered with the SQL LE
+    /// service, status includes SQL license exemption monitoring health and processing status
+    /// to provide operational visibility into license exemption functionality.
     /// </para></li></ul><para>
     /// The Amazon EC2 API follows an eventual consistency model. This means that the result
     /// of an API command you run that creates or modifies resources might not be immediately

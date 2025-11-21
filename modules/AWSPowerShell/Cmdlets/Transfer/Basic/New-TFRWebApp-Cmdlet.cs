@@ -31,7 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
     /// Creates a web app based on specified parameters, and returns the ID for the new web
-    /// app.
+    /// app. You can configure the web app to be publicly accessible or hosted within a VPC.
+    /// 
+    ///  
+    /// <para>
+    /// For more information about using VPC endpoints with Transfer Family, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html">Create
+    /// a Transfer Family web app in a VPC</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "TFRWebApp", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -94,6 +100,39 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String IdentityCenterConfig_Role { get; set; }
         #endregion
         
+        #region Parameter Vpc_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The list of security group IDs that control access to the web app endpoint. These
+        /// security groups determine which sources can access the endpoint based on IP addresses
+        /// and port configurations.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EndpointDetails_Vpc_SecurityGroupIds")]
+        public System.String[] Vpc_SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter Vpc_SubnetId
+        /// <summary>
+        /// <para>
+        /// <para>The list of subnet IDs within the VPC where the web app endpoint will be deployed.
+        /// These subnets must be in the same VPC specified in the VpcId parameter.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EndpointDetails_Vpc_SubnetIds")]
+        public System.String[] Vpc_SubnetId { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -107,6 +146,17 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.Transfer.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter Vpc_VpcId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the VPC where the web app endpoint will be hosted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EndpointDetails_Vpc_VpcId")]
+        public System.String Vpc_VpcId { get; set; }
         #endregion
         
         #region Parameter WebAppEndpointPolicy
@@ -169,6 +219,15 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AccessEndpoint = this.AccessEndpoint;
+            if (this.Vpc_SecurityGroupId != null)
+            {
+                context.Vpc_SecurityGroupId = new List<System.String>(this.Vpc_SecurityGroupId);
+            }
+            if (this.Vpc_SubnetId != null)
+            {
+                context.Vpc_SubnetId = new List<System.String>(this.Vpc_SubnetId);
+            }
+            context.Vpc_VpcId = this.Vpc_VpcId;
             context.IdentityCenterConfig_InstanceArn = this.IdentityCenterConfig_InstanceArn;
             context.IdentityCenterConfig_Role = this.IdentityCenterConfig_Role;
             if (this.Tag != null)
@@ -196,6 +255,60 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             if (cmdletContext.AccessEndpoint != null)
             {
                 request.AccessEndpoint = cmdletContext.AccessEndpoint;
+            }
+            
+             // populate EndpointDetails
+            var requestEndpointDetailsIsNull = true;
+            request.EndpointDetails = new Amazon.Transfer.Model.WebAppEndpointDetails();
+            Amazon.Transfer.Model.WebAppVpcConfig requestEndpointDetails_endpointDetails_Vpc = null;
+            
+             // populate Vpc
+            var requestEndpointDetails_endpointDetails_VpcIsNull = true;
+            requestEndpointDetails_endpointDetails_Vpc = new Amazon.Transfer.Model.WebAppVpcConfig();
+            List<System.String> requestEndpointDetails_endpointDetails_Vpc_vpc_SecurityGroupId = null;
+            if (cmdletContext.Vpc_SecurityGroupId != null)
+            {
+                requestEndpointDetails_endpointDetails_Vpc_vpc_SecurityGroupId = cmdletContext.Vpc_SecurityGroupId;
+            }
+            if (requestEndpointDetails_endpointDetails_Vpc_vpc_SecurityGroupId != null)
+            {
+                requestEndpointDetails_endpointDetails_Vpc.SecurityGroupIds = requestEndpointDetails_endpointDetails_Vpc_vpc_SecurityGroupId;
+                requestEndpointDetails_endpointDetails_VpcIsNull = false;
+            }
+            List<System.String> requestEndpointDetails_endpointDetails_Vpc_vpc_SubnetId = null;
+            if (cmdletContext.Vpc_SubnetId != null)
+            {
+                requestEndpointDetails_endpointDetails_Vpc_vpc_SubnetId = cmdletContext.Vpc_SubnetId;
+            }
+            if (requestEndpointDetails_endpointDetails_Vpc_vpc_SubnetId != null)
+            {
+                requestEndpointDetails_endpointDetails_Vpc.SubnetIds = requestEndpointDetails_endpointDetails_Vpc_vpc_SubnetId;
+                requestEndpointDetails_endpointDetails_VpcIsNull = false;
+            }
+            System.String requestEndpointDetails_endpointDetails_Vpc_vpc_VpcId = null;
+            if (cmdletContext.Vpc_VpcId != null)
+            {
+                requestEndpointDetails_endpointDetails_Vpc_vpc_VpcId = cmdletContext.Vpc_VpcId;
+            }
+            if (requestEndpointDetails_endpointDetails_Vpc_vpc_VpcId != null)
+            {
+                requestEndpointDetails_endpointDetails_Vpc.VpcId = requestEndpointDetails_endpointDetails_Vpc_vpc_VpcId;
+                requestEndpointDetails_endpointDetails_VpcIsNull = false;
+            }
+             // determine if requestEndpointDetails_endpointDetails_Vpc should be set to null
+            if (requestEndpointDetails_endpointDetails_VpcIsNull)
+            {
+                requestEndpointDetails_endpointDetails_Vpc = null;
+            }
+            if (requestEndpointDetails_endpointDetails_Vpc != null)
+            {
+                request.EndpointDetails.Vpc = requestEndpointDetails_endpointDetails_Vpc;
+                requestEndpointDetailsIsNull = false;
+            }
+             // determine if request.EndpointDetails should be set to null
+            if (requestEndpointDetailsIsNull)
+            {
+                request.EndpointDetails = null;
             }
             
              // populate IdentityProviderDetails
@@ -324,6 +437,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AccessEndpoint { get; set; }
+            public List<System.String> Vpc_SecurityGroupId { get; set; }
+            public List<System.String> Vpc_SubnetId { get; set; }
+            public System.String Vpc_VpcId { get; set; }
             public System.String IdentityCenterConfig_InstanceArn { get; set; }
             public System.String IdentityCenterConfig_Role { get; set; }
             public List<Amazon.Transfer.Model.Tag> Tag { get; set; }

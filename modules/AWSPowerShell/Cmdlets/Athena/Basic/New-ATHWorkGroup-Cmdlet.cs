@@ -46,6 +46,25 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter EngineConfiguration_AdditionalConfig
+        /// <summary>
+        /// <para>
+        /// <para>Contains additional notebook engine <c>MAP&lt;string, string&gt;</c> parameter mappings
+        /// in the form of key-value pairs. To specify an Athena notebook that the Jupyter server
+        /// will download and serve, specify a value for the <a>StartSessionRequest$NotebookVersion</a>
+        /// field, and then add a key named <c>NotebookId</c> to <c>AdditionalConfigs</c> that
+        /// has the value of the Athena notebook ID.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_EngineConfiguration_AdditionalConfigs")]
+        public System.Collections.Hashtable EngineConfiguration_AdditionalConfig { get; set; }
+        #endregion
+        
         #region Parameter Configuration_AdditionalConfiguration
         /// <summary>
         /// <para>
@@ -80,6 +99,34 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         public System.Int64? Configuration_BytesScannedCutoffPerQuery { get; set; }
         #endregion
         
+        #region Parameter EngineConfiguration_Classification
+        /// <summary>
+        /// <para>
+        /// <para>The configuration classifications that can be specified for the engine.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_EngineConfiguration_Classifications")]
+        public Amazon.Athena.Model.Classification[] EngineConfiguration_Classification { get; set; }
+        #endregion
+        
+        #region Parameter EngineConfiguration_CoordinatorDpuSize
+        /// <summary>
+        /// <para>
+        /// <para>The number of DPUs to use for the coordinator. A coordinator is a special executor
+        /// that orchestrates processing work and manages other executors in a notebook session.
+        /// The default is 1.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_EngineConfiguration_CoordinatorDpuSize")]
+        public System.Int32? EngineConfiguration_CoordinatorDpuSize { get; set; }
+        #endregion
+        
         #region Parameter QueryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix
         /// <summary>
         /// <para>
@@ -90,6 +137,18 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Configuration_QueryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix")]
         public System.Boolean? QueryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix { get; set; }
+        #endregion
+        
+        #region Parameter EngineConfiguration_DefaultExecutorDpuSize
+        /// <summary>
+        /// <para>
+        /// <para>The default number of DPUs to use for executors. An executor is the smallest unit
+        /// of compute that a notebook session can request from Athena. The default is 1.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_EngineConfiguration_DefaultExecutorDpuSize")]
+        public System.Int32? EngineConfiguration_DefaultExecutorDpuSize { get; set; }
         #endregion
         
         #region Parameter Description
@@ -129,6 +188,39 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Configuration_ManagedQueryResultsConfiguration_Enabled")]
         public System.Boolean? ManagedQueryResultsConfiguration_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter CloudWatchLoggingConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables CloudWatch logging.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration_Enabled")]
+        public System.Boolean? CloudWatchLoggingConfiguration_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter ManagedLoggingConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables mamanged log persistence.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_MonitoringConfiguration_ManagedLoggingConfiguration_Enabled")]
+        public System.Boolean? ManagedLoggingConfiguration_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter S3LoggingConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables S3 log delivery.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_MonitoringConfiguration_S3LoggingConfiguration_Enabled")]
+        public System.Boolean? S3LoggingConfiguration_Enabled { get; set; }
         #endregion
         
         #region Parameter IdentityCenterConfiguration_EnableIdentityCenter
@@ -187,7 +279,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <summary>
         /// <para>
         /// <para>If set to "true", the settings for the workgroup override client-side settings. If
-        /// set to "false", client-side settings are used. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup
+        /// set to "false", client-side settings are used. This property is not required for Apache
+        /// Spark enabled workgroups. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup
         /// Settings Override Client-Side Settings</a>.</para>
         /// </para>
         /// </summary>
@@ -260,6 +353,28 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         public System.String Configuration_ManagedQueryResultsConfiguration_EncryptionConfiguration_KmsKey { get; set; }
         #endregion
         
+        #region Parameter ManagedLoggingConfiguration_KmsKey
+        /// <summary>
+        /// <para>
+        /// <para>The KMS key ARN to encrypt the logs stored in managed log persistence.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_MonitoringConfiguration_ManagedLoggingConfiguration_KmsKey")]
+        public System.String ManagedLoggingConfiguration_KmsKey { get; set; }
+        #endregion
+        
+        #region Parameter S3LoggingConfiguration_KmsKey
+        /// <summary>
+        /// <para>
+        /// <para>The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_MonitoringConfiguration_S3LoggingConfiguration_KmsKey")]
+        public System.String S3LoggingConfiguration_KmsKey { get; set; }
+        #endregion
+        
         #region Parameter Configuration_ResultConfiguration_EncryptionConfiguration_KmsKey
         /// <summary>
         /// <para>
@@ -269,6 +384,66 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("EncryptionConfiguration_KmsKey")]
         public System.String Configuration_ResultConfiguration_EncryptionConfiguration_KmsKey { get; set; }
+        #endregion
+        
+        #region Parameter CloudWatchLoggingConfiguration_LogGroup
+        /// <summary>
+        /// <para>
+        /// <para>The name of the log group in Amazon CloudWatch Logs where you want to publish your
+        /// logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration_LogGroup")]
+        public System.String CloudWatchLoggingConfiguration_LogGroup { get; set; }
+        #endregion
+        
+        #region Parameter S3LoggingConfiguration_LogLocation
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 destination URI for log publishing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_MonitoringConfiguration_S3LoggingConfiguration_LogLocation")]
+        public System.String S3LoggingConfiguration_LogLocation { get; set; }
+        #endregion
+        
+        #region Parameter CloudWatchLoggingConfiguration_LogStreamNamePrefix
+        /// <summary>
+        /// <para>
+        /// <para>Prefix for the CloudWatch log stream name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration_LogStreamNamePrefix")]
+        public System.String CloudWatchLoggingConfiguration_LogStreamNamePrefix { get; set; }
+        #endregion
+        
+        #region Parameter CloudWatchLoggingConfiguration_LogType
+        /// <summary>
+        /// <para>
+        /// <para>The types of logs that you want to publish to CloudWatch.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration_LogTypes")]
+        public System.Collections.Hashtable CloudWatchLoggingConfiguration_LogType { get; set; }
+        #endregion
+        
+        #region Parameter EngineConfiguration_MaxConcurrentDpus
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of DPUs that can run concurrently.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_EngineConfiguration_MaxConcurrentDpus")]
+        public System.Int32? EngineConfiguration_MaxConcurrentDpus { get; set; }
         #endregion
         
         #region Parameter Name
@@ -360,6 +535,22 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         public System.String EngineVersion_SelectedEngineVersion { get; set; }
         #endregion
         
+        #region Parameter EngineConfiguration_SparkProperty
+        /// <summary>
+        /// <para>
+        /// <para>Specifies custom jar files and Spark properties for use cases like cluster encryption,
+        /// table formats, and general Spark tuning.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_EngineConfiguration_SparkProperties")]
+        public System.Collections.Hashtable EngineConfiguration_SparkProperty { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -425,6 +616,29 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             context.CustomerContentEncryptionConfiguration_KmsKey = this.CustomerContentEncryptionConfiguration_KmsKey;
             context.Configuration_EnableMinimumEncryptionConfiguration = this.Configuration_EnableMinimumEncryptionConfiguration;
             context.Configuration_EnforceWorkGroupConfiguration = this.Configuration_EnforceWorkGroupConfiguration;
+            if (this.EngineConfiguration_AdditionalConfig != null)
+            {
+                context.EngineConfiguration_AdditionalConfig = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.EngineConfiguration_AdditionalConfig.Keys)
+                {
+                    context.EngineConfiguration_AdditionalConfig.Add((String)hashKey, (System.String)(this.EngineConfiguration_AdditionalConfig[hashKey]));
+                }
+            }
+            if (this.EngineConfiguration_Classification != null)
+            {
+                context.EngineConfiguration_Classification = new List<Amazon.Athena.Model.Classification>(this.EngineConfiguration_Classification);
+            }
+            context.EngineConfiguration_CoordinatorDpuSize = this.EngineConfiguration_CoordinatorDpuSize;
+            context.EngineConfiguration_DefaultExecutorDpuSize = this.EngineConfiguration_DefaultExecutorDpuSize;
+            context.EngineConfiguration_MaxConcurrentDpus = this.EngineConfiguration_MaxConcurrentDpus;
+            if (this.EngineConfiguration_SparkProperty != null)
+            {
+                context.EngineConfiguration_SparkProperty = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.EngineConfiguration_SparkProperty.Keys)
+                {
+                    context.EngineConfiguration_SparkProperty.Add((String)hashKey, (System.String)(this.EngineConfiguration_SparkProperty[hashKey]));
+                }
+            }
             context.EngineVersion_EffectiveEngineVersion = this.EngineVersion_EffectiveEngineVersion;
             context.EngineVersion_SelectedEngineVersion = this.EngineVersion_SelectedEngineVersion;
             context.Configuration_ExecutionRole = this.Configuration_ExecutionRole;
@@ -432,6 +646,34 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             context.IdentityCenterConfiguration_IdentityCenterInstanceArn = this.IdentityCenterConfiguration_IdentityCenterInstanceArn;
             context.ManagedQueryResultsConfiguration_Enabled = this.ManagedQueryResultsConfiguration_Enabled;
             context.Configuration_ManagedQueryResultsConfiguration_EncryptionConfiguration_KmsKey = this.Configuration_ManagedQueryResultsConfiguration_EncryptionConfiguration_KmsKey;
+            context.CloudWatchLoggingConfiguration_Enabled = this.CloudWatchLoggingConfiguration_Enabled;
+            context.CloudWatchLoggingConfiguration_LogGroup = this.CloudWatchLoggingConfiguration_LogGroup;
+            context.CloudWatchLoggingConfiguration_LogStreamNamePrefix = this.CloudWatchLoggingConfiguration_LogStreamNamePrefix;
+            if (this.CloudWatchLoggingConfiguration_LogType != null)
+            {
+                context.CloudWatchLoggingConfiguration_LogType = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.CloudWatchLoggingConfiguration_LogType.Keys)
+                {
+                    object hashValue = this.CloudWatchLoggingConfiguration_LogType[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.CloudWatchLoggingConfiguration_LogType.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<System.String>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((System.String)s);
+                    }
+                    context.CloudWatchLoggingConfiguration_LogType.Add((String)hashKey, valueSet);
+                }
+            }
+            context.ManagedLoggingConfiguration_Enabled = this.ManagedLoggingConfiguration_Enabled;
+            context.ManagedLoggingConfiguration_KmsKey = this.ManagedLoggingConfiguration_KmsKey;
+            context.S3LoggingConfiguration_Enabled = this.S3LoggingConfiguration_Enabled;
+            context.S3LoggingConfiguration_KmsKey = this.S3LoggingConfiguration_KmsKey;
+            context.S3LoggingConfiguration_LogLocation = this.S3LoggingConfiguration_LogLocation;
             context.Configuration_PublishCloudWatchMetricsEnabled = this.Configuration_PublishCloudWatchMetricsEnabled;
             context.QueryResultsS3AccessGrantsConfiguration_AuthenticationType = this.QueryResultsS3AccessGrantsConfiguration_AuthenticationType;
             context.QueryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix = this.QueryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix;
@@ -689,6 +931,156 @@ namespace Amazon.PowerShell.Cmdlets.ATH
                 request.Configuration.ManagedQueryResultsConfiguration = requestConfiguration_configuration_ManagedQueryResultsConfiguration;
                 requestConfigurationIsNull = false;
             }
+            Amazon.Athena.Model.MonitoringConfiguration requestConfiguration_configuration_MonitoringConfiguration = null;
+            
+             // populate MonitoringConfiguration
+            var requestConfiguration_configuration_MonitoringConfigurationIsNull = true;
+            requestConfiguration_configuration_MonitoringConfiguration = new Amazon.Athena.Model.MonitoringConfiguration();
+            Amazon.Athena.Model.ManagedLoggingConfiguration requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_ManagedLoggingConfiguration = null;
+            
+             // populate ManagedLoggingConfiguration
+            var requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_ManagedLoggingConfigurationIsNull = true;
+            requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_ManagedLoggingConfiguration = new Amazon.Athena.Model.ManagedLoggingConfiguration();
+            System.Boolean? requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_ManagedLoggingConfiguration_managedLoggingConfiguration_Enabled = null;
+            if (cmdletContext.ManagedLoggingConfiguration_Enabled != null)
+            {
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_ManagedLoggingConfiguration_managedLoggingConfiguration_Enabled = cmdletContext.ManagedLoggingConfiguration_Enabled.Value;
+            }
+            if (requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_ManagedLoggingConfiguration_managedLoggingConfiguration_Enabled != null)
+            {
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_ManagedLoggingConfiguration.Enabled = requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_ManagedLoggingConfiguration_managedLoggingConfiguration_Enabled.Value;
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_ManagedLoggingConfigurationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_ManagedLoggingConfiguration_managedLoggingConfiguration_KmsKey = null;
+            if (cmdletContext.ManagedLoggingConfiguration_KmsKey != null)
+            {
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_ManagedLoggingConfiguration_managedLoggingConfiguration_KmsKey = cmdletContext.ManagedLoggingConfiguration_KmsKey;
+            }
+            if (requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_ManagedLoggingConfiguration_managedLoggingConfiguration_KmsKey != null)
+            {
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_ManagedLoggingConfiguration.KmsKey = requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_ManagedLoggingConfiguration_managedLoggingConfiguration_KmsKey;
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_ManagedLoggingConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_ManagedLoggingConfiguration should be set to null
+            if (requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_ManagedLoggingConfigurationIsNull)
+            {
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_ManagedLoggingConfiguration = null;
+            }
+            if (requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_ManagedLoggingConfiguration != null)
+            {
+                requestConfiguration_configuration_MonitoringConfiguration.ManagedLoggingConfiguration = requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_ManagedLoggingConfiguration;
+                requestConfiguration_configuration_MonitoringConfigurationIsNull = false;
+            }
+            Amazon.Athena.Model.S3LoggingConfiguration requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_S3LoggingConfiguration = null;
+            
+             // populate S3LoggingConfiguration
+            var requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_S3LoggingConfigurationIsNull = true;
+            requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_S3LoggingConfiguration = new Amazon.Athena.Model.S3LoggingConfiguration();
+            System.Boolean? requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_S3LoggingConfiguration_s3LoggingConfiguration_Enabled = null;
+            if (cmdletContext.S3LoggingConfiguration_Enabled != null)
+            {
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_S3LoggingConfiguration_s3LoggingConfiguration_Enabled = cmdletContext.S3LoggingConfiguration_Enabled.Value;
+            }
+            if (requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_S3LoggingConfiguration_s3LoggingConfiguration_Enabled != null)
+            {
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_S3LoggingConfiguration.Enabled = requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_S3LoggingConfiguration_s3LoggingConfiguration_Enabled.Value;
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_S3LoggingConfigurationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_S3LoggingConfiguration_s3LoggingConfiguration_KmsKey = null;
+            if (cmdletContext.S3LoggingConfiguration_KmsKey != null)
+            {
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_S3LoggingConfiguration_s3LoggingConfiguration_KmsKey = cmdletContext.S3LoggingConfiguration_KmsKey;
+            }
+            if (requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_S3LoggingConfiguration_s3LoggingConfiguration_KmsKey != null)
+            {
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_S3LoggingConfiguration.KmsKey = requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_S3LoggingConfiguration_s3LoggingConfiguration_KmsKey;
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_S3LoggingConfigurationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_S3LoggingConfiguration_s3LoggingConfiguration_LogLocation = null;
+            if (cmdletContext.S3LoggingConfiguration_LogLocation != null)
+            {
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_S3LoggingConfiguration_s3LoggingConfiguration_LogLocation = cmdletContext.S3LoggingConfiguration_LogLocation;
+            }
+            if (requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_S3LoggingConfiguration_s3LoggingConfiguration_LogLocation != null)
+            {
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_S3LoggingConfiguration.LogLocation = requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_S3LoggingConfiguration_s3LoggingConfiguration_LogLocation;
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_S3LoggingConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_S3LoggingConfiguration should be set to null
+            if (requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_S3LoggingConfigurationIsNull)
+            {
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_S3LoggingConfiguration = null;
+            }
+            if (requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_S3LoggingConfiguration != null)
+            {
+                requestConfiguration_configuration_MonitoringConfiguration.S3LoggingConfiguration = requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_S3LoggingConfiguration;
+                requestConfiguration_configuration_MonitoringConfigurationIsNull = false;
+            }
+            Amazon.Athena.Model.CloudWatchLoggingConfiguration requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration = null;
+            
+             // populate CloudWatchLoggingConfiguration
+            var requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfigurationIsNull = true;
+            requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration = new Amazon.Athena.Model.CloudWatchLoggingConfiguration();
+            System.Boolean? requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_Enabled = null;
+            if (cmdletContext.CloudWatchLoggingConfiguration_Enabled != null)
+            {
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_Enabled = cmdletContext.CloudWatchLoggingConfiguration_Enabled.Value;
+            }
+            if (requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_Enabled != null)
+            {
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration.Enabled = requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_Enabled.Value;
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfigurationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_LogGroup = null;
+            if (cmdletContext.CloudWatchLoggingConfiguration_LogGroup != null)
+            {
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_LogGroup = cmdletContext.CloudWatchLoggingConfiguration_LogGroup;
+            }
+            if (requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_LogGroup != null)
+            {
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration.LogGroup = requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_LogGroup;
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfigurationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_LogStreamNamePrefix = null;
+            if (cmdletContext.CloudWatchLoggingConfiguration_LogStreamNamePrefix != null)
+            {
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_LogStreamNamePrefix = cmdletContext.CloudWatchLoggingConfiguration_LogStreamNamePrefix;
+            }
+            if (requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_LogStreamNamePrefix != null)
+            {
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration.LogStreamNamePrefix = requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_LogStreamNamePrefix;
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfigurationIsNull = false;
+            }
+            Dictionary<System.String, List<System.String>> requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_LogType = null;
+            if (cmdletContext.CloudWatchLoggingConfiguration_LogType != null)
+            {
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_LogType = cmdletContext.CloudWatchLoggingConfiguration_LogType;
+            }
+            if (requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_LogType != null)
+            {
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration.LogTypes = requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration_cloudWatchLoggingConfiguration_LogType;
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration should be set to null
+            if (requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfigurationIsNull)
+            {
+                requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration = null;
+            }
+            if (requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration != null)
+            {
+                requestConfiguration_configuration_MonitoringConfiguration.CloudWatchLoggingConfiguration = requestConfiguration_configuration_MonitoringConfiguration_configuration_MonitoringConfiguration_CloudWatchLoggingConfiguration;
+                requestConfiguration_configuration_MonitoringConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_MonitoringConfiguration should be set to null
+            if (requestConfiguration_configuration_MonitoringConfigurationIsNull)
+            {
+                requestConfiguration_configuration_MonitoringConfiguration = null;
+            }
+            if (requestConfiguration_configuration_MonitoringConfiguration != null)
+            {
+                request.Configuration.MonitoringConfiguration = requestConfiguration_configuration_MonitoringConfiguration;
+                requestConfigurationIsNull = false;
+            }
             Amazon.Athena.Model.QueryResultsS3AccessGrantsConfiguration requestConfiguration_configuration_QueryResultsS3AccessGrantsConfiguration = null;
             
              // populate QueryResultsS3AccessGrantsConfiguration
@@ -829,6 +1221,81 @@ namespace Amazon.PowerShell.Cmdlets.ATH
                 request.Configuration.ResultConfiguration = requestConfiguration_configuration_ResultConfiguration;
                 requestConfigurationIsNull = false;
             }
+            Amazon.Athena.Model.EngineConfiguration requestConfiguration_configuration_EngineConfiguration = null;
+            
+             // populate EngineConfiguration
+            var requestConfiguration_configuration_EngineConfigurationIsNull = true;
+            requestConfiguration_configuration_EngineConfiguration = new Amazon.Athena.Model.EngineConfiguration();
+            Dictionary<System.String, System.String> requestConfiguration_configuration_EngineConfiguration_engineConfiguration_AdditionalConfig = null;
+            if (cmdletContext.EngineConfiguration_AdditionalConfig != null)
+            {
+                requestConfiguration_configuration_EngineConfiguration_engineConfiguration_AdditionalConfig = cmdletContext.EngineConfiguration_AdditionalConfig;
+            }
+            if (requestConfiguration_configuration_EngineConfiguration_engineConfiguration_AdditionalConfig != null)
+            {
+                requestConfiguration_configuration_EngineConfiguration.AdditionalConfigs = requestConfiguration_configuration_EngineConfiguration_engineConfiguration_AdditionalConfig;
+                requestConfiguration_configuration_EngineConfigurationIsNull = false;
+            }
+            List<Amazon.Athena.Model.Classification> requestConfiguration_configuration_EngineConfiguration_engineConfiguration_Classification = null;
+            if (cmdletContext.EngineConfiguration_Classification != null)
+            {
+                requestConfiguration_configuration_EngineConfiguration_engineConfiguration_Classification = cmdletContext.EngineConfiguration_Classification;
+            }
+            if (requestConfiguration_configuration_EngineConfiguration_engineConfiguration_Classification != null)
+            {
+                requestConfiguration_configuration_EngineConfiguration.Classifications = requestConfiguration_configuration_EngineConfiguration_engineConfiguration_Classification;
+                requestConfiguration_configuration_EngineConfigurationIsNull = false;
+            }
+            System.Int32? requestConfiguration_configuration_EngineConfiguration_engineConfiguration_CoordinatorDpuSize = null;
+            if (cmdletContext.EngineConfiguration_CoordinatorDpuSize != null)
+            {
+                requestConfiguration_configuration_EngineConfiguration_engineConfiguration_CoordinatorDpuSize = cmdletContext.EngineConfiguration_CoordinatorDpuSize.Value;
+            }
+            if (requestConfiguration_configuration_EngineConfiguration_engineConfiguration_CoordinatorDpuSize != null)
+            {
+                requestConfiguration_configuration_EngineConfiguration.CoordinatorDpuSize = requestConfiguration_configuration_EngineConfiguration_engineConfiguration_CoordinatorDpuSize.Value;
+                requestConfiguration_configuration_EngineConfigurationIsNull = false;
+            }
+            System.Int32? requestConfiguration_configuration_EngineConfiguration_engineConfiguration_DefaultExecutorDpuSize = null;
+            if (cmdletContext.EngineConfiguration_DefaultExecutorDpuSize != null)
+            {
+                requestConfiguration_configuration_EngineConfiguration_engineConfiguration_DefaultExecutorDpuSize = cmdletContext.EngineConfiguration_DefaultExecutorDpuSize.Value;
+            }
+            if (requestConfiguration_configuration_EngineConfiguration_engineConfiguration_DefaultExecutorDpuSize != null)
+            {
+                requestConfiguration_configuration_EngineConfiguration.DefaultExecutorDpuSize = requestConfiguration_configuration_EngineConfiguration_engineConfiguration_DefaultExecutorDpuSize.Value;
+                requestConfiguration_configuration_EngineConfigurationIsNull = false;
+            }
+            System.Int32? requestConfiguration_configuration_EngineConfiguration_engineConfiguration_MaxConcurrentDpus = null;
+            if (cmdletContext.EngineConfiguration_MaxConcurrentDpus != null)
+            {
+                requestConfiguration_configuration_EngineConfiguration_engineConfiguration_MaxConcurrentDpus = cmdletContext.EngineConfiguration_MaxConcurrentDpus.Value;
+            }
+            if (requestConfiguration_configuration_EngineConfiguration_engineConfiguration_MaxConcurrentDpus != null)
+            {
+                requestConfiguration_configuration_EngineConfiguration.MaxConcurrentDpus = requestConfiguration_configuration_EngineConfiguration_engineConfiguration_MaxConcurrentDpus.Value;
+                requestConfiguration_configuration_EngineConfigurationIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestConfiguration_configuration_EngineConfiguration_engineConfiguration_SparkProperty = null;
+            if (cmdletContext.EngineConfiguration_SparkProperty != null)
+            {
+                requestConfiguration_configuration_EngineConfiguration_engineConfiguration_SparkProperty = cmdletContext.EngineConfiguration_SparkProperty;
+            }
+            if (requestConfiguration_configuration_EngineConfiguration_engineConfiguration_SparkProperty != null)
+            {
+                requestConfiguration_configuration_EngineConfiguration.SparkProperties = requestConfiguration_configuration_EngineConfiguration_engineConfiguration_SparkProperty;
+                requestConfiguration_configuration_EngineConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_EngineConfiguration should be set to null
+            if (requestConfiguration_configuration_EngineConfigurationIsNull)
+            {
+                requestConfiguration_configuration_EngineConfiguration = null;
+            }
+            if (requestConfiguration_configuration_EngineConfiguration != null)
+            {
+                request.Configuration.EngineConfiguration = requestConfiguration_configuration_EngineConfiguration;
+                requestConfigurationIsNull = false;
+            }
              // determine if request.Configuration should be set to null
             if (requestConfigurationIsNull)
             {
@@ -906,6 +1373,12 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             public System.String CustomerContentEncryptionConfiguration_KmsKey { get; set; }
             public System.Boolean? Configuration_EnableMinimumEncryptionConfiguration { get; set; }
             public System.Boolean? Configuration_EnforceWorkGroupConfiguration { get; set; }
+            public Dictionary<System.String, System.String> EngineConfiguration_AdditionalConfig { get; set; }
+            public List<Amazon.Athena.Model.Classification> EngineConfiguration_Classification { get; set; }
+            public System.Int32? EngineConfiguration_CoordinatorDpuSize { get; set; }
+            public System.Int32? EngineConfiguration_DefaultExecutorDpuSize { get; set; }
+            public System.Int32? EngineConfiguration_MaxConcurrentDpus { get; set; }
+            public Dictionary<System.String, System.String> EngineConfiguration_SparkProperty { get; set; }
             public System.String EngineVersion_EffectiveEngineVersion { get; set; }
             public System.String EngineVersion_SelectedEngineVersion { get; set; }
             public System.String Configuration_ExecutionRole { get; set; }
@@ -913,6 +1386,15 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             public System.String IdentityCenterConfiguration_IdentityCenterInstanceArn { get; set; }
             public System.Boolean? ManagedQueryResultsConfiguration_Enabled { get; set; }
             public System.String Configuration_ManagedQueryResultsConfiguration_EncryptionConfiguration_KmsKey { get; set; }
+            public System.Boolean? CloudWatchLoggingConfiguration_Enabled { get; set; }
+            public System.String CloudWatchLoggingConfiguration_LogGroup { get; set; }
+            public System.String CloudWatchLoggingConfiguration_LogStreamNamePrefix { get; set; }
+            public Dictionary<System.String, List<System.String>> CloudWatchLoggingConfiguration_LogType { get; set; }
+            public System.Boolean? ManagedLoggingConfiguration_Enabled { get; set; }
+            public System.String ManagedLoggingConfiguration_KmsKey { get; set; }
+            public System.Boolean? S3LoggingConfiguration_Enabled { get; set; }
+            public System.String S3LoggingConfiguration_KmsKey { get; set; }
+            public System.String S3LoggingConfiguration_LogLocation { get; set; }
             public System.Boolean? Configuration_PublishCloudWatchMetricsEnabled { get; set; }
             public Amazon.Athena.AuthenticationType QueryResultsS3AccessGrantsConfiguration_AuthenticationType { get; set; }
             public System.Boolean? QueryResultsS3AccessGrantsConfiguration_CreateUserLevelPrefix { get; set; }

@@ -112,6 +112,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Edit-RSEndpointAccess', 
         'Edit-RSEventSubscription', 
         'Edit-RSIntegration', 
+        'Edit-RSLakehouseConfiguration', 
         'Edit-RSRedshiftIdcApplication', 
         'Edit-RSScheduledAction', 
         'Edit-RSSnapshotCopyRetentionPeriod', 

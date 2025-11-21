@@ -158,6 +158,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.Comprehend.dll',
         'AWSSDK.ComprehendMedical.dll',
         'AWSSDK.ComputeOptimizer.dll',
+        'AWSSDK.ComputeOptimizerAutomation.dll',
         'AWSSDK.ConfigService.dll',
         'AWSSDK.Connect.dll',
         'AWSSDK.ConnectCampaignService.dll',

@@ -31,7 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Describes the specified attribute of the specified instance. You can specify only
-    /// one attribute at a time.
+    /// one attribute at a time. Available attributes include SQL license exemption configuration
+    /// for instances registered with the SQL LE service.
     /// </summary>
     [Cmdlet("Get", "EC2InstanceAttribute")]
     [OutputType("Amazon.EC2.Model.InstanceAttribute")]

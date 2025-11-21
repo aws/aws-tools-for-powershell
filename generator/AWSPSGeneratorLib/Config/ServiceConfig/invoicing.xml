@@ -27,7 +27,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateProcurementPortalPreference" OutputProperty="ProcurementPortalPreferenceArn" Verb="New" Noun="ProcurementPortalPreference" ShouldProcessTarget="ProcurementPortalName,BuyerIdentifier,SupplierIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteInvoiceUnit" OutputProperty="InvoiceUnitArn" Verb="Remove" Noun="InvoiceUnit" ShouldProcessTarget="InvoiceUnitArn" PipelineParameter="InvoiceUnitArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProcurementPortalPreference" OutputProperty="ProcurementPortalPreferenceArn" Verb="Remove" Noun="ProcurementPortalPreference" ShouldProcessTarget="ProcurementPortalPreferenceArn" PipelineParameter="ProcurementPortalPreferenceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -39,6 +47,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetProcurementPortalPreference" OutputProperty="ProcurementPortalPreference" Verb="Get" Noun="ProcurementPortalPreference" PipelineParameter="ProcurementPortalPreferenceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListInvoiceSummaries" OutputProperty="InvoiceSummaries" Verb="Get" Noun="InvoiceSummaryList" PipelineParameter="Selector_Value" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -47,7 +59,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListProcurementPortalPreferences" OutputProperty="ProcurementPortalPreferences" Verb="Get" Noun="ProcurementPortalPreferenceList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="ResourceTags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutProcurementPortalPreference" OutputProperty="ProcurementPortalPreferenceArn" Verb="Write" Noun="ProcurementPortalPreference" ShouldProcessTarget="ProcurementPortalPreferenceArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -60,6 +80,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateInvoiceUnit" OutputProperty="InvoiceUnitArn" Verb="Update" Noun="InvoiceUnit" ShouldProcessTarget="InvoiceUnitArn" PipelineParameter="InvoiceUnitArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProcurementPortalPreferenceStatus" OutputProperty="ProcurementPortalPreferenceArn" Verb="Update" Noun="ProcurementPortalPreferenceStatus" ShouldProcessTarget="ProcurementPortalPreferenceArn" PipelineParameter="ProcurementPortalPreferenceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

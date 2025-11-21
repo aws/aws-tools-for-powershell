@@ -45,6 +45,18 @@ namespace Amazon.PowerShell.Cmdlets.RS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter ApplicationType
+        /// <summary>
+        /// <para>
+        /// <para>The type of application being created. Valid values are <c>None</c> or <c>Lakehouse</c>.
+        /// Use <c>Lakehouse</c> to enable Amazon Redshift federated permissions on cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Redshift.ApplicationType")]
+        public Amazon.Redshift.ApplicationType ApplicationType { get; set; }
+        #endregion
+        
         #region Parameter AuthorizedTokenIssuerList
         /// <summary>
         /// <para>
@@ -233,6 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 context.Select = CreateSelectDelegate<Amazon.Redshift.Model.CreateRedshiftIdcApplicationResponse, NewRSRedshiftIdcApplicationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ApplicationType = this.ApplicationType;
             if (this.AuthorizedTokenIssuerList != null)
             {
                 context.AuthorizedTokenIssuerList = new List<Amazon.Redshift.Model.AuthorizedTokenIssuer>(this.AuthorizedTokenIssuerList);
@@ -294,6 +307,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             // create request
             var request = new Amazon.Redshift.Model.CreateRedshiftIdcApplicationRequest();
             
+            if (cmdletContext.ApplicationType != null)
+            {
+                request.ApplicationType = cmdletContext.ApplicationType;
+            }
             if (cmdletContext.AuthorizedTokenIssuerList != null)
             {
                 request.AuthorizedTokenIssuerList = cmdletContext.AuthorizedTokenIssuerList;
@@ -385,6 +402,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Redshift.ApplicationType ApplicationType { get; set; }
             public List<Amazon.Redshift.Model.AuthorizedTokenIssuer> AuthorizedTokenIssuerList { get; set; }
             public System.String IamRoleArn { get; set; }
             public System.String IdcDisplayName { get; set; }

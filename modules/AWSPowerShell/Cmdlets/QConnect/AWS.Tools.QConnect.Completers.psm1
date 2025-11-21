@@ -129,7 +129,7 @@ $QC_Completers = {
         # Amazon.QConnect.ChannelSubtype
         "New-QCMessageTemplate/ChannelSubtype"
         {
-            $v = "EMAIL","SMS"
+            $v = "EMAIL","PUSH","SMS","WHATSAPP"
             break
         }
 
@@ -218,6 +218,22 @@ $QC_Completers = {
             break
         }
 
+        # Amazon.QConnect.PushMessageAction
+        {
+            ($_ -eq "New-QCMessageTemplate/Adm_Action") -Or
+            ($_ -eq "Update-QCMessageTemplate/Adm_Action") -Or
+            ($_ -eq "New-QCMessageTemplate/Apns_Action") -Or
+            ($_ -eq "Update-QCMessageTemplate/Apns_Action") -Or
+            ($_ -eq "New-QCMessageTemplate/Baidu_Action") -Or
+            ($_ -eq "Update-QCMessageTemplate/Baidu_Action") -Or
+            ($_ -eq "New-QCMessageTemplate/Fcm_Action") -Or
+            ($_ -eq "Update-QCMessageTemplate/Fcm_Action")
+        }
+        {
+            $v = "DEEP_LINK","OPEN_APP","URL"
+            break
+        }
+
         # Amazon.QConnect.Relevance
         "Write-QCFeedback/GenerativeContentFeedbackData_Relevance"
         {
@@ -269,13 +285,17 @@ $QC_Completers = {
 }
 
 $QC_map = @{
+    "Adm_Action"=@("New-QCMessageTemplate","Update-QCMessageTemplate")
     "AiAgentType"=@("Remove-QCAssistantAIAgent","Update-QCAssistantAIAgent")
     "ApiFormat"=@("New-QCAIPrompt")
+    "Apns_Action"=@("New-QCMessageTemplate","Update-QCMessageTemplate")
     "AssociationType"=@("New-QCAssistantAssociation","New-QCContentAssociation")
+    "Baidu_Action"=@("New-QCMessageTemplate","Update-QCMessageTemplate")
     "ChannelSubtype"=@("New-QCMessageTemplate")
     "ChunkingConfiguration_ChunkingStrategy"=@("New-QCKnowledgeBase")
     "ContentDisposition"=@("New-QCMessageTemplateAttachment")
     "ExternalSourceConfiguration_Source"=@("Start-QCImportJob")
+    "Fcm_Action"=@("New-QCMessageTemplate","Update-QCMessageTemplate")
     "GenerativeContentFeedbackData_Relevance"=@("Write-QCFeedback")
     "ImportJobType"=@("Start-QCImportJob")
     "KnowledgeBaseType"=@("New-QCKnowledgeBase")

@@ -138,7 +138,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQueryResults" OutputProperty="ResultSet" Verb="Get" Noun="QueryResult" PipelineParameter="QueryExecutionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyPaginationCountParameter="ResultSet?.Rows?.Count" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetQueryResults" OutputProperty="ResultSet" Verb="Get" Noun="QueryResult" PipelineParameter="QueryExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyPaginationCountParameter="ResultSet?.Rows?.Count">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -146,7 +146,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetResourceDashboard" OutputProperty="Url" Verb="Get" Noun="ResourceDashboard" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetSession" OutputProperty="*" Verb="Get" Noun="Session" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSessionEndpoint" OutputProperty="*" Verb="Get" Noun="SessionEndpoint" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

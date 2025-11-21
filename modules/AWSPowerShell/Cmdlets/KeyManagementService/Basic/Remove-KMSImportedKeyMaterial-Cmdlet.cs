@@ -41,7 +41,14 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// When the specified KMS key is in the <c>PendingDeletion</c> state, this operation
     /// does not change the KMS key's state. Otherwise, it changes the KMS key's state to
     /// <c>PendingImport</c>.
-    /// </para><para>
+    /// </para><para><b>Considerations for multi-Region symmetric encryption keys</b></para><ul><li><para>
+    /// When you delete the key material of a primary Region key that is in <c>PENDING_ROTATION</c>
+    /// or <c>PENDING_MULTI_REGION_IMPORT_AND_ROTATION</c>state, you'll also be deleting the
+    /// key materials for the replica Region keys.
+    /// </para></li><li><para>
+    /// If you delete any key material of a replica Region key, the primary Region key and
+    /// other replica Region keys remain unchanged.
+    /// </para></li></ul><para>
     /// The KMS key that you use for this operation must be in a compatible key state. For
     /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
     /// states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.

@@ -1130,6 +1130,18 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public Amazon.LexModelsV2.Model.InputContext[] InputContext { get; set; }
         #endregion
         
+        #region Parameter IntentDisplayName
+        /// <summary>
+        /// <para>
+        /// <para>A display name for the intent. If configured, This name will be shown to users during
+        /// Intent Disambiguation instead of the intent name. Display names should be user-friendly,
+        /// descriptive and match the intent's purpose to improve user experience during disambiguation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IntentDisplayName { get; set; }
+        #endregion
+        
         #region Parameter IntentName
         /// <summary>
         /// <para>
@@ -4751,6 +4763,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                     context.PromptSpecification_PromptAttemptsSpecification.Add((String)hashKey, (Amazon.LexModelsV2.Model.PromptAttemptSpecification)(this.PromptSpecification_PromptAttemptsSpecification[hashKey]));
                 }
             }
+            context.IntentDisplayName = this.IntentDisplayName;
             context.IntentName = this.IntentName;
             #if MODULAR
             if (this.IntentName == null && ParameterWasBound(nameof(this.IntentName)))
@@ -9906,6 +9919,10 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             {
                 request.IntentConfirmationSetting = null;
             }
+            if (cmdletContext.IntentDisplayName != null)
+            {
+                request.IntentDisplayName = cmdletContext.IntentDisplayName;
+            }
             if (cmdletContext.IntentName != null)
             {
                 request.IntentName = cmdletContext.IntentName;
@@ -10645,6 +10662,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public List<Amazon.LexModelsV2.Model.MessageGroup> PromptSpecification_MessageGroup { get; set; }
             public Amazon.LexModelsV2.MessageSelectionStrategy PromptSpecification_MessageSelectionStrategy { get; set; }
             public Dictionary<System.String, Amazon.LexModelsV2.Model.PromptAttemptSpecification> PromptSpecification_PromptAttemptsSpecification { get; set; }
+            public System.String IntentDisplayName { get; set; }
             public System.String IntentName { get; set; }
             public System.String KendraConfiguration_KendraIndex { get; set; }
             public System.String KendraConfiguration_QueryFilterString { get; set; }

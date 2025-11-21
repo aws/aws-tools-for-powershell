@@ -93,6 +93,19 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.String BotVersion { get; set; }
         #endregion
         
+        #region Parameter IntentDisambiguationSettings_CustomDisambiguationMessage
+        /// <summary>
+        /// <para>
+        /// <para>Provides a custom message that will be displayed before presenting the disambiguation
+        /// options to users. This message helps set the context for users and can be customized
+        /// to match your bot's tone and brand. If not specified, a default message will be used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("GenerativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings_CustomDisambiguationMessage")]
+        public System.String IntentDisambiguationSettings_CustomDisambiguationMessage { get; set; }
+        #endregion
+        
         #region Parameter GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_CustomPrompt
         /// <summary>
         /// <para>
@@ -169,6 +182,19 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.Boolean? NluImprovement_Enabled { get; set; }
         #endregion
         
+        #region Parameter IntentDisambiguationSettings_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Determines whether the Intent Disambiguation feature is enabled. When set to <c>true</c>,
+        /// Amazon Lex will present disambiguation options to users when multiple intents could
+        /// match their input, with the default being <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("GenerativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings_Enabled")]
+        public System.Boolean? IntentDisambiguationSettings_Enabled { get; set; }
+        #endregion
+        
         #region Parameter SlotResolutionImprovement_Enabled
         /// <summary>
         /// <para>
@@ -243,6 +269,19 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.String LocaleId { get; set; }
         #endregion
         
+        #region Parameter IntentDisambiguationSettings_MaxDisambiguationIntent
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the maximum number of intent options (2-5) to present to users when disambiguation
+        /// is needed. This setting determines how many intent options will be shown to users
+        /// when the system detects ambiguous input. The default value is 3.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("GenerativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings_MaxDisambiguationIntents")]
+        public System.Int32? IntentDisambiguationSettings_MaxDisambiguationIntent { get; set; }
+        #endregion
+        
         #region Parameter GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_ModelArn
         /// <summary>
         /// <para>
@@ -290,6 +329,19 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Double? NluIntentConfidenceThreshold { get; set; }
+        #endregion
+        
+        #region Parameter SpeechDetectionSensitivity
+        /// <summary>
+        /// <para>
+        /// <para>The new sensitivity level for voice activity detection (VAD) in the bot locale. This
+        /// setting helps optimize speech recognition accuracy by adjusting how the system responds
+        /// to background noise during voice interactions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.LexModelsV2.SpeechDetectionSensitivity")]
+        public Amazon.LexModelsV2.SpeechDetectionSensitivity SpeechDetectionSensitivity { get; set; }
         #endregion
         
         #region Parameter GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_TraceStatus
@@ -442,6 +494,9 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             context.SampleUtteranceGeneration_Enabled = this.SampleUtteranceGeneration_Enabled;
             context.NluImprovement_AssistedNluMode = this.NluImprovement_AssistedNluMode;
             context.NluImprovement_Enabled = this.NluImprovement_Enabled;
+            context.IntentDisambiguationSettings_CustomDisambiguationMessage = this.IntentDisambiguationSettings_CustomDisambiguationMessage;
+            context.IntentDisambiguationSettings_Enabled = this.IntentDisambiguationSettings_Enabled;
+            context.IntentDisambiguationSettings_MaxDisambiguationIntent = this.IntentDisambiguationSettings_MaxDisambiguationIntent;
             context.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_CustomPrompt = this.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_CustomPrompt;
             context.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Identifier = this.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Identifier;
             context.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Version = this.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Version;
@@ -462,6 +517,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 WriteWarning("You are passing $null as a value for parameter NluIntentConfidenceThreshold which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SpeechDetectionSensitivity = this.SpeechDetectionSensitivity;
             context.VoiceSettings_Engine = this.VoiceSettings_Engine;
             context.VoiceSettings_VoiceId = this.VoiceSettings_VoiceId;
             
@@ -726,41 +782,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
              // populate RuntimeSettings
             var requestGenerativeAISettings_generativeAISettings_RuntimeSettingsIsNull = true;
             requestGenerativeAISettings_generativeAISettings_RuntimeSettings = new Amazon.LexModelsV2.Model.RuntimeSettings();
-            Amazon.LexModelsV2.Model.NluImprovementSpecification requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement = null;
-            
-             // populate NluImprovement
-            var requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovementIsNull = true;
-            requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement = new Amazon.LexModelsV2.Model.NluImprovementSpecification();
-            Amazon.LexModelsV2.AssistedNluMode requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_nluImprovement_AssistedNluMode = null;
-            if (cmdletContext.NluImprovement_AssistedNluMode != null)
-            {
-                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_nluImprovement_AssistedNluMode = cmdletContext.NluImprovement_AssistedNluMode;
-            }
-            if (requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_nluImprovement_AssistedNluMode != null)
-            {
-                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement.AssistedNluMode = requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_nluImprovement_AssistedNluMode;
-                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovementIsNull = false;
-            }
-            System.Boolean? requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_nluImprovement_Enabled = null;
-            if (cmdletContext.NluImprovement_Enabled != null)
-            {
-                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_nluImprovement_Enabled = cmdletContext.NluImprovement_Enabled.Value;
-            }
-            if (requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_nluImprovement_Enabled != null)
-            {
-                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement.Enabled = requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_nluImprovement_Enabled.Value;
-                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovementIsNull = false;
-            }
-             // determine if requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement should be set to null
-            if (requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovementIsNull)
-            {
-                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement = null;
-            }
-            if (requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement != null)
-            {
-                requestGenerativeAISettings_generativeAISettings_RuntimeSettings.NluImprovement = requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement;
-                requestGenerativeAISettings_generativeAISettings_RuntimeSettingsIsNull = false;
-            }
             Amazon.LexModelsV2.Model.SlotResolutionImprovementSpecification requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement = null;
             
              // populate SlotResolutionImprovement
@@ -866,6 +887,86 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 requestGenerativeAISettings_generativeAISettings_RuntimeSettings.SlotResolutionImprovement = requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement;
                 requestGenerativeAISettings_generativeAISettings_RuntimeSettingsIsNull = false;
             }
+            Amazon.LexModelsV2.Model.NluImprovementSpecification requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement = null;
+            
+             // populate NluImprovement
+            var requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovementIsNull = true;
+            requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement = new Amazon.LexModelsV2.Model.NluImprovementSpecification();
+            Amazon.LexModelsV2.AssistedNluMode requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_nluImprovement_AssistedNluMode = null;
+            if (cmdletContext.NluImprovement_AssistedNluMode != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_nluImprovement_AssistedNluMode = cmdletContext.NluImprovement_AssistedNluMode;
+            }
+            if (requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_nluImprovement_AssistedNluMode != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement.AssistedNluMode = requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_nluImprovement_AssistedNluMode;
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovementIsNull = false;
+            }
+            System.Boolean? requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_nluImprovement_Enabled = null;
+            if (cmdletContext.NluImprovement_Enabled != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_nluImprovement_Enabled = cmdletContext.NluImprovement_Enabled.Value;
+            }
+            if (requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_nluImprovement_Enabled != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement.Enabled = requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_nluImprovement_Enabled.Value;
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovementIsNull = false;
+            }
+            Amazon.LexModelsV2.Model.IntentDisambiguationSettings requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_generativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings = null;
+            
+             // populate IntentDisambiguationSettings
+            var requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_generativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettingsIsNull = true;
+            requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_generativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings = new Amazon.LexModelsV2.Model.IntentDisambiguationSettings();
+            System.String requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_generativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings_intentDisambiguationSettings_CustomDisambiguationMessage = null;
+            if (cmdletContext.IntentDisambiguationSettings_CustomDisambiguationMessage != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_generativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings_intentDisambiguationSettings_CustomDisambiguationMessage = cmdletContext.IntentDisambiguationSettings_CustomDisambiguationMessage;
+            }
+            if (requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_generativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings_intentDisambiguationSettings_CustomDisambiguationMessage != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_generativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings.CustomDisambiguationMessage = requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_generativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings_intentDisambiguationSettings_CustomDisambiguationMessage;
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_generativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettingsIsNull = false;
+            }
+            System.Boolean? requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_generativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings_intentDisambiguationSettings_Enabled = null;
+            if (cmdletContext.IntentDisambiguationSettings_Enabled != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_generativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings_intentDisambiguationSettings_Enabled = cmdletContext.IntentDisambiguationSettings_Enabled.Value;
+            }
+            if (requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_generativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings_intentDisambiguationSettings_Enabled != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_generativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings.Enabled = requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_generativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings_intentDisambiguationSettings_Enabled.Value;
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_generativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettingsIsNull = false;
+            }
+            System.Int32? requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_generativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings_intentDisambiguationSettings_MaxDisambiguationIntent = null;
+            if (cmdletContext.IntentDisambiguationSettings_MaxDisambiguationIntent != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_generativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings_intentDisambiguationSettings_MaxDisambiguationIntent = cmdletContext.IntentDisambiguationSettings_MaxDisambiguationIntent.Value;
+            }
+            if (requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_generativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings_intentDisambiguationSettings_MaxDisambiguationIntent != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_generativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings.MaxDisambiguationIntents = requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_generativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings_intentDisambiguationSettings_MaxDisambiguationIntent.Value;
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_generativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettingsIsNull = false;
+            }
+             // determine if requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_generativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings should be set to null
+            if (requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_generativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettingsIsNull)
+            {
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_generativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings = null;
+            }
+            if (requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_generativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement.IntentDisambiguationSettings = requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement_generativeAISettings_RuntimeSettings_NluImprovement_IntentDisambiguationSettings;
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovementIsNull = false;
+            }
+             // determine if requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement should be set to null
+            if (requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovementIsNull)
+            {
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement = null;
+            }
+            if (requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings.NluImprovement = requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_NluImprovement;
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettingsIsNull = false;
+            }
              // determine if requestGenerativeAISettings_generativeAISettings_RuntimeSettings should be set to null
             if (requestGenerativeAISettings_generativeAISettings_RuntimeSettingsIsNull)
             {
@@ -888,6 +989,10 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (cmdletContext.NluIntentConfidenceThreshold != null)
             {
                 request.NluIntentConfidenceThreshold = cmdletContext.NluIntentConfidenceThreshold.Value;
+            }
+            if (cmdletContext.SpeechDetectionSensitivity != null)
+            {
+                request.SpeechDetectionSensitivity = cmdletContext.SpeechDetectionSensitivity;
             }
             
              // populate VoiceSettings
@@ -990,6 +1095,9 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.Boolean? SampleUtteranceGeneration_Enabled { get; set; }
             public Amazon.LexModelsV2.AssistedNluMode NluImprovement_AssistedNluMode { get; set; }
             public System.Boolean? NluImprovement_Enabled { get; set; }
+            public System.String IntentDisambiguationSettings_CustomDisambiguationMessage { get; set; }
+            public System.Boolean? IntentDisambiguationSettings_Enabled { get; set; }
+            public System.Int32? IntentDisambiguationSettings_MaxDisambiguationIntent { get; set; }
             public System.String GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_CustomPrompt { get; set; }
             public System.String GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Identifier { get; set; }
             public System.String GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Version { get; set; }
@@ -998,6 +1106,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.Boolean? SlotResolutionImprovement_Enabled { get; set; }
             public System.String LocaleId { get; set; }
             public System.Double? NluIntentConfidenceThreshold { get; set; }
+            public Amazon.LexModelsV2.SpeechDetectionSensitivity SpeechDetectionSensitivity { get; set; }
             public Amazon.LexModelsV2.VoiceEngine VoiceSettings_Engine { get; set; }
             public System.String VoiceSettings_VoiceId { get; set; }
             public System.Func<Amazon.LexModelsV2.Model.UpdateBotLocaleResponse, UpdateLMBV2BotLocaleCmdlet, object> Select { get; set; } =

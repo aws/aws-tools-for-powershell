@@ -143,6 +143,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Restore-RSSTableFromSnapshot', 
         'Update-RSSCustomDomainAssociation', 
         'Update-RSSEndpointAccess', 
+        'Update-RSSLakehouseConfiguration', 
         'Update-RSSNamespace', 
         'Update-RSSScheduledAction', 
         'Update-RSSSnapshot', 

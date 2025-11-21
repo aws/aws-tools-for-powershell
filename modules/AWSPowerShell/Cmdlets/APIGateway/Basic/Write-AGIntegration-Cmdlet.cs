@@ -166,6 +166,16 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String IntegrationHttpMethod { get; set; }
         #endregion
         
+        #region Parameter IntegrationTarget
+        /// <summary>
+        /// <para>
+        /// <para> The ALB or NLB listener to send the request to. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IntegrationTarget { get; set; }
+        #endregion
+        
         #region Parameter PassthroughBehavior
         /// <summary>
         /// <para>
@@ -381,6 +391,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             }
             #endif
             context.IntegrationHttpMethod = this.IntegrationHttpMethod;
+            context.IntegrationTarget = this.IntegrationTarget;
             context.PassthroughBehavior = this.PassthroughBehavior;
             if (this.RequestParameter != null)
             {
@@ -470,6 +481,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.IntegrationHttpMethod != null)
             {
                 request.IntegrationHttpMethod = cmdletContext.IntegrationHttpMethod;
+            }
+            if (cmdletContext.IntegrationTarget != null)
+            {
+                request.IntegrationTarget = cmdletContext.IntegrationTarget;
             }
             if (cmdletContext.PassthroughBehavior != null)
             {
@@ -589,6 +604,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public System.String TargetCredential { get; set; }
             public System.String HttpMethod { get; set; }
             public System.String IntegrationHttpMethod { get; set; }
+            public System.String IntegrationTarget { get; set; }
             public System.String PassthroughBehavior { get; set; }
             public Dictionary<System.String, System.String> RequestParameter { get; set; }
             public Dictionary<System.String, System.String> RequestTemplate { get; set; }

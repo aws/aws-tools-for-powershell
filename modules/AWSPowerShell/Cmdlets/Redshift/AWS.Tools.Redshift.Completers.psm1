@@ -87,6 +87,13 @@ $RS_Completers = {
             break
         }
 
+        # Amazon.Redshift.ApplicationType
+        "New-RSRedshiftIdcApplication/ApplicationType"
+        {
+            $v = "Lakehouse","None"
+            break
+        }
+
         # Amazon.Redshift.AquaConfigurationStatus
         {
             ($_ -eq "Edit-RSAquaConfiguration/AquaConfigurationStatus") -Or
@@ -109,6 +116,20 @@ $RS_Completers = {
         "Get-RSDataSharesForProducer/Status"
         {
             $v = "ACTIVE","AUTHORIZED","DEAUTHORIZED","PENDING_AUTHORIZATION","REJECTED"
+            break
+        }
+
+        # Amazon.Redshift.LakehouseIdcRegistration
+        "Edit-RSLakehouseConfiguration/LakehouseIdcRegistration"
+        {
+            $v = "Associate","Disassociate"
+            break
+        }
+
+        # Amazon.Redshift.LakehouseRegistration
+        "Edit-RSLakehouseConfiguration/LakehouseRegistration"
+        {
+            $v = "Deregister","Register"
             break
         }
 
@@ -191,9 +212,12 @@ $RS_Completers = {
 
 $RS_map = @{
     "ActionType"=@("Get-RSNodeConfigurationOption","Get-RSReservedNodeExchangeConfigurationOption")
+    "ApplicationType"=@("New-RSRedshiftIdcApplication")
     "AquaConfigurationStatus"=@("Edit-RSAquaConfiguration","New-RSCluster","Restore-RSFromClusterSnapshot")
     "BreachAction"=@("Edit-RSUsageLimit","New-RSUsageLimit")
     "FeatureType"=@("Get-RSUsageLimit","New-RSUsageLimit")
+    "LakehouseIdcRegistration"=@("Edit-RSLakehouseConfiguration")
+    "LakehouseRegistration"=@("Edit-RSLakehouseConfiguration")
     "LimitType"=@("New-RSUsageLimit")
     "LogDestinationType"=@("Enable-RSLogging")
     "Period"=@("New-RSUsageLimit")
@@ -371,6 +395,7 @@ $RS_SelectMap = @{
                "Edit-RSEndpointAccess",
                "Edit-RSEventSubscription",
                "Edit-RSIntegration",
+               "Edit-RSLakehouseConfiguration",
                "Edit-RSRedshiftIdcApplication",
                "Edit-RSScheduledAction",
                "Edit-RSSnapshotCopyRetentionPeriod",

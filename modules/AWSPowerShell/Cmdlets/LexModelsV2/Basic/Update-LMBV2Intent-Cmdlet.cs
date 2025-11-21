@@ -1095,6 +1095,16 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public Amazon.LexModelsV2.Model.InputContext[] InputContext { get; set; }
         #endregion
         
+        #region Parameter IntentDisplayName
+        /// <summary>
+        /// <para>
+        /// <para>The new display name for the intent.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IntentDisplayName { get; set; }
+        #endregion
+        
         #region Parameter IntentId
         /// <summary>
         /// <para>
@@ -4740,6 +4750,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                     context.PromptSpecification_PromptAttemptsSpecification.Add((String)hashKey, (Amazon.LexModelsV2.Model.PromptAttemptSpecification)(this.PromptSpecification_PromptAttemptsSpecification[hashKey]));
                 }
             }
+            context.IntentDisplayName = this.IntentDisplayName;
             context.IntentId = this.IntentId;
             #if MODULAR
             if (this.IntentId == null && ParameterWasBound(nameof(this.IntentId)))
@@ -9906,6 +9917,10 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             {
                 request.IntentConfirmationSetting = null;
             }
+            if (cmdletContext.IntentDisplayName != null)
+            {
+                request.IntentDisplayName = cmdletContext.IntentDisplayName;
+            }
             if (cmdletContext.IntentId != null)
             {
                 request.IntentId = cmdletContext.IntentId;
@@ -10653,6 +10668,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public List<Amazon.LexModelsV2.Model.MessageGroup> PromptSpecification_MessageGroup { get; set; }
             public Amazon.LexModelsV2.MessageSelectionStrategy PromptSpecification_MessageSelectionStrategy { get; set; }
             public Dictionary<System.String, Amazon.LexModelsV2.Model.PromptAttemptSpecification> PromptSpecification_PromptAttemptsSpecification { get; set; }
+            public System.String IntentDisplayName { get; set; }
             public System.String IntentId { get; set; }
             public System.String IntentName { get; set; }
             public System.String KendraConfiguration_KendraIndex { get; set; }

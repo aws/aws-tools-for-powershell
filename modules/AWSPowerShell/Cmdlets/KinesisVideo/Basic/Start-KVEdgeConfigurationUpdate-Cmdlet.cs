@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <para>The Quartz cron expression that takes care of scheduling jobs to record from the camera,
         /// or local media file, onto the Edge Agent. If the <c>ScheduleExpression</c> is not
         /// provided for the <c>RecorderConfig</c>, then the Edge Agent will always be set to
-        /// recording mode.</para><para>For more information about Quartz, refer to the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html"><i>Cron Trigger Tutorial</i></a> page to understand the valid expressions and its
+        /// recording mode.</para><para>For more information about Quartz, refer to the <a href="https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html"><i>Cron Trigger Tutorial</i></a> page to understand the valid expressions and its
         /// use.</para>
         /// </para>
         /// </summary>
@@ -202,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <para>The Quartz cron expression that takes care of scheduling jobs to record from the camera,
         /// or local media file, onto the Edge Agent. If the <c>ScheduleExpression</c> is not
         /// provided for the <c>RecorderConfig</c>, then the Edge Agent will always be set to
-        /// recording mode.</para><para>For more information about Quartz, refer to the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html"><i>Cron Trigger Tutorial</i></a> page to understand the valid expressions and its
+        /// recording mode.</para><para>For more information about Quartz, refer to the <a href="https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html"><i>Cron Trigger Tutorial</i></a> page to understand the valid expressions and its
         /// use.</para>
         /// </para>
         /// </summary>

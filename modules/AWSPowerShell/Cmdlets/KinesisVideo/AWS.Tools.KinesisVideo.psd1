@@ -102,6 +102,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-KVSignalingChannelList', 
         'Get-KVStream', 
         'Get-KVStreamList', 
+        'Get-KVStreamStorageConfigurationDetail', 
         'Get-KVTagsForStreamList', 
         'New-KVSignalingChannel', 
         'New-KVStream', 
@@ -116,7 +117,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-KVMediaStorageConfiguration', 
         'Update-KVNotificationConfiguration', 
         'Update-KVSignalingChannel', 
-        'Update-KVStream')
+        'Update-KVStream', 
+        'Update-KVStreamStorageConfiguration')
 
     # Variables to export from this module
     VariablesToExport = '*'

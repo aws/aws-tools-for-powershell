@@ -136,6 +136,22 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter AutoDeployment_DependsOn
+        /// <summary>
+        /// <para>
+        /// <para>A list of StackSet ARNs that this StackSet depends on for auto-deployment operations.
+        /// When auto-deployment is triggered, operations will be sequenced to ensure all dependencies
+        /// complete successfully before this StackSet's operation begins.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] AutoDeployment_DependsOn { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -340,6 +356,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AdministrationRoleARN = this.AdministrationRoleARN;
+            if (this.AutoDeployment_DependsOn != null)
+            {
+                context.AutoDeployment_DependsOn = new List<System.String>(this.AutoDeployment_DependsOn);
+            }
             context.AutoDeployment_Enabled = this.AutoDeployment_Enabled;
             context.AutoDeployment_RetainStacksOnAccountRemoval = this.AutoDeployment_RetainStacksOnAccountRemoval;
             context.CallAs = this.CallAs;
@@ -394,6 +414,16 @@ namespace Amazon.PowerShell.Cmdlets.CFN
              // populate AutoDeployment
             var requestAutoDeploymentIsNull = true;
             request.AutoDeployment = new Amazon.CloudFormation.Model.AutoDeployment();
+            List<System.String> requestAutoDeployment_autoDeployment_DependsOn = null;
+            if (cmdletContext.AutoDeployment_DependsOn != null)
+            {
+                requestAutoDeployment_autoDeployment_DependsOn = cmdletContext.AutoDeployment_DependsOn;
+            }
+            if (requestAutoDeployment_autoDeployment_DependsOn != null)
+            {
+                request.AutoDeployment.DependsOn = requestAutoDeployment_autoDeployment_DependsOn;
+                requestAutoDeploymentIsNull = false;
+            }
             System.Boolean? requestAutoDeployment_autoDeployment_Enabled = null;
             if (cmdletContext.AutoDeployment_Enabled != null)
             {
@@ -542,6 +572,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AdministrationRoleARN { get; set; }
+            public List<System.String> AutoDeployment_DependsOn { get; set; }
             public System.Boolean? AutoDeployment_Enabled { get; set; }
             public System.Boolean? AutoDeployment_RetainStacksOnAccountRemoval { get; set; }
             public Amazon.CloudFormation.CallAs CallAs { get; set; }

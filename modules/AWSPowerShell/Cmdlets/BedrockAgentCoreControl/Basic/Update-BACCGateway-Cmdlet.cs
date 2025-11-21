@@ -156,6 +156,21 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String Mcp_Instruction { get; set; }
         #endregion
         
+        #region Parameter InterceptorConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The updated interceptor configurations for the gateway.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InterceptorConfigurations")]
+        public Amazon.BedrockAgentCoreControl.Model.GatewayInterceptorConfiguration[] InterceptorConfiguration { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyArn
         /// <summary>
         /// <para>
@@ -318,6 +333,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 WriteWarning("You are passing $null as a value for parameter GatewayIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.InterceptorConfiguration != null)
+            {
+                context.InterceptorConfiguration = new List<Amazon.BedrockAgentCoreControl.Model.GatewayInterceptorConfiguration>(this.InterceptorConfiguration);
+            }
             context.KmsKeyArn = this.KmsKeyArn;
             context.Name = this.Name;
             #if MODULAR
@@ -431,6 +450,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (cmdletContext.GatewayIdentifier != null)
             {
                 request.GatewayIdentifier = cmdletContext.GatewayIdentifier;
+            }
+            if (cmdletContext.InterceptorConfiguration != null)
+            {
+                request.InterceptorConfigurations = cmdletContext.InterceptorConfiguration;
             }
             if (cmdletContext.KmsKeyArn != null)
             {
@@ -564,6 +587,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String Description { get; set; }
             public Amazon.BedrockAgentCoreControl.ExceptionLevel ExceptionLevel { get; set; }
             public System.String GatewayIdentifier { get; set; }
+            public List<Amazon.BedrockAgentCoreControl.Model.GatewayInterceptorConfiguration> InterceptorConfiguration { get; set; }
             public System.String KmsKeyArn { get; set; }
             public System.String Name { get; set; }
             public System.String Mcp_Instruction { get; set; }

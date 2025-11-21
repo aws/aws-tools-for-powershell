@@ -88,10 +88,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.
+        /// <para>The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String BucketName { get; set; }
         #endregion
         
@@ -118,33 +125,53 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public Amazon.S3.Model.IntelligentTieringFilterPredicate IntelligentTieringFilter_IntelligentTieringFilterPredicate { get; set; }
         #endregion
         
-        #region Parameter IntelligentTieringId
-        /// <summary>
-        /// <para>
-        /// The ID used to identify the S3 Intelligent-Tiering configuration.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String IntelligentTieringId { get; set; }
-        #endregion
-        
         #region Parameter IntelligentTieringConfiguration_IntelligentTieringId
         /// <summary>
         /// <para>
-        /// The ID used to identify the S3 Intelligent-Tiering configuration.
+        /// <para>The ID used to identify the S3 Intelligent-Tiering configuration.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String IntelligentTieringConfiguration_IntelligentTieringId { get; set; }
+        #endregion
+        
+        #region Parameter IntelligentTieringId
+        /// <summary>
+        /// <para>
+        /// <para>The ID used to identify the S3 Intelligent-Tiering configuration.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String IntelligentTieringId { get; set; }
         #endregion
         
         #region Parameter IntelligentTieringConfiguration_Status
         /// <summary>
         /// <para>
-        /// Specifies the status of the configuration.
+        /// <para>Specifies the status of the configuration.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.S3.IntelligentTieringStatus")]
         public Amazon.S3.IntelligentTieringStatus IntelligentTieringConfiguration_Status { get; set; }
         #endregion
@@ -152,10 +179,21 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter IntelligentTieringConfiguration_Tiering
         /// <summary>
         /// <para>
-        /// Specifies the S3 Intelligent-Tiering storage class tier of the configuration.
+        /// <para>Specifies the S3 Intelligent-Tiering storage class tier of the configuration.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("IntelligentTieringConfiguration_Tierings")]
         public Amazon.S3.Model.Tiering[] IntelligentTieringConfiguration_Tiering { get; set; }
         #endregion
@@ -206,15 +244,45 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.BucketName = this.BucketName;
+            #if MODULAR
+            if (this.BucketName == null && ParameterWasBound(nameof(this.BucketName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter BucketName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
-            context.IntelligentTieringId = this.IntelligentTieringId;
-            context.IntelligentTieringConfiguration_IntelligentTieringId = this.IntelligentTieringConfiguration_IntelligentTieringId;
             context.IntelligentTieringFilter_IntelligentTieringFilterPredicate = this.IntelligentTieringFilter_IntelligentTieringFilterPredicate;
+            context.IntelligentTieringConfiguration_IntelligentTieringId = this.IntelligentTieringConfiguration_IntelligentTieringId;
+            #if MODULAR
+            if (this.IntelligentTieringConfiguration_IntelligentTieringId == null && ParameterWasBound(nameof(this.IntelligentTieringConfiguration_IntelligentTieringId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter IntelligentTieringConfiguration_IntelligentTieringId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.IntelligentTieringConfiguration_Status = this.IntelligentTieringConfiguration_Status;
+            #if MODULAR
+            if (this.IntelligentTieringConfiguration_Status == null && ParameterWasBound(nameof(this.IntelligentTieringConfiguration_Status)))
+            {
+                WriteWarning("You are passing $null as a value for parameter IntelligentTieringConfiguration_Status which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.IntelligentTieringConfiguration_Tiering != null)
             {
                 context.IntelligentTieringConfiguration_Tiering = new List<Amazon.S3.Model.Tiering>(this.IntelligentTieringConfiguration_Tiering);
             }
+            #if MODULAR
+            if (this.IntelligentTieringConfiguration_Tiering == null && ParameterWasBound(nameof(this.IntelligentTieringConfiguration_Tiering)))
+            {
+                WriteWarning("You are passing $null as a value for parameter IntelligentTieringConfiguration_Tiering which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.IntelligentTieringId = this.IntelligentTieringId;
+            #if MODULAR
+            if (this.IntelligentTieringId == null && ParameterWasBound(nameof(this.IntelligentTieringId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter IntelligentTieringId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -238,10 +306,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.ExpectedBucketOwner != null)
             {
                 request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
-            }
-            if (cmdletContext.IntelligentTieringId != null)
-            {
-                request.IntelligentTieringId = cmdletContext.IntelligentTieringId;
             }
             
              // populate IntelligentTieringConfiguration
@@ -307,6 +371,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.IntelligentTieringConfiguration = null;
             }
+            if (cmdletContext.IntelligentTieringId != null)
+            {
+                request.IntelligentTieringId = cmdletContext.IntelligentTieringId;
+            }
             
             CmdletOutput output;
             
@@ -364,11 +432,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             public System.String BucketName { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
-            public System.String IntelligentTieringId { get; set; }
-            public System.String IntelligentTieringConfiguration_IntelligentTieringId { get; set; }
             public Amazon.S3.Model.IntelligentTieringFilterPredicate IntelligentTieringFilter_IntelligentTieringFilterPredicate { get; set; }
+            public System.String IntelligentTieringConfiguration_IntelligentTieringId { get; set; }
             public Amazon.S3.IntelligentTieringStatus IntelligentTieringConfiguration_Status { get; set; }
             public List<Amazon.S3.Model.Tiering> IntelligentTieringConfiguration_Tiering { get; set; }
+            public System.String IntelligentTieringId { get; set; }
             public System.Func<Amazon.S3.Model.PutBucketIntelligentTieringConfigurationResponse, WriteS3BucketIntelligentTieringConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

@@ -67,6 +67,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeStreamStorageConfiguration" OutputProperty="*" Verb="Get" Noun="StreamStorageConfigurationDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDataEndpoint" OutputProperty="DataEndpoint" Verb="Get" Noun="DataEndpoint" PipelineParameter="APIName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -79,11 +83,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSignalingChannels" OutputProperty="ChannelInfoList" Verb="Get" Noun="SignalingChannelList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListSignalingChannels" OutputProperty="ChannelInfoList" Verb="Get" Noun="SignalingChannelList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStreams" OutputProperty="StreamInfoList" Verb="Get" Noun="StreamList" PipelineParameter="StreamNameCondition" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListStreams" OutputProperty="StreamInfoList" Verb="Get" Noun="StreamList" PipelineParameter="StreamNameCondition" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -142,6 +146,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateStream" Verb="Update" Noun="Stream" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateStreamStorageConfiguration" Verb="Update" Noun="StreamStorageConfiguration" ShouldProcessTarget="CurrentVersion" PipelineParameter="CurrentVersion" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

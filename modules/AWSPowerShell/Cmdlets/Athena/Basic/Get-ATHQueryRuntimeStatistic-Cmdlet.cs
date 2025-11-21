@@ -35,8 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     /// section of the response object are available as soon as <a>QueryExecutionStatus$State</a>
     /// is in a SUCCEEDED or FAILED state. The remaining non-timeline statistics in the response
     /// (like stage-level input and output row count and data size) are updated asynchronously
-    /// and may not be available immediately after a query completes. The non-timeline statistics
-    /// are also not included when a query has row-level filters defined in Lake Formation.
+    /// and may not be available immediately after a query completes or, in some cases, may
+    /// not be returned. The non-timeline statistics are also not included when a query has
+    /// row-level filters defined in Lake Formation.
     /// </summary>
     [Cmdlet("Get", "ATHQueryRuntimeStatistic")]
     [OutputType("Amazon.Athena.Model.GetQueryRuntimeStatisticsResponse")]

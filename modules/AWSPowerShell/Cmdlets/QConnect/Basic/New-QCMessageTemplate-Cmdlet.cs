@@ -60,6 +60,70 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String CustomerProfileAttributes_AccountNumber { get; set; }
         #endregion
         
+        #region Parameter Adm_Action
+        /// <summary>
+        /// <para>
+        /// <para>The action to occur if a recipient taps a push notification that is based on the message
+        /// template. Valid values are:</para><ul><li><para><c>OPEN_APP</c> - Your app opens or it becomes the foreground app if it was sent
+        /// to the background. This is the default action.</para></li><li><para><c>DEEP_LINK</c> - Your app opens and displays a designated user interface in the
+        /// app. This action uses the deep-linking features of the Android platform.</para></li><li><para><c>URL</c> - The default mobile browser on the recipient's device opens and loads
+        /// the web page at a URL that you specify.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Push_Adm_Action")]
+        [AWSConstantClassSource("Amazon.QConnect.PushMessageAction")]
+        public Amazon.QConnect.PushMessageAction Adm_Action { get; set; }
+        #endregion
+        
+        #region Parameter Apns_Action
+        /// <summary>
+        /// <para>
+        /// <para>The action to occur if a recipient taps a push notification that is based on the message
+        /// template. Valid values are:</para><ul><li><para><c>OPEN_APP</c> - Your app opens or it becomes the foreground app if it was sent
+        /// to the background. This is the default action.</para></li><li><para><c>DEEP_LINK</c> - Your app opens and displays a designated user interface in the
+        /// app. This action uses the deep-linking features of the iOS platform.</para></li><li><para><c>URL</c> - The default mobile browser on the recipient's device opens and loads
+        /// the web page at a URL that you specify.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Push_Apns_Action")]
+        [AWSConstantClassSource("Amazon.QConnect.PushMessageAction")]
+        public Amazon.QConnect.PushMessageAction Apns_Action { get; set; }
+        #endregion
+        
+        #region Parameter Baidu_Action
+        /// <summary>
+        /// <para>
+        /// <para>The action to occur if a recipient taps a push notification that is based on the message
+        /// template. Valid values are:</para><ul><li><para><c>OPEN_APP</c> - Your app opens or it becomes the foreground app if it was sent
+        /// to the background. This is the default action.</para></li><li><para><c>DEEP_LINK</c> - Your app opens and displays a designated user interface in the
+        /// app. This action uses the deep-linking features of the Android platform.</para></li><li><para><c>URL</c> - The default mobile browser on the recipient's device opens and loads
+        /// the web page at a URL that you specify.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Push_Baidu_Action")]
+        [AWSConstantClassSource("Amazon.QConnect.PushMessageAction")]
+        public Amazon.QConnect.PushMessageAction Baidu_Action { get; set; }
+        #endregion
+        
+        #region Parameter Fcm_Action
+        /// <summary>
+        /// <para>
+        /// <para>The action to occur if a recipient taps a push notification that is based on the message
+        /// template. Valid values are:</para><ul><li><para><c>OPEN_APP</c> - Your app opens or it becomes the foreground app if it was sent
+        /// to the background. This is the default action.</para></li><li><para><c>DEEP_LINK</c> - Your app opens and displays a designated user interface in the
+        /// app. This action uses the deep-linking features of the Android platform.</para></li><li><para><c>URL</c> - The default mobile browser on the recipient's device opens and loads
+        /// the web page at a URL that you specify.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Push_Fcm_Action")]
+        [AWSConstantClassSource("Amazon.QConnect.PushMessageAction")]
+        public Amazon.QConnect.PushMessageAction Fcm_Action { get; set; }
+        #endregion
+        
         #region Parameter CustomerProfileAttributes_AdditionalInformation
         /// <summary>
         /// <para>
@@ -260,6 +324,18 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String CustomerProfileAttributes_BirthDate { get; set; }
         #endregion
         
+        #region Parameter WhatsApp_BusinessAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the End User Messaging WhatsApp Business Account to associate with this
+        /// template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceConfiguration_WhatsApp_BusinessAccountId")]
+        public System.String WhatsApp_BusinessAccountId { get; set; }
+        #endregion
+        
         #region Parameter CustomerProfileAttributes_BusinessEmailAddress
         /// <summary>
         /// <para>
@@ -321,6 +397,22 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String CustomerProfileAttributes_City { get; set; }
         #endregion
         
+        #region Parameter WhatsApp_Component
+        /// <summary>
+        /// <para>
+        /// <para>The list of component mapping from WhatsApp template parameters to Message Template
+        /// attributes.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceConfiguration_WhatsApp_Components")]
+        public System.String[] WhatsApp_Component { get; set; }
+        #endregion
+        
         #region Parameter Html_Content
         /// <summary>
         /// <para>
@@ -340,6 +432,86 @@ namespace Amazon.PowerShell.Cmdlets.QC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Content_Email_Body_PlainText_Content { get; set; }
+        #endregion
+        
+        #region Parameter Content_Push_Adm_Body_Content
+        /// <summary>
+        /// <para>
+        /// <para>The content of the message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Content_Push_Adm_Body_Content { get; set; }
+        #endregion
+        
+        #region Parameter Content_Push_Adm_RawContent_Content
+        /// <summary>
+        /// <para>
+        /// <para>The content of the message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Content_Push_Adm_RawContent_Content { get; set; }
+        #endregion
+        
+        #region Parameter Content_Push_Apns_Body_Content
+        /// <summary>
+        /// <para>
+        /// <para>The content of the message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Content_Push_Apns_Body_Content { get; set; }
+        #endregion
+        
+        #region Parameter Content_Push_Apns_RawContent_Content
+        /// <summary>
+        /// <para>
+        /// <para>The content of the message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Content_Push_Apns_RawContent_Content { get; set; }
+        #endregion
+        
+        #region Parameter Content_Push_Baidu_Body_Content
+        /// <summary>
+        /// <para>
+        /// <para>The content of the message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Content_Push_Baidu_Body_Content { get; set; }
+        #endregion
+        
+        #region Parameter Content_Push_Baidu_RawContent_Content
+        /// <summary>
+        /// <para>
+        /// <para>The content of the message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Content_Push_Baidu_RawContent_Content { get; set; }
+        #endregion
+        
+        #region Parameter Content_Push_Fcm_Body_Content
+        /// <summary>
+        /// <para>
+        /// <para>The content of the message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Content_Push_Fcm_Body_Content { get; set; }
+        #endregion
+        
+        #region Parameter Content_Push_Fcm_RawContent_Content
+        /// <summary>
+        /// <para>
+        /// <para>The content of the message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Content_Push_Fcm_RawContent_Content { get; set; }
         #endregion
         
         #region Parameter Content_Sms_Body_PlainText_Content
@@ -416,6 +588,17 @@ namespace Amazon.PowerShell.Cmdlets.QC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DefaultAttributes_CustomAttributes")]
         public System.Collections.Hashtable DefaultAttributes_CustomAttribute { get; set; }
+        #endregion
+        
+        #region Parameter WhatsApp_Data
+        /// <summary>
+        /// <para>
+        /// <para>The data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_WhatsApp_Data")]
+        public System.String WhatsApp_Data { get; set; }
         #endregion
         
         #region Parameter Description
@@ -497,6 +680,78 @@ namespace Amazon.PowerShell.Cmdlets.QC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DefaultAttributes_CustomerProfileAttributes_HomePhoneNumber")]
         public System.String CustomerProfileAttributes_HomePhoneNumber { get; set; }
+        #endregion
+        
+        #region Parameter Adm_ImageIconUrl
+        /// <summary>
+        /// <para>
+        /// <para>The URL of the large icon image to display in the content view of a push notification
+        /// that's based on the message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Push_Adm_ImageIconUrl")]
+        public System.String Adm_ImageIconUrl { get; set; }
+        #endregion
+        
+        #region Parameter Baidu_ImageIconUrl
+        /// <summary>
+        /// <para>
+        /// <para>The URL of the large icon image to display in the content view of a push notification
+        /// that's based on the message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Push_Baidu_ImageIconUrl")]
+        public System.String Baidu_ImageIconUrl { get; set; }
+        #endregion
+        
+        #region Parameter Fcm_ImageIconUrl
+        /// <summary>
+        /// <para>
+        /// <para>The URL of the large icon image to display in the content view of a push notification
+        /// that's based on the message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Push_Fcm_ImageIconUrl")]
+        public System.String Fcm_ImageIconUrl { get; set; }
+        #endregion
+        
+        #region Parameter Adm_ImageUrl
+        /// <summary>
+        /// <para>
+        /// <para>The URL of an image to display in a push notification that's based on the message
+        /// template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Push_Adm_ImageUrl")]
+        public System.String Adm_ImageUrl { get; set; }
+        #endregion
+        
+        #region Parameter Baidu_ImageUrl
+        /// <summary>
+        /// <para>
+        /// <para>The URL of an image to display in a push notification that's based on the message
+        /// template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Push_Baidu_ImageUrl")]
+        public System.String Baidu_ImageUrl { get; set; }
+        #endregion
+        
+        #region Parameter Fcm_ImageUrl
+        /// <summary>
+        /// <para>
+        /// <para>The URL of an image to display in a push notification that's based on the message
+        /// template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Push_Fcm_ImageUrl")]
+        public System.String Fcm_ImageUrl { get; set; }
         #endregion
         
         #region Parameter KnowledgeBaseId
@@ -662,6 +917,18 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String CustomerProfileAttributes_MailingState { get; set; }
         #endregion
         
+        #region Parameter Apns_MediaUrl
+        /// <summary>
+        /// <para>
+        /// <para>The URL of an image or video to display in push notifications that are based on the
+        /// message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Push_Apns_MediaUrl")]
+        public System.String Apns_MediaUrl { get; set; }
+        #endregion
+        
         #region Parameter CustomerProfileAttributes_MiddleName
         /// <summary>
         /// <para>
@@ -701,14 +968,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
         /// <para>The name of the message template.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
         #endregion
         
@@ -889,6 +1149,99 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String CustomerProfileAttributes_ShippingState { get; set; }
         #endregion
         
+        #region Parameter Adm_SmallImageIconUrl
+        /// <summary>
+        /// <para>
+        /// <para>The URL of the small icon image to display in the status bar and the content view
+        /// of a push notification that's based on the message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Push_Adm_SmallImageIconUrl")]
+        public System.String Adm_SmallImageIconUrl { get; set; }
+        #endregion
+        
+        #region Parameter Baidu_SmallImageIconUrl
+        /// <summary>
+        /// <para>
+        /// <para>The URL of the small icon image to display in the status bar and the content view
+        /// of a push notification that's based on the message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Push_Baidu_SmallImageIconUrl")]
+        public System.String Baidu_SmallImageIconUrl { get; set; }
+        #endregion
+        
+        #region Parameter Fcm_SmallImageIconUrl
+        /// <summary>
+        /// <para>
+        /// <para>The URL of the small icon image to display in the status bar and the content view
+        /// of a push notification that's based on the message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Push_Fcm_SmallImageIconUrl")]
+        public System.String Fcm_SmallImageIconUrl { get; set; }
+        #endregion
+        
+        #region Parameter Adm_Sound
+        /// <summary>
+        /// <para>
+        /// <para>The sound to play when a recipient receives a push notification that's based on the
+        /// message template. You can use the default stream or specify the file name of a sound
+        /// resource that's bundled in your app. On an Android platform, the sound file must reside
+        /// in <c>/res/raw/</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Push_Adm_Sound")]
+        public System.String Adm_Sound { get; set; }
+        #endregion
+        
+        #region Parameter Apns_Sound
+        /// <summary>
+        /// <para>
+        /// <para>The key for the sound to play when the recipient receives a push notification that's
+        /// based on the message template. The value for this key is the name of a sound file
+        /// in your app's main bundle or the <c>Library/Sounds</c> folder in your app's data container.
+        /// If the sound file can't be found or you specify <c>default</c> for the value, the
+        /// system plays the default alert sound.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Push_Apns_Sound")]
+        public System.String Apns_Sound { get; set; }
+        #endregion
+        
+        #region Parameter Baidu_Sound
+        /// <summary>
+        /// <para>
+        /// <para>The sound to play when a recipient receives a push notification that's based on the
+        /// message template. You can use the default stream or specify the file name of a sound
+        /// resource that's bundled in your app. On an Android platform, the sound file must reside
+        /// in <c>/res/raw/</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Push_Baidu_Sound")]
+        public System.String Baidu_Sound { get; set; }
+        #endregion
+        
+        #region Parameter Fcm_Sound
+        /// <summary>
+        /// <para>
+        /// <para>The sound to play when a recipient receives a push notification that's based on the
+        /// message template. You can use the default stream or specify the file name of a sound
+        /// resource that's bundled in your app. On an Android platform, the sound file must reside
+        /// in <c>/res/raw/</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Push_Fcm_Sound")]
+        public System.String Fcm_Sound { get; set; }
+        #endregion
+        
         #region Parameter CustomerProfileAttributes_State
         /// <summary>
         /// <para>
@@ -924,6 +1277,117 @@ namespace Amazon.PowerShell.Cmdlets.QC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter WhatsApp_TemplateId
+        /// <summary>
+        /// <para>
+        /// <para>The WhatsApp template ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceConfiguration_WhatsApp_TemplateId")]
+        public System.String WhatsApp_TemplateId { get; set; }
+        #endregion
+        
+        #region Parameter Adm_Title
+        /// <summary>
+        /// <para>
+        /// <para>The title to use in a push notification that's based on the message template. This
+        /// title appears above the notification message on a recipient's device.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Push_Adm_Title")]
+        public System.String Adm_Title { get; set; }
+        #endregion
+        
+        #region Parameter Apns_Title
+        /// <summary>
+        /// <para>
+        /// <para>The title to use in a push notification that's based on the message template. This
+        /// title appears above the notification message on a recipient's device.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Push_Apns_Title")]
+        public System.String Apns_Title { get; set; }
+        #endregion
+        
+        #region Parameter Baidu_Title
+        /// <summary>
+        /// <para>
+        /// <para>The title to use in a push notification that's based on the message template. This
+        /// title appears above the notification message on a recipient's device.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Push_Baidu_Title")]
+        public System.String Baidu_Title { get; set; }
+        #endregion
+        
+        #region Parameter Fcm_Title
+        /// <summary>
+        /// <para>
+        /// <para>The title to use in a push notification that's based on the message template. This
+        /// title appears above the notification message on a recipient's device.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Push_Fcm_Title")]
+        public System.String Fcm_Title { get; set; }
+        #endregion
+        
+        #region Parameter Adm_Url
+        /// <summary>
+        /// <para>
+        /// <para>The URL to open in a recipient's default mobile browser, if a recipient taps a push
+        /// notification that's based on the message template and the value of the <c>action</c>
+        /// property is <c>URL</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Push_Adm_Url")]
+        public System.String Adm_Url { get; set; }
+        #endregion
+        
+        #region Parameter Apns_Url
+        /// <summary>
+        /// <para>
+        /// <para>The URL to open in a recipient's default mobile browser, if a recipient taps a push
+        /// notification that's based on the message template and the value of the <c>action</c>
+        /// property is <c>URL</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Push_Apns_Url")]
+        public System.String Apns_Url { get; set; }
+        #endregion
+        
+        #region Parameter Baidu_Url
+        /// <summary>
+        /// <para>
+        /// <para>The URL to open in a recipient's default mobile browser, if a recipient taps a push
+        /// notification that's based on the message template and the value of the <c>action</c>
+        /// property is <c>URL</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Push_Baidu_Url")]
+        public System.String Baidu_Url { get; set; }
+        #endregion
+        
+        #region Parameter Fcm_Url
+        /// <summary>
+        /// <para>
+        /// <para>The URL to open in a recipient's default mobile browser, if a recipient taps a push
+        /// notification that's based on the message template and the value of the <c>action</c>
+        /// property is <c>URL</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Push_Fcm_Url")]
+        public System.String Fcm_Url { get; set; }
         #endregion
         
         #region Parameter GroupingConfiguration_Value
@@ -1017,7 +1481,42 @@ namespace Amazon.PowerShell.Cmdlets.QC
                 context.Email_Header = new List<Amazon.QConnect.Model.EmailHeader>(this.Email_Header);
             }
             context.Email_Subject = this.Email_Subject;
+            context.Adm_Action = this.Adm_Action;
+            context.Content_Push_Adm_Body_Content = this.Content_Push_Adm_Body_Content;
+            context.Adm_ImageIconUrl = this.Adm_ImageIconUrl;
+            context.Adm_ImageUrl = this.Adm_ImageUrl;
+            context.Content_Push_Adm_RawContent_Content = this.Content_Push_Adm_RawContent_Content;
+            context.Adm_SmallImageIconUrl = this.Adm_SmallImageIconUrl;
+            context.Adm_Sound = this.Adm_Sound;
+            context.Adm_Title = this.Adm_Title;
+            context.Adm_Url = this.Adm_Url;
+            context.Apns_Action = this.Apns_Action;
+            context.Content_Push_Apns_Body_Content = this.Content_Push_Apns_Body_Content;
+            context.Apns_MediaUrl = this.Apns_MediaUrl;
+            context.Content_Push_Apns_RawContent_Content = this.Content_Push_Apns_RawContent_Content;
+            context.Apns_Sound = this.Apns_Sound;
+            context.Apns_Title = this.Apns_Title;
+            context.Apns_Url = this.Apns_Url;
+            context.Baidu_Action = this.Baidu_Action;
+            context.Content_Push_Baidu_Body_Content = this.Content_Push_Baidu_Body_Content;
+            context.Baidu_ImageIconUrl = this.Baidu_ImageIconUrl;
+            context.Baidu_ImageUrl = this.Baidu_ImageUrl;
+            context.Content_Push_Baidu_RawContent_Content = this.Content_Push_Baidu_RawContent_Content;
+            context.Baidu_SmallImageIconUrl = this.Baidu_SmallImageIconUrl;
+            context.Baidu_Sound = this.Baidu_Sound;
+            context.Baidu_Title = this.Baidu_Title;
+            context.Baidu_Url = this.Baidu_Url;
+            context.Fcm_Action = this.Fcm_Action;
+            context.Content_Push_Fcm_Body_Content = this.Content_Push_Fcm_Body_Content;
+            context.Fcm_ImageIconUrl = this.Fcm_ImageIconUrl;
+            context.Fcm_ImageUrl = this.Fcm_ImageUrl;
+            context.Content_Push_Fcm_RawContent_Content = this.Content_Push_Fcm_RawContent_Content;
+            context.Fcm_SmallImageIconUrl = this.Fcm_SmallImageIconUrl;
+            context.Fcm_Sound = this.Fcm_Sound;
+            context.Fcm_Title = this.Fcm_Title;
+            context.Fcm_Url = this.Fcm_Url;
             context.Content_Sms_Body_PlainText_Content = this.Content_Sms_Body_PlainText_Content;
+            context.WhatsApp_Data = this.WhatsApp_Data;
             context.AgentAttributes_FirstName = this.AgentAttributes_FirstName;
             context.AgentAttributes_LastName = this.AgentAttributes_LastName;
             if (this.DefaultAttributes_CustomAttribute != null)
@@ -1111,12 +1610,12 @@ namespace Amazon.PowerShell.Cmdlets.QC
             #endif
             context.Language = this.Language;
             context.Name = this.Name;
-            #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            context.WhatsApp_BusinessAccountId = this.WhatsApp_BusinessAccountId;
+            if (this.WhatsApp_Component != null)
             {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.WhatsApp_Component = new List<System.String>(this.WhatsApp_Component);
             }
-            #endif
+            context.WhatsApp_TemplateId = this.WhatsApp_TemplateId;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -1206,6 +1705,31 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestContent_content_Sms != null)
             {
                 request.Content.Sms = requestContent_content_Sms;
+                requestContentIsNull = false;
+            }
+            Amazon.QConnect.Model.WhatsAppMessageTemplateContent requestContent_content_WhatsApp = null;
+            
+             // populate WhatsApp
+            var requestContent_content_WhatsAppIsNull = true;
+            requestContent_content_WhatsApp = new Amazon.QConnect.Model.WhatsAppMessageTemplateContent();
+            System.String requestContent_content_WhatsApp_whatsApp_Data = null;
+            if (cmdletContext.WhatsApp_Data != null)
+            {
+                requestContent_content_WhatsApp_whatsApp_Data = cmdletContext.WhatsApp_Data;
+            }
+            if (requestContent_content_WhatsApp_whatsApp_Data != null)
+            {
+                requestContent_content_WhatsApp.Data = requestContent_content_WhatsApp_whatsApp_Data;
+                requestContent_content_WhatsAppIsNull = false;
+            }
+             // determine if requestContent_content_WhatsApp should be set to null
+            if (requestContent_content_WhatsAppIsNull)
+            {
+                requestContent_content_WhatsApp = null;
+            }
+            if (requestContent_content_WhatsApp != null)
+            {
+                request.Content.WhatsApp = requestContent_content_WhatsApp;
                 requestContentIsNull = false;
             }
             Amazon.QConnect.Model.EmailMessageTemplateContent requestContent_content_Email = null;
@@ -1306,6 +1830,541 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestContent_content_Email != null)
             {
                 request.Content.Email = requestContent_content_Email;
+                requestContentIsNull = false;
+            }
+            Amazon.QConnect.Model.PushMessageTemplateContent requestContent_content_Push = null;
+            
+             // populate Push
+            var requestContent_content_PushIsNull = true;
+            requestContent_content_Push = new Amazon.QConnect.Model.PushMessageTemplateContent();
+            Amazon.QConnect.Model.PushAPNSMessageTemplateContent requestContent_content_Push_content_Push_Apns = null;
+            
+             // populate Apns
+            var requestContent_content_Push_content_Push_ApnsIsNull = true;
+            requestContent_content_Push_content_Push_Apns = new Amazon.QConnect.Model.PushAPNSMessageTemplateContent();
+            Amazon.QConnect.PushMessageAction requestContent_content_Push_content_Push_Apns_apns_Action = null;
+            if (cmdletContext.Apns_Action != null)
+            {
+                requestContent_content_Push_content_Push_Apns_apns_Action = cmdletContext.Apns_Action;
+            }
+            if (requestContent_content_Push_content_Push_Apns_apns_Action != null)
+            {
+                requestContent_content_Push_content_Push_Apns.Action = requestContent_content_Push_content_Push_Apns_apns_Action;
+                requestContent_content_Push_content_Push_ApnsIsNull = false;
+            }
+            System.String requestContent_content_Push_content_Push_Apns_apns_MediaUrl = null;
+            if (cmdletContext.Apns_MediaUrl != null)
+            {
+                requestContent_content_Push_content_Push_Apns_apns_MediaUrl = cmdletContext.Apns_MediaUrl;
+            }
+            if (requestContent_content_Push_content_Push_Apns_apns_MediaUrl != null)
+            {
+                requestContent_content_Push_content_Push_Apns.MediaUrl = requestContent_content_Push_content_Push_Apns_apns_MediaUrl;
+                requestContent_content_Push_content_Push_ApnsIsNull = false;
+            }
+            System.String requestContent_content_Push_content_Push_Apns_apns_Sound = null;
+            if (cmdletContext.Apns_Sound != null)
+            {
+                requestContent_content_Push_content_Push_Apns_apns_Sound = cmdletContext.Apns_Sound;
+            }
+            if (requestContent_content_Push_content_Push_Apns_apns_Sound != null)
+            {
+                requestContent_content_Push_content_Push_Apns.Sound = requestContent_content_Push_content_Push_Apns_apns_Sound;
+                requestContent_content_Push_content_Push_ApnsIsNull = false;
+            }
+            System.String requestContent_content_Push_content_Push_Apns_apns_Title = null;
+            if (cmdletContext.Apns_Title != null)
+            {
+                requestContent_content_Push_content_Push_Apns_apns_Title = cmdletContext.Apns_Title;
+            }
+            if (requestContent_content_Push_content_Push_Apns_apns_Title != null)
+            {
+                requestContent_content_Push_content_Push_Apns.Title = requestContent_content_Push_content_Push_Apns_apns_Title;
+                requestContent_content_Push_content_Push_ApnsIsNull = false;
+            }
+            System.String requestContent_content_Push_content_Push_Apns_apns_Url = null;
+            if (cmdletContext.Apns_Url != null)
+            {
+                requestContent_content_Push_content_Push_Apns_apns_Url = cmdletContext.Apns_Url;
+            }
+            if (requestContent_content_Push_content_Push_Apns_apns_Url != null)
+            {
+                requestContent_content_Push_content_Push_Apns.Url = requestContent_content_Push_content_Push_Apns_apns_Url;
+                requestContent_content_Push_content_Push_ApnsIsNull = false;
+            }
+            Amazon.QConnect.Model.MessageTemplateBodyContentProvider requestContent_content_Push_content_Push_Apns_content_Push_Apns_Body = null;
+            
+             // populate Body
+            var requestContent_content_Push_content_Push_Apns_content_Push_Apns_BodyIsNull = true;
+            requestContent_content_Push_content_Push_Apns_content_Push_Apns_Body = new Amazon.QConnect.Model.MessageTemplateBodyContentProvider();
+            System.String requestContent_content_Push_content_Push_Apns_content_Push_Apns_Body_content_Push_Apns_Body_Content = null;
+            if (cmdletContext.Content_Push_Apns_Body_Content != null)
+            {
+                requestContent_content_Push_content_Push_Apns_content_Push_Apns_Body_content_Push_Apns_Body_Content = cmdletContext.Content_Push_Apns_Body_Content;
+            }
+            if (requestContent_content_Push_content_Push_Apns_content_Push_Apns_Body_content_Push_Apns_Body_Content != null)
+            {
+                requestContent_content_Push_content_Push_Apns_content_Push_Apns_Body.Content = requestContent_content_Push_content_Push_Apns_content_Push_Apns_Body_content_Push_Apns_Body_Content;
+                requestContent_content_Push_content_Push_Apns_content_Push_Apns_BodyIsNull = false;
+            }
+             // determine if requestContent_content_Push_content_Push_Apns_content_Push_Apns_Body should be set to null
+            if (requestContent_content_Push_content_Push_Apns_content_Push_Apns_BodyIsNull)
+            {
+                requestContent_content_Push_content_Push_Apns_content_Push_Apns_Body = null;
+            }
+            if (requestContent_content_Push_content_Push_Apns_content_Push_Apns_Body != null)
+            {
+                requestContent_content_Push_content_Push_Apns.Body = requestContent_content_Push_content_Push_Apns_content_Push_Apns_Body;
+                requestContent_content_Push_content_Push_ApnsIsNull = false;
+            }
+            Amazon.QConnect.Model.MessageTemplateBodyContentProvider requestContent_content_Push_content_Push_Apns_content_Push_Apns_RawContent = null;
+            
+             // populate RawContent
+            var requestContent_content_Push_content_Push_Apns_content_Push_Apns_RawContentIsNull = true;
+            requestContent_content_Push_content_Push_Apns_content_Push_Apns_RawContent = new Amazon.QConnect.Model.MessageTemplateBodyContentProvider();
+            System.String requestContent_content_Push_content_Push_Apns_content_Push_Apns_RawContent_content_Push_Apns_RawContent_Content = null;
+            if (cmdletContext.Content_Push_Apns_RawContent_Content != null)
+            {
+                requestContent_content_Push_content_Push_Apns_content_Push_Apns_RawContent_content_Push_Apns_RawContent_Content = cmdletContext.Content_Push_Apns_RawContent_Content;
+            }
+            if (requestContent_content_Push_content_Push_Apns_content_Push_Apns_RawContent_content_Push_Apns_RawContent_Content != null)
+            {
+                requestContent_content_Push_content_Push_Apns_content_Push_Apns_RawContent.Content = requestContent_content_Push_content_Push_Apns_content_Push_Apns_RawContent_content_Push_Apns_RawContent_Content;
+                requestContent_content_Push_content_Push_Apns_content_Push_Apns_RawContentIsNull = false;
+            }
+             // determine if requestContent_content_Push_content_Push_Apns_content_Push_Apns_RawContent should be set to null
+            if (requestContent_content_Push_content_Push_Apns_content_Push_Apns_RawContentIsNull)
+            {
+                requestContent_content_Push_content_Push_Apns_content_Push_Apns_RawContent = null;
+            }
+            if (requestContent_content_Push_content_Push_Apns_content_Push_Apns_RawContent != null)
+            {
+                requestContent_content_Push_content_Push_Apns.RawContent = requestContent_content_Push_content_Push_Apns_content_Push_Apns_RawContent;
+                requestContent_content_Push_content_Push_ApnsIsNull = false;
+            }
+             // determine if requestContent_content_Push_content_Push_Apns should be set to null
+            if (requestContent_content_Push_content_Push_ApnsIsNull)
+            {
+                requestContent_content_Push_content_Push_Apns = null;
+            }
+            if (requestContent_content_Push_content_Push_Apns != null)
+            {
+                requestContent_content_Push.Apns = requestContent_content_Push_content_Push_Apns;
+                requestContent_content_PushIsNull = false;
+            }
+            Amazon.QConnect.Model.PushADMMessageTemplateContent requestContent_content_Push_content_Push_Adm = null;
+            
+             // populate Adm
+            var requestContent_content_Push_content_Push_AdmIsNull = true;
+            requestContent_content_Push_content_Push_Adm = new Amazon.QConnect.Model.PushADMMessageTemplateContent();
+            Amazon.QConnect.PushMessageAction requestContent_content_Push_content_Push_Adm_adm_Action = null;
+            if (cmdletContext.Adm_Action != null)
+            {
+                requestContent_content_Push_content_Push_Adm_adm_Action = cmdletContext.Adm_Action;
+            }
+            if (requestContent_content_Push_content_Push_Adm_adm_Action != null)
+            {
+                requestContent_content_Push_content_Push_Adm.Action = requestContent_content_Push_content_Push_Adm_adm_Action;
+                requestContent_content_Push_content_Push_AdmIsNull = false;
+            }
+            System.String requestContent_content_Push_content_Push_Adm_adm_ImageIconUrl = null;
+            if (cmdletContext.Adm_ImageIconUrl != null)
+            {
+                requestContent_content_Push_content_Push_Adm_adm_ImageIconUrl = cmdletContext.Adm_ImageIconUrl;
+            }
+            if (requestContent_content_Push_content_Push_Adm_adm_ImageIconUrl != null)
+            {
+                requestContent_content_Push_content_Push_Adm.ImageIconUrl = requestContent_content_Push_content_Push_Adm_adm_ImageIconUrl;
+                requestContent_content_Push_content_Push_AdmIsNull = false;
+            }
+            System.String requestContent_content_Push_content_Push_Adm_adm_ImageUrl = null;
+            if (cmdletContext.Adm_ImageUrl != null)
+            {
+                requestContent_content_Push_content_Push_Adm_adm_ImageUrl = cmdletContext.Adm_ImageUrl;
+            }
+            if (requestContent_content_Push_content_Push_Adm_adm_ImageUrl != null)
+            {
+                requestContent_content_Push_content_Push_Adm.ImageUrl = requestContent_content_Push_content_Push_Adm_adm_ImageUrl;
+                requestContent_content_Push_content_Push_AdmIsNull = false;
+            }
+            System.String requestContent_content_Push_content_Push_Adm_adm_SmallImageIconUrl = null;
+            if (cmdletContext.Adm_SmallImageIconUrl != null)
+            {
+                requestContent_content_Push_content_Push_Adm_adm_SmallImageIconUrl = cmdletContext.Adm_SmallImageIconUrl;
+            }
+            if (requestContent_content_Push_content_Push_Adm_adm_SmallImageIconUrl != null)
+            {
+                requestContent_content_Push_content_Push_Adm.SmallImageIconUrl = requestContent_content_Push_content_Push_Adm_adm_SmallImageIconUrl;
+                requestContent_content_Push_content_Push_AdmIsNull = false;
+            }
+            System.String requestContent_content_Push_content_Push_Adm_adm_Sound = null;
+            if (cmdletContext.Adm_Sound != null)
+            {
+                requestContent_content_Push_content_Push_Adm_adm_Sound = cmdletContext.Adm_Sound;
+            }
+            if (requestContent_content_Push_content_Push_Adm_adm_Sound != null)
+            {
+                requestContent_content_Push_content_Push_Adm.Sound = requestContent_content_Push_content_Push_Adm_adm_Sound;
+                requestContent_content_Push_content_Push_AdmIsNull = false;
+            }
+            System.String requestContent_content_Push_content_Push_Adm_adm_Title = null;
+            if (cmdletContext.Adm_Title != null)
+            {
+                requestContent_content_Push_content_Push_Adm_adm_Title = cmdletContext.Adm_Title;
+            }
+            if (requestContent_content_Push_content_Push_Adm_adm_Title != null)
+            {
+                requestContent_content_Push_content_Push_Adm.Title = requestContent_content_Push_content_Push_Adm_adm_Title;
+                requestContent_content_Push_content_Push_AdmIsNull = false;
+            }
+            System.String requestContent_content_Push_content_Push_Adm_adm_Url = null;
+            if (cmdletContext.Adm_Url != null)
+            {
+                requestContent_content_Push_content_Push_Adm_adm_Url = cmdletContext.Adm_Url;
+            }
+            if (requestContent_content_Push_content_Push_Adm_adm_Url != null)
+            {
+                requestContent_content_Push_content_Push_Adm.Url = requestContent_content_Push_content_Push_Adm_adm_Url;
+                requestContent_content_Push_content_Push_AdmIsNull = false;
+            }
+            Amazon.QConnect.Model.MessageTemplateBodyContentProvider requestContent_content_Push_content_Push_Adm_content_Push_Adm_Body = null;
+            
+             // populate Body
+            var requestContent_content_Push_content_Push_Adm_content_Push_Adm_BodyIsNull = true;
+            requestContent_content_Push_content_Push_Adm_content_Push_Adm_Body = new Amazon.QConnect.Model.MessageTemplateBodyContentProvider();
+            System.String requestContent_content_Push_content_Push_Adm_content_Push_Adm_Body_content_Push_Adm_Body_Content = null;
+            if (cmdletContext.Content_Push_Adm_Body_Content != null)
+            {
+                requestContent_content_Push_content_Push_Adm_content_Push_Adm_Body_content_Push_Adm_Body_Content = cmdletContext.Content_Push_Adm_Body_Content;
+            }
+            if (requestContent_content_Push_content_Push_Adm_content_Push_Adm_Body_content_Push_Adm_Body_Content != null)
+            {
+                requestContent_content_Push_content_Push_Adm_content_Push_Adm_Body.Content = requestContent_content_Push_content_Push_Adm_content_Push_Adm_Body_content_Push_Adm_Body_Content;
+                requestContent_content_Push_content_Push_Adm_content_Push_Adm_BodyIsNull = false;
+            }
+             // determine if requestContent_content_Push_content_Push_Adm_content_Push_Adm_Body should be set to null
+            if (requestContent_content_Push_content_Push_Adm_content_Push_Adm_BodyIsNull)
+            {
+                requestContent_content_Push_content_Push_Adm_content_Push_Adm_Body = null;
+            }
+            if (requestContent_content_Push_content_Push_Adm_content_Push_Adm_Body != null)
+            {
+                requestContent_content_Push_content_Push_Adm.Body = requestContent_content_Push_content_Push_Adm_content_Push_Adm_Body;
+                requestContent_content_Push_content_Push_AdmIsNull = false;
+            }
+            Amazon.QConnect.Model.MessageTemplateBodyContentProvider requestContent_content_Push_content_Push_Adm_content_Push_Adm_RawContent = null;
+            
+             // populate RawContent
+            var requestContent_content_Push_content_Push_Adm_content_Push_Adm_RawContentIsNull = true;
+            requestContent_content_Push_content_Push_Adm_content_Push_Adm_RawContent = new Amazon.QConnect.Model.MessageTemplateBodyContentProvider();
+            System.String requestContent_content_Push_content_Push_Adm_content_Push_Adm_RawContent_content_Push_Adm_RawContent_Content = null;
+            if (cmdletContext.Content_Push_Adm_RawContent_Content != null)
+            {
+                requestContent_content_Push_content_Push_Adm_content_Push_Adm_RawContent_content_Push_Adm_RawContent_Content = cmdletContext.Content_Push_Adm_RawContent_Content;
+            }
+            if (requestContent_content_Push_content_Push_Adm_content_Push_Adm_RawContent_content_Push_Adm_RawContent_Content != null)
+            {
+                requestContent_content_Push_content_Push_Adm_content_Push_Adm_RawContent.Content = requestContent_content_Push_content_Push_Adm_content_Push_Adm_RawContent_content_Push_Adm_RawContent_Content;
+                requestContent_content_Push_content_Push_Adm_content_Push_Adm_RawContentIsNull = false;
+            }
+             // determine if requestContent_content_Push_content_Push_Adm_content_Push_Adm_RawContent should be set to null
+            if (requestContent_content_Push_content_Push_Adm_content_Push_Adm_RawContentIsNull)
+            {
+                requestContent_content_Push_content_Push_Adm_content_Push_Adm_RawContent = null;
+            }
+            if (requestContent_content_Push_content_Push_Adm_content_Push_Adm_RawContent != null)
+            {
+                requestContent_content_Push_content_Push_Adm.RawContent = requestContent_content_Push_content_Push_Adm_content_Push_Adm_RawContent;
+                requestContent_content_Push_content_Push_AdmIsNull = false;
+            }
+             // determine if requestContent_content_Push_content_Push_Adm should be set to null
+            if (requestContent_content_Push_content_Push_AdmIsNull)
+            {
+                requestContent_content_Push_content_Push_Adm = null;
+            }
+            if (requestContent_content_Push_content_Push_Adm != null)
+            {
+                requestContent_content_Push.Adm = requestContent_content_Push_content_Push_Adm;
+                requestContent_content_PushIsNull = false;
+            }
+            Amazon.QConnect.Model.PushBaiduMessageTemplateContent requestContent_content_Push_content_Push_Baidu = null;
+            
+             // populate Baidu
+            var requestContent_content_Push_content_Push_BaiduIsNull = true;
+            requestContent_content_Push_content_Push_Baidu = new Amazon.QConnect.Model.PushBaiduMessageTemplateContent();
+            Amazon.QConnect.PushMessageAction requestContent_content_Push_content_Push_Baidu_baidu_Action = null;
+            if (cmdletContext.Baidu_Action != null)
+            {
+                requestContent_content_Push_content_Push_Baidu_baidu_Action = cmdletContext.Baidu_Action;
+            }
+            if (requestContent_content_Push_content_Push_Baidu_baidu_Action != null)
+            {
+                requestContent_content_Push_content_Push_Baidu.Action = requestContent_content_Push_content_Push_Baidu_baidu_Action;
+                requestContent_content_Push_content_Push_BaiduIsNull = false;
+            }
+            System.String requestContent_content_Push_content_Push_Baidu_baidu_ImageIconUrl = null;
+            if (cmdletContext.Baidu_ImageIconUrl != null)
+            {
+                requestContent_content_Push_content_Push_Baidu_baidu_ImageIconUrl = cmdletContext.Baidu_ImageIconUrl;
+            }
+            if (requestContent_content_Push_content_Push_Baidu_baidu_ImageIconUrl != null)
+            {
+                requestContent_content_Push_content_Push_Baidu.ImageIconUrl = requestContent_content_Push_content_Push_Baidu_baidu_ImageIconUrl;
+                requestContent_content_Push_content_Push_BaiduIsNull = false;
+            }
+            System.String requestContent_content_Push_content_Push_Baidu_baidu_ImageUrl = null;
+            if (cmdletContext.Baidu_ImageUrl != null)
+            {
+                requestContent_content_Push_content_Push_Baidu_baidu_ImageUrl = cmdletContext.Baidu_ImageUrl;
+            }
+            if (requestContent_content_Push_content_Push_Baidu_baidu_ImageUrl != null)
+            {
+                requestContent_content_Push_content_Push_Baidu.ImageUrl = requestContent_content_Push_content_Push_Baidu_baidu_ImageUrl;
+                requestContent_content_Push_content_Push_BaiduIsNull = false;
+            }
+            System.String requestContent_content_Push_content_Push_Baidu_baidu_SmallImageIconUrl = null;
+            if (cmdletContext.Baidu_SmallImageIconUrl != null)
+            {
+                requestContent_content_Push_content_Push_Baidu_baidu_SmallImageIconUrl = cmdletContext.Baidu_SmallImageIconUrl;
+            }
+            if (requestContent_content_Push_content_Push_Baidu_baidu_SmallImageIconUrl != null)
+            {
+                requestContent_content_Push_content_Push_Baidu.SmallImageIconUrl = requestContent_content_Push_content_Push_Baidu_baidu_SmallImageIconUrl;
+                requestContent_content_Push_content_Push_BaiduIsNull = false;
+            }
+            System.String requestContent_content_Push_content_Push_Baidu_baidu_Sound = null;
+            if (cmdletContext.Baidu_Sound != null)
+            {
+                requestContent_content_Push_content_Push_Baidu_baidu_Sound = cmdletContext.Baidu_Sound;
+            }
+            if (requestContent_content_Push_content_Push_Baidu_baidu_Sound != null)
+            {
+                requestContent_content_Push_content_Push_Baidu.Sound = requestContent_content_Push_content_Push_Baidu_baidu_Sound;
+                requestContent_content_Push_content_Push_BaiduIsNull = false;
+            }
+            System.String requestContent_content_Push_content_Push_Baidu_baidu_Title = null;
+            if (cmdletContext.Baidu_Title != null)
+            {
+                requestContent_content_Push_content_Push_Baidu_baidu_Title = cmdletContext.Baidu_Title;
+            }
+            if (requestContent_content_Push_content_Push_Baidu_baidu_Title != null)
+            {
+                requestContent_content_Push_content_Push_Baidu.Title = requestContent_content_Push_content_Push_Baidu_baidu_Title;
+                requestContent_content_Push_content_Push_BaiduIsNull = false;
+            }
+            System.String requestContent_content_Push_content_Push_Baidu_baidu_Url = null;
+            if (cmdletContext.Baidu_Url != null)
+            {
+                requestContent_content_Push_content_Push_Baidu_baidu_Url = cmdletContext.Baidu_Url;
+            }
+            if (requestContent_content_Push_content_Push_Baidu_baidu_Url != null)
+            {
+                requestContent_content_Push_content_Push_Baidu.Url = requestContent_content_Push_content_Push_Baidu_baidu_Url;
+                requestContent_content_Push_content_Push_BaiduIsNull = false;
+            }
+            Amazon.QConnect.Model.MessageTemplateBodyContentProvider requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_Body = null;
+            
+             // populate Body
+            var requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_BodyIsNull = true;
+            requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_Body = new Amazon.QConnect.Model.MessageTemplateBodyContentProvider();
+            System.String requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_Body_content_Push_Baidu_Body_Content = null;
+            if (cmdletContext.Content_Push_Baidu_Body_Content != null)
+            {
+                requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_Body_content_Push_Baidu_Body_Content = cmdletContext.Content_Push_Baidu_Body_Content;
+            }
+            if (requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_Body_content_Push_Baidu_Body_Content != null)
+            {
+                requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_Body.Content = requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_Body_content_Push_Baidu_Body_Content;
+                requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_BodyIsNull = false;
+            }
+             // determine if requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_Body should be set to null
+            if (requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_BodyIsNull)
+            {
+                requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_Body = null;
+            }
+            if (requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_Body != null)
+            {
+                requestContent_content_Push_content_Push_Baidu.Body = requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_Body;
+                requestContent_content_Push_content_Push_BaiduIsNull = false;
+            }
+            Amazon.QConnect.Model.MessageTemplateBodyContentProvider requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_RawContent = null;
+            
+             // populate RawContent
+            var requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_RawContentIsNull = true;
+            requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_RawContent = new Amazon.QConnect.Model.MessageTemplateBodyContentProvider();
+            System.String requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_RawContent_content_Push_Baidu_RawContent_Content = null;
+            if (cmdletContext.Content_Push_Baidu_RawContent_Content != null)
+            {
+                requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_RawContent_content_Push_Baidu_RawContent_Content = cmdletContext.Content_Push_Baidu_RawContent_Content;
+            }
+            if (requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_RawContent_content_Push_Baidu_RawContent_Content != null)
+            {
+                requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_RawContent.Content = requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_RawContent_content_Push_Baidu_RawContent_Content;
+                requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_RawContentIsNull = false;
+            }
+             // determine if requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_RawContent should be set to null
+            if (requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_RawContentIsNull)
+            {
+                requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_RawContent = null;
+            }
+            if (requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_RawContent != null)
+            {
+                requestContent_content_Push_content_Push_Baidu.RawContent = requestContent_content_Push_content_Push_Baidu_content_Push_Baidu_RawContent;
+                requestContent_content_Push_content_Push_BaiduIsNull = false;
+            }
+             // determine if requestContent_content_Push_content_Push_Baidu should be set to null
+            if (requestContent_content_Push_content_Push_BaiduIsNull)
+            {
+                requestContent_content_Push_content_Push_Baidu = null;
+            }
+            if (requestContent_content_Push_content_Push_Baidu != null)
+            {
+                requestContent_content_Push.Baidu = requestContent_content_Push_content_Push_Baidu;
+                requestContent_content_PushIsNull = false;
+            }
+            Amazon.QConnect.Model.PushFCMMessageTemplateContent requestContent_content_Push_content_Push_Fcm = null;
+            
+             // populate Fcm
+            var requestContent_content_Push_content_Push_FcmIsNull = true;
+            requestContent_content_Push_content_Push_Fcm = new Amazon.QConnect.Model.PushFCMMessageTemplateContent();
+            Amazon.QConnect.PushMessageAction requestContent_content_Push_content_Push_Fcm_fcm_Action = null;
+            if (cmdletContext.Fcm_Action != null)
+            {
+                requestContent_content_Push_content_Push_Fcm_fcm_Action = cmdletContext.Fcm_Action;
+            }
+            if (requestContent_content_Push_content_Push_Fcm_fcm_Action != null)
+            {
+                requestContent_content_Push_content_Push_Fcm.Action = requestContent_content_Push_content_Push_Fcm_fcm_Action;
+                requestContent_content_Push_content_Push_FcmIsNull = false;
+            }
+            System.String requestContent_content_Push_content_Push_Fcm_fcm_ImageIconUrl = null;
+            if (cmdletContext.Fcm_ImageIconUrl != null)
+            {
+                requestContent_content_Push_content_Push_Fcm_fcm_ImageIconUrl = cmdletContext.Fcm_ImageIconUrl;
+            }
+            if (requestContent_content_Push_content_Push_Fcm_fcm_ImageIconUrl != null)
+            {
+                requestContent_content_Push_content_Push_Fcm.ImageIconUrl = requestContent_content_Push_content_Push_Fcm_fcm_ImageIconUrl;
+                requestContent_content_Push_content_Push_FcmIsNull = false;
+            }
+            System.String requestContent_content_Push_content_Push_Fcm_fcm_ImageUrl = null;
+            if (cmdletContext.Fcm_ImageUrl != null)
+            {
+                requestContent_content_Push_content_Push_Fcm_fcm_ImageUrl = cmdletContext.Fcm_ImageUrl;
+            }
+            if (requestContent_content_Push_content_Push_Fcm_fcm_ImageUrl != null)
+            {
+                requestContent_content_Push_content_Push_Fcm.ImageUrl = requestContent_content_Push_content_Push_Fcm_fcm_ImageUrl;
+                requestContent_content_Push_content_Push_FcmIsNull = false;
+            }
+            System.String requestContent_content_Push_content_Push_Fcm_fcm_SmallImageIconUrl = null;
+            if (cmdletContext.Fcm_SmallImageIconUrl != null)
+            {
+                requestContent_content_Push_content_Push_Fcm_fcm_SmallImageIconUrl = cmdletContext.Fcm_SmallImageIconUrl;
+            }
+            if (requestContent_content_Push_content_Push_Fcm_fcm_SmallImageIconUrl != null)
+            {
+                requestContent_content_Push_content_Push_Fcm.SmallImageIconUrl = requestContent_content_Push_content_Push_Fcm_fcm_SmallImageIconUrl;
+                requestContent_content_Push_content_Push_FcmIsNull = false;
+            }
+            System.String requestContent_content_Push_content_Push_Fcm_fcm_Sound = null;
+            if (cmdletContext.Fcm_Sound != null)
+            {
+                requestContent_content_Push_content_Push_Fcm_fcm_Sound = cmdletContext.Fcm_Sound;
+            }
+            if (requestContent_content_Push_content_Push_Fcm_fcm_Sound != null)
+            {
+                requestContent_content_Push_content_Push_Fcm.Sound = requestContent_content_Push_content_Push_Fcm_fcm_Sound;
+                requestContent_content_Push_content_Push_FcmIsNull = false;
+            }
+            System.String requestContent_content_Push_content_Push_Fcm_fcm_Title = null;
+            if (cmdletContext.Fcm_Title != null)
+            {
+                requestContent_content_Push_content_Push_Fcm_fcm_Title = cmdletContext.Fcm_Title;
+            }
+            if (requestContent_content_Push_content_Push_Fcm_fcm_Title != null)
+            {
+                requestContent_content_Push_content_Push_Fcm.Title = requestContent_content_Push_content_Push_Fcm_fcm_Title;
+                requestContent_content_Push_content_Push_FcmIsNull = false;
+            }
+            System.String requestContent_content_Push_content_Push_Fcm_fcm_Url = null;
+            if (cmdletContext.Fcm_Url != null)
+            {
+                requestContent_content_Push_content_Push_Fcm_fcm_Url = cmdletContext.Fcm_Url;
+            }
+            if (requestContent_content_Push_content_Push_Fcm_fcm_Url != null)
+            {
+                requestContent_content_Push_content_Push_Fcm.Url = requestContent_content_Push_content_Push_Fcm_fcm_Url;
+                requestContent_content_Push_content_Push_FcmIsNull = false;
+            }
+            Amazon.QConnect.Model.MessageTemplateBodyContentProvider requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_Body = null;
+            
+             // populate Body
+            var requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_BodyIsNull = true;
+            requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_Body = new Amazon.QConnect.Model.MessageTemplateBodyContentProvider();
+            System.String requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_Body_content_Push_Fcm_Body_Content = null;
+            if (cmdletContext.Content_Push_Fcm_Body_Content != null)
+            {
+                requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_Body_content_Push_Fcm_Body_Content = cmdletContext.Content_Push_Fcm_Body_Content;
+            }
+            if (requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_Body_content_Push_Fcm_Body_Content != null)
+            {
+                requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_Body.Content = requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_Body_content_Push_Fcm_Body_Content;
+                requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_BodyIsNull = false;
+            }
+             // determine if requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_Body should be set to null
+            if (requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_BodyIsNull)
+            {
+                requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_Body = null;
+            }
+            if (requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_Body != null)
+            {
+                requestContent_content_Push_content_Push_Fcm.Body = requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_Body;
+                requestContent_content_Push_content_Push_FcmIsNull = false;
+            }
+            Amazon.QConnect.Model.MessageTemplateBodyContentProvider requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_RawContent = null;
+            
+             // populate RawContent
+            var requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_RawContentIsNull = true;
+            requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_RawContent = new Amazon.QConnect.Model.MessageTemplateBodyContentProvider();
+            System.String requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_RawContent_content_Push_Fcm_RawContent_Content = null;
+            if (cmdletContext.Content_Push_Fcm_RawContent_Content != null)
+            {
+                requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_RawContent_content_Push_Fcm_RawContent_Content = cmdletContext.Content_Push_Fcm_RawContent_Content;
+            }
+            if (requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_RawContent_content_Push_Fcm_RawContent_Content != null)
+            {
+                requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_RawContent.Content = requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_RawContent_content_Push_Fcm_RawContent_Content;
+                requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_RawContentIsNull = false;
+            }
+             // determine if requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_RawContent should be set to null
+            if (requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_RawContentIsNull)
+            {
+                requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_RawContent = null;
+            }
+            if (requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_RawContent != null)
+            {
+                requestContent_content_Push_content_Push_Fcm.RawContent = requestContent_content_Push_content_Push_Fcm_content_Push_Fcm_RawContent;
+                requestContent_content_Push_content_Push_FcmIsNull = false;
+            }
+             // determine if requestContent_content_Push_content_Push_Fcm should be set to null
+            if (requestContent_content_Push_content_Push_FcmIsNull)
+            {
+                requestContent_content_Push_content_Push_Fcm = null;
+            }
+            if (requestContent_content_Push_content_Push_Fcm != null)
+            {
+                requestContent_content_Push.Fcm = requestContent_content_Push_content_Push_Fcm;
+                requestContent_content_PushIsNull = false;
+            }
+             // determine if requestContent_content_Push should be set to null
+            if (requestContent_content_PushIsNull)
+            {
+                requestContent_content_Push = null;
+            }
+            if (requestContent_content_Push != null)
+            {
+                request.Content.Push = requestContent_content_Push;
                 requestContentIsNull = false;
             }
              // determine if request.Content should be set to null
@@ -2082,6 +3141,60 @@ namespace Amazon.PowerShell.Cmdlets.QC
             {
                 request.Name = cmdletContext.Name;
             }
+            
+             // populate SourceConfiguration
+            var requestSourceConfigurationIsNull = true;
+            request.SourceConfiguration = new Amazon.QConnect.Model.MessageTemplateSourceConfiguration();
+            Amazon.QConnect.Model.WhatsAppMessageTemplateSourceConfiguration requestSourceConfiguration_sourceConfiguration_WhatsApp = null;
+            
+             // populate WhatsApp
+            var requestSourceConfiguration_sourceConfiguration_WhatsAppIsNull = true;
+            requestSourceConfiguration_sourceConfiguration_WhatsApp = new Amazon.QConnect.Model.WhatsAppMessageTemplateSourceConfiguration();
+            System.String requestSourceConfiguration_sourceConfiguration_WhatsApp_whatsApp_BusinessAccountId = null;
+            if (cmdletContext.WhatsApp_BusinessAccountId != null)
+            {
+                requestSourceConfiguration_sourceConfiguration_WhatsApp_whatsApp_BusinessAccountId = cmdletContext.WhatsApp_BusinessAccountId;
+            }
+            if (requestSourceConfiguration_sourceConfiguration_WhatsApp_whatsApp_BusinessAccountId != null)
+            {
+                requestSourceConfiguration_sourceConfiguration_WhatsApp.BusinessAccountId = requestSourceConfiguration_sourceConfiguration_WhatsApp_whatsApp_BusinessAccountId;
+                requestSourceConfiguration_sourceConfiguration_WhatsAppIsNull = false;
+            }
+            List<System.String> requestSourceConfiguration_sourceConfiguration_WhatsApp_whatsApp_Component = null;
+            if (cmdletContext.WhatsApp_Component != null)
+            {
+                requestSourceConfiguration_sourceConfiguration_WhatsApp_whatsApp_Component = cmdletContext.WhatsApp_Component;
+            }
+            if (requestSourceConfiguration_sourceConfiguration_WhatsApp_whatsApp_Component != null)
+            {
+                requestSourceConfiguration_sourceConfiguration_WhatsApp.Components = requestSourceConfiguration_sourceConfiguration_WhatsApp_whatsApp_Component;
+                requestSourceConfiguration_sourceConfiguration_WhatsAppIsNull = false;
+            }
+            System.String requestSourceConfiguration_sourceConfiguration_WhatsApp_whatsApp_TemplateId = null;
+            if (cmdletContext.WhatsApp_TemplateId != null)
+            {
+                requestSourceConfiguration_sourceConfiguration_WhatsApp_whatsApp_TemplateId = cmdletContext.WhatsApp_TemplateId;
+            }
+            if (requestSourceConfiguration_sourceConfiguration_WhatsApp_whatsApp_TemplateId != null)
+            {
+                requestSourceConfiguration_sourceConfiguration_WhatsApp.TemplateId = requestSourceConfiguration_sourceConfiguration_WhatsApp_whatsApp_TemplateId;
+                requestSourceConfiguration_sourceConfiguration_WhatsAppIsNull = false;
+            }
+             // determine if requestSourceConfiguration_sourceConfiguration_WhatsApp should be set to null
+            if (requestSourceConfiguration_sourceConfiguration_WhatsAppIsNull)
+            {
+                requestSourceConfiguration_sourceConfiguration_WhatsApp = null;
+            }
+            if (requestSourceConfiguration_sourceConfiguration_WhatsApp != null)
+            {
+                request.SourceConfiguration.WhatsApp = requestSourceConfiguration_sourceConfiguration_WhatsApp;
+                requestSourceConfigurationIsNull = false;
+            }
+             // determine if request.SourceConfiguration should be set to null
+            if (requestSourceConfigurationIsNull)
+            {
+                request.SourceConfiguration = null;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -2147,7 +3260,42 @@ namespace Amazon.PowerShell.Cmdlets.QC
             public System.String Content_Email_Body_PlainText_Content { get; set; }
             public List<Amazon.QConnect.Model.EmailHeader> Email_Header { get; set; }
             public System.String Email_Subject { get; set; }
+            public Amazon.QConnect.PushMessageAction Adm_Action { get; set; }
+            public System.String Content_Push_Adm_Body_Content { get; set; }
+            public System.String Adm_ImageIconUrl { get; set; }
+            public System.String Adm_ImageUrl { get; set; }
+            public System.String Content_Push_Adm_RawContent_Content { get; set; }
+            public System.String Adm_SmallImageIconUrl { get; set; }
+            public System.String Adm_Sound { get; set; }
+            public System.String Adm_Title { get; set; }
+            public System.String Adm_Url { get; set; }
+            public Amazon.QConnect.PushMessageAction Apns_Action { get; set; }
+            public System.String Content_Push_Apns_Body_Content { get; set; }
+            public System.String Apns_MediaUrl { get; set; }
+            public System.String Content_Push_Apns_RawContent_Content { get; set; }
+            public System.String Apns_Sound { get; set; }
+            public System.String Apns_Title { get; set; }
+            public System.String Apns_Url { get; set; }
+            public Amazon.QConnect.PushMessageAction Baidu_Action { get; set; }
+            public System.String Content_Push_Baidu_Body_Content { get; set; }
+            public System.String Baidu_ImageIconUrl { get; set; }
+            public System.String Baidu_ImageUrl { get; set; }
+            public System.String Content_Push_Baidu_RawContent_Content { get; set; }
+            public System.String Baidu_SmallImageIconUrl { get; set; }
+            public System.String Baidu_Sound { get; set; }
+            public System.String Baidu_Title { get; set; }
+            public System.String Baidu_Url { get; set; }
+            public Amazon.QConnect.PushMessageAction Fcm_Action { get; set; }
+            public System.String Content_Push_Fcm_Body_Content { get; set; }
+            public System.String Fcm_ImageIconUrl { get; set; }
+            public System.String Fcm_ImageUrl { get; set; }
+            public System.String Content_Push_Fcm_RawContent_Content { get; set; }
+            public System.String Fcm_SmallImageIconUrl { get; set; }
+            public System.String Fcm_Sound { get; set; }
+            public System.String Fcm_Title { get; set; }
+            public System.String Fcm_Url { get; set; }
             public System.String Content_Sms_Body_PlainText_Content { get; set; }
+            public System.String WhatsApp_Data { get; set; }
             public System.String AgentAttributes_FirstName { get; set; }
             public System.String AgentAttributes_LastName { get; set; }
             public Dictionary<System.String, System.String> DefaultAttributes_CustomAttribute { get; set; }
@@ -2218,6 +3366,9 @@ namespace Amazon.PowerShell.Cmdlets.QC
             public System.String KnowledgeBaseId { get; set; }
             public System.String Language { get; set; }
             public System.String Name { get; set; }
+            public System.String WhatsApp_BusinessAccountId { get; set; }
+            public List<System.String> WhatsApp_Component { get; set; }
+            public System.String WhatsApp_TemplateId { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.QConnect.Model.CreateMessageTemplateResponse, NewQCMessageTemplateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.MessageTemplate;

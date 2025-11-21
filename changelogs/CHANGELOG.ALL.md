@@ -1,4 +1,97 @@
-﻿### 5.0.102 (2025-11-20 22:59Z)
+﻿### 5.0.103 (2025-11-21 23:31Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.139.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon API Gateway
+    * Modified cmdlet Write-AGIntegration: added parameter IntegrationTarget.
+  * Amazon Athena
+    * Added cmdlet Get-ATHResourceDashboard leveraging the GetResourceDashboard service API.
+    * Added cmdlet Get-ATHSessionEndpoint leveraging the GetSessionEndpoint service API.
+    * Modified cmdlet New-ATHWorkGroup: added parameters CloudWatchLoggingConfiguration_Enabled, CloudWatchLoggingConfiguration_LogGroup, CloudWatchLoggingConfiguration_LogStreamNamePrefix, CloudWatchLoggingConfiguration_LogType, EngineConfiguration_AdditionalConfig, EngineConfiguration_Classification, EngineConfiguration_CoordinatorDpuSize, EngineConfiguration_DefaultExecutorDpuSize, EngineConfiguration_MaxConcurrentDpus, EngineConfiguration_SparkProperty, ManagedLoggingConfiguration_Enabled, ManagedLoggingConfiguration_KmsKey, S3LoggingConfiguration_Enabled, S3LoggingConfiguration_KmsKey and S3LoggingConfiguration_LogLocation.
+    * Modified cmdlet Start-ATHQueryExecution: added parameters EngineConfiguration_AdditionalConfig, EngineConfiguration_Classification, EngineConfiguration_CoordinatorDpuSize, EngineConfiguration_DefaultExecutorDpuSize, EngineConfiguration_MaxConcurrentDpus and EngineConfiguration_SparkProperty.
+    * Modified cmdlet Start-ATHSession: added parameters CloudWatchLoggingConfiguration_Enabled, CloudWatchLoggingConfiguration_LogGroup, CloudWatchLoggingConfiguration_LogStreamNamePrefix, CloudWatchLoggingConfiguration_LogType, CopyWorkGroupTag, EngineConfiguration_Classification, ExecutionRole, ManagedLoggingConfiguration_Enabled, ManagedLoggingConfiguration_KmsKey, S3LoggingConfiguration_Enabled, S3LoggingConfiguration_KmsKey, S3LoggingConfiguration_LogLocation and Tag.
+    * Modified cmdlet Update-ATHWorkGroup: added parameters CloudWatchLoggingConfiguration_Enabled, CloudWatchLoggingConfiguration_LogGroup, CloudWatchLoggingConfiguration_LogStreamNamePrefix, CloudWatchLoggingConfiguration_LogType, EngineConfiguration_AdditionalConfig, EngineConfiguration_Classification, EngineConfiguration_CoordinatorDpuSize, EngineConfiguration_DefaultExecutorDpuSize, EngineConfiguration_MaxConcurrentDpus, EngineConfiguration_SparkProperty, ManagedLoggingConfiguration_Enabled, ManagedLoggingConfiguration_KmsKey, S3LoggingConfiguration_Enabled, S3LoggingConfiguration_KmsKey and S3LoggingConfiguration_LogLocation.
+  * Amazon Bedrock
+    * Added cmdlet Get-BDREnforcedGuardrailsConfigurationList leveraging the ListEnforcedGuardrailsConfiguration service API.
+    * Added cmdlet Remove-BDREnforcedGuardrailConfiguration leveraging the DeleteEnforcedGuardrailConfiguration service API.
+    * Added cmdlet Write-BDREnforcedGuardrailConfiguration leveraging the PutEnforcedGuardrailConfiguration service API.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Modified cmdlet New-BACCGateway: added parameter InterceptorConfiguration.
+    * Modified cmdlet Update-BACCGateway: added parameter InterceptorConfiguration.
+  * Amazon CloudFormation
+    * Modified cmdlet New-CFNStackSet: added parameter AutoDeployment_DependsOn.
+    * Modified cmdlet Update-CFNStackSet: added parameter AutoDeployment_DependsOn.
+  * Amazon Compute Optimizer Automation Service. Added cmdlets to support the service. Cmdlets for the service have the noun prefix COA and can be listed using the command 'Get-AWSCmdletName -Service COA'.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNContactFlowModuleAliasDetail leveraging the DescribeContactFlowModuleAlias service API.
+    * Added cmdlet Get-CONNContactFlowModuleAliasList leveraging the ListContactFlowModuleAliases service API.
+    * Added cmdlet Get-CONNContactFlowModuleVersionList leveraging the ListContactFlowModuleVersions service API.
+    * Added cmdlet New-CONNContactFlowModuleAlias leveraging the CreateContactFlowModuleAlias service API.
+    * Added cmdlet New-CONNContactFlowModuleVersion leveraging the CreateContactFlowModuleVersion service API.
+    * Added cmdlet Remove-CONNContactFlowModuleAlias leveraging the DeleteContactFlowModuleAlias service API.
+    * Added cmdlet Remove-CONNContactFlowModuleVersion leveraging the DeleteContactFlowModuleVersion service API.
+    * Added cmdlet Update-CONNContactFlowModuleAlias leveraging the UpdateContactFlowModuleAlias service API.
+    * Modified cmdlet New-CONNContactFlowModule: added parameters ExternalInvocationConfiguration_Enabled and Setting.
+    * Modified cmdlet Update-CONNContactFlowModuleContent: added parameter Setting.
+  * Amazon EC2 Container Registry
+    * Added cmdlet Get-ECRImageSigningStatusDetail leveraging the DescribeImageSigningStatus service API.
+    * Added cmdlet Get-ECRSigningConfiguration leveraging the GetSigningConfiguration service API.
+    * Added cmdlet Remove-ECRSigningConfiguration leveraging the DeleteSigningConfiguration service API.
+    * Added cmdlet Write-ECRSigningConfiguration leveraging the PutSigningConfiguration service API.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet New-EC2InterruptibleCapacityReservationAllocation leveraging the CreateInterruptibleCapacityReservationAllocation service API.
+    * Added cmdlet Update-EC2InterruptibleCapacityReservationAllocation leveraging the UpdateInterruptibleCapacityReservationAllocation service API.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet New-EKSCluster: added parameter ControlPlaneScalingConfig_Tier.
+    * Modified cmdlet Update-EKSClusterConfig: added parameter ControlPlaneScalingConfig_Tier.
+  * Amazon Invoicing
+    * Added cmdlet Get-INVProcurementPortalPreference leveraging the GetProcurementPortalPreference service API.
+    * Added cmdlet Get-INVProcurementPortalPreferenceList leveraging the ListProcurementPortalPreferences service API.
+    * Added cmdlet New-INVProcurementPortalPreference leveraging the CreateProcurementPortalPreference service API.
+    * Added cmdlet Remove-INVProcurementPortalPreference leveraging the DeleteProcurementPortalPreference service API.
+    * Added cmdlet Update-INVProcurementPortalPreferenceStatus leveraging the UpdateProcurementPortalPreferenceStatus service API.
+    * Added cmdlet Write-INVProcurementPortalPreference leveraging the PutProcurementPortalPreference service API.
+  * Amazon Kinesis Video Streams
+    * Added cmdlet Get-KVStreamStorageConfigurationDetail leveraging the DescribeStreamStorageConfiguration service API.
+    * Added cmdlet Update-KVStreamStorageConfiguration leveraging the UpdateStreamStorageConfiguration service API.
+    * Modified cmdlet New-KVStream: added parameter StreamStorageConfiguration_DefaultStorageTier.
+  * Amazon Lambda
+    * Modified cmdlet New-LMEventSourceMapping: added parameter ProvisionedPollerConfig_PollerGroupName.
+    * Modified cmdlet Update-LMEventSourceMapping: added parameter ProvisionedPollerConfig_PollerGroupName.
+  * Amazon Lex Model Building V2
+    * Modified cmdlet New-LMBV2BotLocale: added parameters IntentDisambiguationSettings_CustomDisambiguationMessage, IntentDisambiguationSettings_Enabled, IntentDisambiguationSettings_MaxDisambiguationIntent and SpeechDetectionSensitivity.
+    * Modified cmdlet New-LMBV2Intent: added parameter IntentDisplayName.
+    * Modified cmdlet Start-LMBV2Import: added parameter BotLocaleImportSpecification_SpeechDetectionSensitivity.
+    * Modified cmdlet Update-LMBV2BotLocale: added parameters IntentDisambiguationSettings_CustomDisambiguationMessage, IntentDisambiguationSettings_Enabled, IntentDisambiguationSettings_MaxDisambiguationIntent and SpeechDetectionSensitivity.
+    * Modified cmdlet Update-LMBV2Intent: added parameter IntentDisplayName.
+  * Amazon Oracle Database@Amazon Web Services
+    * Added cmdlet Add-ODBIamRoleToResource leveraging the AssociateIamRoleToResource service API.
+    * Added cmdlet Remove-ODBIamRoleFromResource leveraging the DisassociateIamRoleFromResource service API.
+    * Modified cmdlet Initialize-ODBService: added parameter OciIdentityDomain.
+    * Modified cmdlet New-ODBOdbNetwork: added parameters CrossRegionS3RestoreSourcesToEnable, KmsAccess, KmsPolicyDocument, StsAccess and StsPolicyDocument.
+    * Modified cmdlet Update-ODBOdbNetwork: added parameters CrossRegionS3RestoreSourcesToDisable, CrossRegionS3RestoreSourcesToEnable, KmsAccess, KmsPolicyDocument, StsAccess and StsPolicyDocument.
+  * Amazon Q Connect
+    * Modified cmdlet New-QCMessageTemplate: added parameters Adm_Action, Adm_ImageIconUrl, Adm_ImageUrl, Adm_SmallImageIconUrl, Adm_Sound, Adm_Title, Adm_Url, Apns_Action, Apns_MediaUrl, Apns_Sound, Apns_Title, Apns_Url, Baidu_Action, Baidu_ImageIconUrl, Baidu_ImageUrl, Baidu_SmallImageIconUrl, Baidu_Sound, Baidu_Title, Baidu_Url, Content_Push_Adm_Body_Content, Content_Push_Adm_RawContent_Content, Content_Push_Apns_Body_Content, Content_Push_Apns_RawContent_Content, Content_Push_Baidu_Body_Content, Content_Push_Baidu_RawContent_Content, Content_Push_Fcm_Body_Content, Content_Push_Fcm_RawContent_Content, Fcm_Action, Fcm_ImageIconUrl, Fcm_ImageUrl, Fcm_SmallImageIconUrl, Fcm_Sound, Fcm_Title, Fcm_Url, WhatsApp_BusinessAccountId, WhatsApp_Component, WhatsApp_Data and WhatsApp_TemplateId.
+    * Modified cmdlet Update-QCMessageTemplate: added parameters Adm_Action, Adm_ImageIconUrl, Adm_ImageUrl, Adm_SmallImageIconUrl, Adm_Sound, Adm_Title, Adm_Url, Apns_Action, Apns_MediaUrl, Apns_Sound, Apns_Title, Apns_Url, Baidu_Action, Baidu_ImageIconUrl, Baidu_ImageUrl, Baidu_SmallImageIconUrl, Baidu_Sound, Baidu_Title, Baidu_Url, Content_Push_Adm_Body_Content, Content_Push_Adm_RawContent_Content, Content_Push_Apns_Body_Content, Content_Push_Apns_RawContent_Content, Content_Push_Baidu_Body_Content, Content_Push_Baidu_RawContent_Content, Content_Push_Fcm_Body_Content, Content_Push_Fcm_RawContent_Content, Fcm_Action, Fcm_ImageIconUrl, Fcm_ImageUrl, Fcm_SmallImageIconUrl, Fcm_Sound, Fcm_Title, Fcm_Url, WhatsApp_BusinessAccountId, WhatsApp_Component, WhatsApp_Data and WhatsApp_TemplateId.
+  * Amazon QuickSight
+    * Modified cmdlet Initialize-QSEmbedUrlForRegisteredUserWithIdentity: added parameter ExperienceConfiguration_QuickChat.
+    * Modified cmdlet New-QSEmbedUrlForRegisteredUser: added parameter ExperienceConfiguration_QuickChat.
+  * Amazon Redshift
+    * Added cmdlet Edit-RSLakehouseConfiguration leveraging the ModifyLakehouseConfiguration service API.
+    * Modified cmdlet New-RSCluster: added parameter CatalogName.
+    * Modified cmdlet New-RSRedshiftIdcApplication: added parameter ApplicationType.
+    * Modified cmdlet Restore-RSFromClusterSnapshot: added parameters CatalogName and RedshiftIdcApplicationArn.
+  * Amazon Redshift Serverless
+    * Added cmdlet Update-RSSLakehouseConfiguration leveraging the UpdateLakehouseConfiguration service API.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMOptimizationJob: added parameters MaxInstanceCount, ModelSource_SageMakerModel_ModelName and OutputConfig_SageMakerModel_ModelName.
+  * Amazon Security Incident Response
+    * Added cmdlet Get-SecurityIRInvestigationList leveraging the ListInvestigations service API.
+    * Added cmdlet Send-SecurityIRFeedback leveraging the SendFeedback service API.
+    * Modified cmdlet Update-SecurityIRCase: added parameter CaseMetadata.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet New-TFRWebApp: added parameters Vpc_SecurityGroupId, Vpc_SubnetId and Vpc_VpcId.
+    * Modified cmdlet Update-TFRWebApp: added parameter Vpc_SubnetId.
+
+### 5.0.102 (2025-11-20 22:59Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.138.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Auto Scaling
     * Modified cmdlet New-ASAutoScalingGroup: added parameter RetentionTriggers_TerminateHookAbandon.

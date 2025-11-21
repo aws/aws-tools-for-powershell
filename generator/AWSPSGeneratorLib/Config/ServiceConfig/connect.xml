@@ -136,6 +136,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateContactFlowModuleAlias" OutputProperty="*" Verb="New" Noun="ContactFlowModuleAlias" ShouldProcessTarget="ContactFlowModuleId,InstanceId,AliasName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateContactFlowModuleVersion" OutputProperty="*" Verb="New" Noun="ContactFlowModuleVersion" ShouldProcessTarget="ContactFlowModuleId,InstanceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateContactFlowVersion" OutputProperty="*" Verb="New" Noun="ContactFlowVersion" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -256,6 +264,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteContactFlowModuleAlias" Verb="Remove" Noun="ContactFlowModuleAlias" ShouldProcessTarget="AliasId,ContactFlowModuleId,InstanceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteContactFlowModuleVersion" Verb="Remove" Noun="ContactFlowModuleVersion" ShouldProcessTarget="ContactFlowModuleVersion" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteContactFlowVersion" Verb="Remove" Noun="ContactFlowVersion" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -369,6 +385,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeContactFlowModule" OutputProperty="ContactFlowModule" Verb="Get" Noun="ContactFlowModule" PipelineParameter="ContactFlowModuleId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeContactFlowModuleAlias" OutputProperty="ContactFlowModuleAlias" Verb="Get" Noun="ContactFlowModuleAliasDetail" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -604,7 +624,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListContactFlowModuleAliases" OutputProperty="ContactFlowModuleAliasSummaryList" Verb="Get" Noun="ContactFlowModuleAliasList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListContactFlowModules" OutputProperty="ContactFlowModulesSummaryList" Verb="Get" Noun="ContactFlowModuleList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListContactFlowModuleVersions" OutputProperty="ContactFlowModuleVersionSummaryList" Verb="Get" Noun="ContactFlowModuleVersionList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1072,6 +1100,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateContactFlowMetadata" Verb="Update" Noun="ContactFlowMetadata" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateContactFlowModuleAlias" Verb="Update" Noun="ContactFlowModuleAlias" ShouldProcessTarget="AliasId,ContactFlowModuleId,InstanceId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

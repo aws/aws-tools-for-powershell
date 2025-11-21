@@ -183,6 +183,13 @@ $BDR_Completers = {
             break
         }
 
+        # Amazon.Bedrock.InputTags
+        "Write-BDREnforcedGuardrailConfiguration/GuardrailInferenceConfig_InputTag"
+        {
+            $v = "HONOR","IGNORE"
+            break
+        }
+
         # Amazon.Bedrock.ModelCopyJobStatus
         "Get-BDRModelCopyJobList/StatusEqual"
         {
@@ -321,6 +328,7 @@ $BDR_map = @{
     "ContentPolicyConfig_TierConfig_TierName"=@("New-BDRGuardrail","Update-BDRGuardrail")
     "CustomizationType"=@("New-BDRModelCustomizationJob")
     "ExpectedAggregatedFindingsResult"=@("New-BDRAutomatedReasoningPolicyTestCase","Update-BDRAutomatedReasoningPolicyTestCase")
+    "GuardrailInferenceConfig_InputTag"=@("Write-BDREnforcedGuardrailConfiguration")
     "ModelStatus"=@("Get-BDRCustomModelList")
     "OfferType"=@("Get-BDRFoundationModelAgreementOfferList")
     "S3InputDataConfig_S3InputFormat"=@("New-BDRModelInvocationJob")
@@ -406,6 +414,7 @@ $BDR_SelectMap = @{
                "Remove-BDRAutomatedReasoningPolicyTestCase",
                "Remove-BDRCustomModel",
                "Remove-BDRCustomModelDeployment",
+               "Remove-BDREnforcedGuardrailConfiguration",
                "Remove-BDRFoundationModelAgreement",
                "Remove-BDRGuardrail",
                "Remove-BDRImportedModel",
@@ -446,6 +455,7 @@ $BDR_SelectMap = @{
                "Get-BDRAutomatedReasoningPolicyTestResultList",
                "Get-BDRCustomModelDeploymentList",
                "Get-BDRCustomModelList",
+               "Get-BDREnforcedGuardrailsConfigurationList",
                "Get-BDREvaluationJobList",
                "Get-BDRFoundationModelAgreementOfferList",
                "Get-BDRFoundationModelList",
@@ -460,6 +470,7 @@ $BDR_SelectMap = @{
                "Get-BDRPromptRouterList",
                "Get-BDRProvisionedModelThroughputList",
                "Get-BDRResourceTag",
+               "Write-BDREnforcedGuardrailConfiguration",
                "Write-BDRModelInvocationLoggingConfiguration",
                "Write-BDRUseCaseForModelAccess",
                "Register-BDRMarketplaceModelEndpoint",

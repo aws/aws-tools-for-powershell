@@ -77,14 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// flow in Amazon Connect Flow language</a>. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Content { get; set; }
         #endregion
         
@@ -104,6 +97,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String InstanceId { get; set; }
+        #endregion
+        
+        #region Parameter Setting
+        /// <summary>
+        /// <para>
+        /// <para>Serialized JSON string of the flow module Settings schema.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings")]
+        public System.String Setting { get; set; }
         #endregion
         
         #region Parameter Select
@@ -159,12 +163,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             #endif
             context.Content = this.Content;
-            #if MODULAR
-            if (this.Content == null && ParameterWasBound(nameof(this.Content)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Content which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
@@ -172,6 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Setting = this.Setting;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -199,6 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.Setting != null)
+            {
+                request.Settings = cmdletContext.Setting;
             }
             
             CmdletOutput output;
@@ -258,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String ContactFlowModuleId { get; set; }
             public System.String Content { get; set; }
             public System.String InstanceId { get; set; }
+            public System.String Setting { get; set; }
             public System.Func<Amazon.Connect.Model.UpdateContactFlowModuleContentResponse, UpdateCONNContactFlowModuleContentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

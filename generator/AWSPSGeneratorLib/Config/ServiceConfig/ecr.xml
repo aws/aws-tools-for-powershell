@@ -79,6 +79,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSigningConfiguration" OutputProperty="*" Verb="Remove" Noun="SigningConfiguration" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeregisterPullTimeUpdateExclusion" OutputProperty="PrincipalArn" Verb="Unregister" Noun="PullTimeUpdateExclusion" ShouldProcessTarget="PrincipalArn" PipelineParameter="PrincipalArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -92,6 +96,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeImageScanFindings" OutputProperty="*" Verb="Get" Noun="ImageScanFinding" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeImageSigningStatus" OutputProperty="*" Verb="Get" Noun="ImageSigningStatusDetail" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -145,6 +153,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetSigningConfiguration" OutputProperty="*" Verb="Get" Noun="SigningConfiguration" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="InitiateLayerUpload" OutputProperty="*" Verb="Start" Noun="LayerUpload" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -194,6 +206,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutReplicationConfiguration" OutputProperty="ReplicationConfiguration" Verb="Write" Noun="ReplicationConfiguration" ShouldProcessTarget="ReplicationConfiguration_Rules" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutSigningConfiguration" OutputProperty="SigningConfiguration" Verb="Write" Noun="SigningConfiguration" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

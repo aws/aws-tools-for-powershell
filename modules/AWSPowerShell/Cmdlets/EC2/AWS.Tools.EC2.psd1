@@ -542,6 +542,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-EC2InstanceEventWindow', 
         'New-EC2InstanceExportTask', 
         'New-EC2InternetGateway', 
+        'New-EC2InterruptibleCapacityReservationAllocation', 
         'New-EC2Ipam', 
         'New-EC2IpamExternalResourceVerificationToken', 
         'New-EC2IpamPolicy', 
@@ -830,6 +831,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Unregister-EC2TrunkInterface', 
         'Unregister-EC2VpcCidrBlock', 
         'Update-EC2CapacityManagerOrganizationsAccess', 
+        'Update-EC2InterruptibleCapacityReservationAllocation', 
         'Update-EC2SecurityGroupRuleEgressDescription', 
         'Update-EC2SecurityGroupRuleIngressDescription')
 

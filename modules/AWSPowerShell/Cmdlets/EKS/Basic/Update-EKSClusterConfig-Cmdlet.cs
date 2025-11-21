@@ -341,6 +341,19 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public Amazon.EKS.SupportType UpgradePolicy_SupportType { get; set; }
         #endregion
         
+        #region Parameter ControlPlaneScalingConfig_Tier
+        /// <summary>
+        /// <para>
+        /// <para>The control plane scaling tier configuration. Available options are <c>standard</c>,
+        /// <c>tier-xl</c>, <c>tier-2xl</c>, or <c>tier-4xl</c>. For more information, see EKS
+        /// Provisioned Control Plane in the Amazon EKS User Guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EKS.ProvisionedControlPlaneTier")]
+        public Amazon.EKS.ProvisionedControlPlaneTier ControlPlaneScalingConfig_Tier { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Update'.
@@ -395,6 +408,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 context.ComputeConfig_NodePool = new List<System.String>(this.ComputeConfig_NodePool);
             }
             context.ComputeConfig_NodeRoleArn = this.ComputeConfig_NodeRoleArn;
+            context.ControlPlaneScalingConfig_Tier = this.ControlPlaneScalingConfig_Tier;
             context.DeletionProtection = this.DeletionProtection;
             context.ElasticLoadBalancing_Enabled = this.ElasticLoadBalancing_Enabled;
             context.KubernetesNetworkConfig_IpFamily = this.KubernetesNetworkConfig_IpFamily;
@@ -499,6 +513,25 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (requestComputeConfigIsNull)
             {
                 request.ComputeConfig = null;
+            }
+            
+             // populate ControlPlaneScalingConfig
+            var requestControlPlaneScalingConfigIsNull = true;
+            request.ControlPlaneScalingConfig = new Amazon.EKS.Model.ControlPlaneScalingConfig();
+            Amazon.EKS.ProvisionedControlPlaneTier requestControlPlaneScalingConfig_controlPlaneScalingConfig_Tier = null;
+            if (cmdletContext.ControlPlaneScalingConfig_Tier != null)
+            {
+                requestControlPlaneScalingConfig_controlPlaneScalingConfig_Tier = cmdletContext.ControlPlaneScalingConfig_Tier;
+            }
+            if (requestControlPlaneScalingConfig_controlPlaneScalingConfig_Tier != null)
+            {
+                request.ControlPlaneScalingConfig.Tier = requestControlPlaneScalingConfig_controlPlaneScalingConfig_Tier;
+                requestControlPlaneScalingConfigIsNull = false;
+            }
+             // determine if request.ControlPlaneScalingConfig should be set to null
+            if (requestControlPlaneScalingConfigIsNull)
+            {
+                request.ControlPlaneScalingConfig = null;
             }
             if (cmdletContext.DeletionProtection != null)
             {
@@ -746,6 +779,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.Boolean? ComputeConfig_Enabled { get; set; }
             public List<System.String> ComputeConfig_NodePool { get; set; }
             public System.String ComputeConfig_NodeRoleArn { get; set; }
+            public Amazon.EKS.ProvisionedControlPlaneTier ControlPlaneScalingConfig_Tier { get; set; }
             public System.Boolean? DeletionProtection { get; set; }
             public System.Boolean? ElasticLoadBalancing_Enabled { get; set; }
             public Amazon.EKS.IpFamily KubernetesNetworkConfig_IpFamily { get; set; }

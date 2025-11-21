@@ -1,0 +1,3 @@
+﻿# ComputeOptimizerAutomation
+
+Export-ModuleMember -Alias *

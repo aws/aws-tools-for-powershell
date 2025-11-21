@@ -107,6 +107,13 @@ $SecurityIR_Completers = {
             break
         }
 
+        # Amazon.SecurityIR.UsefulnessRating
+        "Send-SecurityIRFeedback/Usefulness"
+        {
+            $v = "NOT_USEFUL","USEFUL"
+            break
+        }
+
 
     }
 
@@ -119,6 +126,7 @@ $SecurityIR_map = @{
     "CaseStatus"=@("Update-SecurityIRCaseStatus")
     "EngagementType"=@("New-SecurityIRCase","Update-SecurityIRCase")
     "ResolverType"=@("New-SecurityIRCase","Update-SecurityIRResolverType")
+    "Usefulness"=@("Send-SecurityIRFeedback")
 }
 
 _awsArgumentCompleterRegistration $SecurityIR_Completers $SecurityIR_map
@@ -184,8 +192,10 @@ $SecurityIR_SelectMap = @{
                "Get-SecurityIRCaseEditList",
                "Get-SecurityIRCaseList",
                "Get-SecurityIRCommentList",
+               "Get-SecurityIRInvestigationList",
                "Get-SecurityIRMembershipList",
                "Get-SecurityIRResourceTag",
+               "Send-SecurityIRFeedback",
                "Add-SecurityIRResourceTag",
                "Remove-SecurityIRResourceTag",
                "Update-SecurityIRCase",

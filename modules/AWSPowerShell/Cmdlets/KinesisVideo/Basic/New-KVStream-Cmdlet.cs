@@ -61,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>The number of hours that you want to retain the data in the stream. Kinesis Video
-        /// Streams retains the data in a data store that is associated with the stream.</para><para>The default value is 0, indicating that the stream does not persist data.</para><para>When the <c>DataRetentionInHours</c> value is 0, consumers can still consume the fragments
+        /// Streams retains the data in a data store that is associated with the stream.</para><para>The default value is 0, indicating that the stream does not persist data. The minimum
+        /// is 1 hour.</para><para>When the <c>DataRetentionInHours</c> value is 0, consumers can still consume the fragments
         /// that remain in the service host buffer, which has a retention time limit of 5 minutes
         /// and a retention memory limit of 200 MB. Fragments are removed from the buffer when
         /// either limit is reached.</para>
@@ -72,10 +73,25 @@ namespace Amazon.PowerShell.Cmdlets.KV
         public System.Int32? DataRetentionInHour { get; set; }
         #endregion
         
+        #region Parameter StreamStorageConfiguration_DefaultStorageTier
+        /// <summary>
+        /// <para>
+        /// <para>The default storage tier for the stream data. This setting determines the storage
+        /// class used for stream data, affecting both performance characteristics and storage
+        /// costs.</para><para>Available storage tiers:</para><ul><li><para><c>HOT</c> - Optimized for frequent access with the lowest latency and highest performance.
+        /// Ideal for real-time applications and frequently accessed data.</para></li><li><para><c>WARM</c> - Balanced performance and cost for moderately accessed data. Suitable
+        /// for data that is accessed regularly but not continuously.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.KinesisVideo.DefaultStorageTier")]
+        public Amazon.KinesisVideo.DefaultStorageTier StreamStorageConfiguration_DefaultStorageTier { get; set; }
+        #endregion
+        
         #region Parameter DeviceName
         /// <summary>
         /// <para>
-        /// <para>The name of the device that is writing to the stream. </para><note><para>In the current implementation, Kinesis Video Streams does not use this name.</para></note>
+        /// <para>The name of the device that is writing to the stream. </para><note><para>In the current implementation, Kinesis Video Streams doesn't use this name.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>The ID of the Key Management Service (KMS) key that you want Kinesis Video Streams
-        /// to use to encrypt stream data.</para><para>If no key ID is specified, the default, Kinesis Video-managed key (<c>Amazon Web Services/kinesisvideo</c>)
+        /// to use to encrypt stream data.</para><para>If no key ID is specified, the default, Kinesis Video-managed key (<c>aws/kinesisvideo</c>)
         /// is used.</para><para> For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">DescribeKey</a>.
         /// </para>
         /// </para>
@@ -199,6 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
                 WriteWarning("You are passing $null as a value for parameter StreamName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.StreamStorageConfiguration_DefaultStorageTier = this.StreamStorageConfiguration_DefaultStorageTier;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -242,6 +259,25 @@ namespace Amazon.PowerShell.Cmdlets.KV
             if (cmdletContext.StreamName != null)
             {
                 request.StreamName = cmdletContext.StreamName;
+            }
+            
+             // populate StreamStorageConfiguration
+            var requestStreamStorageConfigurationIsNull = true;
+            request.StreamStorageConfiguration = new Amazon.KinesisVideo.Model.StreamStorageConfiguration();
+            Amazon.KinesisVideo.DefaultStorageTier requestStreamStorageConfiguration_streamStorageConfiguration_DefaultStorageTier = null;
+            if (cmdletContext.StreamStorageConfiguration_DefaultStorageTier != null)
+            {
+                requestStreamStorageConfiguration_streamStorageConfiguration_DefaultStorageTier = cmdletContext.StreamStorageConfiguration_DefaultStorageTier;
+            }
+            if (requestStreamStorageConfiguration_streamStorageConfiguration_DefaultStorageTier != null)
+            {
+                request.StreamStorageConfiguration.DefaultStorageTier = requestStreamStorageConfiguration_streamStorageConfiguration_DefaultStorageTier;
+                requestStreamStorageConfigurationIsNull = false;
+            }
+             // determine if request.StreamStorageConfiguration should be set to null
+            if (requestStreamStorageConfigurationIsNull)
+            {
+                request.StreamStorageConfiguration = null;
             }
             if (cmdletContext.Tag != null)
             {
@@ -307,6 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
             public System.String KmsKeyId { get; set; }
             public System.String MediaType { get; set; }
             public System.String StreamName { get; set; }
+            public Amazon.KinesisVideo.DefaultStorageTier StreamStorageConfiguration_DefaultStorageTier { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.KinesisVideo.Model.CreateStreamResponse, NewKVStreamCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.StreamARN;

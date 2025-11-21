@@ -407,6 +407,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateInterruptibleCapacityReservationAllocation" OutputProperty="*" Verb="New" Noun="InterruptibleCapacityReservationAllocation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateIpam" OutputProperty="Ipam" Verb="New" Noun="Ipam" ShouldProcessTarget="Description" PipelineParameter="Description" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -3135,6 +3139,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCapacityManagerOrganizationsAccess" OutputProperty="*" Verb="Update" Noun="CapacityManagerOrganizationsAccess" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateInterruptibleCapacityReservationAllocation" OutputProperty="*" Verb="Update" Noun="InterruptibleCapacityReservationAllocation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -31,7 +31,14 @@ namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
     /// Lists all web apps associated with your Amazon Web Services account for your current
-    /// region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// region. The response includes the endpoint type for each web app, showing whether
+    /// it is publicly accessible or VPC hosted.
+    /// 
+    ///  
+    /// <para>
+    /// For more information about using VPC endpoints with Transfer Family, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html">Create
+    /// a Transfer Family web app in a VPC</a>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "TFRWebAppList")]
     [OutputType("Amazon.Transfer.Model.ListedWebApp")]
