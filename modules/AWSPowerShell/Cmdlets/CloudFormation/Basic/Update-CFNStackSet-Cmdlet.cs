@@ -203,6 +203,18 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String[] Capability { get; set; }
         #endregion
         
+        #region Parameter AutoDeployment_DependsOn
+        /// <summary>
+        /// <para>
+        /// <para>A list of StackSet ARNs that this StackSet depends on for auto-deployment operations.
+        /// When auto-deployment is triggered, operations will be sequenced to ensure all dependencies
+        /// complete successfully before this StackSet's operation begins.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] AutoDeployment_DependsOn { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -484,6 +496,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 context.Account = new List<System.String>(this.Account);
             }
             context.AdministrationRoleARN = this.AdministrationRoleARN;
+            if (this.AutoDeployment_DependsOn != null)
+            {
+                context.AutoDeployment_DependsOn = new List<System.String>(this.AutoDeployment_DependsOn);
+            }
             context.AutoDeployment_Enabled = this.AutoDeployment_Enabled;
             context.AutoDeployment_RetainStacksOnAccountRemoval = this.AutoDeployment_RetainStacksOnAccountRemoval;
             context.CallAs = this.CallAs;
@@ -557,6 +573,16 @@ namespace Amazon.PowerShell.Cmdlets.CFN
              // populate AutoDeployment
             var requestAutoDeploymentIsNull = true;
             request.AutoDeployment = new Amazon.CloudFormation.Model.AutoDeployment();
+            List<System.String> requestAutoDeployment_autoDeployment_DependsOn = null;
+            if (cmdletContext.AutoDeployment_DependsOn != null)
+            {
+                requestAutoDeployment_autoDeployment_DependsOn = cmdletContext.AutoDeployment_DependsOn;
+            }
+            if (requestAutoDeployment_autoDeployment_DependsOn != null)
+            {
+                request.AutoDeployment.DependsOn = requestAutoDeployment_autoDeployment_DependsOn;
+                requestAutoDeploymentIsNull = false;
+            }
             System.Boolean? requestAutoDeployment_autoDeployment_Enabled = null;
             if (cmdletContext.AutoDeployment_Enabled != null)
             {
@@ -769,6 +795,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             public List<System.String> Account { get; set; }
             public System.String AdministrationRoleARN { get; set; }
+            public List<System.String> AutoDeployment_DependsOn { get; set; }
             public System.Boolean? AutoDeployment_Enabled { get; set; }
             public System.Boolean? AutoDeployment_RetainStacksOnAccountRemoval { get; set; }
             public Amazon.CloudFormation.CallAs CallAs { get; set; }

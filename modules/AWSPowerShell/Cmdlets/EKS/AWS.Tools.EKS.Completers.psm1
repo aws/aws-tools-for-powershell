@@ -159,6 +159,16 @@ $EKS_Completers = {
             break
         }
 
+        # Amazon.EKS.ProvisionedControlPlaneTier
+        {
+            ($_ -eq "New-EKSCluster/ControlPlaneScalingConfig_Tier") -Or
+            ($_ -eq "Update-EKSClusterConfig/ControlPlaneScalingConfig_Tier")
+        }
+        {
+            $v = "standard","tier-2xl","tier-4xl","tier-xl"
+            break
+        }
+
         # Amazon.EKS.ResolveConflicts
         {
             ($_ -eq "New-EKSAddon/ResolveConflict") -Or
@@ -200,6 +210,7 @@ $EKS_map = @{
     "AmiType"=@("New-EKSNodegroup")
     "CapacityType"=@("New-EKSNodegroup")
     "ConnectorConfig_Provider"=@("Register-EKSCluster")
+    "ControlPlaneScalingConfig_Tier"=@("New-EKSCluster","Update-EKSClusterConfig")
     "KubernetesNetworkConfig_IpFamily"=@("New-EKSCluster","Update-EKSClusterConfig")
     "LicenseType"=@("New-EKSEksAnywhereSubscription")
     "ResolveConflict"=@("New-EKSAddon","Update-EKSAddon")

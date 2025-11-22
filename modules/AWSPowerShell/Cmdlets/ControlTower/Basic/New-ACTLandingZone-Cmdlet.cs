@@ -51,13 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         /// your landing zone</a>. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Management.Automation.PSObject Manifest { get; set; }
         #endregion
         
@@ -164,12 +158,6 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Manifest = this.Manifest;
-            #if MODULAR
-            if (this.Manifest == null && ParameterWasBound(nameof(this.Manifest)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Manifest which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.RemediationType != null)
             {
                 context.RemediationType = new List<System.String>(this.RemediationType);

@@ -22,6 +22,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateIamRoleToResource" Verb="Add" Noun="IamRoleToResource" ShouldProcessTarget="IamRoleArn,ResourceArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCloudAutonomousVmCluster" OutputProperty="*" Verb="New" Noun="CloudAutonomousVmCluster" ShouldProcessTarget="CloudExadataInfrastructureId" PipelineParameter="CloudExadataInfrastructureId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -62,6 +66,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateIamRoleFromResource" Verb="Remove" Noun="IamRoleFromResource" ShouldProcessTarget="IamRoleArn,ResourceArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetCloudAutonomousVmCluster" OutputProperty="CloudAutonomousVmCluster" Verb="Get" Noun="CloudAutonomousVmCluster" PipelineParameter="CloudAutonomousVmClusterId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -98,7 +106,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="InitializeService" Verb="Initialize" Noun="Service" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="InitializeService" Verb="Initialize" Noun="Service" ShouldProcessTarget="OciIdentityDomain" PipelineParameter="OciIdentityDomain" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

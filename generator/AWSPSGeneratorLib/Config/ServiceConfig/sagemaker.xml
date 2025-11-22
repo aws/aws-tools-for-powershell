@@ -325,7 +325,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateOptimizationJob" OutputProperty="OptimizationJobArn" Verb="New" Noun="OptimizationJob" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="ModelSource_SageMakerModel_ModelName" NewName="ModelSource_SageMakerModel_ModelName" />
+                <Param Name="OutputConfig_SageMakerModel_ModelName" NewName="OutputConfig_SageMakerModel_ModelName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePartnerApp" OutputProperty="Arn" Verb="New" Noun="PartnerApp" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">

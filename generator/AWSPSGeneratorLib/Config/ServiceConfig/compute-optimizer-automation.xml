@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>compute-optimizer-automation</C2jFilename>
+    <AssemblyName>ComputeOptimizerAutomation</AssemblyName>
+    <ServiceNounPrefix>COA</ServiceNounPrefix>
+    <ServiceName>Compute Optimizer Automation Service</ServiceName>
+    <ServiceClientInterface>IAmazonComputeOptimizerAutomation</ServiceClientInterface>
+    <ServiceClient>AmazonComputeOptimizerAutomationClient</ServiceClient>
+    <ServiceModuleGuid>6e067bfb-57c1-4539-adb7-a76735aa1fa4</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateAccounts" OutputProperty="*" Verb="Add" Noun="Account" ShouldProcessTarget="AccountIds" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAutomationRule" OutputProperty="*" Verb="New" Noun="AutomationRule" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAutomationRule" Verb="Remove" Noun="AutomationRule" ShouldProcessTarget="RuleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateAccounts" OutputProperty="*" Verb="Remove" Noun="Account" ShouldProcessTarget="AccountIds" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAutomationEvent" OutputProperty="*" Verb="Get" Noun="AutomationEvent" PipelineParameter="EventId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAutomationRule" OutputProperty="*" Verb="Get" Noun="AutomationRule" PipelineParameter="RuleArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEnrollmentConfiguration" OutputProperty="*" Verb="Get" Noun="EnrollmentConfiguration" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccounts" OutputProperty="Accounts" Verb="Get" Noun="AccountList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAutomationEvents" OutputProperty="AutomationEvents" Verb="Get" Noun="AutomationEventList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAutomationEventSteps" OutputProperty="AutomationEventSteps" Verb="Get" Noun="AutomationEventStepList" PipelineParameter="EventId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAutomationEventSummaries" OutputProperty="AutomationEventSummaries" Verb="Get" Noun="AutomationEventSummaryList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAutomationRulePreview" OutputProperty="PreviewResults" Verb="Get" Noun="AutomationRulePreviewList" PipelineParameter="RuleType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAutomationRulePreviewSummaries" OutputProperty="PreviewResultSummaries" Verb="Get" Noun="AutomationRulePreviewSummaryList" PipelineParameter="RuleType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAutomationRules" OutputProperty="AutomationRules" Verb="Get" Noun="AutomationRuleList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRecommendedActions" OutputProperty="RecommendedActions" Verb="Get" Noun="RecommendedActionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRecommendedActionSummaries" OutputProperty="RecommendedActionSummaries" Verb="Get" Noun="RecommendedActionSummaryList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RollbackAutomationEvent" OutputProperty="*" Verb="Restore" Noun="AutomationEvent" ShouldProcessTarget="EventId" PipelineParameter="EventId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartAutomationEvent" OutputProperty="*" Verb="Start" Noun="AutomationEvent" ShouldProcessTarget="RecommendedActionId" PipelineParameter="RecommendedActionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAutomationRule" OutputProperty="*" Verb="Update" Noun="AutomationRule" ShouldProcessTarget="RuleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEnrollmentConfiguration" OutputProperty="*" Verb="Update" Noun="EnrollmentConfiguration" ShouldProcessTarget="Status" PipelineParameter="Status" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

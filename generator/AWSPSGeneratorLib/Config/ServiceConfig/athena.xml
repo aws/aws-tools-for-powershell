@@ -146,7 +146,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetResourceDashboard" OutputProperty="Url" Verb="Get" Noun="ResourceDashboard" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetSession" OutputProperty="*" Verb="Get" Noun="Session" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSessionEndpoint" OutputProperty="*" Verb="Get" Noun="SessionEndpoint" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

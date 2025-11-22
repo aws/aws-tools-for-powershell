@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         #region Parameter SourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for the managed workgroup in the AWS Glue Data Catalog.</para>
+        /// <para>The Amazon Resource Name (ARN) for the managed workgroup in the Glue Data Catalog.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

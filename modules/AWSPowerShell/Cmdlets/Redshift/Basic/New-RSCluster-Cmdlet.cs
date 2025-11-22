@@ -146,6 +146,18 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.Boolean? AvailabilityZoneRelocation { get; set; }
         #endregion
         
+        #region Parameter CatalogName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Glue data catalog that will be associated with the cluster enabled
+        /// with Amazon Redshift federated permissions.</para><para>Constraints:</para><ul><li><para>Must contain at least one lowercase letter.</para></li><li><para>Can only contain lowercase letters (a-z), numbers (0-9), underscores (_), and hyphens
+        /// (-).</para></li></ul><para>Pattern: <c>^[a-z0-9_-]*[a-z]+[a-z0-9_-]*$</c></para><para>Example: <c>my-catalog_01</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CatalogName { get; set; }
+        #endregion
+        
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
@@ -626,6 +638,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.AutomatedSnapshotRetentionPeriod = this.AutomatedSnapshotRetentionPeriod;
             context.AvailabilityZone = this.AvailabilityZone;
             context.AvailabilityZoneRelocation = this.AvailabilityZoneRelocation;
+            context.CatalogName = this.CatalogName;
             context.ClusterIdentifier = this.ClusterIdentifier;
             #if MODULAR
             if (this.ClusterIdentifier == null && ParameterWasBound(nameof(this.ClusterIdentifier)))
@@ -728,6 +741,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.AvailabilityZoneRelocation != null)
             {
                 request.AvailabilityZoneRelocation = cmdletContext.AvailabilityZoneRelocation.Value;
+            }
+            if (cmdletContext.CatalogName != null)
+            {
+                request.CatalogName = cmdletContext.CatalogName;
             }
             if (cmdletContext.ClusterIdentifier != null)
             {
@@ -928,6 +945,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.Int32? AutomatedSnapshotRetentionPeriod { get; set; }
             public System.String AvailabilityZone { get; set; }
             public System.Boolean? AvailabilityZoneRelocation { get; set; }
+            public System.String CatalogName { get; set; }
             public System.String ClusterIdentifier { get; set; }
             public System.String ClusterParameterGroupName { get; set; }
             public List<System.String> ClusterSecurityGroup { get; set; }

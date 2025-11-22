@@ -46,6 +46,21 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter EngineConfiguration_AdditionalConfig
+        /// <summary>
+        /// <para>
+        /// <para>Contains additional notebook engine <c>MAP&lt;string, string&gt;</c> parameter mappings
+        /// in the form of key-value pairs. To specify an Athena notebook that the Jupyter server
+        /// will download and serve, specify a value for the <a>StartSessionRequest$NotebookVersion</a>
+        /// field, and then add a key named <c>NotebookId</c> to <c>AdditionalConfigs</c> that
+        /// has the value of the Athena notebook ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EngineConfiguration_AdditionalConfigs")]
+        public System.Collections.Hashtable EngineConfiguration_AdditionalConfig { get; set; }
+        #endregion
+        
         #region Parameter QueryExecutionContext_Catalog
         /// <summary>
         /// <para>
@@ -54,6 +69,17 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String QueryExecutionContext_Catalog { get; set; }
+        #endregion
+        
+        #region Parameter EngineConfiguration_Classification
+        /// <summary>
+        /// <para>
+        /// <para>The configuration classifications that can be specified for the engine.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EngineConfiguration_Classifications")]
+        public Amazon.Athena.Model.Classification[] EngineConfiguration_Classification { get; set; }
         #endregion
         
         #region Parameter ClientRequestToken
@@ -74,6 +100,18 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter EngineConfiguration_CoordinatorDpuSize
+        /// <summary>
+        /// <para>
+        /// <para>The number of DPUs to use for the coordinator. A coordinator is a special executor
+        /// that orchestrates processing work and manages other executors in a notebook session.
+        /// The default is 1.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? EngineConfiguration_CoordinatorDpuSize { get; set; }
+        #endregion
+        
         #region Parameter QueryExecutionContext_Database
         /// <summary>
         /// <para>
@@ -83,6 +121,17 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String QueryExecutionContext_Database { get; set; }
+        #endregion
+        
+        #region Parameter EngineConfiguration_DefaultExecutorDpuSize
+        /// <summary>
+        /// <para>
+        /// <para>The default number of DPUs to use for executors. An executor is the smallest unit
+        /// of compute that a notebook session can request from Athena. The default is 1.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? EngineConfiguration_DefaultExecutorDpuSize { get; set; }
         #endregion
         
         #region Parameter ResultReuseByAgeConfiguration_Enabled
@@ -167,6 +216,16 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         public System.Int32? ResultReuseByAgeConfiguration_MaxAgeInMinute { get; set; }
         #endregion
         
+        #region Parameter EngineConfiguration_MaxConcurrentDpus
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of DPUs that can run concurrently.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? EngineConfiguration_MaxConcurrentDpus { get; set; }
+        #endregion
+        
         #region Parameter ResultConfiguration_OutputLocation
         /// <summary>
         /// <para>
@@ -216,6 +275,18 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         [Alias("ResultConfiguration_AclConfiguration_S3AclOption")]
         [AWSConstantClassSource("Amazon.Athena.S3AclOption")]
         public Amazon.Athena.S3AclOption AclConfiguration_S3AclOption { get; set; }
+        #endregion
+        
+        #region Parameter EngineConfiguration_SparkProperty
+        /// <summary>
+        /// <para>
+        /// <para>Specifies custom jar files and Spark properties for use cases like cluster encryption,
+        /// table formats, and general Spark tuning.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EngineConfiguration_SparkProperties")]
+        public System.Collections.Hashtable EngineConfiguration_SparkProperty { get; set; }
         #endregion
         
         #region Parameter WorkGroup
@@ -291,6 +362,29 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
+            if (this.EngineConfiguration_AdditionalConfig != null)
+            {
+                context.EngineConfiguration_AdditionalConfig = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.EngineConfiguration_AdditionalConfig.Keys)
+                {
+                    context.EngineConfiguration_AdditionalConfig.Add((String)hashKey, (System.String)(this.EngineConfiguration_AdditionalConfig[hashKey]));
+                }
+            }
+            if (this.EngineConfiguration_Classification != null)
+            {
+                context.EngineConfiguration_Classification = new List<Amazon.Athena.Model.Classification>(this.EngineConfiguration_Classification);
+            }
+            context.EngineConfiguration_CoordinatorDpuSize = this.EngineConfiguration_CoordinatorDpuSize;
+            context.EngineConfiguration_DefaultExecutorDpuSize = this.EngineConfiguration_DefaultExecutorDpuSize;
+            context.EngineConfiguration_MaxConcurrentDpus = this.EngineConfiguration_MaxConcurrentDpus;
+            if (this.EngineConfiguration_SparkProperty != null)
+            {
+                context.EngineConfiguration_SparkProperty = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.EngineConfiguration_SparkProperty.Keys)
+                {
+                    context.EngineConfiguration_SparkProperty.Add((String)hashKey, (System.String)(this.EngineConfiguration_SparkProperty[hashKey]));
+                }
+            }
             if (this.ExecutionParameter != null)
             {
                 context.ExecutionParameter = new List<System.String>(this.ExecutionParameter);
@@ -331,6 +425,75 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            
+             // populate EngineConfiguration
+            var requestEngineConfigurationIsNull = true;
+            request.EngineConfiguration = new Amazon.Athena.Model.EngineConfiguration();
+            Dictionary<System.String, System.String> requestEngineConfiguration_engineConfiguration_AdditionalConfig = null;
+            if (cmdletContext.EngineConfiguration_AdditionalConfig != null)
+            {
+                requestEngineConfiguration_engineConfiguration_AdditionalConfig = cmdletContext.EngineConfiguration_AdditionalConfig;
+            }
+            if (requestEngineConfiguration_engineConfiguration_AdditionalConfig != null)
+            {
+                request.EngineConfiguration.AdditionalConfigs = requestEngineConfiguration_engineConfiguration_AdditionalConfig;
+                requestEngineConfigurationIsNull = false;
+            }
+            List<Amazon.Athena.Model.Classification> requestEngineConfiguration_engineConfiguration_Classification = null;
+            if (cmdletContext.EngineConfiguration_Classification != null)
+            {
+                requestEngineConfiguration_engineConfiguration_Classification = cmdletContext.EngineConfiguration_Classification;
+            }
+            if (requestEngineConfiguration_engineConfiguration_Classification != null)
+            {
+                request.EngineConfiguration.Classifications = requestEngineConfiguration_engineConfiguration_Classification;
+                requestEngineConfigurationIsNull = false;
+            }
+            System.Int32? requestEngineConfiguration_engineConfiguration_CoordinatorDpuSize = null;
+            if (cmdletContext.EngineConfiguration_CoordinatorDpuSize != null)
+            {
+                requestEngineConfiguration_engineConfiguration_CoordinatorDpuSize = cmdletContext.EngineConfiguration_CoordinatorDpuSize.Value;
+            }
+            if (requestEngineConfiguration_engineConfiguration_CoordinatorDpuSize != null)
+            {
+                request.EngineConfiguration.CoordinatorDpuSize = requestEngineConfiguration_engineConfiguration_CoordinatorDpuSize.Value;
+                requestEngineConfigurationIsNull = false;
+            }
+            System.Int32? requestEngineConfiguration_engineConfiguration_DefaultExecutorDpuSize = null;
+            if (cmdletContext.EngineConfiguration_DefaultExecutorDpuSize != null)
+            {
+                requestEngineConfiguration_engineConfiguration_DefaultExecutorDpuSize = cmdletContext.EngineConfiguration_DefaultExecutorDpuSize.Value;
+            }
+            if (requestEngineConfiguration_engineConfiguration_DefaultExecutorDpuSize != null)
+            {
+                request.EngineConfiguration.DefaultExecutorDpuSize = requestEngineConfiguration_engineConfiguration_DefaultExecutorDpuSize.Value;
+                requestEngineConfigurationIsNull = false;
+            }
+            System.Int32? requestEngineConfiguration_engineConfiguration_MaxConcurrentDpus = null;
+            if (cmdletContext.EngineConfiguration_MaxConcurrentDpus != null)
+            {
+                requestEngineConfiguration_engineConfiguration_MaxConcurrentDpus = cmdletContext.EngineConfiguration_MaxConcurrentDpus.Value;
+            }
+            if (requestEngineConfiguration_engineConfiguration_MaxConcurrentDpus != null)
+            {
+                request.EngineConfiguration.MaxConcurrentDpus = requestEngineConfiguration_engineConfiguration_MaxConcurrentDpus.Value;
+                requestEngineConfigurationIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestEngineConfiguration_engineConfiguration_SparkProperty = null;
+            if (cmdletContext.EngineConfiguration_SparkProperty != null)
+            {
+                requestEngineConfiguration_engineConfiguration_SparkProperty = cmdletContext.EngineConfiguration_SparkProperty;
+            }
+            if (requestEngineConfiguration_engineConfiguration_SparkProperty != null)
+            {
+                request.EngineConfiguration.SparkProperties = requestEngineConfiguration_engineConfiguration_SparkProperty;
+                requestEngineConfigurationIsNull = false;
+            }
+             // determine if request.EngineConfiguration should be set to null
+            if (requestEngineConfigurationIsNull)
+            {
+                request.EngineConfiguration = null;
             }
             if (cmdletContext.ExecutionParameter != null)
             {
@@ -568,6 +731,12 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public Dictionary<System.String, System.String> EngineConfiguration_AdditionalConfig { get; set; }
+            public List<Amazon.Athena.Model.Classification> EngineConfiguration_Classification { get; set; }
+            public System.Int32? EngineConfiguration_CoordinatorDpuSize { get; set; }
+            public System.Int32? EngineConfiguration_DefaultExecutorDpuSize { get; set; }
+            public System.Int32? EngineConfiguration_MaxConcurrentDpus { get; set; }
+            public Dictionary<System.String, System.String> EngineConfiguration_SparkProperty { get; set; }
             public List<System.String> ExecutionParameter { get; set; }
             public System.String QueryExecutionContext_Catalog { get; set; }
             public System.String QueryExecutionContext_Database { get; set; }

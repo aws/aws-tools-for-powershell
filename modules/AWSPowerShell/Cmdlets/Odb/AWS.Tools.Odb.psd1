@@ -88,6 +88,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-ODBIamRoleToResource', 
         'Add-ODBResourceTag', 
         'Approve-ODBMarketplaceRegistration', 
         'Get-ODBAutonomousVirtualMachineList', 
@@ -120,6 +121,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-ODBCloudAutonomousVmCluster', 
         'Remove-ODBCloudExadataInfrastructure', 
         'Remove-ODBCloudVmCluster', 
+        'Remove-ODBIamRoleFromResource', 
         'Remove-ODBOdbNetwork', 
         'Remove-ODBOdbPeeringConnection', 
         'Remove-ODBResourceTag', 

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.QC
     public partial class GetQCMessageTemplateListCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter KnowledgeBaseId

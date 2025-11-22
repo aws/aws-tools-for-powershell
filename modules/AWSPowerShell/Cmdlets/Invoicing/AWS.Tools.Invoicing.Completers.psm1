@@ -80,10 +80,69 @@ $INV_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Invoicing.BuyerDomain
+        {
+            ($_ -eq "New-INVProcurementPortalPreference/BuyerDomain") -Or
+            ($_ -eq "New-INVProcurementPortalPreference/TestEnvPreference_BuyerDomain") -Or
+            ($_ -eq "Write-INVProcurementPortalPreference/TestEnvPreference_BuyerDomain")
+        }
+        {
+            $v = "NetworkID"
+            break
+        }
+
+        # Amazon.Invoicing.ConnectionTestingMethod
+        {
+            ($_ -eq "New-INVProcurementPortalPreference/EinvoiceDeliveryPreference_ConnectionTestingMethod") -Or
+            ($_ -eq "Write-INVProcurementPortalPreference/EinvoiceDeliveryPreference_ConnectionTestingMethod")
+        }
+        {
+            $v = "PROD_ENV_DOLLAR_TEST","TEST_ENV_REPLAY_TEST"
+            break
+        }
+
         # Amazon.Invoicing.ListInvoiceSummariesResourceType
         "Get-INVInvoiceSummaryList/Selector_ResourceType"
         {
             $v = "ACCOUNT_ID","INVOICE_ID"
+            break
+        }
+
+        # Amazon.Invoicing.ProcurementPortalName
+        "New-INVProcurementPortalPreference/ProcurementPortalName"
+        {
+            $v = "COUPA","SAP_BUSINESS_NETWORK"
+            break
+        }
+
+        # Amazon.Invoicing.ProcurementPortalPreferenceStatus
+        {
+            ($_ -eq "Update-INVProcurementPortalPreferenceStatus/EinvoiceDeliveryPreferenceStatus") -Or
+            ($_ -eq "Update-INVProcurementPortalPreferenceStatus/PurchaseOrderRetrievalPreferenceStatus")
+        }
+        {
+            $v = "ACTIVE","PENDING_VERIFICATION","SUSPENDED","TEST_FAILED","TEST_INITIALIZATION_FAILED","TEST_INITIALIZED"
+            break
+        }
+
+        # Amazon.Invoicing.Protocol
+        {
+            ($_ -eq "New-INVProcurementPortalPreference/EinvoiceDeliveryPreference_Protocol") -Or
+            ($_ -eq "Write-INVProcurementPortalPreference/EinvoiceDeliveryPreference_Protocol")
+        }
+        {
+            $v = "CXML"
+            break
+        }
+
+        # Amazon.Invoicing.SupplierDomain
+        {
+            ($_ -eq "New-INVProcurementPortalPreference/SupplierDomain") -Or
+            ($_ -eq "New-INVProcurementPortalPreference/TestEnvPreference_SupplierDomain") -Or
+            ($_ -eq "Write-INVProcurementPortalPreference/TestEnvPreference_SupplierDomain")
+        }
+        {
+            $v = "NetworkID"
             break
         }
 
@@ -96,7 +155,16 @@ $INV_Completers = {
 }
 
 $INV_map = @{
+    "BuyerDomain"=@("New-INVProcurementPortalPreference")
+    "EinvoiceDeliveryPreference_ConnectionTestingMethod"=@("New-INVProcurementPortalPreference","Write-INVProcurementPortalPreference")
+    "EinvoiceDeliveryPreference_Protocol"=@("New-INVProcurementPortalPreference","Write-INVProcurementPortalPreference")
+    "EinvoiceDeliveryPreferenceStatus"=@("Update-INVProcurementPortalPreferenceStatus")
+    "ProcurementPortalName"=@("New-INVProcurementPortalPreference")
+    "PurchaseOrderRetrievalPreferenceStatus"=@("Update-INVProcurementPortalPreferenceStatus")
     "Selector_ResourceType"=@("Get-INVInvoiceSummaryList")
+    "SupplierDomain"=@("New-INVProcurementPortalPreference")
+    "TestEnvPreference_BuyerDomain"=@("New-INVProcurementPortalPreference","Write-INVProcurementPortalPreference")
+    "TestEnvPreference_SupplierDomain"=@("New-INVProcurementPortalPreference","Write-INVProcurementPortalPreference")
 }
 
 _awsArgumentCompleterRegistration $INV_Completers $INV_map
@@ -151,15 +219,21 @@ $INV_SelectCompleters = {
 $INV_SelectMap = @{
     "Select"=@("Get-INVBatchInvoiceProfile",
                "New-INVInvoiceUnit",
+               "New-INVProcurementPortalPreference",
                "Remove-INVInvoiceUnit",
+               "Remove-INVProcurementPortalPreference",
                "Get-INVInvoicePDF",
                "Get-INVInvoiceUnit",
+               "Get-INVProcurementPortalPreference",
                "Get-INVInvoiceSummaryList",
                "Get-INVInvoiceUnitList",
+               "Get-INVProcurementPortalPreferenceList",
                "Get-INVResourceTag",
+               "Write-INVProcurementPortalPreference",
                "Add-INVResourceTag",
                "Remove-INVResourceTag",
-               "Update-INVInvoiceUnit")
+               "Update-INVInvoiceUnit",
+               "Update-INVProcurementPortalPreferenceStatus")
 }
 
 _awsArgumentCompleterRegistration $INV_SelectCompleters $INV_SelectMap

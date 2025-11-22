@@ -525,6 +525,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyLakehouseConfiguration" OutputProperty="*" Verb="Edit" Noun="LakehouseConfiguration" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyRedshiftIdcApplication" OutputProperty="RedshiftIdcApplication" Verb="Edit" Noun="RedshiftIdcApplication" ShouldProcessTarget="RedshiftIdcApplicationArn" PipelineParameter="RedshiftIdcApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

@@ -118,6 +118,16 @@ $KV_Completers = {
             break
         }
 
+        # Amazon.KinesisVideo.DefaultStorageTier
+        {
+            ($_ -eq "New-KVStream/StreamStorageConfiguration_DefaultStorageTier") -Or
+            ($_ -eq "Update-KVStreamStorageConfiguration/StreamStorageConfiguration_DefaultStorageTier")
+        }
+        {
+            $v = "HOT","WARM"
+            break
+        }
+
         # Amazon.KinesisVideo.Format
         "Update-KVImageGenerationConfiguration/ImageGenerationConfiguration_Format"
         {
@@ -181,6 +191,7 @@ $KV_map = @{
     "NotificationConfiguration_Status"=@("Update-KVNotificationConfiguration")
     "Operation"=@("Update-KVDataRetention")
     "SingleMasterChannelEndpointConfiguration_Role"=@("Get-KVSignalingChannelEndpoint")
+    "StreamStorageConfiguration_DefaultStorageTier"=@("New-KVStream","Update-KVStreamStorageConfiguration")
 }
 
 _awsArgumentCompleterRegistration $KV_Completers $KV_map
@@ -245,6 +256,7 @@ $KV_SelectMap = @{
                "Get-KVNotificationConfiguration",
                "Get-KVSignalingChannel",
                "Get-KVStream",
+               "Get-KVStreamStorageConfigurationDetail",
                "Get-KVDataEndpoint",
                "Get-KVSignalingChannelEndpoint",
                "Get-KVEdgeAgentConfigurationList",
@@ -262,7 +274,8 @@ $KV_SelectMap = @{
                "Update-KVMediaStorageConfiguration",
                "Update-KVNotificationConfiguration",
                "Update-KVSignalingChannel",
-               "Update-KVStream")
+               "Update-KVStream",
+               "Update-KVStreamStorageConfiguration")
 }
 
 _awsArgumentCompleterRegistration $KV_SelectCompleters $KV_SelectMap

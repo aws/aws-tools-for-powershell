@@ -94,11 +94,17 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-INVInvoiceSummaryList', 
         'Get-INVInvoiceUnit', 
         'Get-INVInvoiceUnitList', 
+        'Get-INVProcurementPortalPreference', 
+        'Get-INVProcurementPortalPreferenceList', 
         'Get-INVResourceTag', 
         'New-INVInvoiceUnit', 
+        'New-INVProcurementPortalPreference', 
         'Remove-INVInvoiceUnit', 
+        'Remove-INVProcurementPortalPreference', 
         'Remove-INVResourceTag', 
-        'Update-INVInvoiceUnit')
+        'Update-INVInvoiceUnit', 
+        'Update-INVProcurementPortalPreferenceStatus', 
+        'Write-INVProcurementPortalPreference')
 
     # Variables to export from this module
     VariablesToExport = '*'

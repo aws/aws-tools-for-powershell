@@ -97,6 +97,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String OutputConfig_KmsKeyId { get; set; }
         #endregion
         
+        #region Parameter MaxInstanceCount
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of instances to use for the optimization job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MaxInstanceCount { get; set; }
+        #endregion
+        
         #region Parameter StoppingCondition_MaxPendingTimeInSecond
         /// <summary>
         /// <para>
@@ -147,6 +157,26 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("StoppingCondition_MaxWaitTimeInSeconds")]
         public System.Int32? StoppingCondition_MaxWaitTimeInSecond { get; set; }
+        #endregion
+        
+        #region Parameter ModelSource_SageMakerModel_ModelName
+        /// <summary>
+        /// <para>
+        /// <para>The name of a SageMaker model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ModelSource_SageMakerModel_ModelName { get; set; }
+        #endregion
+        
+        #region Parameter OutputConfig_SageMakerModel_ModelName
+        /// <summary>
+        /// <para>
+        /// <para>The name of a SageMaker model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutputConfig_SageMakerModel_ModelName { get; set; }
         #endregion
         
         #region Parameter OptimizationConfig
@@ -330,8 +360,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter DeploymentInstanceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MaxInstanceCount = this.MaxInstanceCount;
             context.ModelAccessConfig_AcceptEula = this.ModelAccessConfig_AcceptEula;
             context.S3_S3Uri = this.S3_S3Uri;
+            context.ModelSource_SageMakerModel_ModelName = this.ModelSource_SageMakerModel_ModelName;
             if (this.OptimizationConfig != null)
             {
                 context.OptimizationConfig = new List<Amazon.SageMaker.Model.OptimizationConfig>(this.OptimizationConfig);
@@ -365,6 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter OutputConfig_S3OutputLocation which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OutputConfig_SageMakerModel_ModelName = this.OutputConfig_SageMakerModel_ModelName;
             context.RoleArn = this.RoleArn;
             #if MODULAR
             if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
@@ -407,10 +440,39 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.DeploymentInstanceType = cmdletContext.DeploymentInstanceType;
             }
+            if (cmdletContext.MaxInstanceCount != null)
+            {
+                request.MaxInstanceCount = cmdletContext.MaxInstanceCount.Value;
+            }
             
              // populate ModelSource
             var requestModelSourceIsNull = true;
             request.ModelSource = new Amazon.SageMaker.Model.OptimizationJobModelSource();
+            Amazon.SageMaker.Model.OptimizationSageMakerModel requestModelSource_modelSource_SageMakerModel = null;
+            
+             // populate SageMakerModel
+            var requestModelSource_modelSource_SageMakerModelIsNull = true;
+            requestModelSource_modelSource_SageMakerModel = new Amazon.SageMaker.Model.OptimizationSageMakerModel();
+            System.String requestModelSource_modelSource_SageMakerModel_modelSource_SageMakerModel_ModelName = null;
+            if (cmdletContext.ModelSource_SageMakerModel_ModelName != null)
+            {
+                requestModelSource_modelSource_SageMakerModel_modelSource_SageMakerModel_ModelName = cmdletContext.ModelSource_SageMakerModel_ModelName;
+            }
+            if (requestModelSource_modelSource_SageMakerModel_modelSource_SageMakerModel_ModelName != null)
+            {
+                requestModelSource_modelSource_SageMakerModel.ModelName = requestModelSource_modelSource_SageMakerModel_modelSource_SageMakerModel_ModelName;
+                requestModelSource_modelSource_SageMakerModelIsNull = false;
+            }
+             // determine if requestModelSource_modelSource_SageMakerModel should be set to null
+            if (requestModelSource_modelSource_SageMakerModelIsNull)
+            {
+                requestModelSource_modelSource_SageMakerModel = null;
+            }
+            if (requestModelSource_modelSource_SageMakerModel != null)
+            {
+                request.ModelSource.SageMakerModel = requestModelSource_modelSource_SageMakerModel;
+                requestModelSourceIsNull = false;
+            }
             Amazon.SageMaker.Model.OptimizationJobModelSourceS3 requestModelSource_modelSource_S3 = null;
             
              // populate S3
@@ -500,6 +562,31 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestOutputConfig_outputConfig_S3OutputLocation != null)
             {
                 request.OutputConfig.S3OutputLocation = requestOutputConfig_outputConfig_S3OutputLocation;
+                requestOutputConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.OptimizationSageMakerModel requestOutputConfig_outputConfig_SageMakerModel = null;
+            
+             // populate SageMakerModel
+            var requestOutputConfig_outputConfig_SageMakerModelIsNull = true;
+            requestOutputConfig_outputConfig_SageMakerModel = new Amazon.SageMaker.Model.OptimizationSageMakerModel();
+            System.String requestOutputConfig_outputConfig_SageMakerModel_outputConfig_SageMakerModel_ModelName = null;
+            if (cmdletContext.OutputConfig_SageMakerModel_ModelName != null)
+            {
+                requestOutputConfig_outputConfig_SageMakerModel_outputConfig_SageMakerModel_ModelName = cmdletContext.OutputConfig_SageMakerModel_ModelName;
+            }
+            if (requestOutputConfig_outputConfig_SageMakerModel_outputConfig_SageMakerModel_ModelName != null)
+            {
+                requestOutputConfig_outputConfig_SageMakerModel.ModelName = requestOutputConfig_outputConfig_SageMakerModel_outputConfig_SageMakerModel_ModelName;
+                requestOutputConfig_outputConfig_SageMakerModelIsNull = false;
+            }
+             // determine if requestOutputConfig_outputConfig_SageMakerModel should be set to null
+            if (requestOutputConfig_outputConfig_SageMakerModelIsNull)
+            {
+                requestOutputConfig_outputConfig_SageMakerModel = null;
+            }
+            if (requestOutputConfig_outputConfig_SageMakerModel != null)
+            {
+                request.OutputConfig.SageMakerModel = requestOutputConfig_outputConfig_SageMakerModel;
                 requestOutputConfigIsNull = false;
             }
              // determine if request.OutputConfig should be set to null
@@ -645,13 +732,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.SageMaker.OptimizationJobDeploymentInstanceType DeploymentInstanceType { get; set; }
+            public System.Int32? MaxInstanceCount { get; set; }
             public System.Boolean? ModelAccessConfig_AcceptEula { get; set; }
             public System.String S3_S3Uri { get; set; }
+            public System.String ModelSource_SageMakerModel_ModelName { get; set; }
             public List<Amazon.SageMaker.Model.OptimizationConfig> OptimizationConfig { get; set; }
             public Dictionary<System.String, System.String> OptimizationEnvironment { get; set; }
             public System.String OptimizationJobName { get; set; }
             public System.String OutputConfig_KmsKeyId { get; set; }
             public System.String OutputConfig_S3OutputLocation { get; set; }
+            public System.String OutputConfig_SageMakerModel_ModelName { get; set; }
             public System.String RoleArn { get; set; }
             public System.Int32? StoppingCondition_MaxPendingTimeInSecond { get; set; }
             public System.Int32? StoppingCondition_MaxRuntimeInSecond { get; set; }

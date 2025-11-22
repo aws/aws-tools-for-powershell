@@ -367,6 +367,9 @@
     <Reference Include="AWSSDK.ComputeOptimizer">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ComputeOptimizer.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ComputeOptimizerAutomation">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ComputeOptimizerAutomation.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ConfigService">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ConfigService.dll</HintPath>
     </Reference>
@@ -1583,6 +1586,9 @@
     </Reference>
     <Reference Include="AWSSDK.ComputeOptimizer">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ComputeOptimizer.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ComputeOptimizerAutomation">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ComputeOptimizerAutomation.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ConfigService">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ConfigService.dll</HintPath>

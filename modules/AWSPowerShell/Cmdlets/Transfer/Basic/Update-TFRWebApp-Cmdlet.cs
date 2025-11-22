@@ -29,7 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
     /// Assigns new properties to a web app. You can modify the access point, identity provider
-    /// details, and the web app units.
+    /// details, endpoint configuration, and the web app units.
+    /// 
+    ///  
+    /// <para>
+    /// For more information about using VPC endpoints with Transfer Family, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/create-webapp-in-vpc.html">Create
+    /// a Transfer Family web app in a VPC</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "TFRWebApp", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -77,6 +83,18 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("IdentityProviderDetails_IdentityCenterConfig_Role")]
         public System.String IdentityCenterConfig_Role { get; set; }
+        #endregion
+        
+        #region Parameter Vpc_SubnetId
+        /// <summary>
+        /// <para>
+        /// <para>The list of subnet IDs within the VPC where the web app endpoint should be deployed
+        /// during the update operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EndpointDetails_Vpc_SubnetIds")]
+        public System.String[] Vpc_SubnetId { get; set; }
         #endregion
         
         #region Parameter WebAppId
@@ -159,6 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AccessEndpoint = this.AccessEndpoint;
+            if (this.Vpc_SubnetId != null)
+            {
+                context.Vpc_SubnetId = new List<System.String>(this.Vpc_SubnetId);
+            }
             context.IdentityCenterConfig_Role = this.IdentityCenterConfig_Role;
             context.WebAppId = this.WebAppId;
             #if MODULAR
@@ -187,6 +209,40 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             if (cmdletContext.AccessEndpoint != null)
             {
                 request.AccessEndpoint = cmdletContext.AccessEndpoint;
+            }
+            
+             // populate EndpointDetails
+            var requestEndpointDetailsIsNull = true;
+            request.EndpointDetails = new Amazon.Transfer.Model.UpdateWebAppEndpointDetails();
+            Amazon.Transfer.Model.UpdateWebAppVpcConfig requestEndpointDetails_endpointDetails_Vpc = null;
+            
+             // populate Vpc
+            var requestEndpointDetails_endpointDetails_VpcIsNull = true;
+            requestEndpointDetails_endpointDetails_Vpc = new Amazon.Transfer.Model.UpdateWebAppVpcConfig();
+            List<System.String> requestEndpointDetails_endpointDetails_Vpc_vpc_SubnetId = null;
+            if (cmdletContext.Vpc_SubnetId != null)
+            {
+                requestEndpointDetails_endpointDetails_Vpc_vpc_SubnetId = cmdletContext.Vpc_SubnetId;
+            }
+            if (requestEndpointDetails_endpointDetails_Vpc_vpc_SubnetId != null)
+            {
+                requestEndpointDetails_endpointDetails_Vpc.SubnetIds = requestEndpointDetails_endpointDetails_Vpc_vpc_SubnetId;
+                requestEndpointDetails_endpointDetails_VpcIsNull = false;
+            }
+             // determine if requestEndpointDetails_endpointDetails_Vpc should be set to null
+            if (requestEndpointDetails_endpointDetails_VpcIsNull)
+            {
+                requestEndpointDetails_endpointDetails_Vpc = null;
+            }
+            if (requestEndpointDetails_endpointDetails_Vpc != null)
+            {
+                request.EndpointDetails.Vpc = requestEndpointDetails_endpointDetails_Vpc;
+                requestEndpointDetailsIsNull = false;
+            }
+             // determine if request.EndpointDetails should be set to null
+            if (requestEndpointDetailsIsNull)
+            {
+                request.EndpointDetails = null;
             }
             
              // populate IdentityProviderDetails
@@ -307,6 +363,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AccessEndpoint { get; set; }
+            public List<System.String> Vpc_SubnetId { get; set; }
             public System.String IdentityCenterConfig_Role { get; set; }
             public System.String WebAppId { get; set; }
             public System.Int32? WebAppUnits_Provisioned { get; set; }

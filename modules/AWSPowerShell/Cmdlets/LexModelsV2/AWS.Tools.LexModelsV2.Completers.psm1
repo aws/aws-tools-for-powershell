@@ -435,6 +435,17 @@ $LMBV2_Completers = {
             break
         }
 
+        # Amazon.LexModelsV2.SpeechDetectionSensitivity
+        {
+            ($_ -eq "Start-LMBV2Import/BotLocaleImportSpecification_SpeechDetectionSensitivity") -Or
+            ($_ -eq "New-LMBV2BotLocale/SpeechDetectionSensitivity") -Or
+            ($_ -eq "Update-LMBV2BotLocale/SpeechDetectionSensitivity")
+        }
+        {
+            $v = "Default","HighNoiseTolerance","MaximumNoiseTolerance"
+            break
+        }
+
         # Amazon.LexModelsV2.TestExecutionApiMode
         "Start-LMBV2TestExecution/ApiMode"
         {
@@ -521,6 +532,7 @@ $LMBV2_map = @{
     "AdvancedRecognitionSetting_AudioRecognitionStrategy"=@("New-LMBV2SlotType","Update-LMBV2SlotType")
     "ApiMode"=@("Start-LMBV2TestExecution")
     "BedrockModelConfiguration_TraceStatus"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "BotLocaleImportSpecification_SpeechDetectionSensitivity"=@("Start-LMBV2Import")
     "BotType"=@("New-LMBV2Bot","Update-LMBV2Bot")
     "ConversationLevelTestResultsFilterBy_EndToEndResult"=@("Get-LMBV2TestExecutionResultItemList")
     "Effect"=@("New-LMBV2ResourcePolicyStatement")
@@ -569,6 +581,7 @@ $LMBV2_map = @{
     "SortBy_Attribute"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotResourceGenerationList","Get-LMBV2BotVersionList","Get-LMBV2BotVersionReplicaList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList","Get-LMBV2TestExecutionList","Get-LMBV2TestSetList")
     "SortBy_Name"=@("Get-LMBV2SessionAnalyticsDataList","Get-LMBV2UtteranceAnalyticsDataList")
     "SortBy_Order"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotResourceGenerationList","Get-LMBV2BotVersionList","Get-LMBV2BotVersionReplicaList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SessionAnalyticsDataList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList","Get-LMBV2TestExecutionList","Get-LMBV2TestSetList","Get-LMBV2UtteranceAnalyticsDataList")
+    "SpeechDetectionSensitivity"=@("New-LMBV2BotLocale","Update-LMBV2BotLocale")
     "TestExecutionModality"=@("Start-LMBV2TestExecution")
     "TestSetImportResourceSpecification_Modality"=@("Start-LMBV2Import")
     "ValueElicitationSetting_SlotCaptureSetting_CaptureConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Slot","Update-LMBV2Slot")

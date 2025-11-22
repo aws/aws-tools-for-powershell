@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter AuthorizerType
         /// <summary>
         /// <para>
-        /// <para>The type of authorizer to use for the gateway.</para><ul><li><para><c>CUSTOM_JWT</c> - Authorize with a bearer token.</para></li><li><para><c>AWS_IAM</c> - Authorize with your Amazon Web Services IAM credentials.</para></li></ul>
+        /// <para>The type of authorizer to use for the gateway.</para><ul><li><para><c>CUSTOM_JWT</c> - Authorize with a bearer token.</para></li><li><para><c>AWS_IAM</c> - Authorize with your Amazon Web Services IAM credentials.</para></li><li><para><c>NONE</c> - No authorization</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -137,6 +137,18 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ProtocolConfiguration_Mcp_Instructions")]
         public System.String Mcp_Instruction { get; set; }
+        #endregion
+        
+        #region Parameter InterceptorConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>A list of configuration settings for a gateway interceptor. Gateway interceptors allow
+        /// custom code to be invoked during gateway invocations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InterceptorConfigurations")]
+        public Amazon.BedrockAgentCoreControl.Model.GatewayInterceptorConfiguration[] InterceptorConfiguration { get; set; }
         #endregion
         
         #region Parameter KmsKeyArn
@@ -313,6 +325,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             context.ExceptionLevel = this.ExceptionLevel;
+            if (this.InterceptorConfiguration != null)
+            {
+                context.InterceptorConfiguration = new List<Amazon.BedrockAgentCoreControl.Model.GatewayInterceptorConfiguration>(this.InterceptorConfiguration);
+            }
             context.KmsKeyArn = this.KmsKeyArn;
             context.Name = this.Name;
             #if MODULAR
@@ -434,6 +450,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (cmdletContext.ExceptionLevel != null)
             {
                 request.ExceptionLevel = cmdletContext.ExceptionLevel;
+            }
+            if (cmdletContext.InterceptorConfiguration != null)
+            {
+                request.InterceptorConfigurations = cmdletContext.InterceptorConfiguration;
             }
             if (cmdletContext.KmsKeyArn != null)
             {
@@ -577,6 +597,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public Amazon.BedrockAgentCoreControl.ExceptionLevel ExceptionLevel { get; set; }
+            public List<Amazon.BedrockAgentCoreControl.Model.GatewayInterceptorConfiguration> InterceptorConfiguration { get; set; }
             public System.String KmsKeyArn { get; set; }
             public System.String Name { get; set; }
             public System.String Mcp_Instruction { get; set; }

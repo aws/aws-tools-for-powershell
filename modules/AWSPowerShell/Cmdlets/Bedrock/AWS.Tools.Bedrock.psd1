@@ -105,6 +105,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-BDRCustomModelDeployment', 
         'Get-BDRCustomModelDeploymentList', 
         'Get-BDRCustomModelList', 
+        'Get-BDREnforcedGuardrailsConfigurationList', 
         'Get-BDREvaluationJob', 
         'Get-BDREvaluationJobList', 
         'Get-BDRFoundationModel', 
@@ -157,6 +158,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-BDRAutomatedReasoningPolicyTestCase', 
         'Remove-BDRCustomModel', 
         'Remove-BDRCustomModelDeployment', 
+        'Remove-BDREnforcedGuardrailConfiguration', 
         'Remove-BDRFoundationModelAgreement', 
         'Remove-BDRGuardrail', 
         'Remove-BDRImportedModel', 
@@ -180,6 +182,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-BDRGuardrail', 
         'Update-BDRMarketplaceModelEndpoint', 
         'Update-BDRProvisionedModelThroughput', 
+        'Write-BDREnforcedGuardrailConfiguration', 
         'Write-BDRModelInvocationLoggingConfiguration', 
         'Write-BDRUseCaseForModelAccess')
 

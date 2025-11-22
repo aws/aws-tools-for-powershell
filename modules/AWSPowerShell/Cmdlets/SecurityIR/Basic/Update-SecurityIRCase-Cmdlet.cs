@@ -71,6 +71,16 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         public System.String CaseId { get; set; }
         #endregion
         
+        #region Parameter CaseMetadata
+        /// <summary>
+        /// <para>
+        /// <para>Update the case request with case metadata</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.SecurityIR.Model.CaseMetadataEntry[] CaseMetadata { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -291,6 +301,10 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
                 WriteWarning("You are passing $null as a value for parameter CaseId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.CaseMetadata != null)
+            {
+                context.CaseMetadata = new List<Amazon.SecurityIR.Model.CaseMetadataEntry>(this.CaseMetadata);
+            }
             context.Description = this.Description;
             context.EngagementType = this.EngagementType;
             if (this.ImpactedAccountsToAdd != null)
@@ -358,6 +372,10 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
             if (cmdletContext.CaseId != null)
             {
                 request.CaseId = cmdletContext.CaseId;
+            }
+            if (cmdletContext.CaseMetadata != null)
+            {
+                request.CaseMetadata = cmdletContext.CaseMetadata;
             }
             if (cmdletContext.Description != null)
             {
@@ -478,6 +496,7 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         {
             public System.DateTime? ActualIncidentStartDate { get; set; }
             public System.String CaseId { get; set; }
+            public List<Amazon.SecurityIR.Model.CaseMetadataEntry> CaseMetadata { get; set; }
             public System.String Description { get; set; }
             public Amazon.SecurityIR.EngagementType EngagementType { get; set; }
             public List<System.String> ImpactedAccountsToAdd { get; set; }

@@ -55,14 +55,15 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// On-demand key rotation is supported only on symmetric encryption KMS keys. You cannot
     /// perform on-demand rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric
     /// KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC
-    /// KMS keys</a>, multi-Region KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported
-    /// key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom
+    /// KMS keys</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom
     /// key store</a>. When you initiate on-demand key rotation on a symmetric encryption
     /// KMS key with imported key material, you must have already imported <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-import-key-material.html">new
     /// key material</a> and that key material's state should be <c>PENDING_ROTATION</c>.
     /// Use the <c>ListKeyRotations</c> operation to check the state of all key materials
     /// associated with a KMS key. To perform on-demand rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#multi-region-rotate">multi-Region
-    /// keys</a>, invoke the on-demand rotation on the primary key.
+    /// keys</a>, import new key material in the primary Region key, import the same key material
+    /// in each replica Region key, and invoke the on-demand rotation on the primary Region
+    /// key.
     /// </para><para>
     /// You cannot initiate on-demand rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon
     /// Web Services managed KMS keys</a>. KMS always rotates the key material of Amazon Web

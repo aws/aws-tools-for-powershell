@@ -39,10 +39,26 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// material, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing
     /// key material</a>.
     /// </para><para>
-    /// For asymmetric, HMAC and multi-Region keys, you cannot change the key material after
-    /// the initial import. You can import multiple key materials into single-Region, symmetric
-    /// encryption keys and rotate the key material on demand using <c>RotateKeyOnDemand</c>.
+    /// For asymmetric and HMAC keys, you cannot change the key material after the initial
+    /// import. You can import multiple key materials into symmetric encryption keys and rotate
+    /// the key material on demand using <c>RotateKeyOnDemand</c>.
     /// </para><para>
+    /// You can import new key materials into multi-Region symmetric encryption keys. To do
+    /// so, you must import the new key material into the primary Region key. Then you can
+    /// import the same key materials into the replica Region keys. You cannot directly import
+    /// new key material into the replica Region keys.
+    /// </para><para>
+    /// To import new key material for a multi-Region symmetric key, you’ll need to complete
+    /// the following:
+    /// </para><ol><li><para>
+    /// Call <c>ImportKeyMaterial</c> on the primary Region key with the <c>ImportType</c>set
+    /// to <c>NEW_KEY_MATERIAL</c>.
+    /// </para></li><li><para>
+    /// Call <c>ImportKeyMaterial</c> on the replica Region key with the <c>ImportType</c>
+    /// set to <c>EXISTING_KEY_MATERIAL</c> using the same key material imported to the primary
+    /// Region key. You must do this for every replica Region key before you can perform the
+    /// <a>RotateKeyOnDemand</a> operation on the primary Region key.
+    /// </para></li></ol><para>
     /// After you import key material, you can <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-import-key-material.html#reimport-key-material">reimport
     /// the same key material</a> into that KMS key or, if the key supports on-demand rotation,
     /// import new key material. You can use the <c>ImportType</c> parameter to indicate whether
@@ -76,12 +92,12 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// Use the public key in the <a>GetParametersForImport</a> response to encrypt your key
     /// material.
     /// </para></li></ul><para>
-    ///  Then, in an <c>ImportKeyMaterial</c> request, you submit your encrypted key material
+    /// Then, in an <c>ImportKeyMaterial</c> request, you submit your encrypted key material
     /// and import token. When calling this operation, you must specify the following values:
     /// </para><ul><li><para>
     /// The key ID or key ARN of the KMS key to associate with the imported key material.
-    /// Its <c>Origin</c> must be <c>EXTERNAL</c> and its <c>KeyState</c> must be <c>PendingImport</c>.
-    /// You cannot perform this operation on a KMS key in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom
+    /// Its <c>Origin</c> must be <c>EXTERNAL</c> and its <c>KeyState</c> must be <c>PendingImport</c>
+    /// or <c>Enabled</c>. You cannot perform this operation on a KMS key in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom
     /// key store</a>, or on a KMS key in a different Amazon Web Services account. To get
     /// the <c>Origin</c> and <c>KeyState</c> of a KMS key, call <a>DescribeKey</a>.
     /// </para></li><li><para>
@@ -100,12 +116,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// the key material at any time, including before the key material expires. Each time
     /// you reimport, you can eliminate or reset the expiration time.
     /// </para></li></ul><para>
-    /// When this operation is successful, the key state of the KMS key changes from <c>PendingImport</c>
-    /// to <c>Enabled</c>, and you can use the KMS key in cryptographic operations. For single-Region,
-    /// symmetric encryption keys, you will need to import all of the key materials associated
-    /// with the KMS key to change its state to <c>Enabled</c>. Use the <c>ListKeyRotations</c>
-    /// operation to list the ID and import state of each key material associated with a KMS
-    /// key.
+    /// When this operation is successful, the state of the KMS key changes to <c>Enabled</c>,
+    /// and you can use the KMS key in cryptographic operations. For symmetric encryption
+    /// keys, you will need to import all of the key materials associated with the KMS key
+    /// to change its state to <c>Enabled</c>. Use the <c>ListKeyRotations</c> operation to
+    /// list the ID and import state of each key material associated with a KMS key.
     /// </para><para>
     /// If this operation fails, use the exception to help determine the problem. If the error
     /// is related to the key material, the import token, or wrapping key, use <a>GetParametersForImport</a>
@@ -202,7 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// keys. If no key material has ever been imported into the KMS key, and this parameter
         /// is omitted, the parameter defaults to <c>NEW_KEY_MATERIAL</c>. After the first key
         /// material is imported, if this parameter is omitted then the parameter defaults to
-        /// <c>EXISTING_KEY_MATERIAL</c>.</para>
+        /// <c>EXISTING_KEY_MATERIAL</c>.</para><para>For multi-Region keys, you must first import new key material into the primary Region
+        /// key. You should use the <c>NEW_KEY_MATERIAL</c> import type when importing key material
+        /// into the primary Region key. Then, you can import the same key material into the replica
+        /// Region key. The import type for the replica Region key should be <c>EXISTING_KEY_MATERIAL</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

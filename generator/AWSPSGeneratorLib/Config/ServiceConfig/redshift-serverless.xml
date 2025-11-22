@@ -246,6 +246,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLakehouseConfiguration" OutputProperty="*" Verb="Update" Noun="LakehouseConfiguration" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateNamespace" OutputProperty="Namespace" Verb="Update" Noun="Namespace" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

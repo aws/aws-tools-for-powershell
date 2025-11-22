@@ -82,8 +82,12 @@ $ODB_Completers = {
     {
         # Amazon.Odb.Access
         {
+            ($_ -eq "New-ODBOdbNetwork/KmsAccess") -Or
+            ($_ -eq "Update-ODBOdbNetwork/KmsAccess") -Or
             ($_ -eq "New-ODBOdbNetwork/S3Access") -Or
             ($_ -eq "Update-ODBOdbNetwork/S3Access") -Or
+            ($_ -eq "New-ODBOdbNetwork/StsAccess") -Or
+            ($_ -eq "Update-ODBOdbNetwork/StsAccess") -Or
             ($_ -eq "New-ODBOdbNetwork/ZeroEtlAccess") -Or
             ($_ -eq "Update-ODBOdbNetwork/ZeroEtlAccess")
         }
@@ -124,6 +128,16 @@ $ODB_Completers = {
             break
         }
 
+        # Amazon.Odb.SupportedAwsIntegration
+        {
+            ($_ -eq "Add-ODBIamRoleToResource/AwsIntegration") -Or
+            ($_ -eq "Remove-ODBIamRoleFromResource/AwsIntegration")
+        }
+        {
+            $v = "KmsTde"
+            break
+        }
+
 
     }
 
@@ -133,10 +147,13 @@ $ODB_Completers = {
 }
 
 $ODB_map = @{
+    "AwsIntegration"=@("Add-ODBIamRoleToResource","Remove-ODBIamRoleFromResource")
+    "KmsAccess"=@("New-ODBOdbNetwork","Update-ODBOdbNetwork")
     "LicenseModel"=@("New-ODBCloudAutonomousVmCluster","New-ODBCloudVmCluster")
     "MaintenanceWindow_PatchingMode"=@("New-ODBCloudAutonomousVmCluster","New-ODBCloudExadataInfrastructure","Update-ODBCloudExadataInfrastructure")
     "MaintenanceWindow_Preference"=@("New-ODBCloudAutonomousVmCluster","New-ODBCloudExadataInfrastructure","Update-ODBCloudExadataInfrastructure")
     "S3Access"=@("New-ODBOdbNetwork","Update-ODBOdbNetwork")
+    "StsAccess"=@("New-ODBOdbNetwork","Update-ODBOdbNetwork")
     "ZeroEtlAccess"=@("New-ODBOdbNetwork","Update-ODBOdbNetwork")
 }
 
@@ -191,6 +208,7 @@ $ODB_SelectCompleters = {
 
 $ODB_SelectMap = @{
     "Select"=@("Approve-ODBMarketplaceRegistration",
+               "Add-ODBIamRoleToResource",
                "New-ODBCloudAutonomousVmCluster",
                "New-ODBCloudExadataInfrastructure",
                "New-ODBCloudVmCluster",
@@ -201,6 +219,7 @@ $ODB_SelectMap = @{
                "Remove-ODBCloudVmCluster",
                "Remove-ODBOdbNetwork",
                "Remove-ODBOdbPeeringConnection",
+               "Remove-ODBIamRoleFromResource",
                "Get-ODBCloudAutonomousVmCluster",
                "Get-ODBCloudExadataInfrastructure",
                "Get-ODBCloudExadataInfrastructureUnallocatedResource",

@@ -376,6 +376,20 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.String StorageLocation_S3Path { get; set; }
         #endregion
         
+        #region Parameter BotLocaleImportSpecification_SpeechDetectionSensitivity
+        /// <summary>
+        /// <para>
+        /// <para>The sensitivity level for voice activity detection (VAD) in the bot locale. This setting
+        /// helps optimize speech recognition accuracy by adjusting how the system responds to
+        /// background noise during voice interactions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_BotLocaleImportSpecification_SpeechDetectionSensitivity")]
+        [AWSConstantClassSource("Amazon.LexModelsV2.SpeechDetectionSensitivity")]
+        public Amazon.LexModelsV2.SpeechDetectionSensitivity BotLocaleImportSpecification_SpeechDetectionSensitivity { get; set; }
+        #endregion
+        
         #region Parameter BotImportSpecification_TestBotAliasTag
         /// <summary>
         /// <para>
@@ -526,6 +540,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             context.BotLocaleImportSpecification_BotVersion = this.BotLocaleImportSpecification_BotVersion;
             context.BotLocaleImportSpecification_LocaleId = this.BotLocaleImportSpecification_LocaleId;
             context.BotLocaleImportSpecification_NluIntentConfidenceThreshold = this.BotLocaleImportSpecification_NluIntentConfidenceThreshold;
+            context.BotLocaleImportSpecification_SpeechDetectionSensitivity = this.BotLocaleImportSpecification_SpeechDetectionSensitivity;
             context.VoiceSettings_Engine = this.VoiceSettings_Engine;
             context.VoiceSettings_VoiceId = this.VoiceSettings_VoiceId;
             context.CustomVocabularyImportSpecification_BotId = this.CustomVocabularyImportSpecification_BotId;
@@ -668,6 +683,16 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_NluIntentConfidenceThreshold != null)
             {
                 requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification.NluIntentConfidenceThreshold = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_NluIntentConfidenceThreshold.Value;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecificationIsNull = false;
+            }
+            Amazon.LexModelsV2.SpeechDetectionSensitivity requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_SpeechDetectionSensitivity = null;
+            if (cmdletContext.BotLocaleImportSpecification_SpeechDetectionSensitivity != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_SpeechDetectionSensitivity = cmdletContext.BotLocaleImportSpecification_SpeechDetectionSensitivity;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_SpeechDetectionSensitivity != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification.SpeechDetectionSensitivity = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_SpeechDetectionSensitivity;
                 requestResourceSpecification_resourceSpecification_BotLocaleImportSpecificationIsNull = false;
             }
             Amazon.LexModelsV2.Model.VoiceSettings requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings = null;
@@ -1055,6 +1080,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.String BotLocaleImportSpecification_BotVersion { get; set; }
             public System.String BotLocaleImportSpecification_LocaleId { get; set; }
             public System.Double? BotLocaleImportSpecification_NluIntentConfidenceThreshold { get; set; }
+            public Amazon.LexModelsV2.SpeechDetectionSensitivity BotLocaleImportSpecification_SpeechDetectionSensitivity { get; set; }
             public Amazon.LexModelsV2.VoiceEngine VoiceSettings_Engine { get; set; }
             public System.String VoiceSettings_VoiceId { get; set; }
             public System.String CustomVocabularyImportSpecification_BotId { get; set; }

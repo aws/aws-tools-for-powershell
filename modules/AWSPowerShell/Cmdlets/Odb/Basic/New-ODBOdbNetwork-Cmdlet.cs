@@ -90,6 +90,16 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         public System.String ClientSubnetCidr { get; set; }
         #endregion
         
+        #region Parameter CrossRegionS3RestoreSourcesToEnable
+        /// <summary>
+        /// <para>
+        /// <para>The cross-Region Amazon S3 restore sources to enable for the ODB network.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] CrossRegionS3RestoreSourcesToEnable { get; set; }
+        #endregion
+        
         #region Parameter CustomDomainName
         /// <summary>
         /// <para>
@@ -127,6 +137,28 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         public System.String DisplayName { get; set; }
         #endregion
         
+        #region Parameter KmsAccess
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services Key Management Service (KMS) access configuration for the
+        /// ODB network.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Odb.Access")]
+        public Amazon.Odb.Access KmsAccess { get; set; }
+        #endregion
+        
+        #region Parameter KmsPolicyDocument
+        /// <summary>
+        /// <para>
+        /// <para>The KMS policy document that defines permissions for key usage within the ODB network.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsPolicyDocument { get; set; }
+        #endregion
+        
         #region Parameter S3Access
         /// <summary>
         /// <para>
@@ -146,6 +178,29 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String S3PolicyDocument { get; set; }
+        #endregion
+        
+        #region Parameter StsAccess
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services Security Token Service (STS) access configuration for the
+        /// ODB network.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Odb.Access")]
+        public Amazon.Odb.Access StsAccess { get; set; }
+        #endregion
+        
+        #region Parameter StsPolicyDocument
+        /// <summary>
+        /// <para>
+        /// <para>The STS policy document that defines permissions for token service usage within the
+        /// ODB network.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StsPolicyDocument { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -256,6 +311,10 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             }
             #endif
             context.ClientToken = this.ClientToken;
+            if (this.CrossRegionS3RestoreSourcesToEnable != null)
+            {
+                context.CrossRegionS3RestoreSourcesToEnable = new List<System.String>(this.CrossRegionS3RestoreSourcesToEnable);
+            }
             context.CustomDomainName = this.CustomDomainName;
             context.DefaultDnsPrefix = this.DefaultDnsPrefix;
             context.DisplayName = this.DisplayName;
@@ -265,8 +324,12 @@ namespace Amazon.PowerShell.Cmdlets.ODB
                 WriteWarning("You are passing $null as a value for parameter DisplayName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.KmsAccess = this.KmsAccess;
+            context.KmsPolicyDocument = this.KmsPolicyDocument;
             context.S3Access = this.S3Access;
             context.S3PolicyDocument = this.S3PolicyDocument;
+            context.StsAccess = this.StsAccess;
+            context.StsPolicyDocument = this.StsPolicyDocument;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -312,6 +375,10 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
+            if (cmdletContext.CrossRegionS3RestoreSourcesToEnable != null)
+            {
+                request.CrossRegionS3RestoreSourcesToEnable = cmdletContext.CrossRegionS3RestoreSourcesToEnable;
+            }
             if (cmdletContext.CustomDomainName != null)
             {
                 request.CustomDomainName = cmdletContext.CustomDomainName;
@@ -324,6 +391,14 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             {
                 request.DisplayName = cmdletContext.DisplayName;
             }
+            if (cmdletContext.KmsAccess != null)
+            {
+                request.KmsAccess = cmdletContext.KmsAccess;
+            }
+            if (cmdletContext.KmsPolicyDocument != null)
+            {
+                request.KmsPolicyDocument = cmdletContext.KmsPolicyDocument;
+            }
             if (cmdletContext.S3Access != null)
             {
                 request.S3Access = cmdletContext.S3Access;
@@ -331,6 +406,14 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             if (cmdletContext.S3PolicyDocument != null)
             {
                 request.S3PolicyDocument = cmdletContext.S3PolicyDocument;
+            }
+            if (cmdletContext.StsAccess != null)
+            {
+                request.StsAccess = cmdletContext.StsAccess;
+            }
+            if (cmdletContext.StsPolicyDocument != null)
+            {
+                request.StsPolicyDocument = cmdletContext.StsPolicyDocument;
             }
             if (cmdletContext.Tag != null)
             {
@@ -406,11 +489,16 @@ namespace Amazon.PowerShell.Cmdlets.ODB
             public System.String BackupSubnetCidr { get; set; }
             public System.String ClientSubnetCidr { get; set; }
             public System.String ClientToken { get; set; }
+            public List<System.String> CrossRegionS3RestoreSourcesToEnable { get; set; }
             public System.String CustomDomainName { get; set; }
             public System.String DefaultDnsPrefix { get; set; }
             public System.String DisplayName { get; set; }
+            public Amazon.Odb.Access KmsAccess { get; set; }
+            public System.String KmsPolicyDocument { get; set; }
             public Amazon.Odb.Access S3Access { get; set; }
             public System.String S3PolicyDocument { get; set; }
+            public Amazon.Odb.Access StsAccess { get; set; }
+            public System.String StsPolicyDocument { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.Odb.Access ZeroEtlAccess { get; set; }
             public System.Func<Amazon.Odb.Model.CreateOdbNetworkResponse, NewODBOdbNetworkCmdlet, object> Select { get; set; } =

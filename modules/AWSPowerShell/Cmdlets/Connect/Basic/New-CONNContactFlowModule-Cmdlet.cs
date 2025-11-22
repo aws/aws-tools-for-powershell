@@ -69,6 +69,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter ExternalInvocationConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Enable external invocation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ExternalInvocationConfiguration_Enabled { get; set; }
+        #endregion
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>
@@ -102,6 +112,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Setting
+        /// <summary>
+        /// <para>
+        /// <para>The configuration settings for the flow module.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings")]
+        public System.String Setting { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -200,6 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             #endif
             context.Description = this.Description;
+            context.ExternalInvocationConfiguration_Enabled = this.ExternalInvocationConfiguration_Enabled;
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
@@ -214,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Setting = this.Setting;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -250,6 +273,25 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 request.Description = cmdletContext.Description;
             }
+            
+             // populate ExternalInvocationConfiguration
+            var requestExternalInvocationConfigurationIsNull = true;
+            request.ExternalInvocationConfiguration = new Amazon.Connect.Model.ExternalInvocationConfiguration();
+            System.Boolean? requestExternalInvocationConfiguration_externalInvocationConfiguration_Enabled = null;
+            if (cmdletContext.ExternalInvocationConfiguration_Enabled != null)
+            {
+                requestExternalInvocationConfiguration_externalInvocationConfiguration_Enabled = cmdletContext.ExternalInvocationConfiguration_Enabled.Value;
+            }
+            if (requestExternalInvocationConfiguration_externalInvocationConfiguration_Enabled != null)
+            {
+                request.ExternalInvocationConfiguration.Enabled = requestExternalInvocationConfiguration_externalInvocationConfiguration_Enabled.Value;
+                requestExternalInvocationConfigurationIsNull = false;
+            }
+             // determine if request.ExternalInvocationConfiguration should be set to null
+            if (requestExternalInvocationConfigurationIsNull)
+            {
+                request.ExternalInvocationConfiguration = null;
+            }
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
@@ -257,6 +299,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Setting != null)
+            {
+                request.Settings = cmdletContext.Setting;
             }
             if (cmdletContext.Tag != null)
             {
@@ -326,8 +372,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String ClientToken { get; set; }
             public System.String Content { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? ExternalInvocationConfiguration_Enabled { get; set; }
             public System.String InstanceId { get; set; }
             public System.String Name { get; set; }
+            public System.String Setting { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Connect.Model.CreateContactFlowModuleResponse, NewCONNContactFlowModuleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

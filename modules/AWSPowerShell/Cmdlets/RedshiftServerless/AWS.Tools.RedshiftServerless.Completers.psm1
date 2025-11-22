@@ -80,6 +80,20 @@ $RSS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.RedshiftServerless.LakehouseIdcRegistration
+        "Update-RSSLakehouseConfiguration/LakehouseIdcRegistration"
+        {
+            $v = "Associate","Disassociate"
+            break
+        }
+
+        # Amazon.RedshiftServerless.LakehouseRegistration
+        "Update-RSSLakehouseConfiguration/LakehouseRegistration"
+        {
+            $v = "Deregister","Register"
+            break
+        }
+
         # Amazon.RedshiftServerless.PerformanceTargetStatus
         {
             ($_ -eq "New-RSSWorkgroup/PricePerformanceTarget_Status") -Or
@@ -127,6 +141,8 @@ $RSS_Completers = {
 
 $RSS_map = @{
     "BreachAction"=@("New-RSSUsageLimit","Update-RSSUsageLimit")
+    "LakehouseIdcRegistration"=@("Update-RSSLakehouseConfiguration")
+    "LakehouseRegistration"=@("Update-RSSLakehouseConfiguration")
     "Period"=@("New-RSSUsageLimit")
     "PricePerformanceTarget_Status"=@("New-RSSWorkgroup","Update-RSSWorkgroup")
     "UsageType"=@("Get-RSSUsageLimitList","New-RSSUsageLimit")
@@ -239,6 +255,7 @@ $RSS_SelectMap = @{
                "Remove-RSSResourceTag",
                "Update-RSSCustomDomainAssociation",
                "Update-RSSEndpointAccess",
+               "Update-RSSLakehouseConfiguration",
                "Update-RSSNamespace",
                "Update-RSSScheduledAction",
                "Update-RSSSnapshot",
