@@ -335,6 +335,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutLogGroupDeletionProtection" Verb="Write" Noun="LogGroupDeletionProtection" ShouldProcessTarget="LogGroupIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutMetricFilter" Verb="Write" Noun="MetricFilter" ShouldProcessTarget="LogGroupName" PositionalParameters="FilterName;FilterPattern" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

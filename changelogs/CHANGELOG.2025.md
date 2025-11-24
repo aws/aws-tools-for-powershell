@@ -1,4 +1,29 @@
-﻿### 4.1.948 (2025-11-22 00:34Z)
+﻿### 4.1.949 (2025-11-24 21:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1172.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudFront
+    * Added cmdlet Get-CFConnectionFunction leveraging the GetConnectionFunction service API.
+    * Added cmdlet Get-CFConnectionFunctionSummary leveraging the DescribeConnectionFunction service API.
+    * Added cmdlet Get-CFDistributionsByConnectionFunction leveraging the ListDistributionsByConnectionFunction service API.
+    * Added cmdlet Get-CFDistributionsByTrustStore leveraging the ListDistributionsByTrustStore service API.
+    * Added cmdlet Get-CFListConnectionFunction leveraging the ListConnectionFunctions service API.
+    * Added cmdlet Get-CFListTrustStore leveraging the ListTrustStores service API.
+    * Added cmdlet Get-CFTrustStore leveraging the GetTrustStore service API.
+    * Added cmdlet New-CFConnectionFunction leveraging the CreateConnectionFunction service API.
+    * Added cmdlet New-CFTrustStore leveraging the CreateTrustStore service API.
+    * Added cmdlet Publish-CFConnectionFunction leveraging the PublishConnectionFunction service API.
+    * Added cmdlet Remove-CFConnectionFunction leveraging the DeleteConnectionFunction service API.
+    * Added cmdlet Remove-CFTrustStore leveraging the DeleteTrustStore service API.
+    * Added cmdlet Test-CFConnectionFunction leveraging the TestConnectionFunction service API.
+    * Added cmdlet Update-CFConnectionFunction leveraging the UpdateConnectionFunction service API.
+    * Added cmdlet Update-CFTrustStore leveraging the UpdateTrustStore service API.
+    * Modified cmdlet New-CFDistribution: added parameters ConnectionFunctionAssociation_Id, TrustStoreConfig_AdvertiseTrustStoreCaName, TrustStoreConfig_IgnoreCertificateExpiry, TrustStoreConfig_TrustStoreId and ViewerMtlsConfig_Mode.
+    * Modified cmdlet New-CFDistributionWithTag: added parameters ConnectionFunctionAssociation_Id, TrustStoreConfig_AdvertiseTrustStoreCaName, TrustStoreConfig_IgnoreCertificateExpiry, TrustStoreConfig_TrustStoreId and ViewerMtlsConfig_Mode.
+    * Modified cmdlet Update-CFDistribution: added parameters ConnectionFunctionAssociation_Id, TrustStoreConfig_AdvertiseTrustStoreCaName, TrustStoreConfig_IgnoreCertificateExpiry, TrustStoreConfig_TrustStoreId and ViewerMtlsConfig_Mode.
+  * Amazon CloudWatch Logs
+    * Added cmdlet Write-CWLLogGroupDeletionProtection leveraging the PutLogGroupDeletionProtection service API.
+    * Modified cmdlet New-CWLLogGroup: added parameter DeletionProtectionEnabled.
+
+### 4.1.948 (2025-11-22 00:34Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1171.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon API Gateway
     * Modified cmdlet Write-AGIntegration: added parameter IntegrationTarget.

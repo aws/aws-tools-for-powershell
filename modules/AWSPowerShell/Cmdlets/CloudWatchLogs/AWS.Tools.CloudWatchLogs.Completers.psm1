@@ -388,6 +388,7 @@ $CWL_SelectMap = @{
                "Write-CWLIndexPolicy",
                "Write-CWLIntegration",
                "Write-CWLLogEvent",
+               "Write-CWLLogGroupDeletionProtection",
                "Write-CWLMetricFilter",
                "Write-CWLQueryDefinition",
                "Write-CWLResourcePolicy",

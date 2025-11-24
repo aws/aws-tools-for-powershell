@@ -63,6 +63,17 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.String ViewerCertificate_ACMCertificateArn { get; set; }
         #endregion
         
+        #region Parameter TrustStoreConfig_AdvertiseTrustStoreCaName
+        /// <summary>
+        /// <para>
+        /// <para>The configuration to use to advertise trust store CA names.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DistributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig_AdvertiseTrustStoreCaNames")]
+        public System.Boolean? TrustStoreConfig_AdvertiseTrustStoreCaName { get; set; }
+        #endregion
+        
         #region Parameter DistributionConfig_AnycastIpListId
         /// <summary>
         /// <para>
@@ -357,6 +368,28 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.String ViewerCertificate_IAMCertificateId { get; set; }
         #endregion
         
+        #region Parameter ConnectionFunctionAssociation_Id
+        /// <summary>
+        /// <para>
+        /// <para>The association's ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DistributionConfigWithTags_DistributionConfig_ConnectionFunctionAssociation_Id")]
+        public System.String ConnectionFunctionAssociation_Id { get; set; }
+        #endregion
+        
+        #region Parameter TrustStoreConfig_IgnoreCertificateExpiry
+        /// <summary>
+        /// <para>
+        /// <para>The configuration to use to ignore certificate expiration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DistributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig_IgnoreCertificateExpiry")]
+        public System.Boolean? TrustStoreConfig_IgnoreCertificateExpiry { get; set; }
+        #endregion
+        
         #region Parameter Logging_IncludeCookie
         /// <summary>
         /// <para>
@@ -623,6 +656,18 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [Alias("DistributionConfigWithTags_DistributionConfig_ViewerCertificate_MinimumProtocolVersion")]
         [AWSConstantClassSource("Amazon.CloudFront.MinimumProtocolVersion")]
         public Amazon.CloudFront.MinimumProtocolVersion ViewerCertificate_MinimumProtocolVersion { get; set; }
+        #endregion
+        
+        #region Parameter ViewerMtlsConfig_Mode
+        /// <summary>
+        /// <para>
+        /// <para>The viewer mTLS mode.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DistributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_Mode")]
+        [AWSConstantClassSource("Amazon.CloudFront.ViewerMtlsMode")]
+        public Amazon.CloudFront.ViewerMtlsMode ViewerMtlsConfig_Mode { get; set; }
         #endregion
         
         #region Parameter DefaultCacheBehavior_OriginRequestPolicyId
@@ -1009,6 +1054,17 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.String DefaultCacheBehavior_TargetOriginId { get; set; }
         #endregion
         
+        #region Parameter TrustStoreConfig_TrustStoreId
+        /// <summary>
+        /// <para>
+        /// <para>The trust store ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DistributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig_TrustStoreId")]
+        public System.String TrustStoreConfig_TrustStoreId { get; set; }
+        #endregion
+        
         #region Parameter DefaultCacheBehavior_ViewerProtocolPolicy
         /// <summary>
         /// <para>
@@ -1229,6 +1285,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 WriteWarning("You are passing $null as a value for parameter DistributionConfig_Comment which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ConnectionFunctionAssociation_Id = this.ConnectionFunctionAssociation_Id;
             context.DistributionConfig_ConnectionMode = this.DistributionConfig_ConnectionMode;
             context.DistributionConfig_ContinuousDeploymentPolicyId = this.DistributionConfig_ContinuousDeploymentPolicyId;
             if (this.CustomErrorResponses_Item != null)
@@ -1375,6 +1432,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
             context.ViewerCertificate_IAMCertificateId = this.ViewerCertificate_IAMCertificateId;
             context.ViewerCertificate_MinimumProtocolVersion = this.ViewerCertificate_MinimumProtocolVersion;
             context.ViewerCertificate_SSLSupportMethod = this.ViewerCertificate_SSLSupportMethod;
+            context.ViewerMtlsConfig_Mode = this.ViewerMtlsConfig_Mode;
+            context.TrustStoreConfig_AdvertiseTrustStoreCaName = this.TrustStoreConfig_AdvertiseTrustStoreCaName;
+            context.TrustStoreConfig_IgnoreCertificateExpiry = this.TrustStoreConfig_IgnoreCertificateExpiry;
+            context.TrustStoreConfig_TrustStoreId = this.TrustStoreConfig_TrustStoreId;
             context.DistributionConfig_WebACLId = this.DistributionConfig_WebACLId;
             if (this.Tags_Item != null)
             {
@@ -1548,6 +1609,31 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfig_WebACLId != null)
             {
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig.WebACLId = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfig_WebACLId;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfigIsNull = false;
+            }
+            Amazon.CloudFront.Model.ConnectionFunctionAssociation requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ConnectionFunctionAssociation = null;
+            
+             // populate ConnectionFunctionAssociation
+            var requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ConnectionFunctionAssociationIsNull = true;
+            requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ConnectionFunctionAssociation = new Amazon.CloudFront.Model.ConnectionFunctionAssociation();
+            System.String requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ConnectionFunctionAssociation_connectionFunctionAssociation_Id = null;
+            if (cmdletContext.ConnectionFunctionAssociation_Id != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ConnectionFunctionAssociation_connectionFunctionAssociation_Id = cmdletContext.ConnectionFunctionAssociation_Id;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ConnectionFunctionAssociation_connectionFunctionAssociation_Id != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ConnectionFunctionAssociation.Id = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ConnectionFunctionAssociation_connectionFunctionAssociation_Id;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ConnectionFunctionAssociationIsNull = false;
+            }
+             // determine if requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ConnectionFunctionAssociation should be set to null
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ConnectionFunctionAssociationIsNull)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ConnectionFunctionAssociation = null;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ConnectionFunctionAssociation != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig.ConnectionFunctionAssociation = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ConnectionFunctionAssociation;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfigIsNull = false;
             }
             Amazon.CloudFront.Model.Restrictions requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_Restrictions = null;
@@ -1808,6 +1894,76 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_Origins != null)
             {
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig.Origins = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_Origins;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfigIsNull = false;
+            }
+            Amazon.CloudFront.Model.ViewerMtlsConfig requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig = null;
+            
+             // populate ViewerMtlsConfig
+            var requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfigIsNull = true;
+            requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig = new Amazon.CloudFront.Model.ViewerMtlsConfig();
+            Amazon.CloudFront.ViewerMtlsMode requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_viewerMtlsConfig_Mode = null;
+            if (cmdletContext.ViewerMtlsConfig_Mode != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_viewerMtlsConfig_Mode = cmdletContext.ViewerMtlsConfig_Mode;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_viewerMtlsConfig_Mode != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig.Mode = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_viewerMtlsConfig_Mode;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfigIsNull = false;
+            }
+            Amazon.CloudFront.Model.TrustStoreConfig requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig = null;
+            
+             // populate TrustStoreConfig
+            var requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfigIsNull = true;
+            requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig = new Amazon.CloudFront.Model.TrustStoreConfig();
+            System.Boolean? requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig_trustStoreConfig_AdvertiseTrustStoreCaName = null;
+            if (cmdletContext.TrustStoreConfig_AdvertiseTrustStoreCaName != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig_trustStoreConfig_AdvertiseTrustStoreCaName = cmdletContext.TrustStoreConfig_AdvertiseTrustStoreCaName.Value;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig_trustStoreConfig_AdvertiseTrustStoreCaName != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig.AdvertiseTrustStoreCaNames = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig_trustStoreConfig_AdvertiseTrustStoreCaName.Value;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfigIsNull = false;
+            }
+            System.Boolean? requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig_trustStoreConfig_IgnoreCertificateExpiry = null;
+            if (cmdletContext.TrustStoreConfig_IgnoreCertificateExpiry != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig_trustStoreConfig_IgnoreCertificateExpiry = cmdletContext.TrustStoreConfig_IgnoreCertificateExpiry.Value;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig_trustStoreConfig_IgnoreCertificateExpiry != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig.IgnoreCertificateExpiry = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig_trustStoreConfig_IgnoreCertificateExpiry.Value;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfigIsNull = false;
+            }
+            System.String requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig_trustStoreConfig_TrustStoreId = null;
+            if (cmdletContext.TrustStoreConfig_TrustStoreId != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig_trustStoreConfig_TrustStoreId = cmdletContext.TrustStoreConfig_TrustStoreId;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig_trustStoreConfig_TrustStoreId != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig.TrustStoreId = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig_trustStoreConfig_TrustStoreId;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfigIsNull = false;
+            }
+             // determine if requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig should be set to null
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfigIsNull)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig = null;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig.TrustStoreConfig = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig_TrustStoreConfig;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfigIsNull = false;
+            }
+             // determine if requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig should be set to null
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfigIsNull)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig = null;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig.ViewerMtlsConfig = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_ViewerMtlsConfig;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfigIsNull = false;
             }
             Amazon.CloudFront.Model.LoggingConfig requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_Logging = null;
@@ -2590,6 +2746,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public System.Int32? CacheBehaviors_Quantity { get; set; }
             public System.String DistributionConfig_CallerReference { get; set; }
             public System.String DistributionConfig_Comment { get; set; }
+            public System.String ConnectionFunctionAssociation_Id { get; set; }
             public Amazon.CloudFront.ConnectionMode DistributionConfig_ConnectionMode { get; set; }
             public System.String DistributionConfig_ContinuousDeploymentPolicyId { get; set; }
             public List<Amazon.CloudFront.Model.CustomErrorResponse> CustomErrorResponses_Item { get; set; }
@@ -2659,6 +2816,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public System.String ViewerCertificate_IAMCertificateId { get; set; }
             public Amazon.CloudFront.MinimumProtocolVersion ViewerCertificate_MinimumProtocolVersion { get; set; }
             public Amazon.CloudFront.SSLSupportMethod ViewerCertificate_SSLSupportMethod { get; set; }
+            public Amazon.CloudFront.ViewerMtlsMode ViewerMtlsConfig_Mode { get; set; }
+            public System.Boolean? TrustStoreConfig_AdvertiseTrustStoreCaName { get; set; }
+            public System.Boolean? TrustStoreConfig_IgnoreCertificateExpiry { get; set; }
+            public System.String TrustStoreConfig_TrustStoreId { get; set; }
             public System.String DistributionConfig_WebACLId { get; set; }
             public List<Amazon.CloudFront.Model.Tag> Tags_Item { get; set; }
             public System.Func<Amazon.CloudFront.Model.CreateDistributionWithTagsResponse, NewCFDistributionWithTagCmdlet, object> Select { get; set; } =
