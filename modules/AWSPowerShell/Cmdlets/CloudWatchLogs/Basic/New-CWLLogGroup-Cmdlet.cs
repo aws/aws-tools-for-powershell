@@ -76,6 +76,18 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter DeletionProtectionEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Use this parameter to enable deletion protection for the new log group. When enabled
+        /// on a log group, deletion protection blocks all deletion operations until it is explicitly
+        /// disabled. By default log groups are created without deletion protection enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DeletionProtectionEnabled { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
@@ -188,6 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.CreateLogGroupResponse, NewCWLLogGroupCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.DeletionProtectionEnabled = this.DeletionProtectionEnabled;
             context.KmsKeyId = this.KmsKeyId;
             context.LogGroupClass = this.LogGroupClass;
             context.LogGroupName = this.LogGroupName;
@@ -221,6 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             // create request
             var request = new Amazon.CloudWatchLogs.Model.CreateLogGroupRequest();
             
+            if (cmdletContext.DeletionProtectionEnabled != null)
+            {
+                request.DeletionProtectionEnabled = cmdletContext.DeletionProtectionEnabled.Value;
+            }
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
@@ -292,6 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DeletionProtectionEnabled { get; set; }
             public System.String KmsKeyId { get; set; }
             public Amazon.CloudWatchLogs.LogGroupClass LogGroupClass { get; set; }
             public System.String LogGroupName { get; set; }

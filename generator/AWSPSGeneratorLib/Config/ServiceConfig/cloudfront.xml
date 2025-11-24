@@ -51,6 +51,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateConnectionFunction" OutputProperty="*" Verb="New" Noun="ConnectionFunction" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateConnectionGroup" OutputProperty="ConnectionGroup" Verb="New" Noun="ConnectionGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -131,6 +135,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateTrustStore" OutputProperty="TrustStore" Verb="New" Noun="TrustStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateVpcOrigin" OutputProperty="*" Verb="New" Noun="VpcOrigin" ShouldProcessTarget="VpcOriginEndpointConfig_Name" PipelineParameter="VpcOriginEndpointConfig_Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -144,6 +152,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteCloudFrontOriginAccessIdentity" Verb="Remove" Noun="CloudFrontOriginAccessIdentity" ShouldProcessTarget="Id" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConnectionFunction" Verb="Remove" Noun="ConnectionFunction" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -215,7 +227,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTrustStore" Verb="Remove" Noun="TrustStore" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteVpcOrigin" OutputProperty="VpcOrigin" Verb="Remove" Noun="VpcOrigin" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConnectionFunction" OutputProperty="ConnectionFunctionSummary" Verb="Get" Noun="ConnectionFunctionSummary" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -252,6 +272,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetCloudFrontOriginAccessIdentityConfig" OutputProperty="CloudFrontOriginAccessIdentityConfig" Verb="Get" Noun="CloudFrontOriginAccessIdentityConfig" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConnectionFunction" OutputProperty="*" Verb="Get" Noun="ConnectionFunction" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -379,6 +403,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetTrustStore" OutputProperty="TrustStore" Verb="Get" Noun="TrustStore" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetVpcOrigin" OutputProperty="VpcOrigin" Verb="Get" Noun="VpcOrigin" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -399,6 +427,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListConnectionFunctions" OutputProperty="ConnectionFunctions" Verb="Get" Noun="ListConnectionFunction" PipelineParameter="Stage" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListConnectionGroups" OutputProperty="ConnectionGroups" Verb="Get" Noun="ConnectionGroupList" PipelineParameter="AssociationFilter_AnycastIpListId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -416,6 +448,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDistributionsByCachePolicyId" OutputProperty="DistributionIdList" Verb="Get" Noun="DistributionsByCachePolicyId" PipelineParameter="CachePolicyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDistributionsByConnectionFunction" OutputProperty="DistributionList" Verb="Get" Noun="DistributionsByConnectionFunction" PipelineParameter="ConnectionFunctionIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -440,6 +476,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDistributionsByResponseHeadersPolicyId" OutputProperty="DistributionIdList" Verb="Get" Noun="DistributionsByResponseHeadersPolicyId" PipelineParameter="ResponseHeadersPolicyId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDistributionsByTrustStore" OutputProperty="DistributionList" Verb="Get" Noun="DistributionsByTrustStore" PipelineParameter="TrustStoreIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -519,7 +559,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTrustStores" OutputProperty="TrustStoreList" Verb="Get" Noun="ListTrustStore" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListVpcOrigins" OutputProperty="VpcOriginList" Verb="Get" Noun="VpcOriginList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PublishConnectionFunction" OutputProperty="ConnectionFunctionSummary" Verb="Publish" Noun="ConnectionFunction" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -535,6 +583,10 @@
             <Params>
                 <Param Name="Tags_Items" NewName="Tag" AutoApplyAlias="false" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TestConnectionFunction" OutputProperty="ConnectionFunctionTestResult" Verb="Test" Noun="ConnectionFunction" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TestFunction" OutputProperty="TestResult" Verb="Test" Noun="Function" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
@@ -556,6 +608,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCloudFrontOriginAccessIdentity" OutputProperty="CloudFrontOriginAccessIdentity" Verb="Update" Noun="CloudFrontOriginAccessIdentity" ShouldProcessTarget="Id" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConnectionFunction" OutputProperty="ConnectionFunctionSummary" Verb="Update" Noun="ConnectionFunction" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -624,6 +680,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateStreamingDistribution" OutputProperty="StreamingDistribution" Verb="Update" Noun="StreamingDistribution" ShouldProcessTarget="Id" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTrustStore" OutputProperty="TrustStore" Verb="Update" Noun="TrustStore" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

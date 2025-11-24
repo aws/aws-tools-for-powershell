@@ -178,6 +178,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Write-CWLIndexPolicy', 
         'Write-CWLIntegration', 
         'Write-CWLLogEvent', 
+        'Write-CWLLogGroupDeletionProtection', 
         'Write-CWLMetricFilter', 
         'Write-CWLQueryDefinition', 
         'Write-CWLResourcePolicy', 

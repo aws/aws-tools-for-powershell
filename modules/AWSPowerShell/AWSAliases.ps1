@@ -4773,6 +4773,8 @@ Set-Alias -Name Create-CFCachePolicy -Value New-CFCachePolicy
 Set-Alias -Name CF-CreateCachePolicy -Value New-CFCachePolicy
 Set-Alias -Name Create-CFCloudFrontOriginAccessIdentity -Value New-CFCloudFrontOriginAccessIdentity
 Set-Alias -Name CF-CreateCloudFrontOriginAccessIdentity -Value New-CFCloudFrontOriginAccessIdentity
+Set-Alias -Name Create-CFConnectionFunction -Value New-CFConnectionFunction
+Set-Alias -Name CF-CreateConnectionFunction -Value New-CFConnectionFunction
 Set-Alias -Name Create-CFConnectionGroup -Value New-CFConnectionGroup
 Set-Alias -Name CF-CreateConnectionGroup -Value New-CFConnectionGroup
 Set-Alias -Name Create-CFContinuousDeploymentPolicy -Value New-CFContinuousDeploymentPolicy
@@ -4815,6 +4817,8 @@ Set-Alias -Name CF-CreateStreamingDistribution -Value New-CFStreamingDistributio
 Set-Alias -Name Create-CFStreamingDistributionWithTags -Value New-CFStreamingDistributionWithTag
 Set-Alias -Name Create-CFStreamingDistributionWithTag -Value New-CFStreamingDistributionWithTag
 Set-Alias -Name CF-CreateStreamingDistributionWithTags -Value New-CFStreamingDistributionWithTag
+Set-Alias -Name Create-CFTrustStore -Value New-CFTrustStore
+Set-Alias -Name CF-CreateTrustStore -Value New-CFTrustStore
 Set-Alias -Name Create-CFVpcOrigin -Value New-CFVpcOrigin
 Set-Alias -Name CF-CreateVpcOrigin -Value New-CFVpcOrigin
 Set-Alias -Name Delete-CFAnycastIpList -Value Remove-CFAnycastIpList
@@ -4823,6 +4827,8 @@ Set-Alias -Name Delete-CFCachePolicy -Value Remove-CFCachePolicy
 Set-Alias -Name CF-DeleteCachePolicy -Value Remove-CFCachePolicy
 Set-Alias -Name Delete-CFCloudFrontOriginAccessIdentity -Value Remove-CFCloudFrontOriginAccessIdentity
 Set-Alias -Name CF-DeleteCloudFrontOriginAccessIdentity -Value Remove-CFCloudFrontOriginAccessIdentity
+Set-Alias -Name Delete-CFConnectionFunction -Value Remove-CFConnectionFunction
+Set-Alias -Name CF-DeleteConnectionFunction -Value Remove-CFConnectionFunction
 Set-Alias -Name Delete-CFConnectionGroup -Value Remove-CFConnectionGroup
 Set-Alias -Name CF-DeleteConnectionGroup -Value Remove-CFConnectionGroup
 Set-Alias -Name Delete-CFContinuousDeploymentPolicy -Value Remove-CFContinuousDeploymentPolicy
@@ -4858,8 +4864,13 @@ Set-Alias -Name Delete-CFResponseHeadersPolicy -Value Remove-CFResponseHeadersPo
 Set-Alias -Name CF-DeleteResponseHeadersPolicy -Value Remove-CFResponseHeadersPolicy
 Set-Alias -Name Delete-CFStreamingDistribution -Value Remove-CFStreamingDistribution
 Set-Alias -Name CF-DeleteStreamingDistribution -Value Remove-CFStreamingDistribution
+Set-Alias -Name Delete-CFTrustStore -Value Remove-CFTrustStore
+Set-Alias -Name CF-DeleteTrustStore -Value Remove-CFTrustStore
 Set-Alias -Name Delete-CFVpcOrigin -Value Remove-CFVpcOrigin
 Set-Alias -Name CF-DeleteVpcOrigin -Value Remove-CFVpcOrigin
+Set-Alias -Name Describe-CFConnectionFunction -Value Get-CFConnectionFunctionSummary
+Set-Alias -Name Describe-CFConnectionFunctionSummary -Value Get-CFConnectionFunctionSummary
+Set-Alias -Name CF-DescribeConnectionFunction -Value Get-CFConnectionFunctionSummary
 Set-Alias -Name Describe-CFFunction -Value Get-CFFunctionSummary
 Set-Alias -Name Describe-CFFunctionSummary -Value Get-CFFunctionSummary
 Set-Alias -Name CF-DescribeFunction -Value Get-CFFunctionSummary
@@ -4874,6 +4885,7 @@ Set-Alias -Name CF-GetCachePolicy -Value Get-CFCachePolicy
 Set-Alias -Name CF-GetCachePolicyConfig -Value Get-CFCachePolicyConfig
 Set-Alias -Name CF-GetCloudFrontOriginAccessIdentity -Value Get-CFCloudFrontOriginAccessIdentity
 Set-Alias -Name CF-GetCloudFrontOriginAccessIdentityConfig -Value Get-CFCloudFrontOriginAccessIdentityConfig
+Set-Alias -Name CF-GetConnectionFunction -Value Get-CFConnectionFunction
 Set-Alias -Name CF-GetConnectionGroup -Value Get-CFConnectionGroup
 Set-Alias -Name CF-GetConnectionGroupByRoutingEndpoint -Value Get-CFConnectionGroupByRoutingEndpoint
 Set-Alias -Name CF-GetContinuousDeploymentPolicy -Value Get-CFContinuousDeploymentPolicy
@@ -4907,6 +4919,7 @@ Set-Alias -Name CF-GetResponseHeadersPolicy -Value Get-CFResponseHeadersPolicy
 Set-Alias -Name CF-GetResponseHeadersPolicyConfig -Value Get-CFResponseHeadersPolicyConfig
 Set-Alias -Name CF-GetStreamingDistribution -Value Get-CFStreamingDistribution
 Set-Alias -Name CF-GetStreamingDistributionConfig -Value Get-CFStreamingDistributionConfig
+Set-Alias -Name CF-GetTrustStore -Value Get-CFTrustStore
 Set-Alias -Name CF-GetVpcOrigin -Value Get-CFVpcOrigin
 Set-Alias -Name List-CFAnycastIpLists -Value Get-CFAnycastIpListList
 Set-Alias -Name List-CFAnycastIpListList -Value Get-CFAnycastIpListList
@@ -4920,6 +4933,9 @@ Set-Alias -Name CF-ListCloudFrontOriginAccessIdentities -Value Get-CFCloudFrontO
 Set-Alias -Name List-CFConflictingAliases -Value Get-CFConflictingAlias
 Set-Alias -Name List-CFConflictingAlias -Value Get-CFConflictingAlias
 Set-Alias -Name CF-ListConflictingAliases -Value Get-CFConflictingAlias
+Set-Alias -Name List-CFConnectionFunctions -Value Get-CFListConnectionFunction
+Set-Alias -Name List-CFListConnectionFunction -Value Get-CFListConnectionFunction
+Set-Alias -Name CF-ListConnectionFunctions -Value Get-CFListConnectionFunction
 Set-Alias -Name List-CFConnectionGroups -Value Get-CFConnectionGroupList
 Set-Alias -Name List-CFConnectionGroupList -Value Get-CFConnectionGroupList
 Set-Alias -Name CF-ListConnectionGroups -Value Get-CFConnectionGroupList
@@ -4933,6 +4949,8 @@ Set-Alias -Name List-CFDistributionsByAnycastIpListId -Value Get-CFDistributions
 Set-Alias -Name CF-ListDistributionsByAnycastIpListId -Value Get-CFDistributionsByAnycastIpListId
 Set-Alias -Name List-CFDistributionsByCachePolicyId -Value Get-CFDistributionsByCachePolicyId
 Set-Alias -Name CF-ListDistributionsByCachePolicyId -Value Get-CFDistributionsByCachePolicyId
+Set-Alias -Name List-CFDistributionsByConnectionFunction -Value Get-CFDistributionsByConnectionFunction
+Set-Alias -Name CF-ListDistributionsByConnectionFunction -Value Get-CFDistributionsByConnectionFunction
 Set-Alias -Name List-CFDistributionsByConnectionMode -Value Get-CFDistributionsByConnectionMode
 Set-Alias -Name CF-ListDistributionsByConnectionMode -Value Get-CFDistributionsByConnectionMode
 Set-Alias -Name List-CFDistributionsByKeyGroup -Value Get-CFDistributionsByKeyGroup
@@ -4946,6 +4964,8 @@ Set-Alias -Name List-CFDistributionsByRealtimeLogConfig -Value Get-CFDistributio
 Set-Alias -Name CF-ListDistributionsByRealtimeLogConfig -Value Get-CFDistributionsByRealtimeLogConfig
 Set-Alias -Name List-CFDistributionsByResponseHeadersPolicyId -Value Get-CFDistributionsByResponseHeadersPolicyId
 Set-Alias -Name CF-ListDistributionsByResponseHeadersPolicyId -Value Get-CFDistributionsByResponseHeadersPolicyId
+Set-Alias -Name List-CFDistributionsByTrustStore -Value Get-CFDistributionsByTrustStore
+Set-Alias -Name CF-ListDistributionsByTrustStore -Value Get-CFDistributionsByTrustStore
 Set-Alias -Name List-CFDistributionsByVpcOriginId -Value Get-CFDistributionsByVpcOriginId
 Set-Alias -Name CF-ListDistributionsByVpcOriginId -Value Get-CFDistributionsByVpcOriginId
 Set-Alias -Name List-CFDistributionsByWebACLId -Value Get-CFDistributionListByWebACLId
@@ -4998,19 +5018,25 @@ Set-Alias -Name List-CFStreamingDistributions -Value Get-CFStreamingDistribution
 Set-Alias -Name List-CFStreamingDistributionList -Value Get-CFStreamingDistributionList
 Set-Alias -Name CF-ListStreamingDistributions -Value Get-CFStreamingDistributionList
 Set-Alias -Name CF-ListTagsForResource -Value Get-CFResourceTag
+Set-Alias -Name List-CFTrustStores -Value Get-CFListTrustStore
+Set-Alias -Name List-CFListTrustStore -Value Get-CFListTrustStore
+Set-Alias -Name CF-ListTrustStores -Value Get-CFListTrustStore
 Set-Alias -Name List-CFVpcOrigins -Value Get-CFVpcOriginList
 Set-Alias -Name List-CFVpcOriginList -Value Get-CFVpcOriginList
 Set-Alias -Name CF-ListVpcOrigins -Value Get-CFVpcOriginList
+Set-Alias -Name CF-PublishConnectionFunction -Value Publish-CFConnectionFunction
 Set-Alias -Name CF-PublishFunction -Value Publish-CFFunction
 Set-Alias -Name Put-CFResourcePolicy -Value Write-CFCFResourcePolicy
 Set-Alias -Name Put-CFCFResourcePolicy -Value Write-CFCFResourcePolicy
 Set-Alias -Name CF-PutResourcePolicy -Value Write-CFCFResourcePolicy
 Set-Alias -Name CF-TagResource -Value Add-CFResourceTag
+Set-Alias -Name CF-TestConnectionFunction -Value Test-CFConnectionFunction
 Set-Alias -Name CF-TestFunction -Value Test-CFFunction
 Set-Alias -Name CF-UntagResource -Value Remove-CFResourceTag
 Set-Alias -Name CF-UpdateAnycastIpList -Value Update-CFAnycastIpList
 Set-Alias -Name CF-UpdateCachePolicy -Value Update-CFCachePolicy
 Set-Alias -Name CF-UpdateCloudFrontOriginAccessIdentity -Value Update-CFCloudFrontOriginAccessIdentity
+Set-Alias -Name CF-UpdateConnectionFunction -Value Update-CFConnectionFunction
 Set-Alias -Name CF-UpdateConnectionGroup -Value Update-CFConnectionGroup
 Set-Alias -Name CF-UpdateContinuousDeploymentPolicy -Value Update-CFContinuousDeploymentPolicy
 Set-Alias -Name CF-UpdateDistribution -Value Update-CFDistribution
@@ -5028,6 +5054,7 @@ Set-Alias -Name CF-UpdatePublicKey -Value Update-CFPublicKey
 Set-Alias -Name CF-UpdateRealtimeLogConfig -Value Update-CFRealtimeLogConfig
 Set-Alias -Name CF-UpdateResponseHeadersPolicy -Value Update-CFResponseHeadersPolicy
 Set-Alias -Name CF-UpdateStreamingDistribution -Value Update-CFStreamingDistribution
+Set-Alias -Name CF-UpdateTrustStore -Value Update-CFTrustStore
 Set-Alias -Name CF-UpdateVpcOrigin -Value Update-CFVpcOrigin
 Set-Alias -Name Verify-CFDnsConfiguration -Value Test-CFDnsConfiguration
 Set-Alias -Name CF-VerifyDnsConfiguration -Value Test-CFDnsConfiguration
@@ -19866,6 +19893,8 @@ Set-Alias -Name CWL-PutIntegration -Value Write-CWLIntegration
 Set-Alias -Name Put-CWLLogEvents -Value Write-CWLLogEvent
 Set-Alias -Name Put-CWLLogEvent -Value Write-CWLLogEvent
 Set-Alias -Name CWL-PutLogEvents -Value Write-CWLLogEvent
+Set-Alias -Name Put-CWLLogGroupDeletionProtection -Value Write-CWLLogGroupDeletionProtection
+Set-Alias -Name CWL-PutLogGroupDeletionProtection -Value Write-CWLLogGroupDeletionProtection
 Set-Alias -Name Put-CWLMetricFilter -Value Write-CWLMetricFilter
 Set-Alias -Name CWL-PutMetricFilter -Value Write-CWLMetricFilter
 Set-Alias -Name Put-CWLQueryDefinition -Value Write-CWLQueryDefinition
