@@ -163,8 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// Route 53 to change the current status of the endpoint from unhealthy to healthy or
         /// vice versa. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How
         /// Amazon Route 53 Determines Whether an Endpoint Is Healthy</a> in the <i>Amazon Route
-        /// 53 Developer Guide</i>.</para><para>If you don't specify a value for <c>FailureThreshold</c>, the default value is three
-        /// health checks.</para>
+        /// 53 Developer Guide</i>.</para><para><c>FailureThreshold</c> is not supported when you specify a value for <c>Type</c>
+        /// of <c>RECOVERY_CONTROL</c>.</para><para>Otherwise, if you don't specify a value for <c>FailureThreshold</c>, the default value
+        /// is three health checks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -278,7 +279,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>
         /// <para>Specify whether you want Amazon Route 53 to measure the latency between health checkers
         /// in multiple Amazon Web Services regions and your endpoint, and to display CloudWatch
-        /// latency graphs on the <b>Health Checks</b> page in the Route 53 console.</para><important><para>You can't change the value of <c>MeasureLatency</c> after you create a health check.</para></important>
+        /// latency graphs on the <b>Health Checks</b> page in the Route 53 console.</para><para><c>MeasureLatency</c> is not supported when you specify a value for <c>Type</c> of
+        /// <c>RECOVERY_CONTROL</c>.</para><important><para>You can't change the value of <c>MeasureLatency</c> after you create a health check.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -346,7 +348,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>
         /// <para>The number of seconds between the time that Amazon Route 53 gets a response from your
         /// endpoint and the time that it sends the next health check request. Each Route 53 health
-        /// checker makes requests at this interval.</para><important><para>You can't change the value of <c>RequestInterval</c> after you create a health check.</para></important><para>If you don't specify a value for <c>RequestInterval</c>, the default value is <c>30</c>
+        /// checker makes requests at this interval.</para><para><c>RequestInterval</c> is not supported when you specify a value for <c>Type</c>
+        /// of <c>RECOVERY_CONTROL</c>.</para><important><para>You can't change the value of <c>RequestInterval</c> after you create a health check.</para></important><para>If you don't specify a value for <c>RequestInterval</c>, the default value is <c>30</c>
         /// seconds.</para>
         /// </para>
         /// </summary>

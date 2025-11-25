@@ -156,6 +156,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Unregister-R53VPCFromHostedZone', 
         'Update-R53HealthCheck', 
         'Update-R53HostedZoneComment', 
+        'Update-R53HostedZoneFeature', 
         'Update-R53TrafficPolicyComment', 
         'Update-R53TrafficPolicyInstance')
 

@@ -34,11 +34,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AttachRuleGroupsToProxyConfiguration" OutputProperty="*" Verb="Mount" Noun="RuleGroupsToProxyConfiguration" ShouldProcessTarget="UpdateToken" PipelineParameter="UpdateToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateFirewall" OutputProperty="*" Verb="New" Noun="Firewall" ShouldProcessTarget="FirewallName" PipelineParameter="FirewallPolicyArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFirewallPolicy" OutputProperty="*" Verb="New" Noun="FirewallPolicy" ShouldProcessTarget="FirewallPolicyName" PipelineParameter="FirewallPolicyName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProxy" OutputProperty="*" Verb="New" Noun="Proxy" ShouldProcessTarget="ProxyName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProxyConfiguration" OutputProperty="*" Verb="New" Noun="ProxyConfiguration" ShouldProcessTarget="ProxyConfigurationName" PipelineParameter="ProxyConfigurationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProxyRuleGroup" OutputProperty="*" Verb="New" Noun="ProxyRuleGroup" ShouldProcessTarget="ProxyRuleGroupName" PipelineParameter="ProxyRuleGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProxyRules" OutputProperty="*" Verb="New" Noun="ProxyRule" ShouldProcessTarget="ProxyRuleGroupName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -63,6 +83,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteNetworkFirewallTransitGatewayAttachment" OutputProperty="*" Verb="Remove" Noun="NetworkFirewallTransitGatewayAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProxy" OutputProperty="*" Verb="Remove" Noun="Proxy" ShouldProcessTarget="NatGatewayId" PipelineParameter="NatGatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProxyConfiguration" OutputProperty="*" Verb="Remove" Noun="ProxyConfiguration" ShouldProcessTarget="ProxyConfigurationName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProxyRuleGroup" OutputProperty="*" Verb="Remove" Noun="ProxyRuleGroup" ShouldProcessTarget="ProxyRuleGroupName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProxyRules" OutputProperty="ProxyRuleGroup" Verb="Remove" Noun="ProxyRule" ShouldProcessTarget="Rules" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -102,6 +138,22 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeProxy" OutputProperty="*" Verb="Get" Noun="ProxyDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeProxyConfiguration" OutputProperty="*" Verb="Get" Noun="ProxyConfigurationDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeProxyRule" OutputProperty="*" Verb="Get" Noun="ProxyRuleDetail" PipelineParameter="ProxyRuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeProxyRuleGroup" OutputProperty="*" Verb="Get" Noun="ProxyRuleGroupDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeResourcePolicy" OutputProperty="Policy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -123,6 +175,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeVpcEndpointAssociation" OutputProperty="*" Verb="Get" Noun="VpcEndpointAssociation" PipelineParameter="VpcEndpointAssociationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachRuleGroupsFromProxyConfiguration" OutputProperty="*" Verb="Dismount" Noun="RuleGroupsFromProxyConfiguration" ShouldProcessTarget="UpdateToken" PipelineParameter="UpdateToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -155,6 +211,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListFlowOperations" OutputProperty="FlowOperations" Verb="Get" Noun="FlowOperationList" PipelineParameter="FirewallArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProxies" OutputProperty="Proxies" Verb="Get" Noun="ProxyList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProxyConfigurations" OutputProperty="ProxyConfigurations" Verb="Get" Noun="ProxyConfigurationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProxyRuleGroups" OutputProperty="ProxyRuleGroups" Verb="Get" Noun="ProxyRuleGroupList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -231,6 +299,26 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateLoggingConfiguration" OutputProperty="*" Verb="Update" Noun="LoggingConfiguration" AnonymousShouldProcessTarget="true" PipelineParameter="FirewallArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProxy" OutputProperty="*" Verb="Update" Noun="Proxy" ShouldProcessTarget="NatGatewayId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProxyConfiguration" OutputProperty="*" Verb="Update" Noun="ProxyConfiguration" ShouldProcessTarget="UpdateToken" PipelineParameter="UpdateToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProxyRule" OutputProperty="*" Verb="Update" Noun="ProxyRule" ShouldProcessTarget="ProxyRuleName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProxyRuleGroupPriorities" OutputProperty="*" Verb="Update" Noun="ProxyRuleGroupPriority" ShouldProcessTarget="UpdateToken" PipelineParameter="UpdateToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProxyRulePriorities" OutputProperty="*" Verb="Update" Noun="ProxyRulePriority" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

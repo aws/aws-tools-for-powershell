@@ -112,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// Route 53 to change the current status of the endpoint from unhealthy to healthy or
         /// vice versa. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How
         /// Amazon Route 53 Determines Whether an Endpoint Is Healthy</a> in the <i>Amazon Route
-        /// 53 Developer Guide</i>.</para><para>If you don't specify a value for <c>FailureThreshold</c>, the default value is three
-        /// health checks.</para>
+        /// 53 Developer Guide</i>.</para><para>Otherwise, if you don't specify a value for <c>FailureThreshold</c>, the default value
+        /// is three health checks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
