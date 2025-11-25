@@ -95,7 +95,13 @@ namespace AWSPowerShellGenerator.Analysis
                 var globalAliases = CurrentModel.CustomParameters[property.AnalyzedName].Aliases;
                 foreach (var a in globalAliases)
                 {
-                    aliases.Add(a);
+                    var aliasToUse = ResolveAliasWithReservedParameterName(a);
+
+                    // If new alias is not equivalent to CmdLet parameter name that would be used, then add it to aliases list.
+                    if (aliasToUse != property.CmdletParameterName)
+                    {
+                        aliases.Add(aliasToUse);
+                    }
                 }
             }
 
@@ -108,7 +114,13 @@ namespace AWSPowerShellGenerator.Analysis
                 var propAliases = property.Customization.Aliases;
                 foreach (var a in propAliases)
                 {
-                    aliases.Add(a);
+                    var aliasToUse = ResolveAliasWithReservedParameterName(a);
+
+                    // If new alias is not equivalent to CmdLet parameter name that would be used, then add it to aliases list.
+                    if (aliasToUse != property.CmdletParameterName)
+                    {
+                        aliases.Add(aliasToUse);
+                    }
                 }
 
                 if (property.Customization.AutoApplyAlias && property.CmdletParameterName != property.AnalyzedName)
@@ -123,7 +135,15 @@ namespace AWSPowerShellGenerator.Analysis
             {
                 var iterAlias = autoIteration.GetIterationParameterAlias(property.AnalyzedName);
                 if (!string.IsNullOrEmpty(iterAlias))
-                    aliases.Add(iterAlias);
+                {
+                    var aliasToUse = ResolveAliasWithReservedParameterName(iterAlias);
+
+                    // If new alias is not equivalent to CmdLet parameter name that would be used, then add it to aliases list.
+                    if (aliasToUse != property.CmdletParameterName)
+                    {
+                        aliases.Add(aliasToUse);
+                    }
+                }
             }
 
             return aliases;
@@ -2372,6 +2392,8 @@ namespace AWSPowerShellGenerator.Analysis
                     }
                 }
 
+                // In auto-rename, we attempt to shorten the name. In case there is a new service where there are similar end properties
+                // under different paths (e.g. EmailSettings_EmailMessage for Amplify Backend), then this could generate duplicate parameters.
                 if (attemptAutoRename)
                 {
                     // inspect the name to determine if it can be reduced in length if we flattened a deep
@@ -2399,9 +2421,81 @@ namespace AWSPowerShellGenerator.Analysis
                         RecordParameterRename(property, alternateName);
                     }
                 }
+
+                // Attempt to automatically resolve reserved parameter name conflicts. We should attempt auto rename if resolution was not done.
+                ResolveReservedParameterName(property);
             }
         }
 
+        /// <summary>
+        /// Automatically resolves reserved parameter name conflict.
+        /// </summary>
+        /// <param name="property">Property representing parameter.</param>
+        /// <returns>Flag indicating if resolution was done.</returns>
+        private bool ResolveReservedParameterName(SimplePropertyInfo property)
+        {
+            string parameterNameToResolve = property.Customization?.NewName ?? property.AnalyzedName;
+
+            // Parameter Name conflicts with one of the reserved parameter names. We want to use reserved parameter name from existing list for proper casing.
+            string reservedParameterName = ReservedParameterNames.FirstOrDefault(r => r.Equals(parameterNameToResolve, StringComparison.OrdinalIgnoreCase));
+            if (reservedParameterName != null)
+            {
+                // We want to use reserved parameter name from existing list for proper casing.
+                if (AllModels.ReservedParameterNameMappings.TryGetValue(reservedParameterName, out var newResolvedName))
+                {
+                    newResolvedName = newResolvedName.Replace("{Noun}", CurrentOperation.SelectedNoun).Replace("{Verb}", CurrentOperation.SelectedVerb);
+
+                    var customization = property.Customization;
+                    if (customization == null)
+                    {
+                        customization = new Param
+                        {
+                            Origin = Param.CustomizationOrigin.DuringGeneration,
+                            Name = property.AnalyzedName
+                        };
+                        property.Customization = customization;
+                    }
+
+                    property.Customization.NewName = newResolvedName;
+
+                    // We should not auto apply alias since it would apply an alias of the original name which we have already transformed.
+                    property.Customization.AutoApplyAlias = false;
+
+                    // We should override this even if there was NewName specified in customization.
+                    property.Customization.Origin = Param.CustomizationOrigin.DuringGeneration;
+
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Automatically resolves alias reserved parameter name conflict.
+        /// </summary>
+        /// <param name="alias">Parameter alias.</param>
+        /// <returns>Resolved alias.</returns>
+        private string ResolveAliasWithReservedParameterName(string alias)
+        {
+            string newAlias = alias;
+
+            if (!string.IsNullOrEmpty(alias))
+            {
+                // Alias conflicts with one of the reserved parameter names. We want to use reserved parameter name from existing list for proper casing.
+                string reservedParameterName = ReservedParameterNames.FirstOrDefault(r => r.Equals(alias, StringComparison.OrdinalIgnoreCase));
+                if (reservedParameterName != null)
+                {
+                    // We want to use reserved parameter name from existing list for proper casing.
+                    if (AllModels.ReservedParameterNameMappings.TryGetValue(reservedParameterName, out var newResolvedName))
+                    {
+                        newAlias = newResolvedName.Replace("{Noun}", CurrentOperation.SelectedNoun).Replace("{Verb}", CurrentOperation.SelectedVerb);
+                    }
+                }
+            }
+
+            return newAlias;
+        }
 
         /// <summary>
         /// Register fields derived from the SDK's ConstantClass 'enum' type

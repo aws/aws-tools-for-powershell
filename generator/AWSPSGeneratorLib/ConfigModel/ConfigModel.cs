@@ -157,6 +157,26 @@ namespace AWSPowerShellGenerator.ServiceConfig
         }
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        [XmlArray("ReservedParameterNameMappings")]
+        public List<Map> ReservedParameterNameMappingsList = new List<Map>();
+
+        Dictionary<string, string> _reservedParameterNameMappings;
+        /// <summary>
+        /// Reserved parameter name remaps
+        /// </summary>
+        [XmlIgnore]
+        public Dictionary<string, string> ReservedParameterNameMappings
+        {
+            get
+            {
+                if (_reservedParameterNameMappings == null)
+                    _reservedParameterNameMappings = ReservedParameterNameMappingsList.ToDictionary(m => m.From, m => m.To);
+
+                return _reservedParameterNameMappings;
+            }
+        }
+
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         [XmlArray("NounMappings")]
         public List<Map> NounMappingsList = new List<Map>();
 
