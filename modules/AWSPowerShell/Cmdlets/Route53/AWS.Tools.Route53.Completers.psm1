@@ -313,6 +313,7 @@ $R53_SelectMap = @{
                "Test-R53DNSAnswer",
                "Update-R53HealthCheck",
                "Update-R53HostedZoneComment",
+               "Update-R53HostedZoneFeature",
                "Update-R53TrafficPolicyComment",
                "Update-R53TrafficPolicyInstance",
                "Get-R53HostedZonesByName")

@@ -23,60 +23,36 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Organizations;
-using Amazon.Organizations.Model;
+using Amazon.NetworkFirewall;
+using Amazon.NetworkFirewall.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.ORG
+namespace Amazon.PowerShell.Cmdlets.NWFW
 {
     /// <summary>
-    /// Lists all the accounts in an organization that have invalid effective policies. An
-    /// <i>invalid effective policy</i> is an <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_effective.html">effective
-    /// policy</a> that fails validation checks, resulting in the effective policy not being
-    /// fully enforced on all the intended accounts within an organization.
-    /// 
-    ///  
-    /// <para>
-    /// You can only call this operation from the management account or a member account that
-    /// is a delegated administrator.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves the metadata for the proxies that you have defined. Depending on your setting
+    /// for max results and the number of proxies, a single call might not return the full
+    /// list.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "ORGAccountsWithInvalidEffectivePolicyList")]
-    [OutputType("Amazon.Organizations.Model.ListAccountsWithInvalidEffectivePolicyResponse")]
-    [AWSCmdlet("Calls the AWS Organizations ListAccountsWithInvalidEffectivePolicy API operation.", Operation = new[] {"ListAccountsWithInvalidEffectivePolicy"}, SelectReturnType = typeof(Amazon.Organizations.Model.ListAccountsWithInvalidEffectivePolicyResponse))]
-    [AWSCmdletOutput("Amazon.Organizations.Model.ListAccountsWithInvalidEffectivePolicyResponse",
-        "This cmdlet returns an Amazon.Organizations.Model.ListAccountsWithInvalidEffectivePolicyResponse object containing multiple properties."
+    [Cmdlet("Get", "NWFWProxyList")]
+    [OutputType("Amazon.NetworkFirewall.Model.ProxyMetadata")]
+    [AWSCmdlet("Calls the AWS Network Firewall ListProxies API operation.", Operation = new[] {"ListProxies"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.ListProxiesResponse))]
+    [AWSCmdletOutput("Amazon.NetworkFirewall.Model.ProxyMetadata or Amazon.NetworkFirewall.Model.ListProxiesResponse",
+        "This cmdlet returns a collection of Amazon.NetworkFirewall.Model.ProxyMetadata objects.",
+        "The service call response (type Amazon.NetworkFirewall.Model.ListProxiesResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetORGAccountsWithInvalidEffectivePolicyListCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
+    public partial class GetNWFWProxyListCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter PolicyType
-        /// <summary>
-        /// <para>
-        /// <para>The type of policy that you want information about. You can specify one of the following
-        /// values:</para><ul><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative.html">DECLARATIVE_POLICY_EC2</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html">BACKUP_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">TAG_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_chatbot.html">CHATBOT_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html">SECURITYHUB_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_upgrade_rollout.html">UPGRADE_ROLLOUT_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inspector.html">INSPECTOR_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_bedrock.html">BEDROCK_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_S3.html">S3_POLICY</a></para></li></ul>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.Organizations.EffectivePolicyType")]
-        public Amazon.Organizations.EffectivePolicyType PolicyType { get; set; }
-        #endregion
-        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return in the response. If more results exist than
-        /// the specified <c>MaxResults</c> value, a token is included in the response so that
-        /// you can retrieve the remaining results.</para>
+        /// <para>The maximum number of objects that you want Network Firewall to return for this request.
+        /// If more objects are available, in the response, Network Firewall provides a <c>NextToken</c>
+        /// value that you can use in a subsequent call to get the next batch of objects.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -92,10 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The parameter for receiving additional results if you receive a <c>NextToken</c> response
-        /// in a previous request. A <c>NextToken</c> response indicates that more output is available.
-        /// Set this parameter to the value of the previous call's <c>NextToken</c> response to
-        /// indicate where the output should continue from.</para>
+        /// <para>When you request a list of objects with a <c>MaxResults</c> setting, if the number
+        /// of objects that are still available for retrieval exceeds the maximum you requested,
+        /// Network Firewall returns a <c>NextToken</c> value in the response. To retrieve the
+        /// next batch of objects, use the token returned from the prior request in your next
+        /// request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -108,13 +85,13 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Organizations.Model.ListAccountsWithInvalidEffectivePolicyResponse).
-        /// Specifying the name of a property of type Amazon.Organizations.Model.ListAccountsWithInvalidEffectivePolicyResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Proxies'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkFirewall.Model.ListProxiesResponse).
+        /// Specifying the name of a property of type Amazon.NetworkFirewall.Model.ListProxiesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Proxies";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -143,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Organizations.Model.ListAccountsWithInvalidEffectivePolicyResponse, GetORGAccountsWithInvalidEffectivePolicyListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.NetworkFirewall.Model.ListProxiesResponse, GetNWFWProxyListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.MaxResult = this.MaxResult;
@@ -157,13 +134,6 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             }
             #endif
             context.NextToken = this.NextToken;
-            context.PolicyType = this.PolicyType;
-            #if MODULAR
-            if (this.PolicyType == null && ParameterWasBound(nameof(this.PolicyType)))
-            {
-                WriteWarning("You are passing $null as a value for parameter PolicyType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -180,15 +150,11 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.Organizations.Model.ListAccountsWithInvalidEffectivePolicyRequest();
+            var request = new Amazon.NetworkFirewall.Model.ListProxiesRequest();
             
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
-            }
-            if (cmdletContext.PolicyType != null)
-            {
-                request.PolicyType = cmdletContext.PolicyType;
             }
             
             // Initialize loop variant and commence piping
@@ -247,12 +213,12 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private Amazon.Organizations.Model.ListAccountsWithInvalidEffectivePolicyResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.ListAccountsWithInvalidEffectivePolicyRequest request)
+        private Amazon.NetworkFirewall.Model.ListProxiesResponse CallAWSServiceOperation(IAmazonNetworkFirewall client, Amazon.NetworkFirewall.Model.ListProxiesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "ListAccountsWithInvalidEffectivePolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Network Firewall", "ListProxies");
             try
             {
-                return client.ListAccountsWithInvalidEffectivePolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.ListProxiesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -271,9 +237,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         {
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public Amazon.Organizations.EffectivePolicyType PolicyType { get; set; }
-            public System.Func<Amazon.Organizations.Model.ListAccountsWithInvalidEffectivePolicyResponse, GetORGAccountsWithInvalidEffectivePolicyListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.NetworkFirewall.Model.ListProxiesResponse, GetNWFWProxyListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Proxies;
         }
         
     }

@@ -127,6 +127,21 @@ $NWFW_Completers = {
             break
         }
 
+        # Amazon.NetworkFirewall.ProxyRulePhaseAction
+        {
+            ($_ -eq "Update-NWFWProxyRule/Action") -Or
+            ($_ -eq "New-NWFWProxyConfiguration/DefaultRulePhaseActions_PostRESPONSE") -Or
+            ($_ -eq "Update-NWFWProxyConfiguration/DefaultRulePhaseActions_PostRESPONSE") -Or
+            ($_ -eq "New-NWFWProxyConfiguration/DefaultRulePhaseActions_PreDNS") -Or
+            ($_ -eq "Update-NWFWProxyConfiguration/DefaultRulePhaseActions_PreDNS") -Or
+            ($_ -eq "New-NWFWProxyConfiguration/DefaultRulePhaseActions_PreREQUEST") -Or
+            ($_ -eq "Update-NWFWProxyConfiguration/DefaultRulePhaseActions_PreREQUEST")
+        }
+        {
+            $v = "ALERT","ALLOW","DENY"
+            break
+        }
+
         # Amazon.NetworkFirewall.ResourceManagedStatus
         "Get-NWFWRuleGroupList/Scope"
         {
@@ -138,6 +153,13 @@ $NWFW_Completers = {
         "Get-NWFWRuleGroupList/ManagedType"
         {
             $v = "ACTIVE_THREAT_DEFENSE","AWS_MANAGED_DOMAIN_LISTS","AWS_MANAGED_THREAT_SIGNATURES","PARTNER_MANAGED"
+            break
+        }
+
+        # Amazon.NetworkFirewall.RuleGroupRequestPhase
+        "Update-NWFWProxyRulePriority/RuleGroupRequestPhase"
+        {
+            $v = "POST_RES","PRE_DNS","PRE_REQ"
             break
         }
 
@@ -185,6 +207,16 @@ $NWFW_Completers = {
             break
         }
 
+        # Amazon.NetworkFirewall.TlsInterceptMode
+        {
+            ($_ -eq "New-NWFWProxy/TlsInterceptProperties_TlsInterceptMode") -Or
+            ($_ -eq "Update-NWFWProxy/TlsInterceptProperties_TlsInterceptMode")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
 
     }
 
@@ -194,10 +226,15 @@ $NWFW_Completers = {
 }
 
 $NWFW_map = @{
+    "Action"=@("Update-NWFWProxyRule")
     "AnalysisType"=@("Start-NWFWAnalysisReport")
+    "DefaultRulePhaseActions_PostRESPONSE"=@("New-NWFWProxyConfiguration","Update-NWFWProxyConfiguration")
+    "DefaultRulePhaseActions_PreDNS"=@("New-NWFWProxyConfiguration","Update-NWFWProxyConfiguration")
+    "DefaultRulePhaseActions_PreREQUEST"=@("New-NWFWProxyConfiguration","Update-NWFWProxyConfiguration")
     "EncryptionConfiguration_Type"=@("New-NWFWFirewall","New-NWFWFirewallPolicy","New-NWFWRuleGroup","New-NWFWTLSInspectionConfiguration","Update-NWFWFirewallEncryptionConfiguration","Update-NWFWFirewallPolicy","Update-NWFWRuleGroup","Update-NWFWTLSInspectionConfiguration")
     "FlowOperationType"=@("Get-NWFWFlowOperationList")
     "ManagedType"=@("Get-NWFWRuleGroupList")
+    "RuleGroupRequestPhase"=@("Update-NWFWProxyRulePriority")
     "RulesSourceList_GeneratedRulesType"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
     "Scope"=@("Get-NWFWRuleGroupList")
     "StatefulEngineOptions_RuleOrder"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
@@ -205,6 +242,7 @@ $NWFW_map = @{
     "StatefulRuleOptions_RuleOrder"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
     "SubnetMapping_IPAddressType"=@("New-NWFWVpcEndpointAssociation")
     "SubscriptionStatus"=@("Get-NWFWRuleGroupList")
+    "TlsInterceptProperties_TlsInterceptMode"=@("New-NWFWProxy","Update-NWFWProxy")
     "Type"=@("Get-NWFWRuleGroup","Get-NWFWRuleGroupList","Get-NWFWRuleGroupMetadata","Get-NWFWRuleGroupSummary","New-NWFWRuleGroup","Remove-NWFWRuleGroup","Update-NWFWRuleGroup")
 }
 
@@ -262,14 +300,23 @@ $NWFW_SelectMap = @{
                "Join-NWFWAvailabilityZone",
                "Register-NWFWFirewallPolicy",
                "Register-NWFWSubnet",
+               "Mount-NWFWRuleGroupsToProxyConfiguration",
                "New-NWFWFirewall",
                "New-NWFWFirewallPolicy",
+               "New-NWFWProxy",
+               "New-NWFWProxyConfiguration",
+               "New-NWFWProxyRuleGroup",
+               "New-NWFWProxyRule",
                "New-NWFWRuleGroup",
                "New-NWFWTLSInspectionConfiguration",
                "New-NWFWVpcEndpointAssociation",
                "Remove-NWFWFirewall",
                "Remove-NWFWFirewallPolicy",
                "Remove-NWFWNetworkFirewallTransitGatewayAttachment",
+               "Remove-NWFWProxy",
+               "Remove-NWFWProxyConfiguration",
+               "Remove-NWFWProxyRuleGroup",
+               "Remove-NWFWProxyRule",
                "Remove-NWFWResourcePolicy",
                "Remove-NWFWRuleGroup",
                "Remove-NWFWTLSInspectionConfiguration",
@@ -279,12 +326,17 @@ $NWFW_SelectMap = @{
                "Get-NWFWFirewallPolicy",
                "Get-NWFWFlowOperation",
                "Get-NWFWLoggingConfiguration",
+               "Get-NWFWProxyDetail",
+               "Get-NWFWProxyConfigurationDetail",
+               "Get-NWFWProxyRuleDetail",
+               "Get-NWFWProxyRuleGroupDetail",
                "Get-NWFWResourcePolicy",
                "Get-NWFWRuleGroup",
                "Get-NWFWRuleGroupMetadata",
                "Get-NWFWRuleGroupSummary",
                "Get-NWFWTLSInspectionConfiguration",
                "Get-NWFWVpcEndpointAssociation",
+               "Dismount-NWFWRuleGroupsFromProxyConfiguration",
                "Remove-NWFWAvailabilityZone",
                "Unregister-NWFWSubnet",
                "Get-NWFWAnalysisReportResult",
@@ -293,6 +345,9 @@ $NWFW_SelectMap = @{
                "Get-NWFWFirewallList",
                "Get-NWFWFlowOperationResultList",
                "Get-NWFWFlowOperationList",
+               "Get-NWFWProxyList",
+               "Get-NWFWProxyConfigurationList",
+               "Get-NWFWProxyRuleGroupList",
                "Get-NWFWRuleGroupList",
                "Get-NWFWResourceTag",
                "Get-NWFWTLSInspectionConfigurationList",
@@ -312,6 +367,11 @@ $NWFW_SelectMap = @{
                "Update-NWFWFirewallPolicy",
                "Update-NWFWFirewallPolicyChangeProtection",
                "Update-NWFWLoggingConfiguration",
+               "Update-NWFWProxy",
+               "Update-NWFWProxyConfiguration",
+               "Update-NWFWProxyRule",
+               "Update-NWFWProxyRuleGroupPriority",
+               "Update-NWFWProxyRulePriority",
                "Update-NWFWRuleGroup",
                "Update-NWFWSubnetChangeProtection",
                "Update-NWFWTLSInspectionConfiguration")

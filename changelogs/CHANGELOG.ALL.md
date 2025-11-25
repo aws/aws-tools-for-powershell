@@ -1,4 +1,32 @@
-﻿### 5.0.104 (2025-11-24 20:51Z)
+﻿### 5.0.105 (2025-11-25 21:09Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.141.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Network Firewall
+    * Added cmdlet Dismount-NWFWRuleGroupsFromProxyConfiguration leveraging the DetachRuleGroupsFromProxyConfiguration service API.
+    * Added cmdlet Get-NWFWProxyConfigurationDetail leveraging the DescribeProxyConfiguration service API.
+    * Added cmdlet Get-NWFWProxyConfigurationList leveraging the ListProxyConfigurations service API.
+    * Added cmdlet Get-NWFWProxyDetail leveraging the DescribeProxy service API.
+    * Added cmdlet Get-NWFWProxyList leveraging the ListProxies service API.
+    * Added cmdlet Get-NWFWProxyRuleDetail leveraging the DescribeProxyRule service API.
+    * Added cmdlet Get-NWFWProxyRuleGroupDetail leveraging the DescribeProxyRuleGroup service API.
+    * Added cmdlet Get-NWFWProxyRuleGroupList leveraging the ListProxyRuleGroups service API.
+    * Added cmdlet Mount-NWFWRuleGroupsToProxyConfiguration leveraging the AttachRuleGroupsToProxyConfiguration service API.
+    * Added cmdlet New-NWFWProxy leveraging the CreateProxy service API.
+    * Added cmdlet New-NWFWProxyConfiguration leveraging the CreateProxyConfiguration service API.
+    * Added cmdlet New-NWFWProxyRule leveraging the CreateProxyRules service API.
+    * Added cmdlet New-NWFWProxyRuleGroup leveraging the CreateProxyRuleGroup service API.
+    * Added cmdlet Remove-NWFWProxy leveraging the DeleteProxy service API.
+    * Added cmdlet Remove-NWFWProxyConfiguration leveraging the DeleteProxyConfiguration service API.
+    * Added cmdlet Remove-NWFWProxyRule leveraging the DeleteProxyRules service API.
+    * Added cmdlet Remove-NWFWProxyRuleGroup leveraging the DeleteProxyRuleGroup service API.
+    * Added cmdlet Update-NWFWProxy leveraging the UpdateProxy service API.
+    * Added cmdlet Update-NWFWProxyConfiguration leveraging the UpdateProxyConfiguration service API.
+    * Added cmdlet Update-NWFWProxyRule leveraging the UpdateProxyRule service API.
+    * Added cmdlet Update-NWFWProxyRuleGroupPriority leveraging the UpdateProxyRuleGroupPriorities service API.
+    * Added cmdlet Update-NWFWProxyRulePriority leveraging the UpdateProxyRulePriorities service API.
+  * Amazon Route 53
+    * Added cmdlet Update-R53HostedZoneFeature leveraging the UpdateHostedZoneFeatures service API.
+
+### 5.0.104 (2025-11-24 20:51Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.140.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudFront
     * Added cmdlet Get-CFConnectionFunction leveraging the GetConnectionFunction service API.
