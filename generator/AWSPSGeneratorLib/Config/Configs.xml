@@ -13,6 +13,20 @@
     <Map From="ListTagsForResource" To="GetResourceTag" />
     <Map From="GetAccessPolicies" To="GetAccessPolicyCollection" />
   </OperationNameMappings>
+  
+  <ReservedParameterNameMappings>
+    <Map From="Credential" To="{Noun}Credential" />
+    <Map From="AccessKey" To="{Noun}AccessKey" />
+    <Map From="SecretKey" To="{Noun}SecretKey" />
+    <Map From="SecretAccessKey" To="{Noun}SecretAccessKey" />
+    <Map From="SessionToken" To="{Noun}SessionToken" />
+    <Map From="Region" To="{Noun}Region" />
+    <Map From="Select" To="{Noun}Select" />
+    <Map From="Force" To="Force{Verb}" />
+    <Map From="Verbose" To="VerboseOutput" />
+    <Map From="ProfileName" To="Profile" />
+  </ReservedParameterNameMappings>
+  
   <!-- Verb transformation patterns for special operation naming patterns -->
   <VerbNounTransformationPatterns>
     <Pattern Verb="Advertise" TargetVerb="Start" NounTransformation="{Noun}Advertisement" />
