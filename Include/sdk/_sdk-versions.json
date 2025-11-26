@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1173.0",
+    "ProductVersion"    : "3.7.1174.0",
     "CoreVersion"       : "3.7.500.49",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -1556,7 +1556,7 @@
             "InPreview"               : false
         },
         "ComputeOptimizer"                : {
-            "Version" : "3.7.502.9",
+            "Version" : "3.7.503.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.49"
@@ -2668,7 +2668,7 @@
             "InPreview"               : false
         },
         "BedrockRuntime"                      : {
-            "Version" : "3.7.510.1",
+            "Version" : "3.7.511.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.49"
@@ -2724,7 +2724,7 @@
             "InPreview"               : false
         },
         "CostOptimizationHub"                 : {
-            "Version" : "3.7.503.3",
+            "Version" : "3.7.504.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.49"

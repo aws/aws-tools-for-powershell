@@ -28,7 +28,7 @@ using Amazon.ComputeOptimizer.Model;
 namespace Amazon.PowerShell.Cmdlets.CO
 {
     /// <summary>
-    /// Returns Auto Scaling group recommendations.
+    /// Returns Amazon EC2 Auto Scaling group recommendations.
     /// 
     ///  
     /// <para>
@@ -52,8 +52,10 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services account for which to return Auto Scaling group recommendations.</para><para>If your account is the management account of an organization, use this parameter to
-        /// specify the member account for which you want to return Auto Scaling group recommendations.</para><para>Only one account ID can be specified per request.</para>
+        /// <para>The ID of the Amazon Web Services account for which to return Amazon EC2 Auto Scaling
+        /// group recommendations.</para><para>If your account is the management account of an organization, use this parameter to
+        /// specify the member account for which you want to return Amazon EC2 Auto Scaling group
+        /// recommendations.</para><para>Only one account ID can be specified per request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter AutoScalingGroupArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Auto Scaling groups for which to return recommendations.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon EC2 Auto Scaling groups for which to
+        /// return recommendations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter RecommendationPreferences_CpuVendorArchitecture
         /// <summary>
         /// <para>
-        /// <para>Specifies the CPU vendor and architecture for Amazon EC2 instance and Auto Scaling
-        /// group recommendations.</para><para>For example, when you specify <c>AWS_ARM64</c> with:</para><ul><li><para>A <a>GetEC2InstanceRecommendations</a> or <a>GetAutoScalingGroupRecommendations</a>
+        /// <para>Specifies the CPU vendor and architecture for Amazon EC2 instance and Amazon EC2 Auto
+        /// Scaling group recommendations.</para><para>For example, when you specify <c>AWS_ARM64</c> with:</para><ul><li><para>A <a>GetEC2InstanceRecommendations</a> or <a>GetAutoScalingGroupRecommendations</a>
         /// request, Compute Optimizer returns recommendations that consist of Graviton instance
         /// types only.</para></li><li><para>A <a>GetEC2RecommendationProjectedMetrics</a> request, Compute Optimizer returns projected
         /// utilization metrics for Graviton instance type recommendations only.</para></li><li><para>A <a>ExportEC2InstanceRecommendations</a> or <a>ExportAutoScalingGroupRecommendations</a>
@@ -92,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>An array of objects to specify a filter that returns a more specific list of Auto
-        /// Scaling group recommendations.</para>
+        /// <para>An array of objects to specify a filter that returns a more specific list of Amazon
+        /// EC2 Auto Scaling group recommendations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of Auto Scaling group recommendations to return with a single request.</para><para>To retrieve the remaining results, make another request with the returned <c>nextToken</c>
+        /// <para>The maximum number of Amazon EC2 Auto Scaling group recommendations to return with
+        /// a single request.</para><para>To retrieve the remaining results, make another request with the returned <c>nextToken</c>
         /// value.</para>
         /// </para>
         /// </summary>
@@ -116,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token to advance to the next page of Auto Scaling group recommendations.</para>
+        /// <para>The token to advance to the next page of Amazon EC2 Auto Scaling group recommendations.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

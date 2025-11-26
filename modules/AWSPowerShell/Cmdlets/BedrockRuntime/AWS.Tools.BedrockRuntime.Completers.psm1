@@ -138,7 +138,7 @@ $BDRR_Completers = {
             ($_ -eq "Invoke-BDRRConverseStream/ServiceTier_Type")
         }
         {
-            $v = "default","flex","priority"
+            $v = "default","flex","priority","reserved"
             break
         }
 

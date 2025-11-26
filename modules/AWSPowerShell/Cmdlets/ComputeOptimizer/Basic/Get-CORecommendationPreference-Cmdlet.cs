@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
     /// <para>
     /// Use the <c>scope</c> parameter to specify which preferences to return. You can specify
     /// to return preferences for an organization, a specific account ID, or a specific EC2
-    /// instance or Auto Scaling group Amazon Resource Name (ARN).
+    /// instance or Amazon EC2 Auto Scaling group Amazon Resource Name (ARN).
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Activating
     /// enhanced infrastructure metrics</a> in the <i>Compute Optimizer User Guide</i>.
@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <summary>
         /// <para>
         /// <para>The target resource type of the recommendation preference for which to return preferences.</para><para>The <c>Ec2Instance</c> option encompasses standalone instances and instances that
-        /// are part of Auto Scaling groups. The <c>AutoScalingGroup</c> option encompasses only
-        /// instances that are part of an Auto Scaling group.</para>
+        /// are part of Amazon EC2 Auto Scaling groups. The <c>AutoScalingGroup</c> option encompasses
+        /// only instances that are part of an Amazon EC2 Auto Scaling group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <para>
         /// <para>The value of the scope.</para><para>If you specified the <c>name</c> of the scope as:</para><ul><li><para><c>Organization</c> - The <c>value</c> must be <c>ALL_ACCOUNTS</c>.</para></li><li><para><c>AccountId</c> - The <c>value</c> must be a 12-digit Amazon Web Services account
         /// ID.</para></li><li><para><c>ResourceArn</c> - The <c>value</c> must be the Amazon Resource Name (ARN) of an
-        /// EC2 instance or an Auto Scaling group.</para></li></ul><para>Only EC2 instance and Auto Scaling group ARNs are currently supported.</para>
+        /// EC2 instance or an Amazon EC2 Auto Scaling group.</para></li></ul><para>Only EC2 instance and Amazon EC2 Auto Scaling group ARNs are currently supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

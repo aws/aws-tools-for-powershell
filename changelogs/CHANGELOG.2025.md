@@ -1,4 +1,7 @@
-﻿### 4.1.950 (2025-11-25 21:45Z)
+﻿### 4.1.951 (2025-11-26 21:10Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1174.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.950 (2025-11-25 21:45Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1173.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Network Firewall
     * Added cmdlet Dismount-NWFWRuleGroupsFromProxyConfiguration leveraging the DetachRuleGroupsFromProxyConfiguration service API.

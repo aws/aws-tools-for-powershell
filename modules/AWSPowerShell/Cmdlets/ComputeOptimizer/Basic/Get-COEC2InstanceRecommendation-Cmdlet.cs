@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter RecommendationPreferences_CpuVendorArchitecture
         /// <summary>
         /// <para>
-        /// <para>Specifies the CPU vendor and architecture for Amazon EC2 instance and Auto Scaling
-        /// group recommendations.</para><para>For example, when you specify <c>AWS_ARM64</c> with:</para><ul><li><para>A <a>GetEC2InstanceRecommendations</a> or <a>GetAutoScalingGroupRecommendations</a>
+        /// <para>Specifies the CPU vendor and architecture for Amazon EC2 instance and Amazon EC2 Auto
+        /// Scaling group recommendations.</para><para>For example, when you specify <c>AWS_ARM64</c> with:</para><ul><li><para>A <a>GetEC2InstanceRecommendations</a> or <a>GetAutoScalingGroupRecommendations</a>
         /// request, Compute Optimizer returns recommendations that consist of Graviton instance
         /// types only.</para></li><li><para>A <a>GetEC2RecommendationProjectedMetrics</a> request, Compute Optimizer returns projected
         /// utilization metrics for Graviton instance type recommendations only.</para></li><li><para>A <a>ExportEC2InstanceRecommendations</a> or <a>ExportAutoScalingGroupRecommendations</a>
