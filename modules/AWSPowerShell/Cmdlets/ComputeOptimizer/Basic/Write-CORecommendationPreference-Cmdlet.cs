@@ -87,9 +87,10 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <para>
         /// <para> The preference to control the number of days the utilization metrics of the Amazon
         /// Web Services resource are analyzed. When this preference isn't specified, we use the
-        /// default value <c>DAYS_14</c>. </para><para>You can only set this preference for the Amazon EC2 instance and Auto Scaling group
-        /// resource types. </para><note><ul><li><para>Amazon EC2 instance lookback preferences can be set at the organization, account,
-        /// and resource levels.</para></li><li><para>Auto Scaling group lookback preferences can only be set at the resource level.</para></li></ul></note>
+        /// default value <c>DAYS_14</c>. </para><para>You can only set this preference for the Amazon EC2 instance and Amazon EC2 Auto Scaling
+        /// group resource types. </para><note><ul><li><para>Amazon EC2 instance lookback preferences can be set at the organization, account,
+        /// and resource levels.</para></li><li><para>Amazon EC2 Auto Scaling group lookback preferences can only be set at the resource
+        /// level.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <para> The preference to control which resource type values are considered when generating
         /// rightsizing recommendations. You can specify this preference as a combination of include
         /// and exclude lists. You must specify either an <c>includeList</c> or <c>excludeList</c>.
-        /// If the preference is an empty set of resource type values, an error occurs. </para><note><para>You can only set this preference for the Amazon EC2 instance and Auto Scaling group
-        /// resource types.</para></note><para />
+        /// If the preference is an empty set of resource type values, an error occurs. </para><note><para>You can only set this preference for the Amazon EC2 instance and Amazon EC2 Auto Scaling
+        /// group resource types.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -134,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <summary>
         /// <para>
         /// <para>The target resource type of the recommendation preference to create.</para><para>The <c>Ec2Instance</c> option encompasses standalone instances and instances that
-        /// are part of Auto Scaling groups. The <c>AutoScalingGroup</c> option encompasses only
-        /// instances that are part of an Auto Scaling group.</para>
+        /// are part of Amazon EC2 Auto Scaling groups. The <c>AutoScalingGroup</c> option encompasses
+        /// only instances that are part of an Amazon EC2 Auto Scaling group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -197,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <para>
         /// <para>The value of the scope.</para><para>If you specified the <c>name</c> of the scope as:</para><ul><li><para><c>Organization</c> - The <c>value</c> must be <c>ALL_ACCOUNTS</c>.</para></li><li><para><c>AccountId</c> - The <c>value</c> must be a 12-digit Amazon Web Services account
         /// ID.</para></li><li><para><c>ResourceArn</c> - The <c>value</c> must be the Amazon Resource Name (ARN) of an
-        /// EC2 instance or an Auto Scaling group.</para></li></ul><para>Only EC2 instance and Auto Scaling group ARNs are currently supported.</para>
+        /// EC2 instance or an Amazon EC2 Auto Scaling group.</para></li></ul><para>Only EC2 instance and Amazon EC2 Auto Scaling group ARNs are currently supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

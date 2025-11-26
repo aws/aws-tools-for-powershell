@@ -58,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the resource for which to confirm effective recommendation
-        /// preferences. Only EC2 instance and Auto Scaling group ARNs are currently supported.</para>
+        /// preferences. Only EC2 instance and Amazon EC2 Auto Scaling group ARNs are currently
+        /// supported.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

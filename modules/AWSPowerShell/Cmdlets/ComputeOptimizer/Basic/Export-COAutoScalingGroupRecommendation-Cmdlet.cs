@@ -30,7 +30,7 @@ using Amazon.ComputeOptimizer.Model;
 namespace Amazon.PowerShell.Cmdlets.CO
 {
     /// <summary>
-    /// Exports optimization recommendations for Auto Scaling groups.
+    /// Exports optimization recommendations for Amazon EC2 Auto Scaling groups.
     /// 
     ///  
     /// <para>
@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
     /// Storage Service (Amazon S3) bucket that you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
     /// Recommendations</a> in the <i>Compute Optimizer User Guide</i>.
     /// </para><para>
-    /// You can have only one Auto Scaling group export job in progress per Amazon Web Services
-    /// Region.
+    /// You can have only one Amazon EC2 Auto Scaling group export job in progress per Amazon
+    /// Web Services Region.
     /// </para>
     /// </summary>
     [Cmdlet("Export", "COAutoScalingGroupRecommendation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the Amazon Web Services accounts for which to export Auto Scaling group
-        /// recommendations.</para><para>If your account is the management account of an organization, use this parameter to
+        /// <para>The IDs of the Amazon Web Services accounts for which to export Amazon EC2 Auto Scaling
+        /// group recommendations.</para><para>If your account is the management account of an organization, use this parameter to
         /// specify the member account for which you want to export recommendations.</para><para>This parameter cannot be specified together with the include member accounts parameter.
         /// The parameters are mutually exclusive.</para><para>Recommendations for member accounts are not included in the export if this parameter,
         /// or the include member accounts parameter, is omitted.</para><para>You can specify multiple account IDs per request.</para><para />
@@ -87,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter RecommendationPreferences_CpuVendorArchitecture
         /// <summary>
         /// <para>
-        /// <para>Specifies the CPU vendor and architecture for Amazon EC2 instance and Auto Scaling
-        /// group recommendations.</para><para>For example, when you specify <c>AWS_ARM64</c> with:</para><ul><li><para>A <a>GetEC2InstanceRecommendations</a> or <a>GetAutoScalingGroupRecommendations</a>
+        /// <para>Specifies the CPU vendor and architecture for Amazon EC2 instance and Amazon EC2 Auto
+        /// Scaling group recommendations.</para><para>For example, when you specify <c>AWS_ARM64</c> with:</para><ul><li><para>A <a>GetEC2InstanceRecommendations</a> or <a>GetAutoScalingGroupRecommendations</a>
         /// request, Compute Optimizer returns recommendations that consist of Graviton instance
         /// types only.</para></li><li><para>A <a>GetEC2RecommendationProjectedMetrics</a> request, Compute Optimizer returns projected
         /// utilization metrics for Graviton instance type recommendations only.</para></li><li><para>A <a>ExportEC2InstanceRecommendations</a> or <a>ExportAutoScalingGroupRecommendations</a>
@@ -135,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>An array of objects to specify a filter that exports a more specific set of Auto Scaling
-        /// group recommendations.</para><para />
+        /// <para>An array of objects to specify a filter that exports a more specific set of Amazon
+        /// EC2 Auto Scaling group recommendations.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
