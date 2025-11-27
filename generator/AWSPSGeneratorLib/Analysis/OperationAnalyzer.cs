@@ -143,10 +143,12 @@ namespace AWSPowerShellGenerator.Analysis
                 if (!CurrentOperation.LegacyV4Pagination)
                 {
                     autoIteration = GetPaginatorAttributes();
-                    if (IsValidAutoIteration(autoIteration))
+                    if (!StreamParameters.Any() && IsValidAutoIteration(autoIteration))
                     {
                         return autoIteration;
                     }
+                    
+                    return null;                    
                 }
 
                 // Use the legacy approach with existing configuration
@@ -160,7 +162,7 @@ namespace AWSPowerShellGenerator.Analysis
                 {
                     // if legacy configuration is invalid then retrieve pagination attributes from .NET SDK if available
                     autoIteration = GetPaginatorAttributes();
-                    if (IsValidAutoIteration(autoIteration))
+                    if (!StreamParameters.Any() && IsValidAutoIteration(autoIteration))
                     {
                         // if paginators are valid then set support for legacy autoiteration mode
                         autoIteration.SupportLegacyAutoIterationMode = true;
