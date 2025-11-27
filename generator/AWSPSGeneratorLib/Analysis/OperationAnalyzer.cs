@@ -146,9 +146,7 @@ namespace AWSPowerShellGenerator.Analysis
                     if (!StreamParameters.Any() && IsValidAutoIteration(autoIteration))
                     {
                         return autoIteration;
-                    }
-                    
-                    return null;                    
+                    }               
                 }
 
                 // Use the legacy approach with existing configuration
