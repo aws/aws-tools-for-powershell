@@ -1,0 +1,3 @@
+﻿# PartnerCentralAccount
+
+Export-ModuleMember -Alias *

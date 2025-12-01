@@ -63,6 +63,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateRecommender" OutputProperty="*" Verb="New" Noun="Recommender" ShouldProcessTarget="RecommenderName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateSegmentDefinition" OutputProperty="*" Verb="New" Noun="SegmentDefinition" ShouldProcessTarget="SegmentDefinitionName" PipelineParameter="SegmentDefinitionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -91,6 +95,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDomainObjectType" Verb="Remove" Noun="DomainObjectType" ShouldProcessTarget="DomainName,ObjectTypeName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteEventStream" Verb="Remove" Noun="EventStream" ShouldProcessTarget="EventStreamName" PipelineParameter="EventStreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -116,6 +124,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteProfileObjectType" OutputProperty="Message" Verb="Remove" Noun="ProfileObjectType" ShouldProcessTarget="ObjectTypeName" PipelineParameter="ObjectTypeName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRecommender" Verb="Remove" Noun="Recommender" ShouldProcessTarget="RecommenderName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -151,6 +163,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDomainObjectType" OutputProperty="*" Verb="Get" Noun="DomainObjectType" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetEventStream" OutputProperty="*" Verb="Get" Noun="EventStream" PipelineParameter="EventStreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -171,6 +187,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetObjectTypeAttributeStatistics" OutputProperty="*" Verb="Get" Noun="ObjectTypeAttributeStatistic" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetProfileHistoryRecord" OutputProperty="*" Verb="Get" Noun="ProfileHistoryRecord" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -180,6 +200,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetProfileObjectTypeTemplate" OutputProperty="*" Verb="Get" Noun="ProfileObjectTypeTemplate" PipelineParameter="TemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProfileRecommendations" OutputProperty="Recommendations" Verb="Get" Noun="ProfileRecommendation" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRecommender" OutputProperty="*" Verb="Get" Noun="Recommender" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -235,6 +263,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDomainObjectTypes" OutputProperty="Items" Verb="Get" Noun="DomainObjectTypeList" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDomains" OutputProperty="Items" Verb="Get" Noun="DomainList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -259,6 +291,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListObjectTypeAttributeValues" OutputProperty="Items" Verb="Get" Noun="ObjectTypeAttributeValueList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListProfileAttributeValues" OutputProperty="*" Verb="Get" Noun="ProfileAttributeValueList" PipelineParameter="AttributeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -276,6 +312,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListProfileObjectTypeTemplates" OutputProperty="Items" Verb="Get" Noun="ProfileObjectTypeTemplateList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRecommenderRecipes" OutputProperty="RecommenderRecipes" Verb="Get" Noun="RecommenderRecipeList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRecommenders" OutputProperty="Recommenders" Verb="Get" Noun="RecommenderList" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -303,6 +347,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutDomainObjectType" OutputProperty="*" Verb="Write" Noun="DomainObjectType" ShouldProcessTarget="DomainName,ObjectTypeName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutIntegration" OutputProperty="*" Verb="Write" Noun="Integration" ShouldProcessTarget="Uri" PipelineParameter="Uri" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="ObjectTypeNames" NewName="ObjectTypeNames" />
@@ -321,7 +369,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartRecommender" Verb="Start" Noun="Recommender" ShouldProcessTarget="RecommenderName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartUploadJob" Verb="Start" Noun="UploadJob" ShouldProcessTarget="DomainName" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopRecommender" Verb="Stop" Noun="Recommender" ShouldProcessTarget="RecommenderName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -359,6 +415,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateProfile" OutputProperty="ProfileId" Verb="Update" Noun="Profile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRecommender" OutputProperty="RecommenderName" Verb="Update" Noun="Recommender" ShouldProcessTarget="RecommenderName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -82,6 +82,16 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public Amazon.CustomerProfiles.IncludeOptions SegmentQuery_Include { get; set; }
         #endregion
         
+        #region Parameter SegmentSqlQuery
+        /// <summary>
+        /// <para>
+        /// <para>The segment SQL query.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SegmentSqlQuery { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -156,6 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 context.SegmentQuery_Group = new List<Amazon.CustomerProfiles.Model.Group>(this.SegmentQuery_Group);
             }
             context.SegmentQuery_Include = this.SegmentQuery_Include;
+            context.SegmentSqlQuery = this.SegmentSqlQuery;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -204,6 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (requestSegmentQueryIsNull)
             {
                 request.SegmentQuery = null;
+            }
+            if (cmdletContext.SegmentSqlQuery != null)
+            {
+                request.SegmentSqlQuery = cmdletContext.SegmentSqlQuery;
             }
             
             CmdletOutput output;
@@ -269,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             public System.String DomainName { get; set; }
             public List<Amazon.CustomerProfiles.Model.Group> SegmentQuery_Group { get; set; }
             public Amazon.CustomerProfiles.IncludeOptions SegmentQuery_Include { get; set; }
+            public System.String SegmentSqlQuery { get; set; }
             public System.Func<Amazon.CustomerProfiles.Model.CreateSegmentEstimateResponse, NewCPFSegmentEstimateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

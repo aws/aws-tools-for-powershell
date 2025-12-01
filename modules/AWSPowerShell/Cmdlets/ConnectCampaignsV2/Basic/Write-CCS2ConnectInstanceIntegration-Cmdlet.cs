@@ -70,6 +70,17 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
         public System.String CustomerProfiles_DomainArn { get; set; }
         #endregion
         
+        #region Parameter Lambda_FunctionArn
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IntegrationConfig_Lambda_FunctionArn")]
+        public System.String Lambda_FunctionArn { get; set; }
+        #endregion
+        
         #region Parameter QConnect_KnowledgeBaseArn
         /// <summary>
         /// <para>
@@ -169,6 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
                     context.CustomerProfiles_ObjectTypeName.Add((String)hashKey, (System.String)(this.CustomerProfiles_ObjectTypeName[hashKey]));
                 }
             }
+            context.Lambda_FunctionArn = this.Lambda_FunctionArn;
             context.QConnect_KnowledgeBaseArn = this.QConnect_KnowledgeBaseArn;
             
             // allow further manipulation of loaded context prior to processing
@@ -194,6 +206,31 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
              // populate IntegrationConfig
             var requestIntegrationConfigIsNull = true;
             request.IntegrationConfig = new Amazon.ConnectCampaignsV2.Model.IntegrationConfig();
+            Amazon.ConnectCampaignsV2.Model.LambdaIntegrationConfig requestIntegrationConfig_integrationConfig_Lambda = null;
+            
+             // populate Lambda
+            var requestIntegrationConfig_integrationConfig_LambdaIsNull = true;
+            requestIntegrationConfig_integrationConfig_Lambda = new Amazon.ConnectCampaignsV2.Model.LambdaIntegrationConfig();
+            System.String requestIntegrationConfig_integrationConfig_Lambda_lambda_FunctionArn = null;
+            if (cmdletContext.Lambda_FunctionArn != null)
+            {
+                requestIntegrationConfig_integrationConfig_Lambda_lambda_FunctionArn = cmdletContext.Lambda_FunctionArn;
+            }
+            if (requestIntegrationConfig_integrationConfig_Lambda_lambda_FunctionArn != null)
+            {
+                requestIntegrationConfig_integrationConfig_Lambda.FunctionArn = requestIntegrationConfig_integrationConfig_Lambda_lambda_FunctionArn;
+                requestIntegrationConfig_integrationConfig_LambdaIsNull = false;
+            }
+             // determine if requestIntegrationConfig_integrationConfig_Lambda should be set to null
+            if (requestIntegrationConfig_integrationConfig_LambdaIsNull)
+            {
+                requestIntegrationConfig_integrationConfig_Lambda = null;
+            }
+            if (requestIntegrationConfig_integrationConfig_Lambda != null)
+            {
+                request.IntegrationConfig.Lambda = requestIntegrationConfig_integrationConfig_Lambda;
+                requestIntegrationConfigIsNull = false;
+            }
             Amazon.ConnectCampaignsV2.Model.QConnectIntegrationConfig requestIntegrationConfig_integrationConfig_QConnect = null;
             
              // populate QConnect
@@ -323,6 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             public System.String ConnectInstanceId { get; set; }
             public System.String CustomerProfiles_DomainArn { get; set; }
             public Dictionary<System.String, System.String> CustomerProfiles_ObjectTypeName { get; set; }
+            public System.String Lambda_FunctionArn { get; set; }
             public System.String QConnect_KnowledgeBaseArn { get; set; }
             public System.Func<Amazon.ConnectCampaignsV2.Model.PutConnectInstanceIntegrationResponse, WriteCCS2ConnectInstanceIntegrationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

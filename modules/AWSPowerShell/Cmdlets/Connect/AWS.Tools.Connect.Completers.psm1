@@ -165,6 +165,8 @@ $CONN_Completers = {
         # Amazon.Connect.ContactFlowType
         {
             ($_ -eq "Search-CONNContactFlow/SearchCriteria_TypeCondition") -Or
+            ($_ -eq "Search-CONNContactFlow/SearchFilter_FlowAttributeFilter_AndCondition_ContactFlowTypeCondition_ContactFlowType") -Or
+            ($_ -eq "Search-CONNContactFlow/SearchFilter_FlowAttributeFilter_ContactFlowTypeCondition_ContactFlowType") -Or
             ($_ -eq "New-CONNContactFlow/Type")
         }
         {
@@ -179,6 +181,23 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.ContactInteractionType
+        {
+            ($_ -eq "New-CONNEvaluationForm/TargetConfiguration_ContactInteractionType") -Or
+            ($_ -eq "Update-CONNEvaluationForm/TargetConfiguration_ContactInteractionType")
+        }
+        {
+            $v = "AGENT","AUTOMATED"
+            break
+        }
+
+        # Amazon.Connect.ContactMediaProcessingFailureMode
+        "Start-CONNContactMediaProcessing/FailureMode"
+        {
+            $v = "DELIVER_UNPROCESSED_MESSAGE","DO_NOT_DELIVER_UNPROCESSED_MESSAGE"
+            break
+        }
+
         # Amazon.Connect.ContactRecordingType
         {
             ($_ -eq "Resume-CONNContactRecording/ContactRecordingType") -Or
@@ -187,6 +206,33 @@ $CONN_Completers = {
         }
         {
             $v = "AGENT","IVR","SCREEN"
+            break
+        }
+
+        # Amazon.Connect.DataTableAttributeValueType
+        {
+            ($_ -eq "New-CONNDataTableAttribute/ValueType") -Or
+            ($_ -eq "Update-CONNDataTableAttribute/ValueType")
+        }
+        {
+            $v = "BOOLEAN","NUMBER","NUMBER_LIST","TEXT","TEXT_LIST"
+            break
+        }
+
+        # Amazon.Connect.DataTableLockLevel
+        {
+            ($_ -eq "New-CONNDataTable/ValueLockLevel") -Or
+            ($_ -eq "Update-CONNDataTableMetadata/ValueLockLevel")
+        }
+        {
+            $v = "ATTRIBUTE","DATA_TABLE","NONE","PRIMARY_VALUE","VALUE"
+            break
+        }
+
+        # Amazon.Connect.DataTableStatus
+        "New-CONNDataTable/Status"
+        {
+            $v = "PUBLISHED"
             break
         }
 
@@ -249,6 +295,27 @@ $CONN_Completers = {
         }
         {
             $v = "CONNECT_PHONENUMBER_ARN","CONTACT_FLOW","EMAIL_ADDRESS","TELEPHONE_NUMBER","VOIP"
+            break
+        }
+
+        # Amazon.Connect.EntityType
+        {
+            ($_ -eq "Add-CONNSecurityProfile/EntityType") -Or
+            ($_ -eq "Get-CONNEntitySecurityProfileList/EntityType") -Or
+            ($_ -eq "Unregister-CONNSecurityProfile/EntityType")
+        }
+        {
+            $v = "AI_AGENT","USER"
+            break
+        }
+
+        # Amazon.Connect.EvaluationFormLanguageCode
+        {
+            ($_ -eq "New-CONNEvaluationForm/LanguageConfiguration_FormLanguage") -Or
+            ($_ -eq "Update-CONNEvaluationForm/LanguageConfiguration_FormLanguage")
+        }
+        {
+            $v = "de-DE","en-US","es-ES","fr-FR","it-IT","pt-BR"
             break
         }
 
@@ -331,7 +398,7 @@ $CONN_Completers = {
             ($_ -eq "Update-CONNInstanceAttribute/AttributeType")
         }
         {
-            $v = "AUTO_RESOLVE_BEST_VOICES","CONTACTFLOW_LOGS","CONTACT_LENS","EARLY_MEDIA","ENHANCED_CHAT_MONITORING","ENHANCED_CONTACT_MONITORING","HIGH_VOLUME_OUTBOUND","INBOUND_CALLS","MULTI_PARTY_CHAT_CONFERENCE","MULTI_PARTY_CONFERENCE","OUTBOUND_CALLS","USE_CUSTOM_TTS_VOICES"
+            $v = "AUTO_RESOLVE_BEST_VOICES","CONTACTFLOW_LOGS","CONTACT_LENS","EARLY_MEDIA","ENHANCED_CHAT_MONITORING","ENHANCED_CONTACT_MONITORING","HIGH_VOLUME_OUTBOUND","INBOUND_CALLS","MESSAGE_STREAMING","MULTI_PARTY_CHAT_CONFERENCE","MULTI_PARTY_CONFERENCE","OUTBOUND_CALLS","USE_CUSTOM_TTS_VOICES"
             break
         }
 
@@ -354,7 +421,7 @@ $CONN_Completers = {
             ($_ -eq "New-CONNIntegrationAssociation/IntegrationType")
         }
         {
-            $v = "ANALYTICS_CONNECTOR","APPLICATION","CALL_TRANSFER_CONNECTOR","CASES_DOMAIN","COGNITO_USER_POOL","EVENT","FILE_SCANNER","PINPOINT_APP","Q_MESSAGE_TEMPLATES","SES_IDENTITY","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE","WISDOM_QUICK_RESPONSES"
+            $v = "ANALYTICS_CONNECTOR","APPLICATION","CALL_TRANSFER_CONNECTOR","CASES_DOMAIN","COGNITO_USER_POOL","EVENT","FILE_SCANNER","MESSAGE_PROCESSOR","PINPOINT_APP","Q_MESSAGE_TEMPLATES","SES_IDENTITY","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE","WISDOM_QUICK_RESPONSES"
             break
         }
 
@@ -386,6 +453,16 @@ $CONN_Completers = {
         }
         {
             $v = "ANALYTICS_CONNECTOR","INBOUND_EMAIL","OUTBOUND_EMAIL","VOICE_PHONE_NUMBER","WHATSAPP_MESSAGING_PHONE_NUMBER"
+            break
+        }
+
+        # Amazon.Connect.MediaType
+        {
+            ($_ -eq "Import-CONNWorkspaceMedia/MediaType") -Or
+            ($_ -eq "Remove-CONNWorkspaceMedia/MediaType")
+        }
+        {
+            $v = "IMAGE_LOGO_DARK_FAVICON","IMAGE_LOGO_DARK_HORIZONTAL","IMAGE_LOGO_LIGHT_FAVICON","IMAGE_LOGO_LIGHT_HORIZONTAL"
             break
         }
 
@@ -453,7 +530,7 @@ $CONN_Completers = {
             ($_ -eq "Update-CONNQuickConnectConfig/QuickConnectConfig_QuickConnectType")
         }
         {
-            $v = "PHONE_NUMBER","QUEUE","USER"
+            $v = "FLOW","PHONE_NUMBER","QUEUE","USER"
             break
         }
 
@@ -471,6 +548,13 @@ $CONN_Completers = {
         }
         {
             $v = "ENTIRE_PAST_SESSION","FROM_SEGMENT"
+            break
+        }
+
+        # Amazon.Connect.ResponseMode
+        "Start-CONNChatContact/ParticipantConfiguration_ResponseMode"
+        {
+            $v = "COMPLETE","INCREMENTAL"
             break
         }
 
@@ -560,6 +644,7 @@ $CONN_Completers = {
             ($_ -eq "Search-CONNContactEvaluation/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNContactFlow/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNContactFlowModule/StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNDataTable/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNEmailAddress/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNEvaluationForm/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNHoursOfOperation/StringCondition_ComparisonType") -Or
@@ -572,6 +657,9 @@ $CONN_Completers = {
             ($_ -eq "Search-CONNSecurityProfile/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNUser/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNUserHierarchyGroup/StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNView/StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNWorkspace/StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNWorkspaceAssociation/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNResourceTag/TagSearchCondition_TagKeyComparisonType") -Or
             ($_ -eq "Search-CONNResourceTag/TagSearchCondition_TagValueComparisonType")
         }
@@ -628,6 +716,7 @@ $CONN_Completers = {
 
         # Amazon.Connect.ViewStatus
         {
+            ($_ -eq "Search-CONNView/SearchCriteria_ViewStatusCondition") -Or
             ($_ -eq "New-CONNView/Status") -Or
             ($_ -eq "Update-CONNViewContent/Status")
         }
@@ -637,9 +726,19 @@ $CONN_Completers = {
         }
 
         # Amazon.Connect.ViewType
-        "Get-CONNViewList/Type"
+        {
+            ($_ -eq "Search-CONNView/SearchCriteria_ViewTypeCondition") -Or
+            ($_ -eq "Get-CONNViewList/Type")
+        }
         {
             $v = "AWS_MANAGED","CUSTOMER_MANAGED"
+            break
+        }
+
+        # Amazon.Connect.Visibility
+        "Update-CONNWorkspaceVisibility/Visibility"
+        {
+            $v = "ALL","ASSIGNED","NONE"
             break
         }
 
@@ -666,6 +765,18 @@ $CONN_Completers = {
         "Start-CONNContactRecording/VoiceRecordingConfiguration_VoiceRecordingTrack"
         {
             $v = "ALL","FROM_AGENT","TO_AGENT"
+            break
+        }
+
+        # Amazon.Connect.WorkspaceFontFamily
+        {
+            ($_ -eq "New-CONNWorkspace/Theme_Dark_Typography_FontFamily_Default") -Or
+            ($_ -eq "Update-CONNWorkspaceTheme/Theme_Dark_Typography_FontFamily_Default") -Or
+            ($_ -eq "New-CONNWorkspace/Theme_Light_Typography_FontFamily_Default") -Or
+            ($_ -eq "Update-CONNWorkspaceTheme/Theme_Light_Typography_FontFamily_Default")
+        }
+        {
+            $v = "Arial","Courier New","Georgia","Times New Roman","Trebuchet","Verdana"
             break
         }
 
@@ -698,8 +809,10 @@ $CONN_map = @{
     "DestinationEndpoint_Type"=@("Start-CONNOutboundChatContact")
     "DeviceType"=@("New-CONNPushNotificationRegistration")
     "EmailMessage_MessageSourceType"=@("Send-CONNOutboundEmail","Start-CONNEmailContact","Start-CONNOutboundEmailContact")
+    "EntityType"=@("Add-CONNSecurityProfile","Get-CONNEntitySecurityProfileList","Unregister-CONNSecurityProfile")
     "Event_Type"=@("Send-CONNChatIntegrationEvent")
     "EventSourceName"=@("Get-CONNRuleList")
+    "FailureMode"=@("Start-CONNContactMediaProcessing")
     "FileUseCaseType"=@("Start-CONNAttachedFileUpload")
     "HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "IdentityManagementType"=@("New-CONNInstance")
@@ -708,14 +821,17 @@ $CONN_map = @{
     "IntegrationType"=@("Get-CONNIntegrationAssociationList","New-CONNIntegrationAssociation")
     "Interval_IntervalPeriod"=@("Get-CONNMetricDataV2")
     "LanguageCode"=@("Add-CONNDefaultVocabulary","Get-CONNDefaultVocabularyList","New-CONNVocabulary","Search-CONNVocabulary")
+    "LanguageConfiguration_FormLanguage"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
     "LexVersion"=@("Get-CONNBotList")
     "ListCondition_TargetListType"=@("Search-CONNUser")
+    "MediaType"=@("Import-CONNWorkspaceMedia","Remove-CONNWorkspaceMedia")
     "Name_MatchType"=@("Search-CONNContact")
     "NumberCondition_ComparisonType"=@("Search-CONNContactEvaluation","Search-CONNEvaluationForm")
     "OutboundStrategy_Type"=@("Start-CONNOutboundVoiceContact")
     "OutputType"=@("Get-CONNRealtimeContactAnalysisSegmentsV2List")
     "ParticipantCapabilities_ScreenShare"=@("New-CONNParticipant")
     "ParticipantCapabilities_Video"=@("New-CONNParticipant")
+    "ParticipantConfiguration_ResponseMode"=@("Start-CONNChatContact")
     "ParticipantDetails_ParticipantRole"=@("New-CONNParticipant")
     "PersistentChat_RehydrationType"=@("Start-CONNChatContact")
     "PhoneNumberCountryCode"=@("Search-CONNAvailablePhoneNumber")
@@ -732,6 +848,10 @@ $CONN_map = @{
     "SearchCriteria_StateCondition"=@("Search-CONNContactFlow","Search-CONNContactFlowModule")
     "SearchCriteria_StatusCondition"=@("Search-CONNContactFlow","Search-CONNContactFlowModule")
     "SearchCriteria_TypeCondition"=@("Search-CONNContactFlow")
+    "SearchCriteria_ViewStatusCondition"=@("Search-CONNView")
+    "SearchCriteria_ViewTypeCondition"=@("Search-CONNView")
+    "SearchFilter_FlowAttributeFilter_AndCondition_ContactFlowTypeCondition_ContactFlowType"=@("Search-CONNContactFlow")
+    "SearchFilter_FlowAttributeFilter_ContactFlowTypeCondition_ContactFlowType"=@("Search-CONNContactFlow")
     "SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "SearchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "Sort_FieldName"=@("Search-CONNContact")
@@ -739,20 +859,26 @@ $CONN_map = @{
     "SourceEndpoint_Type"=@("Start-CONNOutboundChatContact")
     "SourceType"=@("New-CONNIntegrationAssociation")
     "State"=@("New-CONNAgentStatus","Search-CONNVocabulary","Update-CONNAgentStatus","Update-CONNContactFlowModuleMetadata")
-    "Status"=@("Get-CONNTaskTemplateList","New-CONNContactFlow","New-CONNTaskTemplate","New-CONNView","Update-CONNQueueStatus","Update-CONNTaskTemplate","Update-CONNViewContent")
+    "Status"=@("Get-CONNTaskTemplateList","New-CONNContactFlow","New-CONNDataTable","New-CONNTaskTemplate","New-CONNView","Update-CONNQueueStatus","Update-CONNTaskTemplate","Update-CONNViewContent")
     "StorageConfig_StorageType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfigKinesisVideoStreamConfigEncryptionConfigEncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfigS3ConfigEncryptionConfigEncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
-    "StringCondition_ComparisonType"=@("Search-CONNAgentStatus","Search-CONNContactEvaluation","Search-CONNContactFlow","Search-CONNContactFlowModule","Search-CONNEmailAddress","Search-CONNEvaluationForm","Search-CONNHoursOfOperation","Search-CONNHoursOfOperationOverride","Search-CONNPredefinedAttribute","Search-CONNPrompt","Search-CONNQueue","Search-CONNQuickConnect","Search-CONNRoutingProfile","Search-CONNSecurityProfile","Search-CONNUser","Search-CONNUserHierarchyGroup")
+    "StringCondition_ComparisonType"=@("Search-CONNAgentStatus","Search-CONNContactEvaluation","Search-CONNContactFlow","Search-CONNContactFlowModule","Search-CONNDataTable","Search-CONNEmailAddress","Search-CONNEvaluationForm","Search-CONNHoursOfOperation","Search-CONNHoursOfOperationOverride","Search-CONNPredefinedAttribute","Search-CONNPrompt","Search-CONNQueue","Search-CONNQuickConnect","Search-CONNRoutingProfile","Search-CONNSecurityProfile","Search-CONNUser","Search-CONNUserHierarchyGroup","Search-CONNView","Search-CONNWorkspace","Search-CONNWorkspaceAssociation")
     "SystemEndpoint_Type"=@("Update-CONNContact")
     "TagSearchCondition_TagKeyComparisonType"=@("Search-CONNResourceTag")
     "TagSearchCondition_TagValueComparisonType"=@("Search-CONNResourceTag")
+    "TargetConfiguration_ContactInteractionType"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
+    "Theme_Dark_Typography_FontFamily_Default"=@("New-CONNWorkspace","Update-CONNWorkspaceTheme")
+    "Theme_Light_Typography_FontFamily_Default"=@("New-CONNWorkspace","Update-CONNWorkspaceTheme")
     "TimeRange_Type"=@("Search-CONNContact")
     "TrafficType"=@("Send-CONNOutboundEmail","Start-CONNOutboundVoiceContact")
     "Transcript_MatchType"=@("Search-CONNContact")
     "TriggerEventSource_EventSourceName"=@("New-CONNRule")
     "Type"=@("Get-CONNViewList","New-CONNContactFlow")
     "UseCaseType"=@("New-CONNUseCase")
+    "ValueLockLevel"=@("New-CONNDataTable","Update-CONNDataTableMetadata")
+    "ValueType"=@("New-CONNDataTableAttribute","Update-CONNDataTableAttribute")
+    "Visibility"=@("Update-CONNWorkspaceVisibility")
     "VoiceRecordingConfiguration_IvrRecordingTrack"=@("Start-CONNContactRecording")
     "VoiceRecordingConfiguration_VoiceRecordingTrack"=@("Start-CONNContactRecording")
 }
@@ -822,13 +948,19 @@ $CONN_SelectMap = @{
                "Add-CONNQueueQuickConnect",
                "Join-CONNRoutingProfileQueue",
                "Add-CONNSecurityKey",
+               "Add-CONNSecurityProfile",
                "Add-CONNTrafficDistributionGroupUser",
                "Add-CONNUserProficiency",
+               "Add-CONNWorkspace",
                "Register-CONNBatchAnalyticsDataSet",
+               "New-CONNDataTableValueBatch",
+               "Remove-CONNDataTableValueBatch",
+               "Get-CONNDataTableValueDetailBatch",
                "Unregister-CONNBatchAnalyticsDataSet",
                "Get-CONNBatchAttachedFileMetadata",
                "Get-CONNFlowAssociationBatch",
                "Set-CONNBatchPutContact",
+               "Update-CONNDataTableValueBatch",
                "Request-CONNPhoneNumber",
                "Complete-CONNAttachedFileUpload",
                "New-CONNAgentStatus",
@@ -838,6 +970,8 @@ $CONN_SelectMap = @{
                "New-CONNContactFlowModuleAlias",
                "New-CONNContactFlowModuleVersion",
                "New-CONNContactFlowVersion",
+               "New-CONNDataTable",
+               "New-CONNDataTableAttribute",
                "New-CONNEmailAddress",
                "New-CONNEvaluationForm",
                "New-CONNHoursOfOperation",
@@ -862,6 +996,8 @@ $CONN_SelectMap = @{
                "New-CONNView",
                "New-CONNViewVersion",
                "New-CONNVocabulary",
+               "New-CONNWorkspace",
+               "New-CONNWorkspacePage",
                "Disable-CONNEvaluationForm",
                "Remove-CONNAttachedFile",
                "Remove-CONNContactEvaluation",
@@ -870,6 +1006,8 @@ $CONN_SelectMap = @{
                "Remove-CONNContactFlowModuleAlias",
                "Remove-CONNContactFlowModuleVersion",
                "Remove-CONNContactFlowVersion",
+               "Remove-CONNDataTable",
+               "Remove-CONNDataTableAttribute",
                "Remove-CONNEmailAddress",
                "Remove-CONNEvaluationForm",
                "Remove-CONNHoursOfOperation",
@@ -892,6 +1030,9 @@ $CONN_SelectMap = @{
                "Remove-CONNView",
                "Remove-CONNViewVersion",
                "Remove-CONNVocabulary",
+               "Remove-CONNWorkspace",
+               "Remove-CONNWorkspaceMedia",
+               "Remove-CONNWorkspacePage",
                "Get-CONNAgentStatus",
                "Get-CONNAuthenticationProfile",
                "Get-CONNContact",
@@ -899,6 +1040,8 @@ $CONN_SelectMap = @{
                "Get-CONNContactFlow",
                "Get-CONNContactFlowModule",
                "Get-CONNContactFlowModuleAliasDetail",
+               "Get-CONNDataTableDetail",
+               "Get-CONNDataTableAttributeDetail",
                "Get-CONNEmailAddress",
                "Get-CONNEvaluationForm",
                "Get-CONNHoursOfOperation",
@@ -920,6 +1063,7 @@ $CONN_SelectMap = @{
                "Get-CONNUserHierarchyStructure",
                "Get-CONNView",
                "Get-CONNVocabulary",
+               "Get-CONNWorkspaceDetail",
                "Unregister-CONNAnalyticsDataSet",
                "Remove-CONNApprovedOrigin",
                "Remove-CONNBot",
@@ -932,9 +1076,12 @@ $CONN_SelectMap = @{
                "Remove-CONNQueueQuickConnect",
                "Disconnect-CONNRoutingProfileQueue",
                "Remove-CONNSecurityKey",
+               "Unregister-CONNSecurityProfile",
                "Remove-CONNTrafficDistributionGroupUser",
                "Remove-CONNUserProficiency",
+               "Unregister-CONNWorkspace",
                "Write-CONNUserContact",
+               "Get-CONNDataTableValueEvaluation",
                "Get-CONNAttachedFile",
                "Get-CONNContactAttribute",
                "Get-CONNContactMetric",
@@ -949,6 +1096,7 @@ $CONN_SelectMap = @{
                "Get-CONNTaskTemplate",
                "Get-CONNTrafficDistribution",
                "Import-CONNPhoneNumber",
+               "Import-CONNWorkspaceMedia",
                "Get-CONNAgentStatusList",
                "Get-CONNAnalyticsDataAssociationList",
                "Get-CONNAnalyticsDataLakeDataSetList",
@@ -963,7 +1111,12 @@ $CONN_SelectMap = @{
                "Get-CONNContactFlowList",
                "Get-CONNContactFlowVersionList",
                "Get-CONNContactReferenceList",
+               "Get-CONNDataTableAttributeList",
+               "Get-CONNDataTablePrimaryValueList",
+               "Get-CONNDataTableList",
+               "Get-CONNDataTableValueList",
                "Get-CONNDefaultVocabularyList",
+               "Get-CONNEntitySecurityProfileList",
                "Get-CONNEvaluationFormList",
                "Get-CONNEvaluationFormVersionList",
                "Get-CONNFlowAssociationList",
@@ -989,6 +1142,7 @@ $CONN_SelectMap = @{
                "Get-CONNRuleList",
                "Get-CONNSecurityKeyList",
                "Get-CONNSecurityProfileApplicationList",
+               "Get-CONNSecurityProfileFlowModuleList",
                "Get-CONNSecurityProfilePermissionList",
                "Get-CONNSecurityProfileList",
                "Get-CONNResourceTag",
@@ -1001,6 +1155,9 @@ $CONN_SelectMap = @{
                "Get-CONNUserList",
                "Get-CONNViewList",
                "Get-CONNViewVersionList",
+               "Get-CONNWorkspaceMediaList",
+               "Get-CONNWorkspacePageList",
+               "Get-CONNWorkspaceList",
                "Start-CONNContactMonitoring",
                "Invoke-CONNPauseContact",
                "Write-CONNUserStatus",
@@ -1014,6 +1171,7 @@ $CONN_SelectMap = @{
                "Search-CONNContactFlowModule",
                "Search-CONNContactFlow",
                "Search-CONNContact",
+               "Search-CONNDataTable",
                "Search-CONNEmailAddress",
                "Search-CONNEvaluationForm",
                "Search-CONNHoursOfOperationOverride",
@@ -1027,12 +1185,16 @@ $CONN_SelectMap = @{
                "Search-CONNSecurityProfile",
                "Search-CONNUserHierarchyGroup",
                "Search-CONNUser",
+               "Search-CONNView",
                "Search-CONNVocabulary",
+               "Search-CONNWorkspaceAssociation",
+               "Search-CONNWorkspace",
                "Send-CONNChatIntegrationEvent",
                "Send-CONNOutboundEmail",
                "Start-CONNAttachedFileUpload",
                "Start-CONNChatContact",
                "Start-CONNContactEvaluation",
+               "Start-CONNContactMediaProcessing",
                "Start-CONNContactRecording",
                "Start-CONNContactStreaming",
                "Start-CONNEmailContact",
@@ -1043,6 +1205,7 @@ $CONN_SelectMap = @{
                "Start-CONNTaskContact",
                "Start-CONNWebRTCContact",
                "Stop-CONNContact",
+               "Stop-CONNContactMediaProcessing",
                "Stop-CONNContactRecording",
                "Stop-CONNContactStreaming",
                "Submit-CONNContactEvaluation",
@@ -1065,6 +1228,9 @@ $CONN_SelectMap = @{
                "Update-CONNContactFlowName",
                "Update-CONNContactRoutingData",
                "Update-CONNContactSchedule",
+               "Update-CONNDataTableAttribute",
+               "Update-CONNDataTableMetadata",
+               "Update-CONNDataTablePrimaryValue",
                "Update-CONNEmailAddressMetadata",
                "Update-CONNEvaluationForm",
                "Update-CONNHoursOfOperation",
@@ -1103,7 +1269,11 @@ $CONN_SelectMap = @{
                "Update-CONNUserRoutingProfile",
                "Update-CONNUserSecurityProfile",
                "Update-CONNViewContent",
-               "Update-CONNViewMetadata")
+               "Update-CONNViewMetadata",
+               "Update-CONNWorkspaceMetadata",
+               "Update-CONNWorkspacePage",
+               "Update-CONNWorkspaceTheme",
+               "Update-CONNWorkspaceVisibility")
 }
 
 _awsArgumentCompleterRegistration $CONN_SelectCompleters $CONN_SelectMap

@@ -84,6 +84,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateSecurityProfiles" Verb="Add" Noun="SecurityProfile" ShouldProcessTarget="InstanceId,EntityArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateTrafficDistributionGroupUser" Verb="Add" Noun="TrafficDistributionGroupUser" ShouldProcessTarget="TrafficDistributionGroupId" PipelineParameter="TrafficDistributionGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -92,7 +96,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateWorkspace" OutputProperty="*" Verb="Add" Noun="Workspace" ShouldProcessTarget="WorkspaceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchAssociateAnalyticsDataSet" OutputProperty="*" Verb="Register" Noun="BatchAnalyticsDataSet" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchCreateDataTableValue" OutputProperty="*" Verb="New" Noun="DataTableValueBatch" ShouldProcessTarget="DataTableId,InstanceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeleteDataTableValue" OutputProperty="*" Verb="Remove" Noun="DataTableValueBatch" ShouldProcessTarget="DataTableId,InstanceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDescribeDataTableValue" OutputProperty="*" Verb="Get" Noun="DataTableValueDetailBatch" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -109,6 +129,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="BatchPutContact" OutputProperty="*" Verb="Set" Noun="BatchPutContact" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchUpdateDataTableValue" OutputProperty="*" Verb="Update" Noun="DataTableValueBatch" ShouldProcessTarget="DataTableId,InstanceId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -145,6 +169,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateContactFlowVersion" OutputProperty="*" Verb="New" Noun="ContactFlowVersion" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDataTable" OutputProperty="*" Verb="New" Noun="DataTable" ShouldProcessTarget="InstanceId,Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDataTableAttribute" OutputProperty="*" Verb="New" Noun="DataTableAttribute" ShouldProcessTarget="DataTableId,InstanceId,Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -244,6 +276,55 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateWorkspace" OutputProperty="*" Verb="New" Noun="Workspace" ShouldProcessTarget="InstanceId,Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="Theme_Dark_Images_Logo_Default" NewName="Theme_Dark_Images_Logo_Default" />
+                <Param Name="Theme_Dark_Images_Logo_Favicon" NewName="Theme_Dark_Images_Logo_Favicon" />
+                <Param Name="Theme_Dark_Palette_Canvas_ActiveBackground" NewName="Theme_Dark_Palette_Canvas_ActiveBackground" />
+                <Param Name="Theme_Dark_Palette_Canvas_ContainerBackground" NewName="Theme_Dark_Palette_Canvas_ContainerBackground" />
+                <Param Name="Theme_Dark_Palette_Canvas_PageBackground" NewName="Theme_Dark_Palette_Canvas_PageBackground" />
+                <Param Name="Theme_Dark_Palette_Header_Background" NewName="Theme_Dark_Palette_Header_Background" />
+                <Param Name="Theme_Dark_Palette_Header_InvertActionsColors" NewName="Theme_Dark_Palette_Header_InvertActionsColors" />
+                <Param Name="Theme_Dark_Palette_Header_Text" NewName="Theme_Dark_Palette_Header_Text" />
+                <Param Name="Theme_Dark_Palette_Header_TextHover" NewName="Theme_Dark_Palette_Header_TextHover" />
+                <Param Name="Theme_Dark_Palette_Navigation_Background" NewName="Theme_Dark_Palette_Navigation_Background" />
+                <Param Name="Theme_Dark_Palette_Navigation_InvertActionsColors" NewName="Theme_Dark_Palette_Navigation_InvertActionsColors" />
+                <Param Name="Theme_Dark_Palette_Navigation_Text" NewName="Theme_Dark_Palette_Navigation_Text" />
+                <Param Name="Theme_Dark_Palette_Navigation_TextActive" NewName="Theme_Dark_Palette_Navigation_TextActive" />
+                <Param Name="Theme_Dark_Palette_Navigation_TextBackgroundActive" NewName="Theme_Dark_Palette_Navigation_TextBackgroundActive" />
+                <Param Name="Theme_Dark_Palette_Navigation_TextBackgroundHover" NewName="Theme_Dark_Palette_Navigation_TextBackgroundHover" />
+                <Param Name="Theme_Dark_Palette_Navigation_TextHover" NewName="Theme_Dark_Palette_Navigation_TextHover" />
+                <Param Name="Theme_Dark_Palette_Primary_Active" NewName="Theme_Dark_Palette_Primary_Active" />
+                <Param Name="Theme_Dark_Palette_Primary_ContrastText" NewName="Theme_Dark_Palette_Primary_ContrastText" />
+                <Param Name="Theme_Dark_Palette_Primary_Default" NewName="Theme_Dark_Palette_Primary_Default" />
+                <Param Name="Theme_Dark_Typography_FontFamily_Default" NewName="Theme_Dark_Typography_FontFamily_Default" />
+                <Param Name="Theme_Light_Images_Logo_Default" NewName="Theme_Light_Images_Logo_Default" />
+                <Param Name="Theme_Light_Images_Logo_Favicon" NewName="Theme_Light_Images_Logo_Favicon" />
+                <Param Name="Theme_Light_Palette_Canvas_ActiveBackground" NewName="Theme_Light_Palette_Canvas_ActiveBackground" />
+                <Param Name="Theme_Light_Palette_Canvas_ContainerBackground" NewName="Theme_Light_Palette_Canvas_ContainerBackground" />
+                <Param Name="Theme_Light_Palette_Canvas_PageBackground" NewName="Theme_Light_Palette_Canvas_PageBackground" />
+                <Param Name="Theme_Light_Palette_Header_Background" NewName="Theme_Light_Palette_Header_Background" />
+                <Param Name="Theme_Light_Palette_Header_InvertActionsColors" NewName="Theme_Light_Palette_Header_InvertActionsColors" />
+                <Param Name="Theme_Light_Palette_Header_Text" NewName="Theme_Light_Palette_Header_Text" />
+                <Param Name="Theme_Light_Palette_Header_TextHover" NewName="Theme_Light_Palette_Header_TextHover" />
+                <Param Name="Theme_Light_Palette_Navigation_Background" NewName="Theme_Light_Palette_Navigation_Background" />
+                <Param Name="Theme_Light_Palette_Navigation_InvertActionsColors" NewName="Theme_Light_Palette_Navigation_InvertActionsColors" />
+                <Param Name="Theme_Light_Palette_Navigation_Text" NewName="Theme_Light_Palette_Navigation_Text" />
+                <Param Name="Theme_Light_Palette_Navigation_TextActive" NewName="Theme_Light_Palette_Navigation_TextActive" />
+                <Param Name="Theme_Light_Palette_Navigation_TextBackgroundActive" NewName="Theme_Light_Palette_Navigation_TextBackgroundActive" />
+                <Param Name="Theme_Light_Palette_Navigation_TextBackgroundHover" NewName="Theme_Light_Palette_Navigation_TextBackgroundHover" />
+                <Param Name="Theme_Light_Palette_Navigation_TextHover" NewName="Theme_Light_Palette_Navigation_TextHover" />
+                <Param Name="Theme_Light_Palette_Primary_Active" NewName="Theme_Light_Palette_Primary_Active" />
+                <Param Name="Theme_Light_Palette_Primary_ContrastText" NewName="Theme_Light_Palette_Primary_ContrastText" />
+                <Param Name="Theme_Light_Palette_Primary_Default" NewName="Theme_Light_Palette_Primary_Default" />
+                <Param Name="Theme_Light_Typography_FontFamily_Default" NewName="Theme_Light_Typography_FontFamily_Default" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWorkspacePage" Verb="New" Noun="WorkspacePage" ShouldProcessTarget="InstanceId,WorkspaceId,ResourceArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeactivateEvaluationForm" OutputProperty="*" Verb="Disable" Noun="EvaluationForm" ShouldProcessTarget="EvaluationFormId" PipelineParameter="EvaluationFormId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -273,6 +354,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteContactFlowVersion" Verb="Remove" Noun="ContactFlowVersion" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDataTable" Verb="Remove" Noun="DataTable" ShouldProcessTarget="DataTableId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDataTableAttribute" OutputProperty="LockVersion" Verb="Remove" Noun="DataTableAttribute" ShouldProcessTarget="DataTableId,InstanceId,AttributeName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -364,6 +453,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWorkspace" Verb="Remove" Noun="Workspace" ShouldProcessTarget="WorkspaceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWorkspaceMedia" Verb="Remove" Noun="WorkspaceMedia" ShouldProcessTarget="InstanceId,WorkspaceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWorkspacePage" Verb="Remove" Noun="WorkspacePage" ShouldProcessTarget="InstanceId,WorkspaceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAgentStatus" OutputProperty="AgentStatus" Verb="Get" Noun="AgentStatus" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -389,6 +490,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeContactFlowModuleAlias" OutputProperty="ContactFlowModuleAlias" Verb="Get" Noun="ContactFlowModuleAliasDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDataTable" OutputProperty="DataTable" Verb="Get" Noun="DataTableDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDataTableAttribute" OutputProperty="Attribute" Verb="Get" Noun="DataTableAttributeDetail" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -476,6 +585,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWorkspace" OutputProperty="Workspace" Verb="Get" Noun="WorkspaceDetail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateAnalyticsDataSet" Verb="Unregister" Noun="AnalyticsDataSet" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -524,6 +637,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateSecurityProfiles" Verb="Unregister" Noun="SecurityProfile" ShouldProcessTarget="InstanceId,EntityArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateTrafficDistributionGroupUser" Verb="Remove" Noun="TrafficDistributionGroupUser" ShouldProcessTarget="TrafficDistributionGroupId" PipelineParameter="TrafficDistributionGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -532,7 +649,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateWorkspace" OutputProperty="*" Verb="Unregister" Noun="Workspace" ShouldProcessTarget="WorkspaceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DismissUserContact" Verb="Write" Noun="UserContact" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EvaluateDataTableValues" OutputProperty="Values" Verb="Get" Noun="DataTableValueEvaluation" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -592,6 +717,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ImportWorkspaceMedia" Verb="Import" Noun="WorkspaceMedia" ShouldProcessTarget="InstanceId,WorkspaceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAgentStatuses" OutputProperty="AgentStatusSummaryList" Verb="Get" Noun="AgentStatusList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -648,7 +777,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDataTableAttributes" OutputProperty="Attributes" Verb="Get" Noun="DataTableAttributeList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataTablePrimaryValues" OutputProperty="PrimaryValuesList" Verb="Get" Noun="DataTablePrimaryValueList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataTables" OutputProperty="DataTableSummaryList" Verb="Get" Noun="DataTableList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataTableValues" OutputProperty="Values" Verb="Get" Noun="DataTableValueList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDefaultVocabularies" OutputProperty="DefaultVocabularyList" Verb="Get" Noun="DefaultVocabularyList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEntitySecurityProfiles" OutputProperty="SecurityProfiles" Verb="Get" Noun="EntitySecurityProfileList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -752,6 +901,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListSecurityProfileFlowModules" OutputProperty="*" Verb="Get" Noun="SecurityProfileFlowModuleList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListSecurityProfilePermissions" OutputProperty="Permissions" Verb="Get" Noun="SecurityProfilePermissionList" PipelineParameter="SecurityProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -797,6 +950,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListViewVersions" OutputProperty="ViewVersionSummaryList" Verb="Get" Noun="ViewVersionList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkspaceMedia" OutputProperty="Media" Verb="Get" Noun="WorkspaceMediaList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkspacePages" OutputProperty="WorkspacePageList" Verb="Get" Noun="WorkspacePageList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkspaces" OutputProperty="WorkspaceSummaryList" Verb="Get" Noun="WorkspaceList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -852,10 +1017,21 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchContactFlows" OutputProperty="*" Verb="Search" Noun="ContactFlow" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="SearchFilter_FlowAttributeFilter_ContactFlowTypeCondition_ContactFlowType" NewName="SearchFilter_FlowAttributeFilter_ContactFlowTypeCondition_ContactFlowType" Alias="ContactFlowTypeCondition_ContactFlowType" />
+                <Param Name="SearchFilter_FlowAttributeFilter_AndCondition_ContactFlowTypeCondition_ContactFlowType" NewName="SearchFilter_FlowAttributeFilter_AndCondition_ContactFlowTypeCondition_ContactFlowType" />
+                <Param Name="SearchFilter_TagFilter_TagCondition_TagKey" NewName="SearchFilter_TagFilter_TagCondition_TagKey" Alias="TagCondition_TagKey" />
+                <Param Name="SearchFilter_FlowAttributeFilter_TagCondition_TagKey" NewName="SearchFilter_FlowAttributeFilter_TagCondition_TagKey" />
+                <Param Name="SearchFilter_TagFilter_TagCondition_TagValue" NewName="SearchFilter_TagFilter_TagCondition_TagValue" Alias="TagCondition_TagValue" />
+                <Param Name="SearchFilter_FlowAttributeFilter_TagCondition_TagValue" NewName="SearchFilter_FlowAttributeFilter_TagCondition_TagValue" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchContacts" OutputProperty="*" Verb="Search" Noun="Contact" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchDataTables" OutputProperty="*" Verb="Search" Noun="DataTable" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -975,7 +1151,19 @@
                 <Type>Amazon.Connect.Model.SearchUsersRequest</Type>
             </TypesNotToFlatten>
         </ServiceOperation>
+        <ServiceOperation MethodName="SearchViews" OutputProperty="*" Verb="Search" Noun="View" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SearchVocabularies" OutputProperty="VocabularySummaryList" Verb="Search" Noun="Vocabulary" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchWorkspaceAssociations" OutputProperty="*" Verb="Search" Noun="WorkspaceAssociation" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchWorkspaces" OutputProperty="*" Verb="Search" Noun="Workspace" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -996,6 +1184,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartContactEvaluation" OutputProperty="*" Verb="Start" Noun="ContactEvaluation" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="EvaluationFormId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartContactMediaProcessing" Verb="Start" Noun="ContactMediaProcessing" ShouldProcessTarget="ContactId,InstanceId,ProcessorArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1036,6 +1228,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopContact" Verb="Stop" Noun="Contact" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopContactMediaProcessing" Verb="Stop" Noun="ContactMediaProcessing" ShouldProcessTarget="ContactId,InstanceId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1124,6 +1320,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateContactSchedule" Verb="Update" Noun="ContactSchedule" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDataTableAttribute" OutputProperty="*" Verb="Update" Noun="DataTableAttribute" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDataTableMetadata" OutputProperty="LockVersion" Verb="Update" Noun="DataTableMetadata" ShouldProcessTarget="DataTableId,InstanceId,Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDataTablePrimaryValues" OutputProperty="LockVersion" Verb="Update" Noun="DataTablePrimaryValue" ShouldProcessTarget="DataTableId,InstanceId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1285,6 +1493,63 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateViewMetadata" Verb="Update" Noun="ViewMetadata" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWorkspaceMetadata" Verb="Update" Noun="WorkspaceMetadata" ShouldProcessTarget="InstanceId,WorkspaceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWorkspacePage" Verb="Update" Noun="WorkspacePage" ShouldProcessTarget="InstanceId,WorkspaceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWorkspaceTheme" Verb="Update" Noun="WorkspaceTheme" ShouldProcessTarget="InstanceId,WorkspaceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="Theme_Dark_Images_Logo_Default" NewName="Theme_Dark_Images_Logo_Default" />
+                <Param Name="Theme_Dark_Images_Logo_Favicon" NewName="Theme_Dark_Images_Logo_Favicon" />
+                <Param Name="Theme_Dark_Palette_Canvas_ActiveBackground" NewName="Theme_Dark_Palette_Canvas_ActiveBackground" />
+                <Param Name="Theme_Dark_Palette_Canvas_ContainerBackground" NewName="Theme_Dark_Palette_Canvas_ContainerBackground" />
+                <Param Name="Theme_Dark_Palette_Canvas_PageBackground" NewName="Theme_Dark_Palette_Canvas_PageBackground" />
+                <Param Name="Theme_Dark_Palette_Header_Background" NewName="Theme_Dark_Palette_Header_Background" />
+                <Param Name="Theme_Dark_Palette_Header_InvertActionsColors" NewName="Theme_Dark_Palette_Header_InvertActionsColors" />
+                <Param Name="Theme_Dark_Palette_Header_Text" NewName="Theme_Dark_Palette_Header_Text" />
+                <Param Name="Theme_Dark_Palette_Header_TextHover" NewName="Theme_Dark_Palette_Header_TextHover" />
+                <Param Name="Theme_Dark_Palette_Navigation_Background" NewName="Theme_Dark_Palette_Navigation_Background" />
+                <Param Name="Theme_Dark_Palette_Navigation_InvertActionsColors" NewName="Theme_Dark_Palette_Navigation_InvertActionsColors" />
+                <Param Name="Theme_Dark_Palette_Navigation_Text" NewName="Theme_Dark_Palette_Navigation_Text" />
+                <Param Name="Theme_Dark_Palette_Navigation_TextActive" NewName="Theme_Dark_Palette_Navigation_TextActive" />
+                <Param Name="Theme_Dark_Palette_Navigation_TextBackgroundActive" NewName="Theme_Dark_Palette_Navigation_TextBackgroundActive" />
+                <Param Name="Theme_Dark_Palette_Navigation_TextBackgroundHover" NewName="Theme_Dark_Palette_Navigation_TextBackgroundHover" />
+                <Param Name="Theme_Dark_Palette_Navigation_TextHover" NewName="Theme_Dark_Palette_Navigation_TextHover" />
+                <Param Name="Theme_Dark_Palette_Primary_Active" NewName="Theme_Dark_Palette_Primary_Active" />
+                <Param Name="Theme_Dark_Palette_Primary_ContrastText" NewName="Theme_Dark_Palette_Primary_ContrastText" />
+                <Param Name="Theme_Dark_Palette_Primary_Default" NewName="Theme_Dark_Palette_Primary_Default" />
+                <Param Name="Theme_Dark_Typography_FontFamily_Default" NewName="Theme_Dark_Typography_FontFamily_Default" />
+                <Param Name="Theme_Light_Images_Logo_Default" NewName="Theme_Light_Images_Logo_Default" />
+                <Param Name="Theme_Light_Images_Logo_Favicon" NewName="Theme_Light_Images_Logo_Favicon" />
+                <Param Name="Theme_Light_Palette_Canvas_ActiveBackground" NewName="Theme_Light_Palette_Canvas_ActiveBackground" />
+                <Param Name="Theme_Light_Palette_Canvas_ContainerBackground" NewName="Theme_Light_Palette_Canvas_ContainerBackground" />
+                <Param Name="Theme_Light_Palette_Canvas_PageBackground" NewName="Theme_Light_Palette_Canvas_PageBackground" />
+                <Param Name="Theme_Light_Palette_Header_Background" NewName="Theme_Light_Palette_Header_Background" />
+                <Param Name="Theme_Light_Palette_Header_InvertActionsColors" NewName="Theme_Light_Palette_Header_InvertActionsColors" />
+                <Param Name="Theme_Light_Palette_Header_Text" NewName="Theme_Light_Palette_Header_Text" />
+                <Param Name="Theme_Light_Palette_Header_TextHover" NewName="Theme_Light_Palette_Header_TextHover" />
+                <Param Name="Theme_Light_Palette_Navigation_Background" NewName="Theme_Light_Palette_Navigation_Background" />
+                <Param Name="Theme_Light_Palette_Navigation_InvertActionsColors" NewName="Theme_Light_Palette_Navigation_InvertActionsColors" />
+                <Param Name="Theme_Light_Palette_Navigation_Text" NewName="Theme_Light_Palette_Navigation_Text" />
+                <Param Name="Theme_Light_Palette_Navigation_TextActive" NewName="Theme_Light_Palette_Navigation_TextActive" />
+                <Param Name="Theme_Light_Palette_Navigation_TextBackgroundActive" NewName="Theme_Light_Palette_Navigation_TextBackgroundActive" />
+                <Param Name="Theme_Light_Palette_Navigation_TextBackgroundHover" NewName="Theme_Light_Palette_Navigation_TextBackgroundHover" />
+                <Param Name="Theme_Light_Palette_Navigation_TextHover" NewName="Theme_Light_Palette_Navigation_TextHover" />
+                <Param Name="Theme_Light_Palette_Primary_Active" NewName="Theme_Light_Palette_Primary_Active" />
+                <Param Name="Theme_Light_Palette_Primary_ContrastText" NewName="Theme_Light_Palette_Primary_ContrastText" />
+                <Param Name="Theme_Light_Palette_Primary_Default" NewName="Theme_Light_Palette_Primary_Default" />
+                <Param Name="Theme_Light_Typography_FontFamily_Default" NewName="Theme_Light_Typography_FontFamily_Default" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWorkspaceVisibility" Verb="Update" Noun="WorkspaceVisibility" ShouldProcessTarget="InstanceId,WorkspaceId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

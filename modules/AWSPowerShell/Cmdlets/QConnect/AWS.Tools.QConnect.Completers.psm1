@@ -87,7 +87,7 @@ $QC_Completers = {
             ($_ -eq "New-QCAIAgent/Type")
         }
         {
-            $v = "ANSWER_RECOMMENDATION","EMAIL_GENERATIVE_ANSWER","EMAIL_OVERVIEW","EMAIL_RESPONSE","MANUAL_SEARCH","SELF_SERVICE"
+            $v = "ANSWER_RECOMMENDATION","CASE_SUMMARIZATION","EMAIL_GENERATIVE_ANSWER","EMAIL_OVERVIEW","EMAIL_RESPONSE","MANUAL_SEARCH","NOTE_TAKING","ORCHESTRATION","SELF_SERVICE"
             break
         }
 
@@ -108,7 +108,7 @@ $QC_Completers = {
         # Amazon.QConnect.AIPromptType
         "New-QCAIPrompt/Type"
         {
-            $v = "ANSWER_GENERATION","EMAIL_GENERATIVE_ANSWER","EMAIL_OVERVIEW","EMAIL_QUERY_REFORMULATION","EMAIL_RESPONSE","INTENT_LABELING_GENERATION","QUERY_REFORMULATION","SELF_SERVICE_ANSWER_GENERATION","SELF_SERVICE_PRE_PROCESSING"
+            $v = "ANSWER_GENERATION","CASE_SUMMARIZATION","EMAIL_GENERATIVE_ANSWER","EMAIL_OVERVIEW","EMAIL_QUERY_REFORMULATION","EMAIL_RESPONSE","INTENT_LABELING_GENERATION","NOTE_TAKING","ORCHESTRATION","QUERY_REFORMULATION","SELF_SERVICE_ANSWER_GENERATION","SELF_SERVICE_PRE_PROCESSING"
             break
         }
 
@@ -122,7 +122,7 @@ $QC_Completers = {
         # Amazon.QConnect.AssociationType
         "New-QCAssistantAssociation/AssociationType"
         {
-            $v = "KNOWLEDGE_BASE"
+            $v = "EXTERNAL_BEDROCK_KNOWLEDGE_BASE","KNOWLEDGE_BASE"
             break
         }
 
@@ -169,7 +169,10 @@ $QC_Completers = {
         }
 
         # Amazon.QConnect.KnowledgeBaseSearchType
-        "Search-QCAssistant/OverrideKnowledgeBaseSearchType"
+        {
+            ($_ -eq "Search-QCAssistant/OverrideKnowledgeBaseSearchType") -Or
+            ($_ -eq "Invoke-QCRetrieve/RetrievalConfiguration_OverrideKnowledgeBaseSearchType")
+        }
         {
             $v = "HYBRID","SEMANTIC"
             break
@@ -179,6 +182,13 @@ $QC_Completers = {
         "New-QCKnowledgeBase/KnowledgeBaseType"
         {
             $v = "CUSTOM","EXTERNAL","MANAGED","MESSAGE_TEMPLATES","QUICK_RESPONSES"
+            break
+        }
+
+        # Amazon.QConnect.MessageFilterType
+        "Get-QCMessageList/Filter"
+        {
+            $v = "ALL","TEXT_ONLY"
             break
         }
 
@@ -231,6 +241,13 @@ $QC_Completers = {
         }
         {
             $v = "DEEP_LINK","OPEN_APP","URL"
+            break
+        }
+
+        # Amazon.QConnect.RecommendationType
+        "Get-QCRecommendation/RecommendationType"
+        {
+            $v = "BLOCKED_CASE_SUMMARIZATION_CHUNK","BLOCKED_GENERATIVE_ANSWER_CHUNK","BLOCKED_INTENT_ANSWER_CHUNK","BLOCKED_NOTES_CHUNK","CASE_SUMMARIZATION_CHUNK","DETECTED_INTENT","EMAIL_GENERATIVE_ANSWER_CHUNK","EMAIL_OVERVIEW_CHUNK","EMAIL_RESPONSE_CHUNK","GENERATIVE_ANSWER","GENERATIVE_ANSWER_CHUNK","GENERATIVE_RESPONSE","INTENT_ANSWER_CHUNK","KNOWLEDGE_CONTENT","NOTES_CHUNK","SUGGESTED_MESSAGE"
             break
         }
 
@@ -296,6 +313,7 @@ $QC_map = @{
     "ContentDisposition"=@("New-QCMessageTemplateAttachment")
     "ExternalSourceConfiguration_Source"=@("Start-QCImportJob")
     "Fcm_Action"=@("New-QCMessageTemplate","Update-QCMessageTemplate")
+    "Filter"=@("Get-QCMessageList")
     "GenerativeContentFeedbackData_Relevance"=@("Write-QCFeedback")
     "ImportJobType"=@("Start-QCImportJob")
     "KnowledgeBaseType"=@("New-QCKnowledgeBase")
@@ -304,6 +322,8 @@ $QC_map = @{
     "Origin"=@("Get-QCAIAgentList","Get-QCAIAgentVersionList","Get-QCAIPromptList","Get-QCAIPromptVersionList")
     "OverrideKnowledgeBaseSearchType"=@("Search-QCAssistant")
     "ParsingConfiguration_ParsingStrategy"=@("New-QCKnowledgeBase")
+    "RecommendationType"=@("Get-QCRecommendation")
+    "RetrievalConfiguration_OverrideKnowledgeBaseSearchType"=@("Invoke-QCRetrieve")
     "TargetType"=@("Write-QCFeedback")
     "TemplateType"=@("New-QCAIPrompt")
     "Type"=@("New-QCAIAgent","New-QCAIPrompt","New-QCAssistant","Send-QCMessage")
@@ -425,6 +445,7 @@ $QC_SelectMap = @{
                "Get-QCMessageTemplateList",
                "Get-QCMessageTemplateVersionList",
                "Get-QCQuickResponseList",
+               "Get-QCSpanList",
                "Get-QCResourceTag",
                "Remove-QCRecommendationsReceived",
                "Write-QCFeedback",
@@ -432,6 +453,7 @@ $QC_SelectMap = @{
                "Remove-QCAssistantAIAgent",
                "Remove-QCKnowledgeBaseTemplateUri",
                "Invoke-QCMessageTemplate",
+               "Invoke-QCRetrieve",
                "Search-QCContent",
                "Search-QCMessageTemplate",
                "Search-QCQuickResponse",

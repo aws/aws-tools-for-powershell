@@ -33,6 +33,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCapacityProvider" OutputProperty="CapacityProvider" Verb="New" Noun="CapacityProvider" ShouldProcessTarget="CapacityProviderName" PipelineParameter="CapacityProviderName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCodeSigningConfig" OutputProperty="*" Verb="New" Noun="CodeSigningConfig" ShouldProcessTarget="Description" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -68,6 +72,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCapacityProvider" OutputProperty="CapacityProvider" Verb="Remove" Noun="CapacityProvider" ShouldProcessTarget="CapacityProviderName" PipelineParameter="CapacityProviderName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteCodeSigningConfig" Verb="Remove" Noun="CodeSigningConfig" ShouldProcessTarget="CodeSigningConfigArn" PipelineParameter="CodeSigningConfigArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -76,7 +84,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFunction" Verb="Remove" Noun="Function" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeleteFunction" OutputProperty="StatusCode" Verb="Remove" Noun="Function" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -112,6 +120,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCapacityProvider" OutputProperty="CapacityProvider" Verb="Get" Noun="CapacityProvider" PipelineParameter="CapacityProviderName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetCodeSigningConfig" OutputProperty="*" Verb="Get" Noun="CodeSigningConfig" PipelineParameter="CodeSigningConfigArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -141,6 +153,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetFunctionRecursionConfig" OutputProperty="RecursiveLoop" Verb="Get" Noun="FunctionRecursionConfig" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFunctionScalingConfig" OutputProperty="*" Verb="Get" Noun="FunctionScalingConfig" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -194,6 +210,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListCapacityProviders" OutputProperty="CapacityProviders" Verb="Get" Noun="CapacityProviderList" PipelineParameter="State" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListCodeSigningConfigs" OutputProperty="*" Verb="Get" Noun="CodeSigningConfigList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -215,6 +235,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListFunctionUrlConfigs" OutputProperty="FunctionUrlConfigs" Verb="Get" Noun="FunctionUrlConfigList" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFunctionVersionsByCapacityProvider" OutputProperty="*" Verb="Get" Noun="FunctionVersionsByCapacityProviderList" PipelineParameter="CapacityProviderName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -262,6 +286,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutFunctionScalingConfig" OutputProperty="FunctionState" Verb="Write" Noun="FunctionScalingConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutProvisionedConcurrencyConfig" OutputProperty="*" Verb="Write" Noun="ProvisionedConcurrencyConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -287,6 +315,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAlias" OutputProperty="*" Verb="Update" Noun="Alias" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCapacityProvider" OutputProperty="CapacityProvider" Verb="Update" Noun="CapacityProvider" ShouldProcessTarget="CapacityProviderName" PipelineParameter="CapacityProviderName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

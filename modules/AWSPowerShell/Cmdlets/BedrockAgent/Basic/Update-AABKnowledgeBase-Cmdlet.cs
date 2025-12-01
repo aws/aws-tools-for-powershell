@@ -58,6 +58,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter BedrockEmbeddingModelConfiguration_Audio
+        /// <summary>
+        /// <para>
+        /// <para>Configuration settings for processing audio content in multimodal knowledge bases.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Audio")]
+        public Amazon.BedrockAgent.Model.AudioConfiguration[] BedrockEmbeddingModelConfiguration_Audio { get; set; }
+        #endregion
+        
         #region Parameter ProvisionedConfiguration_ClusterIdentifier
         /// <summary>
         /// <para>
@@ -870,6 +881,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String RedisEnterpriseCloudConfiguration_VectorIndexName { get; set; }
         #endregion
         
+        #region Parameter BedrockEmbeddingModelConfiguration_Video
+        /// <summary>
+        /// <para>
+        /// <para>Configuration settings for processing video content in multimodal knowledge bases.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Video")]
+        public Amazon.BedrockAgent.Model.VideoConfiguration[] BedrockEmbeddingModelConfiguration_Video { get; set; }
+        #endregion
+        
         #region Parameter ServerlessConfiguration_WorkgroupArn
         /// <summary>
         /// <para>
@@ -975,8 +997,16 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             }
             #endif
             context.VectorKnowledgeBaseConfiguration_EmbeddingModelArn = this.VectorKnowledgeBaseConfiguration_EmbeddingModelArn;
+            if (this.BedrockEmbeddingModelConfiguration_Audio != null)
+            {
+                context.BedrockEmbeddingModelConfiguration_Audio = new List<Amazon.BedrockAgent.Model.AudioConfiguration>(this.BedrockEmbeddingModelConfiguration_Audio);
+            }
             context.BedrockEmbeddingModelConfiguration_Dimension = this.BedrockEmbeddingModelConfiguration_Dimension;
             context.BedrockEmbeddingModelConfiguration_EmbeddingDataType = this.BedrockEmbeddingModelConfiguration_EmbeddingDataType;
+            if (this.BedrockEmbeddingModelConfiguration_Video != null)
+            {
+                context.BedrockEmbeddingModelConfiguration_Video = new List<Amazon.BedrockAgent.Model.VideoConfiguration>(this.BedrockEmbeddingModelConfiguration_Video);
+            }
             if (this.SupplementalDataStorageConfiguration_StorageLocation != null)
             {
                 context.SupplementalDataStorageConfiguration_StorageLocation = new List<Amazon.BedrockAgent.Model.SupplementalDataStorageLocation>(this.SupplementalDataStorageConfiguration_StorageLocation);
@@ -1399,6 +1429,16 @@ namespace Amazon.PowerShell.Cmdlets.AAB
              // populate BedrockEmbeddingModelConfiguration
             var requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfigurationIsNull = true;
             requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration = new Amazon.BedrockAgent.Model.BedrockEmbeddingModelConfiguration();
+            List<Amazon.BedrockAgent.Model.AudioConfiguration> requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_bedrockEmbeddingModelConfiguration_Audio = null;
+            if (cmdletContext.BedrockEmbeddingModelConfiguration_Audio != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_bedrockEmbeddingModelConfiguration_Audio = cmdletContext.BedrockEmbeddingModelConfiguration_Audio;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_bedrockEmbeddingModelConfiguration_Audio != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration.Audio = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_bedrockEmbeddingModelConfiguration_Audio;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfigurationIsNull = false;
+            }
             System.Int32? requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_bedrockEmbeddingModelConfiguration_Dimension = null;
             if (cmdletContext.BedrockEmbeddingModelConfiguration_Dimension != null)
             {
@@ -1417,6 +1457,16 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_bedrockEmbeddingModelConfiguration_EmbeddingDataType != null)
             {
                 requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration.EmbeddingDataType = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_bedrockEmbeddingModelConfiguration_EmbeddingDataType;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfigurationIsNull = false;
+            }
+            List<Amazon.BedrockAgent.Model.VideoConfiguration> requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_bedrockEmbeddingModelConfiguration_Video = null;
+            if (cmdletContext.BedrockEmbeddingModelConfiguration_Video != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_bedrockEmbeddingModelConfiguration_Video = cmdletContext.BedrockEmbeddingModelConfiguration_Video;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_bedrockEmbeddingModelConfiguration_Video != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration.Video = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_bedrockEmbeddingModelConfiguration_Video;
                 requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfigurationIsNull = false;
             }
              // determine if requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration should be set to null
@@ -2283,8 +2333,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public Amazon.BedrockAgent.QueryEngineType SqlKnowledgeBaseConfiguration_Type { get; set; }
             public Amazon.BedrockAgent.KnowledgeBaseType KnowledgeBaseConfiguration_Type { get; set; }
             public System.String VectorKnowledgeBaseConfiguration_EmbeddingModelArn { get; set; }
+            public List<Amazon.BedrockAgent.Model.AudioConfiguration> BedrockEmbeddingModelConfiguration_Audio { get; set; }
             public System.Int32? BedrockEmbeddingModelConfiguration_Dimension { get; set; }
             public Amazon.BedrockAgent.EmbeddingDataType BedrockEmbeddingModelConfiguration_EmbeddingDataType { get; set; }
+            public List<Amazon.BedrockAgent.Model.VideoConfiguration> BedrockEmbeddingModelConfiguration_Video { get; set; }
             public List<Amazon.BedrockAgent.Model.SupplementalDataStorageLocation> SupplementalDataStorageConfiguration_StorageLocation { get; set; }
             public System.String KnowledgeBaseId { get; set; }
             public System.String Name { get; set; }

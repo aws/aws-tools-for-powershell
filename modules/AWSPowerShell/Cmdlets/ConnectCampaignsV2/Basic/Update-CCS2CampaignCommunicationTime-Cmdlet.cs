@@ -72,6 +72,17 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
         public System.Collections.Hashtable CommunicationTimeConfig_Telephony_OpenHours_DailyHours { get; set; }
         #endregion
         
+        #region Parameter OpenHours_DailyHour
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CommunicationTimeConfig_WhatsApp_OpenHours_DailyHours")]
+        public System.Collections.Hashtable OpenHours_DailyHour { get; set; }
+        #endregion
+        
         #region Parameter LocalTimeZoneConfig_DefaultTimeZone
         /// <summary>
         /// <para>
@@ -139,6 +150,17 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.ConnectCampaignsV2.Model.RestrictedPeriod[] CommunicationTimeConfig_Telephony_RestrictedPeriods_RestrictedPeriodList { get; set; }
+        #endregion
+        
+        #region Parameter RestrictedPeriods_RestrictedPeriodList
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CommunicationTimeConfig_WhatsApp_RestrictedPeriods_RestrictedPeriodList")]
+        public Amazon.ConnectCampaignsV2.Model.RestrictedPeriod[] RestrictedPeriods_RestrictedPeriodList { get; set; }
         #endregion
         
         #region Parameter Select
@@ -278,6 +300,30 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (this.CommunicationTimeConfig_Telephony_RestrictedPeriods_RestrictedPeriodList != null)
             {
                 context.CommunicationTimeConfig_Telephony_RestrictedPeriods_RestrictedPeriodList = new List<Amazon.ConnectCampaignsV2.Model.RestrictedPeriod>(this.CommunicationTimeConfig_Telephony_RestrictedPeriods_RestrictedPeriodList);
+            }
+            if (this.OpenHours_DailyHour != null)
+            {
+                context.OpenHours_DailyHour = new Dictionary<System.String, List<Amazon.ConnectCampaignsV2.Model.TimeRange>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.OpenHours_DailyHour.Keys)
+                {
+                    object hashValue = this.OpenHours_DailyHour[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.OpenHours_DailyHour.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<Amazon.ConnectCampaignsV2.Model.TimeRange>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((Amazon.ConnectCampaignsV2.Model.TimeRange)s);
+                    }
+                    context.OpenHours_DailyHour.Add((String)hashKey, valueSet);
+                }
+            }
+            if (this.RestrictedPeriods_RestrictedPeriodList != null)
+            {
+                context.RestrictedPeriods_RestrictedPeriodList = new List<Amazon.ConnectCampaignsV2.Model.RestrictedPeriod>(this.RestrictedPeriods_RestrictedPeriodList);
             }
             context.Id = this.Id;
             #if MODULAR
@@ -536,6 +582,71 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
                 request.CommunicationTimeConfig.Telephony = requestCommunicationTimeConfig_communicationTimeConfig_Telephony;
                 requestCommunicationTimeConfigIsNull = false;
             }
+            Amazon.ConnectCampaignsV2.Model.TimeWindow requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp = null;
+            
+             // populate WhatsApp
+            var requestCommunicationTimeConfig_communicationTimeConfig_WhatsAppIsNull = true;
+            requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp = new Amazon.ConnectCampaignsV2.Model.TimeWindow();
+            Amazon.ConnectCampaignsV2.Model.OpenHours requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_OpenHours = null;
+            
+             // populate OpenHours
+            var requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_OpenHoursIsNull = true;
+            requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_OpenHours = new Amazon.ConnectCampaignsV2.Model.OpenHours();
+            Dictionary<System.String, List<Amazon.ConnectCampaignsV2.Model.TimeRange>> requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_OpenHours_openHours_DailyHour = null;
+            if (cmdletContext.OpenHours_DailyHour != null)
+            {
+                requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_OpenHours_openHours_DailyHour = cmdletContext.OpenHours_DailyHour;
+            }
+            if (requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_OpenHours_openHours_DailyHour != null)
+            {
+                requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_OpenHours.DailyHours = requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_OpenHours_openHours_DailyHour;
+                requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_OpenHoursIsNull = false;
+            }
+             // determine if requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_OpenHours should be set to null
+            if (requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_OpenHoursIsNull)
+            {
+                requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_OpenHours = null;
+            }
+            if (requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_OpenHours != null)
+            {
+                requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp.OpenHours = requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_OpenHours;
+                requestCommunicationTimeConfig_communicationTimeConfig_WhatsAppIsNull = false;
+            }
+            Amazon.ConnectCampaignsV2.Model.RestrictedPeriods requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_RestrictedPeriods = null;
+            
+             // populate RestrictedPeriods
+            var requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_RestrictedPeriodsIsNull = true;
+            requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_RestrictedPeriods = new Amazon.ConnectCampaignsV2.Model.RestrictedPeriods();
+            List<Amazon.ConnectCampaignsV2.Model.RestrictedPeriod> requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_RestrictedPeriods_restrictedPeriods_RestrictedPeriodList = null;
+            if (cmdletContext.RestrictedPeriods_RestrictedPeriodList != null)
+            {
+                requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_RestrictedPeriods_restrictedPeriods_RestrictedPeriodList = cmdletContext.RestrictedPeriods_RestrictedPeriodList;
+            }
+            if (requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_RestrictedPeriods_restrictedPeriods_RestrictedPeriodList != null)
+            {
+                requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_RestrictedPeriods.RestrictedPeriodList = requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_RestrictedPeriods_restrictedPeriods_RestrictedPeriodList;
+                requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_RestrictedPeriodsIsNull = false;
+            }
+             // determine if requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_RestrictedPeriods should be set to null
+            if (requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_RestrictedPeriodsIsNull)
+            {
+                requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_RestrictedPeriods = null;
+            }
+            if (requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_RestrictedPeriods != null)
+            {
+                requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp.RestrictedPeriods = requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp_communicationTimeConfig_WhatsApp_RestrictedPeriods;
+                requestCommunicationTimeConfig_communicationTimeConfig_WhatsAppIsNull = false;
+            }
+             // determine if requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp should be set to null
+            if (requestCommunicationTimeConfig_communicationTimeConfig_WhatsAppIsNull)
+            {
+                requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp = null;
+            }
+            if (requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp != null)
+            {
+                request.CommunicationTimeConfig.WhatsApp = requestCommunicationTimeConfig_communicationTimeConfig_WhatsApp;
+                requestCommunicationTimeConfigIsNull = false;
+            }
              // determine if request.CommunicationTimeConfig should be set to null
             if (requestCommunicationTimeConfigIsNull)
             {
@@ -614,6 +725,8 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             public List<Amazon.ConnectCampaignsV2.Model.RestrictedPeriod> CommunicationTimeConfig_Sms_RestrictedPeriods_RestrictedPeriodList { get; set; }
             public Dictionary<System.String, List<Amazon.ConnectCampaignsV2.Model.TimeRange>> CommunicationTimeConfig_Telephony_OpenHours_DailyHours { get; set; }
             public List<Amazon.ConnectCampaignsV2.Model.RestrictedPeriod> CommunicationTimeConfig_Telephony_RestrictedPeriods_RestrictedPeriodList { get; set; }
+            public Dictionary<System.String, List<Amazon.ConnectCampaignsV2.Model.TimeRange>> OpenHours_DailyHour { get; set; }
+            public List<Amazon.ConnectCampaignsV2.Model.RestrictedPeriod> RestrictedPeriods_RestrictedPeriodList { get; set; }
             public System.String Id { get; set; }
             public System.Func<Amazon.ConnectCampaignsV2.Model.UpdateCampaignCommunicationTimeResponse, UpdateCCS2CampaignCommunicationTimeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

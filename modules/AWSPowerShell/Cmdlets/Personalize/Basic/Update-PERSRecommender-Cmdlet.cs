@@ -80,6 +80,21 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         public System.Collections.Hashtable TrainingDataConfig_ExcludedDatasetColumn { get; set; }
         #endregion
         
+        #region Parameter TrainingDataConfig_IncludedDatasetColumn
+        /// <summary>
+        /// <para>
+        /// <para>A map that specifies which columns to include from each dataset during training. The
+        /// map can contain up to 3 entries, where each key is a dataset name (maximum length
+        /// of 256 characters, must contain only letters and underscores) and each value is an
+        /// array of up to 50 column names. Column names can be up to 150 characters long, must
+        /// start with a letter or underscore, and can contain only letters, numbers, and underscores.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RecommenderConfig_TrainingDataConfig_IncludedDatasetColumns")]
+        public System.Collections.Hashtable TrainingDataConfig_IncludedDatasetColumn { get; set; }
+        #endregion
+        
         #region Parameter RecommenderConfig_ItemExplorationConfig
         /// <summary>
         /// <para>
@@ -224,6 +239,26 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                     context.TrainingDataConfig_ExcludedDatasetColumn.Add((String)hashKey, valueSet);
                 }
             }
+            if (this.TrainingDataConfig_IncludedDatasetColumn != null)
+            {
+                context.TrainingDataConfig_IncludedDatasetColumn = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.TrainingDataConfig_IncludedDatasetColumn.Keys)
+                {
+                    object hashValue = this.TrainingDataConfig_IncludedDatasetColumn[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.TrainingDataConfig_IncludedDatasetColumn.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<System.String>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((System.String)s);
+                    }
+                    context.TrainingDataConfig_IncludedDatasetColumn.Add((String)hashKey, valueSet);
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -291,6 +326,16 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (requestRecommenderConfig_recommenderConfig_TrainingDataConfig_trainingDataConfig_ExcludedDatasetColumn != null)
             {
                 requestRecommenderConfig_recommenderConfig_TrainingDataConfig.ExcludedDatasetColumns = requestRecommenderConfig_recommenderConfig_TrainingDataConfig_trainingDataConfig_ExcludedDatasetColumn;
+                requestRecommenderConfig_recommenderConfig_TrainingDataConfigIsNull = false;
+            }
+            Dictionary<System.String, List<System.String>> requestRecommenderConfig_recommenderConfig_TrainingDataConfig_trainingDataConfig_IncludedDatasetColumn = null;
+            if (cmdletContext.TrainingDataConfig_IncludedDatasetColumn != null)
+            {
+                requestRecommenderConfig_recommenderConfig_TrainingDataConfig_trainingDataConfig_IncludedDatasetColumn = cmdletContext.TrainingDataConfig_IncludedDatasetColumn;
+            }
+            if (requestRecommenderConfig_recommenderConfig_TrainingDataConfig_trainingDataConfig_IncludedDatasetColumn != null)
+            {
+                requestRecommenderConfig_recommenderConfig_TrainingDataConfig.IncludedDatasetColumns = requestRecommenderConfig_recommenderConfig_TrainingDataConfig_trainingDataConfig_IncludedDatasetColumn;
                 requestRecommenderConfig_recommenderConfig_TrainingDataConfigIsNull = false;
             }
              // determine if requestRecommenderConfig_recommenderConfig_TrainingDataConfig should be set to null
@@ -374,6 +419,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             public Dictionary<System.String, System.String> RecommenderConfig_ItemExplorationConfig { get; set; }
             public System.Int32? RecommenderConfig_MinRecommendationRequestsPerSecond { get; set; }
             public Dictionary<System.String, List<System.String>> TrainingDataConfig_ExcludedDatasetColumn { get; set; }
+            public Dictionary<System.String, List<System.String>> TrainingDataConfig_IncludedDatasetColumn { get; set; }
             public System.Func<Amazon.Personalize.Model.UpdateRecommenderResponse, UpdatePERSRecommenderCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RecommenderArn;
         }

@@ -44,6 +44,18 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter DeepgramConfig_ApiTokenSecretArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Secrets Manager secret that contains the Deepgram
+        /// API token.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfig_ApiTokenSecretArn")]
+        public System.String DeepgramConfig_ApiTokenSecretArn { get; set; }
+        #endregion
+        
         #region Parameter BotLocaleImportSpecification_BotId
         /// <summary>
         /// <para>
@@ -292,6 +304,28 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public Amazon.LexModelsV2.TestSetModality TestSetImportResourceSpecification_Modality { get; set; }
         #endregion
         
+        #region Parameter SpeechFoundationModel_ModelArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the foundation model used for speech processing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_SpeechFoundationModel_ModelArn")]
+        public System.String SpeechFoundationModel_ModelArn { get; set; }
+        #endregion
+        
+        #region Parameter DeepgramConfig_ModelId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the Deepgram speech-to-text model to use for processing speech input.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfig_ModelId")]
+        public System.String DeepgramConfig_ModelId { get; set; }
+        #endregion
+        
         #region Parameter BotLocaleImportSpecification_NluIntentConfidenceThreshold
         /// <summary>
         /// <para>
@@ -390,6 +424,18 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public Amazon.LexModelsV2.SpeechDetectionSensitivity BotLocaleImportSpecification_SpeechDetectionSensitivity { get; set; }
         #endregion
         
+        #region Parameter SpeechRecognitionSettings_SpeechModelPreference
+        /// <summary>
+        /// <para>
+        /// <para>The speech-to-text model to use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelPreference")]
+        [AWSConstantClassSource("Amazon.LexModelsV2.SpeechModelPreference")]
+        public Amazon.LexModelsV2.SpeechModelPreference SpeechRecognitionSettings_SpeechModelPreference { get; set; }
+        #endregion
+        
         #region Parameter BotImportSpecification_TestBotAliasTag
         /// <summary>
         /// <para>
@@ -425,6 +471,17 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ResourceSpecification_TestSetImportResourceSpecification_TestSetTags")]
         public System.Collections.Hashtable TestSetImportResourceSpecification_TestSetTag { get; set; }
+        #endregion
+        
+        #region Parameter SpeechFoundationModel_VoiceId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the voice to use for speech synthesis with the foundation model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_SpeechFoundationModel_VoiceId")]
+        public System.String SpeechFoundationModel_VoiceId { get; set; }
         #endregion
         
         #region Parameter VoiceSettings_VoiceId
@@ -541,6 +598,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             context.BotLocaleImportSpecification_LocaleId = this.BotLocaleImportSpecification_LocaleId;
             context.BotLocaleImportSpecification_NluIntentConfidenceThreshold = this.BotLocaleImportSpecification_NluIntentConfidenceThreshold;
             context.BotLocaleImportSpecification_SpeechDetectionSensitivity = this.BotLocaleImportSpecification_SpeechDetectionSensitivity;
+            context.DeepgramConfig_ApiTokenSecretArn = this.DeepgramConfig_ApiTokenSecretArn;
+            context.DeepgramConfig_ModelId = this.DeepgramConfig_ModelId;
+            context.SpeechRecognitionSettings_SpeechModelPreference = this.SpeechRecognitionSettings_SpeechModelPreference;
+            context.SpeechFoundationModel_ModelArn = this.SpeechFoundationModel_ModelArn;
+            context.SpeechFoundationModel_VoiceId = this.SpeechFoundationModel_VoiceId;
             context.VoiceSettings_Engine = this.VoiceSettings_Engine;
             context.VoiceSettings_VoiceId = this.VoiceSettings_VoiceId;
             context.CustomVocabularyImportSpecification_BotId = this.CustomVocabularyImportSpecification_BotId;
@@ -638,106 +700,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecification != null)
             {
                 request.ResourceSpecification.CustomVocabularyImportSpecification = requestResourceSpecification_resourceSpecification_CustomVocabularyImportSpecification;
-                requestResourceSpecificationIsNull = false;
-            }
-            Amazon.LexModelsV2.Model.BotLocaleImportSpecification requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification = null;
-            
-             // populate BotLocaleImportSpecification
-            var requestResourceSpecification_resourceSpecification_BotLocaleImportSpecificationIsNull = true;
-            requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification = new Amazon.LexModelsV2.Model.BotLocaleImportSpecification();
-            System.String requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_BotId = null;
-            if (cmdletContext.BotLocaleImportSpecification_BotId != null)
-            {
-                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_BotId = cmdletContext.BotLocaleImportSpecification_BotId;
-            }
-            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_BotId != null)
-            {
-                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification.BotId = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_BotId;
-                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecificationIsNull = false;
-            }
-            System.String requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_BotVersion = null;
-            if (cmdletContext.BotLocaleImportSpecification_BotVersion != null)
-            {
-                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_BotVersion = cmdletContext.BotLocaleImportSpecification_BotVersion;
-            }
-            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_BotVersion != null)
-            {
-                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification.BotVersion = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_BotVersion;
-                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecificationIsNull = false;
-            }
-            System.String requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_LocaleId = null;
-            if (cmdletContext.BotLocaleImportSpecification_LocaleId != null)
-            {
-                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_LocaleId = cmdletContext.BotLocaleImportSpecification_LocaleId;
-            }
-            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_LocaleId != null)
-            {
-                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification.LocaleId = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_LocaleId;
-                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecificationIsNull = false;
-            }
-            System.Double? requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_NluIntentConfidenceThreshold = null;
-            if (cmdletContext.BotLocaleImportSpecification_NluIntentConfidenceThreshold != null)
-            {
-                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_NluIntentConfidenceThreshold = cmdletContext.BotLocaleImportSpecification_NluIntentConfidenceThreshold.Value;
-            }
-            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_NluIntentConfidenceThreshold != null)
-            {
-                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification.NluIntentConfidenceThreshold = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_NluIntentConfidenceThreshold.Value;
-                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecificationIsNull = false;
-            }
-            Amazon.LexModelsV2.SpeechDetectionSensitivity requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_SpeechDetectionSensitivity = null;
-            if (cmdletContext.BotLocaleImportSpecification_SpeechDetectionSensitivity != null)
-            {
-                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_SpeechDetectionSensitivity = cmdletContext.BotLocaleImportSpecification_SpeechDetectionSensitivity;
-            }
-            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_SpeechDetectionSensitivity != null)
-            {
-                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification.SpeechDetectionSensitivity = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_SpeechDetectionSensitivity;
-                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecificationIsNull = false;
-            }
-            Amazon.LexModelsV2.Model.VoiceSettings requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings = null;
-            
-             // populate VoiceSettings
-            var requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettingsIsNull = true;
-            requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings = new Amazon.LexModelsV2.Model.VoiceSettings();
-            Amazon.LexModelsV2.VoiceEngine requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings_voiceSettings_Engine = null;
-            if (cmdletContext.VoiceSettings_Engine != null)
-            {
-                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings_voiceSettings_Engine = cmdletContext.VoiceSettings_Engine;
-            }
-            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings_voiceSettings_Engine != null)
-            {
-                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings.Engine = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings_voiceSettings_Engine;
-                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettingsIsNull = false;
-            }
-            System.String requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings_voiceSettings_VoiceId = null;
-            if (cmdletContext.VoiceSettings_VoiceId != null)
-            {
-                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings_voiceSettings_VoiceId = cmdletContext.VoiceSettings_VoiceId;
-            }
-            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings_voiceSettings_VoiceId != null)
-            {
-                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings.VoiceId = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings_voiceSettings_VoiceId;
-                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettingsIsNull = false;
-            }
-             // determine if requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings should be set to null
-            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettingsIsNull)
-            {
-                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings = null;
-            }
-            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings != null)
-            {
-                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification.VoiceSettings = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings;
-                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecificationIsNull = false;
-            }
-             // determine if requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification should be set to null
-            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecificationIsNull)
-            {
-                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification = null;
-            }
-            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification != null)
-            {
-                request.ResourceSpecification.BotLocaleImportSpecification = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification;
                 requestResourceSpecificationIsNull = false;
             }
             Amazon.LexModelsV2.Model.BotImportSpecification requestResourceSpecification_resourceSpecification_BotImportSpecification = null;
@@ -1000,6 +962,231 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 request.ResourceSpecification.TestSetImportResourceSpecification = requestResourceSpecification_resourceSpecification_TestSetImportResourceSpecification;
                 requestResourceSpecificationIsNull = false;
             }
+            Amazon.LexModelsV2.Model.BotLocaleImportSpecification requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification = null;
+            
+             // populate BotLocaleImportSpecification
+            var requestResourceSpecification_resourceSpecification_BotLocaleImportSpecificationIsNull = true;
+            requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification = new Amazon.LexModelsV2.Model.BotLocaleImportSpecification();
+            System.String requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_BotId = null;
+            if (cmdletContext.BotLocaleImportSpecification_BotId != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_BotId = cmdletContext.BotLocaleImportSpecification_BotId;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_BotId != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification.BotId = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_BotId;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecificationIsNull = false;
+            }
+            System.String requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_BotVersion = null;
+            if (cmdletContext.BotLocaleImportSpecification_BotVersion != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_BotVersion = cmdletContext.BotLocaleImportSpecification_BotVersion;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_BotVersion != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification.BotVersion = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_BotVersion;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecificationIsNull = false;
+            }
+            System.String requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_LocaleId = null;
+            if (cmdletContext.BotLocaleImportSpecification_LocaleId != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_LocaleId = cmdletContext.BotLocaleImportSpecification_LocaleId;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_LocaleId != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification.LocaleId = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_LocaleId;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecificationIsNull = false;
+            }
+            System.Double? requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_NluIntentConfidenceThreshold = null;
+            if (cmdletContext.BotLocaleImportSpecification_NluIntentConfidenceThreshold != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_NluIntentConfidenceThreshold = cmdletContext.BotLocaleImportSpecification_NluIntentConfidenceThreshold.Value;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_NluIntentConfidenceThreshold != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification.NluIntentConfidenceThreshold = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_NluIntentConfidenceThreshold.Value;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecificationIsNull = false;
+            }
+            Amazon.LexModelsV2.SpeechDetectionSensitivity requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_SpeechDetectionSensitivity = null;
+            if (cmdletContext.BotLocaleImportSpecification_SpeechDetectionSensitivity != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_SpeechDetectionSensitivity = cmdletContext.BotLocaleImportSpecification_SpeechDetectionSensitivity;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_SpeechDetectionSensitivity != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification.SpeechDetectionSensitivity = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_botLocaleImportSpecification_SpeechDetectionSensitivity;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecificationIsNull = false;
+            }
+            Amazon.LexModelsV2.Model.UnifiedSpeechSettings requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings = null;
+            
+             // populate UnifiedSpeechSettings
+            var requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettingsIsNull = true;
+            requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings = new Amazon.LexModelsV2.Model.UnifiedSpeechSettings();
+            Amazon.LexModelsV2.Model.SpeechFoundationModel requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_SpeechFoundationModel = null;
+            
+             // populate SpeechFoundationModel
+            var requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_SpeechFoundationModelIsNull = true;
+            requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_SpeechFoundationModel = new Amazon.LexModelsV2.Model.SpeechFoundationModel();
+            System.String requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_SpeechFoundationModel_speechFoundationModel_ModelArn = null;
+            if (cmdletContext.SpeechFoundationModel_ModelArn != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_SpeechFoundationModel_speechFoundationModel_ModelArn = cmdletContext.SpeechFoundationModel_ModelArn;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_SpeechFoundationModel_speechFoundationModel_ModelArn != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_SpeechFoundationModel.ModelArn = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_SpeechFoundationModel_speechFoundationModel_ModelArn;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_SpeechFoundationModelIsNull = false;
+            }
+            System.String requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_SpeechFoundationModel_speechFoundationModel_VoiceId = null;
+            if (cmdletContext.SpeechFoundationModel_VoiceId != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_SpeechFoundationModel_speechFoundationModel_VoiceId = cmdletContext.SpeechFoundationModel_VoiceId;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_SpeechFoundationModel_speechFoundationModel_VoiceId != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_SpeechFoundationModel.VoiceId = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_SpeechFoundationModel_speechFoundationModel_VoiceId;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_SpeechFoundationModelIsNull = false;
+            }
+             // determine if requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_SpeechFoundationModel should be set to null
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_SpeechFoundationModelIsNull)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_SpeechFoundationModel = null;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_SpeechFoundationModel != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings.SpeechFoundationModel = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings_SpeechFoundationModel;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettingsIsNull = false;
+            }
+             // determine if requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings should be set to null
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettingsIsNull)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings = null;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification.UnifiedSpeechSettings = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_UnifiedSpeechSettings;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecificationIsNull = false;
+            }
+            Amazon.LexModelsV2.Model.SpeechRecognitionSettings requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings = null;
+            
+             // populate SpeechRecognitionSettings
+            var requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettingsIsNull = true;
+            requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings = new Amazon.LexModelsV2.Model.SpeechRecognitionSettings();
+            Amazon.LexModelsV2.SpeechModelPreference requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_speechRecognitionSettings_SpeechModelPreference = null;
+            if (cmdletContext.SpeechRecognitionSettings_SpeechModelPreference != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_speechRecognitionSettings_SpeechModelPreference = cmdletContext.SpeechRecognitionSettings_SpeechModelPreference;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_speechRecognitionSettings_SpeechModelPreference != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings.SpeechModelPreference = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_speechRecognitionSettings_SpeechModelPreference;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettingsIsNull = false;
+            }
+            Amazon.LexModelsV2.Model.SpeechModelConfig requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig = null;
+            
+             // populate SpeechModelConfig
+            var requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfigIsNull = true;
+            requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig = new Amazon.LexModelsV2.Model.SpeechModelConfig();
+            Amazon.LexModelsV2.Model.DeepgramSpeechModelConfig requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfig = null;
+            
+             // populate DeepgramConfig
+            var requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfigIsNull = true;
+            requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfig = new Amazon.LexModelsV2.Model.DeepgramSpeechModelConfig();
+            System.String requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfig_deepgramConfig_ApiTokenSecretArn = null;
+            if (cmdletContext.DeepgramConfig_ApiTokenSecretArn != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfig_deepgramConfig_ApiTokenSecretArn = cmdletContext.DeepgramConfig_ApiTokenSecretArn;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfig_deepgramConfig_ApiTokenSecretArn != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfig.ApiTokenSecretArn = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfig_deepgramConfig_ApiTokenSecretArn;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfigIsNull = false;
+            }
+            System.String requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfig_deepgramConfig_ModelId = null;
+            if (cmdletContext.DeepgramConfig_ModelId != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfig_deepgramConfig_ModelId = cmdletContext.DeepgramConfig_ModelId;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfig_deepgramConfig_ModelId != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfig.ModelId = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfig_deepgramConfig_ModelId;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfigIsNull = false;
+            }
+             // determine if requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfig should be set to null
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfigIsNull)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfig = null;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfig != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig.DeepgramConfig = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfig;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfigIsNull = false;
+            }
+             // determine if requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig should be set to null
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfigIsNull)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig = null;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings.SpeechModelConfig = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings_SpeechModelConfig;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettingsIsNull = false;
+            }
+             // determine if requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings should be set to null
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettingsIsNull)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings = null;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification.SpeechRecognitionSettings = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_SpeechRecognitionSettings;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecificationIsNull = false;
+            }
+            Amazon.LexModelsV2.Model.VoiceSettings requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings = null;
+            
+             // populate VoiceSettings
+            var requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettingsIsNull = true;
+            requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings = new Amazon.LexModelsV2.Model.VoiceSettings();
+            Amazon.LexModelsV2.VoiceEngine requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings_voiceSettings_Engine = null;
+            if (cmdletContext.VoiceSettings_Engine != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings_voiceSettings_Engine = cmdletContext.VoiceSettings_Engine;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings_voiceSettings_Engine != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings.Engine = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings_voiceSettings_Engine;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettingsIsNull = false;
+            }
+            System.String requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings_voiceSettings_VoiceId = null;
+            if (cmdletContext.VoiceSettings_VoiceId != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings_voiceSettings_VoiceId = cmdletContext.VoiceSettings_VoiceId;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings_voiceSettings_VoiceId != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings.VoiceId = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings_voiceSettings_VoiceId;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettingsIsNull = false;
+            }
+             // determine if requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings should be set to null
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettingsIsNull)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings = null;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification.VoiceSettings = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification_resourceSpecification_BotLocaleImportSpecification_VoiceSettings;
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecificationIsNull = false;
+            }
+             // determine if requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification should be set to null
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecificationIsNull)
+            {
+                requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification = null;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification != null)
+            {
+                request.ResourceSpecification.BotLocaleImportSpecification = requestResourceSpecification_resourceSpecification_BotLocaleImportSpecification;
+                requestResourceSpecificationIsNull = false;
+            }
              // determine if request.ResourceSpecification should be set to null
             if (requestResourceSpecificationIsNull)
             {
@@ -1081,6 +1268,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.String BotLocaleImportSpecification_LocaleId { get; set; }
             public System.Double? BotLocaleImportSpecification_NluIntentConfidenceThreshold { get; set; }
             public Amazon.LexModelsV2.SpeechDetectionSensitivity BotLocaleImportSpecification_SpeechDetectionSensitivity { get; set; }
+            public System.String DeepgramConfig_ApiTokenSecretArn { get; set; }
+            public System.String DeepgramConfig_ModelId { get; set; }
+            public Amazon.LexModelsV2.SpeechModelPreference SpeechRecognitionSettings_SpeechModelPreference { get; set; }
+            public System.String SpeechFoundationModel_ModelArn { get; set; }
+            public System.String SpeechFoundationModel_VoiceId { get; set; }
             public Amazon.LexModelsV2.VoiceEngine VoiceSettings_Engine { get; set; }
             public System.String VoiceSettings_VoiceId { get; set; }
             public System.String CustomVocabularyImportSpecification_BotId { get; set; }

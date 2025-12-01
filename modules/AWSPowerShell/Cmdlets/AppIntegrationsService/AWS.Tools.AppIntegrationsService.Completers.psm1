@@ -80,6 +80,17 @@ $AIS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AppIntegrationsService.ApplicationType
+        {
+            ($_ -eq "Get-AISApplicationList/ApplicationType") -Or
+            ($_ -eq "New-AISApplication/ApplicationType") -Or
+            ($_ -eq "Update-AISApplication/ApplicationType")
+        }
+        {
+            $v = "MCP_SERVER","SERVICE","STANDARD"
+            break
+        }
+
         # Amazon.AppIntegrationsService.ContactHandlingScope
         {
             ($_ -eq "New-AISApplication/ContactHandling_Scope") -Or
@@ -109,6 +120,7 @@ $AIS_Completers = {
 }
 
 $AIS_map = @{
+    "ApplicationType"=@("Get-AISApplicationList","New-AISApplication","Update-AISApplication")
     "ContactHandling_Scope"=@("New-AISApplication","Update-AISApplication")
     "ExecutionConfiguration_ExecutionMode"=@("New-AISDataIntegrationAssociation","Update-AISDataIntegrationAssociation")
 }

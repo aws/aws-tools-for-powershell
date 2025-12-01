@@ -65,6 +65,17 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String AssistantId { get; set; }
         #endregion
         
+        #region Parameter CaseSummarizationInputData_CaseArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the case for summarization.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("QueryInputData_CaseSummarizationInputData_CaseArn")]
+        public System.String CaseSummarizationInputData_CaseArn { get; set; }
+        #endregion
+        
         #region Parameter IntentInputData_IntentId
         /// <summary>
         /// <para>
@@ -229,6 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             {
                 context.QueryCondition = new List<Amazon.QConnect.Model.QueryCondition>(this.QueryCondition);
             }
+            context.CaseSummarizationInputData_CaseArn = this.CaseSummarizationInputData_CaseArn;
             context.IntentInputData_IntentId = this.IntentInputData_IntentId;
             context.QueryTextInputData_Text = this.QueryTextInputData_Text;
             context.QueryText = this.QueryText;
@@ -273,6 +285,31 @@ namespace Amazon.PowerShell.Cmdlets.QC
              // populate QueryInputData
             var requestQueryInputDataIsNull = true;
             request.QueryInputData = new Amazon.QConnect.Model.QueryInputData();
+            Amazon.QConnect.Model.CaseSummarizationInputData requestQueryInputData_queryInputData_CaseSummarizationInputData = null;
+            
+             // populate CaseSummarizationInputData
+            var requestQueryInputData_queryInputData_CaseSummarizationInputDataIsNull = true;
+            requestQueryInputData_queryInputData_CaseSummarizationInputData = new Amazon.QConnect.Model.CaseSummarizationInputData();
+            System.String requestQueryInputData_queryInputData_CaseSummarizationInputData_caseSummarizationInputData_CaseArn = null;
+            if (cmdletContext.CaseSummarizationInputData_CaseArn != null)
+            {
+                requestQueryInputData_queryInputData_CaseSummarizationInputData_caseSummarizationInputData_CaseArn = cmdletContext.CaseSummarizationInputData_CaseArn;
+            }
+            if (requestQueryInputData_queryInputData_CaseSummarizationInputData_caseSummarizationInputData_CaseArn != null)
+            {
+                requestQueryInputData_queryInputData_CaseSummarizationInputData.CaseArn = requestQueryInputData_queryInputData_CaseSummarizationInputData_caseSummarizationInputData_CaseArn;
+                requestQueryInputData_queryInputData_CaseSummarizationInputDataIsNull = false;
+            }
+             // determine if requestQueryInputData_queryInputData_CaseSummarizationInputData should be set to null
+            if (requestQueryInputData_queryInputData_CaseSummarizationInputDataIsNull)
+            {
+                requestQueryInputData_queryInputData_CaseSummarizationInputData = null;
+            }
+            if (requestQueryInputData_queryInputData_CaseSummarizationInputData != null)
+            {
+                request.QueryInputData.CaseSummarizationInputData = requestQueryInputData_queryInputData_CaseSummarizationInputData;
+                requestQueryInputDataIsNull = false;
+            }
             Amazon.QConnect.Model.IntentInputData requestQueryInputData_queryInputData_IntentInputData = null;
             
              // populate IntentInputData
@@ -402,6 +439,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             public System.String NextToken { get; set; }
             public Amazon.QConnect.KnowledgeBaseSearchType OverrideKnowledgeBaseSearchType { get; set; }
             public List<Amazon.QConnect.Model.QueryCondition> QueryCondition { get; set; }
+            public System.String CaseSummarizationInputData_CaseArn { get; set; }
             public System.String IntentInputData_IntentId { get; set; }
             public System.String QueryTextInputData_Text { get; set; }
             public System.String QueryText { get; set; }

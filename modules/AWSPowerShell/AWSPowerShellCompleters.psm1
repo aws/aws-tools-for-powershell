@@ -2634,6 +2634,17 @@ $AIS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AppIntegrationsService.ApplicationType
+        {
+            ($_ -eq "Get-AISApplicationList/ApplicationType") -Or
+            ($_ -eq "New-AISApplication/ApplicationType") -Or
+            ($_ -eq "Update-AISApplication/ApplicationType")
+        }
+        {
+            $v = "MCP_SERVER","SERVICE","STANDARD"
+            break
+        }
+
         # Amazon.AppIntegrationsService.ContactHandlingScope
         {
             ($_ -eq "New-AISApplication/ContactHandling_Scope") -Or
@@ -2663,6 +2674,7 @@ $AIS_Completers = {
 }
 
 $AIS_map = @{
+    "ApplicationType"=@("Get-AISApplicationList","New-AISApplication","Update-AISApplication")
     "ContactHandling_Scope"=@("New-AISApplication","Update-AISApplication")
     "ExecutionConfiguration_ExecutionMode"=@("New-AISDataIntegrationAssociation","Update-AISDataIntegrationAssociation")
 }
@@ -7461,10 +7473,24 @@ $BAR_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentRuntime.InputImageFormat
+        "Invoke-BARRetrieve/Image_Format"
+        {
+            $v = "gif","jpeg","png","webp"
+            break
+        }
+
         # Amazon.BedrockAgentRuntime.InputQueryType
         "Invoke-BARGenerateQuery/QueryGenerationInput_Type"
         {
             $v = "TEXT"
+            break
+        }
+
+        # Amazon.BedrockAgentRuntime.KnowledgeBaseQueryType
+        "Invoke-BARRetrieve/RetrievalQuery_Type"
+        {
+            $v = "IMAGE","TEXT"
             break
         }
 
@@ -7586,6 +7612,7 @@ $BAR_map = @{
     "AgentCollaboration"=@("Invoke-BARInlineAgent")
     "EventType"=@("Get-BARFlowExecutionEventList")
     "ExternalSourcesConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
+    "Image_Format"=@("Invoke-BARRetrieve")
     "KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
     "KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
     "MemoryType"=@("Get-BARAgentMemory")
@@ -7595,6 +7622,7 @@ $BAR_map = @{
     "QueryGenerationInput_Type"=@("Invoke-BARGenerateQuery")
     "QueryTransformationConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
     "RerankingConfiguration_Type"=@("Invoke-BARRerank","Invoke-BARRetrieve","Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
+    "RetrievalQuery_Type"=@("Invoke-BARRetrieve")
     "RetrieveAndGenerateConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
     "Stream_ExternalSourcesConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerateStream")
     "Stream_KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerateStream")
@@ -19444,6 +19472,8 @@ $CONN_Completers = {
         # Amazon.Connect.ContactFlowType
         {
             ($_ -eq "Search-CONNContactFlow/SearchCriteria_TypeCondition") -Or
+            ($_ -eq "Search-CONNContactFlow/SearchFilter_FlowAttributeFilter_AndCondition_ContactFlowTypeCondition_ContactFlowType") -Or
+            ($_ -eq "Search-CONNContactFlow/SearchFilter_FlowAttributeFilter_ContactFlowTypeCondition_ContactFlowType") -Or
             ($_ -eq "New-CONNContactFlow/Type")
         }
         {
@@ -19458,6 +19488,23 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.ContactInteractionType
+        {
+            ($_ -eq "New-CONNEvaluationForm/TargetConfiguration_ContactInteractionType") -Or
+            ($_ -eq "Update-CONNEvaluationForm/TargetConfiguration_ContactInteractionType")
+        }
+        {
+            $v = "AGENT","AUTOMATED"
+            break
+        }
+
+        # Amazon.Connect.ContactMediaProcessingFailureMode
+        "Start-CONNContactMediaProcessing/FailureMode"
+        {
+            $v = "DELIVER_UNPROCESSED_MESSAGE","DO_NOT_DELIVER_UNPROCESSED_MESSAGE"
+            break
+        }
+
         # Amazon.Connect.ContactRecordingType
         {
             ($_ -eq "Resume-CONNContactRecording/ContactRecordingType") -Or
@@ -19466,6 +19513,33 @@ $CONN_Completers = {
         }
         {
             $v = "AGENT","IVR","SCREEN"
+            break
+        }
+
+        # Amazon.Connect.DataTableAttributeValueType
+        {
+            ($_ -eq "New-CONNDataTableAttribute/ValueType") -Or
+            ($_ -eq "Update-CONNDataTableAttribute/ValueType")
+        }
+        {
+            $v = "BOOLEAN","NUMBER","NUMBER_LIST","TEXT","TEXT_LIST"
+            break
+        }
+
+        # Amazon.Connect.DataTableLockLevel
+        {
+            ($_ -eq "New-CONNDataTable/ValueLockLevel") -Or
+            ($_ -eq "Update-CONNDataTableMetadata/ValueLockLevel")
+        }
+        {
+            $v = "ATTRIBUTE","DATA_TABLE","NONE","PRIMARY_VALUE","VALUE"
+            break
+        }
+
+        # Amazon.Connect.DataTableStatus
+        "New-CONNDataTable/Status"
+        {
+            $v = "PUBLISHED"
             break
         }
 
@@ -19528,6 +19602,27 @@ $CONN_Completers = {
         }
         {
             $v = "CONNECT_PHONENUMBER_ARN","CONTACT_FLOW","EMAIL_ADDRESS","TELEPHONE_NUMBER","VOIP"
+            break
+        }
+
+        # Amazon.Connect.EntityType
+        {
+            ($_ -eq "Add-CONNSecurityProfile/EntityType") -Or
+            ($_ -eq "Get-CONNEntitySecurityProfileList/EntityType") -Or
+            ($_ -eq "Unregister-CONNSecurityProfile/EntityType")
+        }
+        {
+            $v = "AI_AGENT","USER"
+            break
+        }
+
+        # Amazon.Connect.EvaluationFormLanguageCode
+        {
+            ($_ -eq "New-CONNEvaluationForm/LanguageConfiguration_FormLanguage") -Or
+            ($_ -eq "Update-CONNEvaluationForm/LanguageConfiguration_FormLanguage")
+        }
+        {
+            $v = "de-DE","en-US","es-ES","fr-FR","it-IT","pt-BR"
             break
         }
 
@@ -19610,7 +19705,7 @@ $CONN_Completers = {
             ($_ -eq "Update-CONNInstanceAttribute/AttributeType")
         }
         {
-            $v = "AUTO_RESOLVE_BEST_VOICES","CONTACTFLOW_LOGS","CONTACT_LENS","EARLY_MEDIA","ENHANCED_CHAT_MONITORING","ENHANCED_CONTACT_MONITORING","HIGH_VOLUME_OUTBOUND","INBOUND_CALLS","MULTI_PARTY_CHAT_CONFERENCE","MULTI_PARTY_CONFERENCE","OUTBOUND_CALLS","USE_CUSTOM_TTS_VOICES"
+            $v = "AUTO_RESOLVE_BEST_VOICES","CONTACTFLOW_LOGS","CONTACT_LENS","EARLY_MEDIA","ENHANCED_CHAT_MONITORING","ENHANCED_CONTACT_MONITORING","HIGH_VOLUME_OUTBOUND","INBOUND_CALLS","MESSAGE_STREAMING","MULTI_PARTY_CHAT_CONFERENCE","MULTI_PARTY_CONFERENCE","OUTBOUND_CALLS","USE_CUSTOM_TTS_VOICES"
             break
         }
 
@@ -19633,7 +19728,7 @@ $CONN_Completers = {
             ($_ -eq "New-CONNIntegrationAssociation/IntegrationType")
         }
         {
-            $v = "ANALYTICS_CONNECTOR","APPLICATION","CALL_TRANSFER_CONNECTOR","CASES_DOMAIN","COGNITO_USER_POOL","EVENT","FILE_SCANNER","PINPOINT_APP","Q_MESSAGE_TEMPLATES","SES_IDENTITY","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE","WISDOM_QUICK_RESPONSES"
+            $v = "ANALYTICS_CONNECTOR","APPLICATION","CALL_TRANSFER_CONNECTOR","CASES_DOMAIN","COGNITO_USER_POOL","EVENT","FILE_SCANNER","MESSAGE_PROCESSOR","PINPOINT_APP","Q_MESSAGE_TEMPLATES","SES_IDENTITY","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE","WISDOM_QUICK_RESPONSES"
             break
         }
 
@@ -19665,6 +19760,16 @@ $CONN_Completers = {
         }
         {
             $v = "ANALYTICS_CONNECTOR","INBOUND_EMAIL","OUTBOUND_EMAIL","VOICE_PHONE_NUMBER","WHATSAPP_MESSAGING_PHONE_NUMBER"
+            break
+        }
+
+        # Amazon.Connect.MediaType
+        {
+            ($_ -eq "Import-CONNWorkspaceMedia/MediaType") -Or
+            ($_ -eq "Remove-CONNWorkspaceMedia/MediaType")
+        }
+        {
+            $v = "IMAGE_LOGO_DARK_FAVICON","IMAGE_LOGO_DARK_HORIZONTAL","IMAGE_LOGO_LIGHT_FAVICON","IMAGE_LOGO_LIGHT_HORIZONTAL"
             break
         }
 
@@ -19732,7 +19837,7 @@ $CONN_Completers = {
             ($_ -eq "Update-CONNQuickConnectConfig/QuickConnectConfig_QuickConnectType")
         }
         {
-            $v = "PHONE_NUMBER","QUEUE","USER"
+            $v = "FLOW","PHONE_NUMBER","QUEUE","USER"
             break
         }
 
@@ -19750,6 +19855,13 @@ $CONN_Completers = {
         }
         {
             $v = "ENTIRE_PAST_SESSION","FROM_SEGMENT"
+            break
+        }
+
+        # Amazon.Connect.ResponseMode
+        "Start-CONNChatContact/ParticipantConfiguration_ResponseMode"
+        {
+            $v = "COMPLETE","INCREMENTAL"
             break
         }
 
@@ -19839,6 +19951,7 @@ $CONN_Completers = {
             ($_ -eq "Search-CONNContactEvaluation/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNContactFlow/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNContactFlowModule/StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNDataTable/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNEmailAddress/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNEvaluationForm/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNHoursOfOperation/StringCondition_ComparisonType") -Or
@@ -19851,6 +19964,9 @@ $CONN_Completers = {
             ($_ -eq "Search-CONNSecurityProfile/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNUser/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNUserHierarchyGroup/StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNView/StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNWorkspace/StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNWorkspaceAssociation/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNResourceTag/TagSearchCondition_TagKeyComparisonType") -Or
             ($_ -eq "Search-CONNResourceTag/TagSearchCondition_TagValueComparisonType")
         }
@@ -19907,6 +20023,7 @@ $CONN_Completers = {
 
         # Amazon.Connect.ViewStatus
         {
+            ($_ -eq "Search-CONNView/SearchCriteria_ViewStatusCondition") -Or
             ($_ -eq "New-CONNView/Status") -Or
             ($_ -eq "Update-CONNViewContent/Status")
         }
@@ -19916,9 +20033,19 @@ $CONN_Completers = {
         }
 
         # Amazon.Connect.ViewType
-        "Get-CONNViewList/Type"
+        {
+            ($_ -eq "Search-CONNView/SearchCriteria_ViewTypeCondition") -Or
+            ($_ -eq "Get-CONNViewList/Type")
+        }
         {
             $v = "AWS_MANAGED","CUSTOMER_MANAGED"
+            break
+        }
+
+        # Amazon.Connect.Visibility
+        "Update-CONNWorkspaceVisibility/Visibility"
+        {
+            $v = "ALL","ASSIGNED","NONE"
             break
         }
 
@@ -19945,6 +20072,18 @@ $CONN_Completers = {
         "Start-CONNContactRecording/VoiceRecordingConfiguration_VoiceRecordingTrack"
         {
             $v = "ALL","FROM_AGENT","TO_AGENT"
+            break
+        }
+
+        # Amazon.Connect.WorkspaceFontFamily
+        {
+            ($_ -eq "New-CONNWorkspace/Theme_Dark_Typography_FontFamily_Default") -Or
+            ($_ -eq "Update-CONNWorkspaceTheme/Theme_Dark_Typography_FontFamily_Default") -Or
+            ($_ -eq "New-CONNWorkspace/Theme_Light_Typography_FontFamily_Default") -Or
+            ($_ -eq "Update-CONNWorkspaceTheme/Theme_Light_Typography_FontFamily_Default")
+        }
+        {
+            $v = "Arial","Courier New","Georgia","Times New Roman","Trebuchet","Verdana"
             break
         }
 
@@ -19977,8 +20116,10 @@ $CONN_map = @{
     "DestinationEndpoint_Type"=@("Start-CONNOutboundChatContact")
     "DeviceType"=@("New-CONNPushNotificationRegistration")
     "EmailMessage_MessageSourceType"=@("Send-CONNOutboundEmail","Start-CONNEmailContact","Start-CONNOutboundEmailContact")
+    "EntityType"=@("Add-CONNSecurityProfile","Get-CONNEntitySecurityProfileList","Unregister-CONNSecurityProfile")
     "Event_Type"=@("Send-CONNChatIntegrationEvent")
     "EventSourceName"=@("Get-CONNRuleList")
+    "FailureMode"=@("Start-CONNContactMediaProcessing")
     "FileUseCaseType"=@("Start-CONNAttachedFileUpload")
     "HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "IdentityManagementType"=@("New-CONNInstance")
@@ -19987,14 +20128,17 @@ $CONN_map = @{
     "IntegrationType"=@("Get-CONNIntegrationAssociationList","New-CONNIntegrationAssociation")
     "Interval_IntervalPeriod"=@("Get-CONNMetricDataV2")
     "LanguageCode"=@("Add-CONNDefaultVocabulary","Get-CONNDefaultVocabularyList","New-CONNVocabulary","Search-CONNVocabulary")
+    "LanguageConfiguration_FormLanguage"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
     "LexVersion"=@("Get-CONNBotList")
     "ListCondition_TargetListType"=@("Search-CONNUser")
+    "MediaType"=@("Import-CONNWorkspaceMedia","Remove-CONNWorkspaceMedia")
     "Name_MatchType"=@("Search-CONNContact")
     "NumberCondition_ComparisonType"=@("Search-CONNContactEvaluation","Search-CONNEvaluationForm")
     "OutboundStrategy_Type"=@("Start-CONNOutboundVoiceContact")
     "OutputType"=@("Get-CONNRealtimeContactAnalysisSegmentsV2List")
     "ParticipantCapabilities_ScreenShare"=@("New-CONNParticipant")
     "ParticipantCapabilities_Video"=@("New-CONNParticipant")
+    "ParticipantConfiguration_ResponseMode"=@("Start-CONNChatContact")
     "ParticipantDetails_ParticipantRole"=@("New-CONNParticipant")
     "PersistentChat_RehydrationType"=@("Start-CONNChatContact")
     "PhoneNumberCountryCode"=@("Search-CONNAvailablePhoneNumber")
@@ -20011,6 +20155,10 @@ $CONN_map = @{
     "SearchCriteria_StateCondition"=@("Search-CONNContactFlow","Search-CONNContactFlowModule")
     "SearchCriteria_StatusCondition"=@("Search-CONNContactFlow","Search-CONNContactFlowModule")
     "SearchCriteria_TypeCondition"=@("Search-CONNContactFlow")
+    "SearchCriteria_ViewStatusCondition"=@("Search-CONNView")
+    "SearchCriteria_ViewTypeCondition"=@("Search-CONNView")
+    "SearchFilter_FlowAttributeFilter_AndCondition_ContactFlowTypeCondition_ContactFlowType"=@("Search-CONNContactFlow")
+    "SearchFilter_FlowAttributeFilter_ContactFlowTypeCondition_ContactFlowType"=@("Search-CONNContactFlow")
     "SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "SearchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "Sort_FieldName"=@("Search-CONNContact")
@@ -20018,20 +20166,26 @@ $CONN_map = @{
     "SourceEndpoint_Type"=@("Start-CONNOutboundChatContact")
     "SourceType"=@("New-CONNIntegrationAssociation")
     "State"=@("New-CONNAgentStatus","Search-CONNVocabulary","Update-CONNAgentStatus","Update-CONNContactFlowModuleMetadata")
-    "Status"=@("Get-CONNTaskTemplateList","New-CONNContactFlow","New-CONNTaskTemplate","New-CONNView","Update-CONNQueueStatus","Update-CONNTaskTemplate","Update-CONNViewContent")
+    "Status"=@("Get-CONNTaskTemplateList","New-CONNContactFlow","New-CONNDataTable","New-CONNTaskTemplate","New-CONNView","Update-CONNQueueStatus","Update-CONNTaskTemplate","Update-CONNViewContent")
     "StorageConfig_StorageType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfigKinesisVideoStreamConfigEncryptionConfigEncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfigS3ConfigEncryptionConfigEncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
-    "StringCondition_ComparisonType"=@("Search-CONNAgentStatus","Search-CONNContactEvaluation","Search-CONNContactFlow","Search-CONNContactFlowModule","Search-CONNEmailAddress","Search-CONNEvaluationForm","Search-CONNHoursOfOperation","Search-CONNHoursOfOperationOverride","Search-CONNPredefinedAttribute","Search-CONNPrompt","Search-CONNQueue","Search-CONNQuickConnect","Search-CONNRoutingProfile","Search-CONNSecurityProfile","Search-CONNUser","Search-CONNUserHierarchyGroup")
+    "StringCondition_ComparisonType"=@("Search-CONNAgentStatus","Search-CONNContactEvaluation","Search-CONNContactFlow","Search-CONNContactFlowModule","Search-CONNDataTable","Search-CONNEmailAddress","Search-CONNEvaluationForm","Search-CONNHoursOfOperation","Search-CONNHoursOfOperationOverride","Search-CONNPredefinedAttribute","Search-CONNPrompt","Search-CONNQueue","Search-CONNQuickConnect","Search-CONNRoutingProfile","Search-CONNSecurityProfile","Search-CONNUser","Search-CONNUserHierarchyGroup","Search-CONNView","Search-CONNWorkspace","Search-CONNWorkspaceAssociation")
     "SystemEndpoint_Type"=@("Update-CONNContact")
     "TagSearchCondition_TagKeyComparisonType"=@("Search-CONNResourceTag")
     "TagSearchCondition_TagValueComparisonType"=@("Search-CONNResourceTag")
+    "TargetConfiguration_ContactInteractionType"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
+    "Theme_Dark_Typography_FontFamily_Default"=@("New-CONNWorkspace","Update-CONNWorkspaceTheme")
+    "Theme_Light_Typography_FontFamily_Default"=@("New-CONNWorkspace","Update-CONNWorkspaceTheme")
     "TimeRange_Type"=@("Search-CONNContact")
     "TrafficType"=@("Send-CONNOutboundEmail","Start-CONNOutboundVoiceContact")
     "Transcript_MatchType"=@("Search-CONNContact")
     "TriggerEventSource_EventSourceName"=@("New-CONNRule")
     "Type"=@("Get-CONNViewList","New-CONNContactFlow")
     "UseCaseType"=@("New-CONNUseCase")
+    "ValueLockLevel"=@("New-CONNDataTable","Update-CONNDataTableMetadata")
+    "ValueType"=@("New-CONNDataTableAttribute","Update-CONNDataTableAttribute")
+    "Visibility"=@("Update-CONNWorkspaceVisibility")
     "VoiceRecordingConfiguration_IvrRecordingTrack"=@("Start-CONNContactRecording")
     "VoiceRecordingConfiguration_VoiceRecordingTrack"=@("Start-CONNContactRecording")
 }
@@ -20101,13 +20255,19 @@ $CONN_SelectMap = @{
                "Add-CONNQueueQuickConnect",
                "Join-CONNRoutingProfileQueue",
                "Add-CONNSecurityKey",
+               "Add-CONNSecurityProfile",
                "Add-CONNTrafficDistributionGroupUser",
                "Add-CONNUserProficiency",
+               "Add-CONNWorkspace",
                "Register-CONNBatchAnalyticsDataSet",
+               "New-CONNDataTableValueBatch",
+               "Remove-CONNDataTableValueBatch",
+               "Get-CONNDataTableValueDetailBatch",
                "Unregister-CONNBatchAnalyticsDataSet",
                "Get-CONNBatchAttachedFileMetadata",
                "Get-CONNFlowAssociationBatch",
                "Set-CONNBatchPutContact",
+               "Update-CONNDataTableValueBatch",
                "Request-CONNPhoneNumber",
                "Complete-CONNAttachedFileUpload",
                "New-CONNAgentStatus",
@@ -20117,6 +20277,8 @@ $CONN_SelectMap = @{
                "New-CONNContactFlowModuleAlias",
                "New-CONNContactFlowModuleVersion",
                "New-CONNContactFlowVersion",
+               "New-CONNDataTable",
+               "New-CONNDataTableAttribute",
                "New-CONNEmailAddress",
                "New-CONNEvaluationForm",
                "New-CONNHoursOfOperation",
@@ -20141,6 +20303,8 @@ $CONN_SelectMap = @{
                "New-CONNView",
                "New-CONNViewVersion",
                "New-CONNVocabulary",
+               "New-CONNWorkspace",
+               "New-CONNWorkspacePage",
                "Disable-CONNEvaluationForm",
                "Remove-CONNAttachedFile",
                "Remove-CONNContactEvaluation",
@@ -20149,6 +20313,8 @@ $CONN_SelectMap = @{
                "Remove-CONNContactFlowModuleAlias",
                "Remove-CONNContactFlowModuleVersion",
                "Remove-CONNContactFlowVersion",
+               "Remove-CONNDataTable",
+               "Remove-CONNDataTableAttribute",
                "Remove-CONNEmailAddress",
                "Remove-CONNEvaluationForm",
                "Remove-CONNHoursOfOperation",
@@ -20171,6 +20337,9 @@ $CONN_SelectMap = @{
                "Remove-CONNView",
                "Remove-CONNViewVersion",
                "Remove-CONNVocabulary",
+               "Remove-CONNWorkspace",
+               "Remove-CONNWorkspaceMedia",
+               "Remove-CONNWorkspacePage",
                "Get-CONNAgentStatus",
                "Get-CONNAuthenticationProfile",
                "Get-CONNContact",
@@ -20178,6 +20347,8 @@ $CONN_SelectMap = @{
                "Get-CONNContactFlow",
                "Get-CONNContactFlowModule",
                "Get-CONNContactFlowModuleAliasDetail",
+               "Get-CONNDataTableDetail",
+               "Get-CONNDataTableAttributeDetail",
                "Get-CONNEmailAddress",
                "Get-CONNEvaluationForm",
                "Get-CONNHoursOfOperation",
@@ -20199,6 +20370,7 @@ $CONN_SelectMap = @{
                "Get-CONNUserHierarchyStructure",
                "Get-CONNView",
                "Get-CONNVocabulary",
+               "Get-CONNWorkspaceDetail",
                "Unregister-CONNAnalyticsDataSet",
                "Remove-CONNApprovedOrigin",
                "Remove-CONNBot",
@@ -20211,9 +20383,12 @@ $CONN_SelectMap = @{
                "Remove-CONNQueueQuickConnect",
                "Disconnect-CONNRoutingProfileQueue",
                "Remove-CONNSecurityKey",
+               "Unregister-CONNSecurityProfile",
                "Remove-CONNTrafficDistributionGroupUser",
                "Remove-CONNUserProficiency",
+               "Unregister-CONNWorkspace",
                "Write-CONNUserContact",
+               "Get-CONNDataTableValueEvaluation",
                "Get-CONNAttachedFile",
                "Get-CONNContactAttribute",
                "Get-CONNContactMetric",
@@ -20228,6 +20403,7 @@ $CONN_SelectMap = @{
                "Get-CONNTaskTemplate",
                "Get-CONNTrafficDistribution",
                "Import-CONNPhoneNumber",
+               "Import-CONNWorkspaceMedia",
                "Get-CONNAgentStatusList",
                "Get-CONNAnalyticsDataAssociationList",
                "Get-CONNAnalyticsDataLakeDataSetList",
@@ -20242,7 +20418,12 @@ $CONN_SelectMap = @{
                "Get-CONNContactFlowList",
                "Get-CONNContactFlowVersionList",
                "Get-CONNContactReferenceList",
+               "Get-CONNDataTableAttributeList",
+               "Get-CONNDataTablePrimaryValueList",
+               "Get-CONNDataTableList",
+               "Get-CONNDataTableValueList",
                "Get-CONNDefaultVocabularyList",
+               "Get-CONNEntitySecurityProfileList",
                "Get-CONNEvaluationFormList",
                "Get-CONNEvaluationFormVersionList",
                "Get-CONNFlowAssociationList",
@@ -20268,6 +20449,7 @@ $CONN_SelectMap = @{
                "Get-CONNRuleList",
                "Get-CONNSecurityKeyList",
                "Get-CONNSecurityProfileApplicationList",
+               "Get-CONNSecurityProfileFlowModuleList",
                "Get-CONNSecurityProfilePermissionList",
                "Get-CONNSecurityProfileList",
                "Get-CONNResourceTag",
@@ -20280,6 +20462,9 @@ $CONN_SelectMap = @{
                "Get-CONNUserList",
                "Get-CONNViewList",
                "Get-CONNViewVersionList",
+               "Get-CONNWorkspaceMediaList",
+               "Get-CONNWorkspacePageList",
+               "Get-CONNWorkspaceList",
                "Start-CONNContactMonitoring",
                "Invoke-CONNPauseContact",
                "Write-CONNUserStatus",
@@ -20293,6 +20478,7 @@ $CONN_SelectMap = @{
                "Search-CONNContactFlowModule",
                "Search-CONNContactFlow",
                "Search-CONNContact",
+               "Search-CONNDataTable",
                "Search-CONNEmailAddress",
                "Search-CONNEvaluationForm",
                "Search-CONNHoursOfOperationOverride",
@@ -20306,12 +20492,16 @@ $CONN_SelectMap = @{
                "Search-CONNSecurityProfile",
                "Search-CONNUserHierarchyGroup",
                "Search-CONNUser",
+               "Search-CONNView",
                "Search-CONNVocabulary",
+               "Search-CONNWorkspaceAssociation",
+               "Search-CONNWorkspace",
                "Send-CONNChatIntegrationEvent",
                "Send-CONNOutboundEmail",
                "Start-CONNAttachedFileUpload",
                "Start-CONNChatContact",
                "Start-CONNContactEvaluation",
+               "Start-CONNContactMediaProcessing",
                "Start-CONNContactRecording",
                "Start-CONNContactStreaming",
                "Start-CONNEmailContact",
@@ -20322,6 +20512,7 @@ $CONN_SelectMap = @{
                "Start-CONNTaskContact",
                "Start-CONNWebRTCContact",
                "Stop-CONNContact",
+               "Stop-CONNContactMediaProcessing",
                "Stop-CONNContactRecording",
                "Stop-CONNContactStreaming",
                "Submit-CONNContactEvaluation",
@@ -20344,6 +20535,9 @@ $CONN_SelectMap = @{
                "Update-CONNContactFlowName",
                "Update-CONNContactRoutingData",
                "Update-CONNContactSchedule",
+               "Update-CONNDataTableAttribute",
+               "Update-CONNDataTableMetadata",
+               "Update-CONNDataTablePrimaryValue",
                "Update-CONNEmailAddressMetadata",
                "Update-CONNEvaluationForm",
                "Update-CONNHoursOfOperation",
@@ -20382,7 +20576,11 @@ $CONN_SelectMap = @{
                "Update-CONNUserRoutingProfile",
                "Update-CONNUserSecurityProfile",
                "Update-CONNViewContent",
-               "Update-CONNViewMetadata")
+               "Update-CONNViewMetadata",
+               "Update-CONNWorkspaceMetadata",
+               "Update-CONNWorkspacePage",
+               "Update-CONNWorkspaceTheme",
+               "Update-CONNWorkspaceVisibility")
 }
 
 _awsArgumentCompleterRegistration $CONN_SelectCompleters $CONN_SelectMap
@@ -20514,7 +20712,7 @@ $CCS2_Completers = {
         # Amazon.ConnectCampaignsV2.ChannelSubtype
         "Remove-CCS2CampaignChannelSubtypeConfig/ChannelSubtype"
         {
-            $v = "EMAIL","SMS","TELEPHONY"
+            $v = "EMAIL","SMS","TELEPHONY","WHATSAPP"
             break
         }
 
@@ -20528,7 +20726,7 @@ $CCS2_Completers = {
         # Amazon.ConnectCampaignsV2.CommunicationTimeConfigType
         "Remove-CCS2CampaignCommunicationTime/Config"
         {
-            $v = "EMAIL","SMS","TELEPHONY"
+            $v = "EMAIL","SMS","TELEPHONY","WHATSAPP"
             break
         }
 
@@ -20536,6 +20734,13 @@ $CCS2_Completers = {
         "Start-CCS2InstanceOnboardingJob/EncryptionConfig_EncryptionType"
         {
             $v = "KMS"
+            break
+        }
+
+        # Amazon.ConnectCampaignsV2.ExternalCampaignType
+        "New-CCS2Campaign/Type"
+        {
+            $v = "JOURNEY","MANAGED"
             break
         }
 
@@ -20571,6 +20776,7 @@ $CCS2_map = @{
     "Config"=@("Remove-CCS2CampaignCommunicationLimit","Remove-CCS2CampaignCommunicationTime")
     "EncryptionConfig_EncryptionType"=@("Start-CCS2InstanceOnboardingJob")
     "InstanceIdFilter_Operator"=@("Get-CCS2CampaignList")
+    "Type"=@("New-CCS2Campaign")
 }
 
 _awsArgumentCompleterRegistration $CCS2_Completers $CCS2_map
@@ -21495,6 +21701,20 @@ $CPF_Completers = {
             break
         }
 
+        # Amazon.CustomerProfiles.RecommenderRecipeName
+        "New-CPFRecommender/RecommenderRecipeName"
+        {
+            $v = "frequently-paired-items","popular-items","recommended-for-you","similar-items","trending-now"
+            break
+        }
+
+        # Amazon.CustomerProfiles.Scope
+        "Write-CPFIntegration/Scope"
+        {
+            $v = "DOMAIN","PROFILE"
+            break
+        }
+
         # Amazon.CustomerProfiles.SourceConnectorType
         {
             ($_ -eq "New-CPFIntegrationWorkflow/SourceFlowConfig_ConnectorType") -Or
@@ -21571,8 +21791,10 @@ $CPF_map = @{
     "PartyType"=@("New-CPFProfile","Update-CPFProfile")
     "ProfileType"=@("New-CPFProfile","Update-CPFProfile")
     "Range_Unit"=@("Get-CPFGetCalculatedAttributeForProfile","New-CPFCalculatedAttributeDefinition","Update-CPFCalculatedAttributeDefinition")
+    "RecommenderRecipeName"=@("New-CPFRecommender")
     "RuleBasedMatching_ConflictResolution_ConflictResolvingModel"=@("New-CPFDomain","Update-CPFDomain")
     "Scheduled_DataPullMode"=@("New-CPFIntegrationWorkflow","Write-CPFIntegration")
+    "Scope"=@("Write-CPFIntegration")
     "SegmentGroups_Include"=@("New-CPFSegmentDefinition")
     "SegmentQuery_Include"=@("New-CPFSegmentEstimate")
     "SourceFlowConfig_ConnectorType"=@("New-CPFIntegrationWorkflow","Write-CPFIntegration")
@@ -21643,6 +21865,7 @@ $CPF_SelectMap = @{
                "New-CPFEventTrigger",
                "New-CPFIntegrationWorkflow",
                "New-CPFProfile",
+               "New-CPFRecommender",
                "New-CPFSegmentDefinition",
                "New-CPFSegmentEstimate",
                "New-CPFSegmentSnapshot",
@@ -21650,6 +21873,7 @@ $CPF_SelectMap = @{
                "Remove-CPFCalculatedAttributeDefinition",
                "Remove-CPFDomain",
                "Remove-CPFDomainLayout",
+               "Remove-CPFDomainObjectType",
                "Remove-CPFEventStream",
                "Remove-CPFEventTrigger",
                "Remove-CPFIntegration",
@@ -21657,6 +21881,7 @@ $CPF_SelectMap = @{
                "Remove-CPFProfileKey",
                "Remove-CPFProfileObject",
                "Remove-CPFProfileObjectType",
+               "Remove-CPFRecommender",
                "Remove-CPFSegmentDefinition",
                "Remove-CPFWorkflow",
                "Find-CPFProfileObjectType",
@@ -21665,14 +21890,18 @@ $CPF_SelectMap = @{
                "Get-CPFCalculatedAttributeForProfile",
                "Get-CPFDomain",
                "Get-CPFDomainLayout",
+               "Get-CPFDomainObjectType",
                "Get-CPFEventStream",
                "Get-CPFEventTrigger",
                "Get-CPFIdentityResolutionJob",
                "Get-CPFIntegration",
                "Get-CPFMatch",
+               "Get-CPFObjectTypeAttributeStatistic",
                "Get-CPFProfileHistoryRecord",
                "Get-CPFProfileObjectType",
                "Get-CPFProfileObjectTypeTemplate",
+               "Get-CPFProfileRecommendation",
+               "Get-CPFRecommender",
                "Get-CPFSegmentDefinition",
                "Get-CPFSegmentEstimate",
                "Get-CPFSegmentMembership",
@@ -21686,28 +21915,35 @@ $CPF_SelectMap = @{
                "Get-CPFCalculatedAttributeDefinitionList",
                "Get-CPFCalculatedAttributesForProfileList",
                "Get-CPFDomainLayoutList",
+               "Get-CPFDomainObjectTypeList",
                "Get-CPFDomainList",
                "Get-CPFEventStreamList",
                "Get-CPFEventTriggerList",
                "Get-CPFIdentityResolutionJobList",
                "Get-CPFIntegrationList",
                "Get-CPFObjectTypeAttributeList",
+               "Get-CPFObjectTypeAttributeValueList",
                "Get-CPFProfileAttributeValueList",
                "Get-CPFProfileHistoryRecordList",
                "Get-CPFProfileObjectList",
                "Get-CPFProfileObjectTypeList",
                "Get-CPFProfileObjectTypeTemplateList",
+               "Get-CPFRecommenderRecipeList",
+               "Get-CPFRecommenderList",
                "Get-CPFRuleBasedMatchList",
                "Get-CPFSegmentDefinitionList",
                "Get-CPFResourceTag",
                "Get-CPFUploadJobList",
                "Get-CPFWorkflowList",
                "Merge-CPFProfile",
+               "Write-CPFDomainObjectType",
                "Write-CPFIntegration",
                "Write-CPFProfileObject",
                "Write-CPFProfileObjectType",
                "Search-CPFProfile",
+               "Start-CPFRecommender",
                "Start-CPFUploadJob",
+               "Stop-CPFRecommender",
                "Stop-CPFUploadJob",
                "Add-CPFResourceTag",
                "Remove-CPFResourceTag",
@@ -21715,7 +21951,8 @@ $CPF_SelectMap = @{
                "Update-CPFDomain",
                "Update-CPFDomainLayout",
                "Update-CPFEventTrigger",
-               "Update-CPFProfile")
+               "Update-CPFProfile",
+               "Update-CPFRecommender")
 }
 
 _awsArgumentCompleterRegistration $CPF_SelectCompleters $CPF_SelectMap
@@ -30450,6 +30687,23 @@ $EKS_Completers = {
             break
         }
 
+        # Amazon.EKS.CapabilityDeletePropagationPolicy
+        {
+            ($_ -eq "New-EKSCapability/DeletePropagationPolicy") -Or
+            ($_ -eq "Update-EKSCapability/DeletePropagationPolicy")
+        }
+        {
+            $v = "RETAIN"
+            break
+        }
+
+        # Amazon.EKS.CapabilityType
+        "New-EKSCapability/Type"
+        {
+            $v = "ACK","ARGOCD","KRO"
+            break
+        }
+
         # Amazon.EKS.CapacityTypes
         "New-EKSNodegroup/CapacityType"
         {
@@ -30557,11 +30811,13 @@ $EKS_map = @{
     "CapacityType"=@("New-EKSNodegroup")
     "ConnectorConfig_Provider"=@("Register-EKSCluster")
     "ControlPlaneScalingConfig_Tier"=@("New-EKSCluster","Update-EKSClusterConfig")
+    "DeletePropagationPolicy"=@("New-EKSCapability","Update-EKSCapability")
     "KubernetesNetworkConfig_IpFamily"=@("New-EKSCluster","Update-EKSClusterConfig")
     "LicenseType"=@("New-EKSEksAnywhereSubscription")
     "ResolveConflict"=@("New-EKSAddon","Update-EKSAddon")
     "Status"=@("Get-EKSClusterVersion")
     "Term_Unit"=@("New-EKSEksAnywhereSubscription")
+    "Type"=@("New-EKSCapability")
     "UpdateConfig_UpdateStrategy"=@("New-EKSNodegroup","Update-EKSNodegroupConfig")
     "UpgradePolicy_SupportType"=@("New-EKSCluster","Update-EKSClusterConfig")
     "VersionStatus"=@("Get-EKSClusterVersion")
@@ -30622,6 +30878,7 @@ $EKS_SelectMap = @{
                "Add-EKSIdentityProviderConfig",
                "New-EKSAccessEntry",
                "New-EKSAddon",
+               "New-EKSCapability",
                "New-EKSCluster",
                "New-EKSEksAnywhereSubscription",
                "New-EKSFargateProfile",
@@ -30629,6 +30886,7 @@ $EKS_SelectMap = @{
                "New-EKSPodIdentityAssociation",
                "Remove-EKSAccessEntry",
                "Remove-EKSAddon",
+               "Remove-EKSCapability",
                "Remove-EKSCluster",
                "Remove-EKSEksAnywhereSubscription",
                "Remove-EKSFargateProfile",
@@ -30639,6 +30897,7 @@ $EKS_SelectMap = @{
                "Get-EKSAddon",
                "Get-EKSAddonConfiguration",
                "Get-EKSAddonVersion",
+               "Get-EKSCapabilityDetail",
                "Get-EKSCluster",
                "Get-EKSClusterVersion",
                "Get-EKSEksAnywhereSubscription",
@@ -30655,6 +30914,7 @@ $EKS_SelectMap = @{
                "Get-EKSAccessPolicyList",
                "Get-EKSAddonList",
                "Get-EKSAssociatedAccessPolicyList",
+               "Get-EKSCapabilityList",
                "Get-EKSClusterList",
                "Get-EKSEksAnywhereSubscriptionList",
                "Get-EKSFargateProfileList",
@@ -30670,6 +30930,7 @@ $EKS_SelectMap = @{
                "Remove-EKSResourceTag",
                "Update-EKSAccessEntry",
                "Update-EKSAddon",
+               "Update-EKSCapability",
                "Update-EKSClusterConfig",
                "Update-EKSClusterVersion",
                "Update-EKSEksAnywhereSubscription",
@@ -46818,6 +47079,23 @@ $LM_Completers = {
             break
         }
 
+        # Amazon.Lambda.CapacityProviderScalingMode
+        {
+            ($_ -eq "New-LMCapacityProvider/CapacityProviderScalingConfig_ScalingMode") -Or
+            ($_ -eq "Update-LMCapacityProvider/CapacityProviderScalingConfig_ScalingMode")
+        }
+        {
+            $v = "Auto","Manual"
+            break
+        }
+
+        # Amazon.Lambda.CapacityProviderState
+        "Get-LMCapacityProviderList/State"
+        {
+            $v = "Active","Deleting","Failed","Pending"
+            break
+        }
+
         # Amazon.Lambda.CodeSigningPolicy
         {
             ($_ -eq "New-LMCodeSigningConfig/CodeSigningPolicies_UntrustedArtifactOnDeployment") -Or
@@ -46860,6 +47138,17 @@ $LM_Completers = {
         "Get-LMFunctionList/FunctionVersion"
         {
             $v = "ALL"
+            break
+        }
+
+        # Amazon.Lambda.FunctionVersionLatestPublished
+        {
+            ($_ -eq "Publish-LMFunction/PublishTo") -Or
+            ($_ -eq "Publish-LMVersion/PublishTo") -Or
+            ($_ -eq "Update-LMFunctionCode/PublishTo")
+        }
+        {
+            $v = "LATEST_PUBLISHED"
             break
         }
 
@@ -47000,6 +47289,7 @@ $LM_Completers = {
 $LM_map = @{
     "AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_EventRecordFormat"=@("New-LMEventSourceMapping","Update-LMEventSourceMapping")
     "AuthType"=@("New-LMFunctionUrlConfig","Update-LMFunctionUrlConfig")
+    "CapacityProviderScalingConfig_ScalingMode"=@("New-LMCapacityProvider","Update-LMCapacityProvider")
     "CodeSigningPolicies_UntrustedArtifactOnDeployment"=@("New-LMCodeSigningConfig","Update-LMCodeSigningConfig")
     "CompatibleArchitecture"=@("Get-LMLayerList","Get-LMLayerVersionList")
     "CompatibleRuntime"=@("Get-LMLayerList","Get-LMLayerVersionList")
@@ -47013,11 +47303,13 @@ $LM_map = @{
     "LoggingConfig_SystemLogLevel"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "LogType"=@("Invoke-LMFunction","Invoke-LMWithResponseStream")
     "PackageType"=@("Publish-LMFunction")
+    "PublishTo"=@("Publish-LMFunction","Publish-LMVersion","Update-LMFunctionCode")
     "RecursiveLoop"=@("Write-LMFunctionRecursionConfig")
     "Runtime"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "SchemaRegistryConfig_EventRecordFormat"=@("New-LMEventSourceMapping","Update-LMEventSourceMapping")
     "SnapStart_ApplyOn"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "StartingPosition"=@("New-LMEventSourceMapping")
+    "State"=@("Get-LMCapacityProviderList")
     "TenancyConfig_TenantIsolationMode"=@("Publish-LMFunction")
     "TracingConfig_Mode"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "UpdateRuntimeOn"=@("Write-LMRuntimeManagementConfig")
@@ -47076,11 +47368,13 @@ $LM_SelectMap = @{
     "Select"=@("Add-LMLayerVersionPermission",
                "Add-LMPermission",
                "New-LMAlias",
+               "New-LMCapacityProvider",
                "New-LMCodeSigningConfig",
                "New-LMEventSourceMapping",
                "Publish-LMFunction",
                "New-LMFunctionUrlConfig",
                "Remove-LMAlias",
+               "Remove-LMCapacityProvider",
                "Remove-LMCodeSigningConfig",
                "Remove-LMEventSourceMapping",
                "Remove-LMFunction",
@@ -47092,6 +47386,7 @@ $LM_SelectMap = @{
                "Remove-LMProvisionedConcurrencyConfig",
                "Get-LMAccountSetting",
                "Get-LMAlias",
+               "Get-LMCapacityProvider",
                "Get-LMCodeSigningConfig",
                "Get-LMEventSourceMapping",
                "Get-LMFunction",
@@ -47100,6 +47395,7 @@ $LM_SelectMap = @{
                "Get-LMFunctionConfiguration",
                "Get-LMFunctionEventInvokeConfig",
                "Get-LMFunctionRecursionConfig",
+               "Get-LMFunctionScalingConfig",
                "Get-LMFunctionUrlConfig",
                "Get-LMLayerVersion",
                "Get-LMLayerVersionByArn",
@@ -47111,12 +47407,14 @@ $LM_SelectMap = @{
                "Invoke-LMFunctionAsync",
                "Invoke-LMWithResponseStream",
                "Get-LMAliasList",
+               "Get-LMCapacityProviderList",
                "Get-LMCodeSigningConfigList",
                "Get-LMEventSourceMappingList",
                "Get-LMFunctionEventInvokeConfigList",
                "Get-LMFunctionList",
                "Get-LMFunctionsByCodeSigningConfigList",
                "Get-LMFunctionUrlConfigList",
+               "Get-LMFunctionVersionsByCapacityProviderList",
                "Get-LMLayerList",
                "Get-LMLayerVersionList",
                "Get-LMProvisionedConcurrencyConfigList",
@@ -47128,6 +47426,7 @@ $LM_SelectMap = @{
                "Write-LMFunctionConcurrency",
                "Write-LMFunctionEventInvokeConfig",
                "Write-LMFunctionRecursionConfig",
+               "Write-LMFunctionScalingConfig",
                "Write-LMProvisionedConcurrencyConfig",
                "Write-LMRuntimeManagementConfig",
                "Remove-LMLayerVersionPermission",
@@ -47135,6 +47434,7 @@ $LM_SelectMap = @{
                "Add-LMResourceTag",
                "Remove-LMResourceTag",
                "Update-LMAlias",
+               "Update-LMCapacityProvider",
                "Update-LMCodeSigningConfig",
                "Update-LMEventSourceMapping",
                "Update-LMFunctionCode",
@@ -50459,10 +50759,17 @@ $MCAT_Completers = {
             break
         }
 
+        # Amazon.MarketplaceCatalog.OfferSetSortBy
+        "Get-MCATEntityList/OfferSetSort_SortBy"
+        {
+            $v = "EntityId","LastModifiedDate","Name","ReleaseDate","SolutionId","State"
+            break
+        }
+
         # Amazon.MarketplaceCatalog.OfferSortBy
         "Get-MCATEntityList/OfferSort_SortBy"
         {
-            $v = "AvailabilityEndDate","BuyerAccounts","EntityId","LastModifiedDate","Name","ProductId","ReleaseDate","ResaleAuthorizationId","State","Targeting"
+            $v = "AvailabilityEndDate","BuyerAccounts","EntityId","LastModifiedDate","Name","OfferSetId","ProductId","ReleaseDate","ResaleAuthorizationId","State","Targeting"
             break
         }
 
@@ -50493,6 +50800,7 @@ $MCAT_Completers = {
             ($_ -eq "Get-MCATEntityList/ContainerProductSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/DataProductSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/MachineLearningProductSort_SortOrder") -Or
+            ($_ -eq "Get-MCATEntityList/OfferSetSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/OfferSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/ResaleAuthorizationSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/SaaSProductSort_SortOrder") -Or
@@ -50522,6 +50830,8 @@ $MCAT_map = @{
     "Intent"=@("Start-MCATChangeSet")
     "MachineLearningProductSort_SortBy"=@("Get-MCATEntityList")
     "MachineLearningProductSort_SortOrder"=@("Get-MCATEntityList")
+    "OfferSetSort_SortBy"=@("Get-MCATEntityList")
+    "OfferSetSort_SortOrder"=@("Get-MCATEntityList")
     "OfferSort_SortBy"=@("Get-MCATEntityList")
     "OfferSort_SortOrder"=@("Get-MCATEntityList")
     "OwnershipType"=@("Get-MCATEntityList")
@@ -54393,6 +54703,17 @@ $LMBV2_Completers = {
             break
         }
 
+        # Amazon.LexModelsV2.SpeechModelPreference
+        {
+            ($_ -eq "New-LMBV2BotLocale/SpeechRecognitionSettings_SpeechModelPreference") -Or
+            ($_ -eq "Start-LMBV2Import/SpeechRecognitionSettings_SpeechModelPreference") -Or
+            ($_ -eq "Update-LMBV2BotLocale/SpeechRecognitionSettings_SpeechModelPreference")
+        }
+        {
+            $v = "Deepgram","Neural","Standard"
+            break
+        }
+
         # Amazon.LexModelsV2.TestExecutionApiMode
         "Start-LMBV2TestExecution/ApiMode"
         {
@@ -54529,6 +54850,7 @@ $LMBV2_map = @{
     "SortBy_Name"=@("Get-LMBV2SessionAnalyticsDataList","Get-LMBV2UtteranceAnalyticsDataList")
     "SortBy_Order"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotResourceGenerationList","Get-LMBV2BotVersionList","Get-LMBV2BotVersionReplicaList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SessionAnalyticsDataList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList","Get-LMBV2TestExecutionList","Get-LMBV2TestSetList","Get-LMBV2UtteranceAnalyticsDataList")
     "SpeechDetectionSensitivity"=@("New-LMBV2BotLocale","Update-LMBV2BotLocale")
+    "SpeechRecognitionSettings_SpeechModelPreference"=@("New-LMBV2BotLocale","Start-LMBV2Import","Update-LMBV2BotLocale")
     "TestExecutionModality"=@("Start-LMBV2TestExecution")
     "TestSetImportResourceSpecification_Modality"=@("Start-LMBV2Import")
     "ValueElicitationSetting_SlotCaptureSetting_CaptureConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Slot","Update-LMBV2Slot")
@@ -59296,6 +59618,232 @@ $PAN_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $PAN_SelectCompleters $PAN_SelectMap
+# Argument completions for service Partner Central Account API
+
+
+$PCAA_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.PartnerCentralAccount.AccessType
+        "Update-PCAAConnectionPreference/AccessType"
+        {
+            $v = "ALLOW_ALL","ALLOW_BY_DEFAULT_DENY_SOME","DENY_ALL"
+            break
+        }
+
+        # Amazon.PartnerCentralAccount.ConnectionType
+        {
+            ($_ -eq "Get-PCAAConnectionInvitationList/ConnectionType") -Or
+            ($_ -eq "New-PCAAConnectionInvitation/ConnectionType") -Or
+            ($_ -eq "Stop-PCAAConnection/ConnectionType")
+        }
+        {
+            $v = "OPPORTUNITY_COLLABORATION","SUBSIDIARY"
+            break
+        }
+
+        # Amazon.PartnerCentralAccount.InvitationStatus
+        "Get-PCAAConnectionInvitationList/Status"
+        {
+            $v = "ACCEPTED","CANCELED","EXPIRED","PENDING","REJECTED"
+            break
+        }
+
+        # Amazon.PartnerCentralAccount.ParticipantType
+        "Get-PCAAConnectionInvitationList/ParticipantType"
+        {
+            $v = "RECEIVER","SENDER"
+            break
+        }
+
+        # Amazon.PartnerCentralAccount.PrimarySolutionType
+        {
+            ($_ -eq "New-PCAAPartner/PrimarySolutionType") -Or
+            ($_ -eq "Start-PCAAProfileUpdateTask/TaskDetails_PrimarySolutionType")
+        }
+        {
+            $v = "COMMUNICATION_SERVICES","CONSULTING_SERVICES","HARDWARE_PRODUCTS","MANAGED_SERVICES","PROFESSIONAL_SERVICES","SOFTWARE_PRODUCTS","TRAINING_SERVICES","VALUE_ADDED_RESALE_AWS_SERVICES"
+            break
+        }
+
+        # Amazon.PartnerCentralAccount.ProfileVisibility
+        "Write-PCAAProfileVisibility/Visibility"
+        {
+            $v = "PRIVATE","PUBLIC"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$PCAA_map = @{
+    "AccessType"=@("Update-PCAAConnectionPreference")
+    "ConnectionType"=@("Get-PCAAConnectionInvitationList","New-PCAAConnectionInvitation","Stop-PCAAConnection")
+    "ParticipantType"=@("Get-PCAAConnectionInvitationList")
+    "PrimarySolutionType"=@("New-PCAAPartner")
+    "Status"=@("Get-PCAAConnectionInvitationList")
+    "TaskDetails_PrimarySolutionType"=@("Start-PCAAProfileUpdateTask")
+    "Visibility"=@("Write-PCAAProfileVisibility")
+}
+
+_awsArgumentCompleterRegistration $PCAA_Completers $PCAA_map
+
+$PCAA_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.PCAA.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$PCAA_SelectMap = @{
+    "Select"=@("Approve-PCAAConnectionInvitation",
+               "Add-PCAAAwsTrainingCertificationEmailDomain",
+               "Stop-PCAAConnection",
+               "Stop-PCAAConnectionInvitation",
+               "Stop-PCAAProfileUpdateTask",
+               "New-PCAAConnectionInvitation",
+               "New-PCAAPartner",
+               "Remove-PCAAAwsTrainingCertificationEmailDomain",
+               "Get-PCAAAllianceLeadContact",
+               "Get-PCAAConnection",
+               "Get-PCAAConnectionInvitation",
+               "Get-PCAAConnectionPreference",
+               "Get-PCAAPartner",
+               "Get-PCAAProfileUpdateTask",
+               "Get-PCAAProfileVisibility",
+               "Get-PCAAConnectionInvitationList",
+               "Get-PCAAConnectionList",
+               "Get-PCAAPartnerList",
+               "Get-PCAAResourceTag",
+               "Write-PCAAAllianceLeadContact",
+               "Write-PCAAProfileVisibility",
+               "Deny-PCAAConnectionInvitation",
+               "Send-PCAAEmailVerificationCode",
+               "Start-PCAAProfileUpdateTask",
+               "Add-PCAAResourceTag",
+               "Remove-PCAAResourceTag",
+               "Update-PCAAConnectionPreference")
+}
+
+_awsArgumentCompleterRegistration $PCAA_SelectCompleters $PCAA_SelectMap
+# Argument completions for service Amazon PartnerCentral Benefits Service
+
+
+$PCB_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.PCB.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$PCB_SelectMap = @{
+    "Select"=@("Edit-PCBBenefitApplication",
+               "Add-PCBBenefitApplication",
+               "Stop-PCBBenefitApplication",
+               "New-PCBBenefitApplication",
+               "Remove-PCBBenefitApplication",
+               "Get-PCBBenefit",
+               "Get-PCBBenefitAllocation",
+               "Get-PCBBenefitApplication",
+               "Get-PCBBenefitAllocationList",
+               "Get-PCBBenefitApplicationList",
+               "Get-PCBBenefitList",
+               "Get-PCBResourceTag",
+               "Invoke-PCBRecallBenefitApplication",
+               "Submit-PCBBenefitApplication",
+               "Add-PCBResourceTag",
+               "Remove-PCBResourceTag",
+               "Update-PCBBenefitApplication")
+}
+
+_awsArgumentCompleterRegistration $PCB_SelectCompleters $PCB_SelectMap
 # Argument completions for service Partner Central Channel API
 
 
@@ -59569,8 +60117,13 @@ $PC_Completers = {
         # Amazon.PartnerCentralSelling.CountryCode
         {
             ($_ -eq "Invoke-PCCreateOpportunity/Address_CountryCode") -Or
+            ($_ -eq "New-PCEngagementContext/Address_CountryCode") -Or
+            ($_ -eq "Update-PCEngagementContext/Address_CountryCode") -Or
             ($_ -eq "Update-PCOpportunity/Address_CountryCode") -Or
-            ($_ -eq "Invoke-PCCreateEngagementInvitation/Customer_CountryCode")
+            ($_ -eq "New-PCEngagementContext/Customer_CountryCode") -Or
+            ($_ -eq "Update-PCEngagementContext/Customer_CountryCode") -Or
+            ($_ -eq "Invoke-PCCreateEngagementInvitation/Invitation_Payload_OpportunityInvitation_Customer_CountryCode") -Or
+            ($_ -eq "Invoke-PCCreateEngagementInvitation/LeadInvitation_Customer_CountryCode")
         }
         {
             $v = "AD","AE","AF","AG","AI","AL","AM","AN","AO","AQ","AR","AS","AT","AU","AW","AX","AZ","BA","BB","BD","BE","BF","BG","BH","BI","BJ","BL","BM","BN","BO","BQ","BR","BS","BT","BV","BW","BY","BZ","CA","CC","CD","CF","CG","CH","CI","CK","CL","CM","CN","CO","CR","CU","CV","CW","CX","CY","CZ","DE","DJ","DK","DM","DO","DZ","EC","EE","EG","EH","ER","ES","ET","FI","FJ","FK","FM","FO","FR","GA","GB","GD","GE","GF","GG","GH","GI","GL","GM","GN","GP","GQ","GR","GS","GT","GU","GW","GY","HK","HM","HN","HR","HT","HU","ID","IE","IL","IM","IN","IO","IQ","IR","IS","IT","JE","JM","JO","JP","KE","KG","KH","KI","KM","KN","KR","KW","KY","KZ","LA","LB","LC","LI","LK","LR","LS","LT","LU","LV","LY","MA","MC","MD","ME","MF","MG","MH","MK","ML","MM","MN","MO","MP","MQ","MR","MS","MT","MU","MV","MW","MX","MY","MZ","NA","NC","NE","NF","NG","NI","NL","NO","NP","NR","NU","NZ","OM","PA","PE","PF","PG","PH","PK","PL","PM","PN","PR","PS","PT","PW","PY","QA","RE","RO","RS","RU","RW","SA","SB","SC","SD","SE","SG","SH","SI","SJ","SK","SL","SM","SN","SO","SR","SS","ST","SV","SX","SY","SZ","TC","TD","TF","TG","TH","TJ","TK","TL","TM","TN","TO","TR","TT","TV","TW","TZ","UA","UG","UM","US","UY","UZ","VA","VC","VE","VG","VI","VN","VU","WF","WS","YE","YT","ZA","ZM","ZW"
@@ -59587,6 +60140,16 @@ $PC_Completers = {
             break
         }
 
+        # Amazon.PartnerCentralSelling.EngagementContextType
+        {
+            ($_ -eq "New-PCEngagementContext/Type") -Or
+            ($_ -eq "Update-PCEngagementContext/Type")
+        }
+        {
+            $v = "CustomerProject","Lead"
+            break
+        }
+
         # Amazon.PartnerCentralSelling.EngagementSortName
         "Get-PCEngagementList/Sort_SortBy"
         {
@@ -59598,7 +60161,12 @@ $PC_Completers = {
         {
             ($_ -eq "Invoke-PCCreateOpportunity/Account_Industry") -Or
             ($_ -eq "Update-PCOpportunity/Account_Industry") -Or
-            ($_ -eq "Invoke-PCCreateEngagementInvitation/Customer_Industry")
+            ($_ -eq "Invoke-PCCreateEngagementInvitation/Invitation_Payload_OpportunityInvitation_Customer_Industry") -Or
+            ($_ -eq "New-PCEngagementContext/Lead_Customer_Industry") -Or
+            ($_ -eq "Update-PCEngagementContext/Lead_Customer_Industry") -Or
+            ($_ -eq "Invoke-PCCreateEngagementInvitation/LeadInvitation_Customer_Industry") -Or
+            ($_ -eq "New-PCEngagementContext/Payload_CustomerProject_Customer_Industry") -Or
+            ($_ -eq "Update-PCEngagementContext/Payload_CustomerProject_Customer_Industry")
         }
         {
             $v = "Aerospace","Agriculture","Automotive","Computers and Electronics","Consumer Goods","Education","Energy - Oil and Gas","Energy - Power and Utilities","Financial Services","Gaming","Government","Healthcare","Hospitality","Life Sciences","Manufacturing","Marketing and Advertising","Media and Entertainment","Mining","Non-Profit Organization","Other","Professional Services","Real Estate and Construction","Retail","Software and Internet","Telecommunications","Transportation and Logistics","Travel","Wholesale and Distribution"
@@ -59608,7 +60176,8 @@ $PC_Completers = {
         # Amazon.PartnerCentralSelling.ListTasksSortName
         {
             ($_ -eq "Get-PCEngagementByAcceptingInvitationTaskList/Sort_SortBy") -Or
-            ($_ -eq "Get-PCEngagementFromOpportunityTaskList/Sort_SortBy")
+            ($_ -eq "Get-PCEngagementFromOpportunityTaskList/Sort_SortBy") -Or
+            ($_ -eq "Get-PCOpportunityFromEngagementTaskList/Sort_SortBy")
         }
         {
             $v = "StartTime"
@@ -59622,6 +60191,17 @@ $PC_Completers = {
         }
         {
             $v = "Marketing Activity","None"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.MarketSegment
+        {
+            ($_ -eq "Invoke-PCCreateEngagementInvitation/Customer_MarketSegment") -Or
+            ($_ -eq "New-PCEngagementContext/Customer_MarketSegment") -Or
+            ($_ -eq "Update-PCEngagementContext/Customer_MarketSegment")
+        }
+        {
+            $v = "Enterprise","Large","Medium","Micro","Small"
             break
         }
 
@@ -59679,7 +60259,7 @@ $PC_Completers = {
             ($_ -eq "Invoke-PCDisassociateOpportunity/RelatedEntityType")
         }
         {
-            $v = "AwsMarketplaceOffers","AwsProducts","Solutions"
+            $v = "AwsMarketplaceOffers","AwsMarketplaceOfferSets","AwsProducts","Solutions"
             break
         }
 
@@ -59753,6 +60333,7 @@ $PC_Completers = {
             ($_ -eq "Get-PCEngagementFromOpportunityTaskList/Sort_SortOrder") -Or
             ($_ -eq "Get-PCEngagementInvitationList/Sort_SortOrder") -Or
             ($_ -eq "Get-PCEngagementList/Sort_SortOrder") -Or
+            ($_ -eq "Get-PCOpportunityFromEngagementTaskList/Sort_SortOrder") -Or
             ($_ -eq "Get-PCOpportunityList/Sort_SortOrder") -Or
             ($_ -eq "Get-PCResourceSnapshotJobList/Sort_SortOrder") -Or
             ($_ -eq "Get-PCSolutionList/Sort_SortOrder")
@@ -59792,12 +60373,17 @@ $PC_Completers = {
 
 $PC_map = @{
     "Account_Industry"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
-    "Address_CountryCode"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
+    "Address_CountryCode"=@("Invoke-PCCreateOpportunity","New-PCEngagementContext","Update-PCEngagementContext","Update-PCOpportunity")
     "AwsSubmission_InvolvementType"=@("Invoke-PCStartEngagementFromOpportunityTask")
     "AwsSubmission_Visibility"=@("Invoke-PCStartEngagementFromOpportunityTask")
-    "Customer_CountryCode"=@("Invoke-PCCreateEngagementInvitation")
-    "Customer_Industry"=@("Invoke-PCCreateEngagementInvitation")
+    "Customer_CountryCode"=@("New-PCEngagementContext","Update-PCEngagementContext")
+    "Customer_MarketSegment"=@("Invoke-PCCreateEngagementInvitation","New-PCEngagementContext","Update-PCEngagementContext")
+    "Invitation_Payload_OpportunityInvitation_Customer_CountryCode"=@("Invoke-PCCreateEngagementInvitation")
+    "Invitation_Payload_OpportunityInvitation_Customer_Industry"=@("Invoke-PCCreateEngagementInvitation")
     "InvolvementType"=@("Submit-PCOpportunity")
+    "Lead_Customer_Industry"=@("New-PCEngagementContext","Update-PCEngagementContext")
+    "LeadInvitation_Customer_CountryCode"=@("Invoke-PCCreateEngagementInvitation")
+    "LeadInvitation_Customer_Industry"=@("Invoke-PCCreateEngagementInvitation")
     "LifeCycle_ClosedLostReason"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
     "LifeCycle_ReviewStatus"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
     "LifeCycle_Stage"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
@@ -59807,13 +60393,15 @@ $PC_map = @{
     "OpportunityType"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
     "Origin"=@("Invoke-PCCreateOpportunity")
     "ParticipantType"=@("Get-PCEngagementInvitationList")
+    "Payload_CustomerProject_Customer_Industry"=@("New-PCEngagementContext","Update-PCEngagementContext")
     "Project_CompetitorName"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
     "RelatedEntityType"=@("Invoke-PCAssociateOpportunity","Invoke-PCDisassociateOpportunity")
     "ResourceType"=@("Get-PCEngagementResourceAssociationList","Get-PCResourceSnapshot","Get-PCResourceSnapshotList","Invoke-PCResourceSnapshot","Invoke-PCResourceSnapshotJob")
     "SoftwareRevenue_DeliveryModel"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
-    "Sort_SortBy"=@("Get-PCEngagementByAcceptingInvitationTaskList","Get-PCEngagementFromOpportunityTaskList","Get-PCEngagementInvitationList","Get-PCEngagementList","Get-PCOpportunityList","Get-PCResourceSnapshotJobList","Get-PCSolutionList")
-    "Sort_SortOrder"=@("Get-PCEngagementByAcceptingInvitationTaskList","Get-PCEngagementFromOpportunityTaskList","Get-PCEngagementInvitationList","Get-PCEngagementList","Get-PCOpportunityList","Get-PCResourceSnapshotJobList","Get-PCSolutionList")
+    "Sort_SortBy"=@("Get-PCEngagementByAcceptingInvitationTaskList","Get-PCEngagementFromOpportunityTaskList","Get-PCEngagementInvitationList","Get-PCEngagementList","Get-PCOpportunityFromEngagementTaskList","Get-PCOpportunityList","Get-PCResourceSnapshotJobList","Get-PCSolutionList")
+    "Sort_SortOrder"=@("Get-PCEngagementByAcceptingInvitationTaskList","Get-PCEngagementFromOpportunityTaskList","Get-PCEngagementInvitationList","Get-PCEngagementList","Get-PCOpportunityFromEngagementTaskList","Get-PCOpportunityList","Get-PCResourceSnapshotJobList","Get-PCSolutionList")
     "Status"=@("Get-PCResourceSnapshotJobList")
+    "Type"=@("New-PCEngagementContext","Update-PCEngagementContext")
     "Value_CurrencyCode"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
     "Visibility"=@("Submit-PCOpportunity")
 }
@@ -59872,6 +60460,7 @@ $PC_SelectMap = @{
                "Invoke-PCAssignOpportunity",
                "Invoke-PCAssociateOpportunity",
                "Invoke-PCCreateEngagement",
+               "New-PCEngagementContext",
                "Invoke-PCCreateEngagementInvitation",
                "Invoke-PCCreateOpportunity",
                "Invoke-PCResourceSnapshot",
@@ -59892,6 +60481,7 @@ $PC_SelectMap = @{
                "Get-PCEngagementResourceAssociationList",
                "Get-PCEngagementList",
                "Get-PCOpportunityList",
+               "Get-PCOpportunityFromEngagementTaskList",
                "Get-PCResourceSnapshotJobList",
                "Get-PCResourceSnapshotList",
                "Get-PCSolutionList",
@@ -59900,11 +60490,13 @@ $PC_SelectMap = @{
                "Invoke-PCRejectEngagementInvitation",
                "Invoke-PCStartEngagementByAcceptingInvitationTask",
                "Invoke-PCStartEngagementFromOpportunityTask",
+               "Start-PCOpportunityFromEngagementTask",
                "Start-PCResourceSnapshotJob",
                "Stop-PCResourceSnapshotJob",
                "Submit-PCOpportunity",
                "Add-PCResourceTag",
                "Remove-PCResourceTag",
+               "Update-PCEngagementContext",
                "Update-PCOpportunity")
 }
 
@@ -63626,7 +64218,7 @@ $QC_Completers = {
             ($_ -eq "New-QCAIAgent/Type")
         }
         {
-            $v = "ANSWER_RECOMMENDATION","EMAIL_GENERATIVE_ANSWER","EMAIL_OVERVIEW","EMAIL_RESPONSE","MANUAL_SEARCH","SELF_SERVICE"
+            $v = "ANSWER_RECOMMENDATION","CASE_SUMMARIZATION","EMAIL_GENERATIVE_ANSWER","EMAIL_OVERVIEW","EMAIL_RESPONSE","MANUAL_SEARCH","NOTE_TAKING","ORCHESTRATION","SELF_SERVICE"
             break
         }
 
@@ -63647,7 +64239,7 @@ $QC_Completers = {
         # Amazon.QConnect.AIPromptType
         "New-QCAIPrompt/Type"
         {
-            $v = "ANSWER_GENERATION","EMAIL_GENERATIVE_ANSWER","EMAIL_OVERVIEW","EMAIL_QUERY_REFORMULATION","EMAIL_RESPONSE","INTENT_LABELING_GENERATION","QUERY_REFORMULATION","SELF_SERVICE_ANSWER_GENERATION","SELF_SERVICE_PRE_PROCESSING"
+            $v = "ANSWER_GENERATION","CASE_SUMMARIZATION","EMAIL_GENERATIVE_ANSWER","EMAIL_OVERVIEW","EMAIL_QUERY_REFORMULATION","EMAIL_RESPONSE","INTENT_LABELING_GENERATION","NOTE_TAKING","ORCHESTRATION","QUERY_REFORMULATION","SELF_SERVICE_ANSWER_GENERATION","SELF_SERVICE_PRE_PROCESSING"
             break
         }
 
@@ -63661,7 +64253,7 @@ $QC_Completers = {
         # Amazon.QConnect.AssociationType
         "New-QCAssistantAssociation/AssociationType"
         {
-            $v = "KNOWLEDGE_BASE"
+            $v = "EXTERNAL_BEDROCK_KNOWLEDGE_BASE","KNOWLEDGE_BASE"
             break
         }
 
@@ -63708,7 +64300,10 @@ $QC_Completers = {
         }
 
         # Amazon.QConnect.KnowledgeBaseSearchType
-        "Search-QCAssistant/OverrideKnowledgeBaseSearchType"
+        {
+            ($_ -eq "Search-QCAssistant/OverrideKnowledgeBaseSearchType") -Or
+            ($_ -eq "Invoke-QCRetrieve/RetrievalConfiguration_OverrideKnowledgeBaseSearchType")
+        }
         {
             $v = "HYBRID","SEMANTIC"
             break
@@ -63718,6 +64313,13 @@ $QC_Completers = {
         "New-QCKnowledgeBase/KnowledgeBaseType"
         {
             $v = "CUSTOM","EXTERNAL","MANAGED","MESSAGE_TEMPLATES","QUICK_RESPONSES"
+            break
+        }
+
+        # Amazon.QConnect.MessageFilterType
+        "Get-QCMessageList/Filter"
+        {
+            $v = "ALL","TEXT_ONLY"
             break
         }
 
@@ -63770,6 +64372,13 @@ $QC_Completers = {
         }
         {
             $v = "DEEP_LINK","OPEN_APP","URL"
+            break
+        }
+
+        # Amazon.QConnect.RecommendationType
+        "Get-QCRecommendation/RecommendationType"
+        {
+            $v = "BLOCKED_CASE_SUMMARIZATION_CHUNK","BLOCKED_GENERATIVE_ANSWER_CHUNK","BLOCKED_INTENT_ANSWER_CHUNK","BLOCKED_NOTES_CHUNK","CASE_SUMMARIZATION_CHUNK","DETECTED_INTENT","EMAIL_GENERATIVE_ANSWER_CHUNK","EMAIL_OVERVIEW_CHUNK","EMAIL_RESPONSE_CHUNK","GENERATIVE_ANSWER","GENERATIVE_ANSWER_CHUNK","GENERATIVE_RESPONSE","INTENT_ANSWER_CHUNK","KNOWLEDGE_CONTENT","NOTES_CHUNK","SUGGESTED_MESSAGE"
             break
         }
 
@@ -63835,6 +64444,7 @@ $QC_map = @{
     "ContentDisposition"=@("New-QCMessageTemplateAttachment")
     "ExternalSourceConfiguration_Source"=@("Start-QCImportJob")
     "Fcm_Action"=@("New-QCMessageTemplate","Update-QCMessageTemplate")
+    "Filter"=@("Get-QCMessageList")
     "GenerativeContentFeedbackData_Relevance"=@("Write-QCFeedback")
     "ImportJobType"=@("Start-QCImportJob")
     "KnowledgeBaseType"=@("New-QCKnowledgeBase")
@@ -63843,6 +64453,8 @@ $QC_map = @{
     "Origin"=@("Get-QCAIAgentList","Get-QCAIAgentVersionList","Get-QCAIPromptList","Get-QCAIPromptVersionList")
     "OverrideKnowledgeBaseSearchType"=@("Search-QCAssistant")
     "ParsingConfiguration_ParsingStrategy"=@("New-QCKnowledgeBase")
+    "RecommendationType"=@("Get-QCRecommendation")
+    "RetrievalConfiguration_OverrideKnowledgeBaseSearchType"=@("Invoke-QCRetrieve")
     "TargetType"=@("Write-QCFeedback")
     "TemplateType"=@("New-QCAIPrompt")
     "Type"=@("New-QCAIAgent","New-QCAIPrompt","New-QCAssistant","Send-QCMessage")
@@ -63964,6 +64576,7 @@ $QC_SelectMap = @{
                "Get-QCMessageTemplateList",
                "Get-QCMessageTemplateVersionList",
                "Get-QCQuickResponseList",
+               "Get-QCSpanList",
                "Get-QCResourceTag",
                "Remove-QCRecommendationsReceived",
                "Write-QCFeedback",
@@ -63971,6 +64584,7 @@ $QC_SelectMap = @{
                "Remove-QCAssistantAIAgent",
                "Remove-QCKnowledgeBaseTemplateUri",
                "Invoke-QCMessageTemplate",
+               "Invoke-QCRetrieve",
                "Search-QCContent",
                "Search-QCMessageTemplate",
                "Search-QCQuickResponse",
@@ -68514,6 +69128,235 @@ $R53D_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $R53D_SelectCompleters $R53D_SelectMap
+# Argument completions for service Amazon Route 53 Global Resolver
+
+
+$R53GR_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Route53GlobalResolver.BlockOverrideDnsQueryType
+        {
+            ($_ -eq "New-R53GRFirewallRule/BlockOverrideDnsType") -Or
+            ($_ -eq "Update-R53GRFirewallRule/BlockOverrideDnsType")
+        }
+        {
+            $v = "CNAME"
+            break
+        }
+
+        # Amazon.Route53GlobalResolver.ConfidenceThreshold
+        {
+            ($_ -eq "New-R53GRFirewallRule/ConfidenceThreshold") -Or
+            ($_ -eq "Update-R53GRFirewallRule/ConfidenceThreshold")
+        }
+        {
+            $v = "HIGH","LOW","MEDIUM"
+            break
+        }
+
+        # Amazon.Route53GlobalResolver.DnsAdvancedProtection
+        {
+            ($_ -eq "New-R53GRFirewallRule/DnsAdvancedProtection") -Or
+            ($_ -eq "Update-R53GRFirewallRule/DnsAdvancedProtection")
+        }
+        {
+            $v = "DGA","DNS_TUNNELING"
+            break
+        }
+
+        # Amazon.Route53GlobalResolver.DnsProtocol
+        {
+            ($_ -eq "New-R53GRAccessSource/Protocol") -Or
+            ($_ -eq "Update-R53GRAccessSource/Protocol")
+        }
+        {
+            $v = "DO53","DOH","DOT"
+            break
+        }
+
+        # Amazon.Route53GlobalResolver.DnsSecValidationType
+        {
+            ($_ -eq "New-R53GRDNSView/DnssecValidation") -Or
+            ($_ -eq "Update-R53GRDNSView/DnssecValidation")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.Route53GlobalResolver.EdnsClientSubnetType
+        {
+            ($_ -eq "New-R53GRDNSView/EdnsClientSubnet") -Or
+            ($_ -eq "Update-R53GRDNSView/EdnsClientSubnet")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.Route53GlobalResolver.FirewallBlockResponse
+        {
+            ($_ -eq "New-R53GRFirewallRule/BlockResponse") -Or
+            ($_ -eq "Update-R53GRFirewallRule/BlockResponse")
+        }
+        {
+            $v = "NODATA","NXDOMAIN","OVERRIDE"
+            break
+        }
+
+        # Amazon.Route53GlobalResolver.FirewallRuleAction
+        {
+            ($_ -eq "New-R53GRFirewallRule/Action") -Or
+            ($_ -eq "Update-R53GRFirewallRule/Action")
+        }
+        {
+            $v = "ALERT","ALLOW","BLOCK"
+            break
+        }
+
+        # Amazon.Route53GlobalResolver.FirewallRulesFailOpenType
+        {
+            ($_ -eq "New-R53GRDNSView/FirewallRulesFailOpen") -Or
+            ($_ -eq "Update-R53GRDNSView/FirewallRulesFailOpen")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.Route53GlobalResolver.IpAddressType
+        {
+            ($_ -eq "New-R53GRAccessSource/IpAddressType") -Or
+            ($_ -eq "Update-R53GRAccessSource/IpAddressType")
+        }
+        {
+            $v = "IPV4","IPV6"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$R53GR_map = @{
+    "Action"=@("New-R53GRFirewallRule","Update-R53GRFirewallRule")
+    "BlockOverrideDnsType"=@("New-R53GRFirewallRule","Update-R53GRFirewallRule")
+    "BlockResponse"=@("New-R53GRFirewallRule","Update-R53GRFirewallRule")
+    "ConfidenceThreshold"=@("New-R53GRFirewallRule","Update-R53GRFirewallRule")
+    "DnsAdvancedProtection"=@("New-R53GRFirewallRule","Update-R53GRFirewallRule")
+    "DnssecValidation"=@("New-R53GRDNSView","Update-R53GRDNSView")
+    "EdnsClientSubnet"=@("New-R53GRDNSView","Update-R53GRDNSView")
+    "FirewallRulesFailOpen"=@("New-R53GRDNSView","Update-R53GRDNSView")
+    "IpAddressType"=@("New-R53GRAccessSource","Update-R53GRAccessSource")
+    "Protocol"=@("New-R53GRAccessSource","Update-R53GRAccessSource")
+}
+
+_awsArgumentCompleterRegistration $R53GR_Completers $R53GR_map
+
+$R53GR_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.R53GR.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$R53GR_SelectMap = @{
+    "Select"=@("New-R53GRHostedZoneAssociation",
+               "New-R53GRFirewallRuleBatch",
+               "Remove-R53GRFirewallRuleBatch",
+               "Update-R53GRFirewallRuleBatch",
+               "New-R53GRAccessSource",
+               "New-R53GRAccessToken",
+               "New-R53GRDNSView",
+               "New-R53GRFirewallDomainList",
+               "New-R53GRFirewallRule",
+               "New-R53GRGlobalResolver",
+               "Remove-R53GRAccessSource",
+               "Remove-R53GRAccessToken",
+               "Remove-R53GRDNSView",
+               "Remove-R53GRFirewallDomainList",
+               "Remove-R53GRFirewallRule",
+               "Remove-R53GRGlobalResolver",
+               "Disable-R53GRDNSView",
+               "Remove-R53GRHostedZoneAssociation",
+               "Enable-R53GRDNSView",
+               "Get-R53GRAccessSource",
+               "Get-R53GRAccessToken",
+               "Get-R53GRDNSView",
+               "Get-R53GRFirewallDomainList",
+               "Get-R53GRFirewallRule",
+               "Get-R53GRGlobalResolver",
+               "Get-R53GRHostedZoneAssociation",
+               "Get-R53GRManagedFirewallDomainList",
+               "Import-R53GRFirewallDomainList",
+               "Get-R53GRAccessSourceList",
+               "Get-R53GRAccessTokenList",
+               "Get-R53GRDNSViewList",
+               "Get-R53GRFirewallDomainListList",
+               "Get-R53GRFirewallDomain",
+               "Get-R53GRFirewallRuleList",
+               "Get-R53GRGlobalResolverList",
+               "Get-R53GRHostedZoneAssociationList",
+               "Get-R53GRManagedFirewallDomainListList",
+               "Get-R53GRResourceTagList",
+               "Add-R53GRResourceTag",
+               "Remove-R53GRResourceTag",
+               "Update-R53GRAccessSource",
+               "Update-R53GRAccessToken",
+               "Update-R53GRDNSView",
+               "Edit-R53GRFirewallDomain",
+               "Update-R53GRFirewallRule",
+               "Update-R53GRGlobalResolver",
+               "Update-R53GRHostedZoneAssociation")
+}
+
+_awsArgumentCompleterRegistration $R53GR_SelectCompleters $R53GR_SelectMap
 # Argument completions for service Amazon Route 53 Profiles
 
 

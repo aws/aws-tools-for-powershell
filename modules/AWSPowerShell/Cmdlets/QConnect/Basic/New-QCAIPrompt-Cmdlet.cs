@@ -92,6 +92,17 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter TextAIPromptInferenceConfiguration_MaxTokensToSample
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of tokens to generate in the response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InferenceConfiguration_TextAIPromptInferenceConfiguration_MaxTokensToSample")]
+        public System.Int32? TextAIPromptInferenceConfiguration_MaxTokensToSample { get; set; }
+        #endregion
+        
         #region Parameter ModelId
         /// <summary>
         /// <para>
@@ -139,6 +150,17 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter TextAIPromptInferenceConfiguration_Temperature
+        /// <summary>
+        /// <para>
+        /// <para>The temperature setting for controlling randomness in the generated response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InferenceConfiguration_TextAIPromptInferenceConfiguration_Temperature")]
+        public System.Single? TextAIPromptInferenceConfiguration_Temperature { get; set; }
+        #endregion
+        
         #region Parameter TemplateType
         /// <summary>
         /// <para>
@@ -165,6 +187,28 @@ namespace Amazon.PowerShell.Cmdlets.QC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TemplateConfiguration_TextFullAIPromptEditTemplateConfiguration_Text")]
         public System.String TextFullAIPromptEditTemplateConfiguration_Text { get; set; }
+        #endregion
+        
+        #region Parameter TextAIPromptInferenceConfiguration_TopK
+        /// <summary>
+        /// <para>
+        /// <para>The top-K sampling parameter for token selection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InferenceConfiguration_TextAIPromptInferenceConfiguration_TopK")]
+        public System.Int32? TextAIPromptInferenceConfiguration_TopK { get; set; }
+        #endregion
+        
+        #region Parameter TextAIPromptInferenceConfiguration_TopP
+        /// <summary>
+        /// <para>
+        /// <para>The top-P sampling parameter for nucleus sampling.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InferenceConfiguration_TextAIPromptInferenceConfiguration_TopP")]
+        public System.Single? TextAIPromptInferenceConfiguration_TopP { get; set; }
         #endregion
         
         #region Parameter Type
@@ -292,6 +336,10 @@ namespace Amazon.PowerShell.Cmdlets.QC
             #endif
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.TextAIPromptInferenceConfiguration_MaxTokensToSample = this.TextAIPromptInferenceConfiguration_MaxTokensToSample;
+            context.TextAIPromptInferenceConfiguration_Temperature = this.TextAIPromptInferenceConfiguration_Temperature;
+            context.TextAIPromptInferenceConfiguration_TopK = this.TextAIPromptInferenceConfiguration_TopK;
+            context.TextAIPromptInferenceConfiguration_TopP = this.TextAIPromptInferenceConfiguration_TopP;
             context.ModelId = this.ModelId;
             #if MODULAR
             if (this.ModelId == null && ParameterWasBound(nameof(this.ModelId)))
@@ -367,6 +415,70 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate InferenceConfiguration
+            var requestInferenceConfigurationIsNull = true;
+            request.InferenceConfiguration = new Amazon.QConnect.Model.AIPromptInferenceConfiguration();
+            Amazon.QConnect.Model.TextAIPromptInferenceConfiguration requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfiguration = null;
+            
+             // populate TextAIPromptInferenceConfiguration
+            var requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfigurationIsNull = true;
+            requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfiguration = new Amazon.QConnect.Model.TextAIPromptInferenceConfiguration();
+            System.Int32? requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfiguration_textAIPromptInferenceConfiguration_MaxTokensToSample = null;
+            if (cmdletContext.TextAIPromptInferenceConfiguration_MaxTokensToSample != null)
+            {
+                requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfiguration_textAIPromptInferenceConfiguration_MaxTokensToSample = cmdletContext.TextAIPromptInferenceConfiguration_MaxTokensToSample.Value;
+            }
+            if (requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfiguration_textAIPromptInferenceConfiguration_MaxTokensToSample != null)
+            {
+                requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfiguration.MaxTokensToSample = requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfiguration_textAIPromptInferenceConfiguration_MaxTokensToSample.Value;
+                requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfigurationIsNull = false;
+            }
+            System.Single? requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfiguration_textAIPromptInferenceConfiguration_Temperature = null;
+            if (cmdletContext.TextAIPromptInferenceConfiguration_Temperature != null)
+            {
+                requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfiguration_textAIPromptInferenceConfiguration_Temperature = cmdletContext.TextAIPromptInferenceConfiguration_Temperature.Value;
+            }
+            if (requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfiguration_textAIPromptInferenceConfiguration_Temperature != null)
+            {
+                requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfiguration.Temperature = requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfiguration_textAIPromptInferenceConfiguration_Temperature.Value;
+                requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfigurationIsNull = false;
+            }
+            System.Int32? requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfiguration_textAIPromptInferenceConfiguration_TopK = null;
+            if (cmdletContext.TextAIPromptInferenceConfiguration_TopK != null)
+            {
+                requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfiguration_textAIPromptInferenceConfiguration_TopK = cmdletContext.TextAIPromptInferenceConfiguration_TopK.Value;
+            }
+            if (requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfiguration_textAIPromptInferenceConfiguration_TopK != null)
+            {
+                requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfiguration.TopK = requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfiguration_textAIPromptInferenceConfiguration_TopK.Value;
+                requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfigurationIsNull = false;
+            }
+            System.Single? requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfiguration_textAIPromptInferenceConfiguration_TopP = null;
+            if (cmdletContext.TextAIPromptInferenceConfiguration_TopP != null)
+            {
+                requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfiguration_textAIPromptInferenceConfiguration_TopP = cmdletContext.TextAIPromptInferenceConfiguration_TopP.Value;
+            }
+            if (requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfiguration_textAIPromptInferenceConfiguration_TopP != null)
+            {
+                requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfiguration.TopP = requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfiguration_textAIPromptInferenceConfiguration_TopP.Value;
+                requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfigurationIsNull = false;
+            }
+             // determine if requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfiguration should be set to null
+            if (requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfigurationIsNull)
+            {
+                requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfiguration = null;
+            }
+            if (requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfiguration != null)
+            {
+                request.InferenceConfiguration.TextAIPromptInferenceConfiguration = requestInferenceConfiguration_inferenceConfiguration_TextAIPromptInferenceConfiguration;
+                requestInferenceConfigurationIsNull = false;
+            }
+             // determine if request.InferenceConfiguration should be set to null
+            if (requestInferenceConfigurationIsNull)
+            {
+                request.InferenceConfiguration = null;
             }
             if (cmdletContext.ModelId != null)
             {
@@ -491,6 +603,10 @@ namespace Amazon.PowerShell.Cmdlets.QC
             public System.String AssistantId { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public System.Int32? TextAIPromptInferenceConfiguration_MaxTokensToSample { get; set; }
+            public System.Single? TextAIPromptInferenceConfiguration_Temperature { get; set; }
+            public System.Int32? TextAIPromptInferenceConfiguration_TopK { get; set; }
+            public System.Single? TextAIPromptInferenceConfiguration_TopP { get; set; }
             public System.String ModelId { get; set; }
             public System.String Name { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

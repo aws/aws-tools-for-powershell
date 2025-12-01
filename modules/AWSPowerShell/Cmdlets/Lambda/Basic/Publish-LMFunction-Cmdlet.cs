@@ -139,6 +139,17 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String[] Architecture { get; set; }
         #endregion
         
+        #region Parameter LambdaManagedInstancesCapacityProviderConfig_CapacityProviderArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the capacity provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CapacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig_CapacityProviderArn")]
+        public System.String LambdaManagedInstancesCapacityProviderConfig_CapacityProviderArn { get; set; }
+        #endregion
+        
         #region Parameter CodeSigningConfigArn
         /// <summary>
         /// <para>
@@ -180,6 +191,17 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String[] ImageConfig_EntryPoint { get; set; }
+        #endregion
+        
+        #region Parameter LambdaManagedInstancesCapacityProviderConfig_ExecutionEnvironmentMemoryGiBPerVCpu
+        /// <summary>
+        /// <para>
+        /// <para>The amount of memory in GiB allocated per vCPU for execution environments.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CapacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig_ExecutionEnvironmentMemoryGiBPerVCpu")]
+        public System.Double? LambdaManagedInstancesCapacityProviderConfig_ExecutionEnvironmentMemoryGiBPerVCpu { get; set; }
         #endregion
         
         #region Parameter FileSystemConfig
@@ -405,6 +427,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public Amazon.Lambda.PackageType PackageType { get; set; }
         #endregion
         
+        #region Parameter LambdaManagedInstancesCapacityProviderConfig_PerExecutionEnvironmentMaxConcurrency
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of concurrent execution environments that can run on each compute
+        /// instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CapacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig_PerExecutionEnvironmentMaxConcurrency")]
+        public System.Int32? LambdaManagedInstancesCapacityProviderConfig_PerExecutionEnvironmentMaxConcurrency { get; set; }
+        #endregion
+        
         #region Parameter PublishVersion
         /// <summary>
         /// <para>
@@ -413,6 +447,17 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? PublishVersion { get; set; }
+        #endregion
+        
+        #region Parameter PublishTo
+        /// <summary>
+        /// <para>
+        /// <para>Specifies where to publish the function version or configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lambda.FunctionVersionLatestPublished")]
+        public Amazon.Lambda.FunctionVersionLatestPublished PublishTo { get; set; }
         #endregion
         
         #region Parameter Role
@@ -684,6 +729,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 context.Architecture = new List<System.String>(this.Architecture);
             }
+            context.LambdaManagedInstancesCapacityProviderConfig_CapacityProviderArn = this.LambdaManagedInstancesCapacityProviderConfig_CapacityProviderArn;
+            context.LambdaManagedInstancesCapacityProviderConfig_ExecutionEnvironmentMemoryGiBPerVCpu = this.LambdaManagedInstancesCapacityProviderConfig_ExecutionEnvironmentMemoryGiBPerVCpu;
+            context.LambdaManagedInstancesCapacityProviderConfig_PerExecutionEnvironmentMaxConcurrency = this.LambdaManagedInstancesCapacityProviderConfig_PerExecutionEnvironmentMaxConcurrency;
             context.Code_ImageUri = this.Code_ImageUri;
             context.Code_S3Bucket = this.Code_S3Bucket;
             context.Code_S3Key = this.Code_S3Key;
@@ -750,6 +798,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.MemorySize = this.MemorySize;
             context.PackageType = this.PackageType;
             context.PublishVersion = this.PublishVersion;
+            context.PublishTo = this.PublishTo;
             context.Role = this.Role;
             #if MODULAR
             if (this.Role == null && ParameterWasBound(nameof(this.Role)))
@@ -812,6 +861,60 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 if (cmdletContext.Architecture != null)
                 {
                     request.Architectures = cmdletContext.Architecture;
+                }
+                
+                 // populate CapacityProviderConfig
+                var requestCapacityProviderConfigIsNull = true;
+                request.CapacityProviderConfig = new Amazon.Lambda.Model.CapacityProviderConfig();
+                Amazon.Lambda.Model.LambdaManagedInstancesCapacityProviderConfig requestCapacityProviderConfig_capacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig = null;
+                
+                 // populate LambdaManagedInstancesCapacityProviderConfig
+                var requestCapacityProviderConfig_capacityProviderConfig_LambdaManagedInstancesCapacityProviderConfigIsNull = true;
+                requestCapacityProviderConfig_capacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig = new Amazon.Lambda.Model.LambdaManagedInstancesCapacityProviderConfig();
+                System.String requestCapacityProviderConfig_capacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig_lambdaManagedInstancesCapacityProviderConfig_CapacityProviderArn = null;
+                if (cmdletContext.LambdaManagedInstancesCapacityProviderConfig_CapacityProviderArn != null)
+                {
+                    requestCapacityProviderConfig_capacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig_lambdaManagedInstancesCapacityProviderConfig_CapacityProviderArn = cmdletContext.LambdaManagedInstancesCapacityProviderConfig_CapacityProviderArn;
+                }
+                if (requestCapacityProviderConfig_capacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig_lambdaManagedInstancesCapacityProviderConfig_CapacityProviderArn != null)
+                {
+                    requestCapacityProviderConfig_capacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig.CapacityProviderArn = requestCapacityProviderConfig_capacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig_lambdaManagedInstancesCapacityProviderConfig_CapacityProviderArn;
+                    requestCapacityProviderConfig_capacityProviderConfig_LambdaManagedInstancesCapacityProviderConfigIsNull = false;
+                }
+                System.Double? requestCapacityProviderConfig_capacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig_lambdaManagedInstancesCapacityProviderConfig_ExecutionEnvironmentMemoryGiBPerVCpu = null;
+                if (cmdletContext.LambdaManagedInstancesCapacityProviderConfig_ExecutionEnvironmentMemoryGiBPerVCpu != null)
+                {
+                    requestCapacityProviderConfig_capacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig_lambdaManagedInstancesCapacityProviderConfig_ExecutionEnvironmentMemoryGiBPerVCpu = cmdletContext.LambdaManagedInstancesCapacityProviderConfig_ExecutionEnvironmentMemoryGiBPerVCpu.Value;
+                }
+                if (requestCapacityProviderConfig_capacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig_lambdaManagedInstancesCapacityProviderConfig_ExecutionEnvironmentMemoryGiBPerVCpu != null)
+                {
+                    requestCapacityProviderConfig_capacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig.ExecutionEnvironmentMemoryGiBPerVCpu = requestCapacityProviderConfig_capacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig_lambdaManagedInstancesCapacityProviderConfig_ExecutionEnvironmentMemoryGiBPerVCpu.Value;
+                    requestCapacityProviderConfig_capacityProviderConfig_LambdaManagedInstancesCapacityProviderConfigIsNull = false;
+                }
+                System.Int32? requestCapacityProviderConfig_capacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig_lambdaManagedInstancesCapacityProviderConfig_PerExecutionEnvironmentMaxConcurrency = null;
+                if (cmdletContext.LambdaManagedInstancesCapacityProviderConfig_PerExecutionEnvironmentMaxConcurrency != null)
+                {
+                    requestCapacityProviderConfig_capacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig_lambdaManagedInstancesCapacityProviderConfig_PerExecutionEnvironmentMaxConcurrency = cmdletContext.LambdaManagedInstancesCapacityProviderConfig_PerExecutionEnvironmentMaxConcurrency.Value;
+                }
+                if (requestCapacityProviderConfig_capacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig_lambdaManagedInstancesCapacityProviderConfig_PerExecutionEnvironmentMaxConcurrency != null)
+                {
+                    requestCapacityProviderConfig_capacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig.PerExecutionEnvironmentMaxConcurrency = requestCapacityProviderConfig_capacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig_lambdaManagedInstancesCapacityProviderConfig_PerExecutionEnvironmentMaxConcurrency.Value;
+                    requestCapacityProviderConfig_capacityProviderConfig_LambdaManagedInstancesCapacityProviderConfigIsNull = false;
+                }
+                 // determine if requestCapacityProviderConfig_capacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig should be set to null
+                if (requestCapacityProviderConfig_capacityProviderConfig_LambdaManagedInstancesCapacityProviderConfigIsNull)
+                {
+                    requestCapacityProviderConfig_capacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig = null;
+                }
+                if (requestCapacityProviderConfig_capacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig != null)
+                {
+                    request.CapacityProviderConfig.LambdaManagedInstancesCapacityProviderConfig = requestCapacityProviderConfig_capacityProviderConfig_LambdaManagedInstancesCapacityProviderConfig;
+                    requestCapacityProviderConfigIsNull = false;
+                }
+                 // determine if request.CapacityProviderConfig should be set to null
+                if (requestCapacityProviderConfigIsNull)
+                {
+                    request.CapacityProviderConfig = null;
                 }
                 
                  // populate Code
@@ -1098,6 +1201,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 {
                     request.Publish = cmdletContext.PublishVersion.Value;
                 }
+                if (cmdletContext.PublishTo != null)
+                {
+                    request.PublishTo = cmdletContext.PublishTo;
+                }
                 if (cmdletContext.Role != null)
                 {
                     request.Role = cmdletContext.Role;
@@ -1300,6 +1407,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> Architecture { get; set; }
+            public System.String LambdaManagedInstancesCapacityProviderConfig_CapacityProviderArn { get; set; }
+            public System.Double? LambdaManagedInstancesCapacityProviderConfig_ExecutionEnvironmentMemoryGiBPerVCpu { get; set; }
+            public System.Int32? LambdaManagedInstancesCapacityProviderConfig_PerExecutionEnvironmentMaxConcurrency { get; set; }
             public System.String Code_ImageUri { get; set; }
             public System.String Code_S3Bucket { get; set; }
             public System.String Code_S3Key { get; set; }
@@ -1329,6 +1439,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.Int32? MemorySize { get; set; }
             public Amazon.Lambda.PackageType PackageType { get; set; }
             public System.Boolean? PublishVersion { get; set; }
+            public Amazon.Lambda.FunctionVersionLatestPublished PublishTo { get; set; }
             public System.String Role { get; set; }
             public Amazon.Lambda.Runtime Runtime { get; set; }
             public Amazon.Lambda.SnapStartApplyOn SnapStart_ApplyOn { get; set; }

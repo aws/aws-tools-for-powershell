@@ -100,6 +100,23 @@ $LM_Completers = {
             break
         }
 
+        # Amazon.Lambda.CapacityProviderScalingMode
+        {
+            ($_ -eq "New-LMCapacityProvider/CapacityProviderScalingConfig_ScalingMode") -Or
+            ($_ -eq "Update-LMCapacityProvider/CapacityProviderScalingConfig_ScalingMode")
+        }
+        {
+            $v = "Auto","Manual"
+            break
+        }
+
+        # Amazon.Lambda.CapacityProviderState
+        "Get-LMCapacityProviderList/State"
+        {
+            $v = "Active","Deleting","Failed","Pending"
+            break
+        }
+
         # Amazon.Lambda.CodeSigningPolicy
         {
             ($_ -eq "New-LMCodeSigningConfig/CodeSigningPolicies_UntrustedArtifactOnDeployment") -Or
@@ -142,6 +159,17 @@ $LM_Completers = {
         "Get-LMFunctionList/FunctionVersion"
         {
             $v = "ALL"
+            break
+        }
+
+        # Amazon.Lambda.FunctionVersionLatestPublished
+        {
+            ($_ -eq "Publish-LMFunction/PublishTo") -Or
+            ($_ -eq "Publish-LMVersion/PublishTo") -Or
+            ($_ -eq "Update-LMFunctionCode/PublishTo")
+        }
+        {
+            $v = "LATEST_PUBLISHED"
             break
         }
 
@@ -282,6 +310,7 @@ $LM_Completers = {
 $LM_map = @{
     "AmazonManagedKafkaEventSourceConfig_SchemaRegistryConfig_EventRecordFormat"=@("New-LMEventSourceMapping","Update-LMEventSourceMapping")
     "AuthType"=@("New-LMFunctionUrlConfig","Update-LMFunctionUrlConfig")
+    "CapacityProviderScalingConfig_ScalingMode"=@("New-LMCapacityProvider","Update-LMCapacityProvider")
     "CodeSigningPolicies_UntrustedArtifactOnDeployment"=@("New-LMCodeSigningConfig","Update-LMCodeSigningConfig")
     "CompatibleArchitecture"=@("Get-LMLayerList","Get-LMLayerVersionList")
     "CompatibleRuntime"=@("Get-LMLayerList","Get-LMLayerVersionList")
@@ -295,11 +324,13 @@ $LM_map = @{
     "LoggingConfig_SystemLogLevel"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "LogType"=@("Invoke-LMFunction","Invoke-LMWithResponseStream")
     "PackageType"=@("Publish-LMFunction")
+    "PublishTo"=@("Publish-LMFunction","Publish-LMVersion","Update-LMFunctionCode")
     "RecursiveLoop"=@("Write-LMFunctionRecursionConfig")
     "Runtime"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "SchemaRegistryConfig_EventRecordFormat"=@("New-LMEventSourceMapping","Update-LMEventSourceMapping")
     "SnapStart_ApplyOn"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "StartingPosition"=@("New-LMEventSourceMapping")
+    "State"=@("Get-LMCapacityProviderList")
     "TenancyConfig_TenantIsolationMode"=@("Publish-LMFunction")
     "TracingConfig_Mode"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "UpdateRuntimeOn"=@("Write-LMRuntimeManagementConfig")
@@ -358,11 +389,13 @@ $LM_SelectMap = @{
     "Select"=@("Add-LMLayerVersionPermission",
                "Add-LMPermission",
                "New-LMAlias",
+               "New-LMCapacityProvider",
                "New-LMCodeSigningConfig",
                "New-LMEventSourceMapping",
                "Publish-LMFunction",
                "New-LMFunctionUrlConfig",
                "Remove-LMAlias",
+               "Remove-LMCapacityProvider",
                "Remove-LMCodeSigningConfig",
                "Remove-LMEventSourceMapping",
                "Remove-LMFunction",
@@ -374,6 +407,7 @@ $LM_SelectMap = @{
                "Remove-LMProvisionedConcurrencyConfig",
                "Get-LMAccountSetting",
                "Get-LMAlias",
+               "Get-LMCapacityProvider",
                "Get-LMCodeSigningConfig",
                "Get-LMEventSourceMapping",
                "Get-LMFunction",
@@ -382,6 +416,7 @@ $LM_SelectMap = @{
                "Get-LMFunctionConfiguration",
                "Get-LMFunctionEventInvokeConfig",
                "Get-LMFunctionRecursionConfig",
+               "Get-LMFunctionScalingConfig",
                "Get-LMFunctionUrlConfig",
                "Get-LMLayerVersion",
                "Get-LMLayerVersionByArn",
@@ -393,12 +428,14 @@ $LM_SelectMap = @{
                "Invoke-LMFunctionAsync",
                "Invoke-LMWithResponseStream",
                "Get-LMAliasList",
+               "Get-LMCapacityProviderList",
                "Get-LMCodeSigningConfigList",
                "Get-LMEventSourceMappingList",
                "Get-LMFunctionEventInvokeConfigList",
                "Get-LMFunctionList",
                "Get-LMFunctionsByCodeSigningConfigList",
                "Get-LMFunctionUrlConfigList",
+               "Get-LMFunctionVersionsByCapacityProviderList",
                "Get-LMLayerList",
                "Get-LMLayerVersionList",
                "Get-LMProvisionedConcurrencyConfigList",
@@ -410,6 +447,7 @@ $LM_SelectMap = @{
                "Write-LMFunctionConcurrency",
                "Write-LMFunctionEventInvokeConfig",
                "Write-LMFunctionRecursionConfig",
+               "Write-LMFunctionScalingConfig",
                "Write-LMProvisionedConcurrencyConfig",
                "Write-LMRuntimeManagementConfig",
                "Remove-LMLayerVersionPermission",
@@ -417,6 +455,7 @@ $LM_SelectMap = @{
                "Add-LMResourceTag",
                "Remove-LMResourceTag",
                "Update-LMAlias",
+               "Update-LMCapacityProvider",
                "Update-LMCodeSigningConfig",
                "Update-LMEventSourceMapping",
                "Update-LMFunctionCode",

@@ -42,11 +42,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "LMFunction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
+    [OutputType("System.Int32")]
     [AWSCmdlet("Calls the AWS Lambda DeleteFunction API operation.", Operation = new[] {"DeleteFunction"}, SelectReturnType = typeof(Amazon.Lambda.Model.DeleteFunctionResponse))]
-    [AWSCmdletOutput("None or Amazon.Lambda.Model.DeleteFunctionResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Lambda.Model.DeleteFunctionResponse) be returned by specifying '-Select *'."
+    [AWSCmdletOutput("System.Int32 or Amazon.Lambda.Model.DeleteFunctionResponse",
+        "This cmdlet returns a System.Int32 object.",
+        "The service call response (type Amazon.Lambda.Model.DeleteFunctionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveLMFunctionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
@@ -85,12 +85,13 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'StatusCode'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Lambda.Model.DeleteFunctionResponse).
+        /// Specifying the name of a property of type Amazon.Lambda.Model.DeleteFunctionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "StatusCode";
         #endregion
         
         #region Parameter PassThru
@@ -240,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String FunctionName { get; set; }
             public System.String Qualifier { get; set; }
             public System.Func<Amazon.Lambda.Model.DeleteFunctionResponse, RemoveLMFunctionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response.StatusCode;
         }
         
     }

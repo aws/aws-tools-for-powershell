@@ -105,6 +105,16 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String TagCondition_Key { get; set; }
         #endregion
         
+        #region Parameter OrchestratorConfigurationList
+        /// <summary>
+        /// <para>
+        /// <para>The updated list of orchestrator configurations for the session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.QConnect.Model.OrchestratorConfigurationEntry[] OrchestratorConfigurationList { get; set; }
+        #endregion
+        
         #region Parameter TagFilter_OrCondition
         /// <summary>
         /// <para>
@@ -114,6 +124,16 @@ namespace Amazon.PowerShell.Cmdlets.QC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TagFilter_OrConditions")]
         public Amazon.QConnect.Model.OrCondition[] TagFilter_OrCondition { get; set; }
+        #endregion
+        
+        #region Parameter RemoveOrchestratorConfigurationList
+        /// <summary>
+        /// <para>
+        /// <para>The list of orchestrator configurations to remove from the session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RemoveOrchestratorConfigurationList { get; set; }
         #endregion
         
         #region Parameter SessionId
@@ -223,6 +243,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
             }
             #endif
             context.Description = this.Description;
+            if (this.OrchestratorConfigurationList != null)
+            {
+                context.OrchestratorConfigurationList = new List<Amazon.QConnect.Model.OrchestratorConfigurationEntry>(this.OrchestratorConfigurationList);
+            }
+            context.RemoveOrchestratorConfigurationList = this.RemoveOrchestratorConfigurationList;
             context.SessionId = this.SessionId;
             #if MODULAR
             if (this.SessionId == null && ParameterWasBound(nameof(this.SessionId)))
@@ -267,6 +292,14 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.OrchestratorConfigurationList != null)
+            {
+                request.OrchestratorConfigurationList = cmdletContext.OrchestratorConfigurationList;
+            }
+            if (cmdletContext.RemoveOrchestratorConfigurationList != null)
+            {
+                request.RemoveOrchestratorConfigurationList = cmdletContext.RemoveOrchestratorConfigurationList.Value;
             }
             if (cmdletContext.SessionId != null)
             {
@@ -400,6 +433,8 @@ namespace Amazon.PowerShell.Cmdlets.QC
             public Dictionary<System.String, Amazon.QConnect.Model.AIAgentConfigurationData> AiAgentConfiguration { get; set; }
             public System.String AssistantId { get; set; }
             public System.String Description { get; set; }
+            public List<Amazon.QConnect.Model.OrchestratorConfigurationEntry> OrchestratorConfigurationList { get; set; }
+            public System.Boolean? RemoveOrchestratorConfigurationList { get; set; }
             public System.String SessionId { get; set; }
             public List<Amazon.QConnect.Model.TagCondition> TagFilter_AndCondition { get; set; }
             public List<Amazon.QConnect.Model.OrCondition> TagFilter_OrCondition { get; set; }

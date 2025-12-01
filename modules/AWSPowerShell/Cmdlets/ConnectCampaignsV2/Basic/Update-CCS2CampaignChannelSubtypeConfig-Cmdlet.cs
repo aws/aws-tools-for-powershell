@@ -85,6 +85,17 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
         public Amazon.ConnectCampaignsV2.Model.AgentlessConfig ChannelSubtypeConfig_Telephony_OutboundMode_Agentless { get; set; }
         #endregion
         
+        #region Parameter OutboundMode_Agentless
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChannelSubtypeConfig_WhatsApp_OutboundMode_Agentless")]
+        public Amazon.ConnectCampaignsV2.Model.AgentlessConfig OutboundMode_Agentless { get; set; }
+        #endregion
+        
         #region Parameter AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt
         /// <summary>
         /// <para>
@@ -162,6 +173,17 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
         public System.Double? Telephony_Capacity { get; set; }
         #endregion
         
+        #region Parameter WhatsApp_Capacity
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChannelSubtypeConfig_WhatsApp_Capacity")]
+        public System.Double? WhatsApp_Capacity { get; set; }
+        #endregion
+        
         #region Parameter DefaultOutboundConfig_ConnectContactFlowId
         /// <summary>
         /// <para>
@@ -206,15 +228,25 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
         public System.String DefaultOutboundConfig_ConnectSourcePhoneNumber { get; set; }
         #endregion
         
-        #region Parameter DefaultOutboundConfig_ConnectSourcePhoneNumberArn
+        #region Parameter ChannelSubtypeConfig_Sms_DefaultOutboundConfig_ConnectSourcePhoneNumberArn
         /// <summary>
         /// <para>
         /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ChannelSubtypeConfig_Sms_DefaultOutboundConfig_ConnectSourcePhoneNumberArn")]
-        public System.String DefaultOutboundConfig_ConnectSourcePhoneNumberArn { get; set; }
+        [Alias("DefaultOutboundConfig_ConnectSourcePhoneNumberArn")]
+        public System.String ChannelSubtypeConfig_Sms_DefaultOutboundConfig_ConnectSourcePhoneNumberArn { get; set; }
+        #endregion
+        
+        #region Parameter ChannelSubtypeConfig_WhatsApp_DefaultOutboundConfig_ConnectSourcePhoneNumberArn
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChannelSubtypeConfig_WhatsApp_DefaultOutboundConfig_ConnectSourcePhoneNumberArn { get; set; }
         #endregion
         
         #region Parameter TimeoutConfig_DurationInSecond
@@ -298,6 +330,17 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
         public System.String ChannelSubtypeConfig_Sms_DefaultOutboundConfig_WisdomTemplateArn { get; set; }
         #endregion
         
+        #region Parameter DefaultOutboundConfig_WisdomTemplateArn
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChannelSubtypeConfig_WhatsApp_DefaultOutboundConfig_WisdomTemplateArn")]
+        public System.String DefaultOutboundConfig_WisdomTemplateArn { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -365,7 +408,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             context.ChannelSubtypeConfig_Email_DefaultOutboundConfig_WisdomTemplateArn = this.ChannelSubtypeConfig_Email_DefaultOutboundConfig_WisdomTemplateArn;
             context.ChannelSubtypeConfig_Email_OutboundMode_Agentless = this.ChannelSubtypeConfig_Email_OutboundMode_Agentless;
             context.Sms_Capacity = this.Sms_Capacity;
-            context.DefaultOutboundConfig_ConnectSourcePhoneNumberArn = this.DefaultOutboundConfig_ConnectSourcePhoneNumberArn;
+            context.ChannelSubtypeConfig_Sms_DefaultOutboundConfig_ConnectSourcePhoneNumberArn = this.ChannelSubtypeConfig_Sms_DefaultOutboundConfig_ConnectSourcePhoneNumberArn;
             context.ChannelSubtypeConfig_Sms_DefaultOutboundConfig_WisdomTemplateArn = this.ChannelSubtypeConfig_Sms_DefaultOutboundConfig_WisdomTemplateArn;
             context.ChannelSubtypeConfig_Sms_OutboundMode_Agentless = this.ChannelSubtypeConfig_Sms_OutboundMode_Agentless;
             context.Telephony_Capacity = this.Telephony_Capacity;
@@ -384,6 +427,10 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             context.Preview_BandwidthAllocation = this.Preview_BandwidthAllocation;
             context.TimeoutConfig_DurationInSecond = this.TimeoutConfig_DurationInSecond;
             context.Progressive_BandwidthAllocation = this.Progressive_BandwidthAllocation;
+            context.WhatsApp_Capacity = this.WhatsApp_Capacity;
+            context.ChannelSubtypeConfig_WhatsApp_DefaultOutboundConfig_ConnectSourcePhoneNumberArn = this.ChannelSubtypeConfig_WhatsApp_DefaultOutboundConfig_ConnectSourcePhoneNumberArn;
+            context.DefaultOutboundConfig_WisdomTemplateArn = this.DefaultOutboundConfig_WisdomTemplateArn;
+            context.OutboundMode_Agentless = this.OutboundMode_Agentless;
             context.Id = this.Id;
             #if MODULAR
             if (this.Id == null && ParameterWasBound(nameof(this.Id)))
@@ -551,14 +598,14 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
              // populate DefaultOutboundConfig
             var requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_DefaultOutboundConfigIsNull = true;
             requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_DefaultOutboundConfig = new Amazon.ConnectCampaignsV2.Model.SmsOutboundConfig();
-            System.String requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_DefaultOutboundConfig_defaultOutboundConfig_ConnectSourcePhoneNumberArn = null;
-            if (cmdletContext.DefaultOutboundConfig_ConnectSourcePhoneNumberArn != null)
+            System.String requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_DefaultOutboundConfig_channelSubtypeConfig_Sms_DefaultOutboundConfig_ConnectSourcePhoneNumberArn = null;
+            if (cmdletContext.ChannelSubtypeConfig_Sms_DefaultOutboundConfig_ConnectSourcePhoneNumberArn != null)
             {
-                requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_DefaultOutboundConfig_defaultOutboundConfig_ConnectSourcePhoneNumberArn = cmdletContext.DefaultOutboundConfig_ConnectSourcePhoneNumberArn;
+                requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_DefaultOutboundConfig_channelSubtypeConfig_Sms_DefaultOutboundConfig_ConnectSourcePhoneNumberArn = cmdletContext.ChannelSubtypeConfig_Sms_DefaultOutboundConfig_ConnectSourcePhoneNumberArn;
             }
-            if (requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_DefaultOutboundConfig_defaultOutboundConfig_ConnectSourcePhoneNumberArn != null)
+            if (requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_DefaultOutboundConfig_channelSubtypeConfig_Sms_DefaultOutboundConfig_ConnectSourcePhoneNumberArn != null)
             {
-                requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_DefaultOutboundConfig.ConnectSourcePhoneNumberArn = requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_DefaultOutboundConfig_defaultOutboundConfig_ConnectSourcePhoneNumberArn;
+                requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_DefaultOutboundConfig.ConnectSourcePhoneNumberArn = requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_DefaultOutboundConfig_channelSubtypeConfig_Sms_DefaultOutboundConfig_ConnectSourcePhoneNumberArn;
                 requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_DefaultOutboundConfigIsNull = false;
             }
             System.String requestChannelSubtypeConfig_channelSubtypeConfig_Sms_channelSubtypeConfig_Sms_DefaultOutboundConfig_channelSubtypeConfig_Sms_DefaultOutboundConfig_WisdomTemplateArn = null;
@@ -589,6 +636,91 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             if (requestChannelSubtypeConfig_channelSubtypeConfig_Sms != null)
             {
                 request.ChannelSubtypeConfig.Sms = requestChannelSubtypeConfig_channelSubtypeConfig_Sms;
+                requestChannelSubtypeConfigIsNull = false;
+            }
+            Amazon.ConnectCampaignsV2.Model.WhatsAppChannelSubtypeConfig requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp = null;
+            
+             // populate WhatsApp
+            var requestChannelSubtypeConfig_channelSubtypeConfig_WhatsAppIsNull = true;
+            requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp = new Amazon.ConnectCampaignsV2.Model.WhatsAppChannelSubtypeConfig();
+            System.Double? requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_whatsApp_Capacity = null;
+            if (cmdletContext.WhatsApp_Capacity != null)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_whatsApp_Capacity = cmdletContext.WhatsApp_Capacity.Value;
+            }
+            if (requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_whatsApp_Capacity != null)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp.Capacity = requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_whatsApp_Capacity.Value;
+                requestChannelSubtypeConfig_channelSubtypeConfig_WhatsAppIsNull = false;
+            }
+            Amazon.ConnectCampaignsV2.Model.WhatsAppOutboundMode requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_OutboundMode = null;
+            
+             // populate OutboundMode
+            var requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_OutboundModeIsNull = true;
+            requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_OutboundMode = new Amazon.ConnectCampaignsV2.Model.WhatsAppOutboundMode();
+            Amazon.ConnectCampaignsV2.Model.AgentlessConfig requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_OutboundMode_outboundMode_Agentless = null;
+            if (cmdletContext.OutboundMode_Agentless != null)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_OutboundMode_outboundMode_Agentless = cmdletContext.OutboundMode_Agentless;
+            }
+            if (requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_OutboundMode_outboundMode_Agentless != null)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_OutboundMode.Agentless = requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_OutboundMode_outboundMode_Agentless;
+                requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_OutboundModeIsNull = false;
+            }
+             // determine if requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_OutboundMode should be set to null
+            if (requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_OutboundModeIsNull)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_OutboundMode = null;
+            }
+            if (requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_OutboundMode != null)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp.OutboundMode = requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_OutboundMode;
+                requestChannelSubtypeConfig_channelSubtypeConfig_WhatsAppIsNull = false;
+            }
+            Amazon.ConnectCampaignsV2.Model.WhatsAppOutboundConfig requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_DefaultOutboundConfig = null;
+            
+             // populate DefaultOutboundConfig
+            var requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_DefaultOutboundConfigIsNull = true;
+            requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_DefaultOutboundConfig = new Amazon.ConnectCampaignsV2.Model.WhatsAppOutboundConfig();
+            System.String requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_DefaultOutboundConfig_channelSubtypeConfig_WhatsApp_DefaultOutboundConfig_ConnectSourcePhoneNumberArn = null;
+            if (cmdletContext.ChannelSubtypeConfig_WhatsApp_DefaultOutboundConfig_ConnectSourcePhoneNumberArn != null)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_DefaultOutboundConfig_channelSubtypeConfig_WhatsApp_DefaultOutboundConfig_ConnectSourcePhoneNumberArn = cmdletContext.ChannelSubtypeConfig_WhatsApp_DefaultOutboundConfig_ConnectSourcePhoneNumberArn;
+            }
+            if (requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_DefaultOutboundConfig_channelSubtypeConfig_WhatsApp_DefaultOutboundConfig_ConnectSourcePhoneNumberArn != null)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_DefaultOutboundConfig.ConnectSourcePhoneNumberArn = requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_DefaultOutboundConfig_channelSubtypeConfig_WhatsApp_DefaultOutboundConfig_ConnectSourcePhoneNumberArn;
+                requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_DefaultOutboundConfigIsNull = false;
+            }
+            System.String requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_DefaultOutboundConfig_defaultOutboundConfig_WisdomTemplateArn = null;
+            if (cmdletContext.DefaultOutboundConfig_WisdomTemplateArn != null)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_DefaultOutboundConfig_defaultOutboundConfig_WisdomTemplateArn = cmdletContext.DefaultOutboundConfig_WisdomTemplateArn;
+            }
+            if (requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_DefaultOutboundConfig_defaultOutboundConfig_WisdomTemplateArn != null)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_DefaultOutboundConfig.WisdomTemplateArn = requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_DefaultOutboundConfig_defaultOutboundConfig_WisdomTemplateArn;
+                requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_DefaultOutboundConfigIsNull = false;
+            }
+             // determine if requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_DefaultOutboundConfig should be set to null
+            if (requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_DefaultOutboundConfigIsNull)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_DefaultOutboundConfig = null;
+            }
+            if (requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_DefaultOutboundConfig != null)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp.DefaultOutboundConfig = requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp_channelSubtypeConfig_WhatsApp_DefaultOutboundConfig;
+                requestChannelSubtypeConfig_channelSubtypeConfig_WhatsAppIsNull = false;
+            }
+             // determine if requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp should be set to null
+            if (requestChannelSubtypeConfig_channelSubtypeConfig_WhatsAppIsNull)
+            {
+                requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp = null;
+            }
+            if (requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp != null)
+            {
+                request.ChannelSubtypeConfig.WhatsApp = requestChannelSubtypeConfig_channelSubtypeConfig_WhatsApp;
                 requestChannelSubtypeConfigIsNull = false;
             }
             Amazon.ConnectCampaignsV2.Model.TelephonyChannelSubtypeConfig requestChannelSubtypeConfig_channelSubtypeConfig_Telephony = null;
@@ -917,7 +1049,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             public System.String ChannelSubtypeConfig_Email_DefaultOutboundConfig_WisdomTemplateArn { get; set; }
             public Amazon.ConnectCampaignsV2.Model.AgentlessConfig ChannelSubtypeConfig_Email_OutboundMode_Agentless { get; set; }
             public System.Double? Sms_Capacity { get; set; }
-            public System.String DefaultOutboundConfig_ConnectSourcePhoneNumberArn { get; set; }
+            public System.String ChannelSubtypeConfig_Sms_DefaultOutboundConfig_ConnectSourcePhoneNumberArn { get; set; }
             public System.String ChannelSubtypeConfig_Sms_DefaultOutboundConfig_WisdomTemplateArn { get; set; }
             public Amazon.ConnectCampaignsV2.Model.AgentlessConfig ChannelSubtypeConfig_Sms_OutboundMode_Agentless { get; set; }
             public System.Double? Telephony_Capacity { get; set; }
@@ -933,6 +1065,10 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             public System.Double? Preview_BandwidthAllocation { get; set; }
             public System.Int32? TimeoutConfig_DurationInSecond { get; set; }
             public System.Double? Progressive_BandwidthAllocation { get; set; }
+            public System.Double? WhatsApp_Capacity { get; set; }
+            public System.String ChannelSubtypeConfig_WhatsApp_DefaultOutboundConfig_ConnectSourcePhoneNumberArn { get; set; }
+            public System.String DefaultOutboundConfig_WisdomTemplateArn { get; set; }
+            public Amazon.ConnectCampaignsV2.Model.AgentlessConfig OutboundMode_Agentless { get; set; }
             public System.String Id { get; set; }
             public System.Func<Amazon.ConnectCampaignsV2.Model.UpdateCampaignChannelSubtypeConfigResponse, UpdateCCS2CampaignChannelSubtypeConfigCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

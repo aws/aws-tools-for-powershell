@@ -99,20 +99,22 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// hierarchy groups.</para><para>For metrics for outbound campaigns analytics, you can also use campaigns to satisfy
         /// at least one filter requirement.</para><para>To filter by phone number, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-historical-metrics-report.html">Create
         /// a historical metrics report</a> in the <i>Amazon Connect Administrator Guide</i>.</para><para>Note the following limits:</para><ul><li><para><b>Filter keys</b>: A maximum of 5 filter keys are supported in a single request.
-        /// Valid filter keys: <c>AGENT</c> | <c>AGENT_HIERARCHY_LEVEL_ONE</c> | <c>AGENT_HIERARCHY_LEVEL_TWO</c>
-        /// | <c>AGENT_HIERARCHY_LEVEL_THREE</c> | <c>AGENT_HIERARCHY_LEVEL_FOUR</c> | <c>AGENT_HIERARCHY_LEVEL_FIVE</c>
-        /// | <c>ANSWERING_MACHINE_DETECTION_STATUS</c> | <c> BOT_ID</c> | <c>BOT_ALIAS</c> |
-        /// <c>BOT_VERSION</c> | <c>BOT_LOCALE</c> | <c>BOT_INTENT_NAME</c> | <c>CAMPAIGN</c>
-        /// | <c>CAMPAIGN_DELIVERY_EVENT_TYPE</c> | <c>CAMPAIGN_EXCLUDED_EVENT_TYPE </c> | <c>CASE_TEMPLATE_ARN</c>
-        /// | <c>CASE_STATUS</c> | <c>CHANNEL</c> | <c>contact/segmentAttributes/connect:Subtype</c>
-        /// | <c>DISCONNECT_REASON</c> | <c>EVALUATION_FORM</c> | <c>EVALUATION_SECTION</c> |
-        /// <c>EVALUATION_QUESTION</c> | <c>EVALUATION_SOURCE</c> | <c>EVALUATOR_ID</c> | <c>FEATURE</c>
-        /// | <c>FLOW_ACTION_ID</c> | <c>FLOW_TYPE</c> | <c>FLOWS_MODULE_RESOURCE_ID</c> | <c>FLOWS_NEXT_RESOURCE_ID</c>
+        /// Valid filter keys: <c>AGENT</c> | <c>AGENT_HIERARCHY_LEVEL_FIVE</c> | <c>AGENT_HIERARCHY_LEVEL_FOUR</c>
+        /// | <c>AGENT_ HIERARCHY_LEVEL_ONE</c> | <c>AGENT_HIERARCHY_LEVEL_THREE</c> | <c>AGENT_HIERARCHY_LEVEL_TWO</c>
+        /// | <c> ANSWERING_MACHINE_DETECTION_STATUS</c> | <c>BOT_ALIAS</c> | <c>BOT_ID</c> |
+        /// <c>BOT_INTENT_NAME</c> | <c>BOT_LOCALE</c> | <c>BOT_VERSION</c> | <c>CAMPAIGN</c>
+        /// | <c>CAMPAIGN_DELIVERY_EVENT_TYPE</c> | <c> CAMPAIGN_EXCLUDED_EVENT_TYPE</c> | <c>CASE_STATUS</c>
+        /// | <c>CASE_TEMPLATE_ARN</c> | <c>CHANNEL</c> | <c> contact/segmentAttributes/connect:Subtype</c>
+        /// | <c>contact/segmentAttributes/connect:ValidationTestType</c> | <c> DISCONNECT_REASON</c>
+        /// | <c>EVALUATION_FORM</c> | <c>EVALUATION_QUESTION</c> | <c>EVALUATION_SECTION</c>
+        /// | <c>EVALUATION_SOURCE</c> | <c>EVALUATOR_ID</c> | <c>FEATURE</c> | <c>FLOW_ACTION_ID</c>
+        /// | <c>FLOW_TYPE</c> | <c>FLOWS_MODULE_RESOURCE_ID</c> | <c>FLOWS_NEXT_RESOURCE_ID</c>
         /// | <c>FLOWS_NEXT_RESOURCE_QUEUE_ID</c> | <c>FLOWS_OUTCOME_TYPE</c> | <c>FLOWS_RESOURCE_ID</c>
-        /// | <c>FORM_VERSION</c> | <c>INITIATION_METHOD</c> | <c>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</c>
-        /// | <c>INVOKING_RESOURCE_TYPE</c> | <c>PARENT_FLOWS_RESOURCE_ID</c> | <c>RESOURCE_PUBLISHED_TIMESTAMP</c>
-        /// | <c>ROUTING_PROFILE</c> | <c>ROUTING_STEP_EXPRESSION</c> | <c>QUEUE</c> | <c>Q_CONNECT_ENABLED</c>
-        /// | </para></li><li><para><b>Filter values</b>: A maximum of 100 filter values are supported in a single request.
+        /// | <c>FORM_VERSION</c> | <c>INITIATING_FLOW</c> | <c>INITIATION_METHOD</c> | <c>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</c>
+        /// | <c>INVOKING_RESOURCE_TYPE</c> | <c>PARENT_FLOWS_RESOURCE_ID</c> | <c>Q_CONNECT_ENABLED</c>
+        /// | <c>QUEUE</c> | <c>RESOURCE_PUBLISHED_ TIMESTAMP</c> | <c>ROUTING_PROFILE</c> | <c>ROUTING_STEP_EXPRESSION</c>
+        /// | <c>TEST_CASE</c> | <c>TEST_ CASE_EXECUTION_FAILURE_REASON</c> | <c>TEST_CASE_EXECUTION_RESULT</c>
+        /// | <c>TEST_CASE_EXECUTION_STATE</c></para></li><li><para><b>Filter values</b>: A maximum of 100 filter values are supported in a single request.
         /// VOICE, CHAT, and TASK are valid <c>filterValue</c> for the CHANNEL filter key. They
         /// do not count towards limitation of 100 filter values. For example, a GetMetricDataV2
         /// request can filter by 50 queues, 35 agents, and 15 routing profiles for a total of
@@ -123,8 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// filter</c> key.</para><para><c>ROUTING_STEP_EXPRESSION</c> is a valid filter key with a filter value up to 3000
         /// length. This filter is case and order sensitive. JSON string fields must be sorted
         /// in ascending order and JSON array order should be kept as is.</para><para><c>Q_CONNECT_ENABLED</c>. TRUE and FALSE are the only valid filterValues for the
-        /// <c>Q_CONNECT_ENABLED</c> filter key. </para><ul><li><para>TRUE includes all contacts that had Amazon Q in Connect enabled as part of the flow.</para></li><li><para>FALSE includes all contacts that did not have Amazon Q in Connect enabled as part
-        /// of the flow</para></li></ul><para>This filter is available only for contact record-driven metrics. </para><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-outbound-campaigns_Campaign.html">Campaign</a>
+        /// <c>Q_CONNECT_ENABLED</c> filter key. </para><ul><li><para>TRUE includes all contacts that had Connect AI Agents enabled as part of the flow.</para></li><li><para>FALSE includes all contacts that did not have Connect AI Agents enabled as part of
+        /// the flow</para></li><li><para>EXPERIENCE_VALIDATION and FLOW_VALIDATION are the only valid filterValues for the
+        /// contact/segmentAttributes/connect:ValidationTestType filter key</para></li></ul><para>This filter is available only for contact record-driven metrics. </para><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-outbound-campaigns_Campaign.html">Campaign</a>
         /// ARNs are valid <c>filterValues</c> for the <c>CAMPAIGN</c> filter key.</para></li></ul>
         /// </para>
         /// </summary>
@@ -156,7 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// | <c>FLOWS_MODULE_RESOURCE_ID</c> | <c>FLOW_ACTION_ID</c> | <c>FLOW_TYPE</c> | <c>FLOWS_OUTCOME_TYPE</c>
         /// | <c>FORM_VERSION</c> | <c>INITIATION_METHOD</c> | <c>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</c>
         /// | <c>INVOKING_RESOURCE_TYPE</c> | <c>PARENT_FLOWS_RESOURCE_ID</c> | <c>Q_CONNECT_ENABLED</c>
-        /// | <c>QUEUE</c> | <c>RESOURCE_PUBLISHED_TIMESTAMP</c> | <c>ROUTING_PROFILE</c> | <c>ROUTING_STEP_EXPRESSION</c></para><para>Type: Array of strings</para><para>Array Members: Maximum number of 4 items</para><para>Required: No</para>
+        /// | <c>QUEUE</c> | <c>RESOURCE_PUBLISHED_TIMESTAMP</c> | <c>ROUTING_PROFILE</c> | <c>ROUTING_STEP_EXPRESSION</c>
+        /// | <c>TEST_CASE</c> | <c>TEST_CASE_EXECUTION_FAILURE_REASON</c> | <c>TEST_CASE_INVOCATION_METHOD</c></para><para>API, SCHEDULE, and EVENT are the only valid filterValues for TEST_CASE_INVOCATION_METHOD.</para><para>OBSERVE_EVENT, SEND_INSTRUCTION, ASSERT_DATA, and OVERRIDE_SYSTEM_BEHAVIOR are the
+        /// only valid filterValues for TEST_CASE_EXECUTION_FAILURE_REASON</para><para>Type: Array of strings</para><para>Array Members: Maximum number of 4 items</para><para>Required: No</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,10 +195,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Metric
         /// <summary>
         /// <para>
-        /// <para>The metrics to retrieve. Specify the name, groupings, and filters for each metric.
-        /// The following historical metrics are available. For a description of each metric,
-        /// see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics
-        /// definition</a> in the <i>Amazon Connect Administrator Guide</i>.</para><dl><dt>ABANDONMENT_RATE</dt><dd><para>Unit: Percent</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
+        /// <para>The metrics to retrieve. Specify the name or metricId, groupings, and filters for
+        /// each metric. The following historical metrics are available. For a description of
+        /// each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics
+        /// definition</a> in the <i>Amazon Connect Administrator Guide</i>.</para><note><para>MetricId should be used to reference custom metrics or out of the box metrics as Arn.
+        /// If using MetricId, the limit is 20 MetricId per request.</para></note><dl><dt>ABANDONMENT_RATE</dt><dd><para>Unit: Percent</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
         /// Feature, contact/segmentAttributes/connect:Subtype, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#abandonment-rate">Abandonment
         /// rate</a></para></dd><dt>AGENT_ADHERENT_TIME</dt><dd><para>This metric is available only in Amazon Web Services Regions where <a href="https://docs.aws.amazon.com/connect/latest/adminguide/regions.html#optimization_region">Forecasting,
         /// capacity planning, and scheduling</a> is available.</para><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy
@@ -255,7 +261,23 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// contact/segmentAttributes/connect:Subtype, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-agent-greeting-time">Average
         /// agent greeting time</a></para></dd><dt>AVG_HANDLE_TIME</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
         /// Feature, contact/segmentAttributes/connect:Subtype, RoutingStepExpression</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-handle-time">Average
-        /// handle time</a></para><note><para>Feature is a valid filter but not a valid grouping.</para></note></dd><dt>AVG_HOLD_TIME</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
+        /// handle time</a></para><note><para>Feature is a valid filter but not a valid grouping.</para></note></dd><dt>ACTIVE_AI_AGENTS</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Type, AI Use Case,
+        /// Channel, Queue, Routing Profile</para><para>UI name: Active AI Agents</para></dd><dt>AI_HANDOFF_RATE</dt><dd><para>Unit: Percent</para><para>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</para><para>UI name: Handoff Rate</para></dd><dt>AI_HANDOFFS</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</para><para>UI name: AI Handoff Count</para></dd><dt>AI_AGENT_INVOCATION_SUCCESS</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent
+        /// Type, AI Use Case, Channel, Queue, Routing Profile</para><para>UI name: AI Agent Invocation Success Count</para><note><para>AI Agent Name Version is not a valid filter but a valid grouping.</para></note></dd><dt>AI_AGENT_INVOCATION_SUCCESS_RATE</dt><dd><para>Unit: Percent</para><para>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent
+        /// Type, AI Use Case, Channel, Queue, Routing Profile</para><para>UI name: AI Agent Invocation Success Rate</para><note><para>AI Agent Name Version is not a valid filter but a valid grouping.</para></note></dd><dt>AI_AGENT_INVOCATIONS</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Type, AI Agent Name
+        /// Version, AI Use Case, Channel, Queue, Routing Profile</para><para>UI name: AI Agent Invocation Count</para><note><para>AI Agent Name Version is not a valid filter but a valid grouping.</para></note></dd><dt>AI_RESPONSE_COMPLETION_RATE</dt><dd><para>Unit: Percent</para><para>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</para><para>UI name: AI Response Completion Rate</para></dd><dt>AI_INVOLVED_CONTACTS</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</para><para>UI name: AI Contacts</para></dd><dt>AI_PROMPT_INVOCATION_SUCCESS</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent
+        /// Type, AI Prompt, AI Prompt ID, AI Prompt Name, AI Prompt Type, AI Use Case, Channel,
+        /// Queue, Routing Profile</para><para>UI name: AI Prompt Invocation Success Count</para><note><para>AI Agent Name Version is not a valid filter but a valid grouping.</para></note></dd><dt>AI_PROMPT_INVOCATION_SUCCESS_RATE</dt><dd><para>Unit: Percent</para><para>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent
+        /// Type, AI Prompt, AI Prompt ID, AI Prompt Name, AI Prompt Type, AI Use Case, Channel,
+        /// Queue, Routing Profile</para><para>UI name: AI Prompt Invocation Success Rate</para><note><para>AI Agent Name Version is not a valid filter but a valid grouping.</para></note></dd><dt>AI_TOOL_INVOCATIONS</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent
+        /// Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing
+        /// Profile</para><para>UI name: AI Tool Invocation Count</para><note><para>AI Agent Name Version is not a valid filter but a valid grouping.</para></note></dd><dt>AVG_AI_AGENT_CONVERSATION_TURNS</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent
+        /// Type, AI Use Case, Channel, Queue, Routing Profile </para><para>UI name: Average AI Agent Conversation Turns</para><note><para>AI Agent Name Version is not a valid filter but a valid grouping.</para></note></dd><dt>AVG_AI_CONVERSATION_TURNS</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</para><para>UI name: AI Conversation Turns</para></dd><dt>AVG_AI_PROMPT_INVOCATION_LATENCY</dt><dd><para>Unit: Milliseconds</para><para>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent
+        /// Type, AI Prompt, AI Prompt ID, AI Prompt Name, AI Prompt Type, AI Use Case, Channel,
+        /// Queue, Routing Profile</para><para>UI name: Average AI Prompt Invocation Latency</para><note><para>AI Agent Name Version is not a valid filter but a valid grouping.</para></note></dd><dt>AVG_AI_TOOL_INVOCATION_LATENCY</dt><dd><para>Unit: Milliseconds</para><para>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Name Version, AI Agent
+        /// Type, AI Tool ID, AI Tool Name, AI Tool Type, AI Use Case, Channel, Queue, Routing
+        /// Profile</para><para>UI name: Average AI Tool Invocation Latency</para><note><para>AI Agent Name Version is not a valid filter but a valid grouping.</para></note></dd><dt>KNOWLEDGE_CONTENT_REFERENCES</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: AI Agent, AI Agent Name, AI Agent Type, AI Use Case,
+        /// Channel, Knowledge Base Name, Queue, Routing Profile</para><para>UI name: KnowledgeBase Reference Count</para></dd><dt>PROACTIVE_INTENT_ENGAGEMENT_RATE</dt><dd><para>Unit: Percent</para><para>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</para><para>UI name: Proactive Intent Engagement Rate</para></dd><dt>PROACTIVE_INTENT_RESPONSE_RATE</dt><dd><para>Unit: Percent</para><para>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile </para><para>UI name: Proactive Intent Response Rate</para></dd><dt>PROACTIVE_INTENTS_ANSWERED</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</para><para>UI name: Proactive Intents Answered</para></dd><dt>PROACTIVE_INTENTS_DETECTED</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</para><para>UI name: Proactive Intents Detected</para></dd><dt></dt><dd><para>Unit: </para><para>Valid groupings and filters: </para><para>UI name: </para></dd><dt></dt><dd><para>Unit: </para><para>Valid groupings and filters: </para><para>UI name: </para></dd><dt>PROACTIVE_INTENTS_ENGAGED</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: AI Use Case, Channel, Queue, Routing Profile</para><para>UI name: UI name:</para></dd><dt>AVG_HOLD_TIME</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
         /// Feature, contact/segmentAttributes/connect:Subtype, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-customer-hold-time">Average
         /// customer hold time</a></para><note><para>Feature is a valid filter but not a valid grouping.</para></note></dd><dt>AVG_HOLD_TIME_ALL_CONTACTS</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
         /// contact/segmentAttributes/connect:Subtype, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#average-customer-hold-time-all-contacts">Average

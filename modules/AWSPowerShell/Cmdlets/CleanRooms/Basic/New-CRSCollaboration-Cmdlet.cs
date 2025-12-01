@@ -228,6 +228,17 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.Boolean? ModelTraining_IsResponsible { get; set; }
         #endregion
         
+        #region Parameter SyntheticDataGeneration_IsResponsible
+        /// <summary>
+        /// <para>
+        /// <para>Indicates who is responsible for paying for synthetic data generation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CreatorPaymentConfiguration_MachineLearning_SyntheticDataGeneration_IsResponsible")]
+        public System.Boolean? SyntheticDataGeneration_IsResponsible { get; set; }
+        #endregion
+        
         #region Parameter QueryCompute_IsResponsible
         /// <summary>
         /// <para>
@@ -410,6 +421,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             context.JobCompute_IsResponsible = this.JobCompute_IsResponsible;
             context.ModelInference_IsResponsible = this.ModelInference_IsResponsible;
             context.ModelTraining_IsResponsible = this.ModelTraining_IsResponsible;
+            context.SyntheticDataGeneration_IsResponsible = this.SyntheticDataGeneration_IsResponsible;
             context.QueryCompute_IsResponsible = this.QueryCompute_IsResponsible;
             context.DataEncryptionMetadata_AllowCleartext = this.DataEncryptionMetadata_AllowCleartext;
             context.DataEncryptionMetadata_AllowDuplicate = this.DataEncryptionMetadata_AllowDuplicate;
@@ -619,6 +631,31 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning.ModelTraining = requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelTraining;
                 requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearningIsNull = false;
             }
+            Amazon.CleanRooms.Model.SyntheticDataGenerationPaymentConfig requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_SyntheticDataGeneration = null;
+            
+             // populate SyntheticDataGeneration
+            var requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_SyntheticDataGenerationIsNull = true;
+            requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_SyntheticDataGeneration = new Amazon.CleanRooms.Model.SyntheticDataGenerationPaymentConfig();
+            System.Boolean? requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_SyntheticDataGeneration_syntheticDataGeneration_IsResponsible = null;
+            if (cmdletContext.SyntheticDataGeneration_IsResponsible != null)
+            {
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_SyntheticDataGeneration_syntheticDataGeneration_IsResponsible = cmdletContext.SyntheticDataGeneration_IsResponsible.Value;
+            }
+            if (requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_SyntheticDataGeneration_syntheticDataGeneration_IsResponsible != null)
+            {
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_SyntheticDataGeneration.IsResponsible = requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_SyntheticDataGeneration_syntheticDataGeneration_IsResponsible.Value;
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_SyntheticDataGenerationIsNull = false;
+            }
+             // determine if requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_SyntheticDataGeneration should be set to null
+            if (requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_SyntheticDataGenerationIsNull)
+            {
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_SyntheticDataGeneration = null;
+            }
+            if (requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_SyntheticDataGeneration != null)
+            {
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning.SyntheticDataGeneration = requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_SyntheticDataGeneration;
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearningIsNull = false;
+            }
              // determine if requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning should be set to null
             if (requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearningIsNull)
             {
@@ -777,6 +814,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public System.Boolean? JobCompute_IsResponsible { get; set; }
             public System.Boolean? ModelInference_IsResponsible { get; set; }
             public System.Boolean? ModelTraining_IsResponsible { get; set; }
+            public System.Boolean? SyntheticDataGeneration_IsResponsible { get; set; }
             public System.Boolean? QueryCompute_IsResponsible { get; set; }
             public System.Boolean? DataEncryptionMetadata_AllowCleartext { get; set; }
             public System.Boolean? DataEncryptionMetadata_AllowDuplicate { get; set; }

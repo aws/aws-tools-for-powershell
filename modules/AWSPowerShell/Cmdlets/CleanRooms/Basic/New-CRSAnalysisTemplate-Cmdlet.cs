@@ -79,6 +79,19 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.String Location_Bucket { get; set; }
         #endregion
         
+        #region Parameter ColumnClassification_ColumnMapping
+        /// <summary>
+        /// <para>
+        /// <para>A mapping that defines the classification of data columns for synthetic data generation
+        /// and specifies how each column should be handled during the privacy-preserving data
+        /// synthesis process.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SyntheticDataParameters_MlSyntheticDataParameters_ColumnClassification_ColumnMapping")]
+        public Amazon.CleanRooms.Model.SyntheticDataColumnProperties[] ColumnClassification_ColumnMapping { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -87,6 +100,18 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter MlSyntheticDataParameters_Epsilon
+        /// <summary>
+        /// <para>
+        /// <para>The epsilon value for differential privacy when generating synthetic data. Lower values
+        /// provide stronger privacy guarantees but may reduce data utility.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SyntheticDataParameters_MlSyntheticDataParameters_Epsilon")]
+        public System.Double? MlSyntheticDataParameters_Epsilon { get; set; }
         #endregion
         
         #region Parameter Format
@@ -115,6 +140,18 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Source_Artifacts_EntryPoint_Location_Key")]
         public System.String Location_Key { get; set; }
+        #endregion
+        
+        #region Parameter MlSyntheticDataParameters_MaxMembershipInferenceAttackScore
+        /// <summary>
+        /// <para>
+        /// <para>The maximum acceptable score for membership inference attack vulnerability. Synthetic
+        /// data generation fails if the score for the resulting data exceeds this threshold.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SyntheticDataParameters_MlSyntheticDataParameters_MaxMembershipInferenceAttackScore")]
+        public System.Double? MlSyntheticDataParameters_MaxMembershipInferenceAttackScore { get; set; }
         #endregion
         
         #region Parameter MembershipIdentifier
@@ -291,6 +328,12 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             context.Location_Key = this.Location_Key;
             context.Artifacts_RoleArn = this.Artifacts_RoleArn;
             context.Source_Text = this.Source_Text;
+            if (this.ColumnClassification_ColumnMapping != null)
+            {
+                context.ColumnClassification_ColumnMapping = new List<Amazon.CleanRooms.Model.SyntheticDataColumnProperties>(this.ColumnClassification_ColumnMapping);
+            }
+            context.MlSyntheticDataParameters_Epsilon = this.MlSyntheticDataParameters_Epsilon;
+            context.MlSyntheticDataParameters_MaxMembershipInferenceAttackScore = this.MlSyntheticDataParameters_MaxMembershipInferenceAttackScore;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -477,6 +520,75 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             {
                 request.Source = null;
             }
+            
+             // populate SyntheticDataParameters
+            var requestSyntheticDataParametersIsNull = true;
+            request.SyntheticDataParameters = new Amazon.CleanRooms.Model.SyntheticDataParameters();
+            Amazon.CleanRooms.Model.MLSyntheticDataParameters requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters = null;
+            
+             // populate MlSyntheticDataParameters
+            var requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParametersIsNull = true;
+            requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters = new Amazon.CleanRooms.Model.MLSyntheticDataParameters();
+            System.Double? requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_mlSyntheticDataParameters_Epsilon = null;
+            if (cmdletContext.MlSyntheticDataParameters_Epsilon != null)
+            {
+                requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_mlSyntheticDataParameters_Epsilon = cmdletContext.MlSyntheticDataParameters_Epsilon.Value;
+            }
+            if (requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_mlSyntheticDataParameters_Epsilon != null)
+            {
+                requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters.Epsilon = requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_mlSyntheticDataParameters_Epsilon.Value;
+                requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParametersIsNull = false;
+            }
+            System.Double? requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_mlSyntheticDataParameters_MaxMembershipInferenceAttackScore = null;
+            if (cmdletContext.MlSyntheticDataParameters_MaxMembershipInferenceAttackScore != null)
+            {
+                requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_mlSyntheticDataParameters_MaxMembershipInferenceAttackScore = cmdletContext.MlSyntheticDataParameters_MaxMembershipInferenceAttackScore.Value;
+            }
+            if (requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_mlSyntheticDataParameters_MaxMembershipInferenceAttackScore != null)
+            {
+                requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters.MaxMembershipInferenceAttackScore = requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_mlSyntheticDataParameters_MaxMembershipInferenceAttackScore.Value;
+                requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParametersIsNull = false;
+            }
+            Amazon.CleanRooms.Model.ColumnClassificationDetails requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_ColumnClassification = null;
+            
+             // populate ColumnClassification
+            var requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_ColumnClassificationIsNull = true;
+            requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_ColumnClassification = new Amazon.CleanRooms.Model.ColumnClassificationDetails();
+            List<Amazon.CleanRooms.Model.SyntheticDataColumnProperties> requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_ColumnClassification_columnClassification_ColumnMapping = null;
+            if (cmdletContext.ColumnClassification_ColumnMapping != null)
+            {
+                requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_ColumnClassification_columnClassification_ColumnMapping = cmdletContext.ColumnClassification_ColumnMapping;
+            }
+            if (requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_ColumnClassification_columnClassification_ColumnMapping != null)
+            {
+                requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_ColumnClassification.ColumnMapping = requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_ColumnClassification_columnClassification_ColumnMapping;
+                requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_ColumnClassificationIsNull = false;
+            }
+             // determine if requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_ColumnClassification should be set to null
+            if (requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_ColumnClassificationIsNull)
+            {
+                requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_ColumnClassification = null;
+            }
+            if (requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_ColumnClassification != null)
+            {
+                requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters.ColumnClassification = requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters_ColumnClassification;
+                requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParametersIsNull = false;
+            }
+             // determine if requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters should be set to null
+            if (requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParametersIsNull)
+            {
+                requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters = null;
+            }
+            if (requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters != null)
+            {
+                request.SyntheticDataParameters.MlSyntheticDataParameters = requestSyntheticDataParameters_syntheticDataParameters_MlSyntheticDataParameters;
+                requestSyntheticDataParametersIsNull = false;
+            }
+             // determine if request.SyntheticDataParameters should be set to null
+            if (requestSyntheticDataParametersIsNull)
+            {
+                request.SyntheticDataParameters = null;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -554,6 +666,9 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public System.String Location_Key { get; set; }
             public System.String Artifacts_RoleArn { get; set; }
             public System.String Source_Text { get; set; }
+            public List<Amazon.CleanRooms.Model.SyntheticDataColumnProperties> ColumnClassification_ColumnMapping { get; set; }
+            public System.Double? MlSyntheticDataParameters_Epsilon { get; set; }
+            public System.Double? MlSyntheticDataParameters_MaxMembershipInferenceAttackScore { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.CleanRooms.Model.CreateAnalysisTemplateResponse, NewCRSAnalysisTemplateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AnalysisTemplate;

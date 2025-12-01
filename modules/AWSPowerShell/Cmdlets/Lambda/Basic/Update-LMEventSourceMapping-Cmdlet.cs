@@ -429,10 +429,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>(Amazon MSK and self-managed Apache Kafka) The name of the provisioned poller group.
-        /// Use this option to group multiple ESMs within the VPC to share Event Poller Unit (EPU)
-        /// capacity. This option is used to optimize Provisioned mode costs for your ESMs. You
-        /// can group up to 100 ESMs per poller group and aggregate maximum pollers across all
-        /// ESMs in a group cannot exceed 2000.</para>
+        /// Use this option to group multiple ESMs within the event source's VPC to share Event
+        /// Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs
+        /// for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum
+        /// pollers across all ESMs in a group cannot exceed 2000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

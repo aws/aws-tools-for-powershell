@@ -41,6 +41,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter FlowConfig_ContactFlowId
+        /// <summary>
+        /// <para>
+        /// <para> The contact flow ID for the quick connect configuration. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("QuickConnectConfig_FlowConfig_ContactFlowId")]
+        public System.String FlowConfig_ContactFlowId { get; set; }
+        #endregion
+        
         #region Parameter QueueConfig_ContactFlowId
         /// <summary>
         /// <para>
@@ -249,6 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.FlowConfig_ContactFlowId = this.FlowConfig_ContactFlowId;
             context.PhoneConfig_PhoneNumber = this.PhoneConfig_PhoneNumber;
             context.QueueConfig_ContactFlowId = this.QueueConfig_ContactFlowId;
             context.QueueConfig_QueueId = this.QueueConfig_QueueId;
@@ -309,6 +321,31 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestQuickConnectConfig_quickConnectConfig_QuickConnectType != null)
             {
                 request.QuickConnectConfig.QuickConnectType = requestQuickConnectConfig_quickConnectConfig_QuickConnectType;
+                requestQuickConnectConfigIsNull = false;
+            }
+            Amazon.Connect.Model.FlowQuickConnectConfig requestQuickConnectConfig_quickConnectConfig_FlowConfig = null;
+            
+             // populate FlowConfig
+            var requestQuickConnectConfig_quickConnectConfig_FlowConfigIsNull = true;
+            requestQuickConnectConfig_quickConnectConfig_FlowConfig = new Amazon.Connect.Model.FlowQuickConnectConfig();
+            System.String requestQuickConnectConfig_quickConnectConfig_FlowConfig_flowConfig_ContactFlowId = null;
+            if (cmdletContext.FlowConfig_ContactFlowId != null)
+            {
+                requestQuickConnectConfig_quickConnectConfig_FlowConfig_flowConfig_ContactFlowId = cmdletContext.FlowConfig_ContactFlowId;
+            }
+            if (requestQuickConnectConfig_quickConnectConfig_FlowConfig_flowConfig_ContactFlowId != null)
+            {
+                requestQuickConnectConfig_quickConnectConfig_FlowConfig.ContactFlowId = requestQuickConnectConfig_quickConnectConfig_FlowConfig_flowConfig_ContactFlowId;
+                requestQuickConnectConfig_quickConnectConfig_FlowConfigIsNull = false;
+            }
+             // determine if requestQuickConnectConfig_quickConnectConfig_FlowConfig should be set to null
+            if (requestQuickConnectConfig_quickConnectConfig_FlowConfigIsNull)
+            {
+                requestQuickConnectConfig_quickConnectConfig_FlowConfig = null;
+            }
+            if (requestQuickConnectConfig_quickConnectConfig_FlowConfig != null)
+            {
+                request.QuickConnectConfig.FlowConfig = requestQuickConnectConfig_quickConnectConfig_FlowConfig;
                 requestQuickConnectConfigIsNull = false;
             }
             Amazon.Connect.Model.PhoneNumberQuickConnectConfig requestQuickConnectConfig_quickConnectConfig_PhoneConfig = null;
@@ -479,6 +516,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String Description { get; set; }
             public System.String InstanceId { get; set; }
             public System.String Name { get; set; }
+            public System.String FlowConfig_ContactFlowId { get; set; }
             public System.String PhoneConfig_PhoneNumber { get; set; }
             public System.String QueueConfig_ContactFlowId { get; set; }
             public System.String QueueConfig_QueueId { get; set; }

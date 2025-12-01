@@ -628,7 +628,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter Input_Text
         /// <summary>
         /// <para>
-        /// <para>The query made to the knowledge base.</para>
+        /// <para>The query made to the knowledge base, in characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -649,8 +649,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// can include prompt placeholders, which become replaced before the prompt is sent to
         /// the model to provide instructions and context to the model. In addition, you can include
         /// XML tags to delineate meaningful sections of the prompt template.</para><para>For more information, see the following resources:</para><ul><li><para><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html#kb-test-config-sysprompt">Knowledge
-        /// base prompt templates</a></para></li><li><para><a href="https://docs.anthropic.com/claude/docs/use-xml-tags">Use XML tags with Anthropic
-        /// Claude models</a></para></li></ul>
+        /// base prompt templates</a></para></li><li><para><a href="https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/use-xml-tags">Use
+        /// XML tags with Anthropic Claude models</a></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -664,8 +664,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// can include prompt placeholders, which become replaced before the prompt is sent to
         /// the model to provide instructions and context to the model. In addition, you can include
         /// XML tags to delineate meaningful sections of the prompt template.</para><para>For more information, see the following resources:</para><ul><li><para><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html#kb-test-config-sysprompt">Knowledge
-        /// base prompt templates</a></para></li><li><para><a href="https://docs.anthropic.com/claude/docs/use-xml-tags">Use XML tags with Anthropic
-        /// Claude models</a></para></li></ul>
+        /// base prompt templates</a></para></li><li><para><a href="https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/use-xml-tags">Use
+        /// XML tags with Anthropic Claude models</a></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -679,8 +679,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// can include prompt placeholders, which become replaced before the prompt is sent to
         /// the model to provide instructions and context to the model. In addition, you can include
         /// XML tags to delineate meaningful sections of the prompt template.</para><para>For more information, see the following resources:</para><ul><li><para><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html#kb-test-config-sysprompt">Knowledge
-        /// base prompt templates</a></para></li><li><para><a href="https://docs.anthropic.com/claude/docs/use-xml-tags">Use XML tags with Anthropic
-        /// Claude models</a></para></li></ul>
+        /// base prompt templates</a></para></li><li><para><a href="https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/use-xml-tags">Use
+        /// XML tags with Anthropic Claude models</a></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

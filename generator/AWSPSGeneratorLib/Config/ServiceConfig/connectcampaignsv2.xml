@@ -32,6 +32,8 @@
                 <Param Name="CommunicationTimeConfig_Email_RestrictedPeriods_RestrictedPeriodList" NewName="CommunicationTimeConfig_Email_RestrictedPeriods_RestrictedPeriodList" />
                 <Param Name="CommunicationTimeConfig_Sms_RestrictedPeriods_RestrictedPeriodList" NewName="CommunicationTimeConfig_Sms_RestrictedPeriods_RestrictedPeriodList" />
                 <Param Name="CommunicationTimeConfig_Telephony_RestrictedPeriods_RestrictedPeriodList" NewName="CommunicationTimeConfig_Telephony_RestrictedPeriods_RestrictedPeriodList" />
+                <Param Name="ChannelSubtypeConfig_Sms_DefaultOutboundConfig_ConnectSourcePhoneNumberArn" NewName="ChannelSubtypeConfig_Sms_DefaultOutboundConfig_ConnectSourcePhoneNumberArn" Alias="DefaultOutboundConfig_ConnectSourcePhoneNumberArn" />
+                <Param Name="ChannelSubtypeConfig_WhatsApp_DefaultOutboundConfig_ConnectSourcePhoneNumberArn" NewName="ChannelSubtypeConfig_WhatsApp_DefaultOutboundConfig_ConnectSourcePhoneNumberArn" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -150,6 +152,8 @@
                 <Param Name="ChannelSubtypeConfig_Email_OutboundMode_Agentless" NewName="ChannelSubtypeConfig_Email_OutboundMode_Agentless" />
                 <Param Name="ChannelSubtypeConfig_Sms_OutboundMode_Agentless" NewName="ChannelSubtypeConfig_Sms_OutboundMode_Agentless" />
                 <Param Name="ChannelSubtypeConfig_Telephony_OutboundMode_Agentless" NewName="ChannelSubtypeConfig_Telephony_OutboundMode_Agentless" />
+                <Param Name="ChannelSubtypeConfig_Sms_DefaultOutboundConfig_ConnectSourcePhoneNumberArn" NewName="ChannelSubtypeConfig_Sms_DefaultOutboundConfig_ConnectSourcePhoneNumberArn" Alias="DefaultOutboundConfig_ConnectSourcePhoneNumberArn" />
+                <Param Name="ChannelSubtypeConfig_WhatsApp_DefaultOutboundConfig_ConnectSourcePhoneNumberArn" NewName="ChannelSubtypeConfig_WhatsApp_DefaultOutboundConfig_ConnectSourcePhoneNumberArn" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

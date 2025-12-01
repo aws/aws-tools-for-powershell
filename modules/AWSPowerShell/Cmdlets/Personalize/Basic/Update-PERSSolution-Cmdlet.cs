@@ -87,6 +87,19 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         public System.Boolean? PerformAutoTraining { get; set; }
         #endregion
         
+        #region Parameter PerformIncrementalUpdate
+        /// <summary>
+        /// <para>
+        /// <para>Whether to perform incremental training updates on your model. When enabled, this
+        /// allows the model to learn from new data more frequently without requiring full retraining,
+        /// which enables near real-time personalization. This parameter is supported only for
+        /// solutions that use the semantic-similarity recipe.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? PerformIncrementalUpdate { get; set; }
+        #endregion
+        
         #region Parameter AutoTrainingConfig_SchedulingExpression
         /// <summary>
         /// <para>
@@ -183,6 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.PerformAutoTraining = this.PerformAutoTraining;
+            context.PerformIncrementalUpdate = this.PerformIncrementalUpdate;
             context.SolutionArn = this.SolutionArn;
             #if MODULAR
             if (this.SolutionArn == null && ParameterWasBound(nameof(this.SolutionArn)))
@@ -214,6 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (cmdletContext.PerformAutoTraining != null)
             {
                 request.PerformAutoTraining = cmdletContext.PerformAutoTraining.Value;
+            }
+            if (cmdletContext.PerformIncrementalUpdate != null)
+            {
+                request.PerformIncrementalUpdate = cmdletContext.PerformIncrementalUpdate.Value;
             }
             if (cmdletContext.SolutionArn != null)
             {
@@ -340,6 +358,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? PerformAutoTraining { get; set; }
+            public System.Boolean? PerformIncrementalUpdate { get; set; }
             public System.String SolutionArn { get; set; }
             public System.String AutoTrainingConfig_SchedulingExpression { get; set; }
             public List<Amazon.Personalize.Model.EventParameters> EventsConfig_EventParametersList { get; set; }

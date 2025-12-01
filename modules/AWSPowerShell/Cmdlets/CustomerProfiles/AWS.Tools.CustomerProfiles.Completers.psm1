@@ -225,6 +225,20 @@ $CPF_Completers = {
             break
         }
 
+        # Amazon.CustomerProfiles.RecommenderRecipeName
+        "New-CPFRecommender/RecommenderRecipeName"
+        {
+            $v = "frequently-paired-items","popular-items","recommended-for-you","similar-items","trending-now"
+            break
+        }
+
+        # Amazon.CustomerProfiles.Scope
+        "Write-CPFIntegration/Scope"
+        {
+            $v = "DOMAIN","PROFILE"
+            break
+        }
+
         # Amazon.CustomerProfiles.SourceConnectorType
         {
             ($_ -eq "New-CPFIntegrationWorkflow/SourceFlowConfig_ConnectorType") -Or
@@ -301,8 +315,10 @@ $CPF_map = @{
     "PartyType"=@("New-CPFProfile","Update-CPFProfile")
     "ProfileType"=@("New-CPFProfile","Update-CPFProfile")
     "Range_Unit"=@("Get-CPFGetCalculatedAttributeForProfile","New-CPFCalculatedAttributeDefinition","Update-CPFCalculatedAttributeDefinition")
+    "RecommenderRecipeName"=@("New-CPFRecommender")
     "RuleBasedMatching_ConflictResolution_ConflictResolvingModel"=@("New-CPFDomain","Update-CPFDomain")
     "Scheduled_DataPullMode"=@("New-CPFIntegrationWorkflow","Write-CPFIntegration")
+    "Scope"=@("Write-CPFIntegration")
     "SegmentGroups_Include"=@("New-CPFSegmentDefinition")
     "SegmentQuery_Include"=@("New-CPFSegmentEstimate")
     "SourceFlowConfig_ConnectorType"=@("New-CPFIntegrationWorkflow","Write-CPFIntegration")
@@ -373,6 +389,7 @@ $CPF_SelectMap = @{
                "New-CPFEventTrigger",
                "New-CPFIntegrationWorkflow",
                "New-CPFProfile",
+               "New-CPFRecommender",
                "New-CPFSegmentDefinition",
                "New-CPFSegmentEstimate",
                "New-CPFSegmentSnapshot",
@@ -380,6 +397,7 @@ $CPF_SelectMap = @{
                "Remove-CPFCalculatedAttributeDefinition",
                "Remove-CPFDomain",
                "Remove-CPFDomainLayout",
+               "Remove-CPFDomainObjectType",
                "Remove-CPFEventStream",
                "Remove-CPFEventTrigger",
                "Remove-CPFIntegration",
@@ -387,6 +405,7 @@ $CPF_SelectMap = @{
                "Remove-CPFProfileKey",
                "Remove-CPFProfileObject",
                "Remove-CPFProfileObjectType",
+               "Remove-CPFRecommender",
                "Remove-CPFSegmentDefinition",
                "Remove-CPFWorkflow",
                "Find-CPFProfileObjectType",
@@ -395,14 +414,18 @@ $CPF_SelectMap = @{
                "Get-CPFCalculatedAttributeForProfile",
                "Get-CPFDomain",
                "Get-CPFDomainLayout",
+               "Get-CPFDomainObjectType",
                "Get-CPFEventStream",
                "Get-CPFEventTrigger",
                "Get-CPFIdentityResolutionJob",
                "Get-CPFIntegration",
                "Get-CPFMatch",
+               "Get-CPFObjectTypeAttributeStatistic",
                "Get-CPFProfileHistoryRecord",
                "Get-CPFProfileObjectType",
                "Get-CPFProfileObjectTypeTemplate",
+               "Get-CPFProfileRecommendation",
+               "Get-CPFRecommender",
                "Get-CPFSegmentDefinition",
                "Get-CPFSegmentEstimate",
                "Get-CPFSegmentMembership",
@@ -416,28 +439,35 @@ $CPF_SelectMap = @{
                "Get-CPFCalculatedAttributeDefinitionList",
                "Get-CPFCalculatedAttributesForProfileList",
                "Get-CPFDomainLayoutList",
+               "Get-CPFDomainObjectTypeList",
                "Get-CPFDomainList",
                "Get-CPFEventStreamList",
                "Get-CPFEventTriggerList",
                "Get-CPFIdentityResolutionJobList",
                "Get-CPFIntegrationList",
                "Get-CPFObjectTypeAttributeList",
+               "Get-CPFObjectTypeAttributeValueList",
                "Get-CPFProfileAttributeValueList",
                "Get-CPFProfileHistoryRecordList",
                "Get-CPFProfileObjectList",
                "Get-CPFProfileObjectTypeList",
                "Get-CPFProfileObjectTypeTemplateList",
+               "Get-CPFRecommenderRecipeList",
+               "Get-CPFRecommenderList",
                "Get-CPFRuleBasedMatchList",
                "Get-CPFSegmentDefinitionList",
                "Get-CPFResourceTag",
                "Get-CPFUploadJobList",
                "Get-CPFWorkflowList",
                "Merge-CPFProfile",
+               "Write-CPFDomainObjectType",
                "Write-CPFIntegration",
                "Write-CPFProfileObject",
                "Write-CPFProfileObjectType",
                "Search-CPFProfile",
+               "Start-CPFRecommender",
                "Start-CPFUploadJob",
+               "Stop-CPFRecommender",
                "Stop-CPFUploadJob",
                "Add-CPFResourceTag",
                "Remove-CPFResourceTag",
@@ -445,7 +475,8 @@ $CPF_SelectMap = @{
                "Update-CPFDomain",
                "Update-CPFDomainLayout",
                "Update-CPFEventTrigger",
-               "Update-CPFProfile")
+               "Update-CPFProfile",
+               "Update-CPFRecommender")
 }
 
 _awsArgumentCompleterRegistration $CPF_SelectCompleters $CPF_SelectMap

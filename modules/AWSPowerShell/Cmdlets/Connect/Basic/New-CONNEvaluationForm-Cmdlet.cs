@@ -44,6 +44,27 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AsDraft
+        /// <summary>
+        /// <para>
+        /// <para>A boolean flag indicating whether to create evaluation form in draft state.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AsDraft { get; set; }
+        #endregion
+        
+        #region Parameter TargetConfiguration_ContactInteractionType
+        /// <summary>
+        /// <para>
+        /// <para>The contact interaction type for this evaluation form.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Connect.ContactInteractionType")]
+        public Amazon.Connect.ContactInteractionType TargetConfiguration_ContactInteractionType { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -62,6 +83,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? AutoEvaluationConfiguration_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter LanguageConfiguration_FormLanguage
+        /// <summary>
+        /// <para>
+        /// <para>The language for the evaluation form.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Connect.EvaluationFormLanguageCode")]
+        public Amazon.Connect.EvaluationFormLanguageCode LanguageConfiguration_FormLanguage { get; set; }
         #endregion
         
         #region Parameter InstanceId
@@ -227,6 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Select = (response, cmdlet) => this.Title;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AsDraft = this.AsDraft;
             context.AutoEvaluationConfiguration_Enabled = this.AutoEvaluationConfiguration_Enabled;
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
@@ -247,6 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter Item which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.LanguageConfiguration_FormLanguage = this.LanguageConfiguration_FormLanguage;
             context.ScoringStrategy_Mode = this.ScoringStrategy_Mode;
             context.ScoringStrategy_Status = this.ScoringStrategy_Status;
             if (this.Tag != null)
@@ -257,6 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
+            context.TargetConfiguration_ContactInteractionType = this.TargetConfiguration_ContactInteractionType;
             context.Title = this.Title;
             #if MODULAR
             if (this.Title == null && ParameterWasBound(nameof(this.Title)))
@@ -280,6 +315,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             // create request
             var request = new Amazon.Connect.Model.CreateEvaluationFormRequest();
             
+            if (cmdletContext.AsDraft != null)
+            {
+                request.AsDraft = cmdletContext.AsDraft.Value;
+            }
             
              // populate AutoEvaluationConfiguration
             var requestAutoEvaluationConfigurationIsNull = true;
@@ -316,6 +355,25 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 request.Items = cmdletContext.Item;
             }
             
+             // populate LanguageConfiguration
+            var requestLanguageConfigurationIsNull = true;
+            request.LanguageConfiguration = new Amazon.Connect.Model.EvaluationFormLanguageConfiguration();
+            Amazon.Connect.EvaluationFormLanguageCode requestLanguageConfiguration_languageConfiguration_FormLanguage = null;
+            if (cmdletContext.LanguageConfiguration_FormLanguage != null)
+            {
+                requestLanguageConfiguration_languageConfiguration_FormLanguage = cmdletContext.LanguageConfiguration_FormLanguage;
+            }
+            if (requestLanguageConfiguration_languageConfiguration_FormLanguage != null)
+            {
+                request.LanguageConfiguration.FormLanguage = requestLanguageConfiguration_languageConfiguration_FormLanguage;
+                requestLanguageConfigurationIsNull = false;
+            }
+             // determine if request.LanguageConfiguration should be set to null
+            if (requestLanguageConfigurationIsNull)
+            {
+                request.LanguageConfiguration = null;
+            }
+            
              // populate ScoringStrategy
             var requestScoringStrategyIsNull = true;
             request.ScoringStrategy = new Amazon.Connect.Model.EvaluationFormScoringStrategy();
@@ -347,6 +405,25 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            
+             // populate TargetConfiguration
+            var requestTargetConfigurationIsNull = true;
+            request.TargetConfiguration = new Amazon.Connect.Model.EvaluationFormTargetConfiguration();
+            Amazon.Connect.ContactInteractionType requestTargetConfiguration_targetConfiguration_ContactInteractionType = null;
+            if (cmdletContext.TargetConfiguration_ContactInteractionType != null)
+            {
+                requestTargetConfiguration_targetConfiguration_ContactInteractionType = cmdletContext.TargetConfiguration_ContactInteractionType;
+            }
+            if (requestTargetConfiguration_targetConfiguration_ContactInteractionType != null)
+            {
+                request.TargetConfiguration.ContactInteractionType = requestTargetConfiguration_targetConfiguration_ContactInteractionType;
+                requestTargetConfigurationIsNull = false;
+            }
+             // determine if request.TargetConfiguration should be set to null
+            if (requestTargetConfigurationIsNull)
+            {
+                request.TargetConfiguration = null;
             }
             if (cmdletContext.Title != null)
             {
@@ -413,14 +490,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AsDraft { get; set; }
             public System.Boolean? AutoEvaluationConfiguration_Enabled { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public System.String InstanceId { get; set; }
             public List<Amazon.Connect.Model.EvaluationFormItem> Item { get; set; }
+            public Amazon.Connect.EvaluationFormLanguageCode LanguageConfiguration_FormLanguage { get; set; }
             public Amazon.Connect.EvaluationFormScoringMode ScoringStrategy_Mode { get; set; }
             public Amazon.Connect.EvaluationFormScoringStatus ScoringStrategy_Status { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public Amazon.Connect.ContactInteractionType TargetConfiguration_ContactInteractionType { get; set; }
             public System.String Title { get; set; }
             public System.Func<Amazon.Connect.Model.CreateEvaluationFormResponse, NewCONNEvaluationFormCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

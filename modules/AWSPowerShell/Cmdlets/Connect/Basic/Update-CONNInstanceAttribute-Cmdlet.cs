@@ -51,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The type of attribute.</para><note><para>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature,
-        /// contact Amazon Web Services Support for allowlisting.</para></note>
+        /// contact Amazon Web Services Support for allowlisting.</para></note><note><para>If you set the attribute type as <c>MESSAGE_STREAMING</c>, you need to update the
+        /// Lex bot alias resource based policy to include the <c>lex:RecognizeMessageAsync</c>
+        /// action for the connect instance ARN resource.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

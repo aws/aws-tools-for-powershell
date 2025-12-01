@@ -63,6 +63,19 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public System.String Catalog { get; set; }
         #endregion
         
+        #region Parameter ContextType
+        /// <summary>
+        /// <para>
+        /// <para>Filters engagements to include only those containing the specified context types,
+        /// such as "CustomerProject" or "Lead". Use this to find engagements that have specific
+        /// types of contextual information associated with them.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContextTypes")]
+        public System.String[] ContextType { get; set; }
+        #endregion
+        
         #region Parameter CreatedBy
         /// <summary>
         /// <para>
@@ -83,6 +96,19 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String[] EngagementIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter ExcludeContextType
+        /// <summary>
+        /// <para>
+        /// <para>Filters engagements to exclude those containing the specified context types. Use this
+        /// to find engagements that do not have certain types of contextual information, helping
+        /// to narrow results based on context exclusion criteria.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExcludeContextTypes")]
+        public System.String[] ExcludeContextType { get; set; }
         #endregion
         
         #region Parameter ExcludeCreatedBy
@@ -192,6 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 WriteWarning("You are passing $null as a value for parameter Catalog which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ContextType != null)
+            {
+                context.ContextType = new List<System.String>(this.ContextType);
+            }
             if (this.CreatedBy != null)
             {
                 context.CreatedBy = new List<System.String>(this.CreatedBy);
@@ -199,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
             if (this.EngagementIdentifier != null)
             {
                 context.EngagementIdentifier = new List<System.String>(this.EngagementIdentifier);
+            }
+            if (this.ExcludeContextType != null)
+            {
+                context.ExcludeContextType = new List<System.String>(this.ExcludeContextType);
             }
             if (this.ExcludeCreatedBy != null)
             {
@@ -228,6 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
             {
                 request.Catalog = cmdletContext.Catalog;
             }
+            if (cmdletContext.ContextType != null)
+            {
+                request.ContextTypes = cmdletContext.ContextType;
+            }
             if (cmdletContext.CreatedBy != null)
             {
                 request.CreatedBy = cmdletContext.CreatedBy;
@@ -235,6 +273,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
             if (cmdletContext.EngagementIdentifier != null)
             {
                 request.EngagementIdentifier = cmdletContext.EngagementIdentifier;
+            }
+            if (cmdletContext.ExcludeContextType != null)
+            {
+                request.ExcludeContextTypes = cmdletContext.ExcludeContextType;
             }
             if (cmdletContext.ExcludeCreatedBy != null)
             {
@@ -339,8 +381,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Catalog { get; set; }
+            public List<System.String> ContextType { get; set; }
             public List<System.String> CreatedBy { get; set; }
             public List<System.String> EngagementIdentifier { get; set; }
+            public List<System.String> ExcludeContextType { get; set; }
             public List<System.String> ExcludeCreatedBy { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }

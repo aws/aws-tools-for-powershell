@@ -73,6 +73,17 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String NextChunkToken { get; set; }
         #endregion
         
+        #region Parameter RecommendationType
+        /// <summary>
+        /// <para>
+        /// <para>The type of recommendation being requested.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QConnect.RecommendationType")]
+        public Amazon.QConnect.RecommendationType RecommendationType { get; set; }
+        #endregion
+        
         #region Parameter SessionId
         /// <summary>
         /// <para>
@@ -171,6 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             #endif
             context.MaxResult = this.MaxResult;
             context.NextChunkToken = this.NextChunkToken;
+            context.RecommendationType = this.RecommendationType;
             context.SessionId = this.SessionId;
             #if MODULAR
             if (this.SessionId == null && ParameterWasBound(nameof(this.SessionId)))
@@ -206,6 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (cmdletContext.NextChunkToken != null)
             {
                 request.NextChunkToken = cmdletContext.NextChunkToken;
+            }
+            if (cmdletContext.RecommendationType != null)
+            {
+                request.RecommendationType = cmdletContext.RecommendationType;
             }
             if (cmdletContext.SessionId != null)
             {
@@ -279,6 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             public System.String AssistantId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextChunkToken { get; set; }
+            public Amazon.QConnect.RecommendationType RecommendationType { get; set; }
             public System.String SessionId { get; set; }
             public System.Int32? WaitTimeSecond { get; set; }
             public System.Func<Amazon.QConnect.Model.GetRecommendationsResponse, GetQCRecommendationCmdlet, object> Select { get; set; } =

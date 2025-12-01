@@ -115,10 +115,17 @@ $MCAT_Completers = {
             break
         }
 
+        # Amazon.MarketplaceCatalog.OfferSetSortBy
+        "Get-MCATEntityList/OfferSetSort_SortBy"
+        {
+            $v = "EntityId","LastModifiedDate","Name","ReleaseDate","SolutionId","State"
+            break
+        }
+
         # Amazon.MarketplaceCatalog.OfferSortBy
         "Get-MCATEntityList/OfferSort_SortBy"
         {
-            $v = "AvailabilityEndDate","BuyerAccounts","EntityId","LastModifiedDate","Name","ProductId","ReleaseDate","ResaleAuthorizationId","State","Targeting"
+            $v = "AvailabilityEndDate","BuyerAccounts","EntityId","LastModifiedDate","Name","OfferSetId","ProductId","ReleaseDate","ResaleAuthorizationId","State","Targeting"
             break
         }
 
@@ -149,6 +156,7 @@ $MCAT_Completers = {
             ($_ -eq "Get-MCATEntityList/ContainerProductSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/DataProductSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/MachineLearningProductSort_SortOrder") -Or
+            ($_ -eq "Get-MCATEntityList/OfferSetSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/OfferSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/ResaleAuthorizationSort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/SaaSProductSort_SortOrder") -Or
@@ -178,6 +186,8 @@ $MCAT_map = @{
     "Intent"=@("Start-MCATChangeSet")
     "MachineLearningProductSort_SortBy"=@("Get-MCATEntityList")
     "MachineLearningProductSort_SortOrder"=@("Get-MCATEntityList")
+    "OfferSetSort_SortBy"=@("Get-MCATEntityList")
+    "OfferSetSort_SortOrder"=@("Get-MCATEntityList")
     "OfferSort_SortBy"=@("Get-MCATEntityList")
     "OfferSort_SortOrder"=@("Get-MCATEntityList")
     "OwnershipType"=@("Get-MCATEntityList")

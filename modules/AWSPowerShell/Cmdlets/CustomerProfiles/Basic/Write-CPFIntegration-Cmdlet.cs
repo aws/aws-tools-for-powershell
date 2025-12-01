@@ -344,6 +344,19 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.DateTime? Scheduled_ScheduleStartTime { get; set; }
         #endregion
         
+        #region Parameter Scope
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the integration applies to profile level data (associated with profiles)
+        /// or domain level data (not associated with any specific profile). The default value
+        /// is PROFILE.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CustomerProfiles.Scope")]
+        public Amazon.CustomerProfiles.Scope Scope { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -510,6 +523,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 }
             }
             context.RoleArn = this.RoleArn;
+            context.Scope = this.Scope;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -959,6 +973,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             {
                 request.RoleArn = cmdletContext.RoleArn;
             }
+            if (cmdletContext.Scope != null)
+            {
+                request.Scope = cmdletContext.Scope;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -1056,6 +1074,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             public System.String ObjectTypeName { get; set; }
             public Dictionary<System.String, System.String> ObjectTypeNames { get; set; }
             public System.String RoleArn { get; set; }
+            public Amazon.CustomerProfiles.Scope Scope { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String Uri { get; set; }
             public System.Func<Amazon.CustomerProfiles.Model.PutIntegrationResponse, WriteCPFIntegrationCmdlet, object> Select { get; set; } =

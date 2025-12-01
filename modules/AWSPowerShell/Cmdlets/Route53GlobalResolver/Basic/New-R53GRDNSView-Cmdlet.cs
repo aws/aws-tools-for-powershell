@@ -1,0 +1,346 @@
+/*******************************************************************************
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.Route53GlobalResolver;
+using Amazon.Route53GlobalResolver.Model;
+
+namespace Amazon.PowerShell.Cmdlets.R53GR
+{
+    /// <summary>
+    /// Creates a DNS view within a Route 53 Global Resolver. A DNS view models end users,
+    /// user groups, networks, and devices, and serves as a parent resource that holds configurations
+    /// controlling access, authorization, DNS firewall rules, and forwarding rules.
+    /// </summary>
+    [Cmdlet("New", "R53GRDNSView", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Route53GlobalResolver.Model.CreateDNSViewResponse")]
+    [AWSCmdlet("Calls the Amazon Route 53 Global Resolver CreateDNSView API operation.", Operation = new[] {"CreateDNSView"}, SelectReturnType = typeof(Amazon.Route53GlobalResolver.Model.CreateDNSViewResponse))]
+    [AWSCmdletOutput("Amazon.Route53GlobalResolver.Model.CreateDNSViewResponse",
+        "This cmdlet returns an Amazon.Route53GlobalResolver.Model.CreateDNSViewResponse object containing multiple properties."
+    )]
+    public partial class NewR53GRDNSViewCmdlet : AmazonRoute53GlobalResolverClientCmdlet, IExecutor
+    {
+        
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>An optional description for the DNS view.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter DnssecValidation
+        /// <summary>
+        /// <para>
+        /// <para>Whether to enable DNSSEC validation for DNS queries in this DNS view. When enabled,
+        /// the resolver verifies the authenticity and integrity of DNS responses from public
+        /// name servers for DNSSEC-signed domains.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Route53GlobalResolver.DnsSecValidationType")]
+        public Amazon.Route53GlobalResolver.DnsSecValidationType DnssecValidation { get; set; }
+        #endregion
+        
+        #region Parameter EdnsClientSubnet
+        /// <summary>
+        /// <para>
+        /// <para>Whether to enable EDNS Client Subnet injection for DNS queries in this DNS view. When
+        /// enabled, client subnet information is forwarded to provide more accurate geographic-based
+        /// DNS responses.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Route53GlobalResolver.EdnsClientSubnetType")]
+        public Amazon.Route53GlobalResolver.EdnsClientSubnetType EdnsClientSubnet { get; set; }
+        #endregion
+        
+        #region Parameter FirewallRulesFailOpen
+        /// <summary>
+        /// <para>
+        /// <para>Determines the behavior when Route 53 Global Resolver cannot apply DNS firewall rules
+        /// due to service impairment. When enabled, DNS queries are allowed through; when disabled,
+        /// queries are blocked.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Route53GlobalResolver.FirewallRulesFailOpenType")]
+        public Amazon.Route53GlobalResolver.FirewallRulesFailOpenType FirewallRulesFailOpen { get; set; }
+        #endregion
+        
+        #region Parameter GlobalResolverId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Route 53 Global Resolver to associate with this DNS view.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String GlobalResolverId { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>A descriptive name for the DNS view.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Tags to associate with the DNS view.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique string that identifies the request and ensures idempotency.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Route53GlobalResolver.Model.CreateDNSViewResponse).
+        /// Specifying the name of a property of type Amazon.Route53GlobalResolver.Model.CreateDNSViewResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            this._AWSSignerType = "v4";
+            base.ProcessRecord();
+            
+            var targetParameterNames = new string[]
+            {
+                nameof(this.GlobalResolverId),
+                nameof(this.Name)
+            };
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(targetParameterNames, MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-R53GRDNSView (CreateDNSView)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.Route53GlobalResolver.Model.CreateDNSViewResponse, NewR53GRDNSViewCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            context.ClientToken = this.ClientToken;
+            context.Description = this.Description;
+            context.DnssecValidation = this.DnssecValidation;
+            context.EdnsClientSubnet = this.EdnsClientSubnet;
+            context.FirewallRulesFailOpen = this.FirewallRulesFailOpen;
+            context.GlobalResolverId = this.GlobalResolverId;
+            #if MODULAR
+            if (this.GlobalResolverId == null && ParameterWasBound(nameof(this.GlobalResolverId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter GlobalResolverId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Name = this.Name;
+            #if MODULAR
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.Route53GlobalResolver.Model.CreateDNSViewRequest();
+            
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.DnssecValidation != null)
+            {
+                request.DnssecValidation = cmdletContext.DnssecValidation;
+            }
+            if (cmdletContext.EdnsClientSubnet != null)
+            {
+                request.EdnsClientSubnet = cmdletContext.EdnsClientSubnet;
+            }
+            if (cmdletContext.FirewallRulesFailOpen != null)
+            {
+                request.FirewallRulesFailOpen = cmdletContext.FirewallRulesFailOpen;
+            }
+            if (cmdletContext.GlobalResolverId != null)
+            {
+                request.GlobalResolverId = cmdletContext.GlobalResolverId;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.Route53GlobalResolver.Model.CreateDNSViewResponse CallAWSServiceOperation(IAmazonRoute53GlobalResolver client, Amazon.Route53GlobalResolver.Model.CreateDNSViewRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53 Global Resolver", "CreateDNSView");
+            try
+            {
+                #if DESKTOP
+                return client.CreateDNSView(request);
+                #elif CORECLR
+                return client.CreateDNSViewAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public System.String ClientToken { get; set; }
+            public System.String Description { get; set; }
+            public Amazon.Route53GlobalResolver.DnsSecValidationType DnssecValidation { get; set; }
+            public Amazon.Route53GlobalResolver.EdnsClientSubnetType EdnsClientSubnet { get; set; }
+            public Amazon.Route53GlobalResolver.FirewallRulesFailOpenType FirewallRulesFailOpen { get; set; }
+            public System.String GlobalResolverId { get; set; }
+            public System.String Name { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.Func<Amazon.Route53GlobalResolver.Model.CreateDNSViewResponse, NewR53GRDNSViewCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
+        }
+        
+    }
+}

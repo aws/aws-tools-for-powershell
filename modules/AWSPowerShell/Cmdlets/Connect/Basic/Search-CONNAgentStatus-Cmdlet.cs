@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SearchCriteria_AndCondition
         /// <summary>
         /// <para>
-        /// <para>A leaf node condition which can be used to specify a string condition.</para><note><para>The currently supported values for <c>FieldName</c> are <c>name</c>,  
-        /// <c>description</c>, <c>state</c>, <c>type</c>, <c>displayOrder</c>,  and <c>resourceID</c>.</para></note>
+        /// <para>A leaf node condition which can be used to specify a string condition.</para><note><para>The currently supported values for <c>FieldName</c> are <c>name</c>, <c>description</c>,
+        /// <c>state</c>, <c>type</c>, <c>displayOrder</c>, and <c>resourceID</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

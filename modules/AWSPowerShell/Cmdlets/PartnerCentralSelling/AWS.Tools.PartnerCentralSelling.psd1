@@ -99,6 +99,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-PCEngagementMemberList', 
         'Get-PCEngagementResourceAssociationList', 
         'Get-PCOpportunity', 
+        'Get-PCOpportunityFromEngagementTaskList', 
         'Get-PCOpportunityList', 
         'Get-PCResourceSnapshot', 
         'Get-PCResourceSnapshotJob', 
@@ -119,11 +120,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Invoke-PCResourceSnapshotJob', 
         'Invoke-PCStartEngagementByAcceptingInvitationTask', 
         'Invoke-PCStartEngagementFromOpportunityTask', 
+        'New-PCEngagementContext', 
         'Remove-PCResourceSnapshotJob', 
         'Remove-PCResourceTag', 
+        'Start-PCOpportunityFromEngagementTask', 
         'Start-PCResourceSnapshotJob', 
         'Stop-PCResourceSnapshotJob', 
         'Submit-PCOpportunity', 
+        'Update-PCEngagementContext', 
         'Update-PCOpportunity', 
         'Write-PCSellingSystemSetting')
 
