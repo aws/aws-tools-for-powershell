@@ -128,6 +128,17 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.Boolean? PublishVersion { get; set; }
         #endregion
         
+        #region Parameter PublishTo
+        /// <summary>
+        /// <para>
+        /// <para>Specifies where to publish the function version or configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lambda.FunctionVersionLatestPublished")]
+        public Amazon.Lambda.FunctionVersionLatestPublished PublishTo { get; set; }
+        #endregion
+        
         #region Parameter RevisionId
         /// <summary>
         /// <para>
@@ -262,6 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             #endif
             context.ImageUri = this.ImageUri;
             context.PublishVersion = this.PublishVersion;
+            context.PublishTo = this.PublishTo;
             context.RevisionId = this.RevisionId;
             context.S3Bucket = this.S3Bucket;
             context.S3Key = this.S3Key;
@@ -307,6 +319,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 if (cmdletContext.PublishVersion != null)
                 {
                     request.Publish = cmdletContext.PublishVersion.Value;
+                }
+                if (cmdletContext.PublishTo != null)
+                {
+                    request.PublishTo = cmdletContext.PublishTo;
                 }
                 if (cmdletContext.RevisionId != null)
                 {
@@ -401,6 +417,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String FunctionName { get; set; }
             public System.String ImageUri { get; set; }
             public System.Boolean? PublishVersion { get; set; }
+            public Amazon.Lambda.FunctionVersionLatestPublished PublishTo { get; set; }
             public System.String RevisionId { get; set; }
             public System.String S3Bucket { get; set; }
             public System.String S3Key { get; set; }

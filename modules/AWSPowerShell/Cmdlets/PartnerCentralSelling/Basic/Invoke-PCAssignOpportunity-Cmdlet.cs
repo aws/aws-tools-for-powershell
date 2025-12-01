@@ -168,6 +168,18 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public System.String Assignee_LastName { get; set; }
         #endregion
         
+        #region Parameter Assignee_Phone
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the contact phone number of the assignee responsible for the opportunity
+        /// or engagement. This field enables direct communication for time-sensitive matters
+        /// and facilitates coordination between AWS and partner teams.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Assignee_Phone { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -241,6 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 WriteWarning("You are passing $null as a value for parameter Assignee_LastName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Assignee_Phone = this.Assignee_Phone;
             context.Catalog = this.Catalog;
             #if MODULAR
             if (this.Catalog == null && ParameterWasBound(nameof(this.Catalog)))
@@ -315,6 +328,16 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 request.Assignee.LastName = requestAssignee_assignee_LastName;
                 requestAssigneeIsNull = false;
             }
+            System.String requestAssignee_assignee_Phone = null;
+            if (cmdletContext.Assignee_Phone != null)
+            {
+                requestAssignee_assignee_Phone = cmdletContext.Assignee_Phone;
+            }
+            if (requestAssignee_assignee_Phone != null)
+            {
+                request.Assignee.Phone = requestAssignee_assignee_Phone;
+                requestAssigneeIsNull = false;
+            }
              // determine if request.Assignee should be set to null
             if (requestAssigneeIsNull)
             {
@@ -387,6 +410,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
             public System.String Assignee_Email { get; set; }
             public System.String Assignee_FirstName { get; set; }
             public System.String Assignee_LastName { get; set; }
+            public System.String Assignee_Phone { get; set; }
             public System.String Catalog { get; set; }
             public System.String Identifier { get; set; }
             public System.Func<Amazon.PartnerCentralSelling.Model.AssignOpportunityResponse, InvokePCAssignOpportunityCmdlet, object> Select { get; set; } =

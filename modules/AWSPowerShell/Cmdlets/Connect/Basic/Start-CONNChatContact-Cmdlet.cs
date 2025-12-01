@@ -220,6 +220,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String RelatedContactId { get; set; }
         #endregion
         
+        #region Parameter ParticipantConfiguration_ResponseMode
+        /// <summary>
+        /// <para>
+        /// <para> The mode in which responses should be sent to the participant. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Connect.ResponseMode")]
+        public Amazon.Connect.ResponseMode ParticipantConfiguration_ResponseMode { get; set; }
+        #endregion
+        
         #region Parameter SegmentAttribute
         /// <summary>
         /// <para>
@@ -359,6 +370,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ParticipantConfiguration_ResponseMode = this.ParticipantConfiguration_ResponseMode;
             context.ParticipantDetails_DisplayName = this.ParticipantDetails_DisplayName;
             #if MODULAR
             if (this.ParticipantDetails_DisplayName == null && ParameterWasBound(nameof(this.ParticipantDetails_DisplayName)))
@@ -449,6 +461,25 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
+            }
+            
+             // populate ParticipantConfiguration
+            var requestParticipantConfigurationIsNull = true;
+            request.ParticipantConfiguration = new Amazon.Connect.Model.ParticipantConfiguration();
+            Amazon.Connect.ResponseMode requestParticipantConfiguration_participantConfiguration_ResponseMode = null;
+            if (cmdletContext.ParticipantConfiguration_ResponseMode != null)
+            {
+                requestParticipantConfiguration_participantConfiguration_ResponseMode = cmdletContext.ParticipantConfiguration_ResponseMode;
+            }
+            if (requestParticipantConfiguration_participantConfiguration_ResponseMode != null)
+            {
+                request.ParticipantConfiguration.ResponseMode = requestParticipantConfiguration_participantConfiguration_ResponseMode;
+                requestParticipantConfigurationIsNull = false;
+            }
+             // determine if request.ParticipantConfiguration should be set to null
+            if (requestParticipantConfigurationIsNull)
+            {
+                request.ParticipantConfiguration = null;
             }
             
              // populate ParticipantDetails
@@ -573,6 +604,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String InitialMessage_Content { get; set; }
             public System.String InitialMessage_ContentType { get; set; }
             public System.String InstanceId { get; set; }
+            public Amazon.Connect.ResponseMode ParticipantConfiguration_ResponseMode { get; set; }
             public System.String ParticipantDetails_DisplayName { get; set; }
             public Amazon.Connect.RehydrationType PersistentChat_RehydrationType { get; set; }
             public System.String PersistentChat_SourceContactId { get; set; }

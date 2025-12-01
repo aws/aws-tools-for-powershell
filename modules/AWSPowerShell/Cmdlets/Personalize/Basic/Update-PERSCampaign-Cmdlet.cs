@@ -139,6 +139,23 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         public System.Int32? MinProvisionedTPS { get; set; }
         #endregion
         
+        #region Parameter CampaignConfig_RankingInfluence
+        /// <summary>
+        /// <para>
+        /// <para>A map of ranking influence values for POPULARITY and FRESHNESS. For each key, specify
+        /// a numerical value between 0.0 and 1.0 that determines how much influence that ranking
+        /// factor has on the final recommendations. A value closer to 1.0 gives more weight to
+        /// the factor, while a value closer to 0.0 reduces its influence. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable CampaignConfig_RankingInfluence { get; set; }
+        #endregion
+        
         #region Parameter SolutionVersionArn
         /// <summary>
         /// <para>
@@ -232,6 +249,14 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                     context.CampaignConfig_ItemExplorationConfig.Add((String)hashKey, (System.String)(this.CampaignConfig_ItemExplorationConfig[hashKey]));
                 }
             }
+            if (this.CampaignConfig_RankingInfluence != null)
+            {
+                context.CampaignConfig_RankingInfluence = new Dictionary<System.String, System.Double>(StringComparer.Ordinal);
+                foreach (var hashKey in this.CampaignConfig_RankingInfluence.Keys)
+                {
+                    context.CampaignConfig_RankingInfluence.Add((String)hashKey, (System.Double)(this.CampaignConfig_RankingInfluence[hashKey]));
+                }
+            }
             context.CampaignConfig_SyncWithLatestSolutionVersion = this.CampaignConfig_SyncWithLatestSolutionVersion;
             context.MinProvisionedTPS = this.MinProvisionedTPS;
             context.SolutionVersionArn = this.SolutionVersionArn;
@@ -277,6 +302,16 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (requestCampaignConfig_campaignConfig_ItemExplorationConfig != null)
             {
                 request.CampaignConfig.ItemExplorationConfig = requestCampaignConfig_campaignConfig_ItemExplorationConfig;
+                requestCampaignConfigIsNull = false;
+            }
+            Dictionary<System.String, System.Double> requestCampaignConfig_campaignConfig_RankingInfluence = null;
+            if (cmdletContext.CampaignConfig_RankingInfluence != null)
+            {
+                requestCampaignConfig_campaignConfig_RankingInfluence = cmdletContext.CampaignConfig_RankingInfluence;
+            }
+            if (requestCampaignConfig_campaignConfig_RankingInfluence != null)
+            {
+                request.CampaignConfig.RankingInfluence = requestCampaignConfig_campaignConfig_RankingInfluence;
                 requestCampaignConfigIsNull = false;
             }
             System.Boolean? requestCampaignConfig_campaignConfig_SyncWithLatestSolutionVersion = null;
@@ -360,6 +395,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             public System.String CampaignArn { get; set; }
             public System.Boolean? CampaignConfig_EnableMetadataWithRecommendation { get; set; }
             public Dictionary<System.String, System.String> CampaignConfig_ItemExplorationConfig { get; set; }
+            public Dictionary<System.String, System.Double> CampaignConfig_RankingInfluence { get; set; }
             public System.Boolean? CampaignConfig_SyncWithLatestSolutionVersion { get; set; }
             public System.Int32? MinProvisionedTPS { get; set; }
             public System.String SolutionVersionArn { get; set; }

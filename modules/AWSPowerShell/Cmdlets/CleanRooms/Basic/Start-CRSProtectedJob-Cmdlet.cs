@@ -62,7 +62,14 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// <para> The ARN of the analysis template.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String JobParameters_AnalysisTemplateArn { get; set; }
         #endregion
         
@@ -173,6 +180,12 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             context.Worker_Number = this.Worker_Number;
             context.Worker_Type = this.Worker_Type;
             context.JobParameters_AnalysisTemplateArn = this.JobParameters_AnalysisTemplateArn;
+            #if MODULAR
+            if (this.JobParameters_AnalysisTemplateArn == null && ParameterWasBound(nameof(this.JobParameters_AnalysisTemplateArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter JobParameters_AnalysisTemplateArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.MembershipIdentifier = this.MembershipIdentifier;
             #if MODULAR
             if (this.MembershipIdentifier == null && ParameterWasBound(nameof(this.MembershipIdentifier)))

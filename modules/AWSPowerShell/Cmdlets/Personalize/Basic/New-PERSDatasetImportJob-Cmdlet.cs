@@ -155,14 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <para>The ARN of the IAM role that has permissions to read from the Amazon S3 data source.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RoleArn { get; set; }
         #endregion
         
@@ -246,12 +239,6 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             #endif
             context.PublishAttributionMetricsToS3 = this.PublishAttributionMetricsToS3;
             context.RoleArn = this.RoleArn;
-            #if MODULAR
-            if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.Personalize.Model.Tag>(this.Tag);

@@ -227,6 +227,25 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         public System.Collections.Hashtable SolutionConfig_FeatureTransformationParameter { get; set; }
         #endregion
         
+        #region Parameter TrainingDataConfig_IncludedDatasetColumn
+        /// <summary>
+        /// <para>
+        /// <para>A map that specifies which columns to include from each dataset during training. The
+        /// map can contain up to 3 entries, where each key is a dataset name (maximum length
+        /// of 256 characters, must contain only letters and underscores) and each value is an
+        /// array of up to 50 column names. Column names can be up to 150 characters long, must
+        /// start with a letter or underscore, and can contain only letters, numbers, and underscores.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SolutionConfig_TrainingDataConfig_IncludedDatasetColumns")]
+        public System.Collections.Hashtable TrainingDataConfig_IncludedDatasetColumn { get; set; }
+        #endregion
+        
         #region Parameter AlgorithmHyperParameterRanges_IntegerHyperParameterRange
         /// <summary>
         /// <para>
@@ -390,6 +409,19 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         public System.Boolean? PerformHPO { get; set; }
         #endregion
         
+        #region Parameter PerformIncrementalUpdate
+        /// <summary>
+        /// <para>
+        /// <para>Whether to perform incremental training updates on your model. When enabled, this
+        /// allows the model to learn from new data more frequently without requiring full retraining,
+        /// which enables near real-time personalization. This parameter is supported only for
+        /// solutions that use the semantic-similarity recipe.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? PerformIncrementalUpdate { get; set; }
+        #endregion
+        
         #region Parameter RecipeArn
         /// <summary>
         /// <para>
@@ -525,6 +557,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             context.PerformAutoML = this.PerformAutoML;
             context.PerformAutoTraining = this.PerformAutoTraining;
             context.PerformHPO = this.PerformHPO;
+            context.PerformIncrementalUpdate = this.PerformIncrementalUpdate;
             context.RecipeArn = this.RecipeArn;
             if (this.SolutionConfig_AlgorithmHyperParameter != null)
             {
@@ -592,6 +625,26 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                     context.TrainingDataConfig_ExcludedDatasetColumn.Add((String)hashKey, valueSet);
                 }
             }
+            if (this.TrainingDataConfig_IncludedDatasetColumn != null)
+            {
+                context.TrainingDataConfig_IncludedDatasetColumn = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.TrainingDataConfig_IncludedDatasetColumn.Keys)
+                {
+                    object hashValue = this.TrainingDataConfig_IncludedDatasetColumn[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.TrainingDataConfig_IncludedDatasetColumn.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<System.String>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((System.String)s);
+                    }
+                    context.TrainingDataConfig_IncludedDatasetColumn.Add((String)hashKey, valueSet);
+                }
+            }
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.Personalize.Model.Tag>(this.Tag);
@@ -635,6 +688,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (cmdletContext.PerformHPO != null)
             {
                 request.PerformHPO = cmdletContext.PerformHPO.Value;
+            }
+            if (cmdletContext.PerformIncrementalUpdate != null)
+            {
+                request.PerformIncrementalUpdate = cmdletContext.PerformIncrementalUpdate.Value;
             }
             if (cmdletContext.RecipeArn != null)
             {
@@ -724,31 +781,6 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 request.SolutionConfig.EventsConfig = requestSolutionConfig_solutionConfig_EventsConfig;
                 requestSolutionConfigIsNull = false;
             }
-            Amazon.Personalize.Model.TrainingDataConfig requestSolutionConfig_solutionConfig_TrainingDataConfig = null;
-            
-             // populate TrainingDataConfig
-            var requestSolutionConfig_solutionConfig_TrainingDataConfigIsNull = true;
-            requestSolutionConfig_solutionConfig_TrainingDataConfig = new Amazon.Personalize.Model.TrainingDataConfig();
-            Dictionary<System.String, List<System.String>> requestSolutionConfig_solutionConfig_TrainingDataConfig_trainingDataConfig_ExcludedDatasetColumn = null;
-            if (cmdletContext.TrainingDataConfig_ExcludedDatasetColumn != null)
-            {
-                requestSolutionConfig_solutionConfig_TrainingDataConfig_trainingDataConfig_ExcludedDatasetColumn = cmdletContext.TrainingDataConfig_ExcludedDatasetColumn;
-            }
-            if (requestSolutionConfig_solutionConfig_TrainingDataConfig_trainingDataConfig_ExcludedDatasetColumn != null)
-            {
-                requestSolutionConfig_solutionConfig_TrainingDataConfig.ExcludedDatasetColumns = requestSolutionConfig_solutionConfig_TrainingDataConfig_trainingDataConfig_ExcludedDatasetColumn;
-                requestSolutionConfig_solutionConfig_TrainingDataConfigIsNull = false;
-            }
-             // determine if requestSolutionConfig_solutionConfig_TrainingDataConfig should be set to null
-            if (requestSolutionConfig_solutionConfig_TrainingDataConfigIsNull)
-            {
-                requestSolutionConfig_solutionConfig_TrainingDataConfig = null;
-            }
-            if (requestSolutionConfig_solutionConfig_TrainingDataConfig != null)
-            {
-                request.SolutionConfig.TrainingDataConfig = requestSolutionConfig_solutionConfig_TrainingDataConfig;
-                requestSolutionConfigIsNull = false;
-            }
             Amazon.Personalize.Model.AutoMLConfig requestSolutionConfig_solutionConfig_AutoMLConfig = null;
             
              // populate AutoMLConfig
@@ -817,6 +849,41 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (requestSolutionConfig_solutionConfig_OptimizationObjective != null)
             {
                 request.SolutionConfig.OptimizationObjective = requestSolutionConfig_solutionConfig_OptimizationObjective;
+                requestSolutionConfigIsNull = false;
+            }
+            Amazon.Personalize.Model.TrainingDataConfig requestSolutionConfig_solutionConfig_TrainingDataConfig = null;
+            
+             // populate TrainingDataConfig
+            var requestSolutionConfig_solutionConfig_TrainingDataConfigIsNull = true;
+            requestSolutionConfig_solutionConfig_TrainingDataConfig = new Amazon.Personalize.Model.TrainingDataConfig();
+            Dictionary<System.String, List<System.String>> requestSolutionConfig_solutionConfig_TrainingDataConfig_trainingDataConfig_ExcludedDatasetColumn = null;
+            if (cmdletContext.TrainingDataConfig_ExcludedDatasetColumn != null)
+            {
+                requestSolutionConfig_solutionConfig_TrainingDataConfig_trainingDataConfig_ExcludedDatasetColumn = cmdletContext.TrainingDataConfig_ExcludedDatasetColumn;
+            }
+            if (requestSolutionConfig_solutionConfig_TrainingDataConfig_trainingDataConfig_ExcludedDatasetColumn != null)
+            {
+                requestSolutionConfig_solutionConfig_TrainingDataConfig.ExcludedDatasetColumns = requestSolutionConfig_solutionConfig_TrainingDataConfig_trainingDataConfig_ExcludedDatasetColumn;
+                requestSolutionConfig_solutionConfig_TrainingDataConfigIsNull = false;
+            }
+            Dictionary<System.String, List<System.String>> requestSolutionConfig_solutionConfig_TrainingDataConfig_trainingDataConfig_IncludedDatasetColumn = null;
+            if (cmdletContext.TrainingDataConfig_IncludedDatasetColumn != null)
+            {
+                requestSolutionConfig_solutionConfig_TrainingDataConfig_trainingDataConfig_IncludedDatasetColumn = cmdletContext.TrainingDataConfig_IncludedDatasetColumn;
+            }
+            if (requestSolutionConfig_solutionConfig_TrainingDataConfig_trainingDataConfig_IncludedDatasetColumn != null)
+            {
+                requestSolutionConfig_solutionConfig_TrainingDataConfig.IncludedDatasetColumns = requestSolutionConfig_solutionConfig_TrainingDataConfig_trainingDataConfig_IncludedDatasetColumn;
+                requestSolutionConfig_solutionConfig_TrainingDataConfigIsNull = false;
+            }
+             // determine if requestSolutionConfig_solutionConfig_TrainingDataConfig should be set to null
+            if (requestSolutionConfig_solutionConfig_TrainingDataConfigIsNull)
+            {
+                requestSolutionConfig_solutionConfig_TrainingDataConfig = null;
+            }
+            if (requestSolutionConfig_solutionConfig_TrainingDataConfig != null)
+            {
+                request.SolutionConfig.TrainingDataConfig = requestSolutionConfig_solutionConfig_TrainingDataConfig;
                 requestSolutionConfigIsNull = false;
             }
             Amazon.Personalize.Model.HPOConfig requestSolutionConfig_solutionConfig_HpoConfig = null;
@@ -1029,6 +1096,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             public System.Boolean? PerformAutoML { get; set; }
             public System.Boolean? PerformAutoTraining { get; set; }
             public System.Boolean? PerformHPO { get; set; }
+            public System.Boolean? PerformIncrementalUpdate { get; set; }
             public System.String RecipeArn { get; set; }
             public Dictionary<System.String, System.String> SolutionConfig_AlgorithmHyperParameter { get; set; }
             public System.String AutoMLConfig_MetricName { get; set; }
@@ -1048,6 +1116,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             public System.String OptimizationObjective_ItemAttribute { get; set; }
             public Amazon.Personalize.ObjectiveSensitivity OptimizationObjective_ObjectiveSensitivity { get; set; }
             public Dictionary<System.String, List<System.String>> TrainingDataConfig_ExcludedDatasetColumn { get; set; }
+            public Dictionary<System.String, List<System.String>> TrainingDataConfig_IncludedDatasetColumn { get; set; }
             public List<Amazon.Personalize.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Personalize.Model.CreateSolutionResponse, NewPERSSolutionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.SolutionArn;

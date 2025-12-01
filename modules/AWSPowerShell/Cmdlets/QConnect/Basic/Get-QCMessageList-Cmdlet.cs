@@ -62,6 +62,17 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String AssistantId { get; set; }
         #endregion
         
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>The filter criteria for listing messages.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QConnect.MessageFilterType")]
+        public Amazon.QConnect.MessageFilterType Filter { get; set; }
+        #endregion
+        
         #region Parameter SessionId
         /// <summary>
         /// <para>
@@ -158,6 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
                 WriteWarning("You are passing $null as a value for parameter AssistantId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Filter = this.Filter;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -197,6 +209,10 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (cmdletContext.AssistantId != null)
             {
                 request.AssistantId = cmdletContext.AssistantId;
+            }
+            if (cmdletContext.Filter != null)
+            {
+                request.Filter = cmdletContext.Filter;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -287,6 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AssistantId { get; set; }
+            public Amazon.QConnect.MessageFilterType Filter { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String SessionId { get; set; }

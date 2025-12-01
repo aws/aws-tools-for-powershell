@@ -931,6 +931,12 @@
     <Reference Include="AWSSDK.Panorama">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Panorama.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.PartnerCentralAccount">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.PartnerCentralAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.PartnerCentralBenefits">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.PartnerCentralBenefits.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.PartnerCentralChannel">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.PartnerCentralChannel.dll</HintPath>
     </Reference>
@@ -1044,6 +1050,9 @@
     </Reference>
     <Reference Include="AWSSDK.Route53Domains">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Route53Domains.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Route53GlobalResolver">
+      <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Route53GlobalResolver.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53Profiles">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.Route53Profiles.dll</HintPath>
@@ -2161,6 +2170,12 @@
     <Reference Include="AWSSDK.Panorama">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Panorama.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.PartnerCentralAccount">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.PartnerCentralAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.PartnerCentralBenefits">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.PartnerCentralBenefits.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.PartnerCentralChannel">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.PartnerCentralChannel.dll</HintPath>
     </Reference>
@@ -2274,6 +2289,9 @@
     </Reference>
     <Reference Include="AWSSDK.Route53Domains">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Route53Domains.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Route53GlobalResolver">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Route53GlobalResolver.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53Profiles">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Route53Profiles.dll</HintPath>

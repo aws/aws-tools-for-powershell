@@ -90,7 +90,7 @@ $CCS2_Completers = {
         # Amazon.ConnectCampaignsV2.ChannelSubtype
         "Remove-CCS2CampaignChannelSubtypeConfig/ChannelSubtype"
         {
-            $v = "EMAIL","SMS","TELEPHONY"
+            $v = "EMAIL","SMS","TELEPHONY","WHATSAPP"
             break
         }
 
@@ -104,7 +104,7 @@ $CCS2_Completers = {
         # Amazon.ConnectCampaignsV2.CommunicationTimeConfigType
         "Remove-CCS2CampaignCommunicationTime/Config"
         {
-            $v = "EMAIL","SMS","TELEPHONY"
+            $v = "EMAIL","SMS","TELEPHONY","WHATSAPP"
             break
         }
 
@@ -112,6 +112,13 @@ $CCS2_Completers = {
         "Start-CCS2InstanceOnboardingJob/EncryptionConfig_EncryptionType"
         {
             $v = "KMS"
+            break
+        }
+
+        # Amazon.ConnectCampaignsV2.ExternalCampaignType
+        "New-CCS2Campaign/Type"
+        {
+            $v = "JOURNEY","MANAGED"
             break
         }
 
@@ -147,6 +154,7 @@ $CCS2_map = @{
     "Config"=@("Remove-CCS2CampaignCommunicationLimit","Remove-CCS2CampaignCommunicationTime")
     "EncryptionConfig_EncryptionType"=@("Start-CCS2InstanceOnboardingJob")
     "InstanceIdFilter_Operator"=@("Get-CCS2CampaignList")
+    "Type"=@("New-CCS2Campaign")
 }
 
 _awsArgumentCompleterRegistration $CCS2_Completers $CCS2_map

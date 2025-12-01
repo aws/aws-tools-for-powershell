@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>partnercentral-benefits</C2jFilename>
+    <AssemblyName>PartnerCentralBenefits</AssemblyName>
+    <ServiceNounPrefix>PCB</ServiceNounPrefix>
+    <ServiceName>Amazon PartnerCentral Benefits Service</ServiceName>
+    <ServiceClientInterface>IAmazonPartnerCentralBenefits</ServiceClientInterface>
+    <ServiceClient>AmazonPartnerCentralBenefitsClient</ServiceClient>
+    <ServiceModuleGuid>f5925f16-d477-400c-b0c1-02e1bb28b42f</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AmendBenefitApplication" Verb="Edit" Noun="BenefitApplication" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateBenefitApplicationResource" OutputProperty="*" Verb="Add" Noun="BenefitApplication" ShouldProcessTarget="ResourceArn,BenefitApplicationIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelBenefitApplication" Verb="Stop" Noun="BenefitApplication" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateBenefitApplication" OutputProperty="*" Verb="New" Noun="BenefitApplication" ShouldProcessTarget="BenefitIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateBenefitApplicationResource" OutputProperty="*" Verb="Remove" Noun="BenefitApplication" ShouldProcessTarget="ResourceArn,BenefitApplicationIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBenefit" OutputProperty="*" Verb="Get" Noun="Benefit" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBenefitAllocation" OutputProperty="*" Verb="Get" Noun="BenefitAllocation" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBenefitApplication" OutputProperty="*" Verb="Get" Noun="BenefitApplication" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBenefitAllocations" OutputProperty="BenefitAllocationSummaries" Verb="Get" Noun="BenefitAllocationList" PipelineParameter="Catalog" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBenefitApplications" OutputProperty="BenefitApplicationSummaries" Verb="Get" Noun="BenefitApplicationList" PipelineParameter="Catalog" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBenefits" OutputProperty="BenefitSummaries" Verb="Get" Noun="BenefitList" PipelineParameter="Catalog" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RecallBenefitApplication" Verb="Invoke" Noun="RecallBenefitApplication" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SubmitBenefitApplication" Verb="Submit" Noun="BenefitApplication" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBenefitApplication" OutputProperty="*" Verb="Update" Noun="BenefitApplication" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

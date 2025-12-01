@@ -446,6 +446,17 @@ $LMBV2_Completers = {
             break
         }
 
+        # Amazon.LexModelsV2.SpeechModelPreference
+        {
+            ($_ -eq "New-LMBV2BotLocale/SpeechRecognitionSettings_SpeechModelPreference") -Or
+            ($_ -eq "Start-LMBV2Import/SpeechRecognitionSettings_SpeechModelPreference") -Or
+            ($_ -eq "Update-LMBV2BotLocale/SpeechRecognitionSettings_SpeechModelPreference")
+        }
+        {
+            $v = "Deepgram","Neural","Standard"
+            break
+        }
+
         # Amazon.LexModelsV2.TestExecutionApiMode
         "Start-LMBV2TestExecution/ApiMode"
         {
@@ -582,6 +593,7 @@ $LMBV2_map = @{
     "SortBy_Name"=@("Get-LMBV2SessionAnalyticsDataList","Get-LMBV2UtteranceAnalyticsDataList")
     "SortBy_Order"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotResourceGenerationList","Get-LMBV2BotVersionList","Get-LMBV2BotVersionReplicaList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SessionAnalyticsDataList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList","Get-LMBV2TestExecutionList","Get-LMBV2TestSetList","Get-LMBV2UtteranceAnalyticsDataList")
     "SpeechDetectionSensitivity"=@("New-LMBV2BotLocale","Update-LMBV2BotLocale")
+    "SpeechRecognitionSettings_SpeechModelPreference"=@("New-LMBV2BotLocale","Start-LMBV2Import","Update-LMBV2BotLocale")
     "TestExecutionModality"=@("Start-LMBV2TestExecution")
     "TestSetImportResourceSpecification_Modality"=@("Start-LMBV2Import")
     "ValueElicitationSetting_SlotCaptureSetting_CaptureConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Slot","Update-LMBV2Slot")

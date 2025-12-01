@@ -44,6 +44,16 @@ namespace Amazon.PowerShell.Cmdlets.QC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter AiAgentId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the AI Agent to use for processing the message.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AiAgentId { get; set; }
+        #endregion
+        
         #region Parameter AssistantId
         /// <summary>
         /// <para>
@@ -61,6 +71,42 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String AssistantId { get; set; }
         #endregion
         
+        #region Parameter AiGuardrailAssessment_Blocked
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the AI Guardrail blocked the content.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Message_Value_Text_AiGuardrailAssessment_Blocked")]
+        public System.Boolean? AiGuardrailAssessment_Blocked { get; set; }
+        #endregion
+        
+        #region Parameter Text_Citation
+        /// <summary>
+        /// <para>
+        /// <para>The citations associated with the text message.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Message_Value_Text_Citations")]
+        public Amazon.QConnect.Model.Citation[] Text_Citation { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_GenerateChunkedMessage
+        /// <summary>
+        /// <para>
+        /// <para>Configuration for generating chunked messages.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Configuration_GenerateChunkedMessage { get; set; }
+        #endregion
+        
         #region Parameter Configuration_GenerateFillerMessage
         /// <summary>
         /// <para>
@@ -69,6 +115,41 @@ namespace Amazon.PowerShell.Cmdlets.QC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? Configuration_GenerateFillerMessage { get; set; }
+        #endregion
+        
+        #region Parameter ToolUseResult_InputSchema
+        /// <summary>
+        /// <para>
+        /// <para>The input schema for the tool use result.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Message_Value_ToolUseResult_InputSchema")]
+        public System.Management.Automation.PSObject ToolUseResult_InputSchema { get; set; }
+        #endregion
+        
+        #region Parameter Metadata
+        /// <summary>
+        /// <para>
+        /// <para>Additional metadata for the message.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable Metadata { get; set; }
+        #endregion
+        
+        #region Parameter OrchestratorUseCase
+        /// <summary>
+        /// <para>
+        /// <para>The orchestrator use case for message processing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OrchestratorUseCase { get; set; }
         #endregion
         
         #region Parameter ConversationContext_SelfServiceConversationHistory
@@ -100,6 +181,39 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SessionId { get; set; }
+        #endregion
+        
+        #region Parameter ToolUseResult_ToolName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the tool that was used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Message_Value_ToolUseResult_ToolName")]
+        public System.String ToolUseResult_ToolName { get; set; }
+        #endregion
+        
+        #region Parameter ToolUseResult_ToolResult
+        /// <summary>
+        /// <para>
+        /// <para>The result of the tool usage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Message_Value_ToolUseResult_ToolResult")]
+        public System.Management.Automation.PSObject ToolUseResult_ToolResult { get; set; }
+        #endregion
+        
+        #region Parameter ToolUseResult_ToolUseId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the tool use instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Message_Value_ToolUseResult_ToolUseId")]
+        public System.String ToolUseResult_ToolUseId { get; set; }
         #endregion
         
         #region Parameter Type
@@ -188,6 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
                 context.Select = CreateSelectDelegate<Amazon.QConnect.Model.SendMessageResponse, SendQCMessageCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AiAgentId = this.AiAgentId;
             context.AssistantId = this.AssistantId;
             #if MODULAR
             if (this.AssistantId == null && ParameterWasBound(nameof(this.AssistantId)))
@@ -196,12 +311,31 @@ namespace Amazon.PowerShell.Cmdlets.QC
             }
             #endif
             context.ClientToken = this.ClientToken;
+            context.Configuration_GenerateChunkedMessage = this.Configuration_GenerateChunkedMessage;
             context.Configuration_GenerateFillerMessage = this.Configuration_GenerateFillerMessage;
             if (this.ConversationContext_SelfServiceConversationHistory != null)
             {
                 context.ConversationContext_SelfServiceConversationHistory = new List<Amazon.QConnect.Model.SelfServiceConversationHistory>(this.ConversationContext_SelfServiceConversationHistory);
             }
+            context.AiGuardrailAssessment_Blocked = this.AiGuardrailAssessment_Blocked;
+            if (this.Text_Citation != null)
+            {
+                context.Text_Citation = new List<Amazon.QConnect.Model.Citation>(this.Text_Citation);
+            }
             context.Text_Value = this.Text_Value;
+            context.ToolUseResult_InputSchema = this.ToolUseResult_InputSchema;
+            context.ToolUseResult_ToolName = this.ToolUseResult_ToolName;
+            context.ToolUseResult_ToolResult = this.ToolUseResult_ToolResult;
+            context.ToolUseResult_ToolUseId = this.ToolUseResult_ToolUseId;
+            if (this.Metadata != null)
+            {
+                context.Metadata = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Metadata.Keys)
+                {
+                    context.Metadata.Add((String)hashKey, (System.String)(this.Metadata[hashKey]));
+                }
+            }
+            context.OrchestratorUseCase = this.OrchestratorUseCase;
             context.SessionId = this.SessionId;
             #if MODULAR
             if (this.SessionId == null && ParameterWasBound(nameof(this.SessionId)))
@@ -232,6 +366,10 @@ namespace Amazon.PowerShell.Cmdlets.QC
             // create request
             var request = new Amazon.QConnect.Model.SendMessageRequest();
             
+            if (cmdletContext.AiAgentId != null)
+            {
+                request.AiAgentId = cmdletContext.AiAgentId;
+            }
             if (cmdletContext.AssistantId != null)
             {
                 request.AssistantId = cmdletContext.AssistantId;
@@ -244,6 +382,16 @@ namespace Amazon.PowerShell.Cmdlets.QC
              // populate Configuration
             var requestConfigurationIsNull = true;
             request.Configuration = new Amazon.QConnect.Model.MessageConfiguration();
+            System.Boolean? requestConfiguration_configuration_GenerateChunkedMessage = null;
+            if (cmdletContext.Configuration_GenerateChunkedMessage != null)
+            {
+                requestConfiguration_configuration_GenerateChunkedMessage = cmdletContext.Configuration_GenerateChunkedMessage.Value;
+            }
+            if (requestConfiguration_configuration_GenerateChunkedMessage != null)
+            {
+                request.Configuration.GenerateChunkedMessage = requestConfiguration_configuration_GenerateChunkedMessage.Value;
+                requestConfigurationIsNull = false;
+            }
             System.Boolean? requestConfiguration_configuration_GenerateFillerMessage = null;
             if (cmdletContext.Configuration_GenerateFillerMessage != null)
             {
@@ -292,6 +440,16 @@ namespace Amazon.PowerShell.Cmdlets.QC
              // populate Text
             var requestMessage_message_Value_message_Value_TextIsNull = true;
             requestMessage_message_Value_message_Value_Text = new Amazon.QConnect.Model.TextMessage();
+            List<Amazon.QConnect.Model.Citation> requestMessage_message_Value_message_Value_Text_text_Citation = null;
+            if (cmdletContext.Text_Citation != null)
+            {
+                requestMessage_message_Value_message_Value_Text_text_Citation = cmdletContext.Text_Citation;
+            }
+            if (requestMessage_message_Value_message_Value_Text_text_Citation != null)
+            {
+                requestMessage_message_Value_message_Value_Text.Citations = requestMessage_message_Value_message_Value_Text_text_Citation;
+                requestMessage_message_Value_message_Value_TextIsNull = false;
+            }
             System.String requestMessage_message_Value_message_Value_Text_text_Value = null;
             if (cmdletContext.Text_Value != null)
             {
@@ -302,6 +460,31 @@ namespace Amazon.PowerShell.Cmdlets.QC
                 requestMessage_message_Value_message_Value_Text.Value = requestMessage_message_Value_message_Value_Text_text_Value;
                 requestMessage_message_Value_message_Value_TextIsNull = false;
             }
+            Amazon.QConnect.Model.AIGuardrailAssessment requestMessage_message_Value_message_Value_Text_message_Value_Text_AiGuardrailAssessment = null;
+            
+             // populate AiGuardrailAssessment
+            var requestMessage_message_Value_message_Value_Text_message_Value_Text_AiGuardrailAssessmentIsNull = true;
+            requestMessage_message_Value_message_Value_Text_message_Value_Text_AiGuardrailAssessment = new Amazon.QConnect.Model.AIGuardrailAssessment();
+            System.Boolean? requestMessage_message_Value_message_Value_Text_message_Value_Text_AiGuardrailAssessment_aiGuardrailAssessment_Blocked = null;
+            if (cmdletContext.AiGuardrailAssessment_Blocked != null)
+            {
+                requestMessage_message_Value_message_Value_Text_message_Value_Text_AiGuardrailAssessment_aiGuardrailAssessment_Blocked = cmdletContext.AiGuardrailAssessment_Blocked.Value;
+            }
+            if (requestMessage_message_Value_message_Value_Text_message_Value_Text_AiGuardrailAssessment_aiGuardrailAssessment_Blocked != null)
+            {
+                requestMessage_message_Value_message_Value_Text_message_Value_Text_AiGuardrailAssessment.Blocked = requestMessage_message_Value_message_Value_Text_message_Value_Text_AiGuardrailAssessment_aiGuardrailAssessment_Blocked.Value;
+                requestMessage_message_Value_message_Value_Text_message_Value_Text_AiGuardrailAssessmentIsNull = false;
+            }
+             // determine if requestMessage_message_Value_message_Value_Text_message_Value_Text_AiGuardrailAssessment should be set to null
+            if (requestMessage_message_Value_message_Value_Text_message_Value_Text_AiGuardrailAssessmentIsNull)
+            {
+                requestMessage_message_Value_message_Value_Text_message_Value_Text_AiGuardrailAssessment = null;
+            }
+            if (requestMessage_message_Value_message_Value_Text_message_Value_Text_AiGuardrailAssessment != null)
+            {
+                requestMessage_message_Value_message_Value_Text.AiGuardrailAssessment = requestMessage_message_Value_message_Value_Text_message_Value_Text_AiGuardrailAssessment;
+                requestMessage_message_Value_message_Value_TextIsNull = false;
+            }
              // determine if requestMessage_message_Value_message_Value_Text should be set to null
             if (requestMessage_message_Value_message_Value_TextIsNull)
             {
@@ -310,6 +493,61 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestMessage_message_Value_message_Value_Text != null)
             {
                 requestMessage_message_Value.Text = requestMessage_message_Value_message_Value_Text;
+                requestMessage_message_ValueIsNull = false;
+            }
+            Amazon.QConnect.Model.ToolUseResultData requestMessage_message_Value_message_Value_ToolUseResult = null;
+            
+             // populate ToolUseResult
+            var requestMessage_message_Value_message_Value_ToolUseResultIsNull = true;
+            requestMessage_message_Value_message_Value_ToolUseResult = new Amazon.QConnect.Model.ToolUseResultData();
+            Amazon.Runtime.Documents.Document? requestMessage_message_Value_message_Value_ToolUseResult_toolUseResult_InputSchema = null;
+            if (cmdletContext.ToolUseResult_InputSchema != null)
+            {
+                requestMessage_message_Value_message_Value_ToolUseResult_toolUseResult_InputSchema = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.ToolUseResult_InputSchema);
+            }
+            if (requestMessage_message_Value_message_Value_ToolUseResult_toolUseResult_InputSchema != null)
+            {
+                requestMessage_message_Value_message_Value_ToolUseResult.InputSchema = requestMessage_message_Value_message_Value_ToolUseResult_toolUseResult_InputSchema.Value;
+                requestMessage_message_Value_message_Value_ToolUseResultIsNull = false;
+            }
+            System.String requestMessage_message_Value_message_Value_ToolUseResult_toolUseResult_ToolName = null;
+            if (cmdletContext.ToolUseResult_ToolName != null)
+            {
+                requestMessage_message_Value_message_Value_ToolUseResult_toolUseResult_ToolName = cmdletContext.ToolUseResult_ToolName;
+            }
+            if (requestMessage_message_Value_message_Value_ToolUseResult_toolUseResult_ToolName != null)
+            {
+                requestMessage_message_Value_message_Value_ToolUseResult.ToolName = requestMessage_message_Value_message_Value_ToolUseResult_toolUseResult_ToolName;
+                requestMessage_message_Value_message_Value_ToolUseResultIsNull = false;
+            }
+            Amazon.Runtime.Documents.Document? requestMessage_message_Value_message_Value_ToolUseResult_toolUseResult_ToolResult = null;
+            if (cmdletContext.ToolUseResult_ToolResult != null)
+            {
+                requestMessage_message_Value_message_Value_ToolUseResult_toolUseResult_ToolResult = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.ToolUseResult_ToolResult);
+            }
+            if (requestMessage_message_Value_message_Value_ToolUseResult_toolUseResult_ToolResult != null)
+            {
+                requestMessage_message_Value_message_Value_ToolUseResult.ToolResult = requestMessage_message_Value_message_Value_ToolUseResult_toolUseResult_ToolResult.Value;
+                requestMessage_message_Value_message_Value_ToolUseResultIsNull = false;
+            }
+            System.String requestMessage_message_Value_message_Value_ToolUseResult_toolUseResult_ToolUseId = null;
+            if (cmdletContext.ToolUseResult_ToolUseId != null)
+            {
+                requestMessage_message_Value_message_Value_ToolUseResult_toolUseResult_ToolUseId = cmdletContext.ToolUseResult_ToolUseId;
+            }
+            if (requestMessage_message_Value_message_Value_ToolUseResult_toolUseResult_ToolUseId != null)
+            {
+                requestMessage_message_Value_message_Value_ToolUseResult.ToolUseId = requestMessage_message_Value_message_Value_ToolUseResult_toolUseResult_ToolUseId;
+                requestMessage_message_Value_message_Value_ToolUseResultIsNull = false;
+            }
+             // determine if requestMessage_message_Value_message_Value_ToolUseResult should be set to null
+            if (requestMessage_message_Value_message_Value_ToolUseResultIsNull)
+            {
+                requestMessage_message_Value_message_Value_ToolUseResult = null;
+            }
+            if (requestMessage_message_Value_message_Value_ToolUseResult != null)
+            {
+                requestMessage_message_Value.ToolUseResult = requestMessage_message_Value_message_Value_ToolUseResult;
                 requestMessage_message_ValueIsNull = false;
             }
              // determine if requestMessage_message_Value should be set to null
@@ -326,6 +564,14 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestMessageIsNull)
             {
                 request.Message = null;
+            }
+            if (cmdletContext.Metadata != null)
+            {
+                request.Metadata = cmdletContext.Metadata;
+            }
+            if (cmdletContext.OrchestratorUseCase != null)
+            {
+                request.OrchestratorUseCase = cmdletContext.OrchestratorUseCase;
             }
             if (cmdletContext.SessionId != null)
             {
@@ -390,11 +636,21 @@ namespace Amazon.PowerShell.Cmdlets.QC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AiAgentId { get; set; }
             public System.String AssistantId { get; set; }
             public System.String ClientToken { get; set; }
+            public System.Boolean? Configuration_GenerateChunkedMessage { get; set; }
             public System.Boolean? Configuration_GenerateFillerMessage { get; set; }
             public List<Amazon.QConnect.Model.SelfServiceConversationHistory> ConversationContext_SelfServiceConversationHistory { get; set; }
+            public System.Boolean? AiGuardrailAssessment_Blocked { get; set; }
+            public List<Amazon.QConnect.Model.Citation> Text_Citation { get; set; }
             public System.String Text_Value { get; set; }
+            public System.Management.Automation.PSObject ToolUseResult_InputSchema { get; set; }
+            public System.String ToolUseResult_ToolName { get; set; }
+            public System.Management.Automation.PSObject ToolUseResult_ToolResult { get; set; }
+            public System.String ToolUseResult_ToolUseId { get; set; }
+            public Dictionary<System.String, System.String> Metadata { get; set; }
+            public System.String OrchestratorUseCase { get; set; }
             public System.String SessionId { get; set; }
             public Amazon.QConnect.MessageType Type { get; set; }
             public System.Func<Amazon.QConnect.Model.SendMessageResponse, SendQCMessageCmdlet, object> Select { get; set; } =

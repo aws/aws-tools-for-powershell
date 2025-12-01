@@ -56,6 +56,16 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.String AddonName { get; set; }
         #endregion
         
+        #region Parameter CapabilityName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the capability for which you want to list updates.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CapabilityName { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -163,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AddonName = this.AddonName;
+            context.CapabilityName = this.CapabilityName;
             context.MaxResult = this.MaxResult;
             #if MODULAR
             if (!ParameterWasBound(nameof(this.MaxResult)))
@@ -211,6 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (cmdletContext.AddonName != null)
             {
                 request.AddonName = cmdletContext.AddonName;
+            }
+            if (cmdletContext.CapabilityName != null)
+            {
+                request.CapabilityName = cmdletContext.CapabilityName;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -282,6 +297,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (cmdletContext.AddonName != null)
             {
                 request.AddonName = cmdletContext.AddonName;
+            }
+            if (cmdletContext.CapabilityName != null)
+            {
+                request.CapabilityName = cmdletContext.CapabilityName;
             }
             if (cmdletContext.Name != null)
             {
@@ -409,6 +428,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AddonName { get; set; }
+            public System.String CapabilityName { get; set; }
             public int? MaxResult { get; set; }
             public System.String Name { get; set; }
             public System.String NextToken { get; set; }

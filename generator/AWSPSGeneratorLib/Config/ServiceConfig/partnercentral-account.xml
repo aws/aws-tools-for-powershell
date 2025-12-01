@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>partnercentral-account</C2jFilename>
+    <AssemblyName>PartnerCentralAccount</AssemblyName>
+    <ServiceNounPrefix>PCAA</ServiceNounPrefix>
+    <ServiceName>Partner Central Account API</ServiceName>
+    <ServiceClientInterface>IAmazonPartnerCentralAccount</ServiceClientInterface>
+    <ServiceClient>AmazonPartnerCentralAccountClient</ServiceClient>
+    <ServiceModuleGuid>72e5eeb9-ebdd-407c-9605-021e7360dcb8</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AcceptConnectionInvitation" OutputProperty="Connection" Verb="Approve" Noun="ConnectionInvitation" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateAwsTrainingCertificationEmailDomain" Verb="Add" Noun="AwsTrainingCertificationEmailDomain" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelConnection" OutputProperty="*" Verb="Stop" Noun="Connection" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelConnectionInvitation" OutputProperty="*" Verb="Stop" Noun="ConnectionInvitation" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelProfileUpdateTask" OutputProperty="*" Verb="Stop" Noun="ProfileUpdateTask" ShouldProcessTarget="TaskId,Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateConnectionInvitation" OutputProperty="*" Verb="New" Noun="ConnectionInvitation" ShouldProcessTarget="Name,ReceiverIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePartner" OutputProperty="*" Verb="New" Noun="Partner" ShouldProcessTarget="LegalName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateAwsTrainingCertificationEmailDomain" Verb="Remove" Noun="AwsTrainingCertificationEmailDomain" ShouldProcessTarget="DomainName,Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAllianceLeadContact" OutputProperty="*" Verb="Get" Noun="AllianceLeadContact" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConnection" OutputProperty="*" Verb="Get" Noun="Connection" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConnectionInvitation" OutputProperty="*" Verb="Get" Noun="ConnectionInvitation" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConnectionPreferences" OutputProperty="*" Verb="Get" Noun="ConnectionPreference" PipelineParameter="Catalog" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPartner" OutputProperty="*" Verb="Get" Noun="Partner" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProfileUpdateTask" OutputProperty="*" Verb="Get" Noun="ProfileUpdateTask" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProfileVisibility" OutputProperty="*" Verb="Get" Noun="ProfileVisibility" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConnectionInvitations" OutputProperty="ConnectionInvitationSummaries" Verb="Get" Noun="ConnectionInvitationList" PipelineParameter="Catalog" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConnections" OutputProperty="ConnectionSummaries" Verb="Get" Noun="ConnectionList" PipelineParameter="Catalog" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPartners" OutputProperty="PartnerSummaryList" Verb="Get" Noun="PartnerList" PipelineParameter="Catalog" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="*" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAllianceLeadContact" OutputProperty="*" Verb="Write" Noun="AllianceLeadContact" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutProfileVisibility" OutputProperty="*" Verb="Write" Noun="ProfileVisibility" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RejectConnectionInvitation" OutputProperty="*" Verb="Deny" Noun="ConnectionInvitation" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendEmailVerificationCode" Verb="Send" Noun="EmailVerificationCode" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartProfileUpdateTask" OutputProperty="*" Verb="Start" Noun="ProfileUpdateTask" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConnectionPreferences" OutputProperty="*" Verb="Update" Noun="ConnectionPreference" ShouldProcessTarget="ExcludedParticipantIdentifiers" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

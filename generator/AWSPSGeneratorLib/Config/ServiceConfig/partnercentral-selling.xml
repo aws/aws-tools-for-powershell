@@ -34,8 +34,28 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateEngagementContext" OutputProperty="*" Verb="New" Noun="EngagementContext" ShouldProcessTarget="EngagementIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="Payload_CustomerProject_Customer_CompanyName" NewName="Payload_CustomerProject_Customer_CompanyName" Alias="Customer_CompanyName" />
+                <Param Name="Payload_CustomerProject_Customer_Industry" NewName="Payload_CustomerProject_Customer_Industry" Alias="Customer_Industry" />
+                <Param Name="Payload_CustomerProject_Customer_WebsiteUrl" NewName="Payload_CustomerProject_Customer_WebsiteUrl" Alias="Customer_WebsiteUrl" />
+                <Param Name="Payload_Lead_Customer_CompanyName" NewName="Lead_Customer_CompanyName" />
+                <Param Name="Payload_Lead_Customer_Industry" NewName="Lead_Customer_Industry" />
+                <Param Name="Payload_Lead_Customer_WebsiteUrl" NewName="Lead_Customer_WebsiteUrl" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateEngagementInvitation" OutputProperty="*" Verb="Invoke" Noun="CreateEngagementInvitation" ShouldProcessTarget="EngagementIdentifier" PipelineParameter="EngagementIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Invitation_Payload_LeadInvitation_Customer_CompanyName" NewName="LeadInvitation_Customer_CompanyName" />
+                <Param Name="Invitation_Payload_LeadInvitation_Customer_CountryCode" NewName="LeadInvitation_Customer_CountryCode" />
+                <Param Name="Invitation_Payload_LeadInvitation_Customer_Industry" NewName="LeadInvitation_Customer_Industry" />
+                <Param Name="Invitation_Payload_LeadInvitation_Customer_WebsiteUrl" NewName="LeadInvitation_Customer_WebsiteUrl" />
+                <Param Name="Invitation_Payload_OpportunityInvitation_Customer_CompanyName" NewName="Invitation_Payload_OpportunityInvitation_Customer_CompanyName" Alias="Customer_CompanyName" />
+                <Param Name="Invitation_Payload_OpportunityInvitation_Customer_CountryCode" NewName="Invitation_Payload_OpportunityInvitation_Customer_CountryCode" Alias="Customer_CountryCode" />
+                <Param Name="Invitation_Payload_OpportunityInvitation_Customer_Industry" NewName="Invitation_Payload_OpportunityInvitation_Customer_Industry" Alias="Customer_Industry" />
+                <Param Name="Invitation_Payload_OpportunityInvitation_Customer_WebsiteUrl" NewName="Invitation_Payload_OpportunityInvitation_Customer_WebsiteUrl" Alias="Customer_WebsiteUrl" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateOpportunity" OutputProperty="Id" Verb="Invoke" Noun="CreateOpportunity" ShouldProcessTarget="Customer_Account_CompanyName" PipelineParameter="Customer_Account_CompanyName" NoPipelineParameter="false" LegacyV4Pagination="true">
@@ -114,6 +134,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListOpportunityFromEngagementTasks" OutputProperty="TaskSummaries" Verb="Get" Noun="OpportunityFromEngagementTaskList" PipelineParameter="Catalog" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListResourceSnapshotJobs" OutputProperty="ResourceSnapshotJobSummaries" Verb="Get" Noun="ResourceSnapshotJobList" PipelineParameter="Catalog" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -146,6 +170,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartOpportunityFromEngagementTask" OutputProperty="*" Verb="Start" Noun="OpportunityFromEngagementTask" ShouldProcessTarget="ContextIdentifier,Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartResourceSnapshotJob" Verb="Start" Noun="ResourceSnapshotJob" ShouldProcessTarget="ResourceSnapshotJobIdentifier" PipelineParameter="ResourceSnapshotJobIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -164,6 +192,17 @@
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEngagementContext" OutputProperty="*" Verb="Update" Noun="EngagementContext" ShouldProcessTarget="ContextIdentifier,EngagementIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="Payload_CustomerProject_Customer_CompanyName" NewName="Payload_CustomerProject_Customer_CompanyName" Alias="Customer_CompanyName" />
+                <Param Name="Payload_CustomerProject_Customer_Industry" NewName="Payload_CustomerProject_Customer_Industry" Alias="Customer_Industry" />
+                <Param Name="Payload_CustomerProject_Customer_WebsiteUrl" NewName="Payload_CustomerProject_Customer_WebsiteUrl" Alias="Customer_WebsiteUrl" />
+                <Param Name="Payload_Lead_Customer_CompanyName" NewName="Lead_Customer_CompanyName" />
+                <Param Name="Payload_Lead_Customer_Industry" NewName="Lead_Customer_Industry" />
+                <Param Name="Payload_Lead_Customer_WebsiteUrl" NewName="Lead_Customer_WebsiteUrl" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateOpportunity" OutputProperty="*" Verb="Update" Noun="Opportunity" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">

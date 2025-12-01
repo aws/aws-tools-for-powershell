@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.142.0",
+    "ProductVersion"    : "4.0.143.0",
     "CoreVersion"       : "4.0.3.3",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -244,7 +244,7 @@
             "InPreview"               : false
         },
         "Lambda"               : {
-            "Version" : "4.0.8.0",
+            "Version" : "4.0.9.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.3"
@@ -796,7 +796,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "4.0.22.1",
+            "Version" : "4.0.23.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.3"
@@ -1020,7 +1020,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "4.0.19.0",
+            "Version" : "4.0.20.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.3"
@@ -1084,7 +1084,7 @@
             "InPreview"               : false
         },
         "EKS"                             : {
-            "Version" : "4.0.8.0",
+            "Version" : "4.0.9.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.3"
@@ -1364,7 +1364,7 @@
             "InPreview"               : false
         },
         "Personalize"                     : {
-            "Version" : "4.0.2.7",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.3"
@@ -1476,7 +1476,7 @@
             "InPreview"               : false
         },
         "MarketplaceCatalog"              : {
-            "Version" : "4.0.3.5",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.3"
@@ -1508,7 +1508,7 @@
             "InPreview"               : false
         },
         "ConnectParticipant"              : {
-            "Version" : "4.0.3.7",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.3"
@@ -1812,7 +1812,7 @@
             "InPreview"               : false
         },
         "AppIntegrationsService"          : {
-            "Version" : "4.0.3.7",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.3"
@@ -1844,7 +1844,7 @@
             "InPreview"               : false
         },
         "CustomerProfiles"                : {
-            "Version" : "4.0.6.7",
+            "Version" : "4.0.7.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.3"
@@ -1940,7 +1940,7 @@
             "InPreview"               : false
         },
         "LexModelsV2"                     : {
-            "Version" : "4.0.4.0",
+            "Version" : "4.0.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.3"
@@ -2532,7 +2532,7 @@
             "InPreview"               : false
         },
         "CleanRooms"                          : {
-            "Version" : "4.0.10.5",
+            "Version" : "4.0.11.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.3"
@@ -2788,7 +2788,7 @@
             "InPreview"               : false
         },
         "BedrockAgentRuntime"                 : {
-            "Version" : "4.0.7.5",
+            "Version" : "4.0.8.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.3"
@@ -2804,7 +2804,7 @@
             "InPreview"               : false
         },
         "QConnect"                            : {
-            "Version" : "4.0.4.0",
+            "Version" : "4.0.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.3"
@@ -2812,7 +2812,7 @@
             "InPreview"               : false
         },
         "BedrockAgent"                        : {
-            "Version" : "4.0.6.5",
+            "Version" : "4.0.7.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.3"
@@ -2820,7 +2820,7 @@
             "InPreview"               : false
         },
         "CleanRoomsML"                        : {
-            "Version" : "4.0.6.5",
+            "Version" : "4.0.7.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.3"
@@ -2836,7 +2836,7 @@
             "InPreview"               : false
         },
         "MarketplaceAgreement"                : {
-            "Version" : "4.0.2.7",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.3"
@@ -3044,7 +3044,7 @@
             "InPreview"               : false
         },
         "PartnerCentralSelling"               : {
-            "Version" : "4.0.4.5",
+            "Version" : "4.0.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.3"
@@ -3052,7 +3052,7 @@
             "InPreview"               : false
         },
         "ConnectCampaignsV2"                  : {
-            "Version" : "4.0.4.1",
+            "Version" : "4.0.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.3"
@@ -3308,6 +3308,30 @@
             "InPreview"               : false
         },
         "ComputeOptimizerAutomation"          : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.3.3"
+            },
+            "InPreview"               : false
+        },
+        "PartnerCentralAccount"               : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.3.3"
+            },
+            "InPreview"               : false
+        },
+        "Route53GlobalResolver"               : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.3.3"
+            },
+            "InPreview"               : false
+        },
+        "PartnerCentralBenefits"              : {
             "Version" : "4.0.0.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {

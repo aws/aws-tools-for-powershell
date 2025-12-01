@@ -136,6 +136,12 @@
                 <Param Name="EntityTypeFilters_ResaleAuthorizationFilters_ProductId_ValueList" NewName="EntityTypeFilters_ResaleAuthorizationFilters_ProductId_ValueList" />
                 <Param Name="EntityTypeFilters_ResaleAuthorizationFilters_Name_ValueList" NewName="EntityTypeFilters_ResaleAuthorizationFilters_Name_ValueList" />
                 <Param Name="EntityTypeFilters_ResaleAuthorizationFilters_Name_WildCardValue" NewName="EntityTypeFilters_ResaleAuthorizationFilters_Name_WildCardValue" />
+                <Param Name="EntityTypeFilters_OfferSetFilters_EntityId_ValueList" NewName="EntityTypeFilters_OfferSetFilters_EntityId_ValueList" Alias="OfferSetFilters_EntityId_ValueList" />
+                <Param Name="EntityTypeFilters_OfferSetFilters_LastModifiedDate_DateRange_BeforeValue" NewName="EntityTypeFilters_OfferSetFilters_LastModifiedDate_DateRange_BeforeValue" Alias="OfferSetFilters_LastModifiedDate_DateRange_BeforeValue" />
+                <Param Name="EntityTypeFilters_OfferSetFilters_LastModifiedDate_DateRange_AfterValue" NewName="EntityTypeFilters_OfferSetFilters_LastModifiedDate_DateRange_AfterValue" Alias="OfferSetFilters_LastModifiedDate_DateRange_AfterValue" />
+                <Param Name="EntityTypeFilters_OfferSetFilters_ReleaseDate_DateRange_BeforeValue" NewName="EntityTypeFilters_OfferSetFilters_ReleaseDate_DateRange_BeforeValue" Alias="OfferSetFilters_ReleaseDate_DateRange_BeforeValue" />
+                <Param Name="EntityTypeFilters_OfferSetFilters_ReleaseDate_DateRange_AfterValue" NewName="EntityTypeFilters_OfferSetFilters_ReleaseDate_DateRange_AfterValue" Alias="OfferSetFilters_ReleaseDate_DateRange_AfterValue" />
+                <Param Name="EntityTypeFilters_OfferSetFilters_State_ValueList" NewName="EntityTypeFilters_OfferSetFilters_State_ValueList" Alias="OfferSetFilters_State_ValueList" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

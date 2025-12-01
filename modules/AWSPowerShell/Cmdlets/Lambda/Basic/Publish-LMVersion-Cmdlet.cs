@@ -96,6 +96,17 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String FunctionName { get; set; }
         #endregion
         
+        #region Parameter PublishTo
+        /// <summary>
+        /// <para>
+        /// <para>Specifies where to publish the function version or configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lambda.FunctionVersionLatestPublished")]
+        public Amazon.Lambda.FunctionVersionLatestPublished PublishTo { get; set; }
+        #endregion
+        
         #region Parameter RevisionId
         /// <summary>
         /// <para>
@@ -163,6 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 WriteWarning("You are passing $null as a value for parameter FunctionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PublishTo = this.PublishTo;
             context.RevisionId = this.RevisionId;
             
             // allow further manipulation of loaded context prior to processing
@@ -191,6 +203,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.FunctionName != null)
             {
                 request.FunctionName = cmdletContext.FunctionName;
+            }
+            if (cmdletContext.PublishTo != null)
+            {
+                request.PublishTo = cmdletContext.PublishTo;
             }
             if (cmdletContext.RevisionId != null)
             {
@@ -254,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String CodeSha256 { get; set; }
             public System.String Description { get; set; }
             public System.String FunctionName { get; set; }
+            public Amazon.Lambda.FunctionVersionLatestPublished PublishTo { get; set; }
             public System.String RevisionId { get; set; }
             public System.Func<Amazon.Lambda.Model.PublishVersionResponse, PublishLMVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

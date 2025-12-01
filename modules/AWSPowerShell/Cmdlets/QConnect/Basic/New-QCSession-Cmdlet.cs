@@ -144,6 +144,20 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter OrchestratorConfigurationList
+        /// <summary>
+        /// <para>
+        /// <para>The list of orchestrator configurations for the session being created.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.QConnect.Model.OrchestratorConfigurationEntry[] OrchestratorConfigurationList { get; set; }
+        #endregion
+        
         #region Parameter TagFilter_OrCondition
         /// <summary>
         /// <para>
@@ -157,6 +171,16 @@ namespace Amazon.PowerShell.Cmdlets.QC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TagFilter_OrConditions")]
         public Amazon.QConnect.Model.OrCondition[] TagFilter_OrCondition { get; set; }
+        #endregion
+        
+        #region Parameter RemoveOrchestratorConfigurationList
+        /// <summary>
+        /// <para>
+        /// <para>The list of orchestrator configurations to remove from the session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RemoveOrchestratorConfigurationList { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -269,6 +293,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.OrchestratorConfigurationList != null)
+            {
+                context.OrchestratorConfigurationList = new List<Amazon.QConnect.Model.OrchestratorConfigurationEntry>(this.OrchestratorConfigurationList);
+            }
+            context.RemoveOrchestratorConfigurationList = this.RemoveOrchestratorConfigurationList;
             if (this.TagFilter_AndCondition != null)
             {
                 context.TagFilter_AndCondition = new List<Amazon.QConnect.Model.TagCondition>(this.TagFilter_AndCondition);
@@ -326,6 +355,14 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.OrchestratorConfigurationList != null)
+            {
+                request.OrchestratorConfigurationList = cmdletContext.OrchestratorConfigurationList;
+            }
+            if (cmdletContext.RemoveOrchestratorConfigurationList != null)
+            {
+                request.RemoveOrchestratorConfigurationList = cmdletContext.RemoveOrchestratorConfigurationList.Value;
             }
             
              // populate TagFilter
@@ -456,6 +493,8 @@ namespace Amazon.PowerShell.Cmdlets.QC
             public System.String ContactArn { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.QConnect.Model.OrchestratorConfigurationEntry> OrchestratorConfigurationList { get; set; }
+            public System.Boolean? RemoveOrchestratorConfigurationList { get; set; }
             public List<Amazon.QConnect.Model.TagCondition> TagFilter_AndCondition { get; set; }
             public List<Amazon.QConnect.Model.OrCondition> TagFilter_OrCondition { get; set; }
             public System.String TagCondition_Key { get; set; }

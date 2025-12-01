@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SearchCriteria_AndCondition
         /// <summary>
         /// <para>
-        /// <para>A leaf node condition which can be used to specify a string condition.</para><note><para>The currently supported values for <c>FieldName</c> are <c>name</c>,  
-        /// <c>description</c>, <c>state</c>, <c>type</c>, <c>displayOrder</c>,  and <c>resourceID</c>.</para></note><para />
+        /// <para>A leaf node condition which can be used to specify a string condition.</para><note><para>The currently supported values for <c>FieldName</c> are <c>name</c>, <c>description</c>,
+        /// <c>state</c>, <c>type</c>, <c>displayOrder</c>, and <c>resourceID</c>.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

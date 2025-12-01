@@ -94,10 +94,24 @@ $BAR_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentRuntime.InputImageFormat
+        "Invoke-BARRetrieve/Image_Format"
+        {
+            $v = "gif","jpeg","png","webp"
+            break
+        }
+
         # Amazon.BedrockAgentRuntime.InputQueryType
         "Invoke-BARGenerateQuery/QueryGenerationInput_Type"
         {
             $v = "TEXT"
+            break
+        }
+
+        # Amazon.BedrockAgentRuntime.KnowledgeBaseQueryType
+        "Invoke-BARRetrieve/RetrievalQuery_Type"
+        {
+            $v = "IMAGE","TEXT"
             break
         }
 
@@ -219,6 +233,7 @@ $BAR_map = @{
     "AgentCollaboration"=@("Invoke-BARInlineAgent")
     "EventType"=@("Get-BARFlowExecutionEventList")
     "ExternalSourcesConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
+    "Image_Format"=@("Invoke-BARRetrieve")
     "KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
     "KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
     "MemoryType"=@("Get-BARAgentMemory")
@@ -228,6 +243,7 @@ $BAR_map = @{
     "QueryGenerationInput_Type"=@("Invoke-BARGenerateQuery")
     "QueryTransformationConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
     "RerankingConfiguration_Type"=@("Invoke-BARRerank","Invoke-BARRetrieve","Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
+    "RetrievalQuery_Type"=@("Invoke-BARRetrieve")
     "RetrieveAndGenerateConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
     "Stream_ExternalSourcesConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerateStream")
     "Stream_KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerateStream")

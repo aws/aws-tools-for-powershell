@@ -45,6 +45,17 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter ApplicationType
+        /// <summary>
+        /// <para>
+        /// <para>The type of application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [AWSConstantClassSource("Amazon.AppIntegrationsService.ApplicationType")]
+        public Amazon.AppIntegrationsService.ApplicationType ApplicationType { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -117,6 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.AIS
                 context.Select = CreateSelectDelegate<Amazon.AppIntegrationsService.Model.ListApplicationsResponse, GetAISApplicationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ApplicationType = this.ApplicationType;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -146,6 +158,10 @@ namespace Amazon.PowerShell.Cmdlets.AIS
             // create request and set iteration invariants
             var request = new Amazon.AppIntegrationsService.Model.ListApplicationsRequest();
             
+            if (cmdletContext.ApplicationType != null)
+            {
+                request.ApplicationType = cmdletContext.ApplicationType;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -230,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.AppIntegrationsService.ApplicationType ApplicationType { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.AppIntegrationsService.Model.ListApplicationsResponse, GetAISApplicationListCmdlet, object> Select { get; set; } =

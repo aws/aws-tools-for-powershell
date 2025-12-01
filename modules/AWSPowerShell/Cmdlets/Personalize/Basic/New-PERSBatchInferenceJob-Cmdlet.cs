@@ -210,6 +210,23 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         public System.String S3DataDestination_Path { get; set; }
         #endregion
         
+        #region Parameter BatchInferenceJobConfig_RankingInfluence
+        /// <summary>
+        /// <para>
+        /// <para>A map of ranking influence values for POPULARITY and FRESHNESS. For each key, specify
+        /// a numerical value between 0.0 and 1.0 that determines how much influence that ranking
+        /// factor has on the final recommendations. A value closer to 1.0 gives more weight to
+        /// the factor, while a value closer to 0.0 reduces its influence.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable BatchInferenceJobConfig_RankingInfluence { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
@@ -316,6 +333,14 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                     context.BatchInferenceJobConfig_ItemExplorationConfig.Add((String)hashKey, (System.String)(this.BatchInferenceJobConfig_ItemExplorationConfig[hashKey]));
                 }
             }
+            if (this.BatchInferenceJobConfig_RankingInfluence != null)
+            {
+                context.BatchInferenceJobConfig_RankingInfluence = new Dictionary<System.String, System.Double>(StringComparer.Ordinal);
+                foreach (var hashKey in this.BatchInferenceJobConfig_RankingInfluence.Keys)
+                {
+                    context.BatchInferenceJobConfig_RankingInfluence.Add((String)hashKey, (System.Double)(this.BatchInferenceJobConfig_RankingInfluence[hashKey]));
+                }
+            }
             context.BatchInferenceJobMode = this.BatchInferenceJobMode;
             context.FilterArn = this.FilterArn;
             context.S3DataSource_KmsKeyArn = this.S3DataSource_KmsKeyArn;
@@ -389,6 +414,16 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (requestBatchInferenceJobConfig_batchInferenceJobConfig_ItemExplorationConfig != null)
             {
                 request.BatchInferenceJobConfig.ItemExplorationConfig = requestBatchInferenceJobConfig_batchInferenceJobConfig_ItemExplorationConfig;
+                requestBatchInferenceJobConfigIsNull = false;
+            }
+            Dictionary<System.String, System.Double> requestBatchInferenceJobConfig_batchInferenceJobConfig_RankingInfluence = null;
+            if (cmdletContext.BatchInferenceJobConfig_RankingInfluence != null)
+            {
+                requestBatchInferenceJobConfig_batchInferenceJobConfig_RankingInfluence = cmdletContext.BatchInferenceJobConfig_RankingInfluence;
+            }
+            if (requestBatchInferenceJobConfig_batchInferenceJobConfig_RankingInfluence != null)
+            {
+                request.BatchInferenceJobConfig.RankingInfluence = requestBatchInferenceJobConfig_batchInferenceJobConfig_RankingInfluence;
                 requestBatchInferenceJobConfigIsNull = false;
             }
              // determine if request.BatchInferenceJobConfig should be set to null
@@ -602,6 +637,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         internal partial class CmdletContext : ExecutorContext
         {
             public Dictionary<System.String, System.String> BatchInferenceJobConfig_ItemExplorationConfig { get; set; }
+            public Dictionary<System.String, System.Double> BatchInferenceJobConfig_RankingInfluence { get; set; }
             public Amazon.Personalize.BatchInferenceJobMode BatchInferenceJobMode { get; set; }
             public System.String FilterArn { get; set; }
             public System.String S3DataSource_KmsKeyArn { get; set; }

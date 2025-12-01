@@ -70,6 +70,17 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         public System.String[] IframeConfig_Allow { get; set; }
         #endregion
         
+        #region Parameter ApplicationType
+        /// <summary>
+        /// <para>
+        /// <para>The type of application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppIntegrationsService.ApplicationType")]
+        public Amazon.AppIntegrationsService.ApplicationType ApplicationType { get; set; }
+        #endregion
+        
         #region Parameter ExternalUrlConfig_ApprovedOrigin
         /// <summary>
         /// <para>
@@ -122,16 +133,6 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         public System.Int32? InitializationTimeout { get; set; }
         #endregion
         
-        #region Parameter IsService
-        /// <summary>
-        /// <para>
-        /// <para>Indicates whether the application is a service.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? IsService { get; set; }
-        #endregion
-        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -182,6 +183,18 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         [Alias("ApplicationConfig_ContactHandling_Scope")]
         [AWSConstantClassSource("Amazon.AppIntegrationsService.ContactHandlingScope")]
         public Amazon.AppIntegrationsService.ContactHandlingScope ContactHandling_Scope { get; set; }
+        #endregion
+        
+        #region Parameter IsService
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the application is a service.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("IsService has been deprecated in favor of ApplicationType")]
+        public System.Boolean? IsService { get; set; }
         #endregion
         
         #region Parameter Publication
@@ -269,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.AIS
             {
                 context.ExternalUrlConfig_ApprovedOrigin = new List<System.String>(this.ExternalUrlConfig_ApprovedOrigin);
             }
+            context.ApplicationType = this.ApplicationType;
             context.Arn = this.Arn;
             #if MODULAR
             if (this.Arn == null && ParameterWasBound(nameof(this.Arn)))
@@ -286,7 +300,9 @@ namespace Amazon.PowerShell.Cmdlets.AIS
                 context.IframeConfig_Sandbox = new List<System.String>(this.IframeConfig_Sandbox);
             }
             context.InitializationTimeout = this.InitializationTimeout;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.IsService = this.IsService;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Name = this.Name;
             if (this.Permission != null)
             {
@@ -398,6 +414,10 @@ namespace Amazon.PowerShell.Cmdlets.AIS
             {
                 request.ApplicationSourceConfig = null;
             }
+            if (cmdletContext.ApplicationType != null)
+            {
+                request.ApplicationType = cmdletContext.ApplicationType;
+            }
             if (cmdletContext.Arn != null)
             {
                 request.Arn = cmdletContext.Arn;
@@ -439,10 +459,12 @@ namespace Amazon.PowerShell.Cmdlets.AIS
             {
                 request.InitializationTimeout = cmdletContext.InitializationTimeout.Value;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.IsService != null)
             {
                 request.IsService = cmdletContext.IsService.Value;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -521,11 +543,13 @@ namespace Amazon.PowerShell.Cmdlets.AIS
             public Amazon.AppIntegrationsService.ContactHandlingScope ContactHandling_Scope { get; set; }
             public System.String ExternalUrlConfig_AccessUrl { get; set; }
             public List<System.String> ExternalUrlConfig_ApprovedOrigin { get; set; }
+            public Amazon.AppIntegrationsService.ApplicationType ApplicationType { get; set; }
             public System.String Arn { get; set; }
             public System.String Description { get; set; }
             public List<System.String> IframeConfig_Allow { get; set; }
             public List<System.String> IframeConfig_Sandbox { get; set; }
             public System.Int32? InitializationTimeout { get; set; }
+            [System.ObsoleteAttribute]
             public System.Boolean? IsService { get; set; }
             public System.String Name { get; set; }
             public List<System.String> Permission { get; set; }

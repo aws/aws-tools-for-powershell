@@ -80,6 +80,21 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.Collections.Hashtable AllowedAccessControlTag { get; set; }
         #endregion
         
+        #region Parameter AllowedFlowModule
+        /// <summary>
+        /// <para>
+        /// <para> A list of Flow Modules an AI Agent can invoke as a tool </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AllowedFlowModules")]
+        public Amazon.Connect.Model.FlowModule[] AllowedFlowModule { get; set; }
+        #endregion
+        
         #region Parameter Application
         /// <summary>
         /// <para>
@@ -154,6 +169,21 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Permissions")]
         public System.String[] Permission { get; set; }
+        #endregion
+        
+        #region Parameter PrimaryAttributeAccessControlConfiguration_PrimaryAttributeValue
+        /// <summary>
+        /// <para>
+        /// <para>The item's primary attribute values.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("GranularAccessControlConfiguration_DataTableAccessControlConfiguration_PrimaryAttributeAccessControlConfiguration_PrimaryAttributeValues")]
+        public Amazon.Connect.Model.PrimaryAttributeValue[] PrimaryAttributeAccessControlConfiguration_PrimaryAttributeValue { get; set; }
         #endregion
         
         #region Parameter SecurityProfileId
@@ -243,11 +273,19 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                     context.AllowedAccessControlTag.Add((String)hashKey, (System.String)(this.AllowedAccessControlTag[hashKey]));
                 }
             }
+            if (this.AllowedFlowModule != null)
+            {
+                context.AllowedFlowModule = new List<Amazon.Connect.Model.FlowModule>(this.AllowedFlowModule);
+            }
             if (this.Application != null)
             {
                 context.Application = new List<Amazon.Connect.Model.Application>(this.Application);
             }
             context.Description = this.Description;
+            if (this.PrimaryAttributeAccessControlConfiguration_PrimaryAttributeValue != null)
+            {
+                context.PrimaryAttributeAccessControlConfiguration_PrimaryAttributeValue = new List<Amazon.Connect.Model.PrimaryAttributeValue>(this.PrimaryAttributeAccessControlConfiguration_PrimaryAttributeValue);
+            }
             if (this.HierarchyRestrictedResource != null)
             {
                 context.HierarchyRestrictedResource = new List<System.String>(this.HierarchyRestrictedResource);
@@ -298,6 +336,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 request.AllowedAccessControlTags = cmdletContext.AllowedAccessControlTag;
             }
+            if (cmdletContext.AllowedFlowModule != null)
+            {
+                request.AllowedFlowModules = cmdletContext.AllowedFlowModule;
+            }
             if (cmdletContext.Application != null)
             {
                 request.Applications = cmdletContext.Application;
@@ -305,6 +347,55 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate GranularAccessControlConfiguration
+            var requestGranularAccessControlConfigurationIsNull = true;
+            request.GranularAccessControlConfiguration = new Amazon.Connect.Model.GranularAccessControlConfiguration();
+            Amazon.Connect.Model.DataTableAccessControlConfiguration requestGranularAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration = null;
+            
+             // populate DataTableAccessControlConfiguration
+            var requestGranularAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfigurationIsNull = true;
+            requestGranularAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration = new Amazon.Connect.Model.DataTableAccessControlConfiguration();
+            Amazon.Connect.Model.PrimaryAttributeAccessControlConfigurationItem requestGranularAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_PrimaryAttributeAccessControlConfiguration = null;
+            
+             // populate PrimaryAttributeAccessControlConfiguration
+            var requestGranularAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_PrimaryAttributeAccessControlConfigurationIsNull = true;
+            requestGranularAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_PrimaryAttributeAccessControlConfiguration = new Amazon.Connect.Model.PrimaryAttributeAccessControlConfigurationItem();
+            List<Amazon.Connect.Model.PrimaryAttributeValue> requestGranularAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_PrimaryAttributeAccessControlConfiguration_primaryAttributeAccessControlConfiguration_PrimaryAttributeValue = null;
+            if (cmdletContext.PrimaryAttributeAccessControlConfiguration_PrimaryAttributeValue != null)
+            {
+                requestGranularAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_PrimaryAttributeAccessControlConfiguration_primaryAttributeAccessControlConfiguration_PrimaryAttributeValue = cmdletContext.PrimaryAttributeAccessControlConfiguration_PrimaryAttributeValue;
+            }
+            if (requestGranularAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_PrimaryAttributeAccessControlConfiguration_primaryAttributeAccessControlConfiguration_PrimaryAttributeValue != null)
+            {
+                requestGranularAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_PrimaryAttributeAccessControlConfiguration.PrimaryAttributeValues = requestGranularAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_PrimaryAttributeAccessControlConfiguration_primaryAttributeAccessControlConfiguration_PrimaryAttributeValue;
+                requestGranularAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_PrimaryAttributeAccessControlConfigurationIsNull = false;
+            }
+             // determine if requestGranularAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_PrimaryAttributeAccessControlConfiguration should be set to null
+            if (requestGranularAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_PrimaryAttributeAccessControlConfigurationIsNull)
+            {
+                requestGranularAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_PrimaryAttributeAccessControlConfiguration = null;
+            }
+            if (requestGranularAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_PrimaryAttributeAccessControlConfiguration != null)
+            {
+                requestGranularAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration.PrimaryAttributeAccessControlConfiguration = requestGranularAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration_PrimaryAttributeAccessControlConfiguration;
+                requestGranularAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfigurationIsNull = false;
+            }
+             // determine if requestGranularAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration should be set to null
+            if (requestGranularAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfigurationIsNull)
+            {
+                requestGranularAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration = null;
+            }
+            if (requestGranularAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration != null)
+            {
+                request.GranularAccessControlConfiguration.DataTableAccessControlConfiguration = requestGranularAccessControlConfiguration_granularAccessControlConfiguration_DataTableAccessControlConfiguration;
+                requestGranularAccessControlConfigurationIsNull = false;
+            }
+             // determine if request.GranularAccessControlConfiguration should be set to null
+            if (requestGranularAccessControlConfigurationIsNull)
+            {
+                request.GranularAccessControlConfiguration = null;
             }
             if (cmdletContext.HierarchyRestrictedResource != null)
             {
@@ -383,8 +474,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             public System.String AllowedAccessControlHierarchyGroupId { get; set; }
             public Dictionary<System.String, System.String> AllowedAccessControlTag { get; set; }
+            public List<Amazon.Connect.Model.FlowModule> AllowedFlowModule { get; set; }
             public List<Amazon.Connect.Model.Application> Application { get; set; }
             public System.String Description { get; set; }
+            public List<Amazon.Connect.Model.PrimaryAttributeValue> PrimaryAttributeAccessControlConfiguration_PrimaryAttributeValue { get; set; }
             public List<System.String> HierarchyRestrictedResource { get; set; }
             public System.String InstanceId { get; set; }
             public List<System.String> Permission { get; set; }

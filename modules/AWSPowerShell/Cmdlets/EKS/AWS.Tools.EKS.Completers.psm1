@@ -104,6 +104,23 @@ $EKS_Completers = {
             break
         }
 
+        # Amazon.EKS.CapabilityDeletePropagationPolicy
+        {
+            ($_ -eq "New-EKSCapability/DeletePropagationPolicy") -Or
+            ($_ -eq "Update-EKSCapability/DeletePropagationPolicy")
+        }
+        {
+            $v = "RETAIN"
+            break
+        }
+
+        # Amazon.EKS.CapabilityType
+        "New-EKSCapability/Type"
+        {
+            $v = "ACK","ARGOCD","KRO"
+            break
+        }
+
         # Amazon.EKS.CapacityTypes
         "New-EKSNodegroup/CapacityType"
         {
@@ -211,11 +228,13 @@ $EKS_map = @{
     "CapacityType"=@("New-EKSNodegroup")
     "ConnectorConfig_Provider"=@("Register-EKSCluster")
     "ControlPlaneScalingConfig_Tier"=@("New-EKSCluster","Update-EKSClusterConfig")
+    "DeletePropagationPolicy"=@("New-EKSCapability","Update-EKSCapability")
     "KubernetesNetworkConfig_IpFamily"=@("New-EKSCluster","Update-EKSClusterConfig")
     "LicenseType"=@("New-EKSEksAnywhereSubscription")
     "ResolveConflict"=@("New-EKSAddon","Update-EKSAddon")
     "Status"=@("Get-EKSClusterVersion")
     "Term_Unit"=@("New-EKSEksAnywhereSubscription")
+    "Type"=@("New-EKSCapability")
     "UpdateConfig_UpdateStrategy"=@("New-EKSNodegroup","Update-EKSNodegroupConfig")
     "UpgradePolicy_SupportType"=@("New-EKSCluster","Update-EKSClusterConfig")
     "VersionStatus"=@("Get-EKSClusterVersion")
@@ -276,6 +295,7 @@ $EKS_SelectMap = @{
                "Add-EKSIdentityProviderConfig",
                "New-EKSAccessEntry",
                "New-EKSAddon",
+               "New-EKSCapability",
                "New-EKSCluster",
                "New-EKSEksAnywhereSubscription",
                "New-EKSFargateProfile",
@@ -283,6 +303,7 @@ $EKS_SelectMap = @{
                "New-EKSPodIdentityAssociation",
                "Remove-EKSAccessEntry",
                "Remove-EKSAddon",
+               "Remove-EKSCapability",
                "Remove-EKSCluster",
                "Remove-EKSEksAnywhereSubscription",
                "Remove-EKSFargateProfile",
@@ -293,6 +314,7 @@ $EKS_SelectMap = @{
                "Get-EKSAddon",
                "Get-EKSAddonConfiguration",
                "Get-EKSAddonVersion",
+               "Get-EKSCapabilityDetail",
                "Get-EKSCluster",
                "Get-EKSClusterVersion",
                "Get-EKSEksAnywhereSubscription",
@@ -309,6 +331,7 @@ $EKS_SelectMap = @{
                "Get-EKSAccessPolicyList",
                "Get-EKSAddonList",
                "Get-EKSAssociatedAccessPolicyList",
+               "Get-EKSCapabilityList",
                "Get-EKSClusterList",
                "Get-EKSEksAnywhereSubscriptionList",
                "Get-EKSFargateProfileList",
@@ -324,6 +347,7 @@ $EKS_SelectMap = @{
                "Remove-EKSResourceTag",
                "Update-EKSAccessEntry",
                "Update-EKSAddon",
+               "Update-EKSCapability",
                "Update-EKSClusterConfig",
                "Update-EKSClusterVersion",
                "Update-EKSEksAnywhereSubscription",

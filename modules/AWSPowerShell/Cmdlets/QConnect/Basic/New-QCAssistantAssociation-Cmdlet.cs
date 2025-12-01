@@ -47,6 +47,18 @@ namespace Amazon.PowerShell.Cmdlets.QC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter ExternalBedrockKnowledgeBaseConfig_AccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role used to access the external Bedrock
+        /// knowledge base.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Association_ExternalBedrockKnowledgeBaseConfig_AccessRoleArn")]
+        public System.String ExternalBedrockKnowledgeBaseConfig_AccessRoleArn { get; set; }
+        #endregion
+        
         #region Parameter AssistantId
         /// <summary>
         /// <para>
@@ -80,6 +92,17 @@ namespace Amazon.PowerShell.Cmdlets.QC
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.QConnect.AssociationType")]
         public Amazon.QConnect.AssociationType AssociationType { get; set; }
+        #endregion
+        
+        #region Parameter ExternalBedrockKnowledgeBaseConfig_BedrockKnowledgeBaseArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the external Bedrock knowledge base.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Association_ExternalBedrockKnowledgeBaseConfig_BedrockKnowledgeBaseArn")]
+        public System.String ExternalBedrockKnowledgeBaseConfig_BedrockKnowledgeBaseArn { get; set; }
         #endregion
         
         #region Parameter Association_KnowledgeBaseId
@@ -174,6 +197,8 @@ namespace Amazon.PowerShell.Cmdlets.QC
                 WriteWarning("You are passing $null as a value for parameter AssistantId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ExternalBedrockKnowledgeBaseConfig_AccessRoleArn = this.ExternalBedrockKnowledgeBaseConfig_AccessRoleArn;
+            context.ExternalBedrockKnowledgeBaseConfig_BedrockKnowledgeBaseArn = this.ExternalBedrockKnowledgeBaseConfig_BedrockKnowledgeBaseArn;
             context.Association_KnowledgeBaseId = this.Association_KnowledgeBaseId;
             context.AssociationType = this.AssociationType;
             #if MODULAR
@@ -223,6 +248,41 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestAssociation_association_KnowledgeBaseId != null)
             {
                 request.Association.KnowledgeBaseId = requestAssociation_association_KnowledgeBaseId;
+                requestAssociationIsNull = false;
+            }
+            Amazon.QConnect.Model.ExternalBedrockKnowledgeBaseConfig requestAssociation_association_ExternalBedrockKnowledgeBaseConfig = null;
+            
+             // populate ExternalBedrockKnowledgeBaseConfig
+            var requestAssociation_association_ExternalBedrockKnowledgeBaseConfigIsNull = true;
+            requestAssociation_association_ExternalBedrockKnowledgeBaseConfig = new Amazon.QConnect.Model.ExternalBedrockKnowledgeBaseConfig();
+            System.String requestAssociation_association_ExternalBedrockKnowledgeBaseConfig_externalBedrockKnowledgeBaseConfig_AccessRoleArn = null;
+            if (cmdletContext.ExternalBedrockKnowledgeBaseConfig_AccessRoleArn != null)
+            {
+                requestAssociation_association_ExternalBedrockKnowledgeBaseConfig_externalBedrockKnowledgeBaseConfig_AccessRoleArn = cmdletContext.ExternalBedrockKnowledgeBaseConfig_AccessRoleArn;
+            }
+            if (requestAssociation_association_ExternalBedrockKnowledgeBaseConfig_externalBedrockKnowledgeBaseConfig_AccessRoleArn != null)
+            {
+                requestAssociation_association_ExternalBedrockKnowledgeBaseConfig.AccessRoleArn = requestAssociation_association_ExternalBedrockKnowledgeBaseConfig_externalBedrockKnowledgeBaseConfig_AccessRoleArn;
+                requestAssociation_association_ExternalBedrockKnowledgeBaseConfigIsNull = false;
+            }
+            System.String requestAssociation_association_ExternalBedrockKnowledgeBaseConfig_externalBedrockKnowledgeBaseConfig_BedrockKnowledgeBaseArn = null;
+            if (cmdletContext.ExternalBedrockKnowledgeBaseConfig_BedrockKnowledgeBaseArn != null)
+            {
+                requestAssociation_association_ExternalBedrockKnowledgeBaseConfig_externalBedrockKnowledgeBaseConfig_BedrockKnowledgeBaseArn = cmdletContext.ExternalBedrockKnowledgeBaseConfig_BedrockKnowledgeBaseArn;
+            }
+            if (requestAssociation_association_ExternalBedrockKnowledgeBaseConfig_externalBedrockKnowledgeBaseConfig_BedrockKnowledgeBaseArn != null)
+            {
+                requestAssociation_association_ExternalBedrockKnowledgeBaseConfig.BedrockKnowledgeBaseArn = requestAssociation_association_ExternalBedrockKnowledgeBaseConfig_externalBedrockKnowledgeBaseConfig_BedrockKnowledgeBaseArn;
+                requestAssociation_association_ExternalBedrockKnowledgeBaseConfigIsNull = false;
+            }
+             // determine if requestAssociation_association_ExternalBedrockKnowledgeBaseConfig should be set to null
+            if (requestAssociation_association_ExternalBedrockKnowledgeBaseConfigIsNull)
+            {
+                requestAssociation_association_ExternalBedrockKnowledgeBaseConfig = null;
+            }
+            if (requestAssociation_association_ExternalBedrockKnowledgeBaseConfig != null)
+            {
+                request.Association.ExternalBedrockKnowledgeBaseConfig = requestAssociation_association_ExternalBedrockKnowledgeBaseConfig;
                 requestAssociationIsNull = false;
             }
              // determine if request.Association should be set to null
@@ -298,6 +358,8 @@ namespace Amazon.PowerShell.Cmdlets.QC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AssistantId { get; set; }
+            public System.String ExternalBedrockKnowledgeBaseConfig_AccessRoleArn { get; set; }
+            public System.String ExternalBedrockKnowledgeBaseConfig_BedrockKnowledgeBaseArn { get; set; }
             public System.String Association_KnowledgeBaseId { get; set; }
             public Amazon.QConnect.AssociationType AssociationType { get; set; }
             public System.String ClientToken { get; set; }

@@ -30,22 +30,19 @@ using Amazon.MarketplaceAgreement.Model;
 namespace Amazon.PowerShell.Cmdlets.MAS
 {
     /// <summary>
-    /// Searches across all agreements that a proposer or an acceptor has in AWS Marketplace.
-    /// The search returns a list of agreements with basic agreement information.
+    /// Searches across all agreements that a proposer has in AWS Marketplace. The search
+    /// returns a list of agreements with basic agreement information.
     /// 
     ///  
     /// <para>
-    /// The following filter combinations are supported:
-    /// </para><ul><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>ResourceIdentifier</c></para></li><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>OfferId</c></para></li><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>AcceptorAccountId</c></para></li><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>Status</c></para></li><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>ResourceIdentifier</c>
-    /// + <c>Status</c></para></li><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>OfferId</c> + <c>Status</c></para></li><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>AcceptorAccountId</c>
-    /// + <c>Status</c></para></li><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>ResourceType</c>
-    /// + <c>Status</c></para></li><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>AcceptorAccountId</c>
-    /// + <c>ResourceType</c> + <c>Status</c></para></li><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>AcceptorAccountId</c>
-    /// + <c>OfferId</c></para></li><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>AcceptorAccountId</c>
-    /// + <c>OfferId</c> + <c>Status</c></para></li><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>AcceptorAccountId</c>
-    /// + <c>ResourceIdentifier</c></para></li><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>AcceptorAccountId</c>
-    /// + <c>ResourceIdentifier</c> + <c>Status</c></para></li><li><para><c>PartyType</c> as <c>Proposer</c> + <c>AgreementType</c> + <c>AcceptorAccountId</c>
-    /// + <c>ResourceType</c></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// The following filter combinations are supported when the <c>PartyType</c> is <c>Proposer</c>:
+    /// </para><ul><li><para><c>AgreementType</c></para></li><li><para><c>AgreementType</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>ResourceType</c></para></li><li><para><c>AgreementType</c> + <c>ResourceType</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>ResourceType</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>ResourceType</c> + <c>Status</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>ResourceId</c></para></li><li><para><c>AgreementType</c> + <c>ResourceId</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>ResourceId</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>ResourceId</c> + <c>Status</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>Status</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>OfferId</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>OfferId</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>OfferId</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>OfferId</c> + <c>Status</c>
+    /// + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>ResourceId</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>ResourceId</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>ResourceId</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>ResourceId</c> + <c>Status</c>
+    /// + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>ResourceType</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>ResourceType</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>ResourceType</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>AcceptorAccountId</c> + <c>ResourceType</c> + <c>Status</c>
+    /// + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>Status</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>OfferId</c></para></li><li><para><c>AgreementType</c> + <c>OfferId</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>OfferId</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>OfferId</c> + <c>Status</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>OfferSetId</c></para></li><li><para><c>AgreementType</c> + <c>OfferSetId</c> + <c>EndTime</c></para></li><li><para><c>AgreementType</c> + <c>OfferSetId</c> + <c>Status</c></para></li><li><para><c>AgreementType</c> + <c>OfferSetId</c> + <c>Status</c> + <c>EndTime</c></para></li></ul><note><para>
+    ///  To filter by <c>EndTime</c>, you can use either <c>BeforeEndTime</c> or <c>AfterEndTime</c>.
+    /// Only <c>EndTime</c> is supported for sorting.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
     /// </summary>
     [Cmdlet("Search", "MASAgreement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MarketplaceAgreement.Model.SearchAgreementsResponse")]
@@ -73,16 +70,16 @@ namespace Amazon.PowerShell.Cmdlets.MAS
         /// <summary>
         /// <para>
         /// <para>The filter name and value pair used to return a specific list of results.</para><para>The following filters are supported:</para><ul><li><para><c>ResourceIdentifier</c> – The unique identifier of the resource.</para></li><li><para><c>ResourceType</c> – Type of the resource, which is the product (<c>AmiProduct</c>,
-        /// <c>ContainerProduct</c>, or <c>SaaSProduct</c>).</para></li><li><para><c>PartyType</c> – The party type (either <c>Acceptor</c> or <c>Proposer</c>) of
-        /// the caller. For agreements where the caller is the proposer, use the <c>Proposer</c>
-        /// filter. For agreements where the caller is the acceptor, use the <c>Acceptor</c> filter.</para></li><li><para><c>AcceptorAccountId</c> – The AWS account ID of the party accepting the agreement
+        /// <c>ContainerProduct</c>, <c>SaaSProduct</c>, <c>ProfessionalServicesProduct</c>, or
+        /// <c>MachineLearningProduct</c>).</para></li><li><para><c>PartyType</c> – The party type of the caller. For agreements where the caller
+        /// is the proposer, use the <c>Proposer</c> filter.</para></li><li><para><c>AcceptorAccountId</c> – The AWS account ID of the party accepting the agreement
         /// terms.</para></li><li><para><c>OfferId</c> – The unique identifier of the offer in which the terms are registered
         /// in the agreement token.</para></li><li><para><c>Status</c> – The current status of the agreement. Values include <c>ACTIVE</c>,
         /// <c>ARCHIVED</c>, <c>CANCELLED</c>, <c>EXPIRED</c>, <c>RENEWED</c>, <c>REPLACED</c>,
         /// and <c>TERMINATED</c>.</para></li><li><para><c>BeforeEndTime</c> – A date used to filter agreements with a date before the <c>endTime</c>
         /// of an agreement.</para></li><li><para><c>AfterEndTime</c> – A date used to filter agreements with a date after the <c>endTime</c>
-        /// of an agreement.</para></li><li><para><c>AgreementType</c> – The type of agreement. Values include <c>PurchaseAgreement</c>
-        /// or <c>VendorInsightsAgreement</c>.</para></li></ul><para />
+        /// of an agreement.</para></li><li><para><c>AgreementType</c> – The type of agreement. Supported value includes <c>PurchaseAgreement</c>.</para></li><li><para><c>OfferSetId</c> – A unique identifier for the offer set containing this offer.
+        /// All agreements created from offers in this set include this identifier as context.</para></li></ul><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

@@ -81,6 +81,16 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String AssistantId { get; set; }
         #endregion
         
+        #region Parameter OrchestratorUseCase
+        /// <summary>
+        /// <para>
+        /// <para>The orchestrator use case for the AI Agent being removed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OrchestratorUseCase { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -140,6 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
                 WriteWarning("You are passing $null as a value for parameter AssistantId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OrchestratorUseCase = this.OrchestratorUseCase;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -163,6 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (cmdletContext.AssistantId != null)
             {
                 request.AssistantId = cmdletContext.AssistantId;
+            }
+            if (cmdletContext.OrchestratorUseCase != null)
+            {
+                request.OrchestratorUseCase = cmdletContext.OrchestratorUseCase;
             }
             
             CmdletOutput output;
@@ -221,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
         {
             public Amazon.QConnect.AIAgentType AiAgentType { get; set; }
             public System.String AssistantId { get; set; }
+            public System.String OrchestratorUseCase { get; set; }
             public System.Func<Amazon.QConnect.Model.RemoveAssistantAIAgentResponse, RemoveQCAssistantAIAgentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

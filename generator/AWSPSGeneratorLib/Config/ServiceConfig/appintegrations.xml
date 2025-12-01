@@ -62,7 +62,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplications" OutputProperty="Applications" Verb="Get" Noun="ApplicationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListApplications" OutputProperty="Applications" Verb="Get" Noun="ApplicationList" PipelineParameter="ApplicationType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

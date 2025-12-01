@@ -131,6 +131,16 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.String SegmentDefinitionName { get; set; }
         #endregion
         
+        #region Parameter SegmentSqlQuery
+        /// <summary>
+        /// <para>
+        /// <para>The segment SQL query.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SegmentSqlQuery { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -219,6 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 context.SegmentGroups_Group = new List<Amazon.CustomerProfiles.Model.Group>(this.SegmentGroups_Group);
             }
             context.SegmentGroups_Include = this.SegmentGroups_Include;
+            context.SegmentSqlQuery = this.SegmentSqlQuery;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -288,6 +299,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             {
                 request.SegmentGroups = null;
             }
+            if (cmdletContext.SegmentSqlQuery != null)
+            {
+                request.SegmentSqlQuery = cmdletContext.SegmentSqlQuery;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -353,6 +368,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             public System.String SegmentDefinitionName { get; set; }
             public List<Amazon.CustomerProfiles.Model.Group> SegmentGroups_Group { get; set; }
             public Amazon.CustomerProfiles.IncludeOptions SegmentGroups_Include { get; set; }
+            public System.String SegmentSqlQuery { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.CustomerProfiles.Model.CreateSegmentDefinitionResponse, NewCPFSegmentDefinitionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

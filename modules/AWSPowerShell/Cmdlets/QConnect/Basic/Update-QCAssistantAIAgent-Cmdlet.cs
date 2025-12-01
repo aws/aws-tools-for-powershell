@@ -98,6 +98,20 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String AssistantId { get; set; }
         #endregion
         
+        #region Parameter OrchestratorConfigurationList
+        /// <summary>
+        /// <para>
+        /// <para>The updated list of orchestrator configurations for the assistant AI Agent.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.QConnect.Model.OrchestratorConfigurationEntry[] OrchestratorConfigurationList { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Assistant'.
@@ -165,6 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.QC
                 WriteWarning("You are passing $null as a value for parameter Configuration_AiAgentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.OrchestratorConfigurationList != null)
+            {
+                context.OrchestratorConfigurationList = new List<Amazon.QConnect.Model.OrchestratorConfigurationEntry>(this.OrchestratorConfigurationList);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -207,6 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestConfigurationIsNull)
             {
                 request.Configuration = null;
+            }
+            if (cmdletContext.OrchestratorConfigurationList != null)
+            {
+                request.OrchestratorConfigurationList = cmdletContext.OrchestratorConfigurationList;
             }
             
             CmdletOutput output;
@@ -266,6 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             public Amazon.QConnect.AIAgentType AiAgentType { get; set; }
             public System.String AssistantId { get; set; }
             public System.String Configuration_AiAgentId { get; set; }
+            public List<Amazon.QConnect.Model.OrchestratorConfigurationEntry> OrchestratorConfigurationList { get; set; }
             public System.Func<Amazon.QConnect.Model.UpdateAssistantAIAgentResponse, UpdateQCAssistantAIAgentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Assistant;
         }

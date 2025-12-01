@@ -1,4 +1,162 @@
-﻿### 5.0.106 (2025-11-26 20:46Z)
+﻿### 5.0.107 (2025-12-01 03:18Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.143.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Modified cmdlet New-AABKnowledgeBase: added parameters BedrockEmbeddingModelConfiguration_Audio and BedrockEmbeddingModelConfiguration_Video.
+    * Modified cmdlet Update-AABKnowledgeBase: added parameters BedrockEmbeddingModelConfiguration_Audio and BedrockEmbeddingModelConfiguration_Video.
+  * Amazon AmazonConnectCampaignServiceV2
+    * Modified cmdlet New-CCS2Campaign: added parameters ChannelSubtypeConfig_WhatsApp_DefaultOutboundConfig_ConnectSourcePhoneNumberArn, DefaultOutboundConfig_WisdomTemplateArn, OpenHours_DailyHour, OutboundMode_Agentless, RestrictedPeriods_RestrictedPeriodList, Type and WhatsApp_Capacity.
+    * Modified cmdlet Remove-CCS2ConnectInstanceIntegration: added parameter Lambda_FunctionArn.
+    * Modified cmdlet Update-CCS2CampaignChannelSubtypeConfig: added parameters ChannelSubtypeConfig_WhatsApp_DefaultOutboundConfig_ConnectSourcePhoneNumberArn, DefaultOutboundConfig_WisdomTemplateArn, OutboundMode_Agentless and WhatsApp_Capacity.
+    * Modified cmdlet Update-CCS2CampaignCommunicationTime: added parameters OpenHours_DailyHour and RestrictedPeriods_RestrictedPeriodList.
+    * Modified cmdlet Write-CCS2ConnectInstanceIntegration: added parameter Lambda_FunctionArn.
+  * Amazon AppIntegrations Service
+    * Modified cmdlet Get-AISApplicationList: added parameter ApplicationType.
+    * Modified cmdlet New-AISApplication: added parameter ApplicationType.
+    * Modified cmdlet Update-AISApplication: added parameter ApplicationType.
+  * Amazon Bedrock Agent Runtime
+    * [Breaking Change] Modified cmdlet Invoke-BARRetrieve: removed parameter NoAutoIteration; added parameters Image_Format, Image_InlineContent and RetrievalQuery_Type.
+  * Amazon Clean Rooms Service
+    * Modified cmdlet New-CRSAnalysisTemplate: added parameters ColumnClassification_ColumnMapping, MlSyntheticDataParameters_Epsilon and MlSyntheticDataParameters_MaxMembershipInferenceAttackScore.
+    * Modified cmdlet New-CRSCollaboration: added parameter SyntheticDataGeneration_IsResponsible.
+    * Modified cmdlet New-CRSMembership: added parameter SyntheticDataGeneration_IsResponsible.
+  * Amazon Connect Customer Profiles
+    * Added cmdlet Get-CPFDomainObjectType leveraging the GetDomainObjectType service API.
+    * Added cmdlet Get-CPFDomainObjectTypeList leveraging the ListDomainObjectTypes service API.
+    * Added cmdlet Get-CPFObjectTypeAttributeStatistic leveraging the GetObjectTypeAttributeStatistics service API.
+    * Added cmdlet Get-CPFObjectTypeAttributeValueList leveraging the ListObjectTypeAttributeValues service API.
+    * Added cmdlet Get-CPFProfileRecommendation leveraging the GetProfileRecommendations service API.
+    * Added cmdlet Get-CPFRecommender leveraging the GetRecommender service API.
+    * Added cmdlet Get-CPFRecommenderList leveraging the ListRecommenders service API.
+    * Added cmdlet Get-CPFRecommenderRecipeList leveraging the ListRecommenderRecipes service API.
+    * Added cmdlet New-CPFRecommender leveraging the CreateRecommender service API.
+    * Added cmdlet Remove-CPFDomainObjectType leveraging the DeleteDomainObjectType service API.
+    * Added cmdlet Remove-CPFRecommender leveraging the DeleteRecommender service API.
+    * Added cmdlet Start-CPFRecommender leveraging the StartRecommender service API.
+    * Added cmdlet Stop-CPFRecommender leveraging the StopRecommender service API.
+    * Added cmdlet Update-CPFRecommender leveraging the UpdateRecommender service API.
+    * Added cmdlet Write-CPFDomainObjectType leveraging the PutDomainObjectType service API.
+    * Modified cmdlet New-CPFDomain: added parameter DataStore_Enabled.
+    * Modified cmdlet New-CPFSegmentDefinition: added parameter SegmentSqlQuery.
+    * Modified cmdlet New-CPFSegmentEstimate: added parameter SegmentSqlQuery.
+    * Modified cmdlet Update-CPFDomain: added parameter DataStore_Enabled.
+    * Modified cmdlet Write-CPFIntegration: added parameter Scope.
+  * Amazon Connect Service
+    * Added cmdlet Add-CONNSecurityProfile leveraging the AssociateSecurityProfiles service API.
+    * Added cmdlet Add-CONNWorkspace leveraging the AssociateWorkspace service API.
+    * Added cmdlet Get-CONNDataTableAttributeDetail leveraging the DescribeDataTableAttribute service API.
+    * Added cmdlet Get-CONNDataTableAttributeList leveraging the ListDataTableAttributes service API.
+    * Added cmdlet Get-CONNDataTableDetail leveraging the DescribeDataTable service API.
+    * Added cmdlet Get-CONNDataTableList leveraging the ListDataTables service API.
+    * Added cmdlet Get-CONNDataTablePrimaryValueList leveraging the ListDataTablePrimaryValues service API.
+    * Added cmdlet Get-CONNDataTableValueDetailBatch leveraging the BatchDescribeDataTableValue service API.
+    * Added cmdlet Get-CONNDataTableValueEvaluation leveraging the EvaluateDataTableValues service API.
+    * Added cmdlet Get-CONNDataTableValueList leveraging the ListDataTableValues service API.
+    * Added cmdlet Get-CONNEntitySecurityProfileList leveraging the ListEntitySecurityProfiles service API.
+    * Added cmdlet Get-CONNSecurityProfileFlowModuleList leveraging the ListSecurityProfileFlowModules service API.
+    * Added cmdlet Get-CONNWorkspaceDetail leveraging the DescribeWorkspace service API.
+    * Added cmdlet Get-CONNWorkspaceList leveraging the ListWorkspaces service API.
+    * Added cmdlet Get-CONNWorkspaceMediaList leveraging the ListWorkspaceMedia service API.
+    * Added cmdlet Get-CONNWorkspacePageList leveraging the ListWorkspacePages service API.
+    * Added cmdlet Import-CONNWorkspaceMedia leveraging the ImportWorkspaceMedia service API.
+    * Added cmdlet New-CONNDataTable leveraging the CreateDataTable service API.
+    * Added cmdlet New-CONNDataTableAttribute leveraging the CreateDataTableAttribute service API.
+    * Added cmdlet New-CONNDataTableValueBatch leveraging the BatchCreateDataTableValue service API.
+    * Added cmdlet New-CONNWorkspace leveraging the CreateWorkspace service API.
+    * Added cmdlet New-CONNWorkspacePage leveraging the CreateWorkspacePage service API.
+    * Added cmdlet Remove-CONNDataTable leveraging the DeleteDataTable service API.
+    * Added cmdlet Remove-CONNDataTableAttribute leveraging the DeleteDataTableAttribute service API.
+    * Added cmdlet Remove-CONNDataTableValueBatch leveraging the BatchDeleteDataTableValue service API.
+    * Added cmdlet Remove-CONNWorkspace leveraging the DeleteWorkspace service API.
+    * Added cmdlet Remove-CONNWorkspaceMedia leveraging the DeleteWorkspaceMedia service API.
+    * Added cmdlet Remove-CONNWorkspacePage leveraging the DeleteWorkspacePage service API.
+    * Added cmdlet Search-CONNDataTable leveraging the SearchDataTables service API.
+    * Added cmdlet Search-CONNView leveraging the SearchViews service API.
+    * Added cmdlet Search-CONNWorkspace leveraging the SearchWorkspaces service API.
+    * Added cmdlet Search-CONNWorkspaceAssociation leveraging the SearchWorkspaceAssociations service API.
+    * Added cmdlet Start-CONNContactMediaProcessing leveraging the StartContactMediaProcessing service API.
+    * Added cmdlet Stop-CONNContactMediaProcessing leveraging the StopContactMediaProcessing service API.
+    * Added cmdlet Unregister-CONNSecurityProfile leveraging the DisassociateSecurityProfiles service API.
+    * Added cmdlet Unregister-CONNWorkspace leveraging the DisassociateWorkspace service API.
+    * Added cmdlet Update-CONNDataTableAttribute leveraging the UpdateDataTableAttribute service API.
+    * Added cmdlet Update-CONNDataTableMetadata leveraging the UpdateDataTableMetadata service API.
+    * Added cmdlet Update-CONNDataTablePrimaryValue leveraging the UpdateDataTablePrimaryValues service API.
+    * Added cmdlet Update-CONNDataTableValueBatch leveraging the BatchUpdateDataTableValue service API.
+    * Added cmdlet Update-CONNWorkspaceMetadata leveraging the UpdateWorkspaceMetadata service API.
+    * Added cmdlet Update-CONNWorkspacePage leveraging the UpdateWorkspacePage service API.
+    * Added cmdlet Update-CONNWorkspaceTheme leveraging the UpdateWorkspaceTheme service API.
+    * Added cmdlet Update-CONNWorkspaceVisibility leveraging the UpdateWorkspaceVisibility service API.
+    * Modified cmdlet New-CONNEvaluationForm: added parameters AsDraft, LanguageConfiguration_FormLanguage and TargetConfiguration_ContactInteractionType.
+    * Modified cmdlet New-CONNQuickConnect: added parameter FlowConfig_ContactFlowId.
+    * Modified cmdlet New-CONNSecurityProfile: added parameters AllowedFlowModule and PrimaryAttributeAccessControlConfiguration_PrimaryAttributeValue.
+    * Modified cmdlet Search-CONNContactFlow: added parameters AndCondition_TagCondition, FlowAttributeFilter_OrCondition, SearchFilter_FlowAttributeFilter_AndCondition_ContactFlowTypeCondition_ContactFlowType, SearchFilter_FlowAttributeFilter_ContactFlowTypeCondition_ContactFlowType, SearchFilter_FlowAttributeFilter_TagCondition_TagKey and SearchFilter_FlowAttributeFilter_TagCondition_TagValue.
+    * Modified cmdlet Start-CONNChatContact: added parameter ParticipantConfiguration_ResponseMode.
+    * Modified cmdlet Update-CONNEvaluationForm: added parameters AsDraft, LanguageConfiguration_FormLanguage and TargetConfiguration_ContactInteractionType.
+    * Modified cmdlet Update-CONNQuickConnectConfig: added parameter FlowConfig_ContactFlowId.
+    * Modified cmdlet Update-CONNSecurityProfile: added parameters AllowedFlowModule and PrimaryAttributeAccessControlConfiguration_PrimaryAttributeValue.
+  * Amazon Elastic Container Service for Kubernetes
+    * Added cmdlet Get-EKSCapabilityDetail leveraging the DescribeCapability service API.
+    * Added cmdlet Get-EKSCapabilityList leveraging the ListCapabilities service API.
+    * Added cmdlet New-EKSCapability leveraging the CreateCapability service API.
+    * Added cmdlet Remove-EKSCapability leveraging the DeleteCapability service API.
+    * Added cmdlet Update-EKSCapability leveraging the UpdateCapability service API.
+    * Modified cmdlet Get-EKSUpdate: added parameter CapabilityName.
+    * Modified cmdlet Get-EKSUpdateList: added parameter CapabilityName.
+  * Amazon Lambda
+    * Added cmdlet Get-LMCapacityProvider leveraging the GetCapacityProvider service API.
+    * Added cmdlet Get-LMCapacityProviderList leveraging the ListCapacityProviders service API.
+    * Added cmdlet Get-LMFunctionScalingConfig leveraging the GetFunctionScalingConfig service API.
+    * Added cmdlet Get-LMFunctionVersionsByCapacityProviderList leveraging the ListFunctionVersionsByCapacityProvider service API.
+    * Added cmdlet New-LMCapacityProvider leveraging the CreateCapacityProvider service API.
+    * Added cmdlet Remove-LMCapacityProvider leveraging the DeleteCapacityProvider service API.
+    * Added cmdlet Update-LMCapacityProvider leveraging the UpdateCapacityProvider service API.
+    * Added cmdlet Write-LMFunctionScalingConfig leveraging the PutFunctionScalingConfig service API.
+    * Modified cmdlet Publish-LMFunction: added parameters LambdaManagedInstancesCapacityProviderConfig_CapacityProviderArn, LambdaManagedInstancesCapacityProviderConfig_ExecutionEnvironmentMemoryGiBPerVCpu, LambdaManagedInstancesCapacityProviderConfig_PerExecutionEnvironmentMaxConcurrency and PublishTo.
+    * Modified cmdlet Update-LMFunctionCode: added parameter PublishTo.
+    * Modified cmdlet Publish-LMVersion: added parameter PublishTo.
+    * Modified cmdlet Update-LMFunctionConfiguration: added parameters LambdaManagedInstancesCapacityProviderConfig_CapacityProviderArn, LambdaManagedInstancesCapacityProviderConfig_ExecutionEnvironmentMemoryGiBPerVCpu and LambdaManagedInstancesCapacityProviderConfig_PerExecutionEnvironmentMaxConcurrency.
+  * Amazon Lex Model Building V2
+    * Modified cmdlet New-LMBV2BotLocale: added parameters DeepgramConfig_ApiTokenSecretArn, DeepgramConfig_ModelId, SpeechFoundationModel_ModelArn, SpeechFoundationModel_VoiceId and SpeechRecognitionSettings_SpeechModelPreference.
+    * Modified cmdlet Start-LMBV2Import: added parameters DeepgramConfig_ApiTokenSecretArn, DeepgramConfig_ModelId, SpeechFoundationModel_ModelArn, SpeechFoundationModel_VoiceId and SpeechRecognitionSettings_SpeechModelPreference.
+    * Modified cmdlet Update-LMBV2BotLocale: added parameters DeepgramConfig_ApiTokenSecretArn, DeepgramConfig_ModelId, SpeechFoundationModel_ModelArn, SpeechFoundationModel_VoiceId and SpeechRecognitionSettings_SpeechModelPreference.
+  * Amazon Marketplace Catalog Service
+    * Modified cmdlet Get-MCATEntityList: added parameters AssociatedOfferIds_ValueList, EntityTypeFilters_OfferSetFilters_EntityId_ValueList, EntityTypeFilters_OfferSetFilters_LastModifiedDate_DateRange_AfterValue, EntityTypeFilters_OfferSetFilters_LastModifiedDate_DateRange_BeforeValue, EntityTypeFilters_OfferSetFilters_ReleaseDate_DateRange_AfterValue, EntityTypeFilters_OfferSetFilters_ReleaseDate_DateRange_BeforeValue, EntityTypeFilters_OfferSetFilters_State_ValueList, Name_ValueList, OfferSetId_ValueList, OfferSetSort_SortBy, OfferSetSort_SortOrder and SolutionId_ValueList.
+  * Amazon Partner Central Account API. Added cmdlets to support the service. Cmdlets for the service have the noun prefix PCAA and can be listed using the command 'Get-AWSCmdletName -Service PCAA'.
+  * Amazon Partner Central Selling API
+    * Added cmdlet Get-PCOpportunityFromEngagementTaskList leveraging the ListOpportunityFromEngagementTasks service API.
+    * Added cmdlet New-PCEngagementContext leveraging the CreateEngagementContext service API.
+    * Added cmdlet Start-PCOpportunityFromEngagementTask leveraging the StartOpportunityFromEngagementTask service API.
+    * Added cmdlet Update-PCEngagementContext leveraging the UpdateEngagementContext service API.
+    * Modified cmdlet Get-PCEngagementList: added parameters ContextType and ExcludeContextType.
+    * Modified cmdlet Invoke-PCAssignOpportunity: added parameter Assignee_Phone.
+    * Modified cmdlet Invoke-PCCreateEngagementInvitation: added parameters Customer_AwsMaturity, Customer_MarketSegment, Interaction_ContactBusinessTitle, Interaction_SourceId, Interaction_SourceName, Interaction_SourceType, Interaction_Usecase, LeadInvitation_Customer_CompanyName, LeadInvitation_Customer_CountryCode, LeadInvitation_Customer_Industry and LeadInvitation_Customer_WebsiteUrl.
+  * Amazon PartnerCentral Benefits Service. Added cmdlets to support the service. Cmdlets for the service have the noun prefix PCB and can be listed using the command 'Get-AWSCmdletName -Service PCB'.
+  * Amazon Personalize
+    * Modified cmdlet New-PERSBatchInferenceJob: added parameter BatchInferenceJobConfig_RankingInfluence.
+    * Modified cmdlet New-PERSCampaign: added parameter CampaignConfig_RankingInfluence.
+    * Modified cmdlet New-PERSRecommender: added parameter TrainingDataConfig_IncludedDatasetColumn.
+    * Modified cmdlet New-PERSSolution: added parameters PerformIncrementalUpdate and TrainingDataConfig_IncludedDatasetColumn.
+    * Modified cmdlet Update-PERSCampaign: added parameter CampaignConfig_RankingInfluence.
+    * Modified cmdlet Update-PERSRecommender: added parameter TrainingDataConfig_IncludedDatasetColumn.
+    * Modified cmdlet Update-PERSSolution: added parameter PerformIncrementalUpdate.
+  * Amazon Q Connect
+    * Added cmdlet Get-QCSpanList leveraging the ListSpans service API.
+    * Added cmdlet Invoke-QCRetrieve leveraging the Retrieve service API.
+    * Modified cmdlet Get-QCMessageList: added parameter Filter.
+    * Modified cmdlet Get-QCRecommendation: added parameter RecommendationType.
+    * Modified cmdlet New-QCAIAgent: added parameters AnswerRecommendationAIAgentConfiguration_SuggestedMessage, CaseSummarizationAIAgentConfiguration_CaseSummarizationAIGuardrailId, CaseSummarizationAIAgentConfiguration_CaseSummarizationAIPromptId, CaseSummarizationAIAgentConfiguration_Locale, NoteTakingAIAgentConfiguration_Locale, NoteTakingAIAgentConfiguration_NoteTakingAIGuardrailId, NoteTakingAIAgentConfiguration_NoteTakingAIPromptId, OrchestrationAIAgentConfiguration_ConnectInstanceArn, OrchestrationAIAgentConfiguration_Locale, OrchestrationAIAgentConfiguration_OrchestrationAIGuardrailId, OrchestrationAIAgentConfiguration_OrchestrationAIPromptId and OrchestrationAIAgentConfiguration_ToolConfiguration.
+    * Modified cmdlet New-QCAIPrompt: added parameters TextAIPromptInferenceConfiguration_MaxTokensToSample, TextAIPromptInferenceConfiguration_Temperature, TextAIPromptInferenceConfiguration_TopK and TextAIPromptInferenceConfiguration_TopP.
+    * Modified cmdlet New-QCAssistantAssociation: added parameters ExternalBedrockKnowledgeBaseConfig_AccessRoleArn and ExternalBedrockKnowledgeBaseConfig_BedrockKnowledgeBaseArn.
+    * Modified cmdlet New-QCSession: added parameters OrchestratorConfigurationList and RemoveOrchestratorConfigurationList.
+    * Modified cmdlet Remove-QCAssistantAIAgent: added parameter OrchestratorUseCase.
+    * Modified cmdlet Search-QCAssistant: added parameter CaseSummarizationInputData_CaseArn.
+    * Modified cmdlet Send-QCMessage: added parameters AiAgentId, AiGuardrailAssessment_Blocked, Configuration_GenerateChunkedMessage, Metadata, OrchestratorUseCase, Text_Citation, ToolUseResult_InputSchema, ToolUseResult_ToolName, ToolUseResult_ToolResult and ToolUseResult_ToolUseId.
+    * Modified cmdlet Update-QCAIAgent: added parameters AnswerRecommendationAIAgentConfiguration_SuggestedMessage, CaseSummarizationAIAgentConfiguration_CaseSummarizationAIGuardrailId, CaseSummarizationAIAgentConfiguration_CaseSummarizationAIPromptId, CaseSummarizationAIAgentConfiguration_Locale, NoteTakingAIAgentConfiguration_Locale, NoteTakingAIAgentConfiguration_NoteTakingAIGuardrailId, NoteTakingAIAgentConfiguration_NoteTakingAIPromptId, OrchestrationAIAgentConfiguration_ConnectInstanceArn, OrchestrationAIAgentConfiguration_Locale, OrchestrationAIAgentConfiguration_OrchestrationAIGuardrailId, OrchestrationAIAgentConfiguration_OrchestrationAIPromptId and OrchestrationAIAgentConfiguration_ToolConfiguration.
+    * Modified cmdlet Update-QCAIPrompt: added parameters TextAIPromptInferenceConfiguration_MaxTokensToSample, TextAIPromptInferenceConfiguration_Temperature, TextAIPromptInferenceConfiguration_TopK and TextAIPromptInferenceConfiguration_TopP.
+    * Modified cmdlet Update-QCAssistantAIAgent: added parameter OrchestratorConfigurationList.
+    * Modified cmdlet Update-QCSession: added parameters OrchestratorConfigurationList and RemoveOrchestratorConfigurationList.
+  * Amazon Route 53 Global Resolver. Added cmdlets to support the service. Cmdlets for the service have the noun prefix R53GR and can be listed using the command 'Get-AWSCmdletName -Service R53GR'.
+
+### 5.0.106 (2025-11-26 20:46Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.142.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 5.0.105 (2025-11-25 21:09Z)

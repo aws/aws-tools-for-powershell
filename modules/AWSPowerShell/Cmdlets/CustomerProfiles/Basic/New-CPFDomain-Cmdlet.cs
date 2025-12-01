@@ -218,6 +218,16 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.String[] AttributeTypesSelector_EmailAddress { get; set; }
         #endregion
         
+        #region Parameter DataStore_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Enabled: Set to true to enabled data store for this domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DataStore_Enabled { get; set; }
+        #endregion
+        
         #region Parameter AutoMerging_Enabled
         /// <summary>
         /// <para>
@@ -469,6 +479,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 context.Select = CreateSelectDelegate<Amazon.CustomerProfiles.Model.CreateDomainResponse, NewCPFDomainCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.DataStore_Enabled = this.DataStore_Enabled;
             context.DeadLetterQueueUrl = this.DeadLetterQueueUrl;
             context.DefaultEncryptionKey = this.DefaultEncryptionKey;
             context.DefaultExpirationDay = this.DefaultExpirationDay;
@@ -550,6 +561,25 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             // create request
             var request = new Amazon.CustomerProfiles.Model.CreateDomainRequest();
             
+            
+             // populate DataStore
+            var requestDataStoreIsNull = true;
+            request.DataStore = new Amazon.CustomerProfiles.Model.DataStoreRequest();
+            System.Boolean? requestDataStore_dataStore_Enabled = null;
+            if (cmdletContext.DataStore_Enabled != null)
+            {
+                requestDataStore_dataStore_Enabled = cmdletContext.DataStore_Enabled.Value;
+            }
+            if (requestDataStore_dataStore_Enabled != null)
+            {
+                request.DataStore.Enabled = requestDataStore_dataStore_Enabled.Value;
+                requestDataStoreIsNull = false;
+            }
+             // determine if request.DataStore should be set to null
+            if (requestDataStoreIsNull)
+            {
+                request.DataStore = null;
+            }
             if (cmdletContext.DeadLetterQueueUrl != null)
             {
                 request.DeadLetterQueueUrl = cmdletContext.DeadLetterQueueUrl;
@@ -1013,6 +1043,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DataStore_Enabled { get; set; }
             public System.String DeadLetterQueueUrl { get; set; }
             public System.String DefaultEncryptionKey { get; set; }
             public System.Int32? DefaultExpirationDay { get; set; }

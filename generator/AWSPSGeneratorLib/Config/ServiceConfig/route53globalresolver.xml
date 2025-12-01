@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>route53globalresolver</C2jFilename>
+    <AssemblyName>Route53GlobalResolver</AssemblyName>
+    <ServiceNounPrefix>R53GR</ServiceNounPrefix>
+    <ServiceName>Amazon Route 53 Global Resolver</ServiceName>
+    <ServiceClientInterface>IAmazonRoute53GlobalResolver</ServiceClientInterface>
+    <ServiceClient>AmazonRoute53GlobalResolverClient</ServiceClient>
+    <ServiceModuleGuid>4017d291-e7fb-416a-8da4-80772d1c1c32</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateHostedZone" OutputProperty="*" Verb="New" Noun="HostedZoneAssociation" ShouldProcessTarget="HostedZoneId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchCreateFirewallRule" OutputProperty="*" Verb="New" Noun="FirewallRuleBatch" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeleteFirewallRule" OutputProperty="*" Verb="Remove" Noun="FirewallRuleBatch" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchUpdateFirewallRule" OutputProperty="*" Verb="Update" Noun="FirewallRuleBatch" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAccessSource" OutputProperty="*" Verb="New" Noun="AccessSource" ShouldProcessTarget="DnsViewId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAccessToken" OutputProperty="*" Verb="New" Noun="AccessToken" ShouldProcessTarget="DnsViewId" PipelineParameter="DnsViewId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDNSView" OutputProperty="*" Verb="New" Noun="DNSView" ShouldProcessTarget="GlobalResolverId,Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFirewallDomainList" OutputProperty="*" Verb="New" Noun="FirewallDomainList" ShouldProcessTarget="GlobalResolverId,Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFirewallRule" OutputProperty="*" Verb="New" Noun="FirewallRule" ShouldProcessTarget="DnsViewId,Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGlobalResolver" OutputProperty="*" Verb="New" Noun="GlobalResolver" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Regions" NewName="ResolverRegions" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccessSource" OutputProperty="*" Verb="Remove" Noun="AccessSource" ShouldProcessTarget="AccessSourceId" PipelineParameter="AccessSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccessToken" OutputProperty="*" Verb="Remove" Noun="AccessToken" ShouldProcessTarget="AccessTokenId" PipelineParameter="AccessTokenId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDNSView" OutputProperty="*" Verb="Remove" Noun="DNSView" ShouldProcessTarget="DnsViewId" PipelineParameter="DnsViewId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFirewallDomainList" OutputProperty="*" Verb="Remove" Noun="FirewallDomainList" ShouldProcessTarget="FirewallDomainListId" PipelineParameter="FirewallDomainListId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFirewallRule" OutputProperty="*" Verb="Remove" Noun="FirewallRule" ShouldProcessTarget="FirewallRuleId" PipelineParameter="FirewallRuleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGlobalResolver" OutputProperty="*" Verb="Remove" Noun="GlobalResolver" ShouldProcessTarget="GlobalResolverId" PipelineParameter="GlobalResolverId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableDNSView" OutputProperty="*" Verb="Disable" Noun="DNSView" ShouldProcessTarget="DnsViewId" PipelineParameter="DnsViewId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateHostedZone" OutputProperty="*" Verb="Remove" Noun="HostedZoneAssociation" ShouldProcessTarget="HostedZoneId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableDNSView" OutputProperty="*" Verb="Enable" Noun="DNSView" ShouldProcessTarget="DnsViewId" PipelineParameter="DnsViewId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccessSource" OutputProperty="*" Verb="Get" Noun="AccessSource" PipelineParameter="AccessSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccessToken" OutputProperty="*" Verb="Get" Noun="AccessToken" PipelineParameter="AccessTokenId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDNSView" OutputProperty="*" Verb="Get" Noun="DNSView" PipelineParameter="DnsViewId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFirewallDomainList" OutputProperty="*" Verb="Get" Noun="FirewallDomainList" PipelineParameter="FirewallDomainListId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFirewallRule" OutputProperty="*" Verb="Get" Noun="FirewallRule" PipelineParameter="FirewallRuleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGlobalResolver" OutputProperty="*" Verb="Get" Noun="GlobalResolver" PipelineParameter="GlobalResolverId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetHostedZoneAssociation" OutputProperty="*" Verb="Get" Noun="HostedZoneAssociation" PipelineParameter="HostedZoneAssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetManagedFirewallDomainList" OutputProperty="*" Verb="Get" Noun="ManagedFirewallDomainList" PipelineParameter="ManagedFirewallDomainListId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportFirewallDomains" OutputProperty="*" Verb="Import" Noun="FirewallDomainList" ShouldProcessTarget="FirewallDomainListId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccessSources" OutputProperty="AccessSources" Verb="Get" Noun="AccessSourceList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccessTokens" OutputProperty="AccessTokens" Verb="Get" Noun="AccessTokenList" PipelineParameter="DnsViewId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDNSViews" OutputProperty="DnsViews" Verb="Get" Noun="DNSViewList" PipelineParameter="GlobalResolverId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFirewallDomainLists" OutputProperty="FirewallDomainLists" Verb="Get" Noun="FirewallDomainListList" PipelineParameter="GlobalResolverId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFirewallDomains" OutputProperty="Domains" Verb="Get" Noun="FirewallDomain" PipelineParameter="FirewallDomainListId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFirewallRules" OutputProperty="FirewallRules" Verb="Get" Noun="FirewallRuleList" PipelineParameter="DnsViewId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGlobalResolvers" OutputProperty="GlobalResolvers" Verb="Get" Noun="GlobalResolverList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListHostedZoneAssociations" OutputProperty="HostedZoneAssociations" Verb="Get" Noun="HostedZoneAssociationList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListManagedFirewallDomainLists" OutputProperty="ManagedFirewallDomainLists" Verb="Get" Noun="ManagedFirewallDomainListList" PipelineParameter="ManagedFirewallDomainListType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAccessSource" OutputProperty="*" Verb="Update" Noun="AccessSource" ShouldProcessTarget="AccessSourceId" PipelineParameter="AccessSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAccessToken" OutputProperty="*" Verb="Update" Noun="AccessToken" ShouldProcessTarget="AccessTokenId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDNSView" OutputProperty="*" Verb="Update" Noun="DNSView" ShouldProcessTarget="DnsViewId" PipelineParameter="DnsViewId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFirewallDomains" OutputProperty="*" Verb="Edit" Noun="FirewallDomain" ShouldProcessTarget="FirewallDomainListId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFirewallRule" OutputProperty="*" Verb="Update" Noun="FirewallRule" ShouldProcessTarget="FirewallRuleId" PipelineParameter="FirewallRuleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGlobalResolver" OutputProperty="*" Verb="Update" Noun="GlobalResolver" ShouldProcessTarget="GlobalResolverId" PipelineParameter="GlobalResolverId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateHostedZoneAssociation" OutputProperty="*" Verb="Update" Noun="HostedZoneAssociation" ShouldProcessTarget="HostedZoneAssociationId" PipelineParameter="HostedZoneAssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

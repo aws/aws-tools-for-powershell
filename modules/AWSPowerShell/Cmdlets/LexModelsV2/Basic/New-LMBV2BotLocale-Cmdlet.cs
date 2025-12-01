@@ -46,6 +46,18 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter DeepgramConfig_ApiTokenSecretArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Secrets Manager secret that contains the Deepgram
+        /// API token.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfig_ApiTokenSecretArn")]
+        public System.String DeepgramConfig_ApiTokenSecretArn { get; set; }
+        #endregion
+        
         #region Parameter NluImprovement_AssistedNluMode
         /// <summary>
         /// <para>
@@ -316,6 +328,28 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.String GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_ModelArn { get; set; }
         #endregion
         
+        #region Parameter SpeechFoundationModel_ModelArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the foundation model used for speech processing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UnifiedSpeechSettings_SpeechFoundationModel_ModelArn")]
+        public System.String SpeechFoundationModel_ModelArn { get; set; }
+        #endregion
+        
+        #region Parameter DeepgramConfig_ModelId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the Deepgram speech-to-text model to use for processing speech input.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SpeechRecognitionSettings_SpeechModelConfig_DeepgramConfig_ModelId")]
+        public System.String DeepgramConfig_ModelId { get; set; }
+        #endregion
+        
         #region Parameter NluIntentConfidenceThreshold
         /// <summary>
         /// <para>
@@ -349,6 +383,17 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.LexModelsV2.SpeechDetectionSensitivity")]
         public Amazon.LexModelsV2.SpeechDetectionSensitivity SpeechDetectionSensitivity { get; set; }
+        #endregion
+        
+        #region Parameter SpeechRecognitionSettings_SpeechModelPreference
+        /// <summary>
+        /// <para>
+        /// <para>The speech-to-text model to use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.LexModelsV2.SpeechModelPreference")]
+        public Amazon.LexModelsV2.SpeechModelPreference SpeechRecognitionSettings_SpeechModelPreference { get; set; }
         #endregion
         
         #region Parameter GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_TraceStatus
@@ -414,6 +459,17 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Version { get; set; }
+        #endregion
+        
+        #region Parameter SpeechFoundationModel_VoiceId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the voice to use for speech synthesis with the foundation model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UnifiedSpeechSettings_SpeechFoundationModel_VoiceId")]
+        public System.String SpeechFoundationModel_VoiceId { get; set; }
         #endregion
         
         #region Parameter VoiceSettings_VoiceId
@@ -525,6 +581,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             }
             #endif
             context.SpeechDetectionSensitivity = this.SpeechDetectionSensitivity;
+            context.DeepgramConfig_ApiTokenSecretArn = this.DeepgramConfig_ApiTokenSecretArn;
+            context.DeepgramConfig_ModelId = this.DeepgramConfig_ModelId;
+            context.SpeechRecognitionSettings_SpeechModelPreference = this.SpeechRecognitionSettings_SpeechModelPreference;
+            context.SpeechFoundationModel_ModelArn = this.SpeechFoundationModel_ModelArn;
+            context.SpeechFoundationModel_VoiceId = this.SpeechFoundationModel_VoiceId;
             context.VoiceSettings_Engine = this.VoiceSettings_Engine;
             context.VoiceSettings_VoiceId = this.VoiceSettings_VoiceId;
             
@@ -1002,6 +1063,119 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 request.SpeechDetectionSensitivity = cmdletContext.SpeechDetectionSensitivity;
             }
             
+             // populate SpeechRecognitionSettings
+            var requestSpeechRecognitionSettingsIsNull = true;
+            request.SpeechRecognitionSettings = new Amazon.LexModelsV2.Model.SpeechRecognitionSettings();
+            Amazon.LexModelsV2.SpeechModelPreference requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelPreference = null;
+            if (cmdletContext.SpeechRecognitionSettings_SpeechModelPreference != null)
+            {
+                requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelPreference = cmdletContext.SpeechRecognitionSettings_SpeechModelPreference;
+            }
+            if (requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelPreference != null)
+            {
+                request.SpeechRecognitionSettings.SpeechModelPreference = requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelPreference;
+                requestSpeechRecognitionSettingsIsNull = false;
+            }
+            Amazon.LexModelsV2.Model.SpeechModelConfig requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig = null;
+            
+             // populate SpeechModelConfig
+            var requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfigIsNull = true;
+            requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig = new Amazon.LexModelsV2.Model.SpeechModelConfig();
+            Amazon.LexModelsV2.Model.DeepgramSpeechModelConfig requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig_speechRecognitionSettings_SpeechModelConfig_DeepgramConfig = null;
+            
+             // populate DeepgramConfig
+            var requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig_speechRecognitionSettings_SpeechModelConfig_DeepgramConfigIsNull = true;
+            requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig_speechRecognitionSettings_SpeechModelConfig_DeepgramConfig = new Amazon.LexModelsV2.Model.DeepgramSpeechModelConfig();
+            System.String requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig_speechRecognitionSettings_SpeechModelConfig_DeepgramConfig_deepgramConfig_ApiTokenSecretArn = null;
+            if (cmdletContext.DeepgramConfig_ApiTokenSecretArn != null)
+            {
+                requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig_speechRecognitionSettings_SpeechModelConfig_DeepgramConfig_deepgramConfig_ApiTokenSecretArn = cmdletContext.DeepgramConfig_ApiTokenSecretArn;
+            }
+            if (requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig_speechRecognitionSettings_SpeechModelConfig_DeepgramConfig_deepgramConfig_ApiTokenSecretArn != null)
+            {
+                requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig_speechRecognitionSettings_SpeechModelConfig_DeepgramConfig.ApiTokenSecretArn = requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig_speechRecognitionSettings_SpeechModelConfig_DeepgramConfig_deepgramConfig_ApiTokenSecretArn;
+                requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig_speechRecognitionSettings_SpeechModelConfig_DeepgramConfigIsNull = false;
+            }
+            System.String requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig_speechRecognitionSettings_SpeechModelConfig_DeepgramConfig_deepgramConfig_ModelId = null;
+            if (cmdletContext.DeepgramConfig_ModelId != null)
+            {
+                requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig_speechRecognitionSettings_SpeechModelConfig_DeepgramConfig_deepgramConfig_ModelId = cmdletContext.DeepgramConfig_ModelId;
+            }
+            if (requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig_speechRecognitionSettings_SpeechModelConfig_DeepgramConfig_deepgramConfig_ModelId != null)
+            {
+                requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig_speechRecognitionSettings_SpeechModelConfig_DeepgramConfig.ModelId = requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig_speechRecognitionSettings_SpeechModelConfig_DeepgramConfig_deepgramConfig_ModelId;
+                requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig_speechRecognitionSettings_SpeechModelConfig_DeepgramConfigIsNull = false;
+            }
+             // determine if requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig_speechRecognitionSettings_SpeechModelConfig_DeepgramConfig should be set to null
+            if (requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig_speechRecognitionSettings_SpeechModelConfig_DeepgramConfigIsNull)
+            {
+                requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig_speechRecognitionSettings_SpeechModelConfig_DeepgramConfig = null;
+            }
+            if (requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig_speechRecognitionSettings_SpeechModelConfig_DeepgramConfig != null)
+            {
+                requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig.DeepgramConfig = requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig_speechRecognitionSettings_SpeechModelConfig_DeepgramConfig;
+                requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfigIsNull = false;
+            }
+             // determine if requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig should be set to null
+            if (requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfigIsNull)
+            {
+                requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig = null;
+            }
+            if (requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig != null)
+            {
+                request.SpeechRecognitionSettings.SpeechModelConfig = requestSpeechRecognitionSettings_speechRecognitionSettings_SpeechModelConfig;
+                requestSpeechRecognitionSettingsIsNull = false;
+            }
+             // determine if request.SpeechRecognitionSettings should be set to null
+            if (requestSpeechRecognitionSettingsIsNull)
+            {
+                request.SpeechRecognitionSettings = null;
+            }
+            
+             // populate UnifiedSpeechSettings
+            var requestUnifiedSpeechSettingsIsNull = true;
+            request.UnifiedSpeechSettings = new Amazon.LexModelsV2.Model.UnifiedSpeechSettings();
+            Amazon.LexModelsV2.Model.SpeechFoundationModel requestUnifiedSpeechSettings_unifiedSpeechSettings_SpeechFoundationModel = null;
+            
+             // populate SpeechFoundationModel
+            var requestUnifiedSpeechSettings_unifiedSpeechSettings_SpeechFoundationModelIsNull = true;
+            requestUnifiedSpeechSettings_unifiedSpeechSettings_SpeechFoundationModel = new Amazon.LexModelsV2.Model.SpeechFoundationModel();
+            System.String requestUnifiedSpeechSettings_unifiedSpeechSettings_SpeechFoundationModel_speechFoundationModel_ModelArn = null;
+            if (cmdletContext.SpeechFoundationModel_ModelArn != null)
+            {
+                requestUnifiedSpeechSettings_unifiedSpeechSettings_SpeechFoundationModel_speechFoundationModel_ModelArn = cmdletContext.SpeechFoundationModel_ModelArn;
+            }
+            if (requestUnifiedSpeechSettings_unifiedSpeechSettings_SpeechFoundationModel_speechFoundationModel_ModelArn != null)
+            {
+                requestUnifiedSpeechSettings_unifiedSpeechSettings_SpeechFoundationModel.ModelArn = requestUnifiedSpeechSettings_unifiedSpeechSettings_SpeechFoundationModel_speechFoundationModel_ModelArn;
+                requestUnifiedSpeechSettings_unifiedSpeechSettings_SpeechFoundationModelIsNull = false;
+            }
+            System.String requestUnifiedSpeechSettings_unifiedSpeechSettings_SpeechFoundationModel_speechFoundationModel_VoiceId = null;
+            if (cmdletContext.SpeechFoundationModel_VoiceId != null)
+            {
+                requestUnifiedSpeechSettings_unifiedSpeechSettings_SpeechFoundationModel_speechFoundationModel_VoiceId = cmdletContext.SpeechFoundationModel_VoiceId;
+            }
+            if (requestUnifiedSpeechSettings_unifiedSpeechSettings_SpeechFoundationModel_speechFoundationModel_VoiceId != null)
+            {
+                requestUnifiedSpeechSettings_unifiedSpeechSettings_SpeechFoundationModel.VoiceId = requestUnifiedSpeechSettings_unifiedSpeechSettings_SpeechFoundationModel_speechFoundationModel_VoiceId;
+                requestUnifiedSpeechSettings_unifiedSpeechSettings_SpeechFoundationModelIsNull = false;
+            }
+             // determine if requestUnifiedSpeechSettings_unifiedSpeechSettings_SpeechFoundationModel should be set to null
+            if (requestUnifiedSpeechSettings_unifiedSpeechSettings_SpeechFoundationModelIsNull)
+            {
+                requestUnifiedSpeechSettings_unifiedSpeechSettings_SpeechFoundationModel = null;
+            }
+            if (requestUnifiedSpeechSettings_unifiedSpeechSettings_SpeechFoundationModel != null)
+            {
+                request.UnifiedSpeechSettings.SpeechFoundationModel = requestUnifiedSpeechSettings_unifiedSpeechSettings_SpeechFoundationModel;
+                requestUnifiedSpeechSettingsIsNull = false;
+            }
+             // determine if request.UnifiedSpeechSettings should be set to null
+            if (requestUnifiedSpeechSettingsIsNull)
+            {
+                request.UnifiedSpeechSettings = null;
+            }
+            
              // populate VoiceSettings
             var requestVoiceSettingsIsNull = true;
             request.VoiceSettings = new Amazon.LexModelsV2.Model.VoiceSettings();
@@ -1114,6 +1288,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.String LocaleId { get; set; }
             public System.Double? NluIntentConfidenceThreshold { get; set; }
             public Amazon.LexModelsV2.SpeechDetectionSensitivity SpeechDetectionSensitivity { get; set; }
+            public System.String DeepgramConfig_ApiTokenSecretArn { get; set; }
+            public System.String DeepgramConfig_ModelId { get; set; }
+            public Amazon.LexModelsV2.SpeechModelPreference SpeechRecognitionSettings_SpeechModelPreference { get; set; }
+            public System.String SpeechFoundationModel_ModelArn { get; set; }
+            public System.String SpeechFoundationModel_VoiceId { get; set; }
             public Amazon.LexModelsV2.VoiceEngine VoiceSettings_Engine { get; set; }
             public System.String VoiceSettings_VoiceId { get; set; }
             public System.Func<Amazon.LexModelsV2.Model.CreateBotLocaleResponse, NewLMBV2BotLocaleCmdlet, object> Select { get; set; } =

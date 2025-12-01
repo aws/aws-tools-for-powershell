@@ -30,7 +30,7 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Gets information about a knoweldge base.
+    /// Gets information about a knowledge base.
     /// </summary>
     [Cmdlet("Get", "AABKnowledgeBase")]
     [OutputType("Amazon.BedrockAgent.Model.KnowledgeBase")]
