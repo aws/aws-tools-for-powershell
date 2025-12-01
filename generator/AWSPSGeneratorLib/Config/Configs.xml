@@ -49,6 +49,7 @@
     <Pattern Verb="Recognize" TargetVerb="Start" NounTransformation="{Noun}Recognition" />
     <Pattern Verb="Refresh" TargetVerb="Invoke" NounTransformation="{Noun}Refresh" />
     <Pattern Verb="Reimport" TargetVerb="Invoke" NounTransformation="{Noun}Reimport" />
+    <Pattern Verb="Reinvite" TargetVerb="Send" NounTransformation="{Noun}Reinvitation" />
     <Pattern Verb="Render" TargetVerb="Get" NounTransformation="{Noun}Rendering" />
     <Pattern Verb="Renew" TargetVerb="Invoke" NounTransformation="{Noun}Renewal" />
     <Pattern Verb="Reserve" TargetVerb="New" NounTransformation="{Noun}Reservation" />
