@@ -40,9 +40,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para><important><para>
     /// When Amazon S3 evaluates the <c>PublicAccessBlock</c> configuration for a bucket or
     /// an object, it checks the <c>PublicAccessBlock</c> configuration for both the bucket
-    /// (or the bucket that contains the object) and the bucket owner's account. If the <c>PublicAccessBlock</c>
-    /// configurations are different between the bucket and the account, Amazon S3 uses the
-    /// most restrictive combination of the bucket-level and account-level settings.
+    /// (or the bucket that contains the object) and the bucket owner's account. Account-level
+    /// settings automatically inherit from organization-level policies when present. If the
+    /// <c>PublicAccessBlock</c> configurations are different between the bucket and the account,
+    /// Amazon S3 uses the most restrictive combination of the bucket-level and account-level
+    /// settings.
     /// </para></important><para>
     /// For more information about when Amazon S3 considers a bucket or an object public,
     /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The

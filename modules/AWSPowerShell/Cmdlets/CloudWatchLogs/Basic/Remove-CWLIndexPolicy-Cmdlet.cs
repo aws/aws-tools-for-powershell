@@ -36,12 +36,18 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// 
     ///  
     /// <para>
+    /// If the deleted policy included facet configurations, those facets will no longer be
+    /// available for interactive exploration in the CloudWatch Logs Insights console for
+    /// this log group. However, facet data is retained for up to 30 days.
+    /// </para><para>
     /// You can't use this operation to delete an account-level index policy. Instead, use
     /// <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteAccountPolicy.html">DeletAccountPolicy</a>.
     /// </para><para>
     /// If you delete a log-group level field index policy and there is an account-level field
     /// index policy, in a few minutes the log group begins using that account-wide policy
-    /// to index new incoming log events. 
+    /// to index new incoming log events. This operation only affects log group-level policies,
+    /// including any facet configurations, and preserves any data source-based account policies
+    /// that may apply to the log group.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "CWLIndexPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

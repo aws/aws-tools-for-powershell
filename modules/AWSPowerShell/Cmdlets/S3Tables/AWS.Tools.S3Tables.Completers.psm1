@@ -115,6 +115,17 @@ $S3T_Completers = {
             break
         }
 
+        # Amazon.S3Tables.StorageClass
+        {
+            ($_ -eq "New-S3TTable/StorageClassConfiguration_StorageClass") -Or
+            ($_ -eq "New-S3TTableBucket/StorageClassConfiguration_StorageClass") -Or
+            ($_ -eq "Write-S3TTableBucketStorageClass/StorageClassConfiguration_StorageClass")
+        }
+        {
+            $v = "INTELLIGENT_TIERING","STANDARD"
+            break
+        }
+
         # Amazon.S3Tables.TableBucketMaintenanceType
         "Write-S3TTableBucketMaintenanceConfiguration/Type"
         {
@@ -136,6 +147,13 @@ $S3T_Completers = {
             break
         }
 
+        # Amazon.S3Tables.TableRecordExpirationStatus
+        "Write-S3TTableRecordExpirationConfiguration/Value_Status"
+        {
+            $v = "disabled","enabled"
+            break
+        }
+
 
     }
 
@@ -148,8 +166,9 @@ $S3T_map = @{
     "EncryptionConfiguration_SseAlgorithm"=@("New-S3TTable","New-S3TTableBucket","Write-S3TTableBucketEncryption")
     "Format"=@("New-S3TTable")
     "IcebergCompaction_Strategy"=@("Write-S3TTableMaintenanceConfiguration")
+    "StorageClassConfiguration_StorageClass"=@("New-S3TTable","New-S3TTableBucket","Write-S3TTableBucketStorageClass")
     "Type"=@("Get-S3TTableBucketList","Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration")
-    "Value_Status"=@("Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration")
+    "Value_Status"=@("Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration","Write-S3TTableRecordExpirationConfiguration")
 }
 
 _awsArgumentCompleterRegistration $S3T_Completers $S3T_map
@@ -211,7 +230,9 @@ $S3T_SelectMap = @{
                "Remove-S3TTableBucketEncryption",
                "Remove-S3TTableBucketMetricsConfiguration",
                "Remove-S3TTableBucketPolicy",
+               "Remove-S3TTableBucketReplication",
                "Remove-S3TTablePolicy",
+               "Remove-S3TTableReplication",
                "Get-S3TNamespace",
                "Get-S3TTable",
                "Get-S3TTableBucket",
@@ -219,11 +240,18 @@ $S3T_SelectMap = @{
                "Get-S3TTableBucketMaintenanceConfiguration",
                "Get-S3TTableBucketMetricsConfiguration",
                "Get-S3TTableBucketPolicy",
+               "Get-S3TTableBucketReplication",
+               "Get-S3TTableBucketStorageClass",
                "Get-S3TTableEncryption",
                "Get-S3TTableMaintenanceConfiguration",
                "Get-S3TTableMaintenanceJobStatus",
                "Get-S3TTableMetadataLocation",
                "Get-S3TTablePolicy",
+               "Get-S3TTableRecordExpirationConfiguration",
+               "Get-S3TTableRecordExpirationJobStatus",
+               "Get-S3TTableReplication",
+               "Get-S3TTableReplicationStatus",
+               "Get-S3TTableStorageClass",
                "Get-S3TNamespaceList",
                "Get-S3TTableBucketList",
                "Get-S3TTableList",
@@ -232,8 +260,12 @@ $S3T_SelectMap = @{
                "Write-S3TTableBucketMaintenanceConfiguration",
                "Write-S3TTableBucketMetricsConfiguration",
                "Write-S3TTableBucketPolicy",
+               "Write-S3TTableBucketReplication",
+               "Write-S3TTableBucketStorageClass",
                "Write-S3TTableMaintenanceConfiguration",
                "Write-S3TTablePolicy",
+               "Write-S3TTableRecordExpirationConfiguration",
+               "Write-S3TTableReplication",
                "Rename-S3TTable",
                "Add-S3TResourceTag",
                "Remove-S3TResourceTag",

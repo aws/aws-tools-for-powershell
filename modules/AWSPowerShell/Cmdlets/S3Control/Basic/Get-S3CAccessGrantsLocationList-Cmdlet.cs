@@ -35,11 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     ///  <dl><dt>Permissions</dt><dd><para>
     /// You must have the <c>s3:ListAccessGrantsLocations</c> permission to use this operation.
     /// 
-    /// </para></dd></dl><important><para>
-    /// You must URL encode any signed header values that contain spaces. For example, if
-    /// your header value is <c>my file.txt</c>, containing two spaces after <c>my</c>, you
-    /// must URL encode this value to <c>my%20%20file.txt</c>.
-    /// </para></important><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
+    /// </para></dd></dl><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration. This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.
     /// </summary>
     [Cmdlet("Get", "S3CAccessGrantsLocationList")]
     [OutputType("Amazon.S3Control.Model.ListAccessGrantsLocationsEntry")]

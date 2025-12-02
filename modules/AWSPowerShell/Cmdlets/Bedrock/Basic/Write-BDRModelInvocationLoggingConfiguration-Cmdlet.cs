@@ -45,6 +45,16 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter LoggingConfig_AudioDataDeliveryEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Set to include audio data in the log delivery.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? LoggingConfig_AudioDataDeliveryEnabled { get; set; }
+        #endregion
+        
         #region Parameter LargeDataDeliveryS3Config_BucketName
         /// <summary>
         /// <para>
@@ -196,6 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
                 context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.PutModelInvocationLoggingConfigurationResponse, WriteBDRModelInvocationLoggingConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.LoggingConfig_AudioDataDeliveryEnabled = this.LoggingConfig_AudioDataDeliveryEnabled;
             context.LargeDataDeliveryS3Config_BucketName = this.LargeDataDeliveryS3Config_BucketName;
             context.LargeDataDeliveryS3Config_KeyPrefix = this.LargeDataDeliveryS3Config_KeyPrefix;
             context.CloudWatchConfig_LogGroupName = this.CloudWatchConfig_LogGroupName;
@@ -226,6 +237,16 @@ namespace Amazon.PowerShell.Cmdlets.BDR
              // populate LoggingConfig
             var requestLoggingConfigIsNull = true;
             request.LoggingConfig = new Amazon.Bedrock.Model.LoggingConfig();
+            System.Boolean? requestLoggingConfig_loggingConfig_AudioDataDeliveryEnabled = null;
+            if (cmdletContext.LoggingConfig_AudioDataDeliveryEnabled != null)
+            {
+                requestLoggingConfig_loggingConfig_AudioDataDeliveryEnabled = cmdletContext.LoggingConfig_AudioDataDeliveryEnabled.Value;
+            }
+            if (requestLoggingConfig_loggingConfig_AudioDataDeliveryEnabled != null)
+            {
+                request.LoggingConfig.AudioDataDeliveryEnabled = requestLoggingConfig_loggingConfig_AudioDataDeliveryEnabled.Value;
+                requestLoggingConfigIsNull = false;
+            }
             System.Boolean? requestLoggingConfig_loggingConfig_EmbeddingDataDeliveryEnabled = null;
             if (cmdletContext.LoggingConfig_EmbeddingDataDeliveryEnabled != null)
             {
@@ -431,6 +452,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? LoggingConfig_AudioDataDeliveryEnabled { get; set; }
             public System.String LargeDataDeliveryS3Config_BucketName { get; set; }
             public System.String LargeDataDeliveryS3Config_KeyPrefix { get; set; }
             public System.String CloudWatchConfig_LogGroupName { get; set; }

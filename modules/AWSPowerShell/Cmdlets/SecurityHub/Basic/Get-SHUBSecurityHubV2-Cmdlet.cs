@@ -30,8 +30,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Returns details about the service resource in your account. This API is in public
-    /// preview and subject to change.
+    /// Returns details about the service resource in your account.
     /// </summary>
     [Cmdlet("Get", "SHUBSecurityHubV2")]
     [OutputType("Amazon.SecurityHub.Model.DescribeSecurityHubV2Response")]

@@ -30,7 +30,16 @@ using Amazon.S3Vectors.Model;
 namespace Amazon.PowerShell.Cmdlets.S3V
 {
     /// <summary>
-    /// Amazon.S3Vectors.IAmazonS3Vectors.CreateVectorBucket
+    /// Creates a vector bucket in the Amazon Web Services Region that you want your bucket
+    /// to be in. 
+    /// 
+    ///  <dl><dt>Permissions</dt><dd><para>
+    /// You must have the <c>s3vectors:CreateVectorBucket</c> permission to use this operation.
+    /// 
+    /// </para><para>
+    /// You must have the <c>s3vectors:TagResource</c> permission in addition to <c>s3vectors:CreateVectorBucket</c>
+    /// permission to create a vector bucket with tags.
+    /// </para></dd></dl>
     /// </summary>
     [Cmdlet("New", "S3VVectorBucket", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -69,6 +78,25 @@ namespace Amazon.PowerShell.Cmdlets.S3V
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.S3Vectors.SseType")]
         public Amazon.S3Vectors.SseType EncryptionConfiguration_SseType { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>An array of user-defined tags that you would like to apply to the vector bucket that
+        /// you are creating. A tag is a key-value pair that you apply to your resources. Tags
+        /// can help you organize and control access to resources. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html">Tagging
+        /// for cost allocation or attribute-based access control (ABAC)</a>.</para><note><para>You must have the <c>s3vectors:TagResource</c> permission in addition to <c>s3vectors:CreateVectorBucket</c>
+        /// permission to create a vector bucket with tags.</para></note><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter VectorBucketName
@@ -136,6 +164,14 @@ namespace Amazon.PowerShell.Cmdlets.S3V
             }
             context.EncryptionConfiguration_KmsKeyArn = this.EncryptionConfiguration_KmsKeyArn;
             context.EncryptionConfiguration_SseType = this.EncryptionConfiguration_SseType;
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
             context.VectorBucketName = this.VectorBucketName;
             #if MODULAR
             if (this.VectorBucketName == null && ParameterWasBound(nameof(this.VectorBucketName)))
@@ -187,6 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.S3V
             if (requestEncryptionConfigurationIsNull)
             {
                 request.EncryptionConfiguration = null;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.VectorBucketName != null)
             {
@@ -249,6 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.S3V
         {
             public System.String EncryptionConfiguration_KmsKeyArn { get; set; }
             public Amazon.S3Vectors.SseType EncryptionConfiguration_SseType { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String VectorBucketName { get; set; }
             public System.Func<Amazon.S3Vectors.Model.CreateVectorBucketResponse, NewS3VVectorBucketCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.VectorBucketArn;

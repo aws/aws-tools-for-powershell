@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// operation.
     /// </para><para>
     /// The following operations are related to <c>StartBrowserSession</c>:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/API_GetBrowserSession.html">GetBrowserSession</a></para></li><li><para><a href="https://docs.aws.amazon.com/API_UpdateBrowserStream.html">UpdateBrowserStream</a></para></li><li><para><a href="https://docs.aws.amazon.com/API_StopBrowserSession.html">StopBrowserSession</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetBrowserSession.html">GetBrowserSession</a></para></li><li><para><a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_UpdateBrowserStream.html">UpdateBrowserStream</a></para></li><li><para><a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StopBrowserSession.html">StopBrowserSession</a></para></li></ul>
     /// </summary>
     [Cmdlet("Start", "BACBrowserSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentCore.Model.StartBrowserSessionResponse")]

@@ -36,6 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// 
     ///  
     /// <para>
+    /// This operation is used for discovering fields within log group events. For discovering
+    /// fields across data sources, use the GetLogFields operation.
+    /// </para><para>
     /// You can specify the log group to search by using either <c>logGroupIdentifier</c>
     /// or <c>logGroupName</c>. You must specify one of these parameters, but you can't specify
     /// both. 

@@ -30,7 +30,26 @@ using Amazon.S3Vectors.Model;
 namespace Amazon.PowerShell.Cmdlets.S3V
 {
     /// <summary>
-    /// Amazon.S3Vectors.IAmazonS3Vectors.PutVectors
+    /// Adds one or more vectors to a vector index. To specify the vector index, you can either
+    /// use both the vector bucket name and the vector index name, or use the vector index
+    /// Amazon Resource Name (ARN). 
+    /// 
+    ///  
+    /// <para>
+    /// For more information about limits, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-limitations.html">Limitations
+    /// and restrictions</a> in the <i>Amazon S3 User Guide</i>.
+    /// </para><note><para>
+    /// When inserting vector data into your vector index, you must provide the vector data
+    /// as <c>float32</c> (32-bit floating point) values. If you pass higher-precision values
+    /// to an Amazon Web Services SDK, S3 Vectors converts the values to 32-bit floating point
+    /// before storing them, and <c>GetVectors</c>, <c>ListVectors</c>, and <c>QueryVectors</c>
+    /// operations return the float32 values. Different Amazon Web Services SDKs may have
+    /// different default numeric types, so ensure your vectors are properly formatted as
+    /// <c>float32</c> values regardless of which SDK you're using. For example, in Python,
+    /// use <c>numpy.float32</c> or explicitly cast your values.
+    /// </para></note><dl><dt>Permissions</dt><dd><para>
+    /// You must have the <c>s3vectors:PutVectors</c> permission to use this operation. 
+    /// </para></dd></dl>
     /// </summary>
     [Cmdlet("Write", "S3VVector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

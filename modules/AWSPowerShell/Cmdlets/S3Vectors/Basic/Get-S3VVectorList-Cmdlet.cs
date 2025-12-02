@@ -30,7 +30,27 @@ using Amazon.S3Vectors.Model;
 namespace Amazon.PowerShell.Cmdlets.S3V
 {
     /// <summary>
-    /// Amazon.S3Vectors.IAmazonS3Vectors.ListVectors<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// List vectors in the specified vector index. To specify the vector index, you can either
+    /// use both the vector bucket name and the vector index name, or use the vector index
+    /// Amazon Resource Name (ARN). 
+    /// 
+    ///  
+    /// <para><c>ListVectors</c> operations proceed sequentially; however, for faster performance
+    /// on a large number of vectors in a vector index, applications can request a parallel
+    /// <c>ListVectors</c> operation by providing the <c>segmentCount</c> and <c>segmentIndex</c>
+    /// parameters.
+    /// </para><dl><dt>Permissions</dt><dd><para>
+    /// You must have the <c>s3vectors:ListVectors</c> permission to use this operation. Additional
+    /// permissions are required based on the request parameters you specify:
+    /// </para><ul><li><para>
+    /// With only <c>s3vectors:ListVectors</c> permission, you can list vector keys when <c>returnData</c>
+    /// and <c>returnMetadata</c> are both set to false or not specified..
+    /// </para></li><li><para>
+    /// If you set <c>returnData</c> or <c>returnMetadata</c> to true, you must have both
+    /// <c>s3vectors:ListVectors</c> and <c>s3vectors:GetVectors</c> permissions. The request
+    /// fails with a <c>403 Forbidden</c> error if you request vector data or metadata without
+    /// the <c>s3vectors:GetVectors</c> permission.
+    /// </para></li></ul></dd></dl><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "S3VVectorList")]
     [OutputType("Amazon.S3Vectors.Model.ListOutputVector")]

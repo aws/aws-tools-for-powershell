@@ -43,8 +43,11 @@ namespace Amazon.PowerShell.Cmdlets.S3T
     /// If you use this operation with the optional <c>encryptionConfiguration</c> request
     /// parameter you must have the <c>s3tables:PutTableEncryption</c> permission. 
     /// </para></li><li><para>
-    /// You must have the <c>s3tables:TagResource</c> permission in addition to <c>s3tables:CreateTable</c>
-    /// permission to create a table with tags.
+    /// If you use this operation with the <c>storageClassConfiguration</c> request parameter,
+    /// you must have the <c>s3tables:PutTableStorageClass</c> permission.
+    /// </para></li><li><para>
+    /// To create a table with tags, you must have the <c>s3tables:TagResource</c> permission
+    /// in addition to <c>s3tables:CreateTable</c> permission.
     /// </para></li></ul><note><para>
     /// Additionally, If you choose SSE-KMS encryption you must grant the S3 Tables maintenance
     /// principal access to your KMS key. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-kms-permissions.html">Permissions
@@ -140,6 +143,21 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         public System.String Namespace { get; set; }
         #endregion
         
+        #region Parameter Iceberg_Property
+        /// <summary>
+        /// <para>
+        /// <para>Contains configuration properties for an Iceberg table.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Metadata_Iceberg_Properties")]
+        public System.Collections.Hashtable Iceberg_Property { get; set; }
+        #endregion
+        
         #region Parameter EncryptionConfiguration_SseAlgorithm
         /// <summary>
         /// <para>
@@ -153,6 +171,18 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.S3Tables.SSEAlgorithm")]
         public Amazon.S3Tables.SSEAlgorithm EncryptionConfiguration_SseAlgorithm { get; set; }
+        #endregion
+        
+        #region Parameter StorageClassConfiguration_StorageClass
+        /// <summary>
+        /// <para>
+        /// <para>The storage class for the table or table bucket. Valid values include storage classes
+        /// optimized for different access patterns and cost profiles.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3Tables.StorageClass")]
+        public Amazon.S3Tables.StorageClass StorageClassConfiguration_StorageClass { get; set; }
         #endregion
         
         #region Parameter TableBucketARN
@@ -247,6 +277,14 @@ namespace Amazon.PowerShell.Cmdlets.S3T
                 WriteWarning("You are passing $null as a value for parameter Format which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Iceberg_Property != null)
+            {
+                context.Iceberg_Property = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Iceberg_Property.Keys)
+                {
+                    context.Iceberg_Property.Add((String)hashKey, (System.String)(this.Iceberg_Property[hashKey]));
+                }
+            }
             if (this.Schema_Field != null)
             {
                 context.Schema_Field = new List<Amazon.S3Tables.Model.SchemaField>(this.Schema_Field);
@@ -265,6 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.S3T
                 WriteWarning("You are passing $null as a value for parameter Namespace which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.StorageClassConfiguration_StorageClass = this.StorageClassConfiguration_StorageClass;
             context.TableBucketARN = this.TableBucketARN;
             #if MODULAR
             if (this.TableBucketARN == null && ParameterWasBound(nameof(this.TableBucketARN)))
@@ -338,6 +377,16 @@ namespace Amazon.PowerShell.Cmdlets.S3T
              // populate Iceberg
             var requestMetadata_metadata_IcebergIsNull = true;
             requestMetadata_metadata_Iceberg = new Amazon.S3Tables.Model.IcebergMetadata();
+            Dictionary<System.String, System.String> requestMetadata_metadata_Iceberg_iceberg_Property = null;
+            if (cmdletContext.Iceberg_Property != null)
+            {
+                requestMetadata_metadata_Iceberg_iceberg_Property = cmdletContext.Iceberg_Property;
+            }
+            if (requestMetadata_metadata_Iceberg_iceberg_Property != null)
+            {
+                requestMetadata_metadata_Iceberg.Properties = requestMetadata_metadata_Iceberg_iceberg_Property;
+                requestMetadata_metadata_IcebergIsNull = false;
+            }
             Amazon.S3Tables.Model.IcebergSchema requestMetadata_metadata_Iceberg_metadata_Iceberg_Schema = null;
             
              // populate Schema
@@ -385,6 +434,25 @@ namespace Amazon.PowerShell.Cmdlets.S3T
             if (cmdletContext.Namespace != null)
             {
                 request.Namespace = cmdletContext.Namespace;
+            }
+            
+             // populate StorageClassConfiguration
+            var requestStorageClassConfigurationIsNull = true;
+            request.StorageClassConfiguration = new Amazon.S3Tables.Model.StorageClassConfiguration();
+            Amazon.S3Tables.StorageClass requestStorageClassConfiguration_storageClassConfiguration_StorageClass = null;
+            if (cmdletContext.StorageClassConfiguration_StorageClass != null)
+            {
+                requestStorageClassConfiguration_storageClassConfiguration_StorageClass = cmdletContext.StorageClassConfiguration_StorageClass;
+            }
+            if (requestStorageClassConfiguration_storageClassConfiguration_StorageClass != null)
+            {
+                request.StorageClassConfiguration.StorageClass = requestStorageClassConfiguration_storageClassConfiguration_StorageClass;
+                requestStorageClassConfigurationIsNull = false;
+            }
+             // determine if request.StorageClassConfiguration should be set to null
+            if (requestStorageClassConfigurationIsNull)
+            {
+                request.StorageClassConfiguration = null;
             }
             if (cmdletContext.TableBucketARN != null)
             {
@@ -452,9 +520,11 @@ namespace Amazon.PowerShell.Cmdlets.S3T
             public System.String EncryptionConfiguration_KmsKeyArn { get; set; }
             public Amazon.S3Tables.SSEAlgorithm EncryptionConfiguration_SseAlgorithm { get; set; }
             public Amazon.S3Tables.OpenTableFormat Format { get; set; }
+            public Dictionary<System.String, System.String> Iceberg_Property { get; set; }
             public List<Amazon.S3Tables.Model.SchemaField> Schema_Field { get; set; }
             public System.String Name { get; set; }
             public System.String Namespace { get; set; }
+            public Amazon.S3Tables.StorageClass StorageClassConfiguration_StorageClass { get; set; }
             public System.String TableBucketARN { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.S3Tables.Model.CreateTableResponse, NewS3TTableCmdlet, object> Select { get; set; } =

@@ -89,6 +89,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public Amazon.DataZone.MetadataGenerationRunStatus Status { get; set; }
         #endregion
         
+        #region Parameter TargetIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The target ID for which you want to list metadata generation runs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetIdentifier { get; set; }
+        #endregion
+        
         #region Parameter Type
         /// <summary>
         /// <para>
@@ -182,6 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.Status = this.Status;
+            context.TargetIdentifier = this.TargetIdentifier;
             context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
@@ -212,6 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.Status != null)
             {
                 request.Status = cmdletContext.Status;
+            }
+            if (cmdletContext.TargetIdentifier != null)
+            {
+                request.TargetIdentifier = cmdletContext.TargetIdentifier;
             }
             if (cmdletContext.Type != null)
             {
@@ -300,6 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.DataZone.MetadataGenerationRunStatus Status { get; set; }
+            public System.String TargetIdentifier { get; set; }
             public Amazon.DataZone.MetadataGenerationRunType Type { get; set; }
             public System.Func<Amazon.DataZone.Model.ListMetadataGenerationRunsResponse, GetDZMetadataGenerationRunListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Items;

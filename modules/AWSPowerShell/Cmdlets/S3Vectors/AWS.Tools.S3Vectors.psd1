@@ -87,8 +87,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-S3VResourceTag', 
         'Get-S3VIndex', 
         'Get-S3VIndexList', 
+        'Get-S3VResourceTag', 
         'Get-S3VVector', 
         'Get-S3VVectorBucket', 
         'Get-S3VVectorBucketList', 
@@ -97,6 +99,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-S3VIndex', 
         'New-S3VVectorBucket', 
         'Remove-S3VIndex', 
+        'Remove-S3VResourceTag', 
         'Remove-S3VVector', 
         'Remove-S3VVectorBucket', 
         'Remove-S3VVectorBucketPolicy', 

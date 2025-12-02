@@ -403,6 +403,28 @@
                 <Param Name="StorageLensConfiguration_AccountLevel_BucketLevel_AdvancedDataProtectionMetrics_IsEnabled" NewName="StorageLensConfiguration_BucketLevel_AdvancedDataProtectionMetrics_IsEnabled" />
                 <Param Name="StorageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics_IsEnabled" NewName="StorageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics_IsEnabled" />
                 <Param Name="StorageLensConfiguration_AccountLevel_BucketLevel_DetailedStatusCodesMetrics_IsEnabled" NewName="StorageLensConfiguration_BucketLevel_DetailedStatusCodesMetrics_IsEnabled" />
+                <Param Name="StorageLensConfiguration_AccountLevel_AdvancedPerformanceMetrics_IsEnabled" NewName="StorageLensConfiguration_AccountLevel_AdvancedPerformanceMetrics_IsEnabled" />
+                <Param Name="StorageLensConfiguration_AccountLevel_BucketLevel_AdvancedPerformanceMetrics_IsEnabled" NewName="StorageLensConfiguration_BucketLevel_AdvancedPerformanceMetrics_IsEnabled" />
+                <Param Name="StorageLensConfiguration_DataExport_S3BucketDestination_AccountId" NewName="DataExport_S3BucketDestination_AccountId" Alias="S3BucketDestination_AccountId" />
+                <Param Name="StorageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_AccountId" NewName="ExpandedPrefixesDataExport_S3BucketDestination_AccountId" />
+                <Param Name="StorageLensConfiguration_DataExport_S3BucketDestination_Arn" NewName="DataExport_S3BucketDestination_Arn" Alias="S3BucketDestination_Arn" />
+                <Param Name="StorageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Arn" NewName="ExpandedPrefixesDataExport_S3BucketDestination_Arn" />
+                <Param Name="StorageLensConfiguration_DataExport_S3BucketDestination_Format" NewName="DataExport_S3BucketDestination_Format" Alias="S3BucketDestination_Format" />
+                <Param Name="StorageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Format" NewName="ExpandedPrefixesDataExport_S3BucketDestination_Format" />
+                <Param Name="StorageLensConfiguration_DataExport_S3BucketDestination_OutputSchemaVersion" NewName="DataExport_S3BucketDestination_OutputSchemaVersion" Alias="S3BucketDestination_OutputSchemaVersion" />
+                <Param Name="StorageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_OutputSchemaVersion" NewName="ExpandedPrefixesDataExport_S3BucketDestination_OutputSchemaVersion" />
+                <Param Name="StorageLensConfiguration_DataExport_S3BucketDestination_Prefix" NewName="DataExport_S3BucketDestination_Prefix" Alias="S3BucketDestination_Prefix" />
+                <Param Name="StorageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Prefix" NewName="ExpandedPrefixesDataExport_S3BucketDestination_Prefix" />
+                <Param Name="StorageLensConfiguration_DataExport_S3BucketDestination_Encryption_SSEKMS_KeyId" NewName="DataExport_S3BucketDestination_SSEKMS_KeyId" Alias="SSEKMS_KeyId" />
+                <Param Name="StorageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_SSEKMS_KeyId" NewName="DataExport_StorageLensTableDestination_SSEKMS_KeyId" />
+                <Param Name="StorageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSEKMS_KeyId" NewName="ExpandedPrefixesDataExport_S3BucketDestination_SSEKMS_KeyId" />
+                <Param Name="StorageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSEKMS_KeyId" NewName="ExpandedPrefixesDataExport_StorageLensTableDestination_SSEKMS_KeyId" />
+                <Param Name="StorageLensConfiguration_DataExport_S3BucketDestination_Encryption_SSES3" NewName="DataExport_S3BucketDestination_Encryption_SSES3" Alias="Encryption_SSES3" />
+                <Param Name="StorageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_SSES3" NewName="DataExport_StorageLensTableDestination_Encryption_SSES3" />
+                <Param Name="StorageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSES3" NewName="ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSES3" />
+                <Param Name="StorageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSES3" NewName="ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSES3" />
+                <Param Name="StorageLensConfiguration_DataExport_StorageLensTableDestination_IsEnabled" NewName="DataExport_StorageLensTableDestination_IsEnabled" />
+                <Param Name="StorageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_IsEnabled" NewName="ExpandedPrefixesDataExport_StorageLensTableDestination_IsEnabled" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

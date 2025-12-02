@@ -76,6 +76,33 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String[] CustomJWTAuthorizer_AllowedClient { get; set; }
         #endregion
         
+        #region Parameter CustomJWTAuthorizer_AllowedScope
+        /// <summary>
+        /// <para>
+        /// <para>An array of scopes that are allowed to access the token.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AuthorizerConfiguration_CustomJWTAuthorizer_AllowedScopes")]
+        public System.String[] CustomJWTAuthorizer_AllowedScope { get; set; }
+        #endregion
+        
+        #region Parameter PolicyEngineConfiguration_Arn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the policy engine. The policy engine contains Cedar policies that define
+        /// fine-grained authorization rules specifying who can perform what actions on which
+        /// resources as agents interact through the gateway.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PolicyEngineConfiguration_Arn { get; set; }
+        #endregion
+        
         #region Parameter AuthorizerType
         /// <summary>
         /// <para>
@@ -91,6 +118,22 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.AuthorizerType")]
         public Amazon.BedrockAgentCoreControl.AuthorizerType AuthorizerType { get; set; }
+        #endregion
+        
+        #region Parameter CustomJWTAuthorizer_CustomClaim
+        /// <summary>
+        /// <para>
+        /// <para>An array of objects that define a custom claim validation name, value, and operation
+        /// </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AuthorizerConfiguration_CustomJWTAuthorizer_CustomClaims")]
+        public Amazon.BedrockAgentCoreControl.Model.CustomClaimValidationType[] CustomJWTAuthorizer_CustomClaim { get; set; }
         #endregion
         
         #region Parameter Description
@@ -179,6 +222,22 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String KmsKeyArn { get; set; }
+        #endregion
+        
+        #region Parameter PolicyEngineConfiguration_Mode
+        /// <summary>
+        /// <para>
+        /// <para>The enforcement mode for the policy engine. Valid values include:</para><ul><li><para><c>LOG_ONLY</c> - The policy engine evaluates each action against your policies and
+        /// adds traces on whether tool calls would be allowed or denied, but does not enforce
+        /// the decision. Use this mode to test and validate policies before enabling enforcement.</para></li><li><para><c>ENFORCE</c> - The policy engine evaluates actions against your policies and enforces
+        /// decisions by allowing or denying agent operations. Test and validate policies in <c>LOG_ONLY</c>
+        /// mode before enabling enforcement to avoid unintended denials or adversely affecting
+        /// production traffic.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentCoreControl.GatewayPolicyEngineMode")]
+        public Amazon.BedrockAgentCoreControl.GatewayPolicyEngineMode PolicyEngineConfiguration_Mode { get; set; }
         #endregion
         
         #region Parameter Name
@@ -316,6 +375,14 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             {
                 context.CustomJWTAuthorizer_AllowedClient = new List<System.String>(this.CustomJWTAuthorizer_AllowedClient);
             }
+            if (this.CustomJWTAuthorizer_AllowedScope != null)
+            {
+                context.CustomJWTAuthorizer_AllowedScope = new List<System.String>(this.CustomJWTAuthorizer_AllowedScope);
+            }
+            if (this.CustomJWTAuthorizer_CustomClaim != null)
+            {
+                context.CustomJWTAuthorizer_CustomClaim = new List<Amazon.BedrockAgentCoreControl.Model.CustomClaimValidationType>(this.CustomJWTAuthorizer_CustomClaim);
+            }
             context.CustomJWTAuthorizer_DiscoveryUrl = this.CustomJWTAuthorizer_DiscoveryUrl;
             context.AuthorizerType = this.AuthorizerType;
             #if MODULAR
@@ -345,6 +412,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PolicyEngineConfiguration_Arn = this.PolicyEngineConfiguration_Arn;
+            context.PolicyEngineConfiguration_Mode = this.PolicyEngineConfiguration_Mode;
             context.Mcp_Instruction = this.Mcp_Instruction;
             context.Mcp_SearchType = this.Mcp_SearchType;
             if (this.Mcp_SupportedVersion != null)
@@ -410,6 +479,26 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer.AllowedClients = requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_AllowedClient;
                 requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizerIsNull = false;
             }
+            List<System.String> requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_AllowedScope = null;
+            if (cmdletContext.CustomJWTAuthorizer_AllowedScope != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_AllowedScope = cmdletContext.CustomJWTAuthorizer_AllowedScope;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_AllowedScope != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer.AllowedScopes = requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_AllowedScope;
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizerIsNull = false;
+            }
+            List<Amazon.BedrockAgentCoreControl.Model.CustomClaimValidationType> requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_CustomClaim = null;
+            if (cmdletContext.CustomJWTAuthorizer_CustomClaim != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_CustomClaim = cmdletContext.CustomJWTAuthorizer_CustomClaim;
+            }
+            if (requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_CustomClaim != null)
+            {
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer.CustomClaims = requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_CustomClaim;
+                requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizerIsNull = false;
+            }
             System.String requestAuthorizerConfiguration_authorizerConfiguration_CustomJWTAuthorizer_customJWTAuthorizer_DiscoveryUrl = null;
             if (cmdletContext.CustomJWTAuthorizer_DiscoveryUrl != null)
             {
@@ -462,6 +551,35 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate PolicyEngineConfiguration
+            var requestPolicyEngineConfigurationIsNull = true;
+            request.PolicyEngineConfiguration = new Amazon.BedrockAgentCoreControl.Model.GatewayPolicyEngineConfiguration();
+            System.String requestPolicyEngineConfiguration_policyEngineConfiguration_Arn = null;
+            if (cmdletContext.PolicyEngineConfiguration_Arn != null)
+            {
+                requestPolicyEngineConfiguration_policyEngineConfiguration_Arn = cmdletContext.PolicyEngineConfiguration_Arn;
+            }
+            if (requestPolicyEngineConfiguration_policyEngineConfiguration_Arn != null)
+            {
+                request.PolicyEngineConfiguration.Arn = requestPolicyEngineConfiguration_policyEngineConfiguration_Arn;
+                requestPolicyEngineConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.GatewayPolicyEngineMode requestPolicyEngineConfiguration_policyEngineConfiguration_Mode = null;
+            if (cmdletContext.PolicyEngineConfiguration_Mode != null)
+            {
+                requestPolicyEngineConfiguration_policyEngineConfiguration_Mode = cmdletContext.PolicyEngineConfiguration_Mode;
+            }
+            if (requestPolicyEngineConfiguration_policyEngineConfiguration_Mode != null)
+            {
+                request.PolicyEngineConfiguration.Mode = requestPolicyEngineConfiguration_policyEngineConfiguration_Mode;
+                requestPolicyEngineConfigurationIsNull = false;
+            }
+             // determine if request.PolicyEngineConfiguration should be set to null
+            if (requestPolicyEngineConfigurationIsNull)
+            {
+                request.PolicyEngineConfiguration = null;
             }
             
              // populate ProtocolConfiguration
@@ -582,6 +700,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         {
             public List<System.String> CustomJWTAuthorizer_AllowedAudience { get; set; }
             public List<System.String> CustomJWTAuthorizer_AllowedClient { get; set; }
+            public List<System.String> CustomJWTAuthorizer_AllowedScope { get; set; }
+            public List<Amazon.BedrockAgentCoreControl.Model.CustomClaimValidationType> CustomJWTAuthorizer_CustomClaim { get; set; }
             public System.String CustomJWTAuthorizer_DiscoveryUrl { get; set; }
             public Amazon.BedrockAgentCoreControl.AuthorizerType AuthorizerType { get; set; }
             public System.String Description { get; set; }
@@ -590,6 +710,8 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public List<Amazon.BedrockAgentCoreControl.Model.GatewayInterceptorConfiguration> InterceptorConfiguration { get; set; }
             public System.String KmsKeyArn { get; set; }
             public System.String Name { get; set; }
+            public System.String PolicyEngineConfiguration_Arn { get; set; }
+            public Amazon.BedrockAgentCoreControl.GatewayPolicyEngineMode PolicyEngineConfiguration_Mode { get; set; }
             public System.String Mcp_Instruction { get; set; }
             public Amazon.BedrockAgentCoreControl.SearchType Mcp_SearchType { get; set; }
             public List<System.String> Mcp_SupportedVersion { get; set; }

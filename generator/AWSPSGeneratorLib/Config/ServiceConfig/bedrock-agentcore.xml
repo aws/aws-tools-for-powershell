@@ -46,6 +46,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="Evaluate" OutputProperty="EvaluationResults" Verb="Invoke" Noun="Evaluate" ShouldProcessTarget="EvaluatorId" PipelineParameter="EvaluatorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAgentCard" OutputProperty="*" Verb="Get" Noun="AgentCard" PipelineParameter="AgentRuntimeArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

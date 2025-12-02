@@ -116,7 +116,10 @@ $S3C_Completers = {
         }
 
         # Amazon.S3Control.Format
-        "Write-S3CStorageLensConfiguration/S3BucketDestination_Format"
+        {
+            ($_ -eq "Write-S3CStorageLensConfiguration/DataExport_S3BucketDestination_Format") -Or
+            ($_ -eq "Write-S3CStorageLensConfiguration/ExpandedPrefixesDataExport_S3BucketDestination_Format")
+        }
         {
             $v = "CSV","Parquet"
             break
@@ -168,7 +171,10 @@ $S3C_Completers = {
         }
 
         # Amazon.S3Control.OutputSchemaVersion
-        "Write-S3CStorageLensConfiguration/S3BucketDestination_OutputSchemaVersion"
+        {
+            ($_ -eq "Write-S3CStorageLensConfiguration/DataExport_S3BucketDestination_OutputSchemaVersion") -Or
+            ($_ -eq "Write-S3CStorageLensConfiguration/ExpandedPrefixesDataExport_S3BucketDestination_OutputSchemaVersion")
+        }
         {
             $v = "V_1"
             break
@@ -290,6 +296,10 @@ $S3C_map = @{
     "AccessControlPolicy_CannedAccessControlList"=@("New-S3CJob")
     "ACL"=@("New-S3CBucket")
     "CreateBucketConfiguration_LocationConstraint"=@("New-S3CBucket")
+    "DataExport_S3BucketDestination_Format"=@("Write-S3CStorageLensConfiguration")
+    "DataExport_S3BucketDestination_OutputSchemaVersion"=@("Write-S3CStorageLensConfiguration")
+    "ExpandedPrefixesDataExport_S3BucketDestination_Format"=@("Write-S3CStorageLensConfiguration")
+    "ExpandedPrefixesDataExport_S3BucketDestination_OutputSchemaVersion"=@("Write-S3CStorageLensConfiguration")
     "Grantee_GranteeType"=@("New-S3CAccessGrant")
     "GranteeType"=@("Get-S3CAccessGrantList")
     "LegalHold_Status"=@("New-S3CJob")
@@ -301,8 +311,6 @@ $S3C_map = @{
     "Report_ReportScope"=@("New-S3CJob")
     "RequestedJobStatus"=@("Update-S3CJobStatus")
     "Retention_Mode"=@("New-S3CJob")
-    "S3BucketDestination_Format"=@("Write-S3CStorageLensConfiguration")
-    "S3BucketDestination_OutputSchemaVersion"=@("Write-S3CStorageLensConfiguration")
     "S3ComputeObjectChecksum_ChecksumAlgorithm"=@("New-S3CJob")
     "S3ComputeObjectChecksum_ChecksumType"=@("New-S3CJob")
     "S3InitiateRestoreObject_GlacierJobTier"=@("New-S3CJob")

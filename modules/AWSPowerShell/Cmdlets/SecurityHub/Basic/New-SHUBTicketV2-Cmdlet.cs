@@ -31,8 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Grants permission to create a ticket in the chosen ITSM based on finding information
-    /// for the provided finding metadata UID. This API is in public preview and subject to
-    /// change.
+    /// for the provided finding metadata UID.
     /// </summary>
     [Cmdlet("New", "SHUBTicketV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.CreateTicketV2Response")]
@@ -78,6 +77,18 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String FindingMetadataUid { get; set; }
+        #endregion
+        
+        #region Parameter Mode
+        /// <summary>
+        /// <para>
+        /// <para>The mode for ticket creation. When set to DRYRUN, the ticket is created using a Security
+        /// Hub owned template test finding to verify the integration is working correctly.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SecurityHub.TicketCreationMode")]
+        public Amazon.SecurityHub.TicketCreationMode Mode { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -151,6 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
                 WriteWarning("You are passing $null as a value for parameter FindingMetadataUid which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Mode = this.Mode;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -178,6 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (cmdletContext.FindingMetadataUid != null)
             {
                 request.FindingMetadataUid = cmdletContext.FindingMetadataUid;
+            }
+            if (cmdletContext.Mode != null)
+            {
+                request.Mode = cmdletContext.Mode;
             }
             
             CmdletOutput output;
@@ -237,6 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             public System.String ClientToken { get; set; }
             public System.String ConnectorId { get; set; }
             public System.String FindingMetadataUid { get; set; }
+            public Amazon.SecurityHub.TicketCreationMode Mode { get; set; }
             public System.Func<Amazon.SecurityHub.Model.CreateTicketV2Response, NewSHUBTicketV2Cmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

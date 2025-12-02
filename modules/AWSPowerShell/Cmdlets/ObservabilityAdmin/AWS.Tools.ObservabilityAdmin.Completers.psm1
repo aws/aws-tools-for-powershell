@@ -122,6 +122,30 @@ $CWOADMN_Completers = {
             break
         }
 
+        # Amazon.ObservabilityAdmin.FilterBehavior
+        {
+            ($_ -eq "New-CWOADMNTelemetryRule/LoggingFilter_DefaultBehavior") -Or
+            ($_ -eq "New-CWOADMNTelemetryRuleForOrganization/LoggingFilter_DefaultBehavior") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRule/LoggingFilter_DefaultBehavior") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRuleForOrganization/LoggingFilter_DefaultBehavior")
+        }
+        {
+            $v = "DROP","KEEP"
+            break
+        }
+
+        # Amazon.ObservabilityAdmin.OutputFormat
+        {
+            ($_ -eq "New-CWOADMNTelemetryRule/ELBLoadBalancerLoggingParameters_OutputFormat") -Or
+            ($_ -eq "New-CWOADMNTelemetryRuleForOrganization/ELBLoadBalancerLoggingParameters_OutputFormat") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRule/ELBLoadBalancerLoggingParameters_OutputFormat") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRuleForOrganization/ELBLoadBalancerLoggingParameters_OutputFormat")
+        }
+        {
+            $v = "json","plain"
+            break
+        }
+
         # Amazon.ObservabilityAdmin.ResourceType
         {
             ($_ -eq "New-CWOADMNTelemetryRule/Rule_ResourceType") -Or
@@ -130,7 +154,14 @@ $CWOADMN_Completers = {
             ($_ -eq "Update-CWOADMNTelemetryRuleForOrganization/Rule_ResourceType")
         }
         {
-            $v = "AWS::EC2::Instance","AWS::EC2::VPC","AWS::Lambda::Function"
+            $v = "AWS::BedrockAgentCore::Browser","AWS::BedrockAgentCore::CodeInterpreter","AWS::BedrockAgentCore::Runtime","AWS::CloudTrail","AWS::EC2::Instance","AWS::EC2::VPC","AWS::EKS::Cluster","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::Lambda::Function","AWS::Route53Resolver::ResolverEndpoint","AWS::WAFv2::WebACL"
+            break
+        }
+
+        # Amazon.ObservabilityAdmin.SSEAlgorithm
+        "New-CWOADMNS3TableIntegration/Encryption_SseAlgorithm"
+        {
+            $v = "AES256","aws:kms"
             break
         }
 
@@ -146,6 +177,18 @@ $CWOADMN_Completers = {
             break
         }
 
+        # Amazon.ObservabilityAdmin.WAFLogType
+        {
+            ($_ -eq "New-CWOADMNTelemetryRule/WAFLoggingParameters_LogType") -Or
+            ($_ -eq "New-CWOADMNTelemetryRuleForOrganization/WAFLoggingParameters_LogType") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRule/WAFLoggingParameters_LogType") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRuleForOrganization/WAFLoggingParameters_LogType")
+        }
+        {
+            $v = "WAF_LOGS"
+            break
+        }
+
 
     }
 
@@ -156,11 +199,15 @@ $CWOADMN_Completers = {
 
 $CWOADMN_map = @{
     "DestinationConfiguration_DestinationType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
+    "ELBLoadBalancerLoggingParameters_OutputFormat"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
+    "Encryption_SseAlgorithm"=@("New-CWOADMNS3TableIntegration")
+    "LoggingFilter_DefaultBehavior"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
     "LogsEncryptionConfiguration_EncryptionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
     "Rule_ResourceType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "Rule_TelemetryType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "SourceLogsConfiguration_EncryptedLogGroupStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
+    "WAFLoggingParameters_LogType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
 }
 
 _awsArgumentCompleterRegistration $CWOADMN_Completers $CWOADMN_map
@@ -214,21 +261,29 @@ $CWOADMN_SelectCompleters = {
 
 $CWOADMN_SelectMap = @{
     "Select"=@("New-CWOADMNCentralizationRuleForOrganization",
+               "New-CWOADMNS3TableIntegration",
+               "New-CWOADMNTelemetryPipeline",
                "New-CWOADMNTelemetryRule",
                "New-CWOADMNTelemetryRuleForOrganization",
                "Remove-CWOADMNCentralizationRuleForOrganization",
+               "Remove-CWOADMNS3TableIntegration",
+               "Remove-CWOADMNTelemetryPipeline",
                "Remove-CWOADMNTelemetryRule",
                "Remove-CWOADMNTelemetryRuleForOrganization",
                "Get-CWOADMNCentralizationRuleForOrganization",
+               "Get-CWOADMNS3TableIntegration",
                "Get-CWOADMNTelemetryEnrichmentStatus",
                "Get-CWOADMNTelemetryEvaluationStatus",
                "Get-CWOADMNTelemetryEvaluationStatusForOrganization",
+               "Get-CWOADMNTelemetryPipeline",
                "Get-CWOADMNTelemetryRule",
                "Get-CWOADMNTelemetryRuleForOrganization",
                "Get-CWOADMNCentralizationRulesForOrganizationList",
                "Get-CWOADMNResourceTelemetryList",
                "Get-CWOADMNResourceTelemetryForOrganizationList",
+               "Get-CWOADMNS3TableIntegrationList",
                "Get-CWOADMNResourceTag",
+               "Get-CWOADMNTelemetryPipelineList",
                "Get-CWOADMNTelemetryRuleList",
                "Get-CWOADMNTelemetryRulesForOrganizationList",
                "Start-CWOADMNTelemetryEnrichment",
@@ -238,10 +293,13 @@ $CWOADMN_SelectMap = @{
                "Stop-CWOADMNTelemetryEvaluation",
                "Stop-CWOADMNTelemetryEvaluationForOrganization",
                "Add-CWOADMNResourceTag",
+               "Test-CWOADMNTelemetryPipeline",
                "Remove-CWOADMNResourceTag",
                "Update-CWOADMNCentralizationRuleForOrganization",
+               "Update-CWOADMNTelemetryPipeline",
                "Update-CWOADMNTelemetryRule",
-               "Update-CWOADMNTelemetryRuleForOrganization")
+               "Update-CWOADMNTelemetryRuleForOrganization",
+               "Test-CWOADMNTelemetryPipelineConfiguration")
 }
 
 _awsArgumentCompleterRegistration $CWOADMN_SelectCompleters $CWOADMN_SelectMap

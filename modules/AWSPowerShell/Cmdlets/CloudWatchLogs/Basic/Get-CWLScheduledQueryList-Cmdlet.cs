@@ -30,8 +30,8 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Lists all scheduled queries in the current AWS account and region with optional filtering
-    /// by state.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all scheduled queries in your account and region. You can filter results by
+    /// state to show only enabled or disabled queries.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWLScheduledQueryList")]
     [OutputType("Amazon.CloudWatchLogs.Model.ScheduledQuerySummary")]
@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter State
         /// <summary>
         /// <para>
-        /// <para>Filter results by the state of scheduled queries (ENABLED or DISABLED).</para>
+        /// <para>Filter scheduled queries by state. Valid values are <c>ENABLED</c> and <c>DISABLED</c>.
+        /// If not specified, all scheduled queries are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -60,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of scheduled queries to return in a single call.</para>
+        /// <para>The maximum number of scheduled queries to return. Valid range is 1 to 1000.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

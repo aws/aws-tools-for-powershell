@@ -30,8 +30,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Grants permission to create a connectorV2 based on input parameters. This API is in
-    /// public preview and subject to change.
+    /// Grants permission to create a connectorV2 based on input parameters.
     /// </summary>
     [Cmdlet("New", "SHUBConnectorV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.CreateConnectorV2Response")]
@@ -44,28 +43,6 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
-        
-        #region Parameter ServiceNow_ClientId
-        /// <summary>
-        /// <para>
-        /// <para>The client ID of ServiceNow ITSM.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Provider_ServiceNow_ClientId")]
-        public System.String ServiceNow_ClientId { get; set; }
-        #endregion
-        
-        #region Parameter ServiceNow_ClientSecret
-        /// <summary>
-        /// <para>
-        /// <para>The client secret of ServiceNow ITSM.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Provider_ServiceNow_ClientSecret")]
-        public System.String ServiceNow_ClientSecret { get; set; }
-        #endregion
         
         #region Parameter Description
         /// <summary>
@@ -124,6 +101,18 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Provider_JiraCloud_ProjectKey")]
         public System.String JiraCloud_ProjectKey { get; set; }
+        #endregion
+        
+        #region Parameter ServiceNow_SecretArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that
+        /// contains the ServiceNow credentials.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Provider_ServiceNow_SecretArn")]
+        public System.String ServiceNow_SecretArn { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -208,9 +197,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             }
             #endif
             context.JiraCloud_ProjectKey = this.JiraCloud_ProjectKey;
-            context.ServiceNow_ClientId = this.ServiceNow_ClientId;
-            context.ServiceNow_ClientSecret = this.ServiceNow_ClientSecret;
             context.ServiceNow_InstanceName = this.ServiceNow_InstanceName;
+            context.ServiceNow_SecretArn = this.ServiceNow_SecretArn;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -285,26 +273,6 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
              // populate ServiceNow
             var requestProvider_provider_ServiceNowIsNull = true;
             requestProvider_provider_ServiceNow = new Amazon.SecurityHub.Model.ServiceNowProviderConfiguration();
-            System.String requestProvider_provider_ServiceNow_serviceNow_ClientId = null;
-            if (cmdletContext.ServiceNow_ClientId != null)
-            {
-                requestProvider_provider_ServiceNow_serviceNow_ClientId = cmdletContext.ServiceNow_ClientId;
-            }
-            if (requestProvider_provider_ServiceNow_serviceNow_ClientId != null)
-            {
-                requestProvider_provider_ServiceNow.ClientId = requestProvider_provider_ServiceNow_serviceNow_ClientId;
-                requestProvider_provider_ServiceNowIsNull = false;
-            }
-            System.String requestProvider_provider_ServiceNow_serviceNow_ClientSecret = null;
-            if (cmdletContext.ServiceNow_ClientSecret != null)
-            {
-                requestProvider_provider_ServiceNow_serviceNow_ClientSecret = cmdletContext.ServiceNow_ClientSecret;
-            }
-            if (requestProvider_provider_ServiceNow_serviceNow_ClientSecret != null)
-            {
-                requestProvider_provider_ServiceNow.ClientSecret = requestProvider_provider_ServiceNow_serviceNow_ClientSecret;
-                requestProvider_provider_ServiceNowIsNull = false;
-            }
             System.String requestProvider_provider_ServiceNow_serviceNow_InstanceName = null;
             if (cmdletContext.ServiceNow_InstanceName != null)
             {
@@ -313,6 +281,16 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestProvider_provider_ServiceNow_serviceNow_InstanceName != null)
             {
                 requestProvider_provider_ServiceNow.InstanceName = requestProvider_provider_ServiceNow_serviceNow_InstanceName;
+                requestProvider_provider_ServiceNowIsNull = false;
+            }
+            System.String requestProvider_provider_ServiceNow_serviceNow_SecretArn = null;
+            if (cmdletContext.ServiceNow_SecretArn != null)
+            {
+                requestProvider_provider_ServiceNow_serviceNow_SecretArn = cmdletContext.ServiceNow_SecretArn;
+            }
+            if (requestProvider_provider_ServiceNow_serviceNow_SecretArn != null)
+            {
+                requestProvider_provider_ServiceNow.SecretArn = requestProvider_provider_ServiceNow_serviceNow_SecretArn;
                 requestProvider_provider_ServiceNowIsNull = false;
             }
              // determine if requestProvider_provider_ServiceNow should be set to null
@@ -394,9 +372,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             public System.String KmsKeyArn { get; set; }
             public System.String Name { get; set; }
             public System.String JiraCloud_ProjectKey { get; set; }
-            public System.String ServiceNow_ClientId { get; set; }
-            public System.String ServiceNow_ClientSecret { get; set; }
             public System.String ServiceNow_InstanceName { get; set; }
+            public System.String ServiceNow_SecretArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.SecurityHub.Model.CreateConnectorV2Response, NewSHUBConnectorV2Cmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

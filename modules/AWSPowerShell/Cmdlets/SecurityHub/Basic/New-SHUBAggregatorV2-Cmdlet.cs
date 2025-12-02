@@ -30,8 +30,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Enables aggregation across Amazon Web Services Regions. This API is in public preview
-    /// and subject to change.
+    /// Enables aggregation across Amazon Web Services Regions.
     /// </summary>
     [Cmdlet("New", "SHUBAggregatorV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.CreateAggregatorV2Response")]

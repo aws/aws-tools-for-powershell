@@ -47,6 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// returns only partial results. If you see a value of <c>Scheduled</c> or <c>Running</c>
     /// for the status, you can retry the operation later to see the final results. 
     /// </para><para>
+    /// This operation is used both for retrieving results from interactive queries and from
+    /// automated scheduled query executions. Scheduled queries use <c>GetQueryResults</c>
+    /// internally to retrieve query results for processing and delivery to configured destinations.
+    /// </para><para>
     /// If you are using CloudWatch cross-account observability, you can use this operation
     /// in a monitoring account to start queries in linked source accounts. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch

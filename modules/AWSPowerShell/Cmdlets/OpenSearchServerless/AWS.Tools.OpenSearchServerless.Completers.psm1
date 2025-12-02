@@ -162,6 +162,13 @@ $OSS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchServerless.ServerlessVectorAccelerationStatus
+        "New-OSSCollection/VectorOptions_ServerlessVectorAcceleration"
+        {
+            $v = "ALLOWED","DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.OpenSearchServerless.StandbyReplicas
         "New-OSSCollection/StandbyReplica"
         {
@@ -192,6 +199,7 @@ $OSS_map = @{
     "IamIdentityCenterOptionsUpdates_UserAttribute"=@("Update-OSSSecurityConfig")
     "StandbyReplica"=@("New-OSSCollection")
     "Type"=@("Get-OSSAccessPolicy","Get-OSSAccessPolicyList","Get-OSSLifecyclePolicyList","Get-OSSSecurityConfigList","Get-OSSSecurityPolicy","Get-OSSSecurityPolicyList","New-OSSAccessPolicy","New-OSSCollection","New-OSSLifecyclePolicy","New-OSSSecurityConfig","New-OSSSecurityPolicy","Remove-OSSAccessPolicy","Remove-OSSLifecyclePolicy","Remove-OSSSecurityPolicy","Update-OSSAccessPolicy","Update-OSSLifecyclePolicy","Update-OSSSecurityPolicy")
+    "VectorOptions_ServerlessVectorAcceleration"=@("New-OSSCollection")
     "VpcEndpointFilters_Status"=@("Get-OSSVpcEndpointList")
 }
 

@@ -41,11 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </para><para>
     /// For information about Storage Lens groups errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3LensErrorCodeList">List
     /// of Amazon S3 Storage Lens error codes</a>.
-    /// </para><important><para>
-    /// You must URL encode any signed header values that contain spaces. For example, if
-    /// your header value is <c>my file.txt</c>, containing two spaces after <c>my</c>, you
-    /// must URL encode this value to <c>my%20%20file.txt</c>.
-    /// </para></important>
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "S3CStorageLensGroup")]
     [OutputType("Amazon.S3Control.Model.StorageLensGroup")]

@@ -30,8 +30,8 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Deletes an existing scheduled query and all its associated configurations. This operation
-    /// permanently removes the scheduled query and cannot be undone.
+    /// Deletes a scheduled query and stops all future executions. This operation also removes
+    /// any configured actions and associated resources.
     /// </summary>
     [Cmdlet("Remove", "CWLScheduledQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The name or ARN of the scheduled query to delete.</para>
+        /// <para>The ARN or name of the scheduled query to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <summary>
     /// Returns the default encryption configuration for an Amazon S3 bucket. By default,
     /// all buckets have a default encryption configuration that uses server-side encryption
-    /// with Amazon S3 managed keys (SSE-S3). This operation also returns the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_BucketKeyEnabled.html">BucketKeyEnabled</a>
-    /// and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_BlockedEncryptionTypes.html">BlockedEncryptionTypes</a>
+    /// with Amazon S3 managed keys (SSE-S3). This operation also returns the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ServerSideEncryptionRule.html#AmazonS3-Type-ServerSideEncryptionRule-BucketKeyEnabled">BucketKeyEnabled</a>
+    /// and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ServerSideEncryptionRule.html#AmazonS3-Type-ServerSideEncryptionRule-BlockedEncryptionTypes">BlockedEncryptionTypes</a>
     /// statuses. 
     /// 
     ///  <note><ul><li><para><b>General purpose buckets</b> - For information about the bucket default encryption

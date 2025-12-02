@@ -36,11 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// Indicates whether the specified access point currently has a policy that allows public
     /// access. For more information about public access through access points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing
     /// Data Access with Amazon S3 access points</a> in the <i>Amazon S3 User Guide</i>.
-    /// </para><important><para>
-    /// You must URL encode any signed header values that contain spaces. For example, if
-    /// your header value is <c>my file.txt</c>, containing two spaces after <c>my</c>, you
-    /// must URL encode this value to <c>my%20%20file.txt</c>.
-    /// </para></important>
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "S3CAccessPointPolicyStatus")]
     [OutputType("Amazon.S3Control.Model.PolicyStatus")]

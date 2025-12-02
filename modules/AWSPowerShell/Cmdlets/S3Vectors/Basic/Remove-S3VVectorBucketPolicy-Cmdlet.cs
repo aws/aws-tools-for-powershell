@@ -30,7 +30,13 @@ using Amazon.S3Vectors.Model;
 namespace Amazon.PowerShell.Cmdlets.S3V
 {
     /// <summary>
-    /// Amazon.S3Vectors.IAmazonS3Vectors.DeleteVectorBucketPolicy
+    /// Deletes a vector bucket policy. To specify the bucket, you must use either the vector
+    /// bucket name or the vector bucket Amazon Resource Name (ARN).
+    /// 
+    ///  <dl><dt>Permissions</dt><dd><para>
+    /// You must have the <c>s3vectors:DeleteVectorBucketPolicy</c> permission to use this
+    /// operation. 
+    /// </para></dd></dl>
     /// </summary>
     [Cmdlet("Remove", "S3VVectorBucketPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

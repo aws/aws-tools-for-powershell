@@ -202,6 +202,59 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter ApiGateway_RestApiId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the API Gateway REST API.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetConfiguration_Mcp_ApiGateway_RestApiId")]
+        public System.String ApiGateway_RestApiId { get; set; }
+        #endregion
+        
+        #region Parameter ApiGateway_Stage
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the stage of the REST API to add as a target.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetConfiguration_Mcp_ApiGateway_Stage")]
+        public System.String ApiGateway_Stage { get; set; }
+        #endregion
+        
+        #region Parameter ApiGatewayToolConfiguration_ToolFilter
+        /// <summary>
+        /// <para>
+        /// <para>A list of path and method patterns to expose as tools using metadata from the REST
+        /// API's OpenAPI specification.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetConfiguration_Mcp_ApiGateway_ApiGatewayToolConfiguration_ToolFilters")]
+        public Amazon.BedrockAgentCoreControl.Model.ApiGatewayToolFilter[] ApiGatewayToolConfiguration_ToolFilter { get; set; }
+        #endregion
+        
+        #region Parameter ApiGatewayToolConfiguration_ToolOverride
+        /// <summary>
+        /// <para>
+        /// <para>A list of explicit tool definitions with optional custom names and descriptions.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetConfiguration_Mcp_ApiGateway_ApiGatewayToolConfiguration_ToolOverrides")]
+        public Amazon.BedrockAgentCoreControl.Model.ApiGatewayToolOverride[] ApiGatewayToolConfiguration_ToolOverride { get; set; }
+        #endregion
+        
         #region Parameter Lambda_ToolSchema_S3_Uri
         /// <summary>
         /// <para>
@@ -318,6 +371,16 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ApiGatewayToolConfiguration_ToolFilter != null)
+            {
+                context.ApiGatewayToolConfiguration_ToolFilter = new List<Amazon.BedrockAgentCoreControl.Model.ApiGatewayToolFilter>(this.ApiGatewayToolConfiguration_ToolFilter);
+            }
+            if (this.ApiGatewayToolConfiguration_ToolOverride != null)
+            {
+                context.ApiGatewayToolConfiguration_ToolOverride = new List<Amazon.BedrockAgentCoreControl.Model.ApiGatewayToolOverride>(this.ApiGatewayToolConfiguration_ToolOverride);
+            }
+            context.ApiGateway_RestApiId = this.ApiGateway_RestApiId;
+            context.ApiGateway_Stage = this.ApiGateway_Stage;
             context.Lambda_LambdaArn = this.Lambda_LambdaArn;
             if (this.ToolSchema_InlinePayload != null)
             {
@@ -607,6 +670,76 @@ namespace Amazon.PowerShell.Cmdlets.BACC
                 requestTargetConfiguration_targetConfiguration_Mcp.SmithyModel = requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_SmithyModel;
                 requestTargetConfiguration_targetConfiguration_McpIsNull = false;
             }
+            Amazon.BedrockAgentCoreControl.Model.ApiGatewayTargetConfiguration requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway = null;
+            
+             // populate ApiGateway
+            var requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGatewayIsNull = true;
+            requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway = new Amazon.BedrockAgentCoreControl.Model.ApiGatewayTargetConfiguration();
+            System.String requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_apiGateway_RestApiId = null;
+            if (cmdletContext.ApiGateway_RestApiId != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_apiGateway_RestApiId = cmdletContext.ApiGateway_RestApiId;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_apiGateway_RestApiId != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway.RestApiId = requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_apiGateway_RestApiId;
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGatewayIsNull = false;
+            }
+            System.String requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_apiGateway_Stage = null;
+            if (cmdletContext.ApiGateway_Stage != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_apiGateway_Stage = cmdletContext.ApiGateway_Stage;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_apiGateway_Stage != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway.Stage = requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_apiGateway_Stage;
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGatewayIsNull = false;
+            }
+            Amazon.BedrockAgentCoreControl.Model.ApiGatewayToolConfiguration requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_targetConfiguration_Mcp_ApiGateway_ApiGatewayToolConfiguration = null;
+            
+             // populate ApiGatewayToolConfiguration
+            var requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_targetConfiguration_Mcp_ApiGateway_ApiGatewayToolConfigurationIsNull = true;
+            requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_targetConfiguration_Mcp_ApiGateway_ApiGatewayToolConfiguration = new Amazon.BedrockAgentCoreControl.Model.ApiGatewayToolConfiguration();
+            List<Amazon.BedrockAgentCoreControl.Model.ApiGatewayToolFilter> requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_targetConfiguration_Mcp_ApiGateway_ApiGatewayToolConfiguration_apiGatewayToolConfiguration_ToolFilter = null;
+            if (cmdletContext.ApiGatewayToolConfiguration_ToolFilter != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_targetConfiguration_Mcp_ApiGateway_ApiGatewayToolConfiguration_apiGatewayToolConfiguration_ToolFilter = cmdletContext.ApiGatewayToolConfiguration_ToolFilter;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_targetConfiguration_Mcp_ApiGateway_ApiGatewayToolConfiguration_apiGatewayToolConfiguration_ToolFilter != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_targetConfiguration_Mcp_ApiGateway_ApiGatewayToolConfiguration.ToolFilters = requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_targetConfiguration_Mcp_ApiGateway_ApiGatewayToolConfiguration_apiGatewayToolConfiguration_ToolFilter;
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_targetConfiguration_Mcp_ApiGateway_ApiGatewayToolConfigurationIsNull = false;
+            }
+            List<Amazon.BedrockAgentCoreControl.Model.ApiGatewayToolOverride> requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_targetConfiguration_Mcp_ApiGateway_ApiGatewayToolConfiguration_apiGatewayToolConfiguration_ToolOverride = null;
+            if (cmdletContext.ApiGatewayToolConfiguration_ToolOverride != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_targetConfiguration_Mcp_ApiGateway_ApiGatewayToolConfiguration_apiGatewayToolConfiguration_ToolOverride = cmdletContext.ApiGatewayToolConfiguration_ToolOverride;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_targetConfiguration_Mcp_ApiGateway_ApiGatewayToolConfiguration_apiGatewayToolConfiguration_ToolOverride != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_targetConfiguration_Mcp_ApiGateway_ApiGatewayToolConfiguration.ToolOverrides = requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_targetConfiguration_Mcp_ApiGateway_ApiGatewayToolConfiguration_apiGatewayToolConfiguration_ToolOverride;
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_targetConfiguration_Mcp_ApiGateway_ApiGatewayToolConfigurationIsNull = false;
+            }
+             // determine if requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_targetConfiguration_Mcp_ApiGateway_ApiGatewayToolConfiguration should be set to null
+            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_targetConfiguration_Mcp_ApiGateway_ApiGatewayToolConfigurationIsNull)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_targetConfiguration_Mcp_ApiGateway_ApiGatewayToolConfiguration = null;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_targetConfiguration_Mcp_ApiGateway_ApiGatewayToolConfiguration != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway.ApiGatewayToolConfiguration = requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway_targetConfiguration_Mcp_ApiGateway_ApiGatewayToolConfiguration;
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGatewayIsNull = false;
+            }
+             // determine if requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway should be set to null
+            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGatewayIsNull)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway = null;
+            }
+            if (requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway != null)
+            {
+                requestTargetConfiguration_targetConfiguration_Mcp.ApiGateway = requestTargetConfiguration_targetConfiguration_Mcp_targetConfiguration_Mcp_ApiGateway;
+                requestTargetConfiguration_targetConfiguration_McpIsNull = false;
+            }
              // determine if requestTargetConfiguration_targetConfiguration_Mcp should be set to null
             if (requestTargetConfiguration_targetConfiguration_McpIsNull)
             {
@@ -682,6 +815,10 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             public System.String Description { get; set; }
             public System.String GatewayIdentifier { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.BedrockAgentCoreControl.Model.ApiGatewayToolFilter> ApiGatewayToolConfiguration_ToolFilter { get; set; }
+            public List<Amazon.BedrockAgentCoreControl.Model.ApiGatewayToolOverride> ApiGatewayToolConfiguration_ToolOverride { get; set; }
+            public System.String ApiGateway_RestApiId { get; set; }
+            public System.String ApiGateway_Stage { get; set; }
             public System.String Lambda_LambdaArn { get; set; }
             public List<Amazon.BedrockAgentCoreControl.Model.ToolDefinition> ToolSchema_InlinePayload { get; set; }
             public System.String Lambda_ToolSchema_S3_BucketOwnerAccountId { get; set; }

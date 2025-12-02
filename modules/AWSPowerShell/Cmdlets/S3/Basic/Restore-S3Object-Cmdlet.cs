@@ -241,8 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Owner_DisplayName
         /// <summary>
         /// <para>
-        /// <para>Container for the display name of the owner. This value is only supported in the following
-        /// Amazon Web Services Regions:</para><ul><li><para>US East (N. Virginia)</para></li><li><para>US West (N. California)</para></li><li><para>US West (Oregon)</para></li><li><para>Asia Pacific (Singapore)</para></li><li><para>Asia Pacific (Sydney)</para></li><li><para>Asia Pacific (Tokyo)</para></li><li><para>Europe (Ireland)</para></li><li><para>South America (São Paulo)</para></li></ul><note><para>This functionality is not supported for directory buckets.</para></note>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

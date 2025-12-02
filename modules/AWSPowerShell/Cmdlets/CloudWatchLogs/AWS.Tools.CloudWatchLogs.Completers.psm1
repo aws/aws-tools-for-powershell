@@ -128,8 +128,16 @@ $CWL_Completers = {
             break
         }
 
+        # Amazon.CloudWatchLogs.ListAggregateLogGroupSummariesGroupBy
+        "Get-CWLAggregateLogGroupSummaryList/GroupBy"
+        {
+            $v = "DATA_SOURCE_NAME_AND_TYPE","DATA_SOURCE_NAME_TYPE_AND_FORMAT"
+            break
+        }
+
         # Amazon.CloudWatchLogs.LogGroupClass
         {
+            ($_ -eq "Get-CWLAggregateLogGroupSummaryList/LogGroupClass") -Or
             ($_ -eq "Get-CWLLogGroup/LogGroupClass") -Or
             ($_ -eq "Get-CWLLogGroupList/LogGroupClass") -Or
             ($_ -eq "New-CWLLogGroup/LogGroupClass")
@@ -243,9 +251,10 @@ $CWL_map = @{
     "DeliveryDestinationType"=@("Write-CWLDeliveryDestination")
     "Distribution"=@("Write-CWLSubscriptionFilter")
     "EvaluationFrequency"=@("New-CWLLogAnomalyDetector","Update-CWLLogAnomalyDetector")
+    "GroupBy"=@("Get-CWLAggregateLogGroupSummaryList")
     "IntegrationStatus"=@("Get-CWLIntegrationList")
     "IntegrationType"=@("Get-CWLIntegrationList","Write-CWLIntegration")
-    "LogGroupClass"=@("Get-CWLLogGroup","Get-CWLLogGroupList","New-CWLLogGroup")
+    "LogGroupClass"=@("Get-CWLAggregateLogGroupSummaryList","Get-CWLLogGroup","Get-CWLLogGroupList","New-CWLLogGroup")
     "OrderBy"=@("Get-CWLLogStream")
     "OutputFormat"=@("Write-CWLDeliveryDestination")
     "PolicyScope"=@("Get-CWLResourcePolicy")
@@ -311,6 +320,7 @@ $CWL_SelectCompleters = {
 
 $CWL_SelectMap = @{
     "Select"=@("Register-CWLKmsKey",
+               "Register-CWLSourceToS3TableIntegration",
                "Stop-CWLExportTask",
                "New-CWLDelivery",
                "New-CWLExportTask",
@@ -354,6 +364,7 @@ $CWL_SelectMap = @{
                "Get-CWLResourcePolicy",
                "Get-CWLSubscriptionFilter",
                "Unregister-CWLKmsKey",
+               "Unregister-CWLSourceFromS3TableIntegration",
                "Get-CWLFilteredLogEvent",
                "Get-CWLDataProtectionPolicy",
                "Get-CWLDelivery",
@@ -363,6 +374,7 @@ $CWL_SelectMap = @{
                "Get-CWLIntegration",
                "Get-CWLLogAnomalyDetector",
                "Get-CWLLogEvent",
+               "Get-CWLLogField",
                "Get-CWLLogGroupField",
                "Get-CWLLogObject",
                "Get-CWLLogRecord",
@@ -370,12 +382,14 @@ $CWL_SelectMap = @{
                "Get-CWLScheduledQuery",
                "Get-CWLScheduledQueryHistory",
                "Get-CWLTransformer",
+               "Get-CWLAggregateLogGroupSummaryList",
                "Get-CWLAnomalyList",
                "Get-CWLIntegrationList",
                "Get-CWLLogAnomalyDetectorList",
                "Get-CWLLogGroupList",
                "Get-CWLLogGroupsForQueryList",
                "Get-CWLScheduledQueryList",
+               "Get-CWLSourcesForS3TableIntegrationList",
                "Get-CWLResourceTag",
                "Get-CWLLogGroupTag",
                "Write-CWLAccountPolicy",

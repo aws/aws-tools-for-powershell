@@ -212,6 +212,13 @@ $SHUB_Completers = {
             break
         }
 
+        # Amazon.SecurityHub.TicketCreationMode
+        "New-SHUBTicketV2/Mode"
+        {
+            $v = "DRYRUN"
+            break
+        }
+
         # Amazon.SecurityHub.VerificationState
         "Update-SHUBFindingsBatch/VerificationState"
         {
@@ -243,6 +250,7 @@ $SHUB_map = @{
     "Filters_AssociationStatus"=@("Get-SHUBConfigurationPolicyAssociationList")
     "Filters_AssociationType"=@("Get-SHUBConfigurationPolicyAssociationList")
     "Filters_CompositeOperator"=@("Get-SHUBFindingsTrendsV2","Get-SHUBFindingsV2","Get-SHUBResourcesTrendsV2","Get-SHUBResourcesV2")
+    "Mode"=@("New-SHUBTicketV2")
     "OcsfFindingCriteria_CompositeOperator"=@("New-SHUBAutomationRuleV2","Update-SHUBAutomationRuleV2")
     "OrganizationConfiguration_ConfigurationType"=@("Update-SHUBOrganizationConfiguration")
     "OrganizationConfiguration_Status"=@("Update-SHUBOrganizationConfiguration")
@@ -319,7 +327,6 @@ $SHUB_SelectMap = @{
                "Update-SHUBFindingsBatch",
                "Set-SHUBBatchFindingsV2",
                "Edit-SHUBUpdateStandardsControlAssociation",
-               "Register-SHUBConnectorV2",
                "New-SHUBActionTarget",
                "New-SHUBAggregatorV2",
                "New-SHUBAutomationRule",
@@ -396,6 +403,7 @@ $SHUB_SelectMap = @{
                "Get-SHUBSecurityControlDefinitionList",
                "Get-SHUBStandardsControlAssociationList",
                "Get-SHUBResourceTag",
+               "Register-SHUBConnectorV2",
                "Start-SHUBConfigurationPolicyAssociation",
                "Start-SHUBConfigurationPolicyDisassociation",
                "Add-SHUBResourceTag",

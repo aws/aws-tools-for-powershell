@@ -31,8 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Returns findings trend data based on the specified criteria. This operation helps
-    /// you analyze patterns and changes in findings over time. This API is in public preview
-    /// and subject to change.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// you analyze patterns and changes in findings over time.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SHUBFindingsTrendsV2")]
     [OutputType("Amazon.SecurityHub.Model.GetFindingsTrendsV2Response")]

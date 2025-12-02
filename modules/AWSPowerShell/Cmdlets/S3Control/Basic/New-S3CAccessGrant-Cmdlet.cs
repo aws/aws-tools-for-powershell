@@ -43,11 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </para></dd><dt>Additional Permissions</dt><dd><para>
     /// For any directory identity - <c>sso:DescribeInstance</c> and <c>sso:DescribeApplication</c></para><para>
     /// For directory users - <c>identitystore:DescribeUser</c></para><para>
-    /// For directory groups - <c>identitystore:DescribeGroup</c></para></dd></dl><important><para>
-    /// You must URL encode any signed header values that contain spaces. For example, if
-    /// your header value is <c>my file.txt</c>, containing two spaces after <c>my</c>, you
-    /// must URL encode this value to <c>my%20%20file.txt</c>.
-    /// </para></important>
+    /// For directory groups - <c>identitystore:DescribeGroup</c></para></dd></dl>
     /// </summary>
     [Cmdlet("New", "S3CAccessGrant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3Control.Model.CreateAccessGrantResponse")]

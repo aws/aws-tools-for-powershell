@@ -124,6 +124,16 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.EvaluatorLevel
+        {
+            ($_ -eq "New-BACCEvaluator/Level") -Or
+            ($_ -eq "Update-BACCEvaluator/Level")
+        }
+        {
+            $v = "SESSION","TOOL_CALL","TRACE"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.ExceptionLevel
         {
             ($_ -eq "New-BACCGateway/ExceptionLevel") -Or
@@ -131,6 +141,16 @@ $BACC_Completers = {
         }
         {
             $v = "DEBUG"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.GatewayPolicyEngineMode
+        {
+            ($_ -eq "New-BACCGateway/PolicyEngineConfiguration_Mode") -Or
+            ($_ -eq "Update-BACCGateway/PolicyEngineConfiguration_Mode")
+        }
+        {
+            $v = "ENFORCE","LOG_ONLY"
             break
         }
 
@@ -158,6 +178,23 @@ $BACC_Completers = {
         }
         {
             $v = "PUBLIC","VPC"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.OnlineEvaluationExecutionStatus
+        "Update-BACCOnlineEvaluationConfig/ExecutionStatus"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.PolicyValidationMode
+        {
+            ($_ -eq "New-BACCPolicy/ValidationMode") -Or
+            ($_ -eq "Update-BACCPolicy/ValidationMode")
+        }
+        {
+            $v = "FAIL_ON_ANY_FINDINGS","IGNORE_ALL_FINDINGS"
             break
         }
 
@@ -204,12 +241,16 @@ $BACC_map = @{
     "CodeConfiguration_Runtime"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "CredentialProviderVendor"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "ExceptionLevel"=@("New-BACCGateway","Update-BACCGateway")
+    "ExecutionStatus"=@("Update-BACCOnlineEvaluationConfig")
     "KmsConfiguration_KeyType"=@("Set-BACCTokenVaultCMK")
+    "Level"=@("New-BACCEvaluator","Update-BACCEvaluator")
     "Mcp_SearchType"=@("New-BACCGateway","Update-BACCGateway")
     "NetworkConfiguration_NetworkMode"=@("New-BACCAgentRuntime","New-BACCBrowser","New-BACCCodeInterpreter","Update-BACCAgentRuntime")
+    "PolicyEngineConfiguration_Mode"=@("New-BACCGateway","Update-BACCGateway")
     "ProtocolConfiguration_ServerProtocol"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "ProtocolType"=@("New-BACCGateway","Update-BACCGateway")
     "Type"=@("Get-BACCBrowserList","Get-BACCCodeInterpreterList")
+    "ValidationMode"=@("New-BACCPolicy","Update-BACCPolicy")
 }
 
 _awsArgumentCompleterRegistration $BACC_Completers $BACC_map
@@ -267,30 +308,45 @@ $BACC_SelectMap = @{
                "New-BACCApiKeyCredentialProvider",
                "New-BACCBrowser",
                "New-BACCCodeInterpreter",
+               "New-BACCEvaluator",
                "New-BACCGateway",
                "New-BACCGatewayTarget",
                "New-BACCMemory",
                "New-BACCOauth2CredentialProvider",
+               "New-BACCOnlineEvaluationConfig",
+               "New-BACCPolicy",
+               "New-BACCPolicyEngine",
                "New-BACCWorkloadIdentity",
                "Remove-BACCAgentRuntime",
                "Remove-BACCAgentRuntimeEndpoint",
                "Remove-BACCApiKeyCredentialProvider",
                "Remove-BACCBrowser",
                "Remove-BACCCodeInterpreter",
+               "Remove-BACCEvaluator",
                "Remove-BACCGateway",
                "Remove-BACCGatewayTarget",
                "Remove-BACCMemory",
                "Remove-BACCOauth2CredentialProvider",
+               "Remove-BACCOnlineEvaluationConfig",
+               "Remove-BACCPolicy",
+               "Remove-BACCPolicyEngine",
+               "Remove-BACCResourcePolicy",
                "Remove-BACCWorkloadIdentity",
                "Get-BACCAgentRuntime",
                "Get-BACCAgentRuntimeEndpoint",
                "Get-BACCApiKeyCredentialProvider",
                "Get-BACCBrowser",
                "Get-BACCCodeInterpreter",
+               "Get-BACCEvaluator",
                "Get-BACCGateway",
                "Get-BACCGatewayTarget",
                "Get-BACCMemory",
                "Get-BACCOauth2CredentialProvider",
+               "Get-BACCOnlineEvaluationConfig",
+               "Get-BACCPolicy",
+               "Get-BACCPolicyEngine",
+               "Get-BACCPolicyGeneration",
+               "Get-BACCResourcePolicy",
                "Get-BACCTokenVault",
                "Get-BACCWorkloadIdentity",
                "Get-BACCAgentRuntimeEndpointList",
@@ -299,23 +355,35 @@ $BACC_SelectMap = @{
                "Get-BACCApiKeyCredentialProviderList",
                "Get-BACCBrowserList",
                "Get-BACCCodeInterpreterList",
+               "Get-BACCEvaluatorList",
                "Get-BACCGatewayList",
                "Get-BACCGatewayTargetList",
                "Get-BACCMemoryList",
                "Get-BACCOauth2CredentialProviderList",
+               "Get-BACCOnlineEvaluationConfigList",
+               "Get-BACCPolicyList",
+               "Get-BACCPolicyEngineList",
+               "Get-BACCPolicyGenerationAssetList",
+               "Get-BACCPolicyGenerationList",
                "Get-BACCResourceTag",
                "Get-BACCWorkloadIdentityList",
+               "Write-BACCResourcePolicy",
                "Set-BACCTokenVaultCMK",
+               "Start-BACCPolicyGeneration",
                "Sync-BACCGatewayTarget",
                "Add-BACCResourceTag",
                "Remove-BACCResourceTag",
                "Update-BACCAgentRuntime",
                "Update-BACCAgentRuntimeEndpoint",
                "Update-BACCApiKeyCredentialProvider",
+               "Update-BACCEvaluator",
                "Update-BACCGateway",
                "Update-BACCGatewayTarget",
                "Update-BACCMemory",
                "Update-BACCOauth2CredentialProvider",
+               "Update-BACCOnlineEvaluationConfig",
+               "Update-BACCPolicy",
+               "Update-BACCPolicyEngine",
                "Update-BACCWorkloadIdentity")
 }
 

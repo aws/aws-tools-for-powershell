@@ -8264,6 +8264,16 @@ $BACC_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentCoreControl.EvaluatorLevel
+        {
+            ($_ -eq "New-BACCEvaluator/Level") -Or
+            ($_ -eq "Update-BACCEvaluator/Level")
+        }
+        {
+            $v = "SESSION","TOOL_CALL","TRACE"
+            break
+        }
+
         # Amazon.BedrockAgentCoreControl.ExceptionLevel
         {
             ($_ -eq "New-BACCGateway/ExceptionLevel") -Or
@@ -8271,6 +8281,16 @@ $BACC_Completers = {
         }
         {
             $v = "DEBUG"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.GatewayPolicyEngineMode
+        {
+            ($_ -eq "New-BACCGateway/PolicyEngineConfiguration_Mode") -Or
+            ($_ -eq "Update-BACCGateway/PolicyEngineConfiguration_Mode")
+        }
+        {
+            $v = "ENFORCE","LOG_ONLY"
             break
         }
 
@@ -8298,6 +8318,23 @@ $BACC_Completers = {
         }
         {
             $v = "PUBLIC","VPC"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.OnlineEvaluationExecutionStatus
+        "Update-BACCOnlineEvaluationConfig/ExecutionStatus"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.BedrockAgentCoreControl.PolicyValidationMode
+        {
+            ($_ -eq "New-BACCPolicy/ValidationMode") -Or
+            ($_ -eq "Update-BACCPolicy/ValidationMode")
+        }
+        {
+            $v = "FAIL_ON_ANY_FINDINGS","IGNORE_ALL_FINDINGS"
             break
         }
 
@@ -8344,12 +8381,16 @@ $BACC_map = @{
     "CodeConfiguration_Runtime"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "CredentialProviderVendor"=@("New-BACCOauth2CredentialProvider","Update-BACCOauth2CredentialProvider")
     "ExceptionLevel"=@("New-BACCGateway","Update-BACCGateway")
+    "ExecutionStatus"=@("Update-BACCOnlineEvaluationConfig")
     "KmsConfiguration_KeyType"=@("Set-BACCTokenVaultCMK")
+    "Level"=@("New-BACCEvaluator","Update-BACCEvaluator")
     "Mcp_SearchType"=@("New-BACCGateway","Update-BACCGateway")
     "NetworkConfiguration_NetworkMode"=@("New-BACCAgentRuntime","New-BACCBrowser","New-BACCCodeInterpreter","Update-BACCAgentRuntime")
+    "PolicyEngineConfiguration_Mode"=@("New-BACCGateway","Update-BACCGateway")
     "ProtocolConfiguration_ServerProtocol"=@("New-BACCAgentRuntime","Update-BACCAgentRuntime")
     "ProtocolType"=@("New-BACCGateway","Update-BACCGateway")
     "Type"=@("Get-BACCBrowserList","Get-BACCCodeInterpreterList")
+    "ValidationMode"=@("New-BACCPolicy","Update-BACCPolicy")
 }
 
 _awsArgumentCompleterRegistration $BACC_Completers $BACC_map
@@ -8407,30 +8448,45 @@ $BACC_SelectMap = @{
                "New-BACCApiKeyCredentialProvider",
                "New-BACCBrowser",
                "New-BACCCodeInterpreter",
+               "New-BACCEvaluator",
                "New-BACCGateway",
                "New-BACCGatewayTarget",
                "New-BACCMemory",
                "New-BACCOauth2CredentialProvider",
+               "New-BACCOnlineEvaluationConfig",
+               "New-BACCPolicy",
+               "New-BACCPolicyEngine",
                "New-BACCWorkloadIdentity",
                "Remove-BACCAgentRuntime",
                "Remove-BACCAgentRuntimeEndpoint",
                "Remove-BACCApiKeyCredentialProvider",
                "Remove-BACCBrowser",
                "Remove-BACCCodeInterpreter",
+               "Remove-BACCEvaluator",
                "Remove-BACCGateway",
                "Remove-BACCGatewayTarget",
                "Remove-BACCMemory",
                "Remove-BACCOauth2CredentialProvider",
+               "Remove-BACCOnlineEvaluationConfig",
+               "Remove-BACCPolicy",
+               "Remove-BACCPolicyEngine",
+               "Remove-BACCResourcePolicy",
                "Remove-BACCWorkloadIdentity",
                "Get-BACCAgentRuntime",
                "Get-BACCAgentRuntimeEndpoint",
                "Get-BACCApiKeyCredentialProvider",
                "Get-BACCBrowser",
                "Get-BACCCodeInterpreter",
+               "Get-BACCEvaluator",
                "Get-BACCGateway",
                "Get-BACCGatewayTarget",
                "Get-BACCMemory",
                "Get-BACCOauth2CredentialProvider",
+               "Get-BACCOnlineEvaluationConfig",
+               "Get-BACCPolicy",
+               "Get-BACCPolicyEngine",
+               "Get-BACCPolicyGeneration",
+               "Get-BACCResourcePolicy",
                "Get-BACCTokenVault",
                "Get-BACCWorkloadIdentity",
                "Get-BACCAgentRuntimeEndpointList",
@@ -8439,23 +8495,35 @@ $BACC_SelectMap = @{
                "Get-BACCApiKeyCredentialProviderList",
                "Get-BACCBrowserList",
                "Get-BACCCodeInterpreterList",
+               "Get-BACCEvaluatorList",
                "Get-BACCGatewayList",
                "Get-BACCGatewayTargetList",
                "Get-BACCMemoryList",
                "Get-BACCOauth2CredentialProviderList",
+               "Get-BACCOnlineEvaluationConfigList",
+               "Get-BACCPolicyList",
+               "Get-BACCPolicyEngineList",
+               "Get-BACCPolicyGenerationAssetList",
+               "Get-BACCPolicyGenerationList",
                "Get-BACCResourceTag",
                "Get-BACCWorkloadIdentityList",
+               "Write-BACCResourcePolicy",
                "Set-BACCTokenVaultCMK",
+               "Start-BACCPolicyGeneration",
                "Sync-BACCGatewayTarget",
                "Add-BACCResourceTag",
                "Remove-BACCResourceTag",
                "Update-BACCAgentRuntime",
                "Update-BACCAgentRuntimeEndpoint",
                "Update-BACCApiKeyCredentialProvider",
+               "Update-BACCEvaluator",
                "Update-BACCGateway",
                "Update-BACCGatewayTarget",
                "Update-BACCMemory",
                "Update-BACCOauth2CredentialProvider",
+               "Update-BACCOnlineEvaluationConfig",
+               "Update-BACCPolicy",
+               "Update-BACCPolicyEngine",
                "Update-BACCWorkloadIdentity")
 }
 
@@ -8591,6 +8659,7 @@ $BAC_SelectMap = @{
                "New-BACEvent",
                "Remove-BACEvent",
                "Remove-BACMemoryRecord",
+               "Invoke-BACEvaluate",
                "Get-BACAgentCard",
                "Get-BACBrowserSession",
                "Get-BACCodeInterpreterSession",
@@ -10453,7 +10522,7 @@ $CE_Completers = {
         # Amazon.CostExplorer.SupportedSavingsPlansType
         "Get-CESavingsPlansPurchaseRecommendation/SavingsPlansType"
         {
-            $v = "COMPUTE_SP","EC2_INSTANCE_SP","SAGEMAKER_SP"
+            $v = "COMPUTE_SP","DATABASE_SP","EC2_INSTANCE_SP","SAGEMAKER_SP"
             break
         }
 
@@ -23034,17 +23103,18 @@ $DZ_Completers = {
         # Amazon.DataZone.MetadataGenerationRunStatus
         "Get-DZMetadataGenerationRunList/Status"
         {
-            $v = "CANCELED","FAILED","IN_PROGRESS","SUBMITTED","SUCCEEDED"
+            $v = "CANCELED","FAILED","IN_PROGRESS","PARTIALLY_SUCCEEDED","SUBMITTED","SUCCEEDED"
             break
         }
 
         # Amazon.DataZone.MetadataGenerationRunType
         {
+            ($_ -eq "Get-DZMetadataGenerationRun/Type") -Or
             ($_ -eq "Get-DZMetadataGenerationRunList/Type") -Or
             ($_ -eq "Start-DZMetadataGenerationRun/Type")
         }
         {
-            $v = "BUSINESS_DESCRIPTIONS"
+            $v = "BUSINESS_DESCRIPTIONS","BUSINESS_GLOSSARY_ASSOCIATIONS","BUSINESS_NAMES"
             break
         }
 
@@ -23351,7 +23421,7 @@ $DZ_map = @{
     "Target_Type"=@("Start-DZMetadataGenerationRun")
     "TargetType"=@("Get-DZRuleList")
     "TaskStatus"=@("Get-DZNotificationList")
-    "Type"=@("Get-DZConnectionList","Get-DZMetadataGenerationRunList","Get-DZNotificationList","Get-DZUserProfile","Start-DZMetadataGenerationRun","Update-DZUserProfile")
+    "Type"=@("Get-DZConnectionList","Get-DZMetadataGenerationRun","Get-DZMetadataGenerationRunList","Get-DZNotificationList","Get-DZUserProfile","Start-DZMetadataGenerationRun","Update-DZUserProfile")
     "UserType"=@("New-DZUserProfile","Search-DZUserProfile")
 }
 
@@ -23476,6 +23546,7 @@ $DZ_SelectMap = @{
                "Get-DZAssetFilter",
                "Get-DZAssetType",
                "Get-DZConnection",
+               "Get-DZDataExportConfiguration",
                "Get-DZDataProduct",
                "Get-DZDataSource",
                "Get-DZDataSourceRun",
@@ -23541,6 +23612,7 @@ $DZ_SelectMap = @{
                "Get-DZTimeSeriesDataPointList",
                "Submit-DZLineageEvent",
                "New-DZTimeSeriesDataPoint",
+               "Write-DZDataExportConfiguration",
                "Write-DZEnvironmentBlueprintConfiguration",
                "Deny-DZPrediction",
                "Deny-DZSubscriptionRequest",
@@ -35431,6 +35503,13 @@ $FSX_Completers = {
             break
         }
 
+        # Amazon.FSx.OntapFileSystemUserType
+        "New-FSXAndAttachS3AccessPoint/OntapConfiguration_FileSystemIdentity_Type"
+        {
+            $v = "UNIX","WINDOWS"
+            break
+        }
+
         # Amazon.FSx.OpenZFSCopyStrategy
         {
             ($_ -eq "Copy-FSXSnapshotAndUpdateVolume/CopyStrategy") -Or
@@ -35464,7 +35543,7 @@ $FSX_Completers = {
         }
 
         # Amazon.FSx.OpenZFSFileSystemUserType
-        "New-FSXAndAttachS3AccessPoint/FileSystemIdentity_Type"
+        "New-FSXAndAttachS3AccessPoint/OpenZFSConfiguration_FileSystemIdentity_Type"
         {
             $v = "POSIX"
             break
@@ -35526,7 +35605,7 @@ $FSX_Completers = {
         # Amazon.FSx.S3AccessPointAttachmentType
         "New-FSXAndAttachS3AccessPoint/Type"
         {
-            $v = "OPENZFS"
+            $v = "ONTAP","OPENZFS"
             break
         }
 
@@ -35619,7 +35698,6 @@ $FSX_map = @{
     "DiskIopsConfiguration_Mode"=@("New-FSXFileSystemFromBackup")
     "DurationSinceLastAccess_Unit"=@("New-FSXDataRepositoryTask")
     "FileCacheType"=@("New-FSXFileCache")
-    "FileSystemIdentity_Type"=@("New-FSXAndAttachS3AccessPoint")
     "FileSystemType"=@("New-FSXFileSystem")
     "LustreConfiguration_DeploymentType"=@("New-FSXFileCache")
     "MaximumRetention_Type"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
@@ -35627,12 +35705,14 @@ $FSX_map = @{
     "NetworkType"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup","Update-FSXFileSystem")
     "OntapConfiguration_DeploymentType"=@("New-FSXFileSystem")
     "OntapConfiguration_DiskIopsConfiguration_Mode"=@("New-FSXFileSystem","Update-FSXFileSystem")
+    "OntapConfiguration_FileSystemIdentity_Type"=@("New-FSXAndAttachS3AccessPoint")
     "OntapConfiguration_OntapVolumeType"=@("New-FSXVolume","New-FSXVolumeFromBackup")
     "OntapConfiguration_SecurityStyle"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "OntapConfiguration_VolumeStyle"=@("New-FSXVolume","New-FSXVolumeFromBackup")
     "OpenZFSConfiguration_DataCompressionType"=@("New-FSXVolume","Update-FSXVolume")
     "OpenZFSConfiguration_DeploymentType"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup")
     "OpenZFSConfiguration_DiskIopsConfiguration_Mode"=@("New-FSXFileSystem","Update-FSXFileSystem")
+    "OpenZFSConfiguration_FileSystemIdentity_Type"=@("New-FSXAndAttachS3AccessPoint")
     "OriginSnapshot_CopyStrategy"=@("New-FSXVolume")
     "ReadCacheConfiguration_SizingMode"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup","Update-FSXFileSystem")
     "Report_Format"=@("New-FSXDataRepositoryTask")
@@ -47322,6 +47402,7 @@ $LM_SelectCompleters = {
 $LM_SelectMap = @{
     "Select"=@("Add-LMLayerVersionPermission",
                "Add-LMPermission",
+               "Checkpoint-LMDurableExecution",
                "New-LMAlias",
                "New-LMCapacityProvider",
                "New-LMCodeSigningConfig",
@@ -47343,6 +47424,9 @@ $LM_SelectMap = @{
                "Get-LMAlias",
                "Get-LMCapacityProvider",
                "Get-LMCodeSigningConfig",
+               "Get-LMDurableExecution",
+               "Get-LMDurableExecutionHistory",
+               "Get-LMDurableExecutionState",
                "Get-LMEventSourceMapping",
                "Get-LMFunction",
                "Get-LMFunctionCodeSigningConfig",
@@ -47363,6 +47447,7 @@ $LM_SelectMap = @{
                "Get-LMAliasList",
                "Get-LMCapacityProviderList",
                "Get-LMCodeSigningConfigList",
+               "Get-LMDurableExecutionsByFunctionList",
                "Get-LMEventSourceMappingList",
                "Get-LMFunctionEventInvokeConfigList",
                "Get-LMFunctionList",
@@ -47385,6 +47470,10 @@ $LM_SelectMap = @{
                "Write-LMRuntimeManagementConfig",
                "Remove-LMLayerVersionPermission",
                "Remove-LMPermission",
+               "Send-LMDurableExecutionCallbackFailure",
+               "Send-LMDurableExecutionCallbackHeartbeat",
+               "Send-LMDurableExecutionCallbackSuccess",
+               "Stop-LMDurableExecution",
                "Add-LMResourceTag",
                "Remove-LMResourceTag",
                "Update-LMAlias",
@@ -48961,8 +49050,16 @@ $CWL_Completers = {
             break
         }
 
+        # Amazon.CloudWatchLogs.ListAggregateLogGroupSummariesGroupBy
+        "Get-CWLAggregateLogGroupSummaryList/GroupBy"
+        {
+            $v = "DATA_SOURCE_NAME_AND_TYPE","DATA_SOURCE_NAME_TYPE_AND_FORMAT"
+            break
+        }
+
         # Amazon.CloudWatchLogs.LogGroupClass
         {
+            ($_ -eq "Get-CWLAggregateLogGroupSummaryList/LogGroupClass") -Or
             ($_ -eq "Get-CWLLogGroup/LogGroupClass") -Or
             ($_ -eq "Get-CWLLogGroupList/LogGroupClass") -Or
             ($_ -eq "New-CWLLogGroup/LogGroupClass")
@@ -49076,9 +49173,10 @@ $CWL_map = @{
     "DeliveryDestinationType"=@("Write-CWLDeliveryDestination")
     "Distribution"=@("Write-CWLSubscriptionFilter")
     "EvaluationFrequency"=@("New-CWLLogAnomalyDetector","Update-CWLLogAnomalyDetector")
+    "GroupBy"=@("Get-CWLAggregateLogGroupSummaryList")
     "IntegrationStatus"=@("Get-CWLIntegrationList")
     "IntegrationType"=@("Get-CWLIntegrationList","Write-CWLIntegration")
-    "LogGroupClass"=@("Get-CWLLogGroup","Get-CWLLogGroupList","New-CWLLogGroup")
+    "LogGroupClass"=@("Get-CWLAggregateLogGroupSummaryList","Get-CWLLogGroup","Get-CWLLogGroupList","New-CWLLogGroup")
     "OrderBy"=@("Get-CWLLogStream")
     "OutputFormat"=@("Write-CWLDeliveryDestination")
     "PolicyScope"=@("Get-CWLResourcePolicy")
@@ -49144,6 +49242,7 @@ $CWL_SelectCompleters = {
 
 $CWL_SelectMap = @{
     "Select"=@("Register-CWLKmsKey",
+               "Register-CWLSourceToS3TableIntegration",
                "Stop-CWLExportTask",
                "New-CWLDelivery",
                "New-CWLExportTask",
@@ -49187,6 +49286,7 @@ $CWL_SelectMap = @{
                "Get-CWLResourcePolicy",
                "Get-CWLSubscriptionFilter",
                "Unregister-CWLKmsKey",
+               "Unregister-CWLSourceFromS3TableIntegration",
                "Get-CWLFilteredLogEvent",
                "Get-CWLDataProtectionPolicy",
                "Get-CWLDelivery",
@@ -49196,6 +49296,7 @@ $CWL_SelectMap = @{
                "Get-CWLIntegration",
                "Get-CWLLogAnomalyDetector",
                "Get-CWLLogEvent",
+               "Get-CWLLogField",
                "Get-CWLLogGroupField",
                "Get-CWLLogObject",
                "Get-CWLLogRecord",
@@ -49203,12 +49304,14 @@ $CWL_SelectMap = @{
                "Get-CWLScheduledQuery",
                "Get-CWLScheduledQueryHistory",
                "Get-CWLTransformer",
+               "Get-CWLAggregateLogGroupSummaryList",
                "Get-CWLAnomalyList",
                "Get-CWLIntegrationList",
                "Get-CWLLogAnomalyDetectorList",
                "Get-CWLLogGroupList",
                "Get-CWLLogGroupsForQueryList",
                "Get-CWLScheduledQueryList",
+               "Get-CWLSourcesForS3TableIntegrationList",
                "Get-CWLResourceTag",
                "Get-CWLLogGroupTag",
                "Write-CWLAccountPolicy",
@@ -57348,6 +57451,122 @@ $UNC_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $UNC_SelectCompleters $UNC_SelectMap
+# Argument completions for service Amazon Nova Act
+
+
+$NOVA_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.NovaAct.ActStatus
+        "Update-NOVAAct/Status"
+        {
+            $v = "FAILED","PENDING_CLIENT_ACTION","PENDING_HUMAN_ACTION","RUNNING","SUCCEEDED","TIMED_OUT"
+            break
+        }
+
+        # Amazon.NovaAct.SortOrder
+        {
+            ($_ -eq "Get-NOVAActList/SortOrder") -Or
+            ($_ -eq "Get-NOVASessionList/SortOrder") -Or
+            ($_ -eq "Get-NOVAWorkflowDefinitionList/SortOrder") -Or
+            ($_ -eq "Get-NOVAWorkflowRunList/SortOrder")
+        }
+        {
+            $v = "Ascending","Descending"
+            break
+        }
+
+        # Amazon.NovaAct.WorkflowRunStatus
+        "Update-NOVAWorkflowRun/Status"
+        {
+            $v = "DELETING","FAILED","RUNNING","SUCCEEDED","TIMED_OUT"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$NOVA_map = @{
+    "SortOrder"=@("Get-NOVAActList","Get-NOVASessionList","Get-NOVAWorkflowDefinitionList","Get-NOVAWorkflowRunList")
+    "Status"=@("Update-NOVAAct","Update-NOVAWorkflowRun")
+}
+
+_awsArgumentCompleterRegistration $NOVA_Completers $NOVA_map
+
+$NOVA_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.NOVA.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$NOVA_SelectMap = @{
+    "Select"=@("New-NOVAAct",
+               "New-NOVASession",
+               "New-NOVAWorkflowDefinition",
+               "New-NOVAWorkflowRun",
+               "Remove-NOVAWorkflowDefinition",
+               "Remove-NOVAWorkflowRun",
+               "Get-NOVAWorkflowDefinition",
+               "Get-NOVAWorkflowRun",
+               "Invoke-NOVAActStep",
+               "Get-NOVAActList",
+               "Get-NOVAModelList",
+               "Get-NOVASessionList",
+               "Get-NOVAWorkflowDefinitionList",
+               "Get-NOVAWorkflowRunList",
+               "Update-NOVAAct",
+               "Update-NOVAWorkflowRun")
+}
+
+_awsArgumentCompleterRegistration $NOVA_SelectCompleters $NOVA_SelectMap
 # Argument completions for service CloudWatch Observability Access Manager
 
 
@@ -57467,6 +57686,30 @@ $CWOADMN_Completers = {
             break
         }
 
+        # Amazon.ObservabilityAdmin.FilterBehavior
+        {
+            ($_ -eq "New-CWOADMNTelemetryRule/LoggingFilter_DefaultBehavior") -Or
+            ($_ -eq "New-CWOADMNTelemetryRuleForOrganization/LoggingFilter_DefaultBehavior") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRule/LoggingFilter_DefaultBehavior") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRuleForOrganization/LoggingFilter_DefaultBehavior")
+        }
+        {
+            $v = "DROP","KEEP"
+            break
+        }
+
+        # Amazon.ObservabilityAdmin.OutputFormat
+        {
+            ($_ -eq "New-CWOADMNTelemetryRule/ELBLoadBalancerLoggingParameters_OutputFormat") -Or
+            ($_ -eq "New-CWOADMNTelemetryRuleForOrganization/ELBLoadBalancerLoggingParameters_OutputFormat") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRule/ELBLoadBalancerLoggingParameters_OutputFormat") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRuleForOrganization/ELBLoadBalancerLoggingParameters_OutputFormat")
+        }
+        {
+            $v = "json","plain"
+            break
+        }
+
         # Amazon.ObservabilityAdmin.ResourceType
         {
             ($_ -eq "New-CWOADMNTelemetryRule/Rule_ResourceType") -Or
@@ -57475,7 +57718,14 @@ $CWOADMN_Completers = {
             ($_ -eq "Update-CWOADMNTelemetryRuleForOrganization/Rule_ResourceType")
         }
         {
-            $v = "AWS::EC2::Instance","AWS::EC2::VPC","AWS::Lambda::Function"
+            $v = "AWS::BedrockAgentCore::Browser","AWS::BedrockAgentCore::CodeInterpreter","AWS::BedrockAgentCore::Runtime","AWS::CloudTrail","AWS::EC2::Instance","AWS::EC2::VPC","AWS::EKS::Cluster","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::Lambda::Function","AWS::Route53Resolver::ResolverEndpoint","AWS::WAFv2::WebACL"
+            break
+        }
+
+        # Amazon.ObservabilityAdmin.SSEAlgorithm
+        "New-CWOADMNS3TableIntegration/Encryption_SseAlgorithm"
+        {
+            $v = "AES256","aws:kms"
             break
         }
 
@@ -57491,6 +57741,18 @@ $CWOADMN_Completers = {
             break
         }
 
+        # Amazon.ObservabilityAdmin.WAFLogType
+        {
+            ($_ -eq "New-CWOADMNTelemetryRule/WAFLoggingParameters_LogType") -Or
+            ($_ -eq "New-CWOADMNTelemetryRuleForOrganization/WAFLoggingParameters_LogType") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRule/WAFLoggingParameters_LogType") -Or
+            ($_ -eq "Update-CWOADMNTelemetryRuleForOrganization/WAFLoggingParameters_LogType")
+        }
+        {
+            $v = "WAF_LOGS"
+            break
+        }
+
 
     }
 
@@ -57501,11 +57763,15 @@ $CWOADMN_Completers = {
 
 $CWOADMN_map = @{
     "DestinationConfiguration_DestinationType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
+    "ELBLoadBalancerLoggingParameters_OutputFormat"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
+    "Encryption_SseAlgorithm"=@("New-CWOADMNS3TableIntegration")
+    "LoggingFilter_DefaultBehavior"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "LogsEncryptionConfiguration_EncryptionConflictResolutionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
     "LogsEncryptionConfiguration_EncryptionStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
     "Rule_ResourceType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "Rule_TelemetryType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
     "SourceLogsConfiguration_EncryptedLogGroupStrategy"=@("New-CWOADMNCentralizationRuleForOrganization","Update-CWOADMNCentralizationRuleForOrganization")
+    "WAFLoggingParameters_LogType"=@("New-CWOADMNTelemetryRule","New-CWOADMNTelemetryRuleForOrganization","Update-CWOADMNTelemetryRule","Update-CWOADMNTelemetryRuleForOrganization")
 }
 
 _awsArgumentCompleterRegistration $CWOADMN_Completers $CWOADMN_map
@@ -57559,21 +57825,29 @@ $CWOADMN_SelectCompleters = {
 
 $CWOADMN_SelectMap = @{
     "Select"=@("New-CWOADMNCentralizationRuleForOrganization",
+               "New-CWOADMNS3TableIntegration",
+               "New-CWOADMNTelemetryPipeline",
                "New-CWOADMNTelemetryRule",
                "New-CWOADMNTelemetryRuleForOrganization",
                "Remove-CWOADMNCentralizationRuleForOrganization",
+               "Remove-CWOADMNS3TableIntegration",
+               "Remove-CWOADMNTelemetryPipeline",
                "Remove-CWOADMNTelemetryRule",
                "Remove-CWOADMNTelemetryRuleForOrganization",
                "Get-CWOADMNCentralizationRuleForOrganization",
+               "Get-CWOADMNS3TableIntegration",
                "Get-CWOADMNTelemetryEnrichmentStatus",
                "Get-CWOADMNTelemetryEvaluationStatus",
                "Get-CWOADMNTelemetryEvaluationStatusForOrganization",
+               "Get-CWOADMNTelemetryPipeline",
                "Get-CWOADMNTelemetryRule",
                "Get-CWOADMNTelemetryRuleForOrganization",
                "Get-CWOADMNCentralizationRulesForOrganizationList",
                "Get-CWOADMNResourceTelemetryList",
                "Get-CWOADMNResourceTelemetryForOrganizationList",
+               "Get-CWOADMNS3TableIntegrationList",
                "Get-CWOADMNResourceTag",
+               "Get-CWOADMNTelemetryPipelineList",
                "Get-CWOADMNTelemetryRuleList",
                "Get-CWOADMNTelemetryRulesForOrganizationList",
                "Start-CWOADMNTelemetryEnrichment",
@@ -57583,10 +57857,13 @@ $CWOADMN_SelectMap = @{
                "Stop-CWOADMNTelemetryEvaluation",
                "Stop-CWOADMNTelemetryEvaluationForOrganization",
                "Add-CWOADMNResourceTag",
+               "Test-CWOADMNTelemetryPipeline",
                "Remove-CWOADMNResourceTag",
                "Update-CWOADMNCentralizationRuleForOrganization",
+               "Update-CWOADMNTelemetryPipeline",
                "Update-CWOADMNTelemetryRule",
-               "Update-CWOADMNTelemetryRuleForOrganization")
+               "Update-CWOADMNTelemetryRuleForOrganization",
+               "Test-CWOADMNTelemetryPipelineConfiguration")
 }
 
 _awsArgumentCompleterRegistration $CWOADMN_SelectCompleters $CWOADMN_SelectMap
@@ -58679,6 +58956,13 @@ $OSS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchServerless.ServerlessVectorAccelerationStatus
+        "New-OSSCollection/VectorOptions_ServerlessVectorAcceleration"
+        {
+            $v = "ALLOWED","DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.OpenSearchServerless.StandbyReplicas
         "New-OSSCollection/StandbyReplica"
         {
@@ -58709,6 +58993,7 @@ $OSS_map = @{
     "IamIdentityCenterOptionsUpdates_UserAttribute"=@("Update-OSSSecurityConfig")
     "StandbyReplica"=@("New-OSSCollection")
     "Type"=@("Get-OSSAccessPolicy","Get-OSSAccessPolicyList","Get-OSSLifecyclePolicyList","Get-OSSSecurityConfigList","Get-OSSSecurityPolicy","Get-OSSSecurityPolicyList","New-OSSAccessPolicy","New-OSSCollection","New-OSSLifecyclePolicy","New-OSSSecurityConfig","New-OSSSecurityPolicy","Remove-OSSAccessPolicy","Remove-OSSLifecyclePolicy","Remove-OSSSecurityPolicy","Update-OSSAccessPolicy","Update-OSSLifecyclePolicy","Update-OSSSecurityPolicy")
+    "VectorOptions_ServerlessVectorAcceleration"=@("New-OSSCollection")
     "VpcEndpointFilters_Status"=@("Get-OSSVpcEndpointList")
 }
 
@@ -70173,7 +70458,7 @@ $S3_Completers = {
             ($_ -eq "Write-S3GetObjectResponse/StorageClass")
         }
         {
-            $v = "DEEP_ARCHIVE","EXPRESS_ONEZONE","FSX_OPENZFS","GLACIER","GLACIER_IR","INTELLIGENT_TIERING","ONEZONE_IA","OUTPOSTS","REDUCED_REDUNDANCY","SNOW","STANDARD","STANDARD_IA"
+            $v = "DEEP_ARCHIVE","EXPRESS_ONEZONE","FSX_ONTAP","FSX_OPENZFS","GLACIER","GLACIER_IR","INTELLIGENT_TIERING","ONEZONE_IA","OUTPOSTS","REDUCED_REDUNDANCY","SNOW","STANDARD","STANDARD_IA"
             break
         }
 
@@ -70504,7 +70789,10 @@ $S3C_Completers = {
         }
 
         # Amazon.S3Control.Format
-        "Write-S3CStorageLensConfiguration/S3BucketDestination_Format"
+        {
+            ($_ -eq "Write-S3CStorageLensConfiguration/DataExport_S3BucketDestination_Format") -Or
+            ($_ -eq "Write-S3CStorageLensConfiguration/ExpandedPrefixesDataExport_S3BucketDestination_Format")
+        }
         {
             $v = "CSV","Parquet"
             break
@@ -70556,7 +70844,10 @@ $S3C_Completers = {
         }
 
         # Amazon.S3Control.OutputSchemaVersion
-        "Write-S3CStorageLensConfiguration/S3BucketDestination_OutputSchemaVersion"
+        {
+            ($_ -eq "Write-S3CStorageLensConfiguration/DataExport_S3BucketDestination_OutputSchemaVersion") -Or
+            ($_ -eq "Write-S3CStorageLensConfiguration/ExpandedPrefixesDataExport_S3BucketDestination_OutputSchemaVersion")
+        }
         {
             $v = "V_1"
             break
@@ -70678,6 +70969,10 @@ $S3C_map = @{
     "AccessControlPolicy_CannedAccessControlList"=@("New-S3CJob")
     "ACL"=@("New-S3CBucket")
     "CreateBucketConfiguration_LocationConstraint"=@("New-S3CBucket")
+    "DataExport_S3BucketDestination_Format"=@("Write-S3CStorageLensConfiguration")
+    "DataExport_S3BucketDestination_OutputSchemaVersion"=@("Write-S3CStorageLensConfiguration")
+    "ExpandedPrefixesDataExport_S3BucketDestination_Format"=@("Write-S3CStorageLensConfiguration")
+    "ExpandedPrefixesDataExport_S3BucketDestination_OutputSchemaVersion"=@("Write-S3CStorageLensConfiguration")
     "Grantee_GranteeType"=@("New-S3CAccessGrant")
     "GranteeType"=@("Get-S3CAccessGrantList")
     "LegalHold_Status"=@("New-S3CJob")
@@ -70689,8 +70984,6 @@ $S3C_map = @{
     "Report_ReportScope"=@("New-S3CJob")
     "RequestedJobStatus"=@("Update-S3CJobStatus")
     "Retention_Mode"=@("New-S3CJob")
-    "S3BucketDestination_Format"=@("Write-S3CStorageLensConfiguration")
-    "S3BucketDestination_OutputSchemaVersion"=@("Write-S3CStorageLensConfiguration")
     "S3ComputeObjectChecksum_ChecksumAlgorithm"=@("New-S3CJob")
     "S3ComputeObjectChecksum_ChecksumType"=@("New-S3CJob")
     "S3InitiateRestoreObject_GlacierJobTier"=@("New-S3CJob")
@@ -70985,6 +71278,17 @@ $S3T_Completers = {
             break
         }
 
+        # Amazon.S3Tables.StorageClass
+        {
+            ($_ -eq "New-S3TTable/StorageClassConfiguration_StorageClass") -Or
+            ($_ -eq "New-S3TTableBucket/StorageClassConfiguration_StorageClass") -Or
+            ($_ -eq "Write-S3TTableBucketStorageClass/StorageClassConfiguration_StorageClass")
+        }
+        {
+            $v = "INTELLIGENT_TIERING","STANDARD"
+            break
+        }
+
         # Amazon.S3Tables.TableBucketMaintenanceType
         "Write-S3TTableBucketMaintenanceConfiguration/Type"
         {
@@ -71006,6 +71310,13 @@ $S3T_Completers = {
             break
         }
 
+        # Amazon.S3Tables.TableRecordExpirationStatus
+        "Write-S3TTableRecordExpirationConfiguration/Value_Status"
+        {
+            $v = "disabled","enabled"
+            break
+        }
+
 
     }
 
@@ -71018,8 +71329,9 @@ $S3T_map = @{
     "EncryptionConfiguration_SseAlgorithm"=@("New-S3TTable","New-S3TTableBucket","Write-S3TTableBucketEncryption")
     "Format"=@("New-S3TTable")
     "IcebergCompaction_Strategy"=@("Write-S3TTableMaintenanceConfiguration")
+    "StorageClassConfiguration_StorageClass"=@("New-S3TTable","New-S3TTableBucket","Write-S3TTableBucketStorageClass")
     "Type"=@("Get-S3TTableBucketList","Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration")
-    "Value_Status"=@("Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration")
+    "Value_Status"=@("Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration","Write-S3TTableRecordExpirationConfiguration")
 }
 
 _awsArgumentCompleterRegistration $S3T_Completers $S3T_map
@@ -71081,7 +71393,9 @@ $S3T_SelectMap = @{
                "Remove-S3TTableBucketEncryption",
                "Remove-S3TTableBucketMetricsConfiguration",
                "Remove-S3TTableBucketPolicy",
+               "Remove-S3TTableBucketReplication",
                "Remove-S3TTablePolicy",
+               "Remove-S3TTableReplication",
                "Get-S3TNamespace",
                "Get-S3TTable",
                "Get-S3TTableBucket",
@@ -71089,11 +71403,18 @@ $S3T_SelectMap = @{
                "Get-S3TTableBucketMaintenanceConfiguration",
                "Get-S3TTableBucketMetricsConfiguration",
                "Get-S3TTableBucketPolicy",
+               "Get-S3TTableBucketReplication",
+               "Get-S3TTableBucketStorageClass",
                "Get-S3TTableEncryption",
                "Get-S3TTableMaintenanceConfiguration",
                "Get-S3TTableMaintenanceJobStatus",
                "Get-S3TTableMetadataLocation",
                "Get-S3TTablePolicy",
+               "Get-S3TTableRecordExpirationConfiguration",
+               "Get-S3TTableRecordExpirationJobStatus",
+               "Get-S3TTableReplication",
+               "Get-S3TTableReplicationStatus",
+               "Get-S3TTableStorageClass",
                "Get-S3TNamespaceList",
                "Get-S3TTableBucketList",
                "Get-S3TTableList",
@@ -71102,8 +71423,12 @@ $S3T_SelectMap = @{
                "Write-S3TTableBucketMaintenanceConfiguration",
                "Write-S3TTableBucketMetricsConfiguration",
                "Write-S3TTableBucketPolicy",
+               "Write-S3TTableBucketReplication",
+               "Write-S3TTableBucketStorageClass",
                "Write-S3TTableMaintenanceConfiguration",
                "Write-S3TTablePolicy",
+               "Write-S3TTableRecordExpirationConfiguration",
+               "Write-S3TTableReplication",
                "Rename-S3TTable",
                "Add-S3TResourceTag",
                "Remove-S3TResourceTag",
@@ -71134,7 +71459,10 @@ $S3V_Completers = {
         }
 
         # Amazon.S3Vectors.SseType
-        "New-S3VVectorBucket/EncryptionConfiguration_SseType"
+        {
+            ($_ -eq "New-S3VIndex/EncryptionConfiguration_SseType") -Or
+            ($_ -eq "New-S3VVectorBucket/EncryptionConfiguration_SseType")
+        }
         {
             $v = "AES256","aws:kms"
             break
@@ -71151,7 +71479,7 @@ $S3V_Completers = {
 $S3V_map = @{
     "DataType"=@("New-S3VIndex")
     "DistanceMetric"=@("New-S3VIndex")
-    "EncryptionConfiguration_SseType"=@("New-S3VVectorBucket")
+    "EncryptionConfiguration_SseType"=@("New-S3VIndex","New-S3VVectorBucket")
 }
 
 _awsArgumentCompleterRegistration $S3V_Completers $S3V_map
@@ -71215,11 +71543,14 @@ $S3V_SelectMap = @{
                "Get-S3VVectorBucketPolicy",
                "Get-S3VVector",
                "Get-S3VIndexList",
+               "Get-S3VResourceTag",
                "Get-S3VVectorBucketList",
                "Get-S3VVectorList",
                "Write-S3VVectorBucketPolicy",
                "Write-S3VVector",
-               "Search-S3VVector")
+               "Search-S3VVector",
+               "Add-S3VResourceTag",
+               "Remove-S3VResourceTag")
 }
 
 _awsArgumentCompleterRegistration $S3V_SelectCompleters $S3V_SelectMap
@@ -71729,6 +72060,17 @@ $SM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.SageMaker.AccountDefaultStatus
+        {
+            ($_ -eq "Get-SMMlflowAppList/AccountDefaultStatus") -Or
+            ($_ -eq "New-SMMlflowApp/AccountDefaultStatus") -Or
+            ($_ -eq "Update-SMMlflowApp/AccountDefaultStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.SageMaker.ActionStatus
         {
             ($_ -eq "New-SMAction/Status") -Or
@@ -72279,7 +72621,7 @@ $SM_Completers = {
             ($_ -eq "Update-SMHubContentReference/HubContentType")
         }
         {
-            $v = "Model","ModelReference","Notebook"
+            $v = "DataSet","JsonDoc","Model","ModelReference","Notebook"
             break
         }
 
@@ -72537,6 +72879,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.MlflowAppStatus
+        "Get-SMMlflowAppList/Status"
+        {
+            $v = "Created","CreateFailed","Creating","Deleted","DeleteFailed","Deleting","Updated","UpdateFailed","Updating"
+            break
+        }
+
         # Amazon.SageMaker.ModelApprovalStatus
         {
             ($_ -eq "Get-SMModelPackageList/ModelApprovalStatus") -Or
@@ -72625,6 +72974,16 @@ $SM_Completers = {
         "Get-SMModelPackageList/ModelPackageType"
         {
             $v = "Both","Unversioned","Versioned"
+            break
+        }
+
+        # Amazon.SageMaker.ModelRegistrationMode
+        {
+            ($_ -eq "New-SMMlflowApp/ModelRegistrationMode") -Or
+            ($_ -eq "Update-SMMlflowApp/ModelRegistrationMode")
+        }
+        {
+            $v = "AutoModelRegistrationDisabled","AutoModelRegistrationEnabled"
             break
         }
 
@@ -73082,6 +73441,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.SortMlflowAppBy
+        "Get-SMMlflowAppList/SortBy"
+        {
+            $v = "CreationTime","Name","Status"
+            break
+        }
+
         # Amazon.SageMaker.SortOrder
         {
             ($_ -eq "Get-SMActionList/SortOrder") -Or
@@ -73113,6 +73479,7 @@ $SM_Completers = {
             ($_ -eq "Get-SMLabelingJobList/SortOrder") -Or
             ($_ -eq "Get-SMLabelingJobListForWorkteam/SortOrder") -Or
             ($_ -eq "Get-SMLineageGroupList/SortOrder") -Or
+            ($_ -eq "Get-SMMlflowAppList/SortOrder") -Or
             ($_ -eq "Get-SMMlflowTrackingServerList/SortOrder") -Or
             ($_ -eq "Get-SMModelBiasJobDefinitionList/SortOrder") -Or
             ($_ -eq "Get-SMModelExplainabilityJobDefinitionList/SortOrder") -Or
@@ -73442,6 +73809,7 @@ $SM_Completers = {
 }
 
 $SM_map = @{
+    "AccountDefaultStatus"=@("Get-SMMlflowAppList","New-SMMlflowApp","Update-SMMlflowApp")
     "ActivationState"=@("New-SMComputeQuota","Update-SMComputeQuota")
     "AdditionalS3DataSource_CompressionType"=@("New-SMAlgorithm")
     "AdditionalS3DataSource_S3DataType"=@("New-SMAlgorithm")
@@ -73508,6 +73876,7 @@ $SM_map = @{
     "ModelCardStatus"=@("Get-SMModelCardList","Get-SMModelCardVersionList","New-SMModelCard","Update-SMModelCard")
     "ModelPackageType"=@("Get-SMModelPackageList")
     "ModelQualityAppSpecification_ProblemType"=@("New-SMModelQualityJobDefinition")
+    "ModelRegistrationMode"=@("New-SMMlflowApp","Update-SMMlflowApp")
     "MonitoringTypeEqual"=@("Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList")
     "NodeProvisioningMode"=@("New-SMCluster","Update-SMCluster")
     "NodeRecovery"=@("New-SMCluster","Update-SMCluster")
@@ -73529,8 +73898,8 @@ $SM_map = @{
     "SchedulerConfig_FairShare"=@("New-SMClusterSchedulerConfig","Update-SMClusterSchedulerConfig")
     "SearchExpression_Operator"=@("Search-SMResource")
     "SkipModelValidation"=@("New-SMModelPackage")
-    "SortBy"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMClusterEventList","Get-SMClusterList","Get-SMClusterNodeList","Get-SMClusterSchedulerConfigList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMComputeQuotaList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMMlflowTrackingServerList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMPipelineExecutionList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMResourceCatalogList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTrainingPlanList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList")
-    "SortOrder"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMClusterEventList","Get-SMClusterList","Get-SMClusterNodeList","Get-SMClusterSchedulerConfigList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMComputeQuotaList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMFlowDefinitionList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHumanTaskUiList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMMlflowTrackingServerList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMPipelineExecutionList","Get-SMPipelineExecutionStepList","Get-SMPipelineList","Get-SMPipelineVersionList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMResourceCatalogList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTrainingPlanList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList","Search-SMResource")
+    "SortBy"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMClusterEventList","Get-SMClusterList","Get-SMClusterNodeList","Get-SMClusterSchedulerConfigList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMComputeQuotaList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMMlflowAppList","Get-SMMlflowTrackingServerList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMPipelineExecutionList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMResourceCatalogList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTrainingPlanList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList")
+    "SortOrder"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMClusterEventList","Get-SMClusterList","Get-SMClusterNodeList","Get-SMClusterSchedulerConfigList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMComputeQuotaList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMFlowDefinitionList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHumanTaskUiList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMMlflowAppList","Get-SMMlflowTrackingServerList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMPipelineExecutionList","Get-SMPipelineExecutionStepList","Get-SMPipelineList","Get-SMPipelineVersionList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMResourceCatalogList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTrainingPlanList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList","Search-SMResource")
     "SpaceSettings_AppType"=@("New-SMSpace","Update-SMSpace")
     "SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMSpace","Update-SMSpace")
     "SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMSpace","Update-SMSpace")
@@ -73539,7 +73908,7 @@ $SM_map = @{
     "SpaceSettings_RemoteAccess"=@("New-SMSpace","Update-SMSpace")
     "SpaceSettings_SpaceManagedResource"=@("New-SMSpace","Update-SMSpace")
     "SpaceSharingSettings_SharingType"=@("New-SMSpace")
-    "Status"=@("Get-SMClusterSchedulerConfigList","Get-SMComputeQuotaList","Get-SMInferenceRecommendationsJobStepList","New-SMAction","Update-SMAction")
+    "Status"=@("Get-SMClusterSchedulerConfigList","Get-SMComputeQuotaList","Get-SMInferenceRecommendationsJobStepList","Get-SMMlflowAppList","New-SMAction","Update-SMAction")
     "Status_PrimaryStatus"=@("New-SMTrialComponent","Update-SMTrialComponent")
     "StatusEqual"=@("Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCompilationJobList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMModelCardExportJobList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList")
     "StepType"=@("Get-SMInferenceRecommendationsJobStepList")
@@ -73668,6 +74037,7 @@ $SM_SelectMap = @{
                "New-SMInferenceExperiment",
                "New-SMInferenceRecommendationsJob",
                "New-SMLabelingJob",
+               "New-SMMlflowApp",
                "New-SMMlflowTrackingServer",
                "New-SMModel",
                "New-SMModelBiasJobDefinition",
@@ -73685,6 +74055,7 @@ $SM_SelectMap = @{
                "New-SMPartnerAppPresignedUrl",
                "New-SMPipeline",
                "New-SMPresignedDomainUrl",
+               "New-SMPresignedMlflowAppUrl",
                "New-SMPresignedMlflowTrackingServerUrl",
                "New-SMPresignedNotebookInstanceUrl",
                "New-SMProcessingJob",
@@ -73730,6 +74101,7 @@ $SM_SelectMap = @{
                "Remove-SMImageVersion",
                "Remove-SMInferenceComponent",
                "Remove-SMInferenceExperiment",
+               "Remove-SMMlflowApp",
                "Remove-SMMlflowTrackingServer",
                "Remove-SMModel",
                "Remove-SMModelBiasJobDefinition",
@@ -73795,6 +74167,7 @@ $SM_SelectMap = @{
                "Get-SMInferenceRecommendationsJob",
                "Get-SMLabelingJob",
                "Get-SMLineageGroup",
+               "Get-SMMlflowAppDetail",
                "Get-SMMlflowTrackingServer",
                "Get-SMModel",
                "Get-SMModelBiasJobDefinition",
@@ -73879,6 +74252,7 @@ $SM_SelectMap = @{
                "Get-SMLabelingJobList",
                "Get-SMLabelingJobListForWorkteam",
                "Get-SMLineageGroupList",
+               "Get-SMMlflowAppList",
                "Get-SMMlflowTrackingServerList",
                "Get-SMModelBiasJobDefinitionList",
                "Get-SMModelCardExportJobList",
@@ -73978,6 +74352,7 @@ $SM_SelectMap = @{
                "Update-SMInferenceComponent",
                "Update-SMInferenceComponentRuntimeConfig",
                "Update-SMInferenceExperiment",
+               "Update-SMMlflowApp",
                "Update-SMMlflowTrackingServer",
                "Update-SMModelCard",
                "Update-SMModelPackage",
@@ -74011,7 +74386,7 @@ $SP_Completers = {
         # Amazon.SavingsPlans.SavingsPlanProductType
         "Get-SPSavingsPlansOffering/ProductType"
         {
-            $v = "EC2","Fargate","Lambda","SageMaker"
+            $v = "DMS","DocDB","DSQL","DynamoDB","EC2","ElastiCache","Fargate","Keyspaces","Lambda","Neptune","RDS","SageMaker","Timestream"
             break
         }
 
@@ -74733,6 +75108,13 @@ $SHUB_Completers = {
             break
         }
 
+        # Amazon.SecurityHub.TicketCreationMode
+        "New-SHUBTicketV2/Mode"
+        {
+            $v = "DRYRUN"
+            break
+        }
+
         # Amazon.SecurityHub.VerificationState
         "Update-SHUBFindingsBatch/VerificationState"
         {
@@ -74764,6 +75146,7 @@ $SHUB_map = @{
     "Filters_AssociationStatus"=@("Get-SHUBConfigurationPolicyAssociationList")
     "Filters_AssociationType"=@("Get-SHUBConfigurationPolicyAssociationList")
     "Filters_CompositeOperator"=@("Get-SHUBFindingsTrendsV2","Get-SHUBFindingsV2","Get-SHUBResourcesTrendsV2","Get-SHUBResourcesV2")
+    "Mode"=@("New-SHUBTicketV2")
     "OcsfFindingCriteria_CompositeOperator"=@("New-SHUBAutomationRuleV2","Update-SHUBAutomationRuleV2")
     "OrganizationConfiguration_ConfigurationType"=@("Update-SHUBOrganizationConfiguration")
     "OrganizationConfiguration_Status"=@("Update-SHUBOrganizationConfiguration")
@@ -74840,7 +75223,6 @@ $SHUB_SelectMap = @{
                "Update-SHUBFindingsBatch",
                "Set-SHUBBatchFindingsV2",
                "Edit-SHUBUpdateStandardsControlAssociation",
-               "Register-SHUBConnectorV2",
                "New-SHUBActionTarget",
                "New-SHUBAggregatorV2",
                "New-SHUBAutomationRule",
@@ -74917,6 +75299,7 @@ $SHUB_SelectMap = @{
                "Get-SHUBSecurityControlDefinitionList",
                "Get-SHUBStandardsControlAssociationList",
                "Get-SHUBResourceTag",
+               "Register-SHUBConnectorV2",
                "Start-SHUBConfigurationPolicyAssociation",
                "Start-SHUBConfigurationPolicyDisassociation",
                "Add-SHUBResourceTag",

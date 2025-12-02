@@ -30,18 +30,7 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// <important><para>
-    /// End of support notice: Beginning November 21, 2025, Amazon S3 will stop returning
-    /// <c>DisplayName</c>. Update your applications to use canonical IDs (unique identifier
-    /// for Amazon Web Services accounts), Amazon Web Services account ID (12 digit identifier)
-    /// or IAM ARNs (full resource naming) as a direct replacement of <c>DisplayName</c>.
-    /// 
-    /// </para><para>
-    /// This change affects the following Amazon Web Services Regions: US East (N. Virginia)
-    /// Region, US West (N. California) Region, US West (Oregon) Region, Asia Pacific (Singapore)
-    /// Region, Asia Pacific (Sydney) Region, Asia Pacific (Tokyo) Region, Europe (Ireland)
-    /// Region, and South America (São Paulo) Region.
-    /// </para></important><note><para>
+    /// <note><para>
     /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// This implementation of the <c>GET</c> action uses the <c>acl</c> subresource to return

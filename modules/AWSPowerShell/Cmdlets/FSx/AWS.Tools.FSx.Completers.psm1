@@ -160,6 +160,13 @@ $FSX_Completers = {
             break
         }
 
+        # Amazon.FSx.OntapFileSystemUserType
+        "New-FSXAndAttachS3AccessPoint/OntapConfiguration_FileSystemIdentity_Type"
+        {
+            $v = "UNIX","WINDOWS"
+            break
+        }
+
         # Amazon.FSx.OpenZFSCopyStrategy
         {
             ($_ -eq "Copy-FSXSnapshotAndUpdateVolume/CopyStrategy") -Or
@@ -193,7 +200,7 @@ $FSX_Completers = {
         }
 
         # Amazon.FSx.OpenZFSFileSystemUserType
-        "New-FSXAndAttachS3AccessPoint/FileSystemIdentity_Type"
+        "New-FSXAndAttachS3AccessPoint/OpenZFSConfiguration_FileSystemIdentity_Type"
         {
             $v = "POSIX"
             break
@@ -255,7 +262,7 @@ $FSX_Completers = {
         # Amazon.FSx.S3AccessPointAttachmentType
         "New-FSXAndAttachS3AccessPoint/Type"
         {
-            $v = "OPENZFS"
+            $v = "ONTAP","OPENZFS"
             break
         }
 
@@ -348,7 +355,6 @@ $FSX_map = @{
     "DiskIopsConfiguration_Mode"=@("New-FSXFileSystemFromBackup")
     "DurationSinceLastAccess_Unit"=@("New-FSXDataRepositoryTask")
     "FileCacheType"=@("New-FSXFileCache")
-    "FileSystemIdentity_Type"=@("New-FSXAndAttachS3AccessPoint")
     "FileSystemType"=@("New-FSXFileSystem")
     "LustreConfiguration_DeploymentType"=@("New-FSXFileCache")
     "MaximumRetention_Type"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
@@ -356,12 +362,14 @@ $FSX_map = @{
     "NetworkType"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup","Update-FSXFileSystem")
     "OntapConfiguration_DeploymentType"=@("New-FSXFileSystem")
     "OntapConfiguration_DiskIopsConfiguration_Mode"=@("New-FSXFileSystem","Update-FSXFileSystem")
+    "OntapConfiguration_FileSystemIdentity_Type"=@("New-FSXAndAttachS3AccessPoint")
     "OntapConfiguration_OntapVolumeType"=@("New-FSXVolume","New-FSXVolumeFromBackup")
     "OntapConfiguration_SecurityStyle"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "OntapConfiguration_VolumeStyle"=@("New-FSXVolume","New-FSXVolumeFromBackup")
     "OpenZFSConfiguration_DataCompressionType"=@("New-FSXVolume","Update-FSXVolume")
     "OpenZFSConfiguration_DeploymentType"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup")
     "OpenZFSConfiguration_DiskIopsConfiguration_Mode"=@("New-FSXFileSystem","Update-FSXFileSystem")
+    "OpenZFSConfiguration_FileSystemIdentity_Type"=@("New-FSXAndAttachS3AccessPoint")
     "OriginSnapshot_CopyStrategy"=@("New-FSXVolume")
     "ReadCacheConfiguration_SizingMode"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup","Update-FSXFileSystem")
     "Report_Format"=@("New-FSXDataRepositoryTask")

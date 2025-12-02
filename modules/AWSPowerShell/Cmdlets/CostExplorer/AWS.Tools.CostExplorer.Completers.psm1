@@ -275,7 +275,7 @@ $CE_Completers = {
         # Amazon.CostExplorer.SupportedSavingsPlansType
         "Get-CESavingsPlansPurchaseRecommendation/SavingsPlansType"
         {
-            $v = "COMPUTE_SP","EC2_INSTANCE_SP","SAGEMAKER_SP"
+            $v = "COMPUTE_SP","DATABASE_SP","EC2_INSTANCE_SP","SAGEMAKER_SP"
             break
         }
 

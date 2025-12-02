@@ -42,11 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// To use this action, you must have permission to perform the <c>s3:PutStorageLensConfiguration</c>
     /// action. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting
     /// permissions to use Amazon S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>.
-    /// </para></note><important><para>
-    /// You must URL encode any signed header values that contain spaces. For example, if
-    /// your header value is <c>my file.txt</c>, containing two spaces after <c>my</c>, you
-    /// must URL encode this value to <c>my%20%20file.txt</c>.
-    /// </para></important>
+    /// </para></note>
     /// </summary>
     [Cmdlet("Write", "S3CStorageLensConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -78,15 +74,26 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public System.String AccountId { get; set; }
         #endregion
         
-        #region Parameter S3BucketDestination_AccountId
+        #region Parameter DataExport_S3BucketDestination_AccountId
         /// <summary>
         /// <para>
         /// <para>The account ID of the owner of the S3 Storage Lens metrics export bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("StorageLensConfiguration_DataExport_S3BucketDestination_AccountId")]
-        public System.String S3BucketDestination_AccountId { get; set; }
+        [Alias("S3BucketDestination_AccountId","StorageLensConfiguration_DataExport_S3BucketDestination_AccountId")]
+        public System.String DataExport_S3BucketDestination_AccountId { get; set; }
+        #endregion
+        
+        #region Parameter ExpandedPrefixesDataExport_S3BucketDestination_AccountId
+        /// <summary>
+        /// <para>
+        /// <para>The account ID of the owner of the S3 Storage Lens metrics export bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_AccountId")]
+        public System.String ExpandedPrefixesDataExport_S3BucketDestination_AccountId { get; set; }
         #endregion
         
         #region Parameter AwsOrg_Arn
@@ -101,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public System.String AwsOrg_Arn { get; set; }
         #endregion
         
-        #region Parameter S3BucketDestination_Arn
+        #region Parameter DataExport_S3BucketDestination_Arn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the bucket. This property is read-only and follows
@@ -109,8 +116,20 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("StorageLensConfiguration_DataExport_S3BucketDestination_Arn")]
-        public System.String S3BucketDestination_Arn { get; set; }
+        [Alias("S3BucketDestination_Arn","StorageLensConfiguration_DataExport_S3BucketDestination_Arn")]
+        public System.String DataExport_S3BucketDestination_Arn { get; set; }
+        #endregion
+        
+        #region Parameter ExpandedPrefixesDataExport_S3BucketDestination_Arn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the bucket. This property is read-only and follows
+        /// the following format: <c> arn:aws:s3:<i>us-east-1</i>:<i>example-account-id</i>:bucket/<i>your-destination-bucket-name</i></c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Arn")]
+        public System.String ExpandedPrefixesDataExport_S3BucketDestination_Arn { get; set; }
         #endregion
         
         #region Parameter Exclude_Bucket
@@ -187,16 +206,28 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public System.String[] SelectionCriteria_Exclude { get; set; }
         #endregion
         
-        #region Parameter S3BucketDestination_Format
+        #region Parameter DataExport_S3BucketDestination_Format
         /// <summary>
         /// <para>
         /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("StorageLensConfiguration_DataExport_S3BucketDestination_Format")]
+        [Alias("S3BucketDestination_Format","StorageLensConfiguration_DataExport_S3BucketDestination_Format")]
         [AWSConstantClassSource("Amazon.S3Control.Format")]
-        public Amazon.S3Control.Format S3BucketDestination_Format { get; set; }
+        public Amazon.S3Control.Format DataExport_S3BucketDestination_Format { get; set; }
+        #endregion
+        
+        #region Parameter ExpandedPrefixesDataExport_S3BucketDestination_Format
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Format")]
+        [AWSConstantClassSource("Amazon.S3Control.Format")]
+        public Amazon.S3Control.Format ExpandedPrefixesDataExport_S3BucketDestination_Format { get; set; }
         #endregion
         
         #region Parameter StorageLensConfiguration_Id
@@ -262,6 +293,17 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public System.Boolean? StorageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics_IsEnabled { get; set; }
         #endregion
         
+        #region Parameter StorageLensConfiguration_AccountLevel_AdvancedPerformanceMetrics_IsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>A container that indicates whether S3 Storage Lens advanced performance metrics are
+        /// enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? StorageLensConfiguration_AccountLevel_AdvancedPerformanceMetrics_IsEnabled { get; set; }
+        #endregion
+        
         #region Parameter StorageLensConfiguration_BucketLevel_ActivityMetrics_IsEnabled
         /// <summary>
         /// <para>
@@ -293,6 +335,18 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("StorageLensConfiguration_AccountLevel_BucketLevel_AdvancedDataProtectionMetrics_IsEnabled")]
         public System.Boolean? StorageLensConfiguration_BucketLevel_AdvancedDataProtectionMetrics_IsEnabled { get; set; }
+        #endregion
+        
+        #region Parameter StorageLensConfiguration_BucketLevel_AdvancedPerformanceMetrics_IsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>A container that indicates whether S3 Storage Lens advanced performance metrics are
+        /// enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageLensConfiguration_AccountLevel_BucketLevel_AdvancedPerformanceMetrics_IsEnabled")]
+        public System.Boolean? StorageLensConfiguration_BucketLevel_AdvancedPerformanceMetrics_IsEnabled { get; set; }
         #endregion
         
         #region Parameter StorageLensConfiguration_BucketLevel_DetailedStatusCodesMetrics_IsEnabled
@@ -340,6 +394,32 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public System.Boolean? CloudWatchMetrics_IsEnabled { get; set; }
         #endregion
         
+        #region Parameter DataExport_StorageLensTableDestination_IsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>A container that indicates whether the export to read-only S3 table buckets is enabled
+        /// for your S3 Storage Lens configuration. When set to true, Storage Lens reports are
+        /// automatically exported to tables in addition to other configured destinations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageLensConfiguration_DataExport_StorageLensTableDestination_IsEnabled")]
+        public System.Boolean? DataExport_StorageLensTableDestination_IsEnabled { get; set; }
+        #endregion
+        
+        #region Parameter ExpandedPrefixesDataExport_StorageLensTableDestination_IsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>A container that indicates whether the export to read-only S3 table buckets is enabled
+        /// for your S3 Storage Lens configuration. When set to true, Storage Lens reports are
+        /// automatically exported to tables in addition to other configured destinations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_IsEnabled")]
+        public System.Boolean? ExpandedPrefixesDataExport_StorageLensTableDestination_IsEnabled { get; set; }
+        #endregion
+        
         #region Parameter StorageLensConfiguration_IsEnabled
         /// <summary>
         /// <para>
@@ -356,7 +436,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public System.Boolean? StorageLensConfiguration_IsEnabled { get; set; }
         #endregion
         
-        #region Parameter SSEKMS_KeyId
+        #region Parameter DataExport_S3BucketDestination_SSEKMS_KeyId
         /// <summary>
         /// <para>
         /// <para>A container for the ARN of the SSE-KMS encryption. This property is read-only and
@@ -364,8 +444,44 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("StorageLensConfiguration_DataExport_S3BucketDestination_Encryption_SSEKMS_KeyId")]
-        public System.String SSEKMS_KeyId { get; set; }
+        [Alias("SSEKMS_KeyId","StorageLensConfiguration_DataExport_S3BucketDestination_Encryption_SSEKMS_KeyId")]
+        public System.String DataExport_S3BucketDestination_SSEKMS_KeyId { get; set; }
+        #endregion
+        
+        #region Parameter DataExport_StorageLensTableDestination_SSEKMS_KeyId
+        /// <summary>
+        /// <para>
+        /// <para>A container for the ARN of the SSE-KMS encryption. This property is read-only and
+        /// follows the following format: <c> arn:aws:kms:<i>us-east-1</i>:<i>example-account-id</i>:key/<i>example-9a73-4afc-8d29-8f5900cef44e</i></c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_SSEKMS_KeyId")]
+        public System.String DataExport_StorageLensTableDestination_SSEKMS_KeyId { get; set; }
+        #endregion
+        
+        #region Parameter ExpandedPrefixesDataExport_S3BucketDestination_SSEKMS_KeyId
+        /// <summary>
+        /// <para>
+        /// <para>A container for the ARN of the SSE-KMS encryption. This property is read-only and
+        /// follows the following format: <c> arn:aws:kms:<i>us-east-1</i>:<i>example-account-id</i>:key/<i>example-9a73-4afc-8d29-8f5900cef44e</i></c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSEKMS_KeyId")]
+        public System.String ExpandedPrefixesDataExport_S3BucketDestination_SSEKMS_KeyId { get; set; }
+        #endregion
+        
+        #region Parameter ExpandedPrefixesDataExport_StorageLensTableDestination_SSEKMS_KeyId
+        /// <summary>
+        /// <para>
+        /// <para>A container for the ARN of the SSE-KMS encryption. This property is read-only and
+        /// follows the following format: <c> arn:aws:kms:<i>us-east-1</i>:<i>example-account-id</i>:key/<i>example-9a73-4afc-8d29-8f5900cef44e</i></c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSEKMS_KeyId")]
+        public System.String ExpandedPrefixesDataExport_StorageLensTableDestination_SSEKMS_KeyId { get; set; }
         #endregion
         
         #region Parameter SelectionCriteria_MaxDepth
@@ -390,27 +506,65 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public System.Double? SelectionCriteria_MinStorageBytesPercentage { get; set; }
         #endregion
         
-        #region Parameter S3BucketDestination_OutputSchemaVersion
+        #region Parameter DataExport_S3BucketDestination_OutputSchemaVersion
         /// <summary>
         /// <para>
         /// <para>The schema version of the export file.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("StorageLensConfiguration_DataExport_S3BucketDestination_OutputSchemaVersion")]
+        [Alias("S3BucketDestination_OutputSchemaVersion","StorageLensConfiguration_DataExport_S3BucketDestination_OutputSchemaVersion")]
         [AWSConstantClassSource("Amazon.S3Control.OutputSchemaVersion")]
-        public Amazon.S3Control.OutputSchemaVersion S3BucketDestination_OutputSchemaVersion { get; set; }
+        public Amazon.S3Control.OutputSchemaVersion DataExport_S3BucketDestination_OutputSchemaVersion { get; set; }
         #endregion
         
-        #region Parameter S3BucketDestination_Prefix
+        #region Parameter ExpandedPrefixesDataExport_S3BucketDestination_OutputSchemaVersion
+        /// <summary>
+        /// <para>
+        /// <para>The schema version of the export file.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_OutputSchemaVersion")]
+        [AWSConstantClassSource("Amazon.S3Control.OutputSchemaVersion")]
+        public Amazon.S3Control.OutputSchemaVersion ExpandedPrefixesDataExport_S3BucketDestination_OutputSchemaVersion { get; set; }
+        #endregion
+        
+        #region Parameter DataExport_S3BucketDestination_Prefix
         /// <summary>
         /// <para>
         /// <para>The prefix of the destination bucket where the metrics export will be delivered.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("StorageLensConfiguration_DataExport_S3BucketDestination_Prefix")]
-        public System.String S3BucketDestination_Prefix { get; set; }
+        [Alias("S3BucketDestination_Prefix","StorageLensConfiguration_DataExport_S3BucketDestination_Prefix")]
+        public System.String DataExport_S3BucketDestination_Prefix { get; set; }
+        #endregion
+        
+        #region Parameter ExpandedPrefixesDataExport_S3BucketDestination_Prefix
+        /// <summary>
+        /// <para>
+        /// <para>The prefix of the destination bucket where the metrics export will be delivered.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Prefix")]
+        public System.String ExpandedPrefixesDataExport_S3BucketDestination_Prefix { get; set; }
+        #endregion
+        
+        #region Parameter StorageLensConfiguration_PrefixDelimiter
+        /// <summary>
+        /// <para>
+        /// <para>A container for all prefix delimiters that are used for object keys in this S3 Storage
+        /// Lens configuration. The prefix delimiters determine how S3 Storage Lens counts prefix
+        /// depth, by separating the hierarchical levels in object keys.</para><note><ul><li><para>If either a prefix delimiter or existing delimiter is undefined, Amazon S3 uses the
+        /// delimiter that’s defined.</para></li><li><para>If both the prefix delimiter and existing delimiter are undefined, S3 uses <c>/</c>
+        /// as the default delimiter.</para></li><li><para>When custom delimiters are used, both the prefix delimiter and existing delimiter
+        /// must specify the same special character. Otherwise, your request results in an error.</para></li></ul></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StorageLensConfiguration_PrefixDelimiter { get; set; }
         #endregion
         
         #region Parameter Exclude_Region
@@ -443,15 +597,48 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public System.String[] Include_Region { get; set; }
         #endregion
         
-        #region Parameter Encryption_SSES3
+        #region Parameter DataExport_S3BucketDestination_Encryption_SSES3
         /// <summary>
         /// <para>
         /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("StorageLensConfiguration_DataExport_S3BucketDestination_Encryption_SSES3")]
-        public Amazon.S3Control.Model.SSES3 Encryption_SSES3 { get; set; }
+        [Alias("Encryption_SSES3","StorageLensConfiguration_DataExport_S3BucketDestination_Encryption_SSES3")]
+        public Amazon.S3Control.Model.SSES3 DataExport_S3BucketDestination_Encryption_SSES3 { get; set; }
+        #endregion
+        
+        #region Parameter DataExport_StorageLensTableDestination_Encryption_SSES3
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_SSES3")]
+        public Amazon.S3Control.Model.SSES3 DataExport_StorageLensTableDestination_Encryption_SSES3 { get; set; }
+        #endregion
+        
+        #region Parameter ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSES3
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSES3")]
+        public Amazon.S3Control.Model.SSES3 ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSES3 { get; set; }
+        #endregion
+        
+        #region Parameter ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSES3
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSES3")]
+        public Amazon.S3Control.Model.SSES3 ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSES3 { get; set; }
         #endregion
         
         #region Parameter StorageLensConfiguration_StorageLensArn
@@ -542,9 +729,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             context.StorageLensConfiguration_AccountLevel_ActivityMetrics_IsEnabled = this.StorageLensConfiguration_AccountLevel_ActivityMetrics_IsEnabled;
             context.StorageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics_IsEnabled = this.StorageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics_IsEnabled;
             context.StorageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics_IsEnabled = this.StorageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics_IsEnabled;
+            context.StorageLensConfiguration_AccountLevel_AdvancedPerformanceMetrics_IsEnabled = this.StorageLensConfiguration_AccountLevel_AdvancedPerformanceMetrics_IsEnabled;
             context.StorageLensConfiguration_BucketLevel_ActivityMetrics_IsEnabled = this.StorageLensConfiguration_BucketLevel_ActivityMetrics_IsEnabled;
             context.StorageLensConfiguration_BucketLevel_AdvancedCostOptimizationMetrics_IsEnabled = this.StorageLensConfiguration_BucketLevel_AdvancedCostOptimizationMetrics_IsEnabled;
             context.StorageLensConfiguration_BucketLevel_AdvancedDataProtectionMetrics_IsEnabled = this.StorageLensConfiguration_BucketLevel_AdvancedDataProtectionMetrics_IsEnabled;
+            context.StorageLensConfiguration_BucketLevel_AdvancedPerformanceMetrics_IsEnabled = this.StorageLensConfiguration_BucketLevel_AdvancedPerformanceMetrics_IsEnabled;
             context.StorageLensConfiguration_BucketLevel_DetailedStatusCodesMetrics_IsEnabled = this.StorageLensConfiguration_BucketLevel_DetailedStatusCodesMetrics_IsEnabled;
             context.StorageMetrics_IsEnabled = this.StorageMetrics_IsEnabled;
             context.SelectionCriteria_Delimiter = this.SelectionCriteria_Delimiter;
@@ -561,13 +750,16 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             }
             context.AwsOrg_Arn = this.AwsOrg_Arn;
             context.CloudWatchMetrics_IsEnabled = this.CloudWatchMetrics_IsEnabled;
-            context.S3BucketDestination_AccountId = this.S3BucketDestination_AccountId;
-            context.S3BucketDestination_Arn = this.S3BucketDestination_Arn;
-            context.SSEKMS_KeyId = this.SSEKMS_KeyId;
-            context.Encryption_SSES3 = this.Encryption_SSES3;
-            context.S3BucketDestination_Format = this.S3BucketDestination_Format;
-            context.S3BucketDestination_OutputSchemaVersion = this.S3BucketDestination_OutputSchemaVersion;
-            context.S3BucketDestination_Prefix = this.S3BucketDestination_Prefix;
+            context.DataExport_S3BucketDestination_AccountId = this.DataExport_S3BucketDestination_AccountId;
+            context.DataExport_S3BucketDestination_Arn = this.DataExport_S3BucketDestination_Arn;
+            context.DataExport_S3BucketDestination_SSEKMS_KeyId = this.DataExport_S3BucketDestination_SSEKMS_KeyId;
+            context.DataExport_S3BucketDestination_Encryption_SSES3 = this.DataExport_S3BucketDestination_Encryption_SSES3;
+            context.DataExport_S3BucketDestination_Format = this.DataExport_S3BucketDestination_Format;
+            context.DataExport_S3BucketDestination_OutputSchemaVersion = this.DataExport_S3BucketDestination_OutputSchemaVersion;
+            context.DataExport_S3BucketDestination_Prefix = this.DataExport_S3BucketDestination_Prefix;
+            context.DataExport_StorageLensTableDestination_SSEKMS_KeyId = this.DataExport_StorageLensTableDestination_SSEKMS_KeyId;
+            context.DataExport_StorageLensTableDestination_Encryption_SSES3 = this.DataExport_StorageLensTableDestination_Encryption_SSES3;
+            context.DataExport_StorageLensTableDestination_IsEnabled = this.DataExport_StorageLensTableDestination_IsEnabled;
             if (this.Exclude_Bucket != null)
             {
                 context.Exclude_Bucket = new List<System.String>(this.Exclude_Bucket);
@@ -576,6 +768,16 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             {
                 context.Exclude_Region = new List<System.String>(this.Exclude_Region);
             }
+            context.ExpandedPrefixesDataExport_S3BucketDestination_AccountId = this.ExpandedPrefixesDataExport_S3BucketDestination_AccountId;
+            context.ExpandedPrefixesDataExport_S3BucketDestination_Arn = this.ExpandedPrefixesDataExport_S3BucketDestination_Arn;
+            context.ExpandedPrefixesDataExport_S3BucketDestination_SSEKMS_KeyId = this.ExpandedPrefixesDataExport_S3BucketDestination_SSEKMS_KeyId;
+            context.ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSES3 = this.ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSES3;
+            context.ExpandedPrefixesDataExport_S3BucketDestination_Format = this.ExpandedPrefixesDataExport_S3BucketDestination_Format;
+            context.ExpandedPrefixesDataExport_S3BucketDestination_OutputSchemaVersion = this.ExpandedPrefixesDataExport_S3BucketDestination_OutputSchemaVersion;
+            context.ExpandedPrefixesDataExport_S3BucketDestination_Prefix = this.ExpandedPrefixesDataExport_S3BucketDestination_Prefix;
+            context.ExpandedPrefixesDataExport_StorageLensTableDestination_SSEKMS_KeyId = this.ExpandedPrefixesDataExport_StorageLensTableDestination_SSEKMS_KeyId;
+            context.ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSES3 = this.ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSES3;
+            context.ExpandedPrefixesDataExport_StorageLensTableDestination_IsEnabled = this.ExpandedPrefixesDataExport_StorageLensTableDestination_IsEnabled;
             context.StorageLensConfiguration_Id = this.StorageLensConfiguration_Id;
             #if MODULAR
             if (this.StorageLensConfiguration_Id == null && ParameterWasBound(nameof(this.StorageLensConfiguration_Id)))
@@ -598,6 +800,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
                 WriteWarning("You are passing $null as a value for parameter StorageLensConfiguration_IsEnabled which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.StorageLensConfiguration_PrefixDelimiter = this.StorageLensConfiguration_PrefixDelimiter;
             context.StorageLensConfiguration_StorageLensArn = this.StorageLensConfiguration_StorageLensArn;
             if (this.Tag != null)
             {
@@ -651,6 +854,16 @@ namespace Amazon.PowerShell.Cmdlets.S3C
                 request.StorageLensConfiguration.IsEnabled = requestStorageLensConfiguration_storageLensConfiguration_IsEnabled.Value;
                 requestStorageLensConfigurationIsNull = false;
             }
+            System.String requestStorageLensConfiguration_storageLensConfiguration_PrefixDelimiter = null;
+            if (cmdletContext.StorageLensConfiguration_PrefixDelimiter != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_PrefixDelimiter = cmdletContext.StorageLensConfiguration_PrefixDelimiter;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_PrefixDelimiter != null)
+            {
+                request.StorageLensConfiguration.PrefixDelimiter = requestStorageLensConfiguration_storageLensConfiguration_PrefixDelimiter;
+                requestStorageLensConfigurationIsNull = false;
+            }
             System.String requestStorageLensConfiguration_storageLensConfiguration_StorageLensArn = null;
             if (cmdletContext.StorageLensConfiguration_StorageLensArn != null)
             {
@@ -686,6 +899,281 @@ namespace Amazon.PowerShell.Cmdlets.S3C
                 request.StorageLensConfiguration.AwsOrg = requestStorageLensConfiguration_storageLensConfiguration_AwsOrg;
                 requestStorageLensConfigurationIsNull = false;
             }
+            Amazon.S3Control.Model.Exclude requestStorageLensConfiguration_storageLensConfiguration_Exclude = null;
+            
+             // populate Exclude
+            var requestStorageLensConfiguration_storageLensConfiguration_ExcludeIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_Exclude = new Amazon.S3Control.Model.Exclude();
+            List<System.String> requestStorageLensConfiguration_storageLensConfiguration_Exclude_exclude_Bucket = null;
+            if (cmdletContext.Exclude_Bucket != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_Exclude_exclude_Bucket = cmdletContext.Exclude_Bucket;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_Exclude_exclude_Bucket != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_Exclude.Buckets = requestStorageLensConfiguration_storageLensConfiguration_Exclude_exclude_Bucket;
+                requestStorageLensConfiguration_storageLensConfiguration_ExcludeIsNull = false;
+            }
+            List<System.String> requestStorageLensConfiguration_storageLensConfiguration_Exclude_exclude_Region = null;
+            if (cmdletContext.Exclude_Region != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_Exclude_exclude_Region = cmdletContext.Exclude_Region;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_Exclude_exclude_Region != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_Exclude.Regions = requestStorageLensConfiguration_storageLensConfiguration_Exclude_exclude_Region;
+                requestStorageLensConfiguration_storageLensConfiguration_ExcludeIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_Exclude should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_ExcludeIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_Exclude = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_Exclude != null)
+            {
+                request.StorageLensConfiguration.Exclude = requestStorageLensConfiguration_storageLensConfiguration_Exclude;
+                requestStorageLensConfigurationIsNull = false;
+            }
+            Amazon.S3Control.Model.StorageLensExpandedPrefixesDataExport requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport = null;
+            
+             // populate ExpandedPrefixesDataExport
+            var requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExportIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport = new Amazon.S3Control.Model.StorageLensExpandedPrefixesDataExport();
+            Amazon.S3Control.Model.StorageLensTableDestination requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination = null;
+            
+             // populate StorageLensTableDestination
+            var requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestinationIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination = new Amazon.S3Control.Model.StorageLensTableDestination();
+            System.Boolean? requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_expandedPrefixesDataExport_StorageLensTableDestination_IsEnabled = null;
+            if (cmdletContext.ExpandedPrefixesDataExport_StorageLensTableDestination_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_expandedPrefixesDataExport_StorageLensTableDestination_IsEnabled = cmdletContext.ExpandedPrefixesDataExport_StorageLensTableDestination_IsEnabled.Value;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_expandedPrefixesDataExport_StorageLensTableDestination_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination.IsEnabled = requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_expandedPrefixesDataExport_StorageLensTableDestination_IsEnabled.Value;
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestinationIsNull = false;
+            }
+            Amazon.S3Control.Model.StorageLensDataExportEncryption requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption = null;
+            
+             // populate Encryption
+            var requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_EncryptionIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption = new Amazon.S3Control.Model.StorageLensDataExportEncryption();
+            Amazon.S3Control.Model.SSES3 requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_expandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSES3 = null;
+            if (cmdletContext.ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSES3 != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_expandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSES3 = cmdletContext.ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSES3;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_expandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSES3 != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption.SSES3 = requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_expandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSES3;
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_EncryptionIsNull = false;
+            }
+            Amazon.S3Control.Model.SSEKMS requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSEKMS = null;
+            
+             // populate SSEKMS
+            var requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSEKMSIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSEKMS = new Amazon.S3Control.Model.SSEKMS();
+            System.String requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSEKMS_expandedPrefixesDataExport_StorageLensTableDestination_SSEKMS_KeyId = null;
+            if (cmdletContext.ExpandedPrefixesDataExport_StorageLensTableDestination_SSEKMS_KeyId != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSEKMS_expandedPrefixesDataExport_StorageLensTableDestination_SSEKMS_KeyId = cmdletContext.ExpandedPrefixesDataExport_StorageLensTableDestination_SSEKMS_KeyId;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSEKMS_expandedPrefixesDataExport_StorageLensTableDestination_SSEKMS_KeyId != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSEKMS.KeyId = requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSEKMS_expandedPrefixesDataExport_StorageLensTableDestination_SSEKMS_KeyId;
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSEKMSIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSEKMS should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSEKMSIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSEKMS = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSEKMS != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption.SSEKMS = requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSEKMS;
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_EncryptionIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_EncryptionIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination.Encryption = requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption;
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestinationIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestinationIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport.StorageLensTableDestination = requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_StorageLensTableDestination;
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExportIsNull = false;
+            }
+            Amazon.S3Control.Model.S3BucketDestination requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination = null;
+            
+             // populate S3BucketDestination
+            var requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestinationIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination = new Amazon.S3Control.Model.S3BucketDestination();
+            System.String requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_expandedPrefixesDataExport_S3BucketDestination_AccountId = null;
+            if (cmdletContext.ExpandedPrefixesDataExport_S3BucketDestination_AccountId != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_expandedPrefixesDataExport_S3BucketDestination_AccountId = cmdletContext.ExpandedPrefixesDataExport_S3BucketDestination_AccountId;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_expandedPrefixesDataExport_S3BucketDestination_AccountId != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination.AccountId = requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_expandedPrefixesDataExport_S3BucketDestination_AccountId;
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestinationIsNull = false;
+            }
+            System.String requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_expandedPrefixesDataExport_S3BucketDestination_Arn = null;
+            if (cmdletContext.ExpandedPrefixesDataExport_S3BucketDestination_Arn != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_expandedPrefixesDataExport_S3BucketDestination_Arn = cmdletContext.ExpandedPrefixesDataExport_S3BucketDestination_Arn;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_expandedPrefixesDataExport_S3BucketDestination_Arn != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination.Arn = requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_expandedPrefixesDataExport_S3BucketDestination_Arn;
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestinationIsNull = false;
+            }
+            Amazon.S3Control.Format requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_expandedPrefixesDataExport_S3BucketDestination_Format = null;
+            if (cmdletContext.ExpandedPrefixesDataExport_S3BucketDestination_Format != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_expandedPrefixesDataExport_S3BucketDestination_Format = cmdletContext.ExpandedPrefixesDataExport_S3BucketDestination_Format;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_expandedPrefixesDataExport_S3BucketDestination_Format != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination.Format = requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_expandedPrefixesDataExport_S3BucketDestination_Format;
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestinationIsNull = false;
+            }
+            Amazon.S3Control.OutputSchemaVersion requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_expandedPrefixesDataExport_S3BucketDestination_OutputSchemaVersion = null;
+            if (cmdletContext.ExpandedPrefixesDataExport_S3BucketDestination_OutputSchemaVersion != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_expandedPrefixesDataExport_S3BucketDestination_OutputSchemaVersion = cmdletContext.ExpandedPrefixesDataExport_S3BucketDestination_OutputSchemaVersion;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_expandedPrefixesDataExport_S3BucketDestination_OutputSchemaVersion != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination.OutputSchemaVersion = requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_expandedPrefixesDataExport_S3BucketDestination_OutputSchemaVersion;
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestinationIsNull = false;
+            }
+            System.String requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_expandedPrefixesDataExport_S3BucketDestination_Prefix = null;
+            if (cmdletContext.ExpandedPrefixesDataExport_S3BucketDestination_Prefix != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_expandedPrefixesDataExport_S3BucketDestination_Prefix = cmdletContext.ExpandedPrefixesDataExport_S3BucketDestination_Prefix;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_expandedPrefixesDataExport_S3BucketDestination_Prefix != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination.Prefix = requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_expandedPrefixesDataExport_S3BucketDestination_Prefix;
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestinationIsNull = false;
+            }
+            Amazon.S3Control.Model.StorageLensDataExportEncryption requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption = null;
+            
+             // populate Encryption
+            var requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_EncryptionIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption = new Amazon.S3Control.Model.StorageLensDataExportEncryption();
+            Amazon.S3Control.Model.SSES3 requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_expandedPrefixesDataExport_S3BucketDestination_Encryption_SSES3 = null;
+            if (cmdletContext.ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSES3 != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_expandedPrefixesDataExport_S3BucketDestination_Encryption_SSES3 = cmdletContext.ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSES3;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_expandedPrefixesDataExport_S3BucketDestination_Encryption_SSES3 != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption.SSES3 = requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_expandedPrefixesDataExport_S3BucketDestination_Encryption_SSES3;
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_EncryptionIsNull = false;
+            }
+            Amazon.S3Control.Model.SSEKMS requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSEKMS = null;
+            
+             // populate SSEKMS
+            var requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSEKMSIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSEKMS = new Amazon.S3Control.Model.SSEKMS();
+            System.String requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSEKMS_expandedPrefixesDataExport_S3BucketDestination_SSEKMS_KeyId = null;
+            if (cmdletContext.ExpandedPrefixesDataExport_S3BucketDestination_SSEKMS_KeyId != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSEKMS_expandedPrefixesDataExport_S3BucketDestination_SSEKMS_KeyId = cmdletContext.ExpandedPrefixesDataExport_S3BucketDestination_SSEKMS_KeyId;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSEKMS_expandedPrefixesDataExport_S3BucketDestination_SSEKMS_KeyId != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSEKMS.KeyId = requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSEKMS_expandedPrefixesDataExport_S3BucketDestination_SSEKMS_KeyId;
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSEKMSIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSEKMS should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSEKMSIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSEKMS = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSEKMS != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption.SSEKMS = requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSEKMS;
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_EncryptionIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_EncryptionIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination.Encryption = requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination_Encryption;
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestinationIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestinationIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport.S3BucketDestination = requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport_storageLensConfiguration_ExpandedPrefixesDataExport_S3BucketDestination;
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExportIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExportIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport != null)
+            {
+                request.StorageLensConfiguration.ExpandedPrefixesDataExport = requestStorageLensConfiguration_storageLensConfiguration_ExpandedPrefixesDataExport;
+                requestStorageLensConfigurationIsNull = false;
+            }
+            Amazon.S3Control.Model.Include requestStorageLensConfiguration_storageLensConfiguration_Include = null;
+            
+             // populate Include
+            var requestStorageLensConfiguration_storageLensConfiguration_IncludeIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_Include = new Amazon.S3Control.Model.Include();
+            List<System.String> requestStorageLensConfiguration_storageLensConfiguration_Include_include_Bucket = null;
+            if (cmdletContext.Include_Bucket != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_Include_include_Bucket = cmdletContext.Include_Bucket;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_Include_include_Bucket != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_Include.Buckets = requestStorageLensConfiguration_storageLensConfiguration_Include_include_Bucket;
+                requestStorageLensConfiguration_storageLensConfiguration_IncludeIsNull = false;
+            }
+            List<System.String> requestStorageLensConfiguration_storageLensConfiguration_Include_include_Region = null;
+            if (cmdletContext.Include_Region != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_Include_include_Region = cmdletContext.Include_Region;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_Include_include_Region != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_Include.Regions = requestStorageLensConfiguration_storageLensConfiguration_Include_include_Region;
+                requestStorageLensConfiguration_storageLensConfiguration_IncludeIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_Include should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_IncludeIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_Include = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_Include != null)
+            {
+                request.StorageLensConfiguration.Include = requestStorageLensConfiguration_storageLensConfiguration_Include;
+                requestStorageLensConfigurationIsNull = false;
+            }
             Amazon.S3Control.Model.StorageLensDataExport requestStorageLensConfiguration_storageLensConfiguration_DataExport = null;
             
              // populate DataExport
@@ -716,59 +1204,134 @@ namespace Amazon.PowerShell.Cmdlets.S3C
                 requestStorageLensConfiguration_storageLensConfiguration_DataExport.CloudWatchMetrics = requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_CloudWatchMetrics;
                 requestStorageLensConfiguration_storageLensConfiguration_DataExportIsNull = false;
             }
+            Amazon.S3Control.Model.StorageLensTableDestination requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination = null;
+            
+             // populate StorageLensTableDestination
+            var requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestinationIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination = new Amazon.S3Control.Model.StorageLensTableDestination();
+            System.Boolean? requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_dataExport_StorageLensTableDestination_IsEnabled = null;
+            if (cmdletContext.DataExport_StorageLensTableDestination_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_dataExport_StorageLensTableDestination_IsEnabled = cmdletContext.DataExport_StorageLensTableDestination_IsEnabled.Value;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_dataExport_StorageLensTableDestination_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination.IsEnabled = requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_dataExport_StorageLensTableDestination_IsEnabled.Value;
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestinationIsNull = false;
+            }
+            Amazon.S3Control.Model.StorageLensDataExportEncryption requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption = null;
+            
+             // populate Encryption
+            var requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_EncryptionIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption = new Amazon.S3Control.Model.StorageLensDataExportEncryption();
+            Amazon.S3Control.Model.SSES3 requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_dataExport_StorageLensTableDestination_Encryption_SSES3 = null;
+            if (cmdletContext.DataExport_StorageLensTableDestination_Encryption_SSES3 != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_dataExport_StorageLensTableDestination_Encryption_SSES3 = cmdletContext.DataExport_StorageLensTableDestination_Encryption_SSES3;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_dataExport_StorageLensTableDestination_Encryption_SSES3 != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption.SSES3 = requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_dataExport_StorageLensTableDestination_Encryption_SSES3;
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_EncryptionIsNull = false;
+            }
+            Amazon.S3Control.Model.SSEKMS requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_SSEKMS = null;
+            
+             // populate SSEKMS
+            var requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_SSEKMSIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_SSEKMS = new Amazon.S3Control.Model.SSEKMS();
+            System.String requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_SSEKMS_dataExport_StorageLensTableDestination_SSEKMS_KeyId = null;
+            if (cmdletContext.DataExport_StorageLensTableDestination_SSEKMS_KeyId != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_SSEKMS_dataExport_StorageLensTableDestination_SSEKMS_KeyId = cmdletContext.DataExport_StorageLensTableDestination_SSEKMS_KeyId;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_SSEKMS_dataExport_StorageLensTableDestination_SSEKMS_KeyId != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_SSEKMS.KeyId = requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_SSEKMS_dataExport_StorageLensTableDestination_SSEKMS_KeyId;
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_SSEKMSIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_SSEKMS should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_SSEKMSIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_SSEKMS = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_SSEKMS != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption.SSEKMS = requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption_SSEKMS;
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_EncryptionIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_EncryptionIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination.Encryption = requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination_storageLensConfiguration_DataExport_StorageLensTableDestination_Encryption;
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestinationIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestinationIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport.StorageLensTableDestination = requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_StorageLensTableDestination;
+                requestStorageLensConfiguration_storageLensConfiguration_DataExportIsNull = false;
+            }
             Amazon.S3Control.Model.S3BucketDestination requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination = null;
             
              // populate S3BucketDestination
             var requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestinationIsNull = true;
             requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination = new Amazon.S3Control.Model.S3BucketDestination();
-            System.String requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_s3BucketDestination_AccountId = null;
-            if (cmdletContext.S3BucketDestination_AccountId != null)
+            System.String requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_dataExport_S3BucketDestination_AccountId = null;
+            if (cmdletContext.DataExport_S3BucketDestination_AccountId != null)
             {
-                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_s3BucketDestination_AccountId = cmdletContext.S3BucketDestination_AccountId;
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_dataExport_S3BucketDestination_AccountId = cmdletContext.DataExport_S3BucketDestination_AccountId;
             }
-            if (requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_s3BucketDestination_AccountId != null)
+            if (requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_dataExport_S3BucketDestination_AccountId != null)
             {
-                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination.AccountId = requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_s3BucketDestination_AccountId;
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination.AccountId = requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_dataExport_S3BucketDestination_AccountId;
                 requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestinationIsNull = false;
             }
-            System.String requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_s3BucketDestination_Arn = null;
-            if (cmdletContext.S3BucketDestination_Arn != null)
+            System.String requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_dataExport_S3BucketDestination_Arn = null;
+            if (cmdletContext.DataExport_S3BucketDestination_Arn != null)
             {
-                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_s3BucketDestination_Arn = cmdletContext.S3BucketDestination_Arn;
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_dataExport_S3BucketDestination_Arn = cmdletContext.DataExport_S3BucketDestination_Arn;
             }
-            if (requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_s3BucketDestination_Arn != null)
+            if (requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_dataExport_S3BucketDestination_Arn != null)
             {
-                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination.Arn = requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_s3BucketDestination_Arn;
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination.Arn = requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_dataExport_S3BucketDestination_Arn;
                 requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestinationIsNull = false;
             }
-            Amazon.S3Control.Format requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_s3BucketDestination_Format = null;
-            if (cmdletContext.S3BucketDestination_Format != null)
+            Amazon.S3Control.Format requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_dataExport_S3BucketDestination_Format = null;
+            if (cmdletContext.DataExport_S3BucketDestination_Format != null)
             {
-                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_s3BucketDestination_Format = cmdletContext.S3BucketDestination_Format;
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_dataExport_S3BucketDestination_Format = cmdletContext.DataExport_S3BucketDestination_Format;
             }
-            if (requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_s3BucketDestination_Format != null)
+            if (requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_dataExport_S3BucketDestination_Format != null)
             {
-                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination.Format = requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_s3BucketDestination_Format;
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination.Format = requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_dataExport_S3BucketDestination_Format;
                 requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestinationIsNull = false;
             }
-            Amazon.S3Control.OutputSchemaVersion requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_s3BucketDestination_OutputSchemaVersion = null;
-            if (cmdletContext.S3BucketDestination_OutputSchemaVersion != null)
+            Amazon.S3Control.OutputSchemaVersion requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_dataExport_S3BucketDestination_OutputSchemaVersion = null;
+            if (cmdletContext.DataExport_S3BucketDestination_OutputSchemaVersion != null)
             {
-                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_s3BucketDestination_OutputSchemaVersion = cmdletContext.S3BucketDestination_OutputSchemaVersion;
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_dataExport_S3BucketDestination_OutputSchemaVersion = cmdletContext.DataExport_S3BucketDestination_OutputSchemaVersion;
             }
-            if (requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_s3BucketDestination_OutputSchemaVersion != null)
+            if (requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_dataExport_S3BucketDestination_OutputSchemaVersion != null)
             {
-                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination.OutputSchemaVersion = requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_s3BucketDestination_OutputSchemaVersion;
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination.OutputSchemaVersion = requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_dataExport_S3BucketDestination_OutputSchemaVersion;
                 requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestinationIsNull = false;
             }
-            System.String requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_s3BucketDestination_Prefix = null;
-            if (cmdletContext.S3BucketDestination_Prefix != null)
+            System.String requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_dataExport_S3BucketDestination_Prefix = null;
+            if (cmdletContext.DataExport_S3BucketDestination_Prefix != null)
             {
-                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_s3BucketDestination_Prefix = cmdletContext.S3BucketDestination_Prefix;
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_dataExport_S3BucketDestination_Prefix = cmdletContext.DataExport_S3BucketDestination_Prefix;
             }
-            if (requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_s3BucketDestination_Prefix != null)
+            if (requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_dataExport_S3BucketDestination_Prefix != null)
             {
-                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination.Prefix = requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_s3BucketDestination_Prefix;
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination.Prefix = requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_dataExport_S3BucketDestination_Prefix;
                 requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestinationIsNull = false;
             }
             Amazon.S3Control.Model.StorageLensDataExportEncryption requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption = null;
@@ -776,14 +1339,14 @@ namespace Amazon.PowerShell.Cmdlets.S3C
              // populate Encryption
             var requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_EncryptionIsNull = true;
             requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption = new Amazon.S3Control.Model.StorageLensDataExportEncryption();
-            Amazon.S3Control.Model.SSES3 requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_encryption_SSES3 = null;
-            if (cmdletContext.Encryption_SSES3 != null)
+            Amazon.S3Control.Model.SSES3 requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_dataExport_S3BucketDestination_Encryption_SSES3 = null;
+            if (cmdletContext.DataExport_S3BucketDestination_Encryption_SSES3 != null)
             {
-                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_encryption_SSES3 = cmdletContext.Encryption_SSES3;
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_dataExport_S3BucketDestination_Encryption_SSES3 = cmdletContext.DataExport_S3BucketDestination_Encryption_SSES3;
             }
-            if (requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_encryption_SSES3 != null)
+            if (requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_dataExport_S3BucketDestination_Encryption_SSES3 != null)
             {
-                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption.SSES3 = requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_encryption_SSES3;
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption.SSES3 = requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_dataExport_S3BucketDestination_Encryption_SSES3;
                 requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_EncryptionIsNull = false;
             }
             Amazon.S3Control.Model.SSEKMS requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_SSEKMS = null;
@@ -791,14 +1354,14 @@ namespace Amazon.PowerShell.Cmdlets.S3C
              // populate SSEKMS
             var requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_SSEKMSIsNull = true;
             requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_SSEKMS = new Amazon.S3Control.Model.SSEKMS();
-            System.String requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_SSEKMS_sSEKMS_KeyId = null;
-            if (cmdletContext.SSEKMS_KeyId != null)
+            System.String requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_SSEKMS_dataExport_S3BucketDestination_SSEKMS_KeyId = null;
+            if (cmdletContext.DataExport_S3BucketDestination_SSEKMS_KeyId != null)
             {
-                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_SSEKMS_sSEKMS_KeyId = cmdletContext.SSEKMS_KeyId;
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_SSEKMS_dataExport_S3BucketDestination_SSEKMS_KeyId = cmdletContext.DataExport_S3BucketDestination_SSEKMS_KeyId;
             }
-            if (requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_SSEKMS_sSEKMS_KeyId != null)
+            if (requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_SSEKMS_dataExport_S3BucketDestination_SSEKMS_KeyId != null)
             {
-                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_SSEKMS.KeyId = requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_SSEKMS_sSEKMS_KeyId;
+                requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_SSEKMS.KeyId = requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_SSEKMS_dataExport_S3BucketDestination_SSEKMS_KeyId;
                 requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_SSEKMSIsNull = false;
             }
              // determine if requestStorageLensConfiguration_storageLensConfiguration_DataExport_storageLensConfiguration_DataExport_S3BucketDestination_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_storageLensConfiguration_DataExport_S3BucketDestination_Encryption_SSEKMS should be set to null
@@ -839,76 +1402,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestStorageLensConfiguration_storageLensConfiguration_DataExport != null)
             {
                 request.StorageLensConfiguration.DataExport = requestStorageLensConfiguration_storageLensConfiguration_DataExport;
-                requestStorageLensConfigurationIsNull = false;
-            }
-            Amazon.S3Control.Model.Exclude requestStorageLensConfiguration_storageLensConfiguration_Exclude = null;
-            
-             // populate Exclude
-            var requestStorageLensConfiguration_storageLensConfiguration_ExcludeIsNull = true;
-            requestStorageLensConfiguration_storageLensConfiguration_Exclude = new Amazon.S3Control.Model.Exclude();
-            List<System.String> requestStorageLensConfiguration_storageLensConfiguration_Exclude_exclude_Bucket = null;
-            if (cmdletContext.Exclude_Bucket != null)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_Exclude_exclude_Bucket = cmdletContext.Exclude_Bucket;
-            }
-            if (requestStorageLensConfiguration_storageLensConfiguration_Exclude_exclude_Bucket != null)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_Exclude.Buckets = requestStorageLensConfiguration_storageLensConfiguration_Exclude_exclude_Bucket;
-                requestStorageLensConfiguration_storageLensConfiguration_ExcludeIsNull = false;
-            }
-            List<System.String> requestStorageLensConfiguration_storageLensConfiguration_Exclude_exclude_Region = null;
-            if (cmdletContext.Exclude_Region != null)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_Exclude_exclude_Region = cmdletContext.Exclude_Region;
-            }
-            if (requestStorageLensConfiguration_storageLensConfiguration_Exclude_exclude_Region != null)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_Exclude.Regions = requestStorageLensConfiguration_storageLensConfiguration_Exclude_exclude_Region;
-                requestStorageLensConfiguration_storageLensConfiguration_ExcludeIsNull = false;
-            }
-             // determine if requestStorageLensConfiguration_storageLensConfiguration_Exclude should be set to null
-            if (requestStorageLensConfiguration_storageLensConfiguration_ExcludeIsNull)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_Exclude = null;
-            }
-            if (requestStorageLensConfiguration_storageLensConfiguration_Exclude != null)
-            {
-                request.StorageLensConfiguration.Exclude = requestStorageLensConfiguration_storageLensConfiguration_Exclude;
-                requestStorageLensConfigurationIsNull = false;
-            }
-            Amazon.S3Control.Model.Include requestStorageLensConfiguration_storageLensConfiguration_Include = null;
-            
-             // populate Include
-            var requestStorageLensConfiguration_storageLensConfiguration_IncludeIsNull = true;
-            requestStorageLensConfiguration_storageLensConfiguration_Include = new Amazon.S3Control.Model.Include();
-            List<System.String> requestStorageLensConfiguration_storageLensConfiguration_Include_include_Bucket = null;
-            if (cmdletContext.Include_Bucket != null)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_Include_include_Bucket = cmdletContext.Include_Bucket;
-            }
-            if (requestStorageLensConfiguration_storageLensConfiguration_Include_include_Bucket != null)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_Include.Buckets = requestStorageLensConfiguration_storageLensConfiguration_Include_include_Bucket;
-                requestStorageLensConfiguration_storageLensConfiguration_IncludeIsNull = false;
-            }
-            List<System.String> requestStorageLensConfiguration_storageLensConfiguration_Include_include_Region = null;
-            if (cmdletContext.Include_Region != null)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_Include_include_Region = cmdletContext.Include_Region;
-            }
-            if (requestStorageLensConfiguration_storageLensConfiguration_Include_include_Region != null)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_Include.Regions = requestStorageLensConfiguration_storageLensConfiguration_Include_include_Region;
-                requestStorageLensConfiguration_storageLensConfiguration_IncludeIsNull = false;
-            }
-             // determine if requestStorageLensConfiguration_storageLensConfiguration_Include should be set to null
-            if (requestStorageLensConfiguration_storageLensConfiguration_IncludeIsNull)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_Include = null;
-            }
-            if (requestStorageLensConfiguration_storageLensConfiguration_Include != null)
-            {
-                request.StorageLensConfiguration.Include = requestStorageLensConfiguration_storageLensConfiguration_Include;
                 requestStorageLensConfigurationIsNull = false;
             }
             Amazon.S3Control.Model.AccountLevel requestStorageLensConfiguration_storageLensConfiguration_AccountLevel = null;
@@ -989,6 +1482,31 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics != null)
             {
                 requestStorageLensConfiguration_storageLensConfiguration_AccountLevel.AdvancedDataProtectionMetrics = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevelIsNull = false;
+            }
+            Amazon.S3Control.Model.AdvancedPerformanceMetrics requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedPerformanceMetrics = null;
+            
+             // populate AdvancedPerformanceMetrics
+            var requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedPerformanceMetricsIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedPerformanceMetrics = new Amazon.S3Control.Model.AdvancedPerformanceMetrics();
+            System.Boolean? requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedPerformanceMetrics_storageLensConfiguration_AccountLevel_AdvancedPerformanceMetrics_IsEnabled = null;
+            if (cmdletContext.StorageLensConfiguration_AccountLevel_AdvancedPerformanceMetrics_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedPerformanceMetrics_storageLensConfiguration_AccountLevel_AdvancedPerformanceMetrics_IsEnabled = cmdletContext.StorageLensConfiguration_AccountLevel_AdvancedPerformanceMetrics_IsEnabled.Value;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedPerformanceMetrics_storageLensConfiguration_AccountLevel_AdvancedPerformanceMetrics_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedPerformanceMetrics.IsEnabled = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedPerformanceMetrics_storageLensConfiguration_AccountLevel_AdvancedPerformanceMetrics_IsEnabled.Value;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedPerformanceMetricsIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedPerformanceMetrics should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedPerformanceMetricsIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedPerformanceMetrics = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedPerformanceMetrics != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel.AdvancedPerformanceMetrics = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedPerformanceMetrics;
                 requestStorageLensConfiguration_storageLensConfiguration_AccountLevelIsNull = false;
             }
             Amazon.S3Control.Model.DetailedStatusCodesMetrics requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics = null;
@@ -1144,6 +1662,31 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedDataProtectionMetrics != null)
             {
                 requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel.AdvancedDataProtectionMetrics = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedDataProtectionMetrics;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevelIsNull = false;
+            }
+            Amazon.S3Control.Model.AdvancedPerformanceMetrics requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedPerformanceMetrics = null;
+            
+             // populate AdvancedPerformanceMetrics
+            var requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedPerformanceMetricsIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedPerformanceMetrics = new Amazon.S3Control.Model.AdvancedPerformanceMetrics();
+            System.Boolean? requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedPerformanceMetrics_storageLensConfiguration_BucketLevel_AdvancedPerformanceMetrics_IsEnabled = null;
+            if (cmdletContext.StorageLensConfiguration_BucketLevel_AdvancedPerformanceMetrics_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedPerformanceMetrics_storageLensConfiguration_BucketLevel_AdvancedPerformanceMetrics_IsEnabled = cmdletContext.StorageLensConfiguration_BucketLevel_AdvancedPerformanceMetrics_IsEnabled.Value;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedPerformanceMetrics_storageLensConfiguration_BucketLevel_AdvancedPerformanceMetrics_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedPerformanceMetrics.IsEnabled = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedPerformanceMetrics_storageLensConfiguration_BucketLevel_AdvancedPerformanceMetrics_IsEnabled.Value;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedPerformanceMetricsIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedPerformanceMetrics should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedPerformanceMetricsIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedPerformanceMetrics = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedPerformanceMetrics != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel.AdvancedPerformanceMetrics = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedPerformanceMetrics;
                 requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevelIsNull = false;
             }
             Amazon.S3Control.Model.DetailedStatusCodesMetrics requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_DetailedStatusCodesMetrics = null;
@@ -1345,9 +1888,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             public System.Boolean? StorageLensConfiguration_AccountLevel_ActivityMetrics_IsEnabled { get; set; }
             public System.Boolean? StorageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics_IsEnabled { get; set; }
             public System.Boolean? StorageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics_IsEnabled { get; set; }
+            public System.Boolean? StorageLensConfiguration_AccountLevel_AdvancedPerformanceMetrics_IsEnabled { get; set; }
             public System.Boolean? StorageLensConfiguration_BucketLevel_ActivityMetrics_IsEnabled { get; set; }
             public System.Boolean? StorageLensConfiguration_BucketLevel_AdvancedCostOptimizationMetrics_IsEnabled { get; set; }
             public System.Boolean? StorageLensConfiguration_BucketLevel_AdvancedDataProtectionMetrics_IsEnabled { get; set; }
+            public System.Boolean? StorageLensConfiguration_BucketLevel_AdvancedPerformanceMetrics_IsEnabled { get; set; }
             public System.Boolean? StorageLensConfiguration_BucketLevel_DetailedStatusCodesMetrics_IsEnabled { get; set; }
             public System.Boolean? StorageMetrics_IsEnabled { get; set; }
             public System.String SelectionCriteria_Delimiter { get; set; }
@@ -1358,19 +1903,33 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             public List<System.String> SelectionCriteria_Include { get; set; }
             public System.String AwsOrg_Arn { get; set; }
             public System.Boolean? CloudWatchMetrics_IsEnabled { get; set; }
-            public System.String S3BucketDestination_AccountId { get; set; }
-            public System.String S3BucketDestination_Arn { get; set; }
-            public System.String SSEKMS_KeyId { get; set; }
-            public Amazon.S3Control.Model.SSES3 Encryption_SSES3 { get; set; }
-            public Amazon.S3Control.Format S3BucketDestination_Format { get; set; }
-            public Amazon.S3Control.OutputSchemaVersion S3BucketDestination_OutputSchemaVersion { get; set; }
-            public System.String S3BucketDestination_Prefix { get; set; }
+            public System.String DataExport_S3BucketDestination_AccountId { get; set; }
+            public System.String DataExport_S3BucketDestination_Arn { get; set; }
+            public System.String DataExport_S3BucketDestination_SSEKMS_KeyId { get; set; }
+            public Amazon.S3Control.Model.SSES3 DataExport_S3BucketDestination_Encryption_SSES3 { get; set; }
+            public Amazon.S3Control.Format DataExport_S3BucketDestination_Format { get; set; }
+            public Amazon.S3Control.OutputSchemaVersion DataExport_S3BucketDestination_OutputSchemaVersion { get; set; }
+            public System.String DataExport_S3BucketDestination_Prefix { get; set; }
+            public System.String DataExport_StorageLensTableDestination_SSEKMS_KeyId { get; set; }
+            public Amazon.S3Control.Model.SSES3 DataExport_StorageLensTableDestination_Encryption_SSES3 { get; set; }
+            public System.Boolean? DataExport_StorageLensTableDestination_IsEnabled { get; set; }
             public List<System.String> Exclude_Bucket { get; set; }
             public List<System.String> Exclude_Region { get; set; }
+            public System.String ExpandedPrefixesDataExport_S3BucketDestination_AccountId { get; set; }
+            public System.String ExpandedPrefixesDataExport_S3BucketDestination_Arn { get; set; }
+            public System.String ExpandedPrefixesDataExport_S3BucketDestination_SSEKMS_KeyId { get; set; }
+            public Amazon.S3Control.Model.SSES3 ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSES3 { get; set; }
+            public Amazon.S3Control.Format ExpandedPrefixesDataExport_S3BucketDestination_Format { get; set; }
+            public Amazon.S3Control.OutputSchemaVersion ExpandedPrefixesDataExport_S3BucketDestination_OutputSchemaVersion { get; set; }
+            public System.String ExpandedPrefixesDataExport_S3BucketDestination_Prefix { get; set; }
+            public System.String ExpandedPrefixesDataExport_StorageLensTableDestination_SSEKMS_KeyId { get; set; }
+            public Amazon.S3Control.Model.SSES3 ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSES3 { get; set; }
+            public System.Boolean? ExpandedPrefixesDataExport_StorageLensTableDestination_IsEnabled { get; set; }
             public System.String StorageLensConfiguration_Id { get; set; }
             public List<System.String> Include_Bucket { get; set; }
             public List<System.String> Include_Region { get; set; }
             public System.Boolean? StorageLensConfiguration_IsEnabled { get; set; }
+            public System.String StorageLensConfiguration_PrefixDelimiter { get; set; }
             public System.String StorageLensConfiguration_StorageLensArn { get; set; }
             public List<Amazon.S3Control.Model.StorageLensTag> Tag { get; set; }
             public System.Func<Amazon.S3Control.Model.PutStorageLensConfigurationResponse, WriteS3CStorageLensConfigurationCmdlet, object> Select { get; set; } =

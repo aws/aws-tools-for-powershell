@@ -36,6 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// 
     ///  
     /// <para>
+    /// For field index policies, you can configure indexed fields as <i>facets</i> to enable
+    /// interactive exploration of your logs. Facets provide value distributions and counts
+    /// for indexed fields in the CloudWatch Logs Insights console without requiring query
+    /// execution. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Facets.html">Use
+    /// facets to group and explore logs</a>.
+    /// </para><para>
     /// To use this operation, you must be signed on with the correct permissions depending
     /// on the type of policy that you are creating.
     /// </para><ul><li><para>
@@ -50,6 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// </para></li><li><para>
     /// To create a field index policy, you must have the <c>logs:PutIndexPolicy</c> and <c>logs:PutAccountPolicy</c>
     /// permissions.
+    /// </para></li><li><para>
+    /// To configure facets for field index policies, you must have the <c>logs:PutIndexPolicy</c>
+    /// and <c>logs:PutAccountPolicy</c> permissions.
     /// </para></li><li><para>
     /// To create a metric extraction policy, you must have the <c>logs:PutMetricExtractionPolicy</c>
     /// and <c>logs:PutAccountPolicy</c> permissions.
@@ -186,12 +195,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// an indexed field of <c>RequestId</c> won't match a log event containing <c>requestId</c>.
     /// </para><para>
     /// You can have one account-level field index policy that applies to all log groups in
-    /// the account. Or you can create as many as 20 account-level field index policies that
-    /// are each scoped to a subset of log groups with the <c>selectionCriteria</c> parameter.
-    /// If you have multiple account-level index policies with selection criteria, no two
-    /// of them can use the same or overlapping log group name prefixes. For example, if you
-    /// have one policy filtered to log groups that start with <c>my-log</c>, you can't have
-    /// another field index policy filtered to <c>my-logpprod</c> or <c>my-logging</c>.
+    /// the account. Or you can create as many as 40 account-level field index policies (20
+    /// for log group prefix selection, 20 for data source selection) that are each scoped
+    /// to a subset of log groups or data sources with the <c>selectionCriteria</c> parameter.
+    /// Field index policies can now be created for specific data source name and type combinations
+    /// using DataSourceName and DataSourceType selection criteria. If you have multiple account-level
+    /// index policies with selection criteria, no two of them can use the same or overlapping
+    /// log group name prefixes. For example, if you have one policy filtered to log groups
+    /// that start with <c>my-log</c>, you can't have another field index policy filtered
+    /// to <c>my-logpprod</c> or <c>my-logging</c>.
     /// </para><para>
     /// If you create an account-level field index policy in a monitoring account in cross-account
     /// observability, the policy is applied only to the monitoring account and not to any

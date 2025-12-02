@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>nova-act</C2jFilename>
+    <AssemblyName>NovaAct</AssemblyName>
+    <ServiceNounPrefix>NOVA</ServiceNounPrefix>
+    <ServiceName>Amazon Nova Act</ServiceName>
+    <ServiceClientInterface>IAmazonNovaAct</ServiceClientInterface>
+    <ServiceClient>AmazonNovaActClient</ServiceClient>
+    <ServiceModuleGuid>0c9f71b6-042e-4b83-b3df-26613f82c15a</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateAct" OutputProperty="*" Verb="New" Noun="Act" ShouldProcessTarget="SessionId,WorkflowRunId,WorkflowDefinitionName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSession" OutputProperty="SessionId" Verb="New" Noun="Session" ShouldProcessTarget="WorkflowRunId,WorkflowDefinitionName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWorkflowDefinition" OutputProperty="Status" Verb="New" Noun="WorkflowDefinition" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWorkflowRun" OutputProperty="*" Verb="New" Noun="WorkflowRun" ShouldProcessTarget="ModelId,WorkflowDefinitionName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWorkflowDefinition" OutputProperty="Status" Verb="Remove" Noun="WorkflowDefinition" ShouldProcessTarget="WorkflowDefinitionName" PipelineParameter="WorkflowDefinitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWorkflowRun" OutputProperty="Status" Verb="Remove" Noun="WorkflowRun" ShouldProcessTarget="WorkflowRunId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWorkflowDefinition" OutputProperty="*" Verb="Get" Noun="WorkflowDefinition" PipelineParameter="WorkflowDefinitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWorkflowRun" OutputProperty="*" Verb="Get" Noun="WorkflowRun" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="InvokeActStep" OutputProperty="*" Verb="Invoke" Noun="ActStep" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListActs" OutputProperty="ActSummaries" Verb="Get" Noun="ActList" PipelineParameter="WorkflowDefinitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListModels" OutputProperty="*" Verb="Get" Noun="ModelList" PipelineParameter="ClientCompatibilityVersion" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSessions" OutputProperty="SessionSummaries" Verb="Get" Noun="SessionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkflowDefinitions" OutputProperty="WorkflowDefinitionSummaries" Verb="Get" Noun="WorkflowDefinitionList" PipelineParameter="SortOrder" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkflowRuns" OutputProperty="WorkflowRunSummaries" Verb="Get" Noun="WorkflowRunList" PipelineParameter="WorkflowDefinitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAct" Verb="Update" Noun="Act" ShouldProcessTarget="ActId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWorkflowRun" Verb="Update" Noun="WorkflowRun" ShouldProcessTarget="WorkflowRunId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

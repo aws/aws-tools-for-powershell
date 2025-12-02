@@ -25,6 +25,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateSourceToS3TableIntegration" OutputProperty="Identifier" Verb="Register" Noun="SourceToS3TableIntegration" ShouldProcessTarget="IntegrationArn" PipelineParameter="IntegrationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelExportTask" Verb="Stop" Noun="ExportTask" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -199,6 +203,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateSourceFromS3TableIntegration" OutputProperty="Identifier" Verb="Unregister" Noun="SourceFromS3TableIntegration" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="FilterLogEvents" OutputProperty="*" Verb="Get" Noun="FilteredLogEvent" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
@@ -235,6 +243,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetLogFields" OutputProperty="LogFields" Verb="Get" Noun="LogField" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetLogGroupFields" OutputProperty="LogGroupFields" Verb="Get" Noun="LogGroupField" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -263,6 +275,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAggregateLogGroupSummaries" OutputProperty="AggregateLogGroupSummaries" Verb="Get" Noun="AggregateLogGroupSummaryList" PipelineParameter="GroupBy" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAnomalies" OutputProperty="Anomalies" Verb="Get" Noun="AnomalyList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -284,6 +300,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListScheduledQueries" OutputProperty="ScheduledQueries" Verb="Get" Noun="ScheduledQueryList" PipelineParameter="State" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSourcesForS3TableIntegration" OutputProperty="Sources" Verb="Get" Noun="SourcesForS3TableIntegrationList" PipelineParameter="IntegrationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

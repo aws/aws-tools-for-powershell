@@ -30,7 +30,13 @@ using Amazon.S3Vectors.Model;
 namespace Amazon.PowerShell.Cmdlets.S3V
 {
     /// <summary>
-    /// Amazon.S3Vectors.IAmazonS3Vectors.DeleteIndex
+    /// Deletes a vector index. To specify the vector index, you can either use both the vector
+    /// bucket name and vector index name, or use the vector index Amazon Resource Name (ARN).
+    /// 
+    /// 
+    ///  <dl><dt>Permissions</dt><dd><para>
+    /// You must have the <c>s3vectors:DeleteIndex</c> permission to use this operation. 
+    /// </para></dd></dl>
     /// </summary>
     [Cmdlet("Remove", "S3VIndex", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

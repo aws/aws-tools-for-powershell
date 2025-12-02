@@ -30,7 +30,7 @@ using Amazon.SavingsPlans.Model;
 namespace Amazon.PowerShell.Cmdlets.SP
 {
     /// <summary>
-    /// Describes the offering rates for the specified Savings Plans.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the offering rates for Savings Plans you might want to purchase.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SPSavingsPlansOfferingRate")]
     [OutputType("Amazon.SavingsPlans.Model.SavingsPlanOfferingRate")]

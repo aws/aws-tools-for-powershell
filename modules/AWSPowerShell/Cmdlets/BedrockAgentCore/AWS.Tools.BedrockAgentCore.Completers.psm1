@@ -203,6 +203,7 @@ $BAC_SelectMap = @{
                "New-BACEvent",
                "Remove-BACEvent",
                "Remove-BACMemoryRecord",
+               "Invoke-BACEvaluate",
                "Get-BACAgentCard",
                "Get-BACBrowserSession",
                "Get-BACCodeInterpreterSession",

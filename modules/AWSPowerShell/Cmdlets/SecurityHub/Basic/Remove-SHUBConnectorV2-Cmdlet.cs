@@ -30,8 +30,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Grants permission to delete a connectorV2. This API is in public preview and subject
-    /// to change.
+    /// Grants permission to delete a connectorV2.
     /// </summary>
     [Cmdlet("Remove", "SHUBConnectorV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

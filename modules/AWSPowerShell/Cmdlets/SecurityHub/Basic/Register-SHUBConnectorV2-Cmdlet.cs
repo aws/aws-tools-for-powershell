@@ -30,14 +30,13 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Grants permission to complete the authorization based on input parameters. This API
-    /// is in public preview and subject to change.
+    /// Grants permission to complete the authorization based on input parameters.
     /// </summary>
     [Cmdlet("Register", "SHUBConnectorV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.SecurityHub.Model.ConnectorRegistrationsV2Response")]
-    [AWSCmdlet("Calls the AWS Security Hub ConnectorRegistrationsV2 API operation.", Operation = new[] {"ConnectorRegistrationsV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.ConnectorRegistrationsV2Response))]
-    [AWSCmdletOutput("Amazon.SecurityHub.Model.ConnectorRegistrationsV2Response",
-        "This cmdlet returns an Amazon.SecurityHub.Model.ConnectorRegistrationsV2Response object containing multiple properties."
+    [OutputType("Amazon.SecurityHub.Model.RegisterConnectorV2Response")]
+    [AWSCmdlet("Calls the AWS Security Hub RegisterConnectorV2 API operation.", Operation = new[] {"RegisterConnectorV2"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.RegisterConnectorV2Response))]
+    [AWSCmdletOutput("Amazon.SecurityHub.Model.RegisterConnectorV2Response",
+        "This cmdlet returns an Amazon.SecurityHub.Model.RegisterConnectorV2Response object containing multiple properties."
     )]
     public partial class RegisterSHUBConnectorV2Cmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
@@ -83,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityHub.Model.ConnectorRegistrationsV2Response).
-        /// Specifying the name of a property of type Amazon.SecurityHub.Model.ConnectorRegistrationsV2Response will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityHub.Model.RegisterConnectorV2Response).
+        /// Specifying the name of a property of type Amazon.SecurityHub.Model.RegisterConnectorV2Response will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             base.ProcessRecord();
             
             var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-SHUBConnectorV2 (ConnectorRegistrationsV2)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-SHUBConnectorV2 (RegisterConnectorV2)"))
             {
                 return;
             }
@@ -123,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SecurityHub.Model.ConnectorRegistrationsV2Response, RegisterSHUBConnectorV2Cmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SecurityHub.Model.RegisterConnectorV2Response, RegisterSHUBConnectorV2Cmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AuthCode = this.AuthCode;
@@ -154,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SecurityHub.Model.ConnectorRegistrationsV2Request();
+            var request = new Amazon.SecurityHub.Model.RegisterConnectorV2Request();
             
             if (cmdletContext.AuthCode != null)
             {
@@ -197,12 +196,12 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         #region AWS Service Operation Call
         
-        private Amazon.SecurityHub.Model.ConnectorRegistrationsV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.ConnectorRegistrationsV2Request request)
+        private Amazon.SecurityHub.Model.RegisterConnectorV2Response CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.RegisterConnectorV2Request request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "ConnectorRegistrationsV2");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "RegisterConnectorV2");
             try
             {
-                return client.ConnectorRegistrationsV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.RegisterConnectorV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -221,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         {
             public System.String AuthCode { get; set; }
             public System.String AuthState { get; set; }
-            public System.Func<Amazon.SecurityHub.Model.ConnectorRegistrationsV2Response, RegisterSHUBConnectorV2Cmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.SecurityHub.Model.RegisterConnectorV2Response, RegisterSHUBConnectorV2Cmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

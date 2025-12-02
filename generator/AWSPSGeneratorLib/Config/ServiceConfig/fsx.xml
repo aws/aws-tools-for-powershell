@@ -36,7 +36,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAndAttachS3AccessPoint" OutputProperty="S3AccessPointAttachment" Verb="New" Noun="AndAttachS3AccessPoint" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="OpenZFSConfiguration_FileSystemIdentity_Type" NewName="OpenZFSConfiguration_FileSystemIdentity_Type" Alias="FileSystemIdentity_Type" />
+                <Param Name="OntapConfiguration_FileSystemIdentity_Type" NewName="OntapConfiguration_FileSystemIdentity_Type" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateBackup" OutputProperty="Backup" Verb="New" Noun="Backup" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">

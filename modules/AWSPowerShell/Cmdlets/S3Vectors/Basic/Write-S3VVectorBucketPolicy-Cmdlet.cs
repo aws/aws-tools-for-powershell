@@ -30,7 +30,13 @@ using Amazon.S3Vectors.Model;
 namespace Amazon.PowerShell.Cmdlets.S3V
 {
     /// <summary>
-    /// Amazon.S3Vectors.IAmazonS3Vectors.PutVectorBucketPolicy
+    /// Creates a bucket policy for a vector bucket. To specify the bucket, you must use either
+    /// the vector bucket name or the vector bucket Amazon Resource Name (ARN). 
+    /// 
+    ///  <dl><dt>Permissions</dt><dd><para>
+    /// You must have the <c>s3vectors:PutVectorBucketPolicy</c> permission to use this operation.
+    /// 
+    /// </para></dd></dl>
     /// </summary>
     [Cmdlet("Write", "S3VVectorBucketPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

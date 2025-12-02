@@ -30,8 +30,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Grants permission to update a connectorV2 based on its id and input parameters. This
-    /// API is in public preview and subject to change.
+    /// Grants permission to update a connectorV2 based on its id and input parameters.
     /// </summary>
     [Cmdlet("Update", "SHUBConnectorV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,16 +44,6 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
-        
-        #region Parameter ClientSecret
-        /// <summary>
-        /// <para>
-        /// <para>The clientSecret of ServiceNow.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientSecret { get; set; }
-        #endregion
         
         #region Parameter ConnectorId
         /// <summary>
@@ -92,6 +81,18 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Provider_JiraCloud_ProjectKey")]
         public System.String JiraCloud_ProjectKey { get; set; }
+        #endregion
+        
+        #region Parameter ServiceNow_SecretArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that
+        /// contains the ServiceNow credentials.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Provider_ServiceNow_SecretArn")]
+        public System.String ServiceNow_SecretArn { get; set; }
         #endregion
         
         #region Parameter Select
@@ -139,7 +140,6 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
                 context.Select = CreateSelectDelegate<Amazon.SecurityHub.Model.UpdateConnectorV2Response, UpdateSHUBConnectorV2Cmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ClientSecret = this.ClientSecret;
             context.ConnectorId = this.ConnectorId;
             #if MODULAR
             if (this.ConnectorId == null && ParameterWasBound(nameof(this.ConnectorId)))
@@ -149,6 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             #endif
             context.Description = this.Description;
             context.JiraCloud_ProjectKey = this.JiraCloud_ProjectKey;
+            context.ServiceNow_SecretArn = this.ServiceNow_SecretArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -165,10 +166,6 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             // create request
             var request = new Amazon.SecurityHub.Model.UpdateConnectorV2Request();
             
-            if (cmdletContext.ClientSecret != null)
-            {
-                request.ClientSecret = cmdletContext.ClientSecret;
-            }
             if (cmdletContext.ConnectorId != null)
             {
                 request.ConnectorId = cmdletContext.ConnectorId;
@@ -204,6 +201,31 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (requestProvider_provider_JiraCloud != null)
             {
                 request.Provider.JiraCloud = requestProvider_provider_JiraCloud;
+                requestProviderIsNull = false;
+            }
+            Amazon.SecurityHub.Model.ServiceNowUpdateConfiguration requestProvider_provider_ServiceNow = null;
+            
+             // populate ServiceNow
+            var requestProvider_provider_ServiceNowIsNull = true;
+            requestProvider_provider_ServiceNow = new Amazon.SecurityHub.Model.ServiceNowUpdateConfiguration();
+            System.String requestProvider_provider_ServiceNow_serviceNow_SecretArn = null;
+            if (cmdletContext.ServiceNow_SecretArn != null)
+            {
+                requestProvider_provider_ServiceNow_serviceNow_SecretArn = cmdletContext.ServiceNow_SecretArn;
+            }
+            if (requestProvider_provider_ServiceNow_serviceNow_SecretArn != null)
+            {
+                requestProvider_provider_ServiceNow.SecretArn = requestProvider_provider_ServiceNow_serviceNow_SecretArn;
+                requestProvider_provider_ServiceNowIsNull = false;
+            }
+             // determine if requestProvider_provider_ServiceNow should be set to null
+            if (requestProvider_provider_ServiceNowIsNull)
+            {
+                requestProvider_provider_ServiceNow = null;
+            }
+            if (requestProvider_provider_ServiceNow != null)
+            {
+                request.Provider.ServiceNow = requestProvider_provider_ServiceNow;
                 requestProviderIsNull = false;
             }
              // determine if request.Provider should be set to null
@@ -266,10 +288,10 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientSecret { get; set; }
             public System.String ConnectorId { get; set; }
             public System.String Description { get; set; }
             public System.String JiraCloud_ProjectKey { get; set; }
+            public System.String ServiceNow_SecretArn { get; set; }
             public System.Func<Amazon.SecurityHub.Model.UpdateConnectorV2Response, UpdateSHUBConnectorV2Cmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

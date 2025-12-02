@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
 {
     /// <summary>
     /// Enables the resource tags for telemetry feature for your account, which enhances
-    /// telemetry data with additional resource metadata from Amazon Web Services Resource
-    /// Explorer to provide richer context for monitoring and observability.
+    /// telemetry data with additional resource metadata from Resource Explorer to provide
+    /// richer context for monitoring and observability.
     /// </summary>
     [Cmdlet("Start", "CWOADMNTelemetryEnrichment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ObservabilityAdmin.Model.StartTelemetryEnrichmentResponse")]

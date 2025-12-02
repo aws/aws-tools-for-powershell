@@ -40,11 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// or <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UntagResource.html">UntagResource</a>
     /// operations instead.
     /// </para><para>
-    /// if ABAC is not enabled for the bucket. When you <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging-enable-abac.html">enable
-    /// ABAC for a general purpose bucket</a>, you can no longer use this operation for that
-    /// bucket and must use <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_TagResource.html">TagResource</a>
-    /// instead.
-    /// </para><para>
     /// Use tags to organize your Amazon Web Services bill to reflect your own cost structure.
     /// To do this, sign up to get your Amazon Web Services account bill with tag key values
     /// included. Then, to see the cost of combined resources, organize your billing information

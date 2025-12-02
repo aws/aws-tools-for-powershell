@@ -107,6 +107,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-BACWorkloadAccessTokenForUserId', 
         'Invoke-BACAgentRuntime', 
         'Invoke-BACCodeInterpreter', 
+        'Invoke-BACEvaluate', 
         'Invoke-BACMemoryRecord', 
         'New-BACBatchMemoryRecord', 
         'New-BACEvent', 

@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
     /// Retrieves the execution history of a scheduled query within a specified time range,
-    /// including execution status and destination processing metadata.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// including query results and destination processing status.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWLScheduledQueryHistory")]
     [OutputType("Amazon.CloudWatchLogs.Model.GetScheduledQueryHistoryResponse")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The end time for the history retrieval window in Unix epoch time.</para>
+        /// <para>The end time for the history query in Unix epoch format.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter ExecutionStatus
         /// <summary>
         /// <para>
-        /// <para>Filter results by execution status (Running, Complete, Failed, Timeout, or InvalidQuery).</para><para />
+        /// <para>An array of execution statuses to filter the history results. Only executions with
+        /// the specified statuses are returned.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -79,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The name or ARN of the scheduled query to retrieve history for.</para>
+        /// <para>The ARN or name of the scheduled query to retrieve history for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>The start time for the history retrieval window in Unix epoch time.</para>
+        /// <para>The start time for the history query in Unix epoch format.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -112,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of history records to return in a single call.</para>
+        /// <para>The maximum number of history records to return. Valid range is 1 to 1000.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

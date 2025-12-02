@@ -30,8 +30,8 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Updates the configuration of an existing scheduled query. This operation follows PUT
-    /// semantics, replacing the existing configuration with the provided values.
+    /// Updates an existing scheduled query with new configuration. This operation uses PUT
+    /// semantics, allowing modification of query parameters, schedule, and destinations.
     /// </summary>
     [Cmdlet("Update", "CWLScheduledQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchLogs.Model.UpdateScheduledQueryResponse")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Updated description for the scheduled query.</para>
+        /// <para>An updated description for the scheduled query.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter S3Configuration_DestinationIdentifier
         /// <summary>
         /// <para>
-        /// <para>The S3 URI where query results will be stored (e.g., s3://bucket-name/prefix/).</para>
+        /// <para>The Amazon S3 URI where query results are delivered. Must be a valid S3 URI format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter ExecutionRoleArn
         /// <summary>
         /// <para>
-        /// <para>Updated ARN of the IAM role that CloudWatch Logs will assume to execute the scheduled
-        /// query.</para>
+        /// <para>The updated ARN of the IAM role that grants permissions to execute the query and deliver
+        /// results.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The name or ARN of the scheduled query to update.</para>
+        /// <para>The ARN or name of the scheduled query to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupIdentifier
         /// <summary>
         /// <para>
-        /// <para>Updated log group identifiers to query.</para><para />
+        /// <para>The updated array of log group names or ARNs to query.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter QueryLanguage
         /// <summary>
         /// <para>
-        /// <para>Updated query language to use (LogsQL, PPL, or SQL).</para>
+        /// <para>The updated query language for the scheduled query.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter QueryString
         /// <summary>
         /// <para>
-        /// <para>Updated CloudWatch Logs Insights query string to execute.</para>
+        /// <para>The updated query string to execute.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -153,8 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter S3Configuration_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role that CloudWatch Logs will assume to write results to the S3
-        /// bucket.</para>
+        /// <para>The ARN of the IAM role that grants permissions to write query results to the specified
+        /// Amazon S3 destination.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter ScheduleEndTime
         /// <summary>
         /// <para>
-        /// <para>Updated end time for the query schedule in Unix epoch time.</para>
+        /// <para>The updated end time for the scheduled query in Unix epoch format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -175,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter ScheduleExpression
         /// <summary>
         /// <para>
-        /// <para>Updated cron expression that defines when the scheduled query runs.</para>
+        /// <para>The updated cron expression that defines when the scheduled query runs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter ScheduleStartTime
         /// <summary>
         /// <para>
-        /// <para>Updated start time for the query schedule in Unix epoch time.</para>
+        /// <para>The updated start time for the scheduled query in Unix epoch format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -202,8 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter StartTimeOffset
         /// <summary>
         /// <para>
-        /// <para>Updated time offset in seconds from the execution time for the start of the query
-        /// time range.</para>
+        /// <para>The updated time offset in seconds that defines the lookback period for the query.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -213,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter State
         /// <summary>
         /// <para>
-        /// <para>Updated state of the scheduled query (ENABLED or DISABLED).</para>
+        /// <para>The updated state of the scheduled query.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -224,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Timezone
         /// <summary>
         /// <para>
-        /// <para>Updated timezone in which the schedule expression is evaluated.</para>
+        /// <para>The updated timezone for evaluating the schedule expression.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

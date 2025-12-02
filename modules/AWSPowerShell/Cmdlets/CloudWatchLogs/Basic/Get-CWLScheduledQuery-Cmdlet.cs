@@ -30,8 +30,8 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Returns detailed information about a specified scheduled query, including its configuration,
-    /// current state, and execution history.
+    /// Retrieves details about a specific scheduled query, including its configuration, execution
+    /// status, and metadata.
     /// </summary>
     [Cmdlet("Get", "CWLScheduledQuery")]
     [OutputType("Amazon.CloudWatchLogs.Model.GetScheduledQueryResponse")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The name or ARN of the scheduled query to retrieve.</para>
+        /// <para>The ARN or name of the scheduled query to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

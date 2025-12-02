@@ -334,6 +334,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.NetworkMonitor.dll',
         'AWSSDK.Notifications.dll',
         'AWSSDK.NotificationsContacts.dll',
+        'AWSSDK.NovaAct.dll',
         'AWSSDK.OAM.dll',
         'AWSSDK.ObservabilityAdmin.dll',
         'AWSSDK.Odb.dll',
