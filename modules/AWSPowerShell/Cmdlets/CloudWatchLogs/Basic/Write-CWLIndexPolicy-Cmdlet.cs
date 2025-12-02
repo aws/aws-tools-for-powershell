@@ -45,6 +45,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html">Create
     /// field indexes to improve query performance and reduce costs</a>.
     /// </para><para>
+    /// You can configure indexed fields as <i>facets</i> to enable interactive exploration
+    /// and filtering of your logs in the CloudWatch Logs Insights console. Facets allow you
+    /// to view value distributions and counts for indexed fields without running queries.
+    /// When you create a field index, you can optionally set it as a facet to enable this
+    /// interactive analysis capability. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Facets.html">Use
+    /// facets to group and explore logs</a>.
+    /// </para><para>
     /// To find the fields that are in your log group events, use the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogGroupFields.html">GetLogGroupFields</a>
     /// operation.
     /// </para><para>
@@ -70,10 +77,12 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// a field index of <c>RequestId</c> won't match a log event containing <c>requestId</c>.
     /// </para><para>
     /// Log group-level field index policies created with <c>PutIndexPolicy</c> override account-level
-    /// field index policies created with <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html">PutAccountPolicy</a>.
-    /// If you use <c>PutIndexPolicy</c> to create a field index policy for a log group, that
-    /// log group uses only that policy. The log group ignores any account-wide field index
-    /// policy that you might have created.
+    /// field index policies created with <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html">PutAccountPolicy</a>
+    /// that apply to log groups. If you use <c>PutIndexPolicy</c> to create a field index
+    /// policy for a log group, that log group uses only that policy for log group-level indexing,
+    /// including any facet configurations. The log group ignores any account-wide field index
+    /// policy that applies to log groups, but data source-based account policies may still
+    /// apply.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CWLIndexPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

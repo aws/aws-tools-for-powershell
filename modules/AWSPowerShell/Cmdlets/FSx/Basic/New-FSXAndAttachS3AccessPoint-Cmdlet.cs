@@ -91,6 +91,29 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter UnixUser_Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the UNIX user. The name can be up to 256 characters long.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_FileSystemIdentity_UnixUser_Name")]
+        public System.String UnixUser_Name { get; set; }
+        #endregion
+        
+        #region Parameter WindowsUser_Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Windows user. The name can be up to 256 characters long and supports
+        /// Active Directory users.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_FileSystemIdentity_WindowsUser_Name")]
+        public System.String WindowsUser_Name { get; set; }
+        #endregion
+        
         #region Parameter S3AccessPoint_Policy
         /// <summary>
         /// <para>
@@ -115,16 +138,27 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.Int64[] PosixUser_SecondaryGid { get; set; }
         #endregion
         
-        #region Parameter FileSystemIdentity_Type
+        #region Parameter OntapConfiguration_FileSystemIdentity_Type
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the FSx for ONTAP user identity type. Valid values are <c>UNIX</c> and <c>WINDOWS</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.FSx.OntapFileSystemUserType")]
+        public Amazon.FSx.OntapFileSystemUserType OntapConfiguration_FileSystemIdentity_Type { get; set; }
+        #endregion
+        
+        #region Parameter OpenZFSConfiguration_FileSystemIdentity_Type
         /// <summary>
         /// <para>
         /// <para>Specifies the FSx for OpenZFS user identity type, accepts only <c>POSIX</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("OpenZFSConfiguration_FileSystemIdentity_Type")]
+        [Alias("FileSystemIdentity_Type")]
         [AWSConstantClassSource("Amazon.FSx.OpenZFSFileSystemUserType")]
-        public Amazon.FSx.OpenZFSFileSystemUserType FileSystemIdentity_Type { get; set; }
+        public Amazon.FSx.OpenZFSFileSystemUserType OpenZFSConfiguration_FileSystemIdentity_Type { get; set; }
         #endregion
         
         #region Parameter Type
@@ -153,6 +187,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("OpenZFSConfiguration_FileSystemIdentity_PosixUser_Uid")]
         public System.Int64? PosixUser_Uid { get; set; }
+        #endregion
+        
+        #region Parameter OntapConfiguration_VolumeId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the FSx for ONTAP volume to which you want the S3 access point attached.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OntapConfiguration_VolumeId { get; set; }
         #endregion
         
         #region Parameter OpenZFSConfiguration_VolumeId
@@ -247,13 +291,17 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OntapConfiguration_FileSystemIdentity_Type = this.OntapConfiguration_FileSystemIdentity_Type;
+            context.UnixUser_Name = this.UnixUser_Name;
+            context.WindowsUser_Name = this.WindowsUser_Name;
+            context.OntapConfiguration_VolumeId = this.OntapConfiguration_VolumeId;
             context.PosixUser_Gid = this.PosixUser_Gid;
             if (this.PosixUser_SecondaryGid != null)
             {
                 context.PosixUser_SecondaryGid = new List<System.Int64>(this.PosixUser_SecondaryGid);
             }
             context.PosixUser_Uid = this.PosixUser_Uid;
-            context.FileSystemIdentity_Type = this.FileSystemIdentity_Type;
+            context.OpenZFSConfiguration_FileSystemIdentity_Type = this.OpenZFSConfiguration_FileSystemIdentity_Type;
             context.OpenZFSConfiguration_VolumeId = this.OpenZFSConfiguration_VolumeId;
             context.S3AccessPoint_Policy = this.S3AccessPoint_Policy;
             context.VpcConfiguration_VpcId = this.VpcConfiguration_VpcId;
@@ -289,6 +337,100 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 request.Name = cmdletContext.Name;
             }
             
+             // populate OntapConfiguration
+            var requestOntapConfigurationIsNull = true;
+            request.OntapConfiguration = new Amazon.FSx.Model.CreateAndAttachS3AccessPointOntapConfiguration();
+            System.String requestOntapConfiguration_ontapConfiguration_VolumeId = null;
+            if (cmdletContext.OntapConfiguration_VolumeId != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_VolumeId = cmdletContext.OntapConfiguration_VolumeId;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_VolumeId != null)
+            {
+                request.OntapConfiguration.VolumeId = requestOntapConfiguration_ontapConfiguration_VolumeId;
+                requestOntapConfigurationIsNull = false;
+            }
+            Amazon.FSx.Model.OntapFileSystemIdentity requestOntapConfiguration_ontapConfiguration_FileSystemIdentity = null;
+            
+             // populate FileSystemIdentity
+            var requestOntapConfiguration_ontapConfiguration_FileSystemIdentityIsNull = true;
+            requestOntapConfiguration_ontapConfiguration_FileSystemIdentity = new Amazon.FSx.Model.OntapFileSystemIdentity();
+            Amazon.FSx.OntapFileSystemUserType requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_Type = null;
+            if (cmdletContext.OntapConfiguration_FileSystemIdentity_Type != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_Type = cmdletContext.OntapConfiguration_FileSystemIdentity_Type;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_Type != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_FileSystemIdentity.Type = requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_Type;
+                requestOntapConfiguration_ontapConfiguration_FileSystemIdentityIsNull = false;
+            }
+            Amazon.FSx.Model.OntapUnixFileSystemUser requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_UnixUser = null;
+            
+             // populate UnixUser
+            var requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_UnixUserIsNull = true;
+            requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_UnixUser = new Amazon.FSx.Model.OntapUnixFileSystemUser();
+            System.String requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_UnixUser_unixUser_Name = null;
+            if (cmdletContext.UnixUser_Name != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_UnixUser_unixUser_Name = cmdletContext.UnixUser_Name;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_UnixUser_unixUser_Name != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_UnixUser.Name = requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_UnixUser_unixUser_Name;
+                requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_UnixUserIsNull = false;
+            }
+             // determine if requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_UnixUser should be set to null
+            if (requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_UnixUserIsNull)
+            {
+                requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_UnixUser = null;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_UnixUser != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_FileSystemIdentity.UnixUser = requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_UnixUser;
+                requestOntapConfiguration_ontapConfiguration_FileSystemIdentityIsNull = false;
+            }
+            Amazon.FSx.Model.OntapWindowsFileSystemUser requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_WindowsUser = null;
+            
+             // populate WindowsUser
+            var requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_WindowsUserIsNull = true;
+            requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_WindowsUser = new Amazon.FSx.Model.OntapWindowsFileSystemUser();
+            System.String requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_WindowsUser_windowsUser_Name = null;
+            if (cmdletContext.WindowsUser_Name != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_WindowsUser_windowsUser_Name = cmdletContext.WindowsUser_Name;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_WindowsUser_windowsUser_Name != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_WindowsUser.Name = requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_WindowsUser_windowsUser_Name;
+                requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_WindowsUserIsNull = false;
+            }
+             // determine if requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_WindowsUser should be set to null
+            if (requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_WindowsUserIsNull)
+            {
+                requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_WindowsUser = null;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_WindowsUser != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_FileSystemIdentity.WindowsUser = requestOntapConfiguration_ontapConfiguration_FileSystemIdentity_ontapConfiguration_FileSystemIdentity_WindowsUser;
+                requestOntapConfiguration_ontapConfiguration_FileSystemIdentityIsNull = false;
+            }
+             // determine if requestOntapConfiguration_ontapConfiguration_FileSystemIdentity should be set to null
+            if (requestOntapConfiguration_ontapConfiguration_FileSystemIdentityIsNull)
+            {
+                requestOntapConfiguration_ontapConfiguration_FileSystemIdentity = null;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_FileSystemIdentity != null)
+            {
+                request.OntapConfiguration.FileSystemIdentity = requestOntapConfiguration_ontapConfiguration_FileSystemIdentity;
+                requestOntapConfigurationIsNull = false;
+            }
+             // determine if request.OntapConfiguration should be set to null
+            if (requestOntapConfigurationIsNull)
+            {
+                request.OntapConfiguration = null;
+            }
+            
              // populate OpenZFSConfiguration
             var requestOpenZFSConfigurationIsNull = true;
             request.OpenZFSConfiguration = new Amazon.FSx.Model.CreateAndAttachS3AccessPointOpenZFSConfiguration();
@@ -307,14 +449,14 @@ namespace Amazon.PowerShell.Cmdlets.FSX
              // populate FileSystemIdentity
             var requestOpenZFSConfiguration_openZFSConfiguration_FileSystemIdentityIsNull = true;
             requestOpenZFSConfiguration_openZFSConfiguration_FileSystemIdentity = new Amazon.FSx.Model.OpenZFSFileSystemIdentity();
-            Amazon.FSx.OpenZFSFileSystemUserType requestOpenZFSConfiguration_openZFSConfiguration_FileSystemIdentity_fileSystemIdentity_Type = null;
-            if (cmdletContext.FileSystemIdentity_Type != null)
+            Amazon.FSx.OpenZFSFileSystemUserType requestOpenZFSConfiguration_openZFSConfiguration_FileSystemIdentity_openZFSConfiguration_FileSystemIdentity_Type = null;
+            if (cmdletContext.OpenZFSConfiguration_FileSystemIdentity_Type != null)
             {
-                requestOpenZFSConfiguration_openZFSConfiguration_FileSystemIdentity_fileSystemIdentity_Type = cmdletContext.FileSystemIdentity_Type;
+                requestOpenZFSConfiguration_openZFSConfiguration_FileSystemIdentity_openZFSConfiguration_FileSystemIdentity_Type = cmdletContext.OpenZFSConfiguration_FileSystemIdentity_Type;
             }
-            if (requestOpenZFSConfiguration_openZFSConfiguration_FileSystemIdentity_fileSystemIdentity_Type != null)
+            if (requestOpenZFSConfiguration_openZFSConfiguration_FileSystemIdentity_openZFSConfiguration_FileSystemIdentity_Type != null)
             {
-                requestOpenZFSConfiguration_openZFSConfiguration_FileSystemIdentity.Type = requestOpenZFSConfiguration_openZFSConfiguration_FileSystemIdentity_fileSystemIdentity_Type;
+                requestOpenZFSConfiguration_openZFSConfiguration_FileSystemIdentity.Type = requestOpenZFSConfiguration_openZFSConfiguration_FileSystemIdentity_openZFSConfiguration_FileSystemIdentity_Type;
                 requestOpenZFSConfiguration_openZFSConfiguration_FileSystemIdentityIsNull = false;
             }
             Amazon.FSx.Model.OpenZFSPosixFileSystemUser requestOpenZFSConfiguration_openZFSConfiguration_FileSystemIdentity_openZFSConfiguration_FileSystemIdentity_PosixUser = null;
@@ -488,10 +630,14 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         {
             public System.String ClientRequestToken { get; set; }
             public System.String Name { get; set; }
+            public Amazon.FSx.OntapFileSystemUserType OntapConfiguration_FileSystemIdentity_Type { get; set; }
+            public System.String UnixUser_Name { get; set; }
+            public System.String WindowsUser_Name { get; set; }
+            public System.String OntapConfiguration_VolumeId { get; set; }
             public System.Int64? PosixUser_Gid { get; set; }
             public List<System.Int64> PosixUser_SecondaryGid { get; set; }
             public System.Int64? PosixUser_Uid { get; set; }
-            public Amazon.FSx.OpenZFSFileSystemUserType FileSystemIdentity_Type { get; set; }
+            public Amazon.FSx.OpenZFSFileSystemUserType OpenZFSConfiguration_FileSystemIdentity_Type { get; set; }
             public System.String OpenZFSConfiguration_VolumeId { get; set; }
             public System.String S3AccessPoint_Policy { get; set; }
             public System.String VpcConfiguration_VpcId { get; set; }

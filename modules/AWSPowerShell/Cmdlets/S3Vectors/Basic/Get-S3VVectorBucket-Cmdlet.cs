@@ -28,7 +28,13 @@ using Amazon.S3Vectors.Model;
 namespace Amazon.PowerShell.Cmdlets.S3V
 {
     /// <summary>
-    /// Amazon.S3Vectors.IAmazonS3Vectors.GetVectorBucket
+    /// Returns vector bucket attributes. To specify the bucket, you must use either the vector
+    /// bucket name or the vector bucket Amazon Resource Name (ARN). 
+    /// 
+    ///  <dl><dt>Permissions</dt><dd><para>
+    /// You must have the <c>s3vectors:GetVectorBucket</c> permission to use this operation.
+    /// 
+    /// </para></dd></dl>
     /// </summary>
     [Cmdlet("Get", "S3VVectorBucket")]
     [OutputType("Amazon.S3Vectors.Model.VectorBucket")]

@@ -29,6 +29,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CheckpointDurableExecution" OutputProperty="*" Verb="Checkpoint" Noun="DurableExecution" ShouldProcessTarget="DurableExecutionArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAlias" OutputProperty="*" Verb="New" Noun="Alias" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -128,6 +132,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDurableExecution" OutputProperty="*" Verb="Get" Noun="DurableExecution" PipelineParameter="DurableExecutionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDurableExecutionHistory" OutputProperty="Events" Verb="Get" Noun="DurableExecutionHistory" PipelineParameter="DurableExecutionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDurableExecutionState" OutputProperty="Operations" Verb="Get" Noun="DurableExecutionState" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetEventSourceMapping" OutputProperty="*" Verb="Get" Noun="EventSourceMapping" PipelineParameter="UUID" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -218,6 +234,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDurableExecutionsByFunction" OutputProperty="DurableExecutions" Verb="Get" Noun="DurableExecutionsByFunctionList" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListEventSourceMappings" OutputProperty="EventSourceMappings" Verb="Get" Noun="EventSourceMappingList" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-LMEventSourceMappings">
             <Params />
             <TypesNotToFlatten />
@@ -303,6 +323,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RemovePermission" Verb="Remove" Noun="Permission" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendDurableExecutionCallbackFailure" Verb="Send" Noun="DurableExecutionCallbackFailure" ShouldProcessTarget="CallbackId" PipelineParameter="CallbackId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendDurableExecutionCallbackHeartbeat" Verb="Send" Noun="DurableExecutionCallbackHeartbeat" ShouldProcessTarget="CallbackId" PipelineParameter="CallbackId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendDurableExecutionCallbackSuccess" Verb="Send" Noun="DurableExecutionCallbackSuccess" ShouldProcessTarget="CallbackId" PipelineParameter="CallbackId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopDurableExecution" OutputProperty="StopTimestamp" Verb="Stop" Noun="DurableExecution" ShouldProcessTarget="DurableExecutionArn" PipelineParameter="DurableExecutionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

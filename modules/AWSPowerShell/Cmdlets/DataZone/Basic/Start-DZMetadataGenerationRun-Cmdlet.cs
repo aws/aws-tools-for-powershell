@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     /// </para></li><li><para>
     /// Asset must have a structured schema with valid rows and columns.
     /// </para></li><li><para>
-    /// Valid values for --type: BUSINESS_DESCRIPTIONS, BUSINESS_NAMES.
+    /// Valid values for --type: BUSINESS_DESCRIPTIONS, BUSINESS_NAMES, BUSINESS_GLOSSARY_ASSOCIATIONS.
     /// </para></li><li><para>
     /// The user must have permission to run metadata generation in the domain/project.
     /// </para></li></ul>
@@ -137,21 +137,14 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public Amazon.DataZone.MetadataGenerationTargetType Target_Type { get; set; }
         #endregion
         
-        #region Parameter Type
+        #region Parameter Types
         /// <summary>
         /// <para>
-        /// <para>The type of the metadata generation run.</para>
+        /// <para>The types of the metadata generation run.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.DataZone.MetadataGenerationRunType")]
-        public Amazon.DataZone.MetadataGenerationRunType Type { get; set; }
+        public System.String[] Types { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -163,6 +156,19 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientToken { get; set; }
+        #endregion
+        
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of the metadata generation run.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("This field is going to be deprecated, please use the \u0027types\u0027 field to provide the MetadataGenerationRun types")]
+        [AWSConstantClassSource("Amazon.DataZone.MetadataGenerationRunType")]
+        public Amazon.DataZone.MetadataGenerationRunType Type { get; set; }
         #endregion
         
         #region Parameter Select
@@ -257,13 +263,13 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter Target_Type which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Type = this.Type;
-            #if MODULAR
-            if (this.Type == null && ParameterWasBound(nameof(this.Type)))
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.Types != null)
             {
-                WriteWarning("You are passing $null as a value for parameter Type which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Types = new List<System.String>(this.Types);
             }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -331,9 +337,15 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             {
                 request.Target = null;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Type != null)
             {
                 request.Type = cmdletContext.Type;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.Types != null)
+            {
+                request.Types = cmdletContext.Types;
             }
             
             CmdletOutput output;
@@ -402,7 +414,9 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String Target_Identifier { get; set; }
             public System.String Target_Revision { get; set; }
             public Amazon.DataZone.MetadataGenerationTargetType Target_Type { get; set; }
+            [System.ObsoleteAttribute]
             public Amazon.DataZone.MetadataGenerationRunType Type { get; set; }
+            public List<System.String> Types { get; set; }
             public System.Func<Amazon.DataZone.Model.StartMetadataGenerationRunResponse, StartDZMetadataGenerationRunCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

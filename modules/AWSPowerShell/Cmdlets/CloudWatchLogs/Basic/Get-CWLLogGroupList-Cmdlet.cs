@@ -37,8 +37,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// 
     ///  
     /// <para>
-    /// You can optionally filter the list by log group class and by using regular expressions
-    /// in your request to match strings in the log group names.
+    /// You can optionally filter the list by log group class, by using regular expressions
+    /// in your request to match strings in the log group names, by using the fieldIndexes
+    /// parameter to filter log groups based on which field indexes are configured, by using
+    /// the dataSources parameter to filter log groups by data source types, and by using
+    /// the fieldIndexNames parameter to filter by specific field index names.
     /// </para><para>
     /// This operation is paginated. By default, your first use of this operation returns
     /// 50 results, and includes a token to use in a subsequent operation to return more results.
@@ -66,6 +69,33 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AccountIdentifiers")]
         public System.String[] AccountIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter DataSource
+        /// <summary>
+        /// <para>
+        /// <para>An array of data source filters to filter log groups by their associated data sources.
+        /// You can filter by data source name, type, or both. Multiple filters within the same
+        /// dimension are combined with OR logic, while filters across different dimensions are
+        /// combined with AND logic.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSources")]
+        public Amazon.CloudWatchLogs.Model.DataSourceFilter[] DataSource { get; set; }
+        #endregion
+        
+        #region Parameter FieldIndexName
+        /// <summary>
+        /// <para>
+        /// <para>An array of field index names to filter log groups that have specific field indexes.
+        /// Only log groups containing all specified field indexes are returned. You can specify
+        /// 1 to 20 field index names, each with 1 to 512 characters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FieldIndexNames")]
+        public System.String[] FieldIndexName { get; set; }
         #endregion
         
         #region Parameter IncludeLinkedAccount
@@ -160,6 +190,14 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             {
                 context.AccountIdentifier = new List<System.String>(this.AccountIdentifier);
             }
+            if (this.DataSource != null)
+            {
+                context.DataSource = new List<Amazon.CloudWatchLogs.Model.DataSourceFilter>(this.DataSource);
+            }
+            if (this.FieldIndexName != null)
+            {
+                context.FieldIndexName = new List<System.String>(this.FieldIndexName);
+            }
             context.IncludeLinkedAccount = this.IncludeLinkedAccount;
             context.Limit = this.Limit;
             context.LogGroupClass = this.LogGroupClass;
@@ -184,6 +222,14 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.AccountIdentifier != null)
             {
                 request.AccountIdentifiers = cmdletContext.AccountIdentifier;
+            }
+            if (cmdletContext.DataSource != null)
+            {
+                request.DataSources = cmdletContext.DataSource;
+            }
+            if (cmdletContext.FieldIndexName != null)
+            {
+                request.FieldIndexNames = cmdletContext.FieldIndexName;
             }
             if (cmdletContext.IncludeLinkedAccount != null)
             {
@@ -267,6 +313,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AccountIdentifier { get; set; }
+            public List<Amazon.CloudWatchLogs.Model.DataSourceFilter> DataSource { get; set; }
+            public List<System.String> FieldIndexName { get; set; }
             public System.Boolean? IncludeLinkedAccount { get; set; }
             public System.Int32? Limit { get; set; }
             public Amazon.CloudWatchLogs.LogGroupClass LogGroupClass { get; set; }

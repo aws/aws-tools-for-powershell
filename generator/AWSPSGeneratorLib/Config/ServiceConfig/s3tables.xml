@@ -54,7 +54,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTableBucketReplication" Verb="Remove" Noun="TableBucketReplication" ShouldProcessTarget="TableBucketARN" PipelineParameter="TableBucketARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteTablePolicy" Verb="Remove" Noun="TablePolicy" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTableReplication" Verb="Remove" Noun="TableReplication" ShouldProcessTarget="TableArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -86,6 +94,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetTableBucketReplication" OutputProperty="*" Verb="Get" Noun="TableBucketReplication" PipelineParameter="TableBucketARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTableBucketStorageClass" OutputProperty="StorageClassConfiguration" Verb="Get" Noun="TableBucketStorageClass" PipelineParameter="TableBucketARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTableEncryption" OutputProperty="EncryptionConfiguration" Verb="Get" Noun="TableEncryption" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -103,6 +119,26 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetTablePolicy" OutputProperty="ResourcePolicy" Verb="Get" Noun="TablePolicy" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTableRecordExpirationConfiguration" OutputProperty="Configuration" Verb="Get" Noun="TableRecordExpirationConfiguration" PipelineParameter="TableArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTableRecordExpirationJobStatus" OutputProperty="*" Verb="Get" Noun="TableRecordExpirationJobStatus" PipelineParameter="TableArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTableReplication" OutputProperty="*" Verb="Get" Noun="TableReplication" PipelineParameter="TableArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTableReplicationStatus" OutputProperty="*" Verb="Get" Noun="TableReplicationStatus" PipelineParameter="TableArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTableStorageClass" OutputProperty="StorageClassConfiguration" Verb="Get" Noun="TableStorageClass" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -138,11 +174,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutTableBucketReplication" OutputProperty="*" Verb="Write" Noun="TableBucketReplication" ShouldProcessTarget="TableBucketARN" PipelineParameter="TableBucketARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutTableBucketStorageClass" Verb="Write" Noun="TableBucketStorageClass" ShouldProcessTarget="TableBucketARN" PipelineParameter="TableBucketARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutTableMaintenanceConfiguration" Verb="Write" Noun="TableMaintenanceConfiguration" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutTablePolicy" Verb="Write" Noun="TablePolicy" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutTableRecordExpirationConfiguration" Verb="Write" Noun="TableRecordExpirationConfiguration" ShouldProcessTarget="TableArn" PipelineParameter="TableArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutTableReplication" OutputProperty="*" Verb="Write" Noun="TableReplication" ShouldProcessTarget="TableArn" PipelineParameter="TableArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

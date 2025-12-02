@@ -29,14 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// Sets the attribute-based access control (ABAC) property of the general purpose bucket.
-    /// When you enable ABAC, you can use tags for bucket access control. Additionally, when
-    /// ABAC is enabled, you must use the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_TagResource.html">TagResource</a>,
-    /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UntagResource.html">UntagResource</a>,
-    /// and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListTagsForResource.html">ListTagsForResource</a>
-    /// actions to manage bucket tags, and you can nolonger use the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html">PutBucketTagging</a>
+    /// You must have <c>s3:PutBucketABAC</c> permission to perform this action. When you
+    /// enable ABAC, you can use tags for access control on your buckets. Additionally, when
+    /// ABAC is enabled, you must use the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_TagResource.html">TagResource</a>
+    /// and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UntagResource.html">UntagResource</a>
+    /// actions to manage tags on your buckets. You can nolonger use the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html">PutBucketTagging</a>
     /// and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html">DeleteBucketTagging</a>
-    /// actions to tag the bucket. You must also have the correct permissions for these actions.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging-enable-abac.html">Enabling
+    /// actions to tag your bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging-enable-abac.html">Enabling
     /// ABAC in general purpose buckets</a>.
     /// </summary>
     [Cmdlet("Write", "S3BucketAbac", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

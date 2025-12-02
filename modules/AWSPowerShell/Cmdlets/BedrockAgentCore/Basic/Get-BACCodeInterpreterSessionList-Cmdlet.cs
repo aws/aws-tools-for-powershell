@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// when retrieving large numbers of sessions.
     /// </para><para>
     /// The following operations are related to <c>ListCodeInterpreterSessions</c>:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/API_StartCodeInterpreterSession.html">StartCodeInterpreterSession</a></para></li><li><para><a href="https://docs.aws.amazon.com/API_GetCodeInterpreterSession.html">GetCodeInterpreterSession</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartCodeInterpreterSession.html">StartCodeInterpreterSession</a></para></li><li><para><a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetCodeInterpreterSession.html">GetCodeInterpreterSession</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "BACCodeInterpreterSessionList")]
     [OutputType("Amazon.BedrockAgentCore.Model.CodeInterpreterSessionSummary")]

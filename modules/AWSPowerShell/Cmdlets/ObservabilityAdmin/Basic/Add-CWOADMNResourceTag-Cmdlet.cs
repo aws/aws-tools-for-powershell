@@ -28,7 +28,8 @@ using Amazon.ObservabilityAdmin.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOADMN
 {
     /// <summary>
-    /// Adds or updates tags for a telemetry rule resource.
+    /// Adds or updates tags for a resource. Supports telemetry rule resources and telemetry
+    /// pipeline resources.
     /// </summary>
     [Cmdlet("Add", "CWOADMNResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

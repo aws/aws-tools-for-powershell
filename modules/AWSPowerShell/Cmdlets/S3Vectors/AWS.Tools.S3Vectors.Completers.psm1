@@ -95,7 +95,10 @@ $S3V_Completers = {
         }
 
         # Amazon.S3Vectors.SseType
-        "New-S3VVectorBucket/EncryptionConfiguration_SseType"
+        {
+            ($_ -eq "New-S3VIndex/EncryptionConfiguration_SseType") -Or
+            ($_ -eq "New-S3VVectorBucket/EncryptionConfiguration_SseType")
+        }
         {
             $v = "AES256","aws:kms"
             break
@@ -112,7 +115,7 @@ $S3V_Completers = {
 $S3V_map = @{
     "DataType"=@("New-S3VIndex")
     "DistanceMetric"=@("New-S3VIndex")
-    "EncryptionConfiguration_SseType"=@("New-S3VVectorBucket")
+    "EncryptionConfiguration_SseType"=@("New-S3VIndex","New-S3VVectorBucket")
 }
 
 _awsArgumentCompleterRegistration $S3V_Completers $S3V_map
@@ -176,11 +179,14 @@ $S3V_SelectMap = @{
                "Get-S3VVectorBucketPolicy",
                "Get-S3VVector",
                "Get-S3VIndexList",
+               "Get-S3VResourceTag",
                "Get-S3VVectorBucketList",
                "Get-S3VVectorList",
                "Write-S3VVectorBucketPolicy",
                "Write-S3VVector",
-               "Search-S3VVector")
+               "Search-S3VVector",
+               "Add-S3VResourceTag",
+               "Remove-S3VResourceTag")
 }
 
 _awsArgumentCompleterRegistration $S3V_SelectCompleters $S3V_SelectMap

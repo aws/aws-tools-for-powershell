@@ -28,7 +28,15 @@ using Amazon.S3Vectors.Model;
 namespace Amazon.PowerShell.Cmdlets.S3V
 {
     /// <summary>
-    /// Amazon.S3Vectors.IAmazonS3Vectors.CreateIndex
+    /// Creates a vector index within a vector bucket. To specify the vector bucket, you must
+    /// use either the vector bucket name or the vector bucket Amazon Resource Name (ARN).
+    /// 
+    ///  <dl><dt>Permissions</dt><dd><para>
+    /// You must have the <c>s3vectors:CreateIndex</c> permission to use this operation.
+    /// </para><para>
+    /// You must have the <c>s3vectors:TagResource</c> permission in addition to <c>s3vectors:CreateIndex</c>
+    /// permission to create a vector index with tags.
+    /// </para></dd></dl>
     /// </summary>
     [Cmdlet("New", "S3VIndex", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -109,6 +117,19 @@ namespace Amazon.PowerShell.Cmdlets.S3V
         public System.String IndexName { get; set; }
         #endregion
         
+        #region Parameter EncryptionConfiguration_KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>Amazon Web Services Key Management Service (KMS) customer managed key ID to use for
+        /// the encryption configuration. This parameter is allowed if and only if <c>sseType</c>
+        /// is set to <c>aws:kms</c>.</para><para>To specify the KMS key, you must use the format of the KMS key Amazon Resource Name
+        /// (ARN).</para><para>For example, specify Key ARN in the following format: <c>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EncryptionConfiguration_KmsKeyArn { get; set; }
+        #endregion
+        
         #region Parameter MetadataConfiguration_NonFilterableMetadataKey
         /// <summary>
         /// <para>
@@ -124,6 +145,35 @@ namespace Amazon.PowerShell.Cmdlets.S3V
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("MetadataConfiguration_NonFilterableMetadataKeys")]
         public System.String[] MetadataConfiguration_NonFilterableMetadataKey { get; set; }
+        #endregion
+        
+        #region Parameter EncryptionConfiguration_SseType
+        /// <summary>
+        /// <para>
+        /// <para>The server-side encryption type to use for the encryption configuration of the vector
+        /// bucket. By default, if you don't specify, all new vectors in Amazon S3 vector buckets
+        /// use server-side encryption with Amazon S3 managed keys (SSE-S3), specifically <c>AES256</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3Vectors.SseType")]
+        public Amazon.S3Vectors.SseType EncryptionConfiguration_SseType { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>An array of user-defined tags that you would like to apply to the vector index that
+        /// you are creating. A tag is a key-value pair that you apply to your resources. Tags
+        /// can help you organize, track costs, and control access to resources. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html">Tagging
+        /// for cost allocation or attribute-based access control (ABAC)</a>.</para><note><para>You must have the <c>s3vectors:TagResource</c> permission in addition to <c>s3vectors:CreateIndex</c>
+        /// permission to create a vector index with tags.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter VectorBucketArn
@@ -229,6 +279,8 @@ namespace Amazon.PowerShell.Cmdlets.S3V
                 WriteWarning("You are passing $null as a value for parameter DistanceMetric which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EncryptionConfiguration_KmsKeyArn = this.EncryptionConfiguration_KmsKeyArn;
+            context.EncryptionConfiguration_SseType = this.EncryptionConfiguration_SseType;
             context.IndexName = this.IndexName;
             #if MODULAR
             if (this.IndexName == null && ParameterWasBound(nameof(this.IndexName)))
@@ -239,6 +291,14 @@ namespace Amazon.PowerShell.Cmdlets.S3V
             if (this.MetadataConfiguration_NonFilterableMetadataKey != null)
             {
                 context.MetadataConfiguration_NonFilterableMetadataKey = new List<System.String>(this.MetadataConfiguration_NonFilterableMetadataKey);
+            }
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
             }
             context.VectorBucketArn = this.VectorBucketArn;
             context.VectorBucketName = this.VectorBucketName;
@@ -270,6 +330,35 @@ namespace Amazon.PowerShell.Cmdlets.S3V
             {
                 request.DistanceMetric = cmdletContext.DistanceMetric;
             }
+            
+             // populate EncryptionConfiguration
+            var requestEncryptionConfigurationIsNull = true;
+            request.EncryptionConfiguration = new Amazon.S3Vectors.Model.EncryptionConfiguration();
+            System.String requestEncryptionConfiguration_encryptionConfiguration_KmsKeyArn = null;
+            if (cmdletContext.EncryptionConfiguration_KmsKeyArn != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_KmsKeyArn = cmdletContext.EncryptionConfiguration_KmsKeyArn;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_KmsKeyArn != null)
+            {
+                request.EncryptionConfiguration.KmsKeyArn = requestEncryptionConfiguration_encryptionConfiguration_KmsKeyArn;
+                requestEncryptionConfigurationIsNull = false;
+            }
+            Amazon.S3Vectors.SseType requestEncryptionConfiguration_encryptionConfiguration_SseType = null;
+            if (cmdletContext.EncryptionConfiguration_SseType != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_SseType = cmdletContext.EncryptionConfiguration_SseType;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_SseType != null)
+            {
+                request.EncryptionConfiguration.SseType = requestEncryptionConfiguration_encryptionConfiguration_SseType;
+                requestEncryptionConfigurationIsNull = false;
+            }
+             // determine if request.EncryptionConfiguration should be set to null
+            if (requestEncryptionConfigurationIsNull)
+            {
+                request.EncryptionConfiguration = null;
+            }
             if (cmdletContext.IndexName != null)
             {
                 request.IndexName = cmdletContext.IndexName;
@@ -292,6 +381,10 @@ namespace Amazon.PowerShell.Cmdlets.S3V
             if (requestMetadataConfigurationIsNull)
             {
                 request.MetadataConfiguration = null;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.VectorBucketArn != null)
             {
@@ -365,8 +458,11 @@ namespace Amazon.PowerShell.Cmdlets.S3V
             public Amazon.S3Vectors.DataType DataType { get; set; }
             public System.Int32? Dimension { get; set; }
             public Amazon.S3Vectors.DistanceMetric DistanceMetric { get; set; }
+            public System.String EncryptionConfiguration_KmsKeyArn { get; set; }
+            public Amazon.S3Vectors.SseType EncryptionConfiguration_SseType { get; set; }
             public System.String IndexName { get; set; }
             public List<System.String> MetadataConfiguration_NonFilterableMetadataKey { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String VectorBucketArn { get; set; }
             public System.String VectorBucketName { get; set; }
             public System.Func<Amazon.S3Vectors.Model.CreateIndexResponse, NewS3VIndexCmdlet, object> Select { get; set; } =

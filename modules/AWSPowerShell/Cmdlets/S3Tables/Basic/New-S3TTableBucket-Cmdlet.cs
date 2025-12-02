@@ -38,8 +38,11 @@ namespace Amazon.PowerShell.Cmdlets.S3T
     /// If you use this operation with the optional <c>encryptionConfiguration</c> parameter
     /// you must have the <c>s3tables:PutTableBucketEncryption</c> permission.
     /// </para></li><li><para>
-    /// You must have the <c>s3tables:TagResource</c> permission in addition to <c>s3tables:CreateTableBucket</c>
-    /// permission to create a table bucket with tags.
+    /// If you use this operation with the <c>storageClassConfiguration</c> request parameter,
+    /// you must have the <c>s3tables:PutTableBucketStorageClass</c> permission.
+    /// </para></li><li><para>
+    /// To create a table bucket with tags, you must have the <c>s3tables:TagResource</c>
+    /// permission in addition to <c>s3tables:CreateTableBucket</c> permission.
     /// </para></li></ul></dd></dl>
     /// </summary>
     [Cmdlet("New", "S3TTableBucket", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -95,6 +98,18 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.S3Tables.SSEAlgorithm")]
         public Amazon.S3Tables.SSEAlgorithm EncryptionConfiguration_SseAlgorithm { get; set; }
+        #endregion
+        
+        #region Parameter StorageClassConfiguration_StorageClass
+        /// <summary>
+        /// <para>
+        /// <para>The storage class for the table or table bucket. Valid values include storage classes
+        /// optimized for different access patterns and cost profiles.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3Tables.StorageClass")]
+        public Amazon.S3Tables.StorageClass StorageClassConfiguration_StorageClass { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -183,6 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.S3T
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.StorageClassConfiguration_StorageClass = this.StorageClassConfiguration_StorageClass;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -239,6 +255,25 @@ namespace Amazon.PowerShell.Cmdlets.S3T
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate StorageClassConfiguration
+            var requestStorageClassConfigurationIsNull = true;
+            request.StorageClassConfiguration = new Amazon.S3Tables.Model.StorageClassConfiguration();
+            Amazon.S3Tables.StorageClass requestStorageClassConfiguration_storageClassConfiguration_StorageClass = null;
+            if (cmdletContext.StorageClassConfiguration_StorageClass != null)
+            {
+                requestStorageClassConfiguration_storageClassConfiguration_StorageClass = cmdletContext.StorageClassConfiguration_StorageClass;
+            }
+            if (requestStorageClassConfiguration_storageClassConfiguration_StorageClass != null)
+            {
+                request.StorageClassConfiguration.StorageClass = requestStorageClassConfiguration_storageClassConfiguration_StorageClass;
+                requestStorageClassConfigurationIsNull = false;
+            }
+             // determine if request.StorageClassConfiguration should be set to null
+            if (requestStorageClassConfigurationIsNull)
+            {
+                request.StorageClassConfiguration = null;
             }
             if (cmdletContext.Tag != null)
             {
@@ -308,6 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.S3T
             public System.String EncryptionConfiguration_KmsKeyArn { get; set; }
             public Amazon.S3Tables.SSEAlgorithm EncryptionConfiguration_SseAlgorithm { get; set; }
             public System.String Name { get; set; }
+            public Amazon.S3Tables.StorageClass StorageClassConfiguration_StorageClass { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.S3Tables.Model.CreateTableBucketResponse, NewS3TTableBucketCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Arn;

@@ -311,6 +311,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDataExportConfiguration" OutputProperty="*" Verb="Get" Noun="DataExportConfiguration" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDataProduct" OutputProperty="*" Verb="Get" Noun="DataProduct" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -584,6 +588,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutDataExportConfiguration" Verb="Write" Noun="DataExportConfiguration" ShouldProcessTarget="DomainIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutEnvironmentBlueprintConfiguration" OutputProperty="*" Verb="Write" Noun="EnvironmentBlueprintConfiguration" ShouldProcessTarget="EnvironmentBlueprintIdentifier" PipelineParameter="EnvironmentBlueprintIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -633,7 +641,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartMetadataGenerationRun" OutputProperty="*" Verb="Start" Noun="MetadataGenerationRun" ShouldProcessTarget="OwningProjectIdentifier" PipelineParameter="OwningProjectIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
+            <Params>
+                <Param Name="Types" NewName="Types" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">

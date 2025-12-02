@@ -28,7 +28,14 @@ using Amazon.S3Vectors.Model;
 namespace Amazon.PowerShell.Cmdlets.S3V
 {
     /// <summary>
-    /// Amazon.S3Vectors.IAmazonS3Vectors.DeleteVectorBucket
+    /// Deletes a vector bucket. All vector indexes in the vector bucket must be deleted before
+    /// the vector bucket can be deleted. To perform this operation, you must use either the
+    /// vector bucket name or the vector bucket Amazon Resource Name (ARN). 
+    /// 
+    ///  <dl><dt>Permissions</dt><dd><para>
+    /// You must have the <c>s3vectors:DeleteVectorBucket</c> permission to use this operation.
+    /// 
+    /// </para></dd></dl>
     /// </summary>
     [Cmdlet("Remove", "S3VVectorBucket", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

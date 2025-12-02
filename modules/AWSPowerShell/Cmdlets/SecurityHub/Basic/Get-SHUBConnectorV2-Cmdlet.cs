@@ -28,8 +28,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Grants permission to retrieve details for a connectorV2 based on connector id. This
-    /// API is in public preview and subject to change.
+    /// Grants permission to retrieve details for a connectorV2 based on connector id.
     /// </summary>
     [Cmdlet("Get", "SHUBConnectorV2")]
     [OutputType("Amazon.SecurityHub.Model.GetConnectorV2Response")]

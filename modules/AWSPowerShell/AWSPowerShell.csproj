@@ -892,6 +892,9 @@
     <Reference Include="AWSSDK.NotificationsContacts">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.NotificationsContacts.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.NovaAct">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.NovaAct.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.OAM">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.OAM.dll</HintPath>
     </Reference>
@@ -2120,6 +2123,9 @@
     </Reference>
     <Reference Include="AWSSDK.NotificationsContacts">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.NotificationsContacts.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.NovaAct">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.NovaAct.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.OAM">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.OAM.dll</HintPath>

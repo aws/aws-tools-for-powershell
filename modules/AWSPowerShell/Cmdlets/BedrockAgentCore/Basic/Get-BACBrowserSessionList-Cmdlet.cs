@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// when retrieving large numbers of sessions.
     /// </para><para>
     /// The following operations are related to <c>ListBrowserSessions</c>:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/API_StartBrowserSession.html">StartBrowserSession</a></para></li><li><para><a href="https://docs.aws.amazon.com/API_GetBrowserSession.html">GetBrowserSession</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartBrowserSession.html">StartBrowserSession</a></para></li><li><para><a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetBrowserSession.html">GetBrowserSession</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "BACBrowserSessionList")]
     [OutputType("Amazon.BedrockAgentCore.Model.BrowserSessionSummary")]

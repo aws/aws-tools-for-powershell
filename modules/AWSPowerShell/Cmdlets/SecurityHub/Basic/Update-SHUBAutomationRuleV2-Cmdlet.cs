@@ -28,7 +28,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Updates a V2 automation rule. This API is in public preview and subject to change.
+    /// Updates a V2 automation rule.
     /// </summary>
     [Cmdlet("Update", "SHUBAutomationRuleV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

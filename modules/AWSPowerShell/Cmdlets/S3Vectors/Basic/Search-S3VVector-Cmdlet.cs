@@ -28,7 +28,30 @@ using Amazon.S3Vectors.Model;
 namespace Amazon.PowerShell.Cmdlets.S3V
 {
     /// <summary>
-    /// Amazon.S3Vectors.IAmazonS3Vectors.QueryVectors
+    /// Performs an approximate nearest neighbor search query in a vector index using a query
+    /// vector. By default, it returns the keys of approximate nearest neighbors. You can
+    /// optionally include the computed distance (between the query vector and each vector
+    /// in the response), the vector data, and metadata of each vector in the response. 
+    /// 
+    ///  
+    /// <para>
+    /// To specify the vector index, you can either use both the vector bucket name and the
+    /// vector index name, or use the vector index Amazon Resource Name (ARN). 
+    /// </para><dl><dt>Permissions</dt><dd><para>
+    /// You must have the <c>s3vectors:QueryVectors</c> permission to use this operation.
+    /// Additional permissions are required based on the request parameters you specify:
+    /// </para><ul><li><para>
+    /// With only <c>s3vectors:QueryVectors</c> permission, you can retrieve vector keys of
+    /// approximate nearest neighbors and computed distances between these vectors. This permission
+    /// is sufficient only when you don't set any metadata filters and don't request vector
+    /// data or metadata (by keeping the <c>returnMetadata</c> parameter set to <c>false</c>
+    /// or not specified).
+    /// </para></li><li><para>
+    /// If you specify a metadata filter or set <c>returnMetadata</c> to true, you must have
+    /// both <c>s3vectors:QueryVectors</c> and <c>s3vectors:GetVectors</c> permissions. The
+    /// request fails with a <c>403 Forbidden error</c> if you request metadata filtering,
+    /// vector data, or metadata without the <c>s3vectors:GetVectors</c> permission.
+    /// </para></li></ul></dd></dl>
     /// </summary>
     [Cmdlet("Search", "S3VVector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3Vectors.Model.QueryOutputVector")]

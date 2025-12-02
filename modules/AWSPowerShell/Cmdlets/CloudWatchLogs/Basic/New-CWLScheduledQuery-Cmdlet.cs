@@ -28,8 +28,10 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Creates a new Scheduled Query that runs CloudWatch Logs Insights queries on a schedule
-    /// and delivers results to specified destinations.
+    /// Creates a scheduled query that runs CloudWatch Logs Insights queries at regular intervals.
+    /// Scheduled queries enable proactive monitoring by automatically executing queries to
+    /// detect patterns and anomalies in your log data. Query results can be delivered to
+    /// Amazon S3 for analysis or further processing.
     /// </summary>
     [Cmdlet("New", "CWLScheduledQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchLogs.Model.CreateScheduledQueryResponse")]
@@ -45,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>An optional description for the scheduled query to help identify its purpose.</para>
+        /// <para>An optional description for the scheduled query to help identify its purpose and functionality.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter S3Configuration_DestinationIdentifier
         /// <summary>
         /// <para>
-        /// <para>The S3 URI where query results will be stored (e.g., s3://bucket-name/prefix/).</para>
+        /// <para>The Amazon S3 URI where query results are delivered. Must be a valid S3 URI format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,8 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter ExecutionRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM role that CloudWatch Logs will assume to
-        /// execute the scheduled query and deliver results to the specified destinations.</para>
+        /// <para>The ARN of the IAM role that grants permissions to execute the query and deliver results
+        /// to the specified destination. The role must have permissions to read from the specified
+        /// log groups and write to the destination.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,9 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupIdentifier
         /// <summary>
         /// <para>
-        /// <para>The log group identifiers to query. You can specify log group names or log group ARNs.
-        /// If querying log groups in a source account from a monitoring account, you must specify
-        /// the ARN of the log group.</para>
+        /// <para>An array of log group names or ARNs to query. You can specify between 1 and 50 log
+        /// groups. Log groups can be identified by name or full ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,9 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A unique name for the scheduled query within the region for an AWS account. The name
-        /// can contain letters, numbers, underscores, hyphens, forward slashes, periods, and
-        /// hash symbols.</para>
+        /// <para>The name of the scheduled query. The name must be unique within your account and region.
+        /// Valid characters are alphanumeric characters, hyphens, underscores, and periods. Length
+        /// must be between 1 and 255 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -116,9 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter QueryLanguage
         /// <summary>
         /// <para>
-        /// <para>The query language to use for the scheduled query. Valid values are LogsQL (CloudWatch
-        /// Logs Insights query language), PPL (OpenSearch Service Piped Processing Language),
-        /// and SQL (OpenSearch Service Structured Query Language).</para>
+        /// <para>The query language to use for the scheduled query. Valid values are <c>LogsQL</c>,
+        /// <c>PPL</c>, and <c>SQL</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -135,8 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter QueryString
         /// <summary>
         /// <para>
-        /// <para>The CloudWatch Logs Insights query string to execute. This is the actual query that
-        /// will be run against your log data on the specified schedule.</para>
+        /// <para>The query string to execute. This is the same query syntax used in CloudWatch Logs
+        /// Insights. Maximum length is 10,000 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -153,8 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter S3Configuration_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role that CloudWatch Logs will assume to write results to the S3
-        /// bucket.</para>
+        /// <para>The ARN of the IAM role that grants permissions to write query results to the specified
+        /// Amazon S3 destination.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,8 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter ScheduleEndTime
         /// <summary>
         /// <para>
-        /// <para>The end time for the query schedule in Unix epoch time (seconds since January 1, 1970,
-        /// 00:00:00 UTC). If not specified, the schedule runs indefinitely.</para>
+        /// <para>The end time for the scheduled query in Unix epoch format. The query will stop executing
+        /// after this time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -176,9 +177,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter ScheduleExpression
         /// <summary>
         /// <para>
-        /// <para>A cron expression that defines when the scheduled query runs. The format is cron(fields)
-        /// where fields consist of six space-separated values: minutes, hours, day_of_month,
-        /// month, day_of_week, year.</para>
+        /// <para>A cron expression that defines when the scheduled query runs. The expression uses
+        /// standard cron syntax and supports minute-level precision. Maximum length is 256 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -195,8 +195,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter ScheduleStartTime
         /// <summary>
         /// <para>
-        /// <para>The start time for the query schedule in Unix epoch time (seconds since January 1,
-        /// 1970, 00:00:00 UTC). If not specified, the schedule starts immediately.</para>
+        /// <para>The start time for the scheduled query in Unix epoch format. The query will not execute
+        /// before this time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -206,8 +206,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter StartTimeOffset
         /// <summary>
         /// <para>
-        /// <para>Time offset in seconds from the execution time for the start of the query time range.
-        /// This defines the lookback period for the query (for example, 3600 for the last hour).</para>
+        /// <para>The time offset in seconds that defines the lookback period for the query. This determines
+        /// how far back in time the query searches from the execution time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -217,9 +217,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter State
         /// <summary>
         /// <para>
-        /// <para>The initial state of the scheduled query. Valid values are ENABLED (the query will
-        /// run according to its schedule) and DISABLED (the query is paused and will not run).
-        /// If not provided, defaults to ENABLED.</para>
+        /// <para>The initial state of the scheduled query. Valid values are <c>ENABLED</c> and <c>DISABLED</c>.
+        /// Default is <c>ENABLED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -230,8 +229,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>An optional list of key-value pairs to associate with the resource.</para><para>For more information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-        /// Amazon Web Services resources</a></para>
+        /// <para>Key-value pairs to associate with the scheduled query for resource management and
+        /// cost allocation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -242,8 +241,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Timezone
         /// <summary>
         /// <para>
-        /// <para>The timezone in which the schedule expression is evaluated. If not provided, defaults
-        /// to UTC.</para>
+        /// <para>The timezone for evaluating the schedule expression. This determines when the scheduled
+        /// query executes relative to the specified timezone.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

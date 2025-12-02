@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>How granular you want the forecast to be. You can get 3 months of <c>DAILY</c> forecasts
-        /// or 12 months of <c>MONTHLY</c> forecasts.</para><para>The <c>GetUsageForecast</c> operation supports only <c>DAILY</c> and <c>MONTHLY</c>
+        /// or 18 months of <c>MONTHLY</c> forecasts.</para><para>The <c>GetUsageForecast</c> operation supports only <c>DAILY</c> and <c>MONTHLY</c>
         /// granularities.</para>
         /// </para>
         /// </summary>

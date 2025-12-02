@@ -143,6 +143,17 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.Double? LambdaManagedInstancesCapacityProviderConfig_ExecutionEnvironmentMemoryGiBPerVCpu { get; set; }
         #endregion
         
+        #region Parameter DurableConfig_ExecutionTimeout
+        /// <summary>
+        /// <para>
+        /// <para>The maximum time (in seconds) that a durable execution can run before timing out.
+        /// This timeout applies to the entire durable execution, not individual function invocations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? DurableConfig_ExecutionTimeout { get; set; }
+        #endregion
+        
         #region Parameter FileSystemConfig
         /// <summary>
         /// <para>
@@ -388,6 +399,19 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.Int32? LambdaManagedInstancesCapacityProviderConfig_PerExecutionEnvironmentMaxConcurrency { get; set; }
         #endregion
         
+        #region Parameter DurableConfig_RetentionPeriodInDay
+        /// <summary>
+        /// <para>
+        /// <para>The number of days to retain execution history after a durable execution completes.
+        /// After this period, execution history is no longer available through the GetDurableExecutionHistory
+        /// API.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DurableConfig_RetentionPeriodInDays")]
+        public System.Int32? DurableConfig_RetentionPeriodInDay { get; set; }
+        #endregion
+        
         #region Parameter RevisionId
         /// <summary>
         /// <para>
@@ -584,6 +608,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.LambdaManagedInstancesCapacityProviderConfig_PerExecutionEnvironmentMaxConcurrency = this.LambdaManagedInstancesCapacityProviderConfig_PerExecutionEnvironmentMaxConcurrency;
             context.DeadLetterConfig_TargetArn = this.DeadLetterConfig_TargetArn;
             context.Description = this.Description;
+            context.DurableConfig_ExecutionTimeout = this.DurableConfig_ExecutionTimeout;
+            context.DurableConfig_RetentionPeriodInDay = this.DurableConfig_RetentionPeriodInDay;
             if (this.Environment_Variable != null)
             {
                 context.Environment_Variable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -766,6 +792,35 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate DurableConfig
+            var requestDurableConfigIsNull = true;
+            request.DurableConfig = new Amazon.Lambda.Model.DurableConfig();
+            System.Int32? requestDurableConfig_durableConfig_ExecutionTimeout = null;
+            if (cmdletContext.DurableConfig_ExecutionTimeout != null)
+            {
+                requestDurableConfig_durableConfig_ExecutionTimeout = cmdletContext.DurableConfig_ExecutionTimeout.Value;
+            }
+            if (requestDurableConfig_durableConfig_ExecutionTimeout != null)
+            {
+                request.DurableConfig.ExecutionTimeout = requestDurableConfig_durableConfig_ExecutionTimeout.Value;
+                requestDurableConfigIsNull = false;
+            }
+            System.Int32? requestDurableConfig_durableConfig_RetentionPeriodInDay = null;
+            if (cmdletContext.DurableConfig_RetentionPeriodInDay != null)
+            {
+                requestDurableConfig_durableConfig_RetentionPeriodInDay = cmdletContext.DurableConfig_RetentionPeriodInDay.Value;
+            }
+            if (requestDurableConfig_durableConfig_RetentionPeriodInDay != null)
+            {
+                request.DurableConfig.RetentionPeriodInDays = requestDurableConfig_durableConfig_RetentionPeriodInDay.Value;
+                requestDurableConfigIsNull = false;
+            }
+             // determine if request.DurableConfig should be set to null
+            if (requestDurableConfigIsNull)
+            {
+                request.DurableConfig = null;
             }
             
              // populate Environment
@@ -1134,6 +1189,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.Int32? LambdaManagedInstancesCapacityProviderConfig_PerExecutionEnvironmentMaxConcurrency { get; set; }
             public System.String DeadLetterConfig_TargetArn { get; set; }
             public System.String Description { get; set; }
+            public System.Int32? DurableConfig_ExecutionTimeout { get; set; }
+            public System.Int32? DurableConfig_RetentionPeriodInDay { get; set; }
             public Dictionary<System.String, System.String> Environment_Variable { get; set; }
             public System.Boolean? Environment_IsVariablesSet { get; set; }
             public System.Int32? EphemeralStorage_Size { get; set; }

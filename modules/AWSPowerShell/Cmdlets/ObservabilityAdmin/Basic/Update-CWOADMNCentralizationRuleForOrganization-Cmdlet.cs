@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         #region Parameter BackupConfiguration_KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>KMS Key arn belonging to the primary destination account and backup region, to encrypt
+        /// <para>KMS Key ARN belonging to the primary destination account and backup region, to encrypt
         /// newly created central log groups in the backup destination.</para>
         /// </para>
         /// </summary>
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         #region Parameter LogsEncryptionConfiguration_KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>KMS Key arn belonging to the primary destination account and region, to encrypt newly
+        /// <para>KMS Key ARN belonging to the primary destination account and region, to encrypt newly
         /// created central log groups in the primary destination.</para>
         /// </para>
         /// </summary>

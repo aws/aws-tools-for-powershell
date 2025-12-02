@@ -124,6 +124,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String ClientContextBase64 { get; set; }
         #endregion
         
+        #region Parameter DurableExecutionName
+        /// <summary>
+        /// <para>
+        /// <para>Optional unique name for the durable execution. When you start your special function,
+        /// you can give it a unique name to identify this specific execution. It's like giving
+        /// a nickname to a task.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DurableExecutionName { get; set; }
+        #endregion
+        
         #region Parameter FunctionName
         /// <summary>
         /// <para>
@@ -294,6 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 context.ClientContext = "{}";
             }
             context.ClientContextBase64 = this.ClientContextBase64;
+            context.DurableExecutionName = this.DurableExecutionName;
             context.FunctionName = this.FunctionName;
             #if MODULAR
             if (this.FunctionName == null && ParameterWasBound(nameof(this.FunctionName)))
@@ -337,6 +350,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 if (cmdletContext.ClientContextBase64 != null)
                 {
                     request.ClientContextBase64 = cmdletContext.ClientContextBase64;
+                }
+                if (cmdletContext.DurableExecutionName != null)
+                {
+                    request.DurableExecutionName = cmdletContext.DurableExecutionName;
                 }
                 if (cmdletContext.FunctionName != null)
                 {
@@ -435,6 +452,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String Payload { get; set; }
             public System.String ClientContext { get; set; }
             public System.String ClientContextBase64 { get; set; }
+            public System.String DurableExecutionName { get; set; }
             public System.String FunctionName { get; set; }
             public Amazon.Lambda.InvocationType InvocationType { get; set; }
             public Amazon.Lambda.LogType LogType { get; set; }

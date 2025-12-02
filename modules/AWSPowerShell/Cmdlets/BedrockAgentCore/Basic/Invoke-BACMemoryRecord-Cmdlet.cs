@@ -81,6 +81,17 @@ namespace Amazon.PowerShell.Cmdlets.BAC
         public System.String SearchCriteria_MemoryStrategyId { get; set; }
         #endregion
         
+        #region Parameter SearchCriteria_MetadataFilter
+        /// <summary>
+        /// <para>
+        /// <para>Filters to apply to metadata associated with a memory.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchCriteria_MetadataFilters")]
+        public Amazon.BedrockAgentCore.Model.MemoryMetadataFilterExpression[] SearchCriteria_MetadataFilter { get; set; }
+        #endregion
+        
         #region Parameter Namespace
         /// <summary>
         /// <para>
@@ -221,6 +232,10 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             #endif
             context.NextToken = this.NextToken;
             context.SearchCriteria_MemoryStrategyId = this.SearchCriteria_MemoryStrategyId;
+            if (this.SearchCriteria_MetadataFilter != null)
+            {
+                context.SearchCriteria_MetadataFilter = new List<Amazon.BedrockAgentCore.Model.MemoryMetadataFilterExpression>(this.SearchCriteria_MetadataFilter);
+            }
             context.SearchCriteria_SearchQuery = this.SearchCriteria_SearchQuery;
             #if MODULAR
             if (this.SearchCriteria_SearchQuery == null && ParameterWasBound(nameof(this.SearchCriteria_SearchQuery)))
@@ -271,6 +286,16 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             if (requestSearchCriteria_searchCriteria_MemoryStrategyId != null)
             {
                 request.SearchCriteria.MemoryStrategyId = requestSearchCriteria_searchCriteria_MemoryStrategyId;
+                requestSearchCriteriaIsNull = false;
+            }
+            List<Amazon.BedrockAgentCore.Model.MemoryMetadataFilterExpression> requestSearchCriteria_searchCriteria_MetadataFilter = null;
+            if (cmdletContext.SearchCriteria_MetadataFilter != null)
+            {
+                requestSearchCriteria_searchCriteria_MetadataFilter = cmdletContext.SearchCriteria_MetadataFilter;
+            }
+            if (requestSearchCriteria_searchCriteria_MetadataFilter != null)
+            {
+                request.SearchCriteria.MetadataFilters = requestSearchCriteria_searchCriteria_MetadataFilter;
                 requestSearchCriteriaIsNull = false;
             }
             System.String requestSearchCriteria_searchCriteria_SearchQuery = null;
@@ -388,6 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
             public System.String Namespace { get; set; }
             public System.String NextToken { get; set; }
             public System.String SearchCriteria_MemoryStrategyId { get; set; }
+            public List<Amazon.BedrockAgentCore.Model.MemoryMetadataFilterExpression> SearchCriteria_MetadataFilter { get; set; }
             public System.String SearchCriteria_SearchQuery { get; set; }
             public System.Int32? SearchCriteria_TopK { get; set; }
             public System.Func<Amazon.BedrockAgentCore.Model.RetrieveMemoryRecordsResponse, InvokeBACMemoryRecordCmdlet, object> Select { get; set; } =

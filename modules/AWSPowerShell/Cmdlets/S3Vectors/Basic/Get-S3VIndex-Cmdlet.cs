@@ -28,7 +28,13 @@ using Amazon.S3Vectors.Model;
 namespace Amazon.PowerShell.Cmdlets.S3V
 {
     /// <summary>
-    /// Amazon.S3Vectors.IAmazonS3Vectors.GetIndex
+    /// Returns vector index attributes. To specify the vector index, you can either use both
+    /// the vector bucket name and the vector index name, or use the vector index Amazon Resource
+    /// Name (ARN). 
+    /// 
+    ///  <dl><dt>Permissions</dt><dd><para>
+    /// You must have the <c>s3vectors:GetIndex</c> permission to use this operation. 
+    /// </para></dd></dl>
     /// </summary>
     [Cmdlet("Get", "S3VIndex")]
     [OutputType("Amazon.S3Vectors.Model.Index")]

@@ -38,6 +38,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateEvaluator" OutputProperty="*" Verb="New" Noun="Evaluator" ShouldProcessTarget="EvaluatorName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateGateway" OutputProperty="*" Verb="New" Noun="Gateway" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -58,6 +62,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateOauth2CredentialProvider" OutputProperty="*" Verb="New" Noun="Oauth2CredentialProvider" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateOnlineEvaluationConfig" OutputProperty="*" Verb="New" Noun="OnlineEvaluationConfig" ShouldProcessTarget="OnlineEvaluationConfigName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePolicy" OutputProperty="*" Verb="New" Noun="Policy" ShouldProcessTarget="PolicyEngineId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePolicyEngine" OutputProperty="*" Verb="New" Noun="PolicyEngine" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -85,6 +101,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEvaluator" OutputProperty="*" Verb="Remove" Noun="Evaluator" ShouldProcessTarget="EvaluatorId" PipelineParameter="EvaluatorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteGateway" OutputProperty="*" Verb="Remove" Noun="Gateway" ShouldProcessTarget="GatewayIdentifier" PipelineParameter="GatewayIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -98,6 +118,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteOauth2CredentialProvider" Verb="Remove" Noun="Oauth2CredentialProvider" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOnlineEvaluationConfig" OutputProperty="*" Verb="Remove" Noun="OnlineEvaluationConfig" ShouldProcessTarget="OnlineEvaluationConfigId" PipelineParameter="OnlineEvaluationConfigId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePolicy" OutputProperty="*" Verb="Remove" Noun="Policy" ShouldProcessTarget="PolicyEngineId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePolicyEngine" OutputProperty="*" Verb="Remove" Noun="PolicyEngine" ShouldProcessTarget="PolicyEngineId" PipelineParameter="PolicyEngineId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -125,6 +161,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetEvaluator" OutputProperty="*" Verb="Get" Noun="Evaluator" PipelineParameter="EvaluatorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetGateway" OutputProperty="*" Verb="Get" Noun="Gateway" PipelineParameter="GatewayIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -138,6 +178,26 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetOauth2CredentialProvider" OutputProperty="*" Verb="Get" Noun="Oauth2CredentialProvider" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOnlineEvaluationConfig" OutputProperty="*" Verb="Get" Noun="OnlineEvaluationConfig" PipelineParameter="OnlineEvaluationConfigId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPolicy" OutputProperty="*" Verb="Get" Noun="Policy" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPolicyEngine" OutputProperty="*" Verb="Get" Noun="PolicyEngine" PipelineParameter="PolicyEngineId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPolicyGeneration" OutputProperty="*" Verb="Get" Noun="PolicyGeneration" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="Policy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -173,6 +233,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListEvaluators" OutputProperty="Evaluators" Verb="Get" Noun="EvaluatorList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListGateways" OutputProperty="Items" Verb="Get" Noun="GatewayList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -189,6 +253,26 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListOnlineEvaluationConfigs" OutputProperty="OnlineEvaluationConfigs" Verb="Get" Noun="OnlineEvaluationConfigList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPolicies" OutputProperty="Policies" Verb="Get" Noun="PolicyList" PipelineParameter="PolicyEngineId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPolicyEngines" OutputProperty="PolicyEngines" Verb="Get" Noun="PolicyEngineList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPolicyGenerationAssets" OutputProperty="PolicyGenerationAssets" Verb="Get" Noun="PolicyGenerationAssetList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPolicyGenerations" OutputProperty="PolicyGenerations" Verb="Get" Noun="PolicyGenerationList" PipelineParameter="PolicyEngineId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -197,7 +281,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="Policy" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SetTokenVaultCMK" OutputProperty="*" Verb="Set" Noun="TokenVaultCMK" ShouldProcessTarget="TokenVaultId" PipelineParameter="KmsConfiguration_KeyType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartPolicyGeneration" OutputProperty="*" Verb="Start" Noun="PolicyGeneration" ShouldProcessTarget="PolicyEngineId,Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -225,6 +317,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEvaluator" OutputProperty="*" Verb="Update" Noun="Evaluator" ShouldProcessTarget="EvaluatorId" PipelineParameter="EvaluatorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateGateway" OutputProperty="*" Verb="Update" Noun="Gateway" ShouldProcessTarget="GatewayIdentifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -245,6 +341,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateOauth2CredentialProvider" OutputProperty="*" Verb="Update" Noun="Oauth2CredentialProvider" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateOnlineEvaluationConfig" OutputProperty="*" Verb="Update" Noun="OnlineEvaluationConfig" ShouldProcessTarget="OnlineEvaluationConfigId" PipelineParameter="OnlineEvaluationConfigId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePolicy" OutputProperty="*" Verb="Update" Noun="Policy" ShouldProcessTarget="PolicyEngineId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePolicyEngine" OutputProperty="*" Verb="Update" Noun="PolicyEngine" ShouldProcessTarget="PolicyEngineId" PipelineParameter="PolicyEngineId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

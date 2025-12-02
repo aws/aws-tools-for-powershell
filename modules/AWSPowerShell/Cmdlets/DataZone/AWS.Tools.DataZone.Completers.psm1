@@ -325,17 +325,18 @@ $DZ_Completers = {
         # Amazon.DataZone.MetadataGenerationRunStatus
         "Get-DZMetadataGenerationRunList/Status"
         {
-            $v = "CANCELED","FAILED","IN_PROGRESS","SUBMITTED","SUCCEEDED"
+            $v = "CANCELED","FAILED","IN_PROGRESS","PARTIALLY_SUCCEEDED","SUBMITTED","SUCCEEDED"
             break
         }
 
         # Amazon.DataZone.MetadataGenerationRunType
         {
+            ($_ -eq "Get-DZMetadataGenerationRun/Type") -Or
             ($_ -eq "Get-DZMetadataGenerationRunList/Type") -Or
             ($_ -eq "Start-DZMetadataGenerationRun/Type")
         }
         {
-            $v = "BUSINESS_DESCRIPTIONS"
+            $v = "BUSINESS_DESCRIPTIONS","BUSINESS_GLOSSARY_ASSOCIATIONS","BUSINESS_NAMES"
             break
         }
 
@@ -642,7 +643,7 @@ $DZ_map = @{
     "Target_Type"=@("Start-DZMetadataGenerationRun")
     "TargetType"=@("Get-DZRuleList")
     "TaskStatus"=@("Get-DZNotificationList")
-    "Type"=@("Get-DZConnectionList","Get-DZMetadataGenerationRunList","Get-DZNotificationList","Get-DZUserProfile","Start-DZMetadataGenerationRun","Update-DZUserProfile")
+    "Type"=@("Get-DZConnectionList","Get-DZMetadataGenerationRun","Get-DZMetadataGenerationRunList","Get-DZNotificationList","Get-DZUserProfile","Start-DZMetadataGenerationRun","Update-DZUserProfile")
     "UserType"=@("New-DZUserProfile","Search-DZUserProfile")
 }
 
@@ -767,6 +768,7 @@ $DZ_SelectMap = @{
                "Get-DZAssetFilter",
                "Get-DZAssetType",
                "Get-DZConnection",
+               "Get-DZDataExportConfiguration",
                "Get-DZDataProduct",
                "Get-DZDataSource",
                "Get-DZDataSourceRun",
@@ -832,6 +834,7 @@ $DZ_SelectMap = @{
                "Get-DZTimeSeriesDataPointList",
                "Submit-DZLineageEvent",
                "New-DZTimeSeriesDataPoint",
+               "Write-DZDataExportConfiguration",
                "Write-DZEnvironmentBlueprintConfiguration",
                "Deny-DZPrediction",
                "Deny-DZSubscriptionRequest",

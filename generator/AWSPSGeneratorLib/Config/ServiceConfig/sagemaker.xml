@@ -236,6 +236,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateMlflowApp" OutputProperty="Arn" Verb="New" Noun="MlflowApp" ShouldProcessTarget="Name,RoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateMlflowTrackingServer" OutputProperty="TrackingServerArn" Verb="New" Noun="MlflowTrackingServer" ShouldProcessTarget="TrackingServerName" PipelineParameter="TrackingServerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -344,6 +348,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePresignedDomainUrl" OutputProperty="AuthorizedUrl" Verb="New" Noun="PresignedDomainUrl" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePresignedMlflowAppUrl" OutputProperty="AuthorizedUrl" Verb="New" Noun="PresignedMlflowAppUrl" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -547,6 +555,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteInferenceExperiment" OutputProperty="InferenceExperimentArn" Verb="Remove" Noun="InferenceExperiment" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMlflowApp" OutputProperty="Arn" Verb="Remove" Noun="MlflowApp" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -807,6 +819,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeLineageGroup" OutputProperty="*" Verb="Get" Noun="LineageGroup" PipelineParameter="LineageGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMlflowApp" OutputProperty="*" Verb="Get" Noun="MlflowAppDetail" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1143,6 +1159,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListLineageGroups" OutputProperty="LineageGroupSummaries" Verb="Get" Noun="LineageGroupList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMlflowApps" OutputProperty="Summaries" Verb="Get" Noun="MlflowAppList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1565,6 +1585,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateInferenceExperiment" OutputProperty="InferenceExperimentArn" Verb="Update" Noun="InferenceExperiment" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMlflowApp" OutputProperty="Arn" Verb="Update" Noun="MlflowApp" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

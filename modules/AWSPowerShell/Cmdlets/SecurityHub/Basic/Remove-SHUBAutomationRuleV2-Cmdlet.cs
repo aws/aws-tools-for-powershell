@@ -28,7 +28,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Deletes a V2 automation rule. This API is in public preview and subject to change.
+    /// Deletes a V2 automation rule.
     /// </summary>
     [Cmdlet("Remove", "SHUBAutomationRuleV2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

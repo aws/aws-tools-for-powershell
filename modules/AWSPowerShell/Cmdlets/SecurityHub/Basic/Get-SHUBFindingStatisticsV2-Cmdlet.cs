@@ -30,8 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// <summary>
     /// Returns aggregated statistical data about findings. <c>GetFindingStatisticsV2</c>
     /// use <c>securityhub:GetAdhocInsightResults</c> in the <c>Action</c> element of an IAM
-    /// policy statement. You must have permission to perform the <c>s</c> action. This API
-    /// is in public preview and subject to change.
+    /// policy statement. You must have permission to perform the <c>s</c> action.
     /// </summary>
     [Cmdlet("Get", "SHUBFindingStatisticsV2")]
     [OutputType("Amazon.SecurityHub.Model.GroupByResult")]

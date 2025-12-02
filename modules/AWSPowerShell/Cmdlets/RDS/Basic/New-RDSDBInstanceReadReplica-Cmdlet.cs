@@ -64,6 +64,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AdditionalStorageVolume
+        /// <summary>
+        /// <para>
+        /// <para>A list of additional storage volumes to create for the DB instance. You can create
+        /// up to three additional storage volumes using the names <c>rdsdbdata2</c>, <c>rdsdbdata3</c>,
+        /// and <c>rdsdbdata4</c>. Additional storage volumes are supported for RDS for Oracle
+        /// and RDS for SQL Server DB instances only.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdditionalStorageVolumes")]
+        public Amazon.RDS.Model.AdditionalStorageVolume[] AdditionalStorageVolume { get; set; }
+        #endregion
+        
         #region Parameter AllocatedStorage
         /// <summary>
         /// <para>
@@ -788,6 +802,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.SourceRegion = this.SourceRegion;
+            if (this.AdditionalStorageVolume != null)
+            {
+                context.AdditionalStorageVolume = new List<Amazon.RDS.Model.AdditionalStorageVolume>(this.AdditionalStorageVolume);
+            }
             context.AllocatedStorage = this.AllocatedStorage;
             context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
             context.AvailabilityZone = this.AvailabilityZone;
@@ -875,6 +893,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.SourceRegion != null)
             {
                 request.SourceRegion = cmdletContext.SourceRegion;
+            }
+            if (cmdletContext.AdditionalStorageVolume != null)
+            {
+                request.AdditionalStorageVolumes = cmdletContext.AdditionalStorageVolume;
             }
             if (cmdletContext.AllocatedStorage != null)
             {
@@ -1126,6 +1148,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String SourceRegion { get; set; }
+            public List<Amazon.RDS.Model.AdditionalStorageVolume> AdditionalStorageVolume { get; set; }
             public System.Int32? AllocatedStorage { get; set; }
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
             public System.String AvailabilityZone { get; set; }

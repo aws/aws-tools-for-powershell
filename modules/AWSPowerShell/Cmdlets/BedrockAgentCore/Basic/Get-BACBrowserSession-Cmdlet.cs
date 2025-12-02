@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.BAC
     /// timeout settings, and stream endpoints.
     /// </para><para>
     /// The following operations are related to <c>GetBrowserSession</c>:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/API_StartBrowserSession.html">StartBrowserSession</a></para></li><li><para><a href="https://docs.aws.amazon.com/API_ListBrowserSessions.html">ListBrowserSessions</a></para></li><li><para><a href="https://docs.aws.amazon.com/API_StopBrowserSession.html">StopBrowserSession</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartBrowserSession.html">StartBrowserSession</a></para></li><li><para><a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_ListBrowserSessions.html">ListBrowserSessions</a></para></li><li><para><a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StopBrowserSession.html">StopBrowserSession</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "BACBrowserSession")]
     [OutputType("Amazon.BedrockAgentCore.Model.GetBrowserSessionResponse")]

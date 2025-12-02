@@ -319,6 +319,17 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public System.Boolean? S3VectorsEngine_Enabled { get; set; }
         #endregion
         
+        #region Parameter ServerlessVectorAcceleration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether serverless vector acceleration is enabled for the domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AIMLOptions_ServerlessVectorAcceleration_Enabled")]
+        public System.Boolean? ServerlessVectorAcceleration_Enabled { get; set; }
+        #endregion
+        
         #region Parameter ColdStorageOptions_Enabled
         /// <summary>
         /// <para>
@@ -984,6 +995,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             context.SAMLOptions_SubjectKey = this.SAMLOptions_SubjectKey;
             context.NaturalLanguageQueryGenerationOptions_DesiredState = this.NaturalLanguageQueryGenerationOptions_DesiredState;
             context.S3VectorsEngine_Enabled = this.S3VectorsEngine_Enabled;
+            context.ServerlessVectorAcceleration_Enabled = this.ServerlessVectorAcceleration_Enabled;
             context.AutoTuneOptions_DesiredState = this.AutoTuneOptions_DesiredState;
             if (this.AutoTuneOptions_MaintenanceSchedule != null)
             {
@@ -1429,6 +1441,31 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (requestAIMLOptions_aIMLOptions_S3VectorsEngine != null)
             {
                 request.AIMLOptions.S3VectorsEngine = requestAIMLOptions_aIMLOptions_S3VectorsEngine;
+                requestAIMLOptionsIsNull = false;
+            }
+            Amazon.OpenSearchService.Model.ServerlessVectorAcceleration requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration = null;
+            
+             // populate ServerlessVectorAcceleration
+            var requestAIMLOptions_aIMLOptions_ServerlessVectorAccelerationIsNull = true;
+            requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration = new Amazon.OpenSearchService.Model.ServerlessVectorAcceleration();
+            System.Boolean? requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration_serverlessVectorAcceleration_Enabled = null;
+            if (cmdletContext.ServerlessVectorAcceleration_Enabled != null)
+            {
+                requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration_serverlessVectorAcceleration_Enabled = cmdletContext.ServerlessVectorAcceleration_Enabled.Value;
+            }
+            if (requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration_serverlessVectorAcceleration_Enabled != null)
+            {
+                requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration.Enabled = requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration_serverlessVectorAcceleration_Enabled.Value;
+                requestAIMLOptions_aIMLOptions_ServerlessVectorAccelerationIsNull = false;
+            }
+             // determine if requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration should be set to null
+            if (requestAIMLOptions_aIMLOptions_ServerlessVectorAccelerationIsNull)
+            {
+                requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration = null;
+            }
+            if (requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration != null)
+            {
+                request.AIMLOptions.ServerlessVectorAcceleration = requestAIMLOptions_aIMLOptions_ServerlessVectorAcceleration;
                 requestAIMLOptionsIsNull = false;
             }
              // determine if request.AIMLOptions should be set to null
@@ -2160,6 +2197,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public System.String SAMLOptions_SubjectKey { get; set; }
             public Amazon.OpenSearchService.NaturalLanguageQueryGenerationDesiredState NaturalLanguageQueryGenerationOptions_DesiredState { get; set; }
             public System.Boolean? S3VectorsEngine_Enabled { get; set; }
+            public System.Boolean? ServerlessVectorAcceleration_Enabled { get; set; }
             public Amazon.OpenSearchService.AutoTuneDesiredState AutoTuneOptions_DesiredState { get; set; }
             public List<Amazon.OpenSearchService.Model.AutoTuneMaintenanceSchedule> AutoTuneOptions_MaintenanceSchedule { get; set; }
             public Amazon.OpenSearchService.RollbackOnDisable AutoTuneOptions_RollbackOnDisable { get; set; }

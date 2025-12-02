@@ -23,6 +23,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateS3TableIntegration" OutputProperty="Arn" Verb="New" Noun="S3TableIntegration" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTelemetryPipeline" OutputProperty="Arn" Verb="New" Noun="TelemetryPipeline" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateTelemetryRule" OutputProperty="RuleArn" Verb="New" Noun="TelemetryRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -32,6 +40,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteCentralizationRuleForOrganization" Verb="Remove" Noun="CentralizationRuleForOrganization" ShouldProcessTarget="RuleIdentifier" PipelineParameter="RuleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteS3TableIntegration" Verb="Remove" Noun="S3TableIntegration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTelemetryPipeline" Verb="Remove" Noun="TelemetryPipeline" ShouldProcessTarget="PipelineIdentifier" PipelineParameter="PipelineIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -47,6 +63,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetS3TableIntegration" OutputProperty="*" Verb="Get" Noun="S3TableIntegration" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTelemetryEnrichmentStatus" OutputProperty="*" Verb="Get" Noun="TelemetryEnrichmentStatus" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -56,6 +76,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetTelemetryEvaluationStatusForOrganization" OutputProperty="*" Verb="Get" Noun="TelemetryEvaluationStatusForOrganization" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTelemetryPipeline" OutputProperty="Pipeline" Verb="Get" Noun="TelemetryPipeline" PipelineParameter="PipelineIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -79,7 +103,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListS3TableIntegrations" OutputProperty="IntegrationSummaries" Verb="Get" Noun="S3TableIntegrationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTelemetryPipelines" OutputProperty="PipelineSummaries" Verb="Get" Noun="TelemetryPipelineList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -119,6 +151,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="TestTelemetryPipeline" OutputProperty="Results" Verb="Test" Noun="TelemetryPipeline" PipelineParameter="Configuration_Body" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -127,11 +163,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTelemetryPipeline" Verb="Update" Noun="TelemetryPipeline" ShouldProcessTarget="PipelineIdentifier" PipelineParameter="PipelineIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateTelemetryRule" OutputProperty="RuleArn" Verb="Update" Noun="TelemetryRule" ShouldProcessTarget="RuleIdentifier" PipelineParameter="RuleIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTelemetryRuleForOrganization" OutputProperty="RuleArn" Verb="Update" Noun="TelemetryRuleForOrganization" ShouldProcessTarget="RuleIdentifier" PipelineParameter="RuleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ValidateTelemetryPipelineConfiguration" OutputProperty="Errors" Verb="Test" Noun="TelemetryPipelineConfiguration" PipelineParameter="Configuration_Body" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

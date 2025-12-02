@@ -28,7 +28,8 @@ using Amazon.ObservabilityAdmin.Model;
 namespace Amazon.PowerShell.Cmdlets.CWOADMN
 {
     /// <summary>
-    /// Removes tags from a telemetry rule resource.
+    /// Removes tags from a resource. Supports telemetry rule resources and telemetry pipeline
+    /// resources.
     /// </summary>
     [Cmdlet("Remove", "CWOADMNResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -28,8 +28,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Returns a list of automation rules and metadata for the calling account. This API
-    /// is in public preview and subject to change.
+    /// Returns a list of automation rules and metadata for the calling account.
     /// </summary>
     [Cmdlet("Get", "SHUBAutomationRulesV2List")]
     [OutputType("Amazon.SecurityHub.Model.AutomationRulesMetadataV2")]

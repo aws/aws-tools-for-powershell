@@ -59,6 +59,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AdditionalStorageVolume
+        /// <summary>
+        /// <para>
+        /// <para>A list of additional storage volumes to create for the DB instance. You can create
+        /// up to three additional storage volumes using the names <c>rdsdbdata2</c>, <c>rdsdbdata3</c>,
+        /// and <c>rdsdbdata4</c>. Additional storage volumes are supported for RDS for Oracle
+        /// and RDS for SQL Server DB instances only.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdditionalStorageVolumes")]
+        public Amazon.RDS.Model.AdditionalStorageVolume[] AdditionalStorageVolume { get; set; }
+        #endregion
+        
         #region Parameter AllocatedStorage
         /// <summary>
         /// <para>
@@ -470,7 +484,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The database engine to use for this DB instance.</para><para>Not every database engine is available in every Amazon Web Services Region.</para><para>Valid Values:</para><ul><li><para><c>aurora-mysql</c> (for Aurora MySQL DB instances)</para></li><li><para><c>aurora-postgresql</c> (for Aurora PostgreSQL DB instances)</para></li><li><para><c>custom-oracle-ee</c> (for RDS Custom for Oracle DB instances)</para></li><li><para><c>custom-oracle-ee-cdb</c> (for RDS Custom for Oracle DB instances)</para></li><li><para><c>custom-oracle-se2</c> (for RDS Custom for Oracle DB instances)</para></li><li><para><c>custom-oracle-se2-cdb</c> (for RDS Custom for Oracle DB instances)</para></li><li><para><c>custom-sqlserver-ee</c> (for RDS Custom for SQL Server DB instances)</para></li><li><para><c>custom-sqlserver-se</c> (for RDS Custom for SQL Server DB instances)</para></li><li><para><c>custom-sqlserver-web</c> (for RDS Custom for SQL Server DB instances)</para></li><li><para><c>custom-sqlserver-dev</c> (for RDS Custom for SQL Server DB instances)</para></li><li><para><c>db2-ae</c></para></li><li><para><c>db2-se</c></para></li><li><para><c>mariadb</c></para></li><li><para><c>mysql</c></para></li><li><para><c>oracle-ee</c></para></li><li><para><c>oracle-ee-cdb</c></para></li><li><para><c>oracle-se2</c></para></li><li><para><c>oracle-se2-cdb</c></para></li><li><para><c>postgres</c></para></li><li><para><c>sqlserver-ee</c></para></li><li><para><c>sqlserver-se</c></para></li><li><para><c>sqlserver-ex</c></para></li><li><para><c>sqlserver-web</c></para></li></ul>
+        /// <para>The database engine to use for this DB instance.</para><para>Not every database engine is available in every Amazon Web Services Region.</para><para>Valid Values:</para><ul><li><para><c>aurora-mysql</c> (for Aurora MySQL DB instances)</para></li><li><para><c>aurora-postgresql</c> (for Aurora PostgreSQL DB instances)</para></li><li><para><c>custom-oracle-ee</c> (for RDS Custom for Oracle DB instances)</para></li><li><para><c>custom-oracle-ee-cdb</c> (for RDS Custom for Oracle DB instances)</para></li><li><para><c>custom-oracle-se2</c> (for RDS Custom for Oracle DB instances)</para></li><li><para><c>custom-oracle-se2-cdb</c> (for RDS Custom for Oracle DB instances)</para></li><li><para><c>custom-sqlserver-ee</c> (for RDS Custom for SQL Server DB instances)</para></li><li><para><c>custom-sqlserver-se</c> (for RDS Custom for SQL Server DB instances)</para></li><li><para><c>custom-sqlserver-web</c> (for RDS Custom for SQL Server DB instances)</para></li><li><para><c>custom-sqlserver-dev</c> (for RDS Custom for SQL Server DB instances)</para></li><li><para><c>db2-ae</c></para></li><li><para><c>db2-se</c></para></li><li><para><c>mariadb</c></para></li><li><para><c>mysql</c></para></li><li><para><c>oracle-ee</c></para></li><li><para><c>oracle-ee-cdb</c></para></li><li><para><c>oracle-se2</c></para></li><li><para><c>oracle-se2-cdb</c></para></li><li><para><c>postgres</c></para></li><li><para><c>sqlserver-dev-ee</c></para></li><li><para><c>sqlserver-ee</c></para></li><li><para><c>sqlserver-se</c></para></li><li><para><c>sqlserver-ex</c></para></li><li><para><c>sqlserver-web</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -1009,6 +1023,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.Select = (response, cmdlet) => this.DBName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AdditionalStorageVolume != null)
+            {
+                context.AdditionalStorageVolume = new List<Amazon.RDS.Model.AdditionalStorageVolume>(this.AdditionalStorageVolume);
+            }
             context.AllocatedStorage = this.AllocatedStorage;
             context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
             context.AvailabilityZone = this.AvailabilityZone;
@@ -1126,6 +1144,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             // create request
             var request = new Amazon.RDS.Model.CreateDBInstanceRequest();
             
+            if (cmdletContext.AdditionalStorageVolume != null)
+            {
+                request.AdditionalStorageVolumes = cmdletContext.AdditionalStorageVolume;
+            }
             if (cmdletContext.AllocatedStorage != null)
             {
                 request.AllocatedStorage = cmdletContext.AllocatedStorage.Value;
@@ -1447,6 +1469,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.RDS.Model.AdditionalStorageVolume> AdditionalStorageVolume { get; set; }
             public System.Int32? AllocatedStorage { get; set; }
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
             public System.String AvailabilityZone { get; set; }

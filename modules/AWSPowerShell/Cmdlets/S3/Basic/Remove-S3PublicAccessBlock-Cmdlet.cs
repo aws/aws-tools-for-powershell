@@ -31,9 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <note><para>
     /// This operation is not supported for directory buckets.
     /// </para></note><para>
-    /// Removes the <c>PublicAccessBlock</c> configuration for an Amazon S3 bucket. To use
-    /// this operation, you must have the <c>s3:PutBucketPublicAccessBlock</c> permission.
-    /// For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
+    /// Removes the <c>PublicAccessBlock</c> configuration for an Amazon S3 bucket. This operation
+    /// removes the bucket-level configuration only. The effective public access behavior
+    /// will still be governed by account-level settings (which may inherit from organization-level
+    /// policies). To use this operation, you must have the <c>s3:PutBucketPublicAccessBlock</c>
+    /// permission. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
     /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
     /// Access Permissions to Your Amazon S3 Resources</a>.
     /// </para><para>

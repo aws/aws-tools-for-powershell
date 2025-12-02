@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Grants permission to retrieve a list of connectorsV2 and their metadata for the calling
-    /// account. This API is in public preview and subject to change.
+    /// account.
     /// </summary>
     [Cmdlet("Get", "SHUBConnectorsV2List")]
     [OutputType("Amazon.SecurityHub.Model.ConnectorSummary")]

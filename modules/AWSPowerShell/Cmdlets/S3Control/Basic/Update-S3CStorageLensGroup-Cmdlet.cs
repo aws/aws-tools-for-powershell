@@ -39,11 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// </para><para>
     /// For information about Storage Lens groups errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3LensErrorCodeList">List
     /// of Amazon S3 Storage Lens error codes</a>.
-    /// </para><important><para>
-    /// You must URL encode any signed header values that contain spaces. For example, if
-    /// your header value is <c>my file.txt</c>, containing two spaces after <c>my</c>, you
-    /// must URL encode this value to <c>my%20%20file.txt</c>.
-    /// </para></important>
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "S3CStorageLensGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -78,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para> Specifies the minimum object size in Bytes. The value must be a positive number,
-        /// greater than 0 and less than 5 TB. </para>
+        /// greater than 0 and less than 50 TB. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para> Specifies the minimum object size in Bytes. The value must be a positive number,
-        /// greater than 0 and less than 5 TB. </para>
+        /// greater than 0 and less than 50 TB. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para> Specifies the minimum object size in Bytes. The value must be a positive number,
-        /// greater than 0 and less than 5 TB. </para>
+        /// greater than 0 and less than 50 TB. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para> Specifies the maximum object size in Bytes. The value must be a positive number,
-        /// greater than the minimum object size and less than 5 TB. </para>
+        /// greater than the minimum object size and less than 50 TB. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para> Specifies the maximum object size in Bytes. The value must be a positive number,
-        /// greater than the minimum object size and less than 5 TB. </para>
+        /// greater than the minimum object size and less than 50 TB. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para> Specifies the maximum object size in Bytes. The value must be a positive number,
-        /// greater than the minimum object size and less than 5 TB. </para>
+        /// greater than the minimum object size and less than 50 TB. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

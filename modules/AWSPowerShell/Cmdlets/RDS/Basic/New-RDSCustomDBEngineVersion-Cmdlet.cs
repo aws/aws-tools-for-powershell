@@ -41,6 +41,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter DatabaseInstallationFile
+        /// <summary>
+        /// <para>
+        /// <para>The database installation files (ISO and EXE) uploaded to Amazon S3 for your database
+        /// engine version to import to Amazon RDS.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DatabaseInstallationFiles")]
+        public System.String[] DatabaseInstallationFile { get; set; }
+        #endregion
+        
         #region Parameter DatabaseInstallationFilesS3BucketName
         /// <summary>
         /// <para>
@@ -77,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The database engine. RDS Custom for Oracle supports the following values:</para><ul><li><para><c>custom-oracle-ee</c></para></li><li><para><c>custom-oracle-ee-cdb</c></para></li><li><para><c>custom-oracle-se2</c></para></li><li><para><c>custom-oracle-se2-cdb</c></para></li></ul>
+        /// <para>The database engine.</para><para>RDS Custom for Oracle supports the following values:</para><ul><li><para><c>custom-oracle-ee</c></para></li><li><para><c>custom-oracle-ee-cdb</c></para></li><li><para><c>custom-oracle-se2</c></para></li><li><para><c>custom-oracle-se2-cdb</c></para></li></ul><para>RDS Custom for SQL Server supports the following values:</para><ul><li><para><c>custom-sqlserver-ee</c></para></li><li><para><c>custom-sqlserver-se</c></para></li><li><para><c>ccustom-sqlserver-web</c></para></li><li><para><c>custom-sqlserver-dev</c></para></li></ul><para>RDS for SQL Server supports only <c>sqlserver-dev-ee</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,10 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The name of your CEV. The name format is 19.<i>customized_string</i>. For example,
-        /// a valid CEV name is <c>19.my_cev1</c>. This setting is required for RDS Custom for
-        /// Oracle, but optional for Amazon RDS. The combination of <c>Engine</c> and <c>EngineVersion</c>
-        /// is unique per customer per Region.</para>
+        /// <para>The name of your custom engine version (CEV).</para><para>For RDS Custom for Oracle, the name format is <c>19.*customized_string*</c>. For example,
+        /// a valid CEV name is <c>19.my_cev1</c>.</para><para>For RDS for SQL Server and RDS Custom for SQL Server, the name format is <c>major
+        /// engine_version*.*minor_engine_version*.*customized_string*</c>. For example, a valid
+        /// CEV name is <c>16.00.4215.2.my_cev1</c>.</para><para>The CEV name is unique per customer per Amazon Web Services Regions.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -231,6 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.Select = CreateSelectDelegate<Amazon.RDS.Model.CreateCustomDBEngineVersionResponse, NewRDSCustomDBEngineVersionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.DatabaseInstallationFile != null)
+            {
+                context.DatabaseInstallationFile = new List<System.String>(this.DatabaseInstallationFile);
+            }
             context.DatabaseInstallationFilesS3BucketName = this.DatabaseInstallationFilesS3BucketName;
             context.DatabaseInstallationFilesS3Prefix = this.DatabaseInstallationFilesS3Prefix;
             context.Description = this.Description;
@@ -273,6 +289,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             // create request
             var request = new Amazon.RDS.Model.CreateCustomDBEngineVersionRequest();
             
+            if (cmdletContext.DatabaseInstallationFile != null)
+            {
+                request.DatabaseInstallationFiles = cmdletContext.DatabaseInstallationFile;
+            }
             if (cmdletContext.DatabaseInstallationFilesS3BucketName != null)
             {
                 request.DatabaseInstallationFilesS3BucketName = cmdletContext.DatabaseInstallationFilesS3BucketName;
@@ -378,6 +398,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> DatabaseInstallationFile { get; set; }
             public System.String DatabaseInstallationFilesS3BucketName { get; set; }
             public System.String DatabaseInstallationFilesS3Prefix { get; set; }
             public System.String Description { get; set; }

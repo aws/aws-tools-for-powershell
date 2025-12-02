@@ -28,8 +28,9 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Starts a query of one or more log groups using CloudWatch Logs Insights. You specify
-    /// the log groups and time range to query and the query string to use.
+    /// Starts a query of one or more log groups or data sources using CloudWatch Logs Insights.
+    /// You specify the log groups or data sources and time range to query and the query string
+    /// to use. You can query up to 10 data sources in a single query.
     /// 
     ///  
     /// <para>
@@ -40,6 +41,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// Logs. You can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetQueryResults.html">GetQueryResults</a>
     /// to retrieve the results of a query, using the <c>queryId</c> that <c>StartQuery</c>
     /// returns. 
+    /// </para><para>
+    /// Interactive queries started with <c>StartQuery</c> share concurrency limits with automated
+    /// scheduled query executions. Both types of queries count toward the same regional concurrent
+    /// query quota, so high scheduled query activity may affect the availability of concurrent
+    /// slots for interactive queries.
     /// </para><note><para>
     /// To specify the log groups to query, a <c>StartQuery</c> operation must include one
     /// of the following:
@@ -48,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// or <c>logGroupIdentifiers</c></para></li><li><para>
     /// Or the <c>queryString</c> must include a <c>SOURCE</c> command to select log groups
     /// for the query. The <c>SOURCE</c> command can select log groups based on log group
-    /// name prefix, account ID, and log class. 
+    /// name prefix, account ID, and log class, or select data sources using dataSource syntax
+    /// in LogsQL, PPL, and SQL. 
     /// </para><para>
     /// For more information about the <c>SOURCE</c> command, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax-Source.html">SOURCE</a>.
     /// </para></li></ul></note><para>

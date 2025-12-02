@@ -44,6 +44,31 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter CloudtrailParameters_AdvancedEventSelector
+        /// <summary>
+        /// <para>
+        /// <para> The advanced event selectors to use for filtering Amazon Web Services CloudTrail
+        /// events. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Rule_DestinationConfiguration_CloudtrailParameters_AdvancedEventSelectors")]
+        public Amazon.ObservabilityAdmin.Model.AdvancedEventSelector[] CloudtrailParameters_AdvancedEventSelector { get; set; }
+        #endregion
+        
+        #region Parameter LoggingFilter_DefaultBehavior
+        /// <summary>
+        /// <para>
+        /// <para> The default action (KEEP or DROP) for log records that don't match any filter conditions.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilter_DefaultBehavior")]
+        [AWSConstantClassSource("Amazon.ObservabilityAdmin.FilterBehavior")]
+        public Amazon.ObservabilityAdmin.FilterBehavior LoggingFilter_DefaultBehavior { get; set; }
+        #endregion
+        
         #region Parameter DestinationConfiguration_DestinationPattern
         /// <summary>
         /// <para>
@@ -69,6 +94,29 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         public Amazon.ObservabilityAdmin.DestinationType DestinationConfiguration_DestinationType { get; set; }
         #endregion
         
+        #region Parameter ELBLoadBalancerLoggingParameters_FieldDelimiter
+        /// <summary>
+        /// <para>
+        /// <para> The delimiter character used to separate fields in ELB access log entries when using
+        /// plain text format. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters_FieldDelimiter")]
+        public System.String ELBLoadBalancerLoggingParameters_FieldDelimiter { get; set; }
+        #endregion
+        
+        #region Parameter LoggingFilter_Filter
+        /// <summary>
+        /// <para>
+        /// <para> A list of filter conditions that determine log record handling behavior. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilter_Filters")]
+        public Amazon.ObservabilityAdmin.Model.Filter[] LoggingFilter_Filter { get; set; }
+        #endregion
+        
         #region Parameter VPCFlowLogParameters_LogFormat
         /// <summary>
         /// <para>
@@ -78,6 +126,29 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Rule_DestinationConfiguration_VPCFlowLogParameters_LogFormat")]
         public System.String VPCFlowLogParameters_LogFormat { get; set; }
+        #endregion
+        
+        #region Parameter WAFLoggingParameters_LogType
+        /// <summary>
+        /// <para>
+        /// <para> The type of WAF logs to collect (currently supports WAF_LOGS). </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Rule_DestinationConfiguration_WAFLoggingParameters_LogType")]
+        [AWSConstantClassSource("Amazon.ObservabilityAdmin.WAFLogType")]
+        public Amazon.ObservabilityAdmin.WAFLogType WAFLoggingParameters_LogType { get; set; }
+        #endregion
+        
+        #region Parameter LogDeliveryParameters_LogType
+        /// <summary>
+        /// <para>
+        /// <para>The type of log that the source is sending.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Rule_DestinationConfiguration_LogDeliveryParameters_LogTypes")]
+        public System.String[] LogDeliveryParameters_LogType { get; set; }
         #endregion
         
         #region Parameter VPCFlowLogParameters_MaxAggregationInterval
@@ -91,11 +162,34 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         public System.Int32? VPCFlowLogParameters_MaxAggregationInterval { get; set; }
         #endregion
         
+        #region Parameter ELBLoadBalancerLoggingParameters_OutputFormat
+        /// <summary>
+        /// <para>
+        /// <para> The format for ELB access log entries (plain text or JSON format). </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters_OutputFormat")]
+        [AWSConstantClassSource("Amazon.ObservabilityAdmin.OutputFormat")]
+        public Amazon.ObservabilityAdmin.OutputFormat ELBLoadBalancerLoggingParameters_OutputFormat { get; set; }
+        #endregion
+        
+        #region Parameter WAFLoggingParameters_RedactedField
+        /// <summary>
+        /// <para>
+        /// <para> The fields to redact from WAF logs to protect sensitive information. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Rule_DestinationConfiguration_WAFLoggingParameters_RedactedFields")]
+        public Amazon.ObservabilityAdmin.Model.FieldToMatch[] WAFLoggingParameters_RedactedField { get; set; }
+        #endregion
+        
         #region Parameter Rule_ResourceType
         /// <summary>
         /// <para>
-        /// <para> The type of Amazon Web Services resource to configure telemetry for (e.g., "AWS::EC2::VPC").
-        /// </para>
+        /// <para> The type of Amazon Web Services resource to configure telemetry for (e.g., "AWS::EC2::VPC",
+        /// "AWS::EKS::Cluster", "AWS::WAFv2::WebACL"). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,6 +246,19 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Rule_SelectionCriteria")]
         public System.String Rule_SelectionCriterion { get; set; }
+        #endregion
+        
+        #region Parameter Rule_TelemetrySourceType
+        /// <summary>
+        /// <para>
+        /// <para> The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS
+        /// or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource
+        /// type. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Rule_TelemetrySourceTypes")]
+        public System.String[] Rule_TelemetrySourceType { get; set; }
         #endregion
         
         #region Parameter Rule_TelemetryType
@@ -244,15 +351,39 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
                 context.Select = (response, cmdlet) => this.RuleIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.CloudtrailParameters_AdvancedEventSelector != null)
+            {
+                context.CloudtrailParameters_AdvancedEventSelector = new List<Amazon.ObservabilityAdmin.Model.AdvancedEventSelector>(this.CloudtrailParameters_AdvancedEventSelector);
+            }
             context.DestinationConfiguration_DestinationPattern = this.DestinationConfiguration_DestinationPattern;
             context.DestinationConfiguration_DestinationType = this.DestinationConfiguration_DestinationType;
+            context.ELBLoadBalancerLoggingParameters_FieldDelimiter = this.ELBLoadBalancerLoggingParameters_FieldDelimiter;
+            context.ELBLoadBalancerLoggingParameters_OutputFormat = this.ELBLoadBalancerLoggingParameters_OutputFormat;
+            if (this.LogDeliveryParameters_LogType != null)
+            {
+                context.LogDeliveryParameters_LogType = new List<System.String>(this.LogDeliveryParameters_LogType);
+            }
             context.DestinationConfiguration_RetentionInDay = this.DestinationConfiguration_RetentionInDay;
             context.VPCFlowLogParameters_LogFormat = this.VPCFlowLogParameters_LogFormat;
             context.VPCFlowLogParameters_MaxAggregationInterval = this.VPCFlowLogParameters_MaxAggregationInterval;
             context.VPCFlowLogParameters_TrafficType = this.VPCFlowLogParameters_TrafficType;
+            context.LoggingFilter_DefaultBehavior = this.LoggingFilter_DefaultBehavior;
+            if (this.LoggingFilter_Filter != null)
+            {
+                context.LoggingFilter_Filter = new List<Amazon.ObservabilityAdmin.Model.Filter>(this.LoggingFilter_Filter);
+            }
+            context.WAFLoggingParameters_LogType = this.WAFLoggingParameters_LogType;
+            if (this.WAFLoggingParameters_RedactedField != null)
+            {
+                context.WAFLoggingParameters_RedactedField = new List<Amazon.ObservabilityAdmin.Model.FieldToMatch>(this.WAFLoggingParameters_RedactedField);
+            }
             context.Rule_ResourceType = this.Rule_ResourceType;
             context.Rule_Scope = this.Rule_Scope;
             context.Rule_SelectionCriterion = this.Rule_SelectionCriterion;
+            if (this.Rule_TelemetrySourceType != null)
+            {
+                context.Rule_TelemetrySourceType = new List<System.String>(this.Rule_TelemetrySourceType);
+            }
             context.Rule_TelemetryType = this.Rule_TelemetryType;
             #if MODULAR
             if (this.Rule_TelemetryType == null && ParameterWasBound(nameof(this.Rule_TelemetryType)))
@@ -317,6 +448,16 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
                 request.Rule.SelectionCriteria = requestRule_rule_SelectionCriterion;
                 requestRuleIsNull = false;
             }
+            List<System.String> requestRule_rule_TelemetrySourceType = null;
+            if (cmdletContext.Rule_TelemetrySourceType != null)
+            {
+                requestRule_rule_TelemetrySourceType = cmdletContext.Rule_TelemetrySourceType;
+            }
+            if (requestRule_rule_TelemetrySourceType != null)
+            {
+                request.Rule.TelemetrySourceTypes = requestRule_rule_TelemetrySourceType;
+                requestRuleIsNull = false;
+            }
             Amazon.ObservabilityAdmin.TelemetryType requestRule_rule_TelemetryType = null;
             if (cmdletContext.Rule_TelemetryType != null)
             {
@@ -362,6 +503,91 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
                 requestRule_rule_DestinationConfiguration.RetentionInDays = requestRule_rule_DestinationConfiguration_destinationConfiguration_RetentionInDay.Value;
                 requestRule_rule_DestinationConfigurationIsNull = false;
             }
+            Amazon.ObservabilityAdmin.Model.CloudtrailParameters requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_CloudtrailParameters = null;
+            
+             // populate CloudtrailParameters
+            var requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_CloudtrailParametersIsNull = true;
+            requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_CloudtrailParameters = new Amazon.ObservabilityAdmin.Model.CloudtrailParameters();
+            List<Amazon.ObservabilityAdmin.Model.AdvancedEventSelector> requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_CloudtrailParameters_cloudtrailParameters_AdvancedEventSelector = null;
+            if (cmdletContext.CloudtrailParameters_AdvancedEventSelector != null)
+            {
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_CloudtrailParameters_cloudtrailParameters_AdvancedEventSelector = cmdletContext.CloudtrailParameters_AdvancedEventSelector;
+            }
+            if (requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_CloudtrailParameters_cloudtrailParameters_AdvancedEventSelector != null)
+            {
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_CloudtrailParameters.AdvancedEventSelectors = requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_CloudtrailParameters_cloudtrailParameters_AdvancedEventSelector;
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_CloudtrailParametersIsNull = false;
+            }
+             // determine if requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_CloudtrailParameters should be set to null
+            if (requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_CloudtrailParametersIsNull)
+            {
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_CloudtrailParameters = null;
+            }
+            if (requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_CloudtrailParameters != null)
+            {
+                requestRule_rule_DestinationConfiguration.CloudtrailParameters = requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_CloudtrailParameters;
+                requestRule_rule_DestinationConfigurationIsNull = false;
+            }
+            Amazon.ObservabilityAdmin.Model.LogDeliveryParameters requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_LogDeliveryParameters = null;
+            
+             // populate LogDeliveryParameters
+            var requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_LogDeliveryParametersIsNull = true;
+            requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_LogDeliveryParameters = new Amazon.ObservabilityAdmin.Model.LogDeliveryParameters();
+            List<System.String> requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_LogDeliveryParameters_logDeliveryParameters_LogType = null;
+            if (cmdletContext.LogDeliveryParameters_LogType != null)
+            {
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_LogDeliveryParameters_logDeliveryParameters_LogType = cmdletContext.LogDeliveryParameters_LogType;
+            }
+            if (requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_LogDeliveryParameters_logDeliveryParameters_LogType != null)
+            {
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_LogDeliveryParameters.LogTypes = requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_LogDeliveryParameters_logDeliveryParameters_LogType;
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_LogDeliveryParametersIsNull = false;
+            }
+             // determine if requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_LogDeliveryParameters should be set to null
+            if (requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_LogDeliveryParametersIsNull)
+            {
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_LogDeliveryParameters = null;
+            }
+            if (requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_LogDeliveryParameters != null)
+            {
+                requestRule_rule_DestinationConfiguration.LogDeliveryParameters = requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_LogDeliveryParameters;
+                requestRule_rule_DestinationConfigurationIsNull = false;
+            }
+            Amazon.ObservabilityAdmin.Model.ELBLoadBalancerLoggingParameters requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters = null;
+            
+             // populate ELBLoadBalancerLoggingParameters
+            var requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_ELBLoadBalancerLoggingParametersIsNull = true;
+            requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters = new Amazon.ObservabilityAdmin.Model.ELBLoadBalancerLoggingParameters();
+            System.String requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters_eLBLoadBalancerLoggingParameters_FieldDelimiter = null;
+            if (cmdletContext.ELBLoadBalancerLoggingParameters_FieldDelimiter != null)
+            {
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters_eLBLoadBalancerLoggingParameters_FieldDelimiter = cmdletContext.ELBLoadBalancerLoggingParameters_FieldDelimiter;
+            }
+            if (requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters_eLBLoadBalancerLoggingParameters_FieldDelimiter != null)
+            {
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters.FieldDelimiter = requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters_eLBLoadBalancerLoggingParameters_FieldDelimiter;
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_ELBLoadBalancerLoggingParametersIsNull = false;
+            }
+            Amazon.ObservabilityAdmin.OutputFormat requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters_eLBLoadBalancerLoggingParameters_OutputFormat = null;
+            if (cmdletContext.ELBLoadBalancerLoggingParameters_OutputFormat != null)
+            {
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters_eLBLoadBalancerLoggingParameters_OutputFormat = cmdletContext.ELBLoadBalancerLoggingParameters_OutputFormat;
+            }
+            if (requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters_eLBLoadBalancerLoggingParameters_OutputFormat != null)
+            {
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters.OutputFormat = requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters_eLBLoadBalancerLoggingParameters_OutputFormat;
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_ELBLoadBalancerLoggingParametersIsNull = false;
+            }
+             // determine if requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters should be set to null
+            if (requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_ELBLoadBalancerLoggingParametersIsNull)
+            {
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters = null;
+            }
+            if (requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters != null)
+            {
+                requestRule_rule_DestinationConfiguration.ELBLoadBalancerLoggingParameters = requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_ELBLoadBalancerLoggingParameters;
+                requestRule_rule_DestinationConfigurationIsNull = false;
+            }
             Amazon.ObservabilityAdmin.Model.VPCFlowLogParameters requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_VPCFlowLogParameters = null;
             
              // populate VPCFlowLogParameters
@@ -405,6 +631,76 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
             if (requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_VPCFlowLogParameters != null)
             {
                 requestRule_rule_DestinationConfiguration.VPCFlowLogParameters = requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_VPCFlowLogParameters;
+                requestRule_rule_DestinationConfigurationIsNull = false;
+            }
+            Amazon.ObservabilityAdmin.Model.WAFLoggingParameters requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters = null;
+            
+             // populate WAFLoggingParameters
+            var requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParametersIsNull = true;
+            requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters = new Amazon.ObservabilityAdmin.Model.WAFLoggingParameters();
+            Amazon.ObservabilityAdmin.WAFLogType requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_wAFLoggingParameters_LogType = null;
+            if (cmdletContext.WAFLoggingParameters_LogType != null)
+            {
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_wAFLoggingParameters_LogType = cmdletContext.WAFLoggingParameters_LogType;
+            }
+            if (requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_wAFLoggingParameters_LogType != null)
+            {
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters.LogType = requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_wAFLoggingParameters_LogType;
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParametersIsNull = false;
+            }
+            List<Amazon.ObservabilityAdmin.Model.FieldToMatch> requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_wAFLoggingParameters_RedactedField = null;
+            if (cmdletContext.WAFLoggingParameters_RedactedField != null)
+            {
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_wAFLoggingParameters_RedactedField = cmdletContext.WAFLoggingParameters_RedactedField;
+            }
+            if (requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_wAFLoggingParameters_RedactedField != null)
+            {
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters.RedactedFields = requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_wAFLoggingParameters_RedactedField;
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParametersIsNull = false;
+            }
+            Amazon.ObservabilityAdmin.Model.LoggingFilter requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilter = null;
+            
+             // populate LoggingFilter
+            var requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilterIsNull = true;
+            requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilter = new Amazon.ObservabilityAdmin.Model.LoggingFilter();
+            Amazon.ObservabilityAdmin.FilterBehavior requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilter_loggingFilter_DefaultBehavior = null;
+            if (cmdletContext.LoggingFilter_DefaultBehavior != null)
+            {
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilter_loggingFilter_DefaultBehavior = cmdletContext.LoggingFilter_DefaultBehavior;
+            }
+            if (requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilter_loggingFilter_DefaultBehavior != null)
+            {
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilter.DefaultBehavior = requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilter_loggingFilter_DefaultBehavior;
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilterIsNull = false;
+            }
+            List<Amazon.ObservabilityAdmin.Model.Filter> requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilter_loggingFilter_Filter = null;
+            if (cmdletContext.LoggingFilter_Filter != null)
+            {
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilter_loggingFilter_Filter = cmdletContext.LoggingFilter_Filter;
+            }
+            if (requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilter_loggingFilter_Filter != null)
+            {
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilter.Filters = requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilter_loggingFilter_Filter;
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilterIsNull = false;
+            }
+             // determine if requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilter should be set to null
+            if (requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilterIsNull)
+            {
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilter = null;
+            }
+            if (requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilter != null)
+            {
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters.LoggingFilter = requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters_rule_DestinationConfiguration_WAFLoggingParameters_LoggingFilter;
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParametersIsNull = false;
+            }
+             // determine if requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters should be set to null
+            if (requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParametersIsNull)
+            {
+                requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters = null;
+            }
+            if (requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters != null)
+            {
+                requestRule_rule_DestinationConfiguration.WAFLoggingParameters = requestRule_rule_DestinationConfiguration_rule_DestinationConfiguration_WAFLoggingParameters;
                 requestRule_rule_DestinationConfigurationIsNull = false;
             }
              // determine if requestRule_rule_DestinationConfiguration should be set to null
@@ -487,15 +783,24 @@ namespace Amazon.PowerShell.Cmdlets.CWOADMN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.ObservabilityAdmin.Model.AdvancedEventSelector> CloudtrailParameters_AdvancedEventSelector { get; set; }
             public System.String DestinationConfiguration_DestinationPattern { get; set; }
             public Amazon.ObservabilityAdmin.DestinationType DestinationConfiguration_DestinationType { get; set; }
+            public System.String ELBLoadBalancerLoggingParameters_FieldDelimiter { get; set; }
+            public Amazon.ObservabilityAdmin.OutputFormat ELBLoadBalancerLoggingParameters_OutputFormat { get; set; }
+            public List<System.String> LogDeliveryParameters_LogType { get; set; }
             public System.Int32? DestinationConfiguration_RetentionInDay { get; set; }
             public System.String VPCFlowLogParameters_LogFormat { get; set; }
             public System.Int32? VPCFlowLogParameters_MaxAggregationInterval { get; set; }
             public System.String VPCFlowLogParameters_TrafficType { get; set; }
+            public Amazon.ObservabilityAdmin.FilterBehavior LoggingFilter_DefaultBehavior { get; set; }
+            public List<Amazon.ObservabilityAdmin.Model.Filter> LoggingFilter_Filter { get; set; }
+            public Amazon.ObservabilityAdmin.WAFLogType WAFLoggingParameters_LogType { get; set; }
+            public List<Amazon.ObservabilityAdmin.Model.FieldToMatch> WAFLoggingParameters_RedactedField { get; set; }
             public Amazon.ObservabilityAdmin.ResourceType Rule_ResourceType { get; set; }
             public System.String Rule_Scope { get; set; }
             public System.String Rule_SelectionCriterion { get; set; }
+            public List<System.String> Rule_TelemetrySourceType { get; set; }
             public Amazon.ObservabilityAdmin.TelemetryType Rule_TelemetryType { get; set; }
             public System.String RuleIdentifier { get; set; }
             public System.Func<Amazon.ObservabilityAdmin.Model.UpdateTelemetryRuleForOrganizationResponse, UpdateCWOADMNTelemetryRuleForOrganizationCmdlet, object> Select { get; set; } =

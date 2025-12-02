@@ -32,16 +32,16 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// This operation is not supported by directory buckets.
     /// </para></note><para>
     /// Creates or modifies the <c>PublicAccessBlock</c> configuration for an Amazon Web Services
-    /// account. For this operation, users must have the <c>s3:PutAccountPublicAccessBlock</c>
-    /// permission. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html">
+    /// account. This operation may be restricted when the account is managed by organization-level
+    /// Block Public Access policies. You might get an Access Denied (403) error when the
+    /// account is managed by organization-level Block Public Access policies. Organization-level
+    /// policies override account-level settings, preventing direct account-level modifications.
+    /// For this operation, users must have the <c>s3:PutAccountPublicAccessBlock</c> permission.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html">
     /// Using Amazon S3 block public access</a>.
     /// </para><para>
     /// Related actions include:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetPublicAccessBlock.html">GetPublicAccessBlock</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeletePublicAccessBlock.html">DeletePublicAccessBlock</a></para></li></ul><important><para>
-    /// You must URL encode any signed header values that contain spaces. For example, if
-    /// your header value is <c>my file.txt</c>, containing two spaces after <c>my</c>, you
-    /// must URL encode this value to <c>my%20%20file.txt</c>.
-    /// </para></important>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetPublicAccessBlock.html">GetPublicAccessBlock</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeletePublicAccessBlock.html">DeletePublicAccessBlock</a></para></li></ul>
     /// </summary>
     [Cmdlet("Add", "S3CPublicAccessBlock", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

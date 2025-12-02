@@ -1,4 +1,140 @@
-﻿### 4.1.952 (2025-12-01 03:47Z)
+﻿### 4.1.953 (2025-12-02 18:36Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1176.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock
+    * Modified cmdlet Write-BDRModelInvocationLoggingConfiguration: added parameter LoggingConfig_AudioDataDeliveryEnabled.
+  * Amazon Bedrock Agent Core Control Plane Fronting Layer
+    * Added cmdlet Get-BACCEvaluator leveraging the GetEvaluator service API.
+    * Added cmdlet Get-BACCEvaluatorList leveraging the ListEvaluators service API.
+    * Added cmdlet Get-BACCOnlineEvaluationConfig leveraging the GetOnlineEvaluationConfig service API.
+    * Added cmdlet Get-BACCOnlineEvaluationConfigList leveraging the ListOnlineEvaluationConfigs service API.
+    * Added cmdlet Get-BACCPolicy leveraging the GetPolicy service API.
+    * Added cmdlet Get-BACCPolicyEngine leveraging the GetPolicyEngine service API.
+    * Added cmdlet Get-BACCPolicyEngineList leveraging the ListPolicyEngines service API.
+    * Added cmdlet Get-BACCPolicyGeneration leveraging the GetPolicyGeneration service API.
+    * Added cmdlet Get-BACCPolicyGenerationAssetList leveraging the ListPolicyGenerationAssets service API.
+    * Added cmdlet Get-BACCPolicyGenerationList leveraging the ListPolicyGenerations service API.
+    * Added cmdlet Get-BACCPolicyList leveraging the ListPolicies service API.
+    * Added cmdlet Get-BACCResourcePolicy leveraging the GetResourcePolicy service API.
+    * Added cmdlet New-BACCEvaluator leveraging the CreateEvaluator service API.
+    * Added cmdlet New-BACCOnlineEvaluationConfig leveraging the CreateOnlineEvaluationConfig service API.
+    * Added cmdlet New-BACCPolicy leveraging the CreatePolicy service API.
+    * Added cmdlet New-BACCPolicyEngine leveraging the CreatePolicyEngine service API.
+    * Added cmdlet Remove-BACCEvaluator leveraging the DeleteEvaluator service API.
+    * Added cmdlet Remove-BACCOnlineEvaluationConfig leveraging the DeleteOnlineEvaluationConfig service API.
+    * Added cmdlet Remove-BACCPolicy leveraging the DeletePolicy service API.
+    * Added cmdlet Remove-BACCPolicyEngine leveraging the DeletePolicyEngine service API.
+    * Added cmdlet Remove-BACCResourcePolicy leveraging the DeleteResourcePolicy service API.
+    * Added cmdlet Start-BACCPolicyGeneration leveraging the StartPolicyGeneration service API.
+    * Added cmdlet Update-BACCEvaluator leveraging the UpdateEvaluator service API.
+    * Added cmdlet Update-BACCOnlineEvaluationConfig leveraging the UpdateOnlineEvaluationConfig service API.
+    * Added cmdlet Update-BACCPolicy leveraging the UpdatePolicy service API.
+    * Added cmdlet Update-BACCPolicyEngine leveraging the UpdatePolicyEngine service API.
+    * Added cmdlet Write-BACCResourcePolicy leveraging the PutResourcePolicy service API.
+    * Modified cmdlet New-BACCAgentRuntime: added parameters CustomJWTAuthorizer_AllowedScope and CustomJWTAuthorizer_CustomClaim.
+    * Modified cmdlet New-BACCGateway: added parameters CustomJWTAuthorizer_AllowedScope, CustomJWTAuthorizer_CustomClaim, PolicyEngineConfiguration_Arn and PolicyEngineConfiguration_Mode.
+    * Modified cmdlet New-BACCGatewayTarget: added parameters ApiGateway_RestApiId, ApiGateway_Stage, ApiGatewayToolConfiguration_ToolFilter and ApiGatewayToolConfiguration_ToolOverride.
+    * Modified cmdlet Update-BACCAgentRuntime: added parameters CustomJWTAuthorizer_AllowedScope and CustomJWTAuthorizer_CustomClaim.
+    * Modified cmdlet Update-BACCGateway: added parameters CustomJWTAuthorizer_AllowedScope, CustomJWTAuthorizer_CustomClaim, PolicyEngineConfiguration_Arn and PolicyEngineConfiguration_Mode.
+    * Modified cmdlet Update-BACCGatewayTarget: added parameters ApiGateway_RestApiId, ApiGateway_Stage, ApiGatewayToolConfiguration_ToolFilter and ApiGatewayToolConfiguration_ToolOverride.
+  * Amazon Bedrock AgentCore Data Plane Fronting Layer
+    * Added cmdlet Invoke-BACEvaluate leveraging the Evaluate service API.
+    * Modified cmdlet Invoke-BACMemoryRecord: added parameter SearchCriteria_MetadataFilter.
+  * Amazon CloudWatch Logs
+    * Added cmdlet Get-CWLAggregateLogGroupSummaryList leveraging the ListAggregateLogGroupSummaries service API.
+    * Added cmdlet Get-CWLLogField leveraging the GetLogFields service API.
+    * Added cmdlet Get-CWLSourcesForS3TableIntegrationList leveraging the ListSourcesForS3TableIntegration service API.
+    * Added cmdlet Register-CWLSourceToS3TableIntegration leveraging the AssociateSourceToS3TableIntegration service API.
+    * Added cmdlet Unregister-CWLSourceFromS3TableIntegration leveraging the DisassociateSourceFromS3TableIntegration service API.
+    * Modified cmdlet Get-CWLLogGroupList: added parameters DataSource and FieldIndexName.
+  * Amazon CloudWatch Observability Admin Service
+    * Added cmdlet Get-CWOADMNS3TableIntegration leveraging the GetS3TableIntegration service API.
+    * Added cmdlet Get-CWOADMNS3TableIntegrationList leveraging the ListS3TableIntegrations service API.
+    * Added cmdlet Get-CWOADMNTelemetryPipeline leveraging the GetTelemetryPipeline service API.
+    * Added cmdlet Get-CWOADMNTelemetryPipelineList leveraging the ListTelemetryPipelines service API.
+    * Added cmdlet New-CWOADMNS3TableIntegration leveraging the CreateS3TableIntegration service API.
+    * Added cmdlet New-CWOADMNTelemetryPipeline leveraging the CreateTelemetryPipeline service API.
+    * Added cmdlet Remove-CWOADMNS3TableIntegration leveraging the DeleteS3TableIntegration service API.
+    * Added cmdlet Remove-CWOADMNTelemetryPipeline leveraging the DeleteTelemetryPipeline service API.
+    * Added cmdlet Test-CWOADMNTelemetryPipeline leveraging the TestTelemetryPipeline service API.
+    * Added cmdlet Test-CWOADMNTelemetryPipelineConfiguration leveraging the ValidateTelemetryPipelineConfiguration service API.
+    * Added cmdlet Update-CWOADMNTelemetryPipeline leveraging the UpdateTelemetryPipeline service API.
+    * Modified cmdlet New-CWOADMNTelemetryRule: added parameters CloudtrailParameters_AdvancedEventSelector, ELBLoadBalancerLoggingParameters_FieldDelimiter, ELBLoadBalancerLoggingParameters_OutputFormat, LogDeliveryParameters_LogType, LoggingFilter_DefaultBehavior, LoggingFilter_Filter, Rule_TelemetrySourceType, WAFLoggingParameters_LogType and WAFLoggingParameters_RedactedField.
+    * Modified cmdlet New-CWOADMNTelemetryRuleForOrganization: added parameters CloudtrailParameters_AdvancedEventSelector, ELBLoadBalancerLoggingParameters_FieldDelimiter, ELBLoadBalancerLoggingParameters_OutputFormat, LogDeliveryParameters_LogType, LoggingFilter_DefaultBehavior, LoggingFilter_Filter, Rule_TelemetrySourceType, WAFLoggingParameters_LogType and WAFLoggingParameters_RedactedField.
+    * Modified cmdlet Update-CWOADMNTelemetryRule: added parameters CloudtrailParameters_AdvancedEventSelector, ELBLoadBalancerLoggingParameters_FieldDelimiter, ELBLoadBalancerLoggingParameters_OutputFormat, LogDeliveryParameters_LogType, LoggingFilter_DefaultBehavior, LoggingFilter_Filter, Rule_TelemetrySourceType, WAFLoggingParameters_LogType and WAFLoggingParameters_RedactedField.
+    * Modified cmdlet Update-CWOADMNTelemetryRuleForOrganization: added parameters CloudtrailParameters_AdvancedEventSelector, ELBLoadBalancerLoggingParameters_FieldDelimiter, ELBLoadBalancerLoggingParameters_OutputFormat, LogDeliveryParameters_LogType, LoggingFilter_DefaultBehavior, LoggingFilter_Filter, Rule_TelemetrySourceType, WAFLoggingParameters_LogType and WAFLoggingParameters_RedactedField.
+  * Amazon DataZone
+    * Added cmdlet Get-DZDataExportConfiguration leveraging the GetDataExportConfiguration service API.
+    * Added cmdlet Write-DZDataExportConfiguration leveraging the PutDataExportConfiguration service API.
+    * Modified cmdlet Get-DZMetadataGenerationRun: added parameter Type.
+    * Modified cmdlet Get-DZMetadataGenerationRunList: added parameter TargetIdentifier.
+    * Modified cmdlet Start-DZMetadataGenerationRun: added parameter Types.
+  * Amazon FSx
+    * Modified cmdlet New-FSXAndAttachS3AccessPoint: added parameters OntapConfiguration_FileSystemIdentity_Type, OntapConfiguration_VolumeId, UnixUser_Name and WindowsUser_Name.
+  * Amazon Lambda
+    * Added cmdlet Checkpoint-LMDurableExecution leveraging the CheckpointDurableExecution service API.
+    * Added cmdlet Get-LMDurableExecution leveraging the GetDurableExecution service API.
+    * Added cmdlet Get-LMDurableExecutionHistory leveraging the GetDurableExecutionHistory service API.
+    * Added cmdlet Get-LMDurableExecutionsByFunctionList leveraging the ListDurableExecutionsByFunction service API.
+    * Added cmdlet Get-LMDurableExecutionState leveraging the GetDurableExecutionState service API.
+    * Added cmdlet Send-LMDurableExecutionCallbackFailure leveraging the SendDurableExecutionCallbackFailure service API.
+    * Added cmdlet Send-LMDurableExecutionCallbackHeartbeat leveraging the SendDurableExecutionCallbackHeartbeat service API.
+    * Added cmdlet Send-LMDurableExecutionCallbackSuccess leveraging the SendDurableExecutionCallbackSuccess service API.
+    * Added cmdlet Stop-LMDurableExecution leveraging the StopDurableExecution service API.
+    * Modified cmdlet Publish-LMFunction: added parameters DurableConfig_ExecutionTimeout and DurableConfig_RetentionPeriodInDay.
+    * Modified cmdlet Invoke-LMFunction: added parameter DurableExecutionName.
+    * Modified cmdlet Update-LMFunctionConfiguration: added parameters DurableConfig_ExecutionTimeout and DurableConfig_RetentionPeriodInDay.
+  * Amazon Nova Act. Added cmdlets to support the service. Cmdlets for the service have the noun prefix NOVA and can be listed using the command 'Get-AWSCmdletName -Service NOVA'.
+  * Amazon OpenSearch Serverless
+    * Modified cmdlet New-OSSCollection: added parameter VectorOptions_ServerlessVectorAcceleration.
+  * Amazon OpenSearch Service
+    * Modified cmdlet New-OSDomain: added parameter ServerlessVectorAcceleration_Enabled.
+    * Modified cmdlet Update-OSDomainConfig: added parameter ServerlessVectorAcceleration_Enabled.
+  * Amazon Relational Database Service
+    * Modified cmdlet Edit-RDSDBInstance: added parameter AdditionalStorageVolume.
+    * Modified cmdlet New-RDSCustomDBEngineVersion: added parameter DatabaseInstallationFile.
+    * Modified cmdlet New-RDSDBInstance: added parameter AdditionalStorageVolume.
+    * Modified cmdlet New-RDSDBInstanceReadReplica: added parameter AdditionalStorageVolume.
+    * Modified cmdlet Restore-RDSDBInstanceFromDBSnapshot: added parameter AdditionalStorageVolume.
+    * Modified cmdlet Restore-RDSDBInstanceFromS3: added parameter AdditionalStorageVolume.
+    * Modified cmdlet Restore-RDSDBInstanceToPointInTime: added parameter AdditionalStorageVolume.
+  * Amazon S3 Control
+    * Modified cmdlet Write-S3CStorageLensConfiguration: added parameters DataExport_StorageLensTableDestination_Encryption_SSES3, DataExport_StorageLensTableDestination_IsEnabled, DataExport_StorageLensTableDestination_SSEKMS_KeyId, ExpandedPrefixesDataExport_S3BucketDestination_AccountId, ExpandedPrefixesDataExport_S3BucketDestination_Arn, ExpandedPrefixesDataExport_S3BucketDestination_Encryption_SSES3, ExpandedPrefixesDataExport_S3BucketDestination_Format, ExpandedPrefixesDataExport_S3BucketDestination_OutputSchemaVersion, ExpandedPrefixesDataExport_S3BucketDestination_Prefix, ExpandedPrefixesDataExport_S3BucketDestination_SSEKMS_KeyId, ExpandedPrefixesDataExport_StorageLensTableDestination_Encryption_SSES3, ExpandedPrefixesDataExport_StorageLensTableDestination_IsEnabled, ExpandedPrefixesDataExport_StorageLensTableDestination_SSEKMS_KeyId, StorageLensConfiguration_AccountLevel_AdvancedPerformanceMetrics_IsEnabled, StorageLensConfiguration_BucketLevel_AdvancedPerformanceMetrics_IsEnabled and StorageLensConfiguration_PrefixDelimiter.
+  * Amazon S3 Tables
+    * Added cmdlet Get-S3TTableBucketReplication leveraging the GetTableBucketReplication service API.
+    * Added cmdlet Get-S3TTableBucketStorageClass leveraging the GetTableBucketStorageClass service API.
+    * Added cmdlet Get-S3TTableRecordExpirationConfiguration leveraging the GetTableRecordExpirationConfiguration service API.
+    * Added cmdlet Get-S3TTableRecordExpirationJobStatus leveraging the GetTableRecordExpirationJobStatus service API.
+    * Added cmdlet Get-S3TTableReplication leveraging the GetTableReplication service API.
+    * Added cmdlet Get-S3TTableReplicationStatus leveraging the GetTableReplicationStatus service API.
+    * Added cmdlet Get-S3TTableStorageClass leveraging the GetTableStorageClass service API.
+    * Added cmdlet Remove-S3TTableBucketReplication leveraging the DeleteTableBucketReplication service API.
+    * Added cmdlet Remove-S3TTableReplication leveraging the DeleteTableReplication service API.
+    * Added cmdlet Write-S3TTableBucketReplication leveraging the PutTableBucketReplication service API.
+    * Added cmdlet Write-S3TTableBucketStorageClass leveraging the PutTableBucketStorageClass service API.
+    * Added cmdlet Write-S3TTableRecordExpirationConfiguration leveraging the PutTableRecordExpirationConfiguration service API.
+    * Added cmdlet Write-S3TTableReplication leveraging the PutTableReplication service API.
+    * Modified cmdlet New-S3TTable: added parameters Iceberg_Property and StorageClassConfiguration_StorageClass.
+    * Modified cmdlet New-S3TTableBucket: added parameter StorageClassConfiguration_StorageClass.
+  * Amazon S3 Vectors
+    * Added cmdlet Add-S3VResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-S3VResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-S3VResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-S3VIndex: added parameters EncryptionConfiguration_KmsKeyArn, EncryptionConfiguration_SseType and Tag.
+    * Modified cmdlet New-S3VVectorBucket: added parameter Tag.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMMlflowAppDetail leveraging the DescribeMlflowApp service API.
+    * Added cmdlet Get-SMMlflowAppList leveraging the ListMlflowApps service API.
+    * Added cmdlet New-SMMlflowApp leveraging the CreateMlflowApp service API.
+    * Added cmdlet New-SMPresignedMlflowAppUrl leveraging the CreatePresignedMlflowAppUrl service API.
+    * Added cmdlet Remove-SMMlflowApp leveraging the DeleteMlflowApp service API.
+    * Added cmdlet Update-SMMlflowApp leveraging the UpdateMlflowApp service API.
+  * Amazon Security Hub
+    * [Breaking Change] Modified cmdlet New-SHUBConnectorV2: removed parameters ServiceNow_ClientId and ServiceNow_ClientSecret; added parameter ServiceNow_SecretArn.
+    * Modified cmdlet New-SHUBTicketV2: added parameter Mode.
+    * [Breaking Change] Modified cmdlet Register-SHUBConnectorV2: output changed from Amazon.SecurityHub.Model.ConnectorRegistrationsV2Response to Amazon.SecurityHub.Model.RegisterConnectorV2Response.
+    * [Breaking Change] Modified cmdlet Update-SHUBConnectorV2: removed parameter ClientSecret; added parameter ServiceNow_SecretArn.
+
+### 4.1.952 (2025-12-01 03:47Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1175.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Modified cmdlet New-AABKnowledgeBase: added parameters BedrockEmbeddingModelConfiguration_Audio and BedrockEmbeddingModelConfiguration_Video.

@@ -107,6 +107,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-DZBatchAttributesMetadata', 
         'Get-DZConnection', 
         'Get-DZConnectionList', 
+        'Get-DZDataExportConfiguration', 
         'Get-DZDataProduct', 
         'Get-DZDataProductRevisionList', 
         'Get-DZDataSource', 
@@ -259,6 +260,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-DZSubscriptionRequest', 
         'Update-DZSubscriptionTarget', 
         'Update-DZUserProfile', 
+        'Write-DZDataExportConfiguration', 
         'Write-DZEnvironmentBlueprintConfiguration')
 
     # Variables to export from this module
