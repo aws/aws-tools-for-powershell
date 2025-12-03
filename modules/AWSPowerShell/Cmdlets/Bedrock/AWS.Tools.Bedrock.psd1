@@ -179,6 +179,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-BDRAutomatedReasoningPolicy', 
         'Update-BDRAutomatedReasoningPolicyAnnotation', 
         'Update-BDRAutomatedReasoningPolicyTestCase', 
+        'Update-BDRCustomModelDeployment', 
         'Update-BDRGuardrail', 
         'Update-BDRMarketplaceModelEndpoint', 
         'Update-BDRProvisionedModelThroughput', 

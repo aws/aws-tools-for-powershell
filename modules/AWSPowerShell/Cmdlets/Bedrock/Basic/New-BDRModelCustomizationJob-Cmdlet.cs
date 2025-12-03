@@ -91,6 +91,18 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public System.String BaseModelIdentifier { get; set; }
         #endregion
         
+        #region Parameter HyperParameters_BatchSize
+        /// <summary>
+        /// <para>
+        /// <para> Number of training samples processed in each batch during reinforcement fine-tuning
+        /// (RFT) training. Larger batches may improve training stability. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomizationConfig_RftConfig_HyperParameters_BatchSize")]
+        public System.Int32? HyperParameters_BatchSize { get; set; }
+        #endregion
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
@@ -153,6 +165,18 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public Amazon.Bedrock.Model.Tag[] CustomModelTag { get; set; }
         #endregion
         
+        #region Parameter HyperParameters_EpochCount
+        /// <summary>
+        /// <para>
+        /// <para> Number of training epochs to run during reinforcement fine-tuning. Higher values
+        /// may improve performance but increase training time. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomizationConfig_RftConfig_HyperParameters_EpochCount")]
+        public System.Int32? HyperParameters_EpochCount { get; set; }
+        #endregion
+        
         #region Parameter RequestMetadataFilters_Equal
         /// <summary>
         /// <para>
@@ -162,6 +186,18 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TrainingDataConfig_InvocationLogsConfig_RequestMetadataFilters_Equals")]
         public System.Collections.Hashtable RequestMetadataFilters_Equal { get; set; }
+        #endregion
+        
+        #region Parameter HyperParameters_EvalInterval
+        /// <summary>
+        /// <para>
+        /// <para> Interval between evaluation runs during RFT training, measured in training steps.
+        /// More frequent evaluation provides better monitoring. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomizationConfig_RftConfig_HyperParameters_EvalInterval")]
+        public System.Int32? HyperParameters_EvalInterval { get; set; }
         #endregion
         
         #region Parameter HyperParameter
@@ -175,6 +211,18 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("HyperParameters")]
         public System.Collections.Hashtable HyperParameter { get; set; }
+        #endregion
+        
+        #region Parameter HyperParameters_InferenceMaxToken
+        /// <summary>
+        /// <para>
+        /// <para> Maximum number of tokens the model can generate in response to each prompt during
+        /// RFT training. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomizationConfig_RftConfig_HyperParameters_InferenceMaxTokens")]
+        public System.Int32? HyperParameters_InferenceMaxToken { get; set; }
         #endregion
         
         #region Parameter JobName
@@ -203,6 +251,42 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("JobTags")]
         public Amazon.Bedrock.Model.Tag[] JobTag { get; set; }
+        #endregion
+        
+        #region Parameter LambdaGrader_LambdaArn
+        /// <summary>
+        /// <para>
+        /// <para> ARN of the AWS Lambda function that will evaluate model responses and return reward
+        /// scores for RFT training. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomizationConfig_RftConfig_GraderConfig_LambdaGrader_LambdaArn")]
+        public System.String LambdaGrader_LambdaArn { get; set; }
+        #endregion
+        
+        #region Parameter HyperParameters_LearningRate
+        /// <summary>
+        /// <para>
+        /// <para> Learning rate for the reinforcement fine-tuning. Controls how quickly the model adapts
+        /// to reward signals. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomizationConfig_RftConfig_HyperParameters_LearningRate")]
+        public System.Single? HyperParameters_LearningRate { get; set; }
+        #endregion
+        
+        #region Parameter HyperParameters_MaxPromptLength
+        /// <summary>
+        /// <para>
+        /// <para> Maximum length of input prompts during RFT training, measured in tokens. Longer prompts
+        /// allow more context but increase memory usage and training-time. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomizationConfig_RftConfig_HyperParameters_MaxPromptLength")]
+        public System.Int32? HyperParameters_MaxPromptLength { get; set; }
         #endregion
         
         #region Parameter TeacherModelConfig_MaxResponseLengthForInference
@@ -237,6 +321,19 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TrainingDataConfig_InvocationLogsConfig_RequestMetadataFilters_OrAll")]
         public Amazon.Bedrock.Model.RequestMetadataBaseFilters[] RequestMetadataFilters_OrAll { get; set; }
+        #endregion
+        
+        #region Parameter HyperParameters_ReasoningEffort
+        /// <summary>
+        /// <para>
+        /// <para> Level of reasoning effort applied during RFT training. Higher values may improve
+        /// response quality but increase training time. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomizationConfig_RftConfig_HyperParameters_ReasoningEffort")]
+        [AWSConstantClassSource("Amazon.Bedrock.ReasoningEffort")]
+        public Amazon.Bedrock.ReasoningEffort HyperParameters_ReasoningEffort { get; set; }
         #endregion
         
         #region Parameter RoleArn
@@ -331,6 +428,18 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public System.String TeacherModelConfig_TeacherModelIdentifier { get; set; }
         #endregion
         
+        #region Parameter HyperParameters_TrainingSamplePerPrompt
+        /// <summary>
+        /// <para>
+        /// <para> Number of response samples generated per prompt during RFT training. More samples
+        /// provide better reward signal estimation. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomizationConfig_RftConfig_HyperParameters_TrainingSamplePerPrompt")]
+        public System.Int32? HyperParameters_TrainingSamplePerPrompt { get; set; }
+        #endregion
+        
         #region Parameter InvocationLogsConfig_UsePromptResponse
         /// <summary>
         /// <para>
@@ -406,6 +515,15 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             context.ClientRequestToken = this.ClientRequestToken;
             context.TeacherModelConfig_MaxResponseLengthForInference = this.TeacherModelConfig_MaxResponseLengthForInference;
             context.TeacherModelConfig_TeacherModelIdentifier = this.TeacherModelConfig_TeacherModelIdentifier;
+            context.LambdaGrader_LambdaArn = this.LambdaGrader_LambdaArn;
+            context.HyperParameters_BatchSize = this.HyperParameters_BatchSize;
+            context.HyperParameters_EpochCount = this.HyperParameters_EpochCount;
+            context.HyperParameters_EvalInterval = this.HyperParameters_EvalInterval;
+            context.HyperParameters_InferenceMaxToken = this.HyperParameters_InferenceMaxToken;
+            context.HyperParameters_LearningRate = this.HyperParameters_LearningRate;
+            context.HyperParameters_MaxPromptLength = this.HyperParameters_MaxPromptLength;
+            context.HyperParameters_ReasoningEffort = this.HyperParameters_ReasoningEffort;
+            context.HyperParameters_TrainingSamplePerPrompt = this.HyperParameters_TrainingSamplePerPrompt;
             context.CustomizationType = this.CustomizationType;
             context.CustomModelKmsKeyId = this.CustomModelKmsKeyId;
             context.CustomModelName = this.CustomModelName;
@@ -567,6 +685,156 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestCustomizationConfig_customizationConfig_DistillationConfig != null)
             {
                 request.CustomizationConfig.DistillationConfig = requestCustomizationConfig_customizationConfig_DistillationConfig;
+                requestCustomizationConfigIsNull = false;
+            }
+            Amazon.Bedrock.Model.RFTConfig requestCustomizationConfig_customizationConfig_RftConfig = null;
+            
+             // populate RftConfig
+            var requestCustomizationConfig_customizationConfig_RftConfigIsNull = true;
+            requestCustomizationConfig_customizationConfig_RftConfig = new Amazon.Bedrock.Model.RFTConfig();
+            Amazon.Bedrock.Model.GraderConfig requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_GraderConfig = null;
+            
+             // populate GraderConfig
+            var requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_GraderConfigIsNull = true;
+            requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_GraderConfig = new Amazon.Bedrock.Model.GraderConfig();
+            Amazon.Bedrock.Model.LambdaGraderConfig requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_GraderConfig_customizationConfig_RftConfig_GraderConfig_LambdaGrader = null;
+            
+             // populate LambdaGrader
+            var requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_GraderConfig_customizationConfig_RftConfig_GraderConfig_LambdaGraderIsNull = true;
+            requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_GraderConfig_customizationConfig_RftConfig_GraderConfig_LambdaGrader = new Amazon.Bedrock.Model.LambdaGraderConfig();
+            System.String requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_GraderConfig_customizationConfig_RftConfig_GraderConfig_LambdaGrader_lambdaGrader_LambdaArn = null;
+            if (cmdletContext.LambdaGrader_LambdaArn != null)
+            {
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_GraderConfig_customizationConfig_RftConfig_GraderConfig_LambdaGrader_lambdaGrader_LambdaArn = cmdletContext.LambdaGrader_LambdaArn;
+            }
+            if (requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_GraderConfig_customizationConfig_RftConfig_GraderConfig_LambdaGrader_lambdaGrader_LambdaArn != null)
+            {
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_GraderConfig_customizationConfig_RftConfig_GraderConfig_LambdaGrader.LambdaArn = requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_GraderConfig_customizationConfig_RftConfig_GraderConfig_LambdaGrader_lambdaGrader_LambdaArn;
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_GraderConfig_customizationConfig_RftConfig_GraderConfig_LambdaGraderIsNull = false;
+            }
+             // determine if requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_GraderConfig_customizationConfig_RftConfig_GraderConfig_LambdaGrader should be set to null
+            if (requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_GraderConfig_customizationConfig_RftConfig_GraderConfig_LambdaGraderIsNull)
+            {
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_GraderConfig_customizationConfig_RftConfig_GraderConfig_LambdaGrader = null;
+            }
+            if (requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_GraderConfig_customizationConfig_RftConfig_GraderConfig_LambdaGrader != null)
+            {
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_GraderConfig.LambdaGrader = requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_GraderConfig_customizationConfig_RftConfig_GraderConfig_LambdaGrader;
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_GraderConfigIsNull = false;
+            }
+             // determine if requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_GraderConfig should be set to null
+            if (requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_GraderConfigIsNull)
+            {
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_GraderConfig = null;
+            }
+            if (requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_GraderConfig != null)
+            {
+                requestCustomizationConfig_customizationConfig_RftConfig.GraderConfig = requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_GraderConfig;
+                requestCustomizationConfig_customizationConfig_RftConfigIsNull = false;
+            }
+            Amazon.Bedrock.Model.RFTHyperParameters requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters = null;
+            
+             // populate HyperParameters
+            var requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParametersIsNull = true;
+            requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters = new Amazon.Bedrock.Model.RFTHyperParameters();
+            System.Int32? requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_BatchSize = null;
+            if (cmdletContext.HyperParameters_BatchSize != null)
+            {
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_BatchSize = cmdletContext.HyperParameters_BatchSize.Value;
+            }
+            if (requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_BatchSize != null)
+            {
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters.BatchSize = requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_BatchSize.Value;
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParametersIsNull = false;
+            }
+            System.Int32? requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_EpochCount = null;
+            if (cmdletContext.HyperParameters_EpochCount != null)
+            {
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_EpochCount = cmdletContext.HyperParameters_EpochCount.Value;
+            }
+            if (requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_EpochCount != null)
+            {
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters.EpochCount = requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_EpochCount.Value;
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParametersIsNull = false;
+            }
+            System.Int32? requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_EvalInterval = null;
+            if (cmdletContext.HyperParameters_EvalInterval != null)
+            {
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_EvalInterval = cmdletContext.HyperParameters_EvalInterval.Value;
+            }
+            if (requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_EvalInterval != null)
+            {
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters.EvalInterval = requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_EvalInterval.Value;
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParametersIsNull = false;
+            }
+            System.Int32? requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_InferenceMaxToken = null;
+            if (cmdletContext.HyperParameters_InferenceMaxToken != null)
+            {
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_InferenceMaxToken = cmdletContext.HyperParameters_InferenceMaxToken.Value;
+            }
+            if (requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_InferenceMaxToken != null)
+            {
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters.InferenceMaxTokens = requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_InferenceMaxToken.Value;
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParametersIsNull = false;
+            }
+            System.Single? requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_LearningRate = null;
+            if (cmdletContext.HyperParameters_LearningRate != null)
+            {
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_LearningRate = cmdletContext.HyperParameters_LearningRate.Value;
+            }
+            if (requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_LearningRate != null)
+            {
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters.LearningRate = requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_LearningRate.Value;
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParametersIsNull = false;
+            }
+            System.Int32? requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_MaxPromptLength = null;
+            if (cmdletContext.HyperParameters_MaxPromptLength != null)
+            {
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_MaxPromptLength = cmdletContext.HyperParameters_MaxPromptLength.Value;
+            }
+            if (requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_MaxPromptLength != null)
+            {
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters.MaxPromptLength = requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_MaxPromptLength.Value;
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParametersIsNull = false;
+            }
+            Amazon.Bedrock.ReasoningEffort requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_ReasoningEffort = null;
+            if (cmdletContext.HyperParameters_ReasoningEffort != null)
+            {
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_ReasoningEffort = cmdletContext.HyperParameters_ReasoningEffort;
+            }
+            if (requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_ReasoningEffort != null)
+            {
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters.ReasoningEffort = requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_ReasoningEffort;
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParametersIsNull = false;
+            }
+            System.Int32? requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_TrainingSamplePerPrompt = null;
+            if (cmdletContext.HyperParameters_TrainingSamplePerPrompt != null)
+            {
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_TrainingSamplePerPrompt = cmdletContext.HyperParameters_TrainingSamplePerPrompt.Value;
+            }
+            if (requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_TrainingSamplePerPrompt != null)
+            {
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters.TrainingSamplePerPrompt = requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters_hyperParameters_TrainingSamplePerPrompt.Value;
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParametersIsNull = false;
+            }
+             // determine if requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters should be set to null
+            if (requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParametersIsNull)
+            {
+                requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters = null;
+            }
+            if (requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters != null)
+            {
+                requestCustomizationConfig_customizationConfig_RftConfig.HyperParameters = requestCustomizationConfig_customizationConfig_RftConfig_customizationConfig_RftConfig_HyperParameters;
+                requestCustomizationConfig_customizationConfig_RftConfigIsNull = false;
+            }
+             // determine if requestCustomizationConfig_customizationConfig_RftConfig should be set to null
+            if (requestCustomizationConfig_customizationConfig_RftConfigIsNull)
+            {
+                requestCustomizationConfig_customizationConfig_RftConfig = null;
+            }
+            if (requestCustomizationConfig_customizationConfig_RftConfig != null)
+            {
+                request.CustomizationConfig.RftConfig = requestCustomizationConfig_customizationConfig_RftConfig;
                 requestCustomizationConfigIsNull = false;
             }
              // determine if request.CustomizationConfig should be set to null
@@ -862,6 +1130,15 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             public System.String ClientRequestToken { get; set; }
             public System.Int32? TeacherModelConfig_MaxResponseLengthForInference { get; set; }
             public System.String TeacherModelConfig_TeacherModelIdentifier { get; set; }
+            public System.String LambdaGrader_LambdaArn { get; set; }
+            public System.Int32? HyperParameters_BatchSize { get; set; }
+            public System.Int32? HyperParameters_EpochCount { get; set; }
+            public System.Int32? HyperParameters_EvalInterval { get; set; }
+            public System.Int32? HyperParameters_InferenceMaxToken { get; set; }
+            public System.Single? HyperParameters_LearningRate { get; set; }
+            public System.Int32? HyperParameters_MaxPromptLength { get; set; }
+            public Amazon.Bedrock.ReasoningEffort HyperParameters_ReasoningEffort { get; set; }
+            public System.Int32? HyperParameters_TrainingSamplePerPrompt { get; set; }
             public Amazon.Bedrock.CustomizationType CustomizationType { get; set; }
             public System.String CustomModelKmsKeyId { get; set; }
             public System.String CustomModelName { get; set; }

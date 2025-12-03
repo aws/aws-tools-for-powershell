@@ -64,6 +64,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Int32? ParallelismConfiguration_MaxParallelExecutionStep { get; set; }
         #endregion
         
+        #region Parameter MlflowExperimentName
+        /// <summary>
+        /// <para>
+        /// <para> The MLflow experiment name of the start execution. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MlflowExperimentName { get; set; }
+        #endregion
+        
         #region Parameter PipelineExecutionDescription
         /// <summary>
         /// <para>
@@ -212,6 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
+            context.MlflowExperimentName = this.MlflowExperimentName;
             context.ParallelismConfiguration_MaxParallelExecutionStep = this.ParallelismConfiguration_MaxParallelExecutionStep;
             context.PipelineExecutionDescription = this.PipelineExecutionDescription;
             context.PipelineExecutionDisplayName = this.PipelineExecutionDisplayName;
@@ -251,6 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.MlflowExperimentName != null)
+            {
+                request.MlflowExperimentName = cmdletContext.MlflowExperimentName;
             }
             
              // populate ParallelismConfiguration
@@ -382,6 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public System.String MlflowExperimentName { get; set; }
             public System.Int32? ParallelismConfiguration_MaxParallelExecutionStep { get; set; }
             public System.String PipelineExecutionDescription { get; set; }
             public System.String PipelineExecutionDisplayName { get; set; }

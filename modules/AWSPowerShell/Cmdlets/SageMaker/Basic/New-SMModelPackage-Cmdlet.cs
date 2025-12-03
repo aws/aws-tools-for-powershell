@@ -581,6 +581,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String ModelPackageName { get; set; }
         #endregion
         
+        #region Parameter ModelPackageRegistrationType
+        /// <summary>
+        /// <para>
+        /// <para> The package registration type of the model package input. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.ModelPackageRegistrationType")]
+        public Amazon.SageMaker.ModelPackageRegistrationType ModelPackageRegistrationType { get; set; }
+        #endregion
+        
         #region Parameter MetadataProperties_ProjectId
         /// <summary>
         /// <para>
@@ -1125,6 +1136,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.ModelPackageDescription = this.ModelPackageDescription;
             context.ModelPackageGroupName = this.ModelPackageGroupName;
             context.ModelPackageName = this.ModelPackageName;
+            context.ModelPackageRegistrationType = this.ModelPackageRegistrationType;
             context.SamplePayloadUrl = this.SamplePayloadUrl;
             context.SecurityConfig_KmsKeyId = this.SecurityConfig_KmsKeyId;
             context.SkipModelValidation = this.SkipModelValidation;
@@ -2274,6 +2286,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.ModelPackageName = cmdletContext.ModelPackageName;
             }
+            if (cmdletContext.ModelPackageRegistrationType != null)
+            {
+                request.ModelPackageRegistrationType = cmdletContext.ModelPackageRegistrationType;
+            }
             if (cmdletContext.SamplePayloadUrl != null)
             {
                 request.SamplePayloadUrl = cmdletContext.SamplePayloadUrl;
@@ -2496,6 +2512,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String ModelPackageDescription { get; set; }
             public System.String ModelPackageGroupName { get; set; }
             public System.String ModelPackageName { get; set; }
+            public Amazon.SageMaker.ModelPackageRegistrationType ModelPackageRegistrationType { get; set; }
             public System.String SamplePayloadUrl { get; set; }
             public System.String SecurityConfig_KmsKeyId { get; set; }
             public Amazon.SageMaker.SkipModelValidation SkipModelValidation { get; set; }

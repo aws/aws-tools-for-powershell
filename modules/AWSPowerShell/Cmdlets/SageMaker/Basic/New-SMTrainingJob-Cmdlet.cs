@@ -94,6 +94,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ServerlessJobConfig_AcceptEula
+        /// <summary>
+        /// <para>
+        /// <para> Specifies agreement to the model end-user license agreement (EULA). The <c>AcceptEula</c>
+        /// value must be explicitly defined as <c>True</c> in order to accept the EULA that this
+        /// model requires. You are responsible for reviewing and complying with any applicable
+        /// license terms and making sure they are acceptable for your use case before downloading
+        /// or using a model. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-choose.html#jumpstart-foundation-models-choose-eula">End-user
+        /// license agreements</a> section for more details on accepting the EULA. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ServerlessJobConfig_AcceptEula { get; set; }
+        #endregion
+        
         #region Parameter AlgorithmSpecification
         /// <summary>
         /// <para>
@@ -108,6 +123,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.AlgorithmSpecification AlgorithmSpecification { get; set; }
         #endregion
         
+        #region Parameter ServerlessJobConfig_BaseModelArn
+        /// <summary>
+        /// <para>
+        /// <para> The base model Amazon Resource Name (ARN) in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-use.html">SageMaker
+        /// Public Hub</a>. SageMaker always selects the latest version of the provided model.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServerlessJobConfig_BaseModelArn { get; set; }
+        #endregion
+        
         #region Parameter DebugHookConfig_CollectionConfiguration
         /// <summary>
         /// <para>
@@ -120,6 +147,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DebugHookConfig_CollectionConfigurations")]
         public Amazon.SageMaker.Model.CollectionConfiguration[] DebugHookConfig_CollectionConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter ServerlessJobConfig_CustomizationTechnique
+        /// <summary>
+        /// <para>
+        /// <para> The model customization technique. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.CustomizationTechnique")]
+        public Amazon.SageMaker.CustomizationTechnique ServerlessJobConfig_CustomizationTechnique { get; set; }
         #endregion
         
         #region Parameter DebugRuleConfiguration
@@ -235,6 +273,29 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Collections.Hashtable Environment { get; set; }
         #endregion
         
+        #region Parameter ServerlessJobConfig_EvaluationType
+        /// <summary>
+        /// <para>
+        /// <para> The evaluation job type. Required when serverless job type is <c>Evaluation</c>.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.EvaluationType")]
+        public Amazon.SageMaker.EvaluationType ServerlessJobConfig_EvaluationType { get; set; }
+        #endregion
+        
+        #region Parameter ServerlessJobConfig_EvaluatorArn
+        /// <summary>
+        /// <para>
+        /// <para> The evaluator Amazon Resource Name (ARN) used as reward function or reward prompt.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServerlessJobConfig_EvaluatorArn { get; set; }
+        #endregion
+        
         #region Parameter ExperimentConfig_ExperimentName
         /// <summary>
         /// <para>
@@ -292,6 +353,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.SageMaker.Model.Channel[] InputDataConfig { get; set; }
+        #endregion
+        
+        #region Parameter ServerlessJobConfig_JobType
+        /// <summary>
+        /// <para>
+        /// <para> The serverless training job type. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.ServerlessJobType")]
+        public Amazon.SageMaker.ServerlessJobType ServerlessJobConfig_JobType { get; set; }
         #endregion
         
         #region Parameter CheckpointConfig_LocalPath
@@ -389,6 +461,47 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Int32? StoppingCondition_MaxWaitTimeInSecond { get; set; }
         #endregion
         
+        #region Parameter MlflowConfig_MlflowExperimentName
+        /// <summary>
+        /// <para>
+        /// <para> The MLflow experiment name used for this job. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MlflowConfig_MlflowExperimentName { get; set; }
+        #endregion
+        
+        #region Parameter MlflowConfig_MlflowResourceArn
+        /// <summary>
+        /// <para>
+        /// <para> The Amazon Resource Name (ARN) of the MLflow resource. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MlflowConfig_MlflowResourceArn { get; set; }
+        #endregion
+        
+        #region Parameter MlflowConfig_MlflowRunName
+        /// <summary>
+        /// <para>
+        /// <para> The MLflow run name used for this job. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MlflowConfig_MlflowRunName { get; set; }
+        #endregion
+        
+        #region Parameter ModelPackageConfig_ModelPackageGroupArn
+        /// <summary>
+        /// <para>
+        /// <para> The Amazon Resource Name (ARN) of the model package group of output model package.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ModelPackageConfig_ModelPackageGroupArn { get; set; }
+        #endregion
+        
         #region Parameter OutputDataConfig
         /// <summary>
         /// <para>
@@ -404,6 +517,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public Amazon.SageMaker.Model.OutputDataConfig OutputDataConfig { get; set; }
+        #endregion
+        
+        #region Parameter ServerlessJobConfig_Peft
+        /// <summary>
+        /// <para>
+        /// <para> The parameter-efficient fine-tuning configuration. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.Peft")]
+        public Amazon.SageMaker.Peft ServerlessJobConfig_Peft { get; set; }
         #endregion
         
         #region Parameter ProfilerRuleConfiguration
@@ -548,6 +672,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("VpcConfig_SecurityGroupIds")]
         public System.String[] VpcConfig_SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter ModelPackageConfig_SourceModelPackageArn
+        /// <summary>
+        /// <para>
+        /// <para> The Amazon Resource Name (ARN) of the source model package used for continued fine-tuning
+        /// and custom model evaluation. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ModelPackageConfig_SourceModelPackageArn { get; set; }
         #endregion
         
         #region Parameter VpcConfig_Subnet
@@ -732,6 +867,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.InputDataConfig = new List<Amazon.SageMaker.Model.Channel>(this.InputDataConfig);
             }
+            context.MlflowConfig_MlflowExperimentName = this.MlflowConfig_MlflowExperimentName;
+            context.MlflowConfig_MlflowResourceArn = this.MlflowConfig_MlflowResourceArn;
+            context.MlflowConfig_MlflowRunName = this.MlflowConfig_MlflowRunName;
+            context.ModelPackageConfig_ModelPackageGroupArn = this.ModelPackageConfig_ModelPackageGroupArn;
+            context.ModelPackageConfig_SourceModelPackageArn = this.ModelPackageConfig_SourceModelPackageArn;
             context.OutputDataConfig = this.OutputDataConfig;
             #if MODULAR
             if (this.OutputDataConfig == null && ParameterWasBound(nameof(this.OutputDataConfig)))
@@ -764,6 +904,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ServerlessJobConfig_AcceptEula = this.ServerlessJobConfig_AcceptEula;
+            context.ServerlessJobConfig_BaseModelArn = this.ServerlessJobConfig_BaseModelArn;
+            context.ServerlessJobConfig_CustomizationTechnique = this.ServerlessJobConfig_CustomizationTechnique;
+            context.ServerlessJobConfig_EvaluationType = this.ServerlessJobConfig_EvaluationType;
+            context.ServerlessJobConfig_EvaluatorArn = this.ServerlessJobConfig_EvaluatorArn;
+            context.ServerlessJobConfig_JobType = this.ServerlessJobConfig_JobType;
+            context.ServerlessJobConfig_Peft = this.ServerlessJobConfig_Peft;
             context.SessionChainingConfig_EnableSessionTagChaining = this.SessionChainingConfig_EnableSessionTagChaining;
             context.StoppingCondition_MaxPendingTimeInSecond = this.StoppingCondition_MaxPendingTimeInSecond;
             context.StoppingCondition_MaxRuntimeInSecond = this.StoppingCondition_MaxRuntimeInSecond;
@@ -983,6 +1130,74 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.InputDataConfig = cmdletContext.InputDataConfig;
             }
+            
+             // populate MlflowConfig
+            var requestMlflowConfigIsNull = true;
+            request.MlflowConfig = new Amazon.SageMaker.Model.MlflowConfig();
+            System.String requestMlflowConfig_mlflowConfig_MlflowExperimentName = null;
+            if (cmdletContext.MlflowConfig_MlflowExperimentName != null)
+            {
+                requestMlflowConfig_mlflowConfig_MlflowExperimentName = cmdletContext.MlflowConfig_MlflowExperimentName;
+            }
+            if (requestMlflowConfig_mlflowConfig_MlflowExperimentName != null)
+            {
+                request.MlflowConfig.MlflowExperimentName = requestMlflowConfig_mlflowConfig_MlflowExperimentName;
+                requestMlflowConfigIsNull = false;
+            }
+            System.String requestMlflowConfig_mlflowConfig_MlflowResourceArn = null;
+            if (cmdletContext.MlflowConfig_MlflowResourceArn != null)
+            {
+                requestMlflowConfig_mlflowConfig_MlflowResourceArn = cmdletContext.MlflowConfig_MlflowResourceArn;
+            }
+            if (requestMlflowConfig_mlflowConfig_MlflowResourceArn != null)
+            {
+                request.MlflowConfig.MlflowResourceArn = requestMlflowConfig_mlflowConfig_MlflowResourceArn;
+                requestMlflowConfigIsNull = false;
+            }
+            System.String requestMlflowConfig_mlflowConfig_MlflowRunName = null;
+            if (cmdletContext.MlflowConfig_MlflowRunName != null)
+            {
+                requestMlflowConfig_mlflowConfig_MlflowRunName = cmdletContext.MlflowConfig_MlflowRunName;
+            }
+            if (requestMlflowConfig_mlflowConfig_MlflowRunName != null)
+            {
+                request.MlflowConfig.MlflowRunName = requestMlflowConfig_mlflowConfig_MlflowRunName;
+                requestMlflowConfigIsNull = false;
+            }
+             // determine if request.MlflowConfig should be set to null
+            if (requestMlflowConfigIsNull)
+            {
+                request.MlflowConfig = null;
+            }
+            
+             // populate ModelPackageConfig
+            var requestModelPackageConfigIsNull = true;
+            request.ModelPackageConfig = new Amazon.SageMaker.Model.ModelPackageConfig();
+            System.String requestModelPackageConfig_modelPackageConfig_ModelPackageGroupArn = null;
+            if (cmdletContext.ModelPackageConfig_ModelPackageGroupArn != null)
+            {
+                requestModelPackageConfig_modelPackageConfig_ModelPackageGroupArn = cmdletContext.ModelPackageConfig_ModelPackageGroupArn;
+            }
+            if (requestModelPackageConfig_modelPackageConfig_ModelPackageGroupArn != null)
+            {
+                request.ModelPackageConfig.ModelPackageGroupArn = requestModelPackageConfig_modelPackageConfig_ModelPackageGroupArn;
+                requestModelPackageConfigIsNull = false;
+            }
+            System.String requestModelPackageConfig_modelPackageConfig_SourceModelPackageArn = null;
+            if (cmdletContext.ModelPackageConfig_SourceModelPackageArn != null)
+            {
+                requestModelPackageConfig_modelPackageConfig_SourceModelPackageArn = cmdletContext.ModelPackageConfig_SourceModelPackageArn;
+            }
+            if (requestModelPackageConfig_modelPackageConfig_SourceModelPackageArn != null)
+            {
+                request.ModelPackageConfig.SourceModelPackageArn = requestModelPackageConfig_modelPackageConfig_SourceModelPackageArn;
+                requestModelPackageConfigIsNull = false;
+            }
+             // determine if request.ModelPackageConfig should be set to null
+            if (requestModelPackageConfigIsNull)
+            {
+                request.ModelPackageConfig = null;
+            }
             if (cmdletContext.OutputDataConfig != null)
             {
                 request.OutputDataConfig = cmdletContext.OutputDataConfig;
@@ -1085,6 +1300,85 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
+            }
+            
+             // populate ServerlessJobConfig
+            var requestServerlessJobConfigIsNull = true;
+            request.ServerlessJobConfig = new Amazon.SageMaker.Model.ServerlessJobConfig();
+            System.Boolean? requestServerlessJobConfig_serverlessJobConfig_AcceptEula = null;
+            if (cmdletContext.ServerlessJobConfig_AcceptEula != null)
+            {
+                requestServerlessJobConfig_serverlessJobConfig_AcceptEula = cmdletContext.ServerlessJobConfig_AcceptEula.Value;
+            }
+            if (requestServerlessJobConfig_serverlessJobConfig_AcceptEula != null)
+            {
+                request.ServerlessJobConfig.AcceptEula = requestServerlessJobConfig_serverlessJobConfig_AcceptEula.Value;
+                requestServerlessJobConfigIsNull = false;
+            }
+            System.String requestServerlessJobConfig_serverlessJobConfig_BaseModelArn = null;
+            if (cmdletContext.ServerlessJobConfig_BaseModelArn != null)
+            {
+                requestServerlessJobConfig_serverlessJobConfig_BaseModelArn = cmdletContext.ServerlessJobConfig_BaseModelArn;
+            }
+            if (requestServerlessJobConfig_serverlessJobConfig_BaseModelArn != null)
+            {
+                request.ServerlessJobConfig.BaseModelArn = requestServerlessJobConfig_serverlessJobConfig_BaseModelArn;
+                requestServerlessJobConfigIsNull = false;
+            }
+            Amazon.SageMaker.CustomizationTechnique requestServerlessJobConfig_serverlessJobConfig_CustomizationTechnique = null;
+            if (cmdletContext.ServerlessJobConfig_CustomizationTechnique != null)
+            {
+                requestServerlessJobConfig_serverlessJobConfig_CustomizationTechnique = cmdletContext.ServerlessJobConfig_CustomizationTechnique;
+            }
+            if (requestServerlessJobConfig_serverlessJobConfig_CustomizationTechnique != null)
+            {
+                request.ServerlessJobConfig.CustomizationTechnique = requestServerlessJobConfig_serverlessJobConfig_CustomizationTechnique;
+                requestServerlessJobConfigIsNull = false;
+            }
+            Amazon.SageMaker.EvaluationType requestServerlessJobConfig_serverlessJobConfig_EvaluationType = null;
+            if (cmdletContext.ServerlessJobConfig_EvaluationType != null)
+            {
+                requestServerlessJobConfig_serverlessJobConfig_EvaluationType = cmdletContext.ServerlessJobConfig_EvaluationType;
+            }
+            if (requestServerlessJobConfig_serverlessJobConfig_EvaluationType != null)
+            {
+                request.ServerlessJobConfig.EvaluationType = requestServerlessJobConfig_serverlessJobConfig_EvaluationType;
+                requestServerlessJobConfigIsNull = false;
+            }
+            System.String requestServerlessJobConfig_serverlessJobConfig_EvaluatorArn = null;
+            if (cmdletContext.ServerlessJobConfig_EvaluatorArn != null)
+            {
+                requestServerlessJobConfig_serverlessJobConfig_EvaluatorArn = cmdletContext.ServerlessJobConfig_EvaluatorArn;
+            }
+            if (requestServerlessJobConfig_serverlessJobConfig_EvaluatorArn != null)
+            {
+                request.ServerlessJobConfig.EvaluatorArn = requestServerlessJobConfig_serverlessJobConfig_EvaluatorArn;
+                requestServerlessJobConfigIsNull = false;
+            }
+            Amazon.SageMaker.ServerlessJobType requestServerlessJobConfig_serverlessJobConfig_JobType = null;
+            if (cmdletContext.ServerlessJobConfig_JobType != null)
+            {
+                requestServerlessJobConfig_serverlessJobConfig_JobType = cmdletContext.ServerlessJobConfig_JobType;
+            }
+            if (requestServerlessJobConfig_serverlessJobConfig_JobType != null)
+            {
+                request.ServerlessJobConfig.JobType = requestServerlessJobConfig_serverlessJobConfig_JobType;
+                requestServerlessJobConfigIsNull = false;
+            }
+            Amazon.SageMaker.Peft requestServerlessJobConfig_serverlessJobConfig_Peft = null;
+            if (cmdletContext.ServerlessJobConfig_Peft != null)
+            {
+                requestServerlessJobConfig_serverlessJobConfig_Peft = cmdletContext.ServerlessJobConfig_Peft;
+            }
+            if (requestServerlessJobConfig_serverlessJobConfig_Peft != null)
+            {
+                request.ServerlessJobConfig.Peft = requestServerlessJobConfig_serverlessJobConfig_Peft;
+                requestServerlessJobConfigIsNull = false;
+            }
+             // determine if request.ServerlessJobConfig should be set to null
+            if (requestServerlessJobConfigIsNull)
+            {
+                request.ServerlessJobConfig = null;
             }
             
              // populate SessionChainingConfig
@@ -1290,6 +1584,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Dictionary<System.String, System.String> HyperParameter { get; set; }
             public System.Boolean? InfraCheckConfig_EnableInfraCheck { get; set; }
             public List<Amazon.SageMaker.Model.Channel> InputDataConfig { get; set; }
+            public System.String MlflowConfig_MlflowExperimentName { get; set; }
+            public System.String MlflowConfig_MlflowResourceArn { get; set; }
+            public System.String MlflowConfig_MlflowRunName { get; set; }
+            public System.String ModelPackageConfig_ModelPackageGroupArn { get; set; }
+            public System.String ModelPackageConfig_SourceModelPackageArn { get; set; }
             public Amazon.SageMaker.Model.OutputDataConfig OutputDataConfig { get; set; }
             public System.Boolean? ProfilerConfig_DisableProfiler { get; set; }
             public System.Int64? ProfilerConfig_ProfilingIntervalInMillisecond { get; set; }
@@ -1300,6 +1599,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.Model.ResourceConfig ResourceConfig { get; set; }
             public System.Int32? RetryStrategy_MaximumRetryAttempt { get; set; }
             public System.String RoleArn { get; set; }
+            public System.Boolean? ServerlessJobConfig_AcceptEula { get; set; }
+            public System.String ServerlessJobConfig_BaseModelArn { get; set; }
+            public Amazon.SageMaker.CustomizationTechnique ServerlessJobConfig_CustomizationTechnique { get; set; }
+            public Amazon.SageMaker.EvaluationType ServerlessJobConfig_EvaluationType { get; set; }
+            public System.String ServerlessJobConfig_EvaluatorArn { get; set; }
+            public Amazon.SageMaker.ServerlessJobType ServerlessJobConfig_JobType { get; set; }
+            public Amazon.SageMaker.Peft ServerlessJobConfig_Peft { get; set; }
             public System.Boolean? SessionChainingConfig_EnableSessionTagChaining { get; set; }
             public System.Int32? StoppingCondition_MaxPendingTimeInSecond { get; set; }
             public System.Int32? StoppingCondition_MaxRuntimeInSecond { get; set; }

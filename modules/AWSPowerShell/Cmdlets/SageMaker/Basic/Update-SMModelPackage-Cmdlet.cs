@@ -153,6 +153,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String ModelPackageArn { get; set; }
         #endregion
         
+        #region Parameter ModelPackageRegistrationType
+        /// <summary>
+        /// <para>
+        /// <para> The package registration type of the model package input. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.ModelPackageRegistrationType")]
+        public Amazon.SageMaker.ModelPackageRegistrationType ModelPackageRegistrationType { get; set; }
+        #endregion
+        
         #region Parameter SourceUri
         /// <summary>
         /// <para>
@@ -361,6 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter ModelPackageArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ModelPackageRegistrationType = this.ModelPackageRegistrationType;
             context.SourceUri = this.SourceUri;
             
             // allow further manipulation of loaded context prior to processing
@@ -533,6 +545,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.ModelPackageArn = cmdletContext.ModelPackageArn;
             }
+            if (cmdletContext.ModelPackageRegistrationType != null)
+            {
+                request.ModelPackageRegistrationType = cmdletContext.ModelPackageRegistrationType;
+            }
             if (cmdletContext.SourceUri != null)
             {
                 request.SourceUri = cmdletContext.SourceUri;
@@ -615,6 +631,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String ModelLifeCycle_StageDescription { get; set; }
             public System.String ModelLifeCycle_StageStatus { get; set; }
             public System.String ModelPackageArn { get; set; }
+            public Amazon.SageMaker.ModelPackageRegistrationType ModelPackageRegistrationType { get; set; }
             public System.String SourceUri { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdateModelPackageResponse, UpdateSMModelPackageCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ModelPackageArn;
