@@ -3296,6 +3296,7 @@ Set-Alias -Name Update-BDRAutomatedReasoningPolicyAnnotations -Value Update-BDRA
 Set-Alias -Name BDR-UpdateAutomatedReasoningPolicyAnnotations -Value Update-BDRAutomatedReasoningPolicyAnnotation
 Set-Alias -Name BDR-UpdateAutomatedReasoningPolicy -Value Update-BDRAutomatedReasoningPolicy
 Set-Alias -Name BDR-UpdateAutomatedReasoningPolicyTestCase -Value Update-BDRAutomatedReasoningPolicyTestCase
+Set-Alias -Name BDR-UpdateCustomModelDeployment -Value Update-BDRCustomModelDeployment
 Set-Alias -Name BDR-UpdateGuardrail -Value Update-BDRGuardrail
 Set-Alias -Name BDR-UpdateMarketplaceModelEndpoint -Value Update-BDRMarketplaceModelEndpoint
 Set-Alias -Name BDR-UpdateProvisionedModelThroughput -Value Update-BDRProvisionedModelThroughput

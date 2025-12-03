@@ -1,4 +1,15 @@
-﻿### 5.0.108 (2025-12-02 18:16Z)
+﻿### 5.0.109 (2025-12-03 18:44Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.145.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock
+    * Added cmdlet Update-BDRCustomModelDeployment leveraging the UpdateCustomModelDeployment service API.
+    * Modified cmdlet New-BDRModelCustomizationJob: added parameters HyperParameters_BatchSize, HyperParameters_EpochCount, HyperParameters_EvalInterval, HyperParameters_InferenceMaxToken, HyperParameters_LearningRate, HyperParameters_MaxPromptLength, HyperParameters_ReasoningEffort, HyperParameters_TrainingSamplePerPrompt and LambdaGrader_LambdaArn.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMModelPackage: added parameter ModelPackageRegistrationType.
+    * Modified cmdlet New-SMTrainingJob: added parameters MlflowConfig_MlflowExperimentName, MlflowConfig_MlflowResourceArn, MlflowConfig_MlflowRunName, ModelPackageConfig_ModelPackageGroupArn, ModelPackageConfig_SourceModelPackageArn, ServerlessJobConfig_AcceptEula, ServerlessJobConfig_BaseModelArn, ServerlessJobConfig_CustomizationTechnique, ServerlessJobConfig_EvaluationType, ServerlessJobConfig_EvaluatorArn, ServerlessJobConfig_JobType and ServerlessJobConfig_Peft.
+    * Modified cmdlet Start-SMPipelineExecution: added parameter MlflowExperimentName.
+    * Modified cmdlet Update-SMModelPackage: added parameter ModelPackageRegistrationType.
+
+### 5.0.108 (2025-12-02 18:16Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.144.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock
     * Modified cmdlet Write-BDRModelInvocationLoggingConfiguration: added parameter LoggingConfig_AudioDataDeliveryEnabled.

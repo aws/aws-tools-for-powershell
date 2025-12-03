@@ -402,6 +402,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCustomModelDeployment" OutputProperty="CustomModelDeploymentArn" Verb="Update" Noun="CustomModelDeployment" ShouldProcessTarget="CustomModelDeploymentIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateGuardrail" OutputProperty="*" Verb="Update" Noun="Guardrail" ShouldProcessTarget="GuardrailIdentifier" PipelineParameter="GuardrailIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="ContentPolicyConfig_TierConfig_TierName" NewName="ContentPolicyConfig_TierConfig_TierName" />

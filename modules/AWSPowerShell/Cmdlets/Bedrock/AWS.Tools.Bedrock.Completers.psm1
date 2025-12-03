@@ -124,7 +124,7 @@ $BDR_Completers = {
         # Amazon.Bedrock.CustomizationType
         "New-BDRModelCustomizationJob/CustomizationType"
         {
-            $v = "CONTINUED_PRE_TRAINING","DISTILLATION","FINE_TUNING","IMPORTED"
+            $v = "CONTINUED_PRE_TRAINING","DISTILLATION","FINE_TUNING","IMPORTED","REINFORCEMENT_FINE_TUNING"
             break
         }
 
@@ -253,6 +253,13 @@ $BDR_Completers = {
             break
         }
 
+        # Amazon.Bedrock.ReasoningEffort
+        "New-BDRModelCustomizationJob/HyperParameters_ReasoningEffort"
+        {
+            $v = "high","low","medium"
+            break
+        }
+
         # Amazon.Bedrock.S3InputFormat
         "New-BDRModelInvocationJob/S3InputDataConfig_S3InputFormat"
         {
@@ -329,6 +336,7 @@ $BDR_map = @{
     "CustomizationType"=@("New-BDRModelCustomizationJob")
     "ExpectedAggregatedFindingsResult"=@("New-BDRAutomatedReasoningPolicyTestCase","Update-BDRAutomatedReasoningPolicyTestCase")
     "GuardrailInferenceConfig_InputTag"=@("Write-BDREnforcedGuardrailConfiguration")
+    "HyperParameters_ReasoningEffort"=@("New-BDRModelCustomizationJob")
     "ModelStatus"=@("Get-BDRCustomModelList")
     "OfferType"=@("Get-BDRFoundationModelAgreementOfferList")
     "S3InputDataConfig_S3InputFormat"=@("New-BDRModelInvocationJob")
@@ -484,6 +492,7 @@ $BDR_SelectMap = @{
                "Update-BDRAutomatedReasoningPolicy",
                "Update-BDRAutomatedReasoningPolicyAnnotation",
                "Update-BDRAutomatedReasoningPolicyTestCase",
+               "Update-BDRCustomModelDeployment",
                "Update-BDRGuardrail",
                "Update-BDRMarketplaceModelEndpoint",
                "Update-BDRProvisionedModelThroughput")

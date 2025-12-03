@@ -9300,7 +9300,7 @@ $BDR_Completers = {
         # Amazon.Bedrock.CustomizationType
         "New-BDRModelCustomizationJob/CustomizationType"
         {
-            $v = "CONTINUED_PRE_TRAINING","DISTILLATION","FINE_TUNING","IMPORTED"
+            $v = "CONTINUED_PRE_TRAINING","DISTILLATION","FINE_TUNING","IMPORTED","REINFORCEMENT_FINE_TUNING"
             break
         }
 
@@ -9429,6 +9429,13 @@ $BDR_Completers = {
             break
         }
 
+        # Amazon.Bedrock.ReasoningEffort
+        "New-BDRModelCustomizationJob/HyperParameters_ReasoningEffort"
+        {
+            $v = "high","low","medium"
+            break
+        }
+
         # Amazon.Bedrock.S3InputFormat
         "New-BDRModelInvocationJob/S3InputDataConfig_S3InputFormat"
         {
@@ -9505,6 +9512,7 @@ $BDR_map = @{
     "CustomizationType"=@("New-BDRModelCustomizationJob")
     "ExpectedAggregatedFindingsResult"=@("New-BDRAutomatedReasoningPolicyTestCase","Update-BDRAutomatedReasoningPolicyTestCase")
     "GuardrailInferenceConfig_InputTag"=@("Write-BDREnforcedGuardrailConfiguration")
+    "HyperParameters_ReasoningEffort"=@("New-BDRModelCustomizationJob")
     "ModelStatus"=@("Get-BDRCustomModelList")
     "OfferType"=@("Get-BDRFoundationModelAgreementOfferList")
     "S3InputDataConfig_S3InputFormat"=@("New-BDRModelInvocationJob")
@@ -9660,6 +9668,7 @@ $BDR_SelectMap = @{
                "Update-BDRAutomatedReasoningPolicy",
                "Update-BDRAutomatedReasoningPolicyAnnotation",
                "Update-BDRAutomatedReasoningPolicyTestCase",
+               "Update-BDRCustomModelDeployment",
                "Update-BDRGuardrail",
                "Update-BDRMarketplaceModelEndpoint",
                "Update-BDRProvisionedModelThroughput")
@@ -72432,6 +72441,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.CustomizationTechnique
+        "New-SMTrainingJob/ServerlessJobConfig_CustomizationTechnique"
+        {
+            $v = "DPO","RLAIF","RLVR","SFT"
+            break
+        }
+
         # Amazon.SageMaker.DirectInternetAccess
         "New-SMNotebookInstance/DirectInternetAccess"
         {
@@ -72494,6 +72510,13 @@ $SM_Completers = {
         "Get-SMEndpointList/StatusEqual"
         {
             $v = "Creating","Deleting","Failed","InService","OutOfService","RollingBack","SystemUpdating","UpdateRollbackFailed","Updating"
+            break
+        }
+
+        # Amazon.SageMaker.EvaluationType
+        "New-SMTrainingJob/ServerlessJobConfig_EvaluationType"
+        {
+            $v = "BenchmarkEvaluation","CustomScorerEvaluation","LLMAJEvaluation"
             break
         }
 
@@ -72963,6 +72986,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.ModelPackageRegistrationType
+        {
+            ($_ -eq "New-SMModelPackage/ModelPackageRegistrationType") -Or
+            ($_ -eq "Update-SMModelPackage/ModelPackageRegistrationType")
+        }
+        {
+            $v = "Logged","Registered"
+            break
+        }
+
         # Amazon.SageMaker.ModelPackageSortBy
         "Get-SMModelPackageList/SortBy"
         {
@@ -73140,6 +73173,13 @@ $SM_Completers = {
         "New-SMPartnerApp/Type"
         {
             $v = "comet","deepchecks-llm-evaluation","fiddler","lakera-guard"
+            break
+        }
+
+        # Amazon.SageMaker.Peft
+        "New-SMTrainingJob/ServerlessJobConfig_Peft"
+        {
+            $v = "LORA"
             break
         }
 
@@ -73356,6 +73396,13 @@ $SM_Completers = {
         "Search-SMResource/SortOrder"
         {
             $v = "Ascending","Descending"
+            break
+        }
+
+        # Amazon.SageMaker.ServerlessJobType
+        "New-SMTrainingJob/ServerlessJobConfig_JobType"
+        {
+            $v = "Evaluation","FineTuning"
             break
         }
 
@@ -73874,6 +73921,7 @@ $SM_map = @{
     "ModelApprovalStatus"=@("Get-SMModelPackageList","New-SMModelPackage","Update-SMModelPackage")
     "ModelCard_ModelCardStatus"=@("New-SMModelPackage","Update-SMModelPackage")
     "ModelCardStatus"=@("Get-SMModelCardList","Get-SMModelCardVersionList","New-SMModelCard","Update-SMModelCard")
+    "ModelPackageRegistrationType"=@("New-SMModelPackage","Update-SMModelPackage")
     "ModelPackageType"=@("Get-SMModelPackageList")
     "ModelQualityAppSpecification_ProblemType"=@("New-SMModelQualityJobDefinition")
     "ModelRegistrationMode"=@("New-SMMlflowApp","Update-SMMlflowApp")
@@ -73897,6 +73945,10 @@ $SM_map = @{
     "S3DataSource_S3DataType"=@("New-SMTransformJob")
     "SchedulerConfig_FairShare"=@("New-SMClusterSchedulerConfig","Update-SMClusterSchedulerConfig")
     "SearchExpression_Operator"=@("Search-SMResource")
+    "ServerlessJobConfig_CustomizationTechnique"=@("New-SMTrainingJob")
+    "ServerlessJobConfig_EvaluationType"=@("New-SMTrainingJob")
+    "ServerlessJobConfig_JobType"=@("New-SMTrainingJob")
+    "ServerlessJobConfig_Peft"=@("New-SMTrainingJob")
     "SkipModelValidation"=@("New-SMModelPackage")
     "SortBy"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMClusterEventList","Get-SMClusterList","Get-SMClusterNodeList","Get-SMClusterSchedulerConfigList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMComputeQuotaList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMMlflowAppList","Get-SMMlflowTrackingServerList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMPipelineExecutionList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMResourceCatalogList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTrainingPlanList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList")
     "SortOrder"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMClusterEventList","Get-SMClusterList","Get-SMClusterNodeList","Get-SMClusterSchedulerConfigList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMComputeQuotaList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMFlowDefinitionList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHumanTaskUiList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMMlflowAppList","Get-SMMlflowTrackingServerList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMPipelineExecutionList","Get-SMPipelineExecutionStepList","Get-SMPipelineList","Get-SMPipelineVersionList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMResourceCatalogList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTrainingPlanList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList","Search-SMResource")
