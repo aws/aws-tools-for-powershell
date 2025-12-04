@@ -1,4 +1,7 @@
-﻿### 4.1.954 (2025-12-03 18:51Z)
+﻿### 4.1.955 (2025-12-04 19:00Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1178.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.954 (2025-12-03 18:51Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1177.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock
     * Added cmdlet Update-BDRCustomModelDeployment leveraging the UpdateCustomModelDeployment service API.

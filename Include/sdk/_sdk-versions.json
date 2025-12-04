@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1177.0",
+    "ProductVersion"    : "3.7.1178.0",
     "CoreVersion"       : "3.7.500.50",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -244,7 +244,7 @@
             "InPreview"               : false
         },
         "Lambda"               : {
-            "Version" : "3.7.508.0",
+            "Version" : "3.7.509.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.50"
