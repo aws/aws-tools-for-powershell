@@ -59969,6 +59969,13 @@ $PCAA_Completers = {
             break
         }
 
+        # Amazon.PartnerCentralAccount.VerificationType
+        "Get-PCAAVerification/VerificationType"
+        {
+            $v = "BUSINESS_VERIFICATION","REGISTRANT_VERIFICATION"
+            break
+        }
+
 
     }
 
@@ -59984,6 +59991,7 @@ $PCAA_map = @{
     "PrimarySolutionType"=@("New-PCAAPartner")
     "Status"=@("Get-PCAAConnectionInvitationList")
     "TaskDetails_PrimarySolutionType"=@("Start-PCAAProfileUpdateTask")
+    "VerificationType"=@("Get-PCAAVerification")
     "Visibility"=@("Write-PCAAProfileVisibility")
 }
 
@@ -60052,6 +60060,7 @@ $PCAA_SelectMap = @{
                "Get-PCAAPartner",
                "Get-PCAAProfileUpdateTask",
                "Get-PCAAProfileVisibility",
+               "Get-PCAAVerification",
                "Get-PCAAConnectionInvitationList",
                "Get-PCAAConnectionList",
                "Get-PCAAPartnerList",
@@ -60061,6 +60070,7 @@ $PCAA_SelectMap = @{
                "Deny-PCAAConnectionInvitation",
                "Send-PCAAEmailVerificationCode",
                "Start-PCAAProfileUpdateTask",
+               "Start-PCAAVerification",
                "Add-PCAAResourceTag",
                "Remove-PCAAResourceTag",
                "Update-PCAAConnectionPreference")
