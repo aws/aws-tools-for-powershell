@@ -78,6 +78,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetVerification" OutputProperty="*" Verb="Get" Noun="Verification" PipelineParameter="VerificationType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListConnectionInvitations" OutputProperty="ConnectionInvitationSummaries" Verb="Get" Noun="ConnectionInvitationList" PipelineParameter="Catalog" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -111,6 +115,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartProfileUpdateTask" OutputProperty="*" Verb="Start" Noun="ProfileUpdateTask" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartVerification" OutputProperty="*" Verb="Start" Noun="Verification" ShouldProcessTarget="VerificationDetails_BusinessVerificationDetails_RegistrationId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

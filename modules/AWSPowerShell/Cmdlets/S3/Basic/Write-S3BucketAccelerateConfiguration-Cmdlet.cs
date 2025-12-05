@@ -85,23 +85,29 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// The name of the bucket for which the accelerate configuration is set.
+        /// <para>The name of the bucket for which the accelerate configuration is set.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String BucketName { get; set; }
         #endregion
         
         #region Parameter ChecksumAlgorithm
         /// <summary>
         /// <para>
-        /// <para>Indicates the algorithm used to create the checksum for the object when you use the
+        /// <para>Indicates the algorithm used to create the checksum for the request when you use the
         /// SDK. This header will not provide any additional functionality if you don't use the
-        /// SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code>
-        /// or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request
-        /// with the HTTP status code <code>400 Bad Request</code>. For more information, see
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
-        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para><para>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code>
+        /// SDK. When you send this header, there must be a corresponding <c>x-amz-checksum</c>
+        /// or <c>x-amz-trailer</c> header sent. Otherwise, Amazon S3 fails the request with the
+        /// HTTP status code <c>400 Bad Request</c>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para><para>If you provide an individual checksum, Amazon S3 ignores any provided <c>ChecksumAlgorithm</c>
         /// parameter.</para>
         /// </para>
         /// </summary>
@@ -115,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
         /// not match the actual owner of the bucket, the request fails with the HTTP status code
-        /// <code>403 Forbidden</code> (access denied).</para>
+        /// <c>403 Forbidden</c> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter AccelerateConfiguration_Status
         /// <summary>
         /// <para>
-        /// The accelerate status of the bucket.
+        /// <para>Specifies the transfer acceleration status of the bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,9 +184,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.Select = CreateSelectDelegate<Amazon.S3.Model.PutBucketAccelerateConfigurationResponse, WriteS3BucketAccelerateConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.BucketName = this.BucketName;
-            context.ChecksumAlgorithm = this.ChecksumAlgorithm;
             context.AccelerateConfiguration_Status = this.AccelerateConfiguration_Status;
+            context.BucketName = this.BucketName;
+            #if MODULAR
+            if (this.BucketName == null && ParameterWasBound(nameof(this.BucketName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter BucketName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.ChecksumAlgorithm = this.ChecksumAlgorithm;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
@@ -198,14 +210,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             // create request
             var request = new Amazon.S3.Model.PutBucketAccelerateConfigurationRequest();
             
-            if (cmdletContext.BucketName != null)
-            {
-                request.BucketName = cmdletContext.BucketName;
-            }
-            if (cmdletContext.ChecksumAlgorithm != null)
-            {
-                request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
-            }
             
              // populate AccelerateConfiguration
             var requestAccelerateConfigurationIsNull = true;
@@ -224,6 +228,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (requestAccelerateConfigurationIsNull)
             {
                 request.AccelerateConfiguration = null;
+            }
+            if (cmdletContext.BucketName != null)
+            {
+                request.BucketName = cmdletContext.BucketName;
+            }
+            if (cmdletContext.ChecksumAlgorithm != null)
+            {
+                request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
             }
             if (cmdletContext.ExpectedBucketOwner != null)
             {
@@ -284,9 +296,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.S3.BucketAccelerateStatus AccelerateConfiguration_Status { get; set; }
             public System.String BucketName { get; set; }
             public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
-            public Amazon.S3.BucketAccelerateStatus AccelerateConfiguration_Status { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutBucketAccelerateConfigurationResponse, WriteS3BucketAccelerateConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

@@ -80,17 +80,25 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> The general purpose bucket that you want to create the metadata configuration for.
+        /// </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String BucketName { get; set; }
         #endregion
         
         #region Parameter ChecksumAlgorithm
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> The checksum algorithm to use with your metadata configuration. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter InventoryTableConfiguration_ConfigurationState
         /// <summary>
         /// <para>
-        /// <para> The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled. </para>
+        /// <para> The configuration state of the inventory table, indicating whether the inventory
+        /// table is enabled or disabled. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ContentMD5
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> The <c>Content-MD5</c> header for the metadata configuration. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,7 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> The expected owner of the general purpose bucket that corresponds to your metadata
+        /// configuration. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -151,7 +161,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para> Specifies whether journal table record expiration is enabled or disabled. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("MetadataConfiguration_JournalTableConfiguration_RecordExpiration_Expiration")]
         [AWSConstantClassSource("Amazon.S3.ExpirationState")]
         public Amazon.S3.ExpirationState RecordExpiration_Expiration { get; set; }
@@ -160,7 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_KmsKeyArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> If server-side encryption with Key Management Service (KMS) keys (SSE-KMS) is specified,
+        /// you must also specify the KMS key Amazon Resource Name (ARN). You must specify a customer-managed
+        /// KMS key that's located in the same Region as the general purpose bucket that corresponds
+        /// to the metadata table configuration. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,7 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter MetadataConfiguration_JournalTableConfiguration_EncryptionConfiguration_KmsKeyArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> If server-side encryption with Key Management Service (KMS) keys (SSE-KMS) is specified,
+        /// you must also specify the KMS key Amazon Resource Name (ARN). You must specify a customer-managed
+        /// KMS key that's located in the same Region as the general purpose bucket that corresponds
+        /// to the metadata table configuration. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -180,7 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_SseAlgorithm
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> The encryption type specified for a metadata table. To specify server-side encryption
+        /// with Key Management Service (KMS) keys (SSE-KMS), use the <c>aws:kms</c> value. To
+        /// specify server-side encryption with Amazon S3 managed keys (SSE-S3), use the <c>AES256</c>
+        /// value. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,7 +216,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter MetadataConfiguration_JournalTableConfiguration_EncryptionConfiguration_SseAlgorithm
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> The encryption type specified for a metadata table. To specify server-side encryption
+        /// with Key Management Service (KMS) keys (SSE-KMS), use the <c>aws:kms</c> value. To
+        /// specify server-side encryption with Amazon S3 managed keys (SSE-S3), use the <c>AES256</c>
+        /// value. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -245,6 +273,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.BucketName = this.BucketName;
+            #if MODULAR
+            if (this.BucketName == null && ParameterWasBound(nameof(this.BucketName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter BucketName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.ChecksumAlgorithm = this.ChecksumAlgorithm;
             context.ContentMD5 = this.ContentMD5;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
@@ -255,6 +289,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.MetadataConfiguration_JournalTableConfiguration_EncryptionConfiguration_SseAlgorithm = this.MetadataConfiguration_JournalTableConfiguration_EncryptionConfiguration_SseAlgorithm;
             context.RecordExpiration_Day = this.RecordExpiration_Day;
             context.RecordExpiration_Expiration = this.RecordExpiration_Expiration;
+            #if MODULAR
+            if (this.RecordExpiration_Expiration == null && ParameterWasBound(nameof(this.RecordExpiration_Expiration)))
+            {
+                WriteWarning("You are passing $null as a value for parameter RecordExpiration_Expiration which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

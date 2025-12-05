@@ -1,4 +1,12 @@
-﻿### 5.0.110 (2025-12-04 18:46Z)
+﻿### 5.0.111 (2025-12-05 21:21Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.147.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Partner Central Account API
+    * Added cmdlet Get-PCAAVerification leveraging the GetVerification service API.
+    * Added cmdlet Start-PCAAVerification leveraging the StartVerification service API.
+  * Amazon Simple Storage Service (S3)
+    * Modified cmdlet Write-S3BucketRequestPayment: added parameter ContentMD5.
+
+### 5.0.110 (2025-12-04 18:46Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.146.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 5.0.109 (2025-12-03 18:44Z)

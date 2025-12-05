@@ -122,7 +122,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter EncryptionConfiguration_KmsKeyArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> If server-side encryption with Key Management Service (KMS) keys (SSE-KMS) is specified,
+        /// you must also specify the KMS key Amazon Resource Name (ARN). You must specify a customer-managed
+        /// KMS key that's located in the same Region as the general purpose bucket that corresponds
+        /// to the metadata table configuration. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +136,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter EncryptionConfiguration_SseAlgorithm
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> The encryption type specified for a metadata table. To specify server-side encryption
+        /// with Key Management Service (KMS) keys (SSE-KMS), use the <c>aws:kms</c> value. To
+        /// specify server-side encryption with Amazon S3 managed keys (SSE-S3), use the <c>AES256</c>
+        /// value. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

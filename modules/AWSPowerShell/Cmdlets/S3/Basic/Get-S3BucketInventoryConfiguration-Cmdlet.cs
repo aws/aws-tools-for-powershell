@@ -68,10 +68,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// The name of the bucket containing the inventory configuration to retrieve.
+        /// <para>The name of the bucket containing the inventory configuration to retrieve.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String BucketName { get; set; }
         #endregion
         
@@ -80,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
         /// not match the actual owner of the bucket, the request fails with the HTTP status code
-        /// <code>403 Forbidden</code> (access denied).</para>
+        /// <c>403 Forbidden</c> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,10 +97,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter InventoryId
         /// <summary>
         /// <para>
-        /// The ID used to identify the inventory configuration.
+        /// <para>The ID used to identify the inventory configuration.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String InventoryId { get; set; }
         #endregion
         
@@ -128,8 +142,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.BucketName = this.BucketName;
-            context.InventoryId = this.InventoryId;
+            #if MODULAR
+            if (this.BucketName == null && ParameterWasBound(nameof(this.BucketName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter BucketName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
+            context.InventoryId = this.InventoryId;
+            #if MODULAR
+            if (this.InventoryId == null && ParameterWasBound(nameof(this.InventoryId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter InventoryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -150,13 +176,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.BucketName = cmdletContext.BucketName;
             }
-            if (cmdletContext.InventoryId != null)
-            {
-                request.InventoryId = cmdletContext.InventoryId;
-            }
             if (cmdletContext.ExpectedBucketOwner != null)
             {
                 request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
+            }
+            if (cmdletContext.InventoryId != null)
+            {
+                request.InventoryId = cmdletContext.InventoryId;
             }
             
             CmdletOutput output;
@@ -214,8 +240,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BucketName { get; set; }
-            public System.String InventoryId { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
+            public System.String InventoryId { get; set; }
             public System.Func<Amazon.S3.Model.GetBucketInventoryConfigurationResponse, GetS3BucketInventoryConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.InventoryConfiguration;
         }
