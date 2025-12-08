@@ -916,6 +916,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>Tags to assign to resources associated with the DB instance.</para><para>Valid Values: </para><ul><li><para><c>auto-backup</c> - The DB instance's automated backup.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.RDS.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter TdeCredentialArn
         /// <summary>
         /// <para>
@@ -1120,6 +1131,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.RDS.Model.Tag>(this.Tag);
+            }
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.RDS.Model.TagSpecification>(this.TagSpecification);
             }
             context.TdeCredentialArn = this.TdeCredentialArn;
             context.TdeCredentialPassword = this.TdeCredentialPassword;
@@ -1392,6 +1407,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.Tags = cmdletContext.Tag;
             }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
+            }
             if (cmdletContext.TdeCredentialArn != null)
             {
                 request.TdeCredentialArn = cmdletContext.TdeCredentialArn;
@@ -1531,6 +1550,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? StorageThroughput { get; set; }
             public System.String StorageType { get; set; }
             public List<Amazon.RDS.Model.Tag> Tag { get; set; }
+            public List<Amazon.RDS.Model.TagSpecification> TagSpecification { get; set; }
             public System.String TdeCredentialArn { get; set; }
             public System.String TdeCredentialPassword { get; set; }
             public System.String Timezone { get; set; }

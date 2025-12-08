@@ -78,7 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <c>SERVICE</c> and <c>LINKED_ACCOUNT</c> and get the costs that are associated with
         /// that account's usage of that service. You can nest <c>Expression</c> objects to define
         /// any combination of dimension filters. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>.
-        /// </para><para>Valid values for <c>MatchOptions</c> for <c>Dimensions</c> are <c>EQUALS</c> and <c>CASE_SENSITIVE</c>.</para><para>Valid values for <c>MatchOptions</c> for <c>CostCategories</c> and <c>Tags</c> are
+        /// </para><para>The <c>GetCostAndUsageWithResources</c> operation requires that you either group by
+        /// or filter by a <c>ResourceId</c>. It requires the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a><c>"SERVICE = Amazon Elastic Compute Cloud - Compute"</c> in the filter.</para><para>Valid values for <c>MatchOptions</c> for <c>Dimensions</c> are <c>EQUALS</c> and <c>CASE_SENSITIVE</c>.</para><para>Valid values for <c>MatchOptions</c> for <c>CostCategories</c> and <c>Tags</c> are
         /// <c>EQUALS</c>, <c>ABSENT</c>, and <c>CASE_SENSITIVE</c>. Default values are <c>EQUALS</c>
         /// and <c>CASE_SENSITIVE</c>.</para>
         /// </para>

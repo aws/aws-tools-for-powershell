@@ -50,6 +50,19 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Extension
+        /// <summary>
+        /// <para>
+        /// <para>A collection of extension names indicating what extensions the service should retrieve
+        /// alongside other user attributes. <c>aws:identitystore:enterprise</c> is the only supported
+        /// extension name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Extensions")]
+        public System.String[] Extension { get; set; }
+        #endregion
+        
         #region Parameter IdentityStoreId
         /// <summary>
         /// <para>
@@ -133,6 +146,10 @@ namespace Amazon.PowerShell.Cmdlets.IDS
                 context.Select = (response, cmdlet) => this.UserId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.Extension != null)
+            {
+                context.Extension = new List<System.String>(this.Extension);
+            }
             context.IdentityStoreId = this.IdentityStoreId;
             #if MODULAR
             if (this.IdentityStoreId == null && ParameterWasBound(nameof(this.IdentityStoreId)))
@@ -163,6 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             // create request
             var request = new Amazon.IdentityStore.Model.DescribeUserRequest();
             
+            if (cmdletContext.Extension != null)
+            {
+                request.Extensions = cmdletContext.Extension;
+            }
             if (cmdletContext.IdentityStoreId != null)
             {
                 request.IdentityStoreId = cmdletContext.IdentityStoreId;
@@ -232,6 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> Extension { get; set; }
             public System.String IdentityStoreId { get; set; }
             public System.String UserId { get; set; }
             public System.Func<Amazon.IdentityStore.Model.DescribeUserResponse, GetIDSUserCmdlet, object> Select { get; set; } =

@@ -115,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         #region Parameter RequireInstanceProperty
         /// <summary>
         /// <para>
-        /// <para>Specifies whether instance properties are required in temporary credential requests
-        /// with this profile. </para>
+        /// <para>Unused, saved for future use. Will likely specify whether instance properties are
+        /// required in temporary credential requests with this profile. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

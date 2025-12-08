@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// much of your Amazon Elastic Compute Cloud, Amazon ElastiCache, Amazon Relational Database
     /// Service, or Amazon Redshift usage is covered by a reservation. An organization's management
     /// account can see the coverage of the associated member accounts. This supports dimensions,
-    /// Cost Categories, and nested expressions. For any time period, you can filter data
+    /// cost categories, and nested expressions. For any time period, you can filter data
     /// about reservation usage by the following dimensions:
     /// 
     ///  <ul><li><para>

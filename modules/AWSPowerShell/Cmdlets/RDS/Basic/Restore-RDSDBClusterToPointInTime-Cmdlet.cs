@@ -573,6 +573,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>Tags to assign to resources associated with the DB cluster.</para><para>Valid Values: </para><ul><li><para><c>cluster-auto-backup</c> - The DB cluster's automated backup.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.RDS.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter ScalingConfiguration_TimeoutAction
         /// <summary>
         /// <para>
@@ -752,6 +763,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.RDS.Model.Tag>(this.Tag);
+            }
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.RDS.Model.TagSpecification>(this.TagSpecification);
             }
             context.UseLatestRestorableTime = this.UseLatestRestorableTime;
             if (this.VpcSecurityGroupId != null)
@@ -1044,6 +1059,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.Tags = cmdletContext.Tag;
             }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
+            }
             if (cmdletContext.UseLatestRestorableTime != null)
             {
                 request.UseLatestRestorableTime = cmdletContext.UseLatestRestorableTime.Value;
@@ -1165,6 +1184,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String SourceDbClusterResourceId { get; set; }
             public System.String StorageType { get; set; }
             public List<Amazon.RDS.Model.Tag> Tag { get; set; }
+            public List<Amazon.RDS.Model.TagSpecification> TagSpecification { get; set; }
             public System.Boolean? UseLatestRestorableTime { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }
             [System.ObsoleteAttribute]

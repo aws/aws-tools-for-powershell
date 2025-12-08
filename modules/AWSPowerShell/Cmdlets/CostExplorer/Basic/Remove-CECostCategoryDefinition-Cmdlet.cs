@@ -28,8 +28,8 @@ using Amazon.CostExplorer.Model;
 namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
-    /// Deletes a Cost Category. Expenses from this month going forward will no longer be
-    /// categorized with this Cost Category.
+    /// Deletes a cost category. Expenses from this month going forward will no longer be
+    /// categorized with this cost category.
     /// </summary>
     [Cmdlet("Remove", "CECostCategoryDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.CostExplorer.Model.DeleteCostCategoryDefinitionResponse")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter CostCategoryArn
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for your Cost Category. </para>
+        /// <para>The unique identifier for your cost category. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

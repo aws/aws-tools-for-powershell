@@ -28,54 +28,37 @@ using Amazon.CostExplorer.Model;
 namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
-    /// Returns the name, Amazon Resource Name (ARN), <c>NumberOfRules</c> and effective dates
-    /// of all cost categories defined in the account. You have the option to use <c>EffectiveOn</c>
-    /// and <c>SupportedResourceTypes</c> to return a list of cost categories that were active
-    /// on a specific date. If there is no <c>EffectiveOn</c> specified, you’ll see cost categories
-    /// that are effective on the current date. If cost category is still effective, <c>EffectiveEnd</c>
-    /// is omitted in the response. <c>ListCostCategoryDefinitions</c> supports pagination.
-    /// The request can have a <c>MaxResults</c> range up to 100.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns resource associations of all cost categories defined in the account. You have
+    /// the option to use <c>CostCategoryArn</c> to get the association for a specific cost
+    /// category. <c>ListCostCategoryResourceAssociations</c> supports pagination. The request
+    /// can have a <c>MaxResults</c> range up to 100.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CECostCategoryDefinitionList")]
-    [OutputType("Amazon.CostExplorer.Model.CostCategoryReference")]
-    [AWSCmdlet("Calls the AWS Cost Explorer ListCostCategoryDefinitions API operation.", Operation = new[] {"ListCostCategoryDefinitions"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.ListCostCategoryDefinitionsResponse))]
-    [AWSCmdletOutput("Amazon.CostExplorer.Model.CostCategoryReference or Amazon.CostExplorer.Model.ListCostCategoryDefinitionsResponse",
-        "This cmdlet returns a collection of Amazon.CostExplorer.Model.CostCategoryReference objects.",
-        "The service call response (type Amazon.CostExplorer.Model.ListCostCategoryDefinitionsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "CECostCategoryResourceAssociationList")]
+    [OutputType("Amazon.CostExplorer.Model.CostCategoryResourceAssociation")]
+    [AWSCmdlet("Calls the AWS Cost Explorer ListCostCategoryResourceAssociations API operation.", Operation = new[] {"ListCostCategoryResourceAssociations"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.ListCostCategoryResourceAssociationsResponse))]
+    [AWSCmdletOutput("Amazon.CostExplorer.Model.CostCategoryResourceAssociation or Amazon.CostExplorer.Model.ListCostCategoryResourceAssociationsResponse",
+        "This cmdlet returns a collection of Amazon.CostExplorer.Model.CostCategoryResourceAssociation objects.",
+        "The service call response (type Amazon.CostExplorer.Model.ListCostCategoryResourceAssociationsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetCECostCategoryDefinitionListCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
+    public partial class GetCECostCategoryResourceAssociationListCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter EffectiveOn
+        #region Parameter CostCategoryArn
         /// <summary>
         /// <para>
-        /// <para>The date when the cost category was effective. </para>
+        /// <para>The unique identifier for your cost category.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String EffectiveOn { get; set; }
-        #endregion
-        
-        #region Parameter SupportedResourceType
-        /// <summary>
-        /// <para>
-        /// <para> Filter cost category definitions that are supported by given resource types based
-        /// on the latest version. If the filter is present, the result only includes Cost Categories
-        /// that supports input resource type. If the filter isn't provided, no filtering is applied.
-        /// The valid values are <c>billing:rispgroupsharing</c>. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("SupportedResourceTypes")]
-        public System.String[] SupportedResourceType { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String CostCategoryArn { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The number of entries a paginated response contains. </para>
+        /// <para> The number of entries a paginated response contains. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token to retrieve the next set of results. Amazon Web Services provides the token
+        /// <para> The token to retrieve the next set of results. Amazon Web Services provides the token
         /// when the response from a previous call has more results than the maximum page size.
         /// </para>
         /// </para>
@@ -101,13 +84,23 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'CostCategoryReferences'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CostExplorer.Model.ListCostCategoryDefinitionsResponse).
-        /// Specifying the name of a property of type Amazon.CostExplorer.Model.ListCostCategoryDefinitionsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'CostCategoryResourceAssociations'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CostExplorer.Model.ListCostCategoryResourceAssociationsResponse).
+        /// Specifying the name of a property of type Amazon.CostExplorer.Model.ListCostCategoryResourceAssociationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "CostCategoryReferences";
+        public string Select { get; set; } = "CostCategoryResourceAssociations";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the CostCategoryArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^CostCategoryArn' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^CostCategoryArn' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter NoAutoIteration
@@ -130,18 +123,24 @@ namespace Amazon.PowerShell.Cmdlets.CE
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CostExplorer.Model.ListCostCategoryDefinitionsResponse, GetCECostCategoryDefinitionListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CostExplorer.Model.ListCostCategoryResourceAssociationsResponse, GetCECostCategoryResourceAssociationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
-            context.EffectiveOn = this.EffectiveOn;
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.CostCategoryArn;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CostCategoryArn = this.CostCategoryArn;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            if (this.SupportedResourceType != null)
-            {
-                context.SupportedResourceType = new List<System.String>(this.SupportedResourceType);
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -155,22 +154,20 @@ namespace Amazon.PowerShell.Cmdlets.CE
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.CostExplorer.Model.ListCostCategoryDefinitionsRequest();
+            var request = new Amazon.CostExplorer.Model.ListCostCategoryResourceAssociationsRequest();
             
-            if (cmdletContext.EffectiveOn != null)
+            if (cmdletContext.CostCategoryArn != null)
             {
-                request.EffectiveOn = cmdletContext.EffectiveOn;
+                request.CostCategoryArn = cmdletContext.CostCategoryArn;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.SupportedResourceType != null)
-            {
-                request.SupportedResourceTypes = cmdletContext.SupportedResourceType;
             }
             
             // Initialize loop variant and commence piping
@@ -229,15 +226,15 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         #region AWS Service Operation Call
         
-        private Amazon.CostExplorer.Model.ListCostCategoryDefinitionsResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.ListCostCategoryDefinitionsRequest request)
+        private Amazon.CostExplorer.Model.ListCostCategoryResourceAssociationsResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.ListCostCategoryResourceAssociationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "ListCostCategoryDefinitions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "ListCostCategoryResourceAssociations");
             try
             {
                 #if DESKTOP
-                return client.ListCostCategoryDefinitions(request);
+                return client.ListCostCategoryResourceAssociations(request);
                 #elif CORECLR
-                return client.ListCostCategoryDefinitionsAsync(request).GetAwaiter().GetResult();
+                return client.ListCostCategoryResourceAssociationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -257,12 +254,11 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String EffectiveOn { get; set; }
+            public System.String CostCategoryArn { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public List<System.String> SupportedResourceType { get; set; }
-            public System.Func<Amazon.CostExplorer.Model.ListCostCategoryDefinitionsResponse, GetCECostCategoryDefinitionListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.CostCategoryReferences;
+            public System.Func<Amazon.CostExplorer.Model.ListCostCategoryResourceAssociationsResponse, GetCECostCategoryResourceAssociationListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.CostCategoryResourceAssociations;
         }
         
     }
