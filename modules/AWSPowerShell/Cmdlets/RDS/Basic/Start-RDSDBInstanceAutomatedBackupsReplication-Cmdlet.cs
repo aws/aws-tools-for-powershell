@@ -128,6 +128,21 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String SourceRegion { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags to associate with the replicated automated backups.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'DBInstanceAutomatedBackup'.
@@ -185,6 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 WriteWarning("You are passing $null as a value for parameter SourceDBInstanceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.RDS.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -220,6 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.SourceDBInstanceArn != null)
             {
                 request.SourceDBInstanceArn = cmdletContext.SourceDBInstanceArn;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -281,6 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String KmsKeyId { get; set; }
             public System.String PreSignedUrl { get; set; }
             public System.String SourceDBInstanceArn { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.RDS.Model.StartDBInstanceAutomatedBackupsReplicationResponse, StartRDSDBInstanceAutomatedBackupsReplicationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DBInstanceAutomatedBackup;
         }

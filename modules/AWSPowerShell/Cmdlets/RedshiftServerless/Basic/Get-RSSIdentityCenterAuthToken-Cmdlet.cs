@@ -23,64 +23,71 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.CostExplorer;
-using Amazon.CostExplorer.Model;
+using Amazon.RedshiftServerless;
+using Amazon.RedshiftServerless.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.CE
+namespace Amazon.PowerShell.Cmdlets.RSS
 {
     /// <summary>
-    /// Deletes a cost category. Expenses from this month going forward will no longer be
-    /// categorized with this cost category.
+    /// Returns an Identity Center authentication token for accessing Amazon Redshift Serverless
+    /// workgroups.
+    /// 
+    ///  
+    /// <para>
+    /// The token provides secure access to data within the specified workgroups using Identity
+    /// Center identity propagation. The token expires after a specified duration and must
+    /// be refreshed for continued access.
+    /// </para><para>
+    /// The Identity and Access Management (IAM) user or role that runs GetIdentityCenterAuthToken
+    /// must have appropriate permissions to access the specified workgroups and Identity
+    /// Center integration must be configured for the workgroups.
+    /// </para>
     /// </summary>
-    [Cmdlet("Remove", "CECostCategoryDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.CostExplorer.Model.DeleteCostCategoryDefinitionResponse")]
-    [AWSCmdlet("Calls the AWS Cost Explorer DeleteCostCategoryDefinition API operation.", Operation = new[] {"DeleteCostCategoryDefinition"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.DeleteCostCategoryDefinitionResponse))]
-    [AWSCmdletOutput("Amazon.CostExplorer.Model.DeleteCostCategoryDefinitionResponse",
-        "This cmdlet returns an Amazon.CostExplorer.Model.DeleteCostCategoryDefinitionResponse object containing multiple properties."
+    [Cmdlet("Get", "RSSIdentityCenterAuthToken")]
+    [OutputType("Amazon.RedshiftServerless.Model.GetIdentityCenterAuthTokenResponse")]
+    [AWSCmdlet("Calls the Redshift Serverless GetIdentityCenterAuthToken API operation.", Operation = new[] {"GetIdentityCenterAuthToken"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.GetIdentityCenterAuthTokenResponse))]
+    [AWSCmdletOutput("Amazon.RedshiftServerless.Model.GetIdentityCenterAuthTokenResponse",
+        "This cmdlet returns an Amazon.RedshiftServerless.Model.GetIdentityCenterAuthTokenResponse object containing multiple properties."
     )]
-    public partial class RemoveCECostCategoryDefinitionCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
+    public partial class GetRSSIdentityCenterAuthTokenCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter CostCategoryArn
+        #region Parameter WorkgroupName
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for your cost category. </para>
+        /// <para>A list of workgroup names for which to generate the Identity Center authentication
+        /// token.</para><para>Constraints:</para><ul><li><para>Must contain between 1 and 20 workgroup names.</para></li><li><para>Each workgroup name must be a valid Amazon Redshift Serverless workgroup identifier.</para></li><li><para>All specified workgroups must have Identity Center integration enabled.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String CostCategoryArn { get; set; }
+        [Alias("WorkgroupNames")]
+        public System.String[] WorkgroupName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CostExplorer.Model.DeleteCostCategoryDefinitionResponse).
-        /// Specifying the name of a property of type Amazon.CostExplorer.Model.DeleteCostCategoryDefinitionResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RedshiftServerless.Model.GetIdentityCenterAuthTokenResponse).
+        /// Specifying the name of a property of type Amazon.RedshiftServerless.Model.GetIdentityCenterAuthTokenResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -92,12 +99,6 @@ namespace Amazon.PowerShell.Cmdlets.CE
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CostCategoryArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CECostCategoryDefinition (DeleteCostCategoryDefinition)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -105,14 +106,17 @@ namespace Amazon.PowerShell.Cmdlets.CE
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CostExplorer.Model.DeleteCostCategoryDefinitionResponse, RemoveCECostCategoryDefinitionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.RedshiftServerless.Model.GetIdentityCenterAuthTokenResponse, GetRSSIdentityCenterAuthTokenCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.CostCategoryArn = this.CostCategoryArn;
-            #if MODULAR
-            if (this.CostCategoryArn == null && ParameterWasBound(nameof(this.CostCategoryArn)))
+            if (this.WorkgroupName != null)
             {
-                WriteWarning("You are passing $null as a value for parameter CostCategoryArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.WorkgroupName = new List<System.String>(this.WorkgroupName);
+            }
+            #if MODULAR
+            if (this.WorkgroupName == null && ParameterWasBound(nameof(this.WorkgroupName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter WorkgroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -129,11 +133,11 @@ namespace Amazon.PowerShell.Cmdlets.CE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CostExplorer.Model.DeleteCostCategoryDefinitionRequest();
+            var request = new Amazon.RedshiftServerless.Model.GetIdentityCenterAuthTokenRequest();
             
-            if (cmdletContext.CostCategoryArn != null)
+            if (cmdletContext.WorkgroupName != null)
             {
-                request.CostCategoryArn = cmdletContext.CostCategoryArn;
+                request.WorkgroupNames = cmdletContext.WorkgroupName;
             }
             
             CmdletOutput output;
@@ -168,12 +172,12 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         #region AWS Service Operation Call
         
-        private Amazon.CostExplorer.Model.DeleteCostCategoryDefinitionResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.DeleteCostCategoryDefinitionRequest request)
+        private Amazon.RedshiftServerless.Model.GetIdentityCenterAuthTokenResponse CallAWSServiceOperation(IAmazonRedshiftServerless client, Amazon.RedshiftServerless.Model.GetIdentityCenterAuthTokenRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "DeleteCostCategoryDefinition");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Redshift Serverless", "GetIdentityCenterAuthToken");
             try
             {
-                return client.DeleteCostCategoryDefinitionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetIdentityCenterAuthTokenAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -190,8 +194,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String CostCategoryArn { get; set; }
-            public System.Func<Amazon.CostExplorer.Model.DeleteCostCategoryDefinitionResponse, RemoveCECostCategoryDefinitionCmdlet, object> Select { get; set; } =
+            public List<System.String> WorkgroupName { get; set; }
+            public System.Func<Amazon.RedshiftServerless.Model.GetIdentityCenterAuthTokenResponse, GetRSSIdentityCenterAuthTokenCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

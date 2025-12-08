@@ -30,7 +30,7 @@ using Amazon.CostExplorer.Model;
 namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
-    /// Creates a new Cost Category with the requested name and rules.
+    /// Creates a new cost category with the requested name and rules.
     /// </summary>
     [Cmdlet("New", "CECostCategoryDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CostExplorer.Model.CreateCostCategoryDefinitionResponse")]
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter EffectiveStart
         /// <summary>
         /// <para>
-        /// <para>The Cost Category's effective start date. It can only be a billing start date (first
+        /// <para>The cost category's effective start date. It can only be a billing start date (first
         /// day of the month). If the date isn't provided, it's the first day of the current month.
         /// Dates can't be before the previous twelve months, or in the future.</para>
         /// </para>
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Rule
         /// <summary>
         /// <para>
-        /// <para>The Cost Category rules used to categorize costs. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html">CostCategoryRule</a>.</para><para />
+        /// <para>The cost category rules used to categorize costs. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html">CostCategoryRule</a>.</para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter SplitChargeRule
         /// <summary>
         /// <para>
-        /// <para> The split charge rules used to allocate your charges between your Cost Category values.
+        /// <para> The split charge rules used to allocate your charges between your cost category values.
         /// </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller

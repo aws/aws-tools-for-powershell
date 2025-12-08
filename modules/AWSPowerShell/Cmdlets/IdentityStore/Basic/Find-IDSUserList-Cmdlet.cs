@@ -54,6 +54,23 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Extension
+        /// <summary>
+        /// <para>
+        /// <para>A collection of extension names indicating what extensions the service should retrieve
+        /// alongside other user attributes. <c>aws:identitystore:enterprise</c> is the only supported
+        /// extension name.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Extensions")]
+        public System.String[] Extension { get; set; }
+        #endregion
+        
         #region Parameter IdentityStoreId
         /// <summary>
         /// <para>
@@ -168,6 +185,10 @@ namespace Amazon.PowerShell.Cmdlets.IDS
                 context.Select = CreateSelectDelegate<Amazon.IdentityStore.Model.ListUsersResponse, FindIDSUserListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.Extension != null)
+            {
+                context.Extension = new List<System.String>(this.Extension);
+            }
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Filter != null)
             {
@@ -210,6 +231,10 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             // create request and set iteration invariants
             var request = new Amazon.IdentityStore.Model.ListUsersRequest();
             
+            if (cmdletContext.Extension != null)
+            {
+                request.Extensions = cmdletContext.Extension;
+            }
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Filter != null)
             {
@@ -304,6 +329,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> Extension { get; set; }
             [System.ObsoleteAttribute]
             public List<Amazon.IdentityStore.Model.Filter> Filter { get; set; }
             public System.String IdentityStoreId { get; set; }

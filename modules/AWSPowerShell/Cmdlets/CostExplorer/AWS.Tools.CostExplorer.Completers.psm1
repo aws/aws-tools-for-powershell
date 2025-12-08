@@ -410,6 +410,7 @@ $CE_SelectMap = @{
                "Get-CECostAllocationTagBackfillHistoryList",
                "Get-CECostAllocationTagList",
                "Get-CECostCategoryDefinitionList",
+               "Get-CECostCategoryResourceAssociationList",
                "Get-CESavingsPlansPurchaseRecommendationGenerationList",
                "Get-CEResourceTag",
                "Set-CEAnomalyFeedback",

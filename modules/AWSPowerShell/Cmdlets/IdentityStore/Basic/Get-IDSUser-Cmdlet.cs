@@ -51,6 +51,23 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Extension
+        /// <summary>
+        /// <para>
+        /// <para>A collection of extension names indicating what extensions the service should retrieve
+        /// alongside other user attributes. <c>aws:identitystore:enterprise</c> is the only supported
+        /// extension name.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Extensions")]
+        public System.String[] Extension { get; set; }
+        #endregion
+        
         #region Parameter IdentityStoreId
         /// <summary>
         /// <para>
@@ -118,6 +135,10 @@ namespace Amazon.PowerShell.Cmdlets.IDS
                 context.Select = CreateSelectDelegate<Amazon.IdentityStore.Model.DescribeUserResponse, GetIDSUserCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.Extension != null)
+            {
+                context.Extension = new List<System.String>(this.Extension);
+            }
             context.IdentityStoreId = this.IdentityStoreId;
             #if MODULAR
             if (this.IdentityStoreId == null && ParameterWasBound(nameof(this.IdentityStoreId)))
@@ -148,6 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             // create request
             var request = new Amazon.IdentityStore.Model.DescribeUserRequest();
             
+            if (cmdletContext.Extension != null)
+            {
+                request.Extensions = cmdletContext.Extension;
+            }
             if (cmdletContext.IdentityStoreId != null)
             {
                 request.IdentityStoreId = cmdletContext.IdentityStoreId;
@@ -211,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> Extension { get; set; }
             public System.String IdentityStoreId { get; set; }
             public System.String UserId { get; set; }
             public System.Func<Amazon.IdentityStore.Model.DescribeUserResponse, GetIDSUserCmdlet, object> Select { get; set; } =

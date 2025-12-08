@@ -98,6 +98,24 @@ namespace Amazon.PowerShell.Cmdlets.IDS
         public Amazon.IdentityStore.Model.Email[] Email { get; set; }
         #endregion
         
+        #region Parameter Extension
+        /// <summary>
+        /// <para>
+        /// <para>A map with additional attribute extensions for the user. Each map key corresponds
+        /// to an extension name, while map values represent extension data in <c>Document</c>
+        /// type (not supported by Java V1, Go V1 and older versions of the CLI). <c>aws:identitystore:enterprise</c>
+        /// is the only supported extension name.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Extensions")]
+        public System.Collections.Hashtable Extension { get; set; }
+        #endregion
+        
         #region Parameter Name_FamilyName
         /// <summary>
         /// <para>
@@ -361,6 +379,14 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             {
                 context.Email = new List<Amazon.IdentityStore.Model.Email>(this.Email);
             }
+            if (this.Extension != null)
+            {
+                context.Extension = new Dictionary<System.String, Amazon.Runtime.Documents.Document>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Extension.Keys)
+                {
+                    context.Extension.Add((String)hashKey, Amazon.PowerShell.Common.DocumentHelper.ToDocument(this.Extension[hashKey]));
+                }
+            }
             context.IdentityStoreId = this.IdentityStoreId;
             #if MODULAR
             if (this.IdentityStoreId == null && ParameterWasBound(nameof(this.IdentityStoreId)))
@@ -422,6 +448,10 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             if (cmdletContext.Email != null)
             {
                 request.Emails = cmdletContext.Email;
+            }
+            if (cmdletContext.Extension != null)
+            {
+                request.Extensions = cmdletContext.Extension;
             }
             if (cmdletContext.IdentityStoreId != null)
             {
@@ -599,6 +629,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
             public System.String Birthdate { get; set; }
             public System.String DisplayName { get; set; }
             public List<Amazon.IdentityStore.Model.Email> Email { get; set; }
+            public Dictionary<System.String, Amazon.Runtime.Documents.Document> Extension { get; set; }
             public System.String IdentityStoreId { get; set; }
             public System.String Locale { get; set; }
             public System.String Name_FamilyName { get; set; }

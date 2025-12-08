@@ -220,6 +220,7 @@ $RSS_SelectMap = @{
                "Get-RSSCredential",
                "Get-RSSCustomDomainAssociation",
                "Get-RSSEndpointAccess",
+               "Get-RSSIdentityCenterAuthToken",
                "Get-RSSNamespace",
                "Get-RSSRecoveryPoint",
                "Get-RSSReservation",

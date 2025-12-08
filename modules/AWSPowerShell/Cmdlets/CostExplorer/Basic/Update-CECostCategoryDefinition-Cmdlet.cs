@@ -30,7 +30,7 @@ using Amazon.CostExplorer.Model;
 namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
-    /// Updates an existing Cost Category. Changes made to the Cost Category rules will be
+    /// Updates an existing cost category. Changes made to the cost category rules will be
     /// used to categorize the current month’s expenses and future expenses. This won’t change
     /// categorization for the previous months.
     /// </summary>
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter CostCategoryArn
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for your Cost Category.</para>
+        /// <para>The unique identifier for your cost category.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter EffectiveStart
         /// <summary>
         /// <para>
-        /// <para>The Cost Category's effective start date. It can only be a billing start date (first
+        /// <para>The cost category's effective start date. It can only be a billing start date (first
         /// day of the month). If the date isn't provided, it's the first day of the current month.
         /// Dates can't be before the previous twelve months, or in the future.</para>
         /// </para>
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter SplitChargeRule
         /// <summary>
         /// <para>
-        /// <para> The split charge rules used to allocate your charges between your Cost Category values.
+        /// <para> The split charge rules used to allocate your charges between your cost category values.
         /// </para><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller

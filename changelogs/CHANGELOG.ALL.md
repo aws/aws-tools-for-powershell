@@ -1,4 +1,29 @@
-﻿### 5.0.111 (2025-12-05 21:21Z)
+﻿### 5.0.112 (2025-12-08 21:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.148.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Cost Explorer
+    * Added cmdlet Get-CECostCategoryResourceAssociationList leveraging the ListCostCategoryResourceAssociations service API.
+    * Modified cmdlet Get-CECostCategoryDefinitionList: added parameter SupportedResourceType.
+  * Amazon Identity Store
+    * Modified cmdlet Find-IDSUserList: added parameter Extension.
+    * Modified cmdlet Get-IDSUser: added parameter Extension.
+    * Modified cmdlet New-IDSUser: added parameter Extension.
+  * Amazon Redshift Serverless
+    * Added cmdlet Get-RSSIdentityCenterAuthToken leveraging the GetIdentityCenterAuthToken service API.
+  * Amazon Relational Database Service
+    * Modified cmdlet Convert-RDSReadReplicaToStandalone: added parameter TagSpecification.
+    * Modified cmdlet Edit-RDSDBInstance: added parameter TagSpecification.
+    * Modified cmdlet New-RDSDBCluster: added parameter TagSpecification.
+    * Modified cmdlet New-RDSDBInstance: added parameter TagSpecification.
+    * Modified cmdlet New-RDSDBInstanceReadReplica: added parameter TagSpecification.
+    * Modified cmdlet Restore-RDSDBClusterFromS3: added parameter TagSpecification.
+    * Modified cmdlet Restore-RDSDBClusterFromSnapshot: added parameter TagSpecification.
+    * Modified cmdlet Restore-RDSDBClusterToPointInTime: added parameter TagSpecification.
+    * Modified cmdlet Restore-RDSDBInstanceFromDBSnapshot: added parameter TagSpecification.
+    * Modified cmdlet Restore-RDSDBInstanceFromS3: added parameter TagSpecification.
+    * Modified cmdlet Restore-RDSDBInstanceToPointInTime: added parameter TagSpecification.
+    * Modified cmdlet Start-RDSDBInstanceAutomatedBackupsReplication: added parameter Tag.
+
+### 5.0.111 (2025-12-05 21:21Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.147.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Partner Central Account API
     * Added cmdlet Get-PCAAVerification leveraging the GetVerification service API.

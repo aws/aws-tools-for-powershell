@@ -30,10 +30,10 @@ using Amazon.CostExplorer.Model;
 namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
-    /// Retrieves an array of Cost Category names and values incurred cost.
+    /// Retrieves an array of cost category names and values incurred cost.
     /// 
     ///  <note><para>
-    /// If some Cost Category names and values are not associated with any cost, they will
+    /// If some cost category names and values are not associated with any cost, they will
     /// not be returned by this API.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -87,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>The value that you want to search the filter values for.</para><para>If you don't specify a <c>CostCategoryName</c>, <c>SearchString</c> is used to filter
-        /// Cost Category names that match the <c>SearchString</c> pattern. If you specify a <c>CostCategoryName</c>,
-        /// <c>SearchString</c> is used to filter Cost Category values that match the <c>SearchString</c>
+        /// cost category names that match the <c>SearchString</c> pattern. If you specify a <c>CostCategoryName</c>,
+        /// <c>SearchString</c> is used to filter cost category values that match the <c>SearchString</c>
         /// pattern.</para>
         /// </para>
         /// </summary>

@@ -158,6 +158,10 @@
             <AutoIterate Start="NextToken" Next="NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListCostCategoryResourceAssociations" OutputProperty="CostCategoryResourceAssociations" Verb="Get" Noun="CostCategoryResourceAssociationList" PipelineParameter="CostCategoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListSavingsPlansPurchaseRecommendationGeneration" OutputProperty="GenerationSummaryList" Verb="Get" Noun="SavingsPlansPurchaseRecommendationGenerationList" PipelineParameter="GenerationStatus" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

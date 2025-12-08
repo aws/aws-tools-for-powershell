@@ -612,6 +612,21 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>Tags to assign to resources associated with the DB cluster.</para><para>Valid Values: </para><ul><li><para><c>cluster-auto-backup</c> - The DB cluster's automated backup.</para></li></ul><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.RDS.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter ScalingConfiguration_TimeoutAction
         /// <summary>
         /// <para>
@@ -767,6 +782,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.RDS.Model.Tag>(this.Tag);
+            }
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.RDS.Model.TagSpecification>(this.TagSpecification);
             }
             if (this.VpcSecurityGroupId != null)
             {
@@ -1059,6 +1078,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.Tags = cmdletContext.Tag;
             }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
+            }
             if (cmdletContext.VpcSecurityGroupId != null)
             {
                 request.VpcSecurityGroupIds = cmdletContext.VpcSecurityGroupId;
@@ -1161,6 +1184,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String SnapshotIdentifier { get; set; }
             public System.String StorageType { get; set; }
             public List<Amazon.RDS.Model.Tag> Tag { get; set; }
+            public List<Amazon.RDS.Model.TagSpecification> TagSpecification { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }
             public System.Func<Amazon.RDS.Model.RestoreDBClusterFromSnapshotResponse, RestoreRDSDBClusterFromSnapshotCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DBCluster;

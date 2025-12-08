@@ -3529,6 +3529,9 @@ Set-Alias -Name CE-ListCostAllocationTags -Value Get-CECostAllocationTagList
 Set-Alias -Name List-CECostCategoryDefinitions -Value Get-CECostCategoryDefinitionList
 Set-Alias -Name List-CECostCategoryDefinitionList -Value Get-CECostCategoryDefinitionList
 Set-Alias -Name CE-ListCostCategoryDefinitions -Value Get-CECostCategoryDefinitionList
+Set-Alias -Name List-CECostCategoryResourceAssociations -Value Get-CECostCategoryResourceAssociationList
+Set-Alias -Name List-CECostCategoryResourceAssociationList -Value Get-CECostCategoryResourceAssociationList
+Set-Alias -Name CE-ListCostCategoryResourceAssociations -Value Get-CECostCategoryResourceAssociationList
 Set-Alias -Name List-CESavingsPlansPurchaseRecommendationGeneration -Value Get-CESavingsPlansPurchaseRecommendationGenerationList
 Set-Alias -Name List-CESavingsPlansPurchaseRecommendationGenerationList -Value Get-CESavingsPlansPurchaseRecommendationGenerationList
 Set-Alias -Name CE-ListSavingsPlansPurchaseRecommendationGeneration -Value Get-CESavingsPlansPurchaseRecommendationGenerationList
@@ -26668,6 +26671,7 @@ Set-Alias -Name Get-RSSCredentials -Value Get-RSSCredential
 Set-Alias -Name RSS-GetCredentials -Value Get-RSSCredential
 Set-Alias -Name RSS-GetCustomDomainAssociation -Value Get-RSSCustomDomainAssociation
 Set-Alias -Name RSS-GetEndpointAccess -Value Get-RSSEndpointAccess
+Set-Alias -Name RSS-GetIdentityCenterAuthToken -Value Get-RSSIdentityCenterAuthToken
 Set-Alias -Name RSS-GetNamespace -Value Get-RSSNamespace
 Set-Alias -Name RSS-GetRecoveryPoint -Value Get-RSSRecoveryPoint
 Set-Alias -Name RSS-GetReservation -Value Get-RSSReservation
