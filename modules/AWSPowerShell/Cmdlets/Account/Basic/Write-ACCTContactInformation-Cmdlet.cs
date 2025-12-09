@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
     /// 
     ///  
     /// <para>
-    /// For complete details about how to use the primary contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Update
-    /// the primary and alternate contact information</a>.
+    /// For complete details about how to use the primary contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-primary.html">Update
+    /// the primary contact for your Amazon Web Services account</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "ACCTContactInformation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -59,9 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         /// To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's
         /// management account</a> or a delegated administrator account. The specified account
         /// ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all
-        /// features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">trusted
+        /// features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html">trusted
         /// access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin">delegated
-        /// admin</a> account assigned.</para><note><para>The management account can't specify its own <c>AccountId</c>. It must call the operation
+        /// administrator</a> account assigned.</para><note><para>The management account can't specify its own <c>AccountId</c>. It must call the operation
         /// in standalone context by not including the <c>AccountId</c> parameter.</para></note><para>To call this operation on an account that is not a member of an organization, don't
         /// specify this parameter. Instead, call the operation using an identity belonging to
         /// the account whose contacts you wish to retrieve or modify.</para>

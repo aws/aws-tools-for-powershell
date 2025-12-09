@@ -108,6 +108,17 @@ $MGN_Completers = {
             break
         }
 
+        # Amazon.Mgn.InternetProtocol
+        {
+            ($_ -eq "New-MGNReplicationConfigurationTemplate/InternetProtocol") -Or
+            ($_ -eq "Update-MGNReplicationConfiguration/InternetProtocol") -Or
+            ($_ -eq "Update-MGNReplicationConfigurationTemplate/InternetProtocol")
+        }
+        {
+            $v = "IPV4","IPV6"
+            break
+        }
+
         # Amazon.Mgn.LaunchDisposition
         {
             ($_ -eq "New-MGNLaunchConfigurationTemplate/LaunchDisposition") -Or
@@ -207,6 +218,7 @@ $MGN_map = @{
     "DataPlaneRouting"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "DefaultLargeStagingDiskType"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "EbsEncryption"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
+    "InternetProtocol"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "LargeVolumeConf_VolumeType"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfigurationTemplate")
     "LaunchDisposition"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfiguration","Update-MGNLaunchConfigurationTemplate")
     "LifeCycle_State"=@("Set-MGNServerLifeCycleState")

@@ -116,6 +116,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public System.Boolean? EnableMapAutoTagging { get; set; }
         #endregion
         
+        #region Parameter EnableParametersEncryption
+        /// <summary>
+        /// <para>
+        /// <para>Enable parameters encryption.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableParametersEncryption { get; set; }
+        #endregion
+        
         #region Parameter LargeVolumeConf_Iops
         /// <summary>
         /// <para>
@@ -182,6 +192,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? Licensing_OsByol { get; set; }
+        #endregion
+        
+        #region Parameter ParametersEncryptionKey
+        /// <summary>
+        /// <para>
+        /// <para>Parameters encryption key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ParametersEncryptionKey { get; set; }
         #endregion
         
         #region Parameter PostLaunchActions_S3LogBucket
@@ -345,6 +365,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             context.CopyPrivateIp = this.CopyPrivateIp;
             context.CopyTag = this.CopyTag;
             context.EnableMapAutoTagging = this.EnableMapAutoTagging;
+            context.EnableParametersEncryption = this.EnableParametersEncryption;
             context.LargeVolumeConf_Iops = this.LargeVolumeConf_Iops;
             context.LargeVolumeConf_Throughput = this.LargeVolumeConf_Throughput;
             context.LargeVolumeConf_VolumeType = this.LargeVolumeConf_VolumeType;
@@ -358,6 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             context.LaunchDisposition = this.LaunchDisposition;
             context.Licensing_OsByol = this.Licensing_OsByol;
             context.MapAutoTaggingMpeID = this.MapAutoTaggingMpeID;
+            context.ParametersEncryptionKey = this.ParametersEncryptionKey;
             context.PostLaunchActions_CloudWatchLogGroupName = this.PostLaunchActions_CloudWatchLogGroupName;
             context.PostLaunchActions_Deployment = this.PostLaunchActions_Deployment;
             context.PostLaunchActions_S3LogBucket = this.PostLaunchActions_S3LogBucket;
@@ -406,6 +428,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             if (cmdletContext.EnableMapAutoTagging != null)
             {
                 request.EnableMapAutoTagging = cmdletContext.EnableMapAutoTagging.Value;
+            }
+            if (cmdletContext.EnableParametersEncryption != null)
+            {
+                request.EnableParametersEncryption = cmdletContext.EnableParametersEncryption.Value;
             }
             
              // populate LargeVolumeConf
@@ -476,6 +502,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             if (cmdletContext.MapAutoTaggingMpeID != null)
             {
                 request.MapAutoTaggingMpeID = cmdletContext.MapAutoTaggingMpeID;
+            }
+            if (cmdletContext.ParametersEncryptionKey != null)
+            {
+                request.ParametersEncryptionKey = cmdletContext.ParametersEncryptionKey;
             }
             
              // populate PostLaunchActions
@@ -649,6 +679,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             public System.Boolean? CopyPrivateIp { get; set; }
             public System.Boolean? CopyTag { get; set; }
             public System.Boolean? EnableMapAutoTagging { get; set; }
+            public System.Boolean? EnableParametersEncryption { get; set; }
             public System.Int64? LargeVolumeConf_Iops { get; set; }
             public System.Int64? LargeVolumeConf_Throughput { get; set; }
             public Amazon.Mgn.VolumeType LargeVolumeConf_VolumeType { get; set; }
@@ -656,6 +687,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             public Amazon.Mgn.LaunchDisposition LaunchDisposition { get; set; }
             public System.Boolean? Licensing_OsByol { get; set; }
             public System.String MapAutoTaggingMpeID { get; set; }
+            public System.String ParametersEncryptionKey { get; set; }
             public System.String PostLaunchActions_CloudWatchLogGroupName { get; set; }
             public Amazon.Mgn.PostLaunchActionsDeploymentType PostLaunchActions_Deployment { get; set; }
             public System.String PostLaunchActions_S3LogBucket { get; set; }

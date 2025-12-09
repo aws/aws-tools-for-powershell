@@ -46,6 +46,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetGovCloudAccountInformation" OutputProperty="*" Verb="Get" Noun="GovCloudAccountInformation" PipelineParameter="StandardAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetPrimaryEmail" OutputProperty="PrimaryEmail" Verb="Get" Noun="PrimaryEmail" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

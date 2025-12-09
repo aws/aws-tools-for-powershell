@@ -40,6 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     public partial class StartMGNExportCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter S3Bucket
@@ -84,6 +88,17 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String S3Key { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Start import request tags.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -163,6 +178,14 @@ namespace Amazon.PowerShell.Cmdlets.MGN
                 WriteWarning("You are passing $null as a value for parameter S3Key which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -190,6 +213,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             if (cmdletContext.S3Key != null)
             {
                 request.S3Key = cmdletContext.S3Key;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -255,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             public System.String S3Bucket { get; set; }
             public System.String S3BucketOwner { get; set; }
             public System.String S3Key { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Mgn.Model.StartExportResponse, StartMGNExportCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ExportTask;
         }

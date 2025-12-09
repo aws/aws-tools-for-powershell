@@ -28,24 +28,23 @@ using Amazon.Account.Model;
 namespace Amazon.PowerShell.Cmdlets.ACCT
 {
     /// <summary>
-    /// Retrieves information about the specified account including its account name, account
-    /// ID, and account creation date and time. To use this API, an IAM user or role must
-    /// have the <c>account:GetAccountInformation</c> IAM permission.
+    /// Retrieves information about the GovCloud account linked to the specified standard
+    /// account (if it exists) including the GovCloud account ID and state. To use this API,
+    /// an IAM user or role must have the <c>account:GetGovCloudAccountInformation</c> IAM
+    /// permission.
     /// </summary>
-    [Cmdlet("Get", "ACCTAccountInformation")]
-    [OutputType("Amazon.Account.Model.GetAccountInformationResponse")]
-    [AWSCmdlet("Calls the AWS Account GetAccountInformation API operation.", Operation = new[] {"GetAccountInformation"}, SelectReturnType = typeof(Amazon.Account.Model.GetAccountInformationResponse))]
-    [AWSCmdletOutput("Amazon.Account.Model.GetAccountInformationResponse",
-        "This cmdlet returns an Amazon.Account.Model.GetAccountInformationResponse object containing multiple properties."
+    [Cmdlet("Get", "ACCTGovCloudAccountInformation")]
+    [OutputType("Amazon.Account.Model.GetGovCloudAccountInformationResponse")]
+    [AWSCmdlet("Calls the AWS Account GetGovCloudAccountInformation API operation.", Operation = new[] {"GetGovCloudAccountInformation"}, SelectReturnType = typeof(Amazon.Account.Model.GetGovCloudAccountInformationResponse))]
+    [AWSCmdletOutput("Amazon.Account.Model.GetGovCloudAccountInformationResponse",
+        "This cmdlet returns an Amazon.Account.Model.GetGovCloudAccountInformationResponse object containing multiple properties."
     )]
-    public partial class GetACCTAccountInformationCmdlet : AmazonAccountClientCmdlet, IExecutor
+    public partial class GetACCTGovCloudAccountInformationCmdlet : AmazonAccountClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AccountId
+        #region Parameter StandardAccountId
         /// <summary>
         /// <para>
         /// <para>Specifies the 12 digit account ID number of the Amazon Web Services account that you
@@ -62,14 +61,14 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String AccountId { get; set; }
+        public System.String StandardAccountId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Account.Model.GetAccountInformationResponse).
-        /// Specifying the name of a property of type Amazon.Account.Model.GetAccountInformationResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Account.Model.GetGovCloudAccountInformationResponse).
+        /// Specifying the name of a property of type Amazon.Account.Model.GetGovCloudAccountInformationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,10 +77,10 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AccountId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AccountId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the StandardAccountId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^StandardAccountId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AccountId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^StandardAccountId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -99,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Account.Model.GetAccountInformationResponse, GetACCTAccountInformationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Account.Model.GetGovCloudAccountInformationResponse, GetACCTGovCloudAccountInformationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -108,10 +107,10 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AccountId;
+                context.Select = (response, cmdlet) => this.StandardAccountId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AccountId = this.AccountId;
+            context.StandardAccountId = this.StandardAccountId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -126,11 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Account.Model.GetAccountInformationRequest();
+            var request = new Amazon.Account.Model.GetGovCloudAccountInformationRequest();
             
-            if (cmdletContext.AccountId != null)
+            if (cmdletContext.StandardAccountId != null)
             {
-                request.AccountId = cmdletContext.AccountId;
+                request.StandardAccountId = cmdletContext.StandardAccountId;
             }
             
             CmdletOutput output;
@@ -165,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         
         #region AWS Service Operation Call
         
-        private Amazon.Account.Model.GetAccountInformationResponse CallAWSServiceOperation(IAmazonAccount client, Amazon.Account.Model.GetAccountInformationRequest request)
+        private Amazon.Account.Model.GetGovCloudAccountInformationResponse CallAWSServiceOperation(IAmazonAccount client, Amazon.Account.Model.GetGovCloudAccountInformationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Account", "GetAccountInformation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Account", "GetGovCloudAccountInformation");
             try
             {
                 #if DESKTOP
-                return client.GetAccountInformation(request);
+                return client.GetGovCloudAccountInformation(request);
                 #elif CORECLR
-                return client.GetAccountInformationAsync(request).GetAwaiter().GetResult();
+                return client.GetGovCloudAccountInformationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -193,8 +192,8 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AccountId { get; set; }
-            public System.Func<Amazon.Account.Model.GetAccountInformationResponse, GetACCTAccountInformationCmdlet, object> Select { get; set; } =
+            public System.String StandardAccountId { get; set; }
+            public System.Func<Amazon.Account.Model.GetGovCloudAccountInformationResponse, GetACCTGovCloudAccountInformationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

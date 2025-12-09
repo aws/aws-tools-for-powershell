@@ -32,13 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
     /// 
     ///  
     /// <para>
-    /// For complete details about how to use the alternate contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Access
-    /// or updating the alternate contacts</a>.
+    /// For complete details about how to use the alternate contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-alternate.html">Update
+    /// the alternate contacts for your Amazon Web Services account</a>.
     /// </para><note><para>
     /// Before you can update the alternate contact information for an Amazon Web Services
     /// account that is managed by Organizations, you must first enable integration between
     /// Amazon Web Services Account Management and Organizations. For more information, see
-    /// <a href="https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html">Enabling
+    /// <a href="https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html">Enable
     /// trusted access for Amazon Web Services Account Management</a>.
     /// </para></note>
     /// </summary>
@@ -62,9 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         /// of the identity used to call the operation.</para><para>To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's
         /// management account</a> or a delegated administrator account, and the specified account
         /// ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all
-        /// features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-trusted-access.html">trusted
-        /// access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-delegated-admin.html">delegated
-        /// admin</a> account assigned.</para><note><para>The management account can't specify its own <c>AccountId</c>; it must call the operation
+        /// features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html">trusted
+        /// access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin">delegated
+        /// administrator</a> account assigned.</para><note><para>The management account can't specify its own <c>AccountId</c>; it must call the operation
         /// in standalone context by not including the <c>AccountId</c> parameter.</para></note><para>To call this operation on an account that is not a member of an organization, then
         /// don't specify this parameter, and call the operation using an identity belonging to
         /// the account whose contacts you wish to retrieve or modify.</para>

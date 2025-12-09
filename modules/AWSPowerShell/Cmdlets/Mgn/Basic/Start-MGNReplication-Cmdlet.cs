@@ -28,7 +28,7 @@ using Amazon.Mgn.Model;
 namespace Amazon.PowerShell.Cmdlets.MGN
 {
     /// <summary>
-    /// Starts replication for SNAPSHOT_SHIPPING agents.
+    /// Start replication for source server irrespective of its replication type.
     /// </summary>
     [Cmdlet("Start", "MGNReplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Mgn.Model.StartReplicationResponse")]

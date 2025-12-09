@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
     /// 
     ///  
     /// <para>
-    /// For complete details about how to use the primary contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Update
-    /// the primary and alternate contact information</a>.
+    /// For complete details about how to use the primary contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-primary.html">Update
+    /// the primary contact for your Amazon Web Services account</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "ACCTContactInformation")]
