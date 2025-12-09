@@ -31,7 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.MGN
 {
     /// <summary>
     /// Allows you to change between the AGENT_BASED replication type and the SNAPSHOT_SHIPPING
-    /// replication type.
+    /// replication type. 
+    /// 
+    ///  
+    /// <para>
+    /// SNAPSHOT_SHIPPING should be used for agentless replication.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "MGNSourceServerReplicationType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Mgn.Model.UpdateSourceServerReplicationTypeResponse")]

@@ -155,6 +155,17 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public System.String EbsEncryptionKeyArn { get; set; }
         #endregion
         
+        #region Parameter InternetProtocol
+        /// <summary>
+        /// <para>
+        /// <para>Request to configure the internet protocol to IPv4 or IPv6.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Mgn.InternetProtocol")]
+        public Amazon.Mgn.InternetProtocol InternetProtocol { get; set; }
+        #endregion
+        
         #region Parameter ReplicationServerInstanceType
         /// <summary>
         /// <para>
@@ -366,6 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             }
             #endif
             context.EbsEncryptionKeyArn = this.EbsEncryptionKeyArn;
+            context.InternetProtocol = this.InternetProtocol;
             context.ReplicationServerInstanceType = this.ReplicationServerInstanceType;
             #if MODULAR
             if (this.ReplicationServerInstanceType == null && ParameterWasBound(nameof(this.ReplicationServerInstanceType)))
@@ -464,6 +476,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             {
                 request.EbsEncryptionKeyArn = cmdletContext.EbsEncryptionKeyArn;
             }
+            if (cmdletContext.InternetProtocol != null)
+            {
+                request.InternetProtocol = cmdletContext.InternetProtocol;
+            }
             if (cmdletContext.ReplicationServerInstanceType != null)
             {
                 request.ReplicationServerInstanceType = cmdletContext.ReplicationServerInstanceType;
@@ -554,6 +570,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             public Amazon.Mgn.ReplicationConfigurationDefaultLargeStagingDiskType DefaultLargeStagingDiskType { get; set; }
             public Amazon.Mgn.ReplicationConfigurationEbsEncryption EbsEncryption { get; set; }
             public System.String EbsEncryptionKeyArn { get; set; }
+            public Amazon.Mgn.InternetProtocol InternetProtocol { get; set; }
             public System.String ReplicationServerInstanceType { get; set; }
             public List<System.String> ReplicationServersSecurityGroupsIDs { get; set; }
             public System.String StagingAreaSubnetId { get; set; }

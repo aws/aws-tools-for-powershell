@@ -1,4 +1,17 @@
-﻿### 5.0.112 (2025-12-08 21:12Z)
+﻿### 5.0.113 (2025-12-09 21:15Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.149.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Account
+    * Added cmdlet Get-ACCTGovCloudAccountInformation leveraging the GetGovCloudAccountInformation service API.
+  * Amazon Application Migration Service
+    * Modified cmdlet New-MGNLaunchConfigurationTemplate: added parameters EnableParametersEncryption and ParametersEncryptionKey.
+    * Modified cmdlet New-MGNReplicationConfigurationTemplate: added parameter InternetProtocol.
+    * Modified cmdlet Start-MGNExport: added parameter Tag.
+    * Modified cmdlet Start-MGNImport: added parameter Tag.
+    * Modified cmdlet Update-MGNLaunchConfigurationTemplate: added parameters EnableParametersEncryption and ParametersEncryptionKey.
+    * Modified cmdlet Update-MGNReplicationConfiguration: added parameter InternetProtocol.
+    * Modified cmdlet Update-MGNReplicationConfigurationTemplate: added parameter InternetProtocol.
+
+### 5.0.112 (2025-12-08 21:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.148.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Cost Explorer
     * Added cmdlet Get-CECostCategoryResourceAssociationList leveraging the ListCostCategoryResourceAssociations service API.

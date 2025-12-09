@@ -128,6 +128,17 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public System.String EbsEncryptionKeyArn { get; set; }
         #endregion
         
+        #region Parameter InternetProtocol
+        /// <summary>
+        /// <para>
+        /// <para>Update replication configuration template internet protocol request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Mgn.InternetProtocol")]
+        public Amazon.Mgn.InternetProtocol InternetProtocol { get; set; }
+        #endregion
+        
         #region Parameter ReplicationConfigurationTemplateID
         /// <summary>
         /// <para>
@@ -268,6 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             context.DefaultLargeStagingDiskType = this.DefaultLargeStagingDiskType;
             context.EbsEncryption = this.EbsEncryption;
             context.EbsEncryptionKeyArn = this.EbsEncryptionKeyArn;
+            context.InternetProtocol = this.InternetProtocol;
             context.ReplicationConfigurationTemplateID = this.ReplicationConfigurationTemplateID;
             #if MODULAR
             if (this.ReplicationConfigurationTemplateID == null && ParameterWasBound(nameof(this.ReplicationConfigurationTemplateID)))
@@ -338,6 +350,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             if (cmdletContext.EbsEncryptionKeyArn != null)
             {
                 request.EbsEncryptionKeyArn = cmdletContext.EbsEncryptionKeyArn;
+            }
+            if (cmdletContext.InternetProtocol != null)
+            {
+                request.InternetProtocol = cmdletContext.InternetProtocol;
             }
             if (cmdletContext.ReplicationConfigurationTemplateID != null)
             {
@@ -430,6 +446,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             public Amazon.Mgn.ReplicationConfigurationDefaultLargeStagingDiskType DefaultLargeStagingDiskType { get; set; }
             public Amazon.Mgn.ReplicationConfigurationEbsEncryption EbsEncryption { get; set; }
             public System.String EbsEncryptionKeyArn { get; set; }
+            public Amazon.Mgn.InternetProtocol InternetProtocol { get; set; }
             public System.String ReplicationConfigurationTemplateID { get; set; }
             public System.String ReplicationServerInstanceType { get; set; }
             public List<System.String> ReplicationServersSecurityGroupsIDs { get; set; }

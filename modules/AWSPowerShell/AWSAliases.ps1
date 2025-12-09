@@ -75,6 +75,7 @@ Set-Alias -Name ACCT-EnableRegion -Value Enable-ACCTRegion
 Set-Alias -Name ACCT-GetAccountInformation -Value Get-ACCTAccountInformation
 Set-Alias -Name ACCT-GetAlternateContact -Value Get-ACCTAlternateContact
 Set-Alias -Name ACCT-GetContactInformation -Value Get-ACCTContactInformation
+Set-Alias -Name ACCT-GetGovCloudAccountInformation -Value Get-ACCTGovCloudAccountInformation
 Set-Alias -Name ACCT-GetPrimaryEmail -Value Get-ACCTPrimaryEmail
 Set-Alias -Name ACCT-GetRegionOptStatus -Value Get-ACCTRegionOptStatus
 Set-Alias -Name List-ACCTRegions -Value Get-ACCTRegionList

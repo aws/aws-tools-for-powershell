@@ -93,6 +93,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ACCTAccountInformation', 
         'Get-ACCTAlternateContact', 
         'Get-ACCTContactInformation', 
+        'Get-ACCTGovCloudAccountInformation', 
         'Get-ACCTPrimaryEmail', 
         'Get-ACCTRegionList', 
         'Get-ACCTRegionOptStatus', 

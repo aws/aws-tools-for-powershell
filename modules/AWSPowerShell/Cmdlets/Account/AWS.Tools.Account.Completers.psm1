@@ -160,6 +160,7 @@ $ACCT_SelectMap = @{
                "Get-ACCTAccountInformation",
                "Get-ACCTAlternateContact",
                "Get-ACCTContactInformation",
+               "Get-ACCTGovCloudAccountInformation",
                "Get-ACCTPrimaryEmail",
                "Get-ACCTRegionOptStatus",
                "Get-ACCTRegionList",

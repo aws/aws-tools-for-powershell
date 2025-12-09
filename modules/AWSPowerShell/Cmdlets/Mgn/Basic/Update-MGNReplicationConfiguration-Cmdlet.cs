@@ -128,6 +128,17 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public System.String EbsEncryptionKeyArn { get; set; }
         #endregion
         
+        #region Parameter InternetProtocol
+        /// <summary>
+        /// <para>
+        /// <para>Update replication configuration internet protocol.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Mgn.InternetProtocol")]
+        public Amazon.Mgn.InternetProtocol InternetProtocol { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -293,6 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             context.DefaultLargeStagingDiskType = this.DefaultLargeStagingDiskType;
             context.EbsEncryption = this.EbsEncryption;
             context.EbsEncryptionKeyArn = this.EbsEncryptionKeyArn;
+            context.InternetProtocol = this.InternetProtocol;
             context.Name = this.Name;
             if (this.ReplicatedDisk != null)
             {
@@ -368,6 +380,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             if (cmdletContext.EbsEncryptionKeyArn != null)
             {
                 request.EbsEncryptionKeyArn = cmdletContext.EbsEncryptionKeyArn;
+            }
+            if (cmdletContext.InternetProtocol != null)
+            {
+                request.InternetProtocol = cmdletContext.InternetProtocol;
             }
             if (cmdletContext.Name != null)
             {
@@ -468,6 +484,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             public Amazon.Mgn.ReplicationConfigurationDefaultLargeStagingDiskType DefaultLargeStagingDiskType { get; set; }
             public Amazon.Mgn.ReplicationConfigurationEbsEncryption EbsEncryption { get; set; }
             public System.String EbsEncryptionKeyArn { get; set; }
+            public Amazon.Mgn.InternetProtocol InternetProtocol { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.Mgn.Model.ReplicationConfigurationReplicatedDisk> ReplicatedDisk { get; set; }
             public System.String ReplicationServerInstanceType { get; set; }

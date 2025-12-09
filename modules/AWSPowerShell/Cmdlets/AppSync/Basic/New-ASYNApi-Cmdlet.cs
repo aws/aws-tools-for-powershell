@@ -57,7 +57,14 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("EventConfig_AuthProviders")]
         public Amazon.AppSync.Model.AuthProvider[] EventConfig_AuthProvider { get; set; }
         #endregion
@@ -83,7 +90,14 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("EventConfig_ConnectionAuthModes")]
         public Amazon.AppSync.Model.AuthMode[] EventConfig_ConnectionAuthMode { get; set; }
         #endregion
@@ -98,7 +112,14 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("EventConfig_DefaultPublishAuthModes")]
         public Amazon.AppSync.Model.AuthMode[] EventConfig_DefaultPublishAuthMode { get; set; }
         #endregion
@@ -113,7 +134,14 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("EventConfig_DefaultSubscribeAuthModes")]
         public Amazon.AppSync.Model.AuthMode[] EventConfig_DefaultSubscribeAuthMode { get; set; }
         #endregion
@@ -222,18 +250,42 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             {
                 context.EventConfig_AuthProvider = new List<Amazon.AppSync.Model.AuthProvider>(this.EventConfig_AuthProvider);
             }
+            #if MODULAR
+            if (this.EventConfig_AuthProvider == null && ParameterWasBound(nameof(this.EventConfig_AuthProvider)))
+            {
+                WriteWarning("You are passing $null as a value for parameter EventConfig_AuthProvider which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.EventConfig_ConnectionAuthMode != null)
             {
                 context.EventConfig_ConnectionAuthMode = new List<Amazon.AppSync.Model.AuthMode>(this.EventConfig_ConnectionAuthMode);
             }
+            #if MODULAR
+            if (this.EventConfig_ConnectionAuthMode == null && ParameterWasBound(nameof(this.EventConfig_ConnectionAuthMode)))
+            {
+                WriteWarning("You are passing $null as a value for parameter EventConfig_ConnectionAuthMode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.EventConfig_DefaultPublishAuthMode != null)
             {
                 context.EventConfig_DefaultPublishAuthMode = new List<Amazon.AppSync.Model.AuthMode>(this.EventConfig_DefaultPublishAuthMode);
             }
+            #if MODULAR
+            if (this.EventConfig_DefaultPublishAuthMode == null && ParameterWasBound(nameof(this.EventConfig_DefaultPublishAuthMode)))
+            {
+                WriteWarning("You are passing $null as a value for parameter EventConfig_DefaultPublishAuthMode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.EventConfig_DefaultSubscribeAuthMode != null)
             {
                 context.EventConfig_DefaultSubscribeAuthMode = new List<Amazon.AppSync.Model.AuthMode>(this.EventConfig_DefaultSubscribeAuthMode);
             }
+            #if MODULAR
+            if (this.EventConfig_DefaultSubscribeAuthMode == null && ParameterWasBound(nameof(this.EventConfig_DefaultSubscribeAuthMode)))
+            {
+                WriteWarning("You are passing $null as a value for parameter EventConfig_DefaultSubscribeAuthMode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.LogConfig_CloudWatchLogsRoleArn = this.LogConfig_CloudWatchLogsRoleArn;
             context.LogConfig_LogLevel = this.LogConfig_LogLevel;
             context.Name = this.Name;

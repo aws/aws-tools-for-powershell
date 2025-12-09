@@ -30,57 +30,52 @@ using Amazon.Account.Model;
 namespace Amazon.PowerShell.Cmdlets.ACCT
 {
     /// <summary>
-    /// Retrieves the primary contact information of an Amazon Web Services account.
-    /// 
-    ///  
-    /// <para>
-    /// For complete details about how to use the primary contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact-primary.html">Update
-    /// the primary contact for your Amazon Web Services account</a>.
-    /// </para>
+    /// Retrieves information about the GovCloud account linked to the specified standard
+    /// account (if it exists) including the GovCloud account ID and state. To use this API,
+    /// an IAM user or role must have the <c>account:GetGovCloudAccountInformation</c> IAM
+    /// permission.
     /// </summary>
-    [Cmdlet("Get", "ACCTContactInformation")]
-    [OutputType("Amazon.Account.Model.ContactInformation")]
-    [AWSCmdlet("Calls the AWS Account GetContactInformation API operation.", Operation = new[] {"GetContactInformation"}, SelectReturnType = typeof(Amazon.Account.Model.GetContactInformationResponse))]
-    [AWSCmdletOutput("Amazon.Account.Model.ContactInformation or Amazon.Account.Model.GetContactInformationResponse",
-        "This cmdlet returns an Amazon.Account.Model.ContactInformation object.",
-        "The service call response (type Amazon.Account.Model.GetContactInformationResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "ACCTGovCloudAccountInformation")]
+    [OutputType("Amazon.Account.Model.GetGovCloudAccountInformationResponse")]
+    [AWSCmdlet("Calls the AWS Account GetGovCloudAccountInformation API operation.", Operation = new[] {"GetGovCloudAccountInformation"}, SelectReturnType = typeof(Amazon.Account.Model.GetGovCloudAccountInformationResponse))]
+    [AWSCmdletOutput("Amazon.Account.Model.GetGovCloudAccountInformationResponse",
+        "This cmdlet returns an Amazon.Account.Model.GetGovCloudAccountInformationResponse object containing multiple properties."
     )]
-    public partial class GetACCTContactInformationCmdlet : AmazonAccountClientCmdlet, IExecutor
+    public partial class GetACCTGovCloudAccountInformationCmdlet : AmazonAccountClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter AccountId
+        #region Parameter StandardAccountId
         /// <summary>
         /// <para>
-        /// <para>Specifies the 12-digit account ID number of the Amazon Web Services account that you
-        /// want to access or modify with this operation. If you don't specify this parameter,
-        /// it defaults to the Amazon Web Services account of the identity used to call the operation.
-        /// To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's
-        /// management account</a> or a delegated administrator account. The specified account
+        /// <para>Specifies the 12 digit account ID number of the Amazon Web Services account that you
+        /// want to access or modify with this operation.</para><para>If you do not specify this parameter, it defaults to the Amazon Web Services account
+        /// of the identity used to call the operation.</para><para>To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's
+        /// management account</a> or a delegated administrator account, and the specified account
         /// ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all
-        /// features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">trusted
+        /// features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html">trusted
         /// access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin">delegated
-        /// admin</a> account assigned.</para><note><para>The management account can't specify its own <c>AccountId</c>. It must call the operation
-        /// in standalone context by not including the <c>AccountId</c> parameter.</para></note><para>To call this operation on an account that is not a member of an organization, don't
-        /// specify this parameter. Instead, call the operation using an identity belonging to
+        /// administrator</a> account assigned.</para><note><para>The management account can't specify its own <c>AccountId</c>; it must call the operation
+        /// in standalone context by not including the <c>AccountId</c> parameter.</para></note><para>To call this operation on an account that is not a member of an organization, then
+        /// don't specify this parameter, and call the operation using an identity belonging to
         /// the account whose contacts you wish to retrieve or modify.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AccountId { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String StandardAccountId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ContactInformation'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Account.Model.GetContactInformationResponse).
-        /// Specifying the name of a property of type Amazon.Account.Model.GetContactInformationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Account.Model.GetGovCloudAccountInformationResponse).
+        /// Specifying the name of a property of type Amazon.Account.Model.GetGovCloudAccountInformationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ContactInformation";
+        public string Select { get; set; } = "*";
         #endregion
         
         protected override void StopProcessing()
@@ -99,10 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Account.Model.GetContactInformationResponse, GetACCTContactInformationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Account.Model.GetGovCloudAccountInformationResponse, GetACCTGovCloudAccountInformationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.AccountId = this.AccountId;
+            context.StandardAccountId = this.StandardAccountId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -117,11 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Account.Model.GetContactInformationRequest();
+            var request = new Amazon.Account.Model.GetGovCloudAccountInformationRequest();
             
-            if (cmdletContext.AccountId != null)
+            if (cmdletContext.StandardAccountId != null)
             {
-                request.AccountId = cmdletContext.AccountId;
+                request.StandardAccountId = cmdletContext.StandardAccountId;
             }
             
             CmdletOutput output;
@@ -156,12 +151,12 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         
         #region AWS Service Operation Call
         
-        private Amazon.Account.Model.GetContactInformationResponse CallAWSServiceOperation(IAmazonAccount client, Amazon.Account.Model.GetContactInformationRequest request)
+        private Amazon.Account.Model.GetGovCloudAccountInformationResponse CallAWSServiceOperation(IAmazonAccount client, Amazon.Account.Model.GetGovCloudAccountInformationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Account", "GetContactInformation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Account", "GetGovCloudAccountInformation");
             try
             {
-                return client.GetContactInformationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetGovCloudAccountInformationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -178,9 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AccountId { get; set; }
-            public System.Func<Amazon.Account.Model.GetContactInformationResponse, GetACCTContactInformationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ContactInformation;
+            public System.String StandardAccountId { get; set; }
+            public System.Func<Amazon.Account.Model.GetGovCloudAccountInformationResponse, GetACCTGovCloudAccountInformationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }
