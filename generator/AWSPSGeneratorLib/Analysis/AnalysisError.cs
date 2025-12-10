@@ -447,5 +447,10 @@ namespace AWSPowerShellGenerator.Analysis
         {
             new InfoMessage(service, operation, $"noun assignment: Method prefix transformation applied - '{originalNoun}' transformed to '{transformedNoun}' using '{methodPrefix}' prefix pattern.");
         }
+
+        public static void ReservedParameterNameConflictResolved(ConfigModel service, ServiceOperation operation, SimplePropertyInfo candidateParameter)
+        {
+            new InfoMessage(service, operation, $"Reserved paramater name conflict {candidateParameter.AnalyzedName} found. Automatically resolved as {candidateParameter.CmdletParameterName}.");
+        }
     }
 }

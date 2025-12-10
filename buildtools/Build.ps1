@@ -206,8 +206,9 @@ try {
     # if the report.xml is generated, rename it to overrides.xml so that auto-configured operations are included during cmdlet generation.
     try {
       Write-Host "Generating report.xml"
-      # build-report-only generates report.xml only when there is a new operation and
-      # there are no errors during auto-generation of the buildconfig
+      # build-report-only generates report.xml only when there is a new operation 
+	  # or existing operation introduced a parameter which conflicted with reserved parameter name that was auto-resolved
+      # and there are no errors during auto-generation of the buildconfig
       dotnet msbuild ./buildtools/build.proj /t:build-report-only `
         /p:CleanSdkReferences=false `
         /p:BreakOnNewOperations=false `

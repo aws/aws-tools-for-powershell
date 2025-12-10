@@ -37,7 +37,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
                 var configModelsToOutput = models.Where(configModel =>
                         configModel.AnalysisErrors.Any() ||
                         overrides.ContainsKey(configModel.C2jFilename) ||
-                        configModel.ServiceOperationsList.Where(op => op.IsAutoConfiguring || op.AnalysisErrors.Any()).Any())
+                        configModel.ServiceOperationsList.Where(op => op.IsAutoConfiguring || op.AnalysisErrors.Any() || op.IsReservedParameterNameHandled).Any())
                     .ToArray();
 
                 bool hasErrors = models.Any(configModel =>
@@ -52,6 +52,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
                 }
 
                 bool hasNewOperations = models.Any(model => model.ServiceOperationsList.Any(op => op.IsAutoConfiguring));
+                bool isReservedParameterNameHandled = models.Any(model => model.ServiceOperationsList.Any(op => op.IsReservedParameterNameHandled));
 
                 var doc = new XDocument();
 
@@ -141,11 +142,12 @@ namespace AWSPowerShellGenerator.ServiceConfig
                     {
                         var isConfigurationOverridden = modelOverrides?.MethodNames.Contains(operation.operation.MethodName) ?? false;
 
-                        //We only include in the report new operations (IsAutoConfiguring=true) and operations requiring configuration updated. We also retain in the report
-                        //any operation that was manually configured.
+                        // We only include in the report new operations (IsAutoConfiguring=true) and operations requiring configuration updated (e.g. reserved parameter name handling).
+                        // We also retain in the report any operation that was manually configured.
                         if (operation.operation.IsAutoConfiguring ||
                             operation.operation.AnalysisErrors.Any() ||
-                            isConfigurationOverridden)
+                            isConfigurationOverridden ||
+                            operation.operation.IsReservedParameterNameHandled)
                         {
                             var firstOperationChildElement = operation.element.Elements().FirstOrDefault();
 
@@ -173,6 +175,35 @@ namespace AWSPowerShellGenerator.ServiceConfig
                                 {
                                     if (operation.operation.Analyzer.AnalyzedParameters.Any())
                                     {
+                                        // If reserved parameter name was handled, then we need to update or add Param element for the parameter customization in the report XML.
+                                        var analyzedParametersWithCustomization = operation.operation.Analyzer.AnalyzedParameters.Where(p => p.Customization != null);
+                                        if (operation.operation.IsReservedParameterNameHandled && analyzedParametersWithCustomization.Any())
+                                        {
+                                            var paramsElement = operation.element.Element("Params");
+                                            if (paramsElement == null)
+                                            {
+                                                paramsElement = new XElement("Params");
+                                                operation.element.Add(paramsElement);
+                                            }
+
+                                            foreach (var analyzedParameter in analyzedParametersWithCustomization)
+                                            {
+                                                var parameterElement = paramsElement.Elements("Param").FirstOrDefault(child => (string)child.Attribute("Name") == analyzedParameter.Customization.Name);
+                                                if (parameterElement == null)
+                                                {
+                                                    parameterElement = new XElement("Param", new XAttribute("Name", analyzedParameter.Customization.Name));
+                                                    paramsElement.Add(parameterElement);
+                                                }
+
+                                                parameterElement.SetAttributeValue("NewName", analyzedParameter.Customization.NewName);
+                                                parameterElement.SetAttributeValue("AutoApplyAlias", analyzedParameter.Customization.AutoApplyAlias);
+
+                                                // We can add a XML comment before Param element if customization is due to reserved parameter handling. But we cannot rely on analyzedParameter.Customization.Origin
+                                                // as DuringGeneration since it could happen for other shortning scenarios. We are already adding info message if reserved parameter handling was done, which is good enough.
+                                            }
+                                        }
+
+                                        // Add XML comment about parameters information.
                                         var parametersComments = operation.operation.Analyzer.AnalyzedParameters.Select(PropertyChangedEventArgs => GetParameterCommentForReport(PropertyChangedEventArgs, operation.operation.Analyzer));
                                         operation.element.Add(new XComment($"INFO - Parameters:\n            {string.Join(";\n            ", parametersComments)}."));
                                     }
@@ -205,9 +236,14 @@ namespace AWSPowerShellGenerator.ServiceConfig
                     Console.WriteLine("New operations were auto-configured without errors and saved in report.xml");
                     doc.Save(filename);
                 }
+                else if (isReservedParameterNameHandled && !hasErrors)
+                {
+                    Console.WriteLine("Operations had parameters which conflicted with reserved parameter name that were automatically resolved without errors and saved in report.xml");
+                    doc.Save(filename);
+                }
                 else
                 {
-                    Console.WriteLine($"Skipping saving report: hasNewOperations:{hasNewOperations}, hasErrors: {hasErrors} ");
+                    Console.WriteLine($"Skipping saving report: hasNewOperations:{hasNewOperations}, isReservedParameterNameHandled: {isReservedParameterNameHandled}, hasErrors: {hasErrors} ");
                 }
             }
             catch (Exception e)

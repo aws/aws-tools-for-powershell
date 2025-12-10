@@ -1246,6 +1246,13 @@ namespace AWSPowerShellGenerator.ServiceConfig
         public bool IsAutoConfiguring;
 
         /// <summary>
+        /// Set when the generator detects a parameter which conflicts with reserved parameter name.
+        /// The generator will take a try to handle the reserved parameter name based on configured mappings.
+        /// </summary>
+        [XmlIgnore]
+        public bool IsReservedParameterNameHandled;
+
+        /// <summary>
         /// Stores the VerbNounTransformationPattern that was applied during verb processing.
         /// Used to defer noun transformation to the AssignNoun method.
         /// </summary>

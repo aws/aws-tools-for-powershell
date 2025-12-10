@@ -2423,7 +2423,13 @@ namespace AWSPowerShellGenerator.Analysis
                 }
 
                 // Attempt to automatically resolve reserved parameter name conflicts. We should attempt auto rename if resolution was not done.
-                ResolveReservedParameterName(property);
+                if (ResolveReservedParameterName(property))
+                {
+                    CurrentOperation.IsReservedParameterNameHandled = true;
+                    InfoMessage.ReservedParameterNameConflictResolved(CurrentModel, CurrentOperation, property);
+
+                    // For new operations, the CurrentOperation.CustomParameters would not contain the resolved reserved parameter name. During report serialization, we should emit new parameter customization.
+                }
             }
         }
 
