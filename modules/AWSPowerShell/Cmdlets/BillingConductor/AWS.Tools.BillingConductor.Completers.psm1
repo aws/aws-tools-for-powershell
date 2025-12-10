@@ -90,7 +90,7 @@ $ABC_Completers = {
         # Amazon.BillingConductor.ComputationRuleEnum
         "New-ABCCustomLineItem/ComputationRule"
         {
-            $v = "CONSOLIDATED"
+            $v = "CONSOLIDATED","ITEMIZED"
             break
         }
 

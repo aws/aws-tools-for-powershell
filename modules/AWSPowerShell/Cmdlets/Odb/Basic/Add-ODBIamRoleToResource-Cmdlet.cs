@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         #region Parameter AwsIntegration
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services integration configuration settings for the IAM service role
-        /// association.</para>
+        /// <para>The Amazon Web Services integration configuration settings for the Amazon Web Services
+        /// Identity and Access Management (IAM) service role association.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         #region Parameter IamRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM service role to associate with the resource.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management
+        /// (IAM) service role to associate with the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the target resource to associate with the IAM service
-        /// role.</para>
+        /// <para>The Amazon Resource Name (ARN) of the target resource to associate with the Amazon
+        /// Web Services Identity and Access Management (IAM) service role.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

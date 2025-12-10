@@ -90,6 +90,16 @@ $PC_Completers = {
             break
         }
 
+        # Amazon.PartnerCentralSelling.AwsPartition
+        {
+            ($_ -eq "Invoke-PCCreateOpportunity/Project_AwsPartition") -Or
+            ($_ -eq "Update-PCOpportunity/Project_AwsPartition")
+        }
+        {
+            $v = "aws-eusc"
+            break
+        }
+
         # Amazon.PartnerCentralSelling.ClosedLostReason
         {
             ($_ -eq "Invoke-PCCreateOpportunity/LifeCycle_ClosedLostReason") -Or
@@ -390,6 +400,7 @@ $PC_map = @{
     "Origin"=@("Invoke-PCCreateOpportunity")
     "ParticipantType"=@("Get-PCEngagementInvitationList")
     "Payload_CustomerProject_Customer_Industry"=@("New-PCEngagementContext","Update-PCEngagementContext")
+    "Project_AwsPartition"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
     "Project_CompetitorName"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
     "RelatedEntityType"=@("Invoke-PCAssociateOpportunity","Invoke-PCDisassociateOpportunity")
     "ResourceType"=@("Get-PCEngagementResourceAssociationList","Get-PCResourceSnapshot","Get-PCResourceSnapshotList","Invoke-PCResourceSnapshot","Invoke-PCResourceSnapshotJob")

@@ -105,6 +105,19 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public System.String IamIdentityCenterOptions_IamRoleForIdentityCenterApplicationArn { get; set; }
         #endregion
         
+        #region Parameter KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the KMS key used to encrypt the application's data
+        /// at rest. If provided, the application uses your customer-managed key for encryption.
+        /// If omitted, the application uses an AWS-managed key. The KMS key must be in the same
+        /// region as the application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyArn { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -205,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             context.IamIdentityCenterOptions_Enabled = this.IamIdentityCenterOptions_Enabled;
             context.IamIdentityCenterOptions_IamIdentityCenterInstanceArn = this.IamIdentityCenterOptions_IamIdentityCenterInstanceArn;
             context.IamIdentityCenterOptions_IamRoleForIdentityCenterApplicationArn = this.IamIdentityCenterOptions_IamRoleForIdentityCenterApplicationArn;
+            context.KmsKeyArn = this.KmsKeyArn;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -283,6 +297,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
             {
                 request.IamIdentityCenterOptions = null;
             }
+            if (cmdletContext.KmsKeyArn != null)
+            {
+                request.KmsKeyArn = cmdletContext.KmsKeyArn;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -352,6 +370,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public System.Boolean? IamIdentityCenterOptions_Enabled { get; set; }
             public System.String IamIdentityCenterOptions_IamIdentityCenterInstanceArn { get; set; }
             public System.String IamIdentityCenterOptions_IamRoleForIdentityCenterApplicationArn { get; set; }
+            public System.String KmsKeyArn { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.OpenSearchService.Model.Tag> TagList { get; set; }
             public System.Func<Amazon.OpenSearchService.Model.CreateApplicationResponse, NewOSApplicationCmdlet, object> Select { get; set; } =

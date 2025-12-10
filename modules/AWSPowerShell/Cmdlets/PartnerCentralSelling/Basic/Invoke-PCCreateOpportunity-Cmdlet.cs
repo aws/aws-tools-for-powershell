@@ -131,6 +131,18 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public Amazon.PartnerCentralSelling.AwsFundingUsed Marketing_AwsFundingUsed { get; set; }
         #endregion
         
+        #region Parameter Project_AwsPartition
+        /// <summary>
+        /// <para>
+        /// <para>AWS partition where the opportunity will be deployed. Possible values: 'aws-eusc'
+        /// for AWS European Sovereign Cloud, <c>null</c> for all other partitions</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PartnerCentralSelling.AwsPartition")]
+        public Amazon.PartnerCentralSelling.AwsPartition Project_AwsPartition { get; set; }
+        #endregion
+        
         #region Parameter Marketing_CampaignName
         /// <summary>
         /// <para>
@@ -927,6 +939,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
             {
                 context.Project_ApnProgram = new List<System.String>(this.Project_ApnProgram);
             }
+            context.Project_AwsPartition = this.Project_AwsPartition;
             context.Project_CompetitorName = this.Project_CompetitorName;
             context.Project_CustomerBusinessProblem = this.Project_CustomerBusinessProblem;
             context.Project_CustomerUseCase = this.Project_CustomerUseCase;
@@ -1334,6 +1347,16 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 request.Project.ApnPrograms = requestProject_project_ApnProgram;
                 requestProjectIsNull = false;
             }
+            Amazon.PartnerCentralSelling.AwsPartition requestProject_project_AwsPartition = null;
+            if (cmdletContext.Project_AwsPartition != null)
+            {
+                requestProject_project_AwsPartition = cmdletContext.Project_AwsPartition;
+            }
+            if (requestProject_project_AwsPartition != null)
+            {
+                request.Project.AwsPartition = requestProject_project_AwsPartition;
+                requestProjectIsNull = false;
+            }
             Amazon.PartnerCentralSelling.CompetitorName requestProject_project_CompetitorName = null;
             if (cmdletContext.Project_CompetitorName != null)
             {
@@ -1607,6 +1630,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
             public List<System.String> PrimaryNeedsFromAw { get; set; }
             public System.String Project_AdditionalComment { get; set; }
             public List<System.String> Project_ApnProgram { get; set; }
+            public Amazon.PartnerCentralSelling.AwsPartition Project_AwsPartition { get; set; }
             public Amazon.PartnerCentralSelling.CompetitorName Project_CompetitorName { get; set; }
             public System.String Project_CustomerBusinessProblem { get; set; }
             public System.String Project_CustomerUseCase { get; set; }

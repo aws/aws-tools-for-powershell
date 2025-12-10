@@ -103,7 +103,7 @@ $BDR_Completers = {
         # Amazon.Bedrock.AutomatedReasoningPolicyBuildResultAssetType
         "Get-BDRAutomatedReasoningPolicyBuildWorkflowResultAsset/AssetType"
         {
-            $v = "BUILD_LOG","GENERATED_TEST_CASES","POLICY_DEFINITION","QUALITY_REPORT"
+            $v = "BUILD_LOG","GENERATED_TEST_CASES","POLICY_DEFINITION","POLICY_SCENARIOS","QUALITY_REPORT"
             break
         }
 
