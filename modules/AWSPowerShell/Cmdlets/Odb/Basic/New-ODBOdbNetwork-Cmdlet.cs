@@ -152,7 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         #region Parameter KmsPolicyDocument
         /// <summary>
         /// <para>
-        /// <para>The KMS policy document that defines permissions for key usage within the ODB network.</para>
+        /// <para>The Amazon Web Services Key Management Service (KMS) policy document that defines
+        /// permissions for key usage within the ODB network.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,8 +196,8 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         #region Parameter StsPolicyDocument
         /// <summary>
         /// <para>
-        /// <para>The STS policy document that defines permissions for token service usage within the
-        /// ODB network.</para>
+        /// <para>The Amazon Web Services Security Token Service (STS) policy document that defines
+        /// permissions for token service usage within the ODB network.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

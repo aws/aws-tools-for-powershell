@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         #region Parameter AwsIntegration
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services integration configuration settings for the IAM service role
-        /// disassociation.</para>
+        /// <para>The Amazon Web Services integration configuration settings for the Amazon Web Services
+        /// Identity and Access Management (IAM) service role disassociation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         #region Parameter IamRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM service role to disassociate from the resource.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management
+        /// (IAM) service role to disassociate from the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.ODB
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the target resource to disassociate from the IAM
-        /// service role.</para>
+        /// <para>The Amazon Resource Name (ARN) of the target resource to disassociate from the Amazon
+        /// Web Services Identity and Access Management (IAM) service role.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

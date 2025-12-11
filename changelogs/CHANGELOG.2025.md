@@ -1,4 +1,12 @@
-﻿### 4.1.958 (2025-12-09 21:38Z)
+﻿### 4.1.959 (2025-12-11 01:25Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1182.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon OpenSearch Service
+    * Modified cmdlet New-OSApplication: added parameter KmsKeyArn.
+  * Amazon Partner Central Selling API
+    * Modified cmdlet Invoke-PCCreateOpportunity: added parameter Project_AwsPartition.
+    * Modified cmdlet Update-PCOpportunity: added parameter Project_AwsPartition.
+
+### 4.1.958 (2025-12-09 21:38Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1181.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Account
     * Added cmdlet Get-ACCTGovCloudAccountInformation leveraging the GetGovCloudAccountInformation service API.

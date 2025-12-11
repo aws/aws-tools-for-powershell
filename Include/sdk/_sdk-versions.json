@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.500.0",
-    "ProductVersion"    : "3.7.1181.0",
+    "ProductVersion"    : "3.7.1182.0",
     "CoreVersion"       : "3.7.500.52",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -80,7 +80,7 @@
             "InPreview"               : false
         },
         "CloudWatch"        : {
-            "Version" : "3.7.504.12",
+            "Version" : "3.7.505.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.52"
@@ -1092,7 +1092,7 @@
             "InPreview"               : false
         },
         "Signer"                          : {
-            "Version" : "3.7.502.18",
+            "Version" : "3.7.503.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.52"
@@ -2076,7 +2076,7 @@
             "InPreview"               : false
         },
         "OpenSearchService"               : {
-            "Version" : "3.7.505.2",
+            "Version" : "3.7.506.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.52"
@@ -2260,7 +2260,7 @@
             "InPreview"               : false
         },
         "BillingConductor"                    : {
-            "Version" : "3.7.503.6",
+            "Version" : "3.7.504.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.52"
@@ -2676,7 +2676,7 @@
             "InPreview"               : false
         },
         "Bedrock"                             : {
-            "Version" : "3.7.509.2",
+            "Version" : "3.7.510.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.52"
@@ -3028,7 +3028,7 @@
             "InPreview"               : false
         },
         "PartnerCentralSelling"               : {
-            "Version" : "3.7.505.1",
+            "Version" : "3.7.506.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.52"
@@ -3204,7 +3204,7 @@
             "InPreview"               : false
         },
         "Odb"                                 : {
-            "Version" : "3.7.502.4",
+            "Version" : "3.7.503.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.500.52"
