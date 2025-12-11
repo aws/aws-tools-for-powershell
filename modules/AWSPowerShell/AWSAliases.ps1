@@ -25979,6 +25979,7 @@ Set-Alias -Name QS-GetDashboardEmbedUrl -Value Get-QSDashboardEmbedUrl
 Set-Alias -Name QS-GetFlowMetadata -Value Get-QSFlowMetadata
 Set-Alias -Name Get-QSFlowPermissions -Value Get-QSFlowPermission
 Set-Alias -Name QS-GetFlowPermissions -Value Get-QSFlowPermission
+Set-Alias -Name QS-GetIdentityContext -Value Get-QSIdentityContext
 Set-Alias -Name QS-GetSessionEmbedUrl -Value Get-QSSessionEmbedUrl
 Set-Alias -Name List-QSActionConnectors -Value Get-QSActionConnectorList
 Set-Alias -Name List-QSActionConnectorList -Value Get-QSActionConnectorList

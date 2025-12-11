@@ -96,6 +96,17 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         public System.Boolean? IncludePlannedDeletion { get; set; }
         #endregion
         
+        #region Parameter SortBy
+        /// <summary>
+        /// <para>
+        /// <para>If not specified, secrets are listed by <c>CreatedDate</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SecretsManager.SortByType")]
+        public Amazon.SecretsManager.SortByType SortBy { get; set; }
+        #endregion
+        
         #region Parameter SortOrder
         /// <summary>
         /// <para>
@@ -196,6 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             }
             #endif
             context.NextToken = this.NextToken;
+            context.SortBy = this.SortBy;
             context.SortOrder = this.SortOrder;
             
             // allow further manipulation of loaded context prior to processing
@@ -227,6 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.SortBy != null)
+            {
+                request.SortBy = cmdletContext.SortBy;
             }
             if (cmdletContext.SortOrder != null)
             {
@@ -294,6 +310,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             if (cmdletContext.IncludePlannedDeletion != null)
             {
                 request.IncludePlannedDeletion = cmdletContext.IncludePlannedDeletion.Value;
+            }
+            if (cmdletContext.SortBy != null)
+            {
+                request.SortBy = cmdletContext.SortBy;
             }
             if (cmdletContext.SortOrder != null)
             {
@@ -416,6 +436,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             public System.Boolean? IncludePlannedDeletion { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.SecretsManager.SortByType SortBy { get; set; }
             public Amazon.SecretsManager.SortOrderType SortOrder { get; set; }
             public System.Func<Amazon.SecretsManager.Model.ListSecretsResponse, GetSECSecretListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.SecretList;

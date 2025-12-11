@@ -1125,6 +1125,7 @@ $QS_SelectMap = @{
                "Get-QSDashboardEmbedUrl",
                "Get-QSFlowMetadata",
                "Get-QSFlowPermission",
+               "Get-QSIdentityContext",
                "Get-QSSessionEmbedUrl",
                "Get-QSActionConnectorList",
                "Get-QSAnalysisList",

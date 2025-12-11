@@ -47264,7 +47264,7 @@ $LM_Completers = {
             ($_ -eq "Update-LMFunctionConfiguration/Runtime")
         }
         {
-            $v = "dotnet6","dotnet8","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java17","java21","java25","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs20.x","nodejs22.x","nodejs24.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","provided.al2023","python2.7","python3.10","python3.11","python3.12","python3.13","python3.14","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7","ruby3.2","ruby3.3","ruby3.4"
+            $v = "dotnet10","dotnet6","dotnet8","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java17","java21","java25","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs20.x","nodejs22.x","nodejs24.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","provided.al2023","python2.7","python3.10","python3.11","python3.12","python3.13","python3.14","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7","ruby3.2","ruby3.3","ruby3.4"
             break
         }
 
@@ -59146,7 +59146,7 @@ $ORG_Completers = {
             ($_ -eq "Get-ORGEffectivePolicyValidationErrorList/PolicyType")
         }
         {
-            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","BEDROCK_POLICY","CHATBOT_POLICY","DECLARATIVE_POLICY_EC2","INSPECTOR_POLICY","S3_POLICY","SECURITYHUB_POLICY","TAG_POLICY","UPGRADE_ROLLOUT_POLICY"
+            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","BEDROCK_POLICY","CHATBOT_POLICY","DECLARATIVE_POLICY_EC2","INSPECTOR_POLICY","NETWORK_SECURITY_DIRECTOR_POLICY","S3_POLICY","SECURITYHUB_POLICY","TAG_POLICY","UPGRADE_ROLLOUT_POLICY"
             break
         }
 
@@ -59186,7 +59186,7 @@ $ORG_Completers = {
             ($_ -eq "New-ORGPolicy/Type")
         }
         {
-            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","BEDROCK_POLICY","CHATBOT_POLICY","DECLARATIVE_POLICY_EC2","INSPECTOR_POLICY","RESOURCE_CONTROL_POLICY","S3_POLICY","SECURITYHUB_POLICY","SERVICE_CONTROL_POLICY","TAG_POLICY","UPGRADE_ROLLOUT_POLICY"
+            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","BEDROCK_POLICY","CHATBOT_POLICY","DECLARATIVE_POLICY_EC2","INSPECTOR_POLICY","NETWORK_SECURITY_DIRECTOR_POLICY","RESOURCE_CONTROL_POLICY","S3_POLICY","SECURITYHUB_POLICY","SERVICE_CONTROL_POLICY","TAG_POLICY","UPGRADE_ROLLOUT_POLICY"
             break
         }
 
@@ -65944,6 +65944,7 @@ $QS_SelectMap = @{
                "Get-QSDashboardEmbedUrl",
                "Get-QSFlowMetadata",
                "Get-QSFlowPermission",
+               "Get-QSIdentityContext",
                "Get-QSSessionEmbedUrl",
                "Get-QSActionConnectorList",
                "Get-QSAnalysisList",
@@ -74827,6 +74828,13 @@ $SEC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.SecretsManager.SortByType
+        "Get-SECSecretList/SortBy"
+        {
+            $v = "created-date","last-accessed-date","last-changed-date","name"
+            break
+        }
+
         # Amazon.SecretsManager.SortOrderType
         "Get-SECSecretList/SortOrder"
         {
@@ -74843,6 +74851,7 @@ $SEC_Completers = {
 }
 
 $SEC_map = @{
+    "SortBy"=@("Get-SECSecretList")
     "SortOrder"=@("Get-SECSecretList")
 }
 

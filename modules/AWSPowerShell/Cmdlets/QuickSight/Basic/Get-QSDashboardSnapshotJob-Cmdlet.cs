@@ -36,7 +36,19 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// <para>
     /// Poll job descriptions after a job starts to know the status of the job. For information
     /// on available status codes, see <c>JobStatus</c>.
-    /// </para>
+    /// </para><para><b>Registered user support</b></para><para>
+    /// This API can be called as before to get status of a job started by the same Quick
+    /// Sight user.
+    /// </para><para><b>Possible error scenarios</b></para><para>
+    /// Request will fail with an Access Denied error in the following scenarios:
+    /// </para><ul><li><para>
+    /// The credentials have expired.
+    /// </para></li><li><para>
+    /// Job has been started by a different user.
+    /// </para></li><li><para>
+    /// Impersonated Quick Sight user doesn't have access to the specified dashboard in the
+    /// job.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "QSDashboardSnapshotJob")]
     [OutputType("Amazon.QuickSight.Model.DescribeDashboardSnapshotJobResponse")]
