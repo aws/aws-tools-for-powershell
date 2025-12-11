@@ -2365,6 +2365,9 @@ namespace AWSPowerShellGenerator.Analysis
             //   param Name="foo" AutoRename="false"               => do not rename param
             //   param Name="foo" AutoRename="false" Alias="baz"   => do not rename but add alias
 
+            // To reduce parameter conflicts and reduce manual configuration, parameter shortening is being disabled.
+            bool enableParameterShortening = false;
+
             foreach (var property in AnalyzedParameters)
             {
                 var attemptAutoRename = true;
@@ -2400,7 +2403,7 @@ namespace AWSPowerShellGenerator.Analysis
                     // property hierarchy
                     var alternateName = property.AnalyzedName;
                     var underscores = property.AnalyzedName.Count(c => c == '_');
-                    if (underscores > 1)
+                    if (underscores > 1 && enableParameterShortening)
                     {
                         alternateName = RebaseNameToFinalParent(alternateName);
                     }
