@@ -1,4 +1,13 @@
-﻿### 4.1.959 (2025-12-11 01:25Z)
+﻿### 4.1.960 (2025-12-11 21:30Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1183.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSIdentityContext leveraging the GetIdentityContext service API.
+    * Modified cmdlet New-QSDataSource: added parameters KeyPairCredentials_KeyPairUsername, KeyPairCredentials_PrivateKey and KeyPairCredentials_PrivateKeyPassphrase.
+    * Modified cmdlet Update-QSDataSource: added parameters KeyPairCredentials_KeyPairUsername, KeyPairCredentials_PrivateKey and KeyPairCredentials_PrivateKeyPassphrase.
+  * Amazon Secrets Manager
+    * Modified cmdlet Get-SECSecretList: added parameter SortBy.
+
+### 4.1.959 (2025-12-11 01:25Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1182.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon OpenSearch Service
     * Modified cmdlet New-OSApplication: added parameter KmsKeyArn.

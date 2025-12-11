@@ -592,6 +592,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetIdentityContext" OutputProperty="Context" Verb="Get" Noun="IdentityContext" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetSessionEmbedUrl" OutputProperty="EmbedUrl" Verb="Get" Noun="SessionEmbedUrl" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />

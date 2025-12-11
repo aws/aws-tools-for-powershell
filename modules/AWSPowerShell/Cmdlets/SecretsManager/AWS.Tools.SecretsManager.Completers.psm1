@@ -80,6 +80,13 @@ $SEC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.SecretsManager.SortByType
+        "Get-SECSecretList/SortBy"
+        {
+            $v = "created-date","last-accessed-date","last-changed-date","name"
+            break
+        }
+
         # Amazon.SecretsManager.SortOrderType
         "Get-SECSecretList/SortOrder"
         {
@@ -96,6 +103,7 @@ $SEC_Completers = {
 }
 
 $SEC_map = @{
+    "SortBy"=@("Get-SECSecretList")
     "SortOrder"=@("Get-SECSecretList")
 }
 

@@ -93,6 +93,74 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// The number of formats and snapshots that are requested in the job configuration.
     /// </para></li><li><para>
     /// The size of the generated snapshots.
+    /// </para></li></ul><para><b>Registered user support</b></para><para>
+    /// You can generate snapshots for registered Quick Sight users by using the Snapshot
+    /// Job APIs with <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-identity-enhanced-iam-role-sessions.html">identity-enhanced
+    /// IAM role session credentials</a>. This approach allows you to create snapshots on
+    /// behalf of specific Quick Sight users while respecting their row-level security (RLS),
+    /// column-level security (CLS), dynamic default parameters and dashboard parameter/filter
+    /// settings.
+    /// </para><para>
+    /// To generate snapshots for registered Quick Sight users, you need to:
+    /// </para><ul><li><para>
+    /// Obtain identity-enhanced IAM role session credentials from AWS Security Token Service
+    /// (STS).
+    /// </para></li><li><para>
+    /// Use these credentials to call the Snapshot Job APIs.
+    /// </para></li></ul><para>
+    /// Identity-enhanced credentials are credentials that contain information about the end
+    /// user (e.g., registered Quick Sight user).
+    /// </para><para>
+    /// If your Quick Sight users are backed by <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">AWS
+    /// Identity Center</a>, then you need to set up a <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/setuptrustedtokenissuer.html">trusted
+    /// token issuer</a>. Then, getting identity-enhanced IAM credentials for a Quick Sight
+    /// user will look like the following:
+    /// </para><ul><li><para>
+    /// Authenticate user with your OIDC compliant Identity Provider. You should get auth
+    /// tokens back.
+    /// </para></li><li><para>
+    /// Use the OIDC API, <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateTokenWithIAM.html">CreateTokenWithIAM</a>,
+    /// to exchange auth tokens to IAM tokens. One of the resulted tokens will be identity
+    /// token.
+    /// </para></li><li><para>
+    /// Call STS AssumeRole API as you normally would, but provide an extra <c>ProvidedContexts</c>
+    /// parameter in the API request. The list of contexts must have a single trusted context
+    /// assertion. The <c>ProviderArn</c> should be <c>arn:aws:iam::aws:contextProvider/IdentityCenter</c>
+    /// while <c>ContextAssertion</c> will be the identity token you received in response
+    /// from CreateTokenWithIAM
+    /// </para></li></ul><para>
+    /// For more details, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-identity-enhanced-iam-role-sessions.html">IdC
+    /// documentation on Identity-enhanced IAM role sessions</a>.
+    /// </para><para>
+    /// To obtain Identity-enhanced credentials for Quick Sight native users, IAM federated
+    /// users, or Active Directory users, follow the steps below:
+    /// </para><ul><li><para>
+    /// Call Quick Sight <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetIdentityContext.html">GetIdentityContext
+    /// API</a> to get identity token.
+    /// </para></li><li><para>
+    /// Call STS AssumeRole API as you normally would, but provide extra <c>ProvidedContexts</c>
+    /// parameter in the API request. The list of contexts must have a single trusted context
+    /// assertion. The <c>ProviderArn</c> should be <c>arn:aws:iam::aws:contextProvider/QuickSight</c>
+    /// while <c>ContextAssertion</c> will be the identity token you received in response
+    /// from GetIdentityContext
+    /// </para></li></ul><para>
+    /// After obtaining the identity-enhanced IAM role session credentials, you can use them
+    /// to start a job, describe the job and describe job result. You can use the same credentials
+    /// as long as they haven't expired. All API requests made with these credentials are
+    /// considered to be made by the impersonated Quick Sight user.
+    /// </para><important><para>
+    /// When using identity-enhanced session credentials, set the UserConfiguration request
+    /// attribute to null. Otherwise, the request will be invalid.
+    /// </para></important><para><b>Possible error scenarios</b></para><para>
+    /// The request fails with an Access Denied error in the following scenarios:
+    /// </para><ul><li><para>
+    /// The credentials have expired.
+    /// </para></li><li><para>
+    /// The impersonated Quick Sight user doesn't have access to the specified dashboard.
+    /// </para></li><li><para>
+    /// The impersonated Quick Sight user is restricted from exporting data in the selected
+    /// formats. For more information about export restrictions, see <a href="https://docs.aws.amazon.com/quicksuite/latest/userguide/create-custom-permisions-profile.html">Customizing
+    /// access to Amazon Quick Sight capabilities</a>.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Start", "QSDashboardSnapshotJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

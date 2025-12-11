@@ -735,6 +735,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String ManifestFileLocation_Key { get; set; }
         #endregion
         
+        #region Parameter KeyPairCredentials_KeyPairUsername
+        /// <summary>
+        /// <para>
+        /// <para>Username</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Credentials_KeyPairCredentials_KeyPairUsername")]
+        public System.String KeyPairCredentials_KeyPairUsername { get; set; }
+        #endregion
+        
         #region Parameter WebCrawlerParameters_LoginPageUrl
         /// <summary>
         /// <para>
@@ -1013,6 +1024,28 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DataSourceParameters_TrinoParameters_Port")]
         public System.Int32? TrinoParameters_Port { get; set; }
+        #endregion
+        
+        #region Parameter KeyPairCredentials_PrivateKey
+        /// <summary>
+        /// <para>
+        /// <para>PrivateKey</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Credentials_KeyPairCredentials_PrivateKey")]
+        public System.String KeyPairCredentials_PrivateKey { get; set; }
+        #endregion
+        
+        #region Parameter KeyPairCredentials_PrivateKeyPassphrase
+        /// <summary>
+        /// <para>
+        /// <para>PrivateKeyPassphrase</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Credentials_KeyPairCredentials_PrivateKeyPassphrase")]
+        public System.String KeyPairCredentials_PrivateKeyPassphrase { get; set; }
         #endregion
         
         #region Parameter StarburstParameters_ProductType
@@ -1415,6 +1448,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             context.CredentialPair_Password = this.CredentialPair_Password;
             context.CredentialPair_Username = this.CredentialPair_Username;
+            context.KeyPairCredentials_KeyPairUsername = this.KeyPairCredentials_KeyPairUsername;
+            context.KeyPairCredentials_PrivateKey = this.KeyPairCredentials_PrivateKey;
+            context.KeyPairCredentials_PrivateKeyPassphrase = this.KeyPairCredentials_PrivateKeyPassphrase;
             context.Credentials_SecretArn = this.Credentials_SecretArn;
             context.WebProxyCredentials_WebProxyPassword = this.WebProxyCredentials_WebProxyPassword;
             context.WebProxyCredentials_WebProxyUsername = this.WebProxyCredentials_WebProxyUsername;
@@ -1660,6 +1696,51 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCredentials_credentials_CredentialPair != null)
             {
                 request.Credentials.CredentialPair = requestCredentials_credentials_CredentialPair;
+                requestCredentialsIsNull = false;
+            }
+            Amazon.QuickSight.Model.KeyPairCredentials requestCredentials_credentials_KeyPairCredentials = null;
+            
+             // populate KeyPairCredentials
+            var requestCredentials_credentials_KeyPairCredentialsIsNull = true;
+            requestCredentials_credentials_KeyPairCredentials = new Amazon.QuickSight.Model.KeyPairCredentials();
+            System.String requestCredentials_credentials_KeyPairCredentials_keyPairCredentials_KeyPairUsername = null;
+            if (cmdletContext.KeyPairCredentials_KeyPairUsername != null)
+            {
+                requestCredentials_credentials_KeyPairCredentials_keyPairCredentials_KeyPairUsername = cmdletContext.KeyPairCredentials_KeyPairUsername;
+            }
+            if (requestCredentials_credentials_KeyPairCredentials_keyPairCredentials_KeyPairUsername != null)
+            {
+                requestCredentials_credentials_KeyPairCredentials.KeyPairUsername = requestCredentials_credentials_KeyPairCredentials_keyPairCredentials_KeyPairUsername;
+                requestCredentials_credentials_KeyPairCredentialsIsNull = false;
+            }
+            System.String requestCredentials_credentials_KeyPairCredentials_keyPairCredentials_PrivateKey = null;
+            if (cmdletContext.KeyPairCredentials_PrivateKey != null)
+            {
+                requestCredentials_credentials_KeyPairCredentials_keyPairCredentials_PrivateKey = cmdletContext.KeyPairCredentials_PrivateKey;
+            }
+            if (requestCredentials_credentials_KeyPairCredentials_keyPairCredentials_PrivateKey != null)
+            {
+                requestCredentials_credentials_KeyPairCredentials.PrivateKey = requestCredentials_credentials_KeyPairCredentials_keyPairCredentials_PrivateKey;
+                requestCredentials_credentials_KeyPairCredentialsIsNull = false;
+            }
+            System.String requestCredentials_credentials_KeyPairCredentials_keyPairCredentials_PrivateKeyPassphrase = null;
+            if (cmdletContext.KeyPairCredentials_PrivateKeyPassphrase != null)
+            {
+                requestCredentials_credentials_KeyPairCredentials_keyPairCredentials_PrivateKeyPassphrase = cmdletContext.KeyPairCredentials_PrivateKeyPassphrase;
+            }
+            if (requestCredentials_credentials_KeyPairCredentials_keyPairCredentials_PrivateKeyPassphrase != null)
+            {
+                requestCredentials_credentials_KeyPairCredentials.PrivateKeyPassphrase = requestCredentials_credentials_KeyPairCredentials_keyPairCredentials_PrivateKeyPassphrase;
+                requestCredentials_credentials_KeyPairCredentialsIsNull = false;
+            }
+             // determine if requestCredentials_credentials_KeyPairCredentials should be set to null
+            if (requestCredentials_credentials_KeyPairCredentialsIsNull)
+            {
+                requestCredentials_credentials_KeyPairCredentials = null;
+            }
+            if (requestCredentials_credentials_KeyPairCredentials != null)
+            {
+                request.Credentials.KeyPairCredentials = requestCredentials_credentials_KeyPairCredentials;
                 requestCredentialsIsNull = false;
             }
              // determine if request.Credentials should be set to null
@@ -3398,6 +3479,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<Amazon.QuickSight.Model.DataSourceParameters> CredentialPair_AlternateDataSourceParameter { get; set; }
             public System.String CredentialPair_Password { get; set; }
             public System.String CredentialPair_Username { get; set; }
+            public System.String KeyPairCredentials_KeyPairUsername { get; set; }
+            public System.String KeyPairCredentials_PrivateKey { get; set; }
+            public System.String KeyPairCredentials_PrivateKeyPassphrase { get; set; }
             public System.String Credentials_SecretArn { get; set; }
             public System.String WebProxyCredentials_WebProxyPassword { get; set; }
             public System.String WebProxyCredentials_WebProxyUsername { get; set; }

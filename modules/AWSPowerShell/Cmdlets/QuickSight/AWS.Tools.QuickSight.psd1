@@ -144,6 +144,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-QSIAMPolicyAssignment', 
         'Get-QSIAMPolicyAssignmentList', 
         'Get-QSIAMPolicyAssignmentsForUserList', 
+        'Get-QSIdentityContext', 
         'Get-QSIdentityPropagationConfigList', 
         'Get-QSIngestion', 
         'Get-QSIngestionList', 
