@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter DateTimeCondition_ComparisonType
         /// <summary>
         /// <para>
-        /// <para>Datetime property comparison type. </para>
+        /// <para>Datetime property comparison type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter DateTimeCondition_MaxValue
         /// <summary>
         /// <para>
-        /// <para>A maximum value of the property. </para>
+        /// <para>A maximum value of the property.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter DateTimeCondition_MinValue
         /// <summary>
         /// <para>
-        /// <para>A minimum value of the property. </para>
+        /// <para>A minimum value of the property.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

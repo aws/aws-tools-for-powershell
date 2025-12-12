@@ -118,8 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter TagFilter_OrCondition
         /// <summary>
         /// <para>
-        /// <para>A list of conditions which would be applied together with an <c>OR</c> condition.
-        /// </para>
+        /// <para>A list of conditions which would be applied together with an <c>OR</c> condition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
