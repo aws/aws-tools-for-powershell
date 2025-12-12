@@ -1,4 +1,15 @@
-﻿### 5.0.115 (2025-12-11 21:12Z)
+﻿### 5.0.116 (2025-12-12 21:26Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.152.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Modified cmdlet Start-CONNChatContact: added parameter DisconnectOnCustomerExit.
+  * Amazon DataSync
+    * Modified cmdlet New-DSYNLocationSmb: added parameters CmkSecretConfig_KmsKeyArn, CmkSecretConfig_SecretArn, CustomSecretConfig_SecretAccessRoleArn and CustomSecretConfig_SecretArn.
+    * Modified cmdlet Update-DSYNLocationSmb: added parameters CmkSecretConfig_KmsKeyArn, CmkSecretConfig_SecretArn, CustomSecretConfig_SecretAccessRoleArn and CustomSecretConfig_SecretArn.
+  * Amazon WorkSpaces Web
+    * Modified cmdlet New-WSWUserSetting: added parameters BrandingConfigurationInput_ColorTheme, BrandingConfigurationInput_LocalizedString, BrandingConfigurationInput_TermsOfService, Favicon_Blob, Favicon_S3Uri, Logo_Blob, Logo_S3Uri, Wallpaper_Blob and Wallpaper_S3Uri.
+    * Modified cmdlet Update-WSWUserSetting: added parameters BrandingConfigurationInput_ColorTheme, BrandingConfigurationInput_LocalizedString, BrandingConfigurationInput_TermsOfService, Favicon_Blob, Favicon_S3Uri, Logo_Blob, Logo_S3Uri, Wallpaper_Blob and Wallpaper_S3Uri.
+
+### 5.0.115 (2025-12-11 21:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.151.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon QuickSight
     * Added cmdlet Get-QSIdentityContext leveraging the GetIdentityContext service API.

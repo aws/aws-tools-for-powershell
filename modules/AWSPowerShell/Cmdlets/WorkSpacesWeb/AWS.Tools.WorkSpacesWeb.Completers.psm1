@@ -90,6 +90,16 @@ $WSW_Completers = {
             break
         }
 
+        # Amazon.WorkSpacesWeb.ColorTheme
+        {
+            ($_ -eq "New-WSWUserSetting/BrandingConfigurationInput_ColorTheme") -Or
+            ($_ -eq "Update-WSWUserSetting/BrandingConfigurationInput_ColorTheme")
+        }
+        {
+            $v = "Dark","Light"
+            break
+        }
+
         # Amazon.WorkSpacesWeb.EnabledType
         {
             ($_ -eq "New-WSWUserSetting/CopyAllowed") -Or
@@ -204,6 +214,7 @@ $WSW_Completers = {
 
 $WSW_map = @{
     "AuthenticationType"=@("New-WSWPortal","Update-WSWPortal")
+    "BrandingConfigurationInput_ColorTheme"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "CopyAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "DeepLinkAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "DownloadAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")

@@ -156,6 +156,24 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String CustomerId { get; set; }
         #endregion
         
+        #region Parameter DisconnectOnCustomerExit
+        /// <summary>
+        /// <para>
+        /// <para>A list of participant types to automatically disconnect when the end customer ends
+        /// the chat session, allowing them to continue through disconnect flows such as surveys
+        /// or feedback forms.</para><para>Valid value: <c>AGENT</c>.</para><para>With the <c>DisconnectOnCustomerExit</c> parameter, you can configure automatic agent
+        /// disconnection when end customers end the chat, ensuring that disconnect flows are
+        /// triggered consistently regardless of which participant disconnects first.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] DisconnectOnCustomerExit { get; set; }
+        #endregion
+        
         #region Parameter ParticipantDetails_DisplayName
         /// <summary>
         /// <para>
@@ -361,6 +379,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             #endif
             context.CustomerId = this.CustomerId;
+            if (this.DisconnectOnCustomerExit != null)
+            {
+                context.DisconnectOnCustomerExit = new List<System.String>(this.DisconnectOnCustomerExit);
+            }
             context.InitialMessage_Content = this.InitialMessage_Content;
             context.InitialMessage_ContentType = this.InitialMessage_ContentType;
             context.InstanceId = this.InstanceId;
@@ -428,6 +450,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.CustomerId != null)
             {
                 request.CustomerId = cmdletContext.CustomerId;
+            }
+            if (cmdletContext.DisconnectOnCustomerExit != null)
+            {
+                request.DisconnectOnCustomerExit = cmdletContext.DisconnectOnCustomerExit;
             }
             
              // populate InitialMessage
@@ -601,6 +627,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String ClientToken { get; set; }
             public System.String ContactFlowId { get; set; }
             public System.String CustomerId { get; set; }
+            public List<System.String> DisconnectOnCustomerExit { get; set; }
             public System.String InitialMessage_Content { get; set; }
             public System.String InitialMessage_ContentType { get; set; }
             public System.String InstanceId { get; set; }
