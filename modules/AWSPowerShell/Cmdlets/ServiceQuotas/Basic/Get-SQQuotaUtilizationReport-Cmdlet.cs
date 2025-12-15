@@ -23,52 +23,78 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.BedrockAgentCoreControl;
-using Amazon.BedrockAgentCoreControl.Model;
+using Amazon.ServiceQuotas;
+using Amazon.ServiceQuotas.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.BACC
+namespace Amazon.PowerShell.Cmdlets.SQ
 {
     /// <summary>
-    /// Retrieves a list of policy engines within the AgentCore Policy system. This operation
-    /// supports pagination to help administrators discover and manage policy engines across
-    /// their account. Each policy engine serves as a container for related policies.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves the quota utilization report for your Amazon Web Services account. This
+    /// operation returns paginated results showing your quota usage across all Amazon Web
+    /// Services services, sorted by utilization percentage in descending order (highest utilization
+    /// first).
+    /// 
+    ///  
+    /// <para>
+    /// You must first initiate a report using the <c>StartQuotaUtilizationReport</c> operation.
+    /// The report generation process is asynchronous and may take several seconds to complete.
+    /// Poll this operation periodically to check the status and retrieve results when the
+    /// report is ready.
+    /// </para><para>
+    /// Each report contains up to 1,000 quota records per page. Use the <c>NextToken</c>
+    /// parameter to retrieve additional pages of results. Reports are automatically deleted
+    /// after 15 minutes.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "BACCPolicyEngineList")]
-    [OutputType("Amazon.BedrockAgentCoreControl.Model.PolicyEngine")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ListPolicyEngines API operation.", Operation = new[] {"ListPolicyEngines"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListPolicyEnginesResponse))]
-    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.PolicyEngine or Amazon.BedrockAgentCoreControl.Model.ListPolicyEnginesResponse",
-        "This cmdlet returns a collection of Amazon.BedrockAgentCoreControl.Model.PolicyEngine objects.",
-        "The service call response (type Amazon.BedrockAgentCoreControl.Model.ListPolicyEnginesResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "SQQuotaUtilizationReport")]
+    [OutputType("Amazon.ServiceQuotas.Model.GetQuotaUtilizationReportResponse")]
+    [AWSCmdlet("Calls the AWS Service Quotas GetQuotaUtilizationReport API operation.", Operation = new[] {"GetQuotaUtilizationReport"}, SelectReturnType = typeof(Amazon.ServiceQuotas.Model.GetQuotaUtilizationReportResponse))]
+    [AWSCmdletOutput("Amazon.ServiceQuotas.Model.GetQuotaUtilizationReportResponse",
+        "This cmdlet returns an Amazon.ServiceQuotas.Model.GetQuotaUtilizationReportResponse object containing multiple properties."
     )]
-    public partial class GetBACCPolicyEngineListCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
+    public partial class GetSQQuotaUtilizationReportCmdlet : AmazonServiceQuotasClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter ReportId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the quota utilization report. This identifier is returned
+        /// by the <c>StartQuotaUtilizationReport</c> operation.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ReportId { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of policy engines to return in a single response. If not specified,
-        /// the default is 10 policy engines per page, with a maximum of 100 per page.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
-        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
-        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
+        /// <para>The maximum number of results to return per page. The default value is 1,000 and the
+        /// maximum allowed value is 1,000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxItems","MaxResults")]
-        public int? MaxResult { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyEngines.html">ListPolicyEngines</a>
-        /// call. Use this token to retrieve the next page of results when the response is paginated.</para>
+        /// <para>A token that indicates the next page of results to retrieve. This token is returned
+        /// in the response when there are more results available. Omit this parameter for the
+        /// first request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -81,13 +107,13 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'PolicyEngines'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.ListPolicyEnginesResponse).
-        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.ListPolicyEnginesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ServiceQuotas.Model.GetQuotaUtilizationReportResponse).
+        /// Specifying the name of a property of type Amazon.ServiceQuotas.Model.GetQuotaUtilizationReportResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "PolicyEngines";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -116,20 +142,18 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.ListPolicyEnginesResponse, GetBACCPolicyEngineListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ServiceQuotas.Model.GetQuotaUtilizationReportResponse, GetSQQuotaUtilizationReportCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.MaxResult = this.MaxResult;
-            #if !MODULAR
-            if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
+            context.NextToken = this.NextToken;
+            context.ReportId = this.ReportId;
+            #if MODULAR
+            if (this.ReportId == null && ParameterWasBound(nameof(this.ReportId)))
             {
-                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxResult parameter to limit the total number of items returned by the cmdlet." +
-                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
-                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxResult" +
-                    " to the service to specify how many items should be returned by each service call.");
+                WriteWarning("You are passing $null as a value for parameter ReportId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -146,11 +170,15 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.BedrockAgentCoreControl.Model.ListPolicyEnginesRequest();
+            var request = new Amazon.ServiceQuotas.Model.GetQuotaUtilizationReportRequest();
             
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.ReportId != null)
+            {
+                request.ReportId = cmdletContext.ReportId;
             }
             
             // Initialize loop variant and commence piping
@@ -209,12 +237,12 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         #region AWS Service Operation Call
         
-        private Amazon.BedrockAgentCoreControl.Model.ListPolicyEnginesResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.ListPolicyEnginesRequest request)
+        private Amazon.ServiceQuotas.Model.GetQuotaUtilizationReportResponse CallAWSServiceOperation(IAmazonServiceQuotas client, Amazon.ServiceQuotas.Model.GetQuotaUtilizationReportRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "ListPolicyEngines");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Quotas", "GetQuotaUtilizationReport");
             try
             {
-                return client.ListPolicyEnginesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.GetQuotaUtilizationReportAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -231,10 +259,11 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public int? MaxResult { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.BedrockAgentCoreControl.Model.ListPolicyEnginesResponse, GetBACCPolicyEngineListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.PolicyEngines;
+            public System.String ReportId { get; set; }
+            public System.Func<Amazon.ServiceQuotas.Model.GetQuotaUtilizationReportResponse, GetSQQuotaUtilizationReportCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

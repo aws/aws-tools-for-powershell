@@ -19954,10 +19954,16 @@ Set-Alias -Name Associate-CWLSourceToS3TableIntegration -Value Register-CWLSourc
 Set-Alias -Name CWL-AssociateSourceToS3TableIntegration -Value Register-CWLSourceToS3TableIntegration
 Set-Alias -Name Cancel-CWLExportTask -Value Stop-CWLExportTask
 Set-Alias -Name CWL-CancelExportTask -Value Stop-CWLExportTask
+Set-Alias -Name Cancel-CWLImportTask -Value Stop-CWLCWLImportTask
+Set-Alias -Name Cancel-CWLCWLImportTask -Value Stop-CWLCWLImportTask
+Set-Alias -Name CWL-CancelImportTask -Value Stop-CWLCWLImportTask
 Set-Alias -Name Create-CWLDelivery -Value New-CWLDelivery
 Set-Alias -Name CWL-CreateDelivery -Value New-CWLDelivery
 Set-Alias -Name Create-CWLExportTask -Value New-CWLExportTask
 Set-Alias -Name CWL-CreateExportTask -Value New-CWLExportTask
+Set-Alias -Name Create-CWLImportTask -Value New-CWLCWLImportTask
+Set-Alias -Name Create-CWLCWLImportTask -Value New-CWLCWLImportTask
+Set-Alias -Name CWL-CreateImportTask -Value New-CWLCWLImportTask
 Set-Alias -Name Create-CWLLogAnomalyDetector -Value New-CWLLogAnomalyDetector
 Set-Alias -Name CWL-CreateLogAnomalyDetector -Value New-CWLLogAnomalyDetector
 Set-Alias -Name Create-CWLLogGroup -Value New-CWLLogGroup
@@ -20028,6 +20034,12 @@ Set-Alias -Name CWL-DescribeExportTasks -Value Get-CWLExportTask
 Set-Alias -Name Describe-CWLFieldIndexes -Value Get-CWLFieldIndex
 Set-Alias -Name Describe-CWLFieldIndex -Value Get-CWLFieldIndex
 Set-Alias -Name CWL-DescribeFieldIndexes -Value Get-CWLFieldIndex
+Set-Alias -Name Describe-CWLImportTaskBatches -Value Get-CWLCWLImportTaskBatch
+Set-Alias -Name Describe-CWLCWLImportTaskBatch -Value Get-CWLCWLImportTaskBatch
+Set-Alias -Name CWL-DescribeImportTaskBatches -Value Get-CWLCWLImportTaskBatch
+Set-Alias -Name Describe-CWLImportTasks -Value Get-CWLCWLImportTask
+Set-Alias -Name Describe-CWLCWLImportTask -Value Get-CWLCWLImportTask
+Set-Alias -Name CWL-DescribeImportTasks -Value Get-CWLCWLImportTask
 Set-Alias -Name Describe-CWLIndexPolicies -Value Get-CWLIndexPolicy
 Set-Alias -Name Describe-CWLIndexPolicy -Value Get-CWLIndexPolicy
 Set-Alias -Name CWL-DescribeIndexPolicies -Value Get-CWLIndexPolicy
@@ -29933,6 +29945,7 @@ Set-Alias -Name SQ-DisassociateServiceQuotaTemplate -Value Unregister-SQServiceQ
 Set-Alias -Name SQ-GetAssociationForServiceQuotaTemplate -Value Get-SQAssociationForServiceQuotaTemplate
 Set-Alias -Name SQ-GetAutoManagementConfiguration -Value Get-SQAutoManagementConfiguration
 Set-Alias -Name SQ-GetAWSDefaultServiceQuota -Value Get-SQAWSDefaultServiceQuota
+Set-Alias -Name SQ-GetQuotaUtilizationReport -Value Get-SQQuotaUtilizationReport
 Set-Alias -Name SQ-GetRequestedServiceQuotaChange -Value Get-SQRequestedServiceQuotaChange
 Set-Alias -Name SQ-GetServiceQuota -Value Get-SQServiceQuota
 Set-Alias -Name SQ-GetServiceQuotaIncreaseRequestFromTemplate -Value Get-SQServiceQuotaIncreaseRequestFromTemplate
@@ -29959,6 +29972,7 @@ Set-Alias -Name Put-SQServiceQuotaIncreaseRequestIntoTemplate -Value Write-SQSer
 Set-Alias -Name SQ-PutServiceQuotaIncreaseRequestIntoTemplate -Value Write-SQServiceQuotaIncreaseRequestIntoTemplate
 Set-Alias -Name SQ-RequestServiceQuotaIncrease -Value Request-SQServiceQuotaIncrease
 Set-Alias -Name SQ-StartAutoManagement -Value Start-SQAutoManagement
+Set-Alias -Name SQ-StartQuotaUtilizationReport -Value Start-SQQuotaUtilizationReport
 Set-Alias -Name SQ-StopAutoManagement -Value Stop-SQAutoManagement
 Set-Alias -Name SQ-TagResource -Value Add-SQResourceTag
 Set-Alias -Name SQ-UntagResource -Value Remove-SQResourceTag

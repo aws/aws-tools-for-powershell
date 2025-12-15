@@ -155,9 +155,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>The maximum number of aggregated summaries to return. If you omit this parameter,
         /// the default is up to 50 aggregated summaries.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
+        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
+        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? Limit { get; set; }
+        [Alias("MaxItems")]
+        public int? Limit { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -231,6 +237,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             #endif
             context.IncludeLinkedAccount = this.IncludeLinkedAccount;
             context.Limit = this.Limit;
+            #if !MODULAR
+            if (ParameterWasBound(nameof(this.Limit)) && this.Limit.HasValue)
+            {
+                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the Limit parameter to limit the total number of items returned by the cmdlet." +
+                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
+                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing Limit" +
+                    " to the service to specify how many items should be returned by each service call.");
+            }
+            #endif
             context.LogGroupClass = this.LogGroupClass;
             context.LogGroupNamePattern = this.LogGroupNamePattern;
             context.NextToken = this.NextToken;
@@ -270,7 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             }
             if (cmdletContext.Limit != null)
             {
-                request.Limit = cmdletContext.Limit.Value;
+                request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
             }
             if (cmdletContext.LogGroupClass != null)
             {
@@ -363,7 +378,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             public List<Amazon.CloudWatchLogs.Model.DataSourceFilter> DataSource { get; set; }
             public Amazon.CloudWatchLogs.ListAggregateLogGroupSummariesGroupBy GroupBy { get; set; }
             public System.Boolean? IncludeLinkedAccount { get; set; }
-            public System.Int32? Limit { get; set; }
+            public int? Limit { get; set; }
             public Amazon.CloudWatchLogs.LogGroupClass LogGroupClass { get; set; }
             public System.String LogGroupNamePattern { get; set; }
             public System.String NextToken { get; set; }

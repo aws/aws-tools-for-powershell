@@ -178,6 +178,21 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         public Amazon.Route53Resolver.ResolverEndpointType ResolverEndpointType { get; set; }
         #endregion
         
+        #region Parameter RniEnhancedMetricsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether RNI enhanced metrics are enabled for the Resolver endpoints. When
+        /// set to true, one-minute granular metrics are published in CloudWatch for each RNI
+        /// associated with this endpoint. When set to false, metrics are not published. Default
+        /// is false.</para><note><para>Standard CloudWatch pricing and charges are applied for using the Route 53 Resolver
+        /// endpoint RNI enhanced metrics. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/monitoring-resolver-with-cloudwatch.html">Detailed
+        /// metrics</a>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RniEnhancedMetricsEnabled { get; set; }
+        #endregion
+        
         #region Parameter SecurityGroupId
         /// <summary>
         /// <para>
@@ -222,6 +237,21 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.Route53Resolver.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter TargetNameServerMetricsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether target name server metrics are enabled for the outbound Resolver
+        /// endpoints. When set to true, one-minute granular metrics are published in CloudWatch
+        /// for each target name server associated with this endpoint. When set to false, metrics
+        /// are not published. Default is false. This is not supported for inbound Resolver endpoints.</para><note><para>Standard CloudWatch pricing and charges are applied for using the Route 53 Resolver
+        /// endpoint target name server metrics. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/monitoring-resolver-with-cloudwatch.html">Detailed
+        /// metrics</a>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? TargetNameServerMetricsEnabled { get; set; }
         #endregion
         
         #region Parameter Select
@@ -302,6 +332,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
                 context.Protocol = new List<System.String>(this.Protocol);
             }
             context.ResolverEndpointType = this.ResolverEndpointType;
+            context.RniEnhancedMetricsEnabled = this.RniEnhancedMetricsEnabled;
             if (this.SecurityGroupId != null)
             {
                 context.SecurityGroupId = new List<System.String>(this.SecurityGroupId);
@@ -316,6 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             {
                 context.Tag = new List<Amazon.Route53Resolver.Model.Tag>(this.Tag);
             }
+            context.TargetNameServerMetricsEnabled = this.TargetNameServerMetricsEnabled;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -364,6 +396,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             {
                 request.ResolverEndpointType = cmdletContext.ResolverEndpointType;
             }
+            if (cmdletContext.RniEnhancedMetricsEnabled != null)
+            {
+                request.RniEnhancedMetricsEnabled = cmdletContext.RniEnhancedMetricsEnabled.Value;
+            }
             if (cmdletContext.SecurityGroupId != null)
             {
                 request.SecurityGroupIds = cmdletContext.SecurityGroupId;
@@ -371,6 +407,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.TargetNameServerMetricsEnabled != null)
+            {
+                request.TargetNameServerMetricsEnabled = cmdletContext.TargetNameServerMetricsEnabled.Value;
             }
             
             CmdletOutput output;
@@ -435,8 +475,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             public System.String PreferredInstanceType { get; set; }
             public List<System.String> Protocol { get; set; }
             public Amazon.Route53Resolver.ResolverEndpointType ResolverEndpointType { get; set; }
+            public System.Boolean? RniEnhancedMetricsEnabled { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public List<Amazon.Route53Resolver.Model.Tag> Tag { get; set; }
+            public System.Boolean? TargetNameServerMetricsEnabled { get; set; }
             public System.Func<Amazon.Route53Resolver.Model.CreateResolverEndpointResponse, NewR53RResolverEndpointCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ResolverEndpoint;
         }

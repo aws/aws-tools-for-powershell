@@ -106,6 +106,35 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         public Amazon.Route53Resolver.ResolverEndpointType ResolverEndpointType { get; set; }
         #endregion
         
+        #region Parameter RniEnhancedMetricsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Updates whether RNI enhanced metrics are enabled for the Resolver endpoints. When
+        /// set to true, one-minute granular metrics are published in CloudWatch for each RNI
+        /// associated with this endpoint. When set to false, metrics are not published.</para><note><para>Standard CloudWatch pricing and charges are applied for using the Route 53 Resolver
+        /// endpoint RNI enhanced metrics. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/monitoring-resolver-with-cloudwatch.html">Detailed
+        /// metrics</a>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RniEnhancedMetricsEnabled { get; set; }
+        #endregion
+        
+        #region Parameter TargetNameServerMetricsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Updates whether target name server metrics are enabled for the outbound Resolver endpoints.
+        /// When set to true, one-minute granular metrics are published in CloudWatch for each
+        /// target name server associated with this endpoint. When set to false, metrics are not
+        /// published. This setting is not supported for inbound Resolver endpoints.</para><note><para>Standard CloudWatch pricing and charges are applied for using the Route 53 Resolver
+        /// endpoint target name server metrics. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/monitoring-resolver-with-cloudwatch.html">Detailed
+        /// metrics</a>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? TargetNameServerMetricsEnabled { get; set; }
+        #endregion
+        
         #region Parameter UpdateIpAddress
         /// <summary>
         /// <para>
@@ -182,6 +211,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             }
             #endif
             context.ResolverEndpointType = this.ResolverEndpointType;
+            context.RniEnhancedMetricsEnabled = this.RniEnhancedMetricsEnabled;
+            context.TargetNameServerMetricsEnabled = this.TargetNameServerMetricsEnabled;
             if (this.UpdateIpAddress != null)
             {
                 context.UpdateIpAddress = new List<Amazon.Route53Resolver.Model.UpdateIpAddress>(this.UpdateIpAddress);
@@ -217,6 +248,14 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             if (cmdletContext.ResolverEndpointType != null)
             {
                 request.ResolverEndpointType = cmdletContext.ResolverEndpointType;
+            }
+            if (cmdletContext.RniEnhancedMetricsEnabled != null)
+            {
+                request.RniEnhancedMetricsEnabled = cmdletContext.RniEnhancedMetricsEnabled.Value;
+            }
+            if (cmdletContext.TargetNameServerMetricsEnabled != null)
+            {
+                request.TargetNameServerMetricsEnabled = cmdletContext.TargetNameServerMetricsEnabled.Value;
             }
             if (cmdletContext.UpdateIpAddress != null)
             {
@@ -281,6 +320,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             public List<System.String> Protocol { get; set; }
             public System.String ResolverEndpointId { get; set; }
             public Amazon.Route53Resolver.ResolverEndpointType ResolverEndpointType { get; set; }
+            public System.Boolean? RniEnhancedMetricsEnabled { get; set; }
+            public System.Boolean? TargetNameServerMetricsEnabled { get; set; }
             public List<Amazon.Route53Resolver.Model.UpdateIpAddress> UpdateIpAddress { get; set; }
             public System.Func<Amazon.Route53Resolver.Model.UpdateResolverEndpointResponse, UpdateR53RResolverEndpointCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ResolverEndpoint;

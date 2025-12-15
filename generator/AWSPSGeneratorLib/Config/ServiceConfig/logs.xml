@@ -33,11 +33,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelImportTask" OutputProperty="*" Verb="Stop" Noun="CWLImportTask" ShouldProcessTarget="ImportId" PipelineParameter="ImportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDelivery" OutputProperty="Delivery" Verb="New" Noun="Delivery" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateExportTask" OutputProperty="TaskId" Verb="New" Noun="ExportTask" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateImportTask" OutputProperty="*" Verb="New" Noun="CWLImportTask" ShouldProcessTarget="ImportRoleArn,ImportSourceArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -164,6 +172,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeFieldIndexes" OutputProperty="FieldIndexes" Verb="Get" Noun="FieldIndex" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeImportTaskBatches" OutputProperty="*" Verb="Get" Noun="CWLImportTaskBatch" PipelineParameter="ImportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeImportTasks" OutputProperty="Imports" Verb="Get" Noun="CWLImportTask" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

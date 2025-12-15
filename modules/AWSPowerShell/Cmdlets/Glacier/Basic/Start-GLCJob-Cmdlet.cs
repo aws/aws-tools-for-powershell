@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         /// <para>
         /// <para>The <c>AccountId</c> value is the AWS account ID of the account that owns the vault.
         /// You can either specify an AWS account ID or optionally a single '<c>-</c>' (hyphen),
-        /// in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials
+        /// in which case Amazon Glacier uses the AWS account ID associated with the credentials
         /// used to sign the request. If you use an account ID, do not include any hyphens ('-')
         /// in the ID.</para>
         /// </para>
@@ -154,9 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         #region Parameter SNSTopic
         /// <summary>
         /// <para>
-        /// <para>The Amazon SNS topic ARN to which Amazon S3 Glacier sends a notification when the
-        /// job is completed and the output is ready for you to download. The specified topic
-        /// publishes the notification to its subscribers. The SNS topic must exist.</para>
+        /// <para>The Amazon SNS topic ARN to which Amazon Glacier sends a notification when the job
+        /// is completed and the output is ready for you to download. The specified topic publishes
+        /// the notification to its subscribers. The SNS topic must exist.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -73,6 +73,18 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.String LivePreRollConfiguration_AdDecisionServerUrl { get; set; }
         #endregion
         
+        #region Parameter HttpRequest_Body
+        /// <summary>
+        /// <para>
+        /// <para>The request body content to send with HTTP requests to the ad decision server. This
+        /// value is only eligible for <c>POST</c> requests.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdDecisionServerConfiguration_HttpRequest_Body")]
+        public System.String HttpRequest_Body { get; set; }
+        #endregion
+        
         #region Parameter CdnConfiguration
         /// <summary>
         /// <para>
@@ -82,6 +94,20 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.MediaTailor.Model.CdnConfiguration CdnConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter HttpRequest_CompressRequest
+        /// <summary>
+        /// <para>
+        /// <para>The compression method to apply to requests sent to the ad decision server. Supported
+        /// values are <c>NONE</c> and <c>GZIP</c>. This value is only eligible for <c>POST</c>
+        /// requests.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdDecisionServerConfiguration_HttpRequest_CompressRequest")]
+        [AWSConstantClassSource("Amazon.MediaTailor.CompressionMethod")]
+        public Amazon.MediaTailor.CompressionMethod HttpRequest_CompressRequest { get; set; }
         #endregion
         
         #region Parameter ConfigurationAlias
@@ -145,6 +171,22 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public Amazon.MediaTailor.FillPolicy AvailSuppression_FillPolicy { get; set; }
         #endregion
         
+        #region Parameter HttpRequest_Header
+        /// <summary>
+        /// <para>
+        /// <para>Custom HTTP headers to include in requests to the ad decision server. Specify headers
+        /// as key-value pairs. This value is only eligible for <c>POST</c> requests.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdDecisionServerConfiguration_HttpRequest_Headers")]
+        public System.Collections.Hashtable HttpRequest_Header { get; set; }
+        #endregion
+        
         #region Parameter InsertionMode
         /// <summary>
         /// <para>
@@ -171,6 +213,19 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("LivePreRollConfiguration_MaxDurationSeconds")]
         public System.Int32? LivePreRollConfiguration_MaxDurationSecond { get; set; }
+        #endregion
+        
+        #region Parameter HttpRequest_Method
+        /// <summary>
+        /// <para>
+        /// <para>The HTTP method to use when making requests to the ad decision server. Supported values
+        /// are <c>GET</c> and <c>POST</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdDecisionServerConfiguration_HttpRequest_Method")]
+        [AWSConstantClassSource("Amazon.MediaTailor.Method")]
+        public Amazon.MediaTailor.Method HttpRequest_Method { get; set; }
         #endregion
         
         #region Parameter AvailSuppression_Mode
@@ -369,6 +424,17 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AdConditioningConfiguration_StreamingMediaFileConditioning = this.AdConditioningConfiguration_StreamingMediaFileConditioning;
+            context.HttpRequest_Body = this.HttpRequest_Body;
+            context.HttpRequest_CompressRequest = this.HttpRequest_CompressRequest;
+            if (this.HttpRequest_Header != null)
+            {
+                context.HttpRequest_Header = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.HttpRequest_Header.Keys)
+                {
+                    context.HttpRequest_Header.Add((String)hashKey, (System.String)(this.HttpRequest_Header[hashKey]));
+                }
+            }
+            context.HttpRequest_Method = this.HttpRequest_Method;
             context.AdDecisionServerUrl = this.AdDecisionServerUrl;
             context.AvailSuppression_FillPolicy = this.AvailSuppression_FillPolicy;
             context.AvailSuppression_Mode = this.AvailSuppression_Mode;
@@ -442,6 +508,70 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (requestAdConditioningConfigurationIsNull)
             {
                 request.AdConditioningConfiguration = null;
+            }
+            
+             // populate AdDecisionServerConfiguration
+            var requestAdDecisionServerConfigurationIsNull = true;
+            request.AdDecisionServerConfiguration = new Amazon.MediaTailor.Model.AdDecisionServerConfiguration();
+            Amazon.MediaTailor.Model.HttpRequest requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest = null;
+            
+             // populate HttpRequest
+            var requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequestIsNull = true;
+            requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest = new Amazon.MediaTailor.Model.HttpRequest();
+            System.String requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest_httpRequest_Body = null;
+            if (cmdletContext.HttpRequest_Body != null)
+            {
+                requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest_httpRequest_Body = cmdletContext.HttpRequest_Body;
+            }
+            if (requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest_httpRequest_Body != null)
+            {
+                requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest.Body = requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest_httpRequest_Body;
+                requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequestIsNull = false;
+            }
+            Amazon.MediaTailor.CompressionMethod requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest_httpRequest_CompressRequest = null;
+            if (cmdletContext.HttpRequest_CompressRequest != null)
+            {
+                requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest_httpRequest_CompressRequest = cmdletContext.HttpRequest_CompressRequest;
+            }
+            if (requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest_httpRequest_CompressRequest != null)
+            {
+                requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest.CompressRequest = requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest_httpRequest_CompressRequest;
+                requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequestIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest_httpRequest_Header = null;
+            if (cmdletContext.HttpRequest_Header != null)
+            {
+                requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest_httpRequest_Header = cmdletContext.HttpRequest_Header;
+            }
+            if (requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest_httpRequest_Header != null)
+            {
+                requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest.Headers = requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest_httpRequest_Header;
+                requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequestIsNull = false;
+            }
+            Amazon.MediaTailor.Method requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest_httpRequest_Method = null;
+            if (cmdletContext.HttpRequest_Method != null)
+            {
+                requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest_httpRequest_Method = cmdletContext.HttpRequest_Method;
+            }
+            if (requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest_httpRequest_Method != null)
+            {
+                requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest.Method = requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest_httpRequest_Method;
+                requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequestIsNull = false;
+            }
+             // determine if requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest should be set to null
+            if (requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequestIsNull)
+            {
+                requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest = null;
+            }
+            if (requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest != null)
+            {
+                request.AdDecisionServerConfiguration.HttpRequest = requestAdDecisionServerConfiguration_adDecisionServerConfiguration_HttpRequest;
+                requestAdDecisionServerConfigurationIsNull = false;
+            }
+             // determine if request.AdDecisionServerConfiguration should be set to null
+            if (requestAdDecisionServerConfigurationIsNull)
+            {
+                request.AdDecisionServerConfiguration = null;
             }
             if (cmdletContext.AdDecisionServerUrl != null)
             {
@@ -674,6 +804,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.MediaTailor.StreamingMediaFileConditioning AdConditioningConfiguration_StreamingMediaFileConditioning { get; set; }
+            public System.String HttpRequest_Body { get; set; }
+            public Amazon.MediaTailor.CompressionMethod HttpRequest_CompressRequest { get; set; }
+            public Dictionary<System.String, System.String> HttpRequest_Header { get; set; }
+            public Amazon.MediaTailor.Method HttpRequest_Method { get; set; }
             public System.String AdDecisionServerUrl { get; set; }
             public Amazon.MediaTailor.FillPolicy AvailSuppression_FillPolicy { get; set; }
             public Amazon.MediaTailor.Mode AvailSuppression_Mode { get; set; }

@@ -90,6 +90,13 @@ $EMT_Completers = {
             break
         }
 
+        # Amazon.MediaTailor.CompressionMethod
+        "Set-EMTPlaybackConfiguration/HttpRequest_CompressRequest"
+        {
+            $v = "GZIP","NONE"
+            break
+        }
+
         # Amazon.MediaTailor.FillPolicy
         "Set-EMTPlaybackConfiguration/AvailSuppression_FillPolicy"
         {
@@ -108,6 +115,13 @@ $EMT_Completers = {
         "Get-EMTPrefetchScheduleList/ScheduleType"
         {
             $v = "ALL","RECURRING","SINGLE"
+            break
+        }
+
+        # Amazon.MediaTailor.Method
+        "Set-EMTPlaybackConfiguration/HttpRequest_Method"
+        {
+            $v = "GET","POST"
             break
         }
 
@@ -176,6 +190,8 @@ $EMT_map = @{
     "AdConditioningConfiguration_StreamingMediaFileConditioning"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_FillPolicy"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_Mode"=@("Set-EMTPlaybackConfiguration")
+    "HttpRequest_CompressRequest"=@("Set-EMTPlaybackConfiguration")
+    "HttpRequest_Method"=@("Set-EMTPlaybackConfiguration")
     "InsertionMode"=@("Set-EMTPlaybackConfiguration")
     "PlaybackMode"=@("New-EMTChannel")
     "RecurringRetrieval_TrafficShapingType"=@("New-EMTPrefetchSchedule")

@@ -23,49 +23,32 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Glacier;
-using Amazon.Glacier.Model;
+using Amazon.CloudWatchLogs;
+using Amazon.CloudWatchLogs.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.GLC
+namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// This operation lists all the tags attached to a vault. The operation returns an empty
-    /// map if there are no tags. For more information about tags, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html">Tagging
-    /// Amazon Glacier Resources</a>.
+    /// Cancels an active import task and stops importing data from the CloudTrail Lake Event
+    /// Data Store.
     /// </summary>
-    [Cmdlet("Get", "GLCVaultTagList")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Glacier ListTagsForVault API operation.", Operation = new[] {"ListTagsForVault"}, SelectReturnType = typeof(Amazon.Glacier.Model.ListTagsForVaultResponse))]
-    [AWSCmdletOutput("System.String or Amazon.Glacier.Model.ListTagsForVaultResponse",
-        "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.Glacier.Model.ListTagsForVaultResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Stop", "CWLCWLImportTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CloudWatchLogs.Model.CancelImportTaskResponse")]
+    [AWSCmdlet("Calls the Amazon CloudWatch Logs CancelImportTask API operation.", Operation = new[] {"CancelImportTask"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.CancelImportTaskResponse))]
+    [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.CancelImportTaskResponse",
+        "This cmdlet returns an Amazon.CloudWatchLogs.Model.CancelImportTaskResponse object containing multiple properties."
     )]
-    public partial class GetGLCVaultTagListCmdlet : AmazonGlacierClientCmdlet, IExecutor
+    public partial class StopCWLCWLImportTaskCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter AccountId
+        #region Parameter ImportId
         /// <summary>
         /// <para>
-        /// <para>The <c>AccountId</c> value is the AWS account ID of the account that owns the vault.
-        /// You can either specify an AWS account ID or optionally a single '<c>-</c>' (hyphen),
-        /// in which case Amazon Glacier uses the AWS account ID associated with the credentials
-        /// used to sign the request. If you use an account ID, do not include any hyphens ('-')
-        /// in the ID.</para>
-        /// </para>
-        /// <para>If a value for this parameter is not specified the cmdlet will use a default value of '<b>-</b>'.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AccountId { get; set; }
-        #endregion
-        
-        #region Parameter VaultName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the vault.</para>
+        /// <para>The ID of the import task to cancel.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,18 +59,28 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String VaultName { get; set; }
+        public System.String ImportId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tags'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glacier.Model.ListTagsForVaultResponse).
-        /// Specifying the name of a property of type Amazon.Glacier.Model.ListTagsForVaultResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatchLogs.Model.CancelImportTaskResponse).
+        /// Specifying the name of a property of type Amazon.CloudWatchLogs.Model.CancelImportTaskResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Tags";
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -99,6 +92,12 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         {
             base.ProcessRecord();
             
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ImportId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-CWLCWLImportTask (CancelImportTask)"))
+            {
+                return;
+            }
+            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -106,26 +105,14 @@ namespace Amazon.PowerShell.Cmdlets.GLC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Glacier.Model.ListTagsForVaultResponse, GetGLCVaultTagListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.CancelImportTaskResponse, StopCWLCWLImportTaskCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.AccountId = this.AccountId;
-            if (!ParameterWasBound(nameof(this.AccountId)))
-            {
-                WriteVerbose("AccountId parameter unset, using default value of '-'");
-                context.AccountId = "-";
-            }
+            context.ImportId = this.ImportId;
             #if MODULAR
-            if (this.AccountId == null && ParameterWasBound(nameof(this.AccountId)))
+            if (this.ImportId == null && ParameterWasBound(nameof(this.ImportId)))
             {
-                WriteWarning("You are passing $null as a value for parameter AccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.VaultName = this.VaultName;
-            #if MODULAR
-            if (this.VaultName == null && ParameterWasBound(nameof(this.VaultName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter VaultName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ImportId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -142,15 +129,11 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Glacier.Model.ListTagsForVaultRequest();
+            var request = new Amazon.CloudWatchLogs.Model.CancelImportTaskRequest();
             
-            if (cmdletContext.AccountId != null)
+            if (cmdletContext.ImportId != null)
             {
-                request.AccountId = cmdletContext.AccountId;
-            }
-            if (cmdletContext.VaultName != null)
-            {
-                request.VaultName = cmdletContext.VaultName;
+                request.ImportId = cmdletContext.ImportId;
             }
             
             CmdletOutput output;
@@ -185,12 +168,12 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         
         #region AWS Service Operation Call
         
-        private Amazon.Glacier.Model.ListTagsForVaultResponse CallAWSServiceOperation(IAmazonGlacier client, Amazon.Glacier.Model.ListTagsForVaultRequest request)
+        private Amazon.CloudWatchLogs.Model.CancelImportTaskResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.CancelImportTaskRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Glacier", "ListTagsForVault");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Logs", "CancelImportTask");
             try
             {
-                return client.ListTagsForVaultAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.CancelImportTaskAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -207,10 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AccountId { get; set; }
-            public System.String VaultName { get; set; }
-            public System.Func<Amazon.Glacier.Model.ListTagsForVaultResponse, GetGLCVaultTagListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Tags;
+            public System.String ImportId { get; set; }
+            public System.Func<Amazon.CloudWatchLogs.Model.CancelImportTaskResponse, StopCWLCWLImportTaskCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

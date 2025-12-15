@@ -23,51 +23,56 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.Glacier;
-using Amazon.Glacier.Model;
+using Amazon.ServiceQuotas;
+using Amazon.ServiceQuotas.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.GLC
+namespace Amazon.PowerShell.Cmdlets.SQ
 {
     /// <summary>
-    /// This operation lists the provisioned capacity units for the specified AWS account.
+    /// Initiates the generation of a quota utilization report for your Amazon Web Services
+    /// account. This asynchronous operation analyzes your quota usage across all Amazon Web
+    /// Services services and returns a unique report identifier that you can use to retrieve
+    /// the results.
+    /// 
+    ///  
+    /// <para>
+    /// The report generation process may take several seconds to complete, depending on the
+    /// number of quotas in your account. Use the <c>GetQuotaUtilizationReport</c> operation
+    /// to check the status and retrieve the results when the report is ready.
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "GLCProvisionedCapacityList")]
-    [OutputType("Amazon.Glacier.Model.ProvisionedCapacityDescription")]
-    [AWSCmdlet("Calls the Amazon Glacier ListProvisionedCapacity API operation.", Operation = new[] {"ListProvisionedCapacity"}, SelectReturnType = typeof(Amazon.Glacier.Model.ListProvisionedCapacityResponse))]
-    [AWSCmdletOutput("Amazon.Glacier.Model.ProvisionedCapacityDescription or Amazon.Glacier.Model.ListProvisionedCapacityResponse",
-        "This cmdlet returns a collection of Amazon.Glacier.Model.ProvisionedCapacityDescription objects.",
-        "The service call response (type Amazon.Glacier.Model.ListProvisionedCapacityResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Start", "SQQuotaUtilizationReport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ServiceQuotas.Model.StartQuotaUtilizationReportResponse")]
+    [AWSCmdlet("Calls the AWS Service Quotas StartQuotaUtilizationReport API operation.", Operation = new[] {"StartQuotaUtilizationReport"}, SelectReturnType = typeof(Amazon.ServiceQuotas.Model.StartQuotaUtilizationReportResponse))]
+    [AWSCmdletOutput("Amazon.ServiceQuotas.Model.StartQuotaUtilizationReportResponse",
+        "This cmdlet returns an Amazon.ServiceQuotas.Model.StartQuotaUtilizationReportResponse object containing multiple properties."
     )]
-    public partial class GetGLCProvisionedCapacityListCmdlet : AmazonGlacierClientCmdlet, IExecutor
+    public partial class StartSQQuotaUtilizationReportCmdlet : AmazonServiceQuotasClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter AccountId
-        /// <summary>
-        /// <para>
-        /// <para>The AWS account ID of the account that owns the vault. You can either specify an AWS
-        /// account ID or optionally a single '-' (hyphen), in which case Amazon Glacier uses
-        /// the AWS account ID associated with the credentials used to sign the request. If you
-        /// use an account ID, don't include any hyphens ('-') in the ID. </para>
-        /// </para>
-        /// <para>If a value for this parameter is not specified the cmdlet will use a default value of '<b>-</b>'.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String AccountId { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ProvisionedCapacityList'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glacier.Model.ListProvisionedCapacityResponse).
-        /// Specifying the name of a property of type Amazon.Glacier.Model.ListProvisionedCapacityResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ServiceQuotas.Model.StartQuotaUtilizationReportResponse).
+        /// Specifying the name of a property of type Amazon.ServiceQuotas.Model.StartQuotaUtilizationReportResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ProvisionedCapacityList";
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -79,6 +84,12 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         {
             base.ProcessRecord();
             
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-SQQuotaUtilizationReport (StartQuotaUtilizationReport)"))
+            {
+                return;
+            }
+            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -86,21 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.GLC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Glacier.Model.ListProvisionedCapacityResponse, GetGLCProvisionedCapacityListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ServiceQuotas.Model.StartQuotaUtilizationReportResponse, StartSQQuotaUtilizationReportCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.AccountId = this.AccountId;
-            if (!ParameterWasBound(nameof(this.AccountId)))
-            {
-                WriteVerbose("AccountId parameter unset, using default value of '-'");
-                context.AccountId = "-";
-            }
-            #if MODULAR
-            if (this.AccountId == null && ParameterWasBound(nameof(this.AccountId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -115,12 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Glacier.Model.ListProvisionedCapacityRequest();
+            var request = new Amazon.ServiceQuotas.Model.StartQuotaUtilizationReportRequest();
             
-            if (cmdletContext.AccountId != null)
-            {
-                request.AccountId = cmdletContext.AccountId;
-            }
             
             CmdletOutput output;
             
@@ -154,12 +149,12 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         
         #region AWS Service Operation Call
         
-        private Amazon.Glacier.Model.ListProvisionedCapacityResponse CallAWSServiceOperation(IAmazonGlacier client, Amazon.Glacier.Model.ListProvisionedCapacityRequest request)
+        private Amazon.ServiceQuotas.Model.StartQuotaUtilizationReportResponse CallAWSServiceOperation(IAmazonServiceQuotas client, Amazon.ServiceQuotas.Model.StartQuotaUtilizationReportRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Glacier", "ListProvisionedCapacity");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Quotas", "StartQuotaUtilizationReport");
             try
             {
-                return client.ListProvisionedCapacityAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.StartQuotaUtilizationReportAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -176,9 +171,8 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AccountId { get; set; }
-            public System.Func<Amazon.Glacier.Model.ListProvisionedCapacityResponse, GetGLCProvisionedCapacityListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ProvisionedCapacityList;
+            public System.Func<Amazon.ServiceQuotas.Model.StartQuotaUtilizationReportResponse, StartSQQuotaUtilizationReportCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

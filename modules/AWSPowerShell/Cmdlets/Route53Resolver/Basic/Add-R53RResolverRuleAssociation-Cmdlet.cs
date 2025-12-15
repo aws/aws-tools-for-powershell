@@ -51,7 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A name for the association that you're creating between a Resolver rule and a VPC.</para>
+        /// <para>A name for the association that you're creating between a Resolver rule and a VPC.</para><para>The name can be up to 64 characters long and can contain letters (a-z, A-Z), numbers
+        /// (0-9), hyphens (-), underscores (_), and spaces. The name cannot consist of only numbers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

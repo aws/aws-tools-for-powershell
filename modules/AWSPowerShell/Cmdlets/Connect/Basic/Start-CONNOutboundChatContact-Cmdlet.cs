@@ -155,6 +155,36 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String InitialSystemMessage_ContentType { get; set; }
         #endregion
         
+        #region Parameter TemplateAttributes_CustomAttribute
+        /// <summary>
+        /// <para>
+        /// <para>An object that specifies the custom attributes values to use for variables in the
+        /// message template. This object contains different categories of key-value pairs. Each
+        /// key defines a variable or placeholder in the message template. </para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InitialTemplatedSystemMessage_TemplateAttributes_CustomAttributes")]
+        public System.Collections.Hashtable TemplateAttributes_CustomAttribute { get; set; }
+        #endregion
+        
+        #region Parameter TemplateAttributes_CustomerProfileAttribute
+        /// <summary>
+        /// <para>
+        /// <para>An object that specifies the customer profile attributes values to use for variables
+        /// in the message template. This object contains different categories of key-value pairs.
+        /// Each key defines a variable or placeholder in the message template. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InitialTemplatedSystemMessage_TemplateAttributes_CustomerProfileAttributes")]
+        public System.String TemplateAttributes_CustomerProfileAttribute { get; set; }
+        #endregion
+        
         #region Parameter ParticipantDetails_DisplayName
         /// <summary>
         /// <para>
@@ -181,6 +211,27 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String InstanceId { get; set; }
+        #endregion
+        
+        #region Parameter InitialTemplatedSystemMessage_KnowledgeBaseId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot
+        /// contain the ARN.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InitialTemplatedSystemMessage_KnowledgeBaseId { get; set; }
+        #endregion
+        
+        #region Parameter InitialTemplatedSystemMessage_MessageTemplateId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the message template Id.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InitialTemplatedSystemMessage_MessageTemplateId { get; set; }
         #endregion
         
         #region Parameter RelatedContactId
@@ -338,6 +389,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             context.DestinationEndpoint_Type = this.DestinationEndpoint_Type;
             context.InitialSystemMessage_Content = this.InitialSystemMessage_Content;
             context.InitialSystemMessage_ContentType = this.InitialSystemMessage_ContentType;
+            context.InitialTemplatedSystemMessage_KnowledgeBaseId = this.InitialTemplatedSystemMessage_KnowledgeBaseId;
+            context.InitialTemplatedSystemMessage_MessageTemplateId = this.InitialTemplatedSystemMessage_MessageTemplateId;
+            if (this.TemplateAttributes_CustomAttribute != null)
+            {
+                context.TemplateAttributes_CustomAttribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.TemplateAttributes_CustomAttribute.Keys)
+                {
+                    context.TemplateAttributes_CustomAttribute.Add((String)hashKey, (System.String)(this.TemplateAttributes_CustomAttribute[hashKey]));
+                }
+            }
+            context.TemplateAttributes_CustomerProfileAttribute = this.TemplateAttributes_CustomerProfileAttribute;
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
@@ -456,6 +518,70 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestInitialSystemMessageIsNull)
             {
                 request.InitialSystemMessage = null;
+            }
+            
+             // populate InitialTemplatedSystemMessage
+            var requestInitialTemplatedSystemMessageIsNull = true;
+            request.InitialTemplatedSystemMessage = new Amazon.Connect.Model.TemplatedMessageConfig();
+            System.String requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_KnowledgeBaseId = null;
+            if (cmdletContext.InitialTemplatedSystemMessage_KnowledgeBaseId != null)
+            {
+                requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_KnowledgeBaseId = cmdletContext.InitialTemplatedSystemMessage_KnowledgeBaseId;
+            }
+            if (requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_KnowledgeBaseId != null)
+            {
+                request.InitialTemplatedSystemMessage.KnowledgeBaseId = requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_KnowledgeBaseId;
+                requestInitialTemplatedSystemMessageIsNull = false;
+            }
+            System.String requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_MessageTemplateId = null;
+            if (cmdletContext.InitialTemplatedSystemMessage_MessageTemplateId != null)
+            {
+                requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_MessageTemplateId = cmdletContext.InitialTemplatedSystemMessage_MessageTemplateId;
+            }
+            if (requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_MessageTemplateId != null)
+            {
+                request.InitialTemplatedSystemMessage.MessageTemplateId = requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_MessageTemplateId;
+                requestInitialTemplatedSystemMessageIsNull = false;
+            }
+            Amazon.Connect.Model.TemplateAttributes requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_TemplateAttributes = null;
+            
+             // populate TemplateAttributes
+            var requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_TemplateAttributesIsNull = true;
+            requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_TemplateAttributes = new Amazon.Connect.Model.TemplateAttributes();
+            Dictionary<System.String, System.String> requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_TemplateAttributes_templateAttributes_CustomAttribute = null;
+            if (cmdletContext.TemplateAttributes_CustomAttribute != null)
+            {
+                requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_TemplateAttributes_templateAttributes_CustomAttribute = cmdletContext.TemplateAttributes_CustomAttribute;
+            }
+            if (requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_TemplateAttributes_templateAttributes_CustomAttribute != null)
+            {
+                requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_TemplateAttributes.CustomAttributes = requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_TemplateAttributes_templateAttributes_CustomAttribute;
+                requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_TemplateAttributesIsNull = false;
+            }
+            System.String requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_TemplateAttributes_templateAttributes_CustomerProfileAttribute = null;
+            if (cmdletContext.TemplateAttributes_CustomerProfileAttribute != null)
+            {
+                requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_TemplateAttributes_templateAttributes_CustomerProfileAttribute = cmdletContext.TemplateAttributes_CustomerProfileAttribute;
+            }
+            if (requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_TemplateAttributes_templateAttributes_CustomerProfileAttribute != null)
+            {
+                requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_TemplateAttributes.CustomerProfileAttributes = requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_TemplateAttributes_templateAttributes_CustomerProfileAttribute;
+                requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_TemplateAttributesIsNull = false;
+            }
+             // determine if requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_TemplateAttributes should be set to null
+            if (requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_TemplateAttributesIsNull)
+            {
+                requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_TemplateAttributes = null;
+            }
+            if (requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_TemplateAttributes != null)
+            {
+                request.InitialTemplatedSystemMessage.TemplateAttributes = requestInitialTemplatedSystemMessage_initialTemplatedSystemMessage_TemplateAttributes;
+                requestInitialTemplatedSystemMessageIsNull = false;
+            }
+             // determine if request.InitialTemplatedSystemMessage should be set to null
+            if (requestInitialTemplatedSystemMessageIsNull)
+            {
+                request.InitialTemplatedSystemMessage = null;
             }
             if (cmdletContext.InstanceId != null)
             {
@@ -584,6 +710,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public Amazon.Connect.EndpointType DestinationEndpoint_Type { get; set; }
             public System.String InitialSystemMessage_Content { get; set; }
             public System.String InitialSystemMessage_ContentType { get; set; }
+            public System.String InitialTemplatedSystemMessage_KnowledgeBaseId { get; set; }
+            public System.String InitialTemplatedSystemMessage_MessageTemplateId { get; set; }
+            public Dictionary<System.String, System.String> TemplateAttributes_CustomAttribute { get; set; }
+            public System.String TemplateAttributes_CustomerProfileAttribute { get; set; }
             public System.String InstanceId { get; set; }
             public System.String ParticipantDetails_DisplayName { get; set; }
             public System.String RelatedContactId { get; set; }

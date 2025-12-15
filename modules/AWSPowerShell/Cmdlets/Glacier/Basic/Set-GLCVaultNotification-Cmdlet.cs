@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
     /// <para>
     /// To configure vault notifications, send a PUT request to the <c>notification-configuration</c>
     /// subresource of the vault. The request should include a JSON document that provides
-    /// an Amazon SNS topic and specific events for which you want Amazon S3 Glacier to send
+    /// an Amazon SNS topic and specific events for which you want Amazon Glacier to send
     /// notifications to the topic.
     /// </para><para>
     /// Amazon SNS topics must grant permission to the vault to be allowed to publish notifications
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
     /// Control Using AWS Identity and Access Management (IAM)</a>.
     /// </para><para>
     /// For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html">Configuring
-    /// Vault Notifications in Amazon S3 Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-put.html">Set
+    /// Vault Notifications in Amazon Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-put.html">Set
     /// Vault Notification Configuration </a> in the <i>Amazon Glacier Developer Guide</i>.
     /// 
     /// </para>
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         /// <para>
         /// <para>The <c>AccountId</c> value is the AWS account ID of the account that owns the vault.
         /// You can either specify an AWS account ID or optionally a single '<c>-</c>' (hyphen),
-        /// in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials
+        /// in which case Amazon Glacier uses the AWS account ID associated with the credentials
         /// used to sign the request. If you use an account ID, do not include any hyphens ('-')
         /// in the ID.</para>
         /// </para>

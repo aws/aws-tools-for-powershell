@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "4.0.0.0",
-    "ProductVersion"    : "4.0.152.0",
+    "ProductVersion"    : "4.0.153.0",
     "CoreVersion"       : "4.0.3.6",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : false,
@@ -88,7 +88,7 @@
             "InPreview"               : false
         },
         "CloudWatchLogs"    : {
-            "Version" : "4.0.13.3",
+            "Version" : "4.0.14.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "4.0.62.2",
+            "Version" : "4.0.63.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
@@ -210,7 +210,7 @@
             "InPreview"               : false
         },
         "Glacier"              : {
-            "Version" : "4.0.2.8",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6",
@@ -308,7 +308,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "4.0.14.3",
+            "Version" : "4.0.15.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
@@ -660,7 +660,7 @@
             "InPreview"               : false
         },
         "AWSHealth"                       : {
-            "Version" : "4.0.2.4",
+            "Version" : "4.0.3.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
@@ -1020,7 +1020,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "4.0.21.0",
+            "Version" : "4.0.22.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
@@ -1076,7 +1076,7 @@
             "InPreview"               : false
         },
         "MediaTailor"                     : {
-            "Version" : "4.0.4.9",
+            "Version" : "4.0.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
@@ -1148,7 +1148,7 @@
             "InPreview"               : false
         },
         "Route53Resolver"                 : {
-            "Version" : "4.0.4.5",
+            "Version" : "4.0.5.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
@@ -1380,7 +1380,7 @@
             "InPreview"               : false
         },
         "ServiceQuotas"                   : {
-            "Version" : "4.0.3.13",
+            "Version" : "4.0.4.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
@@ -2644,7 +2644,7 @@
             "InPreview"               : false
         },
         "EntityResolution"                    : {
-            "Version" : "4.0.5.8",
+            "Version" : "4.0.6.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"
@@ -3244,7 +3244,7 @@
             "InPreview"               : false
         },
         "BedrockAgentCoreControl"             : {
-            "Version" : "4.0.12.3",
+            "Version" : "4.0.12.4",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.3.6"

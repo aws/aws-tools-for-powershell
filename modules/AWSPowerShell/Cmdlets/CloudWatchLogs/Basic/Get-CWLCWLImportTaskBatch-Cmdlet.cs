@@ -23,52 +23,75 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.BedrockAgentCoreControl;
-using Amazon.BedrockAgentCoreControl.Model;
+using Amazon.CloudWatchLogs;
+using Amazon.CloudWatchLogs.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.BACC
+namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Retrieves a list of policy engines within the AgentCore Policy system. This operation
-    /// supports pagination to help administrators discover and manage policy engines across
-    /// their account. Each policy engine serves as a container for related policies.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets detailed information about the individual batches within an import task, including
+    /// their status and any error messages. For CloudTrail Event Data Store sources, a batch
+    /// refers to a subset of stored events grouped by their eventTime.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "BACCPolicyEngineList")]
-    [OutputType("Amazon.BedrockAgentCoreControl.Model.PolicyEngine")]
-    [AWSCmdlet("Calls the Amazon Bedrock Agent Core Control Plane Fronting Layer ListPolicyEngines API operation.", Operation = new[] {"ListPolicyEngines"}, SelectReturnType = typeof(Amazon.BedrockAgentCoreControl.Model.ListPolicyEnginesResponse))]
-    [AWSCmdletOutput("Amazon.BedrockAgentCoreControl.Model.PolicyEngine or Amazon.BedrockAgentCoreControl.Model.ListPolicyEnginesResponse",
-        "This cmdlet returns a collection of Amazon.BedrockAgentCoreControl.Model.PolicyEngine objects.",
-        "The service call response (type Amazon.BedrockAgentCoreControl.Model.ListPolicyEnginesResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "CWLCWLImportTaskBatch")]
+    [OutputType("Amazon.CloudWatchLogs.Model.DescribeImportTaskBatchesResponse")]
+    [AWSCmdlet("Calls the Amazon CloudWatch Logs DescribeImportTaskBatches API operation.", Operation = new[] {"DescribeImportTaskBatches"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.DescribeImportTaskBatchesResponse))]
+    [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.DescribeImportTaskBatchesResponse",
+        "This cmdlet returns an Amazon.CloudWatchLogs.Model.DescribeImportTaskBatchesResponse object containing multiple properties."
     )]
-    public partial class GetBACCPolicyEngineListCmdlet : AmazonBedrockAgentCoreControlClientCmdlet, IExecutor
+    public partial class GetCWLCWLImportTaskBatchCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter MaxResult
+        #region Parameter BatchImportStatus
         /// <summary>
         /// <para>
-        /// <para>The maximum number of policy engines to return in a single response. If not specified,
-        /// the default is 10 policy engines per page, with a maximum of 100 per page.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
-        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
-        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
+        /// <para>Optional filter to list import batches by their status. Accepts multiple status values:
+        /// IN_PROGRESS, CANCELLED, COMPLETED and FAILED.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxItems","MaxResults")]
-        public int? MaxResult { get; set; }
+        public System.String[] BatchImportStatus { get; set; }
+        #endregion
+        
+        #region Parameter ImportId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the import task to get batch information for.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ImportId { get; set; }
+        #endregion
+        
+        #region Parameter Limit
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of import batches to return in the response. Default: 10</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Limit { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyEngines.html">ListPolicyEngines</a>
-        /// call. Use this token to retrieve the next page of results when the response is paginated.</para>
+        /// <para>The pagination token for the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -81,13 +104,13 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'PolicyEngines'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentCoreControl.Model.ListPolicyEnginesResponse).
-        /// Specifying the name of a property of type Amazon.BedrockAgentCoreControl.Model.ListPolicyEnginesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatchLogs.Model.DescribeImportTaskBatchesResponse).
+        /// Specifying the name of a property of type Amazon.CloudWatchLogs.Model.DescribeImportTaskBatchesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "PolicyEngines";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -116,19 +139,21 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BedrockAgentCoreControl.Model.ListPolicyEnginesResponse, GetBACCPolicyEngineListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.DescribeImportTaskBatchesResponse, GetCWLCWLImportTaskBatchCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.MaxResult = this.MaxResult;
-            #if !MODULAR
-            if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
+            if (this.BatchImportStatus != null)
             {
-                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxResult parameter to limit the total number of items returned by the cmdlet." +
-                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
-                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxResult" +
-                    " to the service to specify how many items should be returned by each service call.");
+                context.BatchImportStatus = new List<System.String>(this.BatchImportStatus);
+            }
+            context.ImportId = this.ImportId;
+            #if MODULAR
+            if (this.ImportId == null && ParameterWasBound(nameof(this.ImportId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ImportId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Limit = this.Limit;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -146,11 +171,19 @@ namespace Amazon.PowerShell.Cmdlets.BACC
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.BedrockAgentCoreControl.Model.ListPolicyEnginesRequest();
+            var request = new Amazon.CloudWatchLogs.Model.DescribeImportTaskBatchesRequest();
             
-            if (cmdletContext.MaxResult != null)
+            if (cmdletContext.BatchImportStatus != null)
             {
-                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+                request.BatchImportStatus = cmdletContext.BatchImportStatus;
+            }
+            if (cmdletContext.ImportId != null)
+            {
+                request.ImportId = cmdletContext.ImportId;
+            }
+            if (cmdletContext.Limit != null)
+            {
+                request.Limit = cmdletContext.Limit.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -209,12 +242,12 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         #region AWS Service Operation Call
         
-        private Amazon.BedrockAgentCoreControl.Model.ListPolicyEnginesResponse CallAWSServiceOperation(IAmazonBedrockAgentCoreControl client, Amazon.BedrockAgentCoreControl.Model.ListPolicyEnginesRequest request)
+        private Amazon.CloudWatchLogs.Model.DescribeImportTaskBatchesResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.DescribeImportTaskBatchesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Core Control Plane Fronting Layer", "ListPolicyEngines");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Logs", "DescribeImportTaskBatches");
             try
             {
-                return client.ListPolicyEnginesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.DescribeImportTaskBatchesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -231,10 +264,12 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public int? MaxResult { get; set; }
+            public List<System.String> BatchImportStatus { get; set; }
+            public System.String ImportId { get; set; }
+            public System.Int32? Limit { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.BedrockAgentCoreControl.Model.ListPolicyEnginesResponse, GetBACCPolicyEngineListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.PolicyEngines;
+            public System.Func<Amazon.CloudWatchLogs.Model.DescribeImportTaskBatchesResponse, GetCWLCWLImportTaskBatchCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

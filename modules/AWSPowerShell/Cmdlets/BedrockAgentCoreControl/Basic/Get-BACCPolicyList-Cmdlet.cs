@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/API_ListPolicies.html">ListPolicies</a>
+        /// <para>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicies.html">ListPolicies</a>
         /// call. Use this token to retrieve the next page of results when the response is paginated.</para>
         /// </para>
         /// <para>

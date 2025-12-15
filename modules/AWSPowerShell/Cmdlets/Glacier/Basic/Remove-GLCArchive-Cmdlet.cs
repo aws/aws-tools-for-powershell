@@ -36,12 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.GLC
     /// 
     ///  <ul><li><para>
     /// If the archive retrieval job is actively preparing the data for download when Amazon
-    /// S3 Glacier receives the delete archive request, the archival retrieval operation might
+    /// Glacier receives the delete archive request, the archival retrieval operation might
     /// fail.
     /// </para></li><li><para>
     /// If the archive retrieval job has successfully prepared the archive for download when
-    /// Amazon S3 Glacier receives the delete archive request, you will be able to download
-    /// the output.
+    /// Amazon Glacier receives the delete archive request, you will be able to download the
+    /// output.
     /// </para></li></ul><para>
     /// This operation is idempotent. Attempting to delete an already-deleted archive does
     /// not result in an error.
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         /// <para>
         /// <para>The <c>AccountId</c> value is the AWS account ID of the account that owns the vault.
         /// You can either specify an AWS account ID or optionally a single '<c>-</c>' (hyphen),
-        /// in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials
+        /// in which case Amazon Glacier uses the AWS account ID associated with the credentials
         /// used to sign the request. If you use an account ID, do not include any hyphens ('-')
         /// in the ID.</para>
         /// </para>

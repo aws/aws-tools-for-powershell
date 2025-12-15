@@ -94,7 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>A friendly name that lets you easily find a rule in the Resolver dashboard in the
-        /// Route 53 console.</para>
+        /// Route 53 console.</para><para>The name can be up to 64 characters long and can contain letters (a-z, A-Z), numbers
+        /// (0-9), hyphens (-), underscores (_), and spaces. The name cannot consist of only numbers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,7 +155,11 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>The IPs that you want Resolver to forward DNS queries to. You can specify either Ipv4
-        /// or Ipv6 addresses but not both in the same rule. Separate IP addresses with a space.</para><para><c>TargetIps</c> is available only when the value of <c>Rule type</c> is <c>FORWARD</c>.</para><para />
+        /// or Ipv6 addresses but not both in the same rule. Separate IP addresses with a space.</para><para><c>TargetIps</c> is available only when the value of <c>Rule type</c> is <c>FORWARD</c>.
+        /// You should not provide TargetIps when the Rule type is <c>DELEGATE</c>.</para><note><para>when creating a DELEGATE rule, you must not provide the <c>TargetIps</c> parameter.
+        /// If you provide the <c>TargetIps</c>, you may receive an ERROR message similar to "Delegate
+        /// resolver rules need to specify a nameserver name". This error means you should not
+        /// provide <c>TargetIps</c>.</para></note><para />
         /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
         /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
         /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous

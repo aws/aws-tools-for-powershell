@@ -111,6 +111,13 @@ $CWL_Completers = {
             break
         }
 
+        # Amazon.CloudWatchLogs.ImportStatus
+        "Get-CWLCWLImportTask/ImportStatus"
+        {
+            $v = "CANCELLED","COMPLETED","FAILED","IN_PROGRESS"
+            break
+        }
+
         # Amazon.CloudWatchLogs.IntegrationStatus
         "Get-CWLIntegrationList/IntegrationStatus"
         {
@@ -252,6 +259,7 @@ $CWL_map = @{
     "Distribution"=@("Write-CWLSubscriptionFilter")
     "EvaluationFrequency"=@("New-CWLLogAnomalyDetector","Update-CWLLogAnomalyDetector")
     "GroupBy"=@("Get-CWLAggregateLogGroupSummaryList")
+    "ImportStatus"=@("Get-CWLCWLImportTask")
     "IntegrationStatus"=@("Get-CWLIntegrationList")
     "IntegrationType"=@("Get-CWLIntegrationList","Write-CWLIntegration")
     "LogGroupClass"=@("Get-CWLAggregateLogGroupSummaryList","Get-CWLLogGroup","Get-CWLLogGroupList","New-CWLLogGroup")
@@ -322,8 +330,10 @@ $CWL_SelectMap = @{
     "Select"=@("Register-CWLKmsKey",
                "Register-CWLSourceToS3TableIntegration",
                "Stop-CWLExportTask",
+               "Stop-CWLCWLImportTask",
                "New-CWLDelivery",
                "New-CWLExportTask",
+               "New-CWLCWLImportTask",
                "New-CWLLogAnomalyDetector",
                "New-CWLLogGroup",
                "New-CWLLogStream",
@@ -355,6 +365,8 @@ $CWL_SelectMap = @{
                "Get-CWLDestination",
                "Get-CWLExportTask",
                "Get-CWLFieldIndex",
+               "Get-CWLCWLImportTaskBatch",
+               "Get-CWLCWLImportTask",
                "Get-CWLIndexPolicy",
                "Get-CWLLogGroup",
                "Get-CWLLogStream",

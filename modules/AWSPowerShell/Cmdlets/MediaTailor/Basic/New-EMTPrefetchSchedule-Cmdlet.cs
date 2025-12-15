@@ -344,8 +344,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter RecurringRetrieval_TrafficShapingType
         /// <summary>
         /// <para>
-        /// <para>Indicates the type of traffic shaping used for traffic shaping and limiting the number
-        /// of requests to the ADS at one time.</para>
+        /// <para>Indicates the type of traffic shaping used to limit the number of requests to the
+        /// ADS at one time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -357,8 +357,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter Retrieval_TrafficShapingType
         /// <summary>
         /// <para>
-        /// <para>Indicates the type of traffic shaping used for prefetch traffic shaping and limiting
-        /// the number of requests to the ADS at one time.</para>
+        /// <para>Indicates the type of traffic shaping used to limit the number of requests to the
+        /// ADS at one time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
