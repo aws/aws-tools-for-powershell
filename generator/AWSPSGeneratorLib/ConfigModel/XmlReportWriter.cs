@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
@@ -16,6 +17,8 @@ namespace AWSPowerShellGenerator.ServiceConfig
     {
         public static void SerializeReport(string folderPath, IEnumerable<ConfigModel> models, bool generateReportOnly)
         {
+            var serviceNewOperationsMapping = new Dictionary<string, HashSet<string>>();
+
             if (!Directory.Exists(folderPath))
             {
                 Directory.CreateDirectory(folderPath);
@@ -138,6 +141,12 @@ namespace AWSPowerShellGenerator.ServiceConfig
                         .Join(configModel.model.ServiceOperationsList, element => element.Attribute("MethodName").Value, operation => operation.MethodName, (element, operation) => (element, operation))
                         .ToArray();
 
+                    // If there are any new operations (IsAutoConfiguring=true) that are not excluded (Analyzer!=null), then store it in new operations map.
+                    if (operations.Any(op => op.operation.IsAutoConfiguring && op.operation.Analyzer != null))
+                    {
+                        serviceNewOperationsMapping[configModel.model.C2jFilename] = new HashSet<string>(operations.Where(op => op.operation.IsAutoConfiguring && op.operation.Analyzer != null).Select(op => op.operation.MethodName));
+                    }
+
                     foreach (var operation in operations)
                     {
                         var isConfigurationOverridden = modelOverrides?.MethodNames.Contains(operation.operation.MethodName) ?? false;
@@ -245,6 +254,9 @@ namespace AWSPowerShellGenerator.ServiceConfig
                 {
                     Console.WriteLine($"Skipping saving report: hasNewOperations:{hasNewOperations}, isReservedParameterNameHandled: {isReservedParameterNameHandled}, hasErrors: {hasErrors} ");
                 }
+
+                // Save service -> new operations mapping in a JSON file irrespective of errors. In case the mapping list is empty, we can serialize to file with no data.
+                File.WriteAllText(Path.Combine(folderPath, "serviceNewOperationsMapping.json"), JsonSerializer.Serialize(serviceNewOperationsMapping, new JsonSerializerOptions { WriteIndented = true }));
             }
             catch (Exception e)
             {

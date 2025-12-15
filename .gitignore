@@ -43,6 +43,7 @@ PSGalleryDownloads
 /BreakingChangesLookup.xml
 /buildConfigValidationErrors.txt
 /buildConfigErrors
+/serviceNewOperationsMapping.json
 
 codesign-zip
 *.binlog
