@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// this log group. However, facet data is retained for up to 30 days.
     /// </para><para>
     /// You can't use this operation to delete an account-level index policy. Instead, use
-    /// <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteAccountPolicy.html">DeletAccountPolicy</a>.
+    /// <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteAccountPolicy.html">DeleteAccountPolicy</a>.
     /// </para><para>
     /// If you delete a log-group level field index policy and there is an account-level field
     /// index policy, in a few minutes the log group begins using that account-wide policy

@@ -120,7 +120,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The index policy document, in JSON format. The following is an example of an index
-        /// policy document that creates two indexes, <c>RequestId</c> and <c>TransactionId</c>.</para><para><c>"policyDocument": "{ "Fields": [ "RequestId", "TransactionId" ] }"</c></para><para>The policy document must include at least one field index. For more information about
+        /// policy document that creates indexes with different types.</para><para><c>"policyDocument": "{"Fields": [ "TransactionId" ], "FieldsV2": {"RequestId": {"type":
+        /// "FIELD_INDEX"}, "APIName": {"type": "FACET"}, "StatusCode": {"type": "FACET"}}}"</c></para><para>You can use <c>FieldsV2</c> to specify the type for each field. Supported types are
+        /// <c>FIELD_INDEX</c> and <c>FACET</c>. Field names within <c>Fields</c> and <c>FieldsV2</c>
+        /// must be mutually exclusive.</para><para>The policy document must include at least one field index. For more information about
         /// the fields that can be included and other restrictions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing-Syntax.html">Field
         /// index syntax and quotas</a>.</para>
         /// </para>

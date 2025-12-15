@@ -22,65 +22,84 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Glacier;
-using Amazon.Glacier.Model;
+using Amazon.CloudWatchLogs;
+using Amazon.CloudWatchLogs.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GLC
+namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// This operation lists the provisioned capacity units for the specified AWS account.
+    /// Cancels an active import task and stops importing data from the CloudTrail Lake Event
+    /// Data Store.
     /// </summary>
-    [Cmdlet("Get", "GLCProvisionedCapacityList")]
-    [OutputType("Amazon.Glacier.Model.ProvisionedCapacityDescription")]
-    [AWSCmdlet("Calls the Amazon Glacier ListProvisionedCapacity API operation.", Operation = new[] {"ListProvisionedCapacity"}, SelectReturnType = typeof(Amazon.Glacier.Model.ListProvisionedCapacityResponse))]
-    [AWSCmdletOutput("Amazon.Glacier.Model.ProvisionedCapacityDescription or Amazon.Glacier.Model.ListProvisionedCapacityResponse",
-        "This cmdlet returns a collection of Amazon.Glacier.Model.ProvisionedCapacityDescription objects.",
-        "The service call response (type Amazon.Glacier.Model.ListProvisionedCapacityResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Stop", "CWLCWLImportTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CloudWatchLogs.Model.CancelImportTaskResponse")]
+    [AWSCmdlet("Calls the Amazon CloudWatch Logs CancelImportTask API operation.", Operation = new[] {"CancelImportTask"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.CancelImportTaskResponse))]
+    [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.CancelImportTaskResponse",
+        "This cmdlet returns an Amazon.CloudWatchLogs.Model.CancelImportTaskResponse object containing multiple properties."
     )]
-    public partial class GetGLCProvisionedCapacityListCmdlet : AmazonGlacierClientCmdlet, IExecutor
+    public partial class StopCWLCWLImportTaskCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AccountId
+        #region Parameter ImportId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID of the account that owns the vault. You can either specify an AWS
-        /// account ID or optionally a single '-' (hyphen), in which case Amazon Glacier uses
-        /// the AWS account ID associated with the credentials used to sign the request. If you
-        /// use an account ID, don't include any hyphens ('-') in the ID. </para>
+        /// <para>The ID of the import task to cancel.</para>
         /// </para>
-        /// <para>If a value for this parameter is not specified the cmdlet will use a default value of '<b>-</b>'.</para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String AccountId { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ImportId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ProvisionedCapacityList'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glacier.Model.ListProvisionedCapacityResponse).
-        /// Specifying the name of a property of type Amazon.Glacier.Model.ListProvisionedCapacityResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatchLogs.Model.CancelImportTaskResponse).
+        /// Specifying the name of a property of type Amazon.CloudWatchLogs.Model.CancelImportTaskResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ProvisionedCapacityList";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AccountId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AccountId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ImportId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ImportId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AccountId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ImportId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ImportId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-CWLCWLImportTask (CancelImportTask)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -90,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Glacier.Model.ListProvisionedCapacityResponse, GetGLCProvisionedCapacityListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.CancelImportTaskResponse, StopCWLCWLImportTaskCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -99,19 +118,14 @@ namespace Amazon.PowerShell.Cmdlets.GLC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AccountId;
+                context.Select = (response, cmdlet) => this.ImportId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AccountId = this.AccountId;
-            if (!ParameterWasBound(nameof(this.AccountId)))
-            {
-                WriteVerbose("AccountId parameter unset, using default value of '-'");
-                context.AccountId = "-";
-            }
+            context.ImportId = this.ImportId;
             #if MODULAR
-            if (this.AccountId == null && ParameterWasBound(nameof(this.AccountId)))
+            if (this.ImportId == null && ParameterWasBound(nameof(this.ImportId)))
             {
-                WriteWarning("You are passing $null as a value for parameter AccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ImportId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -128,11 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Glacier.Model.ListProvisionedCapacityRequest();
+            var request = new Amazon.CloudWatchLogs.Model.CancelImportTaskRequest();
             
-            if (cmdletContext.AccountId != null)
+            if (cmdletContext.ImportId != null)
             {
-                request.AccountId = cmdletContext.AccountId;
+                request.ImportId = cmdletContext.ImportId;
             }
             
             CmdletOutput output;
@@ -167,15 +181,15 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         
         #region AWS Service Operation Call
         
-        private Amazon.Glacier.Model.ListProvisionedCapacityResponse CallAWSServiceOperation(IAmazonGlacier client, Amazon.Glacier.Model.ListProvisionedCapacityRequest request)
+        private Amazon.CloudWatchLogs.Model.CancelImportTaskResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.CancelImportTaskRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Glacier", "ListProvisionedCapacity");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Logs", "CancelImportTask");
             try
             {
                 #if DESKTOP
-                return client.ListProvisionedCapacity(request);
+                return client.CancelImportTask(request);
                 #elif CORECLR
-                return client.ListProvisionedCapacityAsync(request).GetAwaiter().GetResult();
+                return client.CancelImportTaskAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -195,9 +209,9 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AccountId { get; set; }
-            public System.Func<Amazon.Glacier.Model.ListProvisionedCapacityResponse, GetGLCProvisionedCapacityListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ProvisionedCapacityList;
+            public System.String ImportId { get; set; }
+            public System.Func<Amazon.CloudWatchLogs.Model.CancelImportTaskResponse, StopCWLCWLImportTaskCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

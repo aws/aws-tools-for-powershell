@@ -30,7 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// <summary>
     /// Creates an account-level data protection policy, subscription filter policy, field
     /// index policy, transformer policy, or metric extraction policy that applies to all
-    /// log groups or a subset of log groups in the account.
+    /// log groups, a subset of log groups, or a data source name and type combination in
+    /// the account.
     /// 
     ///  
     /// <para>
@@ -158,15 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// If you have multiple account-level transformer policies with selection criteria, no
     /// two of them can use the same or overlapping log group name prefixes. For example,
     /// if you have one policy filtered to log groups that start with <c>my-log</c>, you can't
-    /// have another field index policy filtered to <c>my-logpprod</c> or <c>my-logging</c>.
-    /// </para><para>
-    /// CloudWatch Logs provides default field indexes for all log groups in the Standard
-    /// log class. Default field indexes are automatically available for the following fields:
-    /// 
-    /// </para><ul><li><para><c>@logStream</c></para></li><li><para><c>@aws.region</c></para></li><li><para><c>@aws.account</c></para></li><li><para><c>@source.log</c></para></li><li><para><c>traceId</c></para></li></ul><para>
-    /// Default field indexes are in addition to any custom field indexes you define within
-    /// your policy. Default field indexes are not counted towards your field index quota.
-    /// 
+    /// have another transformer policy filtered to <c>my-logpprod</c> or <c>my-logging</c>.
     /// </para><para>
     /// You can also set up a transformer at the log-group level. For more information, see
     /// <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html">PutTransformer</a>.
@@ -174,15 +167,17 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// and an account-level transformer that could apply to the same log group, the log group
     /// uses only the log-group level transformer. It ignores the account-level transformer.
     /// </para><para><b>Field index policy</b></para><para>
-    /// You can use field index policies to create indexes on fields found in log events in
-    /// the log group. Creating field indexes can help lower the scan volume for CloudWatch
-    /// Logs Insights queries that reference those fields, because these queries attempt to
-    /// skip the processing of log events that are known to not match the indexed field. Good
-    /// fields to index are fields that you often need to query for and fields or values that
-    /// match only a small fraction of the total log events. Common examples of indexes include
-    /// request ID, session ID, user IDs, or instance IDs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html">Create
+    /// You can use field index policies to create indexes on fields found in log events for
+    /// a log group or data source name and type combination. Creating field indexes can help
+    /// lower the scan volume for CloudWatch Logs Insights queries that reference those fields,
+    /// because these queries attempt to skip the processing of log events that are known
+    /// to not match the indexed field. Good fields to index are fields that you often need
+    /// to query for and fields or values that match only a small fraction of the total log
+    /// events. Common examples of indexes include request ID, session ID, user IDs, or instance
+    /// IDs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html">Create
     /// field indexes to improve query performance and reduce costs</a></para><para>
     /// To find the fields that are in your log group events, use the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogGroupFields.html">GetLogGroupFields</a>
+    /// operation. To find the fields for a data source use the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogFields.html">GetLogFields</a>
     /// operation.
     /// </para><para>
     /// For example, suppose you have created a field index for <c>requestId</c>. Then, any
@@ -193,24 +188,41 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// an indexed field of <c>RequestId</c> won't match a log event containing <c>requestId</c>.
     /// </para><para>
     /// You can have one account-level field index policy that applies to all log groups in
-    /// the account. Or you can create as many as 40 account-level field index policies (20
-    /// for log group prefix selection, 20 for data source selection) that are each scoped
-    /// to a subset of log groups or data sources with the <c>selectionCriteria</c> parameter.
-    /// Field index policies can now be created for specific data source name and type combinations
-    /// using DataSourceName and DataSourceType selection criteria. If you have multiple account-level
-    /// index policies with selection criteria, no two of them can use the same or overlapping
-    /// log group name prefixes. For example, if you have one policy filtered to log groups
-    /// that start with <c>my-log</c>, you can't have another field index policy filtered
-    /// to <c>my-logpprod</c> or <c>my-logging</c>.
+    /// the account. Or you can create as many as 20 account-level field index policies that
+    /// are each scoped to a subset of log groups using <c>LogGroupNamePrefix</c> with the
+    /// <c>selectionCriteria</c> parameter. You can have another 20 account-level field index
+    /// policies using <c>DataSourceName</c> and <c>DataSourceType</c> for the <c>selectionCriteria</c>
+    /// parameter. If you have multiple account-level index policies with <c>LogGroupNamePrefix</c>
+    /// selection criteria, no two of them can use the same or overlapping log group name
+    /// prefixes. For example, if you have one policy filtered to log groups that start with
+    /// <i>my-log</i>, you can't have another field index policy filtered to <i>my-logpprod</i>
+    /// or <i>my-logging</i>. Similarly, if you have multiple account-level index policies
+    /// with <c>DataSourceName</c> and <c>DataSourceType</c> selection criteria, no two of
+    /// them can use the same data source name and type combination. For example, if you have
+    /// one policy filtered to the data source name <c>amazon_vpc</c> and data source type
+    /// <c>flow</c> you cannot create another policy with this combination.
     /// </para><para>
     /// If you create an account-level field index policy in a monitoring account in cross-account
     /// observability, the policy is applied only to the monitoring account and not to any
     /// source accounts.
     /// </para><para>
+    /// CloudWatch Logs provides default field indexes for all log groups in the Standard
+    /// log class. Default field indexes are automatically available for the following fields:
+    /// 
+    /// </para><ul><li><para><c>@logStream</c></para></li><li><para><c>@aws.region</c></para></li><li><para><c>@aws.account</c></para></li><li><para><c>@source.log</c></para></li><li><para><c>@data_source_name</c></para></li><li><para><c>@data_source_type</c></para></li><li><para><c>@data_format</c></para></li><li><para><c>traceId</c></para></li><li><para><c>severityText</c></para></li><li><para><c>attributes.session.id</c></para></li></ul><para>
+    /// CloudWatch Logs provides default field indexes for certain data source name and type
+    /// combinations as well. Default field indexes are automatically available for the following
+    /// data source name and type combinations as identified in the following list:
+    /// </para><para><c>amazon_vpc.flow</c></para><ul><li><para><c>action</c></para></li><li><para><c>logStatus</c></para></li><li><para><c>region</c></para></li><li><para><c>flowDirection</c></para></li><li><para><c>type</c></para></li></ul><para><c>amazon_route53.resolver_query</c></para><ul><li><para><c>transport</c></para></li><li><para><c>rcode</c></para></li></ul><para><c>aws_waf.access</c></para><ul><li><para><c>action</c></para></li><li><para><c>httpRequest.country</c></para></li></ul><para><c>aws_cloudtrail.data</c>, <c>aws_cloudtrail.management</c></para><ul><li><para><c>eventSource</c></para></li><li><para><c>eventName</c></para></li><li><para><c>awsRegion</c></para></li><li><para><c>userAgent</c></para></li><li><para><c>errorCode</c></para></li><li><para><c>eventType</c></para></li><li><para><c>managementEvent</c></para></li><li><para><c>readOnly</c></para></li><li><para><c>eventCategory</c></para></li><li><para><c>requestId</c></para></li></ul><para>
+    /// Default field indexes are in addition to any custom field indexes you define within
+    /// your policy. Default field indexes are not counted towards your <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing-Syntax">field
+    /// index quota</a>. 
+    /// </para><para>
     /// If you want to create a field index policy for a single log group, you can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutIndexPolicy.html">PutIndexPolicy</a>
-    /// instead of <c>PutAccountPolicy</c>. If you do so, that log group will use only that
-    /// log-group level policy, and will ignore the account-level policy that you create with
-    /// <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html">PutAccountPolicy</a>.
+    /// instead of <c>PutAccountPolicy</c>. If you do so, that log group will use that log-group
+    /// level policy and any account-level policies that match at the data source level; any
+    /// account-level policy that matches at the log group level (for example, no selection
+    /// criteria or log group name prefix selection criteria) will be ignored.
     /// </para><para><b>Metric extraction policy</b></para><para>
     /// A metric extraction policy controls whether CloudWatch Metrics can be created through
     /// the Embedded Metrics Format (EMF) for log groups in your account. By default, EMF
@@ -305,8 +317,12 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// for a more even distribution. This property is only applicable when the destination
         /// is an Kinesis Data Streams data stream.</para></li></ul><para><b>Transformer policy</b></para><para>A transformer policy must include one JSON block with the array of processors and
         /// their configurations. For more information about available processors, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-Processors">
-        /// Processors that you can use</a>. </para><para><b>Field index policy</b></para><para>A field index filter policy can include the following attribute in a JSON block:</para><ul><li><para><b>Fields</b> The array of field indexes to create.</para></li></ul><para>It must contain at least one field index.</para><para>The following is an example of an index policy document that creates two indexes,
-        /// <c>RequestId</c> and <c>TransactionId</c>.</para><para><c>"policyDocument": "{ \"Fields\": [ \"RequestId\", \"TransactionId\" ] }"</c></para>
+        /// Processors that you can use</a>. </para><para><b>Field index policy</b></para><para>A field index filter policy can include the following attribute in a JSON block:</para><ul><li><para><b>Fields</b> The array of field indexes to create.</para></li><li><para><b>FieldsV2</b> The object of field indexes to create along with it's type.</para></li></ul><para>It must contain at least one field index.</para><para>The following is an example of an index policy document that creates indexes with
+        /// different types.</para><para><c>"policyDocument": "{ \"Fields\": [ \"TransactionId\" ], \"FieldsV2\": {\"RequestId\":
+        /// {\"type\": \"FIELD_INDEX\"}, \"APIName\": {\"type\": \"FACET\"}, \"StatusCode\": {\"type\":
+        /// \"FACET\"}}}"</c></para><para>You can use <c>FieldsV2</c> to specify the type for each field. Supported types are
+        /// <c>FIELD_INDEX</c> and <c>FACET</c>. Field names within <c>Fields</c> and <c>FieldsV2</c>
+        /// must be mutually exclusive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -323,7 +339,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter PolicyName
         /// <summary>
         /// <para>
-        /// <para>A name for the policy. This must be unique within the account.</para>
+        /// <para>A name for the policy. This must be unique within the account and cannot start with
+        /// <c>aws/</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -370,10 +387,14 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter SelectionCriterion
         /// <summary>
         /// <para>
-        /// <para>Use this parameter to apply the new policy to a subset of log groups in the account.</para><para>Specifying <c>selectionCriteria</c> is valid only when you specify <c>SUBSCRIPTION_FILTER_POLICY</c>,
-        /// <c>FIELD_INDEX_POLICY</c> or <c>TRANSFORMER_POLICY</c>for <c>policyType</c>.</para><para>If <c>policyType</c> is <c>SUBSCRIPTION_FILTER_POLICY</c>, the only supported <c>selectionCriteria</c>
-        /// filter is <c>LogGroupName NOT IN []</c></para><para>If <c>policyType</c> is <c>FIELD_INDEX_POLICY</c> or <c>TRANSFORMER_POLICY</c>, the
-        /// only supported <c>selectionCriteria</c> filter is <c>LogGroupNamePrefix</c></para><para>The <c>selectionCriteria</c> string can be up to 25KB in length. The length is determined
+        /// <para>Use this parameter to apply the new policy to a subset of log groups in the account
+        /// or a data source name and type combination. </para><para>Specifying <c>selectionCriteria</c> is valid only when you specify <c>SUBSCRIPTION_FILTER_POLICY</c>,
+        /// <c>FIELD_INDEX_POLICY</c> or <c>TRANSFORMER_POLICY</c>for <c>policyType</c>.</para><ul><li><para>If <c>policyType</c> is <c>SUBSCRIPTION_FILTER_POLICY</c>, the only supported <c>selectionCriteria</c>
+        /// filter is <c>LogGroupName NOT IN []</c></para></li><li><para>If <c>policyType</c> is <c>TRANSFORMER_POLICY</c>, the only supported <c>selectionCriteria</c>
+        /// filter is <c>LogGroupNamePrefix</c></para></li><li><para>If <c>policyType</c> is <c>FIELD_INDEX_POLICY</c>, the supported <c>selectionCriteria</c>
+        /// filters are:</para><ul><li><para><c>LogGroupNamePrefix</c></para></li><li><para><c>DataSourceName</c> AND <c>DataSourceType</c></para></li></ul><para>When you specify <c>selectionCriteria</c> for a field index policy you can use either
+        /// <c>LogGroupNamePrefix</c> by itself or <c>DataSourceName</c> and <c>DataSourceType</c>
+        /// together.</para></li></ul><para>The <c>selectionCriteria</c> string can be up to 25KB in length. The length is determined
         /// by using its UTF-8 bytes.</para><para>Using the <c>selectionCriteria</c> parameter with <c>SUBSCRIPTION_FILTER_POLICY</c>
         /// is useful to help prevent infinite loops. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions-recursion-prevention.html">Log
         /// recursion prevention</a>.</para>

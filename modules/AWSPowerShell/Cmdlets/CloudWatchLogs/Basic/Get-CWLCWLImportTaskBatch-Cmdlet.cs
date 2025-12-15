@@ -22,65 +22,42 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Glacier;
-using Amazon.Glacier.Model;
+using Amazon.CloudWatchLogs;
+using Amazon.CloudWatchLogs.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GLC
+namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// This operation returns information about a vault, including the vault's Amazon Resource
-    /// Name (ARN), the date the vault was created, the number of archives it contains, and
-    /// the total size of all the archives in the vault. The number of archives and their
-    /// total size are as of the last inventory generation. This means that if you add or
-    /// remove an archive from a vault, and then immediately use Describe Vault, the change
-    /// in contents will not be immediately reflected. If you want to retrieve the latest
-    /// inventory of the vault, use <a>InitiateJob</a>. Amazon Glacier generates vault inventories
-    /// approximately daily. For more information, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-inventory.html">Downloading
-    /// a Vault Inventory in Amazon Glacier</a>. 
-    /// 
-    ///  
-    /// <para>
-    /// An AWS account has full permission to perform all operations (actions). However, AWS
-    /// Identity and Access Management (IAM) users don't have any permissions by default.
-    /// You must grant them explicit permission to perform specific actions. For more information,
-    /// see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html">Access
-    /// Control Using AWS Identity and Access Management (IAM)</a>.
-    /// </para><para>
-    /// For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/retrieving-vault-info.html">Retrieving
-    /// Vault Metadata in Amazon Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-get.html">Describe
-    /// Vault </a> in the <i>Amazon Glacier Developer Guide</i>. 
-    /// </para>
+    /// Gets detailed information about the individual batches within an import task, including
+    /// their status and any error messages. For CloudTrail Event Data Store sources, a batch
+    /// refers to a subset of stored events grouped by their eventTime.
     /// </summary>
-    [Cmdlet("Get", "GLCVault")]
-    [OutputType("Amazon.Glacier.Model.DescribeVaultResponse")]
-    [AWSCmdlet("Calls the Amazon Glacier DescribeVault API operation.", Operation = new[] {"DescribeVault"}, SelectReturnType = typeof(Amazon.Glacier.Model.DescribeVaultResponse))]
-    [AWSCmdletOutput("Amazon.Glacier.Model.DescribeVaultResponse",
-        "This cmdlet returns an Amazon.Glacier.Model.DescribeVaultResponse object containing multiple properties."
+    [Cmdlet("Get", "CWLCWLImportTaskBatch")]
+    [OutputType("Amazon.CloudWatchLogs.Model.DescribeImportTaskBatchesResponse")]
+    [AWSCmdlet("Calls the Amazon CloudWatch Logs DescribeImportTaskBatches API operation.", Operation = new[] {"DescribeImportTaskBatches"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.DescribeImportTaskBatchesResponse))]
+    [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.DescribeImportTaskBatchesResponse",
+        "This cmdlet returns an Amazon.CloudWatchLogs.Model.DescribeImportTaskBatchesResponse object containing multiple properties."
     )]
-    public partial class GetGLCVaultCmdlet : AmazonGlacierClientCmdlet, IExecutor
+    public partial class GetCWLCWLImportTaskBatchCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AccountId
+        #region Parameter BatchImportStatus
         /// <summary>
         /// <para>
-        /// <para>The <c>AccountId</c> value is the AWS account ID of the account that owns the vault.
-        /// You can either specify an AWS account ID or optionally a single '<c>-</c>' (hyphen),
-        /// in which case Amazon Glacier uses the AWS account ID associated with the credentials
-        /// used to sign the request. If you use an account ID, do not include any hyphens ('-')
-        /// in the ID. </para>
+        /// <para>Optional filter to list import batches by their status. Accepts multiple status values:
+        /// IN_PROGRESS, CANCELLED, COMPLETED and FAILED.</para>
         /// </para>
-        /// <para>If a value for this parameter is not specified the cmdlet will use a default value of '<b>-</b>'.</para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AccountId { get; set; }
+        public System.String[] BatchImportStatus { get; set; }
         #endregion
         
-        #region Parameter VaultName
+        #region Parameter ImportId
         /// <summary>
         /// <para>
-        /// <para>The name of the vault.</para>
+        /// <para>The ID of the import task to get batch information for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,14 +68,34 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String VaultName { get; set; }
+        public System.String ImportId { get; set; }
+        #endregion
+        
+        #region Parameter Limit
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of import batches to return in the response. Default: 10</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Limit { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>The pagination token for the next set of results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glacier.Model.DescribeVaultResponse).
-        /// Specifying the name of a property of type Amazon.Glacier.Model.DescribeVaultResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatchLogs.Model.DescribeImportTaskBatchesResponse).
+        /// Specifying the name of a property of type Amazon.CloudWatchLogs.Model.DescribeImportTaskBatchesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,10 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the VaultName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^VaultName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ImportId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ImportId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^VaultName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ImportId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -128,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Glacier.Model.DescribeVaultResponse, GetGLCVaultCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.DescribeImportTaskBatchesResponse, GetCWLCWLImportTaskBatchCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -137,28 +134,22 @@ namespace Amazon.PowerShell.Cmdlets.GLC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.VaultName;
+                context.Select = (response, cmdlet) => this.ImportId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AccountId = this.AccountId;
-            if (!ParameterWasBound(nameof(this.AccountId)))
+            if (this.BatchImportStatus != null)
             {
-                WriteVerbose("AccountId parameter unset, using default value of '-'");
-                context.AccountId = "-";
+                context.BatchImportStatus = new List<System.String>(this.BatchImportStatus);
             }
+            context.ImportId = this.ImportId;
             #if MODULAR
-            if (this.AccountId == null && ParameterWasBound(nameof(this.AccountId)))
+            if (this.ImportId == null && ParameterWasBound(nameof(this.ImportId)))
             {
-                WriteWarning("You are passing $null as a value for parameter AccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ImportId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.VaultName = this.VaultName;
-            #if MODULAR
-            if (this.VaultName == null && ParameterWasBound(nameof(this.VaultName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter VaultName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.Limit = this.Limit;
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -173,15 +164,23 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Glacier.Model.DescribeVaultRequest();
+            var request = new Amazon.CloudWatchLogs.Model.DescribeImportTaskBatchesRequest();
             
-            if (cmdletContext.AccountId != null)
+            if (cmdletContext.BatchImportStatus != null)
             {
-                request.AccountId = cmdletContext.AccountId;
+                request.BatchImportStatus = cmdletContext.BatchImportStatus;
             }
-            if (cmdletContext.VaultName != null)
+            if (cmdletContext.ImportId != null)
             {
-                request.VaultName = cmdletContext.VaultName;
+                request.ImportId = cmdletContext.ImportId;
+            }
+            if (cmdletContext.Limit != null)
+            {
+                request.Limit = cmdletContext.Limit.Value;
+            }
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
             }
             
             CmdletOutput output;
@@ -216,15 +215,15 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         
         #region AWS Service Operation Call
         
-        private Amazon.Glacier.Model.DescribeVaultResponse CallAWSServiceOperation(IAmazonGlacier client, Amazon.Glacier.Model.DescribeVaultRequest request)
+        private Amazon.CloudWatchLogs.Model.DescribeImportTaskBatchesResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.DescribeImportTaskBatchesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Glacier", "DescribeVault");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Logs", "DescribeImportTaskBatches");
             try
             {
                 #if DESKTOP
-                return client.DescribeVault(request);
+                return client.DescribeImportTaskBatches(request);
                 #elif CORECLR
-                return client.DescribeVaultAsync(request).GetAwaiter().GetResult();
+                return client.DescribeImportTaskBatchesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -244,9 +243,11 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AccountId { get; set; }
-            public System.String VaultName { get; set; }
-            public System.Func<Amazon.Glacier.Model.DescribeVaultResponse, GetGLCVaultCmdlet, object> Select { get; set; } =
+            public List<System.String> BatchImportStatus { get; set; }
+            public System.String ImportId { get; set; }
+            public System.Int32? Limit { get; set; }
+            public System.String NextToken { get; set; }
+            public System.Func<Amazon.CloudWatchLogs.Model.DescribeImportTaskBatchesResponse, GetCWLCWLImportTaskBatchCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

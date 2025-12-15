@@ -49090,6 +49090,13 @@ $CWL_Completers = {
             break
         }
 
+        # Amazon.CloudWatchLogs.ImportStatus
+        "Get-CWLCWLImportTask/ImportStatus"
+        {
+            $v = "CANCELLED","COMPLETED","FAILED","IN_PROGRESS"
+            break
+        }
+
         # Amazon.CloudWatchLogs.IntegrationStatus
         "Get-CWLIntegrationList/IntegrationStatus"
         {
@@ -49231,6 +49238,7 @@ $CWL_map = @{
     "Distribution"=@("Write-CWLSubscriptionFilter")
     "EvaluationFrequency"=@("New-CWLLogAnomalyDetector","Update-CWLLogAnomalyDetector")
     "GroupBy"=@("Get-CWLAggregateLogGroupSummaryList")
+    "ImportStatus"=@("Get-CWLCWLImportTask")
     "IntegrationStatus"=@("Get-CWLIntegrationList")
     "IntegrationType"=@("Get-CWLIntegrationList","Write-CWLIntegration")
     "LogGroupClass"=@("Get-CWLAggregateLogGroupSummaryList","Get-CWLLogGroup","Get-CWLLogGroupList","New-CWLLogGroup")
@@ -49301,8 +49309,10 @@ $CWL_SelectMap = @{
     "Select"=@("Register-CWLKmsKey",
                "Register-CWLSourceToS3TableIntegration",
                "Stop-CWLExportTask",
+               "Stop-CWLCWLImportTask",
                "New-CWLDelivery",
                "New-CWLExportTask",
+               "New-CWLCWLImportTask",
                "New-CWLLogAnomalyDetector",
                "New-CWLLogGroup",
                "New-CWLLogStream",
@@ -49334,6 +49344,8 @@ $CWL_SelectMap = @{
                "Get-CWLDestination",
                "Get-CWLExportTask",
                "Get-CWLFieldIndex",
+               "Get-CWLCWLImportTaskBatch",
+               "Get-CWLCWLImportTask",
                "Get-CWLIndexPolicy",
                "Get-CWLLogGroup",
                "Get-CWLLogStream",
@@ -53034,6 +53046,13 @@ $EMT_Completers = {
             break
         }
 
+        # Amazon.MediaTailor.CompressionMethod
+        "Set-EMTPlaybackConfiguration/HttpRequest_CompressRequest"
+        {
+            $v = "GZIP","NONE"
+            break
+        }
+
         # Amazon.MediaTailor.FillPolicy
         "Set-EMTPlaybackConfiguration/AvailSuppression_FillPolicy"
         {
@@ -53052,6 +53071,13 @@ $EMT_Completers = {
         "Get-EMTPrefetchScheduleList/ScheduleType"
         {
             $v = "ALL","RECURRING","SINGLE"
+            break
+        }
+
+        # Amazon.MediaTailor.Method
+        "Set-EMTPlaybackConfiguration/HttpRequest_Method"
+        {
+            $v = "GET","POST"
             break
         }
 
@@ -53120,6 +53146,8 @@ $EMT_map = @{
     "AdConditioningConfiguration_StreamingMediaFileConditioning"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_FillPolicy"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_Mode"=@("Set-EMTPlaybackConfiguration")
+    "HttpRequest_CompressRequest"=@("Set-EMTPlaybackConfiguration")
+    "HttpRequest_Method"=@("Set-EMTPlaybackConfiguration")
     "InsertionMode"=@("Set-EMTPlaybackConfiguration")
     "PlaybackMode"=@("New-EMTChannel")
     "RecurringRetrieval_TrafficShapingType"=@("New-EMTPrefetchSchedule")
@@ -75747,6 +75775,7 @@ $SQ_SelectMap = @{
                "Get-SQAssociationForServiceQuotaTemplate",
                "Get-SQAutoManagementConfiguration",
                "Get-SQAWSDefaultServiceQuota",
+               "Get-SQQuotaUtilizationReport",
                "Get-SQRequestedServiceQuotaChange",
                "Get-SQServiceQuota",
                "Get-SQServiceQuotaIncreaseRequestFromTemplate",
@@ -75760,6 +75789,7 @@ $SQ_SelectMap = @{
                "Write-SQServiceQuotaIncreaseRequestIntoTemplate",
                "Request-SQServiceQuotaIncrease",
                "Start-SQAutoManagement",
+               "Start-SQQuotaUtilizationReport",
                "Stop-SQAutoManagement",
                "Add-SQResourceTag",
                "Remove-SQResourceTag",

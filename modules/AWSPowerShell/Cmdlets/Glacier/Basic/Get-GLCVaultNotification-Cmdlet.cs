@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
     /// For information about setting a notification configuration on a vault, see <a>SetVaultNotifications</a>.
     /// If a notification configuration for a vault is not set, the operation returns a <c>404
     /// Not Found</c> error. For more information about vault notifications, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html">Configuring
-    /// Vault Notifications in Amazon S3 Glacier</a>. 
+    /// Vault Notifications in Amazon Glacier</a>. 
     /// </para><para>
     /// An AWS account has full permission to perform all operations (actions). However, AWS
     /// Identity and Access Management (IAM) users don't have any permissions by default.
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
     /// Control Using AWS Identity and Access Management (IAM)</a>.
     /// </para><para>
     /// For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html">Configuring
-    /// Vault Notifications in Amazon S3 Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-get.html">Get
+    /// Vault Notifications in Amazon Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-get.html">Get
     /// Vault Notification Configuration </a> in the <i>Amazon Glacier Developer Guide</i>.
     /// 
     /// </para>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         /// <para>
         /// <para>The <c>AccountId</c> value is the AWS account ID of the account that owns the vault.
         /// You can either specify an AWS account ID or optionally a single '<c>-</c>' (hyphen),
-        /// in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials
+        /// in which case Amazon Glacier uses the AWS account ID associated with the credentials
         /// used to sign the request. If you use an account ID, do not include any hyphens ('-')
         /// in the ID.</para>
         /// </para>

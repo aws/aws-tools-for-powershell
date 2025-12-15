@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// with Gateways (each Gateway can be associated with at most one policy engine, but
     /// multiple Gateways can be associated with the same engine), the policy engine intercepts
     /// all agent requests and determines whether to allow or deny each action based on the
-    /// defined policies. This is an asynchronous operation. Use the <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/API_GetPolicyEngine.html">GetPolicyEngine</a>
+    /// defined policies. This is an asynchronous operation. Use the <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_GetPolicyEngine.html">GetPolicyEngine</a>
     /// operation to poll the <c>status</c> field to track completion.
     /// </summary>
     [Cmdlet("New", "BACCPolicyEngine", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

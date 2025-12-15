@@ -1,4 +1,23 @@
-﻿### 4.1.961 (2025-12-12 21:41Z)
+﻿### 4.1.962 (2025-12-15 21:00Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1185.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Logs
+    * Added cmdlet Get-CWLCWLImportTask leveraging the DescribeImportTasks service API.
+    * Added cmdlet Get-CWLCWLImportTaskBatch leveraging the DescribeImportTaskBatches service API.
+    * Added cmdlet New-CWLCWLImportTask leveraging the CreateImportTask service API.
+    * Added cmdlet Stop-CWLCWLImportTask leveraging the CancelImportTask service API.
+    * Modified cmdlet Get-CWLAggregateLogGroupSummaryList: added parameter NoAutoIteration.
+  * Amazon Connect Service
+    * Modified cmdlet Start-CONNOutboundChatContact: added parameters InitialTemplatedSystemMessage_KnowledgeBaseId, InitialTemplatedSystemMessage_MessageTemplateId, TemplateAttributes_CustomAttribute and TemplateAttributes_CustomerProfileAttribute.
+  * Amazon Elemental MediaTailor
+    * Modified cmdlet Set-EMTPlaybackConfiguration: added parameters HttpRequest_Body, HttpRequest_CompressRequest, HttpRequest_Header and HttpRequest_Method.
+  * Amazon Route 53 Resolver
+    * Modified cmdlet New-R53RResolverEndpoint: added parameters RniEnhancedMetricsEnabled and TargetNameServerMetricsEnabled.
+    * Modified cmdlet Update-R53RResolverEndpoint: added parameters RniEnhancedMetricsEnabled and TargetNameServerMetricsEnabled.
+  * Amazon Service Quotas
+    * Added cmdlet Get-SQQuotaUtilizationReport leveraging the GetQuotaUtilizationReport service API.
+    * Added cmdlet Start-SQQuotaUtilizationReport leveraging the StartQuotaUtilizationReport service API.
+
+### 4.1.961 (2025-12-12 21:41Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1184.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Modified cmdlet Start-CONNChatContact: added parameter DisconnectOnCustomerExit.

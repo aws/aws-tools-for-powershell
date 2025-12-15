@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BACC
     /// within defined boundaries and business rules. The policy is validated during creation
     /// against the Cedar schema generated from the Gateway's tools' input schemas, which
     /// defines the available tools, their parameters, and expected data types. This is an
-    /// asynchronous operation. Use the <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/API_GetPolicy.html">GetPolicy</a>
+    /// asynchronous operation. Use the <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_GetPolicy.html">GetPolicy</a>
     /// operation to poll the <c>status</c> field to track completion.
     /// </summary>
     [Cmdlet("New", "BACCPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

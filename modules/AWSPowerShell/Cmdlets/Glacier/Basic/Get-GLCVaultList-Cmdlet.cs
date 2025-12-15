@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
     /// Control Using AWS Identity and Access Management (IAM)</a>.
     /// </para><para>
     /// For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/retrieving-vault-info.html">Retrieving
-    /// Vault Metadata in Amazon S3 Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vaults-get.html">List
+    /// Vault Metadata in Amazon Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vaults-get.html">List
     /// Vaults </a> in the <i>Amazon Glacier Developer Guide</i>. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
