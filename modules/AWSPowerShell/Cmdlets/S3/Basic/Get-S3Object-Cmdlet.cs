@@ -65,23 +65,28 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// <para>The name of the bucket containing the objects.</para><para><b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the 
-        /// format <c><i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</c>. Path-style requests are not 
-        /// supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must follow 
-        /// the format <c><i>bucket-base-name</i>--<i>zone-id</i>--x-s3</c> (for example, <c><i>amzn-s3-demo-bucket</i>--<i>usw2-az1</i>--x-s3</c>). For 
-        /// information about bucket naming restrictions, see 
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in 
-        /// the <i>Amazon S3 User Guide</i>.</para><para><b>Access points</b> - When you use this action with an access point for general purpose buckets, you must provide the alias of the access 
-        /// point in place of the bucket name or specify the access point ARN. When you use this action with an access point for directory buckets, you 
-        /// must provide the access point name in place of the bucket name. When using the access point ARN, you must direct requests to the access point 
-        /// hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When 
-        /// using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For 
-        /// more information about access point ARNs, see 
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</para><note><para>Object Lambda access points are not supported by directory buckets.</para></note><para><b>S3 on Outposts</b> - When you use this action with S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts 
-        /// hostname takes the form <c><i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</c>. When you use 
-        /// this action with S3 on Outposts, the destination bucket must be the Outposts access point ARN or the access point alias. For more information 
-        /// about S3 on Outposts, see 
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// <para>The name of the bucket containing the objects.</para><para><b>Directory buckets</b> - When you use this operation with a directory bucket, you
+        /// must use virtual-hosted-style requests in the format <c><i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</c>.
+        /// Path-style requests are not supported. Directory bucket names must be unique in the
+        /// chosen Zone (Availability Zone or Local Zone). Bucket names must follow the format
+        /// <c><i>bucket-base-name</i>--<i>zone-id</i>--x-s3</c> (for example, <c><i>amzn-s3-demo-bucket</i>--<i>usw2-az1</i>--x-s3</c>).
+        /// For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory
+        /// bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</para><para><b>Access points</b> - When you use this action with an access point for general
+        /// purpose buckets, you must provide the alias of the access point in place of the bucket
+        /// name or specify the access point ARN. When you use this action with an access point
+        /// for directory buckets, you must provide the access point name in place of the bucket
+        /// name. When using the access point ARN, you must direct requests to the access point
+        /// hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+        /// When using this action with an access point through the Amazon Web Services SDKs,
+        /// you provide the access point ARN in place of the bucket name. For more information
+        /// about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using
+        /// access points</a> in the <i>Amazon S3 User Guide</i>.</para><note><para>Object Lambda access points are not supported by directory buckets.</para></note><para><b>S3 on Outposts</b> - When you use this action with S3 on Outposts, you must direct
+        /// requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form
+        /// <c><i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</c>.
+        /// When you use this action with S3 on Outposts, the destination bucket must be the Outposts
+        /// access point ARN or the access point alias. For more information about S3 on Outposts,
+        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What
+        /// is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
@@ -91,15 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Encoding
         /// <summary>
         /// <para>
-        /// <para>Encoding type used by Amazon S3 to encode the 
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html">object keys</a> 
-        /// in the response. Responses are encoded only in UTF-8. An object key can contain any Unicode 
-        /// character. However, the XML 1.0 parser can't parse certain characters, such as characters with an 
-        /// ASCII value from 0 to 10. For characters that aren't supported in XML 1.0, you can add this parameter 
-        /// to request that Amazon S3 encode the keys in the response. For more information about characters to avoid 
-        /// in object key names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-guidelines">Object key naming guidelines</a>.</para><note><para>When using the URL encoding type, non-ASCII characters that are used in an object's 
-        /// key name will be percent-encoded according to UTF-8 code values. For example, the object 
-        /// <code>test_file(3).png</code> will appear as <code>test_file%283%29.png</code>.</para></note>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
         /// not match the actual owner of the bucket, the request fails with the HTTP status code
-        /// <code>403 Forbidden</code> (access denied).</para>
+        /// <c>403 Forbidden</c> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +120,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// <para>Specifies the optional fields that you want returned in the response. Fields that
-        /// you do not specify are not returned.</para>
+        /// you do not specify are not returned.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Delimiter
         /// <summary>
         /// <para>
-        /// A delimiter is a character that you use to group keys.
-        /// <para><c>CommonPrefixes</c> is filtered out from results if it is not lexicographically greater than the key-marker.</para>
+        /// <para>A delimiter is a character that you use to group keys.</para><para><c>CommonPrefixes</c> is filtered out from results if it is not lexicographically
+        /// greater than the key-marker.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = "GetMultipleObjects")]
@@ -173,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter MaxKey
         /// <summary>
         /// <para>
-        /// <para>Sets the maximum number of keys returned in the response. By default the action returns
+        /// <para>Sets the maximum number of keys returned in the response. By default, the action returns
         /// up to 1,000 key names. The response might contain fewer keys but will never contain
         /// more. </para>
         /// </para>
@@ -191,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Prefix
         /// <summary>
         /// <para>
-        /// Limits the response to keys that begin with the specified prefix.
+        /// <para>Limits the response to keys that begin with the specified prefix.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, ParameterSetName = "GetMultipleObjects")]
@@ -240,6 +241,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.BucketName = this.BucketName;
+            #if MODULAR
+            if (this.BucketName == null && ParameterWasBound(nameof(this.BucketName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter BucketName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.Delimiter = this.Delimiter;
             context.Encoding = this.Encoding;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;

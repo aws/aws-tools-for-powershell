@@ -1,4 +1,14 @@
-﻿### 5.0.117 (2025-12-15 22:00Z)
+﻿### 5.0.118 (2025-12-16 21:45Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.154.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon IoT
+    * Modified cmdlet New-IOTCommand: added parameters PayloadTemplate and Preprocessor_AwsJsonSubstitution_OutputFormat.
+  * Amazon Simple Storage Service (S3)
+    * [Breaking Change] Modified cmdlet Update-S3BucketMetadataJournalTableConfiguration: removed parameters EncryptionConfiguration_KmsKeyArn, EncryptionConfiguration_SseAlgorithm and JournalTableConfiguration_ConfigurationState; added parameters JournalTableConfiguration_RecordExpiration_Day and JournalTableConfiguration_RecordExpiration_Expiration.
+  * Amazon Timestream InfluxDB
+    * Added cmdlet Restart-TIDBDbCluster leveraging the RebootDbCluster service API.
+    * Added cmdlet Restart-TIDBDbInstance leveraging the RebootDbInstance service API.
+
+### 5.0.117 (2025-12-15 22:00Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.153.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Logs
     * Added cmdlet Get-CWLCWLImportTask leveraging the DescribeImportTasks service API.

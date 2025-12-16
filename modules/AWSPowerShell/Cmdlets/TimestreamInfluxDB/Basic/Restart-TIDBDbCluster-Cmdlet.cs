@@ -23,85 +23,70 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.IoT;
-using Amazon.IoT.Model;
+using Amazon.TimestreamInfluxDB;
+using Amazon.TimestreamInfluxDB.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.IOT
+namespace Amazon.PowerShell.Cmdlets.TIDB
 {
     /// <summary>
-    /// Updates the encryption configuration. By default, Amazon Web Services IoT Core encrypts
-    /// your data at rest using Amazon Web Services owned keys. Amazon Web Services IoT Core
-    /// also supports symmetric customer managed keys from Key Management Service (KMS). With
-    /// customer managed keys, you create, own, and manage the KMS keys in your Amazon Web
-    /// Services account. 
-    /// 
-    ///  
-    /// <para>
-    /// Before using this API, you must set up permissions for Amazon Web Services IoT Core
-    /// to access KMS. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/encryption-at-rest.html">Data
-    /// encryption at rest</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.
-    /// </para>
+    /// Reboots a Timestream for InfluxDB cluster.
     /// </summary>
-    [Cmdlet("Update", "IOTEncryptionConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS IoT UpdateEncryptionConfiguration API operation.", Operation = new[] {"UpdateEncryptionConfiguration"}, SelectReturnType = typeof(Amazon.IoT.Model.UpdateEncryptionConfigurationResponse))]
-    [AWSCmdletOutput("None or Amazon.IoT.Model.UpdateEncryptionConfigurationResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.UpdateEncryptionConfigurationResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Restart", "TIDBDbCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.TimestreamInfluxDB.ClusterStatus")]
+    [AWSCmdlet("Calls the Amazon Timestream InfluxDB RebootDbCluster API operation.", Operation = new[] {"RebootDbCluster"}, SelectReturnType = typeof(Amazon.TimestreamInfluxDB.Model.RebootDbClusterResponse))]
+    [AWSCmdletOutput("Amazon.TimestreamInfluxDB.ClusterStatus or Amazon.TimestreamInfluxDB.Model.RebootDbClusterResponse",
+        "This cmdlet returns an Amazon.TimestreamInfluxDB.ClusterStatus object.",
+        "The service call response (type Amazon.TimestreamInfluxDB.Model.RebootDbClusterResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class UpdateIOTEncryptionConfigurationCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public partial class RestartTIDBDbClusterCmdlet : AmazonTimestreamInfluxDBClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter EncryptionType
+        #region Parameter DbClusterId
         /// <summary>
         /// <para>
-        /// <para>The type of the KMS key.</para>
+        /// <para>Service-generated unique identifier of the DB cluster to reboot.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.IoT.EncryptionType")]
-        public Amazon.IoT.EncryptionType EncryptionType { get; set; }
+        public System.String DbClusterId { get; set; }
         #endregion
         
-        #region Parameter KmsAccessRoleArn
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM role assumed by Amazon Web Services IoT
-        /// Core to call KMS on behalf of the customer.</para>
+        /// <para>A list of service-generated unique DB Instance Ids belonging to the DB Cluster to
+        /// reboot.</para><para />
+        /// Starting with version 4 of the SDK this property will default to null. If no data for this property is returned
+        /// from the service the property will also be null. This was changed to improve performance and allow the SDK and caller
+        /// to distinguish between a property not set or a property being empty to clear out a value. To retain the previous
+        /// SDK behavior set the AWSConfigs.InitializeCollections static property to true.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String KmsAccessRoleArn { get; set; }
-        #endregion
-        
-        #region Parameter KmsKeyArn
-        /// <summary>
-        /// <para>
-        /// <para>The ARN of the customer managedKMS key.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String KmsKeyArn { get; set; }
+        [Alias("InstanceIds")]
+        public System.String[] InstanceId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoT.Model.UpdateEncryptionConfigurationResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'DbClusterStatus'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.TimestreamInfluxDB.Model.RebootDbClusterResponse).
+        /// Specifying the name of a property of type Amazon.TimestreamInfluxDB.Model.RebootDbClusterResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "DbClusterStatus";
         #endregion
         
         #region Parameter Force
@@ -123,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-IOTEncryptionConfiguration (UpdateEncryptionConfiguration)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DbClusterId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Restart-TIDBDbCluster (RebootDbCluster)"))
             {
                 return;
             }
@@ -136,18 +121,20 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoT.Model.UpdateEncryptionConfigurationResponse, UpdateIOTEncryptionConfigurationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.TimestreamInfluxDB.Model.RebootDbClusterResponse, RestartTIDBDbClusterCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.EncryptionType = this.EncryptionType;
+            context.DbClusterId = this.DbClusterId;
             #if MODULAR
-            if (this.EncryptionType == null && ParameterWasBound(nameof(this.EncryptionType)))
+            if (this.DbClusterId == null && ParameterWasBound(nameof(this.DbClusterId)))
             {
-                WriteWarning("You are passing $null as a value for parameter EncryptionType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DbClusterId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.KmsAccessRoleArn = this.KmsAccessRoleArn;
-            context.KmsKeyArn = this.KmsKeyArn;
+            if (this.InstanceId != null)
+            {
+                context.InstanceId = new List<System.String>(this.InstanceId);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -162,19 +149,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoT.Model.UpdateEncryptionConfigurationRequest();
+            var request = new Amazon.TimestreamInfluxDB.Model.RebootDbClusterRequest();
             
-            if (cmdletContext.EncryptionType != null)
+            if (cmdletContext.DbClusterId != null)
             {
-                request.EncryptionType = cmdletContext.EncryptionType;
+                request.DbClusterId = cmdletContext.DbClusterId;
             }
-            if (cmdletContext.KmsAccessRoleArn != null)
+            if (cmdletContext.InstanceId != null)
             {
-                request.KmsAccessRoleArn = cmdletContext.KmsAccessRoleArn;
-            }
-            if (cmdletContext.KmsKeyArn != null)
-            {
-                request.KmsKeyArn = cmdletContext.KmsKeyArn;
+                request.InstanceIds = cmdletContext.InstanceId;
             }
             
             CmdletOutput output;
@@ -209,12 +192,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private Amazon.IoT.Model.UpdateEncryptionConfigurationResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.UpdateEncryptionConfigurationRequest request)
+        private Amazon.TimestreamInfluxDB.Model.RebootDbClusterResponse CallAWSServiceOperation(IAmazonTimestreamInfluxDB client, Amazon.TimestreamInfluxDB.Model.RebootDbClusterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "UpdateEncryptionConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Timestream InfluxDB", "RebootDbCluster");
             try
             {
-                return client.UpdateEncryptionConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.RebootDbClusterAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -231,11 +214,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.IoT.EncryptionType EncryptionType { get; set; }
-            public System.String KmsAccessRoleArn { get; set; }
-            public System.String KmsKeyArn { get; set; }
-            public System.Func<Amazon.IoT.Model.UpdateEncryptionConfigurationResponse, UpdateIOTEncryptionConfigurationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String DbClusterId { get; set; }
+            public List<System.String> InstanceId { get; set; }
+            public System.Func<Amazon.TimestreamInfluxDB.Model.RebootDbClusterResponse, RestartTIDBDbClusterCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.DbClusterStatus;
         }
         
     }

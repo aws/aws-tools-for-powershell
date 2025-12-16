@@ -37,32 +37,32 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">TransferCertificate</a>
     /// action.
     /// </para><para>
-    /// You can cancel the transfer until it is acknowledged by the recipient.
+    /// You can cancel the transfer until it is accepted by the recipient.
     /// </para><para>
-    /// No notification is sent to the transfer destination's account. It's up to the caller
-    /// to notify the transfer target.
+    /// No notification is sent to the transfer destination's account. The caller is responsible
+    /// for notifying the transfer target.
     /// </para><para>
     /// The certificate being transferred must not be in the <c>ACTIVE</c> state. You can
     /// use the <a>UpdateCertificate</a> action to deactivate it.
     /// </para><para>
     /// The certificate must not have any policies attached to it. You can use the <a>DetachPolicy</a>
     /// action to detach them.
-    /// </para><para><b>Customer managed key behavior:</b> When you use a customer managed key to secure
-    /// your data and then transfer the key to a customer in a different account using the
-    /// <a>TransferCertificate</a> operation, the certificates will no longer be protected
+    /// </para><para><b>Customer managed key behavior:</b> When you use a customer managed key to encrypt
+    /// your data and then transfer the certificate to a customer in a different account using
+    /// the <c>TransferCertificate</c> operation, the certificates will no longer be encrypted
     /// by their customer managed key configuration. During the transfer process, certificates
-    /// are encrypted using IoT owned keys.
+    /// are encrypted using Amazon Web Services IoT Core owned keys.
     /// </para><para>
     /// While a certificate is in the <b>PENDING_TRANSFER</b> state, it's always protected
-    /// by IoT owned keys, regardless of the customer managed key configuration of either
-    /// the source or destination account. 
+    /// by Amazon Web Services IoT Core owned keys, regardless of the customer managed key
+    /// configuration of either the source or destination account. 
     /// </para><para>
     /// Once the transfer is completed through <a>AcceptCertificateTransfer</a>, <a>RejectCertificateTransfer</a>,
     /// or <a>CancelCertificateTransfer</a>, the certificate will be protected by the customer
     /// managed key configuration of the account that owns the certificate after the transfer
     /// operation:
     /// </para><ul><li><para>
-    /// If the transfer is accepted: The certificate is protected by the destination account's
+    /// If the transfer is accepted: The certificate is encrypted by the target account's
     /// customer managed key configuration.
     /// </para></li><li><para>
     /// If the transfer is rejected or cancelled: The certificate is protected by the source

@@ -156,7 +156,10 @@ $S3_Completers = {
         }
 
         # Amazon.S3.ExpirationState
-        "New-S3BucketMetadataConfiguration/RecordExpiration_Expiration"
+        {
+            ($_ -eq "Update-S3BucketMetadataJournalTableConfiguration/JournalTableConfiguration_RecordExpiration_Expiration") -Or
+            ($_ -eq "New-S3BucketMetadataConfiguration/RecordExpiration_Expiration")
+        }
         {
             $v = "DISABLED","ENABLED"
             break
@@ -214,13 +217,6 @@ $S3_Completers = {
         "Write-S3BucketInventoryConfiguration/InventoryConfiguration_IncludedObjectVersion"
         {
             $v = "All","Current"
-            break
-        }
-
-        # Amazon.S3.JournalConfigurationState
-        "Update-S3BucketMetadataJournalTableConfiguration/JournalTableConfiguration_ConfigurationState"
-        {
-            $v = "DISABLED","ENABLED"
             break
         }
 
@@ -389,7 +385,6 @@ $S3_Completers = {
         # Amazon.S3.TableSseAlgorithm
         {
             ($_ -eq "Update-S3BucketMetadataInventoryTableConfiguration/EncryptionConfiguration_SseAlgorithm") -Or
-            ($_ -eq "Update-S3BucketMetadataJournalTableConfiguration/EncryptionConfiguration_SseAlgorithm") -Or
             ($_ -eq "New-S3BucketMetadataConfiguration/MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_SseAlgorithm") -Or
             ($_ -eq "New-S3BucketMetadataConfiguration/MetadataConfiguration_JournalTableConfiguration_EncryptionConfiguration_SseAlgorithm")
         }
@@ -433,12 +428,12 @@ $S3_map = @{
     "DefaultRetention_Mode"=@("Write-S3ObjectLockConfiguration")
     "Encoding"=@("Get-S3MultipartUpload","Get-S3Object","Get-S3ObjectV2","Get-S3Version")
     "Encryption_EncryptionType"=@("Restore-S3Object")
-    "EncryptionConfiguration_SseAlgorithm"=@("Update-S3BucketMetadataInventoryTableConfiguration","Update-S3BucketMetadataJournalTableConfiguration")
+    "EncryptionConfiguration_SseAlgorithm"=@("Update-S3BucketMetadataInventoryTableConfiguration")
     "ExpressionType"=@("Select-S3ObjectContent")
     "IntelligentTieringConfiguration_Status"=@("Write-S3BucketIntelligentTieringConfiguration")
     "InventoryConfiguration_IncludedObjectVersion"=@("Write-S3BucketInventoryConfiguration")
     "InventoryTableConfiguration_ConfigurationState"=@("New-S3BucketMetadataConfiguration","Update-S3BucketMetadataInventoryTableConfiguration")
-    "JournalTableConfiguration_ConfigurationState"=@("Update-S3BucketMetadataJournalTableConfiguration")
+    "JournalTableConfiguration_RecordExpiration_Expiration"=@("Update-S3BucketMetadataJournalTableConfiguration")
     "LegalHold_Status"=@("Write-S3ObjectLegalHold")
     "MetadataConfiguration_InventoryTableConfiguration_EncryptionConfiguration_SseAlgorithm"=@("New-S3BucketMetadataConfiguration")
     "MetadataConfiguration_JournalTableConfiguration_EncryptionConfiguration_SseAlgorithm"=@("New-S3BucketMetadataConfiguration")

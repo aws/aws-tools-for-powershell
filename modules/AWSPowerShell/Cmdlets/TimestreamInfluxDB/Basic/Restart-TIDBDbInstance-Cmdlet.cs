@@ -23,38 +23,63 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using System.Threading;
-using Amazon.IoT;
-using Amazon.IoT.Model;
+using Amazon.TimestreamInfluxDB;
+using Amazon.TimestreamInfluxDB.Model;
 
 #pragma warning disable CS0618, CS0612
-namespace Amazon.PowerShell.Cmdlets.IOT
+namespace Amazon.PowerShell.Cmdlets.TIDB
 {
     /// <summary>
-    /// Retrieves the encryption configuration for resources and data of your Amazon Web Services
-    /// account in Amazon Web Services IoT Core. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/encryption-at-rest.html">Data
-    /// encryption at rest</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.
+    /// Reboots a Timestream for InfluxDB instance.
     /// </summary>
-    [Cmdlet("Get", "IOTEncryptionConfiguration")]
-    [OutputType("Amazon.IoT.Model.DescribeEncryptionConfigurationResponse")]
-    [AWSCmdlet("Calls the AWS IoT DescribeEncryptionConfiguration API operation.", Operation = new[] {"DescribeEncryptionConfiguration"}, SelectReturnType = typeof(Amazon.IoT.Model.DescribeEncryptionConfigurationResponse))]
-    [AWSCmdletOutput("Amazon.IoT.Model.DescribeEncryptionConfigurationResponse",
-        "This cmdlet returns an Amazon.IoT.Model.DescribeEncryptionConfigurationResponse object containing multiple properties."
+    [Cmdlet("Restart", "TIDBDbInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.TimestreamInfluxDB.Model.RebootDbInstanceResponse")]
+    [AWSCmdlet("Calls the Amazon Timestream InfluxDB RebootDbInstance API operation.", Operation = new[] {"RebootDbInstance"}, SelectReturnType = typeof(Amazon.TimestreamInfluxDB.Model.RebootDbInstanceResponse))]
+    [AWSCmdletOutput("Amazon.TimestreamInfluxDB.Model.RebootDbInstanceResponse",
+        "This cmdlet returns an Amazon.TimestreamInfluxDB.Model.RebootDbInstanceResponse object containing multiple properties."
     )]
-    public partial class GetIOTEncryptionConfigurationCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public partial class RestartTIDBDbInstanceCmdlet : AmazonTimestreamInfluxDBClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Identifier
+        /// <summary>
+        /// <para>
+        /// <para>The id of the DB instance to reboot.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Identifier { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoT.Model.DescribeEncryptionConfigurationResponse).
-        /// Specifying the name of a property of type Amazon.IoT.Model.DescribeEncryptionConfigurationResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.TimestreamInfluxDB.Model.RebootDbInstanceResponse).
+        /// Specifying the name of a property of type Amazon.TimestreamInfluxDB.Model.RebootDbInstanceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void StopProcessing()
@@ -66,6 +91,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             base.ProcessRecord();
             
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Identifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Restart-TIDBDbInstance (RebootDbInstance)"))
+            {
+                return;
+            }
+            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -73,9 +104,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoT.Model.DescribeEncryptionConfigurationResponse, GetIOTEncryptionConfigurationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.TimestreamInfluxDB.Model.RebootDbInstanceResponse, RestartTIDBDbInstanceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Identifier = this.Identifier;
+            #if MODULAR
+            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -90,8 +128,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoT.Model.DescribeEncryptionConfigurationRequest();
+            var request = new Amazon.TimestreamInfluxDB.Model.RebootDbInstanceRequest();
             
+            if (cmdletContext.Identifier != null)
+            {
+                request.Identifier = cmdletContext.Identifier;
+            }
             
             CmdletOutput output;
             
@@ -125,12 +167,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private Amazon.IoT.Model.DescribeEncryptionConfigurationResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.DescribeEncryptionConfigurationRequest request)
+        private Amazon.TimestreamInfluxDB.Model.RebootDbInstanceResponse CallAWSServiceOperation(IAmazonTimestreamInfluxDB client, Amazon.TimestreamInfluxDB.Model.RebootDbInstanceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "DescribeEncryptionConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Timestream InfluxDB", "RebootDbInstance");
             try
             {
-                return client.DescribeEncryptionConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                return client.RebootDbInstanceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -147,7 +189,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Func<Amazon.IoT.Model.DescribeEncryptionConfigurationResponse, GetIOTEncryptionConfigurationCmdlet, object> Select { get; set; } =
+            public System.String Identifier { get; set; }
+            public System.Func<Amazon.TimestreamInfluxDB.Model.RebootDbInstanceResponse, RestartTIDBDbInstanceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

@@ -63,17 +63,25 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// The general purpose bucket that you want to update the journal table configuration for.
+        /// <para> The general purpose bucket that corresponds to the metadata configuration that you
+        /// want to enable or disable journal table record expiration for. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String BucketName { get; set; }
         #endregion
         
         #region Parameter ChecksumAlgorithm
         /// <summary>
         /// <para>
-        /// The checksum algorithm to use with your journal table configuration update.
+        /// <para> The checksum algorithm to use with your journal table configuration. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,66 +89,58 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
         #endregion
         
-        #region Parameter JournalTableConfiguration_ConfigurationState
-        /// <summary>
-        /// <para>
-        /// The state of the journal table configuration.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.S3.JournalConfigurationState")]
-        public Amazon.S3.JournalConfigurationState JournalTableConfiguration_ConfigurationState { get; set; }
-        #endregion
-        
         #region Parameter ContentMD5
         /// <summary>
         /// <para>
-        /// The <c>Content-MD5</c> header for the journal table configuration update.
+        /// <para> The <c>Content-MD5</c> header for the journal table configuration. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ContentMD5 { get; set; }
         #endregion
         
+        #region Parameter JournalTableConfiguration_RecordExpiration_Day
+        /// <summary>
+        /// <para>
+        /// <para> If you enable journal table record expiration, you can set the number of days to
+        /// retain your journal table records. Journal table records must be retained for a minimum
+        /// of 7 days. To set this value, specify any whole number from <c>7</c> to <c>2147483647</c>.
+        /// For example, to retain your journal table records for one year, set this value to
+        /// <c>365</c>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("JournalTableConfiguration_RecordExpiration_Days")]
+        public System.Int32? JournalTableConfiguration_RecordExpiration_Day { get; set; }
+        #endregion
+        
         #region Parameter ExpectedBucketOwner
         /// <summary>
         /// <para>
-        /// The account ID of the expected bucket owner. If the account ID that you provide does not 
-        /// match the actual owner of the bucket, the request fails with the HTTP status code 
-        /// <c>403 Forbidden</c> (access denied).
+        /// <para> The expected owner of the general purpose bucket that corresponds to the metadata
+        /// table configuration that you want to enable or disable journal table record expiration
+        /// for. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ExpectedBucketOwner { get; set; }
         #endregion
         
-        #region Parameter EncryptionConfiguration_KmsKeyArn
+        #region Parameter JournalTableConfiguration_RecordExpiration_Expiration
         /// <summary>
         /// <para>
-        /// <para> If server-side encryption with Key Management Service (KMS) keys (SSE-KMS) is specified,
-        /// you must also specify the KMS key Amazon Resource Name (ARN). You must specify a customer-managed
-        /// KMS key that's located in the same Region as the general purpose bucket that corresponds
-        /// to the metadata table configuration. </para>
+        /// <para> Specifies whether journal table record expiration is enabled or disabled. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("JournalTableConfiguration_EncryptionConfiguration_KmsKeyArn")]
-        public System.String EncryptionConfiguration_KmsKeyArn { get; set; }
-        #endregion
-        
-        #region Parameter EncryptionConfiguration_SseAlgorithm
-        /// <summary>
-        /// <para>
-        /// <para> The encryption type specified for a metadata table. To specify server-side encryption
-        /// with Key Management Service (KMS) keys (SSE-KMS), use the <c>aws:kms</c> value. To
-        /// specify server-side encryption with Amazon S3 managed keys (SSE-S3), use the <c>AES256</c>
-        /// value. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("JournalTableConfiguration_EncryptionConfiguration_SseAlgorithm")]
-        [AWSConstantClassSource("Amazon.S3.TableSseAlgorithm")]
-        public Amazon.S3.TableSseAlgorithm EncryptionConfiguration_SseAlgorithm { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.S3.ExpirationState")]
+        public Amazon.S3.ExpirationState JournalTableConfiguration_RecordExpiration_Expiration { get; set; }
         #endregion
         
         #region Parameter Select
@@ -189,12 +189,23 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.BucketName = this.BucketName;
+            #if MODULAR
+            if (this.BucketName == null && ParameterWasBound(nameof(this.BucketName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter BucketName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.ChecksumAlgorithm = this.ChecksumAlgorithm;
             context.ContentMD5 = this.ContentMD5;
-            context.JournalTableConfiguration_ConfigurationState = this.JournalTableConfiguration_ConfigurationState;
-            context.EncryptionConfiguration_KmsKeyArn = this.EncryptionConfiguration_KmsKeyArn;
-            context.EncryptionConfiguration_SseAlgorithm = this.EncryptionConfiguration_SseAlgorithm;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
+            context.JournalTableConfiguration_RecordExpiration_Day = this.JournalTableConfiguration_RecordExpiration_Day;
+            context.JournalTableConfiguration_RecordExpiration_Expiration = this.JournalTableConfiguration_RecordExpiration_Expiration;
+            #if MODULAR
+            if (this.JournalTableConfiguration_RecordExpiration_Expiration == null && ParameterWasBound(nameof(this.JournalTableConfiguration_RecordExpiration_Expiration)))
+            {
+                WriteWarning("You are passing $null as a value for parameter JournalTableConfiguration_RecordExpiration_Expiration which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -223,63 +234,53 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.ContentMD5 = cmdletContext.ContentMD5;
             }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
+            }
             
              // populate JournalTableConfiguration
             var requestJournalTableConfigurationIsNull = true;
             request.JournalTableConfiguration = new Amazon.S3.Model.JournalTableConfigurationUpdates();
-            Amazon.S3.JournalConfigurationState requestJournalTableConfiguration_journalTableConfiguration_ConfigurationState = null;
-            if (cmdletContext.JournalTableConfiguration_ConfigurationState != null)
-            {
-                requestJournalTableConfiguration_journalTableConfiguration_ConfigurationState = cmdletContext.JournalTableConfiguration_ConfigurationState;
-            }
-            if (requestJournalTableConfiguration_journalTableConfiguration_ConfigurationState != null)
-            {
-                request.JournalTableConfiguration.ConfigurationState = requestJournalTableConfiguration_journalTableConfiguration_ConfigurationState;
-                requestJournalTableConfigurationIsNull = false;
-            }
-            Amazon.S3.Model.MetadataTableEncryptionConfiguration requestJournalTableConfiguration_journalTableConfiguration_EncryptionConfiguration = null;
+            Amazon.S3.Model.RecordExpiration requestJournalTableConfiguration_journalTableConfiguration_RecordExpiration = null;
             
-             // populate EncryptionConfiguration
-            var requestJournalTableConfiguration_journalTableConfiguration_EncryptionConfigurationIsNull = true;
-            requestJournalTableConfiguration_journalTableConfiguration_EncryptionConfiguration = new Amazon.S3.Model.MetadataTableEncryptionConfiguration();
-            System.String requestJournalTableConfiguration_journalTableConfiguration_EncryptionConfiguration_encryptionConfiguration_KmsKeyArn = null;
-            if (cmdletContext.EncryptionConfiguration_KmsKeyArn != null)
+             // populate RecordExpiration
+            var requestJournalTableConfiguration_journalTableConfiguration_RecordExpirationIsNull = true;
+            requestJournalTableConfiguration_journalTableConfiguration_RecordExpiration = new Amazon.S3.Model.RecordExpiration();
+            System.Int32? requestJournalTableConfiguration_journalTableConfiguration_RecordExpiration_journalTableConfiguration_RecordExpiration_Day = null;
+            if (cmdletContext.JournalTableConfiguration_RecordExpiration_Day != null)
             {
-                requestJournalTableConfiguration_journalTableConfiguration_EncryptionConfiguration_encryptionConfiguration_KmsKeyArn = cmdletContext.EncryptionConfiguration_KmsKeyArn;
+                requestJournalTableConfiguration_journalTableConfiguration_RecordExpiration_journalTableConfiguration_RecordExpiration_Day = cmdletContext.JournalTableConfiguration_RecordExpiration_Day.Value;
             }
-            if (requestJournalTableConfiguration_journalTableConfiguration_EncryptionConfiguration_encryptionConfiguration_KmsKeyArn != null)
+            if (requestJournalTableConfiguration_journalTableConfiguration_RecordExpiration_journalTableConfiguration_RecordExpiration_Day != null)
             {
-                requestJournalTableConfiguration_journalTableConfiguration_EncryptionConfiguration.KmsKeyArn = requestJournalTableConfiguration_journalTableConfiguration_EncryptionConfiguration_encryptionConfiguration_KmsKeyArn;
-                requestJournalTableConfiguration_journalTableConfiguration_EncryptionConfigurationIsNull = false;
+                requestJournalTableConfiguration_journalTableConfiguration_RecordExpiration.Days = requestJournalTableConfiguration_journalTableConfiguration_RecordExpiration_journalTableConfiguration_RecordExpiration_Day.Value;
+                requestJournalTableConfiguration_journalTableConfiguration_RecordExpirationIsNull = false;
             }
-            Amazon.S3.TableSseAlgorithm requestJournalTableConfiguration_journalTableConfiguration_EncryptionConfiguration_encryptionConfiguration_SseAlgorithm = null;
-            if (cmdletContext.EncryptionConfiguration_SseAlgorithm != null)
+            Amazon.S3.ExpirationState requestJournalTableConfiguration_journalTableConfiguration_RecordExpiration_journalTableConfiguration_RecordExpiration_Expiration = null;
+            if (cmdletContext.JournalTableConfiguration_RecordExpiration_Expiration != null)
             {
-                requestJournalTableConfiguration_journalTableConfiguration_EncryptionConfiguration_encryptionConfiguration_SseAlgorithm = cmdletContext.EncryptionConfiguration_SseAlgorithm;
+                requestJournalTableConfiguration_journalTableConfiguration_RecordExpiration_journalTableConfiguration_RecordExpiration_Expiration = cmdletContext.JournalTableConfiguration_RecordExpiration_Expiration;
             }
-            if (requestJournalTableConfiguration_journalTableConfiguration_EncryptionConfiguration_encryptionConfiguration_SseAlgorithm != null)
+            if (requestJournalTableConfiguration_journalTableConfiguration_RecordExpiration_journalTableConfiguration_RecordExpiration_Expiration != null)
             {
-                requestJournalTableConfiguration_journalTableConfiguration_EncryptionConfiguration.SseAlgorithm = requestJournalTableConfiguration_journalTableConfiguration_EncryptionConfiguration_encryptionConfiguration_SseAlgorithm;
-                requestJournalTableConfiguration_journalTableConfiguration_EncryptionConfigurationIsNull = false;
+                requestJournalTableConfiguration_journalTableConfiguration_RecordExpiration.Expiration = requestJournalTableConfiguration_journalTableConfiguration_RecordExpiration_journalTableConfiguration_RecordExpiration_Expiration;
+                requestJournalTableConfiguration_journalTableConfiguration_RecordExpirationIsNull = false;
             }
-             // determine if requestJournalTableConfiguration_journalTableConfiguration_EncryptionConfiguration should be set to null
-            if (requestJournalTableConfiguration_journalTableConfiguration_EncryptionConfigurationIsNull)
+             // determine if requestJournalTableConfiguration_journalTableConfiguration_RecordExpiration should be set to null
+            if (requestJournalTableConfiguration_journalTableConfiguration_RecordExpirationIsNull)
             {
-                requestJournalTableConfiguration_journalTableConfiguration_EncryptionConfiguration = null;
+                requestJournalTableConfiguration_journalTableConfiguration_RecordExpiration = null;
             }
-            if (requestJournalTableConfiguration_journalTableConfiguration_EncryptionConfiguration != null)
+            if (requestJournalTableConfiguration_journalTableConfiguration_RecordExpiration != null)
             {
-                request.JournalTableConfiguration.EncryptionConfiguration = requestJournalTableConfiguration_journalTableConfiguration_EncryptionConfiguration;
+                request.JournalTableConfiguration.RecordExpiration = requestJournalTableConfiguration_journalTableConfiguration_RecordExpiration;
                 requestJournalTableConfigurationIsNull = false;
             }
              // determine if request.JournalTableConfiguration should be set to null
             if (requestJournalTableConfigurationIsNull)
             {
                 request.JournalTableConfiguration = null;
-            }
-            if (cmdletContext.ExpectedBucketOwner != null)
-            {
-                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
             CmdletOutput output;
@@ -339,10 +340,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String BucketName { get; set; }
             public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
             public System.String ContentMD5 { get; set; }
-            public Amazon.S3.JournalConfigurationState JournalTableConfiguration_ConfigurationState { get; set; }
-            public System.String EncryptionConfiguration_KmsKeyArn { get; set; }
-            public Amazon.S3.TableSseAlgorithm EncryptionConfiguration_SseAlgorithm { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
+            public System.Int32? JournalTableConfiguration_RecordExpiration_Day { get; set; }
+            public Amazon.S3.ExpirationState JournalTableConfiguration_RecordExpiration_Expiration { get; set; }
             public System.Func<Amazon.S3.Model.UpdateBucketMetadataJournalTableConfigurationResponse, UpdateS3BucketMetadataJournalTableConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
